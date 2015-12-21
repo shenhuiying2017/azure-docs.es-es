@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Configuración de la protección entre sitios de VMware locales" 
-	description="Use este artículo para configurar la protección entre dos sitios de VMware mediante Azure Site Recovery." 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="rayne-wiselman" 
-	manager="jwhit" 
+<properties
+	pageTitle="Configuración de la protección entre sitios de VMware locales"
+	description="Use este artículo para configurar la protección entre dos sitios de VMware mediante Azure Site Recovery."
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
 	editor=""/>
 
-<tags 
-	ms.service="site-recovery" 
-	ms.workload="backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/07/2015" 
+<tags
+	ms.service="site-recovery"
+	ms.workload="backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/03/2015"
 	ms.author="raynew"/>
 
 
@@ -60,19 +60,19 @@ Obtenga información acerca de las [actualizaciones](#updates) más recientes. D
 
 Realice la instalación de la manera siguiente:
 
-1. Descarque el archivo zip [update](http://download.microsoft.com/download/9/F/D/9FDC6001-1DD0-4C10-BDDD-8A9EBFC57FDF/ASR Scout 8.0.1 Update1.zip). Este archivo zip contiene los archivos siguientes:
+1. Descargue el archivo zip de la [actualización](http://aka.ms/scoutupdates). Este archivo zip contiene los archivos siguientes:
 
 	-  RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz
-	-  CX\_Windows\_8.0.1.0\_GA\_Update\_1\_3259146\_23Jun15.exe
+	-  CX\_Windows\_8.0.2.0\_GA\_Update\_2\_4306954\_21Aug15.exe
 	-  UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe
 	-  UA\_RHEL6-64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz
 	-  vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe
 2. Extraiga los archivos zip.
 2. **Servidor RX**: copie **RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz** en el servidor RX y extráigalo. En la carpeta extraída, ejecute **/Install**.
-2. **Servidor de configuración/servidor de proceso**: copie **CX\_Windows\_8.0.1.0\_GA\_Update\_1\_3259146\_23Jun15.exe** en el servidor de configuración y de proceso. Haga doble clic para ejecutarlo.
+2. **Servidor de configuración/servidor de proceso**: copie **CX\_Windows\_8.0.2.0\_GA\_Update\_2\_4306954\_21Aug15.exe** en el servidor de configuración y el servidor de proceso. Haga doble clic para ejecutarlo.
 3. **Servidor de destino principal de Windows**: para actualizar el agente unificado, copie **UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe** en el servidor de destino principal. Haga doble clic en él para ejecutarlo. Tenga en cuenta que el agente unificado para Windows no se aplica en el servidor de origen. Solamente debe instalarse en el servidor de destino principal de Windows.
-4. **Servidor de destino principal de Linux**: para actualizar el agente unificado, copie **UA\_RHEL6 64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz** en el servidor de destino maestro y extráigalo. En la carpeta extraída, ejecute **/Install**.
-5. **vContinuum server**: copie **vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe** en el servidor vContinuum. Asegúrese de que ha cerrado el asistente vContinuum. Haga doble clic en el archivo para ejecutarlo.
+4. **Servidor de destino principal de Linux**: para actualizar el agente unificado, copie **UA\_RHEL6-64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz** en el servidor de destino principal y extráigalo. En la carpeta extraída, ejecute **/Install**.
+5. **Servidor vContinuum**: copie **vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe** en el servidor vContinuum. Asegúrese de que ha cerrado el asistente vContinuum. Haga doble clic en el archivo para ejecutarlo.
 
 ## Paso 4: Configuración de la replicación
 5. Configure la replicación entre los sitios de origen y de destino de VMware.
@@ -86,6 +86,19 @@ Realice la instalación de la manera siguiente:
 
 
 ## Actualizaciones
+
+### Actualización del 3 de diciembre de 2015 de ASR Scout 8.0.1
+
+Entre las correcciones de la actualización del 3 de diciembre de 2015 se incluyen:
+
+- **Servidor de configuración**: corrige un problema que impedía que la característica de disponibilidad gratuita durante 31 días funcionase según lo esperado al registrar el servidor de configuración en Site Recovery.
+- **Agente unificado**: corrige un problema en la actualización 1 del destino principal, cuyo resultado era que la actualización no se instalaba en el servidor principal al actualizar de la versión 8.0 a 8.0.1.
+
+>[AZURE.NOTE]
+>
+>-	Todas las actualizaciones de ASR son acumulativas.
+>-	Las actualizaciones de CS y RX no se pueden revertir una vez aplicadas en el sistema.
+
 
 ### ASR Scout 8.0.1 Update 1
 
@@ -112,9 +125,9 @@ Esta última actualización incluye correcciones de errores y características n
 	-  En el asistente de vContinuum el disco se deselecciona automáticamente al hacer clic en **Detalles** en la vista de disco durante la protección de las máquinas virtuales MSCS.
 	- Durante el escenario P2V, servicios HP requeridos como CIMnotify y CqMgHost no se mueven a Manual en la máquina virtual de recuperación, lo cual provoca que se produzca un tiempo de arranque adicional.
 	- Se produce un error en la máquina virtual Linux protegida cuando hay más de 26 discos en el servidor de destino principal.
-	
+
 ## Pasos siguientes
 
-Publique cualquier pregunta en el [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).<
+Publique cualquier pregunta en el [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="12/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Migración del código SQL a Almacenamiento de datos SQL
@@ -34,8 +34,8 @@ En la lista siguiente se resumen las principales características no admitidas e
 - cláusula OUTPUT
 - funciones insertadas definidas por el usuario
 - funciones de múltiples instrucciones
+- [expresiones de tabla comunes](#Common-table-expressions)
 - [expresiones de tabla común recursivas (CTE)](#Recursive-common-table-expressions-(CTE)
-- [actualizaciones a través de las CTE](#Updates-through-CTEs)
 - procedimientos y funciones CLR
 - función $partition
 - variables de tabla
@@ -52,13 +52,16 @@ En la lista siguiente se resumen las principales características no admitidas e
 
 Afortunadamente la mayoría de estas limitaciones se puede solucionar. Los artículos de desarrollo correspondientes antes mencionados incluyen explicaciones.
 
+### Expresiones de tabla comunes
+La implementación actual de las expresiones de tabla comunes (CTE) en el Almacenamiento de datos SQL tiene la siguiente funcionalidad y limitaciones:
+
+**Funcionalidad de CTE ** + Una CTE se puede especificar en una instrucción SELECT. + Una CTE se puede especificar en una instrucción CREATE VIEW. + Una CTE se puede especificar en una instrucción CREATE TABLE AS SELECT (CTAS). + Una CTE se puede especificar en una instrucción CREATE REMOTE TABLE AS SELECT (CRTAS). + Una CTE se puede especificar en una instrucción CREATE EXTERNAL TABLE AS SELECT (CETAS). + Se puede hacer referencia a una tabla remota desde una CTE. + Se puede hacer referencia a una tabla externa desde una CTE. + Varias definiciones de consultas CTE se pueden definir en una CTE.
+
+**Limitaciones de CTE** + Una CTE debe ir seguida de una instrucción SELECT única. No se admiten las instrucciones INSERT, UPDATE, DELETE y MERGE. + No se admite una expresión de tabla común que incluya referencias a sí misma (una expresión de tabla común recursiva) (vea a continuación la sección). + No se permite la especificación de más de una cláusula WITH en una CTE. Por ejemplo, si una CTE\_query\_definition contiene una subconsulta, esta subconsulta no puede contener una cláusula WITH anidada que defina otra CTE. + No se puede usar una cláusula ORDER BY en la CTE\_query\_definition, excepto cuando se especifique una cláusula TOP. + Cuando se use una CTE en una instrucción que forme parte de un lote, la instrucción que se encuentra antes debe ir seguida de un punto y coma. + Cuando se usen en instrucciones preparadas por sp\_prepare, las CTE se comportarán del mismo modo que otras instrucciones SELECT en PDW. Sin embargo, si las CTE se usan como parte de las CETAS preparadas por sp\_prepare, el comportamiento puede diferir de SQL Server y de otras instrucciones PDW debido a la manera en que se implementa el enlace para sp\_prepare. Si SELECT que hace referencia a la CTE está usando una columna incorrecta que no existe en la CTE, sp\_prepare pasará sin detectar el error, pero el error se generará durante sp\_execute en su lugar.
+
 ### Expresiones de tabla común recursivas (CTE)
 
-Se trata de un escenario complejo sin ninguna corrección rápida. La CTE necesitará pueden desglosarse y administrarse en pasos. Normalmente puede usar un bucle bastante complejo, rellenando una tabla temporal conforme se recorren en iteración las consultas provisionales recursivas. Cuando se rellene la tabla temporal, puede devolver los datos como un conjunto único de resultados. Se ha usado un enfoque similar para resolver `GROUP BY WITH CUBE` en el artículo [cláusula agrupar por con opciones de acumulación/cubo/agrupación][].
-
-### Actualizaciones a través de las CTE
-
-Si la CTE es no recursiva, puede volver a escribir la consulta para usar subconsultas. Para las CTE recursivas, necesitará crear el conjunto de resultados primero como se ha descrito anteriormente; luego una el conjunto de resultados final a la tabla de destino y realice la actualización.
+Este es un escenario de migración complejo y el mejor proceso es dividir la CTE controlarla en pasos. Normalmente puede usar un bucle y rellenar una tabla temporal conforme se recorren en iteración las consultas provisionales recursivas. Cuando se rellene la tabla temporal, puede devolver los datos como un conjunto único de resultados. Se ha usado un enfoque similar para resolver `GROUP BY WITH CUBE` en el artículo [cláusula agrupar por con opciones de acumulación/cubo/agrupación][].
 
 ### Funciones del sistema
 
@@ -114,4 +117,4 @@ Para obtener consejos sobre el desarrollo del código, consulte la [información
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

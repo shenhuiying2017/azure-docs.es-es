@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Conexión a la base de datos SQL mediante Java con JDBC en Windows" 
+<properties
+	pageTitle="Conexión a la base de datos SQL mediante Java con JDBC en Windows"
 	description="Este tema muestra un ejemplo de código Java que puede usar para conectarse a la base de datos SQL de Azure. El ejemplo usa JDBC y se ejecuta en un equipo cliente de Windows."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="LuisBosquez" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="LuisBosquez"
+	manager="jeffreyg"
 	editor="genemi"/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="12/08/2015"
 	ms.author="lbosq"/>
 
 
@@ -27,19 +27,20 @@
 Este tema presenta un ejemplo de código de Java que puede usar para conectarse a la base de datos SQL de Azure. El ejemplo de Java se basa en la versión 1.8 del kit de desarrollo de Java (JDK). El ejemplo se conecta a una base de datos SQL de Azure mediante el controlador JDBC.
 
 
-## Requisitos
+## Requisitos previos
 
+### Controladores y bibliotecas
 
 - [Controlador JDBC de Microsoft para SQL Server: SQL JDBC 4](http://www.microsoft.com/download/details.aspx?displaylang=en&id=11774).
 - Cualquier plataforma de sistema operativo que ejecute [Java Development Kit 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-- Una base de datos SQL de Azure existente. Vea el tema de [introducción](sql-database-get-started.md) para obtener información sobre cómo crear una base de datos de ejemplo y recuperar la cadena de conexión.
 
+### Base de datos SQL
 
-## Entorno de prueba
+Consulte la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos.
 
+### Tabla SQL
 
 El ejemplo de código de Java de este tema presupone que ya existe en la tabla de prueba siguiente en la base de datos SQL de Azure.
-
 
 <!--
 Could this instead be a #tempPerson table, so that the Java code sample could be fully self-sufficient and be runnable (with automatic cleanup)?
@@ -55,16 +56,14 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	);
 
 
-## Cadena de conexión para su base de datos SQL
+## Paso 1: Obtención de la cadena de conexión
+
+[AZURE.INCLUDE [sql-database-include-connection-string-jdbc-20-portalshots](../../includes/sql-database-include-connection-string-jdbc-20-portalshots.md)]
+
+> [AZURE.NOTE]Si usa el controlador JDBC de JTDS, tiene que agregar "ssl=require" a la dirección URL de la cadena de conexión y establecer la siguiente opción para JVM "-Djsse.enableCBCProtection=false". Esta opción de JVM deshabilita una revisión para una vulnerabilidad de seguridad; por tanto, asegúrese de entender qué riesgo implica antes de establecer esta opción.
 
 
-El ejemplo de código crea un objeto `Connection` mediante el uso de una cadena de conexión. Puede encontrar la cadena de conexión mediante el [Portal de Azure](http://portal.azure.com/). Para obtener más información acerca de cómo encontrar la cadena de conexión, vea [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md).
-
-
-> [AZURE.NOTE]Controlador de JDBC de JTDS Si está utilizando el controlador JDBC de JTDS, deberá agregar "ssl=require" a la dirección URL de la cadena de conexión y tiene que establecer la siguiente opción para JVM "-Djsse.enableCBCProtection=false". Esta opción de JVM deshabilita una revisión para una vulnerabilidad de seguridad; por tanto, asegúrese de entender qué riesgo implica antes de establecer esta opción.
-
-
-## Ejemplo de código Java
+## Paso 2: Compilación del ejemplo de código Java
 
 
 La sección contiene la mayor parte del código Java de ejemplo. Incluye comentarios que indican dónde debe copiar y pegar los segmentos Java más pequeños que se presentan en las secciones siguientes. El ejemplo de esta sección puede compilarse y ejecutarse incluso sin las operaciones de copiado y pegado cerca de los comentarios, pero solo se realizaría la conexión y finalizaría el proceso. Los comentarios que encontrará son los siguientes:
@@ -80,36 +79,36 @@ A continuación se muestra la mayor parte del código Java de ejemplo. El ejempl
 
 	import java.sql.*;
 	import com.microsoft.sqlserver.jdbc.*;
-	
+
 	public class SQLDatabaseTest {
-	
+
 		public static void main(String[] args) {
 			String connectionString =
-				"jdbc:sqlserver://your_server.database.windows.net:1433;" 
+				"jdbc:sqlserver://your_server.database.windows.net:1433;"
 				+ "database=your_database;"
 				+ "user=your_user@your_server;"
 				+ "password=your_password;"
 				+ "encrypt=true;"
 				+ "trustServerCertificate=false;"
 				+ "hostNameInCertificate=*.database.windows.net;"
-				+ "loginTimeout=30;"; 
-	
+				+ "loginTimeout=30;";
+
 			// Declare the JDBC objects.
 			Connection connection = null;
 			Statement statement = null;
 			ResultSet resultSet = null;
 			PreparedStatement prepsInsertPerson = null;
 			PreparedStatement prepsUpdateAge = null;
-	
+
 			try {
 				connection = DriverManager.getConnection(connectionString);
-	
+
 				// INSERT two rows into the table.
 				// ...
-	
+
 				// TRANSACTION and commit for an UPDATE.
 				// ...
-	
+
 				// SELECT rows from the table.
 				// ...
 			}
@@ -137,7 +136,7 @@ Por supuesto, para ejecutar el ejemplo de código Java anterior, tendría que es
 - your\_password
 
 
-## Instrucción INSERT para insertar dos filas en la tabla
+## Paso 3: Inserción de filas
 
 
 Este segmento de Java emite una instrucción Transact-SQL INSERT para insertar dos filas en la tabla Person. La secuencia general es la siguiente:
@@ -157,7 +156,7 @@ Copie y pegue este segmento Java breve en el ejemplo de código principal donde 
 	String insertSql = "INSERT INTO Person (firstName, lastName, age) VALUES "
 		+ "('Bill', 'Gates', 59), "
 		+ "('Steve', 'Ballmer', 59);";
-	
+
 	prepsInsertPerson = connection.prepareStatement(
 		insertSql,
 		Statement.RETURN_GENERATED_KEYS);
@@ -170,8 +169,7 @@ Copie y pegue este segmento Java breve en el ejemplo de código principal donde 
 	}
 
 
-## TRANSACTION y commit para UPDATE
-
+## Paso 4: Confirmación de una transacción
 
 El siguiente segmento de código Java genera una instrucción Transact-SQL UPDATE para aumentar el valor `age` de cada fila de la tabla Person. La secuencia general es la siguiente:
 
@@ -186,22 +184,22 @@ Copie y pegue este segmento Java breve en el ejemplo de código principal donde 
 
 	// Set AutoCommit value to false to execute a single transaction at a time.
 	connection.setAutoCommit(false);
-	
+
 	// Write the SQL Update instruction and get the PreparedStatement object.
 	String transactionSql = "UPDATE Person SET Person.age = Person.age + 1;";
 	prepsUpdateAge = connection.prepareStatement(transactionSql);
-	
+
 	// Execute the statement.
 	prepsUpdateAge.executeUpdate();
-	
+
 	//Commit the transaction.
 	connection.commit();
-	
+
 	// Return the AutoCommit value to true.
 	connection.setAutoCommit(true);
 
 
-## Instrucción SELECT para las filas de una tabla
+## Paso 4: Ejecución de una consulta
 
 
 Este segmento de Java ejecuta una instrucción Transact-SQL SELECT para ver todas las filas actualizadas de la tabla Person. La secuencia general es la siguiente:
@@ -219,7 +217,7 @@ Copie y pegue este segmento Java breve en el ejemplo de código principal donde 
 	String selectSql = "SELECT firstName, lastName, age FROM dbo.Person";
 	statement = connection.createStatement();
 	resultSet = statement.executeQuery(selectSql);
-	
+
 	// Iterate through the result set and print the attributes.
 	while (resultSet.next()) {
 		System.out.println(resultSet.getString(2) + " "
@@ -228,6 +226,6 @@ Copie y pegue este segmento Java breve en el ejemplo de código principal donde 
 
 ## Pasos siguientes
 
-Para obtener más información, consulte el [Centro para desarrolladores de Java](/develop/java/).
+Para más información, consulte el [Centro para desarrolladores de Java](/develop/java/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

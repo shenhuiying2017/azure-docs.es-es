@@ -3,7 +3,7 @@
    description="Proporciona información acerca del soporte ofrecido por Microsoft respecto al SO invitado de Azure usado por los servicios en la nube." 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="Thraka" 
+   authors="yuemlu" 
    manager="timlt" 
    editor=""/>
 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="08/18/2015"
-   ms.author="adegeo"/>
+   ms.date="12/07/2015"
+   ms.author="yuemlu"/>
 
 # Directiva de compatibilidad y retirada del SO invitado de Azure
-La información de esta página se relaciona con el sistema operativo invitado de Azure ([SO invitado](https://msdn.microsoft.com/library/azure/ff729422.aspx)) para los roles web y de trabajo de los servicios en la nube (PaaS). No se aplica a las máquinas virtuales (IaaS).
+La información de esta página se relaciona con el sistema operativo invitado de Azure ([SO invitado](cloud-services-guestos-update-matrix.md)) para los roles web y de trabajo de los servicios en la nube (PaaS). No se aplica a las máquinas virtuales (IaaS).
 
 Microsoft ha publicado una directiva de [soporte técnico para el SO invitado](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). La página actual detalla cómo se implementa la directiva.
 
@@ -81,13 +81,13 @@ Debe utilizar la última familia del SO invitado para diseñar los servicios en 
 
 1. Inicie la planificación de la migración a una nueva familia cuanto antes. 
 2. Configure implementaciones de pruebas temporales para probar la ejecución del servicio en la nube en la nueva familia. 
-3. [Establezca la versión del SO invitado](https://msdn.microsoft.com/library/azure/gg433101.aspx) en "Automática" (osVersion=* en el archivo [.CSCFG](https://msdn.microsoft.com/library/azure/gg456324.aspx)) para que la migración a las nuevas versiones del SO invitado se realice automáticamente.
+3. Establezca la versión del SO invitado en **Automática** (osVersion=* en el archivo [.cscfg](cloud-services-model-and-package.md#cscfg)) para que la migración a las nuevas versiones del SO invitado se realice automáticamente.
 
 **¿Qué ocurre si mi aplicación web requiere una integración más profunda con el sistema operativo?**
 
-Si la arquitectura de la aplicación web requiere una dependencia más profunda del sistema operativo subyacente, utilice capacidades admitidas por la plataforma, como las "[tareas de inicio](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)" u otros mecanismos de extensibilidad que puedan existir en el futuro. Como alternativa, también puede usar [máquinas virtuales de Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS, Infraestructura como servicio), donde usted es responsable de mantener el sistema operativo subyacente.
+Si la arquitectura de la aplicación web requiere una dependencia más profunda del sistema operativo subyacente, utilice funciones admitidas por la plataforma, como las [tareas de inicio](cloud-services-startup-tasks.md) u otros mecanismos de extensibilidad que puedan existir en el futuro. Como alternativa, también puede usar [máquinas virtuales de Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS, Infraestructura como servicio), donde usted es responsable de mantener el sistema operativo subyacente.
  
 ## Pasos siguientes
 Revise las [versiones del SO invitado](cloud-services-guestos-update-matrix.md) más recientes.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

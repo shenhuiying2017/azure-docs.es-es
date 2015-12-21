@@ -1,19 +1,19 @@
 
-<properties 
-    pageTitle="Novedades en RemoteApp de Azure"
-    description="Obtenga información sobre los cambios y las mejoras realizados en RemoteApp de Azure" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Novedades de Azure RemoteApp | Microsoft Azure"
+    description="Obtenga información sobre los cambios y las mejoras realizados en RemoteApp de Azure"
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/23/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/23/2015"
     ms.author="elizapo" />
 
 
@@ -56,7 +56,7 @@ Julio prepara el terreno para los cambios que llegan en agosto, así que por aho
 
 ¡Hay muchos cambios! El equipo ha estado muy ocupado en junio:
 
-- Se ha rediseñado la [página de aterrizaje](https://www.remoteapp.windowsazure.com/) de RemoteApp de Azure, compruébelo. 
+- Se ha rediseñado la [página de aterrizaje](https://www.remoteapp.windowsazure.com/) de RemoteApp de Azure, compruébelo.
 - Se ha actualizado el software en todas las imágenes disponibles como parte de la suscripción.
 - Se han realizado mejoras en las colecciones híbridas, incluida la compatibilidad con la tunelización forzada y la comprobación del tamaño de la subred IP antes de intentar crear la colección.
 - Se ha detectado que el carácter comodín * no funciona con las cámaras web. Es necesario especificar el identificador de instancia o el GUID. Actualizaremos la información de redirección para reflejar este hecho.
@@ -68,7 +68,7 @@ En julio habrá nuevos cambios, por lo que pronto publicaremos otra actualizaci�
 
 Han tenido lugar varias adiciones y han pasado varios meses desde que creamos este tema, por lo que esta lista en realidad corresponde al período entre principios de marzo y mayo. Revise las nuevas características:
 
-- Automatización completa: ahora RemoteApp de Azure incluye [cmdlets en el módulo de Azure PowerShell](remoteapp-tutorial-arawithpowershell.md). 
+- Automatización completa: ahora RemoteApp de Azure incluye [cmdlets en el módulo de Azure PowerShell](remoteapp-tutorial-arawithpowershell.md).
 - [Creación de una imagen de RemoteApp de Azure basada en una máquina virtual de Azure](remoteapp-image-on-azurevm.md). Consigue que la carga de la imagen personalizada en Azure se realice mucho más rápido.
 - Uso de una red virtual de Azure en lugar de una red virtual de RemoteApp para conectar los recursos de la red corporativa a Azure. Hemos actualizado las [instrucciones de la colección híbrida](remoteapp-create-hybrid-deployment.md) para guiarle en el proceso de creación de una red virtual de Azure (el paso 1).
 - Y hablando de redes virtuales, consulte [la nueva guía](remoteapp-vnetsizing.md) sobre los límites de tamaño y las limitaciones de la red virtual.
@@ -81,7 +81,7 @@ Han tenido lugar varias adiciones y han pasado varios meses desde que creamos es
 Gracias por seguir con nosotros, volveremos el próximo mes con más novedades.
 
 
-### Permítanos ayudarle 
+### Permítanos ayudarle
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, luego, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Integración con un servidor SAP local en el Servicio de aplicaciones de Microsoft Azure"
+	pageTitle="Integración con un servidor SAP local en el Servicio de aplicaciones de Azure | Microsoft Azure"
 	description="Aprenda a integrar con un servidor SAP local"
 	authors="rajeshramabathiran"
 	manager="dwrede"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/07/2015"
 	ms.author="sameerch"/>
 
 
@@ -40,15 +40,13 @@ Las bibliotecas de cliente específicas de SAP son necesarias en el equipo clien
 
 
 ## Creación de un nuevo conector de SAP
-1. Inicie sesión en el Portal de administración de Microsoft Azure.
+1. Inicie sesión en el Portal de Azure.
 2. Seleccione **Nuevo**.
 3. En la hoja Crear, seleccione **Equipo** > **Azure Marketplace**.
-4. En la hoja Marketplace, seleccione **Aplicaciones de API** y busque SAP en la barra de búsqueda:
-
-	![Aplicación de API del conector de SAP][2]
+4. En la hoja Marketplace, seleccione **Aplicaciones de API** y busque SAP en la barra de búsqueda: ![Aplicación de API del conector de SAP][2]
 5. Seleccione el **conector SAP** publicado por Microsoft.
 6. En la hoja del conector SAP, seleccione **Crear**.
-7. En la nueva hoja que se abre, escriba lo siguiente:
+7. En la nueva hoja que se abre, escriba lo siguiente:  
 	1. **Ubicación**: elija la ubicación geográfica donde desea implementar el conector.
 	2. **Suscripción**: elija una suscripción en la que desee crear este conector.
 	3. **Grupo de recursos**: seleccione o cree un grupo de recursos en el que vaya a estar el conector.
@@ -71,7 +69,7 @@ Las bibliotecas de cliente específicas de SAP son necesarias en el equipo clien
 
 
 ## Instalación del agente de escucha híbrido
-Busque el conector SAP creado a través de **Examinar** > **Aplicaciones de API** > *nombre del conector*.
+Busque el conector SAP creado: **Examinar** > **Aplicaciones de API** > *nombre del conector*.
 
 En la hoja del conector, observe que el estado de la conexión híbrida es pendiente. Seleccione Conexión híbrida. Se abrirá la hoja Conexión híbrida.
 
@@ -79,7 +77,7 @@ En la hoja del conector, observe que el estado de la conexión híbrida es pendi
 
 Copie la cadena de configuración de puerta de enlace principal. Se utilizará más adelante como parte de la configuración del agente de escucha híbrido.
 
-Haga clic en el vínculo **Descargar y configurar**. Se abre el instalador ClickOnce.
+Seleccione el vínculo **Descargar y configurar**. Se abre el instalador ClickOnce.
 
 ![Instalador de clic único de conexión híbrida][4]
 
@@ -93,8 +91,8 @@ Seleccione **Instalar** para completar la configuración del Administrador de co
 
 ![Instalación del administrador de conexión híbrida completada][7]
 
-## Validación de una conexión híbrida
-Busque el conector SAP creado a través de **Examinar** > **Aplicaciones de API** > *nombre del conector*.
+## Validación de la conexión híbrida
+Busque el conector SAP creado: **Examinar** > **Aplicaciones de API** > *nombre del conector*.
 
 En la hoja del conector, observe que el estado de la conexión híbrida es *Conectado*:
 
@@ -123,4 +121,4 @@ Para la acción seleccionada, consulte los parámetros de entrada y salida. Pued
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

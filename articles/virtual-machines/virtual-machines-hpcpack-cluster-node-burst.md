@@ -27,7 +27,7 @@ En este artículo se muestra cómo agregar nodos de "ráfaga" Azure (instancias 
 
 >[AZURE.TIP]Si usa el [script de implementación de HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) para crear el clúster en Azure, puede incluir nodos de ráfaga de Azure en la implementación automatizada.
 
-Los pasos descritos en este artículo le ayudarán a agregar nodos de Azure rápidamente a una máquina virtual de nodo principal de HPC Pack basado en la nube para la implementación de una prueba o una prueba de concepto. El procedimiento es básicamente el mismo que el de "ráfaga en Azure" para agregar capacidad de proceso en la nube a un clúster de HPC Pack local. Si desea conseguir un tutorial, consulte [Configurar un clúster de proceso híbrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Para obtener instrucciones detalladas y consideraciones acerca de las implementaciones de producción, consulte [Ráfaga en Azure con Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+Los pasos descritos en este artículo le ayudarán a agregar nodos de Azure rápidamente a una máquina virtual de nodo principal de HPC Pack basado en la nube para la implementación de una prueba o una prueba de concepto. El procedimiento es básicamente el mismo que el de "ráfaga en Azure" para agregar capacidad de proceso en la nube a un clúster de HPC Pack local. Si desea conseguir un tutorial, consulte [Configurar un clúster de proceso híbrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Para obtener instrucciones detalladas y reflexiones sobre implementaciones de producción, consulte [Ráfaga en Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
 Si quiere usar el tamaño de instancia de proceso intensivo A8 o A9, consulte [Sobre las instancias de proceso intensivo A8, A9, A10 y A11](virtual-machines-a8-a9-a10-a11-specs.md).
 
@@ -69,7 +69,7 @@ Para ver opciones adicionales para configurar el certificado de administración,
 
 
 
-Los pasos para agregar e iniciar nodos de Azure en este escenario suelen ser los mismos que los empleados con un nodo principal local. Para obtener más información, consulte las secciones siguientes en [Pasos para implementar nodos de Azure con Microsoft HPC Pack]((https://technet.microsoft.com/library/gg481758(v=ws.10).aspx):
+Los pasos para agregar e iniciar nodos de Azure en este escenario suelen ser los mismos que los empleados con un nodo principal local. Para más información, consulte las secciones siguientes en [Pasos para implementar nodos de Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481758.aspx):
 
 * Crear una plantilla de nodo de Azure
 
@@ -79,13 +79,13 @@ Los pasos para agregar e iniciar nodos de Azure en este escenario suelen ser los
 
 Después de agregar e iniciar los nodos, estarán listos para que los use para ejecutar trabajos de clúster.
 
-Si tiene problemas al implementar los nodos de Azure, consulte [Solución de problemas de implementaciones de nodos de Azure con Microsoft HPC Pack] (http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
+Si tiene problemas al implementar nodos de Azure, consulte [Solución de problemas de implementaciones de nodos de Azure con Microsoft HPC Pack] (http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
 
 ## Pasos siguientes
 
-* Si quiere obtener una manera de aumentar o reducir automáticamente los recursos de proceso de Azure según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Aumentar y reducir los recursos de proceso de Azure en un clúster de HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
+* Si busca una manera de aumentar o reducir automáticamente los recursos informáticos de Azure según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Aumento y reducción de recursos de proceso de Azure en un clúster de HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

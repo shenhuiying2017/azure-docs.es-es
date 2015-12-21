@@ -3,8 +3,8 @@
    description="Obtenga información general sobre cómo configurar la integración continua para una aplicación de Service Fabric mediante Visual Studio Online (VSO)"
    services="service-fabric"
    documentationCenter="na"
-   authors="cawa"
-   manager="paulyuk"
+   authors="cawams"
+   manager="timlt"
    editor="" />
 <tags
    ms.service="multiple"
@@ -339,4 +339,4 @@ En las instrucciones anteriores se crea un nuevo clúster para cada compilación
 
 Para obtener más información sobre la integración continua con aplicaciones de Service Fabric, lea los siguientes artículos. - [Página principal de documentación sobre compilación](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [Implementación de un agente de compilación](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [Creación y configuración de una definición de compilación](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

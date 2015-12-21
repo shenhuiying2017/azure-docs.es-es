@@ -3,7 +3,7 @@ De forma predeterminada, se pueden invocar API en un back-end de aplicación mó
 
 + **Back-end Node.js (a través del portal)**:  
 	
-	En la **Configuración** de la aplicación móvil, haga clic en **Tablas fáciles** y seleccione la tabla. Haga clic en **Cambiar permisos**, seleccione **Solo acceso autenticado** para todos los permisos y haga clic en **Guardar**.
+	En la **Configuración** de la aplicación móvil, haga clic en **Tablas fáciles** y seleccione la tabla. Haga clic en **Cambiar permisos**, seleccione **Solo acceso autenticado** para todos los permisos y luego haga clic en **Guardar**.
 
 + **Back-end de .NET (C#)**:
 
@@ -20,6 +20,6 @@ De forma predeterminada, se pueden invocar API en un back-end de aplicación mó
 
         table.access = 'authenticated';
 
-	Para más información, consulte [Pedir autenticación para acceder a las tablas](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth) en [Cómo usar el SDK Node.js de Aplicaciones móviles de Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md).
+	Para obtener más información, consulte [Autenticación necesaria para el acceso a las tablas](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Para obtener información sobre cómo descargar el proyecto de código de inicio rápido desde su sitio, consulte [How to: Download the Node.js backend quickstart code project using Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

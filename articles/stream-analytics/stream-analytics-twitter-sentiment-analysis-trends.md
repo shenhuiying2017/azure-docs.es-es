@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Análisis en tiempo real de opinión de Twitter con Análisis de transmisiones | Microsoft Azure"
 	description="Aprenda a usar Análisis de transmisiones para el análisis en tiempo real de opinión de Twitter. Pasos desde la generación de eventos a los datos en un panel dinámico."
-	keywords="twitter en tiempo real,análisis de opiniones,análisis de los medios sociales,herramientas de análisis de los medios sociales"
+	keywords="análisis de tendencias de twitter en tiempo real, análisis de opiniones, análisis de medios sociales, ejemplo de análisis de tendencias"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,19 +14,19 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="11/23/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok"/>
 
 
 # Análisis de los medios sociales: análisis en tiempo real de la opinión en Twitter en Análisis de transmisiones de Azure
 
-En este tutorial, aprenderá a crear una solución de análisis de opinión mediante la incorporación en tiempo real de eventos de Twitter a centros de eventos, la escritura de consultas de Análisis de transmisiones para analizar los datos y, a continuación, el almacenamiento de los resultados o el uso de un panel para ofrecer detalles en tiempo real.
+Aprenda a crear una solución de análisis de opiniones para análisis de redes sociales al poner eventos en tiempo real de Twitter a Centros de eventos. Va a escribir una consulta de Análisis de transmisiones para analizar los datos luego y almacenar los resultados para un examen posterior o usar un panel para ofrecer perspectivas en tiempo real mediante [Power BI](https://powerbi.com/).
 
-Las herramientas de análisis de los medios sociales ayudan a las organizaciones a comprender las tendencias, es decir, los temas y actitudes que cuentan con un gran volumen de publicaciones en las redes sociales. Los análisis de opinión, o minería de opinión, utilizan las herramientas de análisis de medios sociales para determinar las actitudes hacia un producto, una idea, etc.
+Las herramientas de análisis de los medios sociales ayudan a las organizaciones a comprender las tendencias, es decir, los temas y actitudes que cuentan con un gran volumen de publicaciones en las redes sociales. Los análisis de opinión, o minería de opinión, utilizan las herramientas de análisis de medios sociales para determinar las actitudes hacia un producto, una idea, etc. El análisis de tendencias de Twitter en tiempo real es un buen ejemplo porque el modelo de suscripción hashtag le permite escuchar palabras clave específicas y desarrollar análisis de opiniones en la fuente.
 
-## Escenario
+## Escenario: Análisis de opiniones en tiempo real
 
-Un sitio web multimedia de noticias está interesado en obtener una ventaja sobre sus competidores al proporcionar contenido del sitio inmediatamente relevante para sus lectores. Utilizan análisis de las redes sociales en temas relevantes para sus lectores mediante la elaboración de análisis de opinión en tiempo real de los datos de Twitter. En concreto, para identificar qué temas son tendencias en tiempo real en Twitter, necesitan el análisis en tiempo real del volumen de tweets y la opinión sobre los temas clave.
+Un sitio web multimedia de noticias está interesado en obtener una ventaja sobre sus competidores al proporcionar contenido del sitio inmediatamente relevante para sus lectores. Utilizan análisis de las redes sociales en temas relevantes para sus lectores mediante la elaboración de análisis de opinión en tiempo real de los datos de Twitter. En concreto, para identificar qué temas son tendencias en tiempo real en Twitter, necesitan el análisis en tiempo real del volumen de tweets y la opinión sobre los temas clave. Por lo que en esencia requieren un motor de análisis de análisis de opiniones basado en esta fuente de medios sociales.
 
 ## Requisitos previos
 1.	Se requiere una cuenta de Twitter para este tutorial.  
@@ -38,7 +38,7 @@ La aplicación de ejemplo genera eventos y los inserta en una instancia de los c
 
 Siga estos pasos para crear un Centro de eventos.
 
-1.	En el Portal de Azure, haga clic en **NUEVO** > **SERVICIOS DE APLICACIONES** > **BUS DE SERVICIO** > **CENTRO DE EVENTOS** > **CREACIÓN RÁPIDA** y proporcione un nombre, una región y un espacio de nombres nuevo o existente para crear un nuevo centro de eventos.  
+1.	En el Portal de Azure, haga clic en **NUEVO** > **SERVICIOS DE APLICACIONES** > **BUS DE SERVICIO** > **CENTRO DE EVENTOS** > **CREACIÓN RÁPIDA** y especifique un nombre, una región y un espacio de nombres nuevo o existente para crear un Centro de eventos.  
 2.	Como práctica recomendada, debe leer cada trabajo de Análisis de transmisiones de un solo grupo de consumidores del centro de eventos. Le guiaremos a través del proceso de creación de un grupo de consumidores y podrá obtener más información aquí. Para crear un grupo de consumidores, vaya al centro de eventos recién creado y haga clic en la pestaña **GRUPOS DE CONSUMIDORES** y, después, haga clic en **CREAR** en la parte inferior de la página y proporcione un nombre para el grupo de consumidores.
 3.	Para otorgar acceso al centro de eventos, necesitamos crear una directiva de acceso compartido. Haga clic en la pestaña **CONFIGURAR** de su centro de eventos.
 4.	En **DIRECTIVAS DE ACCESO COMPARTIDO**, cree una nueva directiva con permisos para **ADMINISTRAR**.
@@ -51,7 +51,7 @@ Siga estos pasos para crear un Centro de eventos.
 
 ## Configuración e inicio de la aplicación cliente Twitter
 
-Hemos proporcionado una aplicación cliente que derivará datos de Twitter mediante las [API de streaming de Twitter](https://dev.twitter.com/streaming/overview) para recopilar eventos de Tweet sobre un conjunto de temas con parámetros. La herramienta de código abierto [Sentiment140](http://help.sentiment140.com/), de otro proveedor, se utiliza para asignar un valor de opinión a cada tweet (0: negativo, 2: neutro, 4: positivo) y, a continuación, se insertan eventos Tweet en el centro de eventos.
+Hemos proporcionado una aplicación cliente que aprovechará datos de Twitter a través de las [API de streaming de Twitter](https://dev.twitter.com/streaming/overview) para recopilar eventos de Tweet sobre un conjunto de temas con parámetros. La herramienta de código abierto [Sentiment140](http://help.sentiment140.com/), de otro proveedor, se utiliza para asignar un valor de opinión a cada tweet (0: negativo, 2: neutro, 4: positivo) y, a continuación, se insertan eventos Tweet en el centro de eventos.
 
 Siga estos pasos para configurar la aplicación:
 
@@ -153,7 +153,7 @@ Para comparar el número de menciones entre temas, se aprovechará una [Tumbling
 
 #### Identificación de tendencias: ventana deslizante
 
-Para identificar las tendencias buscaremos temas que crucen un umbral para las menciones en un período determinado de tiempo. Para este tutorial, buscaremos temas que se mencionan más de 20 veces en los últimos 5 segundos con una [ventana deslizante](https://msdn.microsoft.com/library/azure/dn835051.aspx).
+Para identificar las tendencias buscaremos temas que crucen un umbral para las menciones en un período determinado de tiempo. Para los fines de este tutorial, buscaremos temas que se mencionen más de 20 veces en los últimos 5 segundos con un [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx).
 
 1.	Cambie la consulta en el editor de código a:
 
@@ -236,4 +236,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

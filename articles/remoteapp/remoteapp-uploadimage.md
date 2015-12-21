@@ -1,19 +1,19 @@
 
-<properties 
-    pageTitle="Carga de una imagen personalizada para RemoteApp de Azure"
-    description="Obtenga información sobre cómo cargar una imagen personalizada para RemoteApp de Azure" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="ericorman" 
+<properties
+    pageTitle="Carga de una imagen personalizada en Azure RemoteApp | Microsoft Azure"
+    description="Obtenga información sobre cómo cargar una imagen personalizada para RemoteApp de Azure"
+    services="remoteapp"
+    documentationCenter=""
+    authors="ericorman"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="ericor" />
 
 
@@ -32,7 +32,7 @@ Ahora que ha creado la imagen de plantilla personalizada o que la actualizado co
 
 1.      Abra el Portal de administración de Azure y navegue a la página RemoteApp.
 2.      En la pestaña **Imágenes de plantilla**, haga clic en **Cargar** en la parte inferior de la página.
-4.      Escriba un nombre descriptivo para la imagen y especifique la ubicación de la cuenta de almacenamiento. Asegúrese de que la ubicación es la misma que para la colección de RemoteApp o una ubicación donde desea crear una. 
+4.      Escriba un nombre descriptivo para la imagen y especifique la ubicación de la cuenta de almacenamiento. Asegúrese de que la ubicación es la misma que para la colección de RemoteApp o una ubicación donde desea crear una.
 5.      Cuando se le solicite, descargue el script a su equipo local.
 6.      Copie los parámetros de comando del cuadro de texto en el portapapeles.
 7.      Abra una ventana de Windows PowerShell con privilegios elevados.
@@ -47,9 +47,8 @@ Ahora que ha creado la imagen de plantilla personalizada o que la actualizado co
 
 ## Problemas comunes
 
-- Asegúrese de que usa Windows PowerShell y no Azure PowerShell. Debe instalar el módulo Azure PowerShell porque se necesitan ciertos módulos durante el proceso de carga. 
+- Asegúrese de que usa Windows PowerShell y no Azure PowerShell. Debe instalar el módulo Azure PowerShell porque se necesitan ciertos módulos durante el proceso de carga.
 - Nunca modifique el script: las validaciones existen para su comodidad.
 - Si el archivo vhd se bloquea durante la carga, cópielo o muévalo a una nueva ubicación e intente volver a cargarlo. Es posible que algunos procesos de Windows impidan la carga.  
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

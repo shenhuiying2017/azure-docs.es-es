@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="12/07/2015"
 	ms.author="wesmc"/>
 
 # Uso de la eliminación temporal en Servicios móviles
@@ -165,4 +165,4 @@ Para obtener información acerca de trabajos de programación con Servicios móv
 [Sincronización de datos sin conexión para Servicios móviles]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

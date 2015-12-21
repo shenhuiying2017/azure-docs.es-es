@@ -51,7 +51,7 @@ Para obtener soporte con los dispositivos VPN, póngase en contacto con el fabri
 | Cisco | ASR | IOS 15.1 (estático), IOS 15.2 (dinámico) | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Cisco | ISR | IOS 15.0 (estático), IOS 15.1 (dinámico) | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Citrix | Dispositivo CloudBridge MPX o dispositivo virtual VPX | N/D | [Instrucciones de integración](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | No compatible |
-| Dell SonicWALL | Serie TZ, serie NSA, serie SuperMassive, serie NSA E-Class | SonicOS 5.8.x, SonicOS 5.9.x, SonicOS 6.x | [Instrucciones de configuración](https://www.sonicwall.com/app/projects/file_downloader/document_lib.php?t=TN&id=348) | No compatible |
+| Dell SonicWALL | Serie TZ, serie NSA, serie SuperMassive, serie NSA E-Class | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [Instrucciones: SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instrucciones: SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [Instrucciones: SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instrucciones: SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | Serie BIG-IP | N/D | [Instrucciones de configuración](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | No compatible |
 | Fortinet | FortiGate | FortiOS 5.0.7 | [Instrucciones de configuración](http://docs.fortinet.com/fortigate/admin-guides) | [Instrucciones de configuración](http://docs.fortinet.com/fortigate/admin-guides) |
 | Internet Initiative Japan (IIJ) | Serie SEIL | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [Instrucciones de configuración](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | No compatible |
@@ -152,8 +152,8 @@ En la tabla encontrará una lista de las ofertas de autenticación y cifrado de 
 ## Pasos siguientes
 
 
-Para obtener más información sobre las puertas de enlace de VPN, consulte [Información acerca de las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md).
+Para más información sobre las puertas de enlace de VPN, consulte [Acerca de las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md).
 
-Para configurar una VPN de sitio a sitio, consulte [Creación de una red virtual con una conexión VPN sitio a sitio](vpn-gateway-site-to-site-create.md).
+Para configurar una VPN de sitio a sitio, consulte [Creación de una red virtual con una conexión VPN de sitio a sitio](vpn-gateway-site-to-site-create.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

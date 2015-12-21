@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="12/04/2015"
 	ms.author="larryfr"/>
 
 # Desarrollo de programas MapReduce de Java para Hadoop en HDInsight
@@ -31,7 +31,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - [Apache Maven](http://maven.apache.org/)
 
-- **Suscripción de Azure**: Consulte [ Obtener una versión de evaluación gratuita de Azure](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
+- **Una suscripción de Azure**
 
 - **Azure CLI**: para obtener más información, consulte [Instalación y configuración de Azure CLI](../xplat-cli-install.md)
 
@@ -250,7 +250,7 @@ De esta manera, se copiarán los archivos del sistema local al nodo principal.
 
 		hadoop jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
 
-	De este modo, se usará la aplicación WordCount MapReduce para contar las palabras del archivo davinci.txt y almacenar los resultados en \_\___wasb:///example/data/wordcountout__. Tanto el archivo de entrada como el de salida se almacenan en el almacenamiento predeterminado del clúster.
+	Haciendo esto, usará la aplicación WordCount MapReduce para contar las palabras en el archivo davinci.txt y almacenar los resultados en \_\___wasb:///example/data/wordcountout__. Tanto el archivo de entrada como el de salida se almacenan en el almacenamiento predeterminado del clúster.
 
 3. Una vez completado el trabajo, use lo siguiente para ver los resultados:
 
@@ -270,7 +270,7 @@ Gracias a este documento, ha aprendido a desarrollar un trabajo MapReduce de Jav
 - [Uso de Pig con HDInsight][hdinsight-use-pig]
 - [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-Para obtener más información, vea también el [Centro para desarrolladores de Java](/develop/java/).
+Para más información, consulte también el [Centro de desarrolladores de Java](http://azure.microsoft.com/develop/java/).
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -282,22 +282,14 @@ Para obtener más información, vea también el [Centro para desarrolladores de 
 
 [hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-emulator]: ../hdinsight-get-started-emulator.md
-[hdinsight-emulator-wasb]: ../hdinsight-get-started-emulator.md#blobstorage
+
+
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[powershell-install-configure]: ../install-configure-powershell.md
 
-
-
-[image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
-[image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

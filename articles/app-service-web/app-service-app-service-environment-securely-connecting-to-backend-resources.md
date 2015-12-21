@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="12/08/2015" 
 	ms.author="stefsch"/>
 
 # Conexión segura a los recursos de back-end desde un entorno del Servicio de aplicaciones #
@@ -21,7 +21,7 @@
 ## Información general ##
 Dado que siempre se crea un entorno del Servicio de aplicaciones en una subred de una [red virtual][virtualnetwork] regional clásica "v1", las conexiones salientes de dicho entorno a otros recursos de back-end solo pueden fluir a través de la red virtual.
 
-**Nota:** no se puede crear un entorno del Servicio de aplicaciones en una red virtual "v2".
+**Nota:** No se puede crear un Entorno del Servicio de aplicaciones en una red virtual "v2" administrada por ARM.
 
 Por ejemplo, puede haber un servidor SQL Server que se ejecute en un clúster de máquinas virtuales con el puerto 1433 bloqueado. En el extremo puede incluirse una lista de control de acceso para permitir únicamente el acceso de otros recursos de la misma red virtual.
 
@@ -114,4 +114,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

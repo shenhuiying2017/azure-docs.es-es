@@ -285,7 +285,7 @@ CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 CREATE USER newperson for LOGIN newperson
 ```
 
-[AZURE.NOTE]es una buena idea crear usuarios para los inicios de sesión en la base de datos maestra cuando se trabaja con Base de datos SQL y Almacenamiento de datos SQL de Azure. Hay dos roles de servidor disponibles en este nivel que requieren que el inicio de sesión tenga un usuario en la base de datos maestra para poder concederle la pertenencia. Los roles son `Loginmanager` y `dbmanager`. Tanto en Base de datos SQL como en Almacenamiento de datos SQL de Azure, estos roles conceden derechos para administrar los inicios de sesión y crear bases de datos. Esto es diferente de SQL Server. Para obtener más detalles, consulte el artículo [Administrar bases de datos, inicios de sesión y usuarios en Base de datos SQL de Microsoft Azure].
+[AZURE.NOTE]es una buena idea crear usuarios para los inicios de sesión en la base de datos maestra cuando se trabaja con Base de datos SQL y Almacenamiento de datos SQL de Azure. Hay dos roles de servidor disponibles en este nivel que requieren que el inicio de sesión tenga un usuario en la base de datos maestra para poder concederle la pertenencia. Los roles son `Loginmanager` y `dbmanager`. Tanto en Base de datos SQL como en Almacenamiento de datos SQL de Azure, estos roles conceden derechos para administrar los inicios de sesión y crear bases de datos. Esto es diferente de SQL Server. Para más detalles, consulte el artículo [Administración de bases de datos e inicios de sesión en Base de datos SQL de Microsoft Azure].
 
 Una vez creado el inicio de sesión, hay que agregar una cuenta de usuario.
 
@@ -448,8 +448,8 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[Administrar bases de datos, inicios de sesión y usuarios en Base de datos SQL de Microsoft Azure]: https://msdn.microsoft.com/es-ES/library/azure/ee336235.aspx
+[Administración de bases de datos e inicios de sesión en Base de datos SQL de Microsoft Azure]: https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

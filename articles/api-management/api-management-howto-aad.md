@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory en Administración de API de Azure
@@ -26,7 +26,7 @@ En esta guía se muestra cómo habilitar el acceso al portal para desarrolladore
 
 ## Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory
 
-Para comenzar, haga clic en **Administrar** en el Portal de Azure para el servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
+Para comenzar, haga clic en **Administrar** en el Portal de Azure clásico para el servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
 
 ![Portal del publicador][api-management-management-console]
 
@@ -36,7 +36,7 @@ Haga clic en **Seguridad** en el menú **Administración de API** de la izquierd
 
 ![Identidades externas][api-management-security-external-identities]
 
-Haga clic en **Azure Active Directory**. Anote la **URL de redireccionamiento** y cambie a Azure Active Directory en el Portal de Azure.
+Haga clic en **Azure Active Directory**. Anote la **URL de redireccionamiento** y cambie a Azure Active Directory en el Portal de Azure clásico.
 
 ![Identidades externas][api-management-security-aad-new]
 
@@ -228,4 +228,4 @@ Ahora el usuario ha iniciado sesión en el portal para desarrolladores para la i
 
 [Inicio de sesión en el portal para desarrolladores con una cuenta de Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

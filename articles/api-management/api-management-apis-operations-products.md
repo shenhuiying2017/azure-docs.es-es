@@ -22,7 +22,7 @@ En Administración de API de Azure, las API y sus operaciones se agregan a produ
 
 ## <a name="create-apis"> </a>Creación de API
 
-En Administración de API, una API representa un conjunto de operaciones que puede invocarse por las aplicaciones cliente. Las nuevas API se crean en el portal Administración de API.
+En Administración de API, una API representa un conjunto de operaciones que puede invocarse por las aplicaciones cliente. Se crean nuevas API en el portal del publicador.
 
 En este guía se muestra cómo crear y configurar una nueva API en Administración de API.
 
@@ -62,4 +62,4 @@ En Administración de API, un producto contiene una o varias API, así como una 
 [Importación de la definición de una API con operaciones]: api-management-howto-import-api.md
 [Creación y definición de configuraciones de productos avanzadas]: api-management-howto-product-with-rules.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

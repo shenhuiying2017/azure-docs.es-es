@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Conexión a la base de datos SQL mediante Python con pymssql en Ubuntu" 
+<properties
+	pageTitle="Conexión a la base de datos SQL mediante Python con pymssql en Ubuntu"
 	description="Este tema muestra un ejemplo de código Pyton que puede usar para conectarse a la base de datos SQL de Azure. El ejemplo se ejecuta en un equipo cliente con Ubuntu de Linux."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="meet-bhagdev" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="meet-bhagdev"
+	manager="jeffreyg"
 	editor="genemi"/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="10/20/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="12/08/2015"
 	ms.author="meetb"/>
 
 
@@ -27,7 +27,7 @@
 Este tema presenta un ejemplo de un código Python que se ejecuta en un equipo cliente Ubuntu Linux y que permite la conexión a una base de datos SQL de Azure.
 
 
-## Requisitos
+## Requisitos previos
 
 
 - [Python 2.7.6](https://www.python.org/download/releases/2.7.6/).
@@ -44,14 +44,18 @@ Abra el terminal y desplácese hasta el directorio donde planea crear secuencias
 	sudo pip install pymssql
 
 
-### Creación de una base de datos y recuperación de la cadena de conexión
+### Base de datos SQL
+
+Consulte la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
+
+## Paso 1: Obtención de detalles de la conexión
+
+[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-Vea la [página de introducción](sql-database-get-started.md) para obtener información sobre cómo crear una base de datos de ejemplo y obtener la cadena de conexión. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
+## Paso 2: Conexión
 
-
-## Conexión a la base de datos SQL
-
+!!!!!sql-database-include-connection-string-details-20-portalshots.md
 
 La función [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) se usa para conectarse a la base de datos SQL.
 
@@ -59,7 +63,7 @@ La función [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) se 
 	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
 
 
-## Ejecución de la instrucción SQL SELECT
+## Paso 3: Ejecución de una consulta
 
 La función [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) puede usarse para recuperar un conjunto de resultados de una consulta realizada a la base de datos SQL. Esta función acepta cualquier consulta y devuelve un conjunto de resultados que se puede iterar mediante el uso de [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
 
@@ -74,9 +78,9 @@ La función [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymss
 	    row = cursor.fetchone()
 
 
-## Inserción de filas, paso de parámetros y recuperación de la clave principal generada
+## Paso 4: Inserción de una fila
 
-En Base de datos SQL, la propiedad [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) y el objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) pueden usarse para generar automáticamente los [valores de clave principal](https://msdn.microsoft.com/library/ms179610.aspx).
+En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de forma segura, pasar parámetros que protejan la aplicación ante vulnerabilidad de [inyección de código SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) y recuperar el valor [Clave principal](https://msdn.microsoft.com/library/ms179610.aspx) generado automáticamente.
 
 
 	import pymssql
@@ -89,7 +93,7 @@ En Base de datos SQL, la propiedad [IDENTITY](https://msdn.microsoft.com/library
 	    row = cursor.fetchone()
 
 
-## Transacciones
+## Paso 5: Reversión de una transacción
 
 
 Este ejemplo de código muestra el uso de transacciones con las que podrá realizar lo siguiente:
@@ -113,6 +117,4 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 
 Para obtener más información, consulte el [Centro para desarrolladores de Python](/develop/python/).
 
- 
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

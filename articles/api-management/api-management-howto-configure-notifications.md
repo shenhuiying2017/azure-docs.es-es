@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Configuración de notificaciones y plantillas de correo electrónico en Administración de API de Azure
@@ -22,7 +22,7 @@ Administración de API ofrece la posibilidad de configurar notificaciones de eve
 
 ## <a name="publisher-notifications"> </a>Configuración de notificaciones del publicador
 
-Para configurar las notificaciones, haga clic en **Administrar** en el Portal de Azure para su servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
+Para configurar las notificaciones, haga clic en **Administrar** en el Portal de Azure clásico para su servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
 
 ![Portal del publicador][api-management-management-console]
 
@@ -54,7 +54,7 @@ Para especificar los usuarios a los que se va a notificar, haga clic en **Agrega
 
 Después de configurar los destinatarios de las notificaciones, haga clic en **Guardar** para aplicar los destinatarios de notificación actualizados.
 
->Si hay cambios sin guardar y sale de la pestaña **Notificaciones del publicador**, el portal de Administración de API le alertará.
+>Si hay cambios sin guardar y sale de la pestaña **Notificaciones del publicador**, el portal del publicador le avisará.
 
 ## <a name="email-templates"> </a>Configuración de plantillas de correo electrónico
 
@@ -114,4 +114,4 @@ Haga clic en **Vista previa** o en **Enviar una prueba** para ver el aspecto que
 [Introducción a la Administración de API de Azure]: api-management-get-started.md
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

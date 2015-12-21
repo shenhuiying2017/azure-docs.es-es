@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="12/07/2015" 
 	ms.author="ryancraw"/>
 
 # SDK de DocumentDB
@@ -29,6 +29,9 @@
 <table> <tr><td>**Descargar**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr> <tr><td>** Contribuciones**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr> <tr><td>**Documentación**</td><td>[Documentación de referencia del SDK para Java](http://azure.github.io/azure-documentdb-java/)</td></tr> <tr><td>**Introducción**</td><td>[Introducción al SDK para Java](documentdb-java-application.md)</td></tr> <tr><td>**Runtime admitido actualmente**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr> </table></br>
 
 ## Notas de la versión
+
+### <a name="1.5.0"/>[1\.5.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.0)
+- Se han agregado solucionadores de particiones de hash e intervalo para ayudar con el particionamiento de las aplicaciones entre varias particiones.
 
 ### <a name="1.4.0"/>[1\.4.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.4.0)
 - Implementación de Upsert. Se han agregado nuevos métodos upsertXXX para admitir la característica Upsert.
@@ -61,18 +64,7 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.4.0](#1.4.0) | 05 de octubre de 2015 |---
-| [1\.3.0](#1.3.0) | 05 de octubre de 2015 |---
-| [1\.2.0](#1.2.0) | 05 de agosto de 2015 |---
-| [1\.1.0](#1.1.0) | 09 de julio de 2015 |---
-| [1\.0.1](#1.0.1) | 12 de mayo de 2015 |---
-| [1\.0.0](#1.0.0) | 07 de abril de 2015 |---
-| 0.9.5-prelease | 09 de marzo de 2015 | 29 de febrero de 2016
-| 0.9.4-prelease | 17 de febrero de 2015 | 29 de febrero de 2016
-| 0.9.3-prelease | 13 de enero de 2015 | 29 de febrero de 2016
-| 0.9.2-prelease | 19 de diciembre de 2014 | 29 de febrero de 2016
-| 0.9.1-prelease | 19 de diciembre de 2014 | 29 de febrero de 2016
-| 0.9.0-prelease | 10 de diciembre de 2014 | 29 de febrero de 2016
+| [1\.5.0](#1.5.0) | 4 de diciembre de 2015 |--- | [1\.4.0](#1.4.0) | 5 de octubre de 2015 |--- | [1\.3.0](#1.3.0) | 5 de octubre de 2015 |--- | [1\.2.0](#1.2.0) | 5 de agosto de 2015 |--- | [1\.1.0](#1.1.0) | 9 de julio de 2015 |--- | [1\.0.1](#1.0.1) | 12 de mayo de 2015 |--- | [1\.0.0](#1.0.0) | 7 de abril de 2015 |--- | 0.9.5-versión preliminar | 9 de marzo de 2015 | 29 de febrero de 2016 | 0.9.4-versión preliminar | 17 de febrero de 2015 | 29 de febrero de 2016 | 0.9.3-versión preliminar | 13 de enero de 2015 | 29 de febrero de 2016 | 0.9.2-versión preliminar | 19 de diciembre de 2014 | 29 de febrero de 2016 | 0.9.1-versión preliminar | 19 de diciembre de 2014 | 29 de febrero de 2016 | 0.9.0-versión preliminar | 10 de diciembre de 2014 | 29 de febrero de 2016
 
 ## P+F
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -81,4 +73,4 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 Para más información sobre DocumentDB, consulte la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

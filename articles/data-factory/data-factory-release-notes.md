@@ -265,7 +265,7 @@ Las actividades de HDInsight (Hive, Pig, MapReduce, Hadoop Streaming) admiten la
 ## Notas para la versión de 04/10/2015 de la Factoría de datos
 Ahora puede ver las listas **Segmentos actualizados recientemente** y **Segmentos erróneos recientes** en la hoja **TABLA**. Estas listas se ordenan por la hora de actualización del segmento. En las situaciones siguientes, se cambia la hora de actualización de un segmento.
 
--  El estado del segmento se actualiza manualmente, por ejemplo, con **Set-AzureDataFactorySliceStatus** (o) al hacer clic en **EJECUTAR** en la hoja **SEGMENTO** para el segmento.
+-  El estado del segmento se actualiza manualmente, por ejemplo, con **Set-AzureRmDataFactorySliceStatus** (o) al hacer clic en **EJECUTAR** en la hoja **SEGMENTO** para el segmento.
 -  El segmento cambia de estado debido a una ejecución (por ejemplo, una ejecución se inició, una ejecución finalizó y produjo un error, una ejecución finalizó correctamente, etc.).
 
 Haga clic en el título de las listas o **... (puntos suspensivos)** para ver la lista más amplia de segmentos. Haga clic en **Filtro** en la barra de herramientas para filtrar los segmentos.
@@ -304,7 +304,7 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
 - **SqlSink** admite una nueva propiedad: **WriteBatchTimeout**. Esta propiedad ofrece flexibilidad para configurar el tiempo que tarda en completarse la operación de inserción por lotes antes de que se agote el tiempo de espera de la operación. Para obtener una copia híbrida (operación de copia que implica un origen de datos local y un origen de datos en la nube), debe tener la puerta de enlace de la versión 1.4 o superior para usar esta propiedad. 
 - El **servicio vinculado de SQL Server** ahora admite **Autenticación de Windows**. 
 	- Al crear un servicio vinculado de SQL Server con el portal, puede optar por usar Autenticación de Windows y establecer las credenciales adecuadas. Para ello, hay que tener la puerta de enlace de la versión 1.4 o superior. 
-	- Al crear un servicio vinculado de SQL Server con Azure PowerShell, puede especificar la información de conexión en texto sin formato o cifrar la información de conexión con el cmdlet actualizado [New-AzureDataFactoryEncryptValue cmdlet][adf-encrypt-value-cmdlet] y luego usar la cadena cifrada de la propiedad de cadena de conexión en la carga de JSON del servicio vinculado. Consulte [Servicios vinculados][adf-msdn-linked-services] para obtener información sobre la definición de un servicio vinculado en JSON. La característica de cifrado aún no es compatible con el cmdlet New-AzureDataFactoryEncryptValue. 
+	- Al crear un servicio vinculado de SQL Server con Azure PowerShell, puede especificar la información de conexión en texto sin formato o cifrar la información de conexión con el cmdlet actualizado [New-AzureDataFactoryEncryptValue cmdlet](https://msdn.microsoft.com/library/mt603802.aspx) y luego usar la cadena cifrada de la propiedad de cadena de conexión en la carga de JSON del servicio vinculado. La característica de cifrado aún no es compatible con el cmdlet New-AzureRmDataFactoryEncryptValue. 
 
 ## Notas para la versión de 12/11/2014 de la Factoría de datos ##
 
@@ -318,11 +318,11 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
 ### Cambios
 
 - Se quita JobsContainer en HdInsightOnDemandLinkedService.
-	- En la definición de JSON para HDInsightOnDemandLinkedService, ya no tiene que especificar la propiedad **jobsContainer**. Si tiene la propiedad especificada para un servicio vinculado a petición, se ignora la propiedad. Puede quitar la propiedad de la definición de JSON para el servicio vinculado y actualizar la definición de servicio vinculado mediante el cmdlet New-AzureDataFactoryLinkedService.
+	- En la definición de JSON para HDInsightOnDemandLinkedService, ya no tiene que especificar la propiedad **jobsContainer**. Si tiene la propiedad especificada para un servicio vinculado a petición, se ignora la propiedad. Puede quitar la propiedad de la definición de JSON para el servicio vinculado y actualizar la definición de servicio vinculado mediante el cmdlet New-AzureRmDataFactoryLinkedService.
 - Parámetros de configuración opcionales para HDInsightOnDemandLinkedService
 	- Esta versión presenta compatibilidad con algunos parámetros de configuración opcionales para HDInsightOnDemandLinked (clúster de HDInsight a petición). Vea [Propiedades ClusterCreateParameters][on-demand-hdi-parameters] para obtener más información.
 - Se quita la ubicación de la puerta de enlace
-	- Al crear una puerta de enlace de la factoría de datos de Azure mediante el portal o PowerShell (New-AzureDataFactoryGateway), ya no necesitará especificar la ubicación para la puerta de enlace. Se heredará la región de la factoría de datos. De forma similar, para configurar un servicio vinculado de SQL Server con JSON, la propiedad "gatewayLocation" ya no es necesaria. El SDK de .NET de la factoria de datos también se actualiza para reflejar estos cambios.
+	- Al crear una puerta de enlace de Factoría de datos de Azure mediante el portal o PowerShell (New-AzureRmDataFactoryGateway), ya no necesitará especificar la ubicación de la puerta de enlace. Se heredará la región de la factoría de datos. De forma similar, para configurar un servicio vinculado de SQL Server con JSON, la propiedad "gatewayLocation" ya no es necesaria. El SDK de .NET de la factoria de datos también se actualiza para reflejar estos cambios.
 	- Si usa una versión anterior del SDK y PowerShell de Azure, seguirá teniendo que proporcionar la configuración de la ubicación.
  
      
@@ -354,4 +354,4 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

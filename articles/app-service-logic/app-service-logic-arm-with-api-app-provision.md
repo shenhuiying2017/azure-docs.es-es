@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de una aplicación lógica con una aplicación de API" 
+	pageTitle="Creación de una aplicación lógica con una aplicación de API | Microsoft Azure" 
 	description="Use una plantilla del Administrador de recursos de Azure para implementar una aplicación lógica y una aplicación de API." 
 	services="app-service\logic" 
 	documentationCenter="" 
@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="tomfitz"/>
 
 # Creación de una aplicación lógica y una aplicación de API mediante una plantilla
 
-En este tema, aprenderá a crear una plantilla del Administrador de recursos de Azure para compilar una aplicación lógica con una aplicación de API del Servicio de aplicaciones. Puede usar las aplicaciones lógicas para diseñar flujos de trabajo que articulan la intención a través de un desencadenador y una serie de pasos, que invocan a una aplicación de API, al tiempo que se ocupan de forma segura de la autenticación y los procedimientos recomendados, como ejecución duradera.
+En este tema, aprenderá a crear una plantilla del Administrador de recursos de Azure para crear una aplicación lógica con una aplicación de API del Servicio de aplicaciones. Puede usar las aplicaciones lógicas para diseñar flujos de trabajo que articulan la intención a través de un desencadenador y una serie de pasos, que invocan a una aplicación de API, al tiempo que se ocupan de forma segura de la autenticación y los procedimientos recomendados, como ejecución duradera.
 
 Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
-Para obtener más detalles sobre las propiedades de la aplicación lógica, consulte [API de administración de flujos de trabajo de aplicaciones lógicas](https://msdn.microsoft.com/library/azure/dn948513.aspx). Para obtener ejemplos de la propia definición, consulte [Creación de definiciones de aplicaciones lógicas](app-service-logic-author-definitions.md).
+Para obtener más detalles sobre las propiedades de la aplicación lógica, consulte [API de administración de flujos de trabajo de aplicaciones lógicas](https://msdn.microsoft.com/library/azure/dn948513.aspx).
+
+Para obtener ejemplos de la propia definición, consulte [Creación de definiciones de aplicaciones lógicas](app-service-logic-author-definitions.md).
 
 Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
@@ -30,12 +32,12 @@ Para la plantilla completa, consulte [Aplicación lógica con una plantilla de a
 
 ## Lo que implementará
 
-Con esta plantilla, proporcionará:
+Con esta plantilla, aprovisiona lo siguiente:
 
 - Aplicación lógica
 - Aplicación de API
 
-Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
+Para ejecutar automáticamente la implementación, seleccione el botón siguiente:
 
 [![Implementación en Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-api-app-create%2Fazuredeploy.json)
 
@@ -394,4 +396,4 @@ Observe que la aplicación lógica utiliza el token para llamar a la puerta de e
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

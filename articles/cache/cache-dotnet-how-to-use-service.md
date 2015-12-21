@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Cómo usar el Servicio de caché administrado de Azure
 
 En esta guía se explica cómo comenzar a usar el **Servicio de caché administrado de Azure**. Los ejemplos se escriben en código C# y usan la API .NET. Entre los escenarios tratados se incluyen la **creación y configuración de una caché**, la **configuración de clientes de caché**, la **incorporación y eliminación de objetos en la caché, el almacenamiento del estado de sesión ASP.NET en la caché** y la **activación de la caché de resultados de la página ASP.NET con el uso de la caché**. Para obtener más información acerca del uso del servicio de caché de Azure, consulte la sección [Pasos siguientes][].
 
->Si quiere que le guiemos para elegir la oferta de Caché de Azure que mejor se adapta a su aplicación, consulte [¿Cuál es la oferta de Caché de Azure más adecuada para mí?][].
+>[AZURE.IMPORTANT]El 30 de noviembre de 2016 se retirará el Servicio de caché administrado de Azure y la Caché en rol de Azure. Se recomienda que migre a la Caché en Redis de Azure con vistas a prepararse para la mencionada retirada. Para obtener más información sobre las fechas y la guía de migración, consulte [¿Qué oferta de caché de Azure es adecuada para mí?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
 
 <a name="what-is"></a>
 ## ¿Qué es el Servicio de caché administrado de Azure?
@@ -59,7 +59,7 @@ Comenzar a usar el Servicio de caché administrado es muy fácil. En primer luga
 
 Las instancias de caché del Servicio de caché administrado se crean usando cmdlets de PowerShell.
 
->Una vez que se haya creado una instancia del Servicio de caché administrado con los cmdlets de PowerShell, esta se puede ver y configurar en el [Portal de administración de Azure][].
+>Una vez que se haya creado una instancia del Servicio de caché administrado con los cmdlets de PowerShell, esta se puede ver y configurar en el [Portal de Azure clásico][].
 
 Para crear una instancia del Servicio de caché administrado, abra una ventana de comandos de Azure PowerShell.
 
@@ -91,7 +91,7 @@ Elija los valores de **Sku** y **Memoria** que se ajusten a las necesidades de s
 
 >Para obtener una lista completa de parámetros y valores que se pueden usar cuando se crea una caché, vea la documentación del cmdlet [New-AzureManagedCache][].
 
-Tras invocar al cmdlet de PowerShell, la creación de la memoria caché puede tardar unos minutos. Una vez creada la memoria caché, su estado es `Running`, está preparada para usarse con la configuración predeterminada y se puede ver y configurar en el [Portal de administración de Azure][]. Para personalizar la configuración de la caché, consulte la sección siguiente, [Configuración de la memoria caché][].
+Tras invocar al cmdlet de PowerShell, la creación de la memoria caché puede tardar unos minutos. Una vez creada la memoria caché, su estado es `Running`, está preparada para usarse con la configuración predeterminada y se puede ver y configurar en el [Portal de Azure clásico][]. Para personalizar la configuración de la caché, consulte la sección siguiente, [Configuración de la memoria caché][].
 
 Puede supervisar el progreso de creación en la ventana de Azure PowerShell. Cuando la memoria caché está preparada para el uso, el cmdlet [New-AzureManagedCache][] mostrará la información de la caché, como se puede ver en el siguiente ejemplo.
 
@@ -124,7 +124,7 @@ Puede supervisar el progreso de creación en la ventana de Azure PowerShell. Cua
 <a name="enable-caching"></a>
 ## Configuración de la memoria caché
 
-Para configurar las opciones de la caché, debe utilizar la pestaña **Configure** correspondiente al servicio de caché del Portal de administración. Toda caché tiene una caché con nombre **predeterminada**, pero las ofertas de caché estándar y premium admiten hasta nueve cachés con nombre adicionales, que hacen un total de diez. Cada caché con nombre dispone de opciones propias que le permiten configurar la caché de una manera muy flexible.
+Para configurar las opciones de la caché, debe utilizar la pestaña **Configurar** correspondiente al servicio de caché del Portal de Azure clásico. Toda caché tiene una caché con nombre **predeterminada**, pero las ofertas de caché estándar y premium admiten hasta nueve cachés con nombre adicionales, que hacen un total de diez. Cada caché con nombre dispone de opciones propias que le permiten configurar la caché de una manera muy flexible.
 
 ![CachésConNombre][NamedCaches]
 
@@ -222,11 +222,11 @@ Estas nuevas secciones incluyen referencias a un elemento **dataCacheClients**, 
 
 Una vez agregada la configuración, reemplace los siguientes dos elementos de la misma.
 
-1. Reemplace **[Nombre del rol de caché o extremo de servicio]** por el extremo, que aparece en el panel del Portal de administración.
+1. Reemplace **[Nombre del rol de caché o punto de conexión de servicio]** por el punto de conexión, que aparece en el Panel del Portal de Azure clásico.
 
 	![Extremo][Endpoint]
 
-2. Elimine los comentarios de la sección securityProperties y reemplace **[Clave de autenticación]** por la clave de autenticación, que se puede encontrar en el Portal de administración haciendo clic en **Manage Keys** del panel de caché.
+2. Quite la marca de comentario de la sección securityProperties y reemplace **[Clave de autenticación]** por la clave de autenticación, que se puede encontrar en el Portal de Azure clásico haciendo clic en **Administrar claves** en el panel de caché.
 
 	![ClavesDeAcceso][AccessKeys]
 
@@ -331,7 +331,7 @@ El método **Put** agrega el objeto con la clave especificada a la caché si no 
 <a name="specify-expiration"></a>
 ## Especificación de la expiración de un objeto en la memoria caché
 
-De forma predeterminada, los elementos de la caché expiran 10 minutos después de colocarlos en la caché. Este valor se puede configurar en **Time (min)** en la pestaña Configure para la caché en el Portal de administración.
+De forma predeterminada, los elementos de la caché expiran 10 minutos después de colocarlos en la caché. Este valor se puede configurar en la sección **Tiempo (minutos)** de la pestaña Configurar para la caché en el Portal de Azure clásico.
 
 ![CachésConNombre][NamedCaches]
 
@@ -449,7 +449,7 @@ Ahora que está familiarizado con los aspectos básicos del Servicio de caché a
   
    
 <!-- LINKS -->
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Proveedor de estado de sesión para la caché de Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
@@ -468,7 +468,6 @@ Ahora que está familiarizado con los aspectos básicos del Servicio de caché a
 [Diagnóstico y solución de problemas]: http://go.microsoft.com/fwlink/?LinkId=320839
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Detalles de precios de caché]: http://www.windowsazure.com/pricing/details/cache/
-[Management Portal]: https://manage.windowsazure.com/
 [Ofertas de caché]: http://go.microsoft.com/fwlink/?LinkId=317277
 [Capacity planning]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Caducidad y expulsión]: http://go.microsoft.com/fwlink/?LinkId=317278
@@ -483,7 +482,7 @@ Ahora que está familiarizado con los aspectos básicos del Servicio de caché a
 [Add-AzureAccount]: http://msdn.microsoft.com/library/dn495128.aspx
 [Select-AzureSubscription]: http://msdn.microsoft.com/library/dn495203.aspx
 
-[¿Cuál es la oferta de Caché de Azure más adecuada para mí?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
+[Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

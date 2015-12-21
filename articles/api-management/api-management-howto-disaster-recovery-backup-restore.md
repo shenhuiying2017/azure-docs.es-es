@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Administración de API de Azure
@@ -36,9 +36,9 @@ Todas las tareas que se realizan en los recursos mediante el Administrador de re
 -	Establezca permisos para la aplicación que ha agregado.
 -	Obtenga el token para autenticar solicitudes al Administrador de recursos de Azure.
 
-El primer paso es crear una aplicación de Azure Active Directory. Inicie sesión en el [portal de administración](http://manage.windowsazure.com/) mediante la suscripción que contiene la instancia del servicio Administración de API y navegue hasta la pestaña **Aplicaciones** para el Azure Active Directory predeterminado.
+El primer paso es crear una aplicación de Azure Active Directory. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com/) mediante la suscripción que contiene la instancia del servicio Administración de API y navegue hasta la pestaña **Aplicaciones** para su Azure Active Directory predeterminado.
 
->[AZURE.NOTE]Si el directorio predeterminado de Azure Active Directory no está visible en su cuenta, póngase en contacto con el administrador de la suscripción de Azure para que le conceda los permisos necesarios para su cuenta. Para obtener información sobre cómo localizar el directorio predeterminado, consulte [Buscar el directorio predeterminado en el Portal de Azure](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
+>[AZURE.NOTE]Si el directorio predeterminado de Azure Active Directory no está visible en su cuenta, póngase en contacto con el administrador de la suscripción de Azure para que le conceda los permisos necesarios para su cuenta. Para obtener información sobre cómo localizar el directorio predeterminado, consulte [Buscar el directorio predeterminado](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
 
 ![Creación de una aplicación de Azure Active Directory][api-management-add-aad-application]
 
@@ -189,4 +189,4 @@ Consulte los siguientes blogs de Microsoft para dos tutoriales diferentes del pr
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

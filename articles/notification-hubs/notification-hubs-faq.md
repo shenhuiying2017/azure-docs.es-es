@@ -40,7 +40,7 @@ Tenemos numerosos clientes que utilizan los Centros de notificaciones. A continu
 * Aplicaciones de Bing: decenas de millones de dispositivos, envío de 3 millones de notificaciones al día
 
 ###4\. ¿Cómo puedo actualizar o degradar mis Centros de notificaciones para cambiar el nivel de servicio?
-Vaya al [Portal de Azure], haga clic en el Bus de servicio, luego en el espacio de nombres y finalmente en el Centro de notificaciones. En la pestaña Escalar, podrá cambiar el nivel de servicio de los Centros de notificaciones.
+Vaya al [Portal de Azure clásico], haga clic en Bus de servicio, luego en el espacio de nombres y finalmente en el centro de notificaciones. En la pestaña Escalar, podrá cambiar el nivel de servicio de los Centros de notificaciones.
 
 ##Diseño y desarrollo
 ###1\. ¿Qué plataformas de servicio admiten?
@@ -104,16 +104,16 @@ Se recomienda usar un back-end de aplicación que:
 Si no dispone de un backend, cuando la aplicación se inicie en los dispositivos, estos realizarán un nuevo registro en el centro de notificaciones secundario y, finalmente, el centro de notificaciones secundario tendrá todos los dispositivos activos registrados, pero habrá un periodo durante el cual los dispositivos donde las aplicaciones no se hayan abierto no recibirán notificaciones.
 
 ###2\. ¿Hay alguna funcionalidad de registro de auditoría?
-Todas las operaciones de administración de los centros de notificación van a los registros de operaciones, que se exponen en el Portal de administración de Azure.
+Todas las operaciones de administración de los centros de notificaciones van a los registros de operaciones, que se exponen en el [Portal de Azure clásico].
 
 ##Supervisión y solución de problemas
 ###1\. ¿Qué funcionalidades de solución de problemas hay disponibles?
-Los Centros de notificaciones de Azure proporcionan varias características para la solución de problemas comunes, especialmente en el escenario más común sobre las notificaciones quitadas. Vea los detalles en el artículo sobre solución de problemas [Solución de problemas de los Centros de notificaciones].
+Los Centros de notificaciones de Azure proporcionan varias características para la solución de problemas comunes, especialmente en el escenario más común sobre las notificaciones quitadas. Consulte los detalles en este artículo de solución de problemas [Centros de notificaciones de Azure: pautas de diagnóstico].
 
 ###2\. ¿Qué características de telemetría hay disponibles?
-Los Centros de notificaciones Azure permiten ver los datos de telemetría en el Portal de administración de Azure. Puede encontrar detalles de las métricas disponibles en [Métricas de los centros de notificaciones]. Tenga en cuenta que con "notificaciones correctas" solo se indica que estas notificaciones se han entregado al servicio de notificación de inserción externo (APNS de Apple, GCM para Google, etc.) y, a continuación, al PNS para entregarse a los dispositivos. El PNS no nos muestra estas métricas. También proporciona la funcionalidad de exportar la telemetría mediante programación (en el nivel estándar). Vea este ejemplo para obtener más información: [Ejemplo de métricas de Centro de notificaciones].
+Los Centros de notificaciones Azure permiten ver los datos de telemetría en el [Portal de Azure clásico]. Puede encontrar detalles de las métricas disponibles en [Metrics]. Tenga en cuenta que con "notificaciones correctas" solo se indica que estas notificaciones se han entregado al servicio de notificación de inserción externo (APNS de Apple, GCM para Google, etc.) y, a continuación, al PNS para entregarse a los dispositivos. El PNS no nos muestra estas métricas. También proporciona la funcionalidad de exportar la telemetría mediante programación (en el nivel estándar). Consulte este [ejemplo de métricas de Centro de notificaciones] para más información.
 
-[Portal de Azure]: https://manage.windowsazure.com
+[Portal de Azure clásico]: https://manage.windowsazure.com
 [Precios de los Centros de notificaciones]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [SLA de Centros de notificaciones]: http://azure.microsoft.com/support/legal/sla/
 [Caso práctico: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -129,9 +129,9 @@ Los Centros de notificaciones Azure permiten ver los datos de telemetría en el 
 [Instrucciones de registro de back-end - 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [Seguridad]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [Inserción segura de los Centros de notificaciones de Azure]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Solución de problemas de los Centros de notificaciones]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[Métricas de los centros de notificaciones]: https://msdn.microsoft.com/library/dn458822.aspx
-[Ejemplo de métricas de Centro de notificaciones]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
+[Centros de notificaciones de Azure: pautas de diagnóstico]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Metrics]: https://msdn.microsoft.com/library/dn458822.aspx
+[ejemplo de métricas de Centro de notificaciones]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Exportación e importación de registros]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

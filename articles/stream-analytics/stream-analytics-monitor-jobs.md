@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Supervisión de trabajos de Análisis de transmisiones mediante programación | Microsoft Azure" 
-	description="Obtenga información sobre cómo supervisar los trabajos de Análisis de transmisiones creados a través de las API de REST, el SDK de Azure o Powershell." 
+	description="Obtenga información sobre cómo supervisar los trabajos de Análisis de transmisiones creados a través de las API de REST, el SDK de Azure o Powershell."
+	keywords="supervisión de .net monitor, supervisión de trabajos, aplicación de supervisión"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,14 +14,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 
-# Supervisión de trabajos de Análisis de transmisiones mediante programación 
-En este artículo se demuestra cómo habilitar la supervisión de un trabajo de Análisis de transmisiones. Los trabajos de Análisis de transmisiones creados a través de las API de REST, el SDK de Azure o Powershell no tienen habilitada la supervisión de forma predeterminada. Puede habilitarla manualmente en el Portal de Azure navegando hasta la página Supervisión del trabajo y haciendo clic en Habilitar, o bien puede automatizar este proceso siguiendo los pasos que se describen en este artículo. Los datos de supervisión se mostrarán en la pestaña "Supervisión" en el Portal de Azure para el trabajo de Análisis de transmisiones.
+# Creación de supervisión de trabajos de Análisis de transmisiones mediante programación
+ En este artículo se demuestra cómo habilitar la supervisión de un trabajo de Análisis de transmisiones. Los trabajos de Análisis de transmisiones creados a través de las API de REST, el SDK de Azure o Powershell no tienen habilitada la supervisión de forma predeterminada. Puede habilitarla manualmente en el Portal de Azure navegando hasta la página Supervisión del trabajo y haciendo clic en Habilitar, o bien puede automatizar este proceso siguiendo los pasos que se describen en este artículo. Los datos de supervisión se mostrarán en la pestaña "Supervisión" en el Portal de Azure para el trabajo de Análisis de transmisiones.
 
-![Pestaña Supervisión de trabajos](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
+![Pestaña Trabajos de Supervisión de trabajos](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
 
 ## Requisitos previos
 Antes de empezar este artículo, debe tener lo siguiente:
@@ -178,4 +179,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

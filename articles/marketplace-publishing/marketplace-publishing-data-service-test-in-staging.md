@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/24/2015"
+   ms.date="12/03/2015"
    ms.author="hascipio; avikova" />
 
 # Probar su oferta de Servicio de datos en Ensayo
-Después de completar los dos primeros pasos de [Creación de las cuentas de vendedores de Microsoft en el panel de vendedores](marketplace-publishing-accounts-creation-registration.md) y [Creación de la oferta de Servicio de datos en el portal de publicación](marketplace-publishing-data-service-creation.md), estará listo para realizar la oferta disponible en Azure Marketplace. Este tema le guiará a través del primer paso intermedio denominado "Almacenamiento provisional"
+Después de completar los dos primeros pasos de [Creación de la cuenta de desarrollador de Microsoft](marketplace-publishing-accounts-creation-registration.md) y [Creación de la oferta de servicio de datos en el portal de publicación](marketplace-publishing-data-service-creation.md), está listo para realizar la oferta disponible en Azure Marketplace. Este tema le guiará a través del primer paso intermedio denominado "Almacenamiento provisional"
 
 En la etapa de ensayo se implementa la oferta en un “espacio aislado” privado, donde puede probar y comprobar su funcionalidad antes pasarla a producción. La oferta aparecerá en un entorno de ensayo tal y como lo haría para un cliente que la implementase.
 
@@ -86,4 +86,4 @@ Si está satisfecho y listo para publicar su oferta, lea la documentación [Soli
 ## Otras referencias
 - [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/01/2015" 
 	ms.author="wesmc;ricksal"/>
 
 # Solución de problemas en el backend .NET de Servicios móviles
@@ -73,7 +73,7 @@ Una de las principales características del backend .NET es la capacidad para de
 
     ![Configure la carga de símbolos][SymbolLoading]
 
-3. Seleccione el nodo **Símbolos** a la izquierda y agregue una referencia al servidor (SymbolSource) [http://symbolsource.org] con el URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Los símbolos para el backend .NET de Servicios móviles están disponibles aquí con cada nueva versión.
+3. Seleccione el nodo **Símbolos** a la izquierda y agregue una referencia al servidor [SymbolSource] mediante el URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Los símbolos para el backend .NET de Servicios móviles están disponibles aquí con cada nueva versión.
 
     ![Configure el servidor de símbolos][SymbolServer]
 
@@ -121,7 +121,7 @@ Los mismos registros están disponibles también en el Portal de Azure clásico 
 
 Al publicar el servicio móvil en Azure, se carga en el entorno de hospedaje de Servicios móviles, que garantiza actualizaciones y revisiones sin problemas de la canalización HTTP que hospeda el código del controlador. Esto incluye todos los ensamblados a los que se hace referencia en los [paquetes de NuGet para back-end de .NET](http://www.nuget.org/packages?q=%22mobile+services+.net+backend%22): el equipo actualiza constantemente el servicio para usar las versiones más recientes de esos ensamblados.
 
-A veces se pueden introducir conflictos de versiones al hacer referencia a *diferentes versiones principales* de los ensamblados necesarios (se permiten versiones *secundarias* diferentes). Esto ocurre a menudo cuando NuGet le insta a actualizar a la última versión de uno de los paquetes que utiliza el backend .NET de Servicios móviles.
+A veces se pueden introducir conflictos de versiones al hacer referencia a *diferentes versiones principales* de los ensamblados necesarios (se permiten versiones *secundarias* diferentes). Esto ocurre a menudo cuando NuGet le pide que actualice a la última versión de uno de los paquetes que utiliza el back-end .NET de Servicios móviles.
 
 >[AZURE.NOTE]Los Servicios móviles actualmente solo son compatibles con ASP.NET 5.1; ASP.NET 5.2 no es compatible actualmente. La actualización de los paquetes de NuGet de ASP.NET a 5.2.* puede producir un error después de la implementación.
 
@@ -159,4 +159,8 @@ Las migraciones pueden ser complejas y pueden requerir que se mantenga el estado
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=AcomDC_1203_2015-->
+
+<!-- Links -->
+[SymbolSource]: http://symbolsource.org
+
+<!---HONumber=AcomDC_1210_2015-->

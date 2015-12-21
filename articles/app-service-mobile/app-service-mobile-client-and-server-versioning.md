@@ -27,7 +27,7 @@ Los SDK de cliente y servidor de Aplicaciones móviles originalmente se basaban 
 
 Nota: cada vez que este documento hace referencia a un back-end de *Servicios móviles*, no es necesario que esté hospedado en Servicios móviles. Ahora es posible migrar un servicio móvil para que se ejecute en Servicio de aplicaciones sin realizar ningún cambio en el código, pero el servicio seguiría usando versiones de SDK de *Servicios móviles*.
 
-Para obtener más información sobre la migración a Servicio de aplicaciones sin realizar ningún cambio en el código, vea el artículo [Migración de un servicio móvil a Servicio de aplicaciones de Azure].
+Para más información sobre la migración al Servicio de aplicaciones sin realizar ningún cambio en el código, consulte el artículo [Migrate your existing Azure mobile service to App Service].
 
 ## Especificación del encabezado
 
@@ -88,7 +88,7 @@ Nota: los SDK de cliente de Servicios móviles *no* envían un valor de encabeza
 
 ### Comportamiento de back-ends de Servicios móviles
 
-| ZUMO-API-VERSION | Valor de MS\_SkipVersionCheck | Respuesta |
+| ZUMO-API-VERSION | Valor de MS\_SkipVersionCheck | Response |
 | ---------------- | ---------------------------- | -------- |
 | Sin especificar | Cualquiera | 200 - CORRECTO |
 | Cualquier valor | True | 200 - CORRECTO |
@@ -96,7 +96,7 @@ Nota: los SDK de cliente de Servicios móviles *no* envían un valor de encabeza
 
 ## <a name="2.0.0"></a>Cliente y servidor de Aplicaciones móviles de Azure
 
-### <a name="MobileAppsClients"></a> SDK de *Aplicaciones * móviles
+### <a name="MobileAppsClients"></a> SDK de cliente de *Aplicaciones* móviles
 
 La comprobación de versión se introdujo a partir de las siguientes versiones del SDK de cliente de **Aplicaciones móviles de Azure**:
 
@@ -120,7 +120,7 @@ La comprobación de versión se incluye en las siguientes versiones del SDK de s
 
 ### Comportamiento de back-ends de Aplicaciones móviles
 
-| ZUMO-API-VERSION | Valor de MS\_SkipVersionCheck | Respuesta |
+| ZUMO-API-VERSION | Valor de MS\_SkipVersionCheck | Response |
 | ---------------- | ---------------------------- | -------- |
 | x.y.z o Null | True | 200 - CORRECTO |
 | Null | False/Sin especificar | 400 - Solicitud incorrecta |
@@ -139,6 +139,7 @@ La comprobación de versión se incluye en las siguientes versiones del SDK de s
 
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Migración de un servicio móvil a Servicio de aplicaciones de Azure]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[Migración de un servicio móvil a Servicio de aplicaciones de Azure]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Azure mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

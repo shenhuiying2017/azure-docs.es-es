@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/13/2015"
+   ms.date="12/04/2015"
    ms.author="ryanwi"/>
 
 # Administrar un servicio de Service Fabric
@@ -28,13 +28,13 @@ En los temas siguientes se describe el modelo de aplicación de Service Fabric, 
 - [Empaquetar una aplicación](service-fabric-application-model.md)
 - [Implementar y quitar una aplicación](service-fabric-deploy-remove-applications.md)
 - [Implementar una aplicación existente](service-fabric-deploy-existing-app.md)
+- [Ejecución de una aplicación de Service Fabric con diferentes permisos de seguridad](service-fabric-application-runas-security.md)
 - [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 
 ## Actualizar una aplicación
 Lea lo siguiente para obtener información sobre cómo actualizar una aplicación:
 
 - [Actualización de la aplicación de Service Fabric con Visual Studio](service-fabric-application-upgrade.md)
-- [Actualización de aplicaciones de Service Fabric con PowerShell](service-fabric-application-upgrade-powershell.md)
 - [Tutorial de actualización de la aplicación](service-fabric-application-upgrade-tutorial.md)
 - [Parámetros de actualización](service-fabric-application-upgrade-parameters.md)
 - [Actualización manual y actualización con un paquete de diferencias](service-fabric-application-upgrade-advanced.md)
@@ -48,6 +48,12 @@ En los siguientes artículos se describen el escalado y la creación de particio
 - [Escalar aplicaciones de Service Fabric](service-fabric-concepts-scalability.md)
 
 ## Administración de un clúster
+- [Configuración de un clúster de Service Fabric en el Portal de Azure](service-fabric-cluster-creation-via-portal.md)
+- [Configuración de un clúster de Service Fabric mediante una plantilla de ARM](service-fabric-cluster-creation-via-arm.md)
+- [Actualización de un clúster de Service Fabric](service-fabric-cluster-upgrade.md)
+- [Protección de un clúster de Service Fabric](service-fabric-cluster-security.md)
+- [Escalado o reducción vertical de un clúster de Service Fabric agregando o quitando máquinas virtuales](service-fabric-cluster-scale-up-down.md)
+- [Implementación de un clúster de Service Fabric en Windows o Linux](service-fabric-deploy-anywhere.md)
 - [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

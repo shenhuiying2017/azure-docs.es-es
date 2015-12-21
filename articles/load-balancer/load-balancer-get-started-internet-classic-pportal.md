@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Introducción a la creación de un equilibrador de carga orientado a Internet en un modelo de implementación clásica con el portal de Azure | Microsoft Azure"
-   description="Obtenga información acerca de cómo crear un equilibrador de carga orientado a Internet en el modelo de implementación clásica mediante el Portal de vista previa."
+   description="Obtenga información sobre cómo crear un equilibrador de carga orientado a Internet en el modelo de implementación clásica mediante el portal de Azure"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
-# Introducción a la creación de un equilibrador de carga orientado a Internet (clásico) en el Portal de vista previa
+# Introducción a la creación de un equilibrador de carga orientado a Internet (clásico) en el portal de Azure
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -30,9 +30,9 @@
 
 
 
-## Introducción a la creación de un punto de conexión del equilibrador de carga mediante el portal de vista previa	
+## Introducción a la creación de un punto de conexión del equilibrador de carga mediante el Portal de Azure	
 
-Para crear un modelo de implementación de equilibrador de carga orientado a Internet (clásico) desde el Portal de vista previa, siga estos pasos.
+Para crear un modelo de implementación de equilibrador de carga accesible desde Internet (clásica) desde el Portal de Azure, siga estos pasos.
 
 1. Desde un explorador, vaya a http://portal.azure.com y, si es necesario, inicie sesión con su cuenta de Azure.
 
@@ -66,4 +66,4 @@ Para crear un modelo de implementación de equilibrador de carga orientado a Int
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

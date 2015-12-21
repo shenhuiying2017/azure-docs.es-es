@@ -14,17 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="12/09/2015"
    ms.author="guayan"/>
 
 # Registrar una API de la definición de la API de Swagger 2.0  
 Muchas organizaciones ya tienen algunas API existentes que los usuarios pueden usar y consumir dentro de sus aplicaciones. Para usar estas API en sus aplicaciones, debe "registrar" las API en el Portal de Azure. Están disponibles las siguientes opciones:
 
-- Registre una [API administrada por Microsoft o una API administrada por TI](powerapps-register-from-available-apis.md)
-- Registre una API hospedada dentro del [entorno del Servicio de aplicaciones](powerapps-register-api-hosted-in-app-service.md)
-- Regístrela mediante una definición de API de Swagger 2.0
+- Registro de una [API administrada por Microsoft o una API administrada por TI](powerapps-register-from-available-apis.md) integrada.
+- Registro de una aplicación web, una aplicación de API y una aplicación móvil hospedada en el [entorno del Servicio de aplicaciones](powerapps-register-api-hosted-in-app-service.md).
+- Registro de una de sus propias API de Swagger mediante una definición de API de Swagger 2.0 (en este tema).
 
-En este artículo se muestra cómo **registrar una definición de la API de Swagger 2.0** creada a partir de una API existente.
+En este artículo se muestra cómo **registrar una de sus propias API mediante la definición de API de Swagger 2.0** que ha creado a partir de una API existente.
 
 #### Requisitos previos para empezar
 
@@ -46,24 +46,25 @@ Es muy fácil registrar estas API existentes. Los pasos incluyen:
 4. En Administrar API, seleccione **Agregar**: ![][12]
 5. En **Agregar API**, especifique las propiedades de la API:  
 
-	- En **Nombre**, escriba un nombre para la API. Tenga en cuenta que el nombre que introduzca se incluirá en la dirección URL de tiempo de ejecución de la API. Elija un nombre descriptivo y único dentro de su organización.
+	- En **Nombre**, escriba un nombre para la API. Tenga en cuenta que el nombre que escriba se incluirá en la dirección URL de tiempo de ejecución de la API. Elija un nombre descriptivo y único dentro de su organización.
 	- En **Origen**, seleccione **Importar desde Swagger 2.0**.
 
 6. En **Definición de la API (Swagger 2.0)**, cargue el archivo de definición de la API de Swagger 2.0: ![][13]
 7. Seleccione **AGREGAR** para completar estos pasos.
 
-> [AZURE.TIP]Cuando registre una API, la registrará en su entorno del Servicio de aplicaciones. Una vez se encuentre en el entorno del Servicio de aplicaciones, otras aplicaciones pueden usarlo dentro del mismo entorno del Servicio de aplicaciones.
+> [AZURE.TIP]Cuando registre una API, la registrará en su entorno del Servicio de aplicaciones. Una vez se encuentre en el entorno del Servicio de aplicaciones, otras aplicaciones pueden usarla dentro del mismo entorno del Servicio de aplicaciones.
 
 ## Resumen y pasos siguientes
 
-En este tema, ha visto cómo registrar una API de la definición de la API de Swagger 2.0. Estos son algunos temas y recursos relacionados que le permitirán obtener más información acerca de PowerApps:
+En este tema, ha visto cómo registrar una API de la definición de la API de Swagger 2.0. Estos son algunos temas y recursos relacionados que le permitirán obtener más información sobre PowerApps:
 
-- [Configurar API](powerapps-configure-apis.md)
-- [Agregar una nueva API](powerapps-register-from-available-apis.md)
+- [Configuración de las propiedades de API](powerapps-configure-apis.md)
+- [Dar a los usuarios acceso a las API](powerapps-manage-api-connection-user-access.md)
+- [Empezar a crear sus aplicaciones en PowerApps](https://powerapps.microsoft.com/tutorials/)
 
 <!--References-->
 [11]: ./media/powerapps-register-existing-api-from-api-definition/registered-apis-part.png
 [12]: ./media/powerapps-register-existing-api-from-api-definition/add-api-button.png
 [13]: ./media/powerapps-register-existing-api-from-api-definition/add-api-blade.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

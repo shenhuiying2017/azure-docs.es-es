@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # P+F de Caché en Redis de Azure
@@ -84,7 +84,7 @@ Los tiempos de expiración se producen en el cliente que usa para comunicarse co
 <a name="cache-monitor"></a>
 ## ¿Cómo se puede supervisar el estado y el rendimiento de la memoria caché?
 
-Se pueden supervisar las instancias de Caché en Redis de Microsoft Azure en el [Portal de vista previa de Azure](https://portal.azure.com). Puede ver las métricas, anclar los gráficos de métricas al panel de inicio, personalizar el intervalo de fecha y hora de los gráficos de supervisión, agregar y quitar métricas de los gráficos y establecer alertas cuando se cumplen determinadas condiciones. Estas herramientas permiten supervisar el estado de las instancias de Caché en Redis de Azure y ayudarle a administrar sus aplicaciones de almacenamiento en caché. Para obtener más información acerca de cómo supervisar las memorias caché, consulte [Supervisión de Caché en Redis de Azure](https://msdn.microsoft.com/library/azure/dn763945.aspx).
+Se pueden supervisar las instancias de Caché en Redis de Microsoft Azure en el [Portal de Azure](https://portal.azure.com). Puede ver las métricas, anclar los gráficos de métricas al panel de inicio, personalizar el intervalo de fecha y hora de los gráficos de supervisión, agregar y quitar métricas de los gráficos y establecer alertas cuando se cumplen determinadas condiciones. Estas herramientas permiten supervisar el estado de las instancias de Caché en Redis de Azure y ayudarle a administrar sus aplicaciones de almacenamiento en caché. Para obtener más información acerca de cómo supervisar las memorias caché, consulte [Supervisión de Caché en Redis de Azure](https://msdn.microsoft.com/library/azure/dn763945.aspx).
 
 <a name="cache-disconnect"></a>
 ## ¿Por qué se desconectó el cliente desde la memoria caché?
@@ -157,7 +157,7 @@ Para obtener instrucciones acerca de cómo descargar las herramientas de Redis, 
 <a name="cache-benchmarking"></a>
 ## ¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?
 
--	[Habilite los diagnósticos de caché](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) para que pueda [supervisar](https://msdn.microsoft.com/library/azure/dn763945.aspx) el estado de la memoria caché. Puede ver las métricas en el portal de vista previa y también [descargarlas y revisarlas](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) con las herramientas que prefiera.
+-	[Habilite los diagnósticos de caché](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) para que pueda [supervisar](https://msdn.microsoft.com/library/azure/dn763945.aspx) el estado de la memoria caché. Puede ver las métricas en el Portal de Azure y también [descargarlas y revisarlas](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) mediante el uso de las herramientas que prefiera.
 -	Puede utilizar redis-benchmark.exe para la prueba de carga del servidor Redis.
 	-	Asegúrese de que la prueba de carga del cliente y de la caché de Redis se encuentran la misma región.
 -	Use redis cli.exe y supervise la memoria caché mediante el comando INFO.
@@ -169,7 +169,7 @@ Para obtener instrucciones acerca de cómo descargar las herramientas de Redis, 
 
 Puede usar cualquiera de los comandos enumerados en [Comandos de Redis](http://redis.io/commands#), excepto los comandos mostrados en [Comandos de Redis no admitidos en Caché en Redis de Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Para ejecutar los comandos de Redis tiene varias opciones.
 
--	Si tiene una caché Estándar o Premium, puede ejecutar comandos de Redis mediante la [Consola de Redis](cache-configure.md#redis-console). Esto ofrece una manera segura de ejecutar comandos de Redis en el portal de vista previa.
+-	Si tiene una caché Estándar o Premium, puede ejecutar comandos de Redis mediante la [Consola de Redis](cache-configure.md#redis-console). Esto ofrece una manera segura de ejecutar comandos de Redis en el portal de Azure.
 -	Use las herramientas de línea de comandos de Redis. Para usarlas, realizará los siguientes pasos.
 	-	Descargue las [herramientas de línea de comandos de Redis](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
 	-	Conexión a la memoria caché mediante `redis-cli.exe`. Pase el extremo de caché mediante que el modificador -h y la clave mediante - a, tal como se muestra en el ejemplo siguiente.
@@ -202,9 +202,20 @@ Caché de Azure tiene tres ofertas actualmente:
 -	Servicio de caché administrado de Azure
 -	Caché en rol de Azure
 
+>[AZURE.IMPORTANT]El 30 de noviembre de 2016 se retirará el Servicio de caché administrado de Azure y la Caché en rol de Azure. Se recomienda que migre a la Caché en Redis de Azure con vistas a prepararse para la mencionada retirada.
+>
+>Caché en Redis de Azure ha sido la solución recomendada de almacenamiento en caché de Azure, ya que el servicio ya está disponible con carácter general en todas las regiones de Azure, incluidas China y el gobierno de Estados Unidos. Debido a esta disponibilidad, anunciamos la próxima retirada para el Servicio de caché administrado y el Caché en rol.
+>
+>El Servicio de caché administrado y el servicio de Caché en rol seguirán estando disponibles para los clientes existentes durante un máximo de 12 meses a partir de la fecha de este anuncio el 30 de noviembre de 2015; la última fecha para el final del servicio será el 30 de noviembre de 2016. Tras esta fecha, se cerrará el Servicio de caché administrado y ya no se admitirá el servicio de Caché en rol.
+>
+>Eliminaremos la compatibilidad para la creación de nuevas cachés en rol en el primer SDK de Azure que tendrá lugar después del 1 de febrero de 2016. Los clientes podrán abrir proyectos existentes que tengan memorias caché en rol.
+>
+>Durante este período, animamos a todos los clientes actuales del Servicio de caché administrado y el servicio de Caché en rol para migrar a la Caché en Redis de Azure. Caché en Redis de Azure ofrece más características y un mejor valor general. Para más información sobre la migración, visite la página web de documentación [Migración desde el Servicio de caché administrado a Caché en Redis de Azure](cache-migrate-to-redis.md).
+>
+>Si tiene preguntas, [póngase en contacto con nosotros](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933).
 
 ### Caché en Redis de Azure
-Caché en Redis de Azure está disponible con carácter general en tamaños de hasta 53 GB y tiene un contrato de nivel de servicio de disponibilidad del 99,9 %. El nuevo [nivel premium](cache-premium-tier.md) ofrece tamaños de hasta 530 GB, además de compatibilidad con clústeres, redes virtuales y persistencia, con un contrato de nivel de servicio del 99.9%.
+Caché en Redis de Azure está disponible con carácter general en tamaños de hasta 53 GB y tiene un contrato de nivel de servicio de disponibilidad del 99,9 %. El nuevo [nivel premium](cache-premium-tier.md) ofrece tamaños de hasta 530 GB, además de compatibilidad con clústeres, redes virtuales y persistencia, con un contrato de nivel de servicio del 99,9 %.
 
 Caché en Redis de Azure ofrece a los clientes la posibilidad de usar una Caché en Redis segura y dedicada administrada por Microsoft. Con esta oferta, puede aprovechar el variado conjunto de características y ecosistema proporcionados por Redis, junto con el hospedaje y la supervisión confiables que Microsoft pone a su disposición.
 
@@ -212,7 +223,7 @@ A diferencia de las memorias caché tradicionales que solo tratan con pares clav
 
 Otro aspecto clave para el éxito de Redis es su ecosistema de código abierto vibrante y en buen estado. Esto se refleja en el variado conjunto de clientes de Redis disponibles en varios lenguajes, que permite que pueda usarlo prácticamente cualquier carga de trabajo compilada dentro de Azure.
 
-Para obtener más información sobre cómo empezar a usar Caché en Redis de Azure, consulte [Uso de memoria caché en Redis de Azure](cache-dotnet-how-to-use-azure-redis-cache.md) y la [Documentación de memoria caché en Redis de Azure](https://azure.microsoft.com/documentation/services/redis-cache/).
+Para más información sobre cómo empezar a usar Caché en Redis de Azure, vea [Uso de memoria caché en Redis de Azure](cache-dotnet-how-to-use-azure-redis-cache.md) y la [Documentación de memoria caché en Redis de Azure](https://azure.microsoft.com/documentation/services/redis-cache/).
 
 ### Servicio de caché administrado
 Si ya es cliente del Servicio de caché administrado de Azure, puede seguir usando este servicio o migrar a Caché en Redis de Azure para aprovechar el completo conjunto de características que ofrece. El Servicio de caché administrado de Azure también está disponible con carácter general y ofrece un contrato de nivel de servicio por el que se garantiza una disponibilidad del 99,9 %.
@@ -220,4 +231,4 @@ Si ya es cliente del Servicio de caché administrado de Azure, puede seguir usan
 ### Caché en rol
 Si usa Caché en rol para autohospedar la memoria caché, puede seguir usando este método. Como Caché en rol es un componente de software autohospedado y no un servicio hospedado de Microsoft, no ofrece ningún contrato de nivel de servicio. Los usuarios de Caché en rol pueden migrar a Caché en Redis de Azure para aprovechar su completo conjunto de características y obtener un contrato de nivel de servicio.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

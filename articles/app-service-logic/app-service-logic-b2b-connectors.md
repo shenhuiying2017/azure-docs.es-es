@@ -155,13 +155,13 @@ Nombre de la instancia de TPM | Escriba el nombre de la aplicación de API de **
 
 
 ## Adición de los socios, los acuerdos, los certificados y los esquemas 
-En el Portal de administración de Azure, abra la aplicación de API TPM. En la sección **Componentes**, agregue sus socios, acuerdos, certificados y esquemas.
+En el Portal de Azure, abra la aplicación de API TPM. En la sección **Componentes**, agregue sus socios, acuerdos, certificados y esquemas.
 
 También puede agregar acuerdos a sus conectores AS2, aplicaciones de API X12 y aplicaciones de API EDIFACT.
 
 
 ## Supervisión de las aplicaciones de API
-En el Portal de administración de Azure, abra la aplicación de API TPM. En la sección **Operaciones**, puede ver distintas operaciones de administración. Por ejemplo, puede:
+En el Portal de Azure, abra la aplicación de API TPM. En la sección **Operaciones**, puede ver distintas operaciones de administración. Por ejemplo, puede:
 
 - Ver sucesos informativos y de error
 - Ver el uso de memoria y el recuento de subprocesos del proceso de trabajo (w3wp)
@@ -206,4 +206,4 @@ En los siguientes pasos se agregan las aplicaciones de API B2B a las aplicacione
 
 [Lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md)<br/><br/> [Qué son los conectores y las aplicaciones de API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

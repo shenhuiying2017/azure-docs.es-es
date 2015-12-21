@@ -391,7 +391,8 @@ Una vez conseguida una mayor experiencia, puede agregar lo siguiente a sus progr
 
 ## Pasos siguientes
 
-- Visite [Definición de la estrategia de Mobile Engagement](mobile-engagement-define-your-mobile-engagement-strategy.md) para ver más información acerca de cómo definir la estrategia de Mobile Engagement.
+- [Creación de una cuenta de Azure Mobile Engagement](mobile-engagement-create-account.md)
+- Visite [Definición de la estrategia de Mobile Engagement](mobile-engagement-define-your-mobile-engagement-strategy.md) para aprender sobre la definición de la estrategia de Mobile Engagement.
 
 
 
@@ -403,4 +404,4 @@ Una vez conseguida una mayor experiencia, puede agregar lo siguiente a sus progr
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

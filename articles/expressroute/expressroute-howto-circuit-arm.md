@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/06/2015"
+   ms.date="12/04/2015"
    ms.author="cherylmc"/>
 
 # Creación y modificación de un circuito ExpressRoute mediante el Administrador de recursos de Azure y PowerShell
@@ -219,7 +219,7 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 
 7. **Vincule una red virtual a un circuito ExpressRoute.**
 
-	A continuación, vincule una red virtual al circuito ExpressRoute. Consulte [Vinculación de circuitos ExpressRoute a redes virtuales](expressroute-howto-linkvnet-arm.md) para obtener instrucciones paso a paso. Si necesita crear una red virtual para ExpressRoute, consulte [Creación de una red virtual para ExpressRoute](expressroute-howto-createvnet-classic.md) para obtener instrucciones.
+	A continuación, vincule una red virtual al circuito ExpressRoute. Puede usar [esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) cuando trabaje con el modo de implementación del Administrador de recursos de Azure. Actualmente estamos trabajando en los pasos de PowerShell.
 
 ##  Obtención del estado de un circuito ExpressRoute
 
@@ -351,10 +351,10 @@ Tenga en cuenta que para realizar esta operación correctamente tiene que desvin
 
 Si está habilitado el estado de aprovisionamiento del proveedor de servicios del circuito ExpressRoute, el estado cambiará de habilitado a *deshabilitado*. Tiene que cooperar con su proveedor de servicios para desaprovisionar el circuito en su lado. Hasta que el proveedor de servicios finalice la cancelación del aprovisionamiento del circuito y nos envíe una notificación continuaremos reservando recursos y facturándole por ello.
 
-Si el proveedor de servicios ha desaprovisionado el circuito (el estado de aprovisionamiento del proveedor de servicios se establece en *no aprovisionado*) antes de ejecutar el cmdlet anterior, cancelaremos el aprovisionamiento del circuito y dejaremos de facturarle.
+Si el proveedor de servicios ha desaprovisionado el circuito (el estado de aprovisionamiento del proveedor de servicios está establecido en *no aprovisionado*) antes de ejecutar el cmdlet anterior, cancelaremos el aprovisionamiento del circuito y dejaremos de facturarle.
 
 ## Pasos siguientes
 
 - [Configuración del enrutamiento](expressroute-howto-routing-arm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

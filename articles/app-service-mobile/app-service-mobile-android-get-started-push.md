@@ -18,9 +18,7 @@
 
 # Incorporación de notificaciones push a la aplicación de Android
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Información general
 En este tutorial, agregará notificaciones push al proyecto de [inicio rápido de Android] para que cada vez que se inserte un registro, se envíe una notificación push. Este tutorial está basado en el tutorial de [inicio rápido de Android], que debe completar primero. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar el paquete de extensión de notificaciones push al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
@@ -29,11 +27,11 @@ En este tutorial, agregará notificaciones push al proyecto de [inicio rápido d
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* [Cuenta de Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) con una dirección de correo electrónico verificada
-* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
-* Complete el [tutorial de inicio rápido](../app-service-mobile-android-get-started.md)
+* Una [cuenta de Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) con una dirección de correo electrónico verificada
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934); no es necesario para un proyecto de back-end de Node.js.
+* Complete el [tutorial de inicio rápido](../app-service-mobile-android-get-started.md).
 
-##<a name="create-hub"></a>Creación de un centro de notificaciones
+##<a name="create-hub"></a>Crear un Centro de notificaciones
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
@@ -82,4 +80,4 @@ Puede probar la aplicación conectando directamente un teléfono Android con un 
 <!-- URLs -->
 [inicio rápido de Android]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015-->

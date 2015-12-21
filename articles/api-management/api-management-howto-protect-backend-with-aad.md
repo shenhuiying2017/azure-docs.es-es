@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Cómo proteger un back-end de API web con Azure Active Directory y la administración de API
@@ -30,7 +30,7 @@ En el vídeo siguiente se muestra cómo crear un back-end de API web cómo prote
 
 ## Crear un directorio de Azure AD
 
-Para proteger su API web con copia de seguridad con Azure Active Directory, primero debe disponer de un inquilino de AAD. En este vídeo se usa un inquilino denominado **APIMDemo**. Para crear un inquilino de AAD, inicie sesión en el [portal de Azure](https://manage.windowsazure.com) y haga clic en **Nuevo**->**Servicios de aplicaciones**->**Active Directory**->**Directorio**->**Creación personalizada**.
+Para proteger su API web con copia de seguridad con Azure Active Directory, primero debe disponer de un inquilino de AAD. En este vídeo se usa un inquilino denominado **APIMDemo**. Para crear un inquilino de AAD, inicie sesión en el [Portal de Azure clásico ](https://manage.windowsazure.com) y haga clic en **Nuevo**->**Servicios de aplicaciones**->**Active Directory**->**Directorio**->**Creación personalizada**.
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
@@ -143,11 +143,7 @@ Reemplace la clase del controlador generada por el siguiente código. Este códi
         public HttpResponseMessage GetDiv([FromUri]int a, [FromUri]int b)
         {
             string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a / b);
-            HttpResponseMessage response = Request.CreateResponse();
-            response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-            return response;
-        }
-    }
+HttpResponseMessage response = Request.CreateResponse(); response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml"); return response; } }
 
 
 Presione **F6** para crear y comprobar la solución.
@@ -156,7 +152,7 @@ Presione **F6** para crear y comprobar la solución.
 
 En este paso el proyecto de Visual Studio se publicará en Azure. Este paso del vídeo comienza en 5:45.
 
-Para publicar el proyecto en Azure, haga clic con el botón secundario en el proyecto **APIMAADDemo** en Visual Studio y elija **Publicar**. Mantenga la configuración predeterminada del cuadro de diálogo **Publicar web** y haga clic en **Publicar**.
+Para publicar el proyecto en Azure, haga clic con el botón derecho en el proyecto **APIMAADDemo** en Visual Studio y elija **Publicar**. Mantenga la configuración predeterminada del cuadro de diálogo **Publicación web** y haga clic en **Publicar**.
 
 ![Publicación web][api-management-web-publish]
 
@@ -178,145 +174,15 @@ Anote el **URI de id. de aplicación** para usarlo en un paso posterior cuando s
 
 ## Importar la API web en la administración de API
 
-Las API se configuran desde el portal para editores de la API, al que se obtiene acceso a través del Portal de administración de Azure. Para obtener acceso al portal para editores, haga clic en **Administrar** en el Portal de Azure para el servicio Administración de API. Si todavía no ha creado una instancia del servicio de administración de API, consulte [Creación de una instancia del servicio de administración de API][] en el tutorial [Administrar tu primera API][].
+Las API se configuran desde el portal para editores, al que se accede mediante el Portal de Azure clásico. Para llegar al portal para editores, haga clic en **Administrar** en el Portal de Azure clásico para el servicio Administración de API. Si todavía no ha creado una instancia del servicio de administración de API, consulte [Creación de una instancia del servicio de administración de API][] en el tutorial [Administrar su primera API][].
 
 ![Portal del publicador][api-management-management-console]
 
-Las operaciones se puede [agregar a las API manualmente](api-management-howto-add-operations.md) o se pueden importar. En este vídeo, las operaciones se importan en formato Swagger empezando en 6:40.
+Las operaciones se pueden [agregar a las API manualmente](api-management-howto-add-operations.md) o se pueden importar. En este vídeo, las operaciones se importan en formato Swagger empezando en 6:40.
 
 Cree un archivo denominado `calcapi.json` con el siguiente contenido y guárdelo en el equipo. Asegúrese de que el atributo `host`señala a su back-end de API web. En este ejemplo se usa `"host": "apimaaddemo.azurewebsites.net"`.
 
-	{
-	  "swagger": "2.0",
-	  "info": {
-		"title": "Calculator",
-		"description": "Arithmetics over HTTP!",
-		"version": "1.0"
-	  },
-	  "host": "apimaaddemo.azurewebsites.net",
-	  "basePath": "/api",
-	  "schemes": [
-		"http"
-	  ],
-	  "paths": {
-		"/add?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a sum of two numbers.",
-			"operationId": "Add two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>51</code>.",
-				"required": true,
-				"default": "51",
-				"enum": [
-				  "51"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>49</code>.",
-				"required": true,
-				"default": "49",
-				"enum": [
-				  "49"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/sub?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a difference between two numbers.",
-			"operationId": "Subtract two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>100</code>.",
-				"required": true,
-				"default": "100",
-				"enum": [
-				  "100"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>50</code>.",
-				"required": true,
-				"default": "50",
-				"enum": [
-				  "50"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/div?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a quotient of two numbers.",
-			"operationId": "Divide two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>100</code>.",
-				"required": true,
-				"default": "100",
-				"enum": [
-				  "100"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>20</code>.",
-				"required": true,
-				"default": "20",
-				"enum": [
-				  "20"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/mul?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a product of two numbers.",
-			"operationId": "Multiply two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>20</code>.",
-				"required": true,
-				"default": "20",
-				"enum": [
-				  "20"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>5</code>.",
-				"required": true,
-				"default": "5",
-				"enum": [
-				  "5"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		}
-	  }
-	}
+{ "swagger": "2.0", "info": { "title": "Calculadora", "description": "Operaciones aritméticas a través de HTTP!", "version": "1.0" }, "host": "apimaaddemo.azurewebsites.net", "basePath": "/api", "schemes": [ "http" ], "paths": { "/add?a={a}&b={b}": { "get": { "description": "Responde con una suma de dos números.", "operationId": "Agregar dos enteros", "parameters": [ { "name": "a", "in": "query", "description": "Primer operando. El valor predeterminado es <code>51</code>.", "required": true, "default": "51", "enum": [ "51" ] }, { "name": "b", "in": "query", "description": "Segundo operando. Default value is <code>49</code>.", "required": true, "default": "49", "enum": [ "49" ] } ], "responses": {} } }, "/sub?a={a}&b={b}": { "get": { "description": "Responde con una diferencia entre dos números.", "operationId": "Restar dos enteros", "parameters": [ { "name": "a", "in": "query", "description": "Primer operando. El valor predeterminado es <code>100</code>.", "required": true, "default": "100", "enum": [ "100" ] }, { "name": "b", "in": "query", "description": "Segundo operando. El valor predeterminado es <code>50</code>.", "required": true, "default": "50", "enum": [ "50" ] } ], "responses": {} } }, "/div?a={a}&b={b}": { "get": { "description": "Responde con una división entre dos números.", "operationId": "Dividir dos enteros", "parameters": [ { "name": "a", "in": "query", "description": "Primer operando. El valor predeterminado es <code>100</code>.", "required": true, "default": "100", "enum": [ "100" ] }, { "name": "b", "in": "query", "description": "Segundo operando. El valor predeterminado es <code>20</code>.", "required": true, "default": "20", "enum": [ "20" ] } ], "responses": {} } }, "/mul?a={a}&b={b}": { "get": { "description": "Responde con una multiplicación de dos números.", "operationId": "Multiplicar dos enteros", "parameters": [ { "name": "a", "in": "query", "description": "Primer operando. El valor predeterminado es <code>20</code>.", "required": true, "default": "20", "enum": [ "20" ] }, { "name": "b", "in": "query", "description": "Segundo operando. Default value is <code>5</code>.", "required": true, "default": "5", "enum": [ "5" ] } ], "responses": {} } } } }
 
 Para importar la API de la calculadora, haga clic en **API** en el menú **Administración de API** de la izquierda y haga clic en **Importar API**.
 
@@ -373,7 +239,7 @@ Elija **Aplicación web y/o API web**, escriba un nombre y haga clic en la flech
 
 Para la **Dirección URL de inicio de sesión**escriba la dirección URL de su servicio de administración de API y anexe `/signin`. En este ejemplo se usa ****https://contoso5.portal.azure-api.net/signin **.
 
-Para la **dirección URL de id. de aplicación** escriba la dirección URL de su servicio de administración de API y anexe algunos caracteres únicos. Puede tratarse de cualquier carácter que se desee y en este ejemplo se usa ****https://contoso5.portal.azure-api.net/dp**. Cuando se configuran las **Propiedades de la aplicación** deseadas, haga clic en la marca de verificación para crear la aplicación.
+Para la **Dirección URL de id. de aplicación** escriba la dirección URL de su servicio de administración de API y anexe algunos caracteres únicos. Puede tratarse de cualquier carácter que se desee y en este ejemplo se usa ****https://contoso5.portal.azure-api.net/dp**. Cuando se configuran las **Propiedades de la aplicación** deseadas, haga clic en la marca de verificación para crear la aplicación.
 
 ![Nueva aplicación][api-management-aad-new-application-devportal-2]
 
@@ -381,7 +247,7 @@ Para la **dirección URL de id. de aplicación** escriba la dirección URL de su
 
 El siguiente paso es configurar un servidor de autorización OAuth 2.0 en la administración de API Este paso se muestra en el vídeo a partir de 9:43.
 
-Haga clic en **Seguridad** en el menú Administración de API de la izquierda, haga clic en **OAuth 2.0** y, después, en **Agregar servidor de autorización**.
+Haga clic en **Seguridad** en el menú Administración de API de la izquierda, haga clic en **OAuth 2.0** y, a continuación, en **Agregar servidor de autorización**.
 
 ![Agregar servidor de autorización][api-management-add-authorization-server]
 
@@ -391,25 +257,25 @@ Para la **URL de página de registro de cliente** escriba un valor de marcador d
 
 ![Agregar servidor de autorización][api-management-add-authorization-server-1]
 
-A continuación, especifique la ** URL del extremo de autorización** y la **URL del extremo de token**.
+A continuación, especifique la ** URL del punto de conexión de autorización** y la **URL del punto de conexión de token**.
 
 ![Servidor de autorización][api-management-add-authorization-server-1a]
 
-Estos valores se pueden recuperar en la página **Extremos de la aplicación** de la aplicación de AAD que creó para el portal para desarrolladores. Para obtener acceso a los extremos navegue a la pestaña **Configurar** para la aplicación de AAD y haga clic en **Ver extremos**.
+Estos valores se pueden recuperar en la página **Puntos de conexión de la aplicación** de la aplicación de AAD que creó para el portal para desarrolladores. Para obtener acceso a los puntos de conexión navegue a la pestaña **Configurar** para la aplicación de AAD y haga clic en **Ver extremos**.
 
 ![Application][api-management-aad-devportal-application]
 
 ![Ver extremos][api-management-aad-view-endpoints]
 
-Copie el **extremo de autorización OAuth 2.0** y péguelo en el cuadro de texto **URL del extremo de autorización**.
+Copie el **punto de conexión de autorización OAuth 2.0** y péguelo en el cuadro de texto **URL del punto de conexión de autorización**.
 
 ![Agregar servidor de autorización][api-management-add-authorization-server-2]
 
-Copie el **extremo de token de OAuth 2.0** y péguelo en el cuadro de texto **URL del extremo de autorización**.
+Copie el **punto de conexión de token de OAuth 2.0** y péguelo en el cuadro de texto **URL del punto de conexión de autorización**.
 
 ![Agregar servidor de autorización][api-management-add-authorization-server-2a]
 
-Además de pegar el extremo de token, agregue un parámetro de cuerpo adicional denominado **recurso** y para el valor use el **URI de id. de aplicación**de la aplicación de AAD para el servicio de back-end que se creó cuando se publicó el proyecto de Visual Studio.
+Además de pegar el punto de conexión de token, agregue un parámetro de cuerpo adicional denominado **recurso** y para el valor use el **URI de id. de aplicación**de la aplicación de AAD para el servicio de back-end que se creó cuando se publicó el proyecto de Visual Studio.
 
 ![URI de id. de aplicación][api-management-aad-sso-uri]
 
@@ -435,7 +301,7 @@ Inmediatamente después de las credenciales del cliente hay una concesión de c�
 
 ![URL de respuesta][api-management-aad-reply-url]
 
-El siguiente paso es configurar los permisos para la aplicación de AAD del portal para desarrolladores. Haga clic en **Permisos de la aplicación** y active la casilla para **Leer datos de directorio**. Haga clic en **Guardar** para guardar este cambios y luego haga clic en**Agregar aplicación**.
+El siguiente paso es configurar los permisos para la aplicación de AAD del portal para desarrolladores. Haga clic en **Permisos de la aplicación** y active la casilla para **Leer datos de directorio**. Haga clic en **Guardar** para guardar este cambio y luego haga clic en**Agregar aplicación**.
 
 ![Adición de permisos][api-management-add-devportal-permissions]
 
@@ -467,7 +333,7 @@ Regrese a la operación **Agregar dos enteros** del servicio de calculadora en e
 
 ![API de calculadora][api-management-calc-authorization-server]
 
-Seleccione el **Código de autorización** en la lista desplegable de autorización lista y escriba las credenciales de la cuenta que se va a usar. Si ya ha iniciado sesión con la cuenta es posible que no se le solicite información.
+Seleccione el **Código de autorización** en la lista desplegable de autorización y escriba las credenciales de la cuenta que se va a usar. Si ya ha iniciado sesión con la cuenta es posible que no se le solicite información.
 
 ![API de calculadora][api-management-devportal-authorization-code]
 
@@ -492,11 +358,11 @@ El procedimiento final en el vídeo empieza en 20:48 y muestra cómo usar la dir
         </required-claims>
     </validate-jwt>
 
-Para ver otra demostración de cómo configurar y usar esta directiva, vea [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) y avance rápidamente hasta 13:50. Avance rápidamente hasta 15:00 para ver las directivas configuradas en el editor de directivas y hasta 18:50 para ver una demostración de llamada de una operación desde el portal para desarrolladores tanto con y sin el token de autorización necesario.
+Para ver otra demostración de cómo configurar y usar esta directiva, consulte [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) y avance rápidamente hasta 13:50. Avance rápidamente hasta 15:00 para ver las directivas configuradas en el editor de directivas y hasta 18:50 para ver una demostración de llamada de una operación desde el portal para desarrolladores tanto con y sin el token de autorización necesario.
 
 ## Pasos siguientes
 -	Consulte más [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre la administración de API.
--	Para conocer otras formas de proteger el servicio de back-end, vea [Autenticación de certificado mutuo](api-management-howto-mutual-certificates.md) y [Conectarse a través de VPN o ExpressRoute](api-management-howto-setup-vpn).
+-	Para conocer otras formas de proteger el servicio de back-end, consulte [Autenticación de certificado mutuo](api-management-howto-mutual-certificates.md) y [Conectarse a través de VPN o ExpressRoute](api-management-howto-setup-vpn).
 
 [api-management-management-console]: ./media/api-management-howto-protect-backend-with-aad/api-management-management-console.png
 
@@ -545,6 +411,6 @@ Para ver otra demostración de cómo configurar y usar esta directiva, vea [Clou
 [api-management-new-aad-application-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-aad-application-menu.png
 
 [Creación de una instancia del servicio de administración de API]: api-management-get-started.md#create-service-instance
-[Administrar tu primera API]: api-management-get-started.md
+[Administrar su primera API]: api-management-get-started.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/24/2015"
+   ms.date="12/04/2015"
    ms.author="mbaldwin"/>
 
 # Solución de problemas: El elemento "Active Directory" falta o no está disponible
@@ -54,4 +54,4 @@ Sin embargo, mientras se carga la página, el elemento aparece atenuado y marcad
 
 ![Captura de pantalla: Active Directory no está disponible](./media/active-directory-troubleshooting/not-available.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

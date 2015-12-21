@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Introducción a Análisis de transmisiones | Microsoft Azure" 
-	description="Obtenga información acerca de Análisis de transmisiones de Azure, un servicio en la nube totalmente administrado y que le ayudará a analizar datos de streaming desde Internet de las cosas (IoT) en tiempo real." 
-	keywords="análisis de macrodatos,servicio en la nube,internet de las cosas,servicio administrado, procesamiento de transmisiones,streaming de datos"
+	description="Obtenga información sobre Análisis de transmisiones, un servicio administrado que le ayudará a analizar datos de streaming desde Internet de las cosas (IoT) en tiempo real." 
+	keywords="análisis como servicio, servicios administrados, procesamiento de transmisiones, análisis de transmisiones, ¿qué es análisis de transmisiones"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,11 +14,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 
-# ¿Qué es Análisis de transmisiones de Azure?
+# ¿Qué es Análisis de transmisiones?
 
 Análisis de transmisiones de Azure (ASA) es un motor de procesamiento de eventos en tiempo real, totalmente administrado y rentable que ayuda a revelar conocimientos profundos de datos. Análisis de transmisiones facilita la configuración de los cálculos de análisis en tiempo real en el flujo de datos procedente de dispositivos, sensores, sitios web, medios sociales, aplicaciones, sistemas de infraestructura y mucho más.
 
@@ -53,4 +53,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

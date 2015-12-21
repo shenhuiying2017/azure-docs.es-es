@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/14/2015"
+   ms.date="12/07/2015"
    ms.author="telmos"/>
 
 # Modelos de implementación de Azure
@@ -68,4 +68,4 @@ Puede crear y configurar recursos de Azure desde equipos Windows, OS X o Linux m
 - Aprenda a [diseñar plantillas](/best-practices-resource-manager-design-templates.md).
 - Uso de [prácticas recomendadas](/best-practices-resource-manager-examples.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

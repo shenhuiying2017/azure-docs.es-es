@@ -66,11 +66,11 @@ Un resultado de ```1``` indica una base de datos cifrada, ```0``` indica una bas
 
  
 <!--Anchors-->
-[Cifrado de datos transparente (TDE)]: https://msdn.microsoft.com/es-ES/library/bb934049.aspx
+[Cifrado de datos transparente (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

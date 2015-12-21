@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Transformación de BizTalk" 
+	pageTitle="Uso de la transformación de BizTalk en las aplicaciones lógicas del Servicio de aplicaciones de Azure | Microsoft Azure" 
 	description="Aprenda a transformar documentos XML de un esquema a otro." 
 	authors="anuragdalmia" 
 	manager="dwrede" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/07/2015"
 	ms.author="anuragdalmia"/>
 
-#Transformación de BizTalk
+# Transformación de BizTalk
 
 
 ## Información general
@@ -45,11 +45,11 @@ Puede descargar los esquemas XML para conectores como SQL, SAP y SharePoint desd
 ## Creación e incorporación de la asignación
 Las transformaciones o asignaciones se crean en Visual Studio mediante el [SDK de servicios de BizTalk de Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=39087), que se descarga de forma gratuita.
 
-Para obtener ayuda acerca de la creación de una asignación, consulte [Creación de una asignación en Visual Studio](http://aka.ms/createamapinvs). Una vez que se ha creado la asignación y está lista para usarla, puede agregar la asignación (archivo .trfm) a la aplicación de API de transformación de BizTalk que creó en el Portal de administración de Azure.
+Para obtener ayuda acerca de la creación de una asignación, consulte [Creación de una asignación en Visual Studio](http://aka.ms/createamapinvs). Una vez que se ha creado la asignación y está lista para usarla, puede agregar la asignación (archivo .trfm) a la aplicación de API de transformación de BizTalk que creó en el Portal de Azure.
 
-Si el mapa cambia o se ha modificado después de cargarlo, puede cargar la asignación actualizada y reemplazar la existente en la aplicación de API de transformación.
+Si la asignación cambia o se modifica después de cargarla, puede cargar la asignación actualizada y reemplazar la existente en la aplicación de API de transformación.
 
-1.	Elija **Examinar** en el Portal de administración de Azure (a la izquierda de la pantalla) y elija **Aplicaciones de API**. Si no se muestra **Aplicaciones de API**, elija **Todo** y, a continuación, elija **Aplicaciones de API** en la lista disponible:
+1.	Seleccione **Examinar** en el Portal de Azure (a la izquierda de la pantalla) y elija **Aplicaciones de API**. Si no se muestra **Aplicaciones de API**, elija **Todo** y, a continuación, elija **Aplicaciones de API** en la lista disponible:
 
 	![][7]
 
@@ -116,4 +116,4 @@ Una vez que se haya creado y probado la asignación, estará lista para su uso.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

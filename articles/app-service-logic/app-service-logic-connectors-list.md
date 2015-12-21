@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="12/03/2015"
 	ms.author="mandia"/>
 
 
@@ -67,10 +67,10 @@ Nombre | Descripción
 [BizTalk X12](app-service-logic-connector-x12.md) | Recibe y envía mensajes mediante el protocolo X12 en comunicaciones negocio a negocio.
 [Validador XML de BizTalk](app-service-logic-xml-validator.md) | Valida los datos XML en esquemas XML predefinidos. Puede usar los esquemas existentes o generar esquemas basándose en una instancia de archivo sin formato, instancia de JSON o conectores existentes.
 [Extractor XPath de BizTalk](app-service-logic-xpath-extract.md) | Busca y extrae datos de contenido XML basándose en una expresión XPath que elija.
-Conector de DB2 | Se conecta a una base de datos DB2 de IBM de forma local y en una máquina virtual de Azure con un sistema operativo Windows. Puede asignar las operaciones Web API y API de OData a comandos de lenguaje de consulta estructurado de Informix. <br/><br/>Ningún desencadenador. Las acciones incluyen la selección, inserción, actualización, eliminación de tablas e instrucción personalizada<br/><br/>Este conector también incluye el cliente de Microsoft para DRDA para conectarse a un servidor de Informix a través de una red TCP/IP.
+[Conector de DB2](app-service-logic-connector-db2.md) | Se conecta a una base de datos DB2 de IBM de forma local y en una máquina virtual de Azure con un sistema operativo Windows. Puede asignar las operaciones Web API y API de OData a comandos de lenguaje de consulta estructurado de Informix. <br/><br/>Ningún desencadenador. Las acciones incluyen la selección, inserción, actualización, eliminación de tablas e instrucción personalizada<br/><br/>Este conector también incluye el cliente de Microsoft para DRDA para conectarse a un servidor de Informix a través de una red TCP/IP.
 [Archivo](app-service-logic-connector-file.md) | Mediante este conector, puede conectarse a la red o al sistema de archivo local y completar diferentes tareas de archivos, incluidas la carga, la eliminación y la enumeración de archivos, etc.
 [FTP<br/>FTPS](app-service-logic-connector-ftp.md) | Se conecta a un servidor FTP/FTPS y realiza diferentes tareas de FTP, incluidas la carga, la obtención y la eliminación de archivos, etc.
-Informix | Se conecta a una base de datos Informix de IBM, de forma local y en una máquina virtual de Azure con un sistema operativo Windows. Puede asignar las operaciones Web API y API de OData a comandos de lenguaje de consulta estructurado de Informix.<br/><br/>Ningún desencadenador. Las acciones incluyen la selección, inserción, actualización, eliminación de tablas e instrucción personalizada.<br/><br/>Cuando se utiliza de forma local, puede usarse la VPN o Azure ExpressRoute. Este conector también incluye el cliente de Microsoft para DRDA para conectarse a un servidor de Informix a través de una red TCP/IP.
+[Informix](app-service-logic-connector-informix.md) | Se conecta a una base de datos Informix de IBM, de forma local y en una máquina virtual de Azure con un sistema operativo Windows. Puede asignar las operaciones Web API y API de OData a comandos de lenguaje de consulta estructurado de Informix.<br/><br/>Ningún desencadenador. Las acciones incluyen la selección, inserción, actualización, eliminación de tablas e instrucción personalizada.<br/><br/>Cuando se utiliza de forma local, puede usarse la VPN o Azure ExpressRoute. Este conector también incluye el cliente de Microsoft para DRDA para conectarse a un servidor de Informix a través de una red TCP/IP.
 [Microsoft SQL Server](app-service-logic-connector-sql.md) | Se conecta a SQL Server local o a Base de datos SQL de Azure. Puede crear, actualizar, obtener y eliminar entradas en una tabla de base de datos SQL.
 MQ | Se conecta a la versión 8 de IBM WebSphere MQ Server, en local y en una máquina virtual de Azure con un sistema operativo Windows. Cuando se utiliza de forma local, puede usarse la VPN o Azure ExpressRoute. El conector también incluye el cliente de Microsoft para MQ.<br/><br/>Ningún desencadenador. Ninguna acción.<br/><br/>**Nota** Actualmente no se puede utilizar con aplicaciones lógicas.
 [Base de datos de Oracle](app-service-logic-connector-oracle.md) | Se conecta a la base de datos de Oracle local y puede crear, actualizar, obtener y eliminar entradas en una tabla de base de datos.
@@ -94,4 +94,4 @@ Los conectores también pueden utilizarse como acciones dentro de una aplicació
 ## Más sobre los conectores y las aplicaciones de API
 [Qué son los conectores y las aplicaciones de API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md) [Uso del Administrador de conexiones híbridas en el Servicio de aplicaciones de Azure](app-service-logic-hybrid-connection-manager.md) [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

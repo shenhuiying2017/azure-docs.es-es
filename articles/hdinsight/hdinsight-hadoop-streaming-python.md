@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #Desarrollo de programas de streaming para HDInsight
@@ -23,7 +23,7 @@ Hadoop proporciona una API de streaming para MapReduce que le permite escribir m
 
 > [AZURE.NOTE]Mientras el código Python de este documento se puede usar con un clúster de HDInsight basado en Windows, los pasos descritos en este documento son específicos de los clústeres basados en Linux.
 
-Este artículo se basa en información y ejemplos publicados por Michael Noll en [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/](Escribir un programa de MapReduce de Hadoop en Python).
+Este artículo se basa en información y en los ejemplos publicados por Michael Noll en [Writing an Hadoop MapReduce Program in Python](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/).
 
 ##Requisitos previos
 
@@ -205,4 +205,4 @@ Ahora que aprendió a usar los trabajos de transmisión de MapReduce con HDInsig
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

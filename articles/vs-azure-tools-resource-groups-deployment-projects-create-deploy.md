@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación e implementación de proyectos de implementación de grupo de recursos de Azure | Microsoft Azure"
-   description="Creación e implementación de proyectos de implementación de grupo de recursos de Azure"
+   pageTitle="Creación e implementación de proyectos de Visual Studio del Grupo de recursos de Azure | Microsoft Azure"
+   description="Use Visual Studio para crear un proyecto del grupo de recursos de Azure e implementar los recursos en Azure."
    services="visual-studio-online"
    documentationCenter="na"
    authors="kempb"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="11/13/2015"
    ms.author="kempb" />
 
-# Creación e implementación de proyectos de implementación de grupo de recursos de Azure
+# Creación e implementación de grupos de recursos de Azure mediante Visual Studio
 
 La plantilla del proyecto de implementación **Grupo de recursos de Azure** está disponible en Visual Studio cuando se instala Azure SDK 2.6. Los proyectos de grupo de recursos de Azure permiten agrupar y publicar varios recursos de Azure relacionados en una única operación de implementación. Los proyectos de grupo de recursos de Azure usan una tecnología denominada **Administrador de recursos de Azure** para hacer su trabajo. El **Administrador de recursos de Azure** es un servicio de la API de REST que permite definir grupos de recursos de Azure que contienen varios recursos de Azure que normalmente se usan conjuntamente y tienen un ciclo de vida similar. Mediante el uso de grupos de recursos, puede operar en todos los recursos de un grupo con una sola llamada a función, en lugar de llamar a funciones diferentes para cada recurso individual. Para obtener más información sobre los grupos de recursos de Azure, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](resource-group-portal.md). Para ver un escenario más detallado de la implementación integral del grupo de recursos de Azure, consulte la página sobre el [grupo de recursos de Azure para Visual Studio](https://azure.microsoft.com/blog/azure-resource-manager-2-5-for-visual-studio/).
 
@@ -49,9 +49,10 @@ En este procedimiento, aprenderá a crear un proyecto de grupo de recursos de Az
 
     |Nombre de archivo|Descripción|
     |---|---|
-    |Deploy-AzureResourceGroup.ps1|Un script de PowerShell que invoca los comandos de PowerShell para implementar en el Administrador de recursos de Azure.
-
-    **Nota:** este script de PowerShell se usa en Visual Studio para implementar la plantilla. Los cambios que realice en este script también afectan a la implementación en Visual Studio, por lo que debe tener cuidado.| !WebSite.json| Un archivo de configuración que especifica todos los detalles que desea implementar en el Administrador de recursos de Azure.| |WebSite.param.dev.json| Un archivo de parámetros que contiene valores específicos que necesita el archivo de configuración.| |AzCopy.exe|Herramienta usada por el script de PowerShell para copiar archivos desde la ruta de colocación de almacenamiento local hasta el contenedor de la cuenta de almacenamiento. Esta herramienta se usa solamente si configura el proyecto de implementación para implementar el código junto con la plantilla.|
+    |Deploy-AzureResourceGroup.ps1|Un script de PowerShell que invoca los comandos de PowerShell que se implementarán en el Administrador de recursos de Azure.<br />** Nota** Este script de PowerShell se usa por Visual Studio para implementar su plantilla. Los cambios que realice a este script también afectarán a la implementación en Visual Studio, por tanto, tenga cuidado.|
+    !WebSite.json|Plantilla que define la infraestructura que quiere implementar en Azure.|
+    |WebSite.param.dev.json|Un archivo de parámetros que contiene valores específicos necesarios para el archivo de configuración.|
+    |AzCopy.exe|Herramienta usada por el script de PowerShell para copiar archivos desde la ruta de colocación del almacenamiento local al contenedor de cuentas de almacenamiento. Esta herramienta se usa solamente si configura el proyecto de implementación para implementar el código junto con la plantilla.|
 
     Todos los proyectos de implementación de grupo de recursos de Azure contienen estos cuatro archivos básicos. Otros proyectos pueden contener archivos adicionales para admitir otras funcionalidades.
 
@@ -61,7 +62,7 @@ Puede personalizar un proyecto de implementación mediante la modificación de l
 
 Los proyectos de grupo de recursos de Azure tienen dos archivos de plantilla en el nodo **Plantillas** del Explorador de soluciones que se pueden modificar: un archivo de plantilla del Administrador de recursos de Azure y un archivo de parámetros.
 
-- Los **archivos de plantilla del Administrador de recursos de Azure** (con la extensión .json) especifican los archivos que contienen los recursos que desea, así como los parámetros necesarios para el proyecto de implementación, como el nombre del sitio y la ubicación. También especifican las dependencias de los componentes en el grupo de recursos de Azure y sus propiedades, como nombres, etiquetas y reglas de desencadenadores. Puede modificar este archivo para agregar su propia funcionalidad. Por ejemplo, podría agregar una base de datos a la plantilla. Consulte la documentación de cada proveedor de recursos para averiguar los parámetros que debe proporcionar. Consulte [Proveedores de recursos](https://msdn.microsoft.com/library/azure/dn790572.aspx) para obtener más información.
+- Los **archivos de plantilla del Administrador de recursos de Azure** (con la extensión .json) especifican los archivos que contienen los recursos que desea, así como los parámetros necesarios para el proyecto de implementación, como el nombre del sitio y la ubicación. También especifican las dependencias de los componentes en el grupo de recursos de Azure y sus propiedades, como nombres, etiquetas y reglas de desencadenadores. Puede modificar este archivo para agregar su propia funcionalidad. Por ejemplo, podría agregar una base de datos a la plantilla. Consulte la documentación de cada proveedor de recursos para averiguar los parámetros que debe proporcionar. Vea [Proveedores de recursos](https://msdn.microsoft.com/library/azure/dn790572.aspx) para más información.
 
 - Los **archivos de parámetros** (con la extensión `.param.*.json`) contienen valores para los parámetros especificados en el archivo de configuración que son necesarios para cada proveedor de recursos. En este ejemplo, el archivo de configuración para una aplicación web (WebSite.json) define los parámetros de *siteName* y *siteLocation*. Durante la implementación, se le pedirá que proporcione valores para los parámetros en el archivo de plantilla, y estos valores se almacenan en el archivo de parámetros. También puede editar el archivo de parámetros directamente.
 
@@ -71,7 +72,7 @@ Los archivos JSON se pueden editar en el editor de Visual Studio. Si instala las
 
 Los archivos JSON usan un esquema al que se hace referencia en la parte superior de cada archivo. Puede descargar el esquema y analizarlo para así comprenderlo mejor. El esquema define qué elementos se permiten, los tipos y los formatos de los campos, los valores posibles de los valores enumerados, etc.
 
-Si desea implementar en distintas configuraciones o cambiar la configuración con frecuencia, puede crear diferentes copias del archivo *param*. Pruebe a usar la misma plantilla para todos los entornos.
+Si quiere implementar en distintas configuraciones o cambiar la configuración con frecuencia, puede crear diferentes copias del archivo *param*. Pruebe a usar la misma plantilla para todos los entornos.
 
 ## Implementación de un proyecto de grupo de recursos de Azure en un grupo de recursos de Azure
 
@@ -107,9 +108,9 @@ Al implementar un proyecto de grupo de recursos de Azure, lo implementa en un gr
 
     - El parámetro *siteName* es la primera parte de la dirección URL de la página web. Por ejemplo, para la dirección URL misitioweb.azurewebsites.net, el nombre del sitio es **misitioweb**.
 
-    - El parámetro *hostingPlanName* especifica el plan de hospedaje. En este ejemplo, puede usar "Gratis". Para obtener más información sobre los planes de hospedaje, consulte [Introducción detallada sobre los planes de Servicio de aplicaciones de Azure](http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/).
+    - El parámetro *hostingPlanName* especifica el plan de hospedaje. En este ejemplo, puede usar "Gratis". Para más información sobre los planes de hospedaje, vea [Introducción detallada sobre los planes de Servicio de aplicaciones de Azure](http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/).
 
-    - El parámetro *siteLocation* hace referencia a la región de Azure donde se hospeda el sitio, por ejemplo, "Oeste de EE. UU.". Para obtener una lista de regiones disponibles, consulte [Regiones de Azure](http://azure.microsoft.com/regions/).
+    - El parámetro *siteLocation* hace referencia a la región de Azure donde se hospeda el sitio, por ejemplo, "Oeste de EE. UU.". Para una lista de regiones disponibles, vea [Regiones de Azure](http://azure.microsoft.com/regions/).
 
 1. Elija el botón **Implementar** para implementar el proyecto en Azure.
 
@@ -193,6 +194,6 @@ También se realizaron ajustes en algunos nombres de variables y tareas de compi
 
 ## Pasos siguientes
 
-Para obtener información sobre cómo agregar recursos a su grupo de recursos de Azure en Visual Studio, consulte [Adición de recursos a un grupo de recursos de Azure](vs-azure-tools-resource-group-adding-resources.md).
+Para información sobre cómo agregar recursos a su Grupo de recursos de Azure en Visual Studio, vea [Edición de plantillas del Administrador de recursos con Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure
@@ -34,7 +34,7 @@ Este tutorial muestra cómo utilizar el API Inspector para realizar un seguimien
 
 
 
-Para comenzar, haga clic en **Portal para desarrolladores** en el Portal de Azure para el servicio Administración de API. Se puede llamar a las operaciones directamente desde el portal para desarrolladores, lo que proporciona una forma cómoda de ver y probar las operaciones de una API.
+Para comenzar, haga clic en **portal para desarrolladores** en el Portal de Azure clásico para el servicio Administración de API. Se puede llamar a las operaciones directamente desde el portal para desarrolladores, lo que proporciona una forma cómoda de ver y probar las operaciones de una API.
 
 >Si todavía no ha creado una instancia del servicio Administración de API, consulte [Creación de una instancia del servicio de Administración de API][] en el tutorial [Introducción a la Administración de API de Azure][].
 
@@ -245,7 +245,7 @@ Para revisar los valores del seguimiento, descargue el archivo de seguimiento de
 [Introducción a la Administración de API de Azure]: api-management-get-started.md
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
 [Introducción a la configuración de API avanzada]: api-management-get-started-advanced.md
-[Management Portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 
 [api-management-developer-portal-menu]: ./media/api-management-howto-api-inspector/api-management-developer-portal-menu.png
@@ -261,4 +261,4 @@ Para revisar los valores del seguimiento, descargue el archivo de seguimiento de
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

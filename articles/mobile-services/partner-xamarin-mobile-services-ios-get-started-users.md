@@ -7,13 +7,14 @@
 	authors="lindydonna"
 	editor=""/>
 
+
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="11/30/2015"
 	ms.author="donnam"/>
 
 # Incorporación de autenticación a la aplicación de Servicios móviles
@@ -57,7 +58,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
 ##<a name="add-authentication"></a>Incorporación de autenticación a la aplicación
 
-1. Abra el archivo de proyecto **ToDoService** y agregue las siguientes variables
+1. Abra el archivo de proyecto **QSToDoService** y agregue las siguientes variables.
 
 		// Mobile Service logged in user
 		private MobileServiceUser user;
@@ -101,18 +102,19 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
         {
             base.ViewDidAppear(animated);
 
-            if (QSToDoService.DefaultService.User == null)
+            if (QSTodoService.DefaultService.User == null)
             {
-                await QSToDoService.DefaultService.LoginAndGetData(this);
+                await QSTodoService.DefaultService.LoginAndGetData(this);
             }
 
-            if (QSToDoService.DefaultService.User == null)
+            if (QSTodoService.DefaultService.User == null)
             {
                 // TODO:: show error
                 return;
             }
 
-            RefreshAsync();
+
+            await RefreshAsync();
         }
 6. Quite la llamada original a **RefreshAsync** de **TodoListViewController.ViewDidLoad**.
 
@@ -153,4 +155,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], tomará el va
 [proyecto de ejemplo completado]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

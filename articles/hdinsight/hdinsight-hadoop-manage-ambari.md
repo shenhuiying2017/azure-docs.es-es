@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/27/2015"
+   ms.date="12/03/2015"
    ms.author="larryfr"/>
 
 #Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari
@@ -216,4 +216,12 @@ Para configurar un servicio, use los siguientes pasos:
 
 3. Use los campos que aparecen para modificar la configuración y, a continuación, seleccione **Save** (Guardar). O bien, seleccione una configuración anterior y, a continuación, seleccione **Make current** (Convertir en actual) para volver a la configuración anterior.
 
-<!---HONumber=Nov15_HO1-->
+##Vistas de Ambari
+
+Las vistas de Ambari permiten a los desarrolladores conectar elementos de interfaz de usuario a la interfaz de usuario web de Ambari mediante el [marco de vistas de Ambari](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight proporciona las siguientes vistas con los tipos de clúster de Hadoop:
+
+* Administrador de colas de Yarn: el administrador de colas proporciona una interfaz de usuario sencilla para ver y modificar colas de YARN.
+* Vista de Hive: la vista de Hive permite ejecutar consultas de Hive directamente desde el explorador web. Puede guardar consultas, ver resultados, guardar resultados en el almacenamiento del clúster o descargar los resultados en el sistema local. Para más información sobre el uso de vistas de Hive, consulte [Uso de vistas de Hive con HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
+* Vista de Tez: la vista de Tez permite comprender mejor y optimizar los trabajos ya que proporciona información sobre cómo se ejecutan los trabajos de Tez y qué recursos se emplean en el trabajo.
+
+<!---HONumber=AcomDC_1210_2015-->

@@ -48,7 +48,7 @@ En primer lugar, creará los objetos que requiere PolyBase para conectarse y con
 ## Paso 1: Almacenamiento de credenciales en la base de datos
 Para tener acceso al almacenamiento de blobs de Azure, deberá crear una credencial con ámbito de base de datos que almacene información de autenticación para la cuenta de almacenamiento de Azure. Siga estos pasos para almacenar una credencial en la base de datos.
 
-1. Conexión a la base de datos de Almacenamiento de datos SQL.
+1. Conéctese a la base de datos de Almacenamiento de datos SQL.
 2. Use [CREATE MASTER KEY (Transact-SQL)][] para crear una clave maestra para la base de datos. Si la base de datos ya tiene una clave maestra, no tiene que crear otra. Esta clave sirve para cifrar el "secreto" de la credencial en el paso siguiente.
 
     ```
@@ -58,9 +58,7 @@ Para tener acceso al almacenamiento de blobs de Azure, deberá crear una credenc
 
 1. Compruebe si ya tiene las credenciales de la base de datos. Para ello, use la vista del sistema sys.database\_credentials, no sys.credentials que solo muestra las credenciales del servidor.
 
-    ```
-    -- Compruebe las credenciales de ámbito de base de datos existentes.
-    SELECT * FROM sys.database\_credentials;
+    ``` -- Compruebe las credenciales de ámbito de base de datos existentes. SELECT * FROM sys.database\_credentials;
 
 3. Use [CREATE CREDENTIAL (Transact-SQL)][] para crear una credencial con ámbito de base de datos para cada cuenta de almacenamiento de Azure a la que quiera acceder. En este ejemplo, IDENTITY es un nombre descriptivo para la credencial. No afecta a la autenticación en el almacenamiento de Azure. SECRET se refiere a la clave de la cuenta de almacenamiento de Azure.
 
@@ -100,7 +98,7 @@ Si necesita quitar la tabla externa, use [DROP EXTERNAL DATA SOURCE][]:
 ## Paso 3: Creación de un formato de archivo externo
 El formato de archivo externo es un objeto de base de datos que especifica el formato de los datos externos. PolyBase puede trabajar con datos comprimidos y sin comprimir en formatos de texto delimitado, Hive RCFILE y HIVE ORC.
 
-Use [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][] para crear el formato de archivo externo. En este ejemplo, se especifica que los datos del archivo son texto sin comprimir y los campos están separados por el carácter de barra vertical ('|').
+Use [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][] para crear el formato de archivo externo. En este ejemplo se especifica que los datos del archivo son texto sin comprimir y los campos están separados por el carácter de barra vertical ('|').
 
 ```
 -- Create an external file format for a text-delimited file.
@@ -132,7 +130,7 @@ DROP EXTERNAL FILE FORMAT text_file_format
 La definición de tabla externa es similar a una definición de tabla relacional. La principal diferencia es la ubicación y el formato de los datos.
 
 - La definición de tabla externa se almacena en forma de metadatos en la base de datos de Almacenamiento de datos SQL. 
-- Los datos se almacenan en la ubicación externa especificada por el origen de datos.
+- Los datos se almacenan en la ubicación externa que especifique el origen de datos.
 
 Use [CREATE EXTERNAL TABLE (Transact-SQL)][] para definir la tabla externa.
 
@@ -169,11 +167,11 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 ;
 ```
 
-> [AZURE.NOTE]Al quitar una tabla externa, debe usar `DROP EXTERNAL TABLE`. No **puede** usar `DROP TABLE`.
+> [AZURE.NOTE]Al quitar una tabla externa, hay que usar `DROP EXTERNAL TABLE`. **No puede** usar `DROP TABLE`.
 
 Tema de referencia: [DROP EXTERNAL TABLE (Transact-SQL)][].
 
-También merece la pena mencionar que las tablas externas están visibles tanto en `sys.tables` como (de manera más específica) en las vistas de catálogo de `sys.external_tables`.
+También merece la pena mencionar que las tablas externas están visibles en las vistas de catálogo `sys.tables` y, más concretamente, `sys.external_tables`.
 
 ## Rotación de claves de almacenamiento
 
@@ -205,7 +203,7 @@ SELECT * FROM [ext].[CarSensor_Data]
 
 ```
 
-> [AZURE.NOTE]Una consulta acerca de una tabla externa puede producir el error *"Consulta anulada: se alcanzó el umbral de rechazo máximo al leer desde un origen externo"*. Esto indica que sus datos externos contienen registros *con modificaciones*. Un registro de datos se considera "con modificaciones" si los tipos de datos reales o el número de columnas no coincide con las definiciones de columna de la tabla externa o si los datos no se ajustan al formato de archivo externo especificado. Para corregirlo, asegúrese de que la tabla externa y las definiciones de formato de archivo externos son correctas y que los datos externos se ajustan a estas definiciones. En el caso de que un subconjunto de registros de datos externos estén modificados, puede rechazar estos registros para sus consultas mediante las opciones de rechazo en CREATE EXTERNAL TABLE DDL.
+> [AZURE.NOTE]Una consulta en una tabla externa puede producir el error *"Consulta anulada: se alcanzó el umbral de rechazo máximo al leer desde un origen externo"*. Esto indica que sus datos externos contienen registros *con modificaciones*. Un registro de datos se considera "con modificaciones" si los tipos de datos reales o el número de columnas no coincide con las definiciones de columna de la tabla externa o si los datos no se ajustan al formato de archivo externo especificado. Para corregirlo, asegúrese de que la tabla externa y las definiciones de formato de archivo externos son correctas y que los datos externos se ajustan a estas definiciones. En el caso de que un subconjunto de registros de datos externos estén modificados, puede rechazar estos registros para sus consultas mediante las opciones de rechazo en CREATE EXTERNAL TABLE DDL.
 
 
 ## Carga de datos del almacenamiento de blobs de Azure
@@ -236,7 +234,7 @@ Vea [CREATE TABLE AS SELECT (Transact-SQL)][].
 
 ## Crear estadísticas de los datos recién cargados
 
-Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas. Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos. Si quiere ver una explicación detallada de las estadísticas, vea el tema [Estadísticas][] en el grupo de temas relacionados con el desarrollo. A continuación, puede ver un ejemplo rápido de cómo crear estadísticas sobre los datos cargados y organizados en tablas que aparecen en este ejemplo.
+Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas. Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos. Si quiere ver una explicación detallada de las estadísticas, consulte el tema [Estadísticas][] en el grupo de temas relacionados con el desarrollo. A continuación, puede ver un ejemplo rápido de cómo crear estadísticas sobre los datos cargados y organizados en tablas que aparecen en este ejemplo.
 
 ```
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -350,13 +348,13 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/es-ES/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/es-ES/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/es-ES/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/es-ES/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/es-ES/library/ms189522.aspx
-[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/es-ES/library/ms189450.aspx
+[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
+[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

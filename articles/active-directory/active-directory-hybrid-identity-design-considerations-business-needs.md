@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: determinación de los requisitos de identidad| Microsoft Azure"
+	pageTitle="Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: determinación de los requisitos de identidad | Microsoft Azure"
 	description="Identificar las necesidades empresariales de la compañía que le llevarán a definir los requisitos para el diseño de la identidad híbrida."
 	documentationCenter=""
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="12/07/2015"
 	ms.author="billmath"/>
 
 # Determinación de los requisitos de identidad para la solución de identidad híbrida
@@ -96,4 +96,4 @@ También es necesario evaluar los requisitos del usuario. Esta evaluación es im
 ## Consulte también
 [Información general sobre las consideraciones de diseño]((active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

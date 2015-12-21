@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/08/2015"
+	ms.date="11/30/2015"
 	ms.author="christopheranderson"/>
 
 # Recuperación del servicio móvil en caso de un desastre
@@ -83,12 +83,19 @@ Para recuperar el servicio móvil después de una interrupción del servicio:
 	+ En el Portal de Azure clásico, en la pestaña **"Configurar"** del servicio móvil, elija "Cambiar base de datos" y seleccione la base de datos recientemente recuperada.
 
 7. El servicio móvil ahora se hospeda en una ubicación física distinta. Deberá actualizar sus credenciales de publicación y/o de git para permitir la actualización del sitio en ejecución.
-	+ Si usa un **back-end de .NET**, vuelva a configurar su perfil de publicación, tal como se describe en [Publicación del servicio móvil](mobile-services-dotnet-backend-windows-store-dotnet-get-started/#publish-your-mobile-service). Con esto se actualizarán los detalles de publicación para que indiquen la nueva ubicación de servicio.
-	+ Si usa un **back-end de JavaScript** y administra el servicio con el Portal de Azure clásico, no es necesario que realice ninguna acción adicional.
+
+	+ Si usa un **back-end de .NET**, vuelva a configurar su perfil de publicación, tal como se describe en [Publicación del servicio móvil](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md#publish-your-mobile-service). Con esto se actualizarán los detalles de publicación para que indiquen la nueva ubicación de servicio.
+	+ Si usa un **back-end de JavaScript** y administra el servicio con el Portal, no es necesario que realice ninguna acción adicional.
+
 	+ Si usa un **back-end de JavaScript** y administra el servicio con nodo, actualice el git remoto para que indique el repositorio nuevo. Para hacerlo, debe quitar la ruta de acceso al archivo .git del git remoto:
 
-		1. Busque el remoto de origen actual: git remote -v origin https://myservice.scm.azure-mobile.net/myservice.git (fetch) origin https://myservice.scm.azure-mobile.net/myservice.git (push)
-		3. Actualice el git remoto con la misma dirección URL, pero sin la ruta de acceso del archivo .git final: git remote set-url origin https://myservice.scm.azure-mobile.net
+		1. Busque el remoto de origen actual:
+
+				git remote -v
+				 origin  https://myservice.scm.azure-mobile.net/myservice.git (fetch)
+				 origin  https://myservice.scm.azure-mobile.net/myservice.git (push)
+
+		3. Actualice el remoto con la misma dirección URL, pero sin la ruta de acceso del archivo .git final: git remote set-url origin https://myservice.scm.azure-mobile.net
 		4. Extraiga del origen para comprobar que funciona correctamente.
 
 Ahora debería encontrarse en un estado donde el servicio móvil se haya recuperado en una nueva región de Azure y esté aceptando tráfico de las aplicaciones de la Tienda usando su URL original.
@@ -101,11 +108,11 @@ Ahora debería encontrarse en un estado donde el servicio móvil se haya recuper
 [Continuidad empresarial de Base de datos SQL de Azure]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Guía sobre continuidad empresarial de Base de datos SQL de Azure]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
-
+[Github]: https://github.com/
 [función de control de código fuente]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
 [interfaz de la línea de comandos de Azure]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [Portal de Azure clásico]: http://manage.windowsazure.com/
 [Panel de servicios de Azure]: http://www.windowsazure.com/support/service-dashboard/
 [Automatización de servicios móviles con CLI de Azure]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -18,14 +18,14 @@
 
 
 # Preparación de una máquina virtual basada en Red Hat para Azure
-En este artículo, aprenderá a preparar una máquina Virtual de Red Hat Enterprise Linux (RHEL) para usarla en Azure. Las versiones de RHEL tratadas en este artículo son 6.7 y 7.1, y los hipervisores para la preparación citados en este artículo son Hyper-V, KVM y VMWare. Para obtener más información sobre los requisitos para poder participar en el programa de acceso a la nube de Red Hat, consulte el [sitio web de acceso a la nube de Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access).
+En este artículo, aprenderá a preparar una máquina Virtual de Red Hat Enterprise Linux (RHEL) para usarla en Azure. Las versiones de RHEL tratadas en este artículo son 6.7, 7.1 y 7.2, y los hipervisores para la preparación citados en este artículo son Hyper-V, KVM y VMWare. Para más información sobre los requisitos para poder participar en el programa de acceso a la nube de Red Hat, vea el [sitio web de acceso a la nube de Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) y [Ejecución de RHEL en Azure](https://access.redhat.com/articles/1989673).
 
 
 
 
 ##Preparación de una imagen desde el Administrador de Hyper-V 
 ###Requisitos previos
-En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una imagen RHEL desde un archivo ISO que obtuvo del sitio web de Red Hat. Para obtener más información acerca de cómo usar el Administrador de Hyper-V para instalar una imagen de sistema operativo, consulte [Instalación del rol Hyper-V y configuración de una máquina virtual](http://technet.microsoft.com/library/hh846766.aspx).
+En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una imagen RHEL desde un archivo ISO que obtuvo del sitio web de Red Hat. Para más información acerca de cómo usar el Administrador de Hyper-V para instalar una imagen de sistema operativo, vea [Instalación del rol Hyper-V y configuración de una máquina virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Notas de instalación de RHEL**
 
@@ -134,9 +134,9 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
 
 16.	Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
-###RHEL 7.1
+###RHEL 7.1/7.2
 
-1. En el Administrador de Hyper-V, seleccione la máquina virtual.
+1.  En el Administrador de Hyper-V, seleccione la máquina virtual.
 
 2.	Haga clic en Conectar para abrir la ventana de consola de la máquina virtual.
 
@@ -192,7 +192,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
         # sudo yum install WALinuxAgent
         # sudo systemctl enable waagent.service 
 
-12.	No cree espacio de intercambio en el disco del SO. El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
+12.	No cree espacio de intercambio en el disco del SO. El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (vea el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -303,7 +303,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
         # yum install WALinuxAgent
         # chkconfig waagent on
 
-14.	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en **/etc/waagent.conf**:
+14.	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (vea el paso anterior), modifique apropiadamente los parámetros siguientes en **/etc/waagent.conf**:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -335,9 +335,9 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
          # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
 
-###RHEL 7.1
+###RHEL 7.1/7.2
 
-1.	Descargue la imagen KVM de RHEL 7.1 desde el sitio web de Red Hat.
+1.	Descargue la imagen de KVM de RHEL 7.1 (o 7.2) en el sitio web de Red Hat; usaremos RHEL 7.1 como ejemplo aquí.
 
 2.	Establezca una contraseña raíz.
 
@@ -427,7 +427,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
 
         # systemctl enable waagent.service
 
-14.	No cree espacio de intercambio en el disco del SO. El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
+14.	No cree espacio de intercambio en el disco del SO. El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (vea el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -469,7 +469,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
 
 ##Preparación de una imagen desde VMWare
 ###Requisitos previos
-En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. Para obtener más información acerca de cómo instalar un sistema operativo en VMWare, consulte la [guía de instalación de sistema operativo invitado de VMWare](http://partnerweb.vmware.com/GOSIG/home.html).
+En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. Para más información acerca de cómo instalar un sistema operativo en VMWare, vea la [guía de instalación de sistema operativo invitado de VMWare](http://partnerweb.vmware.com/GOSIG/home.html).
  
 - Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas. LVM o RAID se pueden utilizar en discos de datos si así se prefiere.
 
@@ -542,7 +542,7 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
 
 11.	No cree un espacio de intercambio en el disco del sistema operativo:
     
-    El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
+    El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (vea el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -578,7 +578,7 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
 
         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
-###RHEL 7.1
+###RHEL 7.1/7.2
 
 1.	Cree un archivo llamado **network** en el directorio /etc/sysconfig/ que contenga el texto siguiente:
 
@@ -644,7 +644,7 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
         # sudo yum install WALinuxAgent
         # sudo systemctl enable waagent.service
 
-11.	No cree espacio de intercambio en el disco del SO. El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
+11.	No cree espacio de intercambio en el disco del SO. El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (vea el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -682,9 +682,9 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
 
 
 ##Preparación de una imagen ISO con el archivo Kickstart automáticamente
-###RHEL 7.1
+###RHEL 7.1/7.2
 
-1.	Cree el archivo Kickstart con el siguiente contenido y guárdelo. Para obtener más información acerca de la instalación Kickstart, consulte la [guía de instalación Kickstart](https://access.redhat.com/documentation/es-ES/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
+1.	Cree el archivo Kickstart con el siguiente contenido y guárdelo. Para más información sobre la instalación Kickstart, consulte la [guía de instalación Kickstart](https://access.redhat.com/documentation/es-ES/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
 
         # Kickstart for provisioning a RHEL 7 Azure VM
@@ -830,4 +830,8 @@ El problema es intermitente pero se produce más a menudo durante las operacione
 
     # sudo yum update
 
-<!---HONumber=AcomDC_1203_2015-->
+
+## Pasos siguientes
+Ya está listo para usar su archivo .vhd de Red Hat Enterprise Linux para crear nuevas máquinas virtuales de Azure. Para más información sobre los hipervisores certificados para ejecutar Red Hat Enterprise Linux, visite el [sitio web de Red Hat](https://access.redhat.com/certified-hypervisors).
+
+<!---HONumber=AcomDC_1210_2015-->

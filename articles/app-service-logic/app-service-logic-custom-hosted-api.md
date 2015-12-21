@@ -50,9 +50,9 @@ En esta sección, creará dos aplicaciones de Azure Active Directory: una para l
 
 Esto es lo que la aplicación lógica usará para autenticarse en Active Directory. Solo *necesita* hacer esto una vez para su directorio; por ejemplo, puede usar la misma identidad para todas las aplicaciones lógicas, aunque también puede crear una única para cada aplicación lógica si lo desea. Puede hacerlo en la interfaz de usuario o usar PowerShell.
 
-#### Creación de la identidad de aplicación mediante el Portal de Azure
+#### Creación de la identidad de aplicación mediante el Portal de Azure clásico
 
-1. Vaya a [Active Directory en el Portal de Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) y seleccione el directorio que usa para la aplicación web.
+1. Vaya a [Active Directory en el Portal de Azure clásico](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) y seleccione el directorio que usa para la aplicación web.
 2. Haga clic en la pestaña **Aplicaciones**.
 3. Haga clic en **Agregar** en la barra de comandos de la parte inferior de la página.
 4. Asigne un nombre a la identidad y haga clic en la flecha Siguiente.
@@ -81,7 +81,7 @@ Si ya se implementó la aplicación web, basta con habilitarla en el portal. De 
 
 En este momento, se creará automáticamente una aplicación. Necesitará el identificador de cliente de esta aplicación para la parte 3, por lo que tendrá que hacer lo siguiente:
 
-1. Vaya a [Active Directory en el Portal de Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) y seleccione su directorio. 
+1. Vaya a [Active Directory en el Portal de Azure clásico](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) y seleccione su directorio. 
 2. Busque la aplicación en el cuadro de búsqueda.
 3. Haga clic en ella en la lista.
 4. Haga clic en la pestaña **Configurar**.
@@ -91,7 +91,7 @@ En este momento, se creará automáticamente una aplicación. Necesitará el ide
 
 En primer lugar, debe crear una aplicación para la aplicación web. Debería ser diferente de la aplicación que se usa para la aplicación lógica. Empiece siguiendo los pasos anteriores de la parte 1, pero ahora, para **HomePage** e **IdentifierUris**, use la https://**URL** real de la aplicación web.
 
->[AZURE.NOTE]Al crear la aplicación para la aplicación web, debe usar el [enfoque con el Portal de Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory), ya que el cmdlet de PowerShell no configura los permisos necesarios para iniciar la sesión de los usuarios en un sitio web.
+>[AZURE.NOTE]Al crear la aplicación para la aplicación web, debe usar el [enfoque con el Portal de Azure clásico](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory), ya que el cmdlet de PowerShell no configura los permisos necesarios para iniciar la sesión de los usuarios en un sitio web.
 
 Una vez que disponga del identificador de cliente y el de inquilino, incluya lo siguiente como subrecurso de la aplicación web en la plantilla de implementación:
 
@@ -170,4 +170,4 @@ Además, si desea implementarla totalmente en su propio código y no aprovechar 
 
 Necesitará seguir los pasos anteriores para crear una identidad de aplicación para la aplicación lógica y usarla para llamar a la API.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

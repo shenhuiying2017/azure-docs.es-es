@@ -27,45 +27,17 @@ Las ejecuciones estándar se ejecutan en máquinas dedicadas que solo se usan po
 
 Los suscriptores de Azure pueden usar el servicio de búsqueda (multiempresa) compartido para desarrollo o aplicaciones de búsqueda muy pequeñas. El servicio compartido se incluye con su suscripción a Azure. Es una opción sin coste que le permite experimentar con el servicio antes de registrarse. Ofrece:
 
-Objeto|Límite
-------|-----
-Número máximo de índices|3
-Número máximo de campos por índice|1000
-Número máximo de documentos|10\.000
-Tamaño máximo de almacenamiento|50 MB
-Número máximo de particiones|N/D
-Número máximo de réplicas|N/D
-Número máximo de unidades de Búsqueda|N/D
-Número máximo de indexadores|3
-Número máximo de orígenes de datos de indexador|3
-Número máximo de documentos indizados por invocación de indizador|10\.000
-Tiempo de ejecución máximo del indexador|3 minutos
-Número máximo de perfiles de puntuación por índice|16
-Número máximo de funciones por perfil|8
+[AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-free.md)]
 
 Tenga en cuenta que no hay cuotas ni límites máximos asociados a las consultas. Las consultas por segundo (QPS) son variables, en función de la competición y del ancho de banda disponible para los recursos del sistema. Los recursos de proceso y almacenamiento de Azure que respaldan su servicio compartido se comparten por varios suscriptores, por lo que llevar a cabo QPS para su solución variará en función de cuántas otras cargas de trabajo se ejecutan al mismo tiempo.
 
 ## Límites máximos para un servicio de búsqueda estándar (dedicado)
 
-En el nivel de precios estándar, un servicio de búsqueda dedicado solo almacena sus datos y ejecuta únicamente sus cargas de trabajo. A diferencia del servicio compartido, la asignación de recursos para un servicio de búsqueda dedicado es ajustable, escalando a cualquier nivel que necesite. Puede establecer de forma independiente los niveles de recursos para particiones (para escalar verticalmente el almacenamiento) y las réplicas (para ofrecer una alta disponibilidad y escalar verticalmente QPS y el rendimiento de la indización). Consulte [Administrar la solución de búsqueda](search-manage.md) para investigar las diferentes configuraciones de recursos.
+En el nivel de precios estándar, un servicio de búsqueda dedicado solo almacena sus datos y ejecuta únicamente sus cargas de trabajo. A diferencia del servicio compartido, la asignación de recursos para un servicio de búsqueda dedicado es ajustable, escalando a cualquier nivel que necesite. Puede establecer de forma independiente los niveles de recursos para particiones (para escalar verticalmente el almacenamiento) y las réplicas (para ofrecer una alta disponibilidad y escalar verticalmente QPS y el rendimiento de la indización). Consulte [Administración de la solución de búsqueda](search-manage.md) para investigar las diferentes configuraciones de recursos.
 
 La tabla siguiente es una lista de límites superiores, pero debe revisar aún más el gráfico de matriz para conocer la capacidad en términos de [combinaciones de particiones y réplicas](#chart) permitidas.
 
-Objeto|Límite
-------|----
-Número máximo de índices|50 por servicio Búsqueda
-Número máximo de campos por índice|1000
-Número máximo de documentos|15 millones por partición
-Tamaño máximo de almacenamiento|25 GB por partición
-Número máximo de particiones|12 por servicio Búsqueda
-Número máximo de réplicas|12 por servicio Búsqueda
-Número máximo de unidades de Búsqueda|36 por servicio Búsqueda
-Servicios de búsqueda máximos|12 por cada suscripción de Azure
-Número máximo de indexadores|50 por servicio Búsqueda
-Número máximo de orígenes de datos de indexador|50 por servicio Búsqueda
-Número máximo de documentos indizados por invocación de indizador|Sin límite
-Número máximo de perfiles de puntuación por índice|16
-Número máximo de funciones por perfil|8
+[AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-standard.md)]
 
 La capacidad en la Búsqueda de Azure se puede adquirir en incrementos denominados unidades de búsqueda. El nivel de precios estándar permite hasta 36 unidades de búsqueda por servicio de búsqueda. Este límite invalida los límites individuales de las particiones y réplicas. Por ejemplo, no se puede escalar verticalmente su servicio hasta 12 particiones y 6 réplicas, porque hacerlo le exigiría 72 unidades de búsqueda (12 x 6), superando así el límite de 36 unidades de búsqueda por servicio.
 
@@ -99,7 +71,7 @@ La tabla siguiente es un gráfico que muestra las réplicas en el eje vertical y
 <tr><td>N/D</td><td><b>1 partición</b></td><td><b>2 particiones</b></td><td><b>3 particiones</b></td><td><b>4 particiones</b></td><td><b>6 particiones</b></td><td><b>12 particiones</b></td></tr>
 </table>
 
-En el sitio web de Azure se explican con detalle la capacidad, los precios y las unidades de búsqueda. Para obtener más información, consulte [Detalles de precios](http://azure.microsoft.com/pricing/details/search/).
+En el sitio web de Azure se explican con detalle la capacidad, los precios y las unidades de búsqueda. Para más información, consulte [Detalles de precios](http://azure.microsoft.com/pricing/details/search/).
 
 > [AZURE.NOTE]El número de réplicas y particiones debe dividirse en 12 uniformemente (de manera específica, 1, 2, 3, 4, 6, 12). Esto se debe a que la Búsqueda de Azure divide previamente cada índice en 12 particiones para que se pueda repartir entre las particiones. Por ejemplo, si su servicio tiene tres particiones y crea un nuevo índice, cada partición contendrá 4 particiones del índice. La manera en que la Búsqueda de Azure particiona un índice es un detalle de implementación, sujeto a cambios en la futura versión. Aunque el número es 12 hoy, no debe esperar que ese número se siempre 12 en el futuro.
 
@@ -114,20 +86,20 @@ Las recomendaciones generales para alta disponibilidad son:
 - 2 réplicas para alta disponibilidad de cargas de trabajo de solo lectura (consultas)
 - 3 o más réplicas para alta disponibilidad de cargas de trabajo de lectura-escritura (consultas e indización)
 
-En la actualidad no hay ningún mecanismo integrado para la recuperación ante desastres. La adición de particiones o réplicas sería la estrategia equivocada para cumplir los objetivos de recuperación ante desastres. En su lugar, podría considerar la adición de redundancia en el nivel de servicio. Para obtener una explicación más detallada de las soluciones alternativas, consulte [esta publicación del foro](https://social.msdn.microsoft.com/Forums/ee108a26-00c5-49f6-b1ff-64c66c8b828a/dr-and-high-availability-for-azure-search?forum=azuresearch).
+En la actualidad no hay ningún mecanismo integrado para la recuperación ante desastres. La adición de particiones o réplicas sería la estrategia equivocada para cumplir los objetivos de recuperación ante desastres. En su lugar, podría considerar la adición de redundancia en el nivel de servicio. Para una explicación más detallada de las soluciones alternativas, consulte [esta publicación del foro](https://social.msdn.microsoft.com/Forums/ee108a26-00c5-49f6-b1ff-64c66c8b828a/dr-and-high-availability-for-azure-search?forum=azuresearch).
 
-> [AZURE.NOTE]Recuerde que la escalabilidad y los acuerdos de nivel de servicio son características del servicio estándar. El servicio gratuito se ofrece en un nivel de recurso fijo, con las réplicas y las particiones compartidas por varios suscriptores. Si ha iniciado con el servicio gratuito y ahora quiere actualizar, deberá crear un nuevo servicio de Búsqueda de Azure en el nivel estándar y luego volver a cargar los índices y los datos en el nuevo servicio. Consulte [Creación de un servicio Búsqueda de Azure en el Portal de Azure](search-create-portal.md) para obtener instrucciones sobre el aprovisionamiento del servicio.
+> [AZURE.NOTE]Recuerde que la escalabilidad y los acuerdos de nivel de servicio son características del servicio estándar. El servicio gratuito se ofrece en un nivel de recurso fijo, con las réplicas y las particiones compartidas por varios suscriptores. Si ha iniciado con el servicio gratuito y ahora quiere actualizar, deberá crear un nuevo servicio de Búsqueda de Azure en el nivel estándar y luego volver a cargar los índices y los datos en el nuevo servicio. Consulte [Creación de un servicio Búsqueda de Azure en el Portal](search-create-service-portal.md) para obtener instrucciones sobre el aprovisionamiento del servicio.
 
 ## Límites de la clave de API
 
-Las claves de API se usan para la autenticación del servicio. Hay dos tipos. Las claves de administración se especifican en el encabezado de solicitud. Las claves de consulta se especifican en la dirección URL. Consulte [Administración del servicio de búsqueda en Microsoft Azure](search-manage.md) para obtener más información sobre la administración de claves.
+Las claves de API se usan para la autenticación del servicio. Hay dos tipos. Las claves de administración se especifican en el encabezado de solicitud. Las claves de consulta se especifican en la dirección URL. Consulte [Administración del servicio de búsqueda en Microsoft Azure](search-manage.md) para más información sobre la administración de claves.
 
 - Máximo de 2 claves de administración por servicio
 - Máximo de 50 claves de consultas por servicio
 
 ## Límites de solicitud
 
-- Máximo de 16 MB por solicitud
+- Máximo de 16 MB por solicitud <sup>1</sup>
 - Longitud máxima de dirección URL de 8 KB
 - Máximo de 1000 documentos por lote del índice de cargas de índices, combinaciones o eliminaciones
 - Máximo de 32 campos en cláusula $orderby
@@ -138,4 +110,6 @@ Las claves de API se usan para la autenticación del servicio. Hay dos tipos. La
 - Máximo de 1000 documentos devueltos por página de resultados de búsqueda
 - Máximo de 100 sugerencias devueltas por solicitud de Sugerir API
 
-<!---HONumber=AcomDC_1125_2015-->
+<sup>1</sup> en Búsqueda de Azure, el cuerpo de una solicitud está sujeto a un límite superior de 16 megabytes, que impone un límite práctico en el contenido de campos individuales o colecciones que no esté restringido de algún modo por límites teóricos (consulte [Tipos de datos admitidos](https://msdn.microsoft.com/library/azure/dn798938.aspx) para más información sobre composición de campos y restricciones).
+
+<!---HONumber=AcomDC_1210_2015-->

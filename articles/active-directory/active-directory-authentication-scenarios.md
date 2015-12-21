@@ -204,7 +204,7 @@ La sesión del usuario expira cuando expira la duración del token emitido por A
 ### Aplicación de una sola página (SPA)
 
 
-Esta sección describe la autenticación para una aplicación de una sola página que usa Azure AD para proteger su back-end de la API web. Las aplicaciones de una sola página normalmente están estructuradas como una capa de presentación (front-end) de JavaScript que se ejecuta en el explorador y un back-end de la API web que se ejecuta en un servidor e implementa la lógica de negocios de la aplicación. En este escenario, cuando el usuario inicia sesión, el front-end de JavaScript usa la [biblioteca de autenticación de Active Directory para vista previa de JavaScript (ADAL.JS) ](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) y el protocolo de concesión implícita OAuth 2.0 para obtener un token de identificador (id\_token) de Azure AD. El token se almacena en caché y el cliente lo adjunta a la solicitud como token portador al realizar llamadas al back-end de la API web, que se protege con el middleware de OWIN.
+Esta sección describe la autenticación para una aplicación de una sola página que usa Azure AD para proteger su back-end de la API web. Las aplicaciones de una sola página normalmente están estructuradas como una capa de presentación (front-end) de JavaScript que se ejecuta en el explorador y un back-end de la API web que se ejecuta en un servidor e implementa la lógica de negocios de la aplicación. En este escenario, cuando el usuario inicia sesión, el front-end de JavaScript usa la [biblioteca de autenticación de Active Directory para JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) y el protocolo de concesión implícita OAuth 2.0 para obtener un token de identificador (id\_token) de Azure AD. El token se almacena en caché y el cliente lo adjunta a la solicitud como token portador al realizar llamadas al back-end de la API web, que se protege con el middleware de OWIN.
 
 
 #### Diagrama
@@ -467,4 +467,4 @@ Cuando la primera aplicación usa su código de autorización para obtener un to
 
 [OAuth 2.0 en Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

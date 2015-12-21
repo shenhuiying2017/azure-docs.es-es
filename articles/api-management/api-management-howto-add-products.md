@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Creación y publicación de un producto en Administración de API de Azure
@@ -22,7 +22,7 @@ En Administración de API de Azure, un producto contiene una o varias API, así 
 
 ## <a name="create-product"> </a>Creación de un producto
 
-Las operaciones se agregan y se configuran para una API en el portal del publicador. Para obtener acceso al portal del publicador, haga clic en **Administrar** en el Portal de Azure para el servicio Administración de API.
+Las operaciones se agregan y se configuran para una API en el portal del publicador. Para llegar al portal del publicador, haga clic en **Administrar** en el Portal de Azure clásico para el servicio Administración de API.
 
 ![Portal del publicador][api-management-management-console]
 
@@ -148,4 +148,4 @@ Para obtener más información acerca de cómo trabajar con los productos, vea e
 [Creación y uso de grupos para administrar cuentas de desarrollador en Administración de API de Azure]: api-management-howto-create-groups.md
 [Creación y definición de configuraciones de productos avanzadas en Administración de API de Azure]: api-management-howto-product-with-rules.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

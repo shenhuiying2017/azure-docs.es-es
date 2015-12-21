@@ -32,37 +32,28 @@ DNS de Azure usa el Administrador de recursos de Azure (ARM). Siga estas instruc
 
 
 ### Paso 1
+Inicie sesión en la cuenta de Azure (se le pedirá autenticarse con sus credenciales).
 
-		PS C:\> Login-AzureRmAccount
-
-
+	PS C:\> Login-AzureRmAccount
 
 ### Paso 2
+Elija la suscripción de Azure que se va a usar.
 
-Compruebe las suscripciones para la cuenta.
+	PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-		PS C:\> get-AzureRmSubscription 
+Puede mostrar las suscripciones disponibles con 'Get-AzureRmSubscription'.
 
-Se le pedirá que se autentique con sus credenciales.<BR>
+### Paso 3
+Creación de un grupo de recursos (omitir este paso si se usa un grupo de recursos existente)
 
-### Paso 3 Elija qué suscripción de Azure va a utilizar. <BR>
+	PS C:\> New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
 
-
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Sin embargo, puesto que todos los recursos DNS son globales y no regionales, la elección de la ubicación del grupo de recursos no incide en DNS de Azure.
 
 ### Paso 4
-Cree un grupo de recursos (omitir este paso si se utiliza un grupo de recursos existente)<BR>
-
-		PS C:\> New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
-
-
-El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Sin embargo, puesto que todos los recursos DNS son globales y no regionales, la elección de la ubicación del grupo de recursos no incide en DNS de Azure.<BR>
-
-### Paso 5
-
 El proveedor de recursos Microsoft.Network administra el servicio DNS de Azure. La suscripción a Azure debe estar registrada para usar este proveedor de recursos antes de utilizar DNS de Azure. Se trata de una operación única para cada suscripción.
 
-	PS c:> Register-AzureRmProvider -ProviderNamespace Microsoft.Network
+	PS c:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 
 
@@ -90,7 +81,7 @@ Las etiquetas son diferentes de las Etag. Las etiquetas son una lista de pares n
 
 Una zona DNS se crea con el cmdlet New-AzureRmDnsZone. En el ejemplo siguiente, se creará una zona DNS denominada "contoso.com" en el grupo de recursos denominado “MyResourceGroup”:<BR>
 
-		PS C:\> New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 
 >[AZURE.NOTE]En DNS de Azure, deben especificarse nombres de zona sin la terminación “.”. Por ejemplo, "contoso.com" en lugar de "contoso.com.".<BR>
 
@@ -104,7 +95,7 @@ Ya se ha creado la zona DNS en DNS de Azure. Al crear una zona DNS, también se 
 
 Para ver estos registros, use Get-AzureRmDnsRecordSet:
 
-		PS C:\> Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -149,11 +140,9 @@ Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, necesita
         		expire  = 604800 (7 days)
         		default TTL = 300 (5 mins)
 
-
 ## Pasos siguientes
-
 
 [Introducción a la creación de registros y conjuntos de registros](dns-getstarted-create-recordset.md)<BR> [Administración de zonas DNS](dns-operations-dnszones.md)<BR> [Administración de registros DNS](dns-operations-recordsets.md)<BR> [Automatización de operaciones de Azure con .NET SDK](dns-sdk.md)<BR> [Referencia de la API de REST del DNS de Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

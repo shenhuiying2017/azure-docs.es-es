@@ -27,7 +27,7 @@ La clase RecoveryManager forma parte de la [biblioteca de cliente de Base de dat
 ![Mapa de particiones][1]
 
 
-Para definiciones de términos, vea el [Glosario de herramientas de base de datos elástica](sql-database-elastic-scale-glossary.md). Para comprender cómo se usa **ShardMapManager** para administrar los datos en una solución con particiones, consulte [Administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md).
+Para definiciones de términos, consulte el [Glosario de herramientas de base de datos elástica](sql-database-elastic-scale-glossary.md). Para comprender cómo se usa **ShardMapManager** para administrar los datos en una solución con particiones, consulte [Administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md).
 
 
 ## ¿Por qué usar el Administrador de recuperación?
@@ -44,7 +44,7 @@ La automatización de las acciones de recuperación permite una capacidad de adm
 
 Para obtener más información acerca de las herramientas de la Base de datos elástica de Base de datos SQL de Azure, la replicación y restauración geográficas, consulte lo siguiente:
 
-* [Características de Base de datos elástica para Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md) 
+* [Características de base de datos elástica para Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md) 
 * [Continuidad de negocio de Base de datos SQL de Azure](sql-database-business-continuity.md) 
 * [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md)  
 * [Administración de ShardMap](sql-database-elastic-scale-shard-map-management.md)
@@ -59,7 +59,7 @@ El primer paso es crear una instancia de RecoveryManager. El [método GetRecover
 
 En este ejemplo, se inicializa RecoveryManager desde ShardMapManager. También se inicializa un ShardMapManager que contiene un ShardMap.
 
-Como este código de aplicación manipula el mismo mapa de particiones, las credenciales que se usan en el método de fábrica (en el ejemplo anterior, smmConnectionString) deben ser credenciales con permisos de lectura-escritura en la base de datos del mapa de particiones global, al que hace referencia la cadena de conexión. Estas credenciales normalmente son distintas de las credenciales que se usan para abrir conexiones para el enrutamiento dependiente de datos. Para obtener más información, consulte [Uso de credenciales en las bibliotecas de cliente de Base de datos elástica](sql-database-elastic-scale-manage-credentials.md).
+Como este código de aplicación manipula el mapa de particiones propiamente dicho, las credenciales que se usan en el método de fábrica (en el ejemplo anterior, smmConnectionString) deben ser credenciales con permisos de lectura-escritura en la base de datos del mapa de particiones global a la que hace referencia la cadena de conexión. Estas credenciales normalmente son distintas de las credenciales que se usan a fin de abrir conexiones para el enrutamiento dependiente de datos. Para más información, consulte [Uso de credenciales en las bibliotecas de cliente de base de datos elástica](sql-database-elastic-scale-manage-credentials.md).
 
 ## Supresión de una partición de ShardMap después de eliminar una partición
 
@@ -81,11 +81,11 @@ El [método DetectMappingDifferences](https://msdn.microsoft.com/library/azure/m
 	rm.DetectMappingDifferences(location, shardMapName);
 
 * El parámetro *location* es la ubicación de la partición, específicamente el nombre del servidor y el nombre de la base de datos de la partición. 
-* El parámetro *shardMapName* es el nombre del mapa de particiones. Solo es necesario si se administran varios mapas de particiones por el mismo administrador de mapas de particiones. Opcional. 
+* El parámetro *shardMapName* es el nombre del mapa de particiones. Solo es necesario si un mismo administrador de mapas de particiones administra varios mapas de particiones. Opcional. 
 
-## Para resolver las diferencias de asignación
+## Para resolver diferencias de asignación
 
-El [método ResolveMappingDifferences](https://msdn.microsoft.com/es-ES/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) selecciona uno de los mapas de particiones (local o global) como origen de datos y concilia las asignaciones en ambos mapas de particiones (global y local).
+El [método ResolveMappingDifferences](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) selecciona uno de los mapas de particiones (local o global) como origen de datos y concilia las asignaciones en ambos mapas de particiones (global y local).
 
 	ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution);
    
@@ -99,7 +99,7 @@ El [método AttachShard](https://msdn.microsoft.com/library/azure/microsoft.azur
 
 	rm.AttachShard(location, shardMapName) 
 
-* El parámetro *location* es el nombre del servidor y el nombre de la base de datos de la partición que se va a unir. 
+* El parámetro *location* es el nombre del servidor y el nombre de la base de datos de la partición que se va a asociar. 
 
 * El parámetro *shardMapName* es el nombre del mapa de particiones. Solo es necesario cuando se administran varios mapas de particiones por el mismo administrador de mapas de particiones. Opcional.
 
@@ -116,7 +116,7 @@ Este ejemplo agrega una partición al mapa de particiones que se restauró recie
 
 En el caso de una conmutación por error geográfica, a la base de datos secundaria se le da permiso de escritura y se convierte en la nueva base de datos principal. El nombre del servidor y, posiblemente de la base de datos (según la configuración), puede ser diferente de la réplica principal original. Por lo tanto, deben corregirse las entradas de asignación para la partición en el mapa de particiones local y global. De igual forma, si la base de datos se restaura en una ubicación o nombre diferente o a un momento anterior en el tiempo, podría provocar inconsistencias en los mapas de particiones. El administrador de mapas de particiones controla la distribución de las conexiones abiertas a la base de datos correcta. La distribución se basa en los datos del mapa de particiones y en el valor de la clave de particionamiento, que es el destino de la solicitud de la aplicación. Después de una conmutación por error geográfica, esta información debe actualizarse con el nombre preciso del servidor, el nombre de la base de datos y la asignación de particiones de la base de datos recuperada.
 
-## Procedimientos recomendados
+## Prácticas recomendadas
 
 La conmutación por error geográfica y la recuperación son operaciones administradas normalmente por un administrador de la nube de la aplicación mediante el uso intencional de una de las características de continuidad del negocio de Bases de datos SQL de Azure. La planeación de la continuidad de negocio requiere procesos, procedimientos y medidas para garantizar que las operaciones empresariales puedan continuar sin interrupción. Deben usarse los métodos disponibles como parte de la clase RecoveryManager dentro de este flujo de trabajo para garantizar que los mapas de particiones local y global se actualizan según la acción de recuperación realizada. Existen cinco pasos básicos para asegurar correctamente que los mapas de particiones local y global reflejan la información precisa después de un evento de conmutación por error. El código de la aplicación para ejecutar estos pasos se puede integrar en el flujo de trabajo y en las herramientas existentes.
 
@@ -157,4 +157,4 @@ Este ejemplo realiza los pasos siguientes: 1. Quita las particiones del mapa de 
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="12/04/2015" 
 	ms.author="larryfr"/>
 
 #Análisis de datos de retraso de vuelos con Hive en HDInsight
@@ -31,7 +31,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - __Un clúster de HDInsight__. Vea [Introducción al uso de Hadoop con Hive en HDInsight en Linux](hdinsight-hadoop-linux-tutorial-get-started.md) para conocer los pasos sobre la creación de un clúster de HDInsight basado en Linux.
 
-- __Base de datos de SQL Azure__. Usará una Base de datos SQL de Azure como almacén de datos de destino. Si aún no dispone una Base de datos SQL, vea [Creación y configuración de una Base de datos SQL de Azure](../sql-database/sql-database-create-configure.md) para crear una.
+- __Base de datos de SQL Azure__. Usará una Base de datos SQL de Azure como almacén de datos de destino. Si aún no dispone una Base de datos SQL, consulte [Creación de una Base de datos SQL de Azure](../sql-database/sql-database-create.md).
 
 - __Azure CLI__. Si no ha instalado la CLI de Azure, vea [Instalación y configuración de la interfaz de la línea de comandos (CLI) de Azure](../xplat-cli-install.md) para conocer más pasos.
 
@@ -63,7 +63,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 	
 	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows)
+	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 	
 3. Una vez conectado, use lo siguiente para descomprimir el archivo .zip:
 
@@ -285,7 +285,6 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
-[powershell-install-configure]: ../install-configure-powershell.md
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
@@ -305,4 +304,4 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

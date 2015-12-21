@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Cómo configurar la persistencia de datos para una Caché en Redis de Azure Premium
@@ -33,7 +33,7 @@ Se puede configurar la persistencia de la hoja **Nueva caché en Redis** durante
 
 ## Crear una caché Premium
 
-Para crear una caché y configurar la persistencia, inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) y haga clic en **Nuevo**->**Datos y almacenamiento**>**Caché en Redis**.
+Para crear una caché y configurar la persistencia, inicie sesión en el [Portal de Azure](https://portal.azure.com) y haga clic en **Nuevo**->**Datos y almacenamiento**>**Caché en Redis**.
 
 ![Creación de una caché en Redis][redis-cache-new-cache-menu]
 
@@ -107,4 +107,4 @@ Obtenga información sobre cómo usar más características de la memoria caché
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

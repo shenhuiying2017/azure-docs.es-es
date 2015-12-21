@@ -48,7 +48,7 @@ Cuando los nodos de proceso dentro de un grupo son capaces de ejecutar tareas al
 
 Mediante la propiedad [CloudPool.TaskSchedulingPolicy][task_schedule], puede especificar que las tareas se deberían asignar de forma uniforme entre todos los nodos del grupo ("propagación") o que se deberían asignar todas las tareas posibles a cada nodo antes de asignarlas a otro nodo del grupo ("empaquetado").
 
-Como ejemplo de por qué esta característica es importante, considere el grupo de nodos Standard\_D14 del ejemplo anterior, configurado con un valor [CloudPool.MaxTasksPerComputeNode][maxtasks_net] de 16. Si [CloudPool.TaskSchedulingPolicy][task_schedule] se configura con un [ComputeNodeFillType][fill_type] *Pack*, se podría maximizar el uso de los 16 núcleos de cada nodo y permitir que un [grupo con escalado automático](./batch-automatic-scaling.md) elimine los nodos sin usar del grupo (nodos sin tareas asignadas) y así minimizar el uso de recursos y ahorrar dinero.
+Como ejemplo de por qué esta característica es importante, considere el grupo de nodos Standard\_D14 del ejemplo anterior, configurado con un valor [CloudPool.MaxTasksPerComputeNode][maxtasks_net] de 16. Si [CloudPool.TaskSchedulingPolicy][task_schedule] se configura con un [ComputeNodeFillType][fill_type] de *Pack*, se podría maximizar el uso de los 16 núcleos de cada nodo y permitir que un [grupo con escalado automático](./batch-automatic-scaling.md) elimine los nodos sin usar del grupo (nodos sin tareas asignadas) y así minimizar el uso de recursos y ahorrar dinero.
 
 ## Ejemplo de .NET Lote
 
@@ -117,7 +117,7 @@ La segunda ejecución del ejemplo muestra una disminución notable en la duraci�
 [batch_explorer]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [enable_autoscaling]: https://msdn.microsoft.com/library/azure/dn820173.aspx
-[fill_type]: https://msdn.microsoft.com/es-ES/library/microsoft.azure.batch.common.computenodefilltype.aspx
+[fill_type]: https://msdn.microsoft.com/library/microsoft.azure.batch.common.computenodefilltype.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [maxtasks_net]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx
 [maxtasks_rest]: https://msdn.microsoft.com/library/azure/dn820174.aspx
@@ -127,4 +127,4 @@ La segunda ejecución del ejemplo muestra una disminución notable en la duraci�
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

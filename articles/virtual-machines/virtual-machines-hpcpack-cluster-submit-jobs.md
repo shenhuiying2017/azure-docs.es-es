@@ -41,7 +41,7 @@ Para habilitar una interfaz REST para enviar trabajos al clúster a través de H
 
 Para obtener información detallada sobre los procedimientos, consulte [Instalación de los componentes web de Microsoft HPC Pack](http://technet.microsoft.com/library/hh314627.aspx).
 
->[AZURE.TIP]Si usa un método automático como el [script de implementación de IaaS de HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) para crear el clúster, opcionalmente puede instalar y configurar los componentes web como parte de la implementación.
+>[AZURE.TIP]Si usa el [script de implementación de IaaS de HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) para crear el clúster, puede instalar y configurar opcionalmente los componentes web como parte de la implementación.
 
 **Para instalar los componentes web**
 
@@ -79,12 +79,12 @@ Para obtener información detallada sobre los procedimientos, consulte [Instalac
 
     ```
     net stop hpcscheduler
-net start hpcscheduler
+    net start hpcscheduler
     ```
 
 ## Paso 2: Instalar las utilidades de cliente de HPC Pack en un equipo local
 
-Si aún no lo hizo, descargue una versión compatible de los archivos de instalación de HPC Pack del [Centro de descarga de Microsoft](http://go.microsoft.com/fwlink/?LinkId=328024) en el equipo cliente y elija la opción de instalación de las utilidades de cliente de HPC Pack.
+Si aún no lo hizo, descargue una versión compatible de los archivos de instalación de HPC Pack del [Centro de descarga de Microsoft](http://go.microsoft.com/fwlink/?LinkId=328024) en el equipo cliente. Al comenzar la instalación, elija la opción de instalación para las utilidades de cliente de HPC Pack.
 
 Para usar las herramientas de cliente de HPC Pack para enviar trabajos a la máquina virtual del nodo principal, también necesitará exportar un certificado desde el nodo principal e instalarlo en el equipo cliente. Necesitará que el certificado esté en formato .CER.
 
@@ -94,11 +94,11 @@ Para usar las herramientas de cliente de HPC Pack para enviar trabajos a la máq
 
 2. En el árbol de consola, expanda **Certificados – Equipo local**, expanda **Personal** y, a continuación, haga clic en **Certificados**.
 
-3. Busque el certificado que configuró para los componentes web de HPC Pack en el [Paso 1: Instalar y configurar los componentes web en el nodo principal](#step-1:-install-and-configure-the-web-components-on-the-head-node) (por ejemplo, denominado &lt;*HeadNodeDnsName*&gt;.cloudapp.NET).
+3. Busque el certificado que configuró para los componentes web de HPC Pack en el [Paso 1: Instalación y configuración de los componentes web en el nodo principal](#step-1:-install-and-configure-the-web-components-on-the-head-node) (por ejemplo, denominado &lt;HeadNodeDnsName&gt;.cloudapp.net).
 
-4. Haga clic con el botón derecho en el certificado, haga clic en **Todas las tareas** y, a continuación, en **Exportar**.
+4. Haga clic con el botón derecho en el certificado, haga clic en **Todas las tareas** y luego en **Exportar**.
 
-5. En el Asistente para exportación de certificados, haga clic en **Siguiente** y, a continuación, seleccione **No exportar la clave privada**.
+5. En el Asistente para exportar certificados, haga clic en **Siguiente** y luego seleccione **No exportar la clave privada**.
 
 6. Siga los restantes pasos del asistente para exportar el certificado en formato DER binario codificado X.509 (.CER).
 
@@ -112,7 +112,7 @@ Para usar las herramientas de cliente de HPC Pack para enviar trabajos a la máq
 
 3. En el Administrador de certificados, expanda **Certificados – Usuario actual**, expanda **Entidades de certificación raíz de confianza**, haga clic con el botón derecho en **Certificados**, haga clic en **Todas las tareas** y, después, en **Importar**.
 
-4. En el Asistente para importación de certificados, haga clic en **Siguiente** y siga los pasos necesarios para importar el certificado que exportó desde el nodo principal.
+4. En el Asistente para importar certificados, haga clic en **Siguiente** y siga los pasos necesarios para importar el certificado que exportó desde el nodo principal.
 
 
 
@@ -133,9 +133,10 @@ Para comprobar la configuración, intente ejecutar trabajos en el clúster de Az
     ```
     job list /scheduler:https://<HeadNodeDnsName>.cloudapp.net /all
     ```
+    
     >[AZURE.TIP]Use el nombre DNS completo del nodo principal, no la dirección IP, en la dirección URL del programador. Si especifica la dirección IP, verá un mensaje de error similar a "El certificado del servidor debe tener una cadena de confianza válida o colocarse en el almacén raíz de confianza".
 
-3. Cuando se le solicite, escriba el nombre de usuario (con la forma &lt;nombreDeDominio&gt;&lt;nombreDeUsuario&gt;) y la contraseña de administrador de clústeres de HPC u otro usuario de clúster configurado. Puede elegir almacenar las credenciales localmente para realizar más operaciones de trabajo.
+3. Cuando se le solicite, escriba el nombre de usuario (con el formato &lt;nombreDeDominio&gt;\\&lt;nombreDeUsuario&gt;) y la contraseña de administrador de clústeres de HPC u otro usuario de clúster configurado. Puede elegir almacenar las credenciales localmente para realizar más operaciones de trabajo.
 
     Aparece una lista de trabajos.
 
@@ -146,41 +147,43 @@ Para comprobar la configuración, intente ejecutar trabajos en el clúster de Az
 
     a. En el Panel de control del equipo cliente, inicie el Administrador de credenciales.
 
-    b. Haga clic en **Credenciales de Windows**, y, a continuación, en **Agregar una credencial genérica**.
+    b. Haga clic en **Credenciales de Windows** y luego en **Agregar una credencial genérica**.
 
-    c. Especifique la dirección de Internet https://&lt;*HeadNodeDnsName*&gt;.cloudapp.net/HpcScheduler y escriba el nombre de usuario (con la forma &lt;nombreDeDominio&gt;&lt;nombreDeUsuario&gt;) y la contraseña del administrador de clústeres HPC o de otro usuario de clúster que configuró.
+    c. Especifique la dirección de Internet https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler y escriba el nombre de usuario (con el formato &lt;nombreDeDominio&gt;\\&lt;nombreDeUsuario&gt;) y la contraseña del administrador de clústeres HPC o de otro usuario de clúster que haya configurado.
 
 2. En el equipo cliente, inicie el Administrador de trabajos de HPC.
 
-3. En el cuadro de diálogo **Seleccionar nodo principal** , escriba la dirección URL del nodo principal de Azure con la forma https://&lt;*HeadNodeDnsName*&gt;.cloudapp.net.
+3. En el cuadro de diálogo **Seleccionar nodo principal** , escriba la dirección URL del nodo principal de Azure con el formato https://&lt;HeadNodeDnsName&gt;.cloudapp.net.
 
     El Administrador de trabajos de HPC se abre y muestra una lista de los trabajos del nodo principal.
 
 **Para usar el portal web en el nodo principal**
 
-1. Inicie un explorador web en el equipo cliente y escriba la dirección siguiente: ```
-    https://HeadNodeDnsName.cloudapp.net/HpcPortal
+1. Inicie un explorador web en el equipo cliente y escriba la dirección siguiente:
+
     ```
-2. En el cuadro de diálogo de seguridad que aparece, escriba las credenciales de dominio del Administrador de clústeres de HPC. (También puede agregar otros usuarios de clúster en distintos roles. Para obtener más información, consulte [Administración de usuarios de clúster](https://technet.microsoft.com/library/ff919335.aspx).)
+    https://<HeadNodeDnsName>.cloudapp.net/HpcPortal
+    ```
+2. En el cuadro de diálogo de seguridad que aparece, escriba las credenciales de dominio del Administrador de clústeres de HPC. (También puede agregar otros usuarios de clúster en distintos roles. Para más información, consulte [Managing Cluster Users](https://technet.microsoft.com/library/ff919335.aspx)).
 
     El portal web se abre en la vista de la lista de trabajos.
 
-3. Para enviar un trabajo de ejemplo que devuelva la cadena "Hello World" del clúster, haga clic en **Nuevo trabajo** en el panel de navegación izquierdo.
+3. Para enviar un trabajo de ejemplo que devuelva una cadena “Hello World” desde el clúster, haga clic en **Nuevo trabajo** en el panel de navegación izquierdo.
 
 4. En la página **Nuevo trabajo**, en **Desde páginas de envío**, haga clic en **HelloWorld**. Aparece la página de envío del trabajo.
 
-5. Haga clic en **Enviar**. Si se le solicita, especifique las credenciales de dominio del administrador de clústeres de HPC. El trabajo se envía y el Id. del trabajo aparece en la página **Mis trabajos**.
+5. Haga clic en **Enviar**. Si se le solicita, especifique las credenciales de dominio del administrador de clústeres de HPC. El trabajo se envía y el id. del trabajo aparece en la página **Mis trabajos**.
 
-6. Para ver los resultados del trabajo que envió, haga clic en el Id. del trabajo y, a continuación, haga clic en **Ver tareas** para ver el resultado del comando (en **Salida**).
+6. Para ver los resultados del trabajo que ha enviado, haga clic en el id. de trabajo y luego haga clic en **Ver tareas** para ver el resultado del comando (en **Salida**).
 
 ## Pasos siguientes
 
 * También es posible enviar trabajos al clúster de Azure con la [API de REST de HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
 
-* Si desea enviar un clúster desde un cliente Linux, consulte también el ejemplo de Python en el [SDK de HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756).
+* Si desea enviar un clúster desde un cliente Linux, consulte el ejemplo de Python en el [SDK de HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756).
 
 
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

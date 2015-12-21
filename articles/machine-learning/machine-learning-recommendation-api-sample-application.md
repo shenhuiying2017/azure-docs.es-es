@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="luisca"/>
 
 
@@ -58,6 +58,7 @@ Normalmente, se ejecuta la recomendación Get para un cierto período de tiempo.
 
 * Visual Studio 2013
 * Acceso a Internet 
+* Suscripción a la API de recomendaciones (https://datamarket.azure.com/dataset/amla/recommendations).
 
 ##Solución de aplicación de ejemplo de Aprendizaje automático de Azure
 
@@ -89,4 +90,4 @@ Para obtener una descripción completa de la API, consulte la documentación de 
 La aplicación de ejemplo no está diseñada para ejecutarse en un entorno de producción. Los datos proporcionados en el catálogo son muy pequeños y no constituyen un modelo de recomendación significativo. Los datos se proporcionan como una demostración.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

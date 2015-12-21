@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/04/2015"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ El objetivo de este tutorial es mostrar cómo integrar Kiteworks con Azure Activ
 
 - Puede controlar en Azure AD quién tiene acceso a Kiteworks. 
 - Puede permitir que los usuarios inicien sesión automáticamente en Kiteworks (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central, el Portal de Azure Active Directory.
+- Puede administrar sus cuentas en una ubicación central, Azure Active Directory. 
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -56,7 +56,7 @@ Para configurar la integración de Kiteworks en Azure AD, es preciso agregar Kit
 
 **Para agregar Kiteworks desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en **Active Directory**. <br><br> ![Active Directory][1]<br>
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. <br><br> ![Active Directory][1]<br>
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
@@ -81,15 +81,15 @@ Para configurar y probar el inicio de sesión único de Azure AD con Kiteworks, 
 
 ### Configuración del inicio de sesión único de Azure AD
 
-El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el portal de Azure AD y configurar el inicio de sesión único en la aplicación Kiteworks. Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación Kiteworks. Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-Para configurar el inicio de sesión único para Kiteworks, se necesita un dominio registrado. Si no dispone de un dominio registrado, póngase en contacto con el equipo de soporte técnico a través de [support@flatterfiles.com](mailto:support@flatterfiles.com).
+Para configurar el inicio de sesión único para Kiteworks, se necesita un dominio registrado. Si no dispone de un dominio registrado, póngase en contacto con el equipo de soporte técnico a través de Kiteworks.
 
 
 
 **Para configurar el inicio de sesión único de Azure AD con Kiteworks, realice los pasos siguientes:**
 
-1. En el Portal de Azure AD, en la página de integración de aplicaciones de **Kiteworks**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6] <br>
+1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Kiteworks**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6] <br>
 
 2. En la página **¿Cómo desea que los usuarios inicien sesión en Kiteworks?**, seleccione **Inicio de sesión único de Azure AD** y, a continuación, haga clic en **Siguiente**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_03.png) <br>
 
@@ -110,30 +110,30 @@ Para configurar el inicio de sesión único para Kiteworks, se necesita un domin
 
 1. Inicie sesión en su sitio de la compañía de Kiteworks como administrador.
 
-1. En la barra de herramientas de la parte superior, haga clic en el icono de **configuración**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_06.png) <br>
+1. En la barra de herramientas de la parte superior, haga clic en el icono de **Configuración**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_06.png) <br>
 
 
-1. En la sección **Authentication and Authorization** (Autenticación y autorización), haga clic en **SSO Setup** (Configuración de SSO). <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_07.png) <br>
+1. En la sección **Autenticación y autorización**, haga clic en **Configuración de SSO**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_07.png) <br>
 
 
-1. En la página SSO Setup (Configuración de SSO), realice los pasos siguientes: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_09.png) <br>
+1. En la página Configuración de SSO, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_09.png) <br>
 
-    a. Seleccione **Authenticate via SSO** (Autenticar mediante SSO).
+    a. Seleccione **Autenticar mediante SSO**.
 
-    b. Seleccione **Initiate AuthnRequest** (Iniciar AuthnRequest).
+    b. Seleccione **Iniciar AuthnRequest**.
 
-    c. En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Kiteworks**, copie el valor de **Id. de entidad** y péguelo en el cuadro de texto **Id. de entidad de IDP**.
+    c. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Kiteworks**, copie el valor de **Id. de entidad** y péguelo en el cuadro de texto **Id. de entidad de IDP**.
 
-    d. En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Kiteworks**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único).
+    d. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Kiteworks**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL del servicio de inicio de sesión único**.
 
-    e. En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Kiteworks**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Single Sign-Out Service URL** (Dirección URL del servicio de cierre de sesión único).
+    e. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Kiteworks**, copie el valor de **Dirección URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **Dirección URL del servicio de cierre de sesión único**.
 
     f. Abra el certificado descargado en el Bloc de notas, copie el contenido y péguelo en el cuadro de texto **Certificado de clave pública RSA**.
 
     g. Haga clic en **Guardar**.
 
 
-6. En el Portal de Azure AD, seleccione la confirmación de la configuración del inicio de sesión único y haga clic en **Siguiente**. <br><br>![Inicio de sesión único de Azure AD][10]<br>
+6. En el Portal de Azure clásico, seleccione la confirmación de la configuración del inicio de sesión único y haga clic en **Siguiente**. <br><br>![Inicio de sesión único de Azure AD][10]<br>
 
 7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**. <br><br>![Inicio de sesión único de Azure AD][11]
 
@@ -141,11 +141,11 @@ Para configurar el inicio de sesión único para Kiteworks, se necesita un domin
 
 
 ### Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure llamado Britta Simon.<br> En la lista Usuarios, seleccione **Britta Simon**.<br><br>![Creación de un usuario de Azure AD][20]<br>
+El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure clásico llamado Britta Simon.<br> En la lista Usuarios, seleccione **Britta Simon**.<br><br>![Creación de un usuario de Azure AD][20]<br>
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en **Active Directory**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_09.png)<br> 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_09.png) <br> 
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
@@ -169,7 +169,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
 
-    d. En la lista **Rol**, seleccione **Usuario**. Haga clic en **Siguiente**.
+    d. En la lista **Rol**, seleccione **Usuario**. e. Haga clic en **Siguiente**.
 
 7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **crear**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_07.png) <br>
  
@@ -237,4 +237,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-kiteworks-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kiteworks-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

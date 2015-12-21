@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="12/02/2015"
    ms.author="joaoma" />
 
 # Deshabilitación, habilitación o eliminación de un perfil
@@ -54,4 +54,4 @@ Puede deshabilitar un perfil de Administrador de tráfico existente de para que 
 
 [Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

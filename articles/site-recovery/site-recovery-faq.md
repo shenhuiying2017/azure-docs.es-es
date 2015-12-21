@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Site Recovery: preguntas más frecuentes" 
+	pageTitle="Azure Site Recovery: Preguntas más frecuentes (P+F) | Microsoft Azure" 
 	description="En este artículo se analizan las preguntas más frecuentes acerca de Azure Site Recovery." 
 	services="site-recovery" 
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="raynew"/>
 
 
@@ -43,9 +43,9 @@ Depende del escenario de implementación.
 
 Compruebe los requisitos previos del servidor de host de Hyper-V en:
 
-- [Replicación de máquinas virtuales de Hyper-V (sin VMM) a Azure](site-recovery-hyper-v-site-to-azure/#before-you-start)
-- [Replicación de máquinas virtuales de Hyper-V (con VMM) a Azure](site-recovery-vmm-to-azure/#before-you-start)
-- [Replicación de máquinas virtuales de Hyper-V a un centro de datos secundario](site-recovery-vmm-to-vmm/#before-you-start)
+- [Replicación de máquinas virtuales de Hyper-V (sin VMM) a Azure](site-recovery-hyper-v-site-to-azure.md/#before-you-start)
+- [Replicación de máquinas virtuales de Hyper-V (con VMM) a Azure](site-recovery-vmm-to-azure.md/#before-you-start)
+- [Replicación de máquinas virtuales de Hyper-V a un centro de datos secundario](site-recovery-vmm-to-vmm.md/#before-you-start)
 
 Respecto a los sistemas operativos invitados:
 
@@ -74,17 +74,17 @@ Sí. Puede replicar máquinas virtuales de Hyper-V en la nube en el servidor de 
 
 ### ¿Qué servidores físicos se pueden proteger?
 
-Puede proteger servidores físicos con Windows y Linux, en Azure o en un sitio secundario. Para conocer los requisitos del sistema operativo, lea [¿Qué se necesita?](site-recovery-vmware-to-azure/#what-do-i-need). Se aplican las mismas limitaciones si está replicando servidores físicos a Azure o a un sitio secundario.
+Puede proteger servidores físicos con Windows y Linux, en Azure o en un sitio secundario. Para conocer los requisitos del sistema operativo, lea [¿Qué se necesita?](site-recovery-vmware-to-azure.md/#what-do-i-need). Se aplican las mismas limitaciones si está replicando servidores físicos a Azure o a un sitio secundario.
 
 Tenga en cuenta que los servidores físicos se ejecutarán como máquinas virtuales en Azure si se desactiva el servidor local. Actualmente no se admite la conmutación por recuperación a un servidor físico local, pero puede conmutar por recuperación a una máquina virtual que se ejecute en Hyper-V o VMware.
 
 ### ¿Qué máquinas virtuales de VMware se pueden proteger?
 
-Para este escenario, necesitará un servidor VMware vCenter, un hipervisor vSphere y máquinas virtuales con herramientas de VMware en ejecución. Para conocer los requisitos exactos, consulte [¿Qué se necesita?](site-recovery-vmware-to-azure/#what-do-i-need). Se aplican las mismas limitaciones si está replicando servidores físicos a Azure o a un sitio secundario.
+En este escenario necesitará un servidor VMware vCenter, un hipervisor vSphere y máquinas virtuales con herramientas de VMware en ejecución. Para conocer los requisitos exactos, consulte [¿Qué se necesita?](site-recovery-vmware-to-azure.md/#what-do-i-need). Se aplican las mismas limitaciones si está replicando servidores físicos a Azure o a un sitio secundario.
 
 ### ¿Hay algún requisito previo para replicar las máquinas virtuales a Azure?
 
-Las máquinas virtuales que desee replicar a Azure deben cumplir con los [Requisitos de Azure](site-recovery-best-practices/#virtual-machines).
+Las máquinas virtuales que quiera replicar a Azure deben cumplir con los [Requisitos de Azure](site-recovery-best-practices.md/#virtual-machines).
 
 ### ¿Se pueden replicar máquinas virtuales de generación 2 de Hyper-V a Azure?
 
@@ -127,7 +127,7 @@ Al replicar máquinas virtuales y servidores físicos entre sitios locales, se a
 
 ### Si se replica a Azure, ¿qué tipo de cuenta de almacenamiento se necesita?
 
-Necesitará una cuenta de almacenamiento con [almacenamiento con redundancia geográfica estándar](../storage/storage-redundancy/#geo-redundant-storage). Solo se admite una [cuenta de almacenamiento premium](../storage/storage-premium-storage-preview-portal/) si está replicando máquinas virtuales de VMware o servidores físicos de Windows/Linux a Azure.
+Necesitará una cuenta de almacenamiento con [almacenamiento con redundancia geográfica estándar](../storage/storage-redundancy.md/#geo-redundant-storage). Solo se admite una [cuenta de almacenamiento premium](../storage/storage-premium-storage-preview-portal/) si está replicando máquinas virtuales de VMware o servidores físicos de Windows/Linux a Azure.
 
 La compatibilidad con el almacenamiento estándar con redundancia local está pendiente, envíe los comentarios que tenga sobre esta característica al [foro de comentarios](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support).
 
@@ -154,7 +154,7 @@ Los discos dinámicos se admiten al replicar máquinas virtuales de Hyper-V. Sin
 
 ### Si se realiza una conmutación por error a Azure, ¿cómo se puede tener acceso a las máquinas virtuales de Azure tras este proceso? 
 
-Es posible tener acceso a las máquinas virtuales de Azure a través de una conexión segura a Internet o a través de una VPN de sitio a sitio (o Azure ExpressRoute) si dispone de una. Las comunicaciones a través de una conexión VPN van a puertos internos de la red de Azure en la que se encuentra la máquina virtual. Las comunicaciones a través de Internet se asignan a los extremos públicos en el servicio en la nube de Azure para máquinas virtuales. [Más información](site-recovery-network-design/#connectivity-after-failover)
+Es posible tener acceso a las máquinas virtuales de Azure a través de una conexión segura a Internet o a través de una VPN de sitio a sitio (o Azure ExpressRoute) si dispone de una. Las comunicaciones a través de una conexión VPN van a puertos internos de la red de Azure en la que se encuentra la máquina virtual. Las comunicaciones a través de Internet se asignan a los extremos públicos en el servicio en la nube de Azure para máquinas virtuales. [Más información](site-recovery-network-design.md/#connectivity-after-failover)
 
 ### Si se realiza una conmutación por error a Azure, ¿cómo se asegura Azure de que los datos resistan el proceso?
 
@@ -223,4 +223,4 @@ Sí, es posible replicar máquinas virtuales de Hyper-V y Azure, o entre sitios 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

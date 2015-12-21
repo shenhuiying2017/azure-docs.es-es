@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Incorporación de operaciones a una API en Administración de API de Azure
@@ -22,13 +22,13 @@ Es necesario agregar operaciones para poder utilizar una API en Administración 
 
 ## <a name="add-operation"> </a>Agregar una operación
 
-Las operaciones se agregan y se configuran para una API en el portal del publicador. Para obtener acceso al portal del publicador, haga clic en **Administrar** en el Portal de Azure para el servicio Administración de API.
+Las operaciones se agregan y se configuran para una API en el portal del publicador. Para llegar al portal del publicador, haga clic en **Administrar** en el Portal de Azure clásico para el servicio Administración de API.
 
 ![Portal del publicador][api-management-management-console]
 
 >Si todavía no ha creado una instancia del servicio Administración de API, consulte [Creación de una instancia del servicio de Administración de API][] en el tutorial [Introducción a la Administración de API de Azure][].
 
-Seleccione las API que desee en el portal de Administración de API y, a continuación, seleccione la pestaña **Operaciones**.
+Seleccione las API que desee en el portal del publicador y luego seleccione la pestaña **Operaciones**.
 
 ![Operaciones][api-management-operations]
 
@@ -164,4 +164,4 @@ Una vez agregadas las operaciones a una API, el paso siguiente es asociar la API
 [Creación y publicación de un producto]: api-management-howto-add-products.md
 [Almacenamiento en caché de resultados de operaciones en Administración de API de Azure]: api-management-howto-cache.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

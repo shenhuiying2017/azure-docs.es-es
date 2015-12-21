@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Comparación: Apache Storm frente al Análisis de transmisiones de Azure | Microsoft Azure"
-	description="Aprenda a usar Análisis de transmisiones para el análisis en tiempo real de opinión de Twitter. Pasos desde la generación de eventos a los datos en un panel dinámico."
-	keywords="twitter en tiempo real,análisis de opiniones,análisis de los medios sociales,herramientas de análisis de los medios sociales"
+	pageTitle="Plataformas de análisis: Comparación de Apache Storm con Análisis de transmisiones | Microsoft Azure"
+	description="Obtenga instrucciones para seleccionar una plataforma de análisis en la nube a partir de una comparación de Apache Storm con Análisis de transmisiones. Comprenda las características y diferencias."
+	keywords="plataforma de análisis, plataformas de análisis, plataforma de análisis de la nube, comparación de storm"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -17,15 +17,13 @@
 	ms.date="11/06/2015"
 	ms.author="jeffstok"/>
 
-# Comparación de Apache Storm y el Análisis de transmisiones de Azure #
+# Ayuda para seleccionar una plataforma de Análisis de transmisiones: comparación de Apache Storm con Análisis de transmisiones de Azure
 
-## Introducción ##
+Obtenga instrucciones para seleccionar una plataforma de análisis en la nube a partir de una comparación de Apache Storm con Análisis de transmisiones de Azure. Comprenda las diferencias entre las propuestas de valor de Análisis de transmisiones y Apache Storm como servicio administrado en HDInsight de Azure, para que pueda elegir la solución adecuada para los casos de uso de su empresa.
 
-Este documento ilustra la situación de Análisis de transmisiones de Azure y de Apache Storm como un servicio administrado en HDInsight. El objetivo es ayudar a los clientes a comprender las oportunidades que ofrecen ambos servicios y a decidir cuál de ellos usar en sus negocios.
+Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas importantes capacidades distintivas que diferencian estos servicios. Las capacidades, así como las limitaciones, de estos servicios se enumeran a continuación para ayudarle a llegará a la solución que necesita para lograr sus objetivos.
 
-Aunque ambos proporcionan las ventajas de una solución PaaS, hay algunas capacidades distintivas principales que diferencian estos servicios. Al ofrecer una lista de las funciones de estos servicios, así como de sus limitaciones, nuestros clientes podrán encontrar la mejor solución para lograr sus objetivos.
-
-## General ##
+## Comparación de Storm con Análisis de transmisiones: características generales ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -138,7 +136,7 @@ Aunque ambos proporcionan las ventajas de una solución PaaS, hay algunas capaci
         </tr>
     </tbody>
 </table>
-## Creación ##
+## Creación en cada plataforma de análisis ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -262,7 +260,7 @@ Aunque ambos proporcionan las ventajas de una solución PaaS, hay algunas capaci
         </tr>
     </tbody>
 </table>
-## Entrada y salida ##
+## Salidas y orígenes de datos ##
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -563,7 +561,7 @@ Aunque ambos proporcionan las ventajas de una solución PaaS, hay algunas capaci
             </td>
             <td width="246" valign="top">
                 <p>
-                    Sin límites en el tamaño de los datos. Conectores disponibles para HBase, DocumentDB, SQL Server y Azure. Aquellos conectores que sean incompatibles se pueden implementar a través del código personalizado. 
+                    Sin límites en el tamaño de los datos. Conectores disponibles para HBase, DocumentDB, SQL Server y Azure. Aquellos conectores que sean incompatibles se pueden implementar a través del código personalizado.
                 </p>
                 <p>
                     El código personalizado es el que debe encargarse de actualizar los datos de referencia.
@@ -590,4 +588,4 @@ Aunque ambos proporcionan las ventajas de una solución PaaS, hay algunas capaci
     </tbody>
 </table>
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

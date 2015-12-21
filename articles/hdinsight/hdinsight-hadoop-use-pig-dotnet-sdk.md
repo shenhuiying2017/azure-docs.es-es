@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/02/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #Ejecución de trabajos de Pig con el SDK de .NET para Hadoop en HDInsight
@@ -155,6 +155,7 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 * [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
 
-* [Uso de MapReduce con Hadoop en HDInsight ](hdinsight-use-mapreduce.md) [preview-portal]: https://portal.azure.com/
+* [Uso de MapReduce con Hadoop en HDInsight ](hdinsight-use-mapreduce.md)
+[portal de vista previa]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

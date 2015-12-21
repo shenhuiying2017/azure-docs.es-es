@@ -35,11 +35,11 @@ Los pasos de este documento recorren el proceso de creación de un nuevo clúste
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- __CLI de Azure__ Para obtener información sobre la instalación de la CLI, consulte [Instalación de la CLI de Azure](xplat-cli-install.md).
+- __CLI de Azure__ Para información sobre la instalación de la CLI, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md).
 
 ##Iniciar sesión en su suscripción de Azure
 
-Siga los pasos que se documentan en [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](xplat-cli-connect.md) y conéctese a su suscripción con el método __login__.
+Siga los pasos que se documentan en [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md) y conéctese a su suscripción con el método __login__.
 
 ##Crear un clúster
 
@@ -112,13 +112,13 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 
 ###Clústeres HBase
 
-* [Introducción a HBase en HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
-* [Desarrollo de aplicaciones de Java para HBase en HDInsight](hdinsight-hbase-build-java-maven-linux)
+* [Introducción a HBase en HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
+* [Desarrollo de aplicaciones de Java para HBase en HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ###Clústeres Storm
 
 * [Desarrollo de topologías de Java para Storm en HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python.md)
+* [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

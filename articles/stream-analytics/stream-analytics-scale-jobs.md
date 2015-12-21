@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Escalar los trabajos de Análisis de transmisiones para incrementar el rendimiento | Microsoft Azure"
 	description="Aprenda a escalar los trabajos de Análisis de transmisiones mediante la configuración de particiones de entrada, la optimización de la definición de consulta y el ajuste de las unidades de streaming del trabajo."
-	keywords="trabajos de análisis,transmisión de datos, streaming de datos"
+	keywords="datos de streaming, procesamiento de datos de streaming, optimización del análisis"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,22 +14,22 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/23/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok"/>
 
-# Escalar los trabajos de Análisis de transmisiones de Azure para incrementar el rendimiento #
+# Escalado de trabajos de Análisis de transmisiones de Azure para incrementar el rendimiento de procesamiento de flujo de datos #
 
-Aprenda a calcular las *unidades de streaming* para un trabajo de Análisis de transmisiones y a escalar trabajos de Análisis de transmisiones mediante la configuración de particiones de entrada, la optimización de la definición de consulta y el ajuste de las unidades de streaming del trabajo.
+Aprenda a optimizar trabajos de análisis y calcular *unidades de streaming* para un trabajo de Análisis de transmisiones, así como a escalar trabajos de Análisis de transmisiones mediante la configuración de particiones de entrada, la optimización de la definición de consulta y el ajuste de las unidades de streaming del trabajo.
 
 ## ¿Cuáles son las partes de un trabajo de Análisis de transmisiones? ##
-Una definición de trabajo de Análisis de transmisiones de Azure incluye entradas, una consulta y la salida. Las entradas proceden del lugar en el cual el trabajo lee el flujo de datos, la consulta se usa para transformar el flujo de entrada de datos y la salida es el lugar al que el trabajo envía los resultados.
+Una definición de trabajo de Análisis de transmisiones incluye entradas, una consulta y la salida. Las entradas proceden del lugar en el cual el trabajo lee el flujo de datos, la consulta se usa para transformar el flujo de entrada de datos y la salida es el lugar al que el trabajo envía los resultados.
 
 Un trabajo requiere al menos un origen de entrada de streaming de datos. El origen de entrada de streaming de datos puede almacenarse en un Centro de eventos de Bus de servicio de Azure o en un almacenamiento de blobs de Azure. Para obtener más información, consulte [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md), [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md) y [Guía para desarrolladores de Análisis de transmisiones de Azure](../stream-analytics-developer-guide.md).
 
 ## Configuración de unidades de streaming ##
 Las Unidades de streaming (SU) representan los recursos y la capacidad de ejecutar un trabajo de Análisis de transmisiones de Azure. Las SU proporcionan una forma de describir la capacidad de procesamiento del evento relativo en función de una medida que combina la CPU, la memoria y las tasas de lectura y escritura. Cada unidad de streaming corresponde aproximadamente a 1 MB por segundo de rendimiento.
 
-Elegir cuántas SU son necesarias para un trabajo en concreto depende de la configuración de la partición de las entradas y de la consulta definida para el trabajo. Puede seleccionar tantas unidades de streaming para un trabajo como su cuota se lo permita, mediante el Portal de Azure clásico. De forma predeterminada, cada suscripción de Azure tiene una cuota máxima de 50 unidades de streaming en todos los trabajos de análisis de una región específica. Para aumentar las unidades de streaming de su suscripción póngase en contacto con el [Servicio de soporte técnico de Microsoft](http://support.microsoft.com).
+Elegir cuántas SU son necesarias para un trabajo en concreto depende de la configuración de la partición de las entradas y de la consulta definida para el trabajo. Puede seleccionar tantas unidades de streaming para un trabajo como su cuota se lo permita, mediante el Portal de Azure. De forma predeterminada, cada suscripción de Azure tiene una cuota máxima de 50 unidades de streaming en todos los trabajos de análisis de una región específica. Para aumentar las unidades de streaming de su suscripción póngase en contacto con el [Servicio de soporte técnico de Microsoft](http://support.microsoft.com).
 
 El número de unidades de streaming que puede usar un trabajo depende de la configuración de particiones para las entradas y de la consulta definida para el trabajo. Tenga en cuenta que también se debe usar un valor válido para las unidades de streaming. Los valores válidos comienzan por 1, 3, 6 y, a continuación, van aumentando de seis en seis, tal y como se muestra a continuación.
 
@@ -147,20 +147,20 @@ Esta consulta se puede escalar hasta 24 unidades de streaming.
 
 **Para ajustar una unidad de streaming de un trabajo**
 
-1. Inicie sesión en el [Portal clásico](https://manage.windowsazure.com).
+1. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com).
 2. Haga clic en **Análisis de transmisiones** en el panel izquierdo.
 3. Haga clic en el trabajo de Stream Analytics que desea escalar.
 4. Haga clic en **ESCALA** en la parte superior de la página.
 
 ![Escala de las unidades de streaming de Análisis de transmisiones de Azure][img.stream.analytics.streaming.units.scale]
 
-En el Portal de Azure, se puede acceder a la configuración de Escala en Configuración:
+En el Portal de vista previa de Azure, se puede acceder a la configuración Escala bajo Configuración:
 
-![Configuración de trabajo de Análisis de transmisiones en el Portal de Azure][img.stream.analytics.preview.portal.settings.scale]
+![Portal de vista previa de Azure - Configuración de trabajo de Análisis de transmisiones][img.stream.analytics.preview.portal.settings.scale]
 
 ## Supervisión del rendimiento del trabajo ##
 
-Mediante el Portal clásico, puede realizar el seguimiento de la capacidad de procesamiento de un trabajo en eventos por segundo:
+Mediante el portal de administración, puede realizar el seguimiento de la capacidad de procesamiento de un trabajo en eventos por segundo:
 
 ![Trabajos de supervisión de Análisis de transmisiones de Azure][img.stream.analytics.monitor.job]
 
@@ -265,4 +265,4 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

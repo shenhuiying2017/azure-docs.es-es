@@ -20,6 +20,25 @@
 
 # Notas de la versión de los componentes de Hadoop en HDInsight de Azure
 
+## Notas de la versión del 02/12/2015 de HDinsight
+
+Los números de versión completos de los clústeres de HDInsight implementados con esta versión son:
+
+* HDInsight (Windows) 2.1.10.763.1931434 (HDP 1.3.12.0-01795, sin cambios)
+* HDInsight (Windows) 3.0.6.763.1931434 (HDP 2.0.13.0-2117, sin cambios)
+* HDInsight (Windows) 3.1.4.763.1931434 (HDP 2.1.15.0-2374, sin cambios)
+* HDInsight (Windows) 3.2.7.763.1931434 (HDP 2.2.7.1-34, sin cambios)
+* HDInsight (Windows) 3.3.1000.0 (HDP 2.3.3.1-5)
+* HDInsight (Windows) 3.2.1000.0.6392801 (HDP 2.2.7.1-34, sin cambios)
+* HDInsight (Windows) 3.3.1000.0 (HDP 2.3.3.0-3039)
+* SDK 1.5.8
+
+Esta versión contiene las siguientes actualizaciones.
+
+| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Se ha agregado la versión HDInsight 3.3 y se han actualizado las versiones de HDInsight para todos los clústeres de HDInsight | Con esta versión, se ha agregado HDInsight v3.3 (basada en HDP 2.3) y también se han actualizado otras versiones de HDP. Las notas de la versión HDP 2.3 están disponibles [aquí](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html) y se puede encontrar más información sobre las versiones de HDInsight [aquí](https://azure.microsoft.com/es-ES/documentation/articles/hdinsight-component-versioning/).| Servicio | Todo| N/D
+
 ## Notas de la versión del 30/11/2015 de HDinsight
 
 Los números de versión completos de los clústeres de HDInsight implementados con esta versión son:
@@ -36,6 +55,25 @@ Esta versión contiene las siguientes actualizaciones.
 | Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Versiones de HDInsight actualizadas para todos los clústeres de HDInsight y versiones HDP para clústeres de HDInsight 3.2 (Windows y Linux) | Con esta versión, se han actualizado las versiones de HDInsight y HDP | Servicio | Todo| N/D
+
+
+## Notas de la versión del 27/10/2015 de HDinsight
+
+Los números de versión completos de los clústeres de HDInsight implementados con esta versión son:
+
+* HDInsight (Windows) 2.1.10.726.1866228 (HDP 1.3.12.0-01795, sin cambios)
+* HDInsight (Windows) 3.0.6.726.1866228 (HDP 2.0.13.0-2117, sin cambios)
+* HDInsight (Windows) 3.1.4.726.1866228 (HDP 2.1.15.0-2374, sin cambios)
+* HDInsight (Windows) 3.2.7.726.1866228 (HDP 2.2.7.1-33)
+* HDInsight (Linux) 3.2.1000.0.6035701 (HDP 2.2.7.1-33)
+* SDK 1.5.8
+
+Esta versión contiene las siguientes actualizaciones.
+
+| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Versiones actualizadas de HDInsight para todos los clústeres de HDInsight (Windows y Linux) | Con esta versión, se han actualizado las versiones de HDInsight y HDP | Servicio | Todo| N/D
+| Se han corregido los clústeres de Jupyter para Windows Spark con clústeres escritos en letras mayúsculas | Los clústeres que tenían los nombres de DNS especificados en mayúsculas tenían problemas con notebooks de Jupyter debido a una comprobación de solicitud de origen. La solución consistió en cambiar el nombre de DNS para la configuración de Jupyter a minúsculas. | Servicio | HDInsight Spark (Windows)| N/D
 
 
 ## Notas de la versión del 20/10/2015 de HDinsight
@@ -1384,4 +1422,4 @@ Las notas de la versión de las Hortonworks Data Platforms (HD) que se usan en l
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

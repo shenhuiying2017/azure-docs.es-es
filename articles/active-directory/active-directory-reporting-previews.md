@@ -13,21 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/30/2015"
+   ms.date="12/07/2015"
    ms.author="kenhoff"/>
 
 # Vistas previas de informes de Azure Active Directory
 
-## Artículos de documentación de informes
-
- - [API de Informes](active-directory-reporting-api-getting-started.md)
- - [Eventos de auditoría](active-directory-reporting-audit-events.md)
- - [Retención](active-directory-reporting-retention.md)
- - [Vistas previas](active-directory-reporting-previews.md)
- - [Search](active-directory-reporting-search.md)
- - [Reposición](active-directory-reporting-backfill.md)
- - [Latencias](active-directory-reporting-latencies.md)
- - [Evento "Actor desconocido"](active-directory-reporting-unknown-actor.md)
+*Esta documentación forma parte de la [guía de informes de Azure Active Directory](active-directory-reporting-guide.md).*
 
 Informe | Disponibilidad
 ------------------------------------------------------- | --------------------
@@ -63,4 +54,4 @@ Uso de aplicaciones habilitadas para RMS | Vista previa pública
 **Informes de vista previa privada** |
 Actividad de inicio de sesión de todos los usuarios | Vista previa privada
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

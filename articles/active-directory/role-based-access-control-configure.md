@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/12/2015"
+	ms.date="12/04/2015"
 	ms.author="inhenk"/>
 
 # Control de acceso basado en roles de Azure Active Directory
 
 ## Control de acceso basado en roles
-El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. Gracias a RBAC, puede segregar las tareas entre el equipo de desarrolladores y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajos.
+El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. Gracias a RBAC puede dividir las tareas entre el equipo de DevOps, y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
 
 ### Aspectos básicos de la administración de acceso en Azure
-Cada una de las suscripciones de Azure está asociada a un Azure Active Directory. Solo se puede conceder acceso a los usuarios, los grupos y las aplicaciones de ese directorio para administrar los recursos en la suscripción de Azure, mediante el Portal de administración de Azure, las herramientas de línea de comandos de Azure y las API de administración de Azure.
+Cada una de las suscripciones de Azure está asociada a un Azure Active Directory. Solo se puede conceder acceso a los usuarios, los grupos y las aplicaciones de ese directorio para que administren los recursos en la suscripción de Azure, mediante el Portal de Azure clásico, las herramientas de línea de comandos de Azure y las API de administración de Azure.
 
 El acceso se concede mediante la asignación de rol RBAC adecuado a los usuarios, grupos y aplicaciones en el ámbito correcto. Para conceder acceso a toda la suscripción, asigne un rol en el ámbito de la suscripción. Para conceder acceso a un grupo de recursos específico dentro de una suscripción, asigne un rol en el ámbito de grupo de recursos. También puede asignar roles a recursos específicos, como sitios web, máquinas virtuales y subredes para conceder acceso a un único recurso.
 
@@ -39,14 +39,14 @@ Azure RBAC cuenta con tres roles básicos que se aplican a todos los tipos de re
 Cada suscripción de Azure pertenece a un único directorio, cada grupo de recursos pertenece a una única suscripción y cada recursos pertenece a un único grupo de recursos. El acceso que se concede en el nivel principal se hereda en los ámbitos secundarios. Si se concede el rol de lector a un grupo de Azure AD en el ámbito de suscripción, los miembros de dicho grupo podrán ver todos los grupos de recursos y todos los recursos de la suscripción. Si se concede el rol de colaborador a una aplicación en el ámbito de grupo de recursos, podrá administrar los recursos de todos los tipos de ese grupo de recursos, pero no de otros grupos de recursos de la suscripción.
 
 ### Azure RBAC frente al administrador y los coadministradores de la suscripción clásica
-El administrador y los coadministradores de la suscripción clásica tienen acceso competo a la suscripción de Azure. Pueden administrar recursos tanto desde el portal clásico (https://manage.windowsazure.com) y las API del Administrador de servicios de Azure, como desde el nuevo portal de administración (https://portal.azure.com) y las nuevas API del Administrador de recursos de Azure. En el modelo RBAC, a los administradores clásicos se les asigna el rol de propietario en el ámbito de suscripción.
+El administrador y los coadministradores de la suscripción clásica tienen acceso competo a la suscripción de Azure. Pueden administrar recursos tanto desde el Portal de Azure clásico (https://manage.windowsazure.com)) y las API del Administrador de servicios de Azure, así como desde el Portal de Azure (https://portal.azure.com)) y las nuevas API del Administrador de recursos de Azure. En el modelo RBAC, a los administradores clásicos se les asigna el rol de propietario en el ámbito de suscripción.
 
-El modelo de autorización detallado (Azure RBAC) solo es compatible con el nuevo portal de administración (https://portal.azure.com) y con las API del Administrador de recursos de Azure. Los usuarios y las aplicaciones a los que se asignan roles RBAC (en el ámbito de suscripción/grupo de recursos/ámbito de recurso) no pueden usar el portal de administración clásico (http://manage.windowsazure.com) ni las API de Administración de servicios de Azure.
+El modelo de autorización detallado (Azure RBAC) solo es compatible con el Portal de Azure (https://portal.azure.com) y con las API del Administrador de recursos de Azure. Los usuarios y las aplicaciones a los que se asignan roles RBAC (en el ámbito de suscripción/grupo de recursos/ámbito de recurso) no pueden usar el portal de administración clásico (http://manage.windowsazure.com) ni las API de Administración de servicios de Azure.
 
 ### Autorización para administración frente a operaciones de datos
-El modelo de autorización detallado (Azure RBAC) solo es compatible con operaciones de administración de los recursos de Azure del Portal de Azure y las API de Administrador de recursos de Azure. No todas las operaciones de nivel de datos para recursos de Azure se pueden autorizar mediante RBAC. Por ejemplo, la creación, la lectura, la actualización o la eliminación de cuentas de almacenamiento se puede controlar mediante RBAC; pero la creación, la lectura, la actualización o la eliminación de blobs o tablas de la cuenta de almacenamiento aún no se puede controlar mediante RBAC. Del mismo modo, la creación, la lectura, la actualización o la eliminación de una base de datos de SQL se puede controlar mediante RBAC; pero la creación, la lectura, la actualización o la eliminación tablas de base de datos de SQL aún no se puede controlar mediante RBAC.
+El modelo de autorización detallado (Azure RBAC) solo es compatible con operaciones de administración de los recursos de Azure en el Portal de Azure clásico y en las API de Administrador de recursos de Azure. No todas las operaciones de nivel de datos para recursos de Azure se pueden autorizar mediante RBAC. Por ejemplo, la creación, la lectura, la actualización o la eliminación de cuentas de almacenamiento se puede controlar mediante RBAC; pero la creación, la lectura, la actualización o la eliminación de blobs o tablas de la cuenta de almacenamiento aún no se puede controlar mediante RBAC. Del mismo modo, la creación, la lectura, la actualización o la eliminación de una base de datos de SQL se puede controlar mediante RBAC; pero la creación, la lectura, la actualización o la eliminación tablas de base de datos de SQL aún no se puede controlar mediante RBAC.
 
-## Administración del acceso con el Portal de administración de Azure
+## Administración del acceso con el Portal de Azure clásico
 ### Consulta de acceso
 Seleccione la configuración de acceso en la sección Essentials de la hoja de grupo de recursos. La hoja **usuarios** muestra todos los usuarios, los grupos y las aplicaciones a los que se ha concedido acceso al grupo de recursos. El acceso se asigna en el grupo de recursos o se hereda de una asignación en la suscripción principal.
 
@@ -76,13 +76,13 @@ Seleccione la configuración de acceso en la sección Essentials de la hoja de g
 ## Administración del acceso con Azure Powershell
 El acceso se puede administrar mediante el uso de comandos de Azure RBAC en las herramientas de Azure PowerShell.
 
--	Use `Get-AzureRoleDefinition` para mostrar los roles RBAC disponibles para asignación y para inspeccionar las operaciones a las que conceden acceso.
+-	Use `Get-AzureRmRoleDefinition` para mostrar los roles RBAC disponibles para su asignación y para inspeccionar las operaciones a las que conceden acceso.
 
--	Use `Get-AzureRoleAssignment` para mostrar las asignaciones de acceso RBAC vigentes en la suscripción, el grupo de recursos o el recurso especificado. Use el parámetro `ExpandPrincipalGroups` para mostrar las asignaciones de acceso al usuario especificado, así como a los grupos de los que el usuario es miembro. Use el parámetro `IncludeClassicAdministrators` para mostrar también el administrador y los coadministradores de la suscripción clásica.
+-	Use `Get-AzureRmRoleAssignment` para mostrar las asignaciones de acceso RBAC vigentes en la suscripción, el grupo de recursos o el recurso que se haya especificado. Use el parámetro `ExpandPrincipalGroups` para mostrar las asignaciones de acceso al usuario especificado, así como a los grupos de los que el usuario es miembro. Use el parámetro `IncludeClassicAdministrators` para mostrar también el administrador y los coadministradores de la suscripción clásica.
 
--	Use `New-AzureRoleAssignment` para conceder acceso a los usuarios, los grupos y las aplicaciones.
+-	Use `New-AzureRmRoleAssignment` para conceder acceso a los usuarios, los grupos y las aplicaciones.
 
--	Use `Remove-AzureRoleAssignment` para quitar el acceso.
+-	Use `Remove-AzureRmRoleAssignment` para quitar el acceso.
 
 Consulte [Administración de acceso con Azure PowerShell](role-based-access-control-manage-access-powershell.md) para ver ejemplos más detallados de la administración de acceso con Azure PowerShell.
 
@@ -105,16 +105,16 @@ Todos los cambios de acceso que tienen lugar en las suscripciones de Azure se re
 ### Creación de un informe con Azure PowerShell
 Para crear un informe sobre quién concedió/revocó qué tipo de acceso a quién en qué ámbito de las suscripciones de Azure, use el siguiente comando de PowerShell:
 
-    Get-AzureAuthorizationChangeLog
+    `Get-AzureAuthorizationChangeLog`
 
 ### Creación de un informe con la CLI de Azure
 Para crear un informe sobre quién concedió/revocó qué tipo de acceso a quién en qué ámbito de las suscripciones de Azure, use el siguiente comando de la interfaz de la línea de comandos (CLI) de Azure:
 
-    azure authorization changelog
+    `azure authorization changelog`
 
 > [AZURE.NOTE]Se pueden consultar los cambios de acceso de los últimos 90 días (en lotes de 15 días).
 
-En el siguiente ejemplo se muestran todos los cambios de acceso de la suscripción que tuvieron lugar en los últimos 7 días.
+A continuación se muestran todos los cambios de acceso de la suscripción que tuvieron lugar en los últimos 7 días.
 
 ![](./media/role-based-access-control-configure/access-change-history.png)
 
@@ -123,4 +123,72 @@ Es conveniente exportar los cambios de acceso a una hoja de cálculo para su rev
 
 ![](./media/role-based-access-control-configure/change-history-spreadsheet.png)
 
-<!---HONumber=Oct15_HO3-->
+## Roles personalizados en RBAC de Azure
+Cree un rol personalizado en Azure RBAC si ninguno de los roles integrados satisface sus necesidades de acceso específicas. Los roles personalizados se pueden crear con las herramientas de la línea de comandos de RBAC en Azure PowerShell y con la interfaz de la línea de comandos de Azure. Igual que los roles integrados, los roles personalizados pueden asignarse a usuarios, grupos y aplicaciones en un ámbito de suscripciones, grupos de recursos y recursos.
+
+A continuación encontrará un ejemplo de una definición de rol personalizado que permite la supervisión y el reinicio de máquinas virtuales:
+
+```
+{
+  "Name": "Virtual Machine Operator",
+  "Id": "cadb4a5a-4e7a-47be-84db-05cad13b6769",
+  "IsCustom": true,
+  "Description": "Can monitor and restart virtual machines.",
+  "Actions": [
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/restart/action",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Insights/diagnosticSettings/*",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [
+
+  ],
+  "AssignableScopes": [
+    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624",
+    "/subscriptions/34370e90-ac4a-4bf9-821f-85eeedeae1a2"
+  ]
+}
+```
+### Acciones
+La propiedad Actions de un rol personalizado especifica las operaciones de Azure para las que el rol concede acceso. Se trata de una colección de cadenas de operación que identifican a las operaciones protegibles de proveedores de recursos de Azure. Las cadenas de operación que contienen caracteres comodín (*) conceden acceso a todas las operaciones que coinciden con la cadena de la operación. Por ejemplo:
+
+-	`*/read` concede acceso a las operaciones de lectura a todos los tipos de recursos de todos los proveedores de recursos de Azure.
+-	`Microsoft.Network/*/read` concede acceso a las operaciones de lectura a todos los tipos de recursos del proveedor de recursos Microsoft.Network de Azure.
+-	`Microsoft.Compute/virtualMachines/*` concede acceso a todas las operaciones de las máquinas virtuales y a sus tipos de recursos secundarios.
+-	`Microsoft.Web/sites/restart/Action` concede acceso para reiniciar sitios web.
+
+Use los comandos `Get-AzureRmProviderOperation` o `azure provider operations show` para mostrar una lista de operaciones de los proveedores de recursos de Azure. También puede usar estos comandos para comprobar que una cadena de operación es válida y para expandir las cadenas de operación con comodín.
+
+![](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
+
+![](./media/role-based-access-control-configure/1-azure-provider-operations-show.png)
+
+### No acciones
+Si el conjunto de operaciones que desea permitir se expresa fácilmente excluyendo operaciones específicas, en lugar de incluir todas las operaciones, use la propiedad **NotActions** de un rol personalizado. El acceso efectivo concedido por un rol personalizado se calcula mediante la exclusión de las operaciones **NotActions** desde las operaciones Actions.
+
+Tenga en cuenta que si un usuario tiene asignado un rol que excluye una operación en **NotActions** y se le asigna un segundo rol que sí concede acceso a la misma operación, el usuario podrá realizar dicha operación. **NotActions** no es una regla de denegación, es simplemente una manera cómoda de crear un conjunto de operaciones permitidas cuando es necesario excluir operaciones específicas.
+
+### Ámbitos asignables
+La propiedad **AssignableScopes** del rol personalizado especifica los ámbitos (suscripciones, grupos de recursos o recursos) dentro de los que dicho rol personalizado está disponible para su asignación a usuarios, grupos y aplicaciones. Con el uso de **AssignableScopes** puede disponer del rol personalizado para su asignación solamente a las suscripciones o los grupos de recursos que lo requieran, sin necesidad de abarrotar la experiencia de usuario del resto de las suscripciones o grupos de recursos. **AssignableScopes** de un rol personalizado también controla quién puede ver, actualizar y eliminar el rol. A continuación se muestran algunos ámbitos asignables válidos:
+
+-	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”, “/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624”: permite la disponibilidad del rol para su asignación en dos suscripciones.
+-	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”: permite la disponibilidad del rol para su asignación en una sola suscripción.
+-	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network”: permite la disponibilidad del rol para su asignación solamente en el grupo de recursos de Network.
+
+### Control de acceso de los roles personalizados
+La propiedad **AssignableScopes** del rol personalizado prescribe quién puede ver, modificar y eliminar el rol.
+
+**¿Quién puede crear un rol personalizado?** La creación de roles personalizados se puede llevar a cabo solamente si el usuario que la realiza tiene permiso para crear un rol personalizado para todos los ámbitos especificados por **AssignableScopes**. La creación de roles personalizados se puede llevar a cabo solamente si el usuario que la realiza puede ejecutar `Microsoft.Authorization/roleDefinition/write operation` en todos los ámbitos **AssignableScopes** del rol. Por lo tanto, los propietarios (y administradores de acceso de usuario) de las suscripciones, grupos de recursos y recursos pueden crear roles personalizados para su uso en esos ámbitos.
+
+**¿Quién puede modificar un rol personalizado?** Los usuarios que pueden actualizar roles personalizados para todos los ámbitos **AssignableScopes** de un rol pueden modificar dicho rol personalizado. Los usuarios que pueden realizar la operación `Microsoft.Authorization/roleDefinition/write` en todos los ámbitos **AssignableScopes** de un rol personalizado, pueden modificar dicho rol personalizado. Por ejemplo, si un rol personalizado es asignable en dos suscripciones de Azure (es decir, tiene dos suscripciones en su propiedad **AssignableScopes**), un usuario tiene que ser el propietario (o administrador de acceso de usuario) de ambas suscripciones para poder modificar el rol personalizado.
+
+**¿Quién puede ver los roles personalizados que están disponibles para su asignación en un ámbito?** Los usuarios que pueden realizar la operación `Microsoft.Authorization/roleDefinition/read` en un ámbito, pueden ver los roles RBAC que están disponibles para su asignación en ese ámbito. Todos los roles integrados de RBAC de Azure permiten ver los roles que están disponibles para la asignación.
+
+<!---HONumber=AcomDC_1210_2015-->

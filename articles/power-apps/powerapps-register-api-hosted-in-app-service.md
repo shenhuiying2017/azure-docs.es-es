@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="12/09/2015"
    ms.author="guayan"/>
 
 # Registrar una API alojada en su entorno del Servicio de aplicaciones
@@ -27,11 +27,11 @@ Al hospedar las API en su entorno del Servicio de aplicaciones, aprovechará tod
 
 Para usar estas API en sus aplicaciones, debe "registrar" las API en el Portal de Azure. Están disponibles las siguientes opciones:
 
-- Registre una [API administrada por Microsoft o una API administrada por TI](powerapps-register-from-available-apis.md).
-- Registre una API hospedada dentro del entorno del Servicio de aplicaciones.
-- Regístrela mediante una [definición de API de Swagger 2.0](powerapps-register-existing-api-from-api-definition.md).
+- Registro de una [API administrada por Microsoft o una API administrada por TI](powerapps-register-from-available-apis.md) integrada.
+- Registro de una aplicación web, una aplicación de API y una aplicación móvil hospedada en el entorno del Servicio de aplicaciones (en este tema).
+- Registro de una de sus propias API de Swagger mediante una [definición de API de Swagger 2.0](powerapps-register-existing-api-from-api-definition.md).
 
-En este artículo se muestra cómo **registrar una API alojada en su entorno del Servicio de aplicaciones**.
+En este artículo se muestra cómo **registrar una aplicación web, una aplicación de API y una aplicación móvil hospedada en el entorno del Servicio de aplicaciones**.
 
 #### Requisitos previos para empezar
 
@@ -57,18 +57,19 @@ Después de implementar la API en el entorno del Servicio de aplicaciones, siga 
 2. En Administrar API, seleccione **Agregar**: ![][12]  
 3. En **Agregar API**, especifique las propiedades de la API:  
 
-	- En **Nombre**, escriba un nombre para la API. Tenga en cuenta que el nombre que introduzca se incluirá en la dirección URL de tiempo de ejecución de la API. Elija un nombre descriptivo y único dentro de su organización.	
+	- En **Nombre**, escriba un nombre para la API. Tenga en cuenta que el nombre que escriba se incluirá en la dirección URL de tiempo de ejecución de la API. Elija un nombre descriptivo y único dentro de su organización.	
 	- En **Origen**, seleccione **Importar desde las API hospedadas en el entorno del Servicio de aplicaciones**: ![][13]
 4. En **API hospedada en el entorno del Servicio de aplicaciones**, seleccione la API que desee importar. Esta lista muestra cada aplicación web, aplicación de API y aplicación móvil de su entorno del servicio de aplicaciones que tiene su propiedad **apiDefinition.url** configurada. Para importar la API, usa la definición de la API Swagger 2.0 expuesta mediante esta propiedad. Asegúrese de que esta dirección URL sea de acceso público al registrar la API: ![][14]
 5. Seleccione **AGREGAR** para completar estos pasos.
 
-> [AZURE.TIP]Cuando registre una API, la registrará en su entorno del Servicio de aplicaciones. Una vez se encuentre en el entorno del Servicio de aplicaciones, otras aplicaciones pueden usarlo dentro del mismo entorno del Servicio de aplicaciones.
+> [AZURE.TIP]Cuando registre una API, la registrará en su entorno del Servicio de aplicaciones. Una vez se encuentre en el entorno del Servicio de aplicaciones, otras aplicaciones pueden usarla dentro del mismo entorno del Servicio de aplicaciones.
 
 ## Resumen y pasos siguientes
-En este tema se muestra cómo registrar una API hospedada en su entorno del Servicio de aplicaciones. Estos son algunos temas y recursos relacionados que le permitirán obtener más información acerca de PowerApps:
+En este tema se muestra cómo registrar una API hospedada en su entorno del Servicio de aplicaciones. Estos son algunos temas y recursos relacionados que le permitirán obtener más información sobre PowerApps:
 
-- [Configurar API](../powerapps-configure-apis.md)
-- [Agregar una nueva API](../powerapps-register-from-available-apis.md)
+- [Configuración de las propiedades de API](powerapps-configure-apis.md)
+- [Dar a los usuarios acceso a las API](powerapps-manage-api-connection-user-access.md)
+- [Empezar a crear sus aplicaciones en PowerApps](https://powerapps.microsoft.com/tutorials/)
 
 <!--Reference-->
 [11]: ./media/powerapps-register-api-hosted-in-app-service/registered-apis-part.png
@@ -76,4 +77,4 @@ En este tema se muestra cómo registrar una API hospedada en su entorno del Serv
 [13]: ./media/powerapps-register-api-hosted-in-app-service/add-api-blade.png
 [14]: ./media/powerapps-register-api-hosted-in-app-service/add-api-select-from-ase.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

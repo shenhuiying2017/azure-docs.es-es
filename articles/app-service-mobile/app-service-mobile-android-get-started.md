@@ -18,9 +18,7 @@
 
 #Creación de una aplicación de Android
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Información general
 
@@ -32,13 +30,10 @@ Completar este tutorial es un requisito previo para todos los demás tutoriales 
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una [cuenta de Azure activa](http://azure.microsoft.com/pricing/free-trial/)
-
-* Un PC con [Visual Studio Community 2013] o una versión más reciente
-
-* [Herramientas para desarrolladores de Android](https://developer.android.com/sdk/index.html)), que incluyen el entorno de desarrollo integrado de Android Studio y la última plataforma de Android.
-
+* [Herramientas para desarrolladores de Android](https://developer.android.com/sdk/index.html), que incluyen el entorno de desarrollo integrado de Android Studio y la plataforma de Android más reciente.
 * El SDK de Android móvil de Azure, al que se hace automáticamente referencia como parte del proyecto de inicio rápido que puede descargar.
+* Un equipo con [Visual Studio Community 2013] o más reciente; no es necesario para un back-end de Node.js.
+* Una [cuenta de Azure activa](http://azure.microsoft.com/pricing/free-trial/).
 
 ## Creación de un nuevo back-end de Aplicaciones móviles de Azure
 
@@ -59,4 +54,4 @@ Para completar este tutorial, necesitará lo siguiente:
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015-->

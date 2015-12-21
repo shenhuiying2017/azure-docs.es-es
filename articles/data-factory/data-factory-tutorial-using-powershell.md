@@ -19,10 +19,6 @@
 # Tutorial: mover y procesar archivos de registro con Factoría de datos [PowerShell]
 En este artículo se ofrece un completo tutorial de un escenario canónico de procesamiento de registros utilizando la factoría de datos de Azure para transformar los datos de archivos de registro en perspectivas.
 
-> [AZURE.IMPORTANT]Este artículo no abarca todos los cmdlets de Factoría de datos. Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener la documentación completa sobre los cmdlets de la factoría de datos.
->    
-> Si está usando la versión preliminar de Azure PowerShell 1.0, debe emplear los cmdlets que se documentan [aquí](https://msdn.microsoft.com/library/dn820234.aspx). Por ejemplo, use New-AzureRMDataFactory en lugar de New-AzureDataFactory.
-
 ## Escenario
 Contoso es una empresa de juegos que crea juegos para varias plataformas: consolas de juegos, dispositivos portátiles y PC. Cada uno de estos juegos produce miles de registros. El objetivo de Contoso es recopilar y analizar los registros generados por estos juegos para obtener información de uso, identificar las oportunidades de venta y venta cruzada, desarrollar nuevas características atractivas, etc. para mejorar el negocio y ofrecer la mejor experiencia a los clientes.
  
@@ -31,7 +27,20 @@ En este tutorial, recopilamos registros de ejemplo, los procesamos y enriquecemo
 ## Preparación para el tutorial
 1.	Lea [Introducción a Factoría de datos de Azure][adfintroduction] para obtener información general sobre Factoría de datos de Azure y conocer los conceptos de nivel superior.
 2.	Debe tener una suscripción de Azure para realizar este tutorial. Para obtener información acerca de cómo obtener una suscripción, consulte [Opciones de compra][azure-purchase-options], [Ofertas para miembros][azure-member-offers] o [Prueba gratuita][azure-free-trial].
-3.	Debe descargar e instalar [Azure PowerShell][download-azure-powershell] en el equipo. 
+3.	Debe descargar e instalar [Azure PowerShell][download-azure-powershell] en el equipo.
+
+	Este artículo no abarca todos los cmdlets de Factoría de datos. Vea [Referencia de cmdlets de factoría de datos](https://msdn.microsoft.com/library/dn820234.aspx) para obtener la documentación completa sobre los cmdlets de la factoría de datos.
+    
+	Si usa Azure PowerShell de una **versión inferior a 1.0**, deberá usar los cmdlets que se documentan [aquí][old-cmdlet-reference]. También debe ejecutar los comandos siguientes antes de usar los cmdlets de Factoría de datos:
+
+	1. Ejecute **Add-AzureAccount** y escriba el mismo nombre de usuario y la contraseña que usó para iniciar sesión en el Portal de Azure.
+	2. Ejecute **Get-AzureSubscription** para ver todas las suscripciones para esta cuenta.
+	3. Ejecute **Select-AzureSubscription** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que la usada en el Portal de Azure.
+	
+	Mantenga Azure PowerShell abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
+
+2. Cambie al modo AzureResourceManager a medida que los cmdlets de Factoría de datos de Azure están disponibles en este modo: **Switch-AzureMode AzureResourceManager**.
+ 
 2.	**(recomendado)** Revise y practique el tutorial del artículo [Introducción a Factoría de datos de Azure][adfgetstarted] para obtener un tutorial sencillo para familiarizarse con el portal y los cmdlets.
 3.	**(recomendado)** Revise y practique el tutorial del artículo [Uso de Pig y Hive con Factoría de datos de Azure][usepigandhive] para obtener un tutorial sobre cómo crear una canalización para desplazar datos desde un origen de datos local a un almacenamiento de blobs de Azure.
 4.	Descargue los archivos [ ADFWalkthrough][adfwalkthrough-download] en la carpeta **C:\\ADFWalkthrough** y **conserve la estructura de carpetas**:
@@ -51,7 +60,7 @@ En este tutorial, recopilamos registros de ejemplo, los procesamos y enriquecemo
 	- **Base de datos SQL de Azure**: servidor, base de datos, nombre de usuario y contraseña.
 	- **Clúster de HDInsight de Azure**: nombre del clúster de HDInsight, nombre de usuario, contraseña y nombre y clave de la cuenta para el almacenamiento de Azure asociado a este clúster. Si quiere usar un clúster de HDInsight a petición en lugar de su propio clúster de HDInsight, omita este paso.  
 8. Inicie **Azure PowerShell** y ejecute los comandos siguientes: Mantenga abierto Azure PowerShell. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
-	- Ejecute **Add-AzureAccount** y escriba el mismo nombre de usuario y contraseña que usó para iniciar sesión en el Portal de Azure.  
+	- Ejecute **Add-AzureRmAccount** y escriba el mismo nombre de usuario y contraseña que usó para iniciar sesión en el Portal de Azure.  
 	- Ejecute **Get-AzureSubscription** para ver todas las suscripciones para esta cuenta.
 	- Ejecute **Select-AzureSubscription** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que usó en el Portal de Azure.
 	
@@ -160,99 +169,50 @@ Las tablas, los tipos definidos por el usuario y procedimientos almacenados se u
 ## <a name="MainStep2"></a> Paso 2: Creación de una factoría de datos de Azure
 En este paso, creará una factoría de datos de Azure llamada **LogProcessingFactory**.
 
-1.	Tras iniciar sesión en el [Portal de Azure][azure-portal], haga clic en **NUEVO** en la esquina inferior izquierda y seleccione **Factoría de datos** en la hoja **Nuevo**. 
+1. Cambie a **Azure PowerShell** si ya lo tiene abierto (o) inicie **Azure PowerShell**. Si había cerrado y vuelto a abrir Azure, debe ejecutar los siguientes comandos: 
+	- Ejecute **Add-AzureRmAccount** y escriba el mismo nombre de usuario y contraseña que usó para iniciar sesión en el Portal de Azure.  
+	- Ejecute **Get-AzureSubscription** para ver todas las suscripciones para esta cuenta.
+	- Ejecute **Select-AzureSubscription** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que usó en el Portal de Azure. 
 
-	![New->DataFactory][image-data-factory-new-datafactory-menu]
-	
-	Si no aparece **Factoría de datos** en la hoja **Nuevo**, desplácese hacia abajo.
-	
-5. En la hoja **Nueva factoría de datos**, escriba **LogProcessingFactory** como **Nombre**.
+2. Cree un grupo de recursos de Azure con el nombre: **ADFTutorialResourceGroup** (si no lo ha creado todavía) ejecutando el siguiente comando.
 
-	![Hoja de Factoría de datos][image-data-factory-tutorial-new-datafactory-blade]
+		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
-6. Si aún no ha creado un grupo de recursos de Azure denominado**ADF**, haga lo siguiente:
-	1. Haga clic en **NOMBRE DEL GRUPO DE RECURSOS** y en **Crear un nuevo grupo de recursos**.
-	
-		![Hoja Grupos de recursos][image-data-factory-tutorial-resourcegroup-blade]
-	2. En la hoja **Crear grupo de recursos**, escriba **ADF** como nombre del grupo de recursos y haga clic en **Aceptar**.
-	
-		![Crear grupo de recursos][image-data-factory-tutorial-create-resourcegroup]
-7. Seleccione **ADF** como **NOMBRE DEL GRUPO DE RECURSOS**.  
-8.	En la hoja **Nueva factoría de datos**, observe que **Agregar al Panel de inicio** está seleccionado de forma predeterminada. De esta forma agregará un vínculo a la factoría de datos del panel de inicio (lo que verá cuando inicie sesión en el Portal de Azure).
+	En algunos de los pasos de este tutorial se supone que se usa el grupo de recursos denominado ADFTutorialResourceGroup. Si usa un grupo de recursos diferentes, deberá usarlo en lugar de ADFTutorialResourceGroup en este tutorial.
+4. Ejecute el cmdlet **New-AzureRmDataFactory** para crear una factoría de datos con el nombre DataFactoryMyFirstPipelinePSH.  
 
-	![Hoja Crear factoría de datos][image-data-factory-tutorial-create-datafactory]
+		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name LogProcessingFactory –Location "West US"
 
-9.	En la hoja **Nueva factoría de datos**, haga clic en **Crear** para crear la factoría de datos.
-10.	Después de crear la factoría de datos, debería ver la hoja **FACTORÍA DE DATOS** denominada **LogProcessingFactory**.
+	> [AZURE.IMPORTANT]El nombre de la Factoría de datos de Azure debe ser único de forma global. Si recibe el error **El nombre de la factoría de datos "LogProcessingFactory" no está disponible**, cambie el nombre (por ejemplo, yournameLogProcessingFactory). Use este nombre en lugar de LogProcessingFactory mientras sigue los pasos de este tutorial. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
+	> 
+	> El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
 
-	![Página principal de Factoría de datos][image-data-factory-tutorial-datafactory-homepage]
-
-	
-	Si no la ve, realice una de las acciones siguientes:
-
-	- Haga clic en **LogProcessingFactory** en el **Panel de inicio** (página principal).
-	- Haga clic en **EXAMINAR** en el lado izquierdo, haga clic en **Todo**, elija **Factorías de datos** y seleccione la factoría de datos.
- 
-	El nombre del generador de datos de Azure debe ser único global. Si recibe el error: **El nombre de la factoría de datos "LogProcessingFactory" no está disponible**, cambie el nombre (por ejemplo, yournameLogProcessingFactory). Use este nombre en lugar de LogProcessingFactory mientras sigue los pasos de este tutorial.
  
 ## <a name="MainStep3"></a> Paso 3: Creación de servicios vinculados
 
-> [AZURE.NOTE]En este artículo se usa Azure PowerShell para crear servicios vinculados, tablas y canalizaciones. Consulte el [tutorial Uso del Editor de Factoría de datos][adftutorial-using-editor] si quiere realizar este tutorial con el Portal de Azure clásico, concretamente el Editor de Factoría de datos.
+> [AZURE.NOTE]En este artículo se usa Azure PowerShell para crear servicios vinculados, tablas y canalizaciones. Consulte el [tutorial Uso del Editor de Factoría de datos][adftutorial-using-editor] si quiere realizar este tutorial con el Portal de Azure, concretamente el Editor de Factoría de datos.
 
 En este paso, creará los servicios vinculados siguientes: StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService y HDInsightLinkedService.
 
+16. En Azure PowerShell, vaya a la subcarpeta **LinkedServices** en **C:\\ADFWalkthrough** (o) desde la carpeta de la ubicación donde extrajo los archivos.
+17. Utilice el siguiente comando para establecer la variable $df en el nombre de la factoría de datos.
 
-1.	En la hoja **LogProcessingFactory**, haga clic en el icono **Servicios vinculados**.
+		$df = “LogProcessingFactory”
+17. Abra **StorageLinkedService.json** en su editor favorito, escriba los valores del **nombre de la cuenta** y de la **clave de cuenta**, y guarde el archivo.
+17. Use el cmdlet **New-AzureRmDataFactoryLinkedService** para crear un servicio vinculado de la manera siguiente. 
 
-	![Icono Servicios vinculados][image-data-factory-tutorial-linkedservice-tile]
+		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\StorageLinkedService.json
+	
+18. Abra **StorageLinkedService.json** en su editor favorito, escriba los valores del **nombre de la cuenta** y de la **clave de cuenta**, y guarde el archivo.
+19. Cree **HDInsightStorageLinkedService**.
 
-2. En la hoja **Servicios vinculados**, haga clic en **+Almacén de datos** en la barra de comandos.
+		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\HDInsightStorageLinkedService.json
+ 
+19. Abra **AzureSqlLinkedService.json** en su editor favorito, escriba el nombre del **servidor sql de azure**, del **nombre de usuario** y de la **contraseña**, y guarde el archivo.
+19. Use el cmdlet **New-AzureRmDataFactoryLinkedService** para crear un servicio vinculado de la manera siguiente. 
 
-	![Servicios vinculados: agregar almacén][image-data-factory-tutorial-linkedservices-add-datstore]
-
-3. En la hoja **Nuevo almacén de datos**, escriba **StorageLinkedService** como **Nombre**, haga clic en **TIPO (configuración obligatoria)** y seleccione **Cuenta de almacenamiento de Azure**.
-
-	![Tipo de almacén de datos: almacenamiento de Azure][image-data-factory-tutorial-datastoretype-azurestorage]
-
-4. En la hoja **Nuevo almacén de datos**, verá dos campos nuevos: **Nombre de cuenta** y **Clave de cuenta**. Escriba el nombre y la clave de la cuenta para la **Cuenta de almacenamiento de Azure**.
-
-	![Configuración de Almacenamiento de Azure][image-data-factory-tutorial-azurestorage-settings]
-
-	Puede obtener el nombre de la cuenta y la clave de la cuenta de su cuenta de almacenamiento de Azure desde el portal, como se muestra a continuación:
-
-	![Clave de almacenamiento][image-data-factory-tutorial-storage-key]
-  
-5. Después de hacer clic en **Aceptar** en la hoja Nuevo almacén de datos, debería ver **StorageLinkedService** en la lista de **ALMACENES DE DATOS** en la hoja **Servicios vinculados**. Seleccione el centro **NOTIFICACIONES** (situado a la izquierda) para ver los mensajes.
-
-	![Hoja Servicios vinculados con almacenamiento][image-data-factory-tutorial-linkedservices-blade-storage]
-   
-6. Repita los **pasos del 2 al 5** para crear otro servicio vinculado denominado: **HDInsightStorageLinkedService**. Se trata el almacenamiento utilizado por su clúster de HDInsight.
-7. Confirme que aparecen **StorageLinkedService** y **HDInsightStorageLinkedService** en la lista de la hoja Servicios vinculados.
-8. En la hoja **Servicios vinculados**, haga clic en **Agregar (+) almacén de datos** en la barra de comandos.
-9. Escriba **AzureSqlLinkedService** como nombre.
-10. Haga clic en **TIPO (configuración obligatoria)**, seleccione **Base de datos SQL de Azure**.
-11. Ahora, debería ver los siguientes campos en la hoja **Nuevo almacén de datos**. Escriba el nombre de **servidor** de Base de datos SQL de Azure, nombre de la **base de datos**, **nombre de usuario** y **contraseña**, y haga clic en **Aceptar**.
-	1. Escriba **MarketingCampaigns** para la **base de datos**. Se trata de la base de datos SQL de Azure creada por los scripts que ejecutó en el paso 1. Debe confirmar que los scripts crearon realmente esta base de datos (si se producen errores).
-		
- 		![Configuración de SQL Azure][image-data-factory-tutorial-azuresql-settings]
-
-		Para obtener estos valores desde el [Portal de Azure clásico](http://manage.windowsazure.com): haga clic en Consultar las cadenas de conexión de Base de datos SQL para la base de datos MarketingCampaigns.
-
-		![Cadena de conexión de Base de datos SQL de Azure][image-data-factory-tutorial-azuresql-database-connection-string]
-
-12. Confirme que ve los tres almacenes de datos que ha creado: **StorageLinkedService**, **HDInsightStorageLinkedService** y **AzureSqlLinkedService**.
-13. Debe crear otro servicio vinculado, pero este es para un servicio de proceso, concretamente, un **clúster de Azure HDInsight**. El portal no admite la creación de un servicio informático vinculado todavía. Por lo tanto, necesitará usar Azure PowerShell para crear este servicio vinculado. 
-14. Cambie a **Azure PowerShell** si ya lo tiene abierto (o) inicie **Azure PowerShell**. Si había cerrado y vuelto a abrir Azure, debe ejecutar los siguientes comandos: 
-	- Ejecute **Add-AzureAccount** y escriba el mismo nombre de usuario y contraseña que usó para iniciar sesión en el Portal de Azure.  
-	- Ejecute **Get-AzureSubscription** para ver todas las suscripciones para esta cuenta.
-	- Ejecute **Select-AzureSubscription** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que usó en el Portal de Azure. 
-15. Cambie al modo **AzureResourceManager** a medida que los cmdlets de Factoría de datos de Azure estén disponibles.
-
-		Switch-AzureMode AzureResourceManager
-
-16. Vaya a la subcarpeta **LinkedServices** en **C:\\ADFWalkthrough** (o) desde la carpeta de la ubicación donde extrajo los archivos.
-17. Abra **HDInsightLinkedService.json** en su editor favorito y observe que el tipo está establecido en **HDInsightOnDemandLinkedService**.
-
+		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\AzureSqlLinkedService.json
+19. Abra **HDInsightLinkedService.json** en su editor favorito y observe que el tipo está establecido en **HDInsightOnDemandLinkedService**.
 
 	El servicio Factoría de datos de Azure admite la creación de un clúster a petición y usarlo para procesar la entrada para generar datos de salida. También puede utilizar su propio clúster para realizar la misma tarea. Cuando se utiliza el clúster de HDInsight a petición, se crea un clúster para cada sector. Mientras que, si utiliza su propio clúster de HDInsight, el clúster está preparado para procesar el sector inmediatamente. Por lo tanto, cuando utilice el clúster a petición, es posible que no vea los datos de salida tan rápido como cuando utilice su propio clúster. Para los fines de este ejemplo, vamos a usar un clúster a petición.
 	
@@ -268,17 +228,13 @@ En este paso, creará los servicios vinculados siguientes: StorageLinkedService,
 		}
 		
 
-18. Utilice el siguiente comando para establecer la variable $df en el nombre de la factoría de datos.
 
-		$df = “LogProcessingFactory”
-19. Use el cmdlet **New-AzureDataFactoryLinkedService** para crear un servicio vinculado de la manera siguiente. Comience con la cuenta de almacenamiento:
+19. Use el cmdlet **New-AzureRmDataFactoryLinkedService** para crear un servicio vinculado de la manera siguiente. Comience con la cuenta de almacenamiento:
 
-		New-AzureDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\HDInsightLinkedService.json
+		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\HDInsightLinkedService.json
  
 	Si está utilizando un nombre diferente para ResourceGroupName, DataFactoryName o LinkedService, indíquelo en el cmdlet anterior. Además, proporcione la ruta de acceso completa del archivo JSON del servicio vinculado si no se encuentra el archivo.
-20. Debería ver los cuatro servicios vinculados en la hoja **Servicios vinculados** como se muestra a continuación. Si la hoja Servicios vinculados no está abierta, haga clic en Servicios vinculados en la página **FACTORÍA DE DATOS** para **LogProcessingFactory**. La hoja Servicios vinculados puede tardar algunos segundos en actualizarse.
 
-	![Todos los servicios vinculados][image-data-factory-tutorial-linkedservices-all]
  
 
 ## <a name="MainStep4"></a> Paso 4: Creación de tablas 
@@ -301,26 +257,26 @@ El Portal de Azure clásico no admite crear conjuntos de datos y tablas, por lo 
 ### Para crear las tablas
 
 1.	En Azure PowerShell, vaya a la carpeta **Tablas** (**C:\\ADFWalkthrough\\Tables**) desde la ubicación donde extrajo los ejemplos.
-2.	Use el cmdlet **New-AzureDataFactoryDataset** para crear los conjuntos de datos para **RawGameEventsTable**.json de la manera siguiente.	
+2.	Use el cmdlet **New-AzureRmDataFactoryDataset** para crear los conjuntos de datos para **RawGameEventsTable**.json de la manera siguiente.	
 
 
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
 
 	Si está utilizando otro nombre para ResourceGroupName y DataFactoryName, indíquelo en el cmdlet anterior. Además, proporcione la ruta de acceso completa del archivo JSON de la tabla si no se encuentra el archivo mediante el cmdlet.
 
 3. Repita el paso anterior para crear las tablas siguientes:
 		
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
 		
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefGeoCodeDictionaryTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefGeoCodeDictionaryTable.json
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefMarketingCampaignTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefMarketingCampaignTable.json
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichedGameEventsTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichedGameEventsTable.json
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessSQLTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessSQLTable.json
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessBlobTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessBlobTable.json
 
 
 
@@ -330,7 +286,7 @@ El Portal de Azure clásico no admite crear conjuntos de datos y tablas, por lo 
 
 	También puede utilizar el siguiente comando de Azure PowerShell:
 			
-		Get-AzureDataFactoryDataset –ResourceGroupName ADF –DataFactoryName $df
+		Get-AzureRmDataFactoryDataset –ResourceGroupName ADF –DataFactoryName $df
 
 	
 
@@ -351,29 +307,29 @@ En este paso, creará las canalizaciones siguientes: PartitionGameLogsPipeline, 
 	**IMPORTANTE:** confirme que ha reemplazado todas las apariciones de <storageaccountname> por el nombre de la cuenta de almacenamiento.
  
 4.  En **Azure PowerShell**, vaya a la subcarpeta **Canalizaciones** en la carpeta **C:\\ADFWalkthrough** (o desde la ubicación donde extrajo los ejemplos).
-5.  Use el cmdlet **New-AzureDataFactoryPipeline** para crear los canalizaciones para **PartitionGameLogspeline**.json de la manera siguiente.	 
+5.  Use el cmdlet **New-AzureRmDataFactoryPipeline** para crear los canalizaciones para **PartitionGameLogspeline**.json de la manera siguiente.	 
 			
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionGameLogsPipeline.json
+		New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionGameLogsPipeline.json
 
 	Si está utilizando un nombre diferente para ResourceGroupName, DataFactoryName o Pipeline, indíquelo en el cmdlet anterior. Además, proporcione la ruta de acceso completa del archivo JSON de proceso.
 6. Repita el paso anterior para crear los siguientes procesos:
 	1. **EnrichGameLogsPipeline**
 			
-			New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichGameLogsPipeline.json
+			New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichGameLogsPipeline.json
 
 	2. **AnalyzeMarketingCampaignPipeline**
 				
-			New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\AnalyzeMarketingCampaignPipeline.json
+			New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\AnalyzeMarketingCampaignPipeline.json
 
-7. Use el cmdlet **Get-AzureDataFactoryPipeline** para obtener la lista de las canalizaciones.
+7. Use el cmdlet **Get-AzureRmDataFactoryPipeline** para la lista de las canalizaciones.
 			
-		Get-AzureDataFactoryPipeline –ResourceGroupName ADF –DataFactoryName $df
+		Get-AzureRmDataFactoryPipeline –ResourceGroupName ADF –DataFactoryName $df
 
 8. Una vez creados los procesos, puede especificar la duración en la que se producirá el procesamiento de datos. Al especificar el período activo de un proceso, está definiendo el tiempo en el que se procesarán los segmentos de datos basándose en las propiedades de disponibilidad que se han definido para cada tabla ADF.
 
-Para especificar el período activo para el proceso, puede usar el cmdlet Set-AzureDataFactoryPipelineActivePeriod. En este tutorial, los datos de ejemplo son del 05/01 al 05/05. Use 2014-05-01 como StartDateTime. EndDateTime es opcional.
+Para especificar el período activo para el proceso, puede usar el cmdlet Set-AzureRmDataFactoryPipelineActivePeriod. En este tutorial, los datos de ejemplo son del 05/01 al 05/05. Use 2014-05-01 como StartDateTime. EndDateTime es opcional.
 			
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name PartitionGameLogsPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name PartitionGameLogsPipeline
   
 9. Confirme para establecer el período activo del proceso.
 			
@@ -384,13 +340,13 @@ Para especificar el período activo para el proceso, puede usar el cmdlet Set-Az
 10. Repita los dos pasos anteriores para establecer el período activo para los siguientes procesos.
 	1. **EnrichGameLogsPipeline**
 			
-			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z –EndDateTime 2014-05-05Z –Name EnrichGameLogsPipeline
+			Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z –EndDateTime 2014-05-05Z –Name EnrichGameLogsPipeline
 
 	2. **AnalyzeMarketingCampaignPipeline**
 			
-			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name AnalyzeMarketingCampaignPipeline
+			Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name AnalyzeMarketingCampaignPipeline
 
-11. En el **Portal de Azure**, haga clic en el icono **Canalizaciones** (no en los nombres de las canalizaciones) en la hoja **FACTORÍA DE DATOS** para **LogProcessingFactory**. Debería ver las canalizaciones que ha creado.
+11. En el **Portal de Azure**, haga clic en el icono **Canalizaciones** (no en los nombres de las canalizaciones) en la hoja **FACTORÍA DE DATOS** para **LogProcessingFactory**, debería ver las canalizaciones que ha creado.
 
 	![Todas las canalizaciones][image-data-factory-tutorial-pipelines-all]
 
@@ -486,6 +442,8 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises-us
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
+[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
 
 [image-data-factory-tutorial-end-to-end-flow]: ./media/data-factory-tutorial-using-powershell/EndToEndWorkflow.png
 
@@ -562,4 +520,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises-us
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

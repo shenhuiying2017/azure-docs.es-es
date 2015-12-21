@@ -1,5 +1,5 @@
 <properties
-	pageTitle="PHP en Windows para Base de datos SQL | Microsoft Azure"
+	pageTitle="Lógica de reintentos de PHP para la conexión a Base de datos SQL | Microsoft Azure"
 	description="Presenta un programa PHP de ejemplo que se conecta a la Base de datos SQL de Azure desde un cliente de Windows mediante el control de errores transitorios y proporciona vínculos a los componentes de software necesarios que necesita el cliente."
 	services="sql-database"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/08/2015"
 	ms.author="meetb"/>
 
 
@@ -29,18 +29,20 @@ Este tema muestra cómo puede conectarse a la base de datos SQL de Azure desde u
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
+### Base de datos SQL
 
-## Creación de una base de datos y recuperación de la cadena de conexión
-
-
-Vea el tema de [introducción](sql-database-get-started.md) para obtener información sobre cómo crear una base de datos de ejemplo y recuperar la cadena de conexión. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
+Consulte la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
 
 
-## Conexión y consulta de su base de datos 
+## Paso 1: Obtención de detalles de la conexión
+
+[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
+
+## Paso 2: Conexión y consulta
 
 El programa de demostración está diseñado para que un error transitorio producido durante un intento de conexión provoque un reintento. Pero un error transitorio durante un comando de consulta provoca que el programa descarte la conexión y cree una nueva antes de reintentar el comando de consulta. No se recomienda ni lo contrario esta opción de diseño. El programa de demostración muestra la flexibilidad del diseño que se encuentra disponible.
 
-<br>La longitud de este ejemplo de código se debe principalmente a la lógica de excepción catch. Hay disponible una versión más corta de este archivo Program.cs [aquí](sql-database-develop-php-simple-windows.md). <br>El método Main se encuentra en Program.cs. La pila de llamadas se ejecuta del modo indicado a continuación: * Main llama a ConnectAndQuery. * ConnectAndQuery llama a EstablishConnection. * EstablishConnection llama a IssueQueryCommand.
+<br>La longitud de este ejemplo de código se debe principalmente a la lógica de excepción de filtrado. Hay disponible una versión más corta de este archivo Program.cs [aquí](sql-database-develop-php-simple-windows.md). <br>El método Main se encuentra en Program.cs. La pila de llamadas se ejecuta del modo indicado a continuación: * Main llama a ConnectAndQuery. * ConnectAndQuery llama a EstablishConnection. * EstablishConnection llama a IssueQueryCommand.
 
 La función [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) puede usarse para recuperar un conjunto de resultados de una consulta realizada a la Base de datos SQL. Esta función acepta básicamente cualquier consulta y el objeto de conexión, y devuelve un conjunto de resultados que se puede iterar mediante el uso de [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
@@ -59,13 +61,13 @@ La función [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php
 		{
 		    $errorArr = array();
 		    $ctr = 0;
-		    // [A.2] Connect, which proceeds to issue a query command. 
+		    // [A.2] Connect, which proceeds to issue a query command.
 		    $conn = sqlsrv_connect($serverName, $connectionOptions);  
 		    if( $conn == true)
 		    {
-		        echo "Connection was established"; 
+		        echo "Connection was established";
 		        echo "<br>";
-		 
+
 		        $tsql = "SELECT [CompanyName] FROM SalesLT.Customer";
 		        $getProducts = sqlsrv_query($conn, $tsql);
 		        if ($getProducts == FALSE)
@@ -96,8 +98,8 @@ La función [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php
 		        // [A.4] Check whether sqlExc.Number is on the whitelist of transients.
 		        $isTransientError = IsTransientStatic($errorArr);
 		        if ($isTransientError == TRUE)  // Is a static persistent error...
-		        { 
-		            echo("Persistent error suffered, SqlException.Number==". $errorArr[0].". Program Will terminate."); 
+		        {
+		            echo("Persistent error suffered, SqlException.Number==". $errorArr[0].". Program Will terminate.");
 		            echo "<br>";
 		            // [A.5] Either the connection attempt or the query command attempt suffered a persistent SqlException.
 		            // Break the loop, let the hopeless program end.
@@ -129,11 +131,9 @@ La función [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php
 		        return TRUE;
 		}
 	?>
-	
+
 ## Pasos siguientes
 
 Para obtener más información sobre el uso y la instalación de PHP, vea [Acceso a bases de datos de SQL Server con PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
- 
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

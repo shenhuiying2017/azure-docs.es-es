@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Panel de Power BI en Análisis de transmisiones | Microsoft Azure" 
 	description="Utilice un panel de Power BI de streaming en tiempo real para reunir información de inteligencia empresarial y analizar grandes volúmenes de datos procedentes de un trabajo de Análisis de transmisiones." 
-	keywords="herramientas de inteligencia empresarial,power bi,datos de streaming,panel de power bi"	
+	keywords="panel de análisis, panel en tiempo real"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,18 +14,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 	
-# Análisis de transmisiones de Azure y Power BI: panel dinámico para análisis en tiempo real de los datos de streaming
+# Análisis de transmisiones de Azure y Power BI: panel de análisis en tiempo real para visibilidad de streaming de datos
 
-Análisis de transmisiones de Azure permite aprovechar una de las principales herramientas de inteligencia empresarial, Microsoft Power BI. Aprenda a usar Análisis de secuencias de Azure para analizar grandes volúmenes de datos de streaming y obtener información detallada en un panel de Power BI en tiempo real.
+Análisis de transmisiones de Azure permite aprovechar una de las principales herramientas de inteligencia empresarial, Microsoft Power BI. Aprenda a usar Análisis de transmisiones de Azure para analizar grandes volúmenes de datos de streaming y obtener información detallada en un panel de análisis Power BI en tiempo real.
 
 Utilice [Microsoft Power BI](https://powerbi.com/) para crear rápidamente un panel dinámico. [Vea un vídeo que ilustra el escenario](https://www.youtube.com/watch?v=SGUpT-a99MA).
 
-En este artículo, aprenderá a crear sus propias herramientas de inteligencia empresarial personalizadas utilizando Power BI como salida para los trabajos de análisis de transmisiones de Azure.
+En este artículo, aprenderá a crear sus propias herramientas de inteligencia empresarial personalizadas mediante Power BI como salida para los trabajos de Análisis de transmisiones de Azure y a utilizar un panel en tiempo real.
 
-> [AZURE.NOTE]La salida a Power BI es una característica de vista previa de Análisis de transmisiones de Azure. En este momento, la creación y configuración de salidas de Power BI no se admite en el Portal de Azure.
+> [AZURE.NOTE]La salida a Power BI es una característica de vista previa de Análisis de transmisiones de Azure. En este momento, la creación y configuración de salidas de Power BI no se admite en el Portal de vista previa de Azure.
 
 ## Requisitos previos ##
 
@@ -35,7 +35,7 @@ En este artículo, aprenderá a crear sus propias herramientas de inteligencia e
 
 ## Creación de un trabajo de Análisis de transmisiones de Azure ##
 
-En el [Portal de Azure clásico](https://manage.windowsazure.com), haga clic en **Nuevo, Servicios de datos, Análisis de transmisiones, Creación rápida**.
+En el [Portal de Azure](https://manage.windowsazure.com), haga clic en **Nuevo, Servicios de datos, Análisis de transmisiones, Creación rápida**.
 
 Especifique los valores siguientes y haga clic en **Creación de un Análisis de transmisiones**:
 
@@ -221,4 +221,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/29/2015"
+   ms.date="12/09/2015"
    ms.author="guayan"/>
 
 # Registro de una API administrada por Microsoft o una API administrada por TI
@@ -24,11 +24,11 @@ Con las API administradas por TI, controla y supervisa todo el contenido, inclui
 
 Para usar las API **administradas por Microsoft** o las API **administradas por TI**, debe "registrar" las API en el Portal de Azure. Una vez que las registra, puede usarlas en las aplicaciones. Están disponibles las siguientes opciones:
 
-- Registro de una API administrada por Microsoft o una API administrada por TI.
-- Registro de una API hospedada dentro del [Entorno del Servicio de aplicaciones](powerapps-register-api-hosted-in-app-service.md).
-- Registro mediante el uso de una [definición de API de Swagger 2.0](powerapps-register-existing-api-from-api-definition.md).
+- Registro de una API administrada por Microsoft pregenerada o una API administrada por TI (en este tema).
+- Registro de una aplicación web, una aplicación de API y una aplicación móvil hospedada en el [entorno del Servicio de aplicaciones](powerapps-register-api-hosted-in-app-service.md).
+- Registro de una de sus propias API de Swagger mediante una [definición de API de Swagger 2.0](powerapps-register-existing-api-from-api-definition.md).
 
-Este artículo se centra en el **registro de las API administradas por Microsoft y las API administradas por TI**.
+Este artículo se centra en el **registro de las API administradas por Microsoft pregeneradas y las API administradas por TI**.
 
 #### Requisitos previos para empezar
 
@@ -124,8 +124,11 @@ La tabla siguiente compara las funcionalidades de las API administradas por Micr
 
 En este tema, vio cómo registrar su propia instancia de las API disponibles que existen listas en PowerApps. Estos son algunos temas y recursos relacionados que le permitirán obtener más información sobre PowerApps:
 
-- [Configurar API](powerapps-configure-apis.md)
-- [Agregar una nueva API](powerapps-register-from-available-apis.md)
+
+- [Configurar las propiedades de la API](powerapps-configure-apis.md)
+- [Dar a los usuarios acceso a las API](powerapps-manage-api-connection-user-access.md)
+- [Empezar a crear sus propias aplicaciones PowerApps](https://powerapps.microsoft.com/tutorials/)
+
 
 <!--References-->
 
@@ -148,4 +151,4 @@ En este tema, vio cómo registrar su propia instancia de las API disponibles que
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

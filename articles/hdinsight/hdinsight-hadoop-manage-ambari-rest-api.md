@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/27/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #Administración de clústeres de HDInsight con la API de REST de Ambari
@@ -131,4 +131,4 @@ Para obtener una referencia completa de la API de REST, consulte [Referencia de 
 
 > [AZURE.NOTE]Cierta funcionalidad de Ambari está deshabilitada, puesto que está administrada por el servicio en la nube de HDInsight; por ejemplo, agregar o quitar hosts del clúster o agregar nuevos servicios.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

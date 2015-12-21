@@ -1,3 +1,3 @@
->[AZURE.NOTE]Se trata de un tema de **Servicios móviles de Azure**. Microsoft Azure recomienda usar Aplicaciones móviles del Servicio de aplicaciones de Azure para todas las nuevas implementaciones de back-end móvil. Para empezar a trabajar con Aplicaciones móviles del Servicio de aplicaciones de Azure, vea el [centro de documentación de Aplicaciones móviles del Servicio de aplicaciones]((/documentation/services/app-service/mobile).
+>[AZURE.NOTE]Se trata de un tema de **Servicios móviles de Azure**. Microsoft Azure recomienda usar Aplicaciones móviles del Servicio de aplicaciones de Azure para todas las nuevas implementaciones de back-end móvil. Para empezar a trabajar con Aplicaciones móviles del Servicio de aplicaciones de Azure, consulte el [centro de documentación de Aplicaciones móviles del Servicio de aplicaciones](/documentation/services/app-service/mobile).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

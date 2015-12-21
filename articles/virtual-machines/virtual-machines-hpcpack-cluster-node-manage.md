@@ -31,18 +31,19 @@ Si ha creado un clúster de HPC Pack en las máquinas virtuales de Azure, puede 
 
 * **Archivo de configuración de publicación o certificado de administración de Azure**: debe llevar a cabo una de las siguientes acciones en el nodo principal:
 
-    * **Importar el archivo de configuración de publicación de Azure**. Para ello, ejecute los siguientes cmdlets de Azure PowerShell en el nodo principal: ```
-        Get-AzurePublishSettingsFile  
-Import-AzurePublishSettingsFile –PublishSettingsFile <publish settings file>
-        ```
-    * **Configurar el certificado de administración de Azure en el nodo principal**. Si tiene el archivo .cer, impórtelo en el almacén CurrentUser\\My certificate y luego ejecute el siguiente cmdlet de Azure PowerShell para su entorno de Azure (AzureCloud o AzureChinaCloud):
+    * **Importar el archivo de configuración de publicación de Azure**. Para ello, ejecute los siguientes cmdlets de Azure PowerShell en el nodo principal:
+
+    ```
+    Get-AzurePublishSettingsFile 
+         
+    Import-AzurePublishSettingsFile –PublishSettingsFile <publish settings file>
+    ```
+    
+    * **Configure el certificado de administración de Azure en el nodo principal**. Si tiene el archivo .cer, impórtelo en el almacén CurrentUser\\My certificate y luego ejecute el siguiente cmdlet de Azure PowerShell para su entorno de Azure (AzureCloud o AzureChinaCloud):
 
     ```
     Set-AzureSubscription -SubscriptionName <Sub Name> -SubscriptionId <Sub ID> -Certificate (Get-Item Cert:\CurrentUser\My<Cert Thrumbprint>) -Environment <AzureCloud | AzureChinaCloud>
     ```
-
-
-
 
 ## Agregar máquinas virtuales de nodo de ejecución
 
@@ -59,7 +60,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
 * **ServiceName**: nombre del servicio en la nube al que se agregarán las nuevas máquinas virtuales de nodos de ejecución.
 
-* **ImageName**: nombre de la imagen de la máquina virtual de Azure, que puede obtenerse mediante el Portal de Azure clásico o el cmdlet de Azure PowerShell **Get-AzureVMImage**. La imagen debe cumplir los siguientes requisitos:
+* **ImageName**: nombre de la imagen de máquina virtual de Azure, que puede obtenerse mediante el Portal de Azure clásico o el cmdlet de Azure PowerShell **Get-AzureVMImage**. La imagen debe cumplir los siguientes requisitos:
 
     1. Debe haber instalado un sistema operativo Windows.
 
@@ -67,7 +68,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
     3. La imagen debe ser una imagen privada en la categoría de usuario, no una imagen de máquina virtual de Azure pública.
 
-* **Cantidad**: número de máquinas virtuales de nodo de ejecución que se van a agregar.
+* **Quantity**: número de máquinas virtuales de nodo de ejecución que se van a agregar.
 
 * **InstanceSize**: tamaño de las máquinas virtuales de nodos de ejecución.
 
@@ -75,7 +76,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
 * **DomainUserPassword***: contraseña del usuario de dominio.
 
-* **NodeNameSeries** (opcional) el patrón de nomenclatura 0 para el proceso deben ser los nodos de ejecución. El formato debe ser &lt;*Nombre\_Raíz*&gt;&lt;*Número\_Inicio*&gt;%. Por ejemplo, MyCN%10% se refiere a una serie de nombres de nodos de ejecución a partir de MyCN11. Si no se especifica, el script usa la serie de nomenclatura de nodos configurados clúster de HPC.
+* **NodeNameSeries** (opcional) el patrón de nomenclatura 0 para nodos de ejecución. El formato debe ser &lt;*Nombre\_Raíz*&gt;&lt;*Número\_Inicio*&gt;%. Por ejemplo, MyCN%10% se refiere a una serie de nombres de nodos de ejecución a partir de MyCN11. Si no se especifica, el script usa la serie de nomenclatura de nodos configurados clúster de HPC.
 
 ### Ejemplo
 
@@ -102,21 +103,21 @@ Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonP
 
 ### Parámetros
 
- * **Name**: los nombres de los nodos de clúster que se van a eliminar. Se admite caracteres comodín. El nombre del conjunto de parámetros es Name. No se pueden especificar los parámetros **Name** y **Node**.
+ * **Name**: nombres de los nodos de clúster que se van a quitar. Se admite caracteres comodín. El nombre del conjunto de parámetros es Name. No se pueden especificar los dos parámetros, **Name** y **Node**.
 
-* **Nodo** * el objeto HpcNode para los nodos que se van quitar, que se pueden obtener a través del cmdlet de PowerShell de HPC [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). El nombre del conjunto de parámetro es Node. No se pueden especificar los parámetros **Name** y **Node**.
+* **Node***: objeto HpcNode para los nodos que se van quitar, que se puede obtener a través del cmdlet de HPC PowerShell [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). El nombre del conjunto de parámetro es Node. No se pueden especificar los dos parámetros, **Name** y **Node**.
 
-* **DeleteVHD** (opcional): configuración para eliminar los discos asociados para las máquinas virtuales que se quitan.
+* **DeleteVHD** (opcional): configuración para eliminar los discos asociados en las máquinas virtuales que se quitan.
 
 * **Force** (opcional): configuración para forzar nodos HPC sin conexión antes de quitarlos.
 
-* **Confirm** (opcional): pedir confirmación antes de ejecutar el comando.
+* **Confirm** (opcional): solicitud de confirmación antes de ejecutar el comando.
 
-* **WhatIf**: configuración para describir lo que sucedería si ejecutara el comando sin ejecutar realmente el comando.
+* **WhatIf**: configuración para describir lo que sucedería si ejecutara el comando sin ejecutarlo realmente.
 
 ### Ejemplo
 
-En el ejemplo siguiente se fuerzan nodos sin conexión con nombres que comienzan por *HPCNode-CN -* y luego quita los nodos y sus discos asociados.
+En el ejemplo siguiente se fuerzan nodos sin conexión con nombres que comienzan por *HPCNode-CN-* y luego se quitan los nodos y sus discos asociados.
 
 ```
 Remove-HPCIaaSNode.ps1 –Name HPCNodeCN-* –DeleteVHD -Force
@@ -135,9 +136,9 @@ Start-HPCIaaSNode.ps1 -Node <Object> [<CommonParameters>]
 ```
 ### Parámetros
 
-* **Name**: los nombres de los nodos de clúster que se van a iniciar. Se admite caracteres comodín. El nombre del conjunto de parámetros es Name. No se pueden especificar los parámetros **Name** y **Node**.
+* **Name**: nombres de los nodos de clúster que se van a iniciar. Se admite caracteres comodín. El nombre del conjunto de parámetros es Name. No se pueden especificar los dos parámetros, **Name** y **Node**.
 
-* **Nodo**: el objeto HpcNode para los nodos que se van a iniciar, que se pueden obtener mediante el cmdlet de PowerShell de HPC [Get HpcNode](https://technet.microsoft.com/library/dn887927.aspx). El nombre del conjunto de parámetro es Node. No se pueden especificar los parámetros **Name** y **Node**.
+* **Node**: objeto HpcNode para los nodos que se van a iniciar, que se puede obtener mediante el cmdlet de HPC PowerShell [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). El nombre del conjunto de parámetro es Node. No se pueden especificar los dos parámetros, **Name** y **Node**.
 
 ### Ejemplo
 
@@ -162,20 +163,20 @@ Stop-HPCIaaSNode.ps1 -Node <Object> [-Force] [<CommonParameters>]
 ### Parámetros
 
 
-* **Name**: los nombres de los nodos de clúster que se van a detener. Se admite caracteres comodín. El nombre del conjunto de parámetros es Name. No se pueden especificar los parámetros **Name** y **Node**.
+* **Name**: nombres de los nodos de clúster que se van a detener. Se admite caracteres comodín. El nombre del conjunto de parámetros es Name. No se pueden especificar los dos parámetros, **Name** y **Node**.
 
-* **Nodo**: el objeto HpcNode para los nodos que se van detener, que se pueden obtener mediante el cmdlet de PowerShell de HPC Get-HpcNode. El nombre del conjunto de parámetro es Node. No se pueden especificar los parámetros **Name** y **Node**.
+* **Node**: objeto HpcNode para los nodos que se van a detener, que se puede obtener mediante el cmdlet de HPC PowerShell Get-HpcNode. El nombre del conjunto de parámetro es Node. No se pueden especificar los dos parámetros, **Name** y **Node**.
 
 * **Force** (opcional): configuración para forzar los nodos HPC sin conexión antes de detenerlos.
 
 ### Ejemplo
 
-En el ejemplo siguiente se fuerzan nodos sin conexión con nombres que comienzan por *HPCNode-CN-* y luego detiene los nodos.
+En el ejemplo siguiente se fuerzan nodos sin conexión con nombres que comienzan por *HPCNode-CN-* y luego se detienen los nodos.
 
 Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 ## Pasos siguientes
 
-* Si quiere una manera de aumentar o reducir automáticamente los recursos informáticos de Azure según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Aumentar y reducir los recursos de proceso de Azure en un clúster de HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
+* Si busca una manera de aumentar o reducir automáticamente los recursos informáticos de Azure según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Aumento y reducción de recursos de proceso de Azure en un clúster de HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

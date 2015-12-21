@@ -75,13 +75,15 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 
 ### Ejemplo
 
-En el ejemplo siguiente se crea un nuevo clúster de HPC Pack mediante el archivo de configuración MyConfigFile.xml y se especifican las credenciales administrativas para instalar el clúster. ```
-New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName
-<username> –AdminPassword <password>
+En el ejemplo siguiente se crea un nuevo clúster de HPC Pack mediante el archivo de configuración MyConfigFile.xml y se especifican las credenciales administrativas para instalar el clúster.
+
 ```
+New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
+```
+
 ### Consideraciones adicionales
 
-* El script usa la imagen de máquina virtual de HPC Pack en Azure Marketplace para crear el nodo principal del clúster. La imagen actual se basa en Windows Server 2012 R2 Datacenter con HPC Pack 2012 R2 Update 2 instalado.
+* El script usa la imagen de máquina virtual de HPC Pack en Azure Marketplace para crear el nodo principal del clúster. La imagen actual se basa en Windows Server 2012 R2 Datacenter con HPC Pack 2012 R2 Update 3 instalado.
 
 * El script puede, opcionalmente, habilitar el envío de trabajos mediante el portal web de HPC Pack o la API de REST de HPC Pack.
 
@@ -386,8 +388,8 @@ El archivo de configuración siguiente implementa un clúster de HPC Pack en un 
 
 * Pruebe a ejecutar una carga de trabajo de prueba en el clúster. Para obtener un ejemplo, consulte la [guía de introducción](https://technet.microsoft.com/library/jj884144) de HPC Pack.
 
-* Para obtener un tutorial que use el script a fin de crear un clúster y ejecutar una carga de trabajo de HPC, consulte [Introducción a un clúster de HPC Pack en Azure para ejecutar cargas de trabajo de Excel y SOA](virtual-machines-excel-cluster-hpcpac) o [Ejecución de NAMD con Microsoft HPC Pack en nodos de proceso de Linux en Azure](virtual-machines-linux-cluster-hpcpack-namd.md).
+* Para ver los tutoriales que usan el script para crear un clúster y ejecutar una carga de trabajo de HPC, consulte [Introducción a un clúster de HPC Pack en Azure para ejecutar cargas de trabajo de Excel y SOA](virtual-machines-excel-cluster-hpcpac), [Ejecución de NAMD con Microsoft HPC Pack en nodos de ejecución de Linux en Azure](virtual-machines-linux-cluster-hpcpack-namd.md) o [Ejecución de OpenFOAM con Microsoft HPC Pack en nodos de ejecución de Linux en Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md).
 
-* Pruebe las herramientas de HPC Pack para iniciar, detener, agregar y quitar nodos de proceso de un clúster creado. Consulte [Administración de nodos de proceso en un clúster de HPC Pack en Azure](virtual-machines-hpcpack-cluster-node-manage.md)
+* Pruebe las herramientas de HPC Pack para iniciar, detener, agregar y quitar nodos de proceso de un clúster creado. Consulte [Administración de nodos de ejecución en un clúster de HPC Pack en Azure](virtual-machines-hpcpack-cluster-node-manage.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

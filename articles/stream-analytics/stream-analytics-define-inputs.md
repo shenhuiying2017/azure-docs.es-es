@@ -1,40 +1,46 @@
-<properties 
-	pageTitle="Definición de entradas | Microsoft Azure" 
-	description="Descripción de entradas de Análisis de transmisiones" 
-	keywords="análisis de macrodatos,servicio en la nube,internet de las cosas,servicio administrado, procesamiento de transmisiones,streaming de datos"
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
+<properties
+	pageTitle="Conexión de datos: entradas de transmisiones de datos de una transmisión de eventos | Microsoft Azure"
+	description="Obtenga información sobre cómo configurar una conexión de datos a Análisis de transmisiones que se denomina ";entradas";. Entre las entradas se incluyen una transmisión de datos de los eventos y también datos de referencia."
+	keywords="transmisión de datos, conexión de datos, transmisión de eventos"
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
 	ms.date="11/23/2015"
 	ms.author="jeffstok"/>
 
-# Descripción de conexiones de entradas de Análisis de transmisiones
+# Conexión de datos: obtenga información sobre las entradas de transmisiones de datos desde eventos para el Análisis de transmisiones
 
-Las entradas de Análisis de transmisiones se definen como una conexión a un origen de datos. Análisis de transmisiones cuenta con integración de primera clase con el Centro de eventos de orígenes de Azure, el Centro de IoT y el almacenamiento de blobs desde dentro y fuera de la suscripción en la que se está ejecutando el trabajo. A medida que los datos se insertan en ese origen de datos, el trabajo de Análisis de transmisiones los consume y los procesa en tiempo real. Las entradas se dividen en dos tipos distintos: entradas de flujo de datos y entradas de datos de referencia.
+La conexión de datos para el Análisis de transmisiones es un flujo de datos de eventos desde un origen de datos. Se denomina "entrada". El Análisis de transmisiones tiene integración de primera clase con el Centro de eventos de orígenes de la transmisión de datos de Azure, el Centro de IoT y el almacenamiento de blobs que pueden proceder de la misma suscripción de Azure o de otra diferente como su trabajo de análisis.
 
-- **Entradas de transmisión de datos**: una transmisión de datos es una secuencia ilimitada de eventos que llegan a lo largo del tiempo. Los trabajos de Análisis de transmisiones deben incluir, al menos, una entrada de secuencia de datos para que el trabajo la consuma y transforme. Almacenamiento de blobs, Centros de eventos y Centros de IoT se admiten como orígenes de entrada de flujos de datos. Centros de eventos se usan para recopilar flujos de eventos desde varios dispositivos y servicios, como fuentes de actividades de medios sociales, información sobre acciones o datos de sensores. Los Centros de IoT están optimizados para recopilar datos de dispositivos conectados en escenarios del Internet de las cosas (IoT). El almacenamiento de blobs puede usarse como origen de entrada para la introducción de datos en masa como flujo.  
-- **Datos de referencia**: Análisis de transmisiones también admite un segundo tipo de entrada, conocido como datos de referencia. Se trata de datos auxiliares que son estáticos o que cambian con poca frecuencia y se usan normalmente para realizar correlaciones y búsquedas. Almacenamiento de blobs de Azure es el único origen de entrada admitido actualmente para los datos de referencia. Los blobs de origen de datos de referencia están limitados a 50 MB de tamaño. Para obtener información sobre cómo crear entradas de datos de referencia, consulte [Uso de datos de referencia](stream-analytics-use-reference-data.md).  
+## Tipos de entrada de datos: datos de referencia y de transmisión de datos
+A medida que los datos se insertan en un origen de datos, el trabajo de Análisis de transmisiones los consume y los procesa en tiempo real. Las entradas se dividen en dos tipos distintos: entradas de flujo de datos y entradas de datos de referencia.
 
-## Creación de una secuencia de entrada de datos de Centro de eventos
+### Entradas de secuencia de datos
+Un flujo de datos es una secuencia ilimitada de eventos que llegan a lo largo del tiempo. Los trabajos de Análisis de transmisiones deben incluir, al menos, una entrada de secuencia de datos para que el trabajo la consuma y transforme. Almacenamiento de blobs, Centros de eventos y Centros de IoT se admiten como orígenes de entrada de flujos de datos. Centros de eventos se usan para recopilar flujos de eventos desde varios dispositivos y servicios, como fuentes de actividades de medios sociales, información sobre acciones o datos de sensores. Los Centros de IoT están optimizados para recopilar datos de dispositivos conectados en escenarios del Internet de las cosas (IoT). El almacenamiento de blobs puede usarse como origen de entrada para la introducción de datos en masa como flujo.
+
+### Datos de referencia
+Análisis de transmisiones también admite un segundo tipo de entrada, conocido como datos de referencia. Se trata de datos auxiliares que son estáticos o que cambian con poca frecuencia y se usan normalmente para realizar correlaciones y búsquedas. Almacenamiento de blobs de Azure es el único origen de entrada admitido actualmente para los datos de referencia. Los blobs de origen de datos de referencia están limitados a 50 MB de tamaño. Para obtener información sobre cómo crear entradas de datos de referencia, consulte [Uso de datos de referencia](stream-analytics-use-reference-data.md).
+
+## Crear una entrada de transmisión de datos con un Centro de eventos
 
 Los [Centros de eventos de Azure](https://azure.microsoft.com/services/event-hubs/) son un servicio de introducción de eventos de suscripción-publicación altamente escalable. Puede recopilar de millones de eventos por segundo para que pueda procesar y analizar grandes cantidades de datos generados por los dispositivos y aplicaciones conectados. Es una de las entradas más usadas para Análisis de transmisiones. Centros de eventos y Análisis de transmisiones juntos proporcionan a los clientes una solución total para realizar análisis en tiempo real. Centros de eventos permiten a los clientes suministrar eventos a Azure en tiempo real y los trabajos de Análisis de transmisiones pueden procesarlos en tiempo real. Por ejemplo, los clientes pueden enviar clics en la web, lecturas del sensor, eventos de registro en línea en los centros de eventos y crear trabajos de Análisis de transmisiones para usar centros de eventos como las secuencias de datos de entrada para filtrar, agregar y correlacionar en tiempo real.
 
 Es importante tener en cuenta que la marca de tiempo predeterminada de los eventos procedentes de los Centros de eventos de Análisis de transmisiones es la marca de tiempo del evento que ha llegado al Centro de eventos, que es EventEnqueuedUtcTime. Para procesar los datos como una transmisión mediante una marca de tiempo en la carga del evento, se debe usar la palabra clave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
-## Grupos de consumidores
+### Grupos de consumidores
 
 Cada entrada de Centro de eventos de Análisis de transmisiones se debe configurar para tener su propio grupo de consumidores. Cuando un trabajo contiene varias entradas o autocombinación, es posible que más de un lector de bajada lea alguna de las entradas, lo que afecta la cantidad de lectores que existen en un solo grupo de consumidores. Para evitar superar el límite de Centro de eventos de 5 lectores por grupo de consumidores por partición, una práctica recomendable es designar un grupo de consumidores para cada trabajo de Análisis de transmisiones. Tenga en cuenta que también hay un límite de 20 grupos de consumidores por Centro de eventos. Para obtener detalles, consulte la [Guía de programación de Centros de eventos](./event-hubs/event-hubs-programming-guide.md).
 
-## Configuración de Centro de eventos como un flujo de datos de entrada ##
+## Configurar el Centro de eventos como transmisión de datos de entrada
 
 La siguiente tabla explica cada propiedad en la pestaña de entrada de Centro de eventos con su descripción:
 
@@ -67,15 +73,15 @@ SELECT
 FROM Input
 ````
 
-## Creación de una entrada de secuencia de datos del Centro de IoT ##
+## Crear una entrada de transmisión de datos del Centro de IoT
 
-El centro de Iot es un servicio de introducción de eventos de suscripción-publicación altamente escalable optimizado para escenarios de IoT. Es importante tener en cuenta que la marca de tiempo predeterminada de los eventos procedentes de los Centros de IoT de Análisis de transmisiones es la marca de tiempo del evento que ha llegado al Centro de IoT, que es EventEnqueuedUtcTime. Para procesar los datos como una transmisión mediante una marca de tiempo en la carga del evento, se debe usar la palabra clave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+El centro de Iot de Azure es un servicio de introducción de eventos de suscripción-publicación altamente escalable optimizado para escenarios de IoT. Es importante tener en cuenta que la marca de tiempo predeterminada de los eventos procedentes de los Centros de IoT de Análisis de transmisiones es la marca de tiempo del evento que ha llegado al Centro de IoT, que es EventEnqueuedUtcTime. Para procesar los datos como una transmisión mediante una marca de tiempo en la carga del evento, se debe usar la palabra clave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
-## Grupos de consumidores ##
+### Grupos de consumidores
 
 Cada entrada de Centro de IoT de Análisis de transmisiones se debe configurar para tener su propio grupo de consumidores. Cuando un trabajo contiene varias entradas o autocombinación, es posible que más de un lector de bajada lea alguna de las entradas, lo que afecta la cantidad de lectores que existen en un solo grupo de consumidores. Para evitar superar el límite de Centro de IoT de 5 lectores por grupo de consumidores por partición, una práctica recomendable es designar un grupo de consumidores para cada trabajo de Análisis de transmisiones.
 
-## Configuración de Centro de IoT como un flujo de datos de entrada ##
+## Configurar el Centro de IoT como transmisión de datos de entrada
 
 La siguiente tabla explica cada propiedad en la pestaña de entrada de Centro de IoT con su descripción:
 
@@ -104,9 +110,9 @@ Cuando los datos proceden de un origen de Centro de IoT, puede acceder a algunos
 | IoTHub.EnqueuedTime | Hora en la que el Centro de IoT se recibió el mensaje. |
 | IoTHub.StreamId | Propiedad de evento personalizado agregado por el dispositivo remitente. |
 
-## Creación de una entrada de flujo de datos de Almacenamiento de blobs ##
+## Crear una entrada de transmisión de datos de Almacenamiento de blobs
 
-El almacenamiento de blobs ofrece una solución rentable y escalable para aquellos escenarios con grandes cantidades de datos no estructurados para almacenar en la nube. Los datos del [almacenamiento de blobs](http://azure.microsoft.com/services/storage/blobs/) generalmente se consideran como datos "en reposo", pero Análisis de transmisiones puede procesarlos como una transmisión de datos. Un escenario común para las entradas de Almacenamiento de blobs con Análisis de transmisiones es el procesamiento de registros, donde la telemetría se captura desde un sistema y es necesario analizarla y procesarla para extraer datos significativos.
+El almacenamiento de blobs ofrece una solución rentable y escalable para aquellos escenarios con grandes cantidades de datos no estructurados para almacenar en la nube. Los datos del [almacenamiento de blobs](http://azure.microsoft.com/services/storage/blobs/) generalmente se consideran como datos "en reposo", pero Análisis de transmisiones puede procesarlos como un flujo de datos. Un escenario común para las entradas de Almacenamiento de blobs con Análisis de transmisiones es el procesamiento de registros, donde la telemetría se captura desde un sistema y es necesario analizarla y procesarla para extraer datos significativos.
 
 Es importante tener en cuenta que la marca de tiempo predeterminada de los eventos del almacenamiento de blobs en Análisis de transmisiones es la marca de tiempo cuando se modificó el blob por última vez, que es *isBlobLastModifiedUtcTime*. Para procesar los datos como una transmisión mediante una marca de tiempo en la carga del evento, se debe usar la palabra clave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
@@ -186,7 +192,7 @@ FROM Input
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
-Ya conoce Análisis de transmisiones, un servicio administrado para el análisis del streaming de datos desde Internet de las cosas. Para obtener más información acerca de este servicio, consulte:
+Ha obtenido información sobre las opciones de conexión de datos de Azure para sus trabajos de Análisis de transmisiones. Para obtener más información sobre Análisis de transmisiones, vea:
 
 - [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
 - [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
@@ -201,4 +207,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

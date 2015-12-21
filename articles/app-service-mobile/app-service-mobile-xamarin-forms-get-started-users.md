@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-xamarin" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="11/30/2015" 
+	ms.date="12/07/2015" 
 	ms.author="wesmc"/>
 
 # Agregar autenticación a la aplicación de Xamarin.Forms
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Información general
 
@@ -40,7 +38,9 @@ Primero debe completar el tutorial de inicio rápido [Creación de una aplicaci�
 
 ##Agregar autenticación a la biblioteca de clases portables 
 
-Las aplicaciones móviles utilizan un método `MobileServiceClient.LoginAsync` específico de la plataforma para mostrar la interfaz de inicio de sesión y los datos de la memoria caché. Para autenticarse con un proyecto de Xamarin Forms, definirá una interfaz `IAuthenticate` en la biblioteca de clases portables. Cada plataforma que quiera admitir puede implementar esta interfaz en el proyecto específico de la plataforma. Agregará código para autenticarse antes de realizar llamadas en la tabla restringida de la biblioteca de clases portables.
+Las aplicaciones móviles utilizan un método `MobileServiceClient.LoginAsync` específico de la plataforma para mostrar la interfaz de inicio de sesión y los datos de la memoria caché. Para autenticarse con un proyecto de Xamarin Forms, definirá una interfaz `IAuthenticate` en la biblioteca de clases portables. Cada plataforma que quiera admitir implementará esta interfaz en el proyecto específico de la plataforma.
+
+También actualizará la interfaz de usuario definida en la biblioteca de clases portable, agregar un botón de inicio de sesión. El usuario deberá hacer clic en este botón para autenticar después de que se inicie la aplicación.
 
 1. En Visual Studio o Xamarin Studio, abra el archivo App.cs del proyecto **portable**. Agregue la siguiente instrucción `using` al archivo:
 
@@ -67,29 +67,70 @@ Las aplicaciones móviles utilizan un método `MobileServiceClient.LoginAsync` e
 	
 			...
 
-4. Abra el archivo TodoList.xaml.cs del proyecto **portable** y actualice el método `OnAppearing` para autenticarse antes de intentar actualizar los elementos de la tabla.
+
+4. Abra TodoList.xaml.cs desde el proyecto **portable**. Agregue la siguiente marca a la clase `TodoList` para indicar si se ha autenticado o no el usuario.
+
+        bool authenticated = false;
+
+
+5. En TodoList.xaml.cs actualice el método `OnAppearing` para actualizar únicamente los elementos si se ha autenticado el usuario.
 
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
+            // Set syncItems to true in order to synchronize the data on startup when running in offline mode
+            if (authenticated == true)
+                await RefreshItems(true, syncItems: false);
+        }
+
+6. En TodoList.xaml.cs, en la parte superior del constructor para la clase `TodoList`, defina el siguiente botón de inicio de sesión y haga clic en controlador...
+
+        public TodoList()
+        {
+            InitializeComponent();
+
+            manager = TodoItemManager.DefaultManager;
+
+            var loginButton = new Button
+            {
+                Text = "Login",
+                TextColor = Xamarin.Forms.Color.Black,
+                BackgroundColor = Xamarin.Forms.Color.Lime,
+            };
+            loginButton.Clicked += loginButton_Clicked;
+
+            Xamarin.Forms.StackLayout bp = buttonsPanel as StackLayout;
+            Xamarin.Forms.StackLayout bpParentStack = bp.Parent.Parent as StackLayout;
+
+            bpParentStack.Padding = new Xamarin.Forms.Thickness(10, 30, 10, 20);
+            bp.Orientation = StackOrientation.Vertical;
+            bp.Children.Add(loginButton);
+
+			...
+
+7. En TodoList.xaml.cs, agregue el siguiente controlador para el evento Click del botón de inicio de sesión.
+
+        async void loginButton_Clicked(object sender, EventArgs e)
+        {
             if (App.Authenticator != null)
-                await App.Authenticator.Authenticate();
+                authenticated = await App.Authenticator.Authenticate();
 
             // Set syncItems to true in order to synchronize the data on startup when running in offline mode
-            await RefreshItems(true, syncItems: false);
+            if (authenticated == true)
+                await RefreshItems(true, syncItems: false);
         }
 
 
-5. Guarde los cambios, compile el proyecto portal y compruebe que no hay errores.
+8. Guarde los cambios, compile el proyecto de biblioteca de clases portable y compruebe que no hay errores.
 
 
 ##Agregar autenticación a la aplicación de Android
 
 En esta sección, agregará autenticación para el proyecto droid. Puede omitir esta sección si no está trabajando con dispositivos Android.
 
-1. En Visual Studio o Xamarin Studio, haga clic con el botón derecho en el proyecto **droid** y haga clic en **Establecer como proyecto de inicio**.
+1. En Visual Studio o Xamarin Studio, haga clic con el botón secundario en el proyecto **droid** y haga clic en **Establecer como proyecto de inicio**.
 
 2. Continúe y ejecute el proyecto en el depurador para comprobar que, cuando la aplicación se inicia, se genera una excepción no controlada con el código de estado 401 (No autorizado). Esto ocurre porque ha restringido el acceso en el back-end solo para usuarios autorizados.
 
@@ -103,9 +144,9 @@ En esta sección, agregará autenticación para el proyecto droid. Puede omitir 
 		public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
 
 
-5. Actualice la clase `MainActivity` agregando un campo `MobileServiceUser` y el método `Authenticate` que se muestra a continuación para admitir la interfaz `IAuthenticate`.
+5. Para actualizar la clase `MainActivity`, agregue un campo `MobileServiceUser` y el método `Authenticate` que se muestra a continuación para admitir la interfaz `IAuthenticate`.
  
-	Si quiere usar un elemento `MobileServiceAuthenticationProvider` distinto en lugar de Facebook, haga también ese cambio.
+	Si quiere usar un elemento `MobileServiceAuthenticationProvider` distinto en lugar de Facebook, realice también ese cambio.
 
 		// Define a authenticated user.
 		private MobileServiceUser user;
@@ -130,6 +171,16 @@ En esta sección, agregará autenticación para el proyecto droid. Puede omitir 
             return success;
         }
 
+        private void CreateAndShowDialog(String message, String title)
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.SetMessage(message);
+            builder.SetTitle(title);
+            builder.Create().Show();
+        }
+
+
 6. Actualice el método `OnCreate` de la clase `MainActivity` para inicializar el autenticador antes de cargar la aplicación.
 
         App.Init((IAuthenticate)this);
@@ -146,11 +197,11 @@ En esta sección, agregará autenticación para el proyecto droid. Puede omitir 
 
 En esta sección, agregará autenticación al proyecto de iOS. Puede omitir esta sección si no está trabajando con dispositivos iOS.
 
-1. En Visual Studio o Xamarin Studio, haga clic con el botón derecho en el proyecto **iOS** y haga clic en **Establecer como proyecto de inicio**.
+1. En Visual Studio o Xamarin Studio, haga clic con el botón secundario en el proyecto **iOS** y haga clic en **Establecer como proyecto de inicio**.
 
 2. Continúe y ejecute el proyecto en el depurador para comprobar que, cuando la aplicación se inicia, se genera una excepción no controlada con el código de estado 401 (No autorizado). Esto ocurre porque ha restringido el acceso en el back-end solo para usuarios autorizados.
 
-3. A continuación, en el proyecto de iOS, abra el archivo AppDelegate.cs y agregue la siguiente instrucción `using`.
+3. A continuación, abra el archivo AppDelegate.cs en el proyecto de iOS y agregue la siguiente instrucción `using`.
 
 		using Microsoft.WindowsAzure.MobileServices;
 		using System.Threading.Tasks;
@@ -160,9 +211,9 @@ En esta sección, agregará autenticación al proyecto de iOS. Puede omitir esta
 		public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
 
 
-5. Actualice la clase `AppDelegate` agregando un campo `MobileServiceUser` y el método `Authenticate` que se muestra a continuación para admitir la interfaz `IAuthenticate`.
+5. Para actualizar la clase `AppDelegate`, agregue un campo `MobileServiceUser` y el método `Authenticate` que se muestra a continuación para admitir la interfaz `IAuthenticate`.
  
-	Si quiere usar un elemento `MobileServiceAuthenticationProvider` distinto en lugar de Facebook, haga también ese cambio.
+	Si quiere usar un elemento `MobileServiceAuthenticationProvider` distinto en lugar de Facebook, realice también ese cambio.
 
 		// Define a authenticated user.
 		private MobileServiceUser user;
@@ -177,6 +228,11 @@ En esta sección, agregará autenticación al proyecto de iOS. Puede omitir esta
                 {
                     user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController,
                         MobileServiceAuthenticationProvider.Facebook);
+                    if (user != null)
+                    {
+                        UIAlertView avAlert = new UIAlertView("Authentication", "You are now logged in " + user.UserId, null, "OK", null);
+                        avAlert.Show();
+                    }
                 }
 
                 success = true;
@@ -191,7 +247,7 @@ En esta sección, agregará autenticación al proyecto de iOS. Puede omitir esta
 
 6. Actualice el método `FinishedLaunching` de la clase `AppDelegate` para inicializar el autenticador antes de cargar la aplicación.
 
-        App.Init((IAuthenticate)this);
+        App.Init(this);
 
 		LoadApplication (new App ());
 
@@ -206,11 +262,11 @@ En esta sección, agregará autenticación al proyecto de iOS. Puede omitir esta
 
 En esta sección, agregará autenticación al proyecto de WinApp. Puede omitir esta sección si no está trabajando con dispositivos Windows.
 
-1. En Visual Studio, haga clic con el botón derecho en el proyecto de **WinApp** y haga clic en **Establecer como proyecto de inicio**.
+1. En Visual Studio, haga clic con el botón secundario en el proyecto de **WinApp** y haga clic en **Establecer como proyecto de inicio**.
 
 2. Continúe y ejecute el proyecto en el depurador para comprobar que, cuando la aplicación se inicia, se genera una excepción no controlada con el código de estado 401 (No autorizado). Esto ocurre porque ha restringido el acceso en el back-end solo para usuarios autorizados.
 
-3. A continuación, abra el archivo MainPage.xaml.cs en el proyecto WinApp y agregue la siguiente instrucción `using`. Reemplace <*Your portable class library namespace*> por el espacio de nombres de la biblioteca de clases portables.
+3. A continuación, abra el archivo MainPage.xaml.cs en el proyecto WinApp y agregue la siguiente instrucción `using`. Reemplace <*Your portable class library namespace*> por el espacio de nombres de la biblioteca de clases portable.
 
 		using Microsoft.WindowsAzure.MobileServices;
 		using System.Threading.Tasks;
@@ -221,9 +277,9 @@ En esta sección, agregará autenticación al proyecto de WinApp. Puede omitir e
 	    public sealed partial class MainPage : IAuthenticate
 
 
-5. Actualice la clase `MainPage` agregando un campo `MobileServiceUser` y el método `Authenticate` que se muestra a continuación para admitir la interfaz `IAuthenticate`.
+5. Para actualizar la clase `MainPage`, agregue un campo `MobileServiceUser` y el método `Authenticate` que se muestra a continuación para admitir la interfaz `IAuthenticate`.
  
-	Si quiere usar un elemento `MobileServiceAuthenticationProvider` distinto en lugar de Facebook, haga también ese cambio.
+	Si quiere usar un elemento `MobileServiceAuthenticationProvider` distinto en lugar de Facebook, realice también ese cambio.
 
         // Define a authenticated user.
         private MobileServiceUser user;
@@ -237,9 +293,12 @@ En esta sección, agregará autenticación al proyecto de WinApp. Puede omitir e
                 if (user == null)
                 {
                     user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-                    var messageDialog = new Windows.UI.Popups.MessageDialog(
-							string.Format("you are now logged in - {0}", user.UserId), "Authentication");
-                    messageDialog.ShowAsync();
+					if (user != null)
+					{
+	                    var messageDialog = new Windows.UI.Popups.MessageDialog(
+								string.Format("you are now logged in - {0}", user.UserId), "Authentication");
+	                    messageDialog.ShowAsync();
+					}
                 }
 
                 success = true;
@@ -252,15 +311,15 @@ En esta sección, agregará autenticación al proyecto de WinApp. Puede omitir e
             return success;
         }
 
-6. Actualice el constructor de la clase `MainPage` para inicializar el autenticador antes de cargar la aplicación. Reemplace <*Your portable class library namespace*> por el espacio de nombres de la biblioteca de clases portables.
+6. Actualice el constructor de la clase `MainPage` para inicializar el autenticador antes de cargar la aplicación. Reemplace <*Your portable class library namespace*> por el espacio de nombres de la biblioteca de clases portable.
 
         public MainPage()
         {
             this.InitializeComponent();
 
-            <Your portable class library namespace>.App.Init((IAuthenticate)this);
+            <Your portable class library namespace>.App.Init(this);
             
-            LoadApplication(new WesmcMobileAppGaTest.App());
+            LoadApplication(new <Your portable class library namespace>.App());
         }
 
 
@@ -268,7 +327,93 @@ En esta sección, agregará autenticación al proyecto de WinApp. Puede omitir e
 7. Vuelva a compilar la aplicación y ejecútela. Inicie sesión con el proveedor de autenticación que eligió y compruebe que puede acceder a la tabla como un usuario autenticado.
 
 
+##Agregar autenticación a la aplicación de Windows Phone 8.1
 
+En esta sección, agregará autenticación para el proyecto de WinPhone81. Puede omitir esta sección si no está trabajando con dispositivos Windows Phone 8.1.
+
+1. En Visual Studio, haga clic con el botón secundario en el proyecto de **WinPhone81** y haga clic en **Establecer como proyecto de inicio**.
+
+2. Continúe y ejecute el proyecto en el depurador para comprobar que, cuando la aplicación se inicia, se genera una excepción no controlada con el código de estado 401 (No autorizado). Esto ocurre porque ha restringido el acceso en el back-end solo para usuarios autorizados.
+
+
+3. A continuación, abra el archivo MainPage.xaml.cs en el proyecto WinPhone81 y agregue la siguiente instrucción `using`. Reemplace <*Your portable class library namespace*> por el espacio de nombres de la biblioteca de clases portable.
+
+		using Microsoft.WindowsAzure.MobileServices;
+		using System.Threading.Tasks;
+		using <Your portable class library namespace>;
+
+4. Actualice la clase `MainPage` para implementar la interfaz `IAuthenticate`.
+
+	    public sealed partial class MainPage : IAuthenticate
+
+
+5. Para actualizar la clase `MainPage`, agregue un campo `MobileServiceUser` y el método `Authenticate` que se muestra a continuación para admitir la interfaz `IAuthenticate`.
+ 
+	Si quiere usar un elemento `MobileServiceAuthenticationProvider` distinto en lugar de Facebook, realice también ese cambio.
+
+        // Define a authenticated user.
+        private MobileServiceUser user;
+
+        public async Task<bool> Authenticate()
+        {
+            var success = false;
+            try
+            {
+                // Sign in with Facebook login using a server-managed flow.
+                if (user == null)
+                {
+                    user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+					if (user != null)
+					{
+	                    var messageDialog = new Windows.UI.Popups.MessageDialog(
+								string.Format("you are now logged in - {0}", user.UserId), "Authentication");
+	                    messageDialog.ShowAsync();
+					}
+                }
+
+                success = true;
+            }
+            catch (Exception ex)
+            {
+                var messageDialog = new Windows.UI.Popups.MessageDialog(ex.Message, "Authentication Failed");
+                messageDialog.ShowAsync();
+            }
+            return success;
+        }
+
+6. Actualice el constructor de la clase `MainPage` para inicializar el autenticador antes de cargar la aplicación. Reemplace <*Your portable class library namespace*> por el espacio de nombres de la biblioteca de clases portable.
+
+        public MainPage()
+        {
+            this.InitializeComponent();
+
+            this.NavigationCacheMode = NavigationCacheMode.Required;
+
+            <Your portable class library namespace>.App.Init(this);
+
+            LoadApplication(new <Your portable class library namespace>.App());
+        }
+
+7. En Windows Phone debe completar además el inicio de sesión. Abra App.xaml.cs y agregue la siguiente instrucción `using` y el código al controlador `OnActivated` en la clase `App`.
+
+	```
+		using Microsoft.WindowsAzure.MobileServices;
+	```
+
+		protected override void OnActivated(IActivatedEventArgs args)
+		{
+		    base.OnActivated(args);
+		
+		    if (args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
+		    {
+		        var client = TodoItemManager.DefaultManager.CurrentClient as MobileServiceClient;
+		        client.LoginComplete(args as WebAuthenticationBrokerContinuationEventArgs);
+		    }
+		}
+
+
+
+8. Vuelva a compilar la aplicación y ejecútela. Inicie sesión con el proveedor de autenticación que eligió y compruebe que puede acceder a la tabla como un usuario autenticado.
 
 <!-- Images. -->
 
@@ -282,4 +427,4 @@ En esta sección, agregará autenticación al proyecto de WinApp. Puede omitir e
 
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015-->

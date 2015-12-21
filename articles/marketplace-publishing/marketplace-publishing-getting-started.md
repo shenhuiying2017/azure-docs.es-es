@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="12/04/2015"
    ms.author="hascipio" />
 
 # Publicación de una oferta en Azure Marketplace
@@ -49,7 +49,11 @@ Algunos pasos se comparten entre los distintos tipos de soluciones. En este art�
 - [Creación de una imagen de máquina virtual local](marketplace-publishing-vm-image-creation-on-premise.md)
 - [Creación de una máquina virtual que ejecuta Windows en el portal de vista previa de Azure](../virtual-machines-windows-tutorial/)
 
-**Servicios de datos** - [Asignación de O Data del servicio de datos](marketplace-publishing-data-service-creation-odata-mapping.md) - [Nodos de asignación de OData del servicio de datos](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) - [Ejemplos de asignación de OData del servicio de datos](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
+**Servicios de datos**
+
+- [Asignación de OData del servicio de datos](marketplace-publishing-data-service-creation-odata-mapping.md)
+- [Nodos de asignación de OData del servicio de datos](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)
+- [Ejemplos de asignación de OData del servicio de datos](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
 
 [suppt-general]: marketplace-publishing-get-publisher-support.md
 [suppt-rpt-insights]: marketplace-publishing-report-seller-insights.md
@@ -68,4 +72,4 @@ Algunos pasos se comparten entre los distintos tipos de soluciones. En este art�
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

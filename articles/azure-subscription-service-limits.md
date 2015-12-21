@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="12/03/2015"
 	ms.author="jroth"/>
 
 # Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
@@ -30,9 +30,8 @@ Ahora es posible combinar varios recursos de Azure en un único grupo de recurso
 
 En los límites siguientes, se ha agregado una nueva tabla para reflejar las diferencias en los límites cuando se usa el Administrador de recursos de Azure. Por ejemplo, hay una tabla de **Límites de suscripción** y una tabla de **Límites de suscripción - Administrador de recursos de Azure**. Cuando un límite se aplica a ambos escenarios, solo se muestra en la primera tabla. A menos que se indique lo contrario, los límites son globales en todas las regiones.
 
-> [AZURE.NOTE] Es importante destacar que las cuotas de los recursos de los grupos de recursos de Azure son accesibles para su suscripción en función de la región y no en función de la suscripción, como las cuotas de administración de servicios. Usemos las cuotas de núcleo como ejemplo. Si necesita solicitar un aumento de cuota con compatibilidad para núcleos, deberá decidir el número de núcleos que desea usar en las distintas regiones y, a continuación, realizar una solicitud específica para las cuotas principales del grupo de recursos de Azure para las cantidades y regiones que desee. Por lo tanto, si necesita usar 30 núcleos en Europa Occidental para ejecutar la aplicación, deberá solicitar específicamente 30 núcleos en Europa Occidental. Pero no tendrá un aumento de la cuota de núcleos en ninguna otra región: solo Europa Occidental tendrá la cuota de 30 núcleos.
-<!-- -->
-Como resultado, puede que le resulte útil considerar el decidir cuáles deben ser sus cuotas de grupos de recursos de Azure para su carga de trabajo en cada región, y solicitar esa cantidad en cada región en la que está considerando efectuar la implementación. Consulte [solucionar problemas de implementación](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues) para obtener más ayuda para descubrir las cuotas actuales para regiones específicas.
+> [AZURE.NOTE]Es importante destacar que las cuotas de los recursos de los grupos de recursos de Azure son accesibles para su suscripción en función de la región y no en función de la suscripción, como las cuotas de administración de servicios. Usemos las cuotas de núcleo como ejemplo. Si necesita solicitar un aumento de cuota con compatibilidad para núcleos, deberá decidir el número de núcleos que desea usar en las distintas regiones y, a continuación, realizar una solicitud específica para las cuotas principales del grupo de recursos de Azure para las cantidades y regiones que desee. Por lo tanto, si necesita usar 30 núcleos en Europa Occidental para ejecutar la aplicación, deberá solicitar específicamente 30 núcleos en Europa Occidental. Pero no tendrá un aumento de la cuota de núcleos en ninguna otra región: solo Europa Occidental tendrá la cuota de 30 núcleos. <!-- --> Como resultado, puede que le resulte útil considerar el decidir cuáles deben ser sus cuotas de grupos de recursos de Azure para su carga de trabajo en cada región, y solicitar esa cantidad en cada región en la que está considerando efectuar la implementación. Consulte [solucionar problemas de implementación](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues) para obtener más ayuda para descubrir las cuotas actuales para regiones específicas.
+
 
 ## Límites específicos del servicio
 
@@ -179,9 +178,17 @@ La tabla siguiente muestra los límites de los servicios de Biztalk de Azure.
 
 ### Límites de búsqueda
 
-[AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
+El plan de tarifa determina la capacidad y los límites de su servicio de búsqueda.
 
-Para información adicional sobre los límites máximos del servicio compartido, o un desglose de los límites en las claves, solicitudes y respuestas, vea [Límites de servicio en la Búsqueda de Azure](search/search-limits-quotas-capacity.md).
+####Nivel estándar
+
+[AZURE.INCLUDE [azure-search-limits-standard](../includes/azure-search-limits-standard.md)]
+
+####Nivel compartido (parte de un servicio multiempresa, gratis para los suscriptores de Azure)
+
+[AZURE.INCLUDE [azure-search-limits-free](../includes/azure-search-limits-free.md)]
+
+Para obtener más información acerca de los límites de claves, las combinaciones réplica-partición, las solicitudes, las respuestas y cómo lograr una alta disponibilidad para diferentes cargas de trabajo, consulte [Límites de servicio en la Búsqueda de Azure](search/search-limits-quotas-capacity.md).
 
 ### Límites de Servicios multimedia
 
@@ -264,7 +271,7 @@ Para información adicional sobre los límites máximos del servicio compartido,
 
 ### Límites de Base de datos SQL
 
-Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Base de datos SQL](sql-database/sql-database-resource-limits.md).
+Para conocer los límites de Base de datos SQL, consulte [Límites de recursos de Base de datos SQL](sql-database/sql-database-resource-limits.md).
 
 ## Otras referencias
 
@@ -272,4 +279,4 @@ Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Bas
 
 [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

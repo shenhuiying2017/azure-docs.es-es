@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="11/30/2015" 
 	ms.author="glenga"/>
 
 # Incorporación de autenticación a la aplicación de Servicios móviles 
@@ -35,7 +35,7 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Primero d
 
 3. En el directorio de aplicaciones, inicie uno de los archivos de comandos siguientes desde la subcarpeta **server**.
 
-	+ **.\\start-iisexpress.ps1** (equipos Windows) 
+	+ **launch-windows** (equipos con Windows) 
 	+ **launch-mac.command** (equipos con Mac OS X)
 	+ **launch-linux.sh** (equipos con Linux)
 
@@ -135,4 +135,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [Servicios móviles con HTML/JavaScript en Referencia conceptual de Servicios móviles HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

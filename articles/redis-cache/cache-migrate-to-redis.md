@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="11/30/2015"
+    ms.date="12/03/2015"
     ms.author="sdanie" />
 
 # Migración desde el Servicio de caché administrado a Caché en Redis de Azure
@@ -64,9 +64,9 @@ Un punto de partida para la migración es seleccionar el tamaño que coincida co
 
 ## Creación de una caché
 
-Se pueden crear cachés en Caché en Redis de Azure en el [Portal de vista previa de Azure](https://portal.azure.com), o bien mediante el uso de plantillas ARM, PowerShell o la CLI de Azure.
+Se pueden crear cachés en Caché en Redis de Azure en el [Portal de Azure](https://portal.azure.com), o bien mediante el uso de plantillas ARM, PowerShell o la CLI de Azure.
 
--	Para crear una caché en el Portal de vista previa de Azure, consulte [Creación de una caché](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+-	Para crear una caché en el Portal de Azure, consulte [Creación de una caché](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 -	Para crear una caché mediante plantillas ARM, consulte [Creación de una caché en Redis mediante una plantilla](cache-redis-cache-arm-provision.md).
 -	Para crear una caché con Azure PowerShell, consulte [Administración de Caché en Redis de Azure con Azure PowerShell](cache-howto-manage-redis-cache-powershell.md).
 -	Para crear una caché mediante la CLI de Azure, consulte [Creación y administración de Caché en Redis de Azure mediante la interfaz de línea de comandos de Azure (CLI de Azure)](cache-manage-cli.md).
@@ -195,4 +195,4 @@ Caché en Redis de Azure cuenta con proveedores de estado de sesión ASP.NET y a
 
 Explore la [documentación de Caché en Redis de Azure](https://azure.microsoft.com/documentation/services/cache/), encontrará tutoriales, ejemplos, vídeos y mucho más.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

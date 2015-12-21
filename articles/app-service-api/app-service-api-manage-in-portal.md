@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="12/04/2015" 
 	ms.author="tdykstra"/>
 
 # Administración de aplicaciones de API en el Servicio de aplicaciones de Azure
@@ -136,4 +136,4 @@ En este artículo, se muestra cómo usar el portal de Azure para realizar tareas
 
 Para obtener información acerca de cómo administrar aplicaciones de API mediante la línea de comandos, consulte los artículos de la sección **Automatizar** del menú que aparece en el lado izquierdo del artículo (en las ventanas del explorador anchas) o en la parte superior del artículo (en las ventanas del explorador estrechas).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

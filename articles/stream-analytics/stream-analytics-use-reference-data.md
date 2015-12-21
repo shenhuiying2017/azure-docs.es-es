@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Uso de datos de referencia | Microsoft Azure" 
-	description="Uso de datos de referencia en una secuencia de entrada de Análisis de transmisiones" 
-	keywords="análisis de macrodatos,servicio en la nube,internet de las cosas,servicio administrado, procesamiento de transmisiones,streaming de datos"
+	pageTitle="Uso de tablas de búsqueda y datos de referencia en Análisis de transmisiones | Microsoft Azure" 
+	description="Uso de datos de referencia en una consulta de Análisis de transmisiones" 
+	keywords="tabla de búsqueda, datos de referencia"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
@@ -14,12 +14,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-# Uso de datos de referencia en una secuencia de entrada de Análisis de transmisiones
+# Uso de datos de referencia o tablas de consulta en una transmisión de entrada de Análisis de transmisiones
 
-Los datos de referencia son un conjunto finito de datos estáticos o de naturaleza lenta, usado para realizar una búsqueda o para relacionarlo con el flujo de datos. Para usar los datos de referencia en el trabajo de Análisis de transmisiones de Azure, por lo general usará una [combinación de datos de referencia](https://msdn.microsoft.com/library/azure/dn949258.aspx) en la consulta. Análisis de transmisiones usa el almacenamiento de blobs de Azure como la capa de almacenamiento de datos de referencia y con los datos de referencia de Factoría de datos de Azure se puede transformar o copiar al almacenamiento de blobs de Azure, para su uso como datos de referencia, desde [cualquier número de almacenes de datos locales y en la nube](./articles/data-factory-data-movement-activities.md). Los datos de referencia se modelan como una secuencia de blobs (que se define en la configuración de entrada) en orden ascendente por la fecha y hora que se especifique en el nombre del blob. **Solo** se pueden agregar al final de la secuencia con una fecha y hora **posterior** a la especificada en el último blob de la secuencia.
+Los datos de referencia (también denominados tabla de consulta) son un conjunto finito de datos estáticos o de cambio lento de naturaleza, que se usan para realizar una búsqueda o para relacionarlos con el flujo de datos. Para usar los datos de referencia en el trabajo de Análisis de transmisiones de Azure, por lo general usará una [combinación de datos de referencia](https://msdn.microsoft.com/library/azure/dn949258.aspx) en la consulta. Análisis de transmisiones usa el almacenamiento de blobs de Azure como la capa de almacenamiento de datos de referencia y con los datos de referencia de Factoría de datos de Azure se puede transformar o copiar al almacenamiento de blobs de Azure, para su uso como datos de referencia, desde [cualquier número de almacenes de datos locales y en la nube](./articles/data-factory-data-movement-activities.md). Los datos de referencia se modelan como una secuencia de blobs (que se define en la configuración de entrada) en orden ascendente por la fecha y hora que se especifique en el nombre del blob. **Solo** se pueden agregar al final de la secuencia con una fecha y hora **posterior** a la especificada en el último blob de la secuencia.
 
 ## Configuración de datos de referencia
 
@@ -103,4 +103,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

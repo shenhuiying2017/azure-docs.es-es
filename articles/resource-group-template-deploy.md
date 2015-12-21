@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/08/2015"
    ms.author="tomfitz"/>
 
 # Implementación de una aplicación con la plantilla del Administrador de recursos de Azure
@@ -24,6 +24,21 @@ Para ver una introducción al Administrador de recursos, vea [Información gener
 
 Al implementar una aplicación con una plantilla, puede proporcionar valores de parámetros para personalizar cómo se crean los recursos. Especifique los valores para estos parámetros, ya sea en línea o en un archivo de parámetros.
 
+## Implementaciones de incrementales y completadas
+
+De forma predeterminada, el Administrador de recursos controla las implementaciones como las actualizaciones incrementales al grupo de recursos. Con la implementación incremental, el Administrador de recursos:
+
+- **deja sin modificar** recursos que existen en el grupo de recursos, pero que no se especifican en la plantilla
+- **agrega** recursos que se especifican en la plantilla, pero que no existen en el grupo de recursos 
+- **no vuelve a aprovisionar** recursos que existen en el grupo de recursos en la misma condición definida en la plantilla
+
+A través de Azure PowerShell o la API de REST, puede especificar una actualización completa para el grupo de recursos. CLI de Azure actualmente no admite implementaciones completas. Con la implementación completa, el Administrador de recursos:
+
+- **elimina** recursos que existen en el grupo de recursos, pero que no se especifican en la plantilla
+- **agrega** recursos que se especifican en la plantilla, pero que no existen en el grupo de recursos 
+- **no vuelve a aprovisionar** recursos que existen en el grupo de recursos en la misma condición definida en la plantilla
+ 
+El tipo de implementación se especifica a través de la propiedad **Mode**.
 
 ## Implementación con PowerShell
 
@@ -41,7 +56,7 @@ Al implementar una aplicación con una plantilla, puede proporcionar valores de 
          ...
 
 
-2. Si tiene varias suscripciones, proporcione el identificador de suscripción que desee usar para la implementación con el comando **Select-AzureRmSubscription**.
+2. Si tiene varias suscripciones, proporcione el identificador de suscripción que quiera usar para la implementación con el comando **Select-AzureRmSubscription**.
 
         PS C:\> Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
@@ -59,7 +74,7 @@ Al implementar una aplicación con una plantilla, puede proporcionar valores de 
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. Para crear otra implementación del grupo de recursos, ejecute el comando **New-AzureRmResourceGroupDeployment** y especifique los parámetros necesarios. Los parámetros incluirán un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL a la plantilla que creó y cualquier otro parámetro necesario para el escenario.
+5. Para crear otra implementación del grupo de recursos, ejecute el comando **New-AzureRmResourceGroupDeployment** y especifique los parámetros necesarios. Los parámetros incluirán un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL a la plantilla que creó y cualquier otro parámetro necesario para el escenario. No se especifica el parámetro **Modo**, lo que significa que se usa el valor predeterminado de **Incremental**.
    
      Tiene las opciones siguientes para proporcionar valores de parámetro:
    
@@ -85,10 +100,18 @@ Al implementar una aplicación con una plantilla, puede proporcionar valores de 
           Mode              : Incremental
           ...
 
+     Para ejecutar una implementación completa, establezca el **Modo** en **Completo**.
+
+          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -Mode Complete
+          Confirm
+          Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
+          included in the template will be deleted.
+          [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+
 6. Para obtener información acerca de los errores de la implementación.
 
         PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -Name ExampleDeployment
-
+        
         
 ### Vídeo
 
@@ -180,7 +203,7 @@ Si todavía no ha usado la CLI de Azure con Administrador de recursos, consulte 
              }
            }
    
-3. Cree una nueva implementación del grupo de recursos Proporcione el identificador de suscripción, el nombre del grupo de recursos para implementar, el nombre de la implementación y la ubicación de la plantilla. Para obtener información sobre el archivo de plantilla, consulte [Archivo de parámetros](./#parameter-file). Para obtener más información acerca de la API de REST para crear un grupo de recursos, consulte [Creación de una implementación de plantilla](https://msdn.microsoft.com/library/azure/dn790564.aspx).
+3. Cree una nueva implementación del grupo de recursos Proporcione el identificador de suscripción, el nombre del grupo de recursos para implementar, el nombre de la implementación y la ubicación de la plantilla. Para obtener información sobre el archivo de plantilla, consulte [Archivo de parámetros](./#parameter-file). Para obtener más información acerca de la API de REST para crear un grupo de recursos, consulte [Creación de una implementación de plantilla](https://msdn.microsoft.com/library/azure/dn790564.aspx). Para ejecutar una implementación completa, establezca el **Modo** en **Completo**.
     
          PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
             <common headers>
@@ -243,10 +266,10 @@ El tamaño del archivo de parámetros no puede ser superior a 64 KB.
 ## Pasos siguientes
 - Para obtener un ejemplo de cómo implementar los recursos a través de la biblioteca cliente .NET, vea [Implementación de recursos mediante bibliotecas de .NET y una plantilla](arm-template-deployment.md).
 - Para obtener un ejemplo en profundidad de la implementación de una aplicación, vea [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
-- Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments-preview-portal.md).
-- Para obtener información sobre las secciones de la plantilla del Administrador de recursos de Azure, vea [Creación de plantillas](resource-group-authoring-templates.md).
-- Para obtener una lista de las funciones que puede usar en una plantilla del Administrador de recursos de Azure, vea [Funciones de plantillas](resource-group-template-functions.md).
+- Para ver instrucciones sobre cómo implementar la solución en diferentes entornos, consulte [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- Para información sobre las secciones de la plantilla del Administrador de recursos de Azure, vea [Creación de plantillas](resource-group-authoring-templates.md).
+- Para una lista de las funciones que puede usar en una plantilla del Administrador de recursos de Azure, vea [Funciones de plantillas](resource-group-template-functions.md).
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

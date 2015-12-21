@@ -56,7 +56,6 @@ Si mueve usuarios entre bosques y dominios, debe buscar un atributo que no cambi
 
 Otra solución consiste en seleccionar un atributo existente que sepa que no cambiará. Uno de los atributos de uso más común es **employeeID**. Si está considerando el uso de un atributo que contenga letras, asegúrese de que no haya ninguna posibilidad de que la distinción de mayúsculas y minúsculas pueda cambiar el valor del atributo. Entre los atributos incorrectos que no deben usarse se incluyen aquellos con el nombre del usuario. En un matrimonio o divorcio se espera que cambie el nombre, lo que no está permitido para este atributo. Este también es uno de los motivos de que atributos como **userPrincipalName**, **mail** y **targetAddress** no se puedan seleccionar en el asistente de instalación de Azure AD Connect. Esos atributos también contendrán el carácter @, que no está permitido en sourceAnchor.
 
-
 ### Cambio del atributo sourceAnchor
 No se puede cambiar el valor del atributo sourceAnchor después de que el objeto se ha creado en Azure AD y la identidad se ha sincronizado.
 
@@ -69,4 +68,4 @@ Por este motivo, se aplican las restricciones siguientes a Azure AD Connect:
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

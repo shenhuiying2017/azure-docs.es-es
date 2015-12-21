@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="12/08/2015" 
 	ms.author="cephalin"/>
 
 
@@ -39,11 +39,9 @@ Se implementará una aplicación web en el Servicio de aplicaciones de Azure med
 Este tutorial cuenta con los siguientes requisitos previos:
 
 -	Una [cuenta de Microsoft Azure activa](/account/)
--	Visual Studio 2013 con [SDK de Azure para .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
+-	Visual Studio 2015 con [SDK de Azure para .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) Si utiliza Visual Studio, los pasos pueden variar.
 
-> [AZURE.NOTE]Necesita una cuenta de Azure para completar este tutorial:
-> + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/?WT.mc_id=A261C142F): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Aplicaciones web. 
-> + Puede [activar los beneficios de suscriptores de MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
+> [AZURE.NOTE]Necesita una cuenta de Azure para completar este tutorial: + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/?WT.mc_id=A261C142F): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Aplicaciones web. + Puede [activar los beneficios de suscriptores de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): su suscripción a Visual Studio le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
 >
 > Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
@@ -51,43 +49,40 @@ Este tutorial cuenta con los siguientes requisitos previos:
 
 En esta sección, implementará la plantilla de aplicación predeterminada ASP.NET MVC de Visual Studio 2013 en Servicio de aplicaciones y luego la integrará con un nuevo extremo de red CDN. Siga las instrucciones que se describen a continuación:
 
-1. En Visual Studio 2013, cree una nueva aplicación web ASP.NET desde la barra de menús. Para ello, vaya a **Archivo > Nuevo > Proyecto > Web > Aplicación web ASP.NET**. Asígnele un nombre y haga clic en **Aceptar**.
+1. En Visual Studio 2015, cree una nueva aplicación web ASP.NET desde la barra de menús. Para ello, vaya a **Archivo > Nuevo > Proyecto > Web > Aplicación web ASP.NET**. Asígnele un nombre y haga clic en **Aceptar**.
 
 	![](media/cdn-websites-with-cdn/1-new-project.png)
 
-3. Seleccione **MVC** y haga clic en **Administrar suscripciones**.
+3. Seleccione **MVC** y haga clic en **Aceptar**.
 
 	![](media/cdn-websites-with-cdn/2-webapp-template.png)
 
-4. Haga clic en **Iniciar sesión**.
+4. Si aún no ha iniciado sesión en su cuenta de Azure, haga clic en el icono de la cuenta en la esquina superior derecha y siga el cuadro de diálogo para iniciar sesión en su cuenta de Azure. Cuando haya terminado, configure la aplicación como se muestra a continuación y luego haga clic en **Nuevo** para crear un nuevo plan del Servicio de aplicaciones para la aplicación.
 
-	![](media/cdn-websites-with-cdn/3-manage-subscription.png)
+	![](media/cdn-websites-with-cdn/3-configure-webapp.png)
 
-6. En la página de inicio de sesión, inicie sesión con la cuenta de Microsoft que ha usado para activar su cuenta de Azure.
-7. Una vez iniciada la sesión, haga clic en **Cerrar**. Después, haga clic en **Aceptar** para continuar.
+5. Configure un nuevo plan del Servicio de aplicaciones en el cuadro de diálogo, como se muestra a continuación y haga clic en **Aceptar**.
 
-	![](media/cdn-websites-with-cdn/4-signed-in.png)
+	![](media/cdn-websites-with-cdn/4-app-service-plan.png)
 
-8. Suponiendo que no ha creado una aplicación web en Azure, Visual Studio pueden ayudarle a crearla. En el cuadro de diálogo **Configurar el sitio web de Microsoft Azure**, asegúrese de que el nombre del sitio es único. A continuación, haga clic en **Aceptar**.
+8. Haga clic en **Crear** para crear la aplicación web.
 
-	<!--todo: need 2.5.1 screenshot-->
 	![](media/cdn-websites-with-cdn/5-create-website.png)
 
-9. Una vez creada la aplicación ASP.NET, publíquela en Azure en el panel de la actividad de publicación web haciendo clic en **Publicar `<app name>` en este sitio ahora**. Haga clic en **Publicar** para completar el proceso.
+9. Después de crear la aplicación ASP.NET, publíquela en Azure en el panel Actividad del Servicio de aplicaciones de Azue haciendo clic en **Publicar `<app name>` en esta aplicación web ahora**. Haga clic en **Publicar** para completar el proceso.
 
-	<!--todo: need 2.5.1 screenshot-->
 	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	Verá la aplicación web publicada en el explorador cuando la publicación se complete.
 
-1. Para crear un punto de conexión de red CDN, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
+1. Para crear un punto de conexión de red de entrega de contenido, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 2. Haga clic en **Nuevo** > **Servicios de aplicaciones** > **CDN** > **Creación rápida**. Seleccione **http://*&lt;sitename>*.azurewebsites.net/** y haga clic en **Crear**.
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
 	> [AZURE.NOTE]Cuando haya creado el punto de conexión de red CDN, el Portal de Azure clásico mostrará su URL y el dominio de origen con el que está integrado. Sin embargo, puede que pase un tiempo hasta que la configuración del extremo de red CDN se propague a las ubicaciones de todos los nodos de red CDN.
 
-3. De vuelta en el Portal de Azure clásico, en la pestaña **CDN**, haga clic en el nombre del punto de conexión de red CDN que acaba de crear.
+3. De vuelta en el Portal de Azure clásico, en la pestaña **CDN**, haga clic en el nombre del punto de conexión de la red de entrega de contenido que acaba de crear.
 
 	![](media/cdn-websites-with-cdn/8-select-cdn.png)
 
@@ -169,7 +164,7 @@ Tiene una acción `Index` sencilla que permite a los clientes especificar los su
 
 Siga los pasos anteriores para configurar esta acción de controlador:
 
-1. En la carpeta *\\Controllers*, cree un nuevo archivo .cs llamado *MemeGeneratorController.cs* y sustituya el contenido por el siguiente código. Sustituya la ruta de acceso al archivo por `~/Content/chuck.bmp` y el nombre de la red CDN por `yourCDNName`.
+1. En la carpeta *\\Controllers*, cree un nuevo archivo .cs llamado *MemeGeneratorController.cs* y sustituya el contenido por el siguiente código. Sustituya la ruta de acceso al archivo por `~/Content/chuck.bmp` y el nombre de la red de entrega de contenido por `yourCDNName`.
 
 
         using System;
@@ -382,7 +377,7 @@ Siga estos pasos para la integración de la unión y minificación de ASP.NET co
 
           // Use the development version of Modernizr to develop with and learn from. Then, when you're
           // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
+          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizr")).Include(
                 "~/Scripts/modernizr-*"));
 
           bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
@@ -447,7 +442,7 @@ Cuando el extremo de red CDN de Azure no funcione por cualquier motivo, querrá 
 
 La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contiene una propiedad llamada [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) que le permite configurar el mecanismo de reserva en caso de error de red CDN. Para usar esta propiedad, siga estos pasos:
 
-1. En el proyecto ASP.NET, abra *App\_Start\\BundleConfig.cs*, donde agregó una dirección URL de la red CDN a cada [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx) y agregue el código `CdnFallbackExpression` en cuatro lugares, como se muestra, para agregar un mecanismo de reserva a los paquetes predeterminados.  
+1. En el proyecto ASP.NET, abra *App\_Start\\BundleConfig.cs*, donde agregó una dirección URL de la red de entrega de contenido a cada [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx) y agregue el código `CdnFallbackExpression` en cuatro lugares, como se muestra, para agregar un mecanismo de reserva a los paquetes predeterminados.  
 	
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -496,7 +491,7 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 4. En *App\_Start\\StyleFundleExtensions.cs*, cambie el nombre del espacio de nombres al espacio de nombres de la aplicación ASP.NET (por ejemplo **cdnwebapp**).
 
-3. Vuelva a `App_Start\BundleConfig.cs` y reemplace la última instrucción `bundles.Add` con el código siguiente:
+3. Vuelva a `App_Start\BundleConfig.cs` y reemplace la última instrucción `bundles.Add` por el código siguiente:
 
         bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
           .IncludeFallback("~/Content/css", "sr-only", "width", "1px")
@@ -509,27 +504,8 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 4. Vuelva a publicar en la aplicación web de Azure y obtenga acceso a la página principal.
 5. Vea el código HTML de la página. Debería encontrar scripts inyectados simulares a los siguientes:    
 	
-	```
-	...
-	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-<script>(function() {
-                var loadFallback,
-                    len = document.styleSheets.length;
-                for (var i = 0; i < len; i++) {
-                    var sheet = document.styleSheets[i];
-                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
-                        var meta = document.createElement('meta');
-                        meta.className = 'sr-only';
-                        document.head.appendChild(meta);
-                        var value = window.getComputedStyle(meta).getPropertyValue('width');
-                        document.head.removeChild(meta);
-                        if (value !== '1px') {
-                            document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
-                        }
-                    }
-                }
-                return true;
-            }())||document.write('<script src="/Content/css"><\/script>');</script>
+	``` ... <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<script>(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i < len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { var meta = document.createElement('meta'); meta.className = 'sr-only'; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue('width'); document.head.removeChild(meta); if (value !== '1px') { document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); } } } return true; }())||document.write('<script src="/Content/css"><\\/script>');</script>
 
 	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -542,11 +518,11 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 	...
 	```
 
-	Observe que el script inyectado para el paquete de CSS contiene aún el residuo errante de la propiedad `CdnFallbackExpression` en la línea:
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	Pero como la primera parte de la expresión || siempre devolverá true (en la línea directamente encima de esa), la función document.write() nunca se ejecutará.
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
 6. Para probar si el script de reserva funciona, vuelva al panel del extremo de la red CDN y haga clic en **Deshabilitar extremo**.
 
@@ -566,4 +542,4 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

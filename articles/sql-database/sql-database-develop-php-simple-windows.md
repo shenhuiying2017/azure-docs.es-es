@@ -1,5 +1,5 @@
 <properties
-	pageTitle="PHP en Windows para Base de datos SQL | Microsoft Azure"
+	pageTitle="Conexión a la base de datos SQL mediante PHP en Windows"
 	description="Presenta un programa PHP de ejemplo que se conecta a la base de datos SQL de Azure desde un cliente de Windows y proporciona vínculos a los componentes de software necesarios que necesita el cliente."
 	services="sql-database"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="12/08/2015"
 	ms.author="meetb"/>
 
 
@@ -29,14 +29,17 @@ Este tema muestra cómo puede conectarse a la base de datos SQL de Azure desde u
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
+### Base de datos SQL
 
-## Creación de una base de datos y recuperación de la cadena de conexión
-
-
-Vea el tema de [introducción](sql-database-get-started.md) para obtener información sobre cómo crear una base de datos de ejemplo y recuperar la cadena de conexión. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
+Consulte la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
 
 
-## Conexión a la base de datos SQL
+## Paso 1: Obtención de detalles de la conexión
+
+[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
+
+
+## Paso 2: Conexión
 
 
 La función **OpenConnection** se llama casi al principio de todas las demás funciones siguientes.
@@ -60,7 +63,7 @@ La función **OpenConnection** se llama casi al principio de todas las demás fu
 	}
 
 
-## Ejecución de una consulta y recuperación del conjunto de resultados
+## Paso 3: Ejecución de una consulta
 
 La función [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) puede usarse para recuperar un conjunto de resultados de una consulta realizada a la Base de datos SQL. Esta función acepta básicamente cualquier consulta y el objeto de conexión, y devuelve un conjunto de resultados que se puede iterar mediante el uso de [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
@@ -88,12 +91,11 @@ La función [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php
 			echo("Error!");
 		}
 	}
-	
-
-## Inserción de filas, paso de parámetros y recuperación de la clave principal generada
 
 
-En Base de datos SQL, la propiedad [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) y el objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) pueden usarse para generar automáticamente los [valores de clave principal](https://msdn.microsoft.com/library/ms179610.aspx).
+## Paso 4: Inserción de una fila
+
+En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de forma segura, pasar parámetros que protejan la aplicación ante vulnerabilidad de [inyección de código SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) y recuperar el valor [Clave principal](https://msdn.microsoft.com/library/ms179610.aspx) generado automáticamente.
 
 
 	function InsertData()
@@ -107,7 +109,7 @@ En Base de datos SQL, la propiedad [IDENTITY](https://msdn.microsoft.com/library
 			$insertReview = sqlsrv_query($conn, $tsql);
 			if($insertReview == FALSE)
 				die(FormatErrors( sqlsrv_errors()));
-			echo "Product Key inserted is :";	
+			echo "Product Key inserted is :";
 			while($row = sqlsrv_fetch_array($insertReview, SQLSRV_FETCH_ASSOC))
 			{   
 				echo($row['ProductID']);
@@ -121,7 +123,7 @@ En Base de datos SQL, la propiedad [IDENTITY](https://msdn.microsoft.com/library
 		}
 	}
 
-## Transacciones
+## Paso 5: Reversión de una transacción
 
 
 Este ejemplo de código muestra el uso de transacciones con las que podrá realizar lo siguiente:
@@ -142,14 +144,14 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 			if (sqlsrv_begin_transaction($conn) == FALSE)
 				die(FormatErrors(sqlsrv_errors()));
 
-			$tsql1 = "INSERT INTO SalesLT.SalesOrderDetail (SalesOrderID,OrderQty,ProductID,UnitPrice) 
+			$tsql1 = "INSERT INTO SalesLT.SalesOrderDetail (SalesOrderID,OrderQty,ProductID,UnitPrice)
 			VALUES (71774, 22, 709, 33)";
 			$stmt1 = sqlsrv_query($conn, $tsql1);
-			
+
 			/* Set up and execute the second query. */
 			$tsql2 = "UPDATE SalesLT.SalesOrderDetail SET OrderQty = (OrderQty + 1) WHERE ProductID = 709";
 			$stmt2 = sqlsrv_query( $conn, $tsql2);
-			
+
 			/* If both queries were successful, commit the transaction. */
 			/* Otherwise, rollback the transaction. */
 			if($stmt1 && $stmt2)
@@ -173,11 +175,9 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 	}
 
 
-## Lecturas adicionales
+## Pasos siguientes
 
 
 Para obtener más información sobre el uso y la instalación de PHP, vea [Acceso a bases de datos de SQL Server con PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
- 
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

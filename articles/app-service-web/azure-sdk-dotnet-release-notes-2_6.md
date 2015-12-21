@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/01/2015"
+   ms.date="12/02/2015"
    ms.author="juliako"/>
 
 
@@ -62,6 +62,8 @@ Con SDK de Azure 2.6 puede desarrollar aplicaciones de servicio en la nube (PaaS
 
 	En este momento la versión 2011-08-18 de Almacenamiento de Azure está programada para que se elimine el 1 de agosto de 2016. Todas las migraciones de caché en rol de Azure SDK 2.5 o versión anterior a 2.6 deberán haberse realizado en ese momento. Para obtener más información sobre la retirada del Almacenamiento de Azure versión 2011-08-18, consulte [Actualización de la eliminación de la versión del servicio Almacenamiento de Microsoft Azure: extensión hasta 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
+>[AZURE.IMPORTANT]El 30 de noviembre de 2016 se retirará el Servicio de caché administrado de Azure y la Caché en rol de Azure. Se recomienda que migre a la Caché en Redis de Azure con vistas a prepararse para la mencionada retirada. Para obtener más información sobre las fechas y la guía de migración, consulte [¿Qué oferta de caché de Azure es adecuada para mí?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
+
 ##Herramientas del Servicio de aplicaciones de Azure
 
 En la versión 2.6 del SDK de Azure se actualizaron los siguientes elementos.
@@ -106,4 +108,4 @@ La cuenta de almacenamiento de diagnósticos ahora se puede especificar en el ar
 
 [Información de compatibilidad y retirada del SDK de Azure para .NET y API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->
