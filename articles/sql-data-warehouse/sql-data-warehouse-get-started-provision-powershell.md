@@ -18,7 +18,12 @@
 
 # Creación de Almacenamiento de datos SQL con Powershell
 
->Para usar Microsoft Azure Powershell con Almacenamiento de datos SQL, se necesita la versión 0.9.4 o superior. Puede comprobar la versión ejecutando (Get-Module Azure). Versión de Powershell.
+> [AZURE.SELECTOR]
+- [Portal de Azure](sql-data-warehouse-get-started-provision.md)
+- [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
+- [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+
+> [AZURE.NOTE]  Para usar Microsoft Azure Powershell con Almacenamiento de datos SQL, se necesita la versión 0.9.4 o superior. Puede comprobar la versión ejecutando (Get-Module Azure). Versión de Powershell.
 
 ## Obtención y ejecución de los cmdlets de Azure PowerShell.
 Si no tiene ya instalado Powershell, puede:
