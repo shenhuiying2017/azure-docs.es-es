@@ -98,11 +98,14 @@ De este modo se finaliza el tutorial.
 
 Este tutorial muestra los aspectos básicos de la habilitación de un proyecto de aplicación universal para Windows para trabajar con datos en Servicios móviles. A continuación, considere la posibilidad de obtener información acerca de uno de estos otros temas:
 
-* [Introducción a la autenticación] <br/>Aprenda a autenticar a los usuarios de su aplicación.
+* [Introducción a la autenticación]
+  <br/>Aprenda a autenticar a los usuarios de su aplicación.
 
-* [Introducción a las notificaciones de inserción] <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
+* [Introducción a las notificaciones de inserción]
+  <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
-* [Referencia conceptual de Servicios móviles con C#](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
+* [Referencia conceptual de Servicios móviles con C#](mobile-services-windows-dotnet-how-to-use-client-library.md)
+  <br/>Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
 
 <!-- Images. -->
@@ -117,10 +120,12 @@ Este tutorial muestra los aspectos básicos de la habilitación de un proyecto d
 [Introducción a las notificaciones de inserción]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
 [Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
-
+[Introducción a la sincronización de datos sin conexión]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[sitio de ejemplos de código para desarrolladores]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
 <!---HONumber=AcomDC_1203_2015-->
+
