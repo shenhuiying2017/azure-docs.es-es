@@ -53,16 +53,16 @@ Las máquinas virtuales que quiera proteger deben cumplir los [requisitos previo
 
 Como parte de la implementación de Azure Site Recovery, instalará el proveedor de Azure Site Recovery y el Agente de Servicios de recuperación de Azure en cada servidor de Hyper-V. Observe lo siguiente:
 
-- Se recomienda que siempre ejecute las versiones más recientes del proveedor y del agente. Puede encontrarlas en el portal de Site Recovery.
-- Todos los servidores de Hyper-V de un almacén deben tener las mismas versiones del proveedor y del agente.
-- El proveedor que se ejecuta en el servidor conecta con Site Recovery a través de Internet. Dicha conexión se puede realizar sin un proxy, con la configuración de proxy actualmente definida en el servidor de Hyper-V o con la configuración de proxy personalizada que defina durante la instalación del proveedor. Debe asegurarse de que el servidor proxy que desea utilizar pueda tener acceso a estas direcciones URL para conectarse a Azure:
-	- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
-	
-- Además, permita las direcciones IP que se describen en [Intervalos de direcciones IP de los centros de datos de Azure](https://www.microsoft.com/es-ES/download/details.aspx?id=41653) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
+- Debe ejecutar las versiones más recientes del proveedor y del agente.
+- Todos los servidores de Hyper-V de un almacén de credenciales deben tener las mismas versiones.
+- El proveedor necesitará conectarse a Azure Site Recovery a través de Internet. Puede seleccionar hacerlo sin un proxy, utilizando la configuración de proxy que ya está definida en el servidor VMM o la configuración de proxy personalizada que estableció durante la instalación del proveedor. Para usar un servidor proxy existente, asegúrese de que están permitidas las direcciones URL para conectarse a Azure a través del firewall:
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
+ 
+- Para usar un proxy personalizado, configúrelo antes de instalar el proveedor. Durante la configuración del proveedor, deberá especificar la dirección y el puerto del servidor proxy, y las credenciales que pueden utilizarse para el acceso. Tenga en cuenta que no se admite el proxy basado en HTTPS.
 
 
 En el gráfico siguiente se muestran canales y puertos de comunicación diferentes que usa Site Recovery para la orquestación y la replicación.
@@ -226,8 +226,13 @@ Agregue máquinas virtuales a grupos de protección para habilitar su protecció
 		![Configuración de propiedades de la máquina virtual](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
 	- Establecer la configuración de una máquina virtual adicional en *Elementos protegidos* > **Grupos de protección** > *nombre\_grupo\_protección* > **Máquinas virtuales** *nombre\_máquina\_virtual* > **Configurar**, incluidos:
 
-		- **Adaptadores de red**: el número de adaptadores de red viene determinado por el tamaño que especifique para la máquina virtual de destino. Compruebe las [especificaciones de tamaño de la máquina virtual](../virtual-machines/virtual-machines-size-specs.md#size-tables) para conocer el número de NIC que se admiten.
-
+		- **Adaptadores de red**: el número de adaptadores de red viene determinado por el tamaño que especifique para la máquina virtual de destino.
+			- Grande (A3) y A6: 2
+			- Extra grande (A4) y A7:
+			- A9: 2
+			- D3: 2
+			- D4: 4
+			- D13: 4
 
 			Al modificar el tamaño de una máquina virtual y guardar la configuración, el número del adaptador de red cambiará la próxima vez que abra la página **Configurar**. El número de adaptadores de red de máquinas virtuales de destino es el mínimo número de adaptadores de red en la máquina virtual de origen y el número máximo de adaptadores de red compatible con el tamaño de la máquina virtual elegida. Se explica a continuación:
 

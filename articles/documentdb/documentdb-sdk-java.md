@@ -64,7 +64,18 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.5.0](#1.5.0) | 4 de diciembre de 2015 |--- | [1\.4.0](#1.4.0) | 5 de octubre de 2015 |--- | [1\.3.0](#1.3.0) | 5 de octubre de 2015 |--- | [1\.2.0](#1.2.0) | 5 de agosto de 2015 |--- | [1\.1.0](#1.1.0) | 9 de julio de 2015 |--- | [1\.0.1](#1.0.1) | 12 de mayo de 2015 |--- | [1\.0.0](#1.0.0) | 7 de abril de 2015 |--- | 0.9.5-versión preliminar | 9 de marzo de 2015 | 29 de febrero de 2016 | 0.9.4-versión preliminar | 17 de febrero de 2015 | 29 de febrero de 2016 | 0.9.3-versión preliminar | 13 de enero de 2015 | 29 de febrero de 2016 | 0.9.2-versión preliminar | 19 de diciembre de 2014 | 29 de febrero de 2016 | 0.9.1-versión preliminar | 19 de diciembre de 2014 | 29 de febrero de 2016 | 0.9.0-versión preliminar | 10 de diciembre de 2014 | 29 de febrero de 2016
+| [1\.4.0](#1.4.0) | 05 de octubre de 2015 |---
+| [1\.3.0](#1.3.0) | 05 de octubre de 2015 |---
+| [1\.2.0](#1.2.0) | 05 de agosto de 2015 |---
+| [1\.1.0](#1.1.0) | 09 de julio de 2015 |---
+| [1\.0.1](#1.0.1) | 12 de mayo de 2015 |---
+| [1\.0.0](#1.0.0) | 07 de abril de 2015 |---
+| 0.9.5-prelease | 09 de marzo de 2015 | 29 de febrero de 2016
+| 0.9.4-prelease | 17 de febrero de 2015 | 29 de febrero de 2016
+| 0.9.3-prelease | 13 de enero de 2015 | 29 de febrero de 2016
+| 0.9.2-prelease | 19 de diciembre de 2014 | 29 de febrero de 2016
+| 0.9.1-prelease | 19 de diciembre de 2014 | 29 de febrero de 2016
+| 0.9.0-prelease | 10 de diciembre de 2014 | 29 de febrero de 2016
 
 ## P+F
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]

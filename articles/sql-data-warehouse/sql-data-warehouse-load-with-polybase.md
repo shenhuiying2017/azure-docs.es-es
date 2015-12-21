@@ -58,7 +58,9 @@ Para tener acceso al almacenamiento de blobs de Azure, deberá crear una credenc
 
 1. Compruebe si ya tiene las credenciales de la base de datos. Para ello, use la vista del sistema sys.database\_credentials, no sys.credentials que solo muestra las credenciales del servidor.
 
-    ``` -- Compruebe las credenciales de ámbito de base de datos existentes. SELECT * FROM sys.database\_credentials;
+    ```
+    -- Compruebe las credenciales de ámbito de base de datos existentes.
+    SELECT * FROM sys.database\_credentials;
 
 3. Use [CREATE CREDENTIAL (Transact-SQL)][] para crear una credencial con ámbito de base de datos para cada cuenta de almacenamiento de Azure a la que quiera acceder. En este ejemplo, IDENTITY es un nombre descriptivo para la credencial. No afecta a la autenticación en el almacenamiento de Azure. SECRET se refiere a la clave de la cuenta de almacenamiento de Azure.
 
