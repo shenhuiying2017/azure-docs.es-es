@@ -38,7 +38,7 @@ El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQu
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
 
-The completed application is provided at the end of this tutorial as well.
+La aplicación completa se ofrece también al final de este tutorial.
 
 > [AZURE.WARNING]Para nuestra vista previa de B2C debe usar el mismo identificador de aplicación o de cliente, así como directivas tanto para el servidor de tareas de API web como para el cliente que se conecta a él. Esto se aplica a nuestros tutoriales de iOS y Android. Si previamente ha creado una aplicación en cualquiera de estos tutoriales, use los valores siguientes en lugar de crear otros nuevos.
 
@@ -53,7 +53,7 @@ Ahora debe crear una aplicación en su directorio de B2C, que ofrece a Azure AD 
 
 - Incluir una **aplicación web/API web** en la aplicación.
 - Escribir `http://localhost/TodoListService` como **dirección URL de respuesta**: es la dirección URL predeterminada para este ejemplo de código.
-- Crear un **Secreto de aplicación ** para la aplicación y copiarlo. Lo necesitará en breve.
+- Crear un **Secreto de aplicación** para la aplicación y copiarlo. Lo necesitará en breve.
 - Escribir el **Id. de aplicación** asignado a la aplicación. También lo necesitará en breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -685,7 +685,8 @@ En primer lugar, asegúrese de que se ejecute la instancia de MongoDB...
 
 A continuación, cambie al directorio y empiece el curvado...
 
-`$ cd azuread` `$ node server.js`
+`$ cd azuread`
+`$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 
