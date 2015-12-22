@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Compilación de la primera canalización mediante el Editor de la Factoría de datos"
-	description="En este tutorial, creará una canalización de Factoría de datos de Azure de ejemplo con el Editor de la Factoría de datos en el Portal de Azure clásico."
+	description="En este tutorial, creará una canalización de la factoría de datos de Azure de ejemplo con el Editor de la factoría de datos en el Portal de Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,12 +16,13 @@
 	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# Compilación de la primera canalización de Factoría de datos de Azure mediante el Editor de la Factoría de datos (Portal de Azure clásico)
+# Compilación de la primera canalización mediante el Editor de la Factoría de datos (Portal de Azure)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 En este artículo, aprenderá a usar el [Portal de Azure](https://portal.azure.com/) para crear la primera canalización. Este tutorial consta de los siguientes pasos:
@@ -233,4 +234,4 @@ En este paso, creará la primera canalización:
 En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure en SQL Azure](./data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

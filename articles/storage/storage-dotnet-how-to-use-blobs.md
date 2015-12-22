@@ -350,6 +350,7 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
 - [Introducción al Almacenamiento de tablas para .NET](storage-dotnet-how-to-use-tables.md)
 - [Introducción al Almacenamiento en cola para .NET](storage-dotnet-how-to-use-queues.md)
 - [Introducción al Almacenamiento de archivos para .NET](storage-dotnet-how-to-use-files.md)
+- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 - [Uso de Base de datos SQL para almacenar datos relacionales](../sql-database/articles/sql-database-dotnet-how-to-use.md)
 - [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
@@ -365,4 +366,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

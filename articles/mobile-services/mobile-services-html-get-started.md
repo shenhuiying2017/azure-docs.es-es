@@ -82,7 +82,7 @@ En esta sección, creará una aplicación de HTML que se conecta al servicio mó
 
   	![][9]
 
-	> [AZURE.IMPORTANT]Si implementa la aplicación de inicio rápido en un servidor web que no sea localhost, debe agregar el nombre de host del servidor web a la lista **Permitir solicitudes de nombres de host**. Para obtener más información, consulte [Uso compartido de recursos entre orígenes](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx"%20target="_blank).
+	> [AZURE.IMPORTANT]Si implementa la aplicación de inicio rápido en un servidor web que no sea localhost, debe agregar el nombre de host del servidor web a la lista **Permitir solicitudes de nombres de host**. Para obtener más información, consulte [Uso compartido de recursos entre orígenes](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx).
 
 ## Hospedaje y ejecución de su aplicación HTML
 
@@ -154,4 +154,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

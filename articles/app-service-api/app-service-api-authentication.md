@@ -74,15 +74,15 @@ El Servicio de aplicaciones pasa el token JWT en el encabezado de autorización 
  
 En una API de .NET se puede usar el atributo `Authorize` y, en el caso de una autorización específica, se puede escribir fácilmente código según las notificaciones, ya que la información de las notificaciones se rellena automáticamente en las clases .NET.
 
-## Autenticación de entidad de servicio
+## <a id="internal"></a> Autenticación de cuentas de servicio
 
-La autenticación del Servicio de aplicaciones también se puede usar en escenarios internos, como para la realización de llamadas de una aplicación de API a otra. En este escenario se pueden usar las credenciales de una cuenta de servicio, en lugar de las credenciales de usuario final para la autenticación. La cuenta de servicio también se conoce como *entidad de servicio* y la autenticación que usa dicha cuenta de este tipo también se conoce como escenario de servicio a servicio.
+La autenticación del Servicio de aplicaciones también se puede usar en escenarios internos, como para la realización de llamadas de una aplicación de API a otra. En este escenario se pueden usar las credenciales de una cuenta de servicio, en lugar de las credenciales de usuario final para la autenticación. Las cuentas de servicio también se conocen como *entidades de servicio* en Azure Active Directory y la autenticación que usa dichas cuenta también se conoce como escenario entre servicios.
 
-En los escenarios internos, se puede proteger la aplicación de API llamada con Azure Active Directory y proporcionar un token de autorización de la entidad de servicio de AAD al llamar a la aplicación de API. El token se puede solicitar mediante la especificación del identificador de cliente y el secreto de cliente desde la aplicación de AAD. No se necesita ningún código especial solo para Azure, como el que se solía usar para controlar el token de Zumo de Servicios móviles. Un ejemplo de este escenario mediante de uso de aplicaciones de API de ASP.NET puede encontrarse en el tutorial [Autenticación de entidad de servicio para Aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-dotnet-service-principal-auth.md).
+En los escenarios entre servicios, se puede proteger la aplicación de API llamada mediante Azure Active Directory y proporcionar un token de autorización de la entidad de servicio de AAD al llamar a la aplicación de API. El token se puede solicitar mediante la especificación del identificador de cliente y el secreto de cliente desde la aplicación de AAD. No se necesita ningún código especial solo para Azure, como el que se solía usar para controlar el token de Zumo de Servicios móviles. Un ejemplo del uso de este escenario por parte de aplicaciones de API de ASP.NET puede encontrarse en el tutorial [Autenticación de entidad de servicio para Aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-dotnet-service-principal-auth.md).
 
-Si desea administrar un escenario de servicio a servicio sin usar la autenticación del Servicio de aplicaciones, puede usar certificados de cliente o una autenticación básica. Para información acerca de los certificados de cliente en Azure, consulte [Configuración de la autenticación mutua de TLS para una aplicación web](../app-service-web/app-service-web-configure-tls-mutual-auth.md).
+Si desea administrar un escenario de servicio a servicio sin usar la autenticación del Servicio de aplicaciones, puede usar certificados de cliente o una autenticación básica. Para obtener información acerca de los certificados de cliente en Azure, consulte [Configuración de la autenticación mutua de TLS para una aplicación web](../app-service-web/app-service-web-configure-tls-mutual-auth.md). Para obtener información acerca de cómo configurar la autenticación básica en ASP.NET, consulte [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters).
 
-La autenticación de la entidad de servicio desde una aplicación lógica de Servicio de aplicaciones en una aplicación de API es un caso especial que se explica en [Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas](../app-service-logic/app-service-logic-custom-hosted-api.md).
+La autenticación de cuentas de servicio desde una aplicación lógica de Servicio de aplicaciones en una aplicación de API es un caso especial que se explica en [Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
 ## Más información
 
@@ -92,8 +92,8 @@ Para más información acerca de los servicios de autenticación y autorización
 
 En este artículo se han explicado las características de autenticación y autorización de las aplicaciones de API del Servicio de aplicaciones.
 
-Si sigue la secuencia de tutoriales de introducción a ASP.NET y a Aplicaciones de API, pruebe estas características en el siguiente tutorial, [Autenticación de usuario para aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-dotnet-user-principal-auth.md).
+Si sigue la secuencia de tutoriales de introducción a ASP.NET y Aplicaciones de API, pruebe estas características en el siguiente tutorial, [Autenticación de usuario para aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-dotnet-user-principal-auth.md).
 
-Para más información acerca del uso de Java y Node en Servicio de aplicaciones de Azure, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/) y el [Centro para desarrolladores de Java](/develop/java/).
+Para más información acerca del uso de Java y Node en el Servicio de aplicaciones de Azure, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/) y el [Centro para desarrolladores de Java](/develop/java/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,16 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/22/2015"
+	ms.date="12/14/2015"
 	ms.author="tdykstra"/>
 
 # Creación de un WebJob .NET en el Servicio de aplicaciones de Azure
 
-Este tutorial muestra cómo crear escribir código para una aplicación de ASP.NET MVC 5 sencilla de niveles múltiples que usa el [SDK de WebJobs](websites-dotnet-webjobs-sdk.md) para trabajar con [colas de Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) y [blobs de Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). El tutorial muestra cómo implementar la aplicación en el [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) y en [Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/ee336279).
+Este tutorial muestra cómo escribir código para una aplicación de ASP.NET MVC 5 sencilla de niveles múltiples que usa el [SDK de WebJobs](websites-dotnet-webjobs-sdk.md).
+
+El propósito del [SDK de WebJobs](websites-webjobs-resources.md) es simplificar el código que escriba para las tareas comunes que puede realizar un WebJob, como procesamiento de imágenes, procesamiento de colas, agregación de RSS, mantenimiento de archivos y enviar de correos electrónicos. El SDK de WebJobs tiene características integradas para trabajar con Almacenamiento de Azure y Bus de servicio, para programar tareas y controlar errores, y para muchos otros escenarios comunes. Además, se ha diseñado para ser extensible y hay un [repositorio de código abierto para las extensiones](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
 La aplicación de ejemplo es un tablón de anuncios publicitario. Los usuarios pueden cargar imágenes de anuncios y un proceso back-end convierte las imágenes en miniaturas. La página de lista de anuncios muestra las miniaturas y la página de detalles de anuncios muestra la imagen con su tamaño completo. A continuación se muestra una captura de pantalla:
 
 ![Ad list](./media/websites-dotnet-webjobs-sdk-get-started/list.png)
+
+Esta aplicación de ejemplo funciona con [Colas de Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) y [Blobs de Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). El tutorial muestra cómo implementar la aplicación en [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) y en [Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/ee336279).
 
 ## <a id="prerequisites"></a>Requisitos previos
 
@@ -53,7 +57,7 @@ La aplicación almacena anuncios en una base de datos SQL, usando Entity Framewo
 
 ![Ad table](./media/websites-dotnet-webjobs-sdk-get-started/adtable.png)
 
-Cuando un usuario carga una imagen, la aplicación web la almacena imagen en un [blob de Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) y la información del anuncio en la base de datos con una dirección URL que apunta al blob. Al mismo tiempo, escribe mensaje en una cola de Azure. En un proceso back-end que se ejecuta como un Webjob de Azure, el SDK de WebJobs sondea la cola en busca de mensajes nuevos. Cuando aparece un mensaje nuevo, el WebJob crea una miniatura para la imagen y actualiza el campo de base de datos de la dirección URL de la miniatura para ese anuncio. A continuación puede ver un diagrama que muestra cómo interactúan las partes de la aplicación:
+Cuando un usuario carga una imagen, la aplicación web la almacena en un [blob de Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) y la información del anuncio se guarda en la base de datos con una dirección URL que apunta al blob. Al mismo tiempo, escribe mensaje en una cola de Azure. En un proceso back-end que se ejecuta como un Webjob de Azure, el SDK de WebJobs sondea la cola en busca de mensajes nuevos. Cuando aparece un mensaje nuevo, el WebJob crea una miniatura para la imagen y actualiza el campo de base de datos de la dirección URL de la miniatura para ese anuncio. A continuación puede ver un diagrama que muestra cómo interactúan las partes de la aplicación:
 
 ![Contoso Ads architecture](./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png)
 
@@ -74,7 +78,7 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 
 3. Inicie sesión con sus credenciales de Azure.
 
-5. Haga clic con el botón derecho en **Almacenamiento** en el nodo de Azure y, después, haga clic en **Crear cuenta de almacenamiento**. ![Crear una cuenta de almacenamiento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Haga clic con el botón derecho en **Almacenamiento** en el nodo de Azure y, a continuación, haga clic en **Crear cuenta de almacenamiento**. ![Crear una cuenta de almacenamiento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. En el cuadro de diálogo **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta de almacenamiento.
 
@@ -139,7 +143,17 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 
 6. Abra el archivo *App.config* del proyecto ContosoAdsWebJob.
 
-	Este archivo tiene dos cadenas de conexión de almacenamiento, una para los datos de aplicación y otra para registro. Para este tutorial, usará la misma cuenta para ambas. Las cadenas de conexión tienen marcadores de posición para las claves de la cuenta de almacenamiento. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[nombredecuenta]</mark>;AccountKey=<mark>[clavedeacceso]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[nombredecuenta]</mark>;AccountKey=<mark>[clavedeacceso]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
+	Este archivo tiene dos cadenas de conexión de almacenamiento, una para los datos de aplicación y otra para registro. Para este tutorial, usará la misma cuenta para ambas. Las cadenas de conexión tienen marcadores de posición para las claves de la cuenta de almacenamiento.
+  	<pre class="prettyprint">&lt;configuration&gt;
+    &lt;connectionStrings&gt;
+        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
+    &lt;/connectionStrings&gt;
+        &lt;startup&gt;
+            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
+    &lt;/startup&gt;
+&lt;/configuration&gt;</pre>
 
 	De forma predeterminada, el SDK de WebJobs busca cadenas de conexión llamadas AzureWebJobsStorage y AzureWebJobsDashboard. Como opción alternativa, puede [almacenar la cadena de conexión que desee y pasarla de forma explícita al objeto `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -214,7 +228,7 @@ Después de crear algunos anuncios mientras ejecuta la aplicación en la nube, c
 
 	La dirección URL completa consistirá en lo que escriba más .azurewebsites.net (como se muestra junto al cuadro de texto **Nombre de la aplicación web**). Por ejemplo, si el nombre de la aplicación web es ContosoAds, la URL será ContosoAds.azurewebsites.net.
 
-7. En la lista desplegable [Plan del Servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), elija **Crear nuevo plan del Servicio de aplicaciones**. Escriba un nombre para el plan de Servicio de aplicaciones, como ContosoAdsPlan.
+7. En la lista desplegable [Plan de Servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), elija **Crear nuevo plan de servicio de aplicaciones**. Escriba un nombre para el plan de Servicio de aplicaciones, como ContosoAdsPlan.
 
 8. En la lista desplegable [Grupo de recursos](../resource-group-overview.md), elija **Crear nuevo grupo de recursos**.
 
@@ -282,7 +296,7 @@ Un procedimiento recomendado de seguridad consiste en [evitar insertar informaci
 
 En esta sección se usa el **Explorador de servidores** para definir los valores de cadena de conexión en Azure.
 
-7. En el **Explorador de servidores**, haga clic en la aplicación web en **Azure > {su grupo de recursos}** y, a continuación, haga clic en **Ver configuración**.
+7. En el **Explorador de servidores**, haga clic con el botón derecho en la aplicación web en **Azure > {su grupo de recursos}** y, a continuación, haga clic en **Ver configuración**.
 
 	La ventana **Aplicación web de Azure** se abrirá en la pestaña **Configuración**.
 
@@ -300,7 +314,7 @@ En esta sección se usa el **Explorador de servidores** para definir los valores
 
 10. En el **Explorador de servidores**, haga clic con el botón derecho en la aplicación web y, a continuación, haga clic en **Detener**.
 
-12. Una vez detenida la aplicación web, haga clic con el botón derecho nuevamente en la aplicación web y, a continuación, haga clic en **Iniciar aplicación web**.
+12. Una vez detenida la aplicación web, haga clic con el botón derecho nuevamente en la aplicación web y, a continuación, haga clic en **Iniciar**.
 
 	El WebJob se inicia automáticamente al publicar, pero se detiene cuando se realiza un cambio en la configuración. Para reiniciarlo, puede reiniciar la aplicación web o el WebJob en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Generalmente, se recomienda reiniciar la aplicación web después de cambiar la configuración.
 
@@ -400,7 +414,7 @@ En esta sección realizará las siguientes tareas:
 	* Agregue un archivo *webjobs-list.json* en la carpeta Propiedades del proyecto web.
 	* Instala el paquete NuGet Microsoft.Web.WebJobs.Publish en el proyecto WebJob.
 
-	Para obtener más información acerca de estos cambios, consulte [Implementación de Webjobs mediante Visual Studio](websites-dotnet-deploy-webjobs.md).
+	Para obtener más información acerca de estos cambios, consulte [Implementar trabajos web con Visual Studio](websites-dotnet-deploy-webjobs.md).
 
 ### Incorporación de paquetes NuGet
 
@@ -453,8 +467,8 @@ Para agregar archivos a un proyecto o carpeta, haga clic con el botón secundari
 	- *Global.asax.cs*  
 	- En la carpeta *Controladores*: *AdController.cs*
 	- En la carpeta *Views\\Shared*: archivo *\_Layout.cshtml*.
-- En la carpeta *Views\\Home*: *Index.cshtml*.
-	- En la carpeta *Views\\Ad* (cree primero la carpeta): cinco archivos *.cshtml*.<br/><br/>
+	- En la carpeta *Views\\Home*: *Index.cshtml*.
+	- En la carpeta *Views\\Ad* (cree primero la carpeta): cinco archivos *.cshtml*<br/><br/>.
 
 3. En el proyecto ContosoAdsWebJob, agregue los siguientes archivos desde el proyecto descargado.
 
@@ -602,7 +616,7 @@ El archivo *Views\\Home\\Index.cshtml* muestra vínculos de categoría en la pá
 
 En el archivo *AdController.cs*, el constructor llama al método `InitializeStorage` para crear objetos de biblioteca de cliente de almacenamiento de Azure que proporcionan una API para trabajar con blobs y colas.
 
-Después, el código obtiene una referencia al contenedor de blobs *images* tal y como vio anteriormente en *Global.asax.cs*. Mientras lo hace, establece una [directiva de reintentos](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) apropiada para una aplicación web. La directiva de reintentos de retroceso exponencial predeterminada podría bloquear la aplicación web durante más de un minuto en reintentos repetitivos para un error transitorio. La directiva de intentos especificada aquí espera 3 segundos después de cada reintento hasta 3 reintentos.
+Después, el código obtiene una referencia al contenedor de blobs *images* tal y como vio anteriormente en *Global.asax.cs*. Mientras hace eso, establece una [directiva de reintentos](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) apropiada para una aplicación web. La directiva de reintentos de retroceso exponencial predeterminada podría bloquear la aplicación web durante más de un minuto en reintentos repetitivos para un error transitorio. La directiva de intentos especificada aquí espera 3 segundos después de cada reintento hasta 3 reintentos.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
@@ -786,7 +800,7 @@ Para obtener más información, consulte [Escalado de Webjobs](websites-webjobs-
 
 ### Evitar tiempos de inactividad por tiempo de espera agotado en aplicaciones web
 
-Para asegurarse de que sus WebJobs siempre están en ejecución en todas las instancias de la aplicación web, debe habilitar la característica [AlwaysOn](http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx).
+Para asegurarse de que sus WebJobs siempre estén siempre en ejecución en todas las instancias de la aplicación web, debe habilitar la característica [AlwaysOn](http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx).
 
 ### Uso del SDK de WebJobs fuera de WebJobs
 
@@ -800,4 +814,4 @@ Para obtener más información, consulte [Obtención de un panel para desarrollo
 
 Para obtener más información, consulte [Recursos de documentación de WebJobs de Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

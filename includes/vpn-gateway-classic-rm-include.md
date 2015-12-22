@@ -1,0 +1,3 @@
+Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Necesitará saber en qué modelo desea trabajar. No todas las características de redes son compatibles aún para ambos modelos. Para obtener información sobre los modelos de implementación, consulte [Modelos de implementación de Azure](../azure-classic-rm.md).
+
+<!---HONumber=AcomDC_1217_2015-->

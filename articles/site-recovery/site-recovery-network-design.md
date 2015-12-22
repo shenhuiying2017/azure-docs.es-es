@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Consideraciones sobre la infraestructura de red para Site Recovery" 
+	pageTitle="Consideraciones sobre la infraestructura de red de Site Recovery | Microsoft Azure" 
 	description="En este artículo se describen las consideraciones de diseño de red prácticas que hay que tener el cuenta para la conmutación por error con Site Recovery" 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="08/10/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 #  Consideraciones sobre la infraestructura de red para Site Recovery
 
-El servicio Azure Site Recovery contribuye a una solución sólida de continuidad empresarial y recuperación ante desastres (BCDR) mediante la protección y recuperación de servidores físicos locales y máquinas virtuales con la coordinación y automatización de replicación y conmutación por error en Azure o en centro de datos local secundario.
+El servicio Azure Site Recovery contribuye a una solución sólida de continuidad empresarial y recuperación ante desastres (BCDR) mediante la protección y recuperación de servidores físicos locales y máquinas virtuales con la orquestación y automatización de la replicación y conmutación por error en Azure o en un centro de datos local secundario.
 
 Este artículo va dirigido al equipo de virtualización responsable de diseñar, implementar y admitir una solución e infraestructura BCDR que incluye System Center VMM y Azure Site Recovery.
 
@@ -62,7 +62,7 @@ En caso de desastre, las cargas de trabajo pueden recuperarse siguiendo estos pa
 ### Servidor VMM en clúster
 
 
-[La implementación de VMM en un clúster](https://technet.microsoft.com/es-ES/library/gg610675.aspx) proporciona alta disponibilidad y protección contra la conmutación por error de hardware. Si va a implementar el clúster de VMM con Recovery Site tenga en cuenta lo siguiente:
+[La implementación de VMM en un clúster](https://technet.microsoft.com/library/gg610675.aspx) proporciona alta disponibilidad y protección contra la conmutación por error de hardware. Si va a implementar el clúster de VMM con Recovery Site tenga en cuenta lo siguiente:
 
 El servidor VMM debe implementarse en un clúster estirado en sitios separados geográficamente. La Base de datos de SQL Server utilizada por VMM debe estar protegida con grupos de disponibilidad AlwaysOn de SQL Server con una réplica en el sitio secundario. Si se produce un desastre, el servidor VMM y su correspondiente SQL Server conmutarán por error automáticamente en el sitio de recuperación. A continuación, puede conmutar las cargas de trabajo con Site Recovery.
 
@@ -190,4 +190,4 @@ La [entrada de blog](http://azure.microsoft.com/blog/2014/09/04/networking-infra
 
 [Aprenda](site-recovery-network-mapping.md) cómo Site Recovery asigna las redes de origen y de destino.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

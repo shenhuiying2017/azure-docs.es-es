@@ -135,11 +135,16 @@ Puede asignar el extremo HTTP de la red CDN a un nombre de dominio personalizado
 
 Para obtener más información acerca de la asignación de un dominio personalizado, consulte [Asignación del contenido de la Red de entrega de contenido (CDN) a un dominio personalizado](cdn-map-content-to-custom-domain.md).
 
+## Administración de la red CDN mediante programación
+
+La red CDN de Microsoft Azure puede administrarse mediante programación con la [API de REST del proveedor de recursos de red CDN](https://msdn.microsoft.com/library/mt634456.aspx).
+
+
 ## Consulte también
 
 - [Habilitación de la red de entrega de contenido para Azure](cdn-create-new-endpoint.md)
 - [Información general de la red de entrega de contenido (CDN) de Azure](cdn-overview.md)
-- [Purge an Azure CDN Endpoint](cdn-purge-endpoint.md)
- 
+- [Depuración de un punto de conexión de red de entrega de contenido de Azure](cdn-purge-endpoint.md)
+- [La API de REST del proveedor de recursos de red CDN](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

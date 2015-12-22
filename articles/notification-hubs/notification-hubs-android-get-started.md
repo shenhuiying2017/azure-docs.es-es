@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="11/25/2015"
+	ms.date="12/15/2015"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones para aplicaciones Android
@@ -81,12 +81,21 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
 
 ###Incorporación de código
 
-1. Descargue el archivo notification-hubs-0.4.jar de la pestaña **Archivos** del [Notification-Hubs-Android-SDK en Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Descargue también [notifications-1.0.1. jar](https://bintray.com/microsoftazuremobile/SDK/Notifications-Handler/view) en el directorio **app\\libs** del proyecto. Para hacerlo, arrastre los archivos directamente a la carpeta **libs** en la ventana Vista del proyecto de Android Studio. Actualice la carpeta **libs**.
+1. Descargue el archivo notification-hubs-0.4.jar de la pestaña **Archivos** del [Notification-Hubs-Android-SDK en Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Arrastre el archivo directamente a la carpeta **libs** en la ventana Project View (Vista del proyecto) de Android Studio. A continuación, haga clic en el archivo y haga clic en **Add as Library** (Agregar como biblioteca).
+  
+2. En el archivo Build.Gradle de la **aplicación**, agregue la siguiente línea en la sección de **dependencias**.
 
+	    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
 
-    > [AZURE.NOTE] Los números que aparecen al final del nombre del archivo pueden cambiar en versiones de SDK posteriores.
+	Agregue el repositorio siguiente después de la sección de **dependencias**.
 
-2. Configure la aplicación para obtener un Id. de registro desde GCM y úselo para registrar la instancia de la aplicación en el centro de notificaciones.
+		repositories {
+		    maven {
+		        url "http://dl.bintray.com/microsoftazuremobile/SDK"
+		    }
+		}
+
+3. Configure la aplicación para obtener un Id. de registro desde GCM y úselo para registrar la instancia de la aplicación en el centro de notificaciones.
 
 	En el archivo AndroidManifest.xml, agregue los siguientes permisos debajo de la etiqueta `</application>`. Asegúrese de reemplazar `<your package>` por el nombre del paquete que aparece en la parte superior del archivo AndroidManifest.xml (`com.example.testnotificationhubs` en este ejemplo).
 
@@ -106,6 +115,8 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
 		import com.google.android.gms.gcm.*;
 		import com.microsoft.windowsazure.messaging.*;
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
+		import android.widget.Toast;
+
 
 
 4. Agregue los siguientes miembros privados en la parte superior de la clase.
@@ -125,7 +136,7 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
 
 
 
-5. En el método **OnCreate** de la clase **MainActivity**, agregue el código siguiente para realizar el registro de la creación de la actividad en el Centro de notificaciones.
+5. En el método **OnCreate** de la clase **MainActivity**, agregue el código siguiente para registrarlo en el Centro de notificaciones cuando se crea la actividad.
 
         MyHandler.mainActivity = this;
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
@@ -154,7 +165,7 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
     	}
 
 
-7. Agregue el método `DialogNotify` a la actividad para mostrar la notificación cuando la aplicación se ejecuta y es visible. Invalide también `onStart`, `onPause`, `onResume` y `onStop` para determinar si la actividad está visible para mostrar el cuadro de diálogo.
+7. Agregue el método `ToastNotify` a la actividad para mostrar la notificación cuando la aplicación se ejecuta y está visible. Invalide también `onStart`, `onPause`, `onResume` y `onStop` para determinar si la actividad está visible para mostrar la notificación del sistema.
 
 	    @Override
 	    protected void onStart() {
@@ -180,43 +191,20 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
 	        isVisible = false;
 	    }
 
-		/**
-		  * A modal AlertDialog for displaying a message on the UI thread
-		  * when there's an exception or message to report.
-		  *
-		  * @param title   Title for the AlertDialog box.
-		  * @param message The message displayed for the AlertDialog box.
-		  */
-    	public void DialogNotify(final String title,final String message)
-    	{
-	        if (isVisible == false)
-	            return;
-
-        	final AlertDialog.Builder dlg;
-        	dlg = new AlertDialog.Builder(this);
-
-        	runOnUiThread(new Runnable() {
-            	@Override
-            	public void run() {
-                	AlertDialog dlgAlert = dlg.create();
-                	dlgAlert.setTitle(title);
-                	dlgAlert.setButton(DialogInterface.BUTTON_POSITIVE,
-						(CharSequence) "OK",
-						new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                	dlgAlert.setMessage(message);
-                	dlgAlert.setCancelable(false);
-                	dlgAlert.show();
-            	}
-        	});
-    	}
+	    public void ToastNotify(final String notificationMessage)
+	    {
+	        if (isVisible == true)
+	            runOnUiThread(new Runnable() {
+	                @Override
+	                public void run() {
+	                    Toast.makeText(MainActivity.this, notificationMessage, Toast.LENGTH_LONG).show();
+	                }
+	            });
+	    }
 
 8. Puesto que Android no muestra las notificaciones, debe escribir su propio receptor. En **AndroidManifest.xml**, agregue el siguiente elemento dentro del elemento `<application>`.
 
-	> [AZURE.NOTE]Reemplace el marcador de posición por el nombre del paquete.
+	> [AZURE.NOTE] Reemplace el marcador de posición por el nombre del paquete.
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -227,11 +215,11 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
         </receiver>
 
 
-9. En la Vista de proyecto, expanda **app** > **src** > **main** > **java**. Haga clic con el botón derecho en la carpeta del paquete en **java**, haga clic en **Nuevo** y, a continuación, haga clic en **Clase Java**.
+9. En la vista de proyecto, expanda **app** > **src** > **main** > **java**. Haga clic con el botón derecho en la carpeta del paquete en **java**, haga clic en **Nuevo** y, a continuación, haga clic en **Clase Java**.
 
 	![][6]
 
-10. En el campo **Nombre** de la nueva clase, escriba **MyHandler** y haga clic en **Aceptar**.
+10. En el campo **Nombre** de la nueva clase, escriba **MyHandler** y, a continuación, haga clic en **Aceptar**.
 
 
 11. Agregue las siguientes instrucciones import en la parte superior de **MyHandler.java**:
@@ -245,14 +233,14 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
 
 
-12. Actualice la declaración de clase para hacer de `MyHandler` una subclase de `com.microsoft.windowsazure.notifications.NotificationsHandler`, tal y como se muestra a continuación.
+12. Actualice la declaración de clase para hacer de `MyHandler` una subclase de `com.microsoft.windowsazure.notifications.NotificationsHandler` como se muestra a continuación.
 
 		public class MyHandler extends NotificationsHandler {
 
 
 13. Agregue el siguiente código para la clase `MyHandler`.
 
-	Este código invalida el método `OnReceive`, por lo que el controlador mostrará un `AlertDialog` para mostrar las notificaciones recibidas. El controlador también envía la notificación al administrador de notificaciones de Android con el método `sendNotification()`.
+	Este código invalida el método `OnReceive`, por lo que el controlador mostrará una notificación del sistema para indicar las notificaciones recibidas. El controlador también envía la notificación al administrador de notificaciones de Android con el método `sendNotification()`.
 
     	public static final int NOTIFICATION_ID = 1;
     	private NotificationManager mNotificationManager;
@@ -267,7 +255,7 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
         	String nhMessage = bundle.getString("message");
 
         	sendNotification(nhMessage);
-        	mainActivity.DialogNotify("Received Notification",nhMessage);
+	        mainActivity.ToastNotify(nhMessage);
     	}
 
     	private void sendNotification(String msg) {
@@ -295,7 +283,7 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
 
 
 
-Para probar la recepción de notificaciones en su aplicación, envíe notificaciones en el [Portal de Azure clásico] mediante la pestaña de depuración en el centro de notificaciones, tal como se muestra en la pantalla que aparece a continuación.
+Para probar las notificaciones de recepción en la aplicación, envíe notificaciones en el [Portal de Azure clásico] mediante la pestaña de depuración del Centro de notificaciones, como se muestra en la pantalla siguiente.
 
 ![][30]
 
@@ -305,7 +293,7 @@ Para probar la recepción de notificaciones en su aplicación, envíe notificaci
 ## (Opcional) Enviar notificaciones desde la aplicación
 
 
-1. En la vista de proyecto de Android Studio, expanda **App** > **src** > **main** > **res** > **layout**. Abra el archivo de diseño **activity\_main.xml** y haga clic en la pestaña **Texto** para actualizar los contenidos de texto del archivo. Actualícelo con el siguiente código, que agrega nuevos controles `Button` y `EditText` para enviar mensajes de notificación al Centro de notificaciones. Agregue este código al final, justo antes de `</RelativeLayout>`.
+1. En la Vista de proyecto de Android Studio, expanda **App** > **src** > **main** > **res** > **layout**. Abra el archivo de diseño **activity\_main.xml** y haga clic en la pestaña **Texto** para actualizar los contenidos de texto del archivo. Actualícelos con el siguiente código, que agrega nuevos controles `Button` y `EditText` para enviar mensajes de notificación al Centro de notificaciones. Agregue este código al final, inmediatamente antes de `</RelativeLayout>`.
 
 	    <Button
         android:layout_width="wrap_content"
@@ -325,13 +313,17 @@ Para probar la recepción de notificaciones en su aplicación, envíe notificaci
         android:layout_marginBottom="42dp"
         android:hint="@string/notification_message_hint" />
 
-2. En la vista del proyecto de Android Studio, expanda **App** > **src** > **main** > **res** > **values**. Abra el archivo **strings.xml** y agregue los valores de cadena a los que hacen referencia los nuevos controles `Button` y `EditText`. Agréguelos al final del archivo, justo antes de `</resources>`.
+2. Agregue esta línea al archivo **build.gradle** en `android`
+
+		useLibrary 'org.apache.http.legacy'
+
+3. En la Vista de proyecto de Android Studio, expanda **App** > **src** > **main** > **res** > **values**. Abra el archivo **strings.xml** y agregue los valores de cadena a los que hacen referencia los nuevos controles `Button` y `EditText`. Agréguelos al final del archivo, inmediatamente antes de `</resources>`.
 
         <string name="send_button">Send Notification</string>
         <string name="notification_message_hint">Enter notification message text</string>
 
 
-3. En el archivo **MainActivity.java**, agregue las siguientes instrucciones `import` sobre la clase `MainActivity`.
+4. En el archivo **MainActivity.java**, agregue las siguientes instrucciones `import` sobre la clase `MainActivity`.
 
 		import java.net.URLEncoder;
 		import javax.crypto.Mac;
@@ -348,16 +340,16 @@ Para probar la recepción de notificaciones en su aplicación, envíe notificaci
 		import org.apache.http.impl.client.DefaultHttpClient;
 
 
-3. En el archivo **MainActivity.java**, agregue los siguientes miembros en la parte superior de la clase `MainActivity`.
+5. En el archivo **MainActivity.java**, agregue los siguientes miembros en la parte superior de la clase `MainActivity`.
 
-	Actualice `HubFullAccess` con la cadena de conexión **DefaultFullSharedAccessSignature** para su centro. Para copiar esta cadena de conexión desde el [Portal de Azure clásico], haga clic en **Ver cadena de conexión** en la pestaña **Panel** correspondiente al Centro de notificaciones.
+	Actualice `HubFullAccess` con la cadena de conexión **DefaultFullSharedAccessSignature** de su centro. Para copiar esta cadena de conexión desde el [Portal de Azure clásico], haga clic en **Ver cadena de conexión** en la pestaña **Panel** del Centro de notificaciones.
 
 	    private String HubEndpoint = null;
 	    private String HubSasKeyName = null;
 	    private String HubSasKeyValue = null;
 		private String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
 
-4. La actividad contiene el nombre del centro y la cadena de conexión de acceso compartido correspondiente al centro. Debe crear un token de firma de acceso a software (SaS) para autenticar una solicitud POST para enviar mensajes a su centro de notificaciones. Para ello, analice los datos de clave de la cadena de conexión y cree el token SaS, tal y como se menciona en la referencia de API de REST de [Conceptos comunes](http://msdn.microsoft.com/library/azure/dn495627.aspx).
+6. La actividad contiene el nombre del centro y la cadena de conexión de acceso compartido correspondiente al centro. Debe crear un token de firma de acceso a software (SaS) para autenticar una solicitud POST para enviar mensajes a su centro de notificaciones. Para ello, analice los datos de clave de la cadena de conexión y, a continuación, cree el token de SaS, como se mencionó en la referencia de API de REST de [Conceptos comunes](http://msdn.microsoft.com/library/azure/dn495627.aspx).
 
 	En **MainActivity.java**, agregue el método siguiente a la clase `MainActivity` para analizar la cadena de conexión.
 
@@ -387,7 +379,7 @@ Para probar la recepción de notificaciones en su aplicación, envíe notificaci
 	        }
 	    }
 
-5. En **MainActivity.java**, agregue el método siguiente a la clase `MainActivity` para crear un token de autenticación SaS.
+7. En **MainActivity.java**, agregue el método siguiente a la clase `MainActivity` para crear un token de autenticación SaS.
 
         /**
          * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx to
@@ -440,7 +432,7 @@ Para probar la recepción de notificaciones en su aplicación, envíe notificaci
         }
 
 
-6. En **MainActivity.java**, agregue el método siguiente a la clase `MainActivity` para controlar el clic de botón **Enviar notificación** y envíe el mensaje de notificación al centro mediante la API de REST.
+8. En **MainActivity.java**, agregue el método siguiente a la clase `MainActivity` para controlar el clic del botón **Enviar notificación** y envíe el mensaje de notificación al centro mediante la API de REST.
 
         /**
          * Send Notification button click handler. This method parses the
@@ -519,7 +511,7 @@ En este sencillo ejemplo, ha difundido notificaciones a todos los dispositivos c
 
 Si desea segmentar los usuarios por grupos de interés, consulte [Uso de los Centros de notificaciones para enviar noticias de última hora].
 
-Para más información sobre los Centros de notificaciones, consulte [Introducción a los centros de notificaciones].
+Para más información general sobre los Centros de notificaciones, consulte [Guía de los Centros de notificaciones].
 
 
 
@@ -554,8 +546,8 @@ Para más información sobre los Centros de notificaciones, consulte [Introducci
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Portal de Azure clásico]: https://manage.windowsazure.com/
-[Introducción a los centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
+[Guía de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 [Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET]: notification-hubs-aspnet-backend-android-notify-users.md
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

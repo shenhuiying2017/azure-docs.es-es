@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Site Recovery: obtenga resultados de escalación y de pruebas de rendimiento para la replicación de Hyper-V entre sitios locales."
+	pageTitle="Resultados de escalado y pruebas de rendimiento de la replicación de Hyper-V entre sitios locales con Site Recovery | Microsoft Azure"
 	description="Este artículo proporciona información acerca de la prueba de rendimiento de replicación entre dos sitios locales con Azure Site Recovery."
 	services="site-recovery" 
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
-# Azure Site Recovery: obtenga resultados de escalación y de pruebas de rendimiento para la replicación de Hyper-V entre sitios locales.
+# Resultados de escalado y pruebas de rendimiento de la replicación de Hyper-V entre sitios locales con Site Recovery.
 
 Puede usar Microsoft Azure Site Recovery para organizar y administrar la replicación de máquinas virtuales y servidores físicos en Azure, o en un centro de datos secundario. Este artículo proporciona los resultados de pruebas de rendimiento que obtuvimos al replicar máquinas virtuales de Hyper-V entre dos centros de datos locales.
 
@@ -210,4 +210,4 @@ La tabla resume las métricas de rendimiento y contadores que se midieron en la 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

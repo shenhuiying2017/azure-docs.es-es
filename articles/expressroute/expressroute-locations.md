@@ -71,7 +71,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Interxion** | Compatible | Compatible | Ámsterdam |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Compatible | Compatible | Ámsterdam, Chicago, Dallas, Londres, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Compatible | Compatible | Melbourne, Sidney |
-| **MTN** | Compatible | No compatible | Londres |
+| **MTN** | Compatible | Compatible | Londres |
 | **NEXTDC** | Compatible | Compatible | Melbourne, Sidney |
 | **NTT Communications** | Compatible | No compatible | Londres+, Tokio |
 | **[Orange](http://www.orange-business.com/)** | Compatible | No compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Washington DC |
@@ -139,4 +139,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 - Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 - Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->
