@@ -114,8 +114,8 @@ public void ConfigureAuth(IAppBuilder app)
 			 }
 ```
 
-## 3. Use OWIN to issue sign-in and sign-out requests to Azure AD
-Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  OWIN has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in and sign out.
+## 3. Use OWIN para emitir solicitudes de inicio y cierre de sesión a Azure AD
+Ahora la aplicación está correctamente configurada para comunicarse con el extremo v2.0 mediante el protocolo de autenticación de OpenID Connect.  OWIN se ha ocupado de todos los detalles feos de la creación de mensajes de autenticación, validación de tokens de Azure AD y mantenimiento de la sesión de usuario.  Lo único que queda consiste en ofrecer a sus usuarios una forma de iniciar y cerrar sesión.
 
 - Puede usar etiquetas Autorizar en sus controladores para solicitar que el usuario inicie sesión antes de tener acceso a una página determinada. Abra `Controllers\HomeController.cs` y agregue la etiqueta `[Authorize]` al controlador Acerca de.
 
