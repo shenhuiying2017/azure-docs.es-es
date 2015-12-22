@@ -171,5 +171,6 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Eliminar** en 
 
 - Para obtener más información acerca del Almacenamiento de Azure, consulte la documentación sobre Almacenamiento de Azure en [Azure.com](http://azure.microsoft.com/documentation/services/storage/).
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
+- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

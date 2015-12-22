@@ -205,10 +205,10 @@ Si tiene una red virtual conectada a través de una conexión VPN de sitio a sit
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
 
-5. Ya tiene una red virtual sin puertas de enlace. Para crear nuevas puertas de enlace y completar las conexiones, puede continuar con el **paso 3** de esta sección del artículo [Creación de una nueva red virtual con conectividad de sitio a sitio y ExpressRoute](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity).
+5. Ya tiene una red virtual sin puertas de enlace. Para crear nuevas puertas de enlace y completar las conexiones, puede continuar con el **paso 4** de esta sección del artículo [Creación de una nueva red virtual con conectividad de sitio a sitio y ExpressRoute](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity).
 
 ## Pasos siguientes
 
 Para más información sobre ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

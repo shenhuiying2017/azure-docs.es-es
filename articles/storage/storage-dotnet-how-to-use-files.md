@@ -531,8 +531,9 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 
 - [Almacenamiento de archivos de Azure: un sistema de archivos SMB en la nube sin dificultades para Windows y Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [Uso del almacenamiento de archivos de Azure con Linux](storage-how-to-use-files-linux.md)
+- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 
-### Compatibilidad de herramientas con el almacenamiento de archivos
+### Herramientas de soporte técnico para Almacenamiento de archivos
 
 - [Usar Azure PowerShell con Almacenamiento de Azure](storage-powershell-guide-full.md)
 - [Uso de AzCopy con Almacenamiento de Microsoft Azure](storage-use-azcopy.md)
@@ -550,4 +551,4 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 - [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

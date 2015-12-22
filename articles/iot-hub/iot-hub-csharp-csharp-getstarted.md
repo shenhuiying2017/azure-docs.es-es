@@ -3,7 +3,7 @@
 	description="Siga este tutorial para aprender a usar el centro de IoT de Azure con C#."
 	services="iot-hub"
 	documentationCenter=".net"
-	authors="fsautomata"
+	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
@@ -13,63 +13,71 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/29/2015"
-     ms.author="elioda"/>
+     ms.date="12/14/2015"
+     ms.author="dobett"/>
 
-# Tutorial: Introducción al Centro de IoT
+# Tutorial: Introducción al Centro de IoT de Azure
 
 ## Introducción
 
-El centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y una aplicación back-end. Uno de los mayores desafíos relacionados con los proyectos de IoT consiste en conectar dispositivos al servidor de aplicaciones de manera segura y fiable. Para simplificar este escenario, el centro de IoT de Azure permite el envío a gran escala de mensajes de dispositivo a nube y viceversa. Asimismo, permite establecer comunicaciones seguras mediante el uso de credenciales de seguridad por cada dispositivo y funciones de control de acceso; además, incluye bibliotecas de dispositivos para las plataformas y los lenguajes más populares.
+El Centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y un back-end de soluciones. Uno de los mayores desafíos que plantean los proyectos de IoT es cómo conectar dispositivos al back-end de la solución de manera segura y confiable. Para abordar este desafío, el Centro de IoT:
 
-Este tutorial muestra cómo usar el portal de Azure para crear un centro de IoT. También muestra cómo crear una identidad de dispositivo en el centro de IoT, cómo crear un dispositivo simulado que envía mensajes de dispositivo a nube y recibe dichos mensajes desde el back-end de la nube.
+- Ofrece una mensajería confiable de gran escala de dispositivo a nube y de nube a dispositivo.
+- Habilita las comunicaciones seguras con las credenciales de seguridad de cada dispositivo y el control de acceso.
+- Incluye bibliotecas de dispositivos para las plataformas y los lenguajes más populares.
+
+En este tutorial se muestra cómo realizar las siguientes acciones:
+
+- Usar el Portal de Azure para crear un Centro de IoT.
+- Crear una identidad de dispositivo en el Centro de IoT.
+- Crear un dispositivo simulado que envía la telemetría a su back-end en la nube y recibe los comandos del back-end en la nube.
 
 Al final de este tutorial tendrá tres aplicaciones de consola de Windows:
 
 * **CreateDeviceIdentity**, que crea una identidad de dispositivo y una clave de seguridad asociada para conectar el dispositivo simulado.
-* **ReadDeviceToCloudMessages**, que lee los mensajes enviados del dispositivo a la nube y muestra su contenido.
-* **SimulatedDevice**, que se conecta a su centro de IoT con la identidad del dispositivo creada anteriormente y envía un mensaje de dispositivo a nube cada segundo.
+* **ReadDeviceToCloudMessages**, que muestra los datos de telemetría enviados por el dispositivo simulado.
+* **SimulatedDevice**, que se conecta con su Centro de IoT con la identidad del dispositivo creada anteriormente y envía un mensaje de telemetría cada segundo.
 
-> [AZURE.NOTE]El centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes (incluido C, Java y Javascript), mediante los SDK del dispositivo de IoT de Azure. Consulte el [Centro para desarrolladores de IoT de Azure][] para obtener instrucciones paso a paso sobre cómo conectar su dispositivo al código de este tutorial y, en general, al Centro de IoT de Azure. Próximamente estarán disponibles SDK de servicios IoT de Azure para Java y Node.
+> [AZURE.NOTE]El artículo [SDK de Centro de IoT][lnk-hub-sdks] proporciona información acerca de los SDK que puede usar para crear dos aplicaciones para ejecutarse en dispositivos y en el back-end de la solución.
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Microsoft Visual Studio 2015
++ Microsoft Visual Studio 2015.
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fiot%2Ftutorials%2Fgetstarted%2F target="\_blank").
++ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][lnk-free-trial].
 
 ## Crear un centro de IoT
 
-1. Inicie sesión en el [Portal de Azure].
+Debe crear un Centro de IoT al que se conectará el dispositivo simulado. En los siguientes pasos se muestra cómo completar esta tarea con el Portal de Azure.
 
-2. En la barra de accesos directos, haga clic en **Nuevo**. A continuación, haga clic en **Internet de las cosas** y, a continuación, haga clic en **Centro de IoT**.
+1. Inicie sesión en el [Portal de Azure][lnk-portal].
 
-   	![][1]
+2. En la barra de accesos directos, haga clic en **Nuevo**. A continuación, haga clic en **Internet de las cosas** y en **Centro de IoT de Azure**.
 
-3. En la hoja **Nuevo centro de IoT**, especifique la configuración deseada para el centro de IoT.
+    ![][1]
 
-   	![][2]
+3. En la hoja **Centro de IoT**, elija la configuración para su Centro de IoT.
 
-    * En el cuadro **Nombre**, escriba un nombre para identificar el centro de IoT. Cuando se valide el **Nombre**, aparecerá una marca de verificación verde en el cuadro **Nombre**.
-    * Cambie el **Nivel de escala y precios** según lo deseado. Este tutorial no requiere ningún nivel determinado.
-    * En el cuadro **Grupo de recursos**, cree un nuevo grupo de recursos o seleccione un grupo existente. Para obtener más información, consulte [Uso de grupos de recursos para administrar los recursos de Azure](resource-group-portal.md).
-    * Use **Ubicación** para especificar la ubicación geográfica en la que se hospedará el centro de IoT.  
+    ![][2]
 
+    * En el cuadro **Nombre**, escriba un nombre para identificar el Centro de IoT. Si el **Nombre** es válido y está disponible, aparecerá una marca de verificación verde en el cuadro **Nombre**.
+    * Seleccione un **Plan de tarifa y escalado**. Este tutorial no requiere ningún nivel determinado.
+    * En **Grupo de recursos**, cree un grupo de recursos o seleccione uno existente. Para obtener más información, consulte [Uso de grupos de recursos para administrar los recursos de Azure][lnk-resource-groups].
+    * En **Ubicación**, seleccione la ubicación para hospedar su Centro de IoT.  
 
-4. Una vez configuradas las opciones del nuevo centro de IoT, haga clic en **Crear**. La creación del centro de IoT puede tardar unos minutos. Para comprobar el estado, puede supervisar el progreso en el panel de inicio. O bien, puede supervisar su progreso desde la sección Notificaciones.
+4. Cuando haya elegido las opciones de configuración del Centro de IoT, haga clic en **Crear**. La creación del Centro de IoT puede tardar unos minutos. Para comprobar el estado, puede supervisar el progreso en el panel de inicio o en el panel de notificaciones.
 
     ![][3]
 
+5. Una vez creado correctamente el Centro de IoT, abra la hoja del nuevo Centro de IoT, anote el **Nombre de host** y, después, en el icono **Llaves**.
 
-5. Una vez creado correctamente el centro de IoT, abra la hoja del nuevo centro de IoT, tome nota del URI y seleccione el icono **Clave** en la parte superior.
+    ![][4]
 
-   	![][4]
+6. Haga clic en la directiva **iothubowner** y copie y anote la cadena de conexión en la hoja **iothubowner**.
 
-6. Seleccione la directiva de acceso compartido denominada **iothubowner** y, a continuación, copie y anote la cadena de conexión en la hoja de la derecha.
+    ![][5]
 
-   	![][5]
-
-El centro de IoT se creará y tendrá la cadena de conexión y el URI que necesita para completar este tutorial.
+Ya se creó el Centro de IoT y tiene el nombre de host y la cadena de conexión que necesita para completar el resto del tutorial.
 
 [AZURE.INCLUDE [iot-hub-get-started-cloud-csharp](../../includes/iot-hub-get-started-cloud-csharp.md)]
 
@@ -78,31 +86,31 @@ El centro de IoT se creará y tendrá la cadena de conexión y el URI que necesi
 
 ## Ejecución de las aplicaciones
 
-Ya está preparado para ejecutar las aplicaciones.
+Ahora está preparado para ejecutar las aplicaciones.
 
-1.	Desde Visual Studio, haga clic con el botón secundario del mouse en la solución y seleccione **Establecer proyectos de inicio...** Seleccione **Proyectos de inicio múltiples**, a continuación, seleccione la acción **Iniciar** para las aplicaciones **ProcessDeviceToCloudMessages** y **SimulatedDevice**.
+1.	En el Explorador de soluciones en Visual Studio, haga clic con el botón derecho en el proyecto de la aplicación cliente y, después, haga clic en **Establecer como proyecto de inicio**. Seleccione **Proyectos de inicio múltiples** y seleccione la **Acción** **Iniciar** para los proyectos **ReadDeviceToCloudMessages** y **SimulatedDevice**.
 
    	![][41]
 
-2.	Al presionar **F5**, deberían iniciarse ambas aplicaciones, la aplicación simulada debería enviar los mensajes y la aplicación del procesador debería recibir dichos mensajes.
+2.	Presione **F5** para iniciar la ejecución de ambas aplicaciones. La salida de la consola de la aplicación **SimulatedDevice** muestra los mensajes que el dispositivo simulado envía a su Centro de IoT y la salida de la consola de la aplicación **ReadDeviceToCloudMessages** muestra los mensajes que el Centro de IoT recibe.
 
    	![][42]
 
 ## Pasos siguientes
 
-En este tutorial, ha configurado un nuevo centro de IoT, ha creado una identidad en el registro de la identidad del centro y ha usado dicha identidad para programar un simulado que envía mensajes de dispositivo a nube. Puede seguir explorando las características del centro de IoT y distintos escenarios con el tutorial siguiente:
+En este tutorial, configuró un nuevo Centro de IoT en el portal y después creó una identidad de dispositivo en el registro de identidades del centro. Esta identidad de dispositivo se usó en un dispositivo simulado que envía al concentrador los mensajes de dispositivo a la nube y se creó otra aplicación que muestra los mensajes recibidos por el centro. Puede seguir explorando las características del Centro de IoT y otros escenarios en los tutoriales siguientes:
 
-- [Envío de mensajes de nube a dispositivo con el Centro de IoT][] muestra cómo enviar mensajes a dispositivos y procesar los comentarios de entrega generados por el Centro de IoT.
-- [Procesamiento de mensajes de dispositivo a nube][] muestra cómo procesar de forma fiable la telemetría y los mensajes interactivos procedentes de los dispositivos.
-- [Carga de archivos desde dispositivos][], describe un patrón que usa los mensajes de nube a dispositivo para facilitar la carga de archivos desde los dispositivos.
+- [Envío de mensajes de nube a dispositivo con el Centro de IoT][lnk-c2d-tutorial] muestra cómo enviar mensajes a dispositivos y procesar los comentarios de entrega generados por el Centro de IoT.
+- [Procesamiento de mensajes de dispositivo a la nube][lnk-process-d2c-tutorial] muestra cómo procesar de forma confiable la telemetría y los mensajes interactivos procedentes de los dispositivos.
+- [Cómo cargar archivos desde dispositivos a la nube ][lnk-upload-tutorial] describe un patrón que usa mensajes de nube a dispositivo para facilitar la carga de archivos desde los dispositivos.
 
-Información adicional sobre el Centro de IoT:
+Puede encontrar más información acerca del Centro de IoT en los siguientes artículos:
 
-* [Información general sobre el Centro de IoT][]
-* [Guía para desarrolladores del Centro de IoT][]
-* [Directrices sobre el Centro de IoT][]
-* [Lenguajes y plataformas de dispositivos compatibles][Supported devices]
-* [Centro para desarrolladores de IoT de Azure][]
+* [Información general sobre el Centro de IoT][lnk-hub-overview]
+* [Guía para desarrolladores del Centro de IoT][lnk-hub-dev-guide]
+* [Diseño de la solución][lnk-hub-guidance]
+* [Lenguajes y plataformas de dispositivos compatibles][lnk-supported-devices]
+* [Centro para desarrolladores de IoT de Azure][lnk-dev-center]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
@@ -110,23 +118,22 @@ Información adicional sobre el Centro de IoT:
 [3]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub3.png
 [4]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub4.png
 [5]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub5.png
-
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 
 <!-- Links -->
-[Portal de Azure]: https://portal.azure.com/
+[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
+[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
-[Envío de mensajes de nube a dispositivo con el Centro de IoT]: iot-hub-csharp-csharp-c2d.md
-[Procesamiento de mensajes de dispositivo a nube]: iot-hub-csharp-csharp-process-d2c.md
-[Carga de archivos desde dispositivos]: iot-hub-csharp-csharp-file-upload.md
+[lnk-hub-overview]: iot-hub-what-is-iot-hub.md
+[lnk-hub-guidance]: iot-hub-guidance.md
+[lnk-hub-dev-guide]: iot-hub-devguide.md
+[lnk-supported-devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
+[lnk-dev-center]: http://www.azure.com/develop/iot
+[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-resource-groups]: resource-group-portal.md
+[lnk-portal]: https://portal.azure.com/
 
-[Información general sobre el Centro de IoT]: iot-hub-what-is-iot-hub.md
-[Directrices sobre el Centro de IoT]: iot-hub-guidance.md
-[Guía para desarrolladores del Centro de IoT]: iot-hub-devguide.md
-[IoT Hub Supported Devices]: iot-hub-supported-devices.md
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

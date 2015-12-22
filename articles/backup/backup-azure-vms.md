@@ -18,50 +18,50 @@
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 
-# Copia de seguridad de máquina virtual de Azure
-Este artículo proporciona los procedimientos sobre cómo realizar la copia de seguridad de máquinas virtuales existentes de Azure, a fin de protegerlas de acuerdo con las directivas de recuperación ante desastres y copia de seguridad de su empresa.
+# Copia de seguridad de máquinas virtuales de Azure
+Este artículo proporciona los procedimientos para realizar la copia de seguridad de máquinas virtuales de Azure existentes para protegerlas conforme a las directivas de recuperación ante desastres y de copia de seguridad de su empresa.
 
-En primer lugar, hay algunas cosas que es necesario tener en cuenta antes de poder realizar una copia de seguridad de una máquina virtual de Azure. Si aún no lo ha hecho, antes de continuar complete los [requisitos previos](backup-azure-vms-prepare.md) con el objeto de preparar el entorno para la copia de seguridad de máquinas virtuales.
+En primer lugar, hay algunas cosas que es necesario tener en cuenta antes de poder realizar una copia de seguridad de una máquina virtual de Azure. Si aún no lo ha hecho, antes de continuar complete los [requisitos previos](backup-azure-vms-prepare.md) para preparar el entorno para la copia de seguridad de máquinas virtuales.
 
-Si busca información sobre la [planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure](backup-azure-vms-introduction.md), o sobre las [máquinas virtuales de Azure](https://azure.microsoft.com/documentation/services/virtual-machines/), puede seguir estos vínculos.
+Para obtener más información, vea los artículos sobre cómo [planear la infraestructura de copia de seguridad de máquinas virtuales en Azure](backup-azure-vms-introduction.md) y sobre las [máquinas virtuales de Azure](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 La realización de copias de seguridad de máquinas virtuales de Azure consta tres pasos principales:
 
 ![Tres pasos para realizar una copia de seguridad de una máquina virtual de IaaS](./media/backup-azure-vms/3-steps-for-backup.png)
 
->[AZURE.NOTE]La copia de seguridad de la máquina virtual es local. No puede realizar copias de seguridad de máquinas virtuales desde una región hasta un almacén de copia de seguridad de otra región. Por lo tanto, para cada región de Azure que tiene máquinas virtuales que necesiten una copia de seguridad, debe crearse al menos 1 almacén de copia de seguridad en esa región.
+>[AZURE.NOTE]La copia de seguridad de máquinas virtuales es un proceso local. No puede realizar copias de seguridad de máquinas virtuales desde una región hasta un almacén de copia de seguridad de otra región. Por lo tanto, para cada región de Azure que tiene máquinas virtuales que necesiten una copia de seguridad, debe crearse al menos un almacén de copia de seguridad en esa región.
 
 ## Paso 1: Detección de máquinas virtuales de Azure
-El proceso de detección debe ser siempre el primer paso para asegurarse de que se identifican las nuevas máquinas virtuales agregadas a la suscripción. El proceso envía consultas a Azure para obtener la lista de máquinas virtuales incluidas en la suscripción, junto con información adicional, por ejemplo, el nombre del servicio en la nube y la región.
+El proceso de detección debe ser siempre el primer paso para asegurarse de que se identifican las nuevas máquinas virtuales que se agregan a la suscripción. El proceso consulta a Azure la lista de máquinas virtuales incluidas en la suscripción, junto con información adicional, por ejemplo, el nombre del servicio en la nube y la región.
 
 1. Vaya al almacén de copia de seguridad en **Servicios de recuperación** en el Portal de Azure y haga clic en **Elementos registrados**.
 
 2. Seleccione **Máquina virtual de Azure** en el menú desplegable.
 
-    ![seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
+    ![Seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Haga clic en **DETECTAR** en la parte inferior de la página. ![botón Detectar](./media/backup-azure-vms/discover-button-only.png)
+3. Haga clic en **DETECTAR** en la parte inferior de la página. ![Botón Detectar](./media/backup-azure-vms/discover-button-only.png)
 
-    El proceso de detección puede tardar unos minutos mientras se tabulan las máquinas virtuales. Una notificación en la parte inferior de la pantalla le permite saber que el proceso se está ejecutando.
+    El proceso de detección puede tardar unos minutos mientras se tabulan las máquinas virtuales. Hay una notificación en la parte inferior de la pantalla que informa de que el proceso se está ejecutando.
 
-    ![detectar máquinas virtuales](./media/backup-azure-vms/discovering-vms.png)
+    ![Detectar máquinas virtuales](./media/backup-azure-vms/discovering-vms.png)
 
     La notificación cambia cuando el proceso se completa.
 
-    ![detectar-completado](./media/backup-azure-vms/discovery-complete.png)
+    ![Detección realizada](./media/backup-azure-vms/discovery-complete.png)
 
 ##  Paso 2: Registro de máquinas virtuales de Azure
-Una máquina virtual de Azure se registra a fin de asociarla con el servicio Copia de seguridad de Azure. El registro suele ser una actividad que solo se realiza una vez.
+Se registra una máquina virtual de Azure para asociarla con el servicio Copia de seguridad de Azure. El registro suele ser una actividad que solo se realiza una vez.
 
-1. Vaya al almacén de copia de seguridad en **Servicios de recuperación** en el Portal de Azure y haga clic en **Elementos registrados**.
+1. Vaya al almacén de copias de seguridad en **Servicios de recuperación**, en el Portal de Azure, y haga clic en **Elementos registrados**.
 
 2. Seleccione **Máquina virtual de Azure** en el menú desplegable.
 
-    ![seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
+    ![Seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Haga clic en **REGISTRAR** en la parte inferior de la página. ![botón Registrar](./media/backup-azure-vms/register-button-only.png)
+3. Haga clic en **REGISTRAR** en la parte inferior de la página. ![Botón Registrar](./media/backup-azure-vms/register-button-only.png)
 
-4. En el menú contextual **Elementos registrados**, elija las máquinas virtuales que desea registrar. Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguirlas.
+4. En el menú contextual **Elementos registrados**, seleccione las máquinas virtuales que desea registrar. Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguirlas.
 
     >[AZURE.TIP]Se pueden registrar varias máquinas virtuales al mismo tiempo.
 
@@ -69,9 +69,9 @@ Una máquina virtual de Azure se registra a fin de asociarla con el servicio Cop
 
 5. Haga clic en **Ver trabajo** en la notificación para ir a la página **Trabajos**.
 
-    ![registrar trabajo](./media/backup-azure-vms/register-create-job.png)
+    ![Registrar trabajo](./media/backup-azure-vms/register-create-job.png)
 
-    La máquina virtual también aparece en la lista de elementos registrados junto con el estado de la operación de registro
+    La máquina virtual también aparece en la lista de elementos registrados junto con el estado de la operación de registro.
 
     ![Registrando estado 1](./media/backup-azure-vms/register-status01.png)
 
@@ -80,20 +80,20 @@ Una máquina virtual de Azure se registra a fin de asociarla con el servicio Cop
     ![Registrando estado 2](./media/backup-azure-vms/register-status02.png)
 
 ## Paso 3: Protección de las máquinas virtuales de Azure
-Ahora puede configurar una directiva de retención y copia de seguridad para la máquina virtual. Se pueden proteger varias máquinas virtuales con una sola acción de protección.
+Ahora puede configurar una directiva de retención y copia de seguridad para la máquina virtual. Se pueden proteger varias máquinas virtuales en una sola acción de protección.
 
 Los almacenes de Copia de seguridad de Azure creados después de mayo de 2015 incluyen una directiva predeterminada integrada en el almacén. Esta directiva predeterminada viene con un período de retención predeterminado de 30 días y una programación de copia de seguridad diaria.
 
-1. Vaya al almacén de copia de seguridad en **Servicios de recuperación** en el Portal de Azure y haga clic en **Elementos registrados**.
+1. Vaya al almacén de copias de seguridad en **Servicios de recuperación**, en el Portal de Azure, y haga clic en **Elementos registrados**.
 2. Seleccione **Máquina virtual de Azure** en el menú desplegable.
 
     ![Seleccionar carga de trabajo en el portal](./media/backup-azure-vms/select-workload.png)
 
 3. Haga clic en **PROTEGER**, en la parte inferior de la página.
 
-    Se abrirá el **Asistente para protección de elementos**. El asistente solo muestra las máquinas virtuales que están registradas y que no están protegidas. Aquí es donde selecciona las máquinas virtuales que quiere recuperar.
+    Se abrirá el **Asistente para protección de elementos**. El asistente solo muestra las máquinas virtuales que están registradas y que no están protegidas. Aquí es donde selecciona las máquinas virtuales que quiere proteger.
 
-    Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguir entre las máquinas virtuales.
+    Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguir las máquinas virtuales.
 
     >[AZURE.TIP]Puede proteger varias máquinas virtuales al mismo tiempo.
 
@@ -111,7 +111,7 @@ Los almacenes de Copia de seguridad de Azure creados después de mayo de 2015 in
 
     ![Protección con retención flexible](./media/backup-azure-vms/policy-retention.png)
 
-    La directiva de retención especifica el período de tiempo para almacenar una copia de seguridad. Puede especificar directivas de retención diferente en función de cuándo se realice la copia de seguridad. Por ejemplo, puede que el punto de copia de seguridad que se toma al final de cada trimestre se tenga que conservar durante más tiempo (con fines de auditoría), mientras que el punto de copia de seguridad diario, que sirve como punto de recuperación operativo, solo debe mantenerse durante 90 días.
+    La directiva de retención especifica el período de tiempo que se almacena una copia de seguridad. Puede especificar directivas de retención diferentes en función de cuándo se realizó la copia de seguridad. Por ejemplo, puede que el punto de copia de seguridad que se realiza al final de cada trimestre se tenga que conservar durante más tiempo (con fines de auditoría), mientras que el punto de copia de seguridad diario, que sirve como punto de recuperación operativo, solo debe mantenerse durante 90 días.
 
     ![Se realiza una copia de seguridad de la máquina virtual con punto de recuperación](./media/backup-azure-vms/long-term-retention.png)
 
@@ -148,18 +148,18 @@ Una vez completada la copia de seguridad inicial, el estado de la máquina virtu
 ![Se realiza una copia de seguridad de la máquina virtual con punto de recuperación](./media/backup-azure-vms/protect-backedupvm.png)
 
 ## Visualización de los detalles y el estado de la copia de seguridad
-Una vez protegidas, el recuento de máquinas virtuales también aumenta en el resumen de la página **Panel**. La página **Panel** también muestra el número de trabajos de las últimas 24 horas que se realizaron *correctamente*, los que *causaron un error* y los que siguen *en curso*. Al hacer clic en una categoría, esta se desglosará en la página **Trabajos**.
+Una vez protegidas, el recuento de máquinas virtuales también aumenta en el resumen de la página **Panel**. La página **Panel** también muestra el número de trabajos de las últimas 24 horas que se realizaron *correctamente*, los que *causaron un error* y los que siguen *en curso*. Al hacer clic en una categoría, podrá examinarla en la página **Trabajos**.
 
 ![Estado de la copia de seguridad en la página Panel](./media/backup-azure-vms/dashboard-protectedvms.png)
 
 Los valores indicados en el panel se actualizan cada 24 horas.
 
 ## Solución de errores
-Si se encuentra con problemas mientras realiza la copia de seguridad de la máquina virtual, eche un vistazo a la guía de [solución de problemas](backup-azure-vms-troubleshoot.md) para obtener ayuda.
+Si se encuentra con problemas mientras realiza la copia de seguridad de la máquina virtual, eche un vistazo a la [guía de solución de problemas](backup-azure-vms-troubleshoot.md) para obtener ayuda.
 
 ## Pasos siguientes
 
 - [Administración y supervisión de las máquinas virtuales](backup-azure-manage-vms.md)
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

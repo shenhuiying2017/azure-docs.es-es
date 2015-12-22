@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
+   ms.date="12/15/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Creación de Almacenamiento de datos SQL
@@ -29,6 +29,10 @@ En este tutorial, aprenderá lo siguiente:
 
 - Crear un servidor que hospedará la base de datos.
 - Crear una base de datos que contenga la base de datos de ejemplo AdventureWorksDW.
+
+Si intenta migrar una base de datos a Almacenamiento de datos SQL, consulte [Información general sobre migración](./sql-data-warehouse-get-started-overview-migrate.md) o use la [utilidad de migración](./sql-data-warehouse-migrate-migration-utility.md).
+
+Para cargar datos en Almacenamiento de datos SQL, consulte la [información general sobre la carga](./sql-data-warehouse-overview-load.md).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -47,22 +51,17 @@ En este tutorial, aprenderá lo siguiente:
 
 ## Paso 2: Configurar y crear un servidor
 
-En la base de datos SQL y Almacenamiento de datos SQL, cada base de datos se asigna a un servidor y cada servidor se asigna a una ubicación geográfica. El servidor se llama a un servidor lógico de SQL.
+En la base de datos SQL y Almacenamiento de datos SQL, cada base de datos se asigna a un servidor y cada servidor se asigna a una ubicación geográfica. El servidor se llama a un servidor SQL lógico.
 
-> [AZURE.NOTE] <a name="note"></a>Un servidor lógico de SQL:
-  >
-  > + proporciona una manera coherente para configurar varias bases de datos dentro de la misma ubicación geográfica.
-  > + No es un hardware físico como en un servidor local. Forma parte del software de servicio. Por eso lo llamamos un *servidor lógico*.
-  > + Puede hospedar varias bases de datos sin afectar a su rendimiento.
-  > + Usa una minúscula *s* en su nombre. Un **s**ervidor SQL es un servidor lógico de Azure, mientras que SQL **S**server es un producto de la base de datos local de Microsoft.
+> [AZURE.NOTE]<a name="note"></a>Un servidor SQL lógico: >> + proporciona una manera coherente de configurar varias bases de datos dentro de la misma ubicación geográfica. > + No es un hardware físico como sucede en un servidor local. Forma parte del software de servicio. Por eso lo llamamos un *servidor lógico*. > + Puede hospedar varias bases de datos sin que ello afecte a su rendimiento. > + Usa una *s* minúscula en el nombre. Un **s**ervidor SQL es un servidor lógico de Azure, mientras que SQL **S**server es un producto de base de datos local de Microsoft.
 
 1. Haga clic en **Servidor** > **Crear un nuevo servidor**. No se aplica ningún cargo por el servidor. Si ya dispone de un servidor SQL lógico V12 que desee usar, elija el servidor existente y vaya al paso siguiente. 
 
     ![Creación de un servidor nuevo](./media/sql-data-warehouse-get-started-provision/create-server.png)
 
-3. Rellene la información del **nuevo servidor**.
+3. Rellene la información de **Servidor nuevo**.
     
-	- **Nombre del servidor**. Escriba un nombre para el servidor lógico. Debe ser único para cada ubicación geográfica.
+	- **Nombre del servidor** Escriba un nombre para el servidor lógico. Debe ser único para cada ubicación geográfica.
 	- **Nombre del administrador del servidor**. Escriba un nombre de usuario para la cuenta de administrador del servidor.
 	- **Contraseña**. Escriba la contraseña del administrador del servidor. 
 	- **Ubicación**. Elija una ubicación geográfica para el servidor. Para reducir el tiempo de transferencia de datos, es mejor ubicar su servidor en proximidad geográfica a otros recursos de datos a los que tenga acceso esta base de datos.
@@ -79,7 +78,7 @@ En la base de datos SQL y Almacenamiento de datos SQL, cada base de datos se asi
 
 Ahora que seleccionó el servidor SQL lógico, está listo para terminar de crear la base de datos.
  
-2. En la hoja **Almacenamiento de datos SQL**, rellene los campos que quedan. 
+2. En la hoja **Almacenamiento de datos SQL**, rellene los restantes campos. 
 
     ![Crear base de datos](./media/sql-data-warehouse-get-started-provision/create-database.png)
     
@@ -89,7 +88,7 @@ Ahora que seleccionó el servidor SQL lógico, está listo para terminar de crea
         > 
         > Puede modificar de manera rápida y sencilla el nivel de rendimiento después de crear la base de datos. Por ejemplo, si no está usando la base de datos, mueva el control deslizante hacia la izquierda para reducir los costes. O bien, puede aumentar el rendimiento cuando sean necesarios más recursos. Para incurrir en costos 0, puede pausar la base de datos. Estas son las ventajas de escalabilidad que ofrece el almacenamiento de datos SQL.
 
-    - **Seleccionar origen**. Haga clic en **Seleccionar origen** > **Ejemplo**. Puesto que hay solo una base de datos de ejemplo disponible en este momento, al seleccionar Ejemplo, Azure rellena automáticamente la opción **Seleccionar ejemplo** con AdventureWorksDW.
+    - **Seleccionar origen**. Haga clic en **Seleccionar origen** > **Muestra**. Dado que hay solo una base de datos de ejemplo disponible en este momento, al seleccionar Ejemplo, Azure rellena automáticamente la opción **Seleccionar muestra** con AdventureWorksDW.
   
         ![Seleccionar Ejemplo.](./media/sql-data-warehouse-get-started-provision/select-source.png)
 
@@ -112,15 +111,15 @@ Para conectarse al servidor desde la dirección IP actual, agregue su dirección
 
     ![Encontrar la configuración de firewall](./media/sql-data-warehouse-get-started-provision/find-firewall-settings.png)
 
-4. Haga clic en **Agregar IP de cliente** para que Azure cree una regla para su dirección IP cliente. Haga clic en **Guardar**.
+4. Haga clic en **Agregar IP de cliente** para que Azure cree una regla para la dirección IP del cliente. Haga clic en **Guardar**.
 
 	![Agregar la dirección IP](./media/sql-data-warehouse-get-started-provision/add-client-ip.png)
 
 1. Crear una regla de firewall con un intervalo de direcciones IP. Puede hacerlo ahora o más tarde.
 
-	>[AZURE.IMPORTANT]Probablemente su dirección IP cambie de vez en cuando, y es posible que no pueda tener acceso al servidor hasta que cree una nueva regla de firewall. Para garantizar un acceso constante, se recomienda agregar un intervalo de direcciones IP. Para obtener información adicional, consulte [Configuración del firewall](../sql-database/sql-database-configure-firewall-settings.md).
+	>[AZURE.IMPORTANT]Probablemente su dirección IP cambie de vez en cuando, y es posible que no pueda tener acceso al servidor hasta que cree una nueva regla de firewall. Para garantizar un acceso constante, se recomienda agregar un intervalo de direcciones IP. Para obtener información adicional, consulte [Configuración del firewall en la Base de datos SQL mediante el Portal de Azure clásico](../sql-database/sql-database-configure-firewall-settings.md).
 
-    Para crear una regla, escriba un nombre y el intervalo de direcciones IP y haga clic en **Guardar**.
+    Para crear una regla, escriba un nombre y el intervalo de direcciones IP, y haga clic en **Guardar**.
 
     ![Agregar una regla de firewall](./media/sql-data-warehouse-get-started-provision/add-rule.png)
 
@@ -128,6 +127,6 @@ Una vez configurado el firewall, podrá establecer conexiones desde su escritori
 
 ## Pasos siguientes
 
-Ahora que ha creado una base de datos de ejemplo para Almacenamiento de datos SQL, está listo para [Conectar](./sql-data-warehouse-get-started-connect.md) la base de datos.
+Ahora que ha creado una base de datos de ejemplo para Almacenamiento de datos SQL, está listo para [conectarla](./sql-data-warehouse-get-started-connect.md) a la base de datos.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

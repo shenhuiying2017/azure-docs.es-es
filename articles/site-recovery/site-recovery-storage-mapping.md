@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="11/24/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
 
@@ -35,7 +35,7 @@ La asignación de almacenamiento solo es pertinente cuando replica máquinas vir
 	- **Colocación de máquinas virtuales de réplica**: la asignación de almacenamiento se usa para colocar máquinas virtuales de réplica en los servidores host de Hyper-V de forma óptima. Las máquinas virtuales de réplica se colocarán en hosts que pueden tener acceso a las redes de almacenamiento asignadas.
 	- **Sin asignación de redes**: si no configura la asignación de almacenamiento, las máquinas virtuales se replicarán en la ubicación de almacenamiento predeterminada especificada en el servidor host de Hyper-V asociado a la máquina virtual de réplica.
 
-- **Replicación entre sitios locales con SAN**: configure la asignación de almacenamiento asignando grupos de matrices de almacenamiento en servidores VMM de origen y destino con las siguientes especificaciones.
+- **Replicación entre sitios locales con SAN**: configure la asignación de almacenamiento, para lo que es preciso que asigne grupos de matrices de almacenamiento en los servidores VMM de origen y destino.
 	- **Especificación de grupos**: especifica las matrices para especificar qué grupo de almacenamiento secundario recibe datos de replicación desde el grupo principal.
 	- **Identificación de los grupos de almacenamiento de destino**: garantiza que las LUN de un grupo de replicación de origen se replican en el grupo de almacenamiento de destino asignado que elija.
 
@@ -98,4 +98,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | No hay ninguna asignación, por 
 
 Ahora que dispone de más información sobre la asignación de almacenamiento, [prepárese para la implementación de Azure Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->
