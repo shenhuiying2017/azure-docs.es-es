@@ -70,7 +70,7 @@ Esta sección le guía en la creación de un nuevo centro de notificaciones y la
 
 El centro de notificaciones está ahora configurado para funcionar con APNS y tiene las cadenas de conexión para registrar la aplicación y enviar notificaciones.
 
-##Conexión de la aplicación al Centro de notificaciones
+##Conexión de la aplicación al centro de notificaciones
 
 1. En XCode, cree un nuevo proyecto iOS y seleccione la plantilla **Single View Application** (Aplicación de vista sencilla).
 
@@ -104,9 +104,9 @@ El centro de notificaciones está ahora configurado para funcionar con APNS y ti
 
 6. Abra el archivo AppDelegate.h y agregue la siguiente directiva de importación:
 
-         #import <WindowsAzureMessaging/WindowsAzureMessaging.h> 
+         #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
 		 #import "HubInfo.h"
-		
+
 7. En el archivo AppDelegate.m, agregue el siguiente código al método `didFinishLaunchingWithOptions` en función de su versión de iOS. Este código registra el identificador de dispositivo en APNS:
 
 	Para iOS 8:
@@ -439,6 +439,7 @@ Si desea enviar notificaciones dentro de una aplicación. Esta sección proporci
 > [AZURE.NOTE]Si encuentra un error de compilación en Xcode7 sobre la compatibilidad de bitcode, debe cambiar "Configuración de compilación" -> "Habilitar Bitcode"(ENABLE\_BITCODE) en 'NO' en Xcode. El SDK de los Centros de notificaciones no es compatible con bitcode.
 
 Puede buscar todas las cargas de notificaciones posibles en la guía [Local and Push Notification Programming Guide] de Apple.
+
 
 
 ##Prueba de la aplicación

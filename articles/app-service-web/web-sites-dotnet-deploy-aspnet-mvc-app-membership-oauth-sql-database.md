@@ -105,7 +105,8 @@ Para configurar el entorno de desarrollo, tiene que instalar [Visual Studio 2013
 
 ### Establecimiento del encabezado y pie de página
 
-1. En el **Explorador de soluciones**, abra el archivo *Layout.cshtml* de la carpeta *Views\\Shared*.
+
+1. En el **Explorador de soluciones**, abra el archivo *Layout.cshtml* de la carpeta *Views\Shared*.
 
 	![\_Layout.cshtml in Solution Explorer][newapp004]
 
@@ -278,11 +279,11 @@ La característica de scaffolding de ASP.NET MVC puede generar automáticamente 
 	
 	![Cuadro de diálogo Add Scaffold](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rr6.png)
 
+
 1. En el cuadro desplegable **Clase de modelo**, seleccione **Contact (ContactManager.Models)**. (Consulte la imagen que aparece a continuación).
 
 1. En **Clase de contexto de datos**, seleccione **ApplicationDbContext (ContactManager.Models)**. El valor **ApplicationDbContext** se utilizará tanto para la base de datos de suscripciones como para los datos de nuestros contactos.
-
-1. En el cuadro de la entrada de texto **Nombre de controlador**, escriba "CmController" como nombre del controlador.
+1. En el cuadro de la entrada de texto **Nombre de controlador**, escriba "CmController" como nombre del controlador. 
 
 	![Cuadro de diálogo New Data Context](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss5.PNG)
 
@@ -298,7 +299,7 @@ La siguiente tarea consiste en habilitar la función [Migraciones de Code First]
 
 	![Package Manager Console en el menú Herramientas](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/SS6.png)
 
-2. En la ventana **Consola del Administrador de paquetes**, escriba el siguiente comando:
+2. En la ventana **Consola del Administrador de paquetes **, escriba el siguiente comando:
 
 		enable-migrations
 
@@ -313,7 +314,7 @@ La siguiente tarea consiste en habilitar la función [Migraciones de Code First]
 
 	En la clase **Initial**, el método **Up** crea la tabla Contacts y el método **Down** (que se utiliza cuando se desea volver al estado anterior) la anula.
 
-3. Abra el archivo *Migrations\\Configuration.cs*.
+3. Abra el archivo *Migrations\Configuration.cs*. 
 
 4. Agregue la siguiente instrucción `using`.
 
@@ -374,6 +375,7 @@ La siguiente tarea consiste en habilitar la función [Migraciones de Code First]
 
 	Este código inicializa la base de datos con la información de contactos. Para obtener más información acerca de la inicialización de la base de datos, consulte [Inicialización y depuración de bases de datos de Entity Framework (EF)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
 
+
 6. En **Consola del Administrador de paquetes**, escriba el comando:
 
 		update-database
@@ -387,6 +389,8 @@ La siguiente tarea consiste en habilitar la función [Migraciones de Code First]
 	La aplicación muestra los datos de inicialización y ofrece enlaces de edición, detalles y eliminación. Puede crear, editar, eliminar y ver los datos.
 
 	![Vista MVC de los datos][rx2]
+
+
 
 ## Incorporación de un proveedor de OAuth2
 
@@ -406,15 +410,15 @@ Además de la autenticación, este tutorial también usa roles para implementar 
 
 En esta sección, agregará un usuario local y el rol *canEdit* a la base de datos de suscripciones. Únicamente los usuarios incluidos en el rol *canEdit* podrán editar los datos. Es recomendable nombrar los roles en función de las acciones que pueden realizar, por lo que el nombre *canEdit* es más aconsejable que *admin*. A medida que la aplicación evoluciona, puede agregar nuevos roles del tipo *canDeleteMembers*, en lugar de *superAdmin*, que no es muy descriptivo.
 
-1. Abra el archivo *migrations\\configuration.cs* y agregue las siguientes instrucciones `using`:
+1. Abra el archivo *migrations\configuration.cs* y agregue las siguientes instrucciones `using`:
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
 
 1. Agregue el siguiente método **AddUserAndRole** a la clase:
 
-		bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
-		{
+		 bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
+		 {
 		    IdentityResult ir;
 		    var rm = new RoleManager<IdentityRole>
 		        (new RoleStore<IdentityRole>(context));
@@ -451,8 +455,7 @@ En esta sección, agregará un usuario local y el rol *canEdit* a la base de dat
 
 En esta sección, modificará temporalmente el método **ExternalLoginConfirmation** del controlador de cuentas para agregar a los nuevos usuarios que se registran con un proveedor de OAuth en el rol *canEdit*. En el futuro, esperamos ofrecer una herramienta similar a [WSAT](http://msdn.microsoft.com/library/ms228053.aspx) que le permita crear y editar cuentas y roles de usuario. Hasta entonces, puede realizar la misma función mediante código temporal.
 
-1. Abra el archivo **Controllers\\AccountController.cs** y desplácese hasta el método **ExternalLoginConfirmation**.
-
+1. Abra el archivo **Controllers\AccountController.cs** y desplácese hasta el método **ExternalLoginConfirmation**.
 1. Agregue la siguiente llamada a **AddToRoleAsync** justo antes de la llamada a **SignInAsync**.
 
 		await UserManager.AddToRoleAsync(user.Id, "canEdit");
@@ -509,7 +512,8 @@ En esta sección, se aplica el atributo [Authorize](http://msdn.microsoft.com/li
 
 1. Abra el archivo *App\_Start\\FilterConfig.cs* y reemplace el método *RegisterGlobalFilters* con el siguiente código (que agrega los dos filtros):
 
-		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+		public static void
+		RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
 		    filters.Add(new HandleErrorAttribute());
 		    filters.Add(new System.Web.Mvc.AuthorizeAttribute());
@@ -532,7 +536,7 @@ En esta sección, se aplica el atributo [Authorize](http://msdn.microsoft.com/li
 
 	Si realiza una búsqueda global de *AllowAnonymous*; puede ver que se usa en los métodos de inicio de sesión y registro del controlador de cuentas.
 
-1. En *CmController.cs*, agregue `[Authorize(Roles = "canEdit")]` a los métodos HttpGet y HttpPost que cambian los datos (todos los métodos de acción [Create, Edit, Delete] excepto Index y Details) del controlador *Cm*. A continuación, se muestra un fragmento del código final:
+1. En *CmController.cs*, agregue `[Authorize(Roles = "canEdit")]` a los métodos HttpGet y HttpPost que cambian los datos (todos los métodos de acción [Create, Edit, Delete] excepto Index y Details) del controlador *Cm*. A continuación, se muestra un fragmento del código final: 
 
 		// GET: Cm/Create
 		[Authorize(Roles = "canEdit")]
@@ -580,7 +584,7 @@ En esta sección, se aplica el atributo [Authorize](http://msdn.microsoft.com/li
 
 1. Haga clic en los enlaces **Acerca de** o **Contacto**. Se le redirigirá a la página de inicio de sesión porque los usuarios anónimos no pueden ver esas páginas.
 
-1. Haga clic en el vínculo **Registrar como nuevo usuario** y agregue un usuario local con el correo electrónico **joe@contoso.com*. Compruebe que *Joe* pueda ver las páginas principal, About y Contact.
+1. Haga clic en el vínculo **Registrar como nuevo usuario** y agregue un usuario local con el correo electrónico *joe@contoso.com*. Compruebe que *Joe* pueda ver las páginas principal, About y Contact.
 
 	![login](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
@@ -652,7 +656,7 @@ En esta sección, se aplica el atributo [Authorize](http://msdn.microsoft.com/li
 
 5. Vuelva a Visual Studio y haga clic en **Publicar**.
 
-3. La aplicación de Azure se abre en el explorador predeterminado. Si ha iniciado sesión, ciérrela para ver la página principal como un usuario anónimo.
+3. La aplicación de Azure se abre en el explorador predeterminado. Si ha iniciado sesión, ciérrela para ver la página principal como un usuario anónimo.  
 
 4. Haga clic en el enlace **Acerca de**. Se le redirigirá a la página de inicio de sesión.
 
@@ -678,7 +682,8 @@ En esta sección, se aplica el atributo [Authorize](http://msdn.microsoft.com/li
 
 	**Nota:** no puede cerrar sesión en Google desde esta aplicación e iniciar sesión en otra cuenta de Google con el mismo explorador. Si utiliza un solo explorador, debe ir al sitio de Google y cerrar sesión desde allí. Puede iniciar sesión con otra cuenta del mismo autenticador externo (como Google) si utiliza un explorador diferente.
 
-	Si no ha proporcionado aún el nombre y apellido en la información de su cuenta de Google, se producirá una excepción NullReferenceException.
+Si no ha proporcionado aún el nombre y apellido en la información de su cuenta de Google, se producirá una excepción NullReferenceException.
+
 
 ## Examen de la base de datos SQL de Azure ##
 

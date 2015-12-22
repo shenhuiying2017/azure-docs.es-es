@@ -195,7 +195,13 @@ La tabla resume las métricas de rendimiento y contadores que se midieron en la 
 
 |Métrica|Contador|
 |---|---|
-|CPU|\\Procesador(\_Total)\\% Hora del procesador| |Memoria disponible|\\Memoria\\MB disponibles| |E/S|\\Disco físico(\_Total)\\Transferencias de disco/s| |Operaciones de lectura de VM por segundo (E/S)/s|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Operaciones de lectura/s| |Operaciones de escritura de VM por segundo (E/S)/s|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Operaciones de escritura/s| |Rendimiento de lectura de VM|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Bytes leídos/s| |Rendimiento de escritura de VM|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Bytes escritos/s|
+|CPU|\\Procesador(\_Total)\\% Hora del procesador|
+|Memoria disponible|\\Memoria\\MB disponibles|
+|E/S|\\Disco físico(\_Total)\\Transferencias de disco/s|
+|Operaciones de lectura de VM por segundo (E/S)/s|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Operaciones de lectura/s|
+|Operaciones de escritura de VM por segundo (E/S)/s|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Operaciones de escritura/s|
+|Rendimiento de lectura de VM|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Bytes leídos/s|
+|Rendimiento de escritura de VM|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Bytes escritos/s|
 
 
 ## Pasos siguientes
