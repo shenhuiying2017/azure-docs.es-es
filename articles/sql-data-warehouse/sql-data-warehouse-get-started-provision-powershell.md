@@ -1,3 +1,12 @@
+<properties
+   pageTitle="Create SQL Data Warehouse by using Powershell | Microsoft Azure"
+   description="Create SQL Data Warehouse by using Powershell"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""/>
+
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
