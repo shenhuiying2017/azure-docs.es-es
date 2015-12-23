@@ -800,10 +800,12 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 ##7\. Reglas de negocio de modelo
 Hay 4 tipos de reglas:
-<strong>BlockList</strong>: le permite proporcionar una lista de elementos que no desea devolver en los resultados de la recomendación.
-<strong>Upsale</strong>: le permite exigir los elementos que se devolverán en los resultados de la recomendación.
-<strong>WhiteList</strong>: le permite proporcionar la lista de elementos que solo se pueden devolver como resultados de recomendación (lo contrario a BlockList).
-<strong>PerSeedBlockList</strong>; le permite proporcionar por elemento una lista de elementos que no se pueden devolver como resultados de recomendación.
+- <strong>BlockList</strong>: le permite proporcionar una lista de elementos que no desea devolver en los resultados de la recomendación.
+- <strong>FeatureBlockList</strong>: FeatureBlockList le permite bloquear los elementos basados en los valores de sus características.
+- <strong>Upsale</strong>: le permite exigir los elementos que se devolverán en los resultados de la recomendación.
+- <strong>WhiteList</strong>: le permite proporcionar la lista de elementos que solo se pueden devolver como resultados de recomendación (lo contrario a BlockList).
+- <strong>FeatureWhiteList</strong>: FeatureWhiteList solo le permite recomendar elementos que tienen valores de características específicos.
+- <strong>PerSeedBlockList</strong>; le permite proporcionar por elemento una lista de elementos que no se pueden devolver como resultados de recomendación.
 
 
 ###7\.1. Obtener reglas de modelo
@@ -864,7 +866,7 @@ OData XML
 	</entry>
 	</feed>
 
-###7\.2. Agregar regla
+###7.2. Agregar regla
 
 | Método HTTP | URI |
 |:--------|:--------|
@@ -877,7 +879,17 @@ OData XML
 |||
 | Cuerpo de la solicitud | 
 <ins>Cada vez que se proporcionen identificadores de elemento para reglas de negocio, asegúrese de usar el Id. externo del elemento (el mismo Id. que usó en el archivo de catálogo)</ins><br>
-<ins>Para agregar la regla BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Para agregar la regla Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Para agregar la regla WhiteList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>Para agregar la regla PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+<ins>Para agregar la regla BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
+<ins>Para agregar una regla FeatureBlockList:</ins><br>
+<br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
+Para agregar la regla Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br>
+<ins>Para agregar la regla WhiteList:</ins><br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
+<ins>Para agregar una regla FeatureWhiteList:</ins><br>
+<br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
+Para agregar la regla PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **Respuesta**:
 
@@ -1121,7 +1133,7 @@ OData XML
 	</entry>
 	</feed>
 
-### 8\.3. Obtener elementos de catálogo por token
+###8.3. Obtener elementos de catálogo por token
 
 | Método HTTP | URI |
 |:--------|:--------|
