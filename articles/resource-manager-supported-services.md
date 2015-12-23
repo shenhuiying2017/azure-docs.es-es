@@ -34,8 +34,8 @@ En las tablas siguientes se muestra qué servicios admiten la implementación y 
 | Lote | Sí | [í (solo clásico)](https://portal.azure.com/#create/Microsoft.BatchAccount) | Sí | [REST de Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics Lifecycle Services | Sí | No | | | |
 | Máquinas virtuales (clásicas) | Limitado | Sí, muchas opciones | Parcial (ver a continuación) | - | - |
-| RemoteApp | No | No | - | - | - |
-| Service Fabric | No | No | - | - | - |
+| RemoteApp | No   | No | -              | -        | -      |
+| Service Fabric | No | No | -           | -        | -      |
 
 Máquinas virtuales (clásicas) hace referencia a recursos que se implementaron mediante el modelo de implementación clásica, en lugar de a través del modelo de implementación del Administrador de recursos. En general, estos recursos no admiten las operaciones del Administrador de recursos, pero hay algunas operaciones que se han habilitado. Para obtener más información sobre estos modelos de implementación, consulte [Descripción de la implementación del Administrador de recursos y la implementación clásica](resource-manager-deployment-model.md).
 
