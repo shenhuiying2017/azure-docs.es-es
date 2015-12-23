@@ -1,12 +1,3 @@
-<properties
-   pageTitle="Crear Almacenamiento de datos SQL mediante el uso de Powershell | Microsoft Azure"
-   description="Creación de Almacenamiento de datos SQL con Powershell"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
-
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
