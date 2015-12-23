@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Crear Almacenamiento de datos SQL mediante el uso de Powershell | Microsoft Azure"
-   description="Creación de Almacenamiento de datos SQL con Powershell"
+   pageTitle="Create SQL Data Warehouse by using Powershell | Microsoft Azure"
+   description="Create SQL Data Warehouse by using Powershell"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -71,4 +71,4 @@ Si está interesado en obtener más información sobre cómo administrar el Alma
 [firewall rules]: https://azure.microsoft.com/es-ES/documentation/articles/sql-database-configure-firewall-settings/
 [Instalación y configuración de Azure PowerShell]: powershell-install-configure.md
 
-<!-----HONumber=AcomDC_1210_2015-->
+<!------HONumber=AcomDC_1210_2015-->
