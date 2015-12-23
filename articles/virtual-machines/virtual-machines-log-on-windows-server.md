@@ -18,7 +18,7 @@
 	ms.author="cynthn"/>
 
 
-# Inicie sesión en una máquina virtual de Windows mediante el Portal de Azure clásico.
+# Inicio de sesión en una máquina virtual Windows mediante el Portal de Azure clásico
 
 
 
@@ -61,4 +61,4 @@ A continuación se indican algunas cosas que puede probar:
 
 Si esas sugerencias no funcionan o no son lo que necesita, vea [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
