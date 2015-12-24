@@ -42,7 +42,7 @@ Antes de ejecutar la herramienta:
 	- Si está replicando servidores físicos, debe realizar los cálculos manualmente.
 
 ## Ejecución de Quick Planner
-1.	Descargue y abra la herramienta [Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). Como debe ejecutar macros, seleccione las opciones de permitir la edición y de habilitar el contenido cuando se le solicite. 
+1.	Descargue y abra la herramienta [Capacity Planner de Azure Site Recovery](http://aka.ms/asr-capacity-planner-excel). Como debe ejecutar macros, seleccione las opciones de permitir la edición y de habilitar el contenido cuando se le solicite. 
 2.	En **Select a planner type** (Seleccione un tipo de planeador), seleccione **Quick Planner** (Planificador rápido) en el cuadro de lista.
 
 	![Introducción](./media/site-recovery-capacity-planner/getting-started.png)
@@ -80,12 +80,12 @@ Antes de ejecutar la herramienta:
 ## Ejecución de Detailed Planner
 
 
-1.	Descargue y abra la herramienta [Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). Como debe ejecutar macros, seleccione las opciones de permitir la edición y de habilitar el contenido cuando se le solicite. 
+1.	Descargue y abra la herramienta [Capacity Planner de Azure Site Recovery](http://aka.ms/asr-capacity-planner-excel). Como debe ejecutar macros, seleccione las opciones de permitir la edición y de habilitar el contenido cuando se le solicite. 
 2.	En **Select a planner type** (Seleccione un tipo de planeador), seleccione **Detailed Planner** (Planeador detallado) en el cuadro de lista.
 
 	![Introducción](./media/site-recovery-capacity-planner/getting-started-2.png)
 
-3.	En la hoja de cálculo **Workload Qualification**, escriba la información necesaria. Debe rellenar todos los campos marcados.
+3.	En la hoja de cálculo **Calificación de infraestructura**, escriba la información necesaria. Debe rellenar todos los campos marcados.
 
 	- En **Processor cores** (Núcleos del procesador), especifique el número total de núcleos en un servidor de origen.
 	- En **Memory Allocation in MB** (Asignación de memoria en MB), especifique el tamaño de la RAM de un servidor de origen. 
