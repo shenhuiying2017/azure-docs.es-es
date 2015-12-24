@@ -23,7 +23,8 @@ En este tutorial se describe cómo implementar Site Recovery para:
 - **Proteger máquinas virtuales de VMware**: coordinar la replicación, la conmutación por error y la recuperación de máquinas virtuales locales de VMware en Azure.
 - **Proteger servidores físicos**: coordinar la replicación, la conmutación por error y la recuperación de los servidores físicos locales de Windows y Linux en Azure con el servicio Azure Site Recovery.
 
-El artículo incluye una introducción, los requisitos previos a la implementación e instrucciones de configuración. Al final del artículo se replicarán a Azure los servidores físicos o las máquinas virtuales de VMware. Si tiene problemas, envíe sus preguntas al [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+El artículo incluye una introducción, los requisitos previos a la implementación e instrucciones de configuración. Al final del artículo se replicarán a Azure los servidores físicos o las máquinas virtuales de VMware.
+Si tiene problemas, envíe sus preguntas al [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## ¿Qué es Azure Site Recovery?
@@ -228,7 +229,8 @@ Compruebe la barra de estado para confirmar que el almacén se ha creado correct
 4. En **Nuevos detalles del servidor de configuración**, especifique:
 
 	- Un nombre del servidor de configuración y las credenciales para conectarse a él.
-	- En el desplegable de tipos de conectividad de red seleccione Internet pública o VPN.[AZURE.NOTE]Esta es una opción que se realiza en el tiempo de implementación y que no se podrá cambiar posteriormente.  
+	- En el desplegable de tipos de conectividad de red seleccione Internet pública o VPN.
+	[AZURE.NOTE]Esta es una opción que se realiza en el tiempo de implementación y que no se podrá cambiar posteriormente.  
 	- Seleccione la red en la que se debe encontrar el servidor. Si ha especificado VPN como el tipo de conectividad de red, asegúrese de que esta red virtual de Azure está conectada a su sitio local a través de una conexión de ExpressRoute o una VPN de sitio a sitio.
 	- Especifique la dirección IP interna y la subred para asignarlas al servidor. Tenga en cuenta que las cuatro primeras direcciones IP en las subredes están reservadas para uso interno de Azure. Utilice cualquier dirección IP disponible.
 	
@@ -382,7 +384,8 @@ Tenga en cuenta que las cuatro primeras direcciones IP en las subredes están re
 	1. Asegúrese de que ha instalado los Linux Integration Services (LIS) más recientes antes de instalar el software de servidor de destino maestro. Encontrará la versión más reciente de LIS junto con instrucciones sobre cómo instalar [aquí](https://www.microsoft.com/ES-ES/download/details.aspx?id=46842). Reinicie el equipo después de instalar LIS.
 	2. En **Preparar los recursos de destino (Azure)**, haga clic en **Descargar e instalar software adicional (solo para el servidor de destino principal de Linux)** para descargar el paquete de servidor de destino principal de Linux. Copie el archivo tar descargado en la máquina virtual mediante un cliente sftp. También puede iniciar sesión en el servidor de destino principal de Linux implementado y usar *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* para descargar el archivo.
 	2. Inicie sesión en el servidor mediante un cliente de Secure Shell. Tenga en cuenta que si está conectado a la red de Azure a través de VPN, utilice la dirección IP interna. En caso contrario, utilice la dirección IP externa y el extremo público SSH.
-	3. Extraiga los archivos del instalador comprimidos con gzip ejecutando: **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Servidor de destino principal de Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
+	3. Extraiga los archivos del instalador comprimidos con gzip ejecutando: **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64***
+	![Servidor de destino principal de Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
 	4. Asegúrese de que se encuentra en el directorio en el que extrajo el contenido del archivo tar.
 	5. Copie la frase de contraseña del servidor de configuración en un archivo local con el comando **echo *`<passphrase>`* >passphrase.txt**
 	6. Ejecute el comando “**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**”.
@@ -757,8 +760,10 @@ Si un servidor de procesos está en un estado crítico, se mostrará una adverte
 
 1. Vaya a la página **SERVIDORES DE CONFIGURACIÓN**, en **SERVIDORES**.
 2. Haga clic en el nombre del servidor de configuración y vaya a **Detalles del servidor**.
-3. En la lista **Servidores de procesos**, haga clic en **Cambiar servidor de procesos** junto al servidor que desea modificar. ![Cambiar servidor de proceso 1](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS1.png)
-4. En el cuadro de diálogo **Cambiar servidor de procesos**, seleccione el servidor nuevo en **Servidor de proceso de destino** y después seleccione las máquinas virtuales que se van a replicar en el nuevo servidor. Haga clic en el icono de información junto al nombre del servidor para ver información sobre él, como el espacio disponible o la memoria usada. El espacio medio que será necesario para replicar cada máquina virtual seleccionada en el nuevo servidor de procesos se muestra para ayudarlo a tomar decisiones de carga. ![Cambiar servidor de proceso 2](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
+3. En la lista **Servidores de procesos**, haga clic en **Cambiar servidor de procesos** junto al servidor que desea modificar.
+	![Cambiar servidor de proceso 1](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS1.png)
+4. En el cuadro de diálogo **Cambiar servidor de procesos**, seleccione el servidor nuevo en **Servidor de proceso de destino** y después seleccione las máquinas virtuales que se van a replicar en el nuevo servidor. Haga clic en el icono de información junto al nombre del servidor para ver información sobre él, como el espacio disponible o la memoria usada. El espacio medio que será necesario para replicar cada máquina virtual seleccionada en el nuevo servidor de procesos se muestra para ayudarlo a tomar decisiones de carga.
+	![Cambiar servidor de proceso 2](./media/site-recovery-vmware-to-azure/ASRVMware_ChangePS2.png)
 5. Haga clic en la marca de verificación para empezar a replicar en un nuevo servidor de procesos. Si quita todas las máquinas virtuales de un servidor de procesos que era fundamental, ya no debe mostrarse una advertencia crítica en el panel.
 
 
@@ -766,12 +771,12 @@ Si un servidor de procesos está en un estado crítico, se mostrará una adverte
 
 Do Not Translate or Localize
 
-El software y el firmware que se ejecuta en el producto o servicio de Microsoft incorpora o está basado en material de los proyectos indicados más abajo (conjuntamente, "Código de terceros"). Microsoft is the not original author of the Third Party Code. Microsoft no es el autor original del Código de terceros. El aviso de derechos de autor original y la licencia bajo la cual Microsoft recibió el Código de terceros se exponen a continuación.
+The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”).  Microsoft is the not original author of the Third Party Code.  The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
 
-The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only. Microsoft le otorga la licencia de este Código de terceros según los términos de la concesión de licencias de software de Microsoft para el producto o servicio de Microsoft.
+The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only.  This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.  
 
 The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
-Se puede encontrar el archivo completo en el [Centro de descarga de Microsoft](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft se reserva todos los derechos no otorgados expresamente en este documento, ya sea por implicación, desestimación o de otro modo.
+The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
 <!---HONumber=AcomDC_1210_2015-->
