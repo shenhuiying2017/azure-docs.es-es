@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="09/25/2015"
+	ms.date="12/11/2015"
 	ms.author="wesmc"/>
 
 # Azure Mobile Engagement - Guía de introducción con prácticas recomendadas
@@ -284,7 +284,7 @@ Azure Mobile Engagement identifica a los usuarios mediante la generación de un 
 
 Una sesión es una instancia de la aplicación que ejecuta un usuario. La sesión abarca desde el momento en que el usuario inicia la aplicación hasta que se detiene.
 
-Una actividad es una agrupación lógica de un conjunto de elementos de la aplicación durante una sesión. Suele ser una pantalla concreta de la aplicación pero puede ser que cualquier cosa definida por la lógica de la aplicación. Como mínimo, debe etiquetar cada pantalla o actividad de la aplicación. Esto le permitirá comprender la ruta del usuario.
+Una actividad es una agrupación lógica de un conjunto de acciones que puede realizar la aplicación. Suele ser una pantalla concreta de la aplicación pero puede ser que cualquier cosa definida por la lógica de la aplicación. Como mínimo, debe etiquetar cada pantalla o actividad de la aplicación. Esto le permitirá comprender la ruta del usuario.
 
 
 ###### Eventos
@@ -404,4 +404,4 @@ Una vez conseguida una mayor experiencia, puede agregar lo siguiente a sus progr
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # Qué es el SDK de WebJobs de Azure
@@ -22,11 +22,11 @@
 
 Este artículo explica qué es el SDK de Trabajos web, revisa algunos escenarios habituales en los que resulta de utilidad y ofrece información general acerca de cómo utilizarlo en su código.
 
-[WebJobs](websites-webjobs-resources.md) es una característica del Servicio de aplicaciones de Azure que le permite ejecutar un programa o script en el mismo contexto que una aplicación web. El objetivo del SDK de Trabajos web consiste en simplificar la tarea de escribir el código que se ejecuta como Trabajo web y funciona con las colas, los blobs y las tablas de Almacenamiento de Azure y con las colas del Bus de servicio.
+[WebJobs](websites-webjobs-resources.md) es una característica del Servicio de aplicaciones de Azure que le permite ejecutar un programa o script en el mismo contexto que una aplicación web, una aplicación de API o una aplicación móvil. El propósito del [SDK de WebJobs](websites-webjobs-resources.md) es simplificar el código que escriba para las tareas comunes que puede realizar un trabajo web, como procesamiento de imágenes, procesamiento de colas, agregación de RSS, mantenimiento de archivos y envío de correos electrónicos. El SDK de WebJobs tiene características integradas para trabajar con Almacenamiento de Azure y Bus de servicio, para programar tareas y controlar errores, y para muchos otros escenarios comunes. Además, se ha diseñado para ser extensible y hay un [repositorio de código abierto para las extensiones](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
 El SDK de WebJobs incluye los siguientes componentes:
 
-* **Paquetes NuGet**. Los paquetes NuGet que se agregan a un proyecto de la aplicación de consola en Visual Studio proporcionan un marco de trabajo que usa el código para funcionar con el servicio de Almacenamiento de Azure o con las colas del bus de servicio.   
+* **Paquetes NuGet**. Los paquetes NuGet que se agregan a un proyecto de la aplicación de consola en Visual Studio proporcionan un marco de trabajo que usa el código mediante la decoración de los métodos con atributos del SDK de WebJobs.
   
 * **Panel**. Parte del SDK de WebJobs se incluye en Servicio de aplicaciones de Azure y proporciona una supervisión y un diagnóstico completos para los programas que utilizan paquetes NuGet. No es necesario escribir código para usar estas características de supervisión y diagnóstico.
 
@@ -46,11 +46,17 @@ Estos son algunos de los escenarios típicos que puede controlar más fácilment
 
 * Otras tareas con una ejecución prolongada que desee ejecutar en un subproceso en segundo plano, como el [envío de correos electrónicos](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure).
 
+* Las tareas que desea ejecutar en una programación, como realizar una operación de copia de seguridad cada noche.
+
 En muchos de estos escenarios, es posible que desee escalar una aplicación web para que ejecute varias máquinas virtuales, las que ejecutarán varios WebJobs de manera simultánea. En algunos escenarios, esto podría hacer que los mismos datos se procesen varias veces, pero esto no supone un problema cuando se usan los desencadenadores de colas, blobs y bus de servicio integrados del SDK de WebJobs. El SDK garantiza que las funciones se procesarán una sola vez para cada mensaje o blob.
+
+El SDK de WebJobs también facilita el control de los escenarios de control de errores comunes. Puede configurar alertas para enviar notificaciones cuando se produce un error en una función y puede establecer tiempos de espera para que una función se cancele automáticamente si no se completa dentro de un límite de tiempo especificado.
 
 ## <a id="code"></a>Ejemplos de código
 
-El código para controlar las tareas comunes que se realizan con Almacenamiento de Azure es sencillo. En una aplicación de consola, escriba los métodos para las tareas en segundo plano que desee ejecutar y represéntelas con atributos del SDK de WebJobs. El método `Main` crea un objeto `JobHost` que coordina las llamadas a los métodos que escriba. El marco de trabajo del SDK de WebJobs sabrá cuándo llamar a los métodos en función de los atributos del SDK de WebJobs que use en ellos.
+El código para controlar las tareas comunes que se realizan con Almacenamiento de Azure es sencillo. En el método `Main` de la aplicación de consola crea un objeto `JobHost` que coordina las llamadas a los métodos que escriba. El marco de trabajo del SDK de WebJobs sabe cuándo llamar a los métodos y qué valores de parámetros utilizar en función de los atributos del SDK de WebJobs que use en ellos. El SDK proporciona *desencadenadores* que especifican qué condiciones causan la llamada a la función y *enlazadores* que especifican cómo obtener información dentro y fuera de los parámetros del método.
+
+Por ejemplo, el atributo [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md) genera la llamada a una función cuando se recibe un mensaje en una cola, y si el formato del mensaje es JSON para una matriz de bytes o un tipo personalizado, el mensaje se deserializa automáticamente. El atributo [BlobTrigger](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) desencadena un proceso cada vez que se crea un blob nuevo en una cuenta de Almacenamiento de Azure.
 
 Este es un simple programa que sondea una cola y crea un blob para cada mensaje de la cola recibido:
 
@@ -79,9 +85,77 @@ A continuación, la función usa estos parámetros para escribir el valor del me
 
 		writer.WriteLine(inputText);
 
-Las características de desencadenamiento y enlace del SDK de WebJobs simplifican enormemente el código que se debe escribir para trabajar con colas de Almacenamiento de Azure y de Bus de servicio. El marco de trabajo del SDK de WebJobs se encarga de escribir el código de bajo nivel necesario para controlar el procesamiento de colas y de blobs, es decir, el marco de trabajo crea colas que no existen aún, abre la cola, lee sus mensajes, los elimina cuando se ha completado el procesamiento, crea contenedores de blobs que no existen aún, escribe en los blobs, etc.
+Las características de desencadenamiento y enlace del SDK de WebJobs simplifican enormemente el código que se debe escribir. El código de bajo nivel necesario para procesar las colas, los blobs o los archivos, o para iniciar tareas programadas, lo hace automáticamente el marco de trabajo del SDK de WebJobs. Por ejemplo, el marco de trabajo crea colas que no existen aún, abre la cola, lee sus mensajes, los elimina cuando se ha completado el procesamiento, crea contenedores de blobs que no existen aún, escribe en los blobs, etc.
 
-El SDK de WebJobs ofrece diversas formas de trabajar con Almacenamiento de Azure. Por ejemplo, si el parámetro que representa con el atributo `QueueTrigger` es una matriz de bytes o un tipo personalizado, se deserializa automáticamente desde JSON. Además, puede usar un atributo `BlobTrigger` para desencadenar un proceso cada vez que se cree un blob nuevo en su cuenta de Almacenamiento de Azure. (Tenga en cuenta que mientras que `QueueTrigger` encuentra nuevos mensajes de cola en tan solo unos segundos, `BlobTrigger` puede tardar hasta 20 minutos en detectar un blob nuevo. `BlobTrigger` busca blobs siempre que se inicia `JobHost` y, después, comprueba periódicamente los registros de Almacenamiento de Azure para detectar blobs nuevos).
+En el ejemplo de código siguiente se muestra una variedad de desencadenadores en un trabajo web: `QueueTrigger`, `FileTrigger`, `WebHookTrigger` y `ErrorTrigger`.
+
+```
+    public class Functions
+    {
+        public static void ProcessQueueMessage([QueueTrigger("queue")] string message,
+        TextWriter log)
+        {
+            log.WriteLine(message);
+        }
+
+        public static void ProcessFileAndUploadToBlob(
+            [FileTrigger(@"import\{name}", "*.*", autoDelete: true)] Stream file,
+            [Blob(@"processed/{name}", FileAccess.Write)] Stream output,
+            string name,
+            TextWriter log)
+        {
+            output = file;
+            file.Close();
+            log.WriteLine(string.Format("Processed input file '{0}'!", name));
+        }
+
+        [Singleton]
+        public static void ProcessWebHookA([WebHookTrigger] string body, TextWriter log)
+        {
+            log.WriteLine(string.Format("WebHookA invoked! Body: {0}", body));
+        }
+
+        public static void ProcessGitHubWebHook([WebHookTrigger] string body, TextWriter log)
+        {
+            dynamic issueEvent = JObject.Parse(body);
+            log.WriteLine(string.Format("GitHub WebHook invoked! ('{0}', '{1}')",
+                issueEvent.issue.title, issueEvent.action));
+        }
+
+        public static void ErrorMonitor(
+        [ErrorTrigger("00:01:00", 1)] TraceFilter filter, TextWriter log,
+        [SendGrid(
+            To = "admin@emailaddress.com",
+            Subject = "Error!")]
+         SendGridMessage message)
+        {
+            // log last 5 detailed errors to the Dashboard
+            log.WriteLine(filter.GetDetailedMessage(5));
+            message.Text = filter.GetDetailedMessage(1);
+        }
+    }
+```
+
+## <a id="schedule"></a> Programación
+
+El atributo `TimerTrigger` permite desencadenar funciones para ejecutarlas en una programación. Puede programar un trabajo web como un conjunto a través de Azure o de funciones individuales programadas de un trabajo web mediante la utilización del SDK de WebJobs `TimerTrigger`. A continuación se presenta un ejemplo de código.
+
+```
+public class Functions
+{
+    public static void ProcessTimer([TimerTrigger("*/15 * * * * *", RunOnStartup = true)]
+    TimerInfo info, [Queue("queue")] out string message)
+    {
+        message = info.FormatNextOccurrences(1);
+    }
+}
+```
+
+Para obtener más código de ejemplo, consulte [TimerSamples.cs](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/ExtensionsSample/Samples/TimerSamples.cs) en el repositorio azure-webjobs-sdk-extensions de GitHub.com.
+
+## Extensibilidad
+
+No está limitado a la funcionalidad integrada; el SDK de WebJobs permite escribir desencadenadores y enlazadores personalizados. Por ejemplo, puede escribir desencadenadores de eventos de caché y programaciones periódicas. Un [repositorio de código abierto](https://github.com/Azure/azure-webjobs-sdk-extensions) contiene un [guía detallada de la extensibilidad del SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) y código de ejemplo que le ayudarán a escribir sus propios desencadenadores y enlazadores.
 
 ## <a id="workerrole"></a>Uso del SDK de WebJobs fuera de WebJobs
 
@@ -89,19 +163,21 @@ Un programa que utiliza el SDK de WebJobs es una aplicación de consola estánda
 
 Sin embargo, el panel solo está disponible como una extensión para una aplicación web del Servicio de aplicaciones de Azure. Si desea ejecutarlo fuera de un trabajo web y seguir utilizando el Panel, puede configurar una aplicación web para que utilice la misma cuenta de almacenamiento a la que hace referencia la cadena de conexión del Panel del SDK de WebJobs, y el Panel de WebJobs de esa aplicación web mostrará entonces información acerca de la ejecución de la función de su programa que se está ejecutando fuera. Puede obtener acceso al Panel utilizando la dirección URL https://*{webappname}*.scm.azurewebsites.net/azurejobs/#/functions. Para obtener más información, consulte [Cómo obtener un panel para desarrollo local con el SDK de WebJobs](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), pero tenga en cuenta que la entrada del blog muestra un nombre de cadena de conexión antiguo.
 
-## <a id="nostorage"></a>Uso del SDK de WebJobs para invocar cualquier función
+## <a id="nostorage"></a>Características del panel
 
-El SDK de Trabajos web proporciona varias ventajas, incluso si no necesita trabajar directamente con colas, tablas o blobs de Almacenamiento de Azure o colas del Bus de servicio:
+El SDK de WebJobs proporciona varias ventajas, incluso aunque no utilice los desencadenadores o enlazadores del SDK de WebJobs:
 
 * Puede invocar funciones desde el Panel.
 * Puede reproducir funciones desde el Panel.
 * Puede ver los registros en el Panel, vinculados al trabajo web específico (registros de aplicación, escritos usando Console.Out, Console.Error, Trace, etc.) o vinculados a la invocación de función determinada que los generó (registros escritos usando un objeto `TextWriter` que el SDK pasa a la función como parámetro). 
 
-* Para obtener más información, consulte [Invocación de una función manualmente](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) y [Escritura de registros](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)
+Para obtener más información, consulte [Invocación de una función manualmente](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) y [Escritura de registros](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)
 
 ## <a id="nextsteps"></a>Pasos siguientes
 
 Para obtener información acerca del SDK de WebJobs, consulte [Recursos recomendados de WebJobs de Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+
+Para obtener información sobre las últimas mejoras del SDK de WebJobs, consulte las [notas de la versión](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

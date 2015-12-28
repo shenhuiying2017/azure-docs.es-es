@@ -32,15 +32,16 @@ Consulte [Introducción a Application Insights para aplicaciones de la Tienda Wi
 * Compare las versiones antigua y nueva de ApplicationInsights.config. Vuelva a combinar las personalizaciones realizadas en la versión anterior.
 * Vuelva a generar la solución.
 
-## Versión 1.2
+## Versión 1.1.1
 
-### SDK para aplicaciones de Windows
+### Windows SDK
 
-- Corregida una excepción FileNotFound que impedía que se enviaran telemetrías persistentes después de volver a abrir la aplicación.
+- Corrija la situación cuando un equipo deja de responder durante un bloqueo mientras se usa el SDK de Silverlight de Windows Phone. Después de este cambio, se conservará en el disco cualquier bloqueo que se produzca unos 2 segundos después de la llamada a WindowsAppInitialier.InitializeAsync(...) y se enviará la próxima vez que se inicie la aplicación. Si se produce un bloqueo antes de unos 2 segundos después de la llamada, se omitirá.  
+- Establezca las dependencias de NuGet en una versión específica de Core y Microsoft.ApplicationInsights.PersistenceChannel (v1.2.3).   
 
 ### SDK básico
 
-- Primera versión del SDK de Application Insights enviado desde [github](http://github.com/microsoft/ApplicationInsights-dotnet)
+- Core se administra en github. Encontrará las notas de la futura versión del SDK de Core [en github](http://github.com/Microsoft/ApplicationInsights-dotnet/releases)
 
 ## Versión 1.1
 
@@ -94,4 +95,4 @@ Vista previa del 28-04-2015
 
 No existen notas de la versión para versiones anteriores.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

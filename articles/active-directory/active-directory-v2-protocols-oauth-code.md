@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Versión preliminar del modelo de aplicaciones v2.0: protocolos, flujo de código de autorización de OAuth 2.0
@@ -230,4 +230,4 @@ En un nivel alto, el flujo de autenticación completo para una aplicación nativ
 
 ![Flujo de código de autenticación de OAuth](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

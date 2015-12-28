@@ -14,19 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure"
-   ms.date="09/01/2015"
+   ms.date="12/08/2015"
    ms.author="rasquill"/>
 
 # Crear una identidad profesional o educativa en Azure Active Directory
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Si creó una cuenta de Azure personal o tiene una suscripción a MSDN personal y creó la cuenta de Azure para beneficiarse de los créditos de Azure de MSDN, usó una identidad de *cuenta Microsoft* para crearla. Muchas características excelentes de Azure (las [plantillas de grupo de recursos](../resource-group-overview.md) son un ejemplo) requieren una cuenta profesional o educativa (una identidad administrada por Azure Active Directory) para que funcione.
+Si creó una cuenta de Azure personal o tiene una suscripción a MSDN personal y creó la cuenta de Azure para beneficiarse de los créditos de Azure de MSDN, usó una identidad de *cuenta Microsoft* para crearla. Muchas características excelentes de Azure (las [plantillas de grupo de recursos](../resource-group-overview.md) son un ejemplo) requieren una cuenta profesional o educativa (una identidad administrada por Azure Active Directory) para que funcione. Puede seguir las instrucciones que se indican a continuación para crear una cuenta profesional o educativa porque, afortunadamente, una de las ventajas de su cuenta de Azure personal es que se incluye con un dominio de Azure Active Directory predeterminado que se puede usar para crear una nueva cuenta profesional o educativa que puede usar con las características de Azure que lo requieran.
 
+Sin embargo, los cambios recientes hacen posible la administración de su suscripción con cualquier tipo de cuenta de Azure mediante el método de inicio de sesión interactivo `azure login` que se describe [aquí](../xplat-cli-connect.md). Puede usar ese mecanismo o seguir las instrucciones que se indican a continuación.
 
-Afortunadamente, una de las ventajas de su cuenta de Azure personal es que se incluye con un dominio de Azure Active Directory predeterminado que se puede usar para crear una nueva cuenta profesional o educativa que puede usar con las características de Azure que lo requieran.
-
-> [AZURE.NOTE]Si se le asignó un nombre de usuario y una contraseña por un administrador, hay muchas posibilidades de que ya disponga de un id. profesional o educativo (también denominado en ocasiones *id. de organización*). Si es así, puede comenzar inmediatamente a usar su cuenta de Azure para acceder a recursos de Azure que lo requieran. Si descubre que no puede usar esos recursos, puede que necesite volver a este artículo para obtener ayuda. Para obtener más información, vea [Cuentas que puede usar para iniciar sesión](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) y [Cómo se relaciona una suscripción de Azure con Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
+> [AZURE.NOTE]Si se le asignó un nombre de usuario y una contraseña por un administrador, hay muchas posibilidades de que ya disponga de un id. profesional o educativo (también denominado en ocasiones *id. de organización*). Si es así, puede comenzar inmediatamente a usar su cuenta de Azure para acceder a recursos de Azure que lo requieran. Si descubre que no puede usar esos recursos, puede que necesite volver a este artículo para obtener ayuda. Para más información, vea [Cuentas que puede usar para iniciar sesión](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) y [Cómo se relaciona una suscripción de Azure con Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
 
 Los pasos son sencillos. Necesita encontrar la identidad con la que ha iniciado sesión en el portal de Azure clásico, descubrir su dominio de Azure Active Directory predeterminado y agregarle un nuevo usuario como coadministrador de Azure.
 
@@ -62,7 +61,7 @@ En la parte inferior de la página, haga clic en **+AGREGAR USUARIO**. En la pá
 
 ![](./media/resource-group-create-work-id-from-personal/addingauserwithdirectorydropdown.png)
 
-Agregue más detalles para Ahmet, pero asegúrese de seleccionar el valor de **ROL** adecuado. Es sencillo usar **Administrador global** para asegurarse de que todo funciona, pero si puede utilizar un rol menor, es una buena idea. En este ejemplo se usa el rol **Usuario**. (Obtenga más información sobre estos roles [aquí](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1).) No habilite la autenticación multifactor a menos que quiera usar la autenticación multifactor para cada registro de la operación. Haga clic en la siguiente flecha cuando haya terminado.
+Agregue más detalles para Ahmet, pero asegúrese de seleccionar el valor de **ROL** adecuado. Es sencillo usar **Administrador global** para asegurarse de que todo funciona, pero si puede utilizar un rol menor, es una buena idea. En este ejemplo se usa el rol **Usuario**. (Obtenga más información en [Permisos del administrador por rol](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1).) No habilite la autenticación multifactor a menos que quiera usar la autenticación multifactor para cada registro de la operación. Haga clic en la siguiente flecha cuando haya terminado.
 
 ![](./media/resource-group-create-work-id-from-personal/userprofileuseradmin.png)
 
@@ -113,9 +112,9 @@ Al realizarse la operación correctamente, aparecerá algo similar a lo siguient
 
 ## Pasos siguientes
 
-Ahora puede usar su nueva identidad de Azure Active Directory para usar [plantillas de grupo de recursos de Azure](xplat-cli-azure-resource-manager.md).
+Ahora puede usar su nueva identidad de Azure Active Directory para usar [plantillas de grupo de recursos de Azure](../xplat-cli-azure-resource-manager.md).
 
-     azure login
+    azure login
     info:    Executing command login
     warn:    Please note that currently you can login only via Microsoft organizational account or service principal. For instructions on how to set them up, please read http://aka.ms/Dhf67j.
     Username: ahmet@aztrainpassxxxxxoutlook.onmicrosoft.com
@@ -144,4 +143,4 @@ Ahora puede usar su nueva identidad de Azure Active Directory para usar [plantil
     data:
     info:    group create command OK
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

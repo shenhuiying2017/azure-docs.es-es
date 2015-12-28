@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Vista previa del modelo de aplicaciones v2.0: agregar inicio de sesión a una aplicación de escritorio de Windows
@@ -40,20 +40,20 @@ El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQu
 
 La aplicación completa se ofrece también al final de este tutorial.
 
-## 1\. Registrar una aplicación
+## 1. Registrar una aplicación
 Cree una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md). Asegúrese de que:
 
 - Anotar el **Id. de aplicación** asignado a su aplicación; lo necesitará pronto.
 - Agregar la plataforma **Móvil** a la aplicación.
 - Copiar el **URI de redirección** desde el portal. Debe usar el valor predeterminado de `urn:ietf:wg:oauth:2.0:oob`.
 
-## 2\. Instalar y configurar ADAL
+## 2. Instalar y configurar ADAL
 Ahora que ya tiene una aplicación registrada en Microsoft, puede instalar ADAL y escribir código relacionado con identidades. Para que ADAL pueda comunicarse con el extremo v2.0, tiene que proporcionarle información sobre el registro de la aplicación.
 
--	Comience agregando ADAL al proyecto TodoListClient con la Consola del Administrador de paquetes.
+-    Comience agregando ADAL al proyecto TodoListClient con la Consola del Administrador de paquetes.
 
 ```
-PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease
+PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease 
 ```
 
 -	En el proyecto TodoListClient, abra `app.config`. Reemplace los valores de los elementos de la sección `<appSettings>` para que reflejen los valores especificados en el portal de registro de aplicaciones. El código hará referencia a estos valores cada vez que use ADAL.
@@ -247,4 +247,4 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 Para obtener recursos adicionales, consulte: - [la vista previa del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) - [la etiqueta "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

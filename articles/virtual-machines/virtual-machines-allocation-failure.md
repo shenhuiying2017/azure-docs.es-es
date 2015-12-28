@@ -23,7 +23,7 @@
 
 Cuando se crea una máquina virtual, se reinician las máquinas virtuales detenidas (desasignadas) o se cambia el tamaño de una máquina virtual, Microsoft Azure asigna recursos de proceso a la suscripción. En ocasiones, es posible que reciba errores a realizar estas operaciones incluso antes de llegar a los límites de la suscripción de Azure. En este artículo se explican las causas de algunos de los errores de asignación más comunes y se sugieren posibles soluciones. La información también puede ser útil si tiene pensado realizar la implementación de sus servicios.
 
-Si en cualquier momento necesita más ayuda con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros MSDN Azure o Stack Overflow](http://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio del soporte técnico de Azure](http://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**.
+Si su problema con Azure no se trata en este artículo, visite los [foros de Azure en MSDN y Stack Overflow](https://azure.microsoft.com/support/forums/). Puede registrar su problema en estos foros o en @AzureSupport en Twitter. Además, para presentar una solicitud de soporte técnico de Azure, seleccione **Obtener soporte técnico** en el sitio de [Soporte técnico de Azure](http://azure.microsoft.com/support/options/).
 
 La sección "Solución de problemas de errores de asignación comunes" muestra los pasos necesarios para resolver problemas habituales. La sección "Solución de problemas de escenarios de errores de asignación específicos" ofrece los pasos de resolución por mensaje de error específico. Antes de empezar, le ofrecemos alguna información de contexto que explica cómo funciona la asignación y por qué se producen errores de asignación.
 
@@ -32,17 +32,20 @@ La sección "Solución de problemas de errores de asignación comunes" muestra l
 Los servidores de los centros de datos de Azure están particionados en clústeres. Normalmente, se intenta una solicitud de asignación en varios clústeres, pero es posible que determinadas restricciones de la solicitud de asignación obliguen a la plataforma de Azure a intentar la solicitud en solo un clúster. En este artículo, haremos referencia a esto como que la solicitud está "anclada a un clúster". En el diagrama número 1 que tiene a continuación, se ilustra el caso de una asignación normal que se intenta en varios clústeres; en el diagrama 2, se ilustra el caso de una asignación que está anclada al clúster 2 porque ahí es donde se hospeda el conjunto de disponibilidad o el servicio en la nube CS\_1. ![Diagrama de asignación](./media/virtual-machines-allocation-failure/Allocation1.png)
 
 ### ¿Por qué se producen errores de asignación?
-Cuando una solicitud de asignación está anclada a un clúster, existe una posibilidad menor de encontrar recursos libres dado que el grupo de recursos disponible es más pequeño. Además, si la solicitud de asignación está anclada a un clúster pero el tipo de recurso que solicita no se admite en ese clúster, la solicitud dará error aunque el clúster tenga recursos libres. En el diagrama 3 a continuación se ilustra el caso en el que una asignación anclada da error porque el único clúster candidato no tiene recursos libres. En el diagrama 4 se ilustra el caso en el que una asignación anclada da error porque el único clúster candidato no admite el tamaño de la máquina virtual solicitado, a pesar de que el clúster tiene recursos libres. ![Error de asignaciones ancladas](./media/virtual-machines-allocation-failure/Allocation2.png)
+Cuando una solicitud de asignación está anclada a un clúster, existe una posibilidad menor de encontrar recursos libres dado que el grupo de recursos disponible es más pequeño. Además, si la solicitud de asignación está anclada a un clúster pero el tipo de recurso que solicita no se admite en ese clúster, la solicitud dará error aunque el clúster tenga recursos libres. En el diagrama 3 a continuación se ilustra el caso en el que una asignación anclada da error porque el único clúster candidato no tiene recursos libres. En el diagrama 4 se ilustra el caso en el que una asignación anclada da error porque el único clúster candidato no admite el tamaño de VM solicitado, a pesar de que el clúster tiene recursos libres.
 
-## Solución de problemas a errores de asignación comunes en el modelo de implementación clásica
+![Error de asignaciones ancladas](./media/virtual-machines-allocation-failure/Allocation2.png)
+
+## Pasos generales para solucionar problemas
+### Solución de problemas a errores de asignación comunes en el modelo de implementación clásica
 
 Estos pasos básicos pueden ayudar a resolver muchos errores de asignación en las máquinas virtuales.
 
-- Cambie el tamaño de la máquina virtual por uno diferente.<br> Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual > Configuración > **Tamaño**. Para obtener información detallada, consulte [Cambiar el tamaño de la máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
+- Cambie el tamaño de la máquina virtual por uno diferente.<br> Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual > Configuración > **Tamaño**. Para información detallada, vea [Cambiar el tamaño de la máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
 
 - Elimine todas las máquinas virtuales del servicio en la nube y vuelva a crearlas.<br> Haga clic en Examinar todo > Máquinas virtuales (clásico) > su máquina virtual > Eliminar. A continuación, haga clic en Nuevo > Proceso > [Imagen de máquina virtual].
 
-## Solución de problemas a errores de asignación comunes en el modelo del Administrador de recursos
+### Solución de problemas a errores de asignación comunes en el modelo del Administrador de recursos
 
 Estos pasos básicos pueden ayudar a resolver muchos errores de asignación en las máquinas virtuales.
 
@@ -50,7 +53,8 @@ Estos pasos básicos pueden ayudar a resolver muchos errores de asignación en l
 
 	Una vez que todas las máquinas virtuales están detenidas, seleccione la primera máquina virtual y haga clic en Iniciar.
 
-## Solución de problemas de escenarios de errores de asignación específicos en el modelo de implementación clásica
+## Pasos de la solución de problemas detallada
+### Solución de problemas de escenarios de errores de asignación específicos en el modelo de implementación clásica
 A continuación se presentan los escenarios de asignación comunes que ocasionan que una solicitud de asignación quede anclada. Nos dedicaremos a cada escenario más adelante en este artículo.
 
 - Cambio del tamaño de una máquina virtual o incorporación de máquinas virtuales o instancias de rol adicionales a un servicio en la nube existente
@@ -66,11 +70,11 @@ En general, mientras el error no indique que el tamaño de máquina virtual soli
 
 Dos escenarios comunes de error están relacionados con el grupo de afinidad. En el pasado, el grupo de afinidad se usaba para proporcionar una estrecha proximidad a máquinas virtuales o instancias de servicio, o bien para permitir la creación de redes virtuales. Con la introducción de la red virtual regional, el grupo de afinidad ya no es necesario para crear una red virtual. Al reducirse la latencia de red en la infraestructura de Azure, ha cambiado la recomendación de usar el grupo de afinidad para la proximidad de máquinas virtuales o servicios.
 
-El diagrama 5 a continuación presenta la taxonomía de los escenarios de asignación (anclados). ![Taxonomía de asignaciones ancladas](./media/virtual-machines-allocation-failure/Allocation3.png)
+En el diagrama 5 a continuación se presenta la taxonomía de los escenarios de asignación (anclados). ![Taxonomía de asignaciones ancladas](./media/virtual-machines-allocation-failure/Allocation3.png)
 
 > [AZURE.NOTE]El error que se muestra en cada escenario de asignación está en forma abreviada. Para ver las cadenas de error detalladas, consulte el [Apéndice](#appendix).
 
-### Escenario de asignación: cambiar el tamaño de una máquina virtual o agregar máquinas virtuales o instancias de rol adicionales a un servicio en la nube existente
+#### Escenario de asignación: cambiar el tamaño de una máquina virtual o agregar máquinas virtuales o instancias de rol adicionales a un servicio en la nube existente
 **Error**
 
 Upgrade\_VMSizeNotSupported* o GeneralError*
@@ -81,11 +85,11 @@ La solicitud para cambiar el tamaño de una máquina virtual o agregar una máqu
 
 **Solución alternativa**
 
-Si el error es Upgrade\_VMSizeNotSupported *, pruebe con otro tamaño de máquina virtual. Si el uso de un tamaño de máquina virtual diferente no es una opción, pero es aceptable el uso de una dirección IP virtual (VIP) diferente, cree un nuevo servicio en la nube para hospedar la nueva máquina virtual y agréguelo a la red virtual regional donde se ejecutan las máquinas virtuales existentes. Aunque su servicio en la nube no use la red virtual regional, puede crear una nueva red virtual para el nuevo servicio en la nube y luego conectar la [red virtual existente a la nueva red virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Obtenga más información sobre la [red virtual regional](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Si el error es Upgrade\_VMSizeNotSupported *, pruebe con otro tamaño de máquina virtual. Si el uso de un tamaño de máquina virtual diferente no es una opción, pero es aceptable el uso de una dirección IP virtual (VIP) diferente, cree un nuevo servicio en la nube para hospedar la nueva máquina virtual y agréguelo a la red virtual regional donde se ejecutan las máquinas virtuales existentes. Aunque su servicio en la nube no use la red virtual regional, puede crear una nueva red virtual para el nuevo servicio en la nube y luego conectar la [red virtual existente a la nueva red virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Vea más información sobre la [red virtual regional](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 Si el error es GeneralError*, es probable que el tipo de recurso (por ejemplo, un tamaño determinado de máquina virtual) sea compatible con el clúster pero que este no tenga recursos libres en ese momento. De forma parecida a como se ha indicado anteriormente, intente agregar el recurso de proceso deseado mediante la creación de un nuevo servicio en la nube (tenga en cuenta que el nuevo servicio en la nube tiene que usar una dirección IP virtual diferente) y use la red virtual regional para conectarse a los servicios en la nube.
 
-### Escenario de asignación: reiniciar las máquinas virtuales detenidas (desasignadas), desasignación parcial
+#### Escenario de asignación: reiniciar las máquinas virtuales detenidas (desasignadas), desasignación parcial
 
 **Error**
 
@@ -97,9 +101,9 @@ La desasignación **parcial** indica que se detuvo (desasignó) una o varias má
 
 **Solución alternativa**
 
-Si es aceptable el uso de una dirección IP virtual diferente, elimine las máquinas virtuales detenidas (desasignadas), pero mantenga los discos asociados, y vuelva agregar las máquinas virtuales mediante un servicio en la nube diferente. Use la red virtual regional para conectarse a los servicios en la nube: 1. Si el servicio en la nube existente usa la red virtual regional, agregue simplemente el nuevo servicio en la nube a la misma red virtual. 2. Si el servicio en la nube existente no usa la red virtual regional, cree una red virtual para el nuevo servicio en la nube y, a continuación, [conecte la red virtual existente a la nueva red virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Obtenga más información sobre la [red virtual regional](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Si es aceptable el uso de una dirección IP virtual diferente, elimine las máquinas virtuales detenidas (desasignadas), pero mantenga los discos asociados, y vuelva agregar las máquinas virtuales mediante un servicio en la nube diferente. Use la red virtual regional para conectarse a los servicios en la nube: 1. Si el servicio en la nube existente usa la red virtual regional, agregue simplemente el nuevo servicio en la nube a la misma red virtual. 2. Si el servicio en la nube existente no usa la red virtual regional, cree una red virtual para el nuevo servicio en la nube y luego [conecte la red virtual existente a la nueva red virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Vea más información sobre la [red virtual regional](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-### Escenario de asignación: reiniciar las máquinas virtuales detenidas (desasignadas), desasignación completa
+#### Escenario de asignación: reiniciar las máquinas virtuales detenidas (desasignadas), desasignación completa
 **Error**
 
 GeneralError*
@@ -112,7 +116,7 @@ La desasignación **completa** indica que detuvo (desasignó) **todas** las máq
 
 Si es aceptable el uso de una dirección IP virtual diferente, elimine las máquinas virtuales originales detenidas (desasignadas), pero mantenga los discos asociados, y elimine el servicio en la nube correspondiente (los recursos de proceso asociados ya se liberaron cuando detuvo [desasignó] las máquinas virtuales). Cree un nuevo servicio en la nube para volver a agregar las máquinas virtuales.
 
-### Escenario de asignación: implementaciones de ensayo y producción (solo plataforma como servicio)
+#### Escenario de asignación: implementaciones de ensayo y producción (solo plataforma como servicio)
 **Error**
 
 New\_General* o New\_VMSizeNotSupported*
@@ -125,7 +129,7 @@ La implementación de ensayo y la implementación de producción de un servicio 
 
 Si es aceptable, elimine la primera implementación y el servicio en la nube original y vuelva implementar el servicio en la nube. Esta acción puede conseguir la primera implementación en un clúster que tenga suficientes recursos libres para ajustarse a ambas implementaciones, o en un clúster que admita los tamaños de máquina virtual solicitados.
 
-### Escenario de asignación: grupo de afinidad, proximidad de la máquina virtual o el servicio
+#### Escenario de asignación: grupo de afinidad, proximidad de la máquina virtual o el servicio
 **Error**
 
 New\_General* o New\_VMSizeNotSupported*
@@ -138,7 +142,7 @@ Cualquier recurso de proceso asignado a un grupo de afinidad está asociado a un
 
 Si no es necesario, no use el grupo de afinidad, o bien intente agrupar los recursos de proceso en varios grupos de afinidad de proceso.
 
-### Escenario de asignación: red virtual basada en grupo de afinidad
+#### Escenario de asignación: red virtual basada en grupo de afinidad
 **Error**
 
 New\_General* o New\_VMSizeNotSupported*
@@ -149,11 +153,11 @@ Antes de que se anunciara la red virtual regional, era necesario asociar una red
 
 **Solución alternativa**
 
-Si no necesita el grupo de afinidad, cree una red virtual regional para los nuevos recursos que vaya a agregar y, a continuación, [conecte la red virtual existente a la nueva red virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Obtenga más información sobre la [red virtual regional](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Si no necesita el grupo de afinidad, cree una red virtual regional para los nuevos recursos que vaya a agregar y luego[conecte la red virtual existente a la nueva red virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Vea más información sobre la [red virtual regional](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-Asimismo, también puede [migrar la red virtual basada en el grupo de afinidad a la red virtual regional](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/) y posteriormente intentar agregar de nuevo los recursos deseados.
+Asimismo, puede [migrar la red virtual basada en el grupo de afinidad a la red virtual regional](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/) y posteriormente intentar agregar de nuevo los recursos deseados.
 
-## Solución de problemas de escenarios de errores de asignación específicos en el modelo de implementación del Administrador de recursos de Azure
+### Solución de problemas de escenarios de errores de asignación específicos en el modelo de implementación del Administrador de recursos de Azure
 A continuación se presentan los escenarios de asignación comunes que ocasionan que una solicitud de asignación quede anclada. Nos dedicaremos a cada escenario más adelante en este artículo.
 
 - Cambio del tamaño de una máquina virtual o incorporación de máquinas virtuales o instancias de rol adicionales a un servicio en la nube existente
@@ -164,7 +168,7 @@ Cuando reciba un error de asignación, vea si alguno de los escenarios descritos
 
 En general, mientras el error no indique que el tamaño de máquina virtual solicitado no se admite, siempre puede reintentarlo más adelante y dar tiempo a que se liberen suficientes recursos en el clúster para dar cabida a su solicitud. Si el problema tiene que ver con que el tamaño de máquina virtual solicitado no se admite, vea a continuación las posibles soluciones.
 
-### Escenario de asignación: cambiar el tamaño de una máquina virtual o agregar máquinas virtuales adicionales a un conjunto de disponibilidad existente
+#### Escenario de asignación: cambiar el tamaño de una máquina virtual o agregar máquinas virtuales adicionales a un conjunto de disponibilidad existente
 **Error**
 
 Upgrade\_VMSizeNotSupported* o GeneralError*
@@ -179,7 +183,7 @@ Si el error es Upgrade\_VMSizeNotSupported *, pruebe con otro tamaño de máquin
 
 Si el error es GeneralError*, es probable que el tipo de recurso (por ejemplo, un tamaño determinado de máquina virtual) sea compatible con el clúster pero que este no tenga recursos libres en ese momento. Si la máquina virtual puede formar parte de un conjunto de disponibilidad diferente, cree una nueva máquina virtual en otro conjunto de disponibilidad (en la misma región). Esta nueva máquina virtual se puede agregar luego a la misma red virtual.
 
-### Escenario de asignación: reiniciar las máquinas virtuales detenidas (desasignadas), desasignación parcial
+#### Escenario de asignación: reiniciar las máquinas virtuales detenidas (desasignadas), desasignación parcial
 **Error**
 
 GeneralError*
@@ -192,7 +196,7 @@ La desasignación **parcial** indica que detuvo (desasignó) una o varias máqui
 
 Pruebe a detener todas las máquinas virtuales del conjunto de disponibilidad antes de reiniciar la primera de ellas. De esta forma se tiene la seguridad de que hay un nuevo intento de asignación en marcha y se puede seleccionar un nuevo clúster que tenga capacidad disponible.
 
-### Escenario de asignación: reiniciar las máquinas virtuales detenidas (desasignadas), desasignación completa
+#### Escenario de asignación: reiniciar las máquinas virtuales detenidas (desasignadas), desasignación completa
 **Error**
 
 GeneralError*
@@ -223,9 +227,4 @@ No se puede actualizar la implementación. Es posible que el tamaño de la máqu
 
 Se produjo un error interno en el servidor. Vuelva a realizar la solicitud." o "Error al producir una asignación para el servicio.
 
-## Recursos adicionales
-### Póngase en contacto con el servicio de atención al cliente de Azure
-
-Si este artículo no le ayudó a resolver su problema con Azure, puede consultar los foros de Azure en [MSDN y Stack Overflow](http://azure.microsoft.com/support/forums/). También puede presentar un incidente de soporte técnico de Azure sobre su problema. Vaya al sitio del [soporte técnico de Azure](http://azure.microsoft.com/support/options/) y haga clic en Obtener soporte. Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes del soporte técnico de Microsoft Azure](http://azure.microsoft.com/support/faq/).
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

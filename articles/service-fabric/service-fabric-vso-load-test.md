@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Prueba de carga de la aplicación mediante Visual Studio Online | Microsoft Azure"
-    description="Aprenda a realizar pruebas de esfuerzo en sus aplicaciones de Azure Service Fabric mediante Visual Studio Online."
+    pageTitle="Prueba de carga de la aplicación mediante Visual Studio Team Services | Microsoft Azure"
+    description="Aprenda a realizar pruebas de esfuerzo en sus aplicaciones de Azure Service Fabric mediante Visual Studio Team Services."
     services="service-fabric"
     documentationCenter="na"
     authors="cawams"
@@ -16,7 +16,7 @@
     ms.date="10/28/2015"
     ms.author="cawa" />
 
-# Prueba de carga de la aplicación mediante Visual Studio Online
+# Prueba de carga de la aplicación mediante Visual Studio Team Services
 
 Este artículo muestra cómo usar las características de prueba de carga de Visual Studio para realizar pruebas de esfuerzo en una aplicación. Usa un back-end de servicio con estado de Service Fabric y un front-end web de servicio sin estado. La aplicación de ejemplo que se usa aquí es un simulador de ubicación de aviones. En él se proporciona un identificador de avión, una ubicación de partida y otra de destino. El back-end de la aplicación procesa las solicitudes y el front-end muestra el avión que coincida con los criterios en un mapa.
 
@@ -27,7 +27,7 @@ El siguiente diagrama ilustra la aplicación de Service Fabric que va a probar.
 ## Requisitos previos
 Antes de comenzar, deberá hacer lo siguiente.
 
-- Obtener una cuenta de Visual Studio Online (VSO) Puede obtener una de forma gratuita en [Visual Studio Online](https://www.visualstudio.com).
+- Obtenga una cuenta de Visual Studio Team Services (VSTS). Puede obtener una de forma gratuita en [Visual Studio Team Services](https://www.visualstudio.com).
 - Obtenga e instale Visual Studio 2013 o Visual Studio 2015. Este artículo usa Visual Studio 2015 Enterprise Edition, pero Visual Studio 2013 y otras ediciones deberían funcionar de un modo similar.
 - Implemente la aplicación en un entorno de ensayo. Consulte [Cómo implementar aplicaciones en un clúster remoto con Visual Studio](service-fabric-publish-app-remote-cluster.md) para obtener información acerca de este punto.
 - Comprenda el patrón de uso de la aplicación. Esta información se usa para simular el modelo de carga.
@@ -94,13 +94,13 @@ Un proyecto de prueba de carga se compone de uno o varios de los escenarios desc
 1. En la sección **Parámetros de ejecución**, especifique la duración de la prueba de carga.
     >[AZURE.NOTE]La opción **Iteraciones de prueba** está disponible solo para ejecutar pruebas de carga localmente mediante Visual Studio.
 
-1. En la sección **Ubicación** de **Parámetros de ejecución**, especifique la ubicación donde se generan las solicitudes de prueba de carga. El asistente puede solicitarle que inicie sesión en su cuenta VSO. Inicie sesión con su cuenta VSO y elija una ubicación geográfica. Cuando haya terminado, elija el botón **Finalizar**.
+1. En la sección **Ubicación** de **Parámetros de ejecución**, especifique la ubicación donde se generan las solicitudes de prueba de carga. El asistente puede solicitarle que inicie sesión en su cuenta de Team Services. Inicie sesión con su cuenta de Team Services y elija una ubicación geográfica. Cuando haya terminado, elija el botón **Finalizar**.
 
 1. Después de crear la prueba de carga, abra el proyecto .loadtest y elija el actual parámetro de ejecución, como **Parámetros de ejecución** > **Parámetros de ejecución1 [Activo]**. Se abrirán los parámetros de ejecución en la ventana **Propiedades**.
 
-1. En la sección **Resultados** de la ventana de propiedades **Parámetros de ejecución**, el valor **Almacenamiento de detalles de tiempo** debería tener **Ninguno** como valor predeterminado. Cambie este valor a **Todos los detalles individuales** para obtener más información sobre el resultado de la prueba de carga. Consulte [Pruebas de carga](https://www.visualstudio.com/load-testing.aspx) para obtener más información acerca de cómo conectarse a Visual Studio Online y ejecutar una prueba de carga.
+1. En la sección **Resultados** de la ventana de propiedades **Parámetros de ejecución**, el valor **Almacenamiento de detalles de tiempo** debería tener **Ninguno** como valor predeterminado. Cambie este valor a **Todos los detalles individuales** para obtener más información sobre el resultado de la prueba de carga. Vea [Pruebas de carga](https://www.visualstudio.com/load-testing.aspx) para obtener más información acerca de cómo conectarse a Visual Studio Team Services y ejecutar una prueba de carga.
 
-### Ejecución de una prueba de carga con Visual Studio Online
+### Ejecución de una prueba de carga con Visual Studio Team Services
 
 Elija el comando **Ejecutar prueba de carga** para iniciar la ejecución de la prueba.
 
@@ -124,7 +124,7 @@ Consulte [Análisis de los resultados de una prueba de carga en la vista de grá
 
 ## Automatización de la prueba de carga
 
-La prueba de carga de Visual Studio Online proporciona las API que le permiten administrar las pruebas de carga y analizar los resultados en una cuenta VSO. Consulte [Las API de REST de las pruebas de carga en la nube](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx) para obtener más información.
+La prueba de carga de Visual Studio Team Services proporciona las API que le permiten administrar las pruebas de carga y analizar los resultados en una cuenta de Team Services. Consulte [Las API de REST de las pruebas de carga en la nube](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx) para obtener más información.
 
 ## Pasos siguientes
 - [Supervisión y diagnóstico de servicios en una configuración de desarrollo de máquina local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -140,4 +140,4 @@ La prueba de carga de Visual Studio Online proporciona las API que le permiten a
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

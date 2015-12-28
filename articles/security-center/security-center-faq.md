@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="12/10/2015"
    ms.author="terrylan"/>
 
 # Preguntas más frecuentes sobre el Centro de seguridad de Azure
@@ -101,6 +101,6 @@ Las máquinas virtuales [clásicas y del Administrador de recursos](azure-classi
 Las recomendaciones de Lista de control de acceso actualmente se aplican a las máquinas virtuales clásicas. Los grupos de seguridad de red y las recomendaciones de instalación del Firewall de aplicaciones web actualmente solo se aplican a las máquinas virtuales del Administrador de recursos.
 
 ### ¿Las máquinas virtuales de Linux son compatibles?
-El Centro de seguridad de Azure ofrece supervisión de línea base para máquinas virtuales de Linux (solo Ubuntu versiones 12.04, 14.04, 14.10, 15.04). En el futuro, habrá disponible una supervisión del estado de seguridad y colección de datos/análisis adicionales, además de compatibilidad para otras distribuciones de Linux.
+El Centro de seguridad de Azure ofrece supervisión de línea base para máquinas virtuales de Linux (solo Ubuntu versiones 12.04, 14.04, 14.10 y 15.04). En el futuro, habrá disponible una supervisión del estado de seguridad y colección de datos/análisis adicionales, además de compatibilidad para otras distribuciones de Linux.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

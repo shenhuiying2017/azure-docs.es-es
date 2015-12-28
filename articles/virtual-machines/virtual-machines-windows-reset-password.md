@@ -108,10 +108,10 @@ Si no fue posible ejecutar el paquete de diagnóstico de Azure IaaS (Windows) o 
 
 ## Recursos adicionales
 
-[Características y extensiones de las máquinas virtuales de Azure](http://msdn.microsoft.com/library/azure/dn606311.aspx)
+[Características y extensiones de las máquinas virtuales de Azure](virtual-machines-extensions-features.md)
 
 [Conexión a una máquina virtual de Azure con RDP o SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

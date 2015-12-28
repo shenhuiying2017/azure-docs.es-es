@@ -16,10 +16,11 @@
    ms.date="11/02/2015"
    ms.author="cherylmc" />
 
-# Vinculación de redes virtuales a circuitos ExpressRoute
+# Vinculación de la red virtual a circuitos ExpressRoute
 
 > [AZURE.SELECTOR]
 - [PowerShell - Classic](expressroute-howto-linkvnet-classic.md)
+- [PowerShell - Resource Manager] (expressroute-howto-linkvnet-arm.md)  
 - [Template - Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
 
 En este artículo se ofrece información general de cómo vincular redes virtuales a circuitos ExpressRoute. Las redes virtuales pueden estar en la misma suscripción o formar parte de otra suscripción. Este artículo se aplican a redes virtuales que usan el modelo de implementación clásico. Si desea vincular una red virtual que se implementó mediante el método de implementación del Administrador de recursos de Azure, puede hacerlo mediante una plantilla. Consulte la pestaña anterior para desplazarse hasta la plantilla.
@@ -149,4 +150,4 @@ El usuario del circuito puede ejecutar el siguiente cmdlet para canjear una auto
 
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

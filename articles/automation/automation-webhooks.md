@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="12/07/2015"
    ms.author="bwren;sngun"/>
 
 # Webhooks de Automatización de Azure
@@ -53,7 +53,24 @@ El objeto **$WebhookData** tendrá las siguientes propiedades:
 
 No hay ninguna configuración del webhook obligatoria para admitir el parámetro **$WebhookData**, y el runbook no tiene que aceptarlo. Si el runbook no define el parámetro, se ignoran los detalles de la solicitud enviados desde el cliente.
 
-Si especifica un valor para $WebhookData al crear el webhook, el valor se reemplazará cuando el webhook inicie el runbook con los datos de la solicitud POST del cliente, incluso si el cliente no incluye ningún dato en el cuerpo de la solicitud. Si inicia un runbook con $WebhookData mediante un método que no sea un webhook, puede proporcionar un valor para $Webhookdata que el runbook reconocerá. Este valor debe ser un objeto con las mismas propiedades que $Webhookdata para que el runbook pueda funcionar correctamente con él.
+Si especifica un valor para $WebhookData al crear el webhook, el valor se reemplazará cuando el webhook inicie el runbook con los datos de la solicitud POST del cliente, incluso si el cliente no incluye ningún dato en el cuerpo de la solicitud. Si inicia un runbook con $WebhookData mediante un método que no sea un webhook, puede proporcionar un valor para $Webhookdata que el runbook reconocerá. Este valor debe ser un objeto con las mismas [propiedades](#details-of-a-webhook) que $Webhookdata para que el runbook pueda funcionar correctamente con él con si trabajara con WebhookData pasado por un webhook.
+
+Por ejemplo, si se está iniciando el siguiente runbook desde el Portal de Azure y quiere pasar algún WebhookData de ejemplo para prueba, porque WebhookData es un objeto, se debe pasar como JSON en la interfaz de usuario.
+
+![Parámetro WebhookData de la interfaz de usuario](media/automation-webhooks/WebhookData-parameter-from-UI.png)
+
+Para el runbook anterior, si tiene las siguientes propiedades para el parámetro WebhookData:
+
+1. WebhookName: *MyWebhook*
+2. RequestHeader: *From=Test User*
+3. RequestBody: *[“VM1”, “VM2”]*
+
+Luego pasaría el siguiente valor JSON en la interfaz de usuario para el parámetro WebhookData:
+
+* {"WebhookName":"MyWebhook", "RequestHeader":{"From":"Test User"}, "RequestBody":"["VM1","VM2"]"}
+
+![Iniciar el parámetro WebhookData de la interfaz de usuario](media/automation-webhooks/Start-WebhookData-parameter-from-UI.png)
+
 
 >[AZURE.NOTE]Los valores de todos los parámetros de entrada se registran con el trabajo de runbook. Esto significa que se registrará cualquier entrada que proporcione el cliente en la solicitud de webhook y que estará disponible para cualquiera con acceso al trabajo de automatización. Por este motivo, debe tener cuidado en cómo incluir información confidencial en las llamadas de webhook.
 
@@ -169,7 +186,7 @@ El siguiente runbook de muestra acepta la solicitud del ejemplo anterior e inici
 
 ## Iniciar runbooks en respuesta a alertas de Azure
 
-Los runbooks con Webhook se pueden usar para reaccionar frente a [alertas de Azure](Azure-portal/insights-receive-alert-notifications.md). Los recursos de Azure se pueden supervisar recopilando estadísticas como rendimiento, disponibilidad y uso con la ayuda de las alertas de Azure. Puede recibir una alerta basada en los eventos o las métricas de supervisión para los recursos de Azure. Actualmente, las cuentas de automatización solo admiten métricas. Cuando el valor de una métrica especificada supera el umbral asignado o si se desencadena el evento configurado, se envía una notificación a la administración de servicios o a los coadministradores para resolver la alerta; para obtener más información sobre eventos y métricas, consulte [Alertas de Azure](Azure-portal/insights-receive-alert-notifications.md).
+Los runbooks con Webhook se pueden usar para reaccionar frente a [alertas de Azure](Azure-portal/insights-receive-alert-notifications.md). Los recursos de Azure se pueden supervisar recopilando estadísticas como rendimiento, disponibilidad y uso con la ayuda de las alertas de Azure. Puede recibir una alerta basada en los eventos o las métricas de supervisión para los recursos de Azure. Actualmente, las cuentas de automatización solo admiten métricas. Cuando el valor de una métrica especificada supera el umbral asignado o si se desencadena el evento configurado, se envía una notificación a la administración de servicios o a los coadministradores para resolver la alerta; para más información sobre eventos y métricas, vea [Alertas de Azure](Azure-portal/insights-receive-alert-notifications.md).
 
 Además de usar alertas de Azure como sistema de notificación, también puede iniciar runbooks en respuesta a alertas. La automatización de Azure ofrece la capacidad de ejecutar runbooks habilitados con webhooks con alertas de Azure. Cuando una métrica supera el valor de umbral configurado, la regla de alerta se activa y desencadena el webhook de automatización que a su vez ejecuta el runbook.
 
@@ -255,4 +272,4 @@ El siguiente runbook de ejemplo se desencadena cuando se activa la regla de aler
 - [Visualización del estado de un trabajo de runbook](automation-viewing-the-status-of-a-runbook-job.md)
 - [Usar la automatización de Azure para realizar acciones en las alertas de Azure](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1217_2015-->

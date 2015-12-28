@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Versión preliminar del modelo de aplicaciones v2.0: protocolos, OpenID Connect
@@ -212,4 +212,4 @@ Como referencia, el flujo completo de adquisición de tokens e inicio de sesión
 
 ![Calles OpenId Connect](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Recuperación ante desastres con SQL Server y Azure Site Recovery | Microsoft Azure" 
+	pageTitle="Proteger SQL Server con la recuperación ante desastres de SQL Server y Azure Site Recovery | Microsoft Azure" 
 	description="Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de SQL Server en un sitio secundario local o en Azure." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 
-# Recuperación ante desastres con SQL Server y Azure Site Recovery 
+# Proteger SQL Server con la recuperación ante desastres de SQL Server y Azure Site Recovery 
 
 Site Recovery es un servicio de Azure que contribuye a su estrategia de continuidad de negocio y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores virtuales. Site Recovery admite una serie de mecanismos de replicación para una protección, replicación y conmutación por error coherente de máquinas en Azure o un centro de datos secundario. Obtenga información general acerca de todos los escenarios de implementación en [Información general sobre Azure Site Recovery](site-recovery-overview.md).
 
@@ -374,4 +374,4 @@ Para los clústeres SQL estándar, la conmutación por recuperación después de
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

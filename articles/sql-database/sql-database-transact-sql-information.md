@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Información sobre Transact-SQL de Base de datos SQL de Azure | Microsoft Azure"
-   description="Instrucciones de Transact-SQL en Base de datos SQL de Azure"
+   pageTitle="Incompatible en T-SQL de Base de datos SQL de Azure | Microsoft Azure"
+   description="Instrucciones de Transact-SQL que no son totalmente compatibles con la Base de datos SQL de Azure"
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
@@ -14,18 +14,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/09/2015"
+   ms.date="12/14/2015"
    ms.author="rick.byham@microsoft.com"/>
 
-# Información sobre Transact-SQL de Base de datos SQL de Azure
+# Diferencias de Transact-SQL de Base de datos SQL de Azure
 
-La mayoría de las instrucciones de SQL Server 2016 Transact-SQL son totalmente compatibles con Base de datos SQL de Microsoft Azure. Esto incluye los tipos de datos de SQL Server, los operadores y las funciones de cadena, aritméticas, lógicas y de cursor, así como los demás elementos de Transact-SQL en los que se basan la mayoría de las aplicaciones. Las funciones no admitidas o admitidas parcialmente suelen estar relacionadas con diferencias en la forma en que Base de datos SQL administra la base de datos (por ejemplo, características de seguridad, alta disponibilidad y archivo) o con características de uso especial como Service Broker. Dado que Base de datos SQL aísla muchas características de la dependencia de la base de datos maestra, muchas actividades de nivel de servidor son inadecuadas y no se admiten. Las características obsoletas de SQL Server por lo general no se admiten en Base de datos SQL.
+
+La mayoría de las características de Transact-SQL de que las aplicaciones dependen se admiten en Microsoft SQL Server y Base de datos SQL de Azure. A continuación se muestra una lista parcial de las características admitidas para las aplicaciones:
+
+- Tipos de datos.
+- Operadores.
+- Funciones de cadena, aritméticas, lógicas y de cursor.
+
+Sin embargo, Base de datos SQL de Azure es una utilidad diseñada para aislar las características de cualquier dependencia de la base de datos **maestra**. Como consecuencia, muchas actividades de nivel de servidor no son apropiadas para la Base de datos SQL y no son compatibles. En este tema se detallan las características que no se admiten totalmente en Base de datos SQL.
+
+Además, las características obsoletas de SQL Server por lo general no se admiten en Base de datos SQL.
 
 ## Actualización a Base de datos SQL V12
 
-En este tema se describen las características que están disponibles con Base de datos SQL cuando se actualiza a la V12 gratuita de Base de datos de SQL. Para obtener más información sobre V12, vea [Novedades de Base de datos SQL V12](sql-database-v12-whats-new.md). Base de datos SQL V12 agrega mejoras de facilidad de uso y rendimiento, así como compatibilidad con características adicionales. Las características agregadas se enumeran a continuación, divididas entre características que son totalmente compatibles y características que son parcialmente compatibles.
+En este tema se describen las características que están disponibles con Base de datos SQL cuando se actualiza a la V12 gratuita de Base de datos de SQL. Para obtener más información sobre V12, consulte [Novedades de la Base de datos de SQL V12](sql-database-v12-whats-new.md). Base de datos SQL V12 agrega mejoras de facilidad de uso y rendimiento, así como compatibilidad con características adicionales. Las características agregadas se enumeran a continuación, divididas entre características que son totalmente compatibles y características que son parcialmente compatibles.
 
-## Características parcialmente compatibles con Base de datos SQL V12
+## Características parcialmente admitidas en la Base de datos SQL V12
 
 Base de datos SQL V12 es compatible con algunos pero no todos los argumentos que existen en las instrucciones de SQL Server 2016 Transact-SQL correspondientes. Por ejemplo, la instrucción CREATE PROCEDURE está disponible aunque lo está la opción WITH ENCRYPTION de CREATE PROCEDURE. Consulte los temas de sintaxis vinculados para obtener más información sobre las áreas compatibles de cada instrucción.
 
@@ -40,7 +49,7 @@ Base de datos SQL V12 es compatible con algunos pero no todos los argumentos que
 - Usuarios: [CREATE](https://msdn.microsoft.com/library/ms173463.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)
 - Vistas: [CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/library/ms173846.aspx)
 
-## Características no compatibles con Base de datos SQL V12
+## Características no compatibles con Base de datos SQL
 
 - Intercalación de objetos del sistema
 - Conexión relacionada: instrucciones de extremo, ORIGINAL\_DB\_NAME. Autenticación de Windows no está disponible para inicios de sesión o usuarios de bases de datos independientes.
@@ -65,6 +74,7 @@ Base de datos SQL V12 es compatible con algunos pero no todos los argumentos que
 - KILL STATS JOB
 - Servidores vinculados, OPENQUERY, OPENROWSET, OPENDATASOURCE, BULK INSERT, nombres de tres y cuatro partes
 - Servidores de destino o maestros
+- [Integración de CLR de .NET Framework con SQL Server](http://msdn.microsoft.com/library/ms254963.aspx)
 - Regulador de recursos
 - Búsqueda semántica
 - Credenciales de servidor
@@ -87,12 +97,14 @@ Base de datos SQL V12 es compatible con algunos pero no todos los argumentos que
 
 ## Referencia completa de Transact-SQL
 
-Para obtener más información acerca de la gramática de Transact-SQL, su uso y ejemplos, vea [Referencia de Transact-SQL (motor de base de datos)](https://msdn.microsoft.com/library/bb510741.aspx) en Libros en pantalla de SQL Server.
+Para obtener más información sobre la gramática de Transact-SQL, su uso y ejemplos, consulte [Referencia de Transact-SQL (motor de base de datos)](https://msdn.microsoft.com/library/bb510741.aspx) en Libros en pantalla de SQL Server.
 
 ### Acerca de las etiquetas "Se aplica a"
 
-La referencia de Transact-SQL incluye temas relacionados con SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 y Base de datos SQL de Microsoft Azure. Al principio de cada tema hay una sección que indica los productos que admiten el asunto del tema. Si se omite un producto, la característica descrita en el tema no está disponible en ese producto. Por ejemplo, los grupos de disponibilidad se introdujeron en SQL Server 2012. El tema **CREACIÓN DE UN GRUPO DE DISPONIBILIDAD** indica que se aplica a **SQL Server (SQL Server 2012 a través de la versión actual)** porque no se aplica a SQL Server 2008, SQL Server 2008 R2 ni Base de datos SQL de Microsoft Azure.
+La referencia de Transact-SQL incluye temas relacionados con las versiones de SQL Server que abarcan desde la de 2008 hasta la actual. En el título del tema suele haber una línea "Se aplica a", que enumera las versiones de SQL Server y quizás también otros nombres de productos. A menudo las mismas etiquetas "Se aplica a" también muestran la Base de datos SQL de Azure. Si una etiqueta "Se aplica a" no muestra la Base de datos SQL de Azure, el contenido del tema no se aplica a la Base de datos SQL de Azure. A veces, puede que vea una línea "Se aplica a" que muestra varios productos, cada uno con un pequeño icono para indicar si el tema se aplica a cada producto.
 
-En algunos casos, el asunto general de un tema puede usarse en un producto, pero no se admiten todos los argumentos. Por ejemplo, los usuarios de base de datos independientes se introdujeron en SQL Server 2012. La instrucción **CREATE USER** puede usarse en cualquier producto de SQL Server, sin embargo, la sintaxis **WITH PASSWORD** no se puede utilizar con versiones anteriores. En este caso, se insertan secciones **Se aplica a** adicionales en las correspondientes descripciones de argumentos en el cuerpo del tema.
+ Por ejemplo, los grupos de disponibilidad se introdujeron en SQL Server 2012. El tema **CREACIÓN DE UN GRUPO DE DISPONIBILIDAD** indica que se aplica a **SQL Server (SQL Server 2012 hasta la versión actual)** porque no se aplica a SQL Server 2008, SQL Server 2008 R2 ni a la Base de datos SQL de Azure.
 
-<!---HONumber=Nov15_HO3-->
+En algunos casos, la línea general de un tema se puede utilizar en un producto, pero existen diferencias poco significativas entre los productos. Las diferencias se indican en los puntos medios del tema según corresponda.
+
+<!---HONumber=AcomDC_1217_2015-->

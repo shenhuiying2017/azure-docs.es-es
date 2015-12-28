@@ -19,16 +19,23 @@
 
 # Ejemplos de configuración de la extensión de máquina virtual de Windows de Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
+> [AZURE.SELECTOR]
+- [Azure PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
+- [Azure CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
+
+<br>
+
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
 
 
 Este artículo proporciona un ejemplo de configuración para configurar las extensiones de máquina virtual de Azure para máquinas virtuales Windows.
 
 
-Para obtener más información sobre estas extensiones, consulte [Información general sobre las extensiones de máquinas virtuales de Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+Para más información sobre estas extensiones, vea [Información general sobre las extensiones de máquinas virtuales de Azure](virtual-machines-extensions-features.md).
 
-Para obtener más información sobre la creación de plantillas de extensión, consulte [Creación de plantillas de extensión.](virtual-machines-extensions-authoring-templates.md)
+Para más información sobre la creación de plantillas de extensión, vea [Creación de plantillas de extensión](virtual-machines-extensions-authoring-templates.md).
 
 En este artículo se indican los valores de configuración esperados para algunas de las extensiones de Windows.
 
@@ -285,7 +292,7 @@ Antes de implementar la extensión, compruebe la versión más reciente de la ex
 
 ### Diagnóstico de Azure
 
-Para obtener más detalles acerca de cómo configurar los diagnósticos, consulte [Extensión de diagnósticos de Azure](virtual-machines-extensions-diagnostics-windows-template.md)
+Para más detalles sobre cómo configurar los diagnósticos, vea [Extensión de diagnósticos de Azure](virtual-machines-extensions-diagnostics-windows-template.md).
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
@@ -309,4 +316,4 @@ Este es un ejemplo de una plantilla de máquina virtual completa con la extensi�
 
 [Extensión de script personalizada en una máquina virtual de Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

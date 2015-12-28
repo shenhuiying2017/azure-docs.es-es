@@ -1,14 +1,16 @@
 
-####To configure remote management on the device
+####Para configurar la administración remota en el dispositivo
 
-1. On your virtual device, go to **Devices > Configure**.
+1. En el dispositivo virtual, vaya a **Dispositivos > Configurar**.
 
-2. Scroll down to the **Remote Management** section.
+2. Desplácese hacia abajo a la sección **Administración remota**.
 
-3. Set **Enable Remote Management** to **Yes**.
+3. Establezca **Habilitar administración remota** en **Sí**.
 
-4. You can now choose to connect using HTTP. The default is to connect over HTTPS. Connecting over HTTP is acceptable only on trusted networks.
+4. Ahora puede elegir conectarse con HTTP. El valor predeterminado es conectarse a través de HTTPS. La conexión a través de HTTP solo es aceptable en redes de confianza.
 
-5. Click **Download Remote Management Certificate** to download a remote management certificate. You will specify a location in which to save this file. This certificate then needs to be installed on the client or host machine that you will use to connect to the virtual device.
+5. Haga clic en **Descargar certificado de administración remota** para descargar un certificado de administración remota. Deberá especificar una ubicación para guardar este archivo. A continuación, este certificado debe estar instalado en el equipo cliente o host que va a utilizar para conectarse al dispositivo virtual.
 
-6. Click **Save** at the bottom of the page.
+6. Haga clic en **Guardar** en la parte inferior de la página.
+
+<!---HONumber=AcomDC_1217_2015-->

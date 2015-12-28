@@ -34,6 +34,7 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesitará.
 - Si pretende usar la característica de **escritura diferida de contraseñas**, los controladores de dominio deben estar en Windows Server 2008 (con el SP más reciente) o posterior.
 - Azure AD Connect no puede instalarse en Small Business Server o Windows Server Essentials. El servidor debe usar Windows Server estándar o una versión superior.
 - Azure AD Connect debe instalarse en Windows Server 2008 o en una versión superior. Este servidor puede ser un controlador de dominio o un servidor miembro si se usa la configuración rápida. Si usa la configuración personalizada, el servidor también puede ser independiente y no tiene que estar unido a un dominio.
+- Si instala Azure AD Connect en Windows Server 2008, asegúrese de aplicar las revisiones más recientes de Windows Update. La instalación no se podrá iniciar con un servidor sin revisiones.
 - Si pretende usar la característica de **sincronización de contraseñas**, el servidor de Azure AD Connect debe estar en Windows Server 2008 R2 SP1 o posterior.
 - El servidor de Azure AD Connect debe tener instalado [.Net 4.5.1](#component-prerequisites) o versiones posteriores y [PowerShell 3.0](#component-prerequisites) o versiones posteriores.
 - Si se implementa Servicios de federación de Active Directory, los servidores en los que se instale AD FS o el Proxy de aplicación web deben ser Windows Server 2012 R2 o versiones posteriores. [Administración remota de Windows](#windows-remote-management) debe estar habilitada en estos servidores para la instalación remota.
@@ -48,7 +49,7 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesitará.
 
 **Conectividad**
 
-- Si usa un proxy saliente para la conexión a Internet, la siguiente configuración del archivo **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** se debe agregar para que el asistente para instalación y la sincronización de Azure AD puedan conectarse a Internet y a Azure AD.
+- Si usa un proxy de salida para la conexión a Internet, la siguiente configuración del archivo **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** se debe agregar para que el asistente para instalación y la sincronización de Azure AD puedan conectarse a Internet y a Azure AD. Este texto debe escribirse en la parte inferior del archivo. En este código, &lt;PROXYADRESS&gt; representa el nombre de host o la dirección IP de proxy real.
 
 ```
     <system.net>
@@ -62,7 +63,25 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesitará.
     </system.net>
 ```
 
-Este texto debe escribirse en la parte inferior del archivo. En este código, &lt;PROXYADRESS&gt; representa la dirección IP del proxy real o el nombre de host. -Si el proxy limita a qué direcciones URL se puede acceder, las direcciones URL que se documentan en [Direcciones URL de Office 365 e intervalos de direcciones IP](https://support.office.com/es-ES/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) deben abrirse en el proxy.
+Si el servidor proxy requiere autenticación, la sección debe ser similar a lo siguiente.
+
+```
+    <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+            <proxy
+            usesystemdefault="true"
+            proxyaddress="http://<PROXYADDRESS>:<PROXYPORT>"
+            bypassonlocal="true"
+            />
+        </defaultProxy>
+    </system.net>
+```
+
+Con este cambio en el archivo machine.config, el asistente para instalación y el motor de sincronización responderán a las solicitudes de autenticación del servidor proxy. En todas las páginas del asistente para instalación, excepto la página **Configurar**, se usan las credenciales del usuario que ha iniciado sesión. En la página **Configurar** al final del asistente para instalación, el contexto se cambia a la [cuenta de servicio](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) que se creó.
+
+Para obtener más información sobre el [elemento de proxy predeterminado](https://msdn.microsoft.com/library/kd3cf2ex.aspx), consulte MSDN.
+
+- Si el proxy limita a qué direcciones URL se puede acceder, las direcciones URL que se documentan en [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) deben abrirse en el proxy.
 
 **Otros**
 
@@ -109,7 +128,7 @@ Azure AD Connect depende de PowerShell y .Net 4.5.1. Dependiendo de la versión 
 - La identidad del certificado debe coincidir con el nombre del servicio de federación (por ejemplo, fs.contoso.com).
     - La identidad es una extensión de nombre alternativo del firmante (SAN) de tipo dNSName, o bien, si no hay ninguna entrada de SAN, el nombre del firmante se especifica como un nombre común.  
     - Puede haber varias entradas de SAN en el certificado, siempre que una de ellas coincida con el nombre de servicio de federación.
-    - Si piensa usar la unión al área de trabajo, se requiere un SAN adicional con el valor **enterpriseregistration.** seguido del sufijo de nombre principal de usuario (UPN) de su organización, por ejemplo, **enterpriseregistration.contoso.com**.
+    - Si piensa usar Unión al lugar de trabajo, se requiere un SAN adicional con el valor **enterpriseregistration.** seguido del sufijo de nombre principal de usuario (UPN) de su organización, por ejemplo, **enterpriseregistration.contoso.com**.
 - No se admiten certificados basados en claves CryptoAPI Next Generation (CNG) ni en proveedores de almacenamiento de claves. Esto significa que debe utilizar un certificado basado en un CSP (proveedor de servicios criptográficos) y no en un KSP (proveedor de almacenamiento de claves).
 - Se admiten certificados comodín.
 
@@ -148,4 +167,4 @@ Los requisitos mínimos para equipos que ejecutan AD FS o servidores de aplicaci
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

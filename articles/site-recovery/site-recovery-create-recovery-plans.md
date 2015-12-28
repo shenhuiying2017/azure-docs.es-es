@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creación de planes de recuperación" 
+	pageTitle="Crear planes de recuperación | Microsoft Azure" 
 	description="Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales ubicadas en servidores locales de Azure o en un centro de datos secundario." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/07/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 # Creación de planes de recuperación
@@ -54,7 +54,7 @@ Los planes de recuperación se crean como se indica a continuación:
 	- Si va a realizar una réplica de VMM a VMM con SAN, seleccione VMM en **Tipo de origen** y los servidores VMM de origen y destino. Haga clic en **SAN** para ver las nubes configuradas para la replicación de SAN.
 	- Si va a realizar una réplica de VMM a Azure, seleccione VMM en **Tipo de origen**. Seleccione el servidor VMM de origen y **Azure** como destino.
 	- Si va a realizar una réplica de un sitio de Hyper-V, seleccione Sitio de Hyper-V en Tipo de origen. Seleccione el sitio como origen y **Azure **como destino.
-	- Si va a realizar una réplica de VMware o un servidor físico de local a Azure, seleccione un servidor de configuración como el origen y **Azure** como destino.
+- Si va a realizar una réplica de VMware o un servidor físico de local a Azure, seleccione un servidor de configuración como el origen y **Azure** como destino.
 
 2\. En **Seleccionar máquinas virtuales**, seleccione las máquinas virtuales (o un grupo de replicación) que desea agregar al grupo predeterminado (Grupo 1) del plan de recuperación.
 
@@ -63,7 +63,7 @@ Los planes de recuperación se crean como se indica a continuación:
 Después de haber agregado máquinas virtuales o grupos de replicación protegidos al grupo del plan de recuperación predeterminado y haber creado el plan puede personalizarlo:
 
 - **Agregar grupos nuevos**: puede agregar grupos de planes de recuperación adicionales. Los grupos que agregue se numeran en el orden en que se agregan. Puede agregar hasta siete grupos. Puede agregar más máquinas o grupos de replicación a estos grupos nuevos. Tenga en cuenta que una máquina virtual o un grupo de replicación sólo puede incluirse en el grupo de planes de recuperación.
-- **Agregar un script**: puede agregar scripts que se ejecuten antes o después de un grupo de planes recuperación. Cuando se agrega un script, este agrega un nuevo conjunto de acciones al grupo. Por ejemplo, un conjunto de pasos previos para el grupo 1 se creará con el nombre: Grupo 1: pasos previos. Dentro de este conjunto se enumerarán todos los pasos previos. Tenga en cuenta que solo puede agregar un script al sitio principal si hay un servidor VMM implementado.
+- ****Agregar un script**: puede agregar scripts que se ejecuten antes o después de un grupo de planes recuperación. Cuando se agrega un script, este agrega un nuevo conjunto de acciones al grupo. Por ejemplo, un conjunto de pasos previos para el grupo 1 se creará con el nombre: Grupo 1: pasos previos. Dentro de este conjunto se enumerarán todos los pasos previos. Tenga en cuenta que solo puede agregar un script al sitio principal si hay un servidor VMM implementado.
 - **Agregar una acción manual**: puede agregar acciones manuales que se ejecuten antes o después de un grupo de planes de recuperación. Cuando se ejecuta el plan de recuperación, este se detiene en el punto en el que se insertó la acción manual y un cuadro de diálogo le pide que especifique que la acción manual se ha completado.
 
 ### Extensión de planes de recuperación con scripts
@@ -124,4 +124,4 @@ Puede ejecutar diferentes tipos de plan de recuperación de conmutaciones por er
 
  
 
-<!-----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -24,6 +24,10 @@
 
 En esta guía se explica cómo administrar conjuntos de registros y registros de zonas DNS.
 
+>[AZURE.NOTE]DNS de Azure es un servicio exclusivo del Administrador de recursos de Azure. No tiene ninguna API de ASM. Por tanto, deberá asegurarse de que la CLI de Azure se ha configurado para usar el modo del Administrador de recursos, con el comando 'azure config mode arm'.
+
+>Si ve "error: 'dns' is not an azure command", lo más probable se deba a que está usando CLI de Azure en modo ASM, no en el modo del Administrador de recursos.
+
 Es importante comprender la diferencia entre los conjuntos de registros de DNS y los registros DNS individuales. Un conjunto de registros es la colección de registros de una zona con el mismo nombre y el mismo tipo. Para obtener información, consulte [Descripción de los registros y los conjuntos de registros](dns-getstarted-create-recordset.md#Understanding-record-sets-and-records).
 
 ## Creación de un conjunto de registros
@@ -239,4 +243,4 @@ Se puede usar el modificador opcional “-q” para suprimir el mensaje de confi
 [Delegar un dominio a DNS de Azure](dns-domain-delegation.md)<BR> [Administrar zonas DNS](dns-operations-dnszones-cli.md)<BR> [Automatizar operaciones mediante el SDK de .NET](dns-sdk.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

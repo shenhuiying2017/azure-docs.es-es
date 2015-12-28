@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/24/2015" 
+    ms.date="12/14/2015" 
     ms.author="elizapo" />
 
 
@@ -22,11 +22,14 @@
 
 ¿Sabía que puede usar tu suscripción de Office 365 existente en Azure RemoteApp para compartir aplicaciones de Office desde la nube? Siga leyendo para obtener información sobre las opciones de Office 365 + Azure RemoteApp, incluidos vínculos a artículos sobre Office 365 que le ayudarán a sacar el máximo partido de su suscripción.
 
+## ¿Cómo uso cuentas de Office 365 para Azure RemoteApp?
+Consulte el nuevo artículo de Peter para toda la información: [Cómo usar Azure RemoteApp con cuentas de usuario de Office 365](remoteapp-o365user.md)
+
 ## ¿Puedo usar mi suscripción de Office 365 para ejecutar aplicaciones de Office en Azure RemoteApp?
 
 Sí. De hecho, usar su suscripción de Office 365 es la única manera de traer sus aplicaciones de Office a Azure RemoteApp.
 
-(Nota: si la implementación de Azure RemoteApp se realiza por un socio de hospedaje, es posible que este pueda proporcionarle licencias de Office basadas en un [contrato de licencia de proveedor de servicio](http://www.microsoft.com/es-ES/Licensing/licensing-programs/spla-program.aspx))
+(Nota: si la implementación de Azure RemoteApp se realiza por un socio de hospedaje, es posible que este pueda proporcionarle licencias de Office basadas en un [contrato de licencia de proveedor de servicio](http://www.microsoft.com/es-ES/Licensing/licensing-programs/spla-program.aspx)).
 
 
 Lo mejor de su suscripción de Office 365 es que permite usar la misma licencia de usuario en muchas plataformas y entorno diferentes, como la nube de Azure. Cuando usa las aplicaciones de Office en Azure RemoteApp no es necesario adquirir licencias adicionales ni configurar las licencias existentes de ninguna manera especial. Todo lo que necesita es una suscripción de Office 365 que incluya [Office 365 ProPlus](https://technet.microsoft.com/library/Gg702619.aspx).
@@ -120,4 +123,4 @@ Con esta opción, solo se usan las herramientas estándar de Windows para aplica
 - [Implementación y actualización de Office 365 ProPlus mediante la Herramienta de implementación de Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vídeo)
 - [Configuración de las opciones de actualización de Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -351,9 +351,9 @@ Para más información sobre los escenarios de solución integral de problemas e
 - [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
 - [Análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 - [Supervisión de una cuenta de almacenamiento](storage-monitor-storage-account.md)
-- [Uso de AzCopy con Almacenamiento de Microsoft Azure](storage-use-azcopy.md)
+- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 - [Guía de funcionamiento del analizador de mensajes de Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
  
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

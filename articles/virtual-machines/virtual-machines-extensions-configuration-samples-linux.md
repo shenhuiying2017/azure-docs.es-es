@@ -19,14 +19,21 @@
 
 # Ejemplos de configuración de la extensión de máquina virtual Linux
 
+> [AZURE.SELECTOR]
+- [Azure PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
+- [Azure CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
+
+<br>
+
+
 Este artículo proporciona un ejemplo de configuración para configurar las extensiones de máquina virtual de Azure para máquinas virtuales Linux.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
 
-Para obtener más información sobre estas extensiones, haga clic aquí: [Información general de las extensiones de máquinas virtuales de Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+Para más información sobre estas extensiones, haga clic aquí: [Información general de las extensiones de máquinas virtuales de Azure](virtual-machines-extensions-features.md).
 
-Para obtener más información sobre la creación de plantillas de extensión, haga clic aquí: [Creación de plantillas de extensión.](virtual-machines-extensions-authoring-templates.md)
+Para más información sobre la creación de plantillas de extensión, haga clic aquí: [Creación de plantillas de extensión](virtual-machines-extensions-authoring-templates.md).
 
 En este artículo se indican los valores de configuración esperados para algunas de las extensiones de Linux.
 
@@ -101,7 +108,7 @@ El resto del artículo proporciona ejemplos de configuraciones para las extensio
         }
 
 ### Extensión de acceso máquina virtual (restablecimiento de contraseña)
-Para el esquema actualizado, consulte la [Documentación de VMAccessForLinux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
+Para el esquema actualizado, consulte la [Documentación de VMAccessForLinux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
         {
           "publisher": "Microsoft.OSTCExtensions",
@@ -117,7 +124,7 @@ Para el esquema actualizado, consulte la [Documentación de VMAccessForLinux](ht
         }
 
 ### Revisión de SO
-Para el esquema actualizado, consulte la [Documentación de OSPatching](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching)
+Para el esquema actualizado, consulte la [Documentación de OSPatching](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching).
 
         {
         "publisher": "Microsoft.OSTCExtensions",
@@ -142,7 +149,7 @@ Para el esquema actualizado, consulte la [Documentación de OSPatching](https://
         }
 
 ### Extensión de Docker
-Para el esquema actualizado, consulte la [Documentación la extensión de Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)
+Para el esquema actualizado, consulte la [Documentación la extensión de Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema).
 
         {
           "publisher": "Microsoft.Azure.Extensions ",
@@ -190,4 +197,4 @@ Esta es una plantilla de máquina virtual completa para la creación de una VM d
 
 [Extensión del script personalizado en una máquina virtual de Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -14,22 +14,19 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="12/08/2015"
 	ms.author="rasquill"/>
-
-
 
 
 #Inicio de sesión en una máquina virtual con Linux #
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-linux-tutorial-portal-rm.md).
 
-Para una máquina virtual con el sistema operativo Linux, utilice un cliente Secure Shell (SSH) para iniciar sesión.
-
 Debe instalar un cliente de SSH en el equipo que desea usar para iniciar sesión en la máquina virtual. Existen muchos programas cliente de SSH donde elegir. Las siguientes son algunas posibles opciones:
 
 - En un equipo que ejecute un sistema operativo Windows, quizás desee utilizar un cliente de SSH, como PuTTY. Para obtener más información, consulte la página de descarga [PuTTY Download Page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) (Página de descarga de PuTTY).
-- En un equipo que ejecute un sistema operativo Linux, quizás desee utilizar un cliente de SSH, como OpenSSH. Para obtener más información, consulte [OpenSSH](http://www.openssh.org/).
+- Para una máquina virtual que ejecuta un sistema operativo Linux, use un cliente de Shell seguro (SSH) para iniciar sesión; es difícil pensar en una distribución que aún no tenga esto instalado de forma predeterminada. Vea [Cómo usar SSH](virtual-machines-linux-use-ssh-key.md) para más información sobre Linux.
+
 
 >[AZURE.NOTE]Para obtener consejos acerca de los requisitos y la solución de problemas, consulte [Conexión a una máquina virtual de Azure con RDP o SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294).
 
@@ -56,4 +53,4 @@ Ahora puede trabajar con la máquina virtual igual que hace con cualquier otro s
 <!-- LINKS -->
 [Restablecimiento de una contraseña o de SSH para máquinas virtuales de Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

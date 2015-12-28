@@ -1,32 +1,32 @@
 <!--author=SharS last changed: 11/04/15-->
 
 
-#### To create a custom backup policy
+#### Para crear una directiva de copia de seguridad personalizada
 
-1. On the **Devices** page, click **Backup Policies** and then click **Add**.
+1. En la página **Dispositivos**, haga clic en **Directivas de copia de seguridad** y luego haga clic en **Agregar**.
 
-2. In the **Add a backup policy** dialog box, under **Define your backup policy**:
+2. En el cuadro de diálogo **Agregar directiva de copia de seguridad**, en **Definir directiva de copia de seguridad**:
 
-    1. Specify a backup policy name.
+    1. Especifique un nombre de directiva de copia de seguridad.
 
-    2. Select the volumes to be added to this policy. You can choose to add multiple volumes by selecting multiple check boxes.
+    2. Seleccione los volúmenes que se agregarán a esta directiva. Puede elegir agregar varios volúmenes activando varias casillas.
 
-    3. Click the arrow icon ![check icon](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png).
+    3. Haga clic en el icono de flecha ![icono de marca de verificación](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png).
 
-6. Under **Define a Schedule**:
+6. En **Definir una programación**:
 
-    1. Select the **Type of backup** (**Local Snapshot** or **Cloud Snapshot**).
+    1. Active el **Tipo de copia de seguridad** (**Instantánea loca** o **Instantánea en la nube**).
 
-    3. Specify the backup frequency in minutes, hours, days, or weeks.
+    3. Especifique la frecuencia de copia de seguridad en minutos, horas, días o semanas.
 
-    4. Select a retention schedule from the drop-down list. The retention choices depend on the backup frequency. For instance, for a daily policy, the retention can be specified in weeks, whereas retention for a monthly policy is in months.
+    4. Seleccione una programación de retención en la lista desplegable. Las opciones de retención dependen de la frecuencia de copia de seguridad. Por ejemplo, para una directiva diaria, la retención puede especificarse en semanas, mientras que la retención de una directiva mensual es en meses.
  
-    5. Select the starting time and date for the policy.
+    5. Seleccione la fecha y hora de inicio para la directiva.
 
-    6. Select the check box to enable the policy.
+    6. Seleccione la casilla para habilitar la directiva.
 
-7. Click the check icon ![check icon](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) to finish.
+7. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) para continuar.
 
-8. You will return to the **Backup Policies** page. The tabular listing of the backup policies will be updated to display the custom policy.
+8. Volverá a la página **Directivas de copia de seguridad**. La lista tabular de las directivas de copia de seguridad se actualizarán para mostrar la directiva modificada.
 
-
+<!---HONumber=AcomDC_1217_2015-->

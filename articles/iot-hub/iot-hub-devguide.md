@@ -78,7 +78,7 @@ En caso de que tenga que crear una cadena de conexión del centro de eventos con
 Esta es una lista de SDK e integración que se puede usar con el Centro de IoT:
 
 * [Cliente de Centros de eventos de Java](https://github.com/hdinsight/eventhubs-client)
-* [Spout de Apache Storm](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). Puede encontrar el vínculo al origen del spout [aquí](https://github.com/apache/storm/tree/master/external/storm-eventhubs)
+* [Spout de Apache Storm](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). Puede ver el [origen de spout](https://github.com/apache/storm/tree/master/external/storm-eventhubs) en GitHub.
 * [Integración de Apache Spark](../hdinsight/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 
 ## Registro de identidad del dispositivo
@@ -532,4 +532,4 @@ Ahora que vio información general sobre el desarrollo del Centro de IoT, siga e
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

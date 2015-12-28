@@ -13,23 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/16/2015"
    ms.author="yurid"/>
 
 #Supervisión del estado de seguridad en el Centro de seguridad de Azure
-Con este tutorial, aprenderá a usar las funcionalidades de supervisión en el Centro de seguridad de Azure.
+Este documento le ayuda a usar las funcionalidades de supervisión en el Centro de seguridad de Azure para supervisar el cumplimiento de las directivas.
 
 > [AZURE.NOTE]La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure.
+
+## ¿Qué es el Centro de seguridad de Azure?
+El Centro de seguridad de Azure ayuda a evitar, detectar y responder a amenazas con más visibilidad y control de la seguridad en sus recursos de Azure. Ofrece administración de directivas y supervisión de la seguridad integrada en las suscripciones, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
 ##¿Qué es la supervisión del estado de seguridad?
 Con frecuencia se piensa que supervisar es observar y esperar que se produzca un evento, para así poder reaccionar ante la situación. La supervisión de seguridad se refiere a contar con una estrategia proactiva que audita los recursos a fin de identificar los sistemas que no cumplen con los estándares o los procedimientos recomendados de la organización.
 
-##Supervisión del cumplimiento con directivas
+##Supervisión del estado de seguridad
 Después de habilitar las [directivas de seguridad](security-center-policies.md) de los recursos de la suscripción, el Centro de seguridad de Azure analizará la seguridad de los recursos para identificar posibles vulnerabilidades. A pesar de que la información sobre la configuración de la red está disponible de inmediato, es posible que demore una hora o más en tener a su disposición la información sobre la configuración de las máquinas virtuales, como el estado de las actualizaciones de seguridad y la configuración del SO. Puede consultar el estado de seguridad de sus recursos, además de cualquier problema que exista, en las hojas de Estado de seguridad de los recursos. También puede ver una lista de esos problemas en las hojas de Recomendaciones.
 
-Para obtener más información sobre cómo aplicar las recomendaciones, lea [Implementación de recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md).
+Para más información sobre cómo aplicar las recomendaciones, lea [Implementación de recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md).
 
-##Estado de los recursos
 El icono **Estado de los recursos** le permite supervisar el estado de seguridad de los recursos. Verá una serie de problemas con una gravedad alta y media que requieren atención, tal como se muestra a continuación:
 
 ![Estado de los recursos](./media/security-center-monitoring/security-center-monitoring-fig1.png)
@@ -51,7 +53,7 @@ Para ver los detalles de las actualizaciones recomendadas, haga clic en el nombr
 
 ![Actualización del sistema recomendada por VM](./media/security-center-monitoring/security-center-monitoring-fig4.png)
 
-> [AZURE.NOTE]Las recomendaciones de seguridad son las mismas que aparecen en la hoja Recomendaciones. Consulte el artículo [Implementación de recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md) para obtener más información sobre cómo solucionar las recomendaciones. Esto no se aplica solo a las VM, sino que también a todos los recursos disponibles en el icono Estado de los recursos.
+> [AZURE.NOTE]Las recomendaciones de seguridad son las mismas que aparecen en la hoja Recomendaciones. Vea el artículo [Implementación de recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md) para más información sobre cómo solucionar las recomendaciones. Esto no se aplica solo a las VM, sino que también a todos los recursos disponibles en el icono Estado de los recursos.
 
 ###Redes
 El estado de prevención para las redes muestra las redes virtuales que supervisa el Centro de seguridad de Azure. Cuando haga clic en **Redes** en el icono Estado de los recursos, se abrirá la hoja **Redes** con más detalles, tal como aparece a continuación:
@@ -76,7 +78,7 @@ Puede hacer clic en cualquiera de estas recomendaciones para obtener más detall
 ![Actualización del sistema recomendada por VM](./media/security-center-monitoring/security-center-monitoring-fig8.png)
 
 ###Aplicaciones
-Si la carga de trabajo de Azure tiene aplicaciones en las [VM del Administrador de recursos](resource-manager-deployment-model.md) con puertos web expuesto (puertos TCP 80 y 443), el Centro de seguridad de Azure puede supervisarlos para identificar posibles problemas de seguridad y recomendar pasos para su corrección. Cuando haga clic en el icono **Aplicaciones**, se abrirá la hoja **Aplicaciones** con una serie de recomendaciones en la sección de pasos de prevención y, además, mostrará el desglose de la aplicación por host/IP virtual, tal como aparece a continuación:
+Si la carga de trabajo de Azure tiene aplicaciones en las [VM del Administrador de recursos](resource-manager-deployment-model.md) con puertos web expuestos (puertos TCP 80 y 443), el Centro de seguridad de Azure puede supervisarlos para identificar posibles problemas de seguridad y recomendar pasos para su corrección. Cuando haga clic en el icono **Aplicaciones**, se abrirá la hoja **Aplicaciones** con una serie de recomendaciones en la sección de pasos de prevención y, además, mostrará el desglose de la aplicación por host/IP virtual, tal como aparece a continuación:
 
 ![Actualización del sistema recomendada por VM](./media/security-center-monitoring/security-center-monitoring-fig9.png)
 
@@ -87,9 +89,9 @@ Al igual que lo que ocurre con las otras recomendaciones para los recursos anter
 ## Pasos siguientes
 En este documento, aprendió a usar las funcionalidades de supervisión en el Centro de seguridad de Azure. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
 
-- [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md): Obtenga información sobre cómo configurar los ajustes de seguridad en el Centro de seguridad de Azure.
-- [Administración de alertas de seguridad y respuesta a estas en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): Obtenga información sobre cómo administrar alertas de seguridad y responder a estas.
-- [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): Encuentre las preguntas más frecuentes sobre el uso del servicio.
-- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): Encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
+- [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md): obtenga información sobre cómo configurar los ajustes de seguridad en el Centro de seguridad de Azure.
+- [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
+- [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): busque preguntas frecuentes sobre el uso del servicio.
+- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

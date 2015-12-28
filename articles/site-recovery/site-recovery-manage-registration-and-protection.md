@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Administración del registro y la protección" 
+	pageTitle="Anular el registro de servidores y deshabilitar la protección | Microsoft Azure" 
 	description="Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales ubicadas en servidores locales de Azure o en un centro de datos secundario. Use este artículo para anular el registro de servidores desde un almacén de Site Recovery y deshabilitar la protección para máquinas virtuales y servidores físicos." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/07/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
-# Administración del registro y la protección
+# Anular el registro de servidores y deshabilitar la protección
 
 Este artículo describe cómo anular el registro de servidores desde el almacén de Site Recovery y cómo deshabilitar la protección para máquinas virtuales protegidas por Site Recovery. Si tiene alguna pregunta después de leer este artículo, publíquela en el [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -212,4 +212,4 @@ Si desea detener la protección de una máquina virtual de VMware o de un servid
 	- **Deshabilitar la protección**: si habilita y guarda esta opción, la máquina ya no estará protegida por Site Recovery. La configuración de protección de la máquina se borrará automáticamente.
 	- **Quitar del almacén**: si selecciona esta opción, solo se quitará la máquina del almacén de Site Recovery. La configuración de la protección local de la máquina no se verá afectada. Para quitar la configuración en el equipo y quitar la máquina virtual de la suscripción de Azure, necesitará borrar la configuración desinstalando el servicio de movilidad. ![Eliminación de opciones](./media/site-recovery-manage-registration-and-protection/RegistrationProtection_RemoveVM.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

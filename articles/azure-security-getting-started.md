@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="12/10/2015"
    ms.author="yuridio"/>
 
 #Introducción a la seguridad de Microsoft Azure
@@ -241,4 +241,4 @@ Azure tiene controles de seguridad para implementar la mitigación de amenazas y
 
 [Blog de Active Directory](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -32,12 +32,9 @@ Haga clic para ver el [contenido del SDK](mobile-engagement-ios-sdk-content.md)
 
 ##Notas de la versión
 
-##3\.2.0 (10/08/2015)
+###3\.2.1 (12/11/2015)
 
--   Se habilitó Bitcode en el SDK para que funcione con **Xcode 7**.
--   Se corrigieron los errores relacionados con las notificaciones desde la aplicación.
--   Las notificaciones desde la aplicación ahora son más fiables en caso de que, por ejemplo, la batería esté baja.
--   Se quitaron registros de la consola adicionales generados por la biblioteca de terceros.
+-   Se ha corregido el retraso que se produce cuando se desencadena una nueva instancia de aplicación por una notificación con vínculos profundos. 
 
 Para la versión anterior, consulte las [notas de la versión completas](mobile-engagement-ios-release-notes.md)
 
@@ -56,10 +53,10 @@ Si usa Reach en la aplicación, debe agregar el valor `remote-notification` a la
 
 El método `application:didReceiveRemoteNotification:` debe reemplazarse por `application:didReceiveRemoteNotification:fetchCompletionHandler:` en el delegado de aplicación.
 
-"AEPushDelegate.h" es una interfaz desusada y debe quitar todas las referencias. Esto incluye quitar `[[EngagementAgent shared] setPushDelegate:self]` y los métodos delegados del delegado de la aplicación:
+"AEPushDelegate.h" es una interfaz desusada y debe quitar todas las referencias. Esto incluye eliminar `[[EngagementAgent shared] setPushDelegate:self]` y los métodos delegados del delegado de la aplicación:
 
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Acerca de los dispositivos VPN para las conexiones de Red virtual de Azure de sitio a sitio | Microsoft Azure"
-   description="Obtenga más información acerca de los dispositivos VPN y los parámetros de IPsec para conexiones de puerta de enlace de VPN de sitio a sitio de la Red virtual de Azure."
+   pageTitle="Acerca de los dispositivos VPN para las conexiones de puerta de enlace de VPN de sitio a sitio para redes virtuales de Azure | Microsoft Azure"
+   description="Obtenga más información sobre los dispositivos VPN y los parámetros de IPsec para conexiones de puerta de enlace de VPN de sitio a sitio. Se pueden utilizar conexiones de sitio a sitio para las configuraciones híbridas. Este artículo contiene vínculos a instrucciones de configuración y ejemplos para dispositivos de puerta de enlace de VPN."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -12,70 +12,66 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/27/2015"
+   ms.date="12/14/2015"
    ms.author="cherylmc" />
 
-# Acerca de los dispositivos VPN para conexiones de red virtual de sitio a sitio
+# Acerca de los dispositivos VPN para las conexiones de puerta de enlace de VPN de sitio a sitio
 
-Se requiere un dispositivo VPN para configurar una conexión VPN de sitio a sitio. Las conexiones de sitio a sitio pueden usarse para crear una solución de nube híbrida o siempre que desee una conexión segura entre su red local y la red virtual. Este artículo trata sobre los dispositivos VPN compatibles y los parámetros de configuración.
+Se requiere un dispositivo VPN para configurar una conexión VPN de sitio a sitio. Las conexiones de sitio a sitio pueden usarse para crear una solución híbrida o siempre que desee una conexión segura entre su red local y la red virtual. Este artículo trata sobre los dispositivos VPN compatibles y los parámetros de configuración. Tenga en cuenta que al configurar una conexión de sitio a sitio, una dirección IP IPv4 pública es necesaria para el dispositivo VPN.
 
-Es importante saber que, además de un dispositivo VPN compatible, las conexiones de sitio a sitio también requieren una dirección IP de tipo IPv4 de acceso público. Además, deberá seleccionar el tipo de puerta de enlace que sea compatible con la solución. No todos los dispositivos VPN admiten todos los tipos de puerta de enlace. Consulte [Puertas de enlace de VPN](vpn-gateway-about-vpngateways.md) para comprobar el tipo de puerta de enlace que necesita para crear la solución.
+Si el dispositivo no aparece en la tabla de dispositivos VPN validados, consulte la sección de dispositivos de VPN no validados de este artículo. Es posible que el dispositivo funcione aún con Azure. Para obtener soporte con los dispositivos VPN, póngase en contacto con el fabricante.
 
+**Elementos que hay que tener en cuenta para consultar las tablas:**
 
-
-## Dispositivos VPN
-
-Validamos un conjunto de dispositivos VPN de sitio a sitio (S2S) estándar en colaboración con los proveedores de dispositivos. Para obtener una lista de los dispositivos VPN que se sabe que son compatibles con las redes virtuales, consulte el apartado [Dispositivos VPN compatibles](#compatible-vpn-devices) que encontrará a continuación. Todos los dispositivos de las familias de dispositivos incluidos en esta lista deben funcionar con las puertas de enlace de VPN de Azure. Con el fin de configurar el dispositivo VPN, consulte el ejemplo de configuración de dispositivo que corresponda a la familia de dispositivos adecuada.
-
-Las especificaciones de puerta de enlace de VPN de alto rendimiento y la puerta de enlace de VPN de enrutamiento dinámico son las mismas, a menos que se indique lo contrario. Por ejemplo, los dispositivos VPN validados que son compatibles con las puertas de enlace de VPN de enrutamiento dinámico de Azure también serán compatibles con la nueva puerta de enlace de VPN de alto rendimiento de Azure.
-
-
-### Dispositivos VPN compatibles
-
-Trabajamos con proveedores de dispositivos VPN para calificar conjuntamente familias de dispositivos VPN específicas. En la siguiente sección encontrará una lista de todas las familias de dispositivos cuyo funcionamiento con nuestra puerta de enlace de VPN está comprobado. El funcionamiento de todos los dispositivos miembros de las familias de dispositivos incluidos en la lista está comprobado, a menos que se mencionen como excepción. Si el dispositivo no aparece en la lista, consulte el apartado en el que se indican los [dispositivos que no aparecen en la lista de compatibles](#devices-not-on-the-compatible-list).
+- Ha habido un cambio de terminología del enrutamiento estático y dinámico. Es probable que realice la ejecución en ambos términos. No hay ningún cambio de funcionalidad; solo cambian los nombres.
+	- Enrutamiento estático = basada en directivas
+	- Enrutamiento dinámico = basada en enrutamiento 
+- Las especificaciones de puerta de enlace de VPN de alto rendimiento y de puerta de enlace de VPN basada en enrutamiento son las mismas, a menos que se indique lo contrario. Por ejemplo, los dispositivos VPN validados que son compatibles con las puertas de enlace de VPN basadas en enrutamiento también serán compatibles con la nueva puerta de enlace de VPN de alto rendimiento de Azure. 
 
 
+## Dispositivos VPN validados 
 
-Para obtener soporte con los dispositivos VPN, póngase en contacto con el fabricante.
+Hemos validado un conjunto de dispositivos VPN estándar en colaboración con proveedores de dispositivos. Todos los dispositivos de las familias de dispositivos incluidos en la lista siguiente deben funcionar con las puertas de enlace de VPN de Azure. Consulte el artículo sobre las [puertas de enlace de VPN](vpn-gateway-about-vpngateways.md) para verificar el tipo de puerta de enlace que debe crear para la solución que desea configurar.
+
+Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondientes a la familia de dispositivos apropiada.
 
 
 
-| **Proveedor** | **Familia de dispositivos** | **Versión mínima de sistema operativo** | **Enrutamiento estático** | **Enrutamiento dinámico** |
+| **Proveedor** | **Familia de dispositivos** | **Versión mínima de sistema operativo** | **Basada en directivas** | **Basada en enrutamiento** |
 |---------------------------------|----------------------------------------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Allied Telesis | Enrutadores VPN de la serie AR | 2\.9.2 | Próximamente | No compatible |
 | Barracuda Networks, Inc. | Barracuda NG Firewall | Barracuda NG Firewall 5.4.3 | [Barracuda NG Firewall](https://techlib.barracuda.com/display/BNGV54/How%20to%20Configure%20an%20IPsec%20Site-to-Site%20VPN%20to%20a%20Windows%20Azure%20VPN%20Gateway)| No compatible |
 | Barracuda Networks, Inc. | Barracuda Firewall | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | No compatible |
 | Brocade | Vyatta 5400 vRouter | Virtual Router 6.6R3 GA | [Instrucciones de configuración](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) | No compatible |
 | Punto de comprobación | Puerta de enlace de seguridad | R75.40, R75.40VS | [Instrucciones de configuración](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) | [Instrucciones de configuración](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco | ASA | 8\.3 | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) | No compatible |
-| Cisco | ASR | IOS 15.1 (estático), IOS 15.2 (dinámico) | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
-| Cisco | ISR | IOS 15.0 (estático), IOS 15.1 (dinámico) | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Cisco | ASA | 8\.3 | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkID=717348) | No compatible |
+| Cisco | ASR | IOS 15.1 (basada en directivas), IOS 15.2 (basada en enrutamiento) | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkID=717348) | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkID=717348) |
+| Cisco | ISR | IOS 15.0 (basada en directiva), IOS 15.1 (basada en enrutamiento) | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkID=717348) | [Ejemplos de Cisco](http://go.microsoft.com/fwlink/p/?LinkID=717348) |
 | Citrix | Dispositivo CloudBridge MPX o dispositivo virtual VPX | N/D | [Instrucciones de integración](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | No compatible |
 | Dell SonicWALL | Serie TZ, serie NSA, serie SuperMassive, serie NSA E-Class | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [Instrucciones: SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instrucciones: SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [Instrucciones: SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instrucciones: SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | Serie BIG-IP | N/D | [Instrucciones de configuración](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | No compatible |
 | Fortinet | FortiGate | FortiOS 5.0.7 | [Instrucciones de configuración](http://docs.fortinet.com/fortigate/admin-guides) | [Instrucciones de configuración](http://docs.fortinet.com/fortigate/admin-guides) |
 | Internet Initiative Japan (IIJ) | Serie SEIL | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [Instrucciones de configuración](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | No compatible |
-| Juniper | SRX | JunOS 10.2 (estático), JunOS 11.4 (dinámico) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
-| Juniper | Serie J | JunOS 10.4r9 (estático), JunOS 11.4 (dinámico) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
-| Juniper | ISG | ScreenOS 6.3 (estático y dinámico) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
-| Juniper | SSG | ScreenOS 6.2 (estático y dinámico) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
-| Microsoft | Servicio de acceso remoto y enrutamiento | Windows Server 2012 | No compatible | [Ejemplos de Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Juniper | SRX | JunOS 10.2 (basada en directivas), JunOS 11.4 (basada en enrutamiento) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
+| Juniper | Serie J | JunOS 10.4r9 (basada en directivas), JunOS 11.4 (basada en enrutamiento) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
+| Juniper | ISG | ScreenOS 6.3 (basada en directivas y basada en enrutamiento) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
+| Juniper | SSG | ScreenOS 6.2 (basada en directiva y basada en enrutamiento) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Ejemplos de Juniper](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
+| Microsoft | Servicio de acceso remoto y enrutamiento | Windows Server 2012 | No compatible | [Ejemplos de Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | Openswan | Openswan | 2\.6.32 | (Próximamente) | No compatible |
 | Palo Alto Networks | Todos los dispositivos que ejecutan PAN-OS 5.0 o superior | PAN-OS 5x o superior | [Palo Alto Networks](https://support.paloaltonetworks.com/) | No compatible |
 | WatchGuard | Todo | Fireware XTM v11.x | [Instrucciones de configuración](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/) | No compatible |
 
 
-### Dispositivos que no aparecen en la lista de compatibles
+## Dispositivos VPN no validados
 
-
-Si no ve el dispositivo en la lista de dispositivos VPN compatibles conocidos y desea usar el dispositivo para la conexión VPN, deberá comprobar que cumpla los requisitos mínimos descritos en la tabla [Requisitos de puerta de enlace](vpn-gateway-about-vpngateways.md#gateway-requirements). Los dispositivos que cumplen los requisitos mínimos deben funcionar bien con las redes virtuales. Póngase en contacto con el fabricante del dispositivo para obtener instrucciones adicionales de soporte técnico y configuración.
+Si el dispositivo no aparece en la tabla de dispositivos VPN validados (arriba), es posible que todavía funcione con una conexión de sitio a sitio. Verifique que el dispositivo VPN cumple los requisitos mínimos descritos en la sección Requisitos de las puertas de enlace del artículo [Acerca de las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md#gateway-requirements). Los dispositivos que cumplen los requisitos mínimos deberían funcionar correctamente también con las puertas de enlace de VPN. Póngase en contacto con el fabricante del dispositivo para obtener instrucciones adicionales de soporte técnico y configuración.
 
 
 ## Editar los ejemplos de configuración de dispositivos
 
 Después de descargar el ejemplo de configuración del dispositivo VPN proporcionado, deberá reemplazar algunos de los valores para reflejar la configuración de su entorno.
 
-**Para editar el ejemplo:**
+**Para editar una muestra:**
 
 1. Abra el ejemplo con el Bloc de notas. 
 1. Busque y reemplace todas las cadenas de <*texto*> por los valores que pertenezcan al entorno. Asegúrese de incluir < and >. Cuando se especifica un nombre, el nombre que seleccione debe ser único. Si un comando no funciona, consulte la documentación del fabricante del dispositivo.
@@ -100,7 +96,7 @@ Después de descargar el ejemplo de configuración del dispositivo VPN proporcio
 
 ### Configuración de la fase 1 de IKE
 
-| **Propiedad** | **Puerta de enlace de VPN con enrutamiento estático** | **Puerta de enlace de VPN con enrutamiento dinámico y puerta de enlace de VPN estándar o de alto rendimiento** |
+| **Propiedad** | **Basada en directivas** | **Puerta de enlace de VPN de alto rendimiento o estándar y basada en enrutamiento** |
 |----------------------------------------------------|--------------------------------|------------------------------------------------------------------|
 | Versión de IKE | IKEv1 | IKEv2 |
 | Grupo Diffie-Hellman | Grupo 2 (1024 bits) | Grupo 2 (1024 bits) |
@@ -112,17 +108,17 @@ Después de descargar el ejemplo de configuración del dispositivo VPN proporcio
 
 ### Configuración de la fase 2 de IKE
 
-| **Propiedad** | **Puerta de enlace de VPN con enrutamiento estático** | **Puerta de enlace de VPN con enrutamiento dinámico y puerta de enlace de VPN estándar o de alto rendimiento** |
+| **Propiedad** | **Basada en directivas** | **Puerta de enlace de VPN de alto rendimiento o estándar y basada en enrutamiento** |
 |--------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------------------|
 | Versión de IKE | IKEv1 | IKEv2 |
 | Algoritmo hash | SHA1(SHA128) | SHA1(SHA128) |
-| Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 2 | 3.600 segundos | - | | Vida útil (rendimiento) de la asociación de seguridad (SA) de la fase 2 | 102.400.000 KB | - | | Cifrado y ofertas de autenticación de SA de IPsec (por orden de preferencia) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. No disponible | Vea ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace de enrutamiento dinámico || Confidencialidad directa total (PFS) | No | Sí (DH Grupo1) || Detección de nodos fallidos | No se admite | Se admite |
+| Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 2 | 3.600 segundos | - | | Vida útil (rendimiento) de la asociación de seguridad (SA) de la fase 2 | 102.400.000 KB | - | | Cifrado y ofertas de autenticación de SA de IPsec (por orden de preferencia) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. No disponible | Vea *ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento* (a continuación) | | Confidencialidad directa total (PFS) | No | Sí (DH Grupo1) | | Detección de nodos fallidos | No se admite | Se admite |
 
-### Ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace de enrutamiento dinámico
+### Ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento
 
 En la tabla encontrará una lista de las ofertas de autenticación y cifrado de SA de IPsec. Las ofertas se enumeran en el orden de preferencia en el que se presentan o se aceptan.
 
-| **Ofertas de autenticación y cifrado de SA de IPsec** | **Puerta de enlace de Azure como iniciador** | Puerta de enlace de Azure como respondedor |
+| **Ofertas de autenticación y cifrado de SA de IPsec** | **Puerta de enlace de Azure como iniciador** | **Puerta de enlace de Azure como respondedor** |
 |---------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|
 | 1 | ESP AES\_256 SHA | ESP AES\_128 SHA |
 | 2 | ESP AES\_128 SHA | ESP 3\_DES MD5 |
@@ -143,17 +139,8 @@ En la tabla encontrará una lista de las ofertas de autenticación y cifrado de 
 | 17 | - | AH SHA, sin vida útil | | 18 | - | AH MD5, sin vida útil |
 
 
-
-
-- Puede especificar el cifrado IPsec ESP NULL con la puerta de enlace de VPN de alto rendimiento y enrutamiento dinámico, destinada a conexiones de red virtual a red virtual dentro de las redes de Azure. 
+- Puede especificar el cifrado IPsec ESP NULL con puerta de enlace de VPN de alto rendimiento y basada en enrutamiento. Esto está pensado para las conexiones de red virtual a red virtual dentro de redes de Azure. 
 
 - Para conectividad entre locales a través de Internet, use la configuración de la puerta de enlace de VPN de Azure predeterminada con los algoritmos de cifrado y hash de las tablas anteriores para garantizar la seguridad de su comunicación crítica.
 
-## Pasos siguientes
-
-
-Para más información sobre las puertas de enlace de VPN, consulte [Acerca de las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md).
-
-Para configurar una VPN de sitio a sitio, consulte [Creación de una red virtual con una conexión VPN de sitio a sitio](vpn-gateway-site-to-site-create.md).
-
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

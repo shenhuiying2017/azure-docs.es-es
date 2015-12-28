@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/16/2015"
 	ms.author="wesmc"/>
 
 # Registro del usuario actual para las notificaciones de inserción mediante ASP.NET
@@ -111,7 +111,7 @@ En este tema se describe cómo solicitar el registro de las notificaciones de in
 
 	De este modo se configura el token del dispositivo para la solicitud.
 
-	> [AZURE.NOTE]En este punto, no debería haber ningún otro código en este método. Si ya tiene una llamada al método **registerNativeWithDeviceToken** que se agregó cuando realizó el tutorial [Introducción a los Centros de notificaciones](/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank"), debe convertir la llamada en comentario o borrarla.
+	> [AZURE.NOTE]En este punto, no debería haber ningún otro código en este método. Si ya tiene una llamada al método **registerNativeWithDeviceToken** que se agregó cuando realizó el tutorial [Introducción a los Centros de notificaciones](/manage/services/notification-hubs/get-started-notification-hubs-ios/), debe convertir la llamada en comentario o borrarla.
 
 10.	En el archivo PushToUserAppDelegate.m, agregue el siguiente método de controlador:
 
@@ -237,4 +237,4 @@ Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación 
 
 [Introducción a los Centros de notificaciones]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

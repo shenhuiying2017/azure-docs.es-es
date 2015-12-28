@@ -23,11 +23,14 @@
 - [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-Este artículo le guiará por los pasos necesarios para crear y conectar redes virtuales mediante el modelo de implementación clásica (también conocido como administración de servicios). En estos pasos usará una combinación de los cmdlets de PowerShell y del Portal de Azure clásico (no el Portal de Azure). Si quiere conectar redes virtuales creadas con el modelo de implementación del Administrador de recursos de Azure, vea la pestaña anterior. Los pasos son distintos para cada modelo.
 
-También puede conectar una red virtual creada en el modelo de implementación clásica en una red virtual creada con el modelo del Administrador de recursos. Consulte [Conexión de redes virtuales clásicas a nuevas redes virtuales](../virtual-network/virtual-networks-arm-asm-s2s.md).
+Este artículo le guiará por los pasos necesarios para crear y conectar redes virtuales mediante el modelo de implementación clásica (también conocido como administración de servicios). En estos pasos usará una combinación de los cmdlets de PowerShell y del Portal de Azure clásico (no el Portal de Azure). Si está buscando un modelo de implementación diferente para esta configuración, use las pestañas para seleccionar el artículo que quiera.
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+**Información sobre los modelos de implementación de Azure**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+	
+Si quiere conectar una red virtual creada en el modelo de implementación clásica en una red virtual creada con el modelo del Administrador de recursos. Vea [Conexión de redes virtuales clásicas a nuevas redes virtuales](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
 La conexión de una red virtual a otra (de red virtual a red virtual) es muy parecida a la conexión de una red virtual a la ubicación de un sitio local. Ambos tipos de conectividad usan una puerta de enlace de VPN para proporcionar un túnel seguro con IPsec/IKE. Las redes virtuales que se conecten pueden estar pueden estar en suscripciones y regiones distintas. Incluso es posible combinar la comunicación de red virtual a red virtual con configuraciones de varios sitios. Esto permite establecer topologías de red que combinen la conectividad entre entornos con la conectividad entre redes virtuales, como se muestra en el diagrama siguiente:
 
@@ -114,7 +117,7 @@ VNet2: Espacio de direcciones = 10.2.0.0/16; Región=Este de Japón
 
 2. En la esquina inferior izquierda de la pantalla, haga clic en **Nuevo**. En el panel de navegación, haga clic en **Servicios de red** y, a continuación, haga clic en **Red virtual**. Haga clic en **Creación personalizada** para iniciar el Asistente para configuración.
 
-**En la página Detalles de la red virtual**, escriba la siguiente información.
+En la página **Detalles de la red virtual** escriba la siguiente información.
 
   ![Detalles de red virtual](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
@@ -123,7 +126,7 @@ VNet2: Espacio de direcciones = 10.2.0.0/16; Región=Este de Japón
 
 
 
-**En la página Servidores DNS y conectividad VPN**, escriba la información siguiente y, a continuación, haga clic en la flecha siguiente situada en la parte inferior derecha.
+En la página **Servidores DNS y conectividad VPN**, escriba la información siguiente y luego haga clic en la flecha siguiente situada en la parte inferior derecha.
 
   ![Servidores DNS y conectividad VPN](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)
 
@@ -132,12 +135,12 @@ VNet2: Espacio de direcciones = 10.2.0.0/16; Región=Este de Japón
 
   - No seleccione ninguna casilla. Tan solo haga clic en la flecha de la parte inferior derecha para pasar a la pantalla siguiente.
 
-**En la página Espacios de direcciones de la red virtual**, especifique el intervalo de direcciones que desea usar para la red virtual. Estas son las direcciones IP dinámicas (DIPS) que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual. Es especialmente importante seleccionar un intervalo que no se superponga con ninguno de los intervalos usados para la red local. Necesitará coordinarse con el administrador de red, quien es posible que necesite definir un intervalo de direcciones IP desde el espacio de direcciones de red local para el uso en la red virtual.
+**En la página Espacios de direcciones de la red virtual**, especifique el intervalo de direcciones que quiere usar para la red virtual. Estas son las direcciones IP dinámicas (DIPS) que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual. Es especialmente importante seleccionar un intervalo que no se superponga con ninguno de los intervalos usados para la red local. Necesitará coordinarse con el administrador de red, quien es posible que necesite definir un intervalo de direcciones IP desde el espacio de direcciones de red local para el uso en la red virtual.
 
 
   ![Página Espacios de direcciones de la red virtual](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
 
-  **Escriba la información siguiente** y, a continuación, haga clic en la marca de verificación situada en la esquina inferior derecha para configurar la red.
+  **Escriba la información siguiente** y luego haga clic en la marca de verificación de la esquina inferior derecha para configurar la red.
 
   - **Espacio de direcciones**: incluidas Dirección IP de inicio y Recuento de direcciones. Compruebe que los espacios de direcciones especificados no se superponen con los espacios de direcciones que existen en la red local. En este ejemplo, usaremos 10.1.0.0/16 para VNet1.
   - **Agregar subred**: incluidas Dirección IP de inicio y Recuento de direcciones. No se necesitan subredes adicionales, pero puede que desee crear una subred independiente para las máquinas virtuales que tendrán DIP estáticas. O bien, puede que desee que las máquinas virtuales se encuentren en una subred independiente de las demás instancias de rol.
@@ -222,20 +225,11 @@ Espere a que se inicialicen las conexiones. Una vez inicializada la puerta de en
 
 ## Pasos siguientes
 
-
-Si quiere agregar máquinas virtuales a la red virtual, consulte [Cómo crear una máquina virtual](../virtual-machines/virtual-machines-windows-tutorial-classic-portal.md).
-
-Para obtener más información acerca del esquema de configuración, consulte [Esquema de configuración de la Red virtual de Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
-
-Para obtener información sobre la API de REST, vea [Operaciones en puertas de enlace de red virtual](https://msdn.microsoft.com/library/azure/jj154113.aspx).
-
-Para obtener más información sobre las Puertas de enlace de VPN, consulte [Preguntas más frecuentes sobre las Puertas de enlace de VPN](vpn-gateway-vpn-faq.md).
-
-Para obtener más información sobre redes virtuales, consulte [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md) y [Preguntas más frecuentes sobre las redes virtuales](../virtual-network/virtual-networks-faq.md).
+Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Vea [Creación de una máquina virtual](../virtual-machines/virtual-machines-windows-tutorial-classic-portal.md) para ver los pasos.
 
 
 [1]: ../hdinsight-hbase-geo-replication-configure-vnets.md
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

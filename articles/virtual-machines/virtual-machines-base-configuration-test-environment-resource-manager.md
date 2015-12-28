@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # Entorno de prueba de la configuración base con Administrador de recursos de Azure
@@ -56,9 +56,22 @@ Si no dispone de ninguna cuenta de Azure, puede registrarse para una prueba grat
 
 ## Fase 1: creación de la red virtual
 
-> [AZURE.NOTE]Este artículo contiene comandos para la versión preliminar de Azure PowerShell 1.0. Para ejecutar estos comandos en Azure PowerShell 0.9.8 y versiones anteriores, reemplace todas las instancias de "-AzureRM" por "-Azure" y agregue el comando **Switch-AzureMode AzureResourceManager** antes de ejecutar ningún comando. Para obtener más información, consulte [Versión preliminar de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+En primer lugar, inicie un símbolo del sistema de Azure PowerShell.
 
-En primer lugar, abra un símbolo del sistema de Azure PowerShell.
+> [AZURE.NOTE]El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+
+Inicie sesión en su cuenta.
+
+	Login-AzureRMAccount
+
+Obtenga el nombre de la suscripción con el comando siguiente.
+
+	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+
+Establezca su suscripción a Azure. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < and >, por los nombres correctos.
+
+	$subscr="<subscription name>"
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
 
 Seguidamente, cree un nuevo grupo de recursos para el laboratorio de pruebas de la configuración base. Para determinar el nombre único del grupo de recursos, utilice este comando para enumerar los grupos de recursos existente.
 
@@ -72,7 +85,7 @@ Cree un nuevo grupo de recursos con estos comandos. Reemplace todo el contenido 
 
 Las máquinas virtuales basadas en Administrador de recursos requieren una cuenta de almacenamiento basada en Administrador de recursos. Debe elegir un nombre único global para la cuenta de almacenamiento que contenga solo letras minúsculas y números. Puede usar este comando para enumerar las cuentas de almacenamiento existentes.
 
-	Get-AzureRMStorageAccount | Sort Name | Select Name
+	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
 
 Cree una nueva cuenta de almacenamiento para el nuevo entorno de prueba con estos comandos.
 
@@ -118,12 +131,12 @@ En primer lugar, proporcione el nombre del grupo de recursos, la ubicación de A
 
 A continuación, conéctese a la máquina virtual DC1.
 
-1.	En el Portal de Azure, haga clic en **Examinar todo** en el panel izquierdo, en **Máquinas virtuales** en la lista **Examinar** y después en la máquina virtual **DC1**.  
+1.	En el Portal de Azure, haga clic en **Máquinas virtuales** y luego haga clic en la máquina virtual **DC1**.  
 2.	En el panel **DC1**, haga clic en **Conectar**.
 3.	Cuando se le pida, abra el archivo DC1.rdp descargado.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan las credenciales, utilice las siguientes:
-- Nombre: **DC1\**[nombre de la cuenta de administrador local]
+- Nombre: **DC1\**[Nombre de la cuenta de administrador local]
 - Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto referido a certificados, haga clic en **Sí**.
 
@@ -147,12 +160,12 @@ A continuación, configure DC1 como un controlador de dominio y servidor DNS par
 
 Una vez reiniciado DC1, vuelva a conectar la máquina virtual de DC1.
 
-1.	En el Portal de Azure, haga clic en Examinar todo en el panel izquierdo, en Máquinas virtuales en la lista Examinar y después en la máquina virtual DC1.
-2.	En el panel DC1, haga clic en Conectar.
+1.	En el Portal de Azure, haga clic en **Máquinas virtuales** y luego haga clic en la máquina virtual **DC1**.
+2.	En el panel **DC1**, haga clic en **Conectar**.
 3.	Cuando se le pida que abra DC1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan las credenciales, utilice las siguientes:
-- Nombre: **CORP\**[nombre de la cuenta de administrador local]
+- Nombre: **CORP\**[Nombre de la cuenta de administrador local]
 - Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando se lo solicite un cuadro de mensaje de conexión a Escritorio remoto que haga referencia a certificados, haga clic en **Sí**.
 
@@ -263,7 +276,7 @@ A continuación, compruebe que puede tener acceso a recursos compartidos de arch
 2.	En **Propiedades de CLIENT1**, haga clic en **Activo** al lado de **Configuración de seguridad mejorada de IE**.
 3.	En **Configuración de seguridad mejorada de IE**, haga clic en **Desactivar** para **Administradores** y **Usuarios** y, a continuación, haga clic en **Aceptar**.
 4.	En la pantalla Inicio, haga clic en **Internet Explorer** y, a continuación, en **Aceptar**.
-5.	En la barra de direcciones, escriba ****http://app1.corp.contoso.com/** y después presione ENTRAR. Debe ver la página web de Internet Information Services de forma predeterminada para APP1.
+5.	En la barra de direcciones, escriba ****http://app1.corp.contoso.com/** y luego presione ENTRAR. Debe ver la página web de Internet Information Services de forma predeterminada para APP1.
 6.	En la barra de tareas del escritorio, haga clic en el icono Explorador de archivos.
 7.	En la barra de direcciones, escriba **\\\app1\\Files** y, a continuación, presione ENTRAR.
 8.	Debería ver una ventana de carpeta con el contenido de la carpeta compartida Archivos.
@@ -276,11 +289,9 @@ Se trata de la configuración final.
 
 La configuración base de Azure ya está lista para entornos de pruebas y desarrollo de aplicaciones o para entornos de prueba adicionales.
 
-## Recursos adicionales
+## Paso siguiente
 
-[Entornos de prueba de nube híbrida](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Entorno de prueba de configuración base](virtual-machines-base-configuration-test-environment.md)
+- Use esto como base para generar el [entorno de prueba de nube híbrida simulado](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
 
 
 ## <a id="costs"></a>Reducción del costo de las máquinas virtuales del entorno de prueba en Azure
@@ -310,4 +321,4 @@ Para iniciar las máquinas virtuales en orden con Azure PowerShell, escriba el n
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

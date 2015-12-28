@@ -17,7 +17,7 @@
 
 # Acerca de la conectividad segura entre locales de redes virtuales
 
-Si quiere conectar los sitios locales de forma segura a una red virtual, existen tres opciones: [de sitio a sitio](#site-to-site-connections), [de punto a sitio](#point-to-site-connections) y [ExpressRoute](#expressroute-connections).
+Si quiere conectar los sitios locales de forma segura a una red virtual, existen tres opciones: de sitio a sitio, de punto a sitio y ExpressRoute.
 
 La opción que elija dependerá de varios factores, como, por ejemplo:
 
@@ -48,11 +48,11 @@ Una VPN de sitio a sitio permite crear una conexión segura entre el sitio local
 **Requisitos**
 
 - El dispositivo VPN local debe tener una dirección IP del tipo IPv4 accesible desde Internet. Ésta no puede estar detrás de un NAT.
-- Debe tener un dispositivo VPN que sea compatible. Consulte [Acerca de los dispositivos VPN](http://go.microsoft.com/fwlink/p/?LinkID=615099). 
-- El dispositivo VPN que use debe ser compatible con el tipo de puerta de enlace que se requiere para la solución. Consulte [Acerca de las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md).
-- La SKU de la puerta de enlace también afectará al rendimiento agregado. Consulte [SKU de puertas de enlace](vpn-gateway-about-vpngateways.md#gateway-skus) para más información. 
+- Debe tener un dispositivo VPN que sea compatible. Vea [Acerca de los dispositivos VPN](http://go.microsoft.com/fwlink/p/?LinkID=615099). 
+- El dispositivo VPN que use debe ser compatible con el tipo de puerta de enlace que se requiere para la solución. Vea [Acerca de las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md).
+- La SKU de la puerta de enlace también afectará al rendimiento agregado. Vea [SKU de puertas de enlace](vpn-gateway-about-vpngateways.md#gateway-skus) para más información. 
 
-Para obtener información sobre cómo configurar una conexión de puerta de enlace de VPN de sitio a sitio con el Portal de Azure clásico y el modelo de implementación clásico, vea [Configurar una red virtual con una conexión VPN de sitio a sitio](vpn-gateway-site-to-site-create.md). Para obtener información sobre cómo configurar una VPN de sitio a sitio con el modelo de implementación de Administrador de recursos, vea [Crear una red virtual con una conexión VPN de sitio a sitio](vpn-gateway-create-site-to-site-rm-powershell.md).
+Para información sobre cómo configurar una conexión de puerta de enlace de VPN de sitio a sitio con el Portal de Azure clásico y el modelo de implementación clásico, vea [Configurar una red virtual con una conexión VPN de sitio a sitio](vpn-gateway-site-to-site-create.md). Para información sobre cómo configurar una VPN de sitio a sitio con el modelo de implementación de Administrador de recursos, vea [Crear una red virtual con una conexión VPN de sitio a sitio](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 
 ## Conexiones de punto a sitio
@@ -73,7 +73,7 @@ Si bien las configuraciones de punto a sitio y de sitio a sitio pueden existir s
 
 - En caso de que no tenga acceso a una dirección IP del tipo IPv4 accesible desde Internet para el dispositivo VPN.
 
-Para más información sobre cómo configurar una conexión de punto a sitio, consulte [Configurar una conexión VPN de punto a sitio con una red virtual](vpn-gateway-point-to-site-create.md).
+Para más información sobre cómo configurar una conexión de punto a sitio, vea [Configuración de una conexión VPN de punto a sitio a una red virtual](vpn-gateway-point-to-site-create.md).
 
 ## Conexiones de ExpressRoute
 
@@ -81,11 +81,11 @@ Azure ExpressRoute permite crear conexiones privadas entre los centros de datos 
 
 En algunos casos, el uso de conexiones de ExpressRoute para transferir datos entre dispositivos locales y Azure también puede aportar beneficios económicos importantes. Con ExpressRoute, se pueden establecer conexiones con Azure en una ubicación de ExpressRoute (utilidad de proveedor de intercambio) o se puede conectar directamente a Azure desde la red WAN existente (como una VPN MPLS) suministrada por un proveedor de servicios de red.
 
-Para más información sobre ExpressRoute, consulte la [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md).
+Para más información sobre ExpressRoute, vea la [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md).
 
 
 ## Pasos siguientes
 
-Consulte las [Preguntas más frecuentes sobre ExpressRoute](../expressroute/expressroute-faqs.md) y las [Preguntas más frecuentes de la puerta de enlace de VPN](vpn-gateway-vpn-faq.md) para más información.
+Vea las [Preguntas más frecuentes sobre ExpressRoute](../expressroute/expressroute-faqs.md) y las [Preguntas más frecuentes de la puerta de enlace de VPN](vpn-gateway-vpn-faq.md) para más información.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

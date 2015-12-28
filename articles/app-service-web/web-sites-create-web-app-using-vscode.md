@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="12/14/2015" 
 	ms.author="erikre"/>
 
 # Creación de una aplicación web ASP.NET 5 en Visual Studio Code
@@ -31,9 +31,7 @@ En este tutorial se muestra cómo se crea una aplicación web de ASP.NET 5 utili
 * Instalación de Git. Puede instalarlo desde cualquiera de estas ubicaciones: [Chocolatey](https://chocolatey.org/packages/git) o [git-scm.com](http://git-scm.com/downloads). Si no está familiarizado con Git, elija [git-scm.com](http://git-scm.com/downloads) y seleccione la opción para **usar Git desde el símbolo del sistema de Windows**. Una vez que instale Git, también tendrá que establecer el nombre de usuario de Git y el correo electrónico, ya que es necesario más adelante en el tutorial (al realizar una confirmación desde VS Code).  
 
 ## Instalación de ASP.NET 5 y DNX
-ASP.NET 5/DNX es una pila de .NET eficiente que sirve para crear aplicaciones web y de nube modernas que se ejecutan en OS X, Linux y Windows. Se ha desarrollado desde el principio para proporcionar un marco de desarrollo optimizado para las aplicaciones que se implementan en la nube o se ejecutan de forma local. Consta de componentes modulares con una sobrecarga mínima, para continuar disfrutando de flexibilidad al crear soluciones.
-
-> [AZURE.NOTE]ASP.NET 5 y DNX (el entorno de ejecución .NET) en OS X y Linux están disponibles actualmente en versión de vista previa/beta preliminar.
+ASP.NET 5/DNX (el entorno de ejecución de .NET) es una pila de .NET eficiente que sirve para crear aplicaciones web y de nube modernas que se ejecutan en OS X, Linux y Windows. Se ha desarrollado desde el principio para proporcionar un marco de desarrollo optimizado para las aplicaciones que se implementan en la nube o se ejecutan de forma local. Consta de componentes modulares con una sobrecarga mínima, para continuar disfrutando de flexibilidad al crear soluciones.
 
 Este tutorial está diseñado para ayudarle a comenzar a crear aplicaciones con las últimas versiones de desarrollo de ASP.NET 5 y DNX. Las instrucciones siguientes son específicas de Windows. Para obtener instrucciones de instalación más detalladas para Windows, Linux y OS X, consulte [Instalación de ASP.NET 5 y DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx).
 
@@ -43,9 +41,9 @@ Este tutorial está diseñado para ayudarle a comenzar a crear aplicaciones con 
 
 	De esta forma, se descargará el script DNVM y se ubicará en el directorio del perfil de usuario.
 
-2. Reinicie Windows para completar la instalación de DNVM.
+2. **Reinicie Windows** para completar la instalación de DNVM.
 
-3. Abra un símbolo del sistema y compruebe la ubicación de DNVM escribiendo lo siguiente.
+	Después de reiniciar Windows, puede abrir el símbolo del sistema para comprobar la ubicación de DNVM escribiendo lo siguiente:
 
 		where dnvm
 
@@ -53,11 +51,11 @@ Este tutorial está diseñado para ayudarle a comenzar a crear aplicaciones con 
 
 	![ubicación de dnvm](./media/web-sites-create-web-app-using-vscode/00-where-dnvm.png)
 
-4. Ahora que ya dispone de DNVM, tendrá que utilizar este script para descargar DNX para poder ejecutar las aplicaciones. Ejecute lo siguiente en el símbolo del sistema.
+3. Ahora que ya dispone de DNVM, tendrá que utilizarlo para descargar DNX para poder ejecutar las aplicaciones. Ejecute lo siguiente en el símbolo del sistema:
 
 		dnvm upgrade
 
-5. Verifique el DNVM y consulte el tiempo de ejecución activo; para ello, escriba lo siguiente en el símbolo del sistema.
+	Verifique el DNVM y consulte el tiempo de ejecución activo; para ello, escriba lo siguiente en el símbolo del sistema:
 
 		dnvm list
 
@@ -65,9 +63,9 @@ Este tutorial está diseñado para ayudarle a comenzar a crear aplicaciones con 
 
 	![Ubicación de DNVM](./media/web-sites-create-web-app-using-vscode/00b-dnvm-list.png)
 
-6. Si aparece más de un tiempo de ejecución DNX, escriba lo siguiente en el símbolo del sistema para establecer el tiempo de ejecución DNX activo con la misma versión que la que se utiliza en el generador de ASP.NET 5 al crear la aplicación web más adelante en este tutorial. *Puede que no necesite cambiar el runtime activo si se establece en el más reciente disponible.*
+	Si aparece más de un tiempo de ejecución de DNX, puede escribir lo siguiente (o una versión más reciente) en el símbolo del sistema para establecer el tiempo de ejecución de DNX activo. Establézcalo en la misma versión que se utiliza en el generador de ASP.NET 5 al crear la aplicación web más adelante en este tutorial. *Puede que no necesite cambiar el runtime activo si se establece en el más reciente disponible.*
 
-		dnvm use 1.0.0-beta4 –p
+		dnvm use 1.0.0-update1 –p
 
 > [AZURE.NOTE]Para obtener instrucciones de instalación más detalladas para Windows, Linux y OS X, consulte [Instalación de ASP.NET 5 y DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx).
 
@@ -75,69 +73,63 @@ Este tutorial está diseñado para ayudarle a comenzar a crear aplicaciones con 
 
 En esta sección se explica cómo aplicar la técnica scaffolding a una nueva aplicación web ASP.NET. Use el administrador de paquetes para Node (npm) para instalar [Yeoman](http://yeoman.io/) (herramienta de scaffolding de aplicación: el equivalente de la operación de VS Code de Visual Studio **Archivo > Nuevo proyecto**), [Grunt](http://gruntjs.com/) (ejecutor de tareas de JavaScript), y [Bower](http://bower.io/) (administrador de paquetes del lado cliente).
 
-1. Abra un símbolo del sistema con derechos de administrador y navegue hasta la ubicación donde desea crear el proyecto de ASP.NET. Por ejemplo, cree un directorio *vscodeprojects* directorio en la raíz de C:.
+1. Abra un símbolo del sistema con derechos de administrador y navegue hasta la ubicación donde desea crear el proyecto de ASP.NET. Por ejemplo, cree un directorio *vscodeprojects* en la raíz de C:.
 
 2. En el símbolo del sistema para instalar Yeoman y las herramientas de soporte, escriba lo siguiente.
 
 		npm install -g yo grunt-cli generator-aspnet bower
 
+	> [AZURE.NOTE]Es posible que obtenga una advertencia para sugerir que la versión de npm está obsoleta. Esta advertencia no debe afectar a este tutorial.
+
 3. En el símbolo del sistema para crear la carpeta del proyecto y aplicar la técnica scaffolding a la aplicación, escriba lo siguiente.
 
 		yo aspnet
 
-4. Utilice las teclas de dirección para seleccionar el tipo **Aplicación web** en el menú del generador de ASP.NET 5 y presione **&lt;Intro>**.
+4. Utilice las teclas de dirección para seleccionar el tipo **básico de aplicación web** en el menú del generador de ASP.NET 5 y presione **&lt;Intro>**.
 
 	![Yeoman - Generador de ASP.NET 5](./media/web-sites-create-web-app-using-vscode/01-yo-aspnet.png)
 
 5. Defina el nombre de la nueva aplicación web ASP.NET como **SampleWebApp**. Este nombre se usa en todo el tutorial, si selecciona otro nombre, deberá sustituir cada aparición de **SampleWebApp** por dicho nombre. Al presionar **&lt;Intro>**, Yeoman creará una carpeta nueva con el nombre **SampleWebApp**, además de los archivos necesarios para la nueva aplicación.
 
-6. Abra VS Code escribiendo lo siguiente en el símbolo del sistema.
+6. En el símbolo del sistema, cambie los directorios a la carpeta de proyecto nueva:
+
+		cd SampleWebApp
+
+7. También en el símbolo del sistema, para instalar los paquetes de NuGet necesarios para ejecutar la aplicación, escriba el siguiente comando:
+
+		dnu restore
+
+8. Abra VS Code escribiendo lo siguiente en el símbolo del sistema:
 
 		code .
-
-7. En VS Code, vaya a **Archivo > Abrir carpeta**, y seleccione la carpeta que contiene la aplicación web ASP.NET.
-
-	![Cuadro de diálogo Seleccionar carpeta](./media/web-sites-create-web-app-using-vscode/02-open-folder.png)
-
-	VS Code cargará el proyecto y mostrará sus archivos en la ventana **Exploración**.
-
-	![VS Code mostrando el proyecto SampleWebApp](./media/web-sites-create-web-app-using-vscode/03-vscode-project.png)
-
-8. Seleccione **Vista > Paleta de comandos**.
-
-9. En la **Paleta de comandos**, escriba los comandos siguientes.
-
-		dnx:dnu restore - (SampleWebApp)
-
-	A medida que empiece a escribir, verá la línea de comandos completa en la lista.
-
-	![Comando Restore](./media/web-sites-create-web-app-using-vscode/04-dnu-restore.png)
-
-	El comando Restore instala los paquetes de NuGet necesarios para ejecutar la aplicación. En el símbolo del sistema, se mostrará el mensaje **Restauración completada** cuando el proceso haya finalizado.
 
 ## Ejecute la aplicación web localmente.
 
 Ahora que ha creado la aplicación web y ha recuperado todos los paquetes de NuGet para la aplicación, puede ejecutar la aplicación web localmente.
 
-1. En la **Paleta de comandos** en VS Code, escriba los comandos siguientes para ejecutar la aplicación de forma local.
+1. En la **Paleta de comandos** en VS Code, escriba lo siguiente para mostrar las opciones de comando de ejecución disponibles:
 
-		dnx: kestrel - (SampleWebApp, Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --config hosting.ini)
+		dnx: Run Command
 
-	En la ventana de comandos, aparecerá *Started*. Si en la ventana de comandos no aparece *Started*, compruebe la esquina inferior izquierda de VS Code para ver si hay errores en el proyecto.
+	> [AZURE.NOTE]Si el servidor de Omnisharp no se está ejecutando actualmente, se iniciará. Vuelva a escribir el comando anterior.
+
+	A continuación, seleccione el comando siguiente para ejecutar la aplicación web:
+		
+		dnx web - (SampleWebApp)
+
+	Se mostrará la ventana de comandos que la aplicación ha iniciado. Si en la ventana de comandos no aparece este mensaje, compruebe la esquina inferior izquierda de VS Code para ver si hay errores en el proyecto.
 	
-	> [AZURE.NOTE]La emisión de un comando desde la **Paleta de comandos** requiere un carácter **>** al principio de la línea de comandos. Además, puede ver los detalles del comando kestrel en el archivo *project.json*.
+	> [AZURE.NOTE]La emisión de un comando desde la **Paleta de comandos** requiere un carácter **>** al principio de la línea de comandos. Puede ver los detalles relacionados con el comando **web** en el archivo *project.json*.
 
 2. Abra un explorador y vaya a la dirección URL siguiente.
 
 	****http://localhost:5000**
 
-	> [AZURE.NOTE]El comando kestrel especificado en el archivo *project.json* apunta a un archivo de detalles de hospedaje (*hosting.ini*) que especifica la ubicación de la aplicación local. En este caso, la aplicación es visible desde la dirección URL anterior.
-
 	La página predeterminada de la aplicación web se mostrará como sigue.
 
 	![Aplicación web local en un explorador](./media/web-sites-create-web-app-using-vscode/08-web-app.png)
 
-3. Cierre el explorador. En la ventana Comandos, presione **Ctrl + C** para cerrar la aplicación o cerrar dicha ventana.
+3. Cierre el explorador. En la **ventana Comandos**, presione **Ctrl+C** para cerrar la aplicación o cerrar dicha **ventana**.
 
 ## Creación de una aplicación web en el Portal de Azure
 
@@ -145,7 +137,7 @@ Los pasos siguientes le guiarán a través de la creación de una aplicación we
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-2. Haga clic en **NUEVO**, en la parte superior izquierda del Portal.
+2. Haga clic en **NUEVO** en la parte superior izquierda del portal.
 
 3. Haga clic en **Aplicaciones web > Aplicación web**.
 
@@ -185,13 +177,13 @@ Git es un sistema de control de versión distribuida que puede utilizar para imp
 
 8. Si no ha configurado previamente las credenciales de implementación para publicar una aplicación web u otra aplicación del Servicio de aplicaciones, configúrelas ahora:
 
-	* Haga clic en**Configuración** > **Credenciales de implementación**. Se mostrará la hoja **Configurar credenciales de implementación**.
+	* Haga clic en **Configuración** > **Credenciales de implementación**. Se mostrará la hoja **Configurar credenciales de implementación**.
 
 	* Cree un nombre de usuario y una contraseña. Necesitará esta contraseña más tarde al configurar Git.
 
 	* Haga clic en **Guardar**.
 
-9. En la hoja de la aplicación web, haga clic en **Configuración > Propiedades**. La dirección URL del repositorio Git remoto en el que implementará se muestra en **DIRECCIÓN URL DE GIT**.
+9. En la hoja de la aplicación web, haga clic en **Configuración > Propiedades**. La URL del repositorio Git remoto en el que implementará se muestra en **Dirección URL de Git**.
 
 10. Copie el valor **dirección URL de GIT** para su uso posterior en el tutorial.
 
@@ -266,4 +258,4 @@ Esto puede hacerse de dos maneras:
 ## Resumen
 En este tutorial, ha aprendido a crear una aplicación web en VS Code y a implementarla en Azure. Para obtener más información sobre VS Code, consulte el artículo [¿Por qué Visual Studio Code?](https://code.visualstudio.com/Docs/). Para obtener más información sobre Aplicaciones web del Servicio de aplicaciones de Azure, consulte [Información general de aplicaciones web](app-service-web-overview.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

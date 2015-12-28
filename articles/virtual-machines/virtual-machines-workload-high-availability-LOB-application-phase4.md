@@ -20,7 +20,6 @@
 # Fase 4 de la carga de trabajo de aplicación de línea de negocio: Configuración de servidores web
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
- 
 
 En esta fase de la implementación de una aplicación de línea de negocio de alta disponibilidad en servicios de infraestructura de Azure, creará los servidores web y cargará la aplicación de línea de negocio en ellos.
 
@@ -30,11 +29,21 @@ Debe completar esta fase antes de pasar a la [fase 5](virtual-machines-workload-
 
 Hay dos máquinas virtuales de servidor web en las que puede implementar aplicaciones ASP.NET o aplicaciones más antiguas que pueden hospedarse en Internet Information Services (IIS) 8 en Windows Server 2012 R2.
 
-> [AZURE.NOTE]Este artículo contiene comandos para la versión preliminar de Azure PowerShell 1.0. Para ejecutar estos comandos en Azure PowerShell 0.9.8 y versiones anteriores, reemplace todas las instancias de "-AzureRM" por "-Azure" y agregue el comando **Switch-AzureMode AzureResourceManager** antes de ejecutar ningún comando. Para obtener más información, consulte [Versión preliminar de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
-
 En primer lugar, configure el equilibrio de carga interno para que Azure distribuya el tráfico de cliente a la aplicación de línea de negocio de manera uniforme entre los dos servidores web. Esto requiere que especifique una instancia de equilibrio de carga que conste de un nombre y su propia dirección IP, y se asigne en el espacio de direcciones de subred que asignó a la red virtual de Azure.
 
-Rellene las variables y ejecute el siguiente conjunto de comandos:
+> [AZURE.NOTE]El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+
+Especifique los valores de las variables quitando los caracteres < and >. Tenga en cuenta que los siguientes conjuntos de comandos de Azure PowerShell usan los valores de las siguientes tablas:
+
+- Tabla M, para las máquinas virtuales
+- Tabla V, para la configuración de red virtual
+- Tabla S, para la subred
+- Tabla ST, para las cuentas de almacenamiento
+- Tabla A, para los conjuntos de disponibilidad
+
+Recuerde que definió la tabla M en [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) y las tablas V, S, ST y A en [Fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+
+Cuando proporcione todos los valores adecuados, ejecute el bloque resultante en el símbolo del sistema de PowerShell de Azure.
 
 	# Set up key variables
 	$rgName="<resource group name>"
@@ -53,15 +62,7 @@ Rellene las variables y ejecute el siguiente conjunto de comandos:
 
 Agregue un registro de direcciones DNS a la infraestructura DNS interna de su organización que resuelva el nombre de dominio completo de la aplicación de línea de negocio (por ejemplo, lobapp.corp.contoso.com) a la dirección IP asignada al equilibrador de carga interno (valor de $privIP en el anterior bloque de comandos de Azure PowerShell).
 
-Use el siguiente bloque de comandos de PowerShell para crear las máquinas virtuales para los tres servidores. Tenga en cuenta que este conjunto de comandos de PowerShell usa los valores de las siguientes tablas:
-
-- Tabla M, para las máquinas virtuales
-- Tabla V, para la configuración de red virtual
-- Tabla S, para la subred
-- Tabla ST, para las cuentas de almacenamiento
-- Tabla A, para los conjuntos de disponibilidad
-
-Recuerde que definió la tabla M en [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) y las tablas V, S, ST y A en [Fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+Use el siguiente bloque de comandos de PowerShell para crear las máquinas virtuales para los tres servidores.
 
 Cuando proporcione todos los valores adecuados, ejecute el bloque resultante en el símbolo del sistema de Azure PowerShell.
 
@@ -99,7 +100,7 @@ Cuando proporcione todos los valores adecuados, ejecute el bloque resultante en 
 	$vmSize="<Table M – Item 7 - Minimum size column>"
 	$nic=New-AzureRMNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
 	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second second SQL Server computer." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second SQL Server computer." 
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
 	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
@@ -125,14 +126,14 @@ Cuando se reinicien, vuelva a conectarse a ellas con una cuenta que tenga privil
 En cada servidor web, instale y configure IIS.
 
 1. Ejecute el Administrador del servidor y haga clic en **Agregar roles y características**.
-2. En la página Antes de empezar, haga clic en **Siguiente**.
-3. En la página Seleccionar tipo de instalación, haga clic en **Siguiente**.
-4. En la página Seleccionar servidor de destino, haga clic en **Siguiente**.
-5. En la página Roles de servidor, haga clic en **Servidor web (IIS)** en la lista **Roles**.
-6. Cuando se le pida, haga clic en **Agregar características** y después en **Siguiente**.
-7. En la página Seleccionar características, haga clic en **Siguiente**.
+2. En la página Antes de comenzar, haga clic en **Siguiente**.
+3. En la página Selección del tipo de instalación, haga clic en **Siguiente**.
+4. En la página Selección del servidor de destino, haga clic en **Siguiente**.
+5. En la página Roles de servidor, haga clic en **Servidor web (IIS)** en la lista de **Roles**.
+6. Cuando se le solicite, haga clic en **Agregar características** y después en **Siguiente**.
+7. En la página Selección de características, haga clic en **Siguiente**.
 8. En la página Servidor web (IIS), haga clic en **Siguiente**.
-9. En la página Seleccionar servicios de rol, active o desactive las casillas de los servicios que necesita para la aplicación LOB y haga clic en **Siguiente**. 10. En la página Confirmar selecciones de instalación, haga clic en **Instalar**.
+9. En la página Seleccionar servicios de rol, seleccione o desactive las casillas de los servicios que necesita para la aplicación de línea de negocio y haga clic en **Siguiente**. 10. En la página Confirmar selecciones de instalación, haga clic en **Instalar**.
 
 ## Implemente la aplicación de línea de negocio en las máquinas virtuales de servidor web.
 
@@ -148,18 +149,6 @@ Este diagrama representa la configuración resultante de la realización correct
 
 ## Paso siguiente
 
-Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 5: Creación del grupo de disponibilidad y adición de las bases de datos de la aplicación](virtual-machines-workload-high-availability-LOB-application-phase5.md).
+- Para completar la configuración de esta carga de trabajo, vaya a la [Fase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md).
 
-## Recursos adicionales
-
-[Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[Plano de arquitectura de aplicaciones de línea de negocio](http://msdn.microsoft.com/dn630664)
-
-[Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Instrucciones de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

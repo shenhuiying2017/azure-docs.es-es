@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="12/16/2015"
 	ms.author="maheshu"/>
 
 # Servicios de dominio de Azure AD *(vista previa)*: Guía de solución de problemas
-En este artículo se ofrecen sugerencias de solución de problemas para los problemas que puede encontrar al configurar o administrar Servicios de dominio de Azure AD.
+En este artículo se ofrecen sugerencias de solución de problemas para los problemas que puede encontrar al configurar o administrar Servicios de dominio de Azure Active Directory (AD).
 
 
 ### Los usuarios no pueden iniciar sesión en el dominio administrado de los Servicios de dominio de Azure AD
@@ -27,8 +27,10 @@ Si encuentra una situación en la que uno o más usuarios de su inquilino de Azu
 
 - Asegúrese de que la cuenta de usuario afectada no es una cuenta externa en el inquilino de Azure AD. Entre los ejemplos de las cuentas externas se incluyen las cuentas de Microsoft (por ejemplo, 'joe@live.com') o las cuentas de usuario de un directorio de Azure AD externo. Puesto que los Servicios de dominio de Azure AD no tienen las credenciales de dichas cuentas de usuario, estos usuarios no pueden iniciar sesión el dominio administrado.
 
+- Asegúrese de que el prefijo del UPN de la cuenta de usuario afectada (es decir, la primera parte del UPN) del inquilino de Azure AD tiene menos de 20 caracteres de longitud. Por ejemplo, para el UPN 'joereallylongnameuser@contoso.com', el prefijo ('joereallylongnameuser') supera los 20 caracteres y esta cuenta no estará disponible en el dominio administrado de Servicios de dominio de Azure AD.
+
 - **Sincronizar cuentas:** si las cuentas de usuario afectadas se sincronizan desde un directorio local, asegúrese de que se siguen los siguientes pasos:
-    - Ha implementado o actualizado a la versión de disponibilidad general de Azure AD Connect. Las versiones anteriores no sincronizarán hash de credenciales necesarios para autenticación de NTLM/Kerberos.
+    - Ha implementado o actualizado a la versión más reciente recomendada de Azure AD Connect.
     - Ha creado la clave del Registro necesaria para habilitar la sincronización de las credenciales heredadas con Azure AD.
     - Después de crear la clave del Registro mencionada anteriormente en el servidor que ejecuta Azure AD Connect, ha aplicado Azure AD para realizar una sincronización completa como se describe en el documento.
     - En función del tamaño de su directorio, se puede tardar algo en que las cuentas de usuario y los hash de credenciales estén disponibles en Servicios de dominio de Azure AD. Asegúrese de esperar el tiempo suficiente antes de volver a intentar la autenticación (depende del tamaño de su directorio, desde unas horas a un día o dos, para directorios grandes).
@@ -42,4 +44,4 @@ Si tiene problemas con su dominio administrado, compruebe si los pasos descritos
 - El [canal de Voz de usuario de Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory). Asegúrese de escribir delante de su pregunta **'AADDS'** para ponerse en contacto con nosotros.
 - También puede enviarnos un mensaje de correo electrónico a [Comentarios de Servicios de dominio de Azure AD](mailto:aaddsfb@microsoft.com).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

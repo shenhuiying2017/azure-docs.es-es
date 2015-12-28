@@ -3,7 +3,7 @@
    description="Cómo implementar y quitar aplicaciones de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="alexwun"
+   authors="seanmck"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/23/2015"
-   ms.author="alexwun"/>
+   ms.date="12/10/2015"
+   ms.author="seanmck"/>
 
 # Implementar una aplicación
 
@@ -24,7 +24,7 @@ Una vez que un [tipo de aplicación se ha empaquetado][10], está listo para la 
 2. Registro del tipo de aplicación
 3. Creación de la instancia de aplicación
 
->[AZURE.NOTE]Si usa Visual Studio para implementar y depurar aplicaciones en el clúster de desarrollo local, todos los pasos que se describen a continuación se controlan automáticamente mediante los scripts de PowerShell que se encuentra en la carpeta Scripts del proyecto de la aplicación. En este artículo se ofrecen antecedentes acerca de qué hacen esos scripts para que pueda realizar las mismas operaciones fuera de Visual Studio.
+>[AZURE.NOTE]Si usa Visual Studio para implementar y depurar aplicaciones en el clúster de desarrollo local, todos los pasos que se describen a continuación se controlan automáticamente mediante un script de PowerShell que se encuentra en la carpeta Scripts del proyecto de la aplicación. En este artículo se ofrecen antecedentes acerca de qué hacen esos scripts para que pueda realizar las mismas operaciones fuera de Visual Studio.
 
 ## Cargar el paquete de la aplicación
 
@@ -217,7 +217,7 @@ PS D:\temp>
 
 [Introducción al estado de Service Fabric](service-fabric-health-introduction.md)
 
-[Diagnosticar y solucionar problemas de un servicio de Service Fabric](service-fabric-diagnose-monitor-your-service-index.md)
+[Diagnosticar y solucionar problemas de un servicio de Service Fabric](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Modelar una aplicación en Service Fabric](service-fabric-application-model.md)
 
@@ -225,4 +225,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

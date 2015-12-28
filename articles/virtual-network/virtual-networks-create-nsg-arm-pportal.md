@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Administración de grupos de seguridad de red mediante el portal de vista previa
@@ -56,4 +56,4 @@ Para crear reglas en un grupo de seguridad de red existente desde el portal de v
 
 ![Portal de vista previa - Nueva regla](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

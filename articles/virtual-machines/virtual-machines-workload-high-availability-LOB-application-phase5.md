@@ -21,7 +21,6 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
-
 En esta fase final de la implementación de una aplicación de línea de negocio de alta disponibilidad en servicios de infraestructura de Azure, creará un nuevo grupo de disponibilidad AlwaysOn de SQL Server y agregará las bases de datos de la aplicación.
 
 Vea [Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) en todas las fases.
@@ -59,7 +58,7 @@ Siga estos pasos para hacer una copia de seguridad de una base de datos.
 3.	En el panel izquierdo, amplíe el nodo **Base de datos**.
 4.	Haga clic con el botón derecho en una base de datos para realizar una copia de seguridad, seleccione **Tareas** y después haga clic en **Copia de seguridad**.
 5.	En la sección **Destino**, haga clic en **Quitar** para quitar la ruta de acceso del archivo predeterminado para el archivo de copia de seguridad.
-6.	Haga clic en **Agregar**. En **Nombre de archivo**, escriba **\[nombreDeEquipo]\\backup[nombreDeBaseDeDatos].bak**, donde **nombreDeEquipo** es el nombre del **equipo del servidor** SQL principal y **nombreDeBaseDeDatos** es el nombre de la base de datos. Haga clic en **Aceptar** y, a continuación, haga clic en **Aceptar** de nuevo después del mensaje sobre la copia de seguridad correcta.
+6.	Haga clic en **Agregar**. En **Nombre de archivo**, escriba **\\[nombreDeEquipo]\\backup[nombreDeBaseDeDatos].bak**, donde **nombreDeEquipo** es el nombre del **equipo del servidor** SQL principal y **nombreDeBaseDeDatos** es el nombre de la base de datos. Haga clic en **Aceptar** y, a continuación, haga clic en **Aceptar** de nuevo después del mensaje sobre la copia de seguridad correcta.
 7.	En el panel izquierdo, haga clic con el botón derecho en **[nombreDeBaseDeDatos]**, seleccione **Tareas** y después haga clic en **Copia de seguridad**.
 8.	En **Tipo de copia de seguridad**, seleccione **Registro de transacciones** y, a continuación, haga clic en **Aceptar** dos veces.
 9.	Mantenga esta sesión de Escritorio remoto abierta.
@@ -72,7 +71,7 @@ Use estos pasos para reiniciar una base de datos.
 4.	En el panel izquierdo, haga clic con el botón derecho en **Bases de datos** y, a continuación, haga clic en **Restaurar base de datos**.
 5.	En la sección **Origen**, seleccione **Dispositivo** y haga clic en el botón de puntos suspensivos (...).
 6.	En **Seleccionar dispositivos de copia de seguridad**, haga clic en **Agregar**.
-7.	En **Ubicación de archivo de copia de seguridad**, escriba **\[nombreDeEquipo]\\backup**, presione **Entrar**, seleccione **[nombreDeBaseDeDatos].bak** y después haga clic en **Aceptar** dos veces. Ahora debería ver la copia de seguridad completa y la copia de seguridad del registro en la sección **Conjuntos de copia de seguridad para restaurar**.
+7.	En **Ubicación de archivo de copia de seguridad**, escriba **\\[nombreDeEquipo]\\backup**, presione **Entrar**, seleccione **[nombreDeBaseDeDatos].bak** y después haga clic en **Aceptar** dos veces. Ahora debería ver la copia de seguridad completa y la copia de seguridad del registro en la sección **Conjuntos de copia de seguridad para restaurar**.
 8.	En **Seleccionar una página**, haga clic en **Opciones**. En la sección **Opciones de restauración** en **Estado de recuperación**, seleccione **RESTAURAR CON NORECOVERY** y, a continuación, haga clic en **Aceptar**. 
 9.	Cuando se le solicite, haga clic en **Aceptar**.
 
@@ -117,16 +116,8 @@ Opcionalmente, puede crear una configuración de agente de escucha para el grupo
 
 Una vez configurado el agente de escucha, tendrá que configurar todas las máquinas virtuales de servidor web para que usen el agente de escucha, en lugar del nombre del primer servidor SQL Server del clúster. En lugar de usar un nuevo nombre DNS y un registro que se asigne a la dirección IP virtual de la instancia de equilibrio de carga interno, configure las máquinas virtuales de servidor de web para que usen un alias de SQL. Para obtener información y conocer los pasos, consulte [Alias de SQL para SharePoint](http://blogs.msdn.com/b/priyo/archive/2013/09/13/sql-alias-for-sharepoint.aspx).
 
-## Recursos adicionales
+## Paso siguiente
 
-[Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
+- Ver estas [directrices](virtual-machines-infrastructure-services-implementation-guidelines.md) si implementa su propia carga de trabajo de TI en Azure.
 
-[Plano de arquitectura de aplicaciones de línea de negocio](http://msdn.microsoft.com/dn630664)
-
-[Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Instrucciones de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

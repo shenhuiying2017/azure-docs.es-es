@@ -32,8 +32,8 @@ En primer lugar, se debe rellenar la columna **Nombre de máquina Virtual** de l
 
 Elemento | Nombre de la máquina virtual | Imagen de la Galería | Tamaño mínimo 
 --- | --- | --- | --- 
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primer controlador de dominio, ejemplo DC1) | Windows Server 2012 R2 Datacenter | Standard\_D1
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (segundo controlador de dominio, ejemplo DC2) | Windows Server 2012 R2 Datacenter | Standard\_D1
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (primer controlador de dominio, ejemplo DC1) | Windows Server 2012 R2 Datacenter | Standard\_D2
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (segundo controlador de dominio, ejemplo DC2) | Windows Server 2012 R2 Datacenter | Standard\_D2
 3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (servidor de base de datos principal, ejemplo SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard\_DS4
 4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (servidor de base de datos secundario, ejemplo SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard\_DS4
 5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (nodo de mayoría para el clúster, ejemplo MN1) | Windows Server 2012 R2 Datacenter | Standard\_D1
@@ -42,9 +42,9 @@ Elemento | Nombre de la máquina virtual | Imagen de la Galería | Tamaño míni
 
 **Table M: Máquinas virtuales para la aplicación de línea de negocio de alta disponibilidad en Azure**
 
-Para obtener una lista completa de tamaños de máquinas virtuales, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+Para una lista completa de los tamaños de máquina virtual, vea [Tamaños de máquinas virtuales](virtual-machines-size-specs.md).
 
-Use el siguiente bloque de comandos de Azure PowerShell para crear las máquinas virtuales para los dos controladores de dominio. Especifique los valores de las variables quitando los caracteres < and >. Tenga en cuenta que este conjunto de comandos de PowerShell usa los valores de las siguientes opciones:
+Use el siguiente bloque de comandos de Azure PowerShell para crear las máquinas virtuales para los dos controladores de dominio. Especifique los valores de las variables quitando los caracteres < and >. Tenga en cuenta que este bloque de comandos de PowerShell usa los valores de las siguientes opciones:
 
 - Tabla M, para las máquinas virtuales
 - Tabla V, para la configuración de red virtual
@@ -54,7 +54,7 @@ Use el siguiente bloque de comandos de Azure PowerShell para crear las máquinas
 
 Recuerde que definió las tablas V, S, ST y A en [Fase 1: Configuración de Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
-> [AZURE.NOTE]Este artículo contiene comandos para la versión preliminar de Azure PowerShell 1.0. Para ejecutar estos comandos en Azure PowerShell 0.9.8 y versiones anteriores, reemplace todas las instancias de "-AzureRM" por "-Azure" y agregue el comando **Switch-AzureMode AzureResourceManager** antes de ejecutar ningún comando. Para obtener más información, consulte [Versión preliminar de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE]El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Cuando proporcione todos los valores adecuados, ejecute el bloque resultante en el símbolo del sistema de Azure PowerShell.
 
@@ -137,7 +137,7 @@ A continuación, pruebe la conectividad del primer controlador de dominio en ubi
 ### <a id="testconn"></a>Para probar la conectividad
 
 1.	En el escritorio, abra un símbolo del sistema de Windows PowerShell.
-2.	Use el comando **ping** para hacer ping en nombres y direcciones IP de recursos en la red de la organización.
+2.	Use el comando **ping** para hacer ping en nombres y direcciones IP de los recursos en la red de la organización.
 
 Este procedimiento garantiza que la resolución de nombres DNS funciona correctamente (que la máquina virtual está configurada correctamente con los servidores DNS locales) y que se pueden enviar paquetes a la red virtual entre locales y desde ella. Si se produce un error en esta prueba básica, póngase en contacto con el departamento de TI para solucionar los problemas de entrega de paquetes y de resolución de nombres DNS.
 
@@ -165,17 +165,16 @@ Se le pedirá que proporcione las credenciales de una cuenta de administrador de
 
 Tiene que actualizar los servidores DNS de la red virtual para que Azure asigne a las máquinas virtuales las direcciones IP de los dos nuevos controladores de dominio que se usarán como sus servidores DNS. Tenga en cuenta que este procedimiento usa valores de la tabla V (para la configuración de red virtual) y de la tabla M (para las máquinas virtuales).
 
-1.	En el panel izquierdo del Portal de Azure, haga clic en **Examinar todo > Redes virtuales** y después en el nombre de la red virtual (Tabla V – Elemento 1 – Columna Valor).
-2.	En el panel de la red virtual, haga clic en **Toda la configuración**.
-3.	En el panel **Configuración**, haga clic en **Servidores DNS**.
-4.	En el panel **Servidores DNS**, escriba lo siguiente:
+1.	En el panel izquierdo del Portal de Azure, haga clic en **Redes virtuales** y después en el nombre de la red virtual (Tabla V – Elemento 1 – Columna Valor).
+2.	En el panel **Configuración**, haga clic en **Servidores DNS**.
+3.	En el panel **Servidores DNS**, escriba lo siguiente:
 	- Para **Servidor DNS principal**: Tabla V – Elemento 6 – Columna Valor
 	- Para **Servidor DNS secundario**: Tabla V – Elemento 7 – Columna Valor
-5.	En el panel izquierdo del Portal de Azure, haga clic en **Examinar todo > Máquinas virtuales**.
-6.	En el panel **Máquinas virtuales**, haga clic en el nombre del primer controlador de dominio (Tabla M – Elemento 1 – Columna Nombre de la máquina virtual).
-7.	En el panel de la máquina virtual, haga clic en **Reiniciar**.
-8.	Cuando el primer controlador de dominio se inicie, haga clic en el nombre del segundo controlador de dominio en el panel **Máquinas virtuales** (Tabla M – Elemento 2 –Columna Nombre de la máquina virtual).
-9.	En el panel de la máquina virtual, haga clic en **Reiniciar**. Espere hasta que se inicie el segundo controlador de dominio.
+4.	En el panel izquierdo del Portal de Azure, haga clic en **Máquinas virtuales**.
+5.	En el panel **Máquinas virtuales**, haga clic en el nombre del primer controlador de dominio (Tabla M – Elemento 1 –Columna Nombre de la máquina virtual).
+6.	En el panel de la máquina virtual, haga clic en **Reiniciar**.
+7.	Cuando el primer controlador de dominio se inicie, haga clic en el nombre del segundo controlador de dominio en el panel **Máquinas virtuales** (Tabla M – Elemento 2 –Columna Nombre de la máquina virtual).
+8.	En el panel de la máquina virtual, haga clic en **Reiniciar**. Espere hasta que se inicie el segundo controlador de dominio.
 
 Tenga en cuenta que reiniciamos los dos controladores de dominio, por lo que no se configuran con los servidores DNS locales como servidores DNS. Como ambos son por sí mismos servidores DNS, se configuran automáticamente con los servidores DNS locales como reenviadores DNS cuando ascienden a controladores de dominio.
 
@@ -196,18 +195,6 @@ Este diagrama muestra la configuración resultante de la realización correcta d
 
 ## Paso siguiente
 
-Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 3: Configuración de la infraestructura de SQL Server](virtual-machines-workload-high-availability-LOB-application-phase3.md).
+- Para continuar con la configuración de esta carga de trabajo, vaya a la [Fase 3](virtual-machines-workload-high-availability-LOB-application-phase3.md).
 
-## Recursos adicionales
-
-[Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[Plano de arquitectura de aplicaciones de línea de negocio](http://msdn.microsoft.com/dn630664)
-
-[Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Instrucciones de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

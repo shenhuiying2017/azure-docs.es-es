@@ -32,7 +32,7 @@ Los siguientes pasos son suficientes para activar el informe de los registros ne
 
 ##Incrustación del SDK de Engagement en su proyecto de iOS
 
-Agregue el SDK de Engagement al proyecto de iOS: en Xcode, haga clic con el botón derecho en el proyecto, elija **"Agregar archivos a..."** y elija la carpeta `EngagementSDK`.
+Descargue el SDK de iOS [aquí](http://aka.ms/qk2rnj). Agregue el SDK de Engagement a su proyecto de iOS: en Xcode, haga clic con el botón secundario en el proyecto, elija **"Agregar archivos a..."** y elija la carpeta `EngagementSDK`.
 
 Engagement requiere la contratación de marcos adicionales para trabajar: en el Explorador de proyectos, abra el panel de proyectos y elija el destino correcto. A continuación, abra la pestaña **"Fases de compilación"** en el menú **"Enlace binario con bibliotecas"** y agregue estos marcos:
 
@@ -207,4 +207,4 @@ El siguiente ejemplo de `Settings.bundle` muestra el proceso de implementación:
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

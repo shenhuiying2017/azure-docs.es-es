@@ -263,10 +263,13 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 - Envíe solo las unidades de disco duro. No incluya elementos como cables de alimentación o cables USB.
 
 
+## Consulte también
+
+[Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 
 [import-job-03]: ./media/storage-import-export-service/import-job-03.png
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

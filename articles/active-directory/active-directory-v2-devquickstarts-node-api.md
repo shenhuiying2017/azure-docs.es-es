@@ -13,7 +13,7 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="brandwe"/>
 
 # Vista previa del modelo de aplicaciones v2.0: Protección de una API web mediante node.js
@@ -38,7 +38,7 @@ El código de este tutorial se mantiene [en GitHub](https://github.com/AzureADQu
 La aplicación completa se ofrece también al final de este tutorial.
 
 
-## 1\. Registrar una aplicación
+## 1. Registrar una aplicación
 Cree una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md). Asegúrese de que:
 
 - Anotar el **Id. de aplicación** asignado a su aplicación; lo necesitará pronto.
@@ -79,9 +79,9 @@ Este comando instala Restify.
 
 Cuando se usa npm en algunos sistemas operativos, es posible recibir un error Error: EPERM, chmod '/ usr/local/bin/..' y que se solicite ejecutar la cuenta como administrador. Si esto ocurre, utilice el comando sudo para ejecutar npm en un nivel de privilegio más elevado.
 
-#### ¿Ha recibido un error relacionado con DTrace?
+#### ¿Ha recibido un error relacionado con DTRACE?
 
-Es posible que vea algo parecido a esto al instalar Restify:
+Es posible que vea algo parecido a esto al instalar Restify: 
 
 ```Shell
 clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
@@ -192,7 +192,7 @@ Desde la línea de comandos, cambie los directorios por la carpeta **azuread** s
 `cd azuread`
 
 
-Escriba los comandos siguientes para instalar los módulos siguientes en su directorio node\_modules:
+Escriba los comandos siguientes para instalar los módulos siguientes en su directorio node_modules:
 
 * `npm install crypto`
 * `npm install assert-plus`
@@ -650,7 +650,8 @@ En primer lugar, asegúrese de que se ejecute la instancia de MongoDB...
 
 A continuación, cambie al directorio y empiece el curvado...
 
-`$ cd azuread` `$ node server.js`
+`$ cd azuread`
+`$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 
@@ -769,7 +770,7 @@ Passport usa un patrón similar para todas sus estrategias (Twitter, Facebook, e
 > [AZURE.IMPORTANT]
 El código anterior toma cualquier usuario que se autentique en el servidor. Esto se conoce como registro automático. En los servidores de producción, no debería permitir que acceda cualquier usuario sin que antes pase por el proceso de registro que decida. Este suele ser el patrón que se observa en las aplicaciones de consumidor que permiten registrarse con Facebook, pero que luego piden que se rellene información adicional. Si no se tratara de un programa de línea de comandos, podríamos haber extraído el correo electrónico del objeto de token que se devuelve y, a continuación, haber pedido al usuario que rellenara la información adicional. Puesto que se trata de un servidor de prueba, simplemente los agregaremos a la base de datos en memoria.
 
-### 2\. Por último, proteja algunos extremos
+### 2. Por último, proteja algunos extremos
 
 Protege extremos mediante la especificación de la llamada passport.authenticate() con el protocolo que desea usar.
 
@@ -859,4 +860,4 @@ Para obtener recursos adicionales, consulte:
 - [Versión preliminar del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) 
 - [Etiqueta "azure-active-directory" en StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

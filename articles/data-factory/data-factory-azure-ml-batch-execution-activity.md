@@ -60,7 +60,9 @@ Factoría de datos de Azure se usa para coordinar el procesamiento y el movimien
 
 
 ### Escenario: Experimentos mediante entradas y salidas de servicios web que hacen referencia a datos de Almacenamiento de blobs de Azure
-En este escenario, el servicio web de Aprendizaje automático de Azure realiza predicciones mediante datos de un archivo de un almacenamiento de blobs de Azure y almacena los resultados de predicción en el almacenamiento de blobs. El siguiente JSON define una canalización de Factoría de datos de Azure con una actividad AzureMLBatchExecution. La actividad tiene el conjunto de datos **DecisionTreeInputBlob** como entrada y **DecisionTreeResultBlob** como salida. **DecisionTreeInputBlob** se pasa como entrada al servicio web mediante la propiedad JSON **webServiceInput** y **DecisionTreeResultBlob** se pasa como salida al servicio web mediante la propiedad JSON **webServiceOutputs**. Solo los conjuntos de datos que son entradas y salidas de la actividad pueden pasarse como salidas y entradas de servicio web.
+En este escenario, el servicio web de Aprendizaje automático de Azure realiza predicciones mediante datos de un archivo de un almacenamiento de blobs de Azure y almacena los resultados de predicción en el almacenamiento de blobs. El siguiente JSON define una canalización de Factoría de datos de Azure con una actividad AzureMLBatchExecution. La actividad tiene el conjunto de datos **DecisionTreeInputBlob** como entrada y **DecisionTreeResultBlob** como salida. **DecisionTreeInputBlob** se pasa como entrada al servicio web mediante la propiedad JSON **webServiceInput** y **DecisionTreeResultBlob** se pasa como salida al servicio web mediante la propiedad JSON **webServiceOutputs**.
+
+> [AZURE.NOTE]Los conjuntos de datos a los que hacen referencia las propiedades **webServiceInput** y **webServiceOutputs** (en **typeProperties**) también se deben incluir en las **entradas** y las **salidas** de la actividad.
 
 
 	{
@@ -203,7 +205,7 @@ Antes de continuar con este ejemplo y usar el Editor de Factoría de datos para 
 		  }
 		}
 
-4. Cree un **servicio vinculado** de tipo **AzureMLLinkedService**; para ello, proporcione la clave de API y la URL de ejecución de lotes.
+4. Cree un **servicio vinculado** de tipo **AzureMLLinkedService**; para ello, proporcione la clave de API y la dirección URL de ejecución de lotes.
 		
 		{
 		  "name": "MyAzureMLLinkedService",
@@ -259,7 +261,7 @@ Antes de continuar con este ejemplo y usar el Editor de Factoría de datos para 
 		  }
 		}
 
-	Las fechas y horas de **inicio** y **finalización** deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx).
+	Las fechas y horas de **inicio** y **finalización** deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **finalización** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 	> [AZURE.NOTE]La especificación de la entrada para la actividad AzureMLBatchExecution es opcional.
 
@@ -351,16 +353,105 @@ Al usar el módulo lector en un experimento de Aprendizaje automático de Azure,
 En el ejemplo JSON anterior:
 
 - El servicio web implementado de Aprendizaje automático de Azure usa un módulo lector y otro escritor para leer y escribir datos desde y hacia una base de datos SQL de Azure. Este servicio web expone los cuatro parámetros siguientes: nombre de servidor de base de datos, nombre de base de datos, nombre de cuenta de usuario de servidor y contraseña de cuenta de usuario de servidor.  
-- Las fechas y horas de **inicio** y **finalización** deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx).
- 
+- Las fechas y horas de **inicio** y **finalización** deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **finalización** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx).
+
+### Otros escenarios
+
+#### Servicio web no requiere una entrada
+
+Los servicios web de ejecución de lotes de Aprendizaje automático de Azure se pueden usar para ejecutar cualquier flujo de trabajo, por ejemplo, scripts R o Python, que puedan no requerir entradas. O bien, el experimento se podría configurar con un módulo Lector que no expone ningún GlobalParameters. En ese caso, la actividad AzureMLBatchExecution se configuraría de la siguiente manera:
+
+	{
+        "name": "scoring service",
+        "type": "AzureMLBatchExecution",
+        "outputs": [
+            {
+                "name": "myBlob"
+            }
+        ],
+        "typeProperties": {
+            "webServiceOutputs": {
+                "output1": "myBlob"
+            }              
+         },
+        "linkedServiceName": "mlEndpoint",
+        "policy": {
+            "concurrency": 1,
+            "executionPriorityOrder": "NewestFirst",
+            "retry": 1,
+            "timeout": "02:00:00"
+        }
+    },
+   
+
+#### Servicio web no requiere entrada/salida
+El servicio web de ejecución de lotes de Aprendizaje automático de Azure podría no tener configurada ninguna salida de servicio web. En este ejemplo, no hay ninguna entrada o salida de servicio web ni tampoco hay configurado ningún GlobalParameters. Tenga en cuenta que todavía hay una salida configurada en la actividad misma, pero que no se presenta como webServiceOutput.
+
+	{
+        "name": "retraining",
+        "type": "AzureMLBatchExecution",
+        "outputs": [
+            {
+                "name": "placeholderOutputDataset"
+            }
+        ],
+        "typeProperties": {
+         },
+        "linkedServiceName": "mlEndpoint",
+        "policy": {
+            "concurrency": 1,
+            "executionPriorityOrder": "NewestFirst",
+            "retry": 1,
+            "timeout": "02:00:00"
+        }
+    },
+
+#### Servicio web usa lectores y escritores y la actividad solo se ejecuta cuando otras actividades se realizaron correctamente
+
+Los módulos lector y escritor del servicio web de Aprendizaje automático de Azure se podrían configurar para ejecutarse con o sin GlobalParameters. Pero es posible que desee insertar las llamadas de servicio en una canalización de procesamiento que usa dependencias de conjunto de datos para invocar el servicio solo una vez que se completa algún procesamiento ascendente y no desencadenar ninguna otra acción una vez que se completa la ejecución de lotes. En ese caso, puede expresar las dependencias mediante entradas y salidas de la actividad, sin denominar a ninguna de ellas como entradas o salidas del servicio web.
+
+	{
+	    "name": "retraining",
+	    "type": "AzureMLBatchExecution",
+	    "inputs": [
+	        {
+	            "name": "upstreamData1"
+	        },
+	        {
+	            "name": "upstreamData2"
+	        }
+	    ],
+	    "outputs": [
+	        {
+	            "name": "downstreamData"
+	        }
+	    ],
+	    "typeProperties": {
+	     },
+	    "linkedServiceName": "mlEndpoint",
+	    "policy": {
+	        "concurrency": 1,
+	        "executionPriorityOrder": "NewestFirst",
+	        "retry": 1,
+	        "timeout": "02:00:00"
+	    }
+	},
+
+Las **conclusiones** son:
+
+-   Si el punto de conexión del experimento usa una propiedad webServiceInput, se representa con un conjunto de datos de blob y se incluye en las entradas de la actividad, así como también la propiedad webServiceInput. De lo contrario, se omite la propiedad webServiceInput. 
+-   Si el punto de conexión del experimento usa una o más propiedades webServiceOutput, se representan con conjuntos de datos de blob y se incluyen en las salidas de la actividad, así como también en la propiedad webServiceOutputs (asignada mediante el nombre de cada salida del experimento). De lo contrario, se omite la propiedad webServiceOutputs.
+-   Si el punto de conexión del experimento expone una o más propiedades globalParameters, se proporcionan en la propiedad globalParameters como pares clave-valor. De lo contrario, se omite la propiedad globalParameters. Las claves distinguen mayúsculas de minúsculas. [Las funciones de Factoría de datos de Azure](data-factory-scheduling-and-execution.md#data-factory-functions-reference) se pueden usar en los valores. 
+- Es posible incluir conjuntos de datos adicionales en las propiedades de entradas y salidas de la actividad, sin que typeProperties de la actividad haga referencia a ellos. Estos regirán la ejecución mediante el uso de las dependencias de segmento, pero, de otra manera, la actividad AzureMLBatchExecution los omitirá. 
+
 
 ## Actualización de modelos de Aprendizaje automático de Azure mediante la actividad de recursos de actualización
 Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación de Aprendizaje automático de Azure tienen que volver a entrenarse con nuevos conjuntos de datos de entrada. Después de terminar con el nuevo entrenamiento, tendrá que actualizar el servicio web de puntuación con el modelo de Aprendizaje automático que volvió a entrenar. Los pasos más comunes para habilitar el nuevo entrenamiento y actualizar los modelos de Aprendizaje automático de Azure mediante los servicios web son:
 
-1. Crear un experimento en [Estudio de aprendizaje automático](https://studio.azureml.net). 
+1. Crear un experimento en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net). 
 2. Cuando esté satisfecho con el modelo, use Estudio de aprendizaje automático de Azure para publicar servicios web para el **experimento de entrenamiento** y puntuación / ** experimento predictivo**.
 
-En la tabla siguiente se describen los servicios web empleados en este ejemplo. Vea [Volver a entrenar modelos de aprendizaje automático mediante programación](../machine-learning/machine-learning-retrain-models-programmatically.md) para información detallada.
+En la tabla siguiente se describen los servicios web empleados en este ejemplo. Consulte [Volver a entrenar modelos de aprendizaje automático mediante programación](../machine-learning/machine-learning-retrain-models-programmatically.md) para obtener información detallada.
 
 | Tipo de servicio web | description 
 | :------------------ | :---------- 
@@ -472,10 +563,10 @@ El siguiente fragmento JSON define un servicio vinculado de Aprendizaje automát
 
 En **Estudio de aprendizaje automático**, haga lo siguiente para obtener valores para **mlEndpoint** y **apiKey**:
 
-1. Haga clic en **SERVICIOS WEB** en el menú izquierdo.
-2. En la lista de servicios web haga clic en el **servicio web de entrenamiento**. 
-3. Haga clic en Copiar junto al cuadro de texto **clave de API** para copiar la clave de API en el Portapapeles. Pegue la clave en el editor de JSON de Factoría de datos.
-4. En el **Estudio de aprendizaje automático**, haga clic en el vínculo **EJECUCIÓN POR LOTES**, copie la **URI de solicitud** de la sección **Solicitud** y péguela en el editor de JSON de Factoría de datos.   
+1. Haga clic en **SERVICIOS WEB** en el menú de la izquierda.
+2. En la lista de servicios web, haga clic en el **servicio web de entrenamiento**. 
+3. Haga clic en Copiar junto al cuadro de texto **lave de API** para copiar la clave de API en el Portapapeles. Pegue la clave en el editor de JSON de Factoría de datos.
+4. En **Estudio de aprendizaje automático de Azure**, haga clic en el vínculo **EJECUCIÓN DE LOTES**, copie el **identificador URI de solicitud** de la sección **Solicitud** y péguelo en el editor de JSON de Factoría de datos.   
 
 
 #### Servicio vinculado para el punto de conexión de puntuación actualizable de Aprendizaje automático de Azure:
@@ -496,7 +587,7 @@ El siguiente fragmento JSON define un servicio vinculado de Aprendizaje automát
 
 Antes de crear e implementar un servicio vinculado de Aprendizaje automático de Azure, siga los pasos en [Creación de puntos de conexión](../machine-learning/machine-learning-create-endpoint.md) para crear un segundo punto de conexión (no predeterminada y actualizable) para el servicio web de puntuación.
 
-Después de crear el punto de conexión no predeterminado actualizable, haga clic en **EJECUCIÓN POR LOTES** para obtener el valor URI para la propiedad JSON **mlEndpoint** y haga clic en el vínculo **ACTUALIZAR RECURSO** para obtener el valor URI para la propiedad JSON **updateResourceEndpoint** . La clave de API está en la página de punto de conexión (en la esquina inferior derecha).
+Después de crear el punto de conexión no predeterminado actualizable, haga clic en **EJECUCIÓN DE LOTES** para obtener el valor del identificador URI para la propiedad JSON **mlEndpoint** y haga clic en el vínculo **ACTUALIZAR RECURSO** para obtener el valor del identificador URI para la propiedad JSON **updateResourceEndpoint**. La clave de API está en la página de punto de conexión (en la esquina inferior derecha).
 
 ![punto de conexión actualizable](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
 
@@ -584,30 +675,88 @@ La canalización tiene dos actividades: **AzureMLBatchExecution** y **AzureMLUpd
 	                "name": "AzureML Update Resource",
 	                "linkedServiceName": "updatableScoringEndpoint2"
 	            }
-	        ]
+	        ],
+	    	"start": "2015-02-13T00:00:00Z",
+	   		"end": "2015-02-14T00:00:00Z"
 	    }
 	}
 
 
+### Módulos Lector y Escritor
+
+Un escenario común para el uso de parámetros de servicio web es el uso de Lectores y escritores SQL de Azure. El módulo de lector se utiliza para cargar datos en un experimento desde los servicios de administración de datos fuera de Estudio de aprendizaje automático de Azure y el módulo de escritor es para guardar datos de los experimentos en los servicios de administración de datos fuera de Estudio de aprendizaje automático de Azure.
+
+Para obtener información acerca del lector/escritor SQL Azure/Blob, consulte los temas [Lector](https://msdn.microsoft.com/library/azure/dn905997.aspx) y [Escritor](https://msdn.microsoft.com/library/azure/dn905984.aspx) en MSDN Library. El ejemplo de la sección anterior utilizó el lector de Blob de Azure y el lector de Blob de Azure. En esta sección se trata el uso del lector SQL Azure y el escritor SQL Azure.
 
 
 ## Preguntas más frecuentes
 
-**P:** Estoy usando la actividad AzureMLBatchScoring. ¿Debo cambiar y usar la actividad AzureMLBatchExecution?
+**P:** Tengo varios archivos generados por medio de mis canalizaciones de macrodatos. ¿Puedo usar la actividad AzureMLBatchExecution para trabajar en todos los archivos?
 
-**R:** Sí. Si va a usar la actividad AzureMLBatchScoring para integrarse con Aprendizaje automático de Azure, se recomienda que use la última actividad AzureMLBatchExecution. Estamos en proceso de suspender la actividad AzureMLBatchScoring y se eliminará en una versión futura.
+**R:** Sí. Consulte **Uso de un módulo lector para leer datos de varios archivos de blob de Azure** para obtener más información.
+
+## Actividad de puntuación de lotes de Aprendizaje automático de Azure
+Si va a usar la actividad **AzureMLBatchScoring** para integrarse con Aprendizaje automático de Azure, se recomienda que use la actividad **AzureMLBatchExecution** más reciente.
 
 La actividad AzureMLBatchExecution se introdujo en la versión de agosto de 2015 del SDK de Azure y Azure PowerShell.
 
-La actividad AzureMLBatchExecution no requiere una entrada (si no se necesitan dependencias de entrada). También permite ser explícito sobre si usar o no entradas y salidas de servicio web. Si decide usar entradas o salidas de servicio web, podrá especificar los conjuntos de datos de Blob de Azure pertinentes para usar. Además, podrá especificar claramente los valores para los parámetros de servicio web que proporciona el servicio web.
+Si desea continuar utilizando la actividad AzureMLBatchScoring, siga leyendo esta sección.
 
-Si quiere seguir usando la actividad AzureMLBatchScoring, consulte el artículo [Actividad de puntuación por lotes de Aprendizaje automático de Azure](data-factory-create-predictive-pipelines.md) para más información.
+### Actividad de puntuación de lotes de Aprendizaje automático de Azure con Almacenamiento de Azure para entrada/salida 
+
+	{
+	  "name": "PredictivePipeline",
+	  "properties": {
+	    "description": "use AzureML model",
+	    "activities": [
+	      {
+	        "name": "MLActivity",
+	        "type": "AzureMLBatchScoring",
+	        "description": "prediction analysis on batch input",
+	        "inputs": [
+	          {
+	            "name": "ScoringInputBlob"
+	          }
+	        ],
+	        "outputs": [
+	          {
+	            "name": "ScoringResultBlob"
+	          }
+	        ],
+	        "linkedServiceName": "MyAzureMLLinkedService",
+	        "policy": {
+	          "concurrency": 3,
+	          "executionPriorityOrder": "NewestFirst",
+	          "retry": 1,
+	          "timeout": "02:00:00"
+	        }
+	      }
+	    ],
+	    "start": "2015-02-13T00:00:00Z",
+	    "end": "2015-02-14T00:00:00Z"
+	  }
+	}
+
+### Parámetros de servicio web
+Agregue una sección **typeProperties** a la sección **AzureMLBatchScoringActivty** en la canalización JSON para especificar valores para los parámetros del servicio web en esa sección, como se muestra en el siguiente ejemplo:
+
+	"typeProperties": {
+		"webServiceParameters": {
+			"Param 1": "Value 1",
+			"Param 2": "Value 2"
+		}
+	}
 
 
-**P:** Tengo varios archivos generados por medio de mis canalizaciones de macrodatos. ¿Puedo usar la actividad AzureMLBatchExecution para trabajar en todos los archivos?
+También puede usar [Funciones de Factoría de datos](https://msdn.microsoft.com/library/dn835056.aspx) para pasar valores para los parámetros de servicio web como se muestra en el siguiente ejemplo:
 
-**R:** Sí. Vea **Uso de un módulo lector para leer datos de varios archivos de blob de Azure** para más información.
-
+	"typeProperties": {
+    	"webServiceParameters": {
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
+    	}
+  	}
+ 
+> [AZURE.NOTE]Los parámetros de servicio web distinguen entre mayúsculas y minúsculas para garantizar que los nombres que especifica en JSON de actividad coinciden con los que muestra el servicio web.
 
 ## Otras referencias
 
@@ -624,4 +773,4 @@ Si quiere seguir usando la actividad AzureMLBatchScoring, consulte el artículo 
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="¿Qué es StorSimple? | Microsoft Azure" 
-   description="Describe el proceso de niveles de StorSimple, el dispositivo, el dispositivo virtual, los servicios y la administración de almacenamiento, y define términos clave usados en la solución." 
+   description="Describe el almacenamiento en capas de StorSimple, el dispositivo, el dispositivo virtual, los servicios y la administración de almacenamiento, y define términos clave usados en Azure Storsimple." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/01/2015"
+   ms.date="12/14/2015"
    ms.author="v-sharos@microsoft.com"/>
 
-# Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida 
+# Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida
 
 ## Información general
 
@@ -24,9 +24,13 @@ Bienvenido a Microsoft Azure StorSimple, una solución de almacenamiento integra
 
 StorSimple usa [niveles de almacenamiento](#automatic-storage-tiering) para administrar los datos almacenados en diversos medios de almacenamiento. El espacio de trabajo actual está almacenado localmente en unidades de estado sólido (SSD), los datos que se usan con menos frecuencia se almacenan en unidades de disco duro (HDD) y los datos de archivo se insertan en la nube. Además, StorSimple usa la desduplicación y la compresión para reducir la cantidad de almacenamiento que los datos consumen. Para obtener más información, vaya a [Desduplicación y compresión](#deduplication-and-compression). Para obtener definiciones de otros términos y conceptos clave utilizados en la documentación de la serie StorSimple 8000, vaya a [Terminología de StorSimple](#storsimple-terminology) al final de este artículo.
 
+Con StorSimple Update 2, puede identificar volúmenes apropiados como *anclados localmente* para garantizar que los datos principales continúan siendo locales en el dispositivo y no se almacenan en capas en la nube. Esto le permite ejecutar cargas de trabajo que son sensibles a la latencia de la nube, como cargas de trabajo SQL y de máquina virtual, en los volúmenes anclados localmente, sin dejar de usar la nube para copia de seguridad. Para obtener más información sobre los volúmenes localmente anclados, consulte [Usar el servicio de Administrador de StorSimple para administrar volúmenes](storsimple-manage-volumes-u2.md).
+
+Update 2 también permite crear dispositivos virtuales StorSimple que se benefician de las bajas latencias y el alto rendimiento que proporciona el almacenamiento premium de Azure. Para obtener más información sobre los dispositivos virtuales premium StorSimple, consulte [Implementar y administrar un dispositivo virtual StorSimple en Azure](storsimple-virtual-device-u1.md). Para obtener más información sobre los discos de almacenamiento premium de Azure, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal.md).
+
 Además de la administración de almacenamiento, las características de protección de datos de StorSimple le permiten crear copias de seguridad a petición y programadas, así como almacenarlas localmente o en la nube. Las copias de seguridad se realizan en forma de instantáneas incrementales, lo que significa que se pueden crear y restaurar rápidamente. Las instantáneas en la nube pueden resultar esenciales en escenarios de recuperación ante desastres, ya que reemplazan a los sistemas de almacenamiento secundario (por ejemplo, la copia de seguridad en cinta) y le permiten restaurar los datos a su centro de datos o a sitios alternativos si es necesario.
 
-![icono de vídeo](./media/storsimple-overview/video_icon.png) Vea el vídeo de introducción a Microsoft Azure StorSimple.
+![icono de vídeo](./media/storsimple-overview/video_icon.png) Vea el vídeo para acceder a una introducción rápida a Microsoft Azure StorSimple.
 
 > [AZURE.VIDEO storsimple-hybrid-cloud-storage-solution]
 
@@ -42,18 +46,20 @@ En la tabla siguiente se describen algunas de las ventajas principales que propo
 |Mejor recuperación ante desastres y cumplimiento normativo|Microsoft Azure StorSimple no requiere largos tiempos de recuperación. En lugar de eso, restaura los datos según sea necesario. Esto significa que las operaciones normales pueden seguir con un mínimo de interrupción. Además, puede configurar directivas para especificar programaciones de copias de seguridad y retención de datos.
 |Movilidad de datos|Es posible tener acceso a los datos cargados a los servicios en la nube de Microsoft Azure desde otros sitios para fines de recuperación y migración. Además, puede usar StorSimple para configurar dispositivos virtuales de StorSimple en máquinas virtuales que se ejecutan en Microsoft Azure. Luego, las máquinas virtuales pueden utilizar dispositivos virtuales para obtener acceso a los datos almacenados para fines de prueba o recuperación.|
 |Compatibilidad con otros proveedores de servicios en la nube |La serie StorSimple 8000 con la actualización de software 1 o posterior admite Amazon S3 con servicios en la nube RRS, HP y OpenStack, así como Microsoft Azure. (Todavía necesitará una cuenta de almacenamiento de Microsoft Azure para administrar los dispositivos). Para obtener más información, vaya a [Novedades de la actualización 1.2](storsimple-update1-release-notes.md#whats-new-in-update-12).|
-|Continuidad del negocio | La actualización 1.2 también proporciona una nueva característica de migración que permite a los usuarios de la serie 5000 o 7000 de StorSimple migrar sus datos a un dispositivo StorSimple de la serie 8000.|
-|Disponibilidad en el Portal de administración de Azure | Ahora está disponible en el Portal de Azure Government. Para obtener más información, consulte [Implementación del dispositivo StorSimple local en el Portal de Government](storsimple-deployment-walkthrough-gov.md)|
-|Compatibilidad para el almacenamiento con redundancia de zona | Con la actualización a la versión más reciente de las API de almacenamiento, la serie StorSimple 8000 será compatible con el almacenamiento con redundancia de zona (ZRS), además del almacenamiento con redundancia local (LRS) y el almacenamiento con redundancia geográfica (GRS). Para obtener información detallada sobre ZRS, consulte [este artículo sobre las opciones de redundancia de Almacenamiento de Azure](https://azure.microsoft.com/documentation/articles/storage-redundancy/).
+|Continuidad del negocio | Update 1 o posterior también proporcionan una nueva característica de migración que permite a los usuarios de la serie 5000 o 7000 de StorSimple migrar sus datos a un dispositivo StorSimple de la serie 8000.|
+|Disponibilidad en el Portal de administración de Azure | StorSimple Update 1 o posterior ya están disponibles en el Portal de Azure Government. Para obtener más información, consulte [Implementación del dispositivo StorSimple local en el Portal de Government](storsimple-deployment-walkthrough-gov.md).|
+|Disponibilidad y protección de datos | La serie 8000 de StorSimple con Update 1 o posterior admite el almacenamiento con redundancia de zona (ZRS), además del almacenamiento con redundancia local (LRS) y del almacenamiento con redundancia geográfica (GRS). Para obtener información detallada sobre ZRS, consulte [este artículo sobre las opciones de redundancia de Almacenamiento de Azure](https://azure.microsoft.com/documentation/articles/storage-redundancy/).|
+|Compatibilidad para las aplicaciones críticas | Con StorSimple Update 2, puede identificar los volúmenes apropiados como anclados localmente. Esta funcionalidad garantiza que los datos requeridos por las aplicaciones críticas no se almacenan en capas en la nube. Los volúmenes anclados localmente no están sujetos a las latencias de la nube ni a los problemas de conectividad. Para obtener más información sobre los volúmenes localmente anclados, consulte [Usar el servicio de Administrador de StorSimple para administrar volúmenes](storsimple-manage-volumes-u2.md).|
+|Baja latencia y alto rendimiento | StorSimple Update 2 permite crear dispositivos virtuales que se benefician de las características de baja latencia y alto rendimiento del almacenamiento premium de Azure. Para obtener más información sobre los dispositivos virtuales premium StorSimple, consulte [Implementar y administrar un dispositivo virtual StorSimple en Azure](storsimple-virtual-device-u2.md).|
 
-![icono de vídeo](./media/storsimple-overview/video_icon.png) Visualice [este vídeo](http://azure.microsoft.com/documentation/videos/guru-pangals-welcome-to-wpc--july-2015) para obtener una introducción a las características y ventajas de StorSimple serie 8000.
+![icono de vídeo](./media/storsimple-overview/video_icon.png) Vea [este vídeo](https://www.youtube.com/watch?v=4MhJT5xrvQw&feature=youtu.be) para obtener información general de las características y ventajas de la serie 8000 de StorSimple.
 
 ## Componentes StorSimple
 
 La solución de Microsoft Azure StorSimple incluye los siguientes componentes:
 
-- **Dispositivo de Microsoft Azure StorSimple**: una matriz de almacenamiento híbrida local que contiene unidades de estado sólido y discos duros, en conjunto con controladores redundantes y funcionalidades de conmutación automática por error. Los controladores administran la organización en niveles del almacenamiento y ponen los datos actualmente utilizados (o activos) en el almacenamiento local (en el dispositivo o en servidores locales), mientras que mueven los datos usados con menos frecuencia a la nube.
-- **Dispositivo virtual de StorSimple**: también conocido como Aplicación virtual de StorSimple, se trata de una versión de software del dispositivo de StorSimple que replica la arquitectura y la mayoría de las funcionalidades del dispositivo de almacenamiento híbrido físico. El dispositivo virtual de StorSimple se ejecuta en un solo nodo en una máquina virtual de Azure. El dispositivo virtual es adecuado para usarlo en escenarios de prueba y en escenarios piloto de menor tamaño. 
+- **Dispositivo de Microsoft Azure StorSimple**: una matriz de almacenamiento híbrida local que contiene SSD y HDD, en conjunto con controladores redundantes y funcionalidades de conmutación automática por error. Los controladores administran la organización en niveles del almacenamiento y ponen los datos actualmente utilizados (o activos) en el almacenamiento local (en el dispositivo o en servidores locales), mientras que mueven los datos usados con menos frecuencia a la nube.
+- **Dispositivo virtual de StorSimple**: también conocido como aplicación virtual de StorSimple; se trata de una versión de software del dispositivo de StorSimple que replica la arquitectura y la mayoría de las capacidades del dispositivo de almacenamiento híbrido físico. El dispositivo virtual de StorSimple se ejecuta en un solo nodo en una máquina virtual de Azure. Los dispositivos virtuales premium, que sacan partido del almacenamiento premium de Azure, están disponibles en Update 2 y posterior.
 - **Servicio del administrador de StorSimple**: es una extensión del Portal de Azure clásico que le permite administrar un dispositivo StorSimple o un dispositivo virtual StorSimple desde una única interfaz web. Puede utilizar el servicio StorSimple Manager para crear y administrar servicios, ver y administrar dispositivos, ver alertas, administrar volúmenes y ver y administrar las directivas de copia de seguridad y el catálogo de copias de seguridad.
 - **Windows PowerShell para StorSimple**: una interfaz de línea de comandos que puede usar para administrar el dispositivo de StorSimple. Windows PowerShell para StorSimple tiene características que le permite registrar su dispositivo de StorSimple, configurar la interfaz de red en su dispositivo, instalar ciertos tipos de actualizaciones, solucionar problemas con su dispositivo mediante el acceso a la sesión de soporte y cambiar el estado del dispositivo. Puede tener acceso a Windows PowerShell para StorSimple si se conecta a la consola serial o si usa la comunicación remota de Windows PowerShell.
 - **Cmdlets de Azure PowerShell StorSimple**: un conjunto de cmdlets de Windows PowerShell que permiten automatizar las tareas de nivel de servicio y de migración desde la línea de comandos. Para obtener más información sobre los cmdlets de Azure PowerShell, consulte la [referencia de los cmdlets](https://msdn.microsoft.com/library/dn920427.aspx).
@@ -66,13 +72,11 @@ El siguiente diagrama proporciona una vista de alto nivel de la arquitectura y c
 
 Las secciones siguientes describen los componentes con más detalle y explican la manera en que la solución ordena los datos, asigna el almacenamiento y facilita la administración del almacenamiento y la protección de los datos. La última sección proporciona definiciones de algunos términos y conceptos importantes relacionados con los componentes de StorSimple y su administración.
 
-![icono de vídeo](./media/storsimple-overview/video_icon.png) Visualice [este vídeo](https://www.youtube.com/watch?v=4MhJT5xrvQw&feature=youtu.be) para obtener una introducción al dispositivo StorSimple, al dispositivo virtual StorSimple y al servicio del administrador de StorSimple.
-
 ## Dispositivo de StorSimple
 
 El dispositivo de Microsoft Azure StorSimple es una matriz de almacenamiento híbrida local que proporciona almacenamiento principal y acceso iSCSI a los datos almacenados en él. Administra la comunicación con el almacenamiento en la nube y ayuda a garantizar la seguridad y confidencialidad de todos los datos que están almacenados en la solución de Microsoft Azure StorSimple.
 
-El dispositivo de StorSimple incluye unidades de estado sólido (SSD) y discos duros (HDD), además de compatibilidad para agrupación en clústeres y conmutación automática por error. Contiene un procesador compartido, almacenamiento compartido y dos controladores reflejados. Cada controlador proporciona lo siguiente:
+El dispositivo de StorSimple incluye SSD y unidades de disco duro (HDD), además de compatibilidad para agrupación en clústeres y la conmutación automática por error. Contiene un procesador compartido, almacenamiento compartido y dos controladores reflejados. Cada controlador proporciona lo siguiente:
 
 - Conexión a un equipo host
 - Hasta seis puertos de red para conectar a la red de área local (LAN)
@@ -87,21 +91,17 @@ Para obtener más información, consulte [Componentes y estado de hardware de St
 
 ## Dispositivo virtual de StorSimple
 
-Puede usar StorSimple para crear un dispositivo virtual que replica la arquitectura y las funcionalidades del dispositivo de almacenamiento híbrido real. El dispositivo virtual de StorSimple (también conocido como la aplicación virtual de StorSimple) se ejecuta en un solo nodo en una máquina virtual de Azure. (Un dispositivo virtual solo se puede crear en una máquina virtual de Azure. No puede crear uno en un dispositivo de StorSimple o en un servidor local).
+Puede usar StorSimple para crear un dispositivo virtual que replica la arquitectura y las funcionalidades del dispositivo de almacenamiento híbrido físico. El dispositivo virtual de StorSimple (también conocido como la aplicación virtual de StorSimple) se ejecuta en un solo nodo en una máquina virtual de Azure. (Un dispositivo virtual solo se puede crear en una máquina virtual de Azure. No puede crear uno en un dispositivo de StorSimple o en un servidor local).
 
 El dispositivo virtual tiene las siguientes características:
 
 - Se comporta como un dispositivo físico y puede ofrecer una interfaz iSCSI a las máquinas virtuales en la nube. 
 - Puede crear un número ilimitado de dispositivos virtuales en la nube y activarlas y desactivarlas según sea necesario. 
-- Puede ayudar a simular entornos locales en la recuperación ante desastres y desarrollo o escenarios de prueba y puede ayudarle con la recuperación de nivel de elemento desde copias de seguridad. 
+- Puede ayudar a simular entornos locales en escenarios de recuperación ante desastres, desarrollo y pruebas, además de facilitar la recuperación de nivel de elemento a partir de copias de seguridad. 
 
-Un dispositivo virtual de StorSimple difiere de un dispositivo de StorSimple físico en lo siguiente:
+Con Update 2 y versiones posteriores, el dispositivo virtual de StorSimple está disponible en dos modelos: el dispositivo 8010 (anteriormente conocido como el modelo 1100) y el 8020. El dispositivo 8010 tiene una capacidad máxima de 30 TB. El dispositivo 8020, que aprovecha las ventajas de almacenamiento premium de Azure, tiene una capacidad máxima de 64 TB. (El almacenamiento premium de Azure almacena datos en SSD, mientras que el estándar los almacena en HDD). Tenga en cuenta que debe tener una cuenta de almacenamiento premium de Azure para usar el almacenamiento premium. Para obtener más información sobre el almacenamiento premium de Azure, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal.md).
 
-- El dispositivo virtual solo tiene una interfaz, mientras que el dispositivo físico tiene seis interfaces de red. 
-- El dispositivo virtual se registra durante la configuración del dispositivo y no como una tarea independiente.
-- Actualmente, la aplicación de actualizaciones al dispositivo virtual está deshabilitada. Si necesita un dispositivo virtual con la versión más reciente, puede crear uno nuevo y conmutar por error contenedores de volúmenes al nuevo dispositivo virtual.
-
-Para obtener más información, consulte [Dispositivo virtual StorSimple](storsimple-virtual-device.md).
+Para obtener más información sobre el dispositivo virtual StorSimple, consulte [Implementar y administrar un dispositivo virtual StorSimple en Azure](storsimple-virtual-device-u1).
 
 ## Servicio StorSimple Manager
 
@@ -177,7 +177,9 @@ Microsoft Azure StorSimple ordena automáticamente los datos en niveles lógicos
 
 Para habilitar el acceso rápido, StorSimple almacena datos muy activos (datos activos) en SSD en el dispositivo StorSimple. Almacena datos que se usan de manera ocasional (datos semiactivos) en discos duros en el dispositivo o en los servidores del centro de datos. Mueve a la nube datos inactivos, datos de copia de seguridad y datos retenidos para fines de archivo o de cumplimiento.
 
-StorSimple ajusta y reordena las asignaciones de datos y almacenamiento a medida que cambian los patrones de uso. Por ejemplo, cierta información puede volverse menos activo con el tiempo. A medida que se vuelve cada vez menos activa, migra de SSD a HDD y, a continuación, a la nube. Si esos mismos datos vuelven a activarse, se migran de vuelta al dispositivo de almacenamiento.
+>[AZURE.NOTE]En Update 2 o posterior, puede especificar un volumen anclado localmente, en cuyo caso los datos permanecen en el dispositivo local y no en capas en la nube.
+
+StorSimple ajusta y reordena las asignaciones de datos y almacenamiento a medida que cambian los patrones de uso. Por ejemplo, cierta información puede volverse menos activo con el tiempo. A medida que se vuelve menos activa, migra de SSD a HDD y, a continuación, a la nube. Si esos mismos datos vuelven a activarse, se migran de vuelta al dispositivo de almacenamiento.
 
 El proceso de organización en niveles del almacenamiento se produce como sigue:
 
@@ -193,11 +195,15 @@ El proceso de organización en niveles del almacenamiento se produce como sigue:
 
 El aprovisionamiento fino es una tecnología de virtualización en que el almacenamiento disponible parece superar los recursos físicos. En lugar de reservar almacenamiento suficiente por adelantado, StorSimple utiliza el aprovisionamiento fino para asignar solo el espacio suficiente para cumplir con los requisitos actuales. La naturaleza elástica del almacenamiento en la nube facilita este enfoque porque StorSimple puede aumentar o disminuir el almacenamiento en la nube para cumplir con las exigencias cambiantes.
 
+>[AZURE.NOTE]El aprovisionamiento de los volúmenes anclados localmente no puede ser fino. El almacenamiento asignado a un volumen sólo local se aprovisiona totalmente cuando se crea el volumen.
+
 ### Desduplicación y compresión
 
 Microsoft Azure StorSimple utiliza la desduplicación y la compresión de datos para reducir aún más los requisitos de almacenamiento.
 
 La desduplicación disminuye la cantidad general de datos almacenados al eliminar la redundancia en el conjunto de datos almacenados. A medida que cambia la información, StorSimple omite los datos no modificados y solo captura los cambios. Además, StorSimple reduce la cantidad de datos almacenados al identificar y eliminar información innecesaria.
+
+>[AZURE.NOTE]Los datos de los volúmenes anclados localmente no se desduplican ni comprimen. Sin embargo, las copias de seguridad de volúmenes localmente anclados sí se desduplican y comprimen.
 
 ## Terminología de StorSimple 
 
@@ -209,7 +215,7 @@ Antes de implementar la solución Microsoft Azure StorSimple, se recomienda que 
 | ------------------------------ | ---------------- |
 | registros de control de acceso (ACR) | Un registro asociado a un volumen en el dispositivo de Microsoft Azure StorSimple que determina qué hosts pueden conectarse a él. La determinación está basada en el Nombre calificado iSCSI (IQN) de los hosts (contenidos en el ACR) que se conectan al dispositivo StorSimple.|
 | AES-256 | Un algoritmo Estándar de cifrado avanzado (AES) de 256 bits para cifrar los datos cuando se desplaza hacia y desde la nube. |
-| tamaño de unidad de asignación (AUS) | La menor cantidad de espacio en disco que se puede asignar para contener un archivo en los sistemas de archivos de Windows. Si un tamaño de archivo no es un múltiplo par del tamaño del clúster, debe utilizarse el espacio adicional para almacenar el archivo (hasta el siguiente múltiplo del tamaño del clúster), lo que genera una pérdida de espacio y la fragmentación del disco duro. <br>El AUS recomendado para volúmenes StorSimple de Azure es de 64 KB porque funciona bien con los algoritmos de desduplicación.|
+| tamaño de unidad de asignación (AUS) | La menor cantidad de espacio en disco que se puede asignar para contener un archivo en los sistemas de archivos de Windows. Si un tamaño de archivo no es un múltiplo par del tamaño del clúster, debe utilizarse el espacio adicional para almacenar el archivo (hasta el siguiente múltiplo del tamaño del clúster), lo que genera una pérdida de espacio y la fragmentación del disco duro. <br>El AUS recomendado para volúmenes de Azure StorSimple es de 64 KB porque funciona bien con los algoritmos de desduplicación.|
 | organización automática del almacenamiento en niveles | Mover automáticamente los datos menos activos de SSD a HDD a un nivel en la nube y, a continuación, habilitar la administración de todo el almacenamiento de una interfaz de usuario central.|
 | catálogo de copias de seguridad | Un conjunto de copias de seguridad, normalmente relacionadas con el tipo de aplicación que se utilizó. Esta colección se muestra en la página Catálogo de copias de seguridad de la interfaz de usuario del servicio StorSimple Manager.|
 | archivo del catálogo de copias de seguridad | Un archivo que contiene una lista de instantáneas disponibles almacenadas actualmente en la base de datos de copias de seguridad de StorSimple Snapshot Manager. |
@@ -236,6 +242,7 @@ Antes de implementar la solución Microsoft Azure StorSimple, se recomienda que 
 | Nombre calificado iSCSI (IQN) | Un nombre único que identifica un destino o iniciador iSCSI.|
 | destino iSCSI | Un componente de software que proporciona subsistemas de disco iSCCSI centralizados en redes de área de almacenamiento.|
 | archivo de datos | Un enfoque de almacenamiento en el que los datos de archivo están accesibles todo el tiempo (no se almacena fuera del sitio en la cinta, por ejemplo). Microsoft Azure StorSimple usa el archivo vivo.|
+|Volumen anclado localmente | un volumen que reside en el dispositivo y nunca se almacena en capas en la nube. |
 | instantánea local | Una copia de punto en el tiempo de los datos del volumen que se almacenan en el dispositivo StorSimple de Microsoft Azure.|
 | Microsoft Azure StorSimple | Una solución eficaz que consta de un dispositivo de almacenamiento del centro de datos y el software que permite a las organizaciones de TI aprovechar el almacenamiento en la nube como si fuese un almacenamiento de centro de datos. StorSimple simplifica la administración y protección de datos al mismo tiempo que reduce los costos. La solución consolida el almacenamiento principal, archivo, copia de seguridad y recuperación ante desastres (DR) a través de la integración sin problemas con la nube. Mediante la combinación de administración de datos de almacenamiento SAN y de nube en una plataforma empresarial, los dispositivos StorSimple habilitan la velocidad, la sencillez y confiabilidad para todas las necesidades relacionadas con el almacenamiento.|
 | Módulo de alimentación y refrigeración (PCM) | Componentes de hardware del dispositivo StorSimple que constan de fuentes de alimentación y el ventilador de refrigeración, por este motivo el nombre Módulo de alimentación y refrigeración. El gabinete principal del dispositivo tiene dos PCM de 764 W, mientras que el gabinete EBOD tiene dos PCM de 580 W.|
@@ -262,7 +269,7 @@ Antes de implementar la solución Microsoft Azure StorSimple, se recomienda que 
 
 ## Pasos siguientes
 
-Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-security.md).
+Más información sobre la [Seguridad de StorSimple](storsimple-security.md).
 
 
 
@@ -271,4 +278,4 @@ Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-secu
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

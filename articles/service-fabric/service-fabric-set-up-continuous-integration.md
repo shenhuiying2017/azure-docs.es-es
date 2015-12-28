@@ -1,6 +1,6 @@
 <properties
    pageTitle="Integración continua para Service Fabric | Microsoft Azure"
-   description="Obtenga información general sobre cómo configurar la integración continua para una aplicación de Service Fabric mediante Visual Studio Online (VSO)"
+   description="Obtenga información general sobre cómo configurar la integración continua para una aplicación de Service Fabric mediante Visual Studio Team Services (VSTS)."
    services="service-fabric"
    documentationCenter="na"
    authors="cawams"
@@ -15,19 +15,19 @@
    ms.date="10/16/2015"
    ms.author="cawa" />
 
-# Configuración de la integración continua de una aplicación de Service Fabric mediante Visual Studio Online (VSO)
+# Configuración de la integración continua de una aplicación de Service Fabric mediante Visual Studio Team Services (VSTS)
 
-En este artículo se le guiará en el proceso de configurar la integración continua (CI) para una aplicación de Service Fabric mediante Visual Studio Online (VSO) para que la aplicación se pueda compilar, empaquetar e implementar de una manera automática. Tenga en cuenta que en este documento se refleja la experiencia actual y se prevé que cambie a medida que progrese el desarrollo. Además, en estas instrucciones se vuelve a crear el clúster desde cero cada vez.
+En este artículo se le guiará en el proceso de configurar la integración continua (CI) para una aplicación de Service Fabric mediante Visual Studio Team Services (VSTS) para que la aplicación se pueda compilar, empaquetar e implementar de una manera automática. Tenga en cuenta que en este documento se refleja la experiencia actual y se prevé que cambie a medida que progrese el desarrollo. Además, en estas instrucciones se vuelve a crear el clúster desde cero cada vez.
 
 ## Requisitos previos
 
-Para comenzar, configure el proyecto en Visual Studio Online.
+Para comenzar, configure el proyecto en Visual Studio Team Services.
 
-1. Si aún no lo ha hecho, cree una cuenta de VSO mediante su [cuenta Microsoft](http://www.microsoft.com/account).
-2. Cree un nuevo proyecto en VSO con la cuenta Microsoft.
+1. Si aún no lo ha hecho, cree una cuenta de Team Services mediante su [cuenta Microsoft](http://www.microsoft.com/account).
+2. Cree un nuevo proyecto en Team Services con la cuenta Microsoft.
 3. Inserte el código fuente de la aplicación de Service Fabric nueva o existente en este proyecto.
 
-Consulte [Conexión a Visual Studio](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online) para obtener más información sobre cómo trabajar con proyectos de VSO.
+Vea [Conexión a Visual Studio](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online) para más información sobre cómo trabajar con proyectos de Team Services.
 
 ## Pasos de configuración
 
@@ -192,7 +192,7 @@ Para instalar Azure PowerShell, siga los pasos descritos en la sección anterior
 ### Registro del agente de compilación
 
 1.	Descargue agent.zip. Para ello, siga estos pasos:
-    1.	Inicie sesión en su proyecto de equipo, por ejemplo, ****https://[your-VSO-account-name].visualstudio.com**.
+    1.	Inicie sesión en su proyecto de equipo, por ejemplo, ****https://[your-VSTS-account-name].visualstudio.com**.
 1.	Elija el icono de "engranaje" en la esquina superior derecha de la pantalla.
     1.	En el Panel de control, elija la pestaña **Grupos de agentes**.
     1.	Elija **Descargar agente** para descargar el archivo agent.zip.
@@ -206,7 +206,7 @@ Para instalar Azure PowerShell, siga los pasos descritos en la sección anterior
     |Parámetro|Valor|
     |---|---|
     |Nombre del agente|Acepte el valor predeterminado, `Agent-[machine name]`.
-    |Dirección URL de TFS|Escriba la dirección URL de su proyecto de equipo, por ejemplo, `https://[your-VSO-account-name].visualstudio.com`.
+    |Dirección URL de TFS|Escriba la dirección URL de su proyecto de equipo, por ejemplo, `https://[your-VSTS-account-name].visualstudio.com`.
     |Grupo de agentes|Escriba el nombre del grupo de agentes. (Si no ha creado un grupo de agentes, acepte el valor predeterminado).|
     |Carpeta de trabajo|Acepte el valor predeterminado. Esta es la carpeta donde el agente de compilación compilará realmente la aplicación. Nota: Si tiene pensado crear servicios web de ASP.NET 5, se recomienda que elija el nombre más corto posible para esta carpeta a fin de evitar que aparezcan errores PathTooLongExceptions durante la implementación.|
     |¿Se instala como servicio de Windows?|El valor predeterminado es N. Cambie el valor a S.|
@@ -216,9 +216,9 @@ Para instalar Azure PowerShell, siga los pasos descritos en la sección anterior
 1. Se le pedirán las credenciales. Escriba las credenciales de su cuenta Microsoft que tenga derechos para el proyecto de equipo.
 1. Compruebe que el agente de compilación se ha registrado. Para ello, siga estos pasos:
 
-    1. Vuelva al explorador web (debe estar en la página `https://[your-VSO-account-name].visualstudio.com/_admin/_AgentPool`) y luego actualice la página.
+    1. Vuelva al explorador web (debe estar en la página `https://[your-VSTS-account-name].visualstudio.com/_admin/_AgentPool`) y luego actualice la página.
     1. Elija el grupo de agentes que seleccionó al ejecutar anteriormente ConfigureAgent.ps1.
-    1. Compruebe que el agente de compilación aparece en la lista y que tiene el estado resaltado en verde. Si está resaltado en rojo, el agente de compilación está teniendo problemas para conectarse a VSO.
+    1. Compruebe que el agente de compilación aparece en la lista y que tiene el estado resaltado en verde. Si está resaltado en rojo, el agente de compilación está teniendo problemas para conectarse a Team Services.
 
 ![](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
 
@@ -233,7 +233,7 @@ Para instalar Azure PowerShell, siga los pasos descritos en la sección anterior
 ### Creación de la definición de compilación.
 
 1.	Cree una definición de compilación vacía. Para ello, siga estos pasos:
-    1.	Abra el proyecto en Visual Studio Online.
+    1.	Abra el proyecto en Visual Studio Team Services.
     1.	Elija la pestaña **Compilar**.
     1.	Elija el signo **+** verde para crear una nueva definición de compilación.
     1.	Elija **Vacía** y luego elija el botón **Siguiente**.
@@ -339,4 +339,4 @@ En las instrucciones anteriores se crea un nuevo clúster para cada compilación
 
 Para obtener más información sobre la integración continua con aplicaciones de Service Fabric, lea los siguientes artículos. - [Página principal de documentación sobre compilación](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [Implementación de un agente de compilación](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [Creación y configuración de una definición de compilación](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

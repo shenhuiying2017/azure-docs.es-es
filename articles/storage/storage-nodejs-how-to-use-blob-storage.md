@@ -364,6 +364,7 @@ Para obtener más información, consulte los siguientes recursos:
 -   [Blog del equipo de almacenamiento de Azure][]
 -   Repositorio del [SDK del Almacenamiento de Azure para Node][] en GitHub
 -   [Centro para desarrolladores de Node.js](/develop/nodejs/)
+-   [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 
 [SDK del Almacenamiento de Azure para Node]: https://github.com/Azure/azure-storage-node
 [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
@@ -376,4 +377,4 @@ Para obtener más información, consulte los siguientes recursos:
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Referencia del SDK de almacenamiento de Azure para la API de nodo]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

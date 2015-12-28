@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Plataformas de análisis: Comparación de Apache Storm con Análisis de transmisiones | Microsoft Azure"
-	description="Obtenga instrucciones para seleccionar una plataforma de análisis en la nube a partir de una comparación de Apache Storm con Análisis de transmisiones. Comprenda las características y diferencias."
+	description="Obtenga instrucciones para seleccionar una plataforma de análisis en la nube mediante una comparación de Apache Storm con Análisis de transmisiones. Comprenda las características y diferencias."
 	keywords="plataforma de análisis, plataformas de análisis, plataforma de análisis de la nube, comparación de storm"
 	services="stream-analytics"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 
 # Ayuda para seleccionar una plataforma de Análisis de transmisiones: comparación de Apache Storm con Análisis de transmisiones de Azure
 
-Obtenga instrucciones para seleccionar una plataforma de análisis en la nube a partir de una comparación de Apache Storm con Análisis de transmisiones de Azure. Comprenda las diferencias entre las propuestas de valor de Análisis de transmisiones y Apache Storm como servicio administrado en HDInsight de Azure, para que pueda elegir la solución adecuada para los casos de uso de su empresa.
+Obtenga instrucciones para seleccionar una plataforma de análisis en la nube mediante esta comparación de Apache Storm con Análisis de transmisiones de Azure. Comprenda las diferencias entre las propuestas de valor de Análisis de transmisiones y Apache Storm como servicio administrado en HDInsight de Azure, para que pueda elegir la solución adecuada para los casos de uso de su empresa.
 
 Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas importantes capacidades distintivas que diferencian estos servicios. Las capacidades, así como las limitaciones, de estos servicios se enumeran a continuación para ayudarle a llegará a la solución que necesita para lograr sus objetivos.
 
@@ -588,4 +588,4 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
     </tbody>
 </table>
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

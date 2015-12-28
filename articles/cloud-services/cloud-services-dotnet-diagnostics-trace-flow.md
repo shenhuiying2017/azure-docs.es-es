@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/17/2015"
+	ms.date="12/15/2015"
 	ms.author="robb"/>
 
 
@@ -61,9 +61,11 @@ Tenga en cuenta que si usa las plantillas proporcionadas por Visual Studio, la c
 		</trace>
 	</system.diagnostics>
 	```
+	>[AZURE.IMPORTANT]Asegúrese de que tiene una referencia de proyecto al ensamblado Microsoft.WindowsAzure.Diagnostics. Actualice el número de versión en el xml anterior para que coincida con la versión del ensamblado de Microsoft.WindowsAzure.Diagnostics al que se hace referencia.
+	
 3. Guarde el archivo de configuración.
 
-Para obtener más información acerca de los agentes de escucha de seguimiento, consulte [Escuchas de seguimiento](https://msdn.microsoft.com/library/4y5y10s7.aspx).
+Para más información sobre los agentes de escucha, vea [Agentes de escucha de seguimiento](https://msdn.microsoft.com/library/4y5y10s7.aspx).
 
 Después de completar los pasos para agregar el agente de escucha, puede agregar instrucciones de seguimiento al código.
 
@@ -74,7 +76,7 @@ Después de completar los pasos para agregar el agente de escucha, puede agregar
 2. Agregue la siguiente instrucción using si no se agregó ya: ```
 	    using System.Diagnostics;
 	```
-3. Agregue instrucciones de seguimiento en donde desee capturar información sobre el estado de la aplicación. Puede usar diversos métodos para dar formato al resultado de la instrucción de seguimiento. Para obtener información, consulte [Procedimientos: incorporación de instrucciones de seguimiento al código de aplicación](https://msdn.microsoft.com/library/zd83saa2.aspx).
+3. Agregue instrucciones de seguimiento en donde desee capturar información sobre el estado de la aplicación. Puede usar diversos métodos para dar formato al resultado de la instrucción de seguimiento. Para información, vea [Procedimientos: adición de instrucciones de seguimiento al código de aplicación](https://msdn.microsoft.com/library/zd83saa2.aspx).
 4. Guarde el archivo de origen.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

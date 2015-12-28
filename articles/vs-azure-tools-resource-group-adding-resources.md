@@ -3,9 +3,9 @@
    description="Aprenda a agregar recursos a una plantilla del Administrador de recursos de Azure mediante Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags 
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="11/13/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Edición de plantillas del Administrador de recursos con Visual Studio
 
@@ -69,4 +69,4 @@ Para más información sobre la estructura de la plantilla, consulte [Creación 
 
 [Vídeo de Channel9: Administrador de recursos de Azure](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

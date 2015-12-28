@@ -60,7 +60,7 @@ Lleve a cabo los pasos siguientes para habilitar un repositorio de Git para su a
 
 1. Inicie sesión en el [Portal de Azure].
 
-2. En la hoja de su aplicación web, desplácese hacia abajo hasta la sección **Implementación** y haga clic en **Configurar implementación continua**. Haga clic en **Elegir origen**, **Repositorio de Git local** y, a continuación, en **Aceptar**.
+2. En la hoja de la aplicación web, haga clic en **Configuración > Implementación continua**. Haga clic en **Elegir origen**, **Repositorio de Git local** y, a continuación, en **Aceptar**.
 
 	![Repositorio de Git local](./media/publishing-with-git/azure1-local-git.png)
 
@@ -76,7 +76,7 @@ Lleve a cabo los pasos siguientes para habilitar un repositorio de Git para su a
 
 Siga los pasos que se indican a continuación para publicar una aplicación web en Azure mediante un Git local.
 
-1. En la hoja de la aplicación web, en la sección Implementación, haga clic en **No se encuentra implementación**.
+1. En la hoja de la aplicación web, haga clic en **Configuración > Propiedades** para la **Dirección URL de Git**.
 
 	![](./media/publishing-with-git/azure3-repo-details.png)
 
@@ -138,7 +138,7 @@ Implementar archivos de GitHub, CodePlex o BitBucket requiere que haya publicado
 
 1. En primer lugar, coloque los archivos de la aplicación web en el repositorio seleccionado que se utilizará para la implementación continua.
 
-2. En la hoja de la aplicación web, en el portal, desplácese hacia abajo hasta la sección **Implementación** y haga clic en **Configurar implementación continua**. Haga clic en **Elegir origen** y haga clic, por ejemplo, en **GitHub**.
+2. En la hoja de la aplicación web del Portal, haga clic en **Configuración > Entrega continua**. Haga clic en **Elegir origen** y haga clic, por ejemplo, en **GitHub**.
 
 	![](./media/publishing-with-git/azure6-setup-github.png)
 	
@@ -192,11 +192,11 @@ Una vez que ha configurado el repositorio como se ha descrito y ha configurado l
 
 ## Deshabilitación de la implementación continua
 
-La implementación continua se puede deshabilitar en la hoja **Implementaciones**. En la hoja de la aplicación web, en la sección **Implementación**, haga clic en **Implementación activa**. A continuación, haga clic en **Desconectar**.
+La implementación continua se puede deshabilitar en la hoja **Implementaciones**. En la hoja de la aplicación web, haga clic en **Configuración > Implementación continua**. A continuación, haga clic en **Desconectar**.
 
 ![git-DisconnectFromGitHub](./media/publishing-with-git/azure5-disconnect.png)
 
-Después de responder **Sí** al mensaje de confirmación, puede volver a la hoja de la aplicación web y hacer clic en **Configurar implementación continua** si desea configurar la publicación desde otro origen.
+Después de responder **Sí** al mensaje de confirmación, puede volver a la hoja de la aplicación web y hacer clic en **Configuración > Implementación continua** si quiere configurar la publicación desde otro origen.
 
 ## <a id="Step8"></a>Solución de problemas
 
@@ -208,7 +208,7 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 
 **Causa**: este error puede producirse si la aplicación web no está en funcionamiento.
 
-**Resolución**: Inicie la aplicación web en el Portal de Azure. La implementación de Git no funcionará a menos que se esté ejecutando la aplicación web.
+**Resolución**: inicie la aplicación web en el Portal de Azure. La implementación de Git no funcionará a menos que se esté ejecutando la aplicación web.
 
 
 ****
@@ -241,7 +241,7 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 
 ****
 
-**Síntoma**: Error: los cambios se confirmaron en el repositorio remoto, pero la aplicación web no se actualizó.
+**Síntoma**: Error: los cambios se confirmaron en el repositorio remoto, pero no se actualizó la aplicación web.
 
 **Causa**: este error puede ocurrir si está implementando una aplicación Node.js que contiene un archivo package.json que especifica módulos requeridos adicionales.
 
@@ -297,4 +297,4 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 [Uso de Dropbox para compartir repositorios de Git]: https://gist.github.com/trey/2722927
 [Entrega continua a Azure con Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

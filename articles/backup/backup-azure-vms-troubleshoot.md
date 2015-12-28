@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2015" ms.author="trinadhk";"aashishr"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/15/2015"
+	ms.author="trinadhk;aashishr;jimpark"/>
 
 
 # Solución de problemas de copia de seguridad de máquinas virtuales de Azure
@@ -42,7 +49,7 @@ Puede solucionar los errores detectados al usar Copia de seguridad de Azure con 
 | Copia de seguridad | Error de instalación de la extensión "COM+ no pudo realizar la conexión con MS DTC (Microsoft Distributed Transaction Coordinator)" | Normalmente, esto significa que el servicio COM+ no se ejecuta. Para obtener ayuda acerca de cómo solucionar este problema, póngase en contacto con el servicio de soporte técnico de Microsoft. |
 | Copia de seguridad | Error en la operación de instantánea con el error de operación de VSS "El Cifrado de unidad BitLocker está bloqueando esta unidad" Debe desbloquear esta unidad en el Panel de Control. | Desactive BitLocker para todas las unidades de la máquina virtual y observe si se resuelve el problema VSS |
 | Copia de seguridad | No se pueden usar máquinas virtuales con discos duros virtuales almacenados en Almacenamiento Premium para realizar copias de seguridad | None |
-| Copia de seguridad | Máquina virtual de Azure no encontrada. | Esto sucede cuando se elimina la máquina virtual principal, pero la directiva de copia de seguridad continúa buscando una máquina virtual para realizar la copia de seguridad. Para solucionar este error: <ol><li>Vueva a crear la máquina virtual con el mismo nombre e igual nombre de grupo de recursos [nombre del servicio en la nube], <br>(O BIEN) <li> Desactive la protección para esta máquina virtual para que no se creen los trabajos de copia de seguridad </ol> |
+| Copia de seguridad | Máquina virtual de Azure no encontrada. | Esto sucede cuando se elimina la máquina virtual principal, pero la directiva de copia de seguridad continúa buscando una máquina virtual para realizar la copia de seguridad. Para solucionar este error: <ol><li>Vuelva a crear la máquina virtual con el mismo nombre e igual nombre de grupo de recursos [nombre del servicio en la nube], <br>(O BIEN) <li> Desactive la protección para esta máquina virtual para que no se creen los trabajos de copia de seguridad </ol> |
 | Copia de seguridad | El agente de máquina virtual no está presente en la máquina virtual: instale los requisitos previos necesarios, el agente de máquina virtual y reinicie la operación. | [Obtenga más información](#vm-agent) acerca del agente de la máquina virtual y sobre cómo validar su instalación. |
 
 ## Trabajos
@@ -57,7 +64,7 @@ Puede solucionar los errores detectados al usar Copia de seguridad de Azure con 
 ## Restauración
 | Operación | Detalles del error | Solución alternativa |
 | -------- | -------- | -------|
-| Restauración | Error en la restauración con error interno de nube | <ol><li>El servicio de nube que está intentando restaurar está configurado con la configuración de DNS. Puede consultar <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si hay una dirección configurada, significa que los ajustes de DNS están configurados.<br> <li>El servicio en la nube al que está intentando restaurar se configura con ReservedIP y las máquinas virtuales existentes del servicio en la nube se encuentran en estado detenido.<br>Puede comprobar que un servicio en la nube tiene IP reservada usando los siguientes cmdlets de powershell:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Está intentando restaurar una máquina virtual con las siguientes configuraciones de red especiales en el mismo servicio en la nube. <br>- Máquinas virtuales en la configuración del equilibrador de carga (internas y externas)<br>- Máquinas virtuales con varias direcciones IP reservadas<br>- Máquinas virtuales con varias NIC<br>Seleccione un nuevo servicio en la nube en la interfaz de usuario o consulte [Consideraciones de restauración](backup-azure-restore-vms.md/#restoring-vms-with-special-network-configurations) para las máquinas virtuales con configuraciones de red especiales</ol> |
+| Restauración | Error en la restauración con error interno de nube | <ol><li>El servicio de nube que está intentando restaurar está configurado con la configuración de DNS. Puede consultar <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si hay una dirección configurada, significa que los ajustes de DNS están configurados.<br> <li>El servicio en la nube al que está intentando restaurar se configura con ReservedIP y las máquinas virtuales existentes del servicio en la nube se encuentran en estado detenido.<br>Puede comprobar que un servicio en la nube tiene IP reservada usando los siguientes cmdlets de powershell:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Está intentando restaurar una máquina virtual con las siguientes configuraciones de red especiales en el mismo servicio en la nube. <br>- Máquinas virtuales en la configuración del equilibrador de carga (internas y externas)<br>- Máquinas virtuales con varias direcciones IP reservadas<br>- Máquinas virtuales con varias NIC<br>Seleccione un nuevo servicio en la nube en la interfaz de usuario o vea [Consideraciones de restauración](backup-azure-restore-vms.md/#restoring-vms-with-special-network-configurations) para las máquinas virtuales con configuraciones de red especiales</ol> |
 | Restauración | El nombre DNS seleccionado ya existe: especifique otro nombre DNS y vuelva a intentarlo. | El nombre DNS aquí hace referencia al nombre del servicio en la nube (normalmente terminados con .cloudapp.net). Debe ser único. Si se produce este error, deberá elegir otro nombre para la máquina virtual durante la restauración. <br><br> Tenga en cuenta que este error solo se muestra a los usuarios del portal de Azure. La operación de restauración a través de PowerShell se realizará correctamente porque solo restaura los discos y no crea la máquina virtual. El error aparecerá cuando el usuario crea explícitamente la máquina virtual después de la operación de restauración del disco. |
 | Restauración | La configuración de red virtual especificada no es correcta: especifique otra configuración de red virtual y vuelva a intentarlo. | None |
 | Restauración | El servicio en la nube especificado usa una dirección IP reservada, que no coincide con la configuración de la máquina virtual que se está restaurando: especifique otro servicio en la nube que no use la IP reservada o elija otro punto de recuperación desde el que restaurar. | None |
@@ -105,7 +112,7 @@ Máquinas virtuales de Linux:
 Cómo comprobar la versión del agente de la máquina virtual en máquinas virtuales de Windows:
 
 1. Inicie sesión en la máquina virtual de Azure y vaya a la carpeta *C:\\WindowsAzure\\Packages*. El archivo WaAppAgent.exe debe estar ahí.
-2. Haga clic con el botón derecho en el archivo, vaya a **Propiedades** y seleccione la pestaña **Detalles**. En el campo de versión del producto, debe aparecer el valor 2.6.1198.718 o uno superior.
+2. Haga clic con el botón secundario en el archivo, vaya a **Propiedades** y seleccione la pestaña **Detalles**. En el campo de versión del producto, debe aparecer el valor 2.6.1198.718 o uno superior.
 
 ## Redes
 Al igual que todas las extensiones, la de copia de seguridad necesita tener acceso a Internet para funcionar. Si no tiene acceso a Internet, se pueden producir estos problemas:
@@ -116,9 +123,14 @@ Al igual que todas las extensiones, la de copia de seguridad necesita tener acce
 
 La necesidad de resolver direcciones públicas de Internet se describe [aquí](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Deberá comprobar las configuraciones de DNS para la red virtual y asegurarse de que se puedan resolver los URI de Azure.
 
-Una vez que la resolución de nombres se haya realizado correctamente, también hay que proporcionar acceso a las direcciones IP de Azure. Para desbloquear el acceso a la infraestructura de Azure, siga estos pasos:
+Una vez que la resolución de nombres se haya realizado correctamente, también hay que proporcionar acceso a las direcciones IP de Azure. Para desbloquear el acceso a la infraestructura de Azure, siga uno de estos pasos:
 
-1. Obtenga la lista de [IP del centro de datos de Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) que van a formar parte de la lista de direcciones IP aprobadas.
-2. Desbloquee las direcciones IP usando el commandlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Ejecute este commandlet en la máquina virtual de Azure, en una ventana de PowerShell con privilegios elevados (realice la ejecución como administrador).
+1. Preparar una lista blanca con los intervalos IP del centro de datos de Azure.
+    - Obtenga la lista de [IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) que van a formar parte de la lista de direcciones IP aprobadas.
+    - Desbloquee las direcciones IP usando el cmdlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Ejecute este cmdlet en la máquina virtual de Azure, en una ventana de PowerShell con privilegios elevados (realice la ejecución como administrador).
+    - Agregar reglas al NSG (si dispone de uno implementado) para permitir el acceso a las direcciones IP.
+2. Crear una ruta de acceso para el flujo del tráfico HTTP
+    - Si tiene alguna restricción de red implementada (por ejemplo, un grupo de seguridad de red), implemente un servidor proxy HTTP para enrutar el tráfico. Encontrará [aquí](backup-azure-vms-prepare.md#2-network-connectivity) pasos para implementar un servidor proxy HTTP.
+    - Agregue reglas al NSG (si dispone de uno implementado) para permitir el acceso a INTERNET desde el proxy HTTP.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

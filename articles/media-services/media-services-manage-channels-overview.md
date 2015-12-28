@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="11/03/2015"  
+	ms.date="12/15/2015"  
 	ms.author="juliako"/>
 
 #Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
@@ -208,7 +208,7 @@ Ejecución|Listo (no hay programas en ejecución)<p>o<p>Streaming (al menos un p
 Deteniéndose|Deteniéndose|No (estado transitorio)
 Detenido|Detenido|No
 
-###Subtítulos e inserción de anuncios 
+##<a id="cc_and_ads"></a>Subtítulos e inserción de anuncios 
 
 En la siguiente tabla se muestran los estándares de subtítulos e inserción de anuncios.
 
@@ -240,7 +240,7 @@ Otras consideraciones sobre el funcionamiento de los canales y los componentes r
 
 ##Creación de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
 
-Para obtener más información sobre los codificadores en directo locales, consulte [Uso de codificadores en directo de terceros con Servicios multimedia de Azure](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
+Para más información sobre los codificadores en directo locales, vea [Uso de codificadores en directo de terceros con Servicios multimedia de Azure](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
 
 Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar los canales y programas.
 
@@ -269,4 +269,4 @@ Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

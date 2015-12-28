@@ -66,10 +66,10 @@ Elemento | Nombre de subred | Espacio de direcciones de subred | Propósito
 
 Para los dos servidores DNS locales que desea usar al configurar inicialmente los controladores de dominio de la red virtual, rellene tabla D. Asigne a cada servidor DNS un nombre descriptivo y una dirección IP única. No es necesario que este nombre descriptivo coincida con el nombre de host o el nombre de equipo del servidor DNS. Tenga en cuenta que se muestran dos entradas en blanco, pero puede agregar más. Trabaje con su departamento de TI para determinar esta lista.
 
-Elemento | Nombre descriptivo del servidor DNS | Dirección IP del servidor DNS 
---- | --- | ---
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ 
+Elemento | Dirección IP del servidor DNS 
+--- | ---
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ 
 
 **Tabla D: Servidores DNS locales**
 
@@ -85,13 +85,24 @@ Elemento | Espacio de direcciones de la red local
 
 **Tabla L: Prefijos de dirección de la red local**
 
-> [AZURE.NOTE]Este artículo contiene comandos para la versión preliminar de Azure PowerShell 1.0. Para ejecutar estos comandos en Azure PowerShell 0.9.8 y versiones anteriores, reemplace todas las instancias de "-AzureRM" por "-Azure" y agregue el comando **Switch-AzureMode AzureResourceManager** antes de ejecutar ningún comando. Para obtener más información, consulte [Versión preliminar de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+En primer lugar, inicie un símbolo del sistema de Azure PowerShell.
 
-Abra un símbolo del sistema de Azure PowerShell.
+> [AZURE.NOTE]El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
-Cree un grupo de recursos para la aplicación de línea de negocio.
+En primer lugar, inicie un símbolo del sistema de Azure PowerShell e inicie sesión en su cuenta.
 
-Para determinar el nombre único del grupo de recursos, utilice este comando para enumerar los grupos de recursos existente.
+	Login-AzureRMAccount
+
+Obtenga el nombre de la suscripción con el comando siguiente.
+
+	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+
+Establezca su suscripción a Azure. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < and >, por los nombres correctos.
+
+	$subscr="<subscription name>"
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+
+Cree un grupo de recursos para la aplicación de línea de negocio. Para determinar el nombre único del grupo de recursos, utilice este comando para enumerar los grupos de recursos existente.
 
 	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
 
@@ -114,7 +125,7 @@ Necesitará estos nombres al crear las máquinas virtuales en las fases 2, 3 y 4
 
 Debe seleccionar un nombre único global para cada cuenta de almacenamiento que contenga solo letras minúsculas y números. Puede usar este comando para enumerar las cuentas de almacenamiento existentes.
 
-	Get-AzureRMStorageAccount | Sort Name | Select Name
+	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
 
 Para crear la primera cuenta de almacenamiento, ejecute estos comandos.
 
@@ -169,12 +180,12 @@ Use estos comandos para crear las puertas de enlace para la conexión VPN de sit
 	$vnetConnectionKey="<Table V – Item 8 – Value column>"
 	$vnetConnection=New-AzureRMVirtualNetworkGatewayConnection -Name $vnetConnectionName -ResourceGroupName $rgName -Location $locName -ConnectionType IPsec -SharedKey $vnetConnectionKey -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localGateway
 
-Configure el dispositivo VPN local para conectarse a la puerta de enlace de VPN de Azure. Para obtener más información, consulte [Configuración del dispositivo VPN](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
+Configure el dispositivo VPN local para conectarse a la puerta de enlace de VPN de Azure. Para más información, vea [Configuración del dispositivo VPN](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
 
 Para configurar el dispositivo VPN local, necesitará lo siguiente:
 
-- La dirección IPv4 pública de la puerta de enlace de VPN para la red virtual (en la presentación del comando **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName**)
-- Clave precompartida de IPsec para la conexión VPN de sitio a sitio (Tabla V– Elemento 8 – Columna Valor)
+- La dirección IPv4 pública de la puerta de enlace de VPN para la red virtual en la presentación del comando **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName**.
+- Clave precompartida de IPsec para la conexión VPN de sitio a sitio (Tabla V– Elemento 8 – Columna Valor).
 
 A continuación, asegúrese de que el espacio de direcciones de la red virtual sea accesible desde la red local. Esto se hace normalmente agregando una ruta correspondiente al espacio de direcciones de la red virtual a su dispositivo VPN y, a continuación, anunciando esa ruta al resto de la infraestructura de enrutamiento de la red de su organización. Trabaje con su departamento de TI para determinar cómo hacerlo.
 
@@ -207,18 +218,6 @@ Esta es la configuración resultante de la realización correcta de esta fase.
 
 ## Paso siguiente
 
-Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 2: Configuración de los controladores de dominio](virtual-machines-workload-high-availability-LOB-application-phase2.md).
+- Para continuar con la configuración de esta carga de trabajo, vaya a la [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md).
 
-## Recursos adicionales
-
-[Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[Plano de arquitectura de aplicaciones de línea de negocio](http://msdn.microsoft.com/dn630664)
-
-[Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Instrucciones de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

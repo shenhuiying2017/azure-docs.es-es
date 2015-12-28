@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="12/04/2015"
+	ms.date="12/16/2015"
 	ms.author="jeffstok"/>
 
 # Escalado de trabajos de Análisis de transmisiones de Azure para incrementar el rendimiento de procesamiento de flujo de datos #
@@ -61,7 +61,7 @@ La consulta anterior tiene dos pasos.
 
 El particionamiento de un paso requiere las siguientes condiciones:
 
-- El origen de entrada debe tener particiones. Para obtener más información, consulte [Guía para el desarrollador de Análisis de transmisiones de Azure](../stream-analytics-developer-guide.md) y [Guía de programación de Centros de eventos](../azure-event-hubs-developer-guide.md).
+- El origen de entrada debe tener particiones. Para obtener más información, consulte [Guía para el desarrollador de Análisis de transmisiones de Azure](../stream-analytics-developer-guide.md) y [Guía de programación de Centros de eventos](../event-hubs/event-hubs-programming-guide.md).
 - La instrucción SELECT de la consulta se debe leer desde un origen de entrada particionado.
 - La consulta dentro del paso debe incluir la palabra clave **Partition By**.
 
@@ -265,4 +265,4 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

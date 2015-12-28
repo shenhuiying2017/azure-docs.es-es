@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Uso de Application Insights con Diagnósticos de Azure para solucionar problemas de servicios en la nube | Microsoft Azure"
+   pageTitle="Solucionar problemas de Servicios en la nube con Application Insights | Microsoft Azure"
    description="Aprenda a solucionar problemas del servicio en la nube mediante el uso de Application Insights para procesar datos de Diagnósticos de Azure."
    services="cloud-services"
    documentationCenter=".net"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/16/2015"
+   ms.date="12/15/2015"
    ms.author="saurabh" />
 
 
-# Uso de Application Insights con Diagnósticos de Azure para solucionar problemas de servicios en la nube
+# Solucionar problemas de Servicios en la nube con Application Insights
 
 Con [Azure SDK 2.8](https://azure.microsoft.com/downloads/) y la extensión 1.5 de Diagnósticos de Azure ahora puede enviar los datos de Diagnósticos de Azure para su servicio en la nube directamente a Application Insights. Los distintos tipos de registros recopilados por Diagnósticos de Azure, incluidos los registros de aplicación, registros de eventos de Windows, registros ETW y contadores de rendimiento, ahora se pueden enviar a Application Insights y visualizarse en la IU del portal de Application Insights. Cuando se utilizan junto con el SDK de Application Insights puede obtener información sobre las métricas y los registros de la aplicación, y sobre los datos del sistema y de la infraestructura procedentes de Diagnósticos de Azure.
   
@@ -61,7 +61,7 @@ Para ver de datos de Diagnósticos de Azure en Application Insights:
 
 ![Métricas personalizadas en el Explorador de métricas][5]
 
-- Use la [Búsqueda](../application-insights/app-insights-diagnostic-search.md) para buscar en los distintos registros de seguimiento enviados por Diagnósticos de Azure. Por ejemplo, si tenía una excepción no controlada en un rol que provocó el bloqueo de dicho rol y recicla esa información, aparecería en el canal *Aplicación* del *registro de eventos de Windows*. Puede utilizar la funcionalidad Buscar para ver el error del registro de eventos de Windows y obtener el seguimiento de la pila completo para la excepción, lo que le permite encontrar la causa raíz del problema. 
+- Use la [Búsqueda](../application-insights/app-insights-diagnostic-search.md) para buscar en los distintos registros de seguimiento enviados por Diagnósticos de Azure. Por ejemplo, si tenía una excepción no controlada en un rol que provocó el bloqueo de dicho rol y recicla esa información, aparecería en el canal *Aplicación* del *Registro de eventos de Windows*. Puede utilizar la funcionalidad Buscar para ver el error del registro de eventos de Windows y obtener el seguimiento de la pila completo para la excepción, lo que le permite encontrar la causa raíz del problema. 
 
 ![Buscar seguimientos][6]
 
@@ -78,4 +78,4 @@ Para ver de datos de Diagnósticos de Azure en Application Insights:
 [5]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/metrics-explorer-custom-metrics.png
 [6]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/search-windowseventlog-error.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

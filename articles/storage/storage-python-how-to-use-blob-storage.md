@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="12/11/2015"
 	ms.author="emgerner"/>
 
 # Uso del almacenamiento de blobs de Azure desde Python
@@ -106,7 +106,8 @@ Finalmente, para eliminar un blob, llame a **delete\_blob**.
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de blobs, use estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
--   Visite el [blog del equipo de almacenamiento de Azure][] (en inglés).
+- Visite el [blog del equipo de almacenamiento de Azure][] (en inglés).
+- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 
 Para obtener más información, consulte también el [Centro para desarrolladores de Python](/develop/python/).
 
@@ -114,4 +115,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [paquete de Azure para Python]: https://pypi.python.org/pypi/azure
 [paquete de almacenamiento de Azure para Python]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

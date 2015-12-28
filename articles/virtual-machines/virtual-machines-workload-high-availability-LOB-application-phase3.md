@@ -21,12 +21,11 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
-
 En esta fase de la implementación de una aplicación de línea de negocio de alta disponibilidad en servicios de infraestructura de Azure, configurará los dos equipos que ejecutan SQL Server y el equipo del nodo de mayoría de clúster y luego los combinará en un clúster de Windows Server.
 
 Debe completar esta fase antes de pasar a la [fase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md). Vea [Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) en todas las fases.
 
-> [AZURE.NOTE]Este artículo contiene comandos para la versión preliminar de Azure PowerShell 1.0. Para ejecutar estos comandos en Azure PowerShell 0.9.8 y versiones anteriores, reemplace todas las instancias de "-AzureRM" por "-Azure" y agregue el comando **Switch-AzureMode AzureResourceManager** antes de ejecutar ningún comando. Para obtener más información, consulte [Versión preliminar de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE]Estas instrucciones usan una imagen de SQL Server de la galería de imágenes de Azure y se le cargarán costes periódicos por el uso de la licencia de SQL Server. También es posible crear máquinas virtuales en Azure e instalar sus propias licencias de SQL Server, pero debe tener Software Assurance y License Mobility para usar su licencia de SQL Server en una máquina virtual, incluyendo una máquina virtual de Azure. Para obtener más información acerca de cómo instalar SQL Server en una máquina virtual, consulte [Instalación de SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
 
 ## Creación de máquinas virtuales de clúster de SQL Server en Azure
 
@@ -41,6 +40,8 @@ Utilice el siguiente bloque de comandos de PowerShell para crear las máquinas v
 - Tabla A, para los conjuntos de disponibilidad
 
 Recuerde que definió la tabla M en [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) y las tablas V, S, ST y A en [Fase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+
+> [AZURE.NOTE]El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Cuando proporcione todos los valores adecuados, ejecute el bloque resultante en el símbolo del sistema de Azure PowerShell.
 
@@ -152,7 +153,7 @@ Use el procedimiento siguiente dos veces, una vez para cada máquina virtual que
 
 1. En la pantalla de inicio, escriba **SQL Studio** y haga clic en **SQL Server 2014 Management Studio**.
 2. En **Conectar con el servidor**, haga clic en **Conectar**.
-3. En el panel izquierdo, haga clic con el botón derecho en el nodo superior (la instancia predeterminada con el nombre de la máquina) y haga clic en **Propiedades**.
+3. En el panel izquierdo, haga clic con el botón derecho en el nodo superior (la instancia predeterminada con el nombre después de la máquina) y después haga clic en **Propiedades**.
 4.	En **Propiedades del servidor**, haga clic en **Configuración de base de datos**.
 5.	En **Ubicaciones predeterminadas de la base de datos**, establezca los siguientes valores: 
 	- Para **Datos**, establezca la ruta de acceso en **f:\\Data**.
@@ -162,7 +163,7 @@ Use el procedimiento siguiente dos veces, una vez para cada máquina virtual que
 6.	Haga clic en **Aceptar** para cerrar la ventana.
 7.	En el panel izquierdo, expanda la **carpeta seguridad**.
 8.	Haga clic con el botón derecho en **Inicios de sesión** y, a continuación, haga clic en **Nuevo inicio de sesión**.
-9.	En **Nombre de inicio de sesión**, escriba *domain*\\sqladmin (donde *domain* es el nombre del dominio en el que se creó la cuenta sqladmin en [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md)). 
+9.	En **Nombre de inicio de sesión**, escriba *dominio*\\sqladmin (donde *dominio* es el nombre del dominio en el que se creó la cuenta sqladmin en [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md)). 
 10.	En **Seleccionar una página**, haga clic en **Roles de servidor**, en **sysadmin** y, a continuación, en **Aceptar**.
 11.	Cierre SQL Server 2014 Management Studio.
 
@@ -215,10 +216,10 @@ Debido al comportamiento compatible que no es RFC actual por DHCP en Azure, pued
 2.	Desde la pantalla de inicio, escriba **Conmutación por error** y, a continuación, haga clic en **Administrador de clústeres de conmutación por error**.
 3.	En el panel izquierdo, haga clic con el botón derecho en **Administrador de clústeres de conmutación por error** y, a continuación, haga clic en **Crear clúster**.
 4.	En la página **Antes de empezar**, haga clic en **Siguiente**.
-5.	En la página **Seleccionar servidores**, escriba el nombre de la máquina principal de SQL Server, haga clic en **Agregar** y luego en **Siguiente**.
+5.	En la página **Seleccionar servidores**, escriba el nombre de la máquina principal de SQL Server, haga clic en **Agregar** y después haga clic en **Siguiente**.
 6.	En la página **Advertencia de validación**, haga clic en **No. No necesito compatibilidad con Microsoft para este clúster y por tanto no deseo ejecutar las pruebas de validación. Al hacer clic en Siguiente, continúe con la creación del clúster.** y, a continuación, haga clic en **Siguiente**.
-7.	En la página **Punto de acceso para administrar el clúster**, en el cuadro de texto **Nombre del clúster**, escriba el nombre del clúster y haga clic en **Siguiente**.
-8.	En la página **Confirmación**, haga clic en **Siguiente** para iniciar la creación del clúster. 
+7.	En la página **Punto de acceso para administrar el clúster**, en el cuadro de texto **Nombre del clúster**, escriba el nombre para el clúster y después haga clic en **Siguiente**.
+8.	En la página de **Confirmación**, haga clic en **Siguiente** para iniciar la creación del clúster. 
 9.	En la página **Resumen**, haga clic en **Finalizar**.
 10.	En el panel izquierdo, haga clic en el nuevo clúster. En la sección **Recursos principales de clúster** del panel de contenido, abra el nombre del clúster de servidor. El recurso **Dirección IP** aparece en el estado **Error**. No se puede poner en conexión el recurso de dirección IP porque el clúster tiene asignada la misma dirección IP que el de la propia máquina. El resultado es una dirección duplicada. 
 11.	Haga clic con el botón secundario en el recurso **dirección IP** erróneo y, a continuación, haga clic en **Propiedades**.
@@ -227,9 +228,9 @@ Debido al comportamiento compatible que no es RFC actual por DHCP en Azure, pued
 14.	Haga clic con el botón secundario en el recurso Dirección IP erróneo y, a continuación, haga clic en **Conectar**. Espere hasta que los recursos estén en línea. Cuando el recurso de nombre de clúster está en línea, actualiza el controlador de dominio con una cuenta de equipo de Active Directory (AD). Esta cuenta de AD se utiliza posteriormente para ejecutar el servicio de clúster del grupo de disponibilidad.
 15.	Una vez creada la cuenta de AD, ponga el nombre de clúster sin conexión. Haga clic con el botón secundario en el nombre del clúster en **Recursos principales de clúster** y, a continuación, haga clic en **Poner sin conexión**.
 16.	Para quitar la dirección IP del clúster, haga clic con el botón derecho en **Dirección IP**, haga clic en **Quitar** y, a continuación, haga clic en **Sí** cuando se le solicite. El recurso de clúster ya no puede estar en línea ya que depende el recurso de dirección IP. Sin embargo, un grupo de disponibilidad no depende de la dirección IP o el nombre del clúster para que funcione correctamente. Por lo tanto, el nombre de clúster puede dejarse sin conexión.
-17.	Para agregar los nodos restantes en el clúster, haga clic con el botón derecho en el nombre del clúster en el panel izquierdo y luego haga clic en **Agregar nodo**.
+17.	Para agregar los nodos restantes en el clúster, haga clic con el botón derecho en el nombre del clúster en el panel izquierdo y después haga clic en **Agregar nodo**.
 18.	En la página **Antes de empezar**, haga clic en **Siguiente**. 
-19.	En la página **Seleccionar servidores**, escriba el nombre y haga clic en **Agregar** para agregar el servidor SQL secundario y el nodo de mayoría de clúster al clúster. Después de agregar los dos equipos, haga clic en **Siguiente**. Si no se puede agregar una máquina y el mensaje de error es "el Registro remoto no se está ejecutando", haga lo siguiente. Inicie sesión en la máquina, abra el complemento Servicios (services.msc) y habilite el Registro remoto. Para obtener más información, consulte [No se puede conectar al servicio de Registro remoto](http://technet.microsoft.com/library/bb266998.aspx). 
+19.	En la página **Seleccionar servidores**, escriba el nombre y después haga clic en **Agregar** para agregar el servidor SQL secundario y el nodo de mayoría de clúster al clúster. Después de agregar los dos equipos, haga clic en **Siguiente**. Si no se puede agregar una máquina y el mensaje de error es "el Registro remoto no se está ejecutando", haga lo siguiente. Inicie sesión en la máquina, abra el complemento Servicios (services.msc) y habilite el Registro remoto. Para obtener más información, consulte [No se puede conectar al servicio de Registro remoto](http://technet.microsoft.com/library/bb266998.aspx). 
 20.	En la página **Advertencia de validación**, haga clic en **No. No necesito compatibilidad con Microsoft para este clúster y por tanto no deseo ejecutar las pruebas de validación. Al hacer clic en Siguiente, continúe con la creación del clúster.** y, a continuación, haga clic en **Siguiente**. 
 21.	En la página **Confirmación**, haga clic en **Siguiente**.
 22.	En la página **Resumen**, haga clic en **Finalizar**.
@@ -245,8 +246,8 @@ Utilice estos pasos para habilitar grupos de disponibilidad AlwaysOn en SQL Serv
 2.	En la pantalla de inicio, escriba **Configuración de SQL Server** y, a continuación, haga clic en **Administrador de configuración de SQL Server**.
 3.	En el panel izquierdo, haga clic en **Servicios de SQL Server**.
 4.	En el panel de contenido, haga doble clic en **SQL Server (MSSQLSERVER)**.
-5.	En **Propiedades de SQL Server (MSSQLSERVER)**, haga clic en la pestaña **Alta disponibilidad AlwaysOn**, seleccione **Habilitar los grupos de disponibilidad de AlwaysOn**, haga clic en **Aplicar** y, a continuación, haga clic en **Aceptar** cuando se le solicite. No cierre todavía la ventana Propiedades. 
-6.	Haga clic en la pestaña virtual-machines-manage-availability y escriba [Dominio]**\\sqlservice** en **Nombre de cuenta**. Escriba la contraseña de cuenta de sqlservice en **Contraseña** y **Confirmar contraseña** y luego haga clic en **Aceptar**.
+5.	En **Propiedades de SQL Server (MSSQLSERVER)**, haga clic en la pestaña **Alta disponibilidad AlwaysOn**, seleccione **Habilitar los grupos de disponibilidad de AlwaysOn**, haga clic en **Aplicar** y luego haga clic en **Aceptar** cuando se le solicite. No cierre todavía la ventana Propiedades. 
+6.	Haga clic en la pestaña virtual-machines-manage-availability y después escriba [Dominio]**\\sqlservice** en **Nombre de cuenta**. Escriba la contraseña de cuenta de sqlservice en **Contraseña** y **Confirmar contraseña** y después haga clic en **Aceptar**.
 7.	En la ventana de mensaje, haga clic en **Sí** para reiniciar el servicio de SQL Server.
 8.	Inicie sesión en la máquina virtual secundaria de SQL Server con la cuenta sqladmin y repita los pasos del 2 al 7. 
 
@@ -256,18 +257,6 @@ Este diagrama muestra la configuración resultante de la realización correcta d
 
 ## Paso siguiente
 
-Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 4: Configuración de servidores web](virtual-machines-workload-high-availability-LOB-application-phase4.md).
+- Para continuar con la configuración de esta carga de trabajo, vaya a la [Fase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md).
 
-## Recursos adicionales
-
-[Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[Plano de arquitectura de aplicaciones de línea de negocio](http://msdn.microsoft.com/dn630664)
-
-[Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Instrucciones de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -49,8 +49,9 @@ El nivel de red CDN estándar incluye las siguientes funciones:
 - Equilibrio de carga
 - Protección DDOS
 - [Purga rápida](cdn-purge-endpoint.md)
+- [Administración mediante API de REST](https://msdn.microsoft.com/library/mt634456.aspx)
 
- 
+
 ## Características de la edición Premium
 
 El nivel premium de la red de entrega de contenido incluye todas las características del nivel estándar, más estas características adicionales:
@@ -59,4 +60,4 @@ El nivel premium de la red de entrega de contenido incluye todas las caracterís
 - [Informes de HTTP avanzados](cdn-advanced-http-reports.md)
 - [Estadísticas en tiempo real](cdn-read-time-stats.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

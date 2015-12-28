@@ -306,7 +306,7 @@ Nota: La canalización del procesamiento por lotes de un extremo a otro tarda un
 
 • Guarde localmente.
 
-**Configure los informes de Power BI** • Abra el archivo de diseñador 'VehicleTelemetryAnalytics - Desktop Report.pbix' mediante Power BI Desktop. Si no lo ha hecho ya, instale Power BI Desktop desde [aquí](http://www.microsoft.com/download/details.aspx?id=45331).
+**Configure los informes de Power BI** • Abra el archivo de diseñador 'VehicleTelemetryAnalytics - Desktop Report.pbix' mediante Power BI Desktop. Si no lo ha hecho ya, instale Power BI Desktop desde la instalación de [PowerBI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
 
 • Haga clic en el **Editar consultas**.
 
@@ -390,4 +390,4 @@ Ancle los gráficos al panel existente **Panel de análisis de telemetría de ve
 
 ¡Enhorabuena! Ha creado correctamente los informes y el panel para obtener información predictiva y por lotes en tiempo real sobre los hábitos de mantenimiento y conducción.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

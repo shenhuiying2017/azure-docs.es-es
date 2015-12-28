@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Construcción de cadenas de filtro para el diseñador de tablas"
+   pageTitle="Construcción de cadenas de filtro para el diseñador de tablas | Microsoft Azure"
    description="Construcción de cadenas de filtro para el diseñador de tablas"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="storage"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Construcción de cadenas de filtro para el Diseñador de tablas
 
@@ -99,4 +99,4 @@ El siguiente ejemplo devuelve las entidades en las que la propiedad CustomerSinc
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

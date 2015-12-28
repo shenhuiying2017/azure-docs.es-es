@@ -1,6 +1,6 @@
-	<properties 
-	pageTitle="Azure Mobile Engagement implementation for Gaming App"
-	description="Gaming app scenario to implement Azure Mobile Engagement" 
+<properties 
+	pageTitle="Implementación de Azure Mobile Engagement para una aplicación de juegos"
+	description="Escenario de aplicación de juegos para implementar Azure Mobile Engagement" 
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo"
@@ -61,7 +61,7 @@ Después de 3 meses, el director de proyectos móviles ha recopilado datos sufic
 * Los usuarios que han superado el nivel 20 empiezan a gastar más de 10 USD por semana.
 * Los usuarios tienden a comprar módulos premium en los niveles 16, 24 y 32.
 
-Gracias a este análisis, el director de proyectos móviles decide crear secuencias específicas de notificaciones push para aumentar las ventas en aplicación. Crea tres secuencias push denominadas: Programa de bienvenida, Programa de ventas y Programa de inactivos. Para más información, consulte los [cuadernos de estrategias](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks). ![][1]
+Gracias a este análisis, el director de proyectos móviles decide crear secuencias específicas de notificaciones push para aumentar las ventas en aplicación. Crea tres secuencias push denominadas: Programa de bienvenida, Programa de ventas y Programa de inactivos. Para más información, vea los [cuadernos de estrategias](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks) ![][1].
 
 <!--Image references-->
 
@@ -69,4 +69,4 @@ Gracias a este análisis, el director de proyectos móviles decide crear secuenc
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

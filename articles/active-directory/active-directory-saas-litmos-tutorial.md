@@ -109,7 +109,7 @@ Como parte de la configuración, debe personalizar la **atributos de Token SAML*
 
 3. En el Portal de Azure, en la página de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes: <br><br>![Inicio de sesión único de Azure AD][8] <br>
  
-    a. En el cuadro de texto **Emisor**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación Litmos (p. ej.: **https://azureapptest.litmos.com/account/Login*)).
+    a. En el cuadro de texto **Identificador**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación Litmos (p. ej.: **https://azureapptest.litmos.com/account/Login*)).
      
     b. En el cuadro de texto **URL de respuesta**, pegue el valor que ha copiado de la aplicación Litmos en el paso anterior.
 
@@ -297,4 +297,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [401]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_401.png
 [402]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_402.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

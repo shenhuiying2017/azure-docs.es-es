@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015"    
+	ms.date="12/15/2015"    
 	ms.author="juliako"/>
 
 
@@ -357,7 +357,7 @@ Para obtener información sobre el esquema, consulte [este](https://msdn.microso
 Se aplican las siguientes consideraciones:
 
 - El uso de marcas de tiempo explícitas para inicio/paso/intervalo asume que el origen de la entrada tiene al menos 1 minuto de duración.
-- Los elementos Jpg/Png/BmpVideo tienen atributos de cadena Start, Step y Range, que se pueden interpretar como:
+- Los elementos Jpg/Png/BmpImage tienen atributos de cadena Start, Step y Range, que se pueden interpretar como:
 
 	- Número de marco si son enteros no negativos, por ejemplo, "Start": "120",
 	- Relativos a la duración de origen si se expresan como sufijo de %, por ejemplo, "Start": "15%", O
@@ -383,4 +383,4 @@ Se aplican las siguientes consideraciones:
 
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

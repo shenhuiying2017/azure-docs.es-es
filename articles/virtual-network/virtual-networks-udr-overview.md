@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Rutas definidas por el usuario y reenvío IP
@@ -90,4 +90,4 @@ La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tr�
 - Obtenga información sobre cómo [crear rutas en el modelo de implementación del Administrador de recursos](../virtual-network-create-udr-arm-template) y asociarlos a subredes. 
 - Obtenga información sobre cómo [crear rutas en el modelo de implementación clásico](../virtual-network-create-udr-classic-ps) y asociarlos a subredes.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

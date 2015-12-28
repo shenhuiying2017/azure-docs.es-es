@@ -78,7 +78,9 @@ A continuación se incluyen instrucciones adicionales de solución de problemas 
 
 	- Asegúrese de que los certificados son válidos y de que no han expirado para las notificaciones push de iOS. 
 	- Asegúrese de que configura correctamente un certificado de *Producción* en la aplicación Mobile Engagement. 
-	- Asegúrese de que el identificador de paquete está configurado correctamente en la aplicación móvil. Consulte las instrucciones [aquí](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6).
+	- Asegúrese de que se está probando en una *dispositivo físico real*. El simulador de iOS no puede procesar mensajes de inserción.
+	- Asegúrese de que el identificador de paquete está configurado correctamente en la aplicación móvil. Vea las instrucciones [aquí](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6).
+	- Al probar, use la distribución "Ad Hoc" en el perfil de aprovisionamiento móvil. No podrá recibir una notificación si la aplicación se compila con "Debug"
 
 2. **Android**
 
@@ -118,4 +120,4 @@ Si no puede resolver el problema por sí mismo, puede realizar lo siguiente:
 	- Versión de SDK de Mobile Engagement (por ejemplo, Android SDK v2.1.0)
 	- Detalles del error con el mensaje de error exacto y el escenario
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

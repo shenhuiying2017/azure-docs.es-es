@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="12/04/2015" 
 	ms.author="riande"/>
 
 # Crear un servicio REST con la Web API de ASP.NET y la base de datos SQL en el servicio de aplicaciones de Azure
 
-En este tutorial se muestra cómo implementar una aplicación web ASP.NET en un [servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) utilizando el Asistente para publicación web de Visual Studio 2013 o Visual Studio 2013 Express para Web.
+En este tutorial se muestra cómo implementar una aplicación web ASP.NET en un [servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) utilizando el Asistente para publicación web de Visual Studio 2013 o Visual Studio 2013 Community Edition.
 
 Puede abrir una cuenta de Azure de manera gratuita y, si todavía no tiene Visual Studio 2013, el SDK instala automáticamente Visual Studio 2013 Express para Web. De este modo, puede empezar a desarrollar contenido para Azure sin coste alguno.
 
@@ -44,13 +44,13 @@ Va a desarrollar una aplicación web de lista de contactos sencilla basada en AS
 
 1. Inicie Visual Studio 2013.
 1. En el menú **Archivo**, haga clic en **Nuevo proyecto**.
-3. En el cuadro de diálogo **Nuevo proyecto**, expanda **Visual C#**, seleccione **Web** y luego seleccione **Aplicación web ASP.NET MVC 5**. Póngale a la aplicación el nombre **ContactManager** y haga clic en **Aceptar**.
+3. En el cuadro de diálogo **Nuevo proyecto**, expanda **Visual C#**, seleccione **Web** y luego seleccione **Aplicación web ASP.NET**. Póngale a la aplicación el nombre **ContactManager** y haga clic en **Aceptar**.
 
-	![Cuadro de diálogo Nuevo proyecto](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
+	![Cuadro de diálogo Nuevo proyecto](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.png)
 
 1. En el cuadro de diálogo **Nuevo proyecto ASP.NET**, seleccione la plantilla **MVC**, active **API Web** y luego haga clic en **Cambiar autenticación**.
 
-	![Cuadro de diálogo New ASP.NET Project](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
+	![Cuadro de diálogo New ASP.NET Project](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
 
 1. En el cuadro de diálogo **Cambiar autenticación**, haga clic en **Sin autenticación** y, a continuación, en **Aceptar**.
 
@@ -58,9 +58,9 @@ Va a desarrollar una aplicación web de lista de contactos sencilla basada en AS
 
 	La aplicación de ejemplo que va a crear no dispondrá de características que requieran que los usuarios inicien sesión. Para obtener información acerca de cómo implementar la autenticación y las características de autenticación, consulte la sección [Pasos siguientes](#nextsteps) al final de este tutorial.
 
-1. En el cuadro de diálogo **Nuevo proyecto ASP.NET**, haga clic en **Aceptar**.
+1. En el cuadro de diálogo **Nuevo proyecto ASP.NET**, asegúrese de que la opción **Host en la nube** está activada y haga clic en **Aceptar**.
 
-	![Cuadro de diálogo New ASP.NET Project](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
+	![Cuadro de diálogo New ASP.NET Project](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
 
 Si ha no iniciado sesión anteriormente en Azure, se le pedirá que lo haga.
 
@@ -123,7 +123,7 @@ El código anterior cambia el nombre de la aplicación "My ASP.NET App" a "Conta
 
 ### Ejecución de la aplicación de forma local
 
-1. Presione CTRL+F5 para ejecutar la aplicación. Aparece la página principal de la aplicación en el explorador predeterminado. ![Página de inicio de lista de tareas pendientes](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
+1. Presione CTRL+F5 para ejecutar la aplicación. Aparece la página principal de la aplicación en el explorador predeterminado. ![Página de inicio de lista de tareas pendientes](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.png)
 
 Esto es todo lo que necesita hacer por ahora para crear la aplicación que va a implementar en Azure. Más adelante agregará la funcionalidad de base de datos.
 
@@ -187,7 +187,7 @@ Se empieza por crear un modelo de datos sencillo en código.
     		}
 		}
 
-La clase **Contacts** define qué datos se almacenarán para cada contacto, así como una clave primaria, ContactID, necesaria para la base de datos. Puede obtener más información sobre los modelos de datos en la sección [Pasos siguientes](#nextsteps) al final de este tutorial.
+La clase **Contact** define qué datos se almacenarán para cada contacto, así como una clave principal, ContactID, necesaria para la base de datos. Puede obtener más información sobre los modelos de datos en la sección [Pasos siguientes](#nextsteps) al final de este tutorial.
 
 ### Creación de páginas web que permiten a los usuarios de aplicaciones utilizar los contactos
 
@@ -205,11 +205,11 @@ La característica de scaffolding de ASP.NET MVC puede generar automáticamente 
 
 1. En el cuadro de diálogo **Agregar scaffold**, seleccione **Controlador de MVC con vistas, usando Entity Framework** y haga clic en **Agregar**.
 
- ![Agregar controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.PNG)
+ ![Agregar controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.png)
 
 6. Asigne al controlador el nombre de **HomeController**. Seleccione **Contact** como su clase de modelo. Haga clic en el botón **Nuevo contexto de datos** y acepte el valor predeterminado "ContactManager.Models.ContactManagerContext" para **Nuevo tipo de contexto de datos**. Haga clic en **Agregar**.
 
-	![Cuadro de diálogo Agregar controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.PNG)
+	![Cuadro de diálogo Agregar controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.png)
 
 	Aparecerá un cuadro de diálogo que le indicará que ya existe un archivo con el nombre HomeController. Do you want to replace it?". Haga clic en **Sí**. Estamos sobrescribiendo el controlador de inicio que se creó con el nuevo proyecto. Utilizaremos el nuevo controlador de inicio para nuestra lista de contactos.
 
@@ -500,14 +500,15 @@ Por:
 
 1. En Package Manager Console, ejecute el comando siguiente para instalar Knockout.
 
-	Install-Package knockoutjs
+		Install-Package knockoutjs
+
 ## Incorporación de un controlador para la interfaz Restful de Web API
 
-1. En el **Explorador de soluciones**, haga clic en Controladores, **Agregar** y luego en **Controlador...**
+1. En el **Explorador de soluciones**, haga clic en Controladores, **Agregar** y luego en **Controlador...** 
 
 1. En el cuadro de diálogo **Agregar scaffold**, escriba **Controlador de Web API 2 con acciones, usando Entity Framework** y luego haga clic en **Agregar**.
 
-	![Incorporación de un controlador API](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.PNG)
+	![Incorporación de un controlador API](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.png)
 
 4. En el cuadro de diálogo **Agregar controlador**, escriba "ContactsController" como el nombre de controlador. Seleccione "Contact (ContactManager.Models)" para la opción **Clase de modelo**. Mantenga el valor predeterminado para **Clase de contexto de datos**.
 
@@ -624,11 +625,13 @@ Para obtener más información, consulte [Proyecto de seguridad de aplicación w
 
 1. Agregue la siguiente instrucción *using* al controlador de contratos para que tenga acceso al atributo **[ValidateHttpAntiForgeryToken]**.
 
-	using ContactManager.Filters;
+		using ContactManager.Filters;
 
 1. Agregue el atributo **[ValidateHttpAntiForgeryToken]** a los métodos Post de **ContactsController** para protegerlo contra amenazas XSRF. Lo agregará a los métodos de acciones "PutContact", "PostContact" y **DeleteContact**.
 
-	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
+		[ValidateHttpAntiForgeryToken]
+	        public IHttpActionResult PutContact(int id, Contact contact)
+	        {
 
 1. Actualice la sección *Scripts* del archivo *Views\\Home\\Index.cshtml* para incluir código y obtener los tokens de XSRF.
 
@@ -683,6 +686,7 @@ Para obtener más información, consulte [Proyecto de seguridad de aplicación w
                }
                ko.applyBindings(new ContactsViewModel());
             </script>
+		 }
 
 
 ## Publicación de la actualización de la aplicación en Azure y la base de datos SQL
@@ -810,4 +814,4 @@ Es importante que haga comentarios acerca de lo que le gustó o lo que le gustar
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

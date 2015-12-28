@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/16/2015" 
 	ms.author="juliako"/>
 
 
 
 #Generación de una aplicación de la Tienda Windows de Smooth Streaming
 
-El SDK de cliente Smooth Streaming para Windows 8 permite a los desarrolladores crear aplicaciones de la Tienda Windows que reproduzcan contenido de Smooth Streaming en directo y bajo demanda. Además de la reproducción básica de contenido de Smooth Streaming, el SDK también ofrece funciones enriquecidas como la protección de Microsoft PlayReady, la restricción del nivel de calidad, Live DVR, la conmutación de la secuencia de audio, la escucha de las actualizaciones de estado (como los cambios del nivel de calidad) y los eventos de error, entre otras. Para obtener más información acerca de las funciones compatibles, consulte las [notas de la versión](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes).
-
-En este tutorial se tratan las API. Para el desarrollo de reproductores, Microsoft recomienda encarecidamente el uso de [Player Framework para Windows 8](http://playerframework.codeplex.com/). Player Framework facilita la creación de aplicaciones y ofrece cantidad de funciones adicionales.
+El SDK de cliente Smooth Streaming para Windows 8 permite a los desarrolladores crear aplicaciones de la Tienda Windows que reproduzcan contenido de Smooth Streaming en directo y bajo demanda. Además de la reproducción básica de contenido de Smooth Streaming, el SDK también ofrece funciones enriquecidas como la protección de Microsoft PlayReady, la restricción del nivel de calidad, Live DVR, la conmutación de la secuencia de audio, la escucha de las actualizaciones de estado (como los cambios del nivel de calidad) y los eventos de error, entre otras. Para obtener más información acerca de las funciones compatibles, consulte las [notas de la versión](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Para más información, vea [Player Framework para Windows 8](http://playerframework.codeplex.com/).
 
 Este tutorial contiene cuatro lecciones:
 
@@ -32,13 +30,21 @@ Este tutorial contiene cuatro lecciones:
 4. Selección de pistas de Smooth Streaming
 
 ##Requisitos previos
+
 - Windows 8 de 32 o 64 bits. Puede conseguir la [Evaluación de Windows 8 Enterprise](http://msdn.microsoft.com/evalcenter/jj554510.aspx) en MSDN.
-- Visual Studio 2012 o Visual Studio Express 2012 para Windows 8 instalado en Windows 8. Puede obtener la versión de prueba [aquí](http://www.microsoft.com/visualstudio/11/downloads).
+- Visual Studio 2012 o Visual Studio Express 2012 (o una versión posterior). Puede obtener la versión de prueba [aquí](http://www.microsoft.com/visualstudio/11/downloads).
 - [SDK de cliente Smooth Streaming de Microsoft para Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
-La solución completa de cada lección se puede descargar en los ejemplos de código de desarrollador de MSDN (Galería de códigos): [lección 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "Un sencillo reproductor multimedia de Smooth Streaming para Windows 8"), [lección 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "Un sencillo reproductor multimedia de Smooth Streaming para Windows 8 con un control de barra deslizante"), [lección 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "Un reproductor multimedia de Smooth Streaming para Windows 8 con selección de secuencias") y [lección 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "Un reproductor multimedia de Smooth Streaming para Windows 8 con selección de pistas").
+
+La solución completa de cada lección se puede descargar en las muestras de código de desarrollador de MSDN (Galería de código) (información en inglés):
+
+- [Lección 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f): Un sencillo reproductor multimedia de Smooth Streaming para Windows 8 
+- [Lección 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a): Un sencillo reproductor multimedia de Smooth Streaming para Windows 8 con un control de barra deslizante 
+- [Lección 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44): Un reproductor multimedia de Smooth Streaming para Windows 8 con selección de secuencias  
+- [Lección 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907): Un reproductor multimedia de Smooth Streaming para Windows 8 con selección de pistas
 
 ##Lección 1: Creación de una aplicación básica de Tienda de Smooth Streaming
+
 En esta lección, creará una aplicación de Tienda Windows con un control MediaElement para reproducir contenido de Smooth Streaming. La aplicación en ejecución tiene este aspecto:
 
 ![Ejemplo de aplicación de Tienda Windows de Smooth Streaming][PlayerApplication]
@@ -980,4 +986,4 @@ Ha completado la lección 4. En esta lección ha agregado la funcionalidad para 
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -27,11 +27,9 @@ El portal se ejecutará de manera excelente en tabletas, Mac y PC modernos. Los 
 Son compatibles las últimas versiones de los siguientes exploradores:
 
 - Edge (última versión)
-- Internet Explorer (11 y versiones posteriores)
-- Safari (7 y versiones posteriores)
+- Internet Explorer 11
+- Safari (más reciente, solo Mac)
 - Chrome (última versión)
 - Firefox (última versión)
 
-*Safari 6 y versiones anteriores no son compatibles. Si usa OS X, puede usar Chrome, Firefox o actualizar a OS X Mavericks para obtener Safari 7.*
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

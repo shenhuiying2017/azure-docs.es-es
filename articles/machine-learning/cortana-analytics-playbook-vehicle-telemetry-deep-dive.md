@@ -32,7 +32,7 @@ Esta solución usa dos orígenes de datos diferentes:
 - **conjunto de datos de señales de vehículo y diagnósticos simulados** y 
 - **catálogo de vehículo**
 
-Como parte de esta solución se incluye un simulador telemático de vehículo. Este, emite información de diagnóstico y señales que corresponde al estado del vehículo y al patrón de conducción en un momento dado en el tiempo. Haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=717075) para descargar la **solución de simulador telemático de vehículo de Visual Studio** y personalizarla de acuerdo a sus necesidades. El catálogo de vehículo contiene un conjunto de datos de referencia con una asignación de número de identificación VIN a modelo.
+Como parte de esta solución se incluye un simulador telemático de vehículo. Este simulador emite información de diagnóstico y señales correspondientes al estado del vehículo y al patrón de conducción en un momento dado en el tiempo. Haga clic en el [simulador telemático de vehículo](http://go.microsoft.com/fwlink/?LinkId=717075) para descargar la **solución de simulador telemático de vehículo de Visual Studio** y personalizarla de acuerdo a sus necesidades. El catálogo de vehículo contiene un conjunto de datos de referencia con una asignación de número de identificación VIN a modelo.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig2-vehicle-telematics-simulator.png)
 
@@ -130,7 +130,7 @@ El trabajo de Análisis de transmisiones recopila datos a partir del Centro de e
 *Ilustración 7: Consulta de trabajo de Análisis de transmisiones para la ingesta de datos*
 
 ### Análisis por lotes
-También se genera un volumen adicional de las señales y el conjunto de datos de diagnóstico del vehículo simulado para un análisis por lotes más completo. Esto es necesario para garantizar un volumen de datos representativo para el procesamiento por lotes. Con este propósito, usamos una canalización llamada "PrepareSampleDataPipeline" en el flujo de trabajo de Factoría de datos, para generar un conjunto de datos de diagnóstico y de señales de vehículo simulado para un año completo. Haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=717077) para descargar la solución de Visual Studio de actividad DotNet personalizada de Factoría de datos para realizar personalizaciones que se ajusten a sus necesidades.
+También se genera un volumen adicional de las señales y el conjunto de datos de diagnóstico del vehículo simulado para un análisis por lotes más completo. Esto es necesario para garantizar un volumen de datos representativo para el procesamiento por lotes. Con este propósito, usamos una canalización llamada "PrepareSampleDataPipeline" en el flujo de trabajo de Factoría de datos, para generar un conjunto de datos de diagnóstico y de señales de vehículo simulado para un año completo. Haga clic en la [actividad personalizada de la Factoría de datos](http://go.microsoft.com/fwlink/?LinkId=717077) para descargar la solución de Visual Studio de actividad DotNet personalizada de Factoría de datos para realizar personalizaciones que se ajusten a sus necesidades.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-for-batch-processing.png)
 
@@ -360,7 +360,7 @@ Ilustración 15: Consulta de análisis de transmisiones para el procesamiento en
 
 Todos los promedios se calculan sobre una TumblingWindow de 3 segundos. En este caso estamos usando TubmlingWindow puesto que necesitamos que los intervalos de tiempo no se superpongan y sean contiguos.
 
-Para más información acerca de todas las capacidades basadas en ventanas de Análisis de transmisiones, haga clic [aquí](https://msdn.microsoft.com/library/azure/dn835019.aspx).
+Para más información sobre todas las capacidades basadas en ventanas de Análisis de transmisiones de Azure, haga clic en [Capacidades basadas en ventanas (Análisis de transmisiones de Azure)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
 **Predicción en tiempo real**
 
@@ -375,7 +375,7 @@ Como parte de la solución se incluye una aplicación que ponga en funcionamient
 
 Este patrón también es aplicable a escenarios donde desea integrar una aplicación de línea de negocio con el flujo de análisis en tiempo real para escenarios como las alertas, notificaciones, mensajerías, etc.
 
-Haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=717078) para descargar la solución de Visual Studio de RealtimeDashboardApp para las personalizaciones.
+Haga clic en la [descarga de RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=717078) para descargar la solución de Visual Studio de RealtimeDashboardApp para las personalizaciones.
 
 **** Para ejecutar la aplicación de panel en tiempo real **
 
@@ -696,4 +696,4 @@ Haga clic aquí para obtener instrucciones detalladas sobre cómo configurar los
 
 Este documento contiene un desglose detallado de la solución de análisis de telemetría de vehículos. Se presenta un patrón de arquitectura lambda para análisis en tiempo real y de procesamiento por lotes con predicciones y acciones. Este patrón se aplica a una amplia gama de casos de uso que requieren análisis con ruta de acceso activa (en tiempo real) y la ruta de acceso frío (lote).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

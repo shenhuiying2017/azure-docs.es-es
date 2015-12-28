@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/15/2015"
 	ms.author="saurabh"/>
 
 # Creación de una máquina virtual de Windows con supervisión y diagnóstico mediante una plantilla del Administrador de recursos de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
 La extensión de Diagnósticos de Azure proporciona funcionalidades de supervisión y diagnóstico en una máquina virtual de Azure basada en Windows. Para habilitar estas funcionalidades en la máquina virtual, incluya la extensión como parte de la plantilla del Administrador de recursos de Azure. Para obtener más información sobre cómo incluir cualquier extensión como parte de una plantilla de máquina virtual, consulte [Creación de plantillas del Administrador de recursos de Azure con extensiones de máquina virtual](virtual-machines-extensions-authoring-templates.md). En este artículo se describe cómo agregar la extensión de Diagnósticos de Azure a una plantilla de máquina virtual de Windows.
   
@@ -119,7 +119,9 @@ A continuación se describe el XML de configuración de diagnóstico que recopil
         "wadmetricsresourceid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name , '/providers/', 'Microsoft.Compute/virtualMachines/')]",
         "wadcfgxend": ""><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
 
-El nodo de XML de definición de métricas de la configuración anterior es un elemento de configuración importante ya que define cómo se agregarán y almacenarán los contadores de rendimiento definidos anteriormente en el XML en el nodo *PerformanceCounter*. Estas métricas son las que controlan los gráficos y las alertas en el Portal de Azure, así que es importante incluirlas en la configuración si quiere ver los datos de supervisión en el portal.
+El nodo de XML de definición de métricas de la configuración anterior es un elemento de configuración importante ya que define cómo se agregarán y almacenarán los contadores de rendimiento definidos anteriormente en el XML en el nodo *PerformanceCounter*.
+
+> [AZURE.IMPORTANT]Estas métricas dirigen los gráficos de supervisión y alertas en el Portal de Azure. El nodo **Métricas** con *resourceID* y **MetricAggregation** deben incluirse en la configuración de diagnóstico para la máquina virtual si quiere ver los datos de supervisión de la máquina virtual en el Portal de Azure.
 
 A continuación se muestra un ejemplo del XML de las definiciones de métricas:
 
@@ -134,8 +136,9 @@ Si va a crear varias máquinas virtuales en un bucle, tendrá que rellenar el va
 
 	"xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 
-
 El valor MetricAggregation de *PT1H* y *PT1M* indica una agregación durante un minuto y una agregación durante una hora.
+
+## Tablas de WADMetrics en almacenamiento
 
 La configuración de métricas anterior generará tablas en la cuenta de almacenamiento de diagnóstico con las convenciones de nomenclatura siguientes:
 
@@ -161,8 +164,8 @@ Cada tabla WADMetrics contendrá las columnas siguientes:
 
 ## Pasos siguientes
 
-- Para obtener una plantilla de ejemplo de una máquina virtual de Windows con la extensión de diagnósticos, consulte [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension).   
+- Para obtener una plantilla de ejemplo de una máquina virtual de Windows con la extensión de diagnósticos, vea [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension).   
 - Implemente la plantilla del Administrador de recursos mediante [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md) o la [Línea de comandos de Azure](virtual-machines-deploy-rmtemplates-powershell.md).
 - Obtenga más información sobre la [creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

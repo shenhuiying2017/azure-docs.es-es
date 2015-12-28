@@ -86,7 +86,7 @@ Aprovisionado y habilitado es el único estado en que puede estar el circuito pa
 
 Verá el circuito ExpressRoute en el estado que se describe a continuación en cuanto ejecute el cmdlet de PowerShell para eliminar el circuito ExpressRoute.
 
-	ServiceProviderProvisioningState : Provisioning
+	ServiceProviderProvisioningState : Provisioned
 	Status                           : Disabling
 
 Debe ponerse en contacto con su proveedor de conectividad para desaprovisionar el circuito ExpressRoute. **Importante:** Microsoft seguirá facturando el circuito hasta que se ejecute el cmdlet de PowerShell para desaprovisionarlo.
@@ -121,4 +121,4 @@ Si el estado de los prefijos públicos anunciados se establece en el estado de *
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

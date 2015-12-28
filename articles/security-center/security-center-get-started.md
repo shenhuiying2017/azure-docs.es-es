@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/10/2015"
    ms.author="terrylan"/>
 
 # Introducción al Centro de seguridad de Azure
@@ -88,7 +88,7 @@ Atender las **Alertas de seguridad**:
 En este documento se presentaron los componentes de supervisión de seguridad y de administración de directivas en el Centro de seguridad de Azure. Para obtener más información, consulte:
 
 - [Configuración de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md): obtenga información acerca de cómo configurar las directivas de seguridad
-- [Implementación de recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md): obtenga información acerca de cómo las recomendaciones le ayudan a proteger sus recursos de Azure
+- [Administración de recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md): obtenga información sobre cómo las recomendaciones le ayudan a proteger sus recursos de Azure.
 - [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md): obtenga información acerca de cómo supervisar el estado de los recursos de Azure
 - [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): obtenga información acerca de cómo administrar y responder a alertas de seguridad
 - [Preguntas más frecuentes acerca del Centro de seguridad de Azure](security-center-faq.md): busque preguntas frecuentes acerca de cómo usar el servicio
@@ -103,4 +103,4 @@ En este documento se presentaron los componentes de supervisión de seguridad y 
 [6]: ./media/security-center-get-started/security-alert.png
 [7]: ./media/security-center-get-started/security-alert-detail.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->
