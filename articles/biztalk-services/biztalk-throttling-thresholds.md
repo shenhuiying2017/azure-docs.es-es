@@ -28,7 +28,10 @@ Los servicios de BizTalk de Azure implementan limitaciones del servicio según d
 
 La siguiente tabla muestra los orígenes y umbrales de limitación:
 
-||Descripción|Umbral bajo|Umbral alto| |---|---|---|---| |Memoria|% de la memoria total disponible del sistema/PageFileBytes. <p><p>PageFileBytes disponible total es aproximadamente el doble de la memoria RAM del sistema.|60 %|70 %| |Procesamiento de mensajes|Número de mensajes que se procesan simultáneamente|40 * número de núcleos|100 * número de núcleos|
+||Descripción|Umbral bajo|Umbral alto|
+|---|---|---|---|
+|Memoria|% de la memoria total disponible del sistema/PageFileBytes. <p><p>PageFileBytes disponible total es aproximadamente el doble de la memoria RAM del sistema.|60 %|70 %|
+|Procesamiento de mensajes|Número de mensajes que se procesan simultáneamente|40 * número de núcleos|100 * número de núcleos|
 
 Cuando se alcanza un umbral alto, Servicios de BizTalk de Azure empieza a limitarse. La limitación se detiene cuando se alcanza el umbral bajo. Por ejemplo, el servicio está utilizando un 65 % de la memoria del sistema. En esta situación, el servicio no se limita. El servicio empieza a usar un 70 % de la memoria del sistema. En esta situación, el servicio se limita y sigue limitándose hasta que el servicio utiliza un 60 % de la memoria del sistema (umbral bajo).
 
@@ -39,8 +42,11 @@ Los servicios de BizTalk de Azure realizan un seguimiento del estado de las limi
 
 Cuando los servicios de BizTalk de Azure entran en un estado de limitación, ocurre lo siguiente:
 
-- La limitación es por instancia de rol. Por ejemplo,<br/> RoleInstanceA se está limitando. RoleInstanceB no se está limitando. En esta situación, los mensajes en RoleInstanceB se procesan según lo esperado. Los mensajes en RoleInstanceA se descartan y producen el siguiente error:<br/><br/> **El servidor está ocupado. Vuelva a intentarlo.**<br/><br/>
-- Ningún origen de extracción sondea ni descarga un mensaje. Por ejemplo,<br/> una canalización extrae los mensajes desde un origen FTP externo. La instancia de rol que realiza la extracción entra en un estado de limitación. En esta situación, la canalización deja de descargar mensajes adicionales hasta que la instancia de rol detiene la limitación.
+- La limitación es por instancia de rol. Por ejemplo,<br/>
+RoleInstanceA se está limitando. RoleInstanceB no se está limitando. En esta situación, los mensajes en RoleInstanceB se procesan según lo esperado. Los mensajes en RoleInstanceA se descartan y producen el siguiente error:<br/><br/>
+**El servidor está ocupado. Vuelva a intentarlo.**<br/><br/>
+- Ningún origen de extracción sondea ni descarga un mensaje. Por ejemplo,<br/>
+una canalización extrae los mensajes desde un origen FTP externo. La instancia de rol que realiza la extracción entra en un estado de limitación. En esta situación, la canalización deja de descargar mensajes adicionales hasta que la instancia de rol detiene la limitación.
 - Se envía una respuesta al cliente para que el cliente pueda volver a enviar el mensaje.
 - Debe esperar a que se resuelva la limitación. Específicamente, debe esperar hasta que se alcance el umbral bajo.
 
