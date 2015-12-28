@@ -96,7 +96,6 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 <td>ValidationRetry</td><td>En espera de que se vuelva a intentar la validación.</td>
 </tr>
 <tr>
-&lt;tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>Validación en curso.</td>
 </tr>
 <td></td>
@@ -323,7 +322,7 @@ Para especificar una definición de alerta, cree un archivo JSON que describa la
 	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
 	                        "operationName": "RunFinished",
 	                        "status": "Failed",
-	                        "subStatus": "FailedExecution"   
+	                            "subStatus": "FailedExecution"   
 	                    }
 	                },
 	                "action": 
@@ -357,7 +356,7 @@ Vea [Crear regla de alerta](https://msdn.microsoft.com/library/azure/dn510366.as
 #### Implementación de alertas 
 Para implementar una alerta, use el cmdlet de PowerShell de Azure: **New-AzureResourceGroupDeployment**, como se muestra en el ejemplo siguiente:
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
 
 Una vez completada correctamente la implementación del grupo de recursos, verá los siguientes mensajes:
 
@@ -396,7 +395,7 @@ Para recuperar la lista de implementaciones del grupo de recursos de Azure imple
 
 - Aparecerán todos los eventos generados después de hacer clic en el icono **Operaciones** y se pueden configurar alertas en cualquiera de estas operaciones visibles en la hoja **Eventos**:
 
-	![Operaciones](./media/data-factory-monitor-manage-pipelines/operations.png)
+![Operaciones](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
 - Vea el artículo [Azure Insight Cmdlets](https://msdn.microsoft.com/library/mt282452.aspx) para ver los cmdlets de PowerShell que puede usar para agregar, obtener o quitar alertas. Estos son algunos ejemplos del uso del cmdlet **Get-AlertRule**:
@@ -543,7 +542,9 @@ Puede implementar alertas para las métricas de la misma manera que lo hace para
  
 Reemplace subscriptionId, resourceGroupName y dataFactoryName en el ejemplo anterior con los valores adecuados.
 
-*metricName* a partir de ahora admite dos valores: - FailedRuns - SuccessfulRuns.
+*metricName* a partir de ahora admite dos valores:
+- FailedRuns
+- SuccessfulRuns.
 
 **Implementación de alertas:**
 

@@ -54,7 +54,7 @@ Solo se puede importar directamente desde la Galería de runbooks mediante el Po
 
 Microsoft recomienda agregar a la Galería de Runbooks aquellos runbooks que piense que podrían ser útiles para otros clientes. Puede agregar un runbook si [lo carga al Centro de scripts](http://gallery.technet.microsoft.com/site/upload) teniendo en cuenta los siguientes detalles.
 
-- Debe especificar *Windows Azure* como **categoría** y *Automatización* como **subcategoría** para el runbook que se mostrará en el asistente.  
+- Debe especificar *Microsoft Azure* como **categoría** y *Automatización* como **subcategoría** para el runbook que se mostrará en el asistente.  
 
 - Se debe cargar un único archivo. ps1 o .graphrunbook. Si el runbook requiere módulos, runbooks secundarios o recursos, debe enumerarlos en la descripción del envío y en la sección de comentarios del runbook. Si tiene una solución que requiere varios runbooks, cargue cada uno por separado e indique los nombres de los runbooks relacionados en cada una de sus descripciones. Asegúrese de usar las mismas etiquetas para que se muestren en la misma categoría. Un usuario tendrá que leer la descripción para saber que se requieren otros runbooks para que funcione la solución.
 
@@ -108,4 +108,4 @@ Puede enviar solicitudes a [Voz de usuario](http://feedback.azure.com/forums/246
 - [Creación o importación de un runbook en Automatización de Azure](automation-creating-importing-runbook.md)
 - [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

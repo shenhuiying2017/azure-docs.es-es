@@ -33,7 +33,11 @@ Los tamaños estándar constan de varias series: A, D, DS, G y GS. Entre las con
 
 *   Serie de Dv2, una evolución de la serie D original, presenta una CPU más eficaz. La CPU de la serie Dv2 es un 35 % aproximadamente más rápida que la CPU de la serie D. Se basa en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz de la última generación; y con Intel Turbo Boost Technology 2.0, puede alcanzar los 3,2 GHz. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
 
-    La disponibilidad regional de la serie Dv2 se basará en esta programación: octubre de 2015: Este 2 de EE. UU., Centro de EE. UU., Centro y norte de EE. UU., Oeste de EE. UU. Noviembre 2015: Este de EE. UU., Norte de Europa, Oeste de Europa Enero de 2016: Centro y Sur de EE. UU., Este de Asia y del Pacífico Sur, Sudeste de Asia y del Pacífico Sur, Este de Japón, Oeste de Japón, Este de Australia, Sudeste de Australia, Sur de Brasil
+    La disponibilidad regional de la serie Dv2 se basará en esta programación:
+        octubre de 2015: Este 2 de EE. UU., Centro de EE. UU., Centro y norte de EE. UU., Oeste de EE. UU.
+        Noviembre 2015: Este de EE. UU., Norte de Europa, Oeste de Europa
+        Enero de 2016: Centro y Sur de EE. UU., Este de Asia y del Pacífico Sur, Sudeste de Asia y del Pacífico Sur, Este de Japón, Oeste de Japón,
+                Este de Australia, Sudeste de Australia, Sur de Brasil
 
 
 *   Las VM de la serie G ofrecen el mayor tamaño y el mejor rendimiento, y se ejecutan en hosts que tienen procesadores de la familia Intel Xeon E5 V3.
@@ -59,7 +63,7 @@ Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 
 Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 
->[AZURE.NOTE]La capacidad de almacenamiento se representa mediante 1024^3 bytes como unidad de medida para GB. En ocasiones, esto se conoce como gibibyte o definición de base 2 Al comparar los tamaños que utilizan distintos sistemas de base, tenga en cuenta que los tamaños de base 2 podrían parecer más pequeños que los de base 10. No obstante, para cualquier tamaño específico (como 1 GB), un sistema de base 2 ofrece más capacidad que un sistema de base 10, ya que 1024^3 es mayor que 1000^3.
+>[AZURE.NOTE] La capacidad de almacenamiento se representa mediante 1024^3 bytes como unidad de medida para GB. En ocasiones, esto se conoce como gibibyte o definición de base 2 Al comparar los tamaños que utilizan distintos sistemas de base, tenga en cuenta que los tamaños de base 2 podrían parecer más pequeños que los de base 10. No obstante, para cualquier tamaño específico (como 1 GB), un sistema de base 2 ofrece más capacidad que un sistema de base 10, ya que 1024^3 es mayor que 1000^3.
 
 
 
@@ -130,7 +134,7 @@ En el modelo de implementación clásica, algunos tamaños de máquina virtual s
 |Standard\_DS13 |8|56|8|Disco SSD local = 112 GB |16|288| 25\.600 256 MB por segundo |
 |Standard\_DS14 |16|112|8|Disco SSD local = 224 GB |32|576| 50\.000 512 MB por segundo |
 
-**Las operaciones de entrada/salida máximas por segundo (E/S) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie DS se ven afectadas por el tamaño del disco. Para obtener información detallada, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage-premium-storage-preview-portal.md).
+*Las operaciones de entrada/salida máximas por segundo (E/S) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie DS se ven afectadas por el tamaño del disco. Para obtener información detallada, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage-premium-storage-preview-portal.md).
 
 ## Nivel estándar: serie G
 

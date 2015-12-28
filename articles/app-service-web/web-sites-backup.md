@@ -126,7 +126,8 @@ Para excluir archivos y carpetas de las copias de seguridad, cree un archivo `_b
 
 Suponga que tiene una aplicación web contiene archivos de registro e imágenes estáticas de los últimos años que nunca van a cambiar. Ya tiene una copia de seguridad completa de la aplicación web que incluye las imágenes anteriores. Ahora me gustaría hacer una copia de seguridad de la aplicación web todos los días, pero no quiere pagar para almacenar los archivos de registro o los archivos de imagen estática que no van a cambiar.
 
-![Carpeta de registros][LogsFolder] ![Carpeta de imágenes][ImagesFolder]
+![Carpeta de registros][LogsFolder]
+![Carpeta de imágenes][ImagesFolder]
 	
 Los pasos siguientes muestran cómo podría excluir estos archivos de la copia de seguridad.
 
@@ -142,7 +143,7 @@ Los pasos siguientes muestran cómo podría excluir estos archivos de la copia d
 
 2. Cree un archivo llamado `_backup.filter` y ponga la lista anterior en el archivo, pero quite `D:\home`. Enumere un directorio o archivo por línea. Por lo tanto, el contenido del archivo debe ser:
 
-    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
+    \site\wwwroot\Logs \LogFiles \site\wwwroot\Images\2013 \site\wwwroot\Images\2014 \site\wwwroot\Images\brand.png
 
 3. Cargue este archivo en el directorio `D:\home\site\wwwroot` de su sitio con [ftp](web-sites-deploy.md#ftp) o cualquier otro método. Si lo desea, puede crear el archivo directamente en `http://{yourapp}.scm.azurewebsites.net/DebugConsole` e insertar el contenido.
 

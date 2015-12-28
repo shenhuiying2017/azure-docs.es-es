@@ -136,7 +136,7 @@ El comando **azure group log show** puede devolver mucha información. Para solu
       },
       "properties": {
         "statusCode": "Conflict",
-        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name
+        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name 
           mysite already exists."},{"Code":"Conflict"},{"ErrorEntity":{"Code":"Conflict","Message":"Website with given name mysite already exists.","ExtendedCode":
           "54001","MessageTemplate":"Website with given name {0} already exists.","Parameters":["mysite"],"InnerErrors":null}}],"Innererror":null}"
       },
@@ -259,7 +259,7 @@ Para CLI de Azure, puede usar **azure location list**. Dado que la lista de ubic
     }
 
 ### API de REST
-
+        
 Para la API de REST, consulte [Obtención de información sobre un proveedor de recursos](https://msdn.microsoft.com/library/azure/dn790534.aspx).
 
 ## Creación de nombres de recursos únicos
@@ -292,7 +292,25 @@ Si tuviera que intenta implementar una plantilla que crea más de 4 núcleos en 
 
 En estos casos, debe ir al portal y archivar un problema de soporte técnico para aumentar su cuota para la región en la que desea realizar la implementación.
 
-> [AZURE.NOTE]Recuerde que para los grupos de recursos, la cuota para cada región individual, no para toda la suscripción. Si necesita implementar 30 núcleos en el oeste de Estados Unidos, debe pedir 30 núcleos de administrador de recursos en el oeste de Estados Unidos. Si necesita implementar 30 núcleos en cualquiera de las regiones para las que tiene acceso, debe pedir 30 núcleos de administrador de recursos en todas las regiones. <!-- --> Para ser específicos sobre núcleos, por ejemplo, puede comprobar las regiones para las que debe solicitar la cantidad adecuada de cuota mediante el comando siguiente, que se canaliza en **jq** para el análisis de json. El proveedor de Azure de <!-- --> muestra Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "Este de Estados Unidos", "Oeste de Estados Unidos", "Europa occidental", "Asia oriental", "Sudeste de Asia" ] }
+> [AZURE.NOTE]Recuerde que para los grupos de recursos, la cuota para cada región individual, no para toda la suscripción. Si necesita implementar 30 núcleos en el oeste de Estados Unidos, debe pedir 30 núcleos de administrador de recursos en el oeste de Estados Unidos. Si necesita implementar 30 núcleos en cualquiera de las regiones para las que tiene acceso, debe pedir 30 núcleos de administrador de recursos en todas las regiones.
+<!-- -->
+Para ser específicos sobre núcleos, por ejemplo, puede comprobar las regiones para las que debe solicitar la cantidad adecuada de cuota mediante el comando siguiente, que se canaliza en **jq** para el análisis de json. El proveedor de Azure de
+<!-- -->
+        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
+        {
+          "name": "virtualMachines",
+          "apiVersions": [
+            "2015-05-01-preview",
+            "2014-12-01-preview"
+          ],
+          "locations": [
+            "East US",
+            "West US",
+            "West Europe",
+            "East Asia",
+            "Southeast Asia"
+          ]
+        }
 
 
 ## Comprobación del registro del proveedor de recursos

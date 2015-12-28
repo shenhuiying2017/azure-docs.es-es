@@ -83,7 +83,7 @@ Ya está preparado para ejecutar las aplicaciones.
 
    	![][21]
 
-2.	Ejecute el programa **Sender** y verá que los eventos aparecen en la ventana del receptor.
+2.	Ejecute el programa **sender** y verá que los eventos aparecen en la ventana del receptor.
 
    	![][24]
 
