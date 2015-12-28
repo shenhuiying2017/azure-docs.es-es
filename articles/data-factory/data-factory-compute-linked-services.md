@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="12/10/2015"
 	ms.author="spelluru"/>
 
 # Servicios vinculados de procesos
@@ -49,7 +49,8 @@ Tenga en cuenta los siguientes puntos **importantes** acerca del servicio vincul
 	      "timeToLive": "00:05:00",
 	      "version": "3.2",
 		  "osType": "linux",
-	      "linkedServiceName": "MyBlobStore"
+	      "linkedServiceName": "MyBlobStore",
+		  "hcatalogLinkedServiceName": "AzureSqlLinkedService",
 	      "additionalLinkedServiceNames": [
 	        "otherLinkedServiceName1",
 	        "otherLinkedServiceName2"
@@ -69,6 +70,7 @@ versión | Versión del clúster de HDInsight. El valor predeterminado es 3.1 pa
 linkedServiceName | El almacén de blobs que usará el clúster a petición para almacenar y procesar datos. | Sí
 additionalLinkedServiceNames | Especifica cuentas de almacenamiento adicionales para el servicio vinculado de HDInsight, de forma que el servicio Factoría de datos pueda registrarlas en su nombre. | No
 osType | Tipo de sistema operativo. Los valores permitidos son: Windows (predeterminado) y Linux | No
+hcatalogLinkedServiceName | Nombre del servicio vinculado de SQL de Azure que apunta a la base de datos de HCatalog. El clúster de HDInsight a petición se creará mediante la base de datos SQL de Azure como la tienda de metadatos. | No
 
 ### Propiedades avanzadas
 
@@ -103,14 +105,15 @@ yarnConfiguration | Especifica los parámetros de configuración Yarn (yarn-site
 	        "templeton.mapper.memory.mb": "5000"
 	      },
 	      "mapReduceConfiguration": {
-	        "mapreduce.reduce.java.opts": "-Xmx8000m",
-	        "mapreduce.map.java.opts": "-Xmx8000m",
+	        "mapreduce.reduce.java.opts": "-Xmx4000m",
+	        "mapreduce.map.java.opts": "-Xmx4000m",
 	        "mapreduce.map.memory.mb": "5000",
 	        "mapreduce.reduce.memory.mb": "5000",
 	        "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
 	      },
 	      "yarnConfiguration": {
-	        "yarn.app.mapreduce.am.resource.mb": "5000"
+	        "yarn.app.mapreduce.am.resource.mb": "5000",
+	        "mapreduce.map.memory.mb": "5000"
 	      },
 	      "additionalLinkedServiceNames": [
 	        "datafeeds",
@@ -189,8 +192,8 @@ Puede crear un servicio vinculado de Lote de Azure para registrar un grupo de lo
 Consulte los temas siguientes si no está familiarizado con el servicio Lote de Azure:
 
 
-- [Aspectos básicos de Lote de Azure](../batch/batch-technical-overview.md) para obtener información general del servicio Lote de Azure.
-- Cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) para crear una cuenta de Lote de Azure (o) [Portal de Azure clásico](../batch/batch-account-create-portal.md) para crear la cuenta de Lote de Azure con el Portal de Azure clásico. Consulte el tema [Uso de Azure PowerShell para administrar la cuenta de Lote de Azure](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) para obtener instrucciones detalladas sobre cómo usar este cmdlet.
+- [Aspectos básicos de Lote de Azure](../batch/batch-technical-overview.md) para información general del servicio Lote de Azure.
+- Cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) para crear una cuenta de Lote de Azure (o) [Portal de Azure clásico](../batch/batch-account-create-portal.md) para crear la cuenta de Lote de Azure con el Portal de Azure clásico. Vea el tema [Uso de Azure PowerShell para administrar la cuenta de Lote de Azure](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) para instrucciones detalladas sobre cómo usar este cmdlet.
 - Cmdlet [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) para crear un grupo de Lote de Azure.
 
 ### Ejemplo
@@ -214,8 +217,8 @@ Agregue "**.<nombre de región>**" al nombre de la cuenta de lote para la propie
 
 Otra opción es proporcionar el extremo batchUri tal como se muestra a continuación.
 
-			accountName: "adfteam",
-			batchUri: "https://eastus.batch.azure.com",
+			"accountName": "adfteam",
+			"batchUri": "https://eastus.batch.azure.com",
 
 ### Propiedades
 
@@ -290,6 +293,6 @@ sessionId | Identificador de sesión de la sesión de autorización de OAuth. Ca
 
 ## Servicio vinculado SQL de Azure
 
-Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Factoría de datos. Consulte el artículo [Conector SQL de Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para obtener más información acerca de este servicio vinculado.
+Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Factoría de datos. Vea el artículo [Conector SQL de Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para más información sobre este servicio vinculado.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

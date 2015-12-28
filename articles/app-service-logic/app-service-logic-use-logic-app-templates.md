@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="12/09/2015"
 	ms.author="klam"/>
 
 # Uso de las plantillas de aplicaciones lógicas
@@ -44,4 +44,4 @@ Las plantillas sencillas que se integran con los servicios de redes sociales com
 Después de seleccionar una de las plantillas, complete la implementación como lo haría si creara su propia aplicación lógica. Los pasos detallados están en [Creación de una aplicación lógica](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

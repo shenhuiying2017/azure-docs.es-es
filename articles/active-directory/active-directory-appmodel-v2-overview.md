@@ -49,7 +49,7 @@ Estos vínculos le servirán para explorar la plataforma en profundidad:
 - Envíenos sus ideas sobre la versión preliminar con [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory), ¡queremos conocerlas! Use la expresión "AppModelv2:" en el título de la publicación para que podamos encontrarla.
 - [Referencia de protocolos del modelo de aplicaciones v2.0](active-directory-v2-protocols.md)
 - [Referencia de tokens del modelo de aplicaciones v2.0](active-directory-v2-tokens.md)
-- [Referencia de API de REST de Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
+- [Referencia de API de REST de Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Ámbitos y consentimiento en el extremo de v2](active-directory-v2-scopes.md)
 
 <!-- TODO: These articles
@@ -57,4 +57,4 @@ Estos vínculos le servirán para explorar la plataforma en profundidad:
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

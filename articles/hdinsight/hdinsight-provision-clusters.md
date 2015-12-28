@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/16/2015"
+   ms.date="12/11/2015"
    ms.author="jgao"/>
 
 # Creación de clústeres de Hadoop en HDInsight
@@ -65,7 +65,7 @@ Las siguientes son las opciones de configuración básicas para crear un clúste
 
 	![Clústeres de HDInsight](./media/hdinsight-provision-clusters/hdinsight.clusters.png)
 
-	> [AZURE.NOTE]El *clúster de HDInsight de Azure* se llama también *clúster de Hadoop en HDInsight* o *clúster de HDInsight*. En algunas ocasiones, se usa indistintamente con el *clúster de Hadoop*. Todos estos nombres se refieren a los clústeres de Hadoop hospedados en el entorno de Microsoft Azure.
+	> [AZURE.NOTE]El *clúster de HDInsight de Azure* se llama también *clúster de Hadoop en HDInsight* o *clúster de HDInsight*. En algunas ocasiones, se usa indistintamente con *clúster de Hadoop*. Todos estos nombres se refieren a los clústeres de Hadoop hospedados en el entorno de Microsoft Azure.
 
 	Dentro de un tipo de clúster determinado, existen distintos roles para los diversos nodos, los que permiten que un cliente dimensione esos nodos en un rol determinado según los detalles de su carga de trabajo. Por ejemplo, un clúster de Hadoop puede crear sus nodos de trabajo con una gran cantidad de memoria si el tipo de análisis que se realiza requiere mucha memoria.
 
@@ -98,14 +98,14 @@ Las siguientes son las opciones de configuración básicas para crear un clúste
 	- Nodo de trabajo (al menos 1 nodo)
 	- Nodos de Zookeeper (3 nodos) (gratis para Zookeepers A1)
 
-	El uso de esos nodos se factura a los clientes por la duración del clúster. La facturación comienza una vez que se crea un clúster y se detiene cuando se elimina el clúster (no es posible eliminar la asignación de los clústeres ni tampoco se pueden poner en espera) El tamaño del clúster afecta el precio del mismo. Con fines de aprendizaje, se recomienda utilizar 1 nodo de datos. Para más información sobre los precios de HDInsight, vea [HDInsight Precios](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+	El uso de esos nodos se factura a los clientes por la duración del clúster. La facturación comienza una vez que se crea un clúster y se detiene cuando se elimina el clúster (no es posible eliminar la asignación de los clústeres ni tampoco se pueden poner en espera) El tamaño del clúster afecta el precio del mismo. Con fines de aprendizaje, se recomienda utilizar 1 nodo de datos. Para obtener más información sobre los precios de HDInsight, consulte [Precios de HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 
 	>[AZURE.NOTE]El límite de tamaño del clúster varía entre las suscripciones a Azure. Póngase en contacto con el servicio de soporte relacionado con la facturación para aumentar el límite.
 
 - **Versión de HDInsight**
 
-	Se utiliza para determinar la versión de HDInsight que se utilizará para este clúster. Para más información, vea [Componentes y versiones de clústeres de Hadoop en HDInsight](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409).
+	Se utiliza para determinar la versión de HDInsight que se utilizará para este clúster. Para obtener más información, consulte [Componentes y versiones de clústeres de Hadoop en HDInsight](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409)
 
 
 - **Ubicación (región)**
@@ -114,13 +114,13 @@ Las siguientes son las opciones de configuración básicas para crear un clúste
 	
 	![Regiones de Azure](./media/hdinsight-provision-clusters/Azure.regions.png)
 
-	Si quiere obtener una lista de las regiones admitidas, haga clic en la lista desplegable **Región** en [HDInsight Precios](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+	Si desea obtener una lista de las regiones admitidas, haga clic en la lista desplegable **Región** en [Precios de HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 - **Tamaño del nodo**
 
 	![tamaños de nodos de vm de hdinsight](./media/hdinsight-provision-clusters/hdinsight.node.sizes.png)
 
-	Seleccione el tamaño de VM para los nodos. Para más información, vea [Tamaños de los servicios en la nube](cloud-services-sizes-specs.md).
+	Seleccione el tamaño de VM para los nodos. Para obtener más información, consulte [Tamaños de los servicios en la nube](cloud-services-sizes-specs.md).
 
 	En función de la elección de las máquinas virtuales, el costo puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
 
@@ -210,14 +210,14 @@ Otros ejemplos de cómo personalizar otros archivos de configuración:
 	# oozie-site.xml configuration
 	$OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 
-Para más información, vea el blog de Azim Uddin titulado [Personalización de la creación de clústeres de HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
+Para obtener más información, consulte el blog de Azim Uddin titulado [Customizing HDInsight Cluster creation](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx) (Personalización de la creación de clústeres de HDInsight).
 
 
 
 
 ### Personalización de clústeres mediante la acción de script
 
-Puede instalar componentes adicionales o personalizar la configuración del clúster mediante el uso de scripts durante la creación. Tales scripts se invocan mediante la opción de **Acción de script**, una opción de configuración que se puede usar a partir de los cmdlets de Windows PowerShell de HDInsight, en el Portal o el SDK de .NET para HDInsight. Para obtener más información, consulte [Personalización de un clúster de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster.md).
+Puede instalar componentes adicionales o personalizar la configuración del clúster mediante el uso de scripts durante la creación. Tales scripts se invocan mediante la opción de **Acción de script**, una opción de configuración que se puede usar a partir de los cmdlet de Windows PowerShell de HDInsight, el Portal o el SDK de .NET de HDInsight. Para obtener más información, consulte [Personalización de un clúster de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster.md).
 
 
 ### Uso de redes virtuales de Azure
@@ -240,18 +240,18 @@ Puede instalar componentes adicionales o personalizar la configuración del clú
 
 Para obtener más información sobre las características, las ventajas y la funcionalidad de Red virtual, consulte [Información general sobre Red virtual de Azure](../virtual-network/virtual-networks-overview.md).
 
-> [AZURE.NOTE]Debe crear la red virtual de Azure antes de aprovisionar un clúster de HDInsight. Para más información, vea [Creación de un clúster de Hadoop en una red virtual](hdinsight-hbase-provision-vnet.md#provision-an-hbase-cluster-into-a-virtual-network).
+> [AZURE.NOTE]Debe crear la red virtual de Azure antes de aprovisionar un clúster de HDInsight. Para obtener más información, consulte [Creación de un clúster de Hadoop en una red virtual](hdinsight-hbase-provision-vnet.md#provision-an-hbase-cluster-into-a-virtual-network).
 >
 > HDInsight de Azure solo admite redes virtuales basadas en la ubicación y actualmente no funciona con redes virtuales basadas en grupos de afinidad. Utilice el cmdlet Get-AzureVNetConfig de Azure PowerShell para comprobar si una red virtual existente de Azure está basada en la ubicación. Si la red virtual no está basada en la ubicación, tiene las opciones siguientes:
 >
 > - Exporte la configuración de la red virtual existente y luego cree una red virtual nueva. De manera predeterminada, las redes virtuales nuevas están basadas en la ubicación.
-> - Migre a una red virtual basada en la ubicación. Vea [Migración de los servicios existentes a un ámbito regional](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
+> - Migre a una red virtual basada en la ubicación. Consulte [Migrate existing services to regional scope](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/) (Migración de los servicios existentes a un ámbito regional).
 >
 > Se recomienda encarecidamente designar una única subred para un clúster.
 
 ## Crear mediante el portal
 
-Puede revisar la sección [opciones de configuración básica](#basic-configuration-options), y la sección [opciones de configuración avanzada](#advanced-configuration-options) para ver las explicaciones de los campos.
+Puede revisar la sección [opciones de configuración básica](#basic-configuration-options) y la sección [opciones de configuración avanzada](#advanced-configuration-options) para ver las explicaciones de los campos.
 
 **Para crear un clúster de HDInsight**
 
@@ -320,8 +320,7 @@ Puede revisar la sección [opciones de configuración básica](#basic-configurat
 
 			![Additional storage blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.9.png "Specify additional storage accounts")
 
-
-4. Haga clic en **Crear**. Si selecciona **Anclar a Panel de inicio** se agregará un icono del clúster en el Panel de inicio de su Portal. El icono indicará que el clúster se está creando y cambiará para mostrar el icono de HDInsight cuando se haya completado el proceso.
+4. Haga clic en **Crear**. Si selecciona **Anclar a Panel de inicio**, se agregará un icono del clúster en el Panel de inicio de su Portal. El icono indicará que el clúster se está creando y cambiará para mostrar el icono de HDInsight cuando se haya completado el proceso.
 
 
 	| Al crear | Creación finalizada |
@@ -342,18 +341,18 @@ Puede revisar la sección [opciones de configuración básica](#basic-configurat
 	Use la siguiente información para comprender los iconos de la parte superior de esta hoja y de la sección **Conceptos básicos**:
 
 
-	* **Configuración** y **Toda la configuración**: muestra la hoja **Configuración** del clúster, que permite obtener acceso a información de configuración detallada para el clúster.
-	* **Panel**, **Panel del clúster** y **URL**: se trata de formas de tener acceso al panel del clúster, que es un portal web que ejecuta trabajos en el clúster.
-	* **Escritorio remoto**: permite habilitar o deshabilitar Escritorio remoto en los nodos del clúster.
-	* **Clúster de escala**: permite cambiar el número de nodos de trabajo para este clúster.
-	* **Eliminar**: elimina el clúster de HDInsight.
-	* **Inicio rápido** (![icono de nube y rayo = inicio rápido](./media/hdinsight-provision-clusters/quickstart.png)): muestra información que le ayudará a empezar a usar HDInsight.
-	* **Usuarios** (![icono de usuarios](./media/hdinsight-provision-clusters/users.png)): permite establecer permisos para la _administración del portal_ de este clúster para otros usuarios de su suscripción de Azure.
+	* **Configuración** y **Toda la configuración**: Muestra la hoja **Configuración** del clúster, que permite obtener acceso a información de configuración detallada para el clúster.
+	* **Panel**, **Panel de clúster** y **URL**: Se trata de formas de tener acceso al panel del clúster, que es un portal web que ejecuta trabajos en el clúster.
+	* **Escritorio remoto**: Permite habilitar o deshabilitar Escritorio remoto en los nodos de clúster.
+	* **Escalar clúster**: Permite cambiar el número de nodos de trabajo para este clúster.
+	* **Eliminar**: Elimina el clúster de HDInsight.
+	* **Inicio rápido** (![icono de nube y rayo = inicio rápido](./media/hdinsight-provision-clusters/quickstart.png)): Muestra información que le ayudará a empezar a usar HDInsight.
+	* **Usuarios** (![icono de usuarios](./media/hdinsight-provision-clusters/users.png)): Permite establecer permisos de _administración del portal_ de este clúster para otros usuarios de su suscripción de Azure.
 	
 
-		> [AZURE.IMPORTANT]Esto _solo_ afecta al acceso y los permisos para este clúster en el Portal, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
+		> [AZURE.IMPORTANT]Esto _solo_ afecta al acceso y los permisos para este clúster en el Portal y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
 		
-	* **Etiquetas** (![icono de etiqueta](./media/hdinsight-provision-clusters/tags.png)): las etiquetas permiten establecer pares de clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
+	* **Etiquetas** (![icono de etiqueta](./media/hdinsight-provision-clusters/tags.png)): Las etiquetas permiten establecer pares clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
 
 ## Creación mediante una plantilla ARM
 
@@ -395,7 +394,7 @@ La plantilla de Administrador de recursos de Azure (ARM) facilita la implementac
 
 	El script de PowerShell solo configura el nombre del clúster y el nombre de la cuenta de almacenamiento. Puede establecer otros valores en la plantilla ARM.
 	
-Para implementar una plantilla del ARM con otros métodos, vea [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
+Para implementar una plantilla ARM con otros métodos, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
 
 ## Creación con Azure PowerShell
@@ -408,6 +407,7 @@ Los siguientes procedimientos son necesarios para crear un clúster de HDInsight
 - Crear una cuenta de Almacenamiento de Azure
 - Creación de un contenedor de blobs de Azure
 - Creación de un clúster de HDInsight
+
 
 	$subscriptionId = "<Azure Subscription ID>"
 	
@@ -570,7 +570,7 @@ También puede usar SQL Server Integration Services (SSIS) para crear o eliminar
 - [Tarea de eliminación de un clúster de Azure HDInsight][ssisclusterdelete]
 - [Administrador de conexiones de suscripción de Azure][connectionmanager]
 
-Obtenga más información sobre el paquete de características de Azure para SSIS [aquí][ssispack].
+Obtenga más información sobre el paquete Feature Pack de Azure para SSIS [aquí][ssispack].
 
 
 ##Pasos siguientes
@@ -751,4 +751,4 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

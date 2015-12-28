@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Eventos de Actores confiables"
-   description="Introducción a los eventos de Actores confiables de Service Fabric."
+   pageTitle="Eventos de Reliable Actors | Microsoft Azure"
+   description="Introducción a los eventos de Reliable Actors de Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -63,7 +63,7 @@ var proxy = ActorProxy.Create<IGameActor>(
 proxy.SubscribeAsync(new GameEventsHandler()).Wait();
 ```
 
-Si se producen conmutaciones por error, el actor puede realizar una conmutación por error a un nodo o proceso diferentes. El proxy del actor administra las suscripciones activas y las vuelve a suscribir automáticamente. Puede controlar el intervalo de suscribir nuevamente a través de la API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Para cancelar la suscripción use la API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
+Si se producen conmutaciones por error, el actor puede realizar una conmutación por error a un nodo o proceso diferentes. El proxy del actor administra las suscripciones activas y las vuelve a suscribir automáticamente. Puede controlar el intervalo de suscribir nuevamente a través de la API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Para cancelar la suscripción, use la API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
 
 En el actor, simplemente publique los eventos cuando se produzcan. Si hay suscriptores del evento, el tiempo de ejecución de los actores les enviará la notificación.
 
@@ -72,4 +72,4 @@ var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
 ```
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

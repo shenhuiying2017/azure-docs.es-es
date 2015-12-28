@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="09/03/2015"
+ ms.date="12/08/2015"
  ms.author="rasquill"/>
 #Acerca de las características y extensiones de las máquinas virtuales
 
@@ -24,7 +24,7 @@ Microsoft Azure proporciona extensiones de máquina virtual creadas por Microsof
 
 
 
-Si desea obtener detalles sobre los agentes de máquina virtual y cómo funcionan para admitir las extensiones de máquina virtual, consulte [Información general sobre el agente de máquina virtual y las extensiones de máquina virtual](https://msdn.microsoft.com/library/dn832621.aspx).
+Para detalles sobre los agentes de máquina virtual y cómo funcionan para admitir las extensiones de máquina virtual, vea [Información general sobre el agente de máquina virtual y las extensiones de máquina virtual](virtual-machines-extensions-install.md).
 
 ##Extensiones de máquina virtual de Azure
 
@@ -36,8 +36,8 @@ Las extensiones siguientes son críticas para habilitar, volver a habilitar o de
 
 |Nombre de la extensión de máquina virtual|Descripción de la característica|Más información
 |---|---|---|
-|VMAccessAgent (Windows)|Crear, actualizar y restablecer la información del usuario y las configuraciones de conexión RDP y SSH.|[Windows](https://msdn.microsoft.com/library/dn606308.aspx)
-|VMAccessForLinux (Linux)|Crear, actualizar y restablecer la información del usuario y las configuraciones de conexión RDP y SSH.|[Linux](http://azure.microsoft.com/blog/2014/08/25/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)
+|VMAccessAgent (Windows)|Crear, actualizar y restablecer la información del usuario y las configuraciones de conexión RDP y SSH.|[Windows](virtual-machines-extensions-customscript.md)
+|VMAccessForLinux (Linux)|Crear, actualizar y restablecer la información del usuario y las configuraciones de conexión RDP y SSH.|[Linux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
 ##Administración de la implementación y la configuración
 
@@ -47,15 +47,15 @@ Las extensiones siguientes admiten distintos tipos de escenarios y característi
 |---|---|---|
 |**MSEnterpriseApplication**|Implementa características compatibles con el centro del sistema de Windows.|[System Center 2012 R2 Virtual Machine Roles](http://social.technet.microsoft.com/wiki/contents/articles/18274.system-center-2012-r2-virtual-machine-role-authoring-guide-resource-extension-package.aspx) (Roles de máquina virtual de System Center 2012 R2)|
 |**Octopus Deploy** (basada en la extensión DSC)|Admite la implementación automatizada de las aplicaciones web de ASP.NET y Servicios de Windows en entornos de desarrollo, prueba y producción.|[Getting Started with Octopus Deploy](http://docs.octopusdeploy.com/display/OD/Getting%20started) (Introducción a Octopus Deploy)|
-|**Administrador de versiones de Visual Studio** (basada en la extensión DSC)|Admite la implementación continua con Visual Studio.|[Implementaciones automatizadas con administración de versiones](https://msdn.microsoft.com/library/dn217874.aspx)|
+|**Administrador de versiones de Visual Studio** (basada en la extensión DSC)|Admite la implementación continua con Visual Studio.|[Implementaciones automatizadas con administración de versiones](https://msdn.microsoft.com/Library/vs/alm/Release/overview)|
 |**CentosChefClient**|||
 |**ChefClient**|Crea un cliente Chef en Windows. (También puede utilizar la extensión DSC que aparece a continuación).|[Chef y Microsoft Azure](https://www.getchef.com/solutions/azure/)|
 |**LinuxChefClient**|||
 |**DockerExtension**|Instala el demonio de Docker para admitir los comandos remotos de Docker.|[Uso de la extensión de máquina virtual Docker](virtual-machines-docker-vm-extension.md)Para obtener información más extensa, consulte la [Docker VM Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md) (Guía del usuario de la extensión de máquina virtual Docker)|
 |**DSC**|Extensión DSC (configuración de estado deseado) de PowerShell|[Azure PowerShell DSC (Desired State Configuration) extension](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx) (Extensión DSC de Azure PowerShell)|
 |**PuppetEnterpriseAgent**|Implementa las características de Puppet Enterprise |[Puppet on Azure](http://puppetlabs.com/solutions/microsoft) (Puppet en Azure)|
-|**CustomScriptExtension** (Windows)**CustomScriptForLinux** (Linux)|Invoca scripts personalizados en la máquina virtual en cualquier momento, ya sea en el inicio o durante su vigencia.|[Extensión de script personalizado](https://msdn.microsoft.com/library/dn781373.aspx)[Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)|
-|**AzureCATExtensionHandler**|Consume los datos de diagnóstico que recopila **IaaSDiagnostics** y algunas otras fuentes de datos, como las [métricas del análisis de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/hh343270.aspx) y los transforma en un conjunto de datos agregados adecuado para que los utilice el proceso de control del host de SAP.|[Azure Enhanced Monitoring for SAP](http://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/) (Supervisión mejorada de Azure para SAP)|
+|**CustomScriptExtension** (Windows)**CustomScriptForLinux** (Linux)|Invoca scripts personalizados en la máquina virtual en cualquier momento, ya sea en el inicio o durante su vigencia.|[Extensión Custom Script](virtual-machines-extensions-customscript.md) | [Linux](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript)|
+|**AzureCATExtensionHandler**|Consume los datos de diagnóstico que recopila **IaaSDiagnostics** y algunas otras fuentes de datos, como las [métricas del análisis de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/hh343270.aspx) y los transforma en un conjunto de datos agregados adecuado para que los use el proceso de control del host de SAP.|[Azure Enhanced Monitoring for SAP (Supervisión mejorada de Azure para SAP)](http://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/)|
 
 ##Seguridad y protección
 
@@ -63,12 +63,12 @@ Las extensiones que aparecen en esta sección proporcionan características de s
 
 |Nombre de la extensión de máquina virtual|Descripción de la característica|Más información|
 |---|---|---|
-|**CloudLinkSecureVMWindowsAgent**|Brinda a los clientes de Microsoft Azure la funcionalidad para cifrar los datos de máquina virtual en una infraestructura compartida multiempresa y el control total de las claves de cifrado de los datos cifrados en la infraestructura de almacenamiento de Azure.|[Securing Microsoft Azure Virtual Machines leveraging BitLocker and Native OS encryption](http://www.cloudlinktech.com/azure) (Protección de las máquinas virtuales de Microsoft Azure con cifrado de BitLocker y SO nativo)|
-|**McAfeeEndpointSecurity**|Protege la máquina virtual contra software malintencionado.|[McAfee](http://www.mcafeeasap.com/)|
-|**TrendMicroDSA**|Habilita la compatibilidad para la plataforma Deep Security de TrendMicro para proporcionar detección y prevención de intrusiones, firewall, antimalware, reputación web, inspección de registros y supervisión de la integridad.|[Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure](http://virtual-machines-install-trend.md)|
-|**PortalProtectExtension**|Protege contra las amenazas al entorno de Microsoft SharePoint.|[Securing Your SharePoint Deployment on Azure](http://blog.trendmicro.com/securing-sharepoint-deployment-azure/) (Protección de la implementación de SharePoint en Azure)|
+|**CloudLinkSecureVMWindowsAgent**|Brinda a los clientes de Microsoft Azure la funcionalidad para cifrar los datos de máquina virtual en una infraestructura compartida multiempresa y el control total de las claves de cifrado de los datos cifrados en la infraestructura de almacenamiento de Azure.|[Securing Microsoft Azure Virtual Machines leveraging BitLocker and Native OS encryption (Protección de las máquinas virtuales de Microsoft Azure con cifrado de BitLocker y SO nativo)](http://www.cloudlinktech.com/azure)|
+|**McAfeeEndpointSecurity**|Protege la máquina virtual contra software malintencionado.|[McAfee](https://www.mcafeeasap.com/MarketingContent/default.aspx)|
+|**TrendMicroDSA**|Habilita la compatibilidad para la plataforma Deep Security de TrendMicro para proporcionar detección y prevención de intrusiones, firewall, antimalware, reputación web, inspección de registros y supervisión de la integridad.|[Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure](virtual-machines-install-trend.md)|
+|**PortalProtectExtension**|Protege contra las amenazas al entorno de Microsoft SharePoint.|[Securing Your SharePoint Deployment on Azure (Protección de la implementación de SharePoint en Azure)](http://blog.trendmicro.com/securing-sharepoint-deployment-azure/)|
 |**IaaSAntimalware**|Microsoft Antimalware para Servicios en la nube y Máquinas virtuales de Azure es una funcionalidad de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado, con alertas que se pueden configurar para cuando software malintencionado o no deseado conocido intente se intente instalar o ejecutar en el sistema.|[Descargue información sobre antimalware](http://go.microsoft.com/fwlink/?linkid=398023&clcid=0x409)|
-|**SymantecEndpointProtection**|Symantec Endpoint Protection 12.1.4 habilita la seguridad y el rendimiento entre sistemas físicos y virtuales.|[Instalación y configuración de Endpoint Protection en una máquina virtual de Azure](http://virtual-machines-install-symantec.md)
+|**SymantecEndpointProtection**|Symantec Endpoint Protection 12.1.4 habilita la seguridad y el rendimiento entre sistemas físicos y virtuales.|[Instalación y configuración de Endpoint Protection en una máquina virtual de Azure](virtual-machines-install-symantec.md)
 
 ##Administración y operaciones de máquinas virtuales
 
@@ -76,9 +76,9 @@ Admite comportamiento y características de administración de operaciones comun
 
 |**Nombre de la extensión de máquina virtual**|Descripción de la característica|Más información|
 |---|---|---|
-|**AzureVmLogCollector**|Puede usar la extensión **AzureVMLogCollector** a petición para realizar una recopilación única de registros provenientes de una o más máquinas virtuales del Servicio en la nube (desde roles web y roles de trabajo) y transferir los archivos recopilados a una cuenta de almacenamiento de Azure, sin iniciar sesión de manera remota en ninguna de las máquinas virtuales. |[AzureLogCollector Extension](https://msdn.microsoft.com/library/dn927183.aspx)|
-|**IaaSDiagnostics**|Habilita, deshabilita y configura Diagnósticos de Azure y también la utiliza **AzureCATExtensionHandler** para admitir la supervisión de SAP.|[Microsoft Azure Virtual Machine Monitoring with Azure Diagnostics Extension](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) (Supervisión de máquinas virtuales de Microsoft Azure con la extensión de Diagnósticos de Azure)|
-|**OSPatchingForLinux**|Permite que los administradores de máquinas virtuales de Azure automaticen las actualizaciones del SO de las máquinas virtuales con las configuraciones personalizadas. Puede utilizar la extensión OSPatching para configurar las actualizaciones de SO de las máquinas virtuales, las que incluyen especificar la frecuencia y el momento de instalar las revisiones del SO, especificar las revisiones que se instalarán y configurar el comportamiento de reinicio después de las actualizaciones.|[Entrada de blog sobre las extensiones de revisiones de SO](http://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). Consulte también el archivo Léame y el código fuente en GitHub en [OS Patching Extension](https://github.com/Azure/azure-linux-extensions) (extensión de revisiones de SO).|
+|**AzureVmLogCollector**|Puede usar la extensión **AzureVMLogCollector** a petición para realizar una recopilación única de registros provenientes de una o más máquinas virtuales del Servicio en la nube (desde roles web y roles de trabajo) y transferir los archivos recopilados a una cuenta de almacenamiento de Azure, sin iniciar sesión de manera remota en ninguna de las máquinas virtuales. |[AzureLogCollector Extension](virtual-machines-extensions-log-collector.md)|
+|**IaaSDiagnostics**|Habilita, deshabilita y configura Diagnósticos de Azure y también la usa **AzureCATExtensionHandler** para admitir la supervisión de SAP.|[Microsoft Azure Virtual Machine Monitoring with Azure Diagnostics Extension (Supervisión de máquinas virtuales de Microsoft Azure con la extensión de Diagnósticos de Azure)](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)|
+|**OSPatchingForLinux**|Permite que los administradores de máquinas virtuales de Azure automaticen las actualizaciones del SO de las máquinas virtuales con las configuraciones personalizadas. Puede utilizar la extensión OSPatching para configurar las actualizaciones de SO de las máquinas virtuales, las que incluyen especificar la frecuencia y el momento de instalar las revisiones del SO, especificar las revisiones que se instalarán y configurar el comportamiento de reinicio después de las actualizaciones.|[Entrada de blog sobre las extensiones de revisiones de SO](http://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). Vea también el archivo Léame y el código fuente en GitHub en [Extensión de revisiones de SO](https://github.com/Azure/azure-linux-extensions).|
 
 ##Desarrollo y depuración
 
@@ -103,4 +103,4 @@ Estas extensiones brindan la compatibilidad para otras características de máqu
 |**BGInfo**|Presenta una imagen consolidada de la información útil del servidor en el escritorio cuando se utiliza el protocolo de Escritorio remoto.|[Extensión de BGInfo](https://msdn.microsoft.com/library/dn606289.aspx)|
 |**HpcVmDrivers**|Instala, configura y mantiene los controladores de dispositivos de red para el acceso directo a memoria remota (RDMA) en una máquina virtual de tamaño A8 o A9 que ejecute Windows Server 2012 R2 o Windows Server 2012. Permite que las máquinas virtuales A8 o A9 agrupadas utilicen la red RDMA cuando ejecuten aplicaciones MPI en paralelo.|[Sobre las instancias de proceso intensivo A8, A9, A10 y A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

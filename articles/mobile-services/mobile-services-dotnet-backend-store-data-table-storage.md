@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="12/11/2015"
 	ms.author="glenga"/>
 
 # Creación de un servicio móvil back-end de .NET que usa almacenamiento de tablas
@@ -159,4 +159,4 @@ Ahora que ya hemos visto lo fácil que es usar el almacenamiento de tabla con el
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

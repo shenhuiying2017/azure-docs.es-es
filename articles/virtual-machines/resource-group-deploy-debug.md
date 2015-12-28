@@ -136,7 +136,7 @@ El comando **azure group log show** puede devolver mucha información. Para solu
       },
       "properties": {
         "statusCode": "Conflict",
-        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name
+        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name 
           mysite already exists."},{"Code":"Conflict"},{"ErrorEntity":{"Code":"Conflict","Message":"Website with given name mysite already exists.","ExtendedCode":
           "54001","MessageTemplate":"Website with given name {0} already exists.","Parameters":["mysite"],"InnerErrors":null}}],"Innererror":null}"
       },
@@ -259,7 +259,7 @@ Para CLI de Azure, puede usar **azure location list**. Dado que la lista de ubic
     }
 
 ### API de REST
-
+        
 Para la API de REST, consulte [Obtención de información sobre un proveedor de recursos](https://msdn.microsoft.com/library/azure/dn790534.aspx).
 
 ## Creación de nombres de recursos únicos
@@ -294,7 +294,7 @@ En estos casos, debe ir al portal y archivar un problema de soporte técnico par
 
 > [AZURE.NOTE]Recuerde que para los grupos de recursos, la cuota para cada región individual, no para toda la suscripción. Si necesita implementar 30 núcleos en el oeste de Estados Unidos, debe pedir 30 núcleos de administrador de recursos en el oeste de Estados Unidos. Si necesita implementar 30 núcleos en cualquiera de las regiones para las que tiene acceso, debe pedir 30 núcleos de administrador de recursos en todas las regiones.
 <!-- -->
-Para ser específicos sobre núcleos, por ejemplo, puede comprobar las regiones para las que debe solicitar la cantidad adecuada de cuota mediante el comando siguiente, que se canaliza en **jq** para el análisis de json. El proveedor de Azure de 
+Para ser específicos sobre núcleos, por ejemplo, puede comprobar las regiones para las que debe solicitar la cantidad adecuada de cuota mediante el comando siguiente, que se canaliza en **jq** para el análisis de json. El proveedor de Azure de
 <!-- -->
         azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
         {
@@ -408,7 +408,7 @@ Si utiliza las plantillas que ha creado, es importante comprender que el sistema
 
 Sin embargo, tenga en cuenta que esto no significa necesariamente que el grupo de recursos esté "activo y listo para sus usuarios". Por ejemplo, la mayoría de las implementaciones solicitan a la implementación que descargue actualizaciones, que espere en otros recursos no son plantillas o que instale complejos scripts o alguna otra actividad ejecutable que Azure no conoce porque no es una actividad de la que un proveedor esté realizando seguimiento. En estos casos, puede trascurrir algo de tiempo antes de que los recursos estén disponibles para su utilización por parte de todos los usuarios. Por ello, debe esperar a cierto tiempo tras la confirmación del estado de implementación antes de que la implementación se pueda utilizar realmente.
 
-Sin embargo, puede evitar que Azure informe de que la implementación se produjo correctamente mediante la creación de un script personalizado para su plantilla personalizada (usando por ejemplo [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)) que sepa cómo supervisar toda la implementación para la preparación de todo el sistema y se devuelva correctamente solo cuando los usuarios puedan interactuar con toda la implementación. Si desea asegurarse de que su extensión es la última en ejecutarse, utilice la propiedad **dependsOn** de la plantilla. Puede ver un ejemplo [aquí](https://msdn.microsoft.com/library/azure/dn790564.aspx).
+Sin embargo, puede evitar que Azure informe de que la implementación se produjo correctamente mediante la creación de un script personalizado para su plantilla personalizada (usando por ejemplo [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)) que sepa cómo supervisar toda la implementación para la preparación de todo el sistema y se devuelva correctamente solo cuando los usuarios puedan interactuar con toda la implementación. Si desea asegurarse de que su extensión es la última en ejecutarse, utilice la propiedad **dependsOn** de la plantilla. Se puede ver un ejemplo al [crear implementaciones de plantilla](https://msdn.microsoft.com/library/azure/dn790564.aspx).
 
 ## Herramientas útiles para interactuar con Azure
 Cuando trabaje con los recursos de Azure desde la línea de comandos, recopilará herramientas que le ayudarán a realizar su trabajo. Las plantillas de grupo de recursos de Azure son documentos JSON, y la API de administración de recursos de Azure acepta y devuelve JSON; así pues, las herramientas de análisis de JSON son uno de los primeros utensilios que podrán ayudarle a navegar por la información sobre los recursos, así como diseñar o interactuar con plantillas y archivos de parámetros de plantilla.
@@ -434,4 +434,4 @@ Para dominar la creación de plantillas, lea [Creación de plantillas del Admini
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

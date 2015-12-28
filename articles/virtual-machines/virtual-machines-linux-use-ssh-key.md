@@ -161,7 +161,7 @@ A continuación, puede usar el archivo .pem con el portal clásico o con el modo
 
 ## Conexión a la máquina virtual
 
-El comando **ssh** toma un nombre de usuario para iniciar sesión con la dirección de red del equipo y el puerto en el que se va a conectar a la dirección, así como muchas otras variaciones especiales. (Para obtener más información acerca de **ssh**, puede empezar [aquí](https://en.wikipedia.org/wiki/Secure_Shell))
+El comando **ssh** toma un nombre de usuario para iniciar sesión con la dirección de red del equipo y el puerto en el que se va a conectar a la dirección, así como muchas otras variaciones especiales. (Para más información sobre **ssh**, puede comenzar con este [artículo sobre Shell seguro](https://en.wikipedia.org/wiki/Secure_Shell))
 
 Un uso típico con la implementación del Administrador de recursos podría ser similar al siguiente, si simplemente se especificó un subdominio y una ubicación de implementación:
 
@@ -298,4 +298,4 @@ Puede leer las sugerencias en [Solución de problemas de las conexiones SSH](vir
  
 Ahora que ha conectado a la máquina virtual, asegúrese de actualizar su distribución elegida antes de continuar con su uso.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

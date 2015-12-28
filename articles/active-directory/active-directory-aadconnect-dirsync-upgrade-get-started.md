@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/02/2015"
+   ms.date="12/16/2015"
    ms.author="shoatman;billmath"/>
 
 # Actualización de la sincronización de Microsoft Azure Active Directory (DirSync) con Azure AD Connect
@@ -56,16 +56,15 @@ DirSync admite los siguientes cambios de configuración y esta se actualizará:
 - Identificador alternativo (UPN)
 - Sincronización de contraseñas y configuración híbrida de Exchange
 - Configuración de bosque/dominio y Azure AD
+- Filtrado basado en atributos de usuario
 
 Los siguientes cambios no se pueden actualizar. Si ha realizado alguno de estos cambios, la actualización se bloqueará.
 
 ![Actualización bloqueada](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
 
-En esos casos, la recomendación es instalar un nuevo servidor de Azure AD Connect en [modo provisional](active-directory-aadconnectsync-operations.md#staging-mode) y comprobar la configuración antigua de DirSync y la nueva de Azure AD Connect. Vuelva a aplicar los cambios usando la configuración personalizada, como se describe en [Azure AD Connect Sync: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md).
-
+En esos casos, la recomendación es instalar un nuevo servidor de Azure AD Connect en [modo provisional](active-directory-aadconnectsync-operations.md#staging-mode) y comprobar la configuración antigua de DirSync y la nueva de Azure AD Connect. Vuelva a aplicar los cambios usando la configuración personalizada, como se describe en [Azure AD Connect Sync: configuración personalizada de sincronización](active-directory-aadconnectsync-whatis.md).
 
 - Cambios de DirSync no admitidos, por ejemplo, eliminación de y uso de un archivo DLL de extensión personalizado
-- Filtrado basado en atributos de usuario
 
 Las contraseñas usadas por DirSync para las cuentas de servicio no se pueden recuperar y no se migrarán. Estas contraseñas se restablecerán durante la actualización.
 
@@ -198,4 +197,4 @@ Ahora que tiene instalado Azure AD Connect, puede [comprobar la instalación y a
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

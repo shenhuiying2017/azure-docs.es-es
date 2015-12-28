@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/10/2015" 
+	ms.date="12/14/2015" 
 	ms.author="jeffstok"
 />
 
@@ -38,7 +38,7 @@ Ilustración 2:
 Los requisitos previos de este artículo son los siguientes:
 
 1.	Una suscripción de Azure activa
-2.	Un archivo CSV con algunos datos. El de la figura 2 se proporciona aquí para su descarga, o bien puede crear los suyos propios. Este tutorial se ha escrito asumiendo que se usa el que se ha proporcionado para la descarga.
+2.	Un archivo CSV con algunos datos. El de la figura 2 se ofrece [en GitHub](https://github.com/jeffstokes72/azure-stream-analytics-repository/blob/master/sampleinputs.csv) para su descarga, o bien puede crear los suyos propios. Este tutorial se ha escrito asumiendo que se usa el que se ha proporcionado para la descarga.
 
 A nivel general, se llevarán a cabo los pasos siguientes:
 
@@ -53,15 +53,15 @@ A nivel general, se llevarán a cabo los pasos siguientes:
 
 En este paso puede usar cualquier archivo CSV, incluso el especificado en la introducción. Para cargar el archivo, se puede usar [Explorador de almacenamiento de Azure](http://storageexplorer.com/) o Visual Studio, así como código personalizado. En este tutorial se proporcionan ejemplos para Visual Studio.
 
-1.	Expanda Azure y haga clic en el **almacenamiento**. Elija **Asociar almacenamiento externo** y proporcione un valor para **Nombre de cuenta** y **Clave de cuenta**.  
+1.	Expanda Azure y haga clic con el botón secundario en el **Almacenamiento**. Elija **Asociar almacenamiento externo** y ofrezca un valor para **Nombre de cuenta** y **Clave de cuenta**.  
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - explorador de servidores](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-server-explorer.png)
 
-2.	Expanda el almacenamiento que acaba de asociar y elija **Crear contenedor de blobs** y proporcione un nombre lógico. Una vez creado, haga doble clic en el contenedor para ver su contenido (que estará vacío en este momento).
+2.	Expanda el almacenamiento que acaba de asociar y elija **Crear contenedor de blobs** y ofrezca un nombre lógico. Una vez creado, haga doble clic en el contenedor para ver su contenido (que estará vacío en este momento).
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - crear blob](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-create-blob.png)
 
-3.	Cargue el archivo CSV haciendo clic en el icono **Cargar blob** icono y elija el **archivo desde el disco local**.
+3.	Para cargar el archivo CSV, haga clic en el icono **Cargar blob** y elija el **archivo desde el disco local**.
 
 ## Adición del modelo de análisis de opinión desde la galería de Cortana Analytics
 
@@ -71,9 +71,9 @@ En este paso puede usar cualquier archivo CSV, incluso el especificado en la int
     ![tutorial de aprendizaje automático de análisis de transmisiones - abrir studio de aprendizaje automático](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)
 
 3.	Inicie sesión para acceder al área de trabajo. Elija la ubicación que mejor se adapte a la suya.
-4.	Ahora haga clic en **Ejecutar**, en la parte inferior de Studio.  
+4.	Ahora haga clic en **Ejecutar** en la parte inferior de Studio.  
 5.	Cuando se ejecuta correctamente, haga clic en **Implementar servicio web**.
-6.	El modelo de análisis de opinión ya está listo para su uso. Para validarlo, haga clic en el botón **Probar** y proporcione una entrada de texto como "Me encanta Microsoft" y la prueba debe devolver un resultado similar al que se muestra a continuación:
+6.	El modelo de análisis de opinión ya está listo para su uso. Para validarlo, haga clic en el botón **Probar** y ofrezca una entrada de texto como "Me encanta Microsoft" y la prueba debe devolver un resultado similar al que se muestra a continuación:
 
 `'Predictive Mini Twitter sentiment analysis Experiment' test returned ["4","0.715057671070099"]...`
 
@@ -90,19 +90,19 @@ Tome nota de la clave de acceso y de la dirección URL de servicio web desde el 
 ## Creación de un trabajo de Análisis de transmisiones que usa el modelo de Aprendizaje automático
 
 1.	Vaya al [Portal de administración de Azure](https://manage.windowsazure.com).  
-2.	Haga clic en **Nuevo**, **Servicios de datos**, **Análisis de transmisiones** y **Creación rápida**. Proporcione un valor en **Nombre del trabajo**, un valor para la **Región** apropiada al trabajo y elija una **Cuenta de almacenamiento de supervisión regional**.    
+2.	Haga clic en **Nuevo**, **Servicios de datos**, **Análisis de transmisiones** y **Creación rápida**. Ofrezca un valor en **Nombre del trabajo**, un valor para la **Región** apropiada al trabajo y elija una **Cuenta de almacenamiento de supervisión regional**.    
 3.	Una vez creado el trabajo, vaya a la pestaña **Entradas** y haga clic en **Agregar entrada**.  
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - entrada de aprendizaje automático de adición de datos](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-input-screen.png)
 
 4.	En la primera página de la ventana del asistente **Agregar entrada**, seleccione **Flujo de datos** y haga clic en Siguiente. En la segunda página, seleccione **Almacenamiento de blobs** como entrada y haga clic en **Siguiente**.
-5.	En la página del asistente **Configuración del almacenamiento de blobs** del asistente, proporcione el nombre del contenedor de blobs de la cuenta de almacenamiento definida anteriormente cuando se cargaron los datos. Haga clic en **Siguiente**. Elija **CSV** como **Formato de serialización de eventos**. Acepte los valores predeterminados para el resto de la **configuración de serialización**. Haga clic en **Aceptar**.  
+5.	En la página del asistente **Configuración del almacenamiento de blobs** del asistente, proporcione el nombre del contenedor de blobs de la cuenta de almacenamiento definida anteriormente cuando se cargaron los datos. Haga clic en **Siguiente**. Elija **CSV** como **Formato de serialización de eventos**. Acepte los valores predeterminados para el resto de la **Configuración de serialización**. Haga clic en **Aceptar**.  
 6.	Desplácese hasta la pestaña **Salidas** y haga clic en **Agregar una salida**.  
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - agregar salida](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-output-screen.png)
 
-7.	Elija **Almacenamiento de blobs** y proporcione los mismos parámetros excepto el contenedor. El valor **Entrada** se configuró para leerse desde el contenedor denominado "test", donde se cargó el archivo **CSV**. Como valor de **Salida**, utilice "testoutput". Los nombres del contenedor deben diferentes, y compruebe que existe este contenedor.
-8.	Haga clic en **Siguiente** para definir la **configuración de serialización** de la salida. Al igual que en la entrada, elija **CSV** y haga clic en el botón **Aceptar**.
+7.	Elija **Almacenamiento de blobs** y proporcione los mismos parámetros excepto el contenedor. El valor **Entrada** se configuró para leerse desde el contenedor denominado "test", donde se cargó el archivo **CSV**. Como valor de **Salida**, use "testoutput". Los nombres del contenedor deben diferentes, y compruebe que existe este contenedor.
+8.	Haga clic en **Siguiente** para definir la **Configuración de serialización** de la salida. Al igual que en la entrada, elija **CSV** y haga clic en el botón **Aceptar**.
 9.	Vaya a la pestaña **Funciones** y haga clic en **Agregar una función de aprendizaje automático**.  
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - agregar función de aprendizaje automático](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-ml-function.png)
@@ -113,9 +113,17 @@ Tome nota de la clave de acceso y de la dirección URL de servicio web desde el 
 
 11.	Vaya a la pestaña **Consulta** y modifique la consulta de la manera siguiente:
 
-    ![tutorial de aprendizaje automático de análisis de transmisiones - consulta de aprendizaje automático](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-query.png)
+```
+	WITH subquery AS (  
+		SELECT text, sentiment(text) as result from input  
+	)  
+	  
+	Select text, result.[Score]  
+	Into output  
+	From subquery  
+```
 
-12. Haga clic en **Guardar** para guardar la consulta.
+12. Haga clic en **Guardar** para guardar la consulta.    
 
 ## Inicio del trabajo de Análisis de transmisiones y observación de la salida
 
@@ -142,4 +150,4 @@ También pueden observarse las métricas relacionadas con funciones del lenguaje
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - vista de monitor de aprendizaje automático](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

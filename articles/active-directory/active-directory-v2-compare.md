@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Diferencias de la vista previa del modelo de aplicaciones v2.0
@@ -26,7 +26,7 @@ Si está familiarizado con el servicio de Azure AD de disposición general o ha 
 ## Cuentas de Microsoft y cuentas de Azure AD
 El modelo de aplicaciones v2.0 permite a los desarrolladores crear aplicaciones que aceptan el inicio de sesión tanto desde cuentas de Microsoft como desde cuentas de Azure AD, mediante un extremo único. Esto le ofrece la posibilidad de crear su aplicación completamente independiente de la cuenta; puede no conocer el tipo de cuenta con el que el usuario inicia sesión. Por supuesto, *puede* hacer que la aplicación reconozca el tipo de cuenta que se usa en una sesión determinada, aunque no es necesario.
 
-Por ejemplo, si su aplicación llama a las [API de REST de Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), los usuarios de empresa tendrán a su disposición algunos datos y funciones adicionales, como los sitios de SharePoint o datos de directorio. Pero para muchas acciones, como [leer el correo de un usuario](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), el código se puede crear exactamente de la misma manera tanto para las cuentas de Microsoft como para las cuentas de Azure AD.
+Por ejemplo, si su aplicación llama a las [API de REST de Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), los usuarios de empresa tendrán a su disposición algunos datos y funciones adicionales, como los sitios de SharePoint o datos de directorio. Pero para muchas acciones, como [leer el correo de un usuario](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), el código se puede crear exactamente de la misma manera tanto para las cuentas de Microsoft como para las cuentas de Azure AD.
 
 La integración de su aplicación con las cuentas de Azure AD y las cuentas de Microsoft ahora es un proceso sencillo. Puede usar un conjunto único de extremos, una sola biblioteca y un registro de aplicaciones único para obtener acceso tanto al mundo empresarial como al de los consumidores. Para obtener más información sobre la vista previa modelo de aplicaciones v2.0, consulte la [información general](active-directory-appmodel-v2-overview.md).
 
@@ -121,4 +121,4 @@ Para obtener información sobre las notificaciones específicas emitidas en toke
 ## Limitaciones de vista previa
 Hay una serie de restricciones que se deben tener en cuenta al crear una aplicación con el modelo de aplicaciones v2.0 durante la vista previa pública. Consulte el [documento de limitaciones del modelo de aplicaciones v2.0](active-directory-v2-limitations.md) para ver si alguna de estas restricciones se aplica a su escenario concreto.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -274,11 +274,11 @@ Los campos que se utilizan en esta consulta son coordenadas GPS de ubicaciones d
 		and dropoff_latitude between 30 and 90
 		limit 10; 
 
-Las ecuaciones matemáticas de cálculo de la distancia entre dos coordenadas de GPS pueden encontrarse [aquí](http://www.movable-type.co.uk/scripts/latlong.html), escrito por Peter Lapisu. En su Javascript, la función toRad() es `lat_or_lon*pi/180`, que convierte grados a radianes. Aquí, `lat_or_lon` es la latitud o la longitud. Debido a que Hive no proporciona la función `atan2`, pero sí proporciona la función `atan`, la función `atan2` la implementa la función `atan` en la consulta de Hive anterior mediante la definición proporcionada en [Wikipedia](http://en.wikipedia.org/wiki/Atan2).
+Las ecuaciones matemáticas de cálculo de la distancia entre dos coordenadas de GPS pueden encontrarse en [Scripts de tipo movible](http://www.movable-type.co.uk/scripts/latlong.html), escrito por Peter Lapisu. En su Javascript, la función toRad() es `lat_or_lon*pi/180`, que convierte grados a radianes. Aquí, `lat_or_lon` es la latitud o la longitud. Debido a que Hive no proporciona la función `atan2`, pero sí proporciona la función `atan`, la función `atan2` la implementa la función `atan` en la consulta de Hive anterior mediante la definición proporcionada en [Wikipedia](http://en.wikipedia.org/wiki/Atan2).
 
 ![Creación del espacio de trabajo][1]
 
-[Aquí](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions) puede encontrar una lista completa de los UDF insertados de Hive.
+En el [Manual del lenguaje UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions) encontrará una lista completa de los UDF insertados de Hive.
 
 ## <a name="tuning"></a> Temas avanzados: Ajustar parámetros de Hive para mejorar la velocidad de consulta
 
@@ -325,4 +325,4 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

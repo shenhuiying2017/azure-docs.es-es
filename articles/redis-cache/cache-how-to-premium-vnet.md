@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/14/2015" 
 	ms.author="sdanie"/>
 
 # Cómo configurar la compatibilidad de red virtual para una Caché en Redis de Azure Premium
@@ -53,7 +53,7 @@ Haga clic en Subred para seleccionar la subred que desea.
 
 ![Red virtual][redis-cache-vnet-ip]
 
-Escriba la **Dirección IP estática** deseada y haga clic en **Aceptar** para guardar la configuración de la red virtual. Si la dirección IP estática seleccionada ya está en uso, se mostrará un mensaje de error.
+El campo **Dirección IP estática** es opcional. Si no se especifica aquí, se elegirá una desde la subred seleccionada. Si se quiere una dirección IP estática precisa, escriba la **Dirección IP estática** que quiera y haga clic en **Aceptar** para guardar la configuración de la red virtual. Si la dirección IP estática seleccionada ya está en uso, se mostrará un mensaje de error.
 
 Cuando se cree la memoria caché, se puede tener acceso a ella únicamente por los clientes dentro de la misma red virtual.
 
@@ -86,7 +86,7 @@ En la lista siguiente se incluyen algunos errores de configuración comunes que 
 -	Máquinas virtuales de instancia de rol de Redis bloqueadas frente a la comunicación entre sí dentro de la red virtual. Se debe permitir a las instancias de rol de Redis comunicarse entre sí mediante TCP en cualquiera de los puertos usados, lo cual puede estar sujeto a cambios, pero como mínimo se puede suponer que son todos los puertos usados en el archivo CSDEF de Redis.
 -	El equilibrador de carga de Azure bloqueado frente a la conexión a las máquinas virtuales de Redis en el puerto TCP/HTTP 16001. Caché en Redis de Azure depende del sondeo de equilibrador de carga de Azure predeterminado para determinar qué instancias de rol están activas. El sondeo del equilibrador de carga predeterminado funciona de sondeo de equilibrador al hacer ping en el agente de invitado de Azure en el puerto 16001. Solo las instancias de rol que responden al ping se colocarán en rotación para recibir el tráfico reenviado por el ILB. Cuando no haya ninguna instancia en rotación porque los pings generen error al estar los puertos bloqueados, el ILB no aceptará conexiones TCP entrantes.
 -	Tráfico web de la aplicación de cliente bloqueada usado para la validación de clave pública de SSL. Los clientes de Redis (dentro de la red virtual) deben poder hacer el tráfico HTTP a la Internet pública para descargar certificados de entidades de certificados y listas de revocación de certificados para realizar la validación de certificados SSL al usar el puerto 6380 para conectarse a Redis y realizar la autenticación del servidor SSL.
--	Equilibrador de carga de Azure bloqueado de la conexión a máquinas virtuales de Redis en un clúster mediante TCP en el puerto 1300x (13000, 13001, etc.) o 1500x (15000, 15001, etc.). Las redes virtuales se configuran en el archivo csdef con un sondeo del equilibrador de carga para abrir estos puertos. El equilibrador de carga de Azure debe permitirse por NSG, los NSG predeterminados hacen esto mediante la etiqueta AZURE\_LOADBALANCER. El equilibrador de carga de Azure tiene una sola dirección IP estática de 168.63.126.16. Para obtener más información, consulte [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md).
+-	Equilibrador de carga de Azure bloqueado de la conexión a máquinas virtuales de Redis en un clúster mediante TCP en el puerto 1300x (13000, 13001, etc.) o 1500x (15000, 15001, etc.). Las redes virtuales se configuran en el archivo csdef con un sondeo del equilibrador de carga para abrir estos puertos. El equilibrador de carga de Azure debe permitirse por NSG, los NSG predeterminados hacen esto mediante la etiqueta AZURE\_LOADBALANCER. El equilibrador de carga de Azure tiene una sola dirección IP estática de 168.63.126.16. Para más información, vea [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md).
 
 ## ¿Puedo usar las redes virtuales con una memoria caché básica o estándar?
 
@@ -117,4 +117,4 @@ Obtenga información acerca de cómo usar más características de la memoria ca
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -55,7 +55,7 @@ Puede ahorrar tiempo y dinero implementando y depurando la aplicación de Servic
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
 
-- [Pruebe un servicio de Service Fabric](service-fabric-test-your-service-index.md).
+- [Pruebe un servicio de Service Fabric](service-fabric-testability-overview.md).
 - [Administración de la aplicación de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!--Image references-->
@@ -64,6 +64,5 @@ Puede ahorrar tiempo y dinero implementando y depurando la aplicación de Servic
 [viewdiagnosticevents]: ./media/service-fabric-debugging-your-application/viewdiagnosticevents.png
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
- 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

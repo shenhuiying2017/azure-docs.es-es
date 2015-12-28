@@ -51,11 +51,11 @@ En [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
     Cuando se cambia el valor de porcentaje de muestreo, tiempo mínimo que se tarda en permitir de nuevo que se aumente el porcentaje de muestreo para capturar más datos.
 
-* `<MinSamplingPercentage>0.1<\MinSamplingPercentage>`
+* `<MinSamplingPercentage>0.1</MinSamplingPercentage>`
 
     Como el porcentaje de muestreo varía, valor mínimo que se permite establecer.
 
-* `<MaxSamplingPercentage>100.0<\MaxSamplingPercentage>`
+* `<MaxSamplingPercentage>100.0</MaxSamplingPercentage>`
 
     Como el porcentaje de muestreo varía, valor máximo que se permite establecer.
 
@@ -63,7 +63,7 @@ En [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
     En el cálculo de la media móvil, peso asignado al valor más reciente. Use un valor igual o menor que 1. Los valores menores hacen que el algoritmo reaccione con menor agilidad a los cambios repentinos.
 
-* `<InitialSamplingPercentage>100<\InitialSamplingPercentage>`
+* `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
 
     Valor asignado cuando se acaba de iniciar la aplicación. No lo reduzca durante la depuración.
 
@@ -297,4 +297,4 @@ El SDK del lado del cliente (JavaScript) participa en el muestreo junto con el S
 
  * Inicialice una instancia independiente de TelemetryClient con un nuevo valor de TelemetryConfiguration (no el activo de forma predeterminada). Úsela para enviar sus eventos excepcionales.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

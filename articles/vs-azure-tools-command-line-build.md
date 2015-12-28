@@ -3,9 +3,9 @@
    description="Compilación de línea de comandos de Azure"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Compilación de línea de comandos de Azure
 
@@ -62,4 +62,4 @@ Si desea utilizar un directorio alternativo para el paquete y los archivos de co
 
 Una vez compilado el paquete, puede implementarlo en Azure. Para obtener un tutorial que muestra ese proceso, consulte el sitio web de Azure. Para obtener información sobre cómo automatizar el proceso, consulte [Entrega continua para Servicios en la nube de Azure](../cloud-services/cloud-services-dotnet-continuous-delivery).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

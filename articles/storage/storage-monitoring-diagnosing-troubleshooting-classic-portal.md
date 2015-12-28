@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/10/2015"
 	ms.author="jahogg"/>
 
 # Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure
@@ -915,4 +915,4 @@ Cuando se escribió este documento, Application Insights se encontraba en una ve
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

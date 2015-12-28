@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="brandwe"/>
 
 # Vista previa del modelo de aplicaciones v2.0: Agregar inicio de sesión a una aplicación web NodeJS
@@ -43,14 +43,14 @@ El código de este tutorial se mantiene [en GitHub](https://github.com/AzureADQu
 
 La aplicación completa se ofrece también al final de este tutorial.
 
-## 1\. Registrar una aplicación
+## 1. Registrar una aplicación
 Cree una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md). Asegúrese de que:
 
 - Anotar el **Id. de aplicación** asignado a su aplicación; lo necesitará pronto.
 - Agregar la plataforma **web** para su aplicación.
 - Escribir el **URI de redireccionamiento** correcto. El identificador URI de redirección indica a Azure AD a dónde se deben dirigir las respuestas de autenticación; el valor predeterminado para este tutorial es `http://localhost:3000/auth/openid/return`.
 
-## 2\. Incorporación de requisitos previos al directorio
+## 2. Incorporación de requisitos previos al directorio
 
 En la línea de comandos, cambie los directorios a la carpeta raíz si aún no está ahí y ejecute los siguientes comandos:
 
@@ -74,8 +74,8 @@ En la línea de comandos, cambie los directorios a la carpeta raíz si aún no e
 
 Esto instalará las bibliotecas de las que depende passport-azure-ad.
 
-## 3\. Configuración de la aplicación para que use la estrategia passport-node-js
-Aquí configuraremos el middleware Express para usar el protocolo de autenticación OpenID Connect. Passport se usará para emitir solicitudes de inicio y cierre de sesión, administrar la sesión del usuario y obtener información sobre el usuario, entre otras cosas.
+## 3. Configuración de la aplicación para que use la estrategia passport-node-js
+Aquí configuraremos el middleware Express para usar el protocolo de autenticación OpenID Connect.  Passport se usará para emitir solicitudes de inicio y cierre de sesión, administrar la sesión del usuario y obtener información sobre el usuario, entre otras cosas.
 
 -	Para comenzar, abra el archivo `config.js` en la raíz del proyecto y escriba los valores de configuración de la aplicación en la sección `exports.creds`.
     -	El `clientID:` es el **identificador de aplicación** asignado a su aplicación en el portal de registro.
@@ -88,7 +88,7 @@ Aquí configuraremos el middleware Express para usar el protocolo de autenticaci
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Agregar registro 
+// Add some logging
 var log = bunyan.createLogger({ 
 	name: 'Microsoft OIDC Example Web Application' 
 }); 
@@ -421,4 +421,4 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 Para obtener recursos adicionales, consulte: - [la vista previa del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) - [la etiqueta "azure-active-directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

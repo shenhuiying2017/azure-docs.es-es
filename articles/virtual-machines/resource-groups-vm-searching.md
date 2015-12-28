@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="command-line-interface"
    ms.workload="infrastructure"
-   ms.date="08/25/2015"
+   ms.date="12/08/2015"
    ms.author="rasquill"/>
 
 # Seleccione y navegue por imágenes de máquina virtual de Azure con PowerShell y la CLI de Azure
@@ -23,7 +23,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
 
-En este artículo se describe cómo navegar y seleccionar imágenes de máquina virtual, con una instalación reciente de la CLI de Azure o de Azure PowerShell. Como requisito previo, tendrá que cambiar al modo de administrador de recursos. Con la CLI de Azure, especifique el modo escribiendo `azure config mode arm`. Con PowerShell, escriba `Switch-AzureMode AzureResourceManager`. Consulte [Uso de la Interfaz de la línea de comandos de Azure con Administrador de recursos](xplat-cli-azure-resource-manager.md) y [Uso de Azure PowerShell con Administrador de recursos de Azure](../powershell-azure-resource-manager.md) para obtener más información sobre la configuración y actualización.
+
 
 ## Tabla de imágenes más usadas
 
@@ -51,6 +51,8 @@ En este artículo se describe cómo navegar y seleccionar imágenes de máquina 
 
 
 ## Azure CLI
+
+> [AZURE.NOTE]En este artículo se describe cómo navegar y seleccionar imágenes de máquina virtual, con una instalación reciente de la CLI de Azure o de Azure PowerShell. Como requisito previo, tendrá que cambiar al modo de administrador de recursos. Con la CLI de Azure, especifique el modo escribiendo `azure config mode arm`.
 
 La manera más fácil y rápida de buscar una imagen para usar con `azure vm quick-create` o para crear un archivo de plantilla de grupo de recursos es llamar al comando `azure vm image list` y pasar la ubicación, el nombre del publicador (no distingue mayúsculas de minúsculas) y una oferta (si la conoce). Por ejemplo, la lista siguiente es solo un ejemplo breve (muchas listas son bastante largas) si sabe que "Canonical" es un publicador de la oferta "UbuntuServer".
 
@@ -138,7 +140,7 @@ Con esta información, ahora puede buscar con precisión la imagen que desee med
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201504270  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201504270
     info:    vm image list command OK
 
-Ahora puede elegir con precisión la imagen que desea utilizar. Para crear una máquina virtual rápidamente con la información de URN que acaba de encontrar, o para utilizar una plantilla con esa información de URN, consulte [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure](xplat-cli-azure-resource-manager.md).
+Ahora puede elegir con precisión la imagen que desea utilizar. Para crear una máquina virtual rápidamente con la información de URN que acaba de encontrar, o para usar una plantilla con esa información de URN, vea [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure](xplat-cli-azure-resource-manager.md).
 
 ### Tutorial en vídeo
 
@@ -148,6 +150,11 @@ Este vídeo muestra los pasos anteriores con la CLI.
 
 
 ## PowerShell
+
+Con PowerShell, escriba `Switch-AzureMode AzureResourceManager`. Vea [Uso de la CLI de Azure con el Administrador de recursos](xplat-cli-azure-resource-manager.md) y [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md) para más información completa sobre la configuración y actualización.
+
+> [AZURE.NOTE]Con los módulos de Azure PowerShell posteriores a la versión 1.0, se ha quitado el cmdlet `Switch-AzureMode`. Con esa versión y más reciente, reemplace los siguientes comandos con la posición `Azure` reemplazada por `AzureRm`. Si usa los módulos de Azure PowerShell inferiores a la versión 1.0, usará los comandos siguiente, pero primero deberá `Switch-AzureMode AzureResourceManager`.
+
 
 Al crear una nueva máquina virtual con el Administrador de recursos de Azure, en algunos casos deberá especificar una imagen con la combinación de las propiedades de imagen siguientes:
 
@@ -244,4 +251,4 @@ Este vídeo muestra los pasos anteriores con PowerShell.
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

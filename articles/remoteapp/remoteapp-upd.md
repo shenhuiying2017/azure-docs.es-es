@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="Datos de perfil de usuario en Azure RemoteApp | Microsoft Azure"
-	description="Obtenga información acerca de cómo se almacenan y se accede a los datos de usuario en Azure RemoteApp"
+    pageTitle="Cómo usar Azure RemoteApp con cuentas de usuario de Office 365 | Microsoft Azure"
+	description="Aprender a usar Azure RemoteApp con las cuentas de usuario de Office 365"
 	services="remoteapp"
 	documentationCenter="" 
 	authors="lizap" 
@@ -15,8 +15,6 @@
     ms.topic="article" 
     ms.date="12/04/2015" 
     ms.author="elizapo" />
-
-
 
 # ¿Cómo guarda Azure RemoteApp la configuración y datos de usuario?
 
@@ -139,4 +137,4 @@ No, eso no es compatible con Azure RemoteApp, que usa RDSH, que a su vez tampoco
 
 No, no es compatible con Azure RemoteApp.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

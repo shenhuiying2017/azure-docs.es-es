@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="07/29/2015" 
+	ms.date="12/11/2015" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -37,7 +37,7 @@ Un módulo R personalizado se define mediante un archivo .zip que contiene, como
 También se pueden incluir archivos auxiliares adicionales en el archivo .zip que proporcionan una funcionalidad a la que se puede tener acceso desde el módulo personalizado. Esta opción se describe a continuación.
 
 ## Ejemplo de inicio rápido: definir, empaquetar y registrar un módulo R personalizado
-En este ejemplo se muestra cómo construir los archivos que requiere un módulo R personalizado, empaquetarlos en un archivo zip y, a continuación, registrar el módulo en un área de trabajo de Aprendizaje automático. Tanto el paquete zip de ejemplo como los archivos de ejemplo se pueden descargar de [aquí](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
+En este ejemplo se muestra cómo construir los archivos que requiere un módulo R personalizado, empaquetarlos en un archivo zip y, a continuación, registrar el módulo en un área de trabajo de Aprendizaje automático. Tanto el paquete zip de ejemplo como los archivos de ejemplo se pueden descargar en [Descargar el archivo CustomAddRows.zip](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
 Considere el ejemplo de un módulo **Agregar filas** personalizado que modifica la implementación estándar del módulo de Agregar filas que se usa para concatenar las filas (observaciones) de dos conjuntos de datos (tramas de datos). El módulo Agregar filas estándar anexa las filas del segundo conjunto de datos de entrada al final del primer conjunto de datos de entrada mediante el algoritmo rbind. La función `CustomAddRows` personalizada acepta dos conjuntos de datos de forma similar, pero también acepta un parámetro booleano de intercambio adicional como entrada. Si el parámetro de intercambio es **FALSE**, devuelve el mismo conjunto de datos que la implementación estándar. Pero si el parámetro de intercambio es **TRUE**, anexa filas del primer conjunto de datos de entrada al final del segundo conjunto de datos. El archivo que implementa la función R `CustomAddRows` expuesta por el módulo **Agregar filas personalizado** contiene el siguiente código R.
 
@@ -92,7 +92,7 @@ Guarde estos dos archivos como *CustomAddRows.R* y *CustomAddRows.xml* y comprí
 
 Para registrarlos en su área de trabajo de Aprendizaje automático, vaya al área de trabajo de Estudio de aprendizaje automático, haga clic en el botón **+NUEVO** de la parte inferior y elija **MÓDULO -> DE PAQUETE ZIP** para cargar el nuevo módulo Agregar filas personalizado.
 
-![](http://i.imgur.com/RFJhCls.png)
+![Cargar archivo zip](./media/machine-learning-custom-r-modules/upload-from-zip-package.png)
 
 El módulo **Agregar filas personalizado** ya está preparado para que los experimentos de Aprendizaje automático tengan acceso a él.
 
@@ -363,4 +363,4 @@ Entre las **limitaciones del entorno de ejecución** se incluyen:
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

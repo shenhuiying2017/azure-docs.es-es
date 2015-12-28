@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="12/09/2015"
    ms.author="joaoma" />
 
 # Configuración del método de enrutamiento del tráfico de rendimiento
@@ -49,4 +49,4 @@ Para redirigir el tráfico a los servicios en la nube y los sitios web (extremos
 [Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

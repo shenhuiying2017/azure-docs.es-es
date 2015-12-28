@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/14/2015"
    ms.author="v-sharos" />
 
 # Restaurar un volumen de StorSimple de un conjunto de copia de seguridad
+
+[AZURE.INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
 ## Información general
 
@@ -80,7 +82,7 @@ Puede usar la página **Catálogo de copias de seguridad** para restaurar el vol
 
 ![Vídeo disponible](./media/storsimple-restore-from-backup-set/Video_icon.png) **Vídeo disponible**
 
-Para ver un vídeo que muestra cómo puede utilizar la copia y restaurar las características de StorSimple para recuperar archivos eliminados, haga clic [aquí](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+Para ver un vídeo en el que se muestra cómo puede usar el clon y restaurar las características de StorSimple para recuperar archivos eliminados, haga clic [aquí](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
 ## Pasos siguientes
 
@@ -88,4 +90,4 @@ Para ver un vídeo que muestra cómo puede utilizar la copia y restaurar las car
 
 - Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

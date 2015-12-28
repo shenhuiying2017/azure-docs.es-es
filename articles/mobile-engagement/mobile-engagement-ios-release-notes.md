@@ -18,6 +18,10 @@
 
 #Notas de la versión
 
+##3\.2.1 (12/11/2015)
+
+-   Se ha corregido el retraso que se produce cuando se desencadena una nueva instancia de aplicación por una notificación con vínculos profundos. 
+
 ##3\.2.0 (10/08/2015)
 
 -   Se habilitó Bitcode en el SDK para que funcione con **Xcode 7**.
@@ -54,4 +58,4 @@
 -   Mejoras de seguridad.
 -   Se ha eliminado el seguimiento de SmartAd.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

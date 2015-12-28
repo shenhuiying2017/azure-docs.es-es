@@ -3,9 +3,9 @@
    description="Obtenga información sobre cómo publicar proyectos de servicios en la nube de Azure mediante Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/04/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Publicar un servicio en la nube mediante Azure Tools
 
@@ -173,4 +173,4 @@ Puede que deba incluir archivos específicos en su paquete de servicio para que 
 
 Para obtener más información sobre la publicación en Azure desde Visual Studio, consulte [Asistente Publicar aplicaciones de Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

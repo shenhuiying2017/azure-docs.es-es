@@ -1,11 +1,11 @@
-<properties 
+<properties
 	pageTitle="Introducción al almacenamiento de colas y servicios conectados de Visual Studio (proyectos de WebJobs) | Microsoft Azure"
 	description="Cómo empezar a usar el almacenamiento de colas de Azure en un proyecto de WebJob después de conectarse a una cuenta de almacenamiento con los servicios conectados de Visual Studio."
 	services="storage"
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,23 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Introducción al Almacenamiento de colas de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)
 
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-webjobs-getting-started-queues.md)
-> - [What happened](vs-storage-webjobs-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
-> - [Queues](vs-storage-webjobs-getting-started-queues.md)
-> - [Tables](vs-storage-webjobs-getting-started-tables.md)
-
 ## Información general
 
-En este artículo se describe cómo empezar a usar el Almacenamiento de colas de Azure en un proyecto de WebJobs de Azure de Visual Studio después de crear una cuenta de almacenamiento de Azure o hacer referencia a ella con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio. Al agregar una cuenta de almacenamiento a un proyecto de WebJobs con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, se instalan los paquetes de NuGet de Almacenamiento de Azure adecuados, se agregan las referencias de .NET adecuadas al proyecto y se actualizan las cadenas de conexión para la cuenta de almacenamiento en el archivo App.config.
+En este artículo se describe cómo empezar a usar el Almacenamiento en cola de Azure en un proyecto de WebJobs de Azure de Visual Studio después de crear una cuenta de almacenamiento de Azure o hacer referencia a ella con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio. Al agregar una cuenta de almacenamiento a un proyecto de WebJobs con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, se instalan los paquetes de NuGet de Almacenamiento de Azure adecuados, se agregan las referencias de .NET adecuadas al proyecto y se actualizan las cadenas de conexión para la cuenta de almacenamiento en el archivo App.config.
 
 En este artículo se ofrecen ejemplos de código C# que muestran cómo usar la versión 1.x del SDK de WebJobs de Azure con el servicio Almacenamiento de colas de Azure.
 
@@ -207,7 +198,7 @@ El siguiente ejemplo de código no asincrónico crea un mensaje en cola nuevo en
 		    outputQueueMessage = queueMessage;
 		}
 
-### Mensajes en cola POCO [ (objeto CRL estándar](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### Mensajes en cola POCO [(objeto CRL estándar](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 
 Para crear un mensaje en cola que contiene un objeto POCO en lugar de una cadena, pase el tipo POCO como un parámetro de salida al constructor de atributo **Queue**.
 
@@ -250,7 +241,7 @@ Puede usar el atributo **Queue** en los siguientes tipos de parámetro:
 
 ### Utilizar atributos del SDK de WebJobs en el cuerpo de una función
 
-Si necesita realizar algún trabajo en la función antes de usar un atributo del SDK de WebJobs como **Queue**, **Blob**, o **Table**, puede usar la interfaz **IBinder**.
+Si necesita realizar algún trabajo en la función antes de usar un atributo del SDK de WebJobs como **Queue**, **Blob** o **Table**, puede usar la interfaz **IBinder**.
 
 En el siguiente ejemplo se toma un mensaje de la cola de entrada y se crea un mensaje nuevo con el mismo contenido en una cola de salida. El nombre de la cola de salida se establece por el código en el cuerpo de la función.
 
@@ -552,4 +543,4 @@ Y en una tabla de Azure los registros **Console.Out** y **Console.Error** tienen
 
 En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con colas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Requisitos del sistema StorSimple | Microsoft Azure" 
-   description="Describe los requisitos del sistema y procedimientos recomendados para software, alta disponibilidad y conexión a la de red de una solución Azure StorSimple." 
+   description="Describe los requisitos de software, redes y alta disponibilidad y procedimientos recomendados para una solución Microsoft Azure StorSimple." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="alkohli" 
-   manager="carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/30/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli"/>
 
 # Software de StorSimple, alta disponibilidad y requisitos de red
 
 ## Información general
 
-Bienvenido a Microsoft Azure StorSimple. Este artículo describe los requisitos del sistema importantes y las prácticas recomendadas para el dispositivo StorSimple y para los clientes de almacenamiento que acceden al dispositivo. Es recomendable que revise cuidadosamente la siguiente información antes de implementar el sistema Azure StorSimple y que luego la consulte según sea necesario durante la implementación y funcionamiento posterior.
+Bienvenido a Microsoft Azure StorSimple. Este artículo describe los requisitos del sistema importantes y las prácticas recomendadas para el dispositivo StorSimple y para los clientes de almacenamiento que acceden al dispositivo. Es recomendable que revise cuidadosamente la siguiente información antes de implementar el sistema StorSimple y que luego la consulte según sea necesario durante la implementación y el funcionamiento posterior.
 
 Los requisitos del sistema incluyen:
 
@@ -60,32 +60,85 @@ El dispositivo StorSimple es un dispositivo bloqueado. Sin embargo, los puertos 
 |TCP 443 (HTTPS)<sup>3</sup>| Fuera | WAN | Sí |<ul><li>El puerto de salida se usa para tener acceso a los datos de la nube.</li><li>El proxy web de salida es configurable por el usuario.</li><li>Para permitir las actualizaciones del sistema, este puerto también debe estar abierto para las direcciones IP fijas del controlador.</li></ul>|
 |UDP 53 (DNS) | Fuera | WAN | En algunos casos; consulte las notas. |Este puerto es necesario solo si está utilizando un servidor DNS basado en Internet. |
 | UDP 123 (NTP) | Fuera | WAN | En algunos casos; consulte las notas. |Este puerto solo es necesario si está utilizando un servidor DNS basado en Internet. |
-| TCP 9354 | Fuera | WAN | En algunos casos; consulte las notas. |El dispositivo StorSimple usa el puerto de salida para comunicarse con el servicio StorSimple Manager. Este puerto es necesario si la red actual no admite el uso de HTTP 1.1 para conectarse a Internet; por ejemplo, si utiliza un servidor proxy basado en HTTP 1.0.<br> Si se conecta a través de un servidor proxy, consulte [requisitos del bus de servicio](https://msdn.microsoft.com/library/azure/ee706729.aspx) para obtener información detallada. |
+| TCP 9354 | Fuera | WAN | Sí |El dispositivo StorSimple usa el puerto de salida para comunicarse con el servicio StorSimple Manager. |
 | 3260 (iSCSI) | En el | LAN | No | Este puerto se utiliza para tener acceso a datos a través de iSCSI.|
 | 5985 | En el | LAN | No | El puerto de entrada se usa en Snapshot Manager de StorSimple para comunicarse con el dispositivo de StorSimple.<br>También se usa cuando se conecta de forma remota a Windows PowerShell para StorSimple a través de HTTP. |
 | 5986 | En el | LAN | No | Este puerto se usa al conectarse de forma remota a Windows PowerShell para StorSimple a través de HTTPS. |
 
 <sup>1</sup> Ningún puerto de entrada debe estar abierto en la red Internet pública.
 
-<sup>2</sup> Si varios puertos llevan una configuración de puerta de enlace, el orden de tráfico enrutado saliente se determinará según el orden de enrutamiento del puerto que se describe a continuación en [Enrutamiento del puerto](#port-routing).
+<sup>2</sup> Si varios puertos llevan una configuración de puerta de enlace, el orden del tráfico enrutado saliente se determinará según el orden de enrutamiento del puerto que se describe a continuación en [Enrutamiento del puerto](#port-routing).
 
 <sup>3</sup> Las direcciones IP fijas del controlador del dispositivo StorSimple deben ser enrutables y capaces de conectarse a Internet. Las direcciones IP fijas se utilizan para el mantenimiento de las actualizaciones del dispositivo. Si los controladores del dispositivo no pueden conectarse a Internet a través de direcciones IP fijas, no podrá actualizar el dispositivo StorSimple.
 
 > [AZURE.IMPORTANT]Asegúrese de que el firewall no modifica ni descifra ningún tráfico SSL entre el dispositivo de StorSimple y Azure.
 
-### Enrutamiento de puerto
+### Métrica de enrutamiento
 
-El enrutamiento de puerto es diferente según la versión de software que se ejecute en el dispositivo StorSimple.
+Una métrica de enrutamiento se asocia con las interfaces y con la puerta de enlace que enruta los datos a las redes específicas. La métrica de enrutamiento la usa el protocolo de enrutamiento para calcular la mejor ruta a un destino determinado, si aprende que existen varias rutas al mismo destino. Cuanto más bajo sea el valor de la métrica de enrutamiento, mayor será la preferencia.
 
-- Si el dispositivo está ejecutando una versión del software anterior a Update 1, por ejemplo, el administrador global, versión 0.1, 0.2 o 0.3, el enrutamiento de puerto se decidirá del modo indicado a continuación:
+En el contexto de StorSimple, si se configuran varias puertas de enlace e interfaces de red para el tráfico del canal, la métrica de enrutamiento entra en juego para determinar el orden relativo en que se usarán las interfaces. El usuario no puede cambiar las métricas de enrutamiento. Sin embargo, puede usar el cmdlet `Get-HcsRoutingTable` para imprimir la tabla de enrutamiento (y las métricas) en el dispositivo de StorSimple. Más información sobre el [cmdlet Get-HcsRoutingTable](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-hcsroutingtable-cmdlet)
 
-     Última interfaz de red de 10 GbE configurada > Otra interfaz de red de 10 GbE > Última interfaz de red de 1 GbE configurada > Otra interfaz de red de 1 GbE
+Los algoritmos de la métrica de enrutamiento difieren en función de la versión de software que se ejecuta en el dispositivo de StorSimple.
 
-- Si el dispositivo está ejecutando Update 1, a continuación, el enrutamiento del puerto se decidirá del modo indicado a continuación:
+**Versiones anteriores a Update 1**
 
-     DATA 0 > Última interfaz de red de 10 GbE configurada > Otra interfaz de red de 10 GbE > Última interfaz de red de 1 GbE configurada > Otra interfaz de red de 1 GbE
+Esto incluye las versiones de software anteriores a Update 1, como GA, 0.1, 0.2 o 0.3. El orden basado en la métrica de enrutamiento es el siguiente:
 
-    En Update 1, se establece la métrica de enrutamiento de DATA 0 más baja; por lo tanto, todo el tráfico en la nube se enruta a través de DATA 0. Tome nota de esto si hay más de una interfaz de red habilitada para la nube en el dispositivo de StorSimple.
+   *Última interfaz de red de 10 GbE configurada > Otra interfaz de red de 10 GbE > Última interfaz de red de 1 GbE configurada > Otra interfaz de red de 1 GbE*
+
+
+**Versiones a partir de Update 1 y anteriores a Update 2**
+
+Esto incluye las versiones de software, como 1, 1.1 o 1.2. El orden basado en la métrica de enrutamiento se decide en función de lo siguiente:
+
+   *DATA 0 > Última interfaz de red de 10 GbE configurada > Otra interfaz de red de 10 GbE > Última interfaz de red de 1 GbE configurada > Otra interfaz de red de 1 GbE*
+
+   En Update 1, se establece la métrica de enrutamiento de DATA 0 más baja; por lo tanto, todo el tráfico en la nube se enruta a través de DATA 0. Tome nota de esto si hay más de una interfaz de red habilitada para la nube en el dispositivo de StorSimple.
+
+
+**Versiones a partir de Update 2**
+
+Update 2 tiene varias mejoras relacionadas con las redes y las métricas de enrutamiento han cambiado. El comportamiento puede explicarse como sigue.
+
+- Un conjunto de valores predeterminados se han asignado a interfaces de red. 	
+		
+- Considere una tabla de ejemplo que se muestra a continuación con valores (ejemplo) asignados a las diversas interfaces de red si están habilitadas para la nube o deshabilitadas para la nube pero con una puerta de enlace configurada.
+
+		
+	| Interfaz de red | Habilitada para la nube | Deshabilitada para la nube con puerta de enlace |
+	|-----|---------------|---------------------------|
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
+
+
+- El orden en que el tráfico de nube se enrutará a través de las interfaces de red es:
+	 
+	*Data 0 > Data 1 > Date 2 > Data 4 > Data 5*
+
+	Esto también puede explicarse mediante el ejemplo siguiente.
+
+	Consideremos un dispositivo de StorSimple con dos interfaces de red habilitadas para la nube, Data 0 y Data 5. De Data 1 a Data 4 la interfaz estará deshabilitada para la nube pero con una puerta de enlace configurada. El orden en que el tráfico se enrutará para este dispositivo será:
+
+	*Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
+	
+	*donde los números entre paréntesis indican las métricas de enrutamientos respectivas.*
+	
+	Si se produce un error en Data 0, el tráfico de nube se enrutará a través de Data 5. Habida cuenta que se configura una puerta de enlace para todas las demás redes, si se produce algún error en Data 0 y Data 5, el tráfico de nube pasará por Data 1.
+ 
+
+- Si se produce un error en una interfaz de red habilitada para la nube, entonces habrá 3 reintentos con un retraso de 30 segundos para conectarse a la interfaz. Si se produce un error en todos los reintentos, el tráfico se enruta a la siguiente interfaz habilitada para la nube disponible según se determine en la tabla de enrutamiento. Si se producen errores en todas las interfaces de red habilitadas para la nube, se producirá una conmutación por error del dispositivo al otro controlador (sin reinicio en este caso).
+	
+- Si se produce un error de la IP virtual de una interfaz de red habilitada para iSCSI, se producirán 3 reintentos con un retraso de 2 segundos. Este comportamiento ha sido el mismo desde las versiones anteriores. Si se produce un error en todas las interfaces de red iSCSI, se producirá una conmutación por error del controlador (acompañada de un reinicio).
+
+
+- También se genera una alerta en el dispositivo de StorSimple cuando hay un error en la IP virtual. Para obtener más información, vaya a [alerta de error de IP virtual](storsimple-manage-alerts.md).
+	
+- En términos de reintentos, iSCSI tendrá prioridad sobre la nube.
+
+	Considere el ejemplo siguiente: un dispositivo de StorSimple tiene dos interfaces de red habilitadas, Data 0 y Data 1. Data 0 está habilitada para la nube mientras que Data 1 está habilitada para la nube y para iSCSI. Ninguna otra interfaz de red de este dispositivo está habilitada para la nube ni para iSCSI.
+		
+	Si se produce un error de Data 1, dado que es la última interfaz de red de iSCSI, esto produce una conmutación por error del controlador a Data 1 en el otro controlador.
+
 
 ### Prácticas recomendadas de redes
 
@@ -102,7 +155,7 @@ Además de los requisitos de redes anteriores, para obtener un rendimiento ópti
 
 ## Requisitos de alta disponibilidad para StorSimple
 
-La plataforma de hardware que se incluye con la solución de StorSimple tiene características de confiabilidad y disponibilidad que proporcionan la base para una infraestructura de almacenamiento de alta disponibilidad con tolerancia a errores en su centro de datos. Sin embargo, existen requisitos y procedimientos recomendados que debe cumplir para ayudar a garantizar la disponibilidad de la solución Azure StorSimple. Antes de implementar Azure StorSimple, revise cuidadosamente los siguientes requisitos y recomendaciones para el dispositivo StorSimple y los equipos host conectados.
+La plataforma de hardware que se incluye con la solución de StorSimple tiene características de confiabilidad y disponibilidad que proporcionan la base para una infraestructura de almacenamiento de alta disponibilidad con tolerancia a errores en su centro de datos. Sin embargo, existen requisitos y procedimientos recomendados que debe cumplir para ayudar a garantizar la disponibilidad de la solución StorSimple. Antes de implementar StorSimple, revise cuidadosamente los siguientes requisitos y recomendaciones para el dispositivo StorSimple y los equipos host conectados.
 
 Para obtener más información sobre la supervisión y el mantenimiento de los componentes de hardware del dispositivo de StorSimple, vaya a [Uso del servicio StorSimple Manager para supervisar el estado y los componentes de hardware](storsimple-monitor-hardware-status.md) y [Reemplazo de componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
@@ -181,7 +234,7 @@ El modelo 8600 del dispositivo StorSimple incluye un receptáculo Extended Bunch
 
 - Si se produce un error en un módulo de controlador de receptáculo EBOD, asegúrese de que el módulo del controlador esté activo antes de reemplazar el módulo con error. Para comprobar que un controlador está activo, vaya a [Identificación del controlador activo en el dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
 
-- Durante la sustitución de un módulo del controlador EBOD, supervise de manera continua el estado del componente en el servicio StorSimple Manager mediante el acceso a **Mantenimiento** - **Estado del hardware**.
+- Durante la sustitución de un módulo del controlador EBOD, supervise de manera continua el estado del componente en el servicio del administrador de StorSimple mediante el acceso a **Mantenimiento** - **Estado del hardware**.
 
 - Si se produce un error en un cable SAS o requiere ser sustituido (el Soporte de Microsoft deberá estar implicado en la toma de dicha determinación), asegúrese de quitar solamente el cable de SAS que deba sustituirse.
 
@@ -203,4 +256,4 @@ Revise cuidadosamente estos procedimientos recomendados para garantizar la alta 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

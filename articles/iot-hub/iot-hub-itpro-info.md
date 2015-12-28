@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/28/2015"
+ ms.date="12/15/2015"
  ms.author="dobett"/>
 
 # Configuración y administración del acceso al Centro de IoT
@@ -42,11 +42,11 @@ El acceso a otros extremos de administración en un Centro de IoT también se co
 Este artículo contiene información específica para que los desarrolladores y profesionales de TI configuren sus entornos de desarrollo y pruebas. Siga estos vínculos para obtener más información sobre el servicio Centro de IoT de Azure:
 
 - [¿Qué es el Centro de IoT de Azure?][lnk-iothub]
-- La sección ["Seguridad" de la Guía para desarrolladores del Centro de IoT de Azure][lnk-devguide] ofrece información adicional sobre los tokens y el sistema de permisos del Centro de IoT.
+- La [sección de seguridad de la Guía del desarrollador del Centro de IoT de Azure][lnk-devguide] ofrece información adicional sobre los tokens y el sistema de permisos del Centro de IoT.
 - [Administración del Centro de IoT a través del Portal de Azure][lnk-manage-portal] describe el uso del Portal de Azure para administrar el Centro de IoT.
 
 [lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -86,7 +86,7 @@ Justo debajo de la sección **ServiceManifestImport**, configure una directiva p
 
 Ahora agreguemos el archivo MySetup.bat al proyecto de Visual Studio para probar los privilegios de administrador. En Visual Studio, haga clic con el botón derecho en el proyecto de servicio y agregue un nuevo archivo llamado MySetup.bat. A continuación, es necesario asegurarse de que este archivo se incluye en el paquete de servicio, ya que esto no está especificado de forma predeterminada. Para asegurarse de que el archivo MySetup.bat se incluye en el paquete, seleccione el archivo, haga clic con el botón derecho para que aparezca el menú contextual, elija Propiedades y en el cuadro de diálogo correspondiente asegúrese de que la opción **Copiar en el directorio de salida** está establecida como **Copiar si es posterior**. Esto se muestra en la captura de pantalla siguiente.
 
-![CopyToOutput de Visual Studio para el archivo por lotes de SetupEntryPoint][image1]
+![CopyToOutput de Visual Studio para el archivo por lotes de SetupEntryPoint][Image1]
 
 Ahora abra el archivo MySetup.bat y agregue los siguientes comandos.
 
@@ -129,7 +129,7 @@ En el archivo de PowerShell, agregue el siguiente procedimiento para establecer 
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
 ```
 
-## Aplicación de RunAsPolicy a servicios
+## Aplicación de RunAsPolicy a servicios 
 Anteriormente vio cómo aplicar la directiva RunAs a un SetupEntryPoint. Vamos a ir algo más allá para averiguar cómo crear diferentes entidades de seguridad que se puedan aplicar como directivas de servicio.
 
 ### Creación de grupos de usuarios locales
@@ -169,7 +169,7 @@ Puede crear un usuario local para proteger un servicio dentro de la aplicación.
   </Users>
 </Principals>
 ~~~
-
+ 
 <!-- If an application requires that the user account and password be same on all machines (e.g. to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true and also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
 
 <Section Name="Hosting">
@@ -184,8 +184,8 @@ La sección **RunAsPolicy** para **ServiceManifestImport** especifica la cuenta 
 
 ~~~
 <Policies>
-  <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
-  <RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
+<RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
+<RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
 </Policies>
 ~~~
 
@@ -272,7 +272,7 @@ El siguiente manifiesto de aplicación muestra muchas de las diferentes configur
       </Users>
    </Principals>
    <Policies>
-      <DefaultRunAsPolicy UserRef="MyDefaultAccount" />
+      <DefaultRunAsPolicy UserRef="LocalAdmin" />
    </Policies>
    <Certificates>
 	 <EndpointCertificate Name="Cert1" X509FindValue="FF EE E0 TT JJ DD JJ EE EE XX 23 4T 66 "/>
@@ -290,4 +290,4 @@ El siguiente manifiesto de aplicación muestra muchas de las diferentes configur
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

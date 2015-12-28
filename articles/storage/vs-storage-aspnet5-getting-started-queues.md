@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,34 +13,25 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Introducción al almacenamiento de colas y a los servicios conectados de Visual Studio (ASP.NET 5)
 
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-aspnet5-getting-started-queues.md)
-> - [What happened](vs-storage-aspnet5-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet5-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
-
 ##Información general
 
-En este artículo se describe cómo empezar a usar el almacenamiento Tabla de Azure en Visual Studio después de crear a una cuenta de almacenamiento de Azure en un proyecto de ASP.NET 5 con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, o después de hacer referencia a una. La operación **Agregar servicios conectados** instala los paquetes de NuGet adecuados para tener acceso al almacenamiento de Azure en el proyecto y agrega la cadena de conexión para la cuenta de almacenamiento a los archivos de configuración del proyecto.
+En este artículo se describe cómo empezar a usar el almacenamiento Tabla de Azure en Visual Studio después de crear a una cuenta de almacenamiento de Azure en un proyecto de ASP.NET 5 con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, o después de hacer referencia a una. La operación **Agregar servicios conectados** instala los paquetes de NuGet adecuados para tener acceso al almacenamiento de Azure en el proyecto y agrega la cadena de conexión de la cuenta de almacenamiento a los archivos de configuración del proyecto.
 
 El almacenamiento de cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 kilobytes (KB) y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento.
 
 Para comenzar, necesita crear una cola de Azure en la cuenta de almacenamiento. Le mostraremos cómo crear una cola en el código. También le mostraremos cómo realizar operaciones básicas de cola, como agregar, modificar, leer y quitar mensajes de cola. Los ejemplos están escritos en código C# y utilizan la biblioteca del cliente de almacenamiento de Azure para .NET. Para obtener más información acerca de ASP.NET, consulte [ASP.NET](http://www.asp.net).
 
-**NOTA:** algunas de las API que realizan llamadas al almacenamiento de Azure en ASP.NET 5 son asincrónicas. Consulte [Programación asincrónica con Async y Await](http://msdn.microsoft.com/library/hh191443.aspx) para obtener más información. El código siguiente supone que se están utilizando métodos de programación asincrónica.
+**NOTA:** algunas de las API que realizan llamadas al almacenamiento de Azure en ASP.NET 5 son asincrónicas. Vea [Programación asincrónica con Async y Await](http://msdn.microsoft.com/library/hh191443.aspx) para más información. El código siguiente supone que se están utilizando métodos de programación asincrónica.
 
-- Consulte [Uso del almacenamiento de colas de .NET](storage-dotnet-how-to-use-queues.md) para obtener más información sobre la manipulación de colas mediante programación.
-- Consulte [Documentación sobre Almacenamiento](https://azure.microsoft.com/documentation/services/storage/) para obtener información general acerca del Almacenamiento de Azure.
-- Consulte [Documentación sobre Servicios en la nube](http://azure.microsoft.com/documentation/services/cloud-services/) para obtener información general acerca de los servicios en la nube de Azure.
-- Consulte [ASP.NET](http://www.asp.net) para obtener más información acerca de la programación de aplicaciones ASP.NET.
+- Vea [Uso del almacenamiento en cola de .NET](storage-dotnet-how-to-use-queues.md) para más información sobre la manipulación de colas mediante programación.
+- Vea [Documentación sobre Almacenamiento](https://azure.microsoft.com/documentation/services/storage/) para información general sobre Almacenamiento de Azure.
+- Vea [Documentación sobre Servicios en la nube](http://azure.microsoft.com/documentation/services/cloud-services/) para información general sobre los servicios en la nube de Azure.
+- Vea [ASP.NET](http://www.asp.net) para más información sobre la programación de aplicaciones ASP.NET.
 
 
 
@@ -99,7 +90,7 @@ Este es un ejemplo que inserta el mensaje "Hello, World".
 
 ##Leer un mensaje de una cola
 
-Puede inspeccionar el mensaje situado al principio de una cola sin quitarlo de ella, mediante una llamada al método **PeekMessageAsync**.
+Puede inspeccionar el mensaje situado al principio de una cola sin quitarlo de ella, llamando al método **PeekMessageAsync**.
 
 	// Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code".
 
@@ -152,7 +143,7 @@ Puede obtener una estimación del número de mensajes existentes en una cola. El
 
 ## Uso del patrón Async-Await con API de cola comunes
 
-En este ejemplo se muestra cómo usar el patrón Async-Await con API de cola comunes. El ejemplo llama a la versión asincrónica de cada uno de los métodos determinados. Esto se puede ver con el postfijo de Async de cada método. Cuando se usa un método asincrónico, el patrón Async-Await suspende la ejecución local hasta que se complete la llamada. Este comportamiento permite que el subproceso actual realice otro trabajo que ayuda a evitar cuellos de botella en el rendimiento y mejora la capacidad de respuesta general de la aplicación. Para obtener más información sobre el uso del patrón Async-Await en. NET, consulte [Async y Await (C# y Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
+En este ejemplo se muestra cómo usar el patrón Async-Await con API de cola comunes. El ejemplo llama a la versión asincrónica de cada uno de los métodos determinados. Esto se puede ver con el postfijo de Async de cada método. Cuando se usa un método asincrónico, el patrón Async-Await suspende la ejecución local hasta que se complete la llamada. Este comportamiento permite que el subproceso actual realice otro trabajo que ayuda a evitar cuellos de botella en el rendimiento y mejora la capacidad de respuesta general de la aplicación. Para más información sobre el uso del patrón Async-Await en. NET, vea [Async y Await (C# y Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code".
 
@@ -185,4 +176,4 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/11/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Descripción general de una IP reservada
@@ -41,7 +41,7 @@ Para impedir que cambien las direcciones IP, puede reservar una dirección IP. L
 
 Para poder usar IP reservadas, debe agregarlo a su suscripción. Para crear una IP reservada del grupo de direcciones IP públicas disponibles en la ubicación *Centro de EE. UU.* , ejecute el siguiente comando de PowerShell:
 
-	New-AzureReservedIP –ReservedIPName MyReservedIP –Location “Central US”
+	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
 
 Sin embargo, tenga en cuenta que no puede especificar qué IP se va a reservar. Para ver qué direcciones IP están reservadas en su suscripción, ejecute el siguiente comando de PowerShell y observe los valores de *ReservedIPName* y *Dirección*:
 
@@ -67,7 +67,7 @@ Una vez reservada una IP, permanece asociada a su suscripción hasta que la elim
 ## Asociación de una IP reservada a un nuevo servicio en la nube
 El script siguiente crea una nueva dirección IP reservada y, a continuación, la asocia a un nuevo servicio en la nube denominado *TestService*.
 
-	New-AzureReservedIP –ReservedIPName MyReservedIP –Location “Central US”
+	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
 	$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
 	New-AzureVMConfig -Name TestVM -InstanceSize Small -ImageName $image.ImageName `
 	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
@@ -119,4 +119,4 @@ También puede asociar una IP reservada a un servicio en la nube mediante un arc
 
 - Consulte las [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

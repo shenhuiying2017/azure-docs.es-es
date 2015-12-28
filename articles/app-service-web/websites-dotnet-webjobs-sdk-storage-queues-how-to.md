@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # Uso del almacenamiento de colas de Azure con el SDK de WebJobs
@@ -22,7 +22,7 @@
 
 Esta guía proporciona ejemplos de código C# que muestran cómo usar la versión 1.x del SDK de WebJobs de Azure con el servicio de almacenamiento de colas de Azure.
 
-En la guía se supone que sabe [cómo crear un proyecto de trabajos web en Visual Studio con cadenas de conexión que señalan a su cuenta de almacenamiento](websites-dotnet-webjobs-sdk-get-started.md).
+En la guía se supone que sabe [cómo crear un proyecto de trabajos web en Visual Studio con cadenas de conexión que señalan a su cuenta de almacenamiento](websites-dotnet-webjobs-sdk-get-started.md#configure-storage) o a [varias cuentas de almacenamiento](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 
 La mayoría de los fragmentos de código muestran solo las funciones, no el código que crea el objeto `JobHost` como en este ejemplo:
 
@@ -62,7 +62,8 @@ La guía incluye los siguientes temas:
 	- Configurar QueueTrigger
 	- Establecer valores para los parámetros del constructor del SDK de WebJobs en el código
 -   [Cómo desencadenar manualmente una función](#manual)
--   [Cómo escribir registros](#logs)
+-   [Cómo escribir registros](#logs) 
+-   [Control de errores y configuración de tiempos de espera](#errors)
 -   [Pasos siguientes](#nextsteps)
 
 ## <a id="trigger"></a> Cómo desencadenar una función cuando se recibe un mensaje en cola
@@ -131,13 +132,15 @@ El SDK implementa un algoritmo de interrupción exponencial aleatorio para reduc
 
 ### <a id="instances"></a> Varias instancias
 
-Si la aplicación web se ejecuta en varias instancias, un WebJobs continuo se ejecuta en cada máquina y estas, a su vez, esperarán a los desencadenadores e intentarán ejecutar funciones. En algunos escenarios puede ocurrir que algunas funciones procesen los mismos datos dos veces, por lo que las funciones deben ser idempotentes (escritas de tal forma que al llamarlas repetidamente con los mismos datos de entrada no se generen resultados duplicados).
+Si la aplicación web se ejecuta en varias instancias, un trabajo web continuo se ejecuta en cada máquina y esta última esperará a los desencadenadores e intentará ejecutar funciones. El desencadenador de la cola del SDK de WebJobs automáticamente impide que una función procese un mensaje de cola varias veces; las funciones no tienen que escribirse para que sean idempotentes. Sin embargo, si desea asegurarse de que solo una instancia de una función se ejecuta incluso cuando hay varias instancias de la aplicación web de host, puede utilizar el atributo `Singleton`.
 
 ### <a id="parallel"></a> Ejecución en paralelo
 
 Si tiene varias funciones escuchando en diferentes colas, el SDK las llamará en paralelo cuando se reciban mensajes simultáneamente.
 
-Esto también se da cuando se reciben varios mensajes de una sola cola. De forma predeterminada, el SDK obtiene un lote de 16 mensajes de la cola a la vez y ejecuta la función que se procesa en paralelo. [El tamaño del lote es configurable](#config). Cuando el número que se está procesando llegue a la mitad del tamaño del lote, el SDK obtiene otro lote y empieza a procesar los mensajes. Por lo tanto, el número máximo de mensajes simultáneos que se procesan por función es uno y medio por el tamaño del lote. Este límite se aplica por separado a cada función que tiene un atributo `QueueTrigger`. Si no desea la ejecución en paralelo de los mensajes en una cola, establezca el tamaño del lote en 1.
+Esto también se da cuando se reciben varios mensajes de una sola cola. De forma predeterminada, el SDK obtiene un lote de 16 mensajes de la cola a la vez y ejecuta la función que se procesa en paralelo. [El tamaño del lote es configurable](#config). Cuando el número que se está procesando llegue a la mitad del tamaño del lote, el SDK obtiene otro lote y empieza a procesar los mensajes. Por lo tanto, el número máximo de mensajes simultáneos que se procesan por función es uno y medio por el tamaño del lote. Este límite se aplica por separado a cada función que tiene un atributo `QueueTrigger`.
+
+Si no desea ejecutar en paralelo los mensajes en una cola, establezca el tamaño del lote en 1. Consulte también **más control sobre el procesamiento de colas** en [RTM de SDK de WebJobs de Azure 1.1.0](/blog/azure-webjobs-sdk-1-1-0-rtm/).
 
 ### <a id="queuemetadata"></a>Obtener metadatos de cola o de mensaje en cola
 
@@ -581,9 +584,31 @@ Y en una tabla de Azure, los registros de `Console.Out` y `Console.Error` tienen
 
 ![Registro de errores en la tabla](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableerror.png)
 
+Si desea conectar su propio registrador, consulte [este ejemplo](http://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Program.cs).
+
+## <a id="errors"></a>Control de errores y configuración de tiempos de espera
+
+El SDK de WebJobs también incluye un atributo de [tiempo de espera](http://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs) que puede usar para hacer que una función se cancele si no se completa dentro del período de tiempo especificado. Y si desea generar una alerta cuando se producen demasiados errores dentro de un período de tiempo especificado, puede utilizar el atributo `ErrorTrigger`. Este es un [ejemplo de ErrorTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Error-Monitoring).
+
+```
+public static void ErrorMonitor(
+[ErrorTrigger("00:01:00", 1)] TraceFilter filter, TextWriter log,
+[SendGrid(
+    To = "admin@emailaddress.com",
+    Subject = "Error!")]
+ SendGridMessage message)
+{
+    // log last 5 detailed errors to the Dashboard
+   log.WriteLine(filter.GetDetailedMessage(5));
+   message.Text = filter.GetDetailedMessage(1);
+}
+```
+
+También puede deshabilitar y habilitar de manera dinámica las funciones para controlar si pueden desencadenarse, mediante un modificador de configuración que podría ser una configuración de la aplicación o el nombre de variable de entorno. Para el código de ejemplo, consulte el atributo `Disable` del [repositorio de ejemplos del SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs).
+
 ## <a id="nextsteps"></a> Pasos siguientes
 
 En esta guía se han proporcionado ejemplos de código que muestran cómo controlar los escenarios comunes para trabajar con colas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

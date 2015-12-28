@@ -96,7 +96,6 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 <td>ValidationRetry</td><td>En espera de que se vuelva a intentar la validación.</td>
 </tr>
 <tr>
-&lt;tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>Validación en curso.</td>
 </tr>
 <td></td>
@@ -323,7 +322,7 @@ Para especificar una definición de alerta, cree un archivo JSON que describa la
 	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
 	                        "operationName": "RunFinished",
 	                        "status": "Failed",
-	                        "subStatus": "FailedExecution"   
+	                            "subStatus": "FailedExecution"   
 	                    }
 	                },
 	                "action": 
@@ -348,18 +347,16 @@ Nombre de la operación | Estado | Subestado
 -------------- | ------ | ----------
 RunStarted | Started | Iniciando
 RunFinished | Failed / Succeeded | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
-SliceOnTime | In Progress | Ontime
-SliceDelayed | In Progress | Late
 OnDemandClusterCreateStarted | Started
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
 
-Consulte [Crear regla de alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para más información sobre los elementos JSON utilizados en el ejemplo anterior.
+Vea [Crear regla de alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para más información sobre los elementos JSON usados en el ejemplo anterior.
 
 #### Implementación de alertas 
 Para implementar una alerta, use el cmdlet de PowerShell de Azure: **New-AzureResourceGroupDeployment**, como se muestra en el ejemplo siguiente:
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
 
 Una vez completada correctamente la implementación del grupo de recursos, verá los siguientes mensajes:
 
@@ -398,10 +395,10 @@ Para recuperar la lista de implementaciones del grupo de recursos de Azure imple
 
 - Aparecerán todos los eventos generados después de hacer clic en el icono **Operaciones** y se pueden configurar alertas en cualquiera de estas operaciones visibles en la hoja **Eventos**:
 
-	![Operaciones](./media/data-factory-monitor-manage-pipelines/operations.png)
+![Operaciones](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
-- Consulte el artículo [Azure Insight Cmdlets](https://msdn.microsoft.com/library/mt282452.aspx) para ver los cmdlets de PowerShell que puede usar para agregar, obtener o eliminar alertas. Estos son algunos ejemplos del uso del cmdlet **Get-AlertRule**:
+- Vea el artículo [Azure Insight Cmdlets](https://msdn.microsoft.com/library/mt282452.aspx) para ver los cmdlets de PowerShell que puede usar para agregar, obtener o quitar alertas. Estos son algunos ejemplos del uso del cmdlet **Get-AlertRule**:
 
 
 		PS C:\> get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
@@ -484,7 +481,7 @@ Una vez guardadas, las métricas pueden tardar hasta una hora en estar visibles 
 
 Para configurar alertas en métricas, haga clic en la secuencia siguiente de la hoja Factoría de datos: **Supervisión** -> **Métrica** -> **Agregar alerta** -> **Agregar una regla de alerta**.
 
-Rellene los detalles de la regla de alerta, especifique los correos electrónicos y haga clic en **Aceptar**.
+Rellene los detalles de la regla de alerta, especifique los mensajes de correo electrónico y haga clic en **Aceptar**.
 
 
 ![Configuración de alerta en métricas](./media/data-factory-monitor-manage-pipelines/setting-up-alerts-on-metrics.png)
@@ -545,7 +542,9 @@ Puede implementar alertas para las métricas de la misma manera que lo hace para
  
 Reemplace subscriptionId, resourceGroupName y dataFactoryName en el ejemplo anterior con los valores adecuados.
 
-*metricName* a partir de ahora admite dos valores: - FailedRuns - SuccessfulRuns.
+*metricName* a partir de ahora admite dos valores:
+- FailedRuns
+- SuccessfulRuns.
 
 **Implementación de alertas:**
 
@@ -569,4 +568,4 @@ Debería ver el siguiente mensaje después de la implementación correcta:
 	Parameters        :
 	Outputs           
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

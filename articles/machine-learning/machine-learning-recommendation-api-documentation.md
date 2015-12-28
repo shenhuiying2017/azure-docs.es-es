@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="12/10/2015" 
 	ms.author="LuisCa"/>
 
 #Documentación de la API de recomendación de Aprendizaje automático de Azure
@@ -26,37 +26,22 @@ Este documento describe las API de recomendaciones de Aprendizaje automático de
 ##1\. Información general
 Este documento es una referencia de API. Debe empezar con el documento "Recomendación de Aprendizaje automático de Azure: Inicio rápido".
 
-La API de recomendaciones de Aprendizaje automático de Azure se puede dividir en 10 grupos lógicos:
+La API de recomendaciones de Aprendizaje automático de Azure se puede dividir en los grupos lógicos siguientes:
 
-1.	<ins>Modelo básico</ins>: las API que le permiten realizar las operaciones básicas en el modelo (por ejemplo, crear, actualizar y eliminar un modelo).
-2.	<ins>Modelo avanzado</ins>: las API que le permiten obtener información avanzada de datos en el modelo
-3.	<ins>Reglas de negocio de modelo</ins>: las API que le permiten administrar reglas de negocio en los resultados de recomendación de modelo.
-4.	<ins>Catálogo</ins>: las API que le permiten realizar operaciones básicas en un catálogo de modelo. Un catálogo contiene información de metadatos sobre los elementos de los datos de uso.
-5.	<ins>Característica</ins>: las API que le permiten obtener información acerca de elementos del catálogo y cómo usar esta información para crear mejores recomendaciones.
-6.	<ins>Datos de uso</ins>: las API que le permiten realizar operaciones básicas en los datos de uso del modelo. Los datos de uso de la forma básica constan de filas que incluyen pares de &#60;userId&#62;,&#60;itemId&#62;.
-7.	<ins>Compilación</ins>: las API que le permiten desencadenar una compilación de modelo y realizar operaciones básicas relacionadas con esta compilación. Puede desencadenar una compilación de modelo una vez que tenga datos de uso valiosos.
-8.	<ins>Recomendación</ins>: las API que le permiten usar recomendaciones una vez que la compilación de un modelo finaliza.
-9.	<ins>Datos de usuario</ins>las API que le permiten capturar información sobre los datos de uso del usuario.
-10.	<ins>Notificaciones</ins>: las API que le permiten recibir notificaciones acerca de los problemas relacionados con las operaciones de API. (Por ejemplo, notifica el uso de los datos a través de la adquisición de datos y la mayor parte del procesamiento de eventos está dando errores. Se generará una notificación de error).
+- <ins>Limitaciones</ins>: Limitaciones de la API de recomendaciones.
+- <ins>Información general</ins>: Información sobre la autenticación, el identificador URI de servicio y el control de versiones.
+- <ins>Modelo básico</ins>: las API que le permiten realizar las operaciones básicas en el modelo (por ejemplo, crear, actualizar y eliminar un modelo).
+- <ins>Modelo avanzado</ins>: las API que le permiten obtener información avanzada de datos en el modelo
+- <ins>Reglas de negocio de modelo</ins>: las API que le permiten administrar reglas de negocio en los resultados de recomendación de modelo.
+- <ins>Catálogo</ins>: las API que le permiten realizar operaciones básicas en un catálogo de modelo. Un catálogo contiene información de metadatos sobre los elementos de los datos de uso.
+- <ins>Característica</ins>: Las API que permiten obtener información sobre el elemento del catálogo y cómo usar esta información para crear mejores recomendaciones.
+- <ins>Datos de uso</ins>: las API que le permiten realizar operaciones básicas en los datos de uso del modelo. Los datos de uso de la forma básica constan de filas que incluyen pares de &#60;userId&#62;,&#60;itemId&#62;.
+- <ins>Compilación</ins>: las API que le permiten desencadenar una compilación de modelo y realizar operaciones básicas relacionadas con esta compilación. Puede desencadenar una compilación de modelo una vez que tenga datos de uso valiosos.
+- <ins>Recomendación</ins>: las API que le permiten usar recomendaciones una vez que la compilación de un modelo finaliza.
+- <ins>Datos de usuario</ins>: Las API que permiten obtener información sobre los datos de uso del usuario.
+- <ins>Notificaciones</ins>: las API que le permiten recibir notificaciones acerca de los problemas relacionados con las operaciones de API. (Por ejemplo, notifica el uso de los datos a través de la adquisición de datos y la mayor parte del procesamiento de eventos está dando errores. Se generará una notificación de error).
 
-##2\. Temas avanzados
-
-###2\.1. Calidad de recomendación
-
-La creación de un modelo de recomendación suele ser suficiente para permitir que el sistema proporcione recomendaciones. No obstante, la calidad de recomendación varía según el uso procesado y la cobertura del catálogo. Por ejemplo si tiene muchos elementos fríos (sin uso significativo), el sistema tendrá dificultades para proporcionar una recomendación para un elemento de este tipo o para usar un elemento de este tipo como recomendado. Para solucionar el problema con los elementos fríos, el sistema permite el uso de metadatos de los elementos para mejorar las recomendaciones. Estos metadatos se conocen como características. Características típicas son el autor de un libro o el actor de una película. Las características se proporcionan mediante el catálogo en forma de cadenas de clave y valor. Para obtener el formato completo del archivo de catálogo, consulte la [sección sobre la importación del catálogo](#81-import-catalog-data). En la siguiente sección se explica el uso de características para mejorar el modelo de recomendación.
-
-###2\.2. Compilación de rango
-
-Las características pueden mejorar el modelo de recomendación, pero para ello se requiere el uso de características significativas. Con este fin se introdujo una nueva compilación, una compilación de rango. Esta compilación clasifica la utilidad de las características. Una característica significativa es una característica con una puntuación de rango de 2 para arriba.
-Una vez que conozca cuáles de las características son significativas, desencadene una compilación de recomendación con la lista (o sublista) de características significativas. Es posible utilizar estas características para la mejora de los elementos fríos y calientes. Para poder usarlas con los elementos calientes, se debe configurar el parámetro de compilación `UseFeatureInModel`. Para poder usarlas con los elementos fríos, se debe configurar el parámetro de compilación `AllowColdItemPlacement`.
-Nota: no es posible habilitar `AllowColdItemPlacement` sin habilitar `UseFeatureInModel`.
-
-###2\.3. Razonamiento de recomendación
-
-El razonamiento de la recomendación es otro aspecto del uso de características. De hecho, el motor de recomendaciones de Aprendizaje automático de Azure puede utilizar características para proporcionar explicaciones de recomendaciones (también conocido como razonamiento), lo que conduce a una mayor confianza en el elemento recomendado del consumidor de la recomendación.
-Para habilitar el razonamiento, los parámetros `AllowFeatureCorrelation` y `ReasoningFeatureList` deben configurarse antes de solicitar una compilación de recomendación.
-
-##3\. Limitaciones
+##2\. Limitaciones
 
 - El número máximo de modelos por suscripción es 10.
 - El número máximo de elementos que puede contener un catálogo es 100 000.
@@ -64,21 +49,36 @@ Para habilitar el razonamiento, los parámetros `AllowFeatureCorrelation` y `Rea
 - El tamaño máximo de datos que puede enviarse en POST (por ejemplo, importar datos de catálogo, importar datos de uso) es de 200 MB
 - El número de transacciones por segundo para una compilación de modelo de recomendación que no está activa es ~ 2TPS. Una compilación de modelo de recomendación que está activa puede contener hasta 20TPS.
 
-##4\. API: información general
+##3\. API: información general
 
-###4\.1. Autenticación
+###3\.1. Autenticación
 Siga las directrices de Microsoft Azure Marketplace con respecto a la autenticación. Marketplace admite métodos de autenticación Básica o OAuth.
 
-###4\.2. URI de servicio
+###3\.2. URI de servicio
 El URI raíz de servicio para cada una de las API de recomendaciones de Aprendizaje automático de Azure se encuentra [aquí](https://api.datamarket.azure.com/amla/recommendations/v3/).
 
 El URI de servicio completo se expresa mediante elementos de la especificación de OData.
 
-###4\.3. Versión de API
+###3\.3. Versión de API
 Cada llamada a la API tendrá al final el parámetro de consulta denominado apiVersion que debe estar establecido en 1.0
 
-###4\.4. Los Id. distinguen mayúsculas de minúsculas
+###3\.4. Los Id. distinguen mayúsculas de minúsculas
 Los Id., devueltos por cualquiera de las API, distinguen mayúsculas de minúsculas y deben usarse como tales cuando se pasan como parámetros en las sucesivas llamadas a API. Por ejemplo, los Id. de modelo y de catálogo distinguen mayúsculas de minúsculas.
+
+##4\. Calidad de recomendaciones y elementos fríos
+
+###4\.1. Calidad de recomendación
+
+La creación de un modelo de recomendación suele ser suficiente para permitir que el sistema proporcione recomendaciones. No obstante, la calidad de recomendación varía según el uso procesado y la cobertura del catálogo. Por ejemplo si tiene muchos elementos fríos (sin uso significativo), el sistema tendrá dificultades para proporcionar una recomendación para un elemento de este tipo o para usar un elemento de este tipo como recomendado. Para solucionar el problema con los elementos fríos, el sistema permite el uso de metadatos de los elementos para mejorar las recomendaciones. Estos metadatos se conocen como características. Características típicas son el autor de un libro o el actor de una película. Las características se proporcionan mediante el catálogo en forma de cadenas de clave y valor. Para obtener el formato completo del archivo de catálogo, consulte la [sección sobre la importación del catálogo](#81-import-catalog-data).
+
+###4\.2. Compilación de rango
+
+Las características pueden mejorar el modelo de recomendación, pero para ello se requiere el uso de características significativas. Con este fin se introdujo una nueva compilación, una compilación de rango. Esta compilación clasifica la utilidad de las características. Una característica significativa es una característica con una puntuación de rango de 2 para arriba. Una vez que conozca cuáles de las características son significativas, desencadene una compilación de recomendación con la lista (o sublista) de características significativas. Es posible utilizar estas características para la mejora de los elementos fríos y calientes. Para poder usarlas con los elementos calientes, se debe configurar el parámetro de compilación `UseFeatureInModel`. Para poder usarlas con los elementos fríos, se debe configurar el parámetro de compilación `AllowColdItemPlacement`. Nota: no es posible habilitar `AllowColdItemPlacement` sin habilitar `UseFeatureInModel`.
+
+###4\.3. Razonamiento de recomendación
+
+El razonamiento de la recomendación es otro aspecto del uso de características. De hecho, el motor de recomendaciones de Aprendizaje automático de Azure puede utilizar características para proporcionar explicaciones de recomendaciones (también conocido como razonamiento), lo que conduce a una mayor confianza en el elemento recomendado del consumidor de la recomendación. Para habilitar el razonamiento, los parámetros `AllowFeatureCorrelation` y `ReasoningFeatureList` deben configurarse antes de solicitar una compilación de recomendación.
+
 
 ##5\. Modelo básico
 
@@ -798,14 +798,17 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 </pre>
 
+
+
+
 ##7\. Reglas de negocio de modelo
-Hay 4 tipos de reglas:
-- <strong>BlockList</strong>: le permite proporcionar una lista de elementos que no desea devolver en los resultados de la recomendación.
-- <strong>FeatureBlockList</strong>: FeatureBlockList le permite bloquear los elementos basados en los valores de sus características.
-- <strong>Upsale</strong>: le permite exigir los elementos que se devolverán en los resultados de la recomendación.
-- <strong>WhiteList</strong>: le permite proporcionar la lista de elementos que solo se pueden devolver como resultados de recomendación (lo contrario a BlockList).
-- <strong>FeatureWhiteList</strong>: FeatureWhiteList solo le permite recomendar elementos que tienen valores de características específicos.
-- <strong>PerSeedBlockList</strong>; le permite proporcionar por elemento una lista de elementos que no se pueden devolver como resultados de recomendación.
+Estos son los tipos de reglas que se admiten:
+- <strong>BlockList</strong>: BlockList le permite ofrecer una lista de elementos que no desea devolver en los resultados de recomendación. 
+- <strong>FeatureBlockList</strong>: FeatureBlockList le permite bloquear elementos en función de los valores de sus características. 
+- <strong>Upsale</strong>: Upsale le permite aplicar elementos para que se devuelvan en los resultados de recomendación. 
+- <strong>WhiteList</strong>: WhiteList solo le permite sugerir recomendaciones de una lista de elementos. 
+- <strong>FeatureWhiteList</strong>: FeatureWhiteList solo le permite recomendar elementos con valores de características específicos. 
+- <strong>PerSeedBlockList</strong>: PerSeedBlockList le permite ofrecer por elemento una lista de elementos que no se pueden devolver como resultados de recomendación.
 
 
 ###7\.1. Obtener reglas de modelo
@@ -1880,7 +1883,7 @@ En la siguiente tabla se describen los parámetros de compilación para una comp
 |FbtSupportThreshold | Cómo es el modelo conservador. Número de concurrencias de elementos que deben tenerse en cuenta para el modelado.| Entero | 3-50 (6) |
 |FbtMaxItemSetSize | Limita el número de elementos en un conjunto frecuente.| Entero | 2-3 (2) |
 |FbtMinimalScore | Puntuación mínima que debe tener un conjunto frecuente para incluirlo en los resultados devueltos. Cuanto mayor sea mejor.| Doble | 0 y superior (0) |
-|FbtSimilarityFunction | Define la función de similitud que usará la compilación. | String | cooccurrence, lift, jaccard (lift) |
+|FbtSimilarityFunction | Define la función de similitud que usará la compilación. Lift favorece la serendipia, Co-occurrence favorece la previsibilidad y Jaccard es un estupendo compromiso que comparten. | String | cooccurrence, lift, jaccard (lift) |
 
 
 ###11\.2. Desencadenar una compilación de recomendación
@@ -1891,7 +1894,7 @@ En la siguiente tabla se describen los parámetros de compilación para una comp
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
-|ENCABEZADO |`"Content-Type", "text/xml"` (Si se envía el cuerpo de solicitud)|
+|ENCABEZADO |`"Content-Type", "text/xml"` (Si se envía el cuerpo de la solicitud)|
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
@@ -1966,7 +1969,7 @@ XML de OData
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&buildType=%27<buildType>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&buildType=%27Ranking%27&apiVersion=%271.0%27`|
-|ENCABEZADO |`"Content-Type", "text/xml"` (Si se envía el cuerpo de solicitud)|
+|ENCABEZADO |`"Content-Type", "text/xml"` (Si se envía el cuerpo de la solicitud)|
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
@@ -2832,7 +2835,7 @@ Notas:
 
 | Método HTTP | URI |
 |:--------|:--------|
-|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%2C1000%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
@@ -2940,7 +2943,7 @@ Recupere la lista de elementos usados en la compilación activa o en la compilac
 
 | Método HTTP | URI |
 |:--------|:--------|
-|GET | Obtenga el historial del usuario para la compilación activa.<br/>`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&apiVersion=%271.0%27`<br/><br/>Obtener el historial del usuario para la compilación indicada `<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&buildId=<int>&apiVersion=%271.0%27`<br/><br/>Ejemplo:`<rootURI>/GetUserHistory?modelId=%2727967136e8-f868-4258-9331-10d567f87fae%27&&userId=%27u_1013%27&apiVersion=%271.0%277`|
+|GET | Obtenga el historial de usuarios para la compilación activa.<br/>`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&apiVersion=%271.0%27`<br/><br/>Obtener el historial de usuarios para la compilación indicada `<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&buildId=<int>&apiVersion=%271.0%27`<br/><br/>Ejemplo:`<rootURI>/GetUserHistory?modelId=%2727967136e8-f868-4258-9331-10d567f87fae%27&&userId=%27u_1013%27&apiVersion=%271.0%277`|
 
 
 |	Nombre de parámetro |	Valores válidos |
@@ -3094,4 +3097,4 @@ Este documento no proporciona ningún derecho legal a la propiedad intelectual d
 © 2015 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="12/11/2015" 
 	ms.author="wesmc"/>
 
 # Envío de notificaciones entre plataformas a los usuarios con Centros de notificaciones
@@ -88,9 +88,6 @@ Ahora que completó este tutorial, obtenga más información acerca de los Centr
 
 +  **[Información general acerca de los centros de notificaciones de Azure][Templates]** <br/>Este tema de información general contiene información más detallada sobre las plantillas.
 
-+  **[Procedimientos en los Centros de notificaciones para la Tienda Windows]**<br/>Incluye una referencia al lenguaje de la expresión de plantilla.
-
-
 
 <!-- Anchors. -->
 
@@ -108,6 +105,6 @@ Ahora que completó este tutorial, obtenga más información acerca de los Centr
 [Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
 [Notificación a los usuarios con Centros de notificaciones]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
-[Procedimientos en los Centros de notificaciones para la Tienda Windows]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
+[Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="Uso de Escritorio de remoto con los roles de Azure"
+   pageTitle="Uso de Escritorio remoto con roles de Azure | Microsoft Azure"
    description="Uso de Escritorio de remoto con los roles de Azure"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="multiple"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Uso de Escritorio de remoto con los roles de Azure
 
@@ -75,4 +75,4 @@ Después de publicar el servicio en la nube en Azure, puede usar el Explorador d
 
 1. Escriba el nombre de usuario y la contraseña que ha creado anteriormente. Ahora está registrado en la sesión remota.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

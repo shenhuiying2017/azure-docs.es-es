@@ -40,7 +40,7 @@ La mejor manera de implementar una aplicación web es configurar un [flujo de tr
 
 * [Automatización de la implementación con MSBuild](#msbuild)
 * [Copia de archivos con scripts y herramientas FTP](#ftp)
-* [Automatización de la implementación con Windows PowerShell(#powershell)
+* [Automatización de la implementación con Windows PowerShell](#powershell)
 * [Automatización de la implementación con la API de administración de .NET](#api)
 * [Implementación desde la interfaz de la línea de comandos de Azure (CLI de Azure)](#cli)
 * [Implementación desde la línea de comandos de Web Deploy](#webdeploy)
@@ -52,14 +52,14 @@ La mejor manera de implementar una aplicación web es configurar un [flujo de tr
 
 Otra opción de implementación es usar un servicio basado en la nube como [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). Para obtener más información, consulte [Deploy ASP.NET applications to Azure Web Sites](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites) (Implementación de aplicaciones ASP.NET en Sitios web de Azure).
 
-##<a name="vso"></a>Entrega continua mediante Visual Studio Team Services
+##<a name="vsts"></a>Entrega continua mediante Visual Studio Team Services
 
 [Visual Studio Team Services](http://www.visualstudio.com/) (anteriormente, Team Foundation Service) es una solución de Microsoft basada en la nube para el control del código fuente y la colaboración en equipo. El servicio es gratuito para un equipo de hasta cinco desarrolladores. Puede hacer la entrega continua a una aplicación web en servicios de aplicaciones y el repositorio puede usar [Git o TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
 
 Para obtener más información, consulte los siguientes recursos:
 
 * [Entrega continua a Azure mediante Visual Studio Team Services y TFVC](../cloud-services-continuous-delivery-use-vso.md). Tutorial paso a paso que muestra cómo configurar la entrega continua desde Visual Studio Team Services a una aplicación web, mediante TFVC. TFVC es la opción de control de código fuente centralizado, al contrario que Git, que es la opción de control de código fuente distribuido.
-* [Entrega continua a Azure mediante Visual Studio Team Services y Git](../cloud-services-continuous-delivery-use-vso-git.md). Similar al tutorial anterior, pero usa Git en lugar de TFVC.
+* [Entrega continua a Azure con Visual Studio Team Services y Git](../cloud-services-continuous-delivery-use-vso-git.md). Similar al tutorial anterior, pero usa Git en lugar de TFVC.
 
 ##<a name="git"></a>Sitios web de repositorio con Git
 
@@ -142,7 +142,7 @@ Para obtener más información acerca de la implementación de la línea de coma
 
 ##<a name="ftp"></a>Copia de archivos con scripts y herramientas FTP
 
-Puede implementar contenido en la aplicación mediante el uso del [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para copiar archivos. Crear credenciales de FTP para una aplicación web es una tarea sencilla, y puede usarlas en scripts o en aplicaciones que funcionen con FTP, incluyendo exploradores como Internet Explorer y utilidades gratuitas completas, como [FileZilla](https://filezilla-project.org/). Las aplicaciones web también admiten el protocolo FTPS más seguro.
+Puede implementar contenido en la aplicación mediante el uso de [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para copiar archivos. Crear credenciales de FTP para una aplicación web es una tarea sencilla y puede usarlas en scripts o en aplicaciones que funcionen con FTP, incluidos exploradores, como Internet Explorer, y utilidades gratuitas completas, como [FileZilla](https://filezilla-project.org/). Las aplicaciones web también admiten el protocolo FTPS más seguro.
 
 A pesar de que es fácil copiar los archivos de la aplicación web a Azure con utilidades de FTP, no se ocupan automáticamente de tareas de implementación relacionadas, ni tampoco las coordinan, como la implementación de una base de datos o el cambio de las cadenas de conexión. Además, muchas herramientas de FTP no comparan archivos de origen y archivos de destino para omitir copiar archivos que no se han modificado. En el caso de aplicaciones de gran tamaño, si siempre se copian todos los archivos, la implementación lleva demasiado tiempo incluso para actualizaciones pequeñas, debido a que siempre se copian todos los archivos.
 
@@ -204,4 +204,4 @@ Para obtener información sobre otros temas de implementación, consulte la secc
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

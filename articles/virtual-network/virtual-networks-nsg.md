@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # ¿Qué es un grupo de seguridad de red?
@@ -248,4 +248,4 @@ Puesto que algunos de los grupos de seguridad de red mencionados anteriormente d
 - [Implemente grupos de seguridad de red en el Administrador de recursos](virtual-networks-create-nsg-arm-pportal.md).
 - [Administración de registros de grupo de seguridad de red](virtual-network-nsg-manage-log.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

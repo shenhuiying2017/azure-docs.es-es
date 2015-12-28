@@ -69,7 +69,7 @@ Deberá establecer una conexión remota para iniciar sesión en la máquina virt
 - [Inicio de sesión en una máquina virtual con Windows Server](virtual-machines-log-on-windows-server.md). Se admite un máximo de 2 conexiones simultáneas, a menos que el servidor está configurado como un host de sesión de servicios de escritorio remoto.  
 - [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md). De forma predeterminada, SSH permite un máximo de 10 conexiones simultáneas. Puede aumentar este número editando el archivo de configuración.
 
-Si tiene problemas con el Escritorio remoto o SSH, instale y use la extensión [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856); esta le ayudará a solucionar el problema.
+Si tiene problemas con el Escritorio remoto o SSH, instale y use la extensión [VMAccess](virtual-machines-extensions-features.md); esta le ayudará a solucionar el problema.
 
 En las máquinas virtuales de Windows, entre las opciones adicionales se incluyen:
 
@@ -102,7 +102,7 @@ Para obtener información general sobre las herramientas y procesos para migrar 
 
 Las imágenes proporcionadas por Azure no tienen un nombre de usuario configurado previamente y una contraseña. Cuando cree la máquina virtual mediante una de esas imágenes, deberá proporcionar un nombre de usuario y una contraseña, que usará para iniciar sesión en la máquina virtual.
 
-Si ha olvidado el nombre de usuario o contraseña y ha instalado el Agente de máquina virtual, puede instalar y usar la extensión [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) para corregir el problema.
+Si ha olvidado el nombre de usuario o contraseña y ha instalado el Agente de máquina virtual, puede instalar y usar la extensión [VMAccess](virtual-machines-extensions-features.md) para corregir el problema.
 
 Detalles adicionales:
 
@@ -158,4 +158,4 @@ Para proporcionar redundancia, coloque dos o más máquinas virtuales configurad
 
 [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

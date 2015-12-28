@@ -62,7 +62,7 @@
 - [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 - [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/ms174283.aspx)
 - DBCC SHRINKLOG
-- DBCC PDW\_SHOWEXECUTIONPLAN
+- [DBCC PDW\_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx)
 - DBCC PDW\_SHOWPARTITIONSTATS
 - DBCC PDW\_SHOWSPACEUSED
 - [DBCC SHOW\_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx)
@@ -116,7 +116,7 @@
 
 
 ## Pasos siguientes
-Para obtener más ejemplos TSQL, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][].
+Para más ejemplos TSQL, vea la [información general sobre desarrollo de Almacenamiento de datos SQL][].
 
 <!--Image references-->
 
@@ -128,4 +128,4 @@ Para obtener más ejemplos TSQL, consulte la [información general sobre desarro
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

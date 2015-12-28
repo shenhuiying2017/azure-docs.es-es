@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/04/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Administración de listas de control de acceso (ACL) para extremos mediante PowerShell
@@ -97,4 +97,4 @@ En ciertas situaciones, puede que desee quitar un objeto de ACL de red de un ext
 
 [Configuración de la comunicación con la máquina virtual](http://go.microsoft.com/fwlink/?LinkId=303938)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

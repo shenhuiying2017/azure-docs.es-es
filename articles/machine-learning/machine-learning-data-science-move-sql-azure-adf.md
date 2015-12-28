@@ -53,14 +53,14 @@ En este tutorial se asume que dispone de:
 
 ##<a name="upload-data"></a> Cargar los datos al servidor SQL Server local
 
-Usamos el [conjunto de datos de taxis de Nueva York](http://chriswhong.com/open-data/foil_nyc_taxi/) para demostrar el proceso de migración. El conjunto de datos de taxis de Nueva York está disponible, como se especificó en esa publicación, en el almacenamiento de blobs de Azure [aquí](http://www.andresmh.com/nyctaxitrips/). Los datos tienen dos archivos, el archivo trip\_data.csv, que contiene detalles de carreras, y el archivo trip\_far.csv, que contiene detalles de la tarifa de cada carrera. En [Descripción del conjunto de datos de carreras de taxi de Nueva York](machine-learning-data-science-process-sql-walkthrough.md#dataset), se proporciona un ejemplo y una descripción de estos archivos.
+Usamos el [conjunto de datos de taxis de Nueva York](http://chriswhong.com/open-data/foil_nyc_taxi/) para demostrar el proceso de migración. El conjunto de datos de taxis de Nueva York está disponible, como se especificó en esa publicación, en el almacenamiento de blobs de Azure [Datos de taxis de Nueva York](http://www.andresmh.com/nyctaxitrips/). Los datos tienen dos archivos, el archivo trip\_data.csv, que contiene detalles de carreras, y el archivo trip\_far.csv, que contiene detalles de la tarifa de cada carrera. En [Descripción del conjunto de datos de carreras de taxi de Nueva York](machine-learning-data-science-process-sql-walkthrough.md#dataset), se proporciona un ejemplo y una descripción de estos archivos.
 
 
 Puede adaptar el procedimiento que se proporciona aquí para un conjunto de datos propios o seguir los pasos descritos para el uso del conjunto de datos de taxis de Nueva York. Para cargar el conjunto de datos de taxis de Nueva York en la base de datos de SQL Server local, siga el procedimiento descrito en [Importación masiva de datos en una base de datos de SQL Server](machine-learning-data-science-process-sql-walkthrough.md#dbload). Estas instrucciones son para un servidor SQL Server en una máquina virtual de Azure, pero el procedimiento para realizar la carga en el servidor SQL Server local es el mismo.
 
 ##<a name="create-adf"></a> Crear una factoría de datos de Azure
 
-Las instrucciones para crear una nueva factoría de datos de Azure y un grupo de recursos en el [Portal de Azure](https://ms.portal.azure.com/) se proporcionan [aquí](data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Ponga el nombre *adfdsp* a la nueva instancia de ADF y el nombre *adfdsprg* al grupo de recursos creado.
+Las instrucciones para crear una nueva factoría de datos de Azure y un grupo de recursos en el [Portal de Azure](https://ms.portal.azure.com/) se proporcionan en [Crear una factoría de datos de Azure](data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Ponga el nombre *adfdsp* a la nueva instancia de ADF y el nombre *adfdsprg* al grupo de recursos creado.
 
 ## Instalar y configurar Data Management Gateway
 
@@ -301,4 +301,4 @@ Una vez que se ejecuta la canalización, debe poder ver los datos que aparecen e
 
 Observe que no hemos aprovechado la funcionalidad que proporciona la ADF para canalizar los datos de forma incremental. Para obtener más detalles sobre cómo hacer esto y sobre otras capacidades que proporciona la ADF, consulte la [documentación de ADF](http://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

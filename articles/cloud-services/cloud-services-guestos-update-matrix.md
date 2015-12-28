@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="11/13/2015"
+   ms.date="12/15/2015"
    ms.author="yuemlu"/>
 
 # Matriz de compatibilidad del SDK y lanzamientos del SO invitado de Azure.
@@ -27,7 +27,12 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 > [AZURE.TIP]Suscríbase a la [Fuente RSS de actualización del SO invitado][rss] para recibir la notificación más puntual en todos los cambios del sistema operativo invitado. Los cambios mencionados en la fuente se integrarán en esta página cada semana aproximadamente.
 
 
+
 ## Actualizaciones de noticias
+
+###### **9 de diciembre de 2015**
+La implementación del SO invitado de diciembre comienza hoy, 10 de diciembre de 2015, y está previsto que se publique el 8 de enero de 2016.
+
 ###### **12 de noviembre de 2015**  
 El 7 de agosto de 2014, Microsoft anunció que el soporte para .NET Framework 4, 4.5 y 4.5.1 finalizará el 12 de enero de 2016. Se recomienda que, para el 12 de enero de 2016, los clientes y desarrolladores completen la actualización en contexto a .NET Framework 4.5.2 para seguir recibiendo soporte técnico y actualizaciones de seguridad. Visite la directiva de ciclo de vida de soporte técnico de Microsoft .NET Framework para obtener más detalles.
 
@@ -59,7 +64,7 @@ Antes de actualizar, estas son algunas de las opciones para ayudar a validar el 
 
 1. 	Implemente un rol de servicio en la nube de prueba en la versión 201511-02 y lleve a cabo la validación de compatibilidad de aplicaciones. 
 
-2. 	Instale .NET 4.5.2 en un rol de servicio en la nube de prueba y lleve a cabo la validación de compatibilidad de aplicaciones. Consulte [Instalación de .NET en un rol de servicio en la nube] para obtener instrucciones.
+2. 	Instale .NET 4.5.2 en un rol de servicio en la nube de prueba y lleve a cabo la validación de compatibilidad de aplicaciones. Vea [Instalación de .NET en un rol de servicio en la nube] para instrucciones.
 
 3. 	Lleve a cabo la validación de compatibilidad de aplicaciones en una VM independiente, ya sea localmente o en una VM de Azure con .NET 4.5.2 instalado.
 
@@ -168,10 +173,11 @@ Admite .NET 4.0, 4.5, 4.5.1, 4.5.2 (Nota 2)
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 4\.26 | WA-GUEST-OS-4.26\_201511-02 | Proyectado para el 10 de diciembre de 2015 | Se actualizará cuando se publique la versión 4.28 | TBD |
-| 4\.26 | WA-GUEST-OS-4.26\_201511-01 | Proyectado para el 10 de diciembre de 2015 | Se actualizará cuando se publique la versión 4.28 | TBD |
+| 4\.27 | WA-GUEST-OS-4.27\_201512-01 | Proyectado para el 8 de enero de 2016 | Se actualizará cuando se publique la versión 4.29 | TBD |
+| 4\.26 | WA-GUEST-OS-4.26\_201511-02 | Proyectado para el 16 de diciembre de 2015 | Se actualizará cuando se publique la versión 4.28 | TBD |
+| 4\.26 | WA-GUEST-OS-4.26\_201511-01 | 10 de diciembre de 2015 | Se actualizará cuando se publique la versión 4.28 | TBD |
 | 4\.25 | WA-GUEST-OS-4.25\_201510-01 | 6 de noviembre de 2015 | Se actualizará cuando se lance la versión 4.27 | TBD |
-| 4\.24 | WA-GUEST-OS-4.24\_201509-01 | 1 de octubre de 2015 | Se actualizará cuando se lance la versión 4.26 | TBD |
+| 4\.24 | WA-GUEST-OS-4.24\_201509-01 | 1 de octubre de 2015 | 10 de enero de 2016 | TBD |
 | 4\.23 | WA-GUEST-OS-4.23\_201508-02 | 9 de septiembre de 2015 | 6 de diciembre de 2015 | TBD |
 | 4\.22 | WA-GUEST-OS-4.22\_201507-02 | 7 de agosto de 2015 | 1 de noviembre de 2015 | TBD |
 | 4\.21 | WA-GUEST-OS-4.21\_201506-01 | 9 de julio de 2015 | 9 de octubre de 2015 | TBD |
@@ -197,10 +203,11 @@ Admite .NET 4.0, 4.5
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 3\.33 | WA-GUEST-OS-3.33\_201511-02 | Proyectado para el 10 de diciembre de 2015 | Se actualizará cuando se lance la versión 3.35 | TBD |
-| 3\.33 | WA-GUEST-OS-3.33\_201511-01 | Proyectado para el 10 de diciembre de 2015 | Se actualizará cuando se lance la versión 3.35 | TBD |
+| 3\.34 | WA-GUEST-OS-3.34\_201512-01 | Proyectado para el 8 de enero de 2016 | Se actualizará cuando se publique la versión 3.36 | TBD |
+| 3\.33 | WA-GUEST-OS-3.33\_201511-02 | Proyectado para el 16 de diciembre de 2015 | Se actualizará cuando se lance la versión 3.35 | TBD |
+| 3\.33 | WA-GUEST-OS-3.33\_201511-01 | 10 de diciembre de 2015 | Se actualizará cuando se lance la versión 3.35 | TBD |
 | 3\.32 | WA-GUEST-OS-3.32\_201510-01 | 6 de noviembre de 2015 | Se actualizará cuando se lance la versión 3.34 | TBD |
-| 3\.31 | WA-GUEST-OS-3.31\_201509-01 | 1 de octubre de 2015 | Se actualizará cuando se lance la versión 3.33 | TBD |
+| 3\.31 | WA-GUEST-OS-3.31\_201509-01 | 1 de octubre de 2015 | 10 de enero de 2016 | TBD |
 | 3\.30 | WA-GUEST-OS-3.30\_201508-02 | 9 de septiembre de 2015 | 6 de diciembre de 2015 | TBD |
 | 3\.29 | WA-GUEST-OS-3.29\_201507-02 | 7 de agosto de 2015 | 1 de noviembre de 2015 | TBD |
 | 3\.28 | WA-GUEST-OS-3.28\_201506-01 | 9 de julio de 2015 | 9 de octubre de 2015 | TBD |
@@ -227,10 +234,11 @@ Admite .NET 3.5, 4.0
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 2\.45 | WA-GUEST-OS-2.45\_201511-02 | Proyectado para el 10 de diciembre de 2015 | Se actualizará cuando se publique la versión 2.47 | TBD |
-| 2\.45 | WA-GUEST-OS-2.45\_201511-01 | Proyectado para el 10 de diciembre de 2015 | Se actualizará cuando se publique la versión 2.47 | TBD |
+| 2\.46 | WA-GUEST-OS-2.46\_201512-01 | Proyectado para el 8 de enero de 2015 | Se actualizará cuando se publique la versión 2.48 | TBD |
+| 2\.45 | WA-GUEST-OS-2.45\_201511-02 | Proyectado para el 16 de diciembre de 2015 | Se actualizará cuando se publique la versión 2.47 | TBD |
+| 2\.45 | WA-GUEST-OS-2.45\_201511-01 | 10 de diciembre de 2015 | Se actualizará cuando se publique la versión 2.47 | TBD |
 | 2\.44 | WA-GUEST-OS-2.44\_201510-01 | 6 de noviembre de 2015 | Se actualizará cuando se lance la versión 2.46 | TBD |
-| 2\.43 | WA-GUEST-OS-2.43\_201509-01 | 1 de octubre de 2015 | Se actualizará cuando se lance la versión 2.45 | TBD |
+| 2\.43 | WA-GUEST-OS-2.43\_201509-01 | 1 de octubre de 2015 | 10 de enero de 2016 | TBD |
 | 2\.42 | WA-GUEST-OS-2.42\_201508-02 | 9 de septiembre de 2015 | 6 de diciembre de 2015 | TBD |
 | 2\.41 | WA-GUEST-OS-2.41\_201507-02 | 7 de agosto de 2015 | 1 de noviembre de 2015 | TBD |
 | 2\.40 | WA-GUEST-OS-2.40\_201506-01 | 9 de julio de 2015 | 9 de octubre de 2015 | TBD |
@@ -394,4 +402,4 @@ Debido a la implementación parcial de los dos últimos lanzamientos, los usuari
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

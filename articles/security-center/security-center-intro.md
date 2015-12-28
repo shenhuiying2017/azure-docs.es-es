@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/10/2015"
    ms.author="terrylan"/>
 
 # Introducción al Centro de seguridad de Azure
@@ -112,7 +112,7 @@ Al Centro de seguridad de Azure se accede desde el [Portal de Azure](http://azur
 En este documento se presentó el Centro de seguridad de Azure, sus capacidades clave y cómo empezar a usarlo. Para obtener más información, consulte:
 
 - [Configuración de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md): obtenga información acerca de cómo configurar las directivas de seguridad
-- [Implementación de recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md): obtenga información acerca de cómo las recomendaciones le ayudan a proteger sus recursos de Azure
+- [Administración de recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md): obtenga información sobre cómo las recomendaciones le ayudan a proteger sus recursos de Azure.
 - [Supervisión del estado de seguridad en Centro de seguridad de Azure](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
 - [Administración de alertas de seguridad y respuesta a estas en Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar alertas de seguridad y responder a estas.
 - [Preguntas más frecuentes acerca del Centro de seguridad de Azure](security-center-faq.md): busque las preguntas más frecuentes sobre cómo usar el servicio.
@@ -126,4 +126,4 @@ En este documento se presentó el Centro de seguridad de Azure, sus capacidades 
 [5]: ./media/security-center-intro/security-alert.png
 [6]: ./media/security-center-intro/security-alert-detail.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

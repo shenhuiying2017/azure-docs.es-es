@@ -19,6 +19,17 @@
 
 # Creación y preconfiguración de una máquina virtual de Windows con el Administrador de recursos y Azure PowerShell
 
+> [AZURE.SELECTOR]
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [Azure CLI](virtual-machines-linux-tutorial.md)
+
+<br>
+
+
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
 Estos pasos le muestran cómo crear un conjunto de comandos de Azure PowerShell para crear y configurar una máquina virtual de Azure. Puede utilizar este proceso de bloques de creación para crear de forma rápida un conjunto de comandos para una nueva máquina virtual basada en Windows y expandir una implementación existente. También puede utilizarlo para crear varios conjuntos de comandos que crean rápidamente un entorno personalizado de pruebas/desarrollo o de profesional de TI.
@@ -120,7 +131,7 @@ Use este comando para enumerar los conjuntos de disponibilidad existentes.
 
 ### Reglas NAT
 
-Las máquinas virtuales basadas en el Administrador de recursos pueden configurarse con reglas de NAT de entrada para permitir el tráfico entrante de Internet y colocarse en un conjunto de carga equilibrada. En ambos casos, debe especificar una instancia del equilibrador de carga y otras opciones. Para obtener más información, consulte [Creación de un equilibrador de carga mediante el Administrador de recursos de Azure](../load-balancer/load-balancer-arm-powershell.md)
+Las máquinas virtuales basadas en el Administrador de recursos pueden configurarse con reglas de NAT de entrada para permitir el tráfico entrante de Internet y colocarse en un conjunto de carga equilibrada. En ambos casos, debe especificar una instancia del equilibrador de carga y otras opciones. Para más información, vea [Creación de un equilibrador de carga mediante el Administrador de recursos de Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Las máquinas virtuales creadas con el modelo de implementación del Administrador de recursos requieren una red virtual del Administrador de recursos. Si es necesario, cree una nueva red virtual basada en Administrador de recursos con al menos una subred para la nueva máquina virtual. Este es un ejemplo de una nueva red virtual denominada **TestNet** con dos subredes denominadas **frontendSubnet** y **backendSubnet**.
 
@@ -203,7 +214,7 @@ Para crear una tarjeta de NIC y agregarla a una instancia del equilibrador de ca
 - El número de índice del grupo de direcciones de back-end de la instancia de equilibrador de carga que se va a asignar a la NIC.
 - El número de índice de la regla de NAT de entrada para asignar a la NIC.
 
-Para obtener información sobre cómo crear una instancia del equilibrador de carga con reglas de NAT de entrada, consulte [Creación de un equilibrador de carga mediante el Administrador de recursos de Azure](../load-balancer/load-balancer-arm-powershell.md).
+Para información sobre cómo crear una instancia del equilibrador de carga con reglas de NAT de entrada, vea [Creación de un equilibrador de carga mediante el Administrador de recursos de Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Copie estas líneas en el conjunto de comandos y especifique los nombres y números de índice necesarios.
 
@@ -223,7 +234,7 @@ Para crear una NIC y agregarla a una instancia del equilibrador de carga para un
 - El nombre de una instancia del equilibrador de carga creada anteriormente que tenga una regla para el tráfico de carga equilibrada.
 - El número de índice del grupo de direcciones de back-end de la instancia de equilibrador de carga que se va a asignar a la NIC.
 
-Para obtener información sobre cómo crear una instancia del equilibrador de carga con reglas para el tráfico de carga equilibrada, consulte [Creación de un equilibrador de carga mediante el Administrador de recursos de Azure](../load-balancer/load-balancer-arm-powershell.md).
+Para información sobre cómo crear una instancia del equilibrador de carga con reglas para el tráfico de carga equilibrada, vea [Creación de un equilibrador de carga mediante el Administrador de recursos de Azure](../load-balancer/load-balancer-arm-powershell.md).
 
 Copie estas líneas en el conjunto de comandos y especifique los nombres y números de índice necesarios.
 
@@ -384,4 +395,4 @@ Este es el conjunto de comandos de Azure PowerShell para crear esta máquina vir
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1217_2015-->

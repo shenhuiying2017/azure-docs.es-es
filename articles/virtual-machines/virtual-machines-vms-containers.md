@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="infrastructure" 
 	ms.workload="infrastructure" 
-	ms.date="07/02/2015" 
+	ms.date="12/14/2015" 
 	ms.author="rasquill" 
 />
 
@@ -33,9 +33,9 @@ Azure ofrece soluciones de nube excelentes, integradas en máquinas virtuales y 
 - [Administrador de recursos de Azure](resource-group-overview.md) y las [plantillas de grupo de recursos](resource-group-authoring-templates.md) para simplificar la implementación y actualización de aplicaciones distribuidas complejas
 - integración con una matriz grande de ambas herramientas de administración de configuración patentadas y de código abierto
 
-Y dado que se pueden crear mediante programación máquinas virtuales y contenedores Linux en Azure, también puede usar máquinas virtuales y herramientas de *orquestación* de contenedor para crear grupos de máquinas virtuales (VM) e implementar aplicaciones dentro de los contenedores de Linux y pronto en [contenedores de Windows Server](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
+Y dado que se pueden crear mediante programación máquinas virtuales y contenedores Linux en Azure, también puede usar máquinas virtuales y herramientas de *orquestación* de contenedor para crear grupos de máquinas virtuales (VM) e implementar aplicaciones dentro de los contenedores de Linux y pronto en [contenedores de Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
 
-Este artículo no solo explica estos conceptos en un nivel alto, también contiene cientos de vínculos para obtener más información, tutoriales y productos relacionados con el uso del contenedor y el clúster en Azure. Si ya sabe todo esto y solo desea los vínculos, estos se encuentran [aquí](#tools-for-working-with-containers).
+Este artículo no solo explica estos conceptos en un nivel alto, también contiene cientos de vínculos para obtener más información, tutoriales y productos relacionados con el uso del contenedor y el clúster en Azure. Si ya sabe todo esto y solo desea los vínculos, estos se encuentran aquí en las [herramientas para trabajar con contenedores](#tools-for-working-with-containers).
 
 ## Diferencia entre las máquinas virtuales y los contenedores
 
@@ -47,7 +47,7 @@ Puesto que en este modelo de aislamiento y ejecución se comparte el kernel del 
 
 Está bastante bien.
 
-[Los contenedores Windows Server](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) proporcionan las mismas ventajas que los contenedores de Linux para las aplicaciones que se ejecutan en Windows. Los contenedores de Windows Server admiten el formato de imagen docker y la API de docker. Como resultado, puede desarrollarse, publicarse, recuperarse e implementarse una aplicación que usa contenedores Windows Server mediante comandos similares a los de Mac y Linux. Eso además de disponer de [nueva compatibilidad con docker en Microsoft Visual Studio](https://visualstudiogallery.msdn.microsoft.com/6f638067-027d-4817-bcc7-aa94163338f0). El [ecosistema del contenedor](https://msdn.microsoft.com/virtualization/windowscontainers/about/container_ecosystem) mayor proporcionará herramientas a todos los usuarios para realizar el trabajo que necesitan hacer con los contenedores.
+Los contenedores Windows proporcionan las mismas ventajas que los contenedores de Linux para las aplicaciones que se ejecutan en Windows. Los contenedores de Windows admiten el formato de imagen de Docker y la API de Docker; sin embargo, también se pueden administrar con PowerShell. Se encuentran disponibles dos tiempos de ejecución de contenedores con los contenedores de Windows, de Windows Server y de Hyper-V. Los contenedores de Hyper-V proporcionan un nivel adicional de aislamiento alojando cada contenedor en una máquina virtual súperoptimizada. Para obtener más información sobre los contenedores de Windows, consulte [Acerca de los contenedores de Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). Para probar los contenedores de Windows, consulte el [inicio rápido de Azure sobre los contenedores de Windows](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/azure_setup).
 
 Eso también está bastante bien.
 
@@ -123,7 +123,7 @@ En este momento, cualquier arquitecto, desarrollador o especialista en operacion
 
 Tiene razón, puede serlo, y puede haber un número indeterminado de sistemas, muchos de los cuales es posible que ya esté usando, que puedan administrar grupos de máquinas virtuales de Azure e inyectar código personalizado mediante scripts, a menudo con [CustomScriptingExtension para Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) o [CustomScriptingExtension para Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Puede automatizar (es posible que ya lo haya hecho) sus implementaciones de Azure mediante PowerShell o scripts de CLI de Azure [como este](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md).
 
-Estas capacidades a menudo se migran posteriormente a herramientas como [Puppet](https://puppetlabs.com/) y [Chef](https://www.chef.io/) para automatizar la creación y configuración de máquinas virtuales a escala. (Consulte vínculos sobre cómo usar estas herramientas con Azure [aquí](#tools-for-working-with-containers)).
+Estas capacidades a menudo se migran posteriormente a herramientas como [Puppet](https://puppetlabs.com/) y [Chef](https://www.chef.io/) para automatizar la creación y configuración de máquinas virtuales a escala. (Consulte algunos vínculos sobre [cómo usar estas herramientas con Azure](#tools-for-working-with-containers)).
 
 ### Plantillas de grupo de recursos de Azure
 
@@ -131,7 +131,7 @@ Más recientemente, Azure presentó la API de REST de [Administración de recurs
 
 - el [Portal de Azure mediante plantillas](https://github.com/Azure/azure-quickstart-templates)&mdash;sugerencia, use el botón "Implementar en Azure"
 - la [CLI de Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
-- los [módulos de Azure PowerShell](virtual-machines-deploy-rmtemplates-azure-cli.md).
+- los [módulos de Azure PowerShell](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 
 ### Implementación y administración de todos los grupos de máquinas virtuales y contenedores de Azure
@@ -144,7 +144,7 @@ Además, puede probar el [sistema operativo de centro de datos de Mesosphere (DC
 
 Además, [kubernetes](http://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure) es un sistema de código abierto para la administración de grupos de máquinas virtuales y contenedores derivado de las lecciones aprendidas en Google. Incluso puede usar [kubernetes con trama para proporcionar compatibilidad con red](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-[Deis](http://deis.io/overview/) es una "Plataforma como-servicio" (PaaS) de código abierto que facilita la implementación y administración de aplicaciones en sus propios servidores. Deis se basa en Docker y CoreOS para proporcionar un PaaS ligero con un flujo de trabajo inspirado en Heroku. Puede [crear un grupo de máquina virtual de Azure de tres nodos e instalar Deis](virtual-machines-deis-cluster.md) fácilmente en Azure y, a continuación, [instalar una aplicación Hello World Go](virtual-machines-deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.io/overview/) es una "Plataforma como servicio" (PaaS) de código abierto que facilita la implementación y administración de aplicaciones en sus propios servidores. Deis se basa en Docker y CoreOS para proporcionar un PaaS ligero con un flujo de trabajo inspirado en Heroku. Puede [crear un grupo de máquina virtual de Azure de tres nodos e instalar Deis](virtual-machines-deis-cluster.md) fácilmente en Azure y luego [instalar una aplicación Hello World Go](virtual-machines-deis-cluster.md#deploy-and-scale-a-hello-world-application).
 
 [CoreOS](virtual-machines-linux-coreos-how-to.md), una distribución de Linux con un espacio optimizado, soporte de Docker y su propio sistema de contenedor denominado [rkt](https://github.com/coreos/rkt), también tiene una herramienta de administración de grupos de contenedores denominada [fleet](virtual-machines-linux-coreos-fleet-get-started.md).
 
@@ -166,9 +166,9 @@ Algunas tecnologías de contenedor de Linux:
 - [Proyecto de contenedor abierto](http://opencontainers.org/)
 - [RancherOS](http://rancher.com/rancher-os/)
 
-Vínculos de contenedor de Windows Server:
+Vínculos de contenedor de Windows:
 
-- [Contenedores de Windows Server](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)
+- [Contenedores de Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)
 
 Vínculos de Visual Studio Docker:
 
@@ -193,7 +193,7 @@ Docker en Microsoft Azure:
 - [Cómo usar Docker con Swarm en Azure](virtual-machines-docker-swarm.md)
 - [Introducción a Docker y Compose en Azure](virtual-machines-docker-compose-quickstart.md)
 - [Uso de una plantilla de grupo de recursos de Azure para crear rápidamente un host Docker en Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
-- [Compatibilidad integrada para `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys)aplicaciones independientes
+- [Compatibilidad integrada para `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) para aplicaciones independientes
 - [Implementar un registro privado Docker en Azure](virtual-machines-docker-registry-on-azure-blob-storage.md)
 
 Distribuciones de Linux y ejemplos de Azure:
@@ -233,11 +233,11 @@ Configuración, administración del clúster y orquestación de contenedor:
 
 ## Pasos siguientes
 
-Desmarque [Docker](https://www.docker.com) y [Contenedores de Windows Server](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
+Desmarque [Docker](https://www.docker.com) y [Contenedores de Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
 
 <!--Anchors-->
 [microservices]: http://martinfowler.com/articles/microservices.html
 [microservicio]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

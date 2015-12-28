@@ -35,7 +35,7 @@ Al predecir el punto en el que se requiere mantenimiento, Fabrikam puede optimiz
 
 Para entender la manera en que el [Conjunto de aplicaciones de IoT de Azure][lnk_iot_suite] ofrece las funciones que los clientes necesitan para darse cuenta del potencial del mantenimiento predictivo, revise esta [infografía][lnk_infographic].
 
-Para mostrar cómo funcionan estas capacidades desde la telemetría del dispositivo recopilada a través de los servicios del Conjunto de aplicaciones de IoT Suite y presentada a los usuarios en una aplicación web, la solución aprovecha un modelo de aprendizaje automático de Azure existente disponible como plantilla. Microsoft ha creado un modelo de regresión y ha publicado la plantilla completa, datos<sup>[1]</sup> e instrucciones paso a paso [aquí][lnk_regression_model].
+Para mostrar cómo funcionan estas capacidades desde la telemetría del dispositivo recopilada a través de los servicios del Conjunto de aplicaciones de IoT Suite y presentada a los usuarios en una aplicación web, la solución aprovecha un modelo de aprendizaje automático de Azure existente disponible como plantilla. Microsoft ha creado un [modelo de regresión][lnk_regression_model] y ha publicado la plantilla completa, datos<sup>[1]</sup> e instrucciones paso a paso.
 
 La solución preconfigurada de mantenimiento predictivo de IoT de Azure usa el modelo de regresión creado a partir de esta plantilla; se implementa en su suscripción de Azure y se expone a través de una API publicada. La solución incluye un subconjunto de los datos de prueba que representa 4 (del total de 100) motores y 4 (del total de 21) flujos de datos de sensor que ofrecen un resultado exacto del modelo entrenado.
 
@@ -55,4 +55,4 @@ Examine el [tutorial][lnk-predictive-walkthrough] de la solución preconfigurada
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

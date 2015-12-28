@@ -7,12 +7,12 @@
    manager=""
    editor="" />
 <tags
-   ms.service="multiple"
+   ms.service="application-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/16/2015"
+   ms.date="12/15/2015"
    ms.author="saurabh" />
 
 # Configuración de Diagnósticos de Azure para enviar datos a Application Insights
@@ -101,4 +101,4 @@ Existen algunas limitaciones que se deben tener en cuenta con esta funcionalidad
 - Use [PowerShell](cloud-services-diagnostics-powershell.md) para habilitar la extensión de Diagnósticos de Azure en su aplicación. 
 - Use [Visual Studio](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) para habilitar la extensión de Diagnósticos de Azure en su aplicación 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

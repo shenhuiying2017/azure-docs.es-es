@@ -2,7 +2,7 @@
 
 [**Apache Storm**](https://storm.incubator.apache.org) es un sistema de cálculo distribuido en tiempo real que simplifica el procesamiento confiable de flujos de datos sin enlazar. Esta sección muestra cómo utilizar un emisor de Storm para Centros de eventos a fin de recibir eventos de los Centros de eventos. Con Apache Storm, se pueden dividir los eventos en varios procesos hospedados en distintos nodos. La integración de los Centros de eventos con Storm simplifica el consumo de eventos al comprobar de forma transparente el progreso mediante la instalación de Zookeeper de Storm, la administración de puntos de comprobación persistentes y las recepciones en paralelo de los Centros de eventos.
 
-Para obtener más información sobre los patrones de recepción de los Centros de eventos, consulte Información general de los [Centros de eventos][].
+Para más información sobre los patrones de recepción de los Centros de eventos, vea la [Información general de los Centros de eventos][].
 
 Este tutorial usa una instalación de [HDInsight Storm][], que integra el emisor de Centros de eventos que ya se encuentra disponible.
 
@@ -16,7 +16,7 @@ Este tutorial usa una instalación de [HDInsight Storm][], que integra el emisor
 
 4. En Eclipse, cree un proyecto Maven nuevo (haga clic en **Archivo**, **Nuevo** y, a continuación, en **Proyecto**).
 
-   	![][12]
+   ![][12]
 
 5. Seleccione **Usar ubicación del área de trabajo predeterminada** y, a continuación, haga clic en **Siguiente**
 
@@ -220,7 +220,7 @@ Este tutorial usa una instalación de [HDInsight Storm][], que integra el emisor
 	Esta clase crea un nuevo emisor de Centros de eventos, utilizando las propiedades del archivo de configuración para crear una instancia. Es importante tener en cuenta que este ejemplo crea tantas tareas de emisor como número de particiones hay en el Centro de eventos, para poder usar el paralelismo máximo permitido por ese Centro de eventos.
 
 <!-- Links -->
-[Centros de eventos]: event-hubs-overview.md
+[Información general de los Centros de eventos]: event-hubs-overview.md
 [HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
 [tutorial de análisis de sensores de HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 
@@ -230,4 +230,4 @@ Este tutorial usa una instalación de [HDInsight Storm][], que integra el emisor
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

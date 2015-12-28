@@ -39,7 +39,7 @@ Tanto si está conectado como no, pueden surgir conflictos en cualquier momento 
 
 ## Actualización de la aplicación para que admita la sincronización sin conexión
 
-Con la sincronización sin conexión, se lee y se escribe desde una *tabla de sincronización* (usando la interfaz *IMobileServiceSyncTable*), que forma parte de una base de datos **SQL Light** en el dispositivo.
+Con la sincronización sin conexión, se lee y se escribe desde una *tabla de sincronización* (usando la interfaz *IMobileServiceSyncTable*), que forma parte de una base de datos **SQLite** en el dispositivo.
 
 Para insertar y extraer los cambios entre el dispositivo y Servicios móviles de Azure, se usa un *contexto de sincronización* (*MobileServiceClient.SyncContext*), que se inicializa con la base de datos local usada para almacenar los datos localmente.
 
@@ -223,4 +223,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [tutorial del Inicio rápido de Servicios móviles]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

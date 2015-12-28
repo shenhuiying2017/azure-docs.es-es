@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,26 +13,17 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Introducción al almacenamiento de blobs servicios conectados de Visual Studio (ASP.NET)
 
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-aspnet-getting-started-blobs.md)
-> - [What happened](vs-storage-aspnet-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet-getting-started-tables.md)
-
 ## Información general
 
-En este artículo se describe cómo empezar a usar Almacenamiento de blobs de Azure después de haber creado o hecho referencia a una cuenta de almacenamiento de Azure en una aplicación ASP.NET con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio. El artículo muestra cómo crear contenedores de blob y realizar otras tareas comunes, como cargar, enumerar, descargar y eliminar blobs. Los ejemplos están escritos en C# y utilizan la [biblioteca del cliente de almacenamiento de Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+En este artículo se describe cómo empezar a usar Almacenamiento de blobs de Azure después de haber creado o hecho referencia a una cuenta de almacenamiento de Azure en una aplicación ASP.NET con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio. El artículo muestra cómo crear contenedores de blob y realizar otras tareas comunes, como cargar, enumerar, descargar y eliminar blobs. Los ejemplos están escritos en C# y usan la [biblioteca del cliente de almacenamiento de Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
- - Para obtener más información general sobre el uso de Almacenamiento de blobs de Azure, consulte [Uso de Almacenamiento de blobs en .NET](storage-dotnet-how-to-use-blobs.md).
- - Para obtener más información sobre los proyectos de ASP.NET, consulte [ASP.NET](http://www.asp.net).
+ - Para más información general sobre el uso de Almacenamiento de blobs de Azure, vea [Uso de Almacenamiento de blobs en .NET](storage-dotnet-how-to-use-blobs.md).
+ - Para más información sobre los proyectos de ASP.NET, vea [ASP.NET](http://www.asp.net).
 
 
 El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados a los que puede obtenerse acceso desde cualquier lugar del mundo a través de HTTP o HTTPS. Un solo blob puede tener cualquier tamaño. Los blobs pueden tener forma de imágenes, archivos de audio y vídeo, archivos sin procesar y archivos de documentos.
@@ -209,7 +200,7 @@ Para eliminar un blob, use el método **Delete**.
 
 Si enumera un gran número de blobs o desea controlar el número de resultados que devuelve en una operación de listado, puede enumerar blobs en páginas de resultados. En el siguiente ejemplo se muestra cómo devolver resultados en páginas asincrónicamente de forma que la ejecución no se bloquee mientras se espera a devolver un conjunto grande de resultados.
 
-En este ejemplo se muestra un listado de blobs plano, pero también puede realizar un listado jerárquico estableciendo en parámetro **useFlatBlobListing** del método **ListBlobsSegmentedAsync** en **false**.
+En este ejemplo se muestra un listado de blobs plano, pero también puede realizar un listado jerárquico estableciendo el parámetro **useFlatBlobListing** del método **ListBlobsSegmentedAsync** en **false**.
 
 Dado que el método de ejemplo llama a un método asincrónico, debe ir precedido por la palabra clave **async** y debe devolver un objeto **Task**. La palabra clave await especificada para el método **ListBlobsSegmentedAsync** suspende la ejecución del método de ejemplo hasta que se completa la tarea de enumeración.
 
@@ -246,4 +237,4 @@ Dado que el método de ejemplo llama a un método asincrónico, debe ir precedid
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

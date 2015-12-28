@@ -23,13 +23,16 @@
 - [PowerShell](dns-operations-dnszones.md)
 
 En esta guía se explica cómo administrar zonas DNS. En ella se detallará la secuencia de operaciones que hay que realizar para administrar la zona DNS.
- 
+
+>[AZURE.NOTE]DNS de Azure es un servicio exclusivo del Administrador de recursos de Azure. No tiene ninguna API de ASM. Por tanto, deberá asegurarse de que la CLI de Azure se ha configurado para usar el modo del Administrador de recursos, con el comando 'azure config mode arm'.
+
+>Si ve "error: 'dns' is not an azure command", lo más probable se deba a que está usando CLI de Azure en modo ASM, no en el modo del Administrador de recursos.
  
 ## Creación de una zona DNS
 
-Para crear una zona DNS para hospedar un dominio, use `azure network dns zone create`:
+Para crear una zona DNS para hospedar su dominio, use `azure network dns zone create`:
 
-		Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+	azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
 La operación crea una nueva zona DNS en DNS de Azure. También puede especificar una matriz de etiquetas del Administrador de recursos de Azure; para obtener más información, consulte [Etags y etiquetas](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
@@ -77,4 +80,4 @@ Esta operación tiene un modificador opcional “-q” que suprime el mensaje pa
 
 [Automatización de operaciones de Azure con el SDK de .NET](dns-sdk.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creación de planes de recuperación" 
+	pageTitle="Crear planes de recuperación | Microsoft Azure" 
 	description="Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales ubicadas en servidores locales de Azure o en un centro de datos secundario." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/07/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 # Creación de planes de recuperación
@@ -124,4 +124,4 @@ Puede ejecutar diferentes tipos de plan de recuperación de conmutaciones por er
 
  
 
-<!-----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

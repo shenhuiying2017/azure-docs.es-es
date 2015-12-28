@@ -3,7 +3,7 @@
 	description="Aprenda a configurar la entrega continua para las aplicaciones en la nube de Azure. Ejemplos de código para las instrucciones de línea de comandos de MSBuild y scripts PowerShell."
 	services="cloud-services"
 	documentationCenter=""
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/19/2015"
-	ms.author="kempb"/>
+	ms.date="11/18/2015"
+	ms.author="tarcher"/>
 
 # Entrega continua para Servicios en la nube de Azure
 
-El proceso que se describe en este artículo muestra cómo se configura la entrega continua para las aplicaciones en la nube de Azure. Este proceso le permite crear automáticamente paquetes e implementar el paquete en Azure cada vez que se proteja el código. El proceso de compilación del paquete que se describe en este artículo es equivalente al comando Package en Visual Studio y los pasos de publicación son equivalentes al comando Publish en Visual Studio. El artículo abarca los métodos que usaría para crear un servidor de compilación con instrucciones de línea de comandos de MSBuild y scripts de Windows PowerShell; además, demuestra también cómo configurar de manera opcional las definiciones de Visual Studio Team Foundation Server - Team Build para usar los comandos de MSBuild y los scripts de PowerShell. El proceso se puede personalizar para su entorno de compilación y los entornos de destino de Azure.
+El proceso que se describe en este artículo muestra cómo se configura la entrega continua para las aplicaciones en la nube de Azure. Este proceso le permite crear automáticamente paquetes e implementar el paquete en Azure cada vez que se proteja el código. El proceso de compilación del paquete que se describe en este artículo es equivalente al comando **Package** en Visual Studio y los pasos de publicación son equivalentes al comando **Publish** en Visual Studio. El artículo abarca los métodos que usaría para crear un servidor de compilación con instrucciones de línea de comandos de MSBuild y scripts de Windows PowerShell; además, demuestra también cómo configurar de manera opcional las definiciones de Visual Studio Team Foundation Server - Team Build para usar los comandos de MSBuild y los scripts de PowerShell. El proceso se puede personalizar para su entorno de compilación y los entornos de destino de Azure.
 
 Para hacerlo de manera más fácil, puede también usar Visual Studio Team Services, una versión de TFS que se hospeda en Azure. Para obtener más información, consulte [Entrega continua a Azure con Visual Studio Team Services][].
 
@@ -30,21 +30,21 @@ Antes de crear un paquete de Azure con MSBuild, debe instalar el software y las 
 
 No es necesario instalar Visual Studio en el servidor de compilación. Si desea usar el servicio de Team Foundation Build para administrar el servidor de compilación, siga las instrucciones que aparecen en el documento [Configurar el Servicio de Team Foundation Build.][]
 
-1.  En el servidor de compilación, instale [.NET Framework 4][], [.NET Framework 4.5][] o [.NET Framework 4.5.2][], que incluye MSBuild.
-2.  Instale las [Herramientas de creación de Azure](http://go.microsoft.com/fwlink/?LinkId=623518) (sustituya MicrosoftAzureAuthoringTools-x86.msi en el enlace en lugar de MicrosoftAzureAuthoringTools-x64.msi, si su servidor de compilación tiene un SO/procesador de 32 bits).
-3. Instale las [Bibliotecas de Azure para .NET](http://go.microsoft.com/fwlink/?LinkId=623519) (sustituya MicrosoftAzureLibsForNet-x86.msi en el vínculo si es necesario).
+1.  En el servidor de compilación, instale [.NET Framework 4.5.2][], que incluye MSBuild.
+2.  Instale las [Herramientas de creación de Azure para .NET](https://azure.microsoft.com/develop/net/).
+3.	Instale las [Bibliotecas de Azure para .NET](http://go.microsoft.com/fwlink/?LinkId=623519).
 4.  Copie el archivo Microsoft.WebApplication.targets desde una instalación de Visual Studio en el servidor de compilación.
 
-	En un equipo con Visual Studio instalado, este archivo se encuentra en el directorio C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications (v12.0 para Visual Studio 2013). Debe copiarlo en el mismo directorio en el servidor de compilación.
-5.  Instale las [Herramientas de Azure para Visual Studio](http://go.microsoft.com/fwlink/?LinkId=623520). Use MicrosoftAzureTools.VS140.exe para compilar los proyectos de Visual Studio 2015 o MicrosoftAzureTools.VS120.exe para compilar los proyectos de Visual Studio 2013.
+	En un equipo con Visual Studio instalado, este archivo se encuentra en el directorio C:\\Archivos de programa(x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications. Debe copiarlo en el mismo directorio en el servidor de compilación.
+5.  Instale las [Herramientas de Azure para Visual Studio](https://www.visualstudio.com/features/azure-tools-vs.aspx).
 
 ## Paso 2: compilar un paquete con los comandos de MSBuild
 
 En esta sección se describe cómo construir un comando de MSBuild que compila un paquete de Azure. Ejecute este paso en el servidor de compilación para comprobar que todo está configurado correctamente y que el comando MSBuild hace lo que usted quiere. Puede agregar esta línea de comandos a scripts de compilación existentes en el servidor de compilación, o puede usar la línea de comandos en una definición de compilación de TFS, tal como se describe en la sección siguiente. Para obtener más información acerca de los parámetros de línea de comandos y MSBuild, consulte [Referencia de la línea de comandos de MSBuild](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
 
-1.  Si Visual Studio está instalado en el servidor de compilación, haga clic en **Iniciar**, **Todos los programas** y, a continuación, busque y haga clic en **Símbolo del sistema de Visual Studio** en la carpeta **Visual Studio Tools**.
+1.  Si Visual Studio está instalado en el servidor de compilación, ubique y elija **Símbolo del sistema de Visual Studio** en la carpeta **Visual Studio Tools** en Windows.
 
-    Si Visual Studio no está instalado en el servidor de compilación, abra un símbolo del sistema y asegúrese de que se pueda tener acceso a MSBuild.exe en la ruta. MSBuild se instala con .NET Framework en la ruta de acceso %WINDIR%\\Microsoft.NET\\Framework\*versión*. Por ejemplo, para agregar MSBuild.exe a la variable de entorno PATH cuando tiene instalado .NET Framework 4, escriba el siguiente comando en el símbolo del sistema:
+    Si Visual Studio no está instalado en el servidor de compilación, abra un símbolo del sistema y asegúrese de que se pueda tener acceso a MSBuild.exe en la ruta. MSBuild se instala con .NET Framework en la ruta de acceso %WINDIR%\\Microsoft.NET\\Framework\\*versión*. Por ejemplo, para agregar MSBuild.exe a la variable de entorno PATH cuando tiene instalado .NET Framework 4, escriba el siguiente comando en el símbolo del sistema:
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -58,7 +58,7 @@ En esta sección se describe cómo construir un comando de MSBuild que compila u
 
     De manera opcional, puede especificar el nombre del proyecto como un parámetro de MSBuild. Si no se especifica, se utiliza el directorio actual. Para obtener más información acerca de las opciones de línea de comandos de MSBuild, consulte [Referencia de la línea de comandos de MSBuild][1].
 
-4.  Busque el resultado. De manera predeterminada, este comando crea un directorio en relación con la carpeta raíz para el proyecto, como por ejemplo *ProjectDir*\\bin\*Configuration*\\app.publish\\. Al compilar un proyecto de Azure, se generan dos archivos: el archivo del paquete mismo y el archivo de configuración que lo acompaña:
+4.  Busque el resultado. De manera predeterminada, este comando crea un directorio en relación con la carpeta raíz del proyecto, como *ProjectDir*\\bin\*Configuration*\\app.publish\\. Al compilar un proyecto de Azure, se generan dos archivos: el archivo del paquete mismo y el archivo de configuración que lo acompaña:
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -75,9 +75,9 @@ En esta sección se describe cómo construir un comando de MSBuild que compila u
 
     Después de que haya construido y probado una línea de comandos de MSBuild adecuada para compilar sus proyectos y combinarlos en un paquete de Azure, puede agregar esta línea de comandos a sus scripts de compilación. Si su servidor de compilación usa scripts personalizados, este proceso dependerá de los detalles de su proceso personalizado de compilación. Si va a usar TFS como un entorno de compilación, entonces puede seguir las instrucciones del paso siguiente para agregar la compilación del paquete de Azure a su proceso de compilación.
 
-## Paso 3: compilar un paquete con TFS Team Build (opcional)
+## Paso 3: Compilar un paquete con TFS Team Build
 
-Si tiene Team Foundation Server (TFS) configurado como un controlador de compilación y el servidor de compilación configurado como una máquina de compilación de TFS, entonces puede configurar una compilación automatizada para su paquete de Azure. Para obtener información acerca de como configurar y usar el servidor de Team Foundation como un sistema de compilación, consulte [Escalar el sistema de compilación][]. En particular, el procedimiento siguiente asume que ha configurado el servidor de compilación, tal como se ha descrito en [Implementar y configurar un servidor de compilación][] y que ha creado un proyecto de equipo y un proyecto de servicio en la nube en el proyecto en equipo.
+Si tiene Team Foundation Server (TFS) configurado como un controlador de compilación y el servidor de compilación configurado como una máquina de compilación de TFS, entonces puede, opcionalmente, configurar una compilación automatizada para su paquete de Azure. Para obtener información sobre cómo configurar y usar el servidor de Team Foundation como un sistema de compilación, consulte [Escalar horizontalmente el sistema de compilación][]. En particular, el procedimiento siguiente asume que ha configurado el servidor de compilación, tal como se ha descrito en [Implementar y configurar un servidor de compilación][] y que ha creado un proyecto de equipo y un proyecto de servicio en la nube en el proyecto en equipo.
 
 Para configurar TFS a fin de compilar paquetes de Azure, realice los siguientes pasos:
 
@@ -85,13 +85,13 @@ Para configurar TFS a fin de compilar paquetes de Azure, realice los siguientes 
 
     ![][0]
 
-2.  Haga clic en la pestaña **Desencadenador** y especifique las condiciones deseadas para cuándo desea que se compile el paquete. Por ejemplo, especifique **Integración continua** para compilar el paquete cada vez que se produce una protección del control de código fuente.
+2.  Haga clic en la pestaña **Desencadenador** y especifique las condiciones deseadas para cuando desea que se compile el paquete. Por ejemplo, especifique **Integración continua** para compilar el paquete cada vez que se produce una protección del control de código fuente.
 
 3.	Elija la pestaña **Configuración de origen** y asegúrese de que la carpeta del proyecto se muestra en la columna **Carpeta de control de código fuente** y de que el estado es **Activo**.
 
 4.  Seleccione la pestaña **Valores predeterminados de compilación** y, en el controlador de compilación, compruebe el nombre del servidor de compilación. Además, seleccione la opción **Copiar el resultado de la compilación en la siguiente carpeta** de entrega y especifique la ubicación de destino deseada.
 
-5.  Haga clic en la pestaña **Proceso**. En la pestaña Proceso, elija la plantilla predeterminada, en **Compilación**, seleccione el proyecto si no está ya seleccionado y expanda la sección **Avanzado** en la sección **Compilación** de la cuadrícula.
+5.  Elija la pestaña **Process**. En la pestaña Proceso, elija la plantilla predeterminada, en **Compilación**, seleccione el proyecto si no está ya seleccionado y expanda la sección **Avanzado** en la sección **Compilación** de la cuadrícula.
 
 6.  Seleccione **Argumentos de MSBuild** y establezca los argumentos adecuados de la línea de comandos de MSBuild como se describe en el paso 2 anterior. Por ejemplo, escriba **/t:Publish /p:PublishDir=\\\myserver\\drops\** para compilar un paquete y copiar los archivos del paquete en la ubicación \\\myserver\\drops\\:
 
@@ -109,37 +109,37 @@ En esta sección se describen los pasos para construir un script de Windows Powe
 
 2.  Inicie Azure PowerShell mediante el menú Inicio o la página de inicio. Si inicia de esta manera, se cargarán los cmdlets de Azure PowerShell.
 
-3.  A la solicitud de PowerShell, verifique que se carguen los cmdlets de PowerShell al escribir el comando parcial Get-Azure y, a continuación, presionar la pestaña para completar la instrucción.
+3.  A la solicitud de PowerShell, compruebe que se cargan los cmdlets de PowerShell al escribir el comando parcial `Get-Azure` y, a continuación, presionar la tecla TAB para completar la instrucción.
 
-    Si presiona la tecla de tabulación repetidamente, verá varios comandos de Azure PowerShell.
+    Si presiona varias veces la tecla TAB, debiera ver diversos comandos de Azure PowerShell.
 
 4.  Verifique que se puede conectar a su suscripción de Azure al importar su información de suscripción desde el archivo .publishsettings.
 
-    Import-AzurePublishSettingsFile c:\\scripts\\WindowsAzure\\default.publishsettings
+    `Import-AzurePublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings`
 
-    A continuación, proporcione el comando
+    Luego, escriba el comando.
 
-    Get-AzureSubscription
+    `Get-AzureSubscription`
 
-    De esta manera, podrá ver la información sobre su suscripción. Verifique que todo esté correcto.
+    Se muestra información sobre su suscripción. Verifique que todo esté correcto.
 
-4.  Guarde la plantilla de script que se proporciona al [final de este artículo][] en la carpeta de scripts como c:\\scripts\\WindowsAzure\**PublishCloudService.ps1**.
+4.  Guarde la plantilla de script que aparece al final de este artículo en la carpeta de scripts como c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**.
 
 5.  Revise la sección de parámetros del script. Agregue o modifique cualquiera de los valores predeterminados. Estos valores siempre pueden omitirse al pasar parámetros explícitos.
 
 6.  Asegúrese de que haya cuentas de almacenamiento y de servicio en la nube válidas creadas en su suscripción que se puedan abordar mediante el script de publicación. Se usará la cuenta de almacenamiento (almacenamiento de blobs) para cargar y almacenar temporalmente el paquete de implementación y el archivo de configuración mientras se crea la implementación.
 
-    -   Para crear un servicio en la nube nuevo, puede llamar a este script o usar el Portal de Azure clásico. El nombre del servicio en la nube se usará como prefijo en un nombre de dominio completo y, por este motivo, debe ser único.
+    -   Para crear un servicio en la nube nuevo, puede llamar a este script o usar el Portal de administración de Azure. El nombre del servicio en la nube se usará como prefijo en un nombre de dominio completo y, por este motivo, debe ser único.
 
             New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
-    -   Para crear un servicio de almacenamiento nuevo, puede llamar a este script o usar el Portal de Azure clásico. El nombre de la cuenta de almacenamiento se usará como prefijo en un nombre de dominio completo y, por este motivo, debe ser único. Puede intentar usar el mismo nombre que el servicio en la nube.
+    -   Para crear una cuenta de almacenamiento nueva, puede llamar a este script o usar el Portal de administración de Azure. El nombre de la cuenta de almacenamiento se usará como prefijo en un nombre de dominio completo y, por este motivo, debe ser único. Puede intentar usar el mismo nombre que el servicio en la nube.
 
             New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
 7.  Llame al script directamente desde Azure PowerShell, o conecte este script a su automatización de compilación de host que se produce después de la compilación del paquete.
 
-    **ADVERTENCIA:** el script siempre eliminará o reemplazará sus implementaciones actuales de manera predeterminada si se detectan. Esto es necesario para habilitar la entrega continua desde la automatización donde no es posible una solicitud del usuario.
+    >[AZURE.IMPORTANT]El script siempre eliminará o reemplazará sus implementaciones actuales de manera predeterminada si se detectan. Esto es necesario para habilitar la entrega continua desde la automatización donde no es posible una solicitud del usuario.
 
     **Escenario de ejemplo 1:** implementación continua en el entorno de ensayo de un servicio:
 
@@ -169,19 +169,19 @@ En esta sección se describen los pasos para construir un script de Windows Powe
 
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
-    De manera alternativa, puede exportar el archivo de certificado PFX con una clave privada y cargar los certificados en cada servicio en la nube objetivo mediante el Portal de Azure clásico. Lea el siguiente artículo para obtener más información: [http://msdn.microsoft.com/es-es/library/windowsazure/gg443832.aspx][].
+    De manera alternativa, puede exportar el archivo de certificado PFX con una clave privada y cargar los certificados en cada servicio en la nube objetivo mediante el Portal de administración de Azure. Lea el siguiente artículo para obtener más información: [http://msdn.microsoft.com/es-es/library/windowsazure/gg443832.aspx][].
 
     **Actualizar implementación frente a Eliminar implementación -> Nueva implementación**
 
     El script realizará de manera predeterminada una actualización de la implementación ($enableDeploymentUpgrade = 1) cuando no se pasa ningún parámetro o el valor 1 se pasa de manera explícita. Para las instancias simples, esto tiene la ventaja de tardar menos tiempo que una implementación completa. Para las instancias que requieren una alta disponibilidad, esto también tiene la ventaja de dejar algunas instancias en ejecución mientras otras se actualizan (recorriendo su dominio de actualización), además de que no se eliminará su VIP.
 
-    La actualización de la implementación se puede deshabilitar en el script ($enableDeploymentUpgrade = 0) o al pasar -enableDeploymentUpgrade 0 como un parámetro, el cual alterará el comportamiento del script para primero eliminar cualquier implementación existente y luego crear una implementación nueva.
+    La actualización de la implementación se puede deshabilitar en el script ($enableDeploymentUpgrade = 0) o al pasar *-enableDeploymentUpgrade 0* como un parámetro, el cual alterará el comportamiento del script para primero eliminar cualquier implementación existente y luego crear una implementación nueva.
 
-    **Advertencia:** el script siempre eliminará o reemplazará sus implementaciones actuales de manera predeterminada si se detectan. Esto es necesario para habilitar la entrega continua desde la automatización donde no es posible una solicitud del usuario/operador.
+    >[AZURE.IMPORTANT]El script siempre eliminará o reemplazará sus implementaciones actuales de manera predeterminada si se detectan. Esto es necesario para habilitar la entrega continua desde la automatización donde no es posible una solicitud del usuario/operador.
 
-## Paso 5: publicar un paquete con TFS Team Build (opcional)
+## Paso 5: Publicar un paquete con TFS Team Build
 
-Este paso conectará TFS Team Build al script que se creó en el paso 4, el cual controla la publicación de la compilación del paquete en Azure. Esto conlleva modificar la Plantilla de proceso que usó su definición de compilación, de modo que ejecuta una actividad de publicación al final del flujo de trabajo. La actividad de publicación ejecutará su comando de PowerShell al pasar parámetros desde la compilación. El resultado de los objetivos de MSBuild y el script de publicación se canalizarán al resultado de la compilación estándar.
+Este paso opcional conecta TFS Team Build al script que se creó en el paso 4, el cual controla la publicación de la compilación del paquete en Azure. Esto conlleva modificar la Plantilla de proceso que usó su definición de compilación, de modo que ejecuta una actividad de publicación al final del flujo de trabajo. La actividad de publicación ejecutará su comando de PowerShell al pasar parámetros desde la compilación. El resultado de los objetivos de MSBuild y el script de publicación se canalizarán al resultado de la compilación estándar.
 
 1.  Edite la definición de compilación a cargo de la implementación continua.
 
@@ -558,22 +558,19 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 Para habilitar la depuración remota cuando se usa la entrega continua, consulte [Habilitación de la depuración remota al usar la entrega continua para publicar en Azure](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md).
 
   [Entrega continua a Azure con Visual Studio Team Services]: cloud-services-continuous-delivery-use-vso.md
-  [Configurar el Servicio de Team Foundation Build.]: http://go.microsoft.com/fwlink/p/?LinkId=239963
-  [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
-  [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
-  [.NET Framework 4.5.2]: http://go.microsoft.com/fwlink/?LinkId=521668
-	[1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
-  [Escalar el sistema de compilación]: http://go.microsoft.com/fwlink/?LinkId=238798
-  [Implementar y configurar un servidor de compilación]: http://go.microsoft.com/fwlink/?LinkId=238799
-  [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
-  [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
-  [cmdlets de Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=256262
+  [Configurar el Servicio de Team Foundation Build.]: https://msdn.microsoft.com/library/ee259687.aspx
+  [.NET Framework 4]: https://www.microsoft.com/download/details.aspx?id=17851
+  [.NET Framework 4.5]: https://www.microsoft.com/download/details.aspx?id=30653
+  [.NET Framework 4.5.2]: https://www.microsoft.com/download/details.aspx?id=42643
+  [Escalar horizontalmente el sistema de compilación]: https://msdn.microsoft.com/library/dd793166.aspx
+  [Implementar y configurar un servidor de compilación]: https://msdn.microsoft.com/library/ms181712.aspx
+  [cmdlets de Azure PowerShell]: powershell-install-configure.md
   [the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
-  [final de este artículo]: #script
-
+  [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png
+  [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
   [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png
   [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

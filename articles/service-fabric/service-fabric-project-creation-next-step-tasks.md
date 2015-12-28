@@ -72,8 +72,8 @@ El explorador de Service Fabric ofrece una forma sencilla de visualizar el clús
 ### Control de versiones y actualización de los servicios
 Service Fabric permite el control de versiones independiente y la actualización de servicios independiente en una aplicación. Para más información, consulte [Control de versiones y actualización de los servicios][app-upgrade-tutorial].
 
-### Configuración de la integración continua con Visual Studio Online
-Para obtener información sobre cómo puede configurar un proceso de integración continua para su aplicación de Service Fabric, consulte [Configuración de la integración continua con Visual Studio Online][ci-with-vso].
+### Configuración de la integración continua con Visual Studio Team Services
+Para obtener información sobre cómo puede configurar un proceso de integración continua para su aplicación de Service Fabric, consulte [Configuración de la integración continua con Visual Studio Team Services][ci-with-vso].
 
 
 <!-- Links -->
@@ -85,4 +85,4 @@ Para obtener información sobre cómo puede configurar un proceso de integració
 [reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

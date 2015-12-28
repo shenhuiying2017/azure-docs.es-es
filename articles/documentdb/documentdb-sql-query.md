@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/14/2015" 
 	ms.author="arramac"/>
 
 # Consulta de SQL en DocumentDB
@@ -186,7 +186,7 @@ Consulte los [ejemplos de DocumentDB](https://github.com/Azure/azure-documentdb-
 ## Conceptos básicos de una consulta SQL de DocumentDB
 Todas las consultas constan de una cláusula SELECT y cláusulas FROM y WHERE opcionales por estándares ANSI-SQL. Normalmente, para cada consulta, se enumera el origen de la cláusula FROM. A continuación, el filtro de la cláusula WHERE se aplica en el origen para recuperar un subconjunto de documentos JSON. Por último, la cláusula SELECT se usa para proyectar los valores JSON solicitados en la lista seleccionada.
     
-    SELECT <select_list> 
+    SELECT [TOP <top_expression>] <select_list> 
     [FROM <from_specification>] 
     [WHERE <filter_condition>]
     [ORDER BY <sort_specification]    
@@ -661,8 +661,39 @@ Se admite el operador especial (*) para proyectar el documento tal cual. Al usar
 	    "isRegistered": true
 	}]
 
+###Operador TOP
+La palabra clave TOP se puede usar para limitar la cantidad de valores de una consulta. Cuando se usa TOP junto con la cláusula ORDER BY, el conjunto de resultados se limita a los primeros N valores ordenados; de otro modo, devuelve los primeros N resultados en orden indefinido. Como procedimiento recomendado, en una instrucción SELECT, siempre use una cláusula ORDER BY con la cláusula TOP. Esta es la única forma previsible de indicar qué filas afecta TOP.
+
+
+**Consultar**
+
+	SELECT TOP 1 * 
+	FROM Families f 
+
+**Resultados**
+
+	[{
+	    "id": "AndersenFamily",
+	    "lastName": "Andersen",
+	    "parents": [
+	       { "firstName": "Thomas" },
+	       { "firstName": "Mary Kay"}
+	    ],
+	    "children": [
+	       {
+	           "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+	           "pets": [{ "givenName": "Fluffy" }]
+	       }
+	    ],
+	    "address": { "state": "WA", "county": "King", "city": "seattle" },
+	    "creationDate": 1431620472,
+	    "isRegistered": true
+	}]
+
+TOP se puede usar con un valor constante (como se muestra anteriormente) o con un valor variable usando consultas con parámetros. Si desea obtener más información, consulte las consultas con parámetros que aparecen a continuación.
+
 ## Cláusula ORDER BY
-Al igual que en ANSI SQL, puede incluir una cláusula Order By opcional al realizar la consulta. La cláusula puede incluir un argumento ASC o DESC opcional para especificar el orden en que se deben recuperar los resultados. Para obtener más información sobre Order By, consulte [Ordenación de datos de DocumentDB con Order By](documentdb-orderby.md).
+Al igual que en ANSI SQL, puede incluir una cláusula Order By opcional al realizar la consulta. La cláusula puede incluir un argumento ASC o DESC opcional para especificar el orden en que se deben recuperar los resultados. Si desea obtener más información sobre Order By, consulte [Ordenación de datos de DocumentDB con Order By](documentdb-orderby.md).
 
 Por ejemplo, aquí hay una consulta que recupera las familias ordenadas por nombre de la ciudad de residencia.
 
@@ -708,7 +739,7 @@ Y la siguiente es una consulta que recupera las familias ordenadas por fecha de 
 	
 ## Conceptos avanzados de base de datos y consultas SQL
 ### Iteración
-Se ha agregado una nueva construcción mediante la palabra clave **IN** en SQL de DocumentDB que proporcionar compatibilidad con la iteración en las matrices JSON. El origen FROM proporciona compatibilidad con la iteración. Empecemos con el ejemplo siguiente:
+Se agregó una nueva construcción mediante la palabra clave **IN** en SQL de DocumentDB que proporciona compatibilidad con la iteración en las matrices JSON. El origen FROM proporciona compatibilidad con la iteración. Empecemos con el ejemplo siguiente:
 
 **Consultar**
 
@@ -910,7 +941,7 @@ Este ejemplo es una ampliación natural del anterior y realiza una combinación 
 
 `AndersenFamily` tiene un hijo que tiene una mascota. De esta manera, el producto cruzado produce una fila (1 * 1 * 1) a partir de esta familia. La familia Wakefield tiene, sin embargo, dos hijos, pero solo uno, "Jesse", tiene mascotas. Tiene dos mascotas, sin embargo. Así pues, el producto cruzado produce 1 * 1 * 2 = 2 filas a partir de esta familia.
 
-En el ejemplo siguiente, hay un filtro adicional en `pet` Este excluye todas las tuplas donde el nombre de mascota no sea "Shadow". Tenga en cuenta que podemos crear tuplas a partir de matrices, filtrar por cualquiera de los elementos de la tupla y proyectar cualquier combinación de los elementos.
+En el ejemplo siguiente, hay un filtro adicional en `pet`. Este excluye todas las tuplas donde el nombre de mascota no sea "Shadow". Tenga en cuenta que podemos crear tuplas a partir de matrices, filtrar por cualquiera de los elementos de la tupla y proyectar cualquier combinación de los elementos.
 
 **Consultar**
 
@@ -1073,6 +1104,15 @@ Después, esta solicitud puede enviarse a DocumentDB como consulta JSON con par�
         "parameters": [          
             {"name": "@lastName", "value": "Wakefield"},         
             {"name": "@addressState", "value": "NY"},           
+        ] 
+    }
+
+El argumento para TOP se puede definir mediante el uso de consultas con parámetros, tal como se muestra a continuación.
+
+    {      
+        "query": "SELECT TOP @n * FROM Families",     
+        "parameters": [          
+            {"name": "@n", "value": 10},         
         ] 
     }
 
@@ -1428,11 +1468,11 @@ Las funciones espaciales pueden usarse para realizar consultas de proximidad con
       "id": "WakefieldFamily"
     }]
 
-Si incluye la indexación espacial en la directiva de indexación, las "consultas de distancia" se atenderán eficazmente a través del índice. Para obtener más detalles sobre la indexación espacial, consulte la sección siguiente. Aunque no tenga un índice espacial para las rutas de acceso especificadas, aún podrá realizar consultas espaciales mediante la especificación del encabezado de solicitud `x-ms-documentdb-query-enable-scan` con el valor establecido en "true". En. NET, para hacerlo es preciso pasar el argumento **FeedOptions** opcional a consultas en las que [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) está establecido en true.
+Si incluye la indexación espacial en la directiva de indexación, las "consultas de distancia" se atenderán eficazmente a través del índice. Para obtener más detalles sobre la indexación espacial, consulte la sección siguiente. Aunque no tenga un índice espacial para las rutas de acceso especificadas, podrá realizar consultas espaciales mediante la especificación del encabezado de solicitud `x-ms-documentdb-query-enable-scan` con el valor establecido en "true". En. NET, para hacerlo es preciso pasar el argumento **FeedOptions** opcional en consultas en las que [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) está establecido en true.
 
 ST\_WITHIN puede usarse para comprobar si un punto se encuentra dentro de un polígono. Normalmente, los polígonos se usan para representar límites, como códigos postales, límites estatales o formaciones naturales. Una vez más, si incluye la indexación espacial en la directiva de indexación, las consultas "interiores" se atenderán eficazmente a través del índice.
 
-Los argumentos de polígono de ST\_WITHIN solo pueden contener un anillo individual, es decir, los polígonos no deben contener orificios. En [Límites y cuotas de DocumentDB](documentdb-limits.md) encontrará el número máximo de puntos permitidos en un polígono para una consulta ST\_WITHIN.
+Los argumentos de polígono de ST\_WITHIN solo pueden contener un anillo individual, es decir, los polígonos no deben contener orificios. En [Límites de DocumentDB](documentdb-limits.md) encontrará el número máximo de puntos permitidos en un polígono para una consulta ST\_WITHIN.
 
 **Consultar**
 
@@ -1449,7 +1489,7 @@ Los argumentos de polígono de ST\_WITHIN solo pueden contener un anillo individ
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]De forma parecida a cómo funcionan los tipos no coincidentes en una consulta de DocumentDB, si el valor de ubicación especificado en cualquier argumento está mal formado o no es válido, se evaluará como **sin definir** y el documento evaluado se omite de los resultados de la consulta. Si la consulta no devuelve resultados, ejecute ST\_ISVALIDDETAILED para depurarla y saber por qué el tipo espacial no es válido.
+>[AZURE.NOTE]De manera similar a como funcionan los tipos no coincidentes en una consulta de DocumentDB, si el valor de ubicación especificado en cualquier argumento tiene un formato incorrecto o no es válido, se evaluará como **sin definir** y el documento evaluado se omitirá de los resultados de la consulta. Si la consulta no devuelve resultados, ejecute ST\_ISVALIDDETAILED para depurarla y saber por qué el tipo espacial no es válido.
 
 ST\_ISVALID y ST\_ISVALIDDETAILED pueden usarse para comprobar si un objeto espacial es válido. Por ejemplo, la consulta siguiente comprueba la validez de un punto con un valor de latitud fuera del intervalo (-132,8). ST\_ISVALID devuelve solo un valor booleano y ST\_ISVALIDDETAILED devuelve el valor booleano y una cadena que contiene el motivo por el que se considera no válida.
 
@@ -1602,6 +1642,22 @@ En primer lugar, para el sistema de tipos, admitimos todos los tipos primitivos 
 		new Parent { familyName = "Smith", givenName = "Joe" };
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
+
+### Lista de los operadores LINQ admitidos
+La siguiente es una lista de los operadores LINQ admitidos en el proveedor LINQ incluido en el SDK de .NET de DocumentDB.
+
+-	**Select**: Las proyecciones se traducen en la instrucción SQL SELECT, incluida la construcción de objetos.
+-	**Where**: Los filtros se traducen a la instrucción SQL WHERE y admiten la traducción entre && , || y ! a los operadores SQL.
+-	**SelectMany**: Permite desenredar las matrices a la cláusula SQL JOIN. Se puede usar para encadenar/anidar expresiones para filtrar los elementos de la matriz.
+-	**OrderBy y OrderByDescending**: Se traduce a ORDER BY ascendente/descendente:
+-	**CompareTo**: Se traduce a las comparaciones de intervalos. Se usa frecuentemente para las cadenas, debido a que no son comparables en .NET.
+-	**Take**: Se traduce a la instrucción SQL TOP para limitar los resultados desde una consulta.
+-	**Funciones matemáticas**: Admite la traducción desde Abs de .NET, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate a las funciones SQL integradas equivalentes.
+-	**Funciones de cadena**: Admite la traducción desde Concat .NET, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper a las funciones SQL integradas equivalentes.
+-	**Funciones de matriz**: Admite la traducción desde Concat .NET, Contains y Count a las funciones SQL integradas equivalentes.
+-	**Funciones de extensión geoespacial**: Admite la traducción desde los métodos auxiliares Distance, Within, IsValid y IsValidDetailed a las funciones SQL integradas equivalentes.
+-	**Función de extensión de función definida por el usuario**: Admite la traducción desde el método auxiliar UserDefinedFunctionProvider.Invoke a la correspondiente función definida por el usuario.
+-	**Varios**: Admite la traducción de los operadores condicionales y de fusión. Puede traducir Contains a String CONTAINS, ARRAY\_CONTAINS o SQL IN, según el contexto.
 
 ### Operadores de consulta SQL
 A continuación, vemos algunos ejemplos que ilustran la traducción de algunos de los operadores de consulta de LINQ estándar a consultas de Base de datos de documentos.
@@ -1807,7 +1863,7 @@ Base de datos de documentos ofrece un modelo de programación RESTful sobre HTTP
 
 El modelo de interacción básico con estos recursos se lleva a cabo a través de los verbos de HTTP GET, PUT, POST y DELETE con su interpretación estándar. El verbo POST se usa para la creación de un nuevo recurso, para ejecutar un procedimiento almacenado o para emitir una consulta de Base de datos de documentos. Las consultas siempre son operaciones de solo lectura sin efectos secundarios.
 
-En los ejemplos siguientes se muestra POST para una consulta de DocumentDB realizada a una recopilación que incluye los dos documentos de ejemplo que hemos revisado hasta el momento. La consulta tiene un filtro sencillo por la propiedad de nombre JSON. Fíjese en el uso de los encabezados `x-ms-documentdb-isquery` y Content-Type: `application/query+json` para denotar que la operación es una consulta.
+En los ejemplos siguientes se muestra POST para una consulta de DocumentDB realizada a una recopilación que incluye los dos documentos de ejemplo que hemos revisado hasta el momento. La consulta tiene un filtro sencillo por la propiedad de nombre JSON. Observe el uso de los encabezados `x-ms-documentdb-isquery` y Content-Type: `application/query+json` para denotar que la operación es una consulta.
 
 
 **Solicitud**
@@ -2074,7 +2130,7 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 4.	[Niveles de coherencia de Base de datos de documentos][consistency-levels]
 5.	ANSI SQL 2011 [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
-7.	Especificación de JavaScript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+7.	Especificación de Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
 9.	Técnicas de evaluación de consultas para bases de datos de gran tamaño [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
@@ -2088,4 +2144,4 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

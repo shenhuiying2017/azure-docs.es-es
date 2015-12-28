@@ -63,6 +63,7 @@ El motor de reglas le permite personalizar cómo se controlan las solicitudes HT
 - El orden en que se muestran varias reglas afecta a la manera en que se controlan. Una regla posterior puede invalidar las acciones especificadas por una regla anterior.
 
 ## Consulte también
+* [Detalles de características y condiciones de coincidencia del motor de reglas de](cdn-rules-engine-details.md)
 * [Información general de la red CDN de Azure](cdn-overview.md)
 * [Estadísticas en tiempo real en CDN de Microsoft Azure](cdn-real-time-stats.md)
 * [Informes de HTTP avanzados](cdn-advanced-http-reports.md)
@@ -71,4 +72,4 @@ El motor de reglas le permite personalizar cómo se controlan las solicitudes HT
 
 	
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -30,6 +30,13 @@
 
 ## Notas de la versión
 
+### <a name="1.5.2"/>[1\.5.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.2)
+  - Compatibilidad de LINQ ampliada, incluidos nuevos operadores de paginación, expresiones condicionales y comparación de intervalos.
+    - Operador Take para habilitar el comportamiento de SELECT TOP en LINQ
+    - Operador CompareTo para habilitar las comparaciones de intervalos de cadenas
+    - Operadores conditional (?) y coalesce (??)
+  - **[Corregido]** ArgumentOutOfRangeException al combinar la proyección del modelo con Where-In en la consulta de linq. [n.º 81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+
 ### <a name="1.5.1"/>[1\.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
  - **[Corregido]** Si Select no es la última expresión, el proveedor LINQ suponía que no había ninguna proyección y generaba SELECT * incorrectamente. [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
 
@@ -37,7 +44,7 @@
  - Upsert implementada, métodos de UpsertXXXAsync agregados
  - Mejoras de rendimiento para todas las solicitudes
  - Compatibilidad del proveedor de LINQ con los métodos condicionales, de fusión y CompareTo para cadenas
- - **[Corregido]** proveedor LINQ--> la implementación del método Contains en List to genera el mismo SQL que en IEnumerable y en una matriz
+ - **[Corregido]** proveedor LINQ--> la implementación del método Contains en List para generar el mismo SQL que en IEnumerable y en una matriz
  - **[Corregido]** BackoffRetryUtility usa el mismo HttpRequestMessage de nuevo en lugar de crear uno nuevo al reintentar
  - **[Obsoleto]** UriFactory.CreateCollection--> debería usar ahora UriFactory.CreateDocumentCollection
  
@@ -50,9 +57,9 @@
     - Nuevas sobrecargas en DocumentClient para tener en cuenta URI
   - Se agregaron IsValid() y IsValidDetailed() en LINQ para geoespaciales
   - Compatibilidad mejorada con el proveedor de LINQ
-    - **Math** - Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate
-    - **String** - Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper
-    - **Array** - Concat, Contains, Count
+    - **Math**: Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate
+    - **String**: Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper
+    - **Array**: Concat, Contains, Count
     - Operador **IN**
 
 ### <a name="1.3.0"/>[1\.3.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.3.0)
@@ -63,7 +70,7 @@
   - Se agregó compatibilidad para consulta e indexación espacial
     - Nuevo espacio de nombres Microsoft.Azure.Documents.Spatial para serializar y deserializar tipos espaciales como punto y polígono
     - Nueva clase de SpatialIndex para la indexación de datos GeoJSON almacenados en DocumentDB
-  - **[Corregido]**: consulta SQL incorrecta generada a partir de la expresión linq [#38](https://github.com/Azure/azure-documentdb-net/issues/38)
+  - **[Corregido]**: consulta SQL incorrecta generada a partir de la expresión linq [n.º 38](https://github.com/Azure/azure-documentdb-net/issues/38)
 
 ### <a name="1.2.0"/>[1\.2.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.2.0)
 - Dependencia de Newtonsoft.Json v5.0.7 
@@ -105,26 +112,24 @@ Todas las versiones del SDK de Azure DocumentDB para .NET anteriores a la versi�
  
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.5.1](#1.5.1) | 23 de noviembre de 2015 |---
-| [1\.5.0](#1.5.0) | 05 de octubre de 2015 |---
+| [1\.5.2](#1.5.2) | 14 de noviembre de 2015 |--- 
+| [1\.5.1](#1.5.1) | 23 de octubre de 2015 |---
+| [1\.5.0](#1.5.0) | 05 de agosto de 2015 |---
 | [1\.4.1](#1.4.1) | 25 de agosto de 2015 |---
 | [1\.4.0](#1.4.0) | 13 de agosto de 2015 |---
-| [1\.3.0](#1.3.0) | 05 de agosto de 2015 |---
-| [1\.2.0](#1.2.0) | 06 de julio de 2015 |---
-| [1\.1.0](#1.1.0) | 30 de abril de 2015 |---
-| [1\.0.0](#1.0.0) | 08 de abril de 2015 |---
-| [0\.9.3-prelease](#0.9.x-preview) | 12 de marzo de 2015 | 29 de febrero de 2016
-| [0\.9.2-prelease](#0.9.x-preview) | Enero de 2015 | 29 de febrero de 2016
-| [0\.9.1-prelease](#0.9.x-preview) | 13 de octubre de 2014 | 29 de febrero de 2016
-| [0\.9.0-prelease](#0.9.x-preview) | 21 de agosto de 2014 | 29 de febrero de 2016
+| [1\.3.0](#1.3.0) | 05 de agosto de 2015 [1\.2.0](#1.2.0) | 06 de julio de 2015 |--- 
+| [1\.1.0](#1.1.0) | 30 de abril de 2015 |--- 
+| [1\.0.0](#1.0.0) | 08 de abril de 2015 | 0 de febrero de 9 
+| [0\.9.3-prelease](#0.9.x-preview) | 12 de marzo de 2015 | 29 de febrero 2016 
+| [0\.9.2-prelease](#0.9.x-preview) | Enero de 2015 | 29 de febrero de 2016 
+| [0\.9.1-prelease](#0.9.x-preview) | 13 de octubre de 2014 | F29 de febrero de 2016 
+| [0\.9.0-prelease](#0.9.x-preview) | 21 de agosto de 2014 | 29 de febrero 2016
 
 ## P+F
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## Otras referencias
 
-Para más información sobre DocumentDB, consulte la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
+Para más información sobre DocumentDB, vea la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_1203_2015-->
-
-
+<!---HONumber=AcomDC_1217_2015-->

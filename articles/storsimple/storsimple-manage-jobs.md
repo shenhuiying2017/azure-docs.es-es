@@ -12,14 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli" />
 
 # Usar el servicio de Administrador de StorSimple para ver y administrar trabajos de StorSimple
 
+[AZURE.INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
+
 ## Información general
 
-La página **Trabajos** proporciona un único portal central para ver y administrar trabajos iniciados en dispositivos conectados a su servicio StorSimple Manager. Puede ver los trabajos programados, en ejecución, completados y con error de varios dispositivos. Los resultados se presentan en un formato tabular.
+En la página **Trabajos** se ofrece un único portal central para ver y administrar trabajos iniciados en dispositivos conectados a su servicio StorSimple Manager. Puede ver los trabajos programados, en ejecución, completados y con error de varios dispositivos. Los resultados se presentan en un formato tabular.
 
 ![Página de trabajos](./media/storsimple-manage-jobs/HCS_JobsPage.png)
 
@@ -75,7 +77,7 @@ Realice los pasos siguientes para cancelar un trabajo en ejecución.
 
 ### Para cancelar un trabajo
 
-1. En la página **Trabajos**, para mostrar los trabajos en curso que desea cancelar, ejecute una consulta con los filtros adecuados.
+1. En la página **Trabajos**, para mostrar los trabajos en curso que quiere cancelar, ejecute una consulta con los filtros adecuados.
 
 1. Seleccione el trabajo.
 
@@ -91,4 +93,4 @@ Ahora se cancelará este trabajo.
 
 - Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

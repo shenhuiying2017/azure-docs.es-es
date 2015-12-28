@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/29/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Información general sobre redes virtuales
@@ -31,6 +31,8 @@ La misma red puede hospedarse en Azure como se muestra en la siguiente figura.
 
 Observe cómo la infraestructura de Azure toma el rol del enrutador, lo que le proporciona acceso desde su red virtual a Internet público sin necesidad de ninguna configuración. Los firewall pueden sustituirse por Grupos de seguridad de red (NSGs) aplicados a cada subred individual. Los equilibradores de carga físicos se sustituyen por equilibradores de carga internos y orientados a Internet en Azure.
 
+>[AZURE.NOTE]Existen dos modos de implementación en Azure: clásica (también conocido como administración de servicios) y Administrador de recursos de Azure (ARM). Las redes virtuales clásicas pueden agregarse a un grupo de afinidad o creare como una red virtual regional. Si tiene una red virtual en un grupo de afinidad, se recomienda [migrarlo a una red virtual regional](./virtual-networks-migrate-to-regional-vnet.md).
+
 ## Ventajas de la red virtual
 
 - **Aislamiento**. Las redes virtuales están completamente aisladas entre sí. Esto le permite crear redes independientes para el desarrollo, la prueba y la producción que usan los mismos bloques de direcciones de CIDR.
@@ -46,10 +48,6 @@ Observe cómo la infraestructura de Azure toma el rol del enrutador, lo que le p
 - **Conectividad**. Las redes virtuales pueden conectarse entre sí, e incluso al centro de datos local usando una conexión VPN de sitio a sitio o una conexión ExpressRoute. Para más información sobre puertas de enlace de VPN, visite [Acerca de puertas de enlace de VPN](./vpn-gateway-about-vpngateways.md). Para más información sobre ExpressRoute, visite [Introducción técnica de ExpressRoute](./expressroute-introduction.md).
 
     >[AZURE.NOTE]Asegúrese de crear una red virtual antes de implementar instancias de rol de Paas o máquinas virtuales de Iaas en el entorno de Azure. Las máquinas virtuales basadas en ARM requieren una red virtual, y si no especifica una red virtual, Azure crea una predeterminada que puede tener un conflicto de bloque de dirección de CIDR con la red local. Esto hace que la conexión de la red virtual con la red local sea imposible.
-
-## Modos de implementación
-
-    >[AZURE.NOTE] There are two deployment modes in Azure: classic (also known as Service Management) and Azure Resource Manager (ARM). Classic VNets could be added to an affinity group, or created as a regional VNet. If you have a VNet in an affinity group, it is recommended to [migrate it to a regional VNet](./virtual-networks-migrate-to-regional-vnet.md). 
     
 ## Subredes
 
@@ -85,7 +83,7 @@ Por ejemplo, pueden usarse NSG para proporcionar seguridad en la red virtual. Si
 Los dispositivos virtuales dependen de las [rutas definidas por el usuario y reenvío IP](../virtual-networks-udr-overview.md).
 
 ## Límites
-No hay límites en el número de redes virtuales permitidas en una suscripción. Consulte [Límites de redes de Azure](azure-subscription-service-limits.md#networking-limits) para más información.
+Hay límites en el número de redes virtuales permitidas en una suscripción. Consulte [Límites de redes de Azure](azure-subscription-service-limits.md#networking-limits) para más información.
 
 ## Precios
 No hay ningún coste adicional para el uso de redes virtuales en Azure. A las instancias de proceso iniciadas dentro de la red virtual se les cobrarán las tarifas estándar como se describe en [Precios de máquinas virtuales de Azure](https://azure.microsoft.com/pricing/details/virtual-machines/). A las [Puertas de enlace de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) y a las [Direcciones IP públicas](https://azure.microsoft.com/pricing/details/ip-addresses/) usadas en la red virtual también se les cobrarán tarifas estándar.
@@ -100,4 +98,4 @@ No hay ningún coste adicional para el uso de redes virtuales en Azure. A las in
 - [Reserva de una dirección IP pública](../virtual-networks-reserved-public-ip.md).
 - Obtención de más información sobre [rutas definidas por el usuario y reenvío IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

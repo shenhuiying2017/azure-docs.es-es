@@ -13,27 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.date="12/15/2015"
 	ms.author="juliako"/>
 
 #Actualización de Servicios multimedia después de rotar las claves de acceso de almacenamiento
 
-Cuando crea una nueva cuenta de Servicios multimedia de Azure, también se le pide que seleccione una cuenta de almacenamiento de Azure que se usa para almacenar el contenido multimedia. Tenga en cuenta que puede agregar más de una cuenta de almacenamiento a su cuenta de Servicios multimedia.
+Cuando crea una nueva cuenta de Servicios multimedia de Azure, también se le pide que seleccione una cuenta de almacenamiento de Azure que se usa para almacenar el contenido multimedia. Tenga en cuenta que puede [agregar más de una cuenta de almacenamiento](meda-services-managing-multiple-storage-accounts.md) a su cuenta de Servicios multimedia.
 
 Cuando se crea una nueva cuenta de almacenamiento, Azure genera dos claves de acceso de almacenamiento de 512 bits, que se usan para autenticar el acceso a su cuenta de almacenamiento. Para aumentar la seguridad de sus conexiones de almacenamiento, se recomienda regenerar y rotar periódicamente su claves de acceso de almacenamiento. Se proporcionan dos claves de acceso (principal y secundaria) con el fin de permitirle mantener conexiones con la cuenta de almacenamiento mediante el uso de una clave de acceso mientras regenera la otra. Este procedimiento se conoce también como "rotación de claves de acceso".
 
-Servicios multimedia tiene una dependencia de una de las claves de almacenamiento (principal o secundaria). En concreto, los localizadores que se usan para transmitir o descargar sus recursos dependen de la clave de acceso. Al rotar las claves de acceso de almacenamiento, también debe asegurarse de actualizar sus localizadores para que no haya ninguna interrupción en su servicio de streaming.
+Servicios multimedia depende de una clave de almacenamiento que se le ofrece. En concreto, los localizadores que se usan para transmitir o descargar sus activos dependen de la clave de acceso de almacenamiento. Cuando se crea una cuenta de AMS toma una dependencia en la clave de acceso de almacenamiento principal de forma predeterminada, pero como usuario puede actualizar la clave de almacenamiento que AMS tiene. Debe asegurarse de que los Servicios multimedia conocen qué clave usar siguiendo los pasos descritos en este tema. Además, al rotar las claves de acceso de almacenamiento, debe asegurarse de actualizar sus localizadores para que no haya ninguna interrupción en su servicio de streaming (este paso también se describe en el tema).
 
->[AZURE.NOTE]Después de regenerar una clave de almacenamiento, debe asegurarse de sincronizar la actualización con Servicios multimedia.
-
-En este tema se describen los pasos que tomaría para rotar las claves de almacenamiento y actualizar Servicios multimedia para usar la clave de almacenamiento adecuada. Tenga en cuenta que si tiene varias cuentas de almacenamiento, realizaría este procedimiento con cada una.
-
->[AZURE.NOTE]Antes de ejecutar los pasos que se describen en este tema en una cuenta de producción, asegúrese de probarlos en una cuenta de ensayo.
+>[AZURE.NOTE]Si tiene varias cuentas de almacenamiento, realizaría este procedimiento con cada una.
+>
+>Antes de ejecutar los pasos que se describen en este tema en una cuenta de producción, asegúrese de probarlos en una cuenta de ensayo.
 
 
 ## Paso 1: Regeneración de la clave de acceso de almacenamiento secundaria
 
-Para comenzar, regenere la clave de almacenamiento secundaria. De forma predeterminada, Servicios multimedia no usa la clave secundaria. Para obtener información sobre cómo rotar las claves de almacenamiento, consulte [Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Para comenzar, regenere la clave de almacenamiento secundaria. De forma predeterminada, Servicios multimedia no usa la clave secundaria. Para información sobre cómo rotar las claves de almacenamiento, vea [Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
   
 ##<a id="step2"></a>Paso 2: Actualización de Servicios multimedia para usar la nueva clave de almacenamiento secundaria
 
@@ -43,7 +41,7 @@ Actualice Servicios multimedia para usar la clave de acceso de almacenamiento se
 
 - Use la API de REST de Servicios multimedia.
 
-En el siguiente código de ejemplo se muestra cómo construir la solicitud https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key con el fin de sincronizar la clave de almacenamiento especificada con Servicios multimedia. En este caso, se usa el valor de la clave de almacenamiento secundaria. Para obtener más información, consulte [Uso de la API de REST de administración de Servicios multimedia](http://msdn.microsoft.com/library/azure/dn167656.aspx).
+En el siguiente código de ejemplo se muestra cómo construir la solicitud https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key con el fin de sincronizar la clave de almacenamiento especificada con Servicios multimedia. En este caso, se usa el valor de la clave de almacenamiento secundaria. Para más información, vea [Uso de la API de REST de administración de Servicios multimedia](http://msdn.microsoft.com/library/azure/dn167656.aspx).
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{
@@ -79,13 +77,15 @@ En el siguiente código de ejemplo se muestra cómo construir la solicitud https
 		    }
 		}
 
-A continuación, actualice los localizadores existentes (que tienen una dependencia de la clave de almacenamiento anterior).
+Tras este paso, actualice los localizadores existentes (que tienen una dependencia de la clave de almacenamiento anterior), como se muestra en el siguiente paso.
 
 >[AZURE.NOTE]Espere 30 minutos antes de realizar ninguna operación con Servicios multimedia (por ejemplo, crear nuevos localizadores) a fin de impedir que los trabajos pendientes sea vean afectados.
 
 ##Paso 3: Actualización de los localizadores 
 
-Pasados 30 minutos, puede volver a crear los localizadores OnDemand de modo que tomen dependencia de la nueva clave de almacenamiento secundaria y mantengan la URL existente.
+>[AZURE.NOTE]Al rotar las claves de acceso de almacenamiento, debe asegurarse de actualizar sus localizadores existentes para que no haya ninguna interrupción en su servicio de streaming.
+
+Espere al menos 30 minutos tras la sincronización de la nueva clave de almacenamiento con AMS. Después, puede volver a crear los localizadores OnDemand de modo que tomen dependencia de la nueva clave de almacenamiento especificada y mantengan la URL existente.
 
 Tenga en cuenta que al actualizar (o volver a crear) un localizador de SAS, la dirección URL siempre cambiará.
 
@@ -130,7 +130,7 @@ En el siguiente ejemplo de .NET se muestra cómo se puede volver a crear un loca
 
 ##Paso 5: Regeneración de la clave de acceso de almacenamiento principal
 
-Regenere la clave de acceso de almacenamiento principal. Para obtener información sobre cómo rotar las claves de almacenamiento, consulte [Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Regenere la clave de acceso de almacenamiento principal. Para información sobre cómo rotar las claves de almacenamiento, vea [Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 ##Paso 6: Actualización de Servicios multimedia para usar la nueva clave de almacenamiento principal
 	
@@ -159,4 +159,4 @@ Use el mismo procedimiento descrito en el [paso 3](media-services-roll-storage-a
 
 Nos gustaría mencionar a las siguientes personas que han contribuido a crear este documento: Cenk Dingiloglu, Gada Milán y Seva Titov.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

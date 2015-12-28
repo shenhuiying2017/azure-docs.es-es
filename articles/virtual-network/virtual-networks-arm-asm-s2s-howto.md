@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/18/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Conexión de redes virtuales clásicas a redes virtuales nuevas
@@ -130,4 +130,4 @@ Para crear una puerta de enlace de VPN para la red virtual ARM, siga las instruc
 - Obtener más información sobre [el proveedor de recursos de red (NRP) para ARM](../resource-groups-networking.md).
 - Cree una [solución integral mediante la conexión de una red virtual clásica a una ARM mediante una VPN S2S](../virtual-networks-arm-asm-s2s.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

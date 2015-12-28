@@ -3,7 +3,7 @@
 	description="Pasos rápidos para copiar, mover y migrar datos y bases de datos en Base de datos SQL de Azure."
 	services="sql-database"
 	documentationCenter=""
-	authors="dalechen"
+	authors="v-shysun"
 	manager="msmets"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="daleche"/>
+	ms.date="12/11/2015"
+	ms.author="v-shysun"/>
 
 # Movimiento de bases de datos de un servidor a otro, de una suscripción a otra, y dentro y fuera de Azure
 ##Para mover una base de datos a un servidor diferente en la misma suscripción
@@ -29,4 +29,4 @@
 ## Para crear una copia de una base de datos para su uso fuera de Azure
 - [Exportación de un archivo BACPAC.](sql-database-export.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

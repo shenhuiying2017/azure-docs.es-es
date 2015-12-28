@@ -21,11 +21,11 @@
 
 ## Crear la API en el portal de Azure
 
-1. En el [portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta de trabajo. Por ejemplo, inicie sesión con *suNombreDeUsuario*@* SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
+1. En el [Portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta profesional. Por ejemplo, inicie sesión con *suNombreDeUsuario*@* SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
  
 2. Seleccione **Examinar** en la barra de tareas: ![][14]
 
-3. En la lista, puede desplazarse para encontrar PowerApps o escribir en *powerapps*: ![][15]
+3. En la lista, desplácese para encontrar PowerApps o escriba *powerapps*: ![][15]
 
 4. En **PowerApps**, seleccione **Administrar API**: ![Examine las APIs registradas][1]
 
@@ -84,7 +84,7 @@ Si no tiene una aplicación AAD existente con los valores de clave y secreto, us
 Se creará una nueva aplicación de Azure Active Directory. Puede usar esta aplicación en la configuración de la API de usuarios de Office 365 en el Portal de Azure.
 
 ## Resumen y pasos siguientes
-En este tema, ha agregado la API de Outlook para Office 365 a su empresa PowersApps. A continuación, proporcione a los usuarios acceso a la API para que se pueda agregar a sus aplicaciones:
+En este tema ha agregado la API de Usuarios de Office 365 a su empresa PowersApps. A continuación, proporcione a los usuarios acceso a la API para que se pueda agregar a sus aplicaciones:
 
 [Agregar una conexión y conceder acceso a los usuarios](powerapps-manage-api-connection-user-access.md)
 
@@ -101,9 +101,5 @@ En este tema, ha agregado la API de Outlook para Office 365 a su empresa PowersA
 [9]: ./media/powerapps-create-api-office365-users/aad-tenant-applications-add-app-properties.PNG
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
-[12]: ./media/powerapps-create-api-office365-users/contoso-aad-app-delegate-office365-users.PNG
-[13]: ./media/powerapps-create-api-office365-users/contoso-aad-app-delegate-office365-users-permissions.PNG
-[14]: ./media/powerapps-create-api-office365-outlook/browseall.png
-[15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,21 +13,13 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Introducción al almacenamiento de tablas y a los servicios conectados de Visual Studio (ASP.NET)
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-aspnet-getting-started-tables.md)
-> - [What Happened](vs-storage-aspnet-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
 ## Información general
-En este artículo se describe cómo empezar a usar almacenamiento Tabla de Azure en Visual Studio después de crear una cuenta de almacenamiento de Azure en un proyecto de ASP.NET mediante el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, o después de hacer referencia a una. En este artículo se muestra cómo realizar tareas comunes en las tablas de Azure, lo que incluye crear y eliminar una tabla, así como trabajar con entidades de tabla. Los ejemplos están escritos en código C# y usan la [biblioteca del cliente de Almacenamiento de Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Para obtener más información general acerca del uso del almacenamiento de tablas de Azure, consulte [Uso del almacenamiento de tablas de .NET](storage-dotnet-how-to-use-tables.md).
+En este artículo se describe cómo empezar a usar almacenamiento Tabla de Azure en Visual Studio después de crear una cuenta de almacenamiento de Azure en un proyecto de ASP.NET mediante el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, o después de hacer referencia a una. En este artículo se muestra cómo realizar tareas comunes en las tablas de Azure, lo que incluye crear y eliminar una tabla, así como trabajar con entidades de tabla. Los ejemplos están escritos en código C# y usan la [biblioteca del cliente de almacenamiento de Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Para más información general sobre el uso del almacenamiento en tablas de Azure, vea [Cómo usar el almacenamiento en tablas de .NET](storage-dotnet-how-to-use-tables.md).
 
 El almacenamiento de tabla de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales.
 
@@ -46,9 +38,9 @@ El almacenamiento de tabla de Azure permite almacenar una gran cantidad de datos
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    **NOTA:** use todo el código anterior delante del código que aparece en los ejemplos siguientes.
+    **NOTA**: use todo el código anterior delante del código que aparece en los ejemplos siguientes.
 
-3. Obtenga un objeto **CloudTableClient** para hacer referencia a los objetos de tabla de su cuenta de almacenamiento.
+3. Obtenga un objeto **CloudTableClient** para hacer referencia a los objetos de tabla de la cuenta de almacenamiento.
 
 	    // Create the table client.
     	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -68,7 +60,7 @@ Para crear la tabla de Azure, basta con agregar una llamada a **CreateIfNotExist
 
 ## Inserción de un lote de entidades
 
-Puede insertar varias entidades en una tabla mediante una única operación de escritura. En el ejemplo de código siguiente se crean dos objetos de entidad ("Jeff Smith" y "Ben Smith") que se agregan a un objeto **TableBatchOperation** mediante el método Insert y, a continuación, se inicia la operación llamando a **CloudTable.ExecuteBatchAsync**.
+Puede insertar varias entidades en una tabla mediante una única operación de escritura. En el ejemplo de código siguiente se crean dos objetos de entidad ("Jeff Smith" y "Ben Smith") que se agregan a un objeto **TableBatchOperation** mediante el método Insert y luego se inicia la operación llamando a **CloudTable.ExecuteBatchAsync**.
 
 	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
@@ -167,4 +159,4 @@ Puede eliminar fácilmente una entidad después de haberla encontrado. El códig
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

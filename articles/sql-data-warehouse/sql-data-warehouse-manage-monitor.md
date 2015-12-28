@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="12/15/2015"
    ms.author="sahajs"/>
 
 # Supervisión de la carga de trabajo mediante DMV
@@ -131,7 +131,7 @@ Compruebe la columna *operation\_type* del paso de consulta de larga ejecución:
 
 ### PASO 4a: Buscar el progreso de la ejecución de un paso de SQL
 
-Use el identificador de solicitud y el índice de paso para recuperar información sobre la distribución de consultas de SQL Server como parte del paso de SQL en la consulta. Guarde el identificador de nodo y el SPID.
+Use el identificador de solicitud y el índice de paso para recuperar información sobre la distribución de consultas de SQL Server como parte del paso de SQL en la consulta. Guarde el id. de distribución y SPID.
 
 ```
 
@@ -149,7 +149,7 @@ Use la consulta siguiente para recuperar el plan de ejecución de SQL Server par
 ```
 
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node. 
--- Replace node_id and spid with values from previous query.
+-- Replace distribution_id and spid with values from previous query.
 
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
@@ -203,4 +203,4 @@ Para obtener más sugerencias sobre cómo administrar el Almacenamiento de datos
 
 <!--MSDN references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -97,7 +97,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
     > [AZURE.NOTE]Póngase en contacto con el equipo de soporte técnico de StatusPage [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io) a fin de solicitar los metadatos necesarios para configurar el inicio de sesión único.
 
 
-    a. En los metadatos, copie el valor de Emisor y luego péguelo en el cuadro de texto **Emisor**.
+    a. En los metadatos, copie el valor de Emisor y luego péguelo en el cuadro de texto **Identificador**.
 
     b. En los metadatos, copie el valor de URL de respuesta y luego péguelo en el cuadro de texto **URL de respuesta**.
 
@@ -244,4 +244,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

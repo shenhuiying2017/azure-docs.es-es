@@ -1,17 +1,17 @@
 Recurso|Límite predeterminado|Límite máximo
 ---|---|---
 Cuentas de Servicios multimedia de Azure (AMS) en una única suscripción||25
-Recursos por cuenta de AMS||1 000 000
+Recursos por cuenta de AMS||1\.000.000<sup>1</sup>
 Tareas encadenadas por trabajo||30
 Recursos por tarea.||50
 Recursos por trabajo||100
-Trabajos por cuenta de AMS ||50 000<sup>2</sup>
+Trabajos por cuenta de AMS ||50\.000<sup>2</sup>
 Localizadores únicos asociados a un recurso al mismo tiempo||5<sup>4</sup>
 Canales activos por cuenta de AMS</p></td>|5</p></td>|N/A<sup>1</sup>
-Programas en estado detenido por canal</p></td>|50</p></td>|N/A<sup>1</sup>
-Programas en estado de ejecución por canal</p></td>|3</p></td>|3
-Puntos de conexión de streaming en estado de ejecución por cuenta de ASM</p></td>|2</p></td>|N/A<sup>1</sup>
-Unidades de streaming por punto de conexión de streaming</p></td>|10 </p></td>|N/A<sup>1</sup>
+Programas en estado detenido por canal </p></td>|50</p></td>|N/A<sup>1</sup>
+Programas en estado de ejecución por canal </p></td>|3</p></td>|3
+Extremos de streaming en estado de ejecución por cuenta de ASM</p></td>|2</p></td>|N/A<sup>1</sup>
+Unidades de streaming por extremo de streaming</p></td>|10 </p></td>|N/A<sup>1</sup>
 Unidades de codificación por cuenta de AMS</p></td>|25</p></td>|N/A<sup>1</sup>
 Cuentas de almacenamiento | |1\.000<sup>5</sup>
 
@@ -25,4 +25,4 @@ Cuentas de almacenamiento | |1\.000<sup>5</sup>
 
 <sup>5</sup> Las cuentas de almacenamiento deben proceder de la misma suscripción de Azure.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

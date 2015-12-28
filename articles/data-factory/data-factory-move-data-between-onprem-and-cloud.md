@@ -73,7 +73,7 @@ Esto se debe a una configuración incorrecta del servidor proxy o el firewall, q
 Los dos firewalls de los que posiblemente se trate son: firewall corporativo que se ejecuta en el enrutador central de la organización y Firewall de Windows configurado como un demonio en el equipo local donde está instalada la puerta de enlace. Estas son algunas consideraciones:
 
 - No es necesario cambiar la directiva de entrada para el firewall corporativo.
-- El firewall corporativo y Firewall de Windows deben habilitar la regla de salida para los puertos TCP: 80, 443 y de 9305 a 9354. Bus de servicio de Microsoft Azure los usa para establecer la conexión entre los servicios en la nube y Data Management Gateway.
+- El firewall corporativo y Firewall de Windows deben habilitar la regla de salida para los puertos TCP: 80, 443 y de 9350 a 9354. Bus de servicio de Microsoft Azure los usa para establecer la conexión entre los servicios en la nube y Data Management Gateway.
 
 El programa de instalación MSI configurará automáticamente las reglas de Firewall de Windows para los puertos de entrada del equipo de puerta de enlace (consulte los puertos y la sección de consideraciones de seguridad anterior).
 
@@ -618,4 +618,4 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 	- 	Establezca la [configuración del firewall de SQL Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) para agregar la **dirección IP de la máquina de la puerta de enlace** a las **direcciones IP permitidas**.
 5.	Si copia datos desde y hacia SQL Server local a cualquier destino y los equipos de la puerta de enlace y de SQL Server son diferentes, haga lo siguiente: [configure Firewall de Windows](https://msdn.microsoft.com/library/ms175043.aspx) en el equipo de SQL Server para que la puerta de enlace pueda tener acceso a la base de datos a través de puertos en los que escucha la instancia de SQL Server. En la instancia predeterminada es el puerto 1433.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

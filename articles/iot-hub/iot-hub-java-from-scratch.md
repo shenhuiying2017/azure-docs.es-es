@@ -20,7 +20,7 @@
 
 En este artículo se describe cómo crear una aplicación cliente que usa el [SDK del dispositivo de IoT de Microsoft Azure para Java][lnk-java-sdk] para comunicarse con el Centro de IoT de Azure. En el tutorial se muestra cómo crear y compilar el proyecto mediante la herramienta [Maven][apache-maven]. Puede seguir estas instrucciones en una máquina Linux o Windows.
 
-Encontrará [aquí][lnk-java-api-docs] los documentos de la API de Java.
+Puede ver los [documentos de la API de Java][lnk-java-api-docs] para referencia.
 
 ## Instalación
 
@@ -214,7 +214,7 @@ Para cambiar la granularidad del registro, incluya la siguiente línea en el arc
 .level = {LOGGING_LEVEL}
 ```
 
-> [AZURE.NOTE] [Aquí](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html) encontrará una explicación de los diferentes niveles de registro.
+> [AZURE.NOTE]Puede leer una explicación de los diferentes [niveles de registro](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html).
 
 Luego, establezca la propiedad de JVM `java.util.logging.config.file={Path to your config.properties file}`.
 
@@ -229,4 +229,4 @@ Para registrar los marcos AMQP, establezca la variable de entorno `PN_TRACE_FRM=
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 [lnk-iothub-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/doc/provision_device.md
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1217_2015-->

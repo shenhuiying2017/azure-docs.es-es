@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/14/2015"
 	ms.author="wesmc"/>
 
 # Uso de los Centros de notificaciones para enviar noticias de última hora
@@ -25,9 +25,9 @@
 
 ##Información general
 
-Este tema muestra cómo puede usar los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora en una aplicación (no Silverlight) de la Tienda Windows o de Windows Phone 8.1. Si su objetivo es Silverlight para Windows Phone 8.1, consulte la versión de [Windows Phone](notification-hubs-ios-send-breaking-news.md). Cuando lo complete, podrá registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías. Este escenario es un patrón común para muchas aplicaciones en las que las notificaciones tienen que enviarse a grupos de usuarios que han mostrado previamente interés en ellas, por ejemplo, lectores RSS, aplicaciones para aficionados a la música y así sucesivamente.
+Este tema muestra cómo puede usar los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora en una aplicación (no Silverlight) de la Tienda Windows o de Windows Phone 8.1. Si su objetivo es Silverlight para Windows Phone 8.1, consulte la versión de [Windows Phone](notification-hubs-windows-phone-send-breaking-news.md). Cuando lo complete, podrá registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías. Este escenario es un patrón común para muchas aplicaciones en las que las notificaciones tienen que enviarse a grupos de usuarios que han mostrado previamente interés en ellas, por ejemplo, lectores RSS, aplicaciones para aficionados a la música y así sucesivamente.
 
-Los escenarios de difusión se habilitan mediante la inclusión de una o más _etiquetas_ cuando se crea un registro en el Centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para obtener información sobre las etiquetas, consulte [Información general acerca de los Centros de notificaciones].
+Los escenarios de difusión se habilitan mediante la inclusión de una o más _etiquetas_ cuando se crea un registro en el Centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para información sobre las etiquetas, consulte [Expresiones de etiqueta y enrutamiento de los Centros de notificaciones](notification-hubs-routing-tag-expressions.md).
 
 ##Requisitos previos
 
@@ -78,10 +78,10 @@ El primer paso es agregar los elementos de la interfaz de usuario a la página p
             hub = new NotificationHub(hubName, listenConnectionString);
         }
 
-        public async Task StoreCategoriesAndSubscribe(IEnumerable<string> categories)
+        public async Task<Registration> StoreCategoriesAndSubscribe(IEnumerable<string> categories)
         {
             ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
-            await SubscribeToCategories(categories);
+            return await SubscribeToCategories(categories);
         }
 
 		public IEnumerable<string> RetrieveCategories()
@@ -90,19 +90,34 @@ El primer paso es agregar los elementos de la interfaz de usuario a la página p
             return categories != null ? categories.Split(','): new string[0];
         }
 
-        public async Task SubscribeToCategories(IEnumerable<string> categories = null)
+        public async Task<Registration> SubscribeToCategories(IEnumerable<string> categories = null)
         {
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
             if (categories == null)
             {
-                IEnumerable<string> categories = RetrieveCategories();
+                categories = RetrieveCategories();
             }
 
-            await hub.RegisterNativeAsync(channel.Uri, categories);
+            // Using a template registration to support notifications across platforms.
+			// Any template notifications that contain messageParam and a corresponding tag expression
+			// will be delivered for this registration.
+
+            const string templateBodyWNS = "<toast><visual><binding template="ToastText01"><text id="1">$(messageParam)</text></binding></visual></toast>";
+
+            return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "simpleWNSTemplateExample",
+					categories);
         }
 
-    Esta clase usa el almacenamiento local para almacenar las categorías de noticias que este dispositivo ha de recibir. También contiene métodos para registrar estas categorías.
+    Esta clase usa el almacenamiento local para almacenar las categorías de noticias que este dispositivo ha de recibir. Tenga en cuenta que en lugar de llamar al método *RegisterNativeAsync*, llamamos al método *RegisterTemplateAsync* para registrar las categorías mediante el registro de plantilla.
+	
+	Asimismo, proporcionamos un nombre para la plantilla ("simpleWNSTemplateExample"), ya que es posible que queramos registrar más de una (por ejemplo, una para las notificaciones del sistema y otra de iconos) y es necesario asignarles un nombre para poder actualizarlas o eliminarlas.
+
+	Tenga en cuenta que, si un dispositivo registra varias plantillas con la misma etiqueta, el envío de un mensaje destinado a dicha etiqueta dará como resultado la entrega de varias notificaciones al dispositivo (una para cada plantilla). Este comportamiento resulta útil cuando un mismo mensaje lógico debe dar como resultado varias notificaciones visuales que muestren, por ejemplo, tanto un distintivo como una notificación del sistema en una aplicación de la Tienda Windows.
+
+	Para más información sobre el uso de plantillas, vea [Plantillas](notification-hubs-templates.md).
+
+
 
 
 4. En el archivo de proyecto App.xaml.cs, agregue la siguiente propiedad a la clase **App**:
@@ -131,9 +146,9 @@ El primer paso es agregar los elementos de la interfaz de usuario a la página p
             if (ScienceToggle.IsOn) categories.Add("Science");
             if (SportsToggle.IsOn) categories.Add("Sports");
 
-            await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
+            var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
 
-            var dialog = new MessageDialog("Subscribed to: " + string.Join(",", categories));
+            var dialog = new MessageDialog("Subscribed to: " + string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
         }
@@ -148,32 +163,38 @@ Estos pasos permiten registrar el Centro de notificaciones en el inicio mediante
 
 > [AZURE.NOTE]Puesto que el URI de canal asignado por el servicio de notificaciones de inserción de Windows (WNS) puede cambiar en cualquier momento, debe registrar las notificaciones con frecuencia para evitar errores de notificación. En este ejemplo se registra la notificación cada vez que se inicia la aplicación. En las aplicaciones que se ejecutan con frecuencia, más de una vez al día, es posible que pueda omitir el registro para conservar el ancho de banda si pasa menos de un día del registro previo.
 
-1. Abra el archivo App.xaml.cs y agregue el modificador **async** al método **OnLaunched**.
+1. Abra el archivo App.xaml.cs y actualice el método **InitNotificationsAsync** para usar la clase `notifications` para suscribirse en función de las categorías.
 
-2. En el método **OnLaunched**, ubique y reemplace la llamada existente al método **InitNotificationsAsync** por la siguiente línea de código:
+		// *** Remove or comment out these lines *** 
+	    //var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+	    //var hub = new NotificationHub("your hub name", "your listen connection string");
+	    //var result = await hub.RegisterNativeAsync(channel.Uri);
+	
+	    var result = await notifications.SubscribeToCategories();
 
-		await notifications.SubscribeToCategories();
-
-	De esta forma, se garantiza que cada vez que la aplicación se inicia, se recuperan las categorías del almacenamiento local y se solicita un registro de estas categorías. El método **InitNotificationsAsync** se creó como parte del tutorial [Introducción a los Centros de notificaciones], pero no es necesario en este tema.
+	De esta forma, se garantiza que cada vez que la aplicación se inicia, se recuperan las categorías del almacenamiento local y se solicita un registro de estas categorías. El método **InitNotificationsAsync** se creó como parte del tutorial [Introducción a los Centros de notificaciones][get-started].
 
 3. En el archivo de proyecto MainPage.xaml.cs, agregue el siguiente código en el método *OnNavigatedTo*:
 
-		var categories = ((App)Application.Current).notifications.RetrieveCategories();
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var categories = ((App)Application.Current).notifications.RetrieveCategories();
 
-        if (categories.Contains("World")) WorldToggle.IsOn = true;
-        if (categories.Contains("Politics")) PoliticsToggle.IsOn = true;
-        if (categories.Contains("Business")) BusinessToggle.IsOn = true;
-        if (categories.Contains("Technology")) TechnologyToggle.IsOn = true;
-        if (categories.Contains("Science")) ScienceToggle.IsOn = true;
-        if (categories.Contains("Sports")) SportsToggle.IsOn = true;
+            if (categories.Contains("World")) WorldToggle.IsOn = true;
+            if (categories.Contains("Politics")) PoliticsToggle.IsOn = true;
+            if (categories.Contains("Business")) BusinessToggle.IsOn = true;
+            if (categories.Contains("Technology")) TechnologyToggle.IsOn = true;
+            if (categories.Contains("Science")) ScienceToggle.IsOn = true;
+            if (categories.Contains("Sports")) SportsToggle.IsOn = true;
+        }
 
 	De esta forma, se actualiza la página principal según el estado de las categorías guardadas anteriormente.
 
 La aplicación está ahora completa y puede almacenar un conjunto de categorías en el almacenamiento local del dispositivo usado para registrarse en el Centro de notificaciones cuando el usuario cambie la selección de categorías. A continuación, definiremos un back-end que pueda enviar notificaciones de categorías a esta aplicación.
 
-##Envío de notificaciones desde el back-end
+##Envío de notificaciones con etiquetas
 
-[AZURE.INCLUDE [notification-hubs-back-end](../../includes/notification-hubs-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ##Ejecución de la aplicación y generación de notificaciones
 
@@ -207,9 +228,6 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 
 	Conozca cómo expandir la aplicación de noticias de última hora para habilitar el envío de notificaciones localizadas.
 
-+ [Notificación a los usuarios con los Centros de notificaciones]
-
-	Conozca cómo insertar notificaciones para usuarios autenticados específicos. Esta es una buena solución para enviar notificaciones solo a usuarios específicos.
 
 
 <!-- Anchors. -->
@@ -230,9 +248,9 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 <!-- URLs.-->
 [get-started]: /manage/services/notification-hubs/getting-started-windows-dotnet/
 [Uso de los Centros de notificaciones para difundir noticias de última hora localizadas]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Notificación a los usuarios con los Centros de notificaciones]: /manage/services/notification-hubs/notify-users
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
 [Mobile Service]: /develop/mobile/tutorials/get-started/
-[Información general acerca de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -240,4 +258,4 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

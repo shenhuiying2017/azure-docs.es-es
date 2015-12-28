@@ -72,7 +72,9 @@ Se trata de un proceso complejo, por lo que hemos cargado un módulo de PowerShe
 Remove-Module ServiceFabricRPHelpers
 ```
 
-Copie lo siguiente y cambie la ruta de acceso a .psm1 para que forme parte de su máquina. Este es un ejemplo ```
+Copie lo siguiente y cambie la ruta de acceso a .psm1 para que forme parte de su máquina. Aquí tiene un ejemplo.
+
+```
 Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 ```
   
@@ -91,8 +93,10 @@ El script creará un nuevo grupo de recursos o un almacén si no hay ninguno.
 ```
 Invoke-AddCertToKeyVault -SubscriptionId <you subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -UseExistingCertificate -ExistingPfxFilePath <Full path to the .pfx file> 
 ```
-Este es un script relleno como ejemplo. ```
-Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate2 -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ") -UseExistingCertificate -ExistingPfxFilePath C:\MyCertificates\ChackdanTestCertificate.pfx 
+Este es un script relleno como ejemplo.
+
+```
+Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate2 -Password abcd123 -UseExistingCertificate -ExistingPfxFilePath C:\MyCertificates\ChackdanTestCertificate.pfx 
 ```
 
 Después de realizar correctamente el script, ahora obtendrá una salida como la siguiente, que necesitará para el paso 3.
@@ -125,7 +129,7 @@ El valor de OutputPath que dio al script contendrá el nuevo certificado autofir
 Puede leer más sobre la creación de un certificado autofirmado en [https://technet.microsoft.com/library/hh848633.aspx](https://technet.microsoft.com/library/hh848633.aspx).
 
 Este es un script relleno como ejemplo. ```
-Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate3 -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ") -CreateSelfSignedCertificate -DnsName www.chackdan.westus.azure.com -OutputPath C:\MyCertificates
+Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate3 -Password abcd123 -CreateSelfSignedCertificate -DnsName www.chackdan.westus.azure.com -OutputPath C:\MyCertificates
 ```
 
 Puesto que es un certificado autofirmado, debe importarlo al almacén "TrustedPeople" de la máquina, para poder usar este certificado para conectarse a un clúster seguro. ```
@@ -240,4 +244,4 @@ Los certificados de cliente normalmente no los emite una entidad de certificaci�
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/04/2015"
+   ms.date="12/09/2015"
    ms.author="sethm" />
 
 # Colas, temas y suscripciones del Bus de servicio
@@ -25,7 +25,7 @@ Las entidades de mensajería que forman el núcleo de las capacidades de mensaje
 
 Las colas ofrecen una entrega de mensajes FIFO (PEPS, primero en entrar, primero en salir) a uno o más destinatarios de la competencia. Es decir, normalmente los receptores reciben y procesan los mensajes en el orden en el que se agregaron a la cola y solo un destinatario del mensaje recibe y procesa cada uno de los mensajes. La principal ventaja del uso de colas es conseguir un "desacoplamiento temporal" de los componentes de la aplicación. En otras palabras, los productores (remitentes) y los consumidores (receptores) no tienen que enviar y recibir mensajes al mismo tiempo, ya que los mensajes se almacenan de forma duradera en la cola. El productor no tiene que esperar una respuesta del destinatario para continuar el proceso y el envío de más mensajes.
 
-Una ventaja relacionada es la "nivelación de la carga", que permite a los productores y consumidores enviar y recibir mensajes con distintas frecuencias. En muchas aplicaciones, la carga del sistema varía con el tiempo, mientras que el tiempo de procesamiento requerido por cada unidad de trabajo suele ser constante. La intermediación de productores y consumidores de mensajes con una cola implica que la aplicación consumidora solo necesita ser aprovisionada para administrar una carga promedio en lugar de una carga pico. La profundidad de la cola aumenta y se contrae a medida que varíe la carga entrante, lo que permite ahorrar dinero directamente en función de la cantidad de infraestructura requerida para dar servicio a la carga de la aplicación. A medida que aumenta la carga, se pueden agregar más procesos de trabajo para que puedan leerse desde la cola. Cada mensaje se procesa únicamente por uno de los procesos de trabajo. Es más, este equilibrio de carga basado en la extracción permite el uso óptimo de los equipos de trabajo aunque estos equipos difieran en términos de capacidad de procesamiento ya que extraerán mensajes a su frecuencia máxima propia. Este patrón con frecuencia se denomina “patrón de consumo de competidor”.
+Una ventaja relacionada es la "nivelación de la carga", lo que permite a los productores y consumidores enviar y recibir mensajes con distintas velocidades. En muchas aplicaciones, la carga del sistema varía con el tiempo, mientras que el tiempo de procesamiento requerido por cada unidad de trabajo suele ser constante. La intermediación de productores y consumidores de mensajes con una cola implica que la aplicación consumidora solo necesita ser aprovisionada para administrar una carga promedio en lugar de una carga pico. La profundidad de la cola aumenta y se contrae a medida que varíe la carga entrante, lo que permite ahorrar dinero directamente en función de la cantidad de infraestructura requerida para dar servicio a la carga de la aplicación. A medida que aumenta la carga, se pueden agregar más procesos de trabajo para que puedan leerse desde la cola. Cada mensaje se procesa únicamente por uno de los procesos de trabajo. Es más, este equilibrio de carga basado en la extracción permite el uso óptimo de los equipos de trabajo aunque estos equipos difieran en términos de capacidad de procesamiento ya que extraerán mensajes a su frecuencia máxima propia. Este patrón con frecuencia se denomina “patrón de consumo de competidor”.
 
 El uso de colas para intermediar entre los consumidores y productores de mensajes proporciona un acoplamiento no estricto inherente entre los componentes. Dado que los productores y consumidores no están relacionados entre sí, un consumidor puede actualizarse sin tener ningún efecto en el productor.
 
@@ -146,7 +146,7 @@ while ((message = auditSubscriptionClient.Receive(TimeSpan.FromSeconds(5))) != n
 
 En muchos escenarios, los mensajes que tienen características específicas deben procesarse de maneras diferentes. Para permitirlo, puede configurar suscripciones para buscar los mensajes que tengan las propiedades deseadas y, a continuación, realizar determinadas modificaciones en esas propiedades. Mientras que las suscripciones del Bus de servicios ven todos los mensajes enviados al tema, solo puede copiar un subconjunto de dichos mensajes a la cola de suscripción virtual. Esto se consigue mediante filtros de suscripción. Dichas modificaciones se denominan *acciones de filtrado*. Cuando se crea una suscripción, puede suministrar una expresión de filtro que opera en las propiedades del mensaje, las propiedades del sistema (por ejemplo, **Label**) y las propiedades de la aplicación personalizada (por ejemplo, **StoreName**.) La expresión de filtro SQL es opcional en este caso; sin una expresión de filtro SQL, cualquier acción de filtro definida en una suscripción se realizará en todos los mensajes de la suscripción.
 
-Con el ejemplo anterior, para filtrar los mensajes que solo provengan de Store1, debe crear la suscripción Dashboard como sigue:
+Con el ejemplo anterior, para filtrar los mensajes que solo provengan de **Store1**, debe crear la suscripción Dashboard como sigue:
 
 ```
 namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFilter("StoreName = 'Store1'"));
@@ -154,11 +154,11 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 Con este filtro de suscripción, los mensajes que tienen la propiedad `StoreName` establecida en `Store1` se copian en la cola virtual para la suscripción `Dashboard`.
 
-Para obtener más información acerca de los valores de filtro posibles, consulte la documentación de las clases [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) y [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Consulte también el ejemplo [Mensajería asíncrona: filtros avanzados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749).
+Para más información sobre los valores de filtro posibles, vea la documentación de las clases [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) y [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Vea además el ejemplo [Mensajería asincrónica: filtros avanzados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749).
 
 ## Centros de eventos
 
-[Centros de eventos](http://azure.microsoft.com/services/event-hubs/) es un servicio de procesamiento de eventos que se usa para proporcionar la entrada de telemetría y eventos en Azure a escala masiva, con una latencia baja y una alta confiabilidad. Este servicio, cuando se usa con otros servicios del flujo de trabajo, es especialmente útil en escenarios de Internet de las cosas, procesamiento del flujo de trabajo o de la experiencia del usuario y en instrumentación de aplicaciones.
+[Centros de eventos](http://azure.microsoft.com/services/event-hubs/) es un servicio de procesamiento de eventos que se usa para ofrecer la entrada de telemetría y eventos en Azure a escala masiva, con una latencia baja y una alta confiabilidad. Este servicio, cuando se usa con otros servicios del flujo de trabajo, es especialmente útil en escenarios de Internet de las cosas, procesamiento del flujo de trabajo o de la experiencia del usuario y en instrumentación de aplicaciones.
 
 Los Centros de eventos son una construcción de streaming de mensajes, y aunque parezca similar a las colas y los temas, tienen características muy distintas. Por ejemplo, los Centros de eventos no proporcionan TTL de mensajes, mensajes fallidos, transacciones o confirmaciones, ya que son características de mensajería asíncrona tradicionales, no características de streaming. Los Centros de eventos proporcionan otras características relacionadas con el flujo, como las particiones, la conservación del orden y la reproducción de la secuencia.
 
@@ -167,8 +167,9 @@ Los Centros de eventos son una construcción de streaming de mensajes, y aunque 
 Consulte los siguientes temas avanzados para obtener más información y ejemplos del uso de las entidades de mensajería asíncrona del Bus de servicio.
 
 - [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
-- [Tutorial de .NET de mensajería asíncrona del Bus de servicio](https://msdn.microsoft.com/library/azure/hh367512.aspx)
-- [Guía de desarrolladores de Centros de eventos](../event-hubs-programming-guide.md)
+- [Tutorial de .NET de mensajería asíncrona del Bus de servicio](service-bus-brokered-tutorial-dotnet.md)
+- [Tutorial de REST de mensajería asíncrona del Bus de servicio](service-bus-brokered-tutorial-rest.md)
+- [Guía de desarrolladores de Centros de eventos](../event-hubs/event-hubs-programming-guide.md)
 - [Mensajería asíncrona: filtros avanzados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

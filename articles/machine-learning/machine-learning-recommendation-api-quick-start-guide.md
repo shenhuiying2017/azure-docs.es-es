@@ -18,7 +18,7 @@
 
 # Guía de inicio rápido para la API de recomendaciones de Aprendizaje automático
 
-En este documento se describe cómo incorporar su servicio o aplicación para usar las recomendaciones de Aprendizaje automático de Microsoft Azure.
+En este documento se describe cómo incorporar su servicio o aplicación para usar las recomendaciones de Aprendizaje automático de Microsoft Azure. Puede encontrar más detalles en la API de recomendaciones de la [galería](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -34,7 +34,7 @@ Para usar las recomendaciones de Aprendizaje automático de Azure, debe hacer lo
 * Compilar un modelo de recomendación: se trata de una operación asincrónica en la que el sistema de recomendación toma todos los datos de uso y crea un modelo de recomendación. Esta operación puede tardar varios minutos o varias horas, según el tamaño de los datos y los parámetros de configuración de compilación. Al desencadenar la compilación, obtendrá un identificador de compilación. Utilícelo para comprobar cuándo ha finalizado el proceso de compilación antes de empezar a consumir recomendaciones.
 * Recomendaciones de uso: obtenga recomendaciones para un elemento específico o una lista de elementos.
 
-Todos los pasos anteriores se realizan a través de la API de recomendaciones de Aprendizaje automático de Azure.
+Todos los pasos anteriores se realizan a través de la API de recomendaciones de Aprendizaje automático de Azure. Puede descargar una aplicación de ejemplo que implementa cada uno de estos pasos también desde la [galería](http://1drv.ms/1xeO2F3).
 
 ##Limitaciones
 
@@ -47,24 +47,23 @@ Todos los pasos anteriores se realizan a través de la API de recomendaciones de
 ##Integración
 
 ###Autenticación
-Micosoft Azure Marketplace admite métodos de autenticación Básica o OAuth.
+Micosoft Azure Marketplace admite métodos de autenticación Básica o OAuth. Para encontrar las claves de cuenta con facilidad, vaya a las claves del Marketplace en [la configuración de su cuenta](https://datamarket.azure.com/account/keys).
 ####Autenticación básica
 Agregue el encabezado de autorización:
 
 	Authorization: Basic <creds>
                
-	Where <creds> = ConvertToBase64(“AccountKey:” + yourAccountKey);  
+	Where <creds> = ConvertToBase64("AccountKey:" + yourAccountKey);  
 	
 Conviértalo en Base64 (C#)
 
-	var bytes = Encoding.UTF8.GetBytes(“AccountKey:” + yourAccountKey);
+	var bytes = Encoding.UTF8.GetBytes("AccountKey:" + yourAccountKey);
 	var creds = Convert.ToBase64String(bytes);
 	
 Conviértalo en Base64 (JavaScript)
 
 	var creds = window.btoa("AccountKey" + ":" + yourAccountKey);
 	
-La clave de la cuenta se puede obtener [aquí](https://datamarket.azure.com/account/keys).
 
 
 
@@ -188,7 +187,7 @@ En esta sección se muestra cómo cargar datos de uso mediante un archivo. Puede
 |:--------|:--------|
 |POST |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
 
-|	Nombre de parámetro |	Valores válidos |
+|	Nombre de parámetro	|	Valores válidos						|
 |:--------			|:--------								|
 |	modelId	|	El identificador único del modelo (distingue mayúsculas de minúsculas) |
 | filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_).<br>Longitud máxima: 50 |
@@ -427,7 +426,7 @@ La respuesta incluye una entrada por compilación. Cada entrada tiene los siguie
 - `feed/entry/content/properties/StartTime`: hora de inicio de la compilación.
 - `feed/entry/content/properties/EndTime`: hora de finalización de la compilación.
 - `feed/entry/content/properties/ExecutionTime`: duración de la compilación.
-- `feed/entry/content/properties/ProgressStep`: detalles acerca de la fase actual de una compilación en curso.
+- `feed/entry/content/properties/ProgressStep`: detalles sobre la fase actual de una compilación en curso.
 
 Estado de compilación válido: Created: se ha creado la entrada de solicitud de compilación. -Queued: se desencadenó la solicitud de compilación y está en cola.-Building: la compilación está en curso. -Success: la compilación finalizó correctamente. -Error: la compilación finalizó con un error. -Cancelled: se canceló la compilación. Cancelling: la compilación se está cancelando.
 
@@ -682,7 +681,7 @@ XML de OData
 	</feed>
 
 ##Información legal
-Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso. Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse. Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia. © 2014 Microsoft. Todos los derechos reservados.
+Este documento se ofrece "tal cual". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso. Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse. Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia. © 2014 Microsoft. Todos los derechos reservados.
  
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1217_2015-->

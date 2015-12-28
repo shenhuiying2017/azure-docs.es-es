@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/11/2015" 
 	ms.author="sdanie"/>
 
 # Escalado de Caché en Redis de Azure
@@ -89,7 +89,12 @@ La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre
 
 ## ¿Puedo realizar operaciones de escalado en una memoria caché Premium?
 
-Durante el período de vista previa, el escalado no está disponible para las cachés **premium**, pero puede cambiar el plan de tarifa dentro de una caché premium.
+-	No puede escalar a un plan de tarifa de caché **Premium** desde planes de tarifa **Básico** o **Estándar**.
+-	No puede escalar desde una caché **Premium** a un plan de tarifa **Básico** o **Estándar**.
+-	Puede escalar de un plan de tarifa de caché **Premium** a otro.
+-	Si ha habilitado la agrupación en clústeres cuando creó su caché **Premium**, puede escalar el número de particiones hacia arriba o hacia abajo.
+
+Para más información, vea [Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md).
 
 ## Después de escalar, ¿tengo que cambiar el nombre de la memoria caché o las teclas de acceso?
 
@@ -101,7 +106,7 @@ Cuando se escala una memoria caché **Basic** a un tamaño diferente, se cierra 
 
 Cuando se escala una memoria caché **Basic** a una memoria caché **Standard**, se aprovisiona una caché de réplica y los datos se copian desde la caché principal a la caché de réplica. La memoria caché permanece disponible durante el proceso de escalado.
 
-Cuando se escala una memoria caché **Standard** a un tamaño diferente, una de las réplicas se apaga y se vuelve a aprovisionar para el nuevo tamaño y los datos se transfieren a través de ella; a continuación, la otra réplica realiza una conmutación por error antes de volverse a aprovisionar, similar al proceso que se produce durante un error en uno de los nodos de la memoria caché.
+Cuando se escala una memoria caché **Standard** a un tamaño diferente, se apaga una de las réplicas y se vuelve a aprovisionar para el nuevo tamaño y los datos se transfieren a través de ella; a continuación, la otra réplica realiza una conmutación por error antes de volverse a aprovisionar, similar al proceso que se produce durante un error en uno de los nodos de la memoria caché.
 
 ## ¿Se pierden los datos de mi memoria caché durante el escalado?
 
@@ -121,7 +126,7 @@ Las memorias caché **Basic** están sin conexión durante las operaciones de es
 
 ## Operaciones que no son compatibles
 
-No puede escalar a una memoria caché de nivel **premium** o desde esta.
+No puede escalar a una memoria caché de nivel **Premium** o desde esta.
 
 No puede cambiar de una memoria caché **Standard** a una **Basic**.
 
@@ -155,4 +160,4 @@ Estamos lanzando esta característica para obtener comentarios. Nos basaremos en
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

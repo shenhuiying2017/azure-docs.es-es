@@ -3,9 +3,9 @@
    description="Obtenga información para garantizar que no cambia la dirección IP virtual (VIP) de su servicio en la nube de Azure."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/08/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Cómo conservar una dirección IP virtual constante para un servicio en la nube
 
@@ -45,4 +45,4 @@ La dirección VIP de un servicio en la nube se asigna al implementarla por prime
 
 Para obtener información sobre la publicación en Azure desde Visual Studio, consulte [Asistente Publicar aplicaciones de Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

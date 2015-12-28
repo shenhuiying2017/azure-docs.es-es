@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/04/2015"
+	ms.date="12/14/2015"
 	ms.author="inhenk"/>
 
-# Control de acceso basado en roles de Azure Active Directory
+# Control de acceso basado en roles de Azure
 
 ## Control de acceso basado en roles
 El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. Gracias a RBAC puede dividir las tareas entre el equipo de DevOps, y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
 
 ### Aspectos básicos de la administración de acceso en Azure
-Cada una de las suscripciones de Azure está asociada a un Azure Active Directory. Solo se puede conceder acceso a los usuarios, los grupos y las aplicaciones de ese directorio para que administren los recursos en la suscripción de Azure, mediante el Portal de Azure clásico, las herramientas de línea de comandos de Azure y las API de administración de Azure.
+Cada una de las suscripciones de Azure está asociada a un Azure Active Directory. Solo se puede conceder acceso a los usuarios, los grupos y las aplicaciones de ese directorio para que administren los recursos en la suscripción de Azure, mediante el Portal de Azure, las herramientas de línea de comandos de Azure y las API de administración de Azure.
 
 El acceso se concede mediante la asignación de rol RBAC adecuado a los usuarios, grupos y aplicaciones en el ámbito correcto. Para conceder acceso a toda la suscripción, asigne un rol en el ámbito de la suscripción. Para conceder acceso a un grupo de recursos específico dentro de una suscripción, asigne un rol en el ámbito de grupo de recursos. También puede asignar roles a recursos específicos, como sitios web, máquinas virtuales y subredes para conceder acceso a un único recurso.
 
@@ -44,9 +44,9 @@ El administrador y los coadministradores de la suscripción clásica tienen acce
 El modelo de autorización detallado (Azure RBAC) solo es compatible con el Portal de Azure (https://portal.azure.com) y con las API del Administrador de recursos de Azure. Los usuarios y las aplicaciones a los que se asignan roles RBAC (en el ámbito de suscripción/grupo de recursos/ámbito de recurso) no pueden usar el portal de administración clásico (http://manage.windowsazure.com) ni las API de Administración de servicios de Azure.
 
 ### Autorización para administración frente a operaciones de datos
-El modelo de autorización detallado (Azure RBAC) solo es compatible con operaciones de administración de los recursos de Azure en el Portal de Azure clásico y en las API de Administrador de recursos de Azure. No todas las operaciones de nivel de datos para recursos de Azure se pueden autorizar mediante RBAC. Por ejemplo, la creación, la lectura, la actualización o la eliminación de cuentas de almacenamiento se puede controlar mediante RBAC; pero la creación, la lectura, la actualización o la eliminación de blobs o tablas de la cuenta de almacenamiento aún no se puede controlar mediante RBAC. Del mismo modo, la creación, la lectura, la actualización o la eliminación de una base de datos de SQL se puede controlar mediante RBAC; pero la creación, la lectura, la actualización o la eliminación tablas de base de datos de SQL aún no se puede controlar mediante RBAC.
+El modelo de autorización detallado (Azure RBAC) solo es compatible con operaciones de administración de los recursos de Azure del Portal de Azure y las API de Administrador de recursos de Azure. No todas las operaciones de nivel de datos para recursos de Azure se pueden autorizar mediante RBAC. Por ejemplo, la creación, la lectura, la actualización o la eliminación de cuentas de almacenamiento se puede controlar mediante RBAC; pero la creación, la lectura, la actualización o la eliminación de blobs o tablas de la cuenta de almacenamiento aún no se puede controlar mediante RBAC. Del mismo modo, la creación, la lectura, la actualización o la eliminación de una base de datos de SQL se puede controlar mediante RBAC; pero la creación, la lectura, la actualización o la eliminación tablas de base de datos de SQL aún no se puede controlar mediante RBAC.
 
-## Administración del acceso con el Portal de Azure clásico
+## Administrar el acceso con el portal de Azure
 ### Consulta de acceso
 Seleccione la configuración de acceso en la sección Essentials de la hoja de grupo de recursos. La hoja **usuarios** muestra todos los usuarios, los grupos y las aplicaciones a los que se ha concedido acceso al grupo de recursos. El acceso se asigna en el grupo de recursos o se hereda de una asignación en la suscripción principal.
 
@@ -191,4 +191,4 @@ La propiedad **AssignableScopes** del rol personalizado prescribe quién puede v
 
 **¿Quién puede ver los roles personalizados que están disponibles para su asignación en un ámbito?** Los usuarios que pueden realizar la operación `Microsoft.Authorization/roleDefinition/read` en un ámbito, pueden ver los roles RBAC que están disponibles para su asignación en ese ámbito. Todos los roles integrados de RBAC de Azure permiten ver los roles que están disponibles para la asignación.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

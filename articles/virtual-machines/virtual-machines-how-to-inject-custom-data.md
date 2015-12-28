@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="12/08/2015"
 	ms.author="rasquill"/>
 
 
@@ -81,6 +81,6 @@ Para obtener más información, consulte la [documentación de cloud-init para U
 <!--Link references-->
 [Referencia de la API de REST de administración de servicios: Agregar rol](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
-[Interfaz de línea de comandos de Azure](https://github.com/Azure/azure-sdk-tools-xplat)
+[Interfaz de línea de comandos de Azure](https://github.com/Azure/azure-xplat-cli)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

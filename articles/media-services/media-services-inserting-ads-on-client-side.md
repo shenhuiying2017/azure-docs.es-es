@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/15/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,7 +21,7 @@
 
 Este tema contiene información sobre cómo insertar distintos tipos de anuncios en el lado del cliente.
 
-Para obtener información acerca de la compatibilidad con anuncios y subtítulos en vídeos de streaming en vivo, consulte [Estándares de inserción de anuncios y subtítulos compatibles](https://msdn.microsoft.com/library/azure/dn783466.aspx#caption_ad).
+Para información sobre la compatibilidad con anuncios y subtítulos en vídeos de streaming en vivo, vea [Estándares de inserción de anuncios y subtítulos compatibles](media-services-manage-channels-overview.md#cc_and_ads).
 
  
 ##<a id="insert_ads_into_media"></a>Inserción de anuncios en contenido multimedia
@@ -812,4 +812,4 @@ El ejemplo siguiente muestra cómo programar un anuncio superpuesto de cuña int
 
 [Desarrollo de aplicaciones para reproductor de vídeo](media-services-develop-video-players.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

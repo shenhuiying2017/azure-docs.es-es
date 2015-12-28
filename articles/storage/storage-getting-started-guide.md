@@ -101,6 +101,7 @@ Para obtener más información sobre Almacenamiento de Azure, consulte los sigui
 * [Uso del almacenamiento de blobs en .NET](storage-dotnet-how-to-use-blobs.md)
 * [Uso del almacenamiento de tablas en .NET](storage-dotnet-how-to-use-tables.md)
 * [Uso del almacenamiento en cola en .NET](storage-dotnet-how-to-use-queues.md)
+* [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 * [Documentación de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
 * [Biblioteca de cliente de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 * [API de REST de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
@@ -108,4 +109,4 @@ Para obtener más información sobre Almacenamiento de Azure, consulte los sigui
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

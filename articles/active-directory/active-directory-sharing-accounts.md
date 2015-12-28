@@ -48,7 +48,7 @@ Azure AD admite las cuentas compartidas para cualquier usuario de Enterprise Mob
 
 Entre las características de Azure AD que permiten el uso compartido de las cuentas se incluyen las siguientes:
 
-- [Inicio de sesión único con contraseña](active-directory-passwords-getting-started.md)
+- [Inicio de sesión único con contraseña](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
 - Agente de inicio de sesión único con contraseña
 - [Asignación de grupos](active-directory-accessmanagement-self-service-group-management.md)
 - Aplicaciones de contraseñas personalizadas
@@ -72,4 +72,4 @@ Puede hacer que su cuenta compartida sea más segura con Multi-Factor Authentica
 - [Protección de aplicaciones con acceso condicional](active-directory-conditional-access.md)
 - [Administración de grupos de autoservicio/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

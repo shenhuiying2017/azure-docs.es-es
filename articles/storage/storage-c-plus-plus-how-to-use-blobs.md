@@ -236,10 +236,10 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 -	[Enumeración de los recursos de almacenamiento de Azure en C++](storage-c-plus-plus-enumeration.md)
 -	[Referencia de la biblioteca de clientes de almacenamiento para C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentación de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
-
+- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 
 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

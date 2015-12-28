@@ -13,24 +13,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="11/13/2015"
+   ms.date="12/15/2015"
    ms.author="yuemlu"/>
 
 # SO invitado de Azure 
 
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
 
+## SO invitado de diciembre
+
+| Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-124 | [3116180] | Actualización de seguridad acumulativa para Internet Explorer | 4\.27, 3.34, 2.46 | 8 de diciembre de 2015 |
+| MS15-126 | [3116178] | Actualización de seguridad de Microsoft VBScript y JScript para tratar la ejecución remota de código | 2\.46 | 8 de diciembre de 2015 |
+| MS15-127 | [3100465] | Actualización de seguridad de DNS de Microsoft Windows para tratar la ejecución remota de código | 4\.27, 3.34, 2.46 | 8 de diciembre de 2015 |
+| MS15-128 | [3104503] | Actualizaciones de seguridad del componente de gráficos de Microsoft para tratar la ejecución remota de código | 4\.27, 3.34, 2.46 | 8 de diciembre de 2015 |
+| MS15-132 | [3116162] | Actualización de seguridad de Windows para tratar la ejecución remota de código | 4\.27, 3.34, 2.46 | 8 de diciembre de 2015 |
+| MS15-133 | [3116130] | Actualización de seguridad del kernel de Windows PGM para tratar la elevación de privilegios | 4\.27, 3.34, 2.46 | 8 de diciembre de 2015 |
+| MS15-134 | [3108669] | Actualización de seguridad de Windows Media Center para tratar la ejecución remota de código | 4\.27, 3.34, 2.46 | 8 de diciembre de 2015 |
+| MS15-135 | [3119075] | Actualización de seguridad de los controladores del modo del kernel de Windows para tratar la elevación de privilegios | 4\.27, 3.34, 2.46 | 8 de diciembre de 2015 |
+
 ## SO invitado de noviembre
 
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
 | MS15-112 | [3104517] | Actualización de seguridad acumulativa para Internet Explorer | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
-| MS15-114 | [3100213] | Actualización de seguridad de Windows Journal para tratar la ejecución remota de código | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
+| MS15-114 | [3100213] | Actualización de seguridad de Windows Journal para tratar la ejecución remota de código | 2\.45 | 10 de noviembre de 2015 |
 | MS15-115 | [3105864] | Actualización de seguridad de Microsoft Windows para tratar la ejecución remota de código | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
-| MS15-117 | [3101722] | Actualización de seguridad de NDIS para tratar la elevación de privilegios | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
+| MS15-117 | [3101722] | Actualización de seguridad de NDIS para tratar la elevación de privilegios | 2\.45 | 10 de noviembre de 2015 |
 | MS15-118 | [3104507] | Actualización de seguridad de .NET Framework para tratar la elevación de privilegios | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
 | MS15-119 | [3104521] | Actualización de seguridad de Winsock para tratar la elevación de privilegios | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
-| MS15-120 | [3102939] | Actualización de seguridad de IPSec para tratar la denegación de servicio | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
+| MS15-120 | [3102939] | Actualización de seguridad de IPSec para tratar la denegación de servicio | 4\.26, 3.33 | 10 de noviembre de 2015 |
 | MS15-121 | [3081320] | Actualización de seguridad a Schannel para tratar la suplantación de identidad | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
 | MS15-122 | [3105256] | Actualización de seguridad de Kerberos tratar la omisión de la característica de seguridad | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
 | Documento informativo sobre seguridad de Microsoft | [3097966] | La revelación de forma involuntaria de los certificados digitales puede provocar la suplantación de identidades | 4\.26, 3.33, 2.45 | 10 de noviembre de 2015 |
@@ -198,6 +211,16 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [2999802][2999802] | Se imprimen líneas sólidas en lugar de líneas de puntos en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 | N/D | [2896881][2896881] | Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 
+
+[3116180]: http://support.microsoft.com/kb/3116180
+[3116178]: http://support.microsoft.com/kb/3116178
+[3100465]: http://support.microsoft.com/kb/3100465
+[3104503]: http://support.microsoft.com/kb/3104503
+[3116162]: http://support.microsoft.com/kb/3116162
+[3116130]: http://support.microsoft.com/kb/3116130
+[3108669]: http://support.microsoft.com/kb/3108669
+[3119075]: http://support.microsoft.com/kb/3119075
+
 [3104517]: http://support.microsoft.com/kb/3104517
 [3100213]: http://support.microsoft.com/kb/3100213
 [3105864]: http://support.microsoft.com/kb/3105864
@@ -331,4 +354,4 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

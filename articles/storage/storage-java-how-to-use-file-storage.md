@@ -212,6 +212,7 @@ Si desea obtener más información acerca de otras API de almacenamiento de Azur
 - [Referencia del SDK de cliente de almacenamiento de Azure]
 - [API de REST de almacenamiento de Azure]
 - [Blog del equipo de almacenamiento de Azure]
+- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [SDK de almacenamiento de Azure para Java]: https://github.com/azure/azure-storage-java
@@ -222,4 +223,4 @@ Si desea obtener más información acerca de otras API de almacenamiento de Azur
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

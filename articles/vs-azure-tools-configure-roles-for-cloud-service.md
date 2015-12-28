@@ -3,9 +3,9 @@
    description="Aprenda a instalar y a configurar roles para servicios en la nube de Azure mediante Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/08/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Configuración de los roles para un servicio en la nube de Azure con Visual Studio
 
@@ -376,4 +376,4 @@ Cualquier certificado de administración que asocie a sus configuraciones de ser
 ## Pasos siguientes
 Para obtener más información sobre los proyectos de Azure en Visual Studio, consulte [Configurar un proyecto de Azure](vs-azure-tools-configuring-an-azure-project.md). Para obtener más información sobre el esquema del servicio en la nube, consulte [Referencia de esquema](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

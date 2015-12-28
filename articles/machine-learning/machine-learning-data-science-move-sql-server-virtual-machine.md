@@ -131,7 +131,7 @@ El script de PowerShell de ejemplo siguiente muestra inserciones paralelas con b
 
 ### <a name="insert-tables-bulkquery"></a>Consulta SQL de inserción masiva
 
-La [consulta SQL de inserción masiva](https://msdn.microsoft.com/library/ms188365) se puede usar para importar datos en la base de datos desde archivos basados en fila o columnas (los tipos admitidos se tratan [aquí](https://msdn.microsoft.com/library/ms188609)).
+La [Consulta SQL de inserción masiva](https://msdn.microsoft.com/library/ms188365) se puede usar para importar datos en la base de datos desde archivos basados en fila o columnas [los tipos admitidos se tratan en el tema [Preparar datos para importación o exportación masiva (SQL Server)](https://msdn.microsoft.com/library/ms188609)].
 
 Estos son algunos ejemplos de comandos de inserción masiva:
 
@@ -176,7 +176,7 @@ El **Asistente para implementación de una base de datos de SQL Server en una m�
 
 ### <a name="export-flat-file"></a>Exportación a un archivo plano
 
-Se pueden usar diversos métodos para exportar datos en bloque desde un servidor SQL Server local, como se documenta [aquí](https://msdn.microsoft.com/library/ms175937.aspx). Este documento tratará el programa de copia masiva (BCP) como ejemplo. Una vez que los datos se exportan a un archivo plano, se puede importar a otro servidor SQL Server mediante la importación masiva.
+Se pueden usar diversos métodos para la exportación masiva de datos desde un servidor SQL Server local, como se documenta en el tema [Importación y exportación masiva de datos (SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx). Este documento tratará el programa de copia masiva (BCP) como ejemplo. Una vez que los datos se exportan a un archivo plano, se puede importar a otro servidor SQL Server mediante la importación masiva.
 
 1. Exporte los datos del SQL Server local a un archivo mediante la utilidad bcp como se indica a continuación.
 
@@ -184,7 +184,7 @@ Se pueden usar diversos métodos para exportar datos en bloque desde un servidor
 
 2. Cree la base de datos y la tabla en la máquina virtual de SQL Server en Azure mediante `create database` y `create table` para el esquema de tablas que se exportó en el paso 1.
 
-3. Cree un archivo de formato para describir el esquema de tabla de los datos que se están exportando e importando. [Aquí](https://msdn.microsoft.com/library/ms191516.aspx) se describen los detalles del archivo de formato.
+3. Cree un archivo de formato para describir el esquema de tabla de los datos que se están exportando e importando. En [Crear un archivo de formato (SQL Server)](https://msdn.microsoft.com/library/ms191516.aspx) se describen detalles del archivo de formato.
 
 	Generación de archivos de formato cuando se ejecuta BCP desde la máquina de SQL Server
 
@@ -223,4 +223,4 @@ A continuación se muestra una captura de pantalla de las opciones de copia de s
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

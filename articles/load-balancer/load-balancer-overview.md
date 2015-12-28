@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/16/2015"
+   ms.date="12/09/2015"
    ms.author="joaoma" />
 
 
@@ -26,6 +26,38 @@ Se puede configurar para:
 - Equilibrar la carga del tráfico entre máquinas virtuales de una red virtual, entre máquinas virtuales de servicios en la nube o entre equipos locales y máquinas virtuales de una red virtual local. A esto se le conoce como [equilibrio de carga interno (ILB)](load-balancer-internal-overview.md).
 - 	Enrutar el tráfico externo a una instancia específica de máquina virtual.
 
+## Descripción del equilibrador de carga en Azure clásico y el Administrador de recursos de Azure (ARM)
+
+Todos los recursos en la nube necesitan una dirección IP pública para ser accesibles desde Internet. La infraestructura de nube de Microsoft Azure usará direcciones IP no enrutables en sus recursos, así como la traducción de direcciones de red (NAT) con direcciones IP públicas para comunicarse con Internet.
+
+Hay 2 modelos de implementación en Microsoft Azure y sus implementaciones de equilibrador de carga:
+
+ 
+### Azure clásico
+
+Azure clásico es el primer modelo de implementación que se implementa en Microsoft Azure. En este modelo, se asignan una dirección IP pública y un nombre FQDN a un servicio en la nube y pueden agruparse máquinas virtuales implementadas dentro de un límite de servicios en la nube para usar un equilibrador de carga. El equilibrador de carga se ocupará de la traducción de puertos y de equilibrar la carga del tráfico de red, aprovechando la dirección IP pública para el servicio en la nube.
+
+En un modelo de implementación clásica, la traducción se realiza mediante puntos de conexión que establecen una relación uno a uno entre el puerto público asignado de la dirección IP pública y el puerto local asignado para enviar tráfico a una máquina virtual específica.
+
+El equilibrio de carga se realiza mediante los puntos de conexión establecidos del equilibrador de carga. Dichos puntos de conexión establecen una relación uno a varios entre la dirección IP pública y los puertos locales asignados a todas las máquinas virtuales del conjunto que responden al tráfico de red con carga equilibrada.
+
+La etiqueta de dominio de la dirección IP pública que usaría un equilibrador de carga en este modelo de implementación sería `<cloud service name>.cloudapp.net`.
+
+Se trata de una representación gráfica de un equilibrador de carga en un modelo de implementación clásica: ![equilibrador de carga basado en hash](./media/load-balancer-overview/asm-lb.png)
+
+### Administrador de recursos de Azure
+ 
+El concepto de equilibrador de carga cambia en el Administrador de recursos de Azure (ARM) porque no es necesario un servicio en la nube para crear un equilibrador de carga.
+
+En ARM, una dirección IP pública es su propio recurso y se puede asociar a una etiqueta de dominio o nombre DNS. En este caso, la IP pública se asocia al recurso de equilibrador de carga, por lo que las reglas del equilibrador de carga y las reglas NAT de entrada usarán la dirección IP pública como su punto de conexión de Internet para los recursos que reciban tráfico de red con carga equilibrada.
+
+Un recurso de Interfaz de red (NIC) contiene la configuración de dirección IP (IP privada o pública) para una máquina virtual. Una vez que se agrega NIC a un grupo de direcciones IP de back-end de equilibrador de carga, el equilibrador de carga empezará a enviar tráfico de red con carga equilibrada en función de las reglas de carga equilibrada creadas.
+
+Un conjunto de disponibilidad es el método de agrupación usado para agregar máquinas virtuales al equilibrador de carga. El conjunto de disponibilidad garantiza que las máquinas virtuales no residan en el mismo hardware físico y, en caso de cualquier error relacionado con la infraestructura de nube física, se asegura de que el equilibrador de carga siempre tenga una máquina virtual que reciba tráfico de red con carga equilibrada.
+
+A continuación se muestra una representación gráfica de un equilibrador de carga en el Administrador de recursos de Azure (ARM):
+
+![equilibrador de carga basado en hash](./media/load-balancer-overview/arm-lb.png)
 
 ## Características del equilibrador de carga
 
@@ -76,8 +108,6 @@ Todo el tráfico saliente a Internet procedente de su servicio es con NAT de ori
 
 La configuración del Equilibrador de carga de Azure admite NAT de cono completo para UDP. NAT de cono completo es un tipo de NAT en el que el puerto permite conexiones entrantes desde cualquier host externo (en respuesta a una solicitud saliente).
 
-![snat](./media/load-balancer-overview/load-balancer-snat.png)
-
 
 >[AZURE.NOTE]Tenga en cuenta que para cada nueva conexión saliente iniciada por una máquina virtual, el Equilibrador de carga de Azure también asigna un puerto saliente. El host externo verá el tráfico entrante como VIP: puerto asignado. Si los escenarios requieren un gran número de conexiones salientes, se recomienda que las máquinas virtuales usen IP públicas de nivel de instancia para que tengan una IP saliente dedicada para la traducción de direcciones de red de origen (SNAT). Esto reducirá el riesgo de agotamiento de puertos.
 >
@@ -100,4 +130,4 @@ Puede tener más de una dirección IP pública con equilibrio de carga asignada 
 [Introducción al equilibrador de carga accesible desde Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
+	ms.workload="na"
 	ms.tgt_pltfrm="c"
 	ms.devlang="csharp"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="12/09/2015"
 	ms.author="sethm"/>
 
 # Introducción a los Centros de eventos
@@ -24,13 +24,13 @@
 
 Centros de eventos es un sistema de recopilación de alta escalabilidad que puede recibir millones de eventos por segundo, habilitando una aplicación para procesar y analizar las grandes cantidades de datos generados por las aplicaciones y los dispositivos conectados. Una vez recopilados en los Centros de eventos, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento.
 
-Para obtener más información, consulte [Información general de los Centros de eventos de Azure].
+Para obtener más información, consulte [Información general de los Centros de eventos de Azure][].
 
-En este tutorial, aprenderá a recopilar mensajes en un Centro de eventos mediante una aplicación de consola en C y a recuperarlos en paralelo con la biblioteca [Event Processor Host] de C#.
+En este tutorial, aprenderá a recopilar mensajes en un Centro de eventos mediante una aplicación de consola en C y a recuperarlos en paralelo con la biblioteca [Event Processor Host][] de C#.
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Un entorno de desarrollo de C. Para este tutorial, consideraremos la pila de gcc en una [VM Linux de Azure](../virtual-machines-linux-tutorial.md) con Ubuntu 14.04. En los vínculos externos se proporcionarán instrucciones para otros entornos.
++ Un entorno de desarrollo de C. Para este tutorial, consideraremos la pila de gcc en una [VM Linux de Azure](../virtual-machines/virtual-machines-linux-tutorial.md) con Ubuntu 14.04. En los vínculos externos se proporcionarán instrucciones para otros entornos.
 
 + Microsoft Visual Studio Express 2013 para Windows.
 
@@ -79,7 +79,7 @@ Ya se ha creado Centro de eventos y cuenta con las cadenas de conexión que nece
 
 Ya está preparado para ejecutar las aplicaciones.
 
-1.	Ejecute el proyecto **Receiver** desde Visual Studio y, a continuación, espere a que inicie los receptores para todas las particiones.
+1.	Ejecute el proyecto **Receiver** desde Visual Studio y espere a que inicie los receptores para todas las particiones.
 
    	![][21]
 
@@ -91,10 +91,10 @@ Ya está preparado para ejecutar las aplicaciones.
 
 Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y envía y recibe datos, puede pasar a los siguientes escenarios:
 
-- Una [aplicación de ejemplo completa que usa Centros de eventos].
-- El ejemplo [Escala horizontal del procesamiento de eventos con Centros de eventos].
-- Una [solución de mensajería en cola] mediante las colas de Bus de servicio.
-- [Información general de los Centros de eventos]
+- Una [aplicación de ejemplo completa que usa Centros de eventos][].
+- El ejemplo [Escala horizontal del procesamiento de eventos con Centros de eventos][].
+- Una [solución de mensajería en cola][] mediante las colas de Bus de servicio.
+- [Información general de los Centros de eventos][]
 
 <!-- Images. -->
 [1]: ./media/event-hubs-c-ephcs-getstarted/create-event-hub1.png
@@ -116,6 +116,6 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 [Información general de los Centros de eventos de Azure]: event-hubs-overview.md
 [aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Escala horizontal del procesamiento de eventos con Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[solución de mensajería en cola]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

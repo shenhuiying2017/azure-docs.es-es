@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configuración de PHP en Aplicaciones web del Servicio de aplicaciones de Azure"
+	pageTitle="Configuración de PHP en Aplicaciones web del Servicio de aplicaciones de Azure | Microsoft Azure"
 	description="Obtenga información acerca de cómo configurar la instalación de PHP predeterminada o agregar una instalación de PHP personalizada para Aplicaciones web en el Servicio de aplicaciones de Azure."
 	services="app-service"
 	documentationCenter="php"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 #Configuración de PHP en Aplicaciones web del Servicio de aplicaciones de Azure
@@ -45,27 +45,34 @@ Las versiones de PHP 5.5 y PHP 5.6 también están disponibles, pero no están h
 
 ### Azure PowerShell (Windows)
 
-1. Abrir Windows PowerShell
-2. Escriba `Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name <site-name>` y presione Entrar.
-3. La versión de PHP ya está configurada.
+1. Abra Azure PowerShell e inicie sesión en su cuenta:
 
-	![Configuración de la versión PHP con Azure PowerShell][SETPHPVERPS]
-4. Para confirmar esta configuración, escriba `Get-AzureWebiste -Name <site-name>` y presione Entrar.
+        PS C:\> Login-AzureRmAccount
 
-	![Comprobar la versión de PHP con Azure PowerShell][GETPHPVERPS]
+2. Establezca la versión PHP para la aplicación web.
+
+        PS C:\> Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name {site-name}
+
+3. La versión de PHP ya está configurada. Puede confirmar esta configuración:
+
+        PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
 
 ### Interfaz de línea de comandos de Azure (Linux, Mac, Windows)
 
 Para usar la interfaz de línea de comandos de Azure, debe tener **Node.js** instalado en el equipo.
 
-1. Abra el Terminal.
-2. Escriba `azure site set --php-version [5.4 | 5.5] [site-name]` y presione Entrar.
-3. La versión de PHP ya está configurada.
+1. Abra Terminal e inicie sesión en su cuenta.
 
-	![Configuración de la versión PHP con interfaz de línea de comandos de Azure][SETPHPVERCLI]
-4. Para confirmar esta configuración, escriba `azure site show [site-name]` y presione Entrar.
+        azure login
 
-	![Comprobar la versión de PHP con interfaz de línea de comandos de Azure][GETPHPVERCLI]
+2. Establezca la versión PHP para la aplicación web.
+
+        azure site set --php-version [5.4 | 5.5] {site-name}
+
+3. La versión de PHP ya está configurada. Puede confirmar esta configuración:
+
+        azure site show {site-name}
+
 
 ## Cómo: Cambiar las configuraciones de PHP integradas
 
@@ -155,7 +162,7 @@ En lugar del tiempo de ejecución de PHP, Aplicaciones web del Servicio de aplic
 
 ## Pasos siguientes
 
-Para obtener más información, consulte el [Centro para desarrolladores de PHP](/develop/php/).
+Para más información, vea el [Centro para desarrolladores de PHP](/develop/php/).
 
 >[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
@@ -182,4 +189,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

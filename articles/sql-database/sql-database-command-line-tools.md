@@ -54,10 +54,9 @@ Los siguientes comandos se ejecutarán en la suscripción que acaba de seleccion
 
 Cree el grupo de recursos que contendrá el servidor. Puede editar el siguiente comando para usar cualquier ubicación válida.
 
-Para obtener una lista de ubicaciones de servidor de Base de datos SQL, ejecute los siguientes cmdlets:
+Para una lista de ubicaciones de servidor de Base de datos SQL de Azure, ejecute el siguiente cmdlet:
 
-	$AzureSQLLocations = Get-AzureRmLocation | Where-Object Name -Like "*SQL/Servers"
-	$AzureSQLLocations.Locations
+	$AzureSQLLocations = (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Sql'}).Locations
 
 Si ya dispone de un grupo de recursos, puede ir al paso siguiente para crear un servidor, o bien puede editar y ejecutar el comando siguiente para crear un nuevo grupo de recursos:
 
@@ -128,4 +127,4 @@ Combine comandos y automatización. Por ejemplo, reemplace todo lo que hay entre
 
 - [Cmdlets de la Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

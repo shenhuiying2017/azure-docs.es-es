@@ -3,9 +3,9 @@
    description="Creación de un proyecto de Azure en Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="multiple"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Creación de un proyecto de Azure en Visual Studio
 
@@ -62,4 +62,4 @@ Una solución de servicios en la nube de Azure contiene los siguientes tipos de 
 
 1. Para cambiar el nombre de un rol que agregó al proyecto, mantenga puntero sobre el rol en el cuadro de diálogo **Nuevo proyecto de Azure** y elija el icono **Cambiar nombre** situado a la derecha del rol. También puede cambiar el nombre de un rol dentro de la solución una vez agregado.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

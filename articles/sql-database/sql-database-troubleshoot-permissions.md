@@ -3,7 +3,7 @@
 	description="Pasos rápidos para solucionar problemas comunes de permisos, acceso, usuarios e inicio de sesión"
 	services="sql-database"
 	documentationCenter=""
-	authors="dalechen"
+	authors="v-shysun"
 	manager="msmets"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="daleche"/>
+	ms.date="12/11/2015"
+	ms.author="v-shysun"/>
 
 #Solucionar comunes problemas de acceso y de permisos de bases de datos SQL de Azure
 Use este tema para pasos rápidos, para conceder y quitar el acceso a una Base de datos SQL de Azure. Para información más completa, vea:
@@ -37,4 +37,4 @@ Use este tema para pasos rápidos, para conceder y quitar el acceso a una Base d
 ## Para crear inicios de sesión adicionales para usuarios con privilegios elevados en la base de datos maestra virtual
 -Use la instrucción [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) y vea la sección Administración de inicios de sesión de [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md) para más información.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

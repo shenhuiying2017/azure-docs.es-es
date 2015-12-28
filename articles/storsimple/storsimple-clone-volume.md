@@ -12,14 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/12/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli" />
 
 # Usar el servicio StorSimple Manager para clonar un volumen
 
+[AZURE.INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
+
 ## Información general
 
-La página **Catálogo de copias de seguridad** del servicio StorSimple Manager muestra todos los conjuntos de copia de seguridad que se crean cuando se realizan copias de seguridad manuales o automatizadas. Puede usar esta página para enumerar todas las copias de seguridad para un volumen o una directiva de copia de seguridad, seleccionar o eliminar las copias de seguridad, o usar una copia de seguridad para restaurar o clonar un volumen.
+En la página **Catálogo de copias de seguridad** del servicio StorSimple Manager se muestran todos los conjuntos de copia de seguridad que se crean cuando se realizan copias de seguridad manuales o automatizadas. Puede usar esta página para enumerar todas las copias de seguridad para un volumen o una directiva de copia de seguridad, seleccionar o eliminar las copias de seguridad, o usar una copia de seguridad para restaurar o clonar un volumen.
 
 ![Página del catálogo de copias de seguridad](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
 
@@ -82,7 +84,7 @@ Necesita recuperar un archivo de presentación de Microsoft PowerPoint de un añ
  
 ![Vídeo disponible](./media/storsimple-clone-volume/Video_icon.png) **Vídeo disponible**
 
-Para ver un vídeo que muestra cómo puede utilizar la copia y restaurar las características de StorSimple para recuperar archivos eliminados, haga clic [aquí](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+Para ver un vídeo en el que se muestra cómo puede usar el clon y restaurar las características de StorSimple para recuperar archivos eliminados, haga clic [aquí](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
 ### Pruebas en el entorno de producción con un clon permanente
 
@@ -95,4 +97,4 @@ Necesita comprobar un error de prueba en el entorno de producción. Crear un clo
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

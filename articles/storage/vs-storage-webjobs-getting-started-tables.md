@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,21 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Introducción a Almacenamiento de Azure (proyectos de WebJobs de Azure)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-webjobs-getting-started-tables.md)
-> - [What happened](vs-storage-webjobs-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
-> - [Queues](vs-storage-webjobs-getting-started-queues.md)
-> - [Tables](vs-storage-webjobs-getting-started-tables.md)
-
-
 
 ## Información general
 
@@ -40,7 +29,7 @@ Algunos de los fragmentos de código muestran el atributo **Table** usado en fun
 
 ## Cómo agregar entidades a una tabla
 
-Para agregar entidades a una tabla, use el atributo **Table** con un parámetro **ICollector<T>** o **IAsyncCollector<T>** donde **T** especifica el esquema de las entidades que desea agregar. El constructor de atributo toma un parámetro de cadena que especifica el nombre de la tabla.
+Para agregar entidades a una tabla, use el atributo **Table** con un parámetro **ICollector<T>** o **IAsyncCollector<T>** donde **T** especifica el esquema de las entidades que quiere agregar. El constructor de atributo toma un parámetro de cadena que especifica el nombre de la tabla.
 
 El ejemplo de código siguiente agrega entidades **Person** a una tabla denominada *Ingress*.
 
@@ -73,7 +62,7 @@ Normalmente el tipo que se usa con **ICollector** se deriva de **TableEntity** o
 		    public string Name { get; set; }
 		}
 
-Si desea trabajar directamente con la API de almacenamiento de Azure, puede agregar un parámetro **CloudStorageAccount** a la firma del método.
+Si quiere trabajar directamente con la API de almacenamiento de Azure, puede agregar un parámetro **CloudStorageAccount** a la firma del método.
 
 ## Supervisión en tiempo real
 
@@ -109,7 +98,7 @@ El ejemplo de código siguiente lee y registra todas las filas de la tabla **Ing
 
 ### Cómo leer una entidad única de una tabla
 
-Existe un constructor de atributo **Table** con dos parámetros adicionales que le permiten especificar la clave de partición y la clave de fila cuando desea enlazar a una entidad de tabla única.
+Existe un constructor de atributo **Table** con dos parámetros adicionales que le permiten especificar la clave de partición y la clave de fila cuando quiera enlazar a una entidad de tabla única.
 
 El siguiente ejemplo de código lee una fila de una tabla de una entidad **Person** según los valores de clave de partición y clave de fila recibidos en un mensaje en cola:
 
@@ -153,7 +142,7 @@ El siguiente ejemplo de código usa un objeto **CloudTable** para agregar una en
 		    tableBinding.Execute(insertOperation);
 		}
 
-Para obtener más información acerca de cómo usar el objeto **CloudTable**, vea [Uso del almacenamiento de tablas de .NET](../storage-dotnet-how-to-use-tables.md)
+Para más información sobre cómo usar el objeto **CloudTable**, vea [Uso del almacenamiento de tablas de .NET](../storage-dotnet-how-to-use-tables.md).
 
 ## Temas relacionados tratados en el artículo de procedimientos de las colas
 
@@ -165,4 +154,4 @@ Para obtener información sobre cómo controlar el procesamiento de tablas desen
 
 En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con tablas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

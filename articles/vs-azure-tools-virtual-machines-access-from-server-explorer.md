@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Tener acceso a Máquinas virtuales de Azure desde el Explorador de servidores"
+   pageTitle="Tener acceso a Máquinas virtuales de Azure desde el Explorador de servidores | Microsoft Azure"
    description="Obtenga una visión general de cómo ver, crear y administrar Azure los máquinas virtuales (VM) en el Explorador de servidores de Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/30/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Tener acceso a Máquinas virtuales de Azure desde el Explorador de servidores
 
@@ -53,4 +53,4 @@ Si tiene máquinas virtuales hospedadas por Azure, puede acceder a ellas en el E
 
 Para obtener más información sobre los roles de Azure en Visual Studio, consulte [Uso de Escritorio de remoto con los roles de Azure](vs-azure-tools-remote-desktop-roles.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

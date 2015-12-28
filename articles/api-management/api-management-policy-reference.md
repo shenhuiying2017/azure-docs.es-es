@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/16/2015" 
 	ms.author="sdanie"/>
 
 # Referencia de la directiva de Administración de API de Azure
@@ -26,9 +26,11 @@ Las expresiones de directiva pueden utilizarse como valores de atributos o valor
 
 -	[Directivas de restricción de acceso][]
 	-	[Activar encabezado HTTP][]\: aplica la existencia o el valor de un encabezado HTTP.
-	-	[Limitar la frecuencia de llamada][]\: evita los picos de uso de la API al limitar las llamadas o la tasa de consumo de ancho de banda.
+	-	[Limitar la frecuencia de llamadas por suscripción][]\: evita los picos de uso de la API limitando la frecuencia de llamadas, por suscripción.
+	-	[Limitar la frecuencia de llamadas por clave](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey): evita los picos de uso de la API limitando la frecuencia de llamadas, por clave.
 	-	[Restringir IP de autor de llamada][]\: filtra (permite/deniega) las llamadas de direcciones IP específicas o de intervalos de direcciones.
-	-	[Establecer cuota de uso][]\: le permite aplicar un volumen de llamadas renovables o permanentes o una cuota de ancho de banda.
+	-	[Establecer cuota de uso por suscripción][]\: le permite aplicar un volumen de llamadas renovables o permanentes o una cuota de ancho de banda por suscripción.
+	-	[Establecer cuota de uso por clave](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey): le permite aplicar un volumen de llamadas renovables o permanentes o una cuota de ancho de banda por clave.
 	-	[Validar JWT][]\: aplica la existencia y la validez de un JWT extraído de un encabezado HTTP especificado o un parámetro de consulta especificado.
 -	[Directivas avanzadas][]
 	-	[Flujo de control][]\: aplica condicionalmente instrucciones de directiva basadas en los resultados de la evaluación de [expresiones][] booleanas.
@@ -38,7 +40,7 @@ Las expresiones de directiva pueden utilizarse como valores de atributos o valor
 	-	[Enviar solicitud unidireccional](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest): envía una solicitud a la dirección URL especificada sin esperar una respuesta.
 	-	[Enviar solicitud](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest): envía una solicitud a la dirección URL especificada.
 	-	[Establecer método de solicitud](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod): le permite cambiar el método HTTP de una solicitud.
-	-	[Establecer código de estado](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus): cambia el código de estado HTTP al valor especificado.
+	-	[Establecer estado](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus): cambia el código de estado HTTP al valor especificado.
 	-	[Establecer variable][]\: conserva un valor en una variable de [contexto][] con nombre para el acceso posterior.
 -	[Directivas de autenticación][]
 	-	[Autenticar con opción básica][]\: autenticar con un servicio de back-end mediante la autenticación básica.
@@ -46,6 +48,8 @@ Las expresiones de directiva pueden utilizarse como valores de atributos o valor
 -	[Directivas de almacenamiento en caché][] 
 	-	[Obtener de caché][]\: realiza una búsqueda en caché y devuelve una respuesta en caché válida cuando esté disponible.
 	-	[Almacenar en caché][]\: almacena en caché la respuesta de acuerdo con la configuración de control de caché especificada.
+	-	[Obtener valor de caché](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey): recupere un elemento almacenado en caché por clave.
+	-	[Almacenar valor en caché](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey): almacene un elemento en la memoria caché por clave.
 -	[Directivas entre dominios][] 
 	-	[Permitir llamadas entre dominios][]\: permite que la API sea accesible desde los clientes basados en explorador de Adobe Flash y Microsoft Silverlight.
 	-	[CORS][]\: agrega soporte de uso compartido de recursos entre orígenes (CORS) a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador.
@@ -69,9 +73,9 @@ Para obtener más información acerca de las expresiones de directivas, vea el s
 
 [Directivas de restricción de acceso]: https://msdn.microsoft.com/library/azure/dn894078.aspx
 [Activar encabezado HTTP]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader
-[Limitar la frecuencia de llamada]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#LimitCallRate
+[Limitar la frecuencia de llamadas por suscripción]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#LimitCallRate
 [Restringir IP de autor de llamada]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#RestrictCallerIPs
-[Establecer cuota de uso]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#SetUsageQuota
+[Establecer cuota de uso por suscripción]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#SetUsageQuota
 [Validar JWT]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT
 
 [Directivas avanzadas]: https://msdn.microsoft.com/library/azure/dn894085.aspx
@@ -114,4 +118,4 @@ Para obtener más información acerca de las expresiones de directivas, vea el s
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

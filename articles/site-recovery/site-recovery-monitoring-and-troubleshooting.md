@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Guía de solución de problemas y supervisión de VMM y de la protección de sitios de Hyper-V" 
+	pageTitle="Protección de supervisión y solución de problemas para las máquinas virtuales y los servidores físicos | Microsoft Auzre" 
 	description="Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales ubicadas en servidores locales de Azure o en un centro de datos secundario. Use este artículo para supervisar y solucionar problemas de protección de sitios VMM o Hyper-V." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="09/01/2015" 
+	ms.date="12/14/2015" 
 	ms.author="anbacker"/>
 	
-# Protección de supervisión y solución de problemas para los VMware, VMM, Hyper-V y sitios físicos
+# Protección de supervisión y solución de problemas para las máquinas virtuales y los servidores físicos
 
 Esta guía de solución de problemas y supervisión le permite aprender el seguimiento del estado de replicación y técnicas de solución de recuperación de Azure Site Recovery.
 
@@ -199,4 +199,4 @@ Servidor de configuración (CS), Servidor de procesos (PS) y Destino maestro (MT
 ### Solución de problemas del escritorio remoto después de la conmutación por error
 -   Muchos clientes tienen que afrontar problemas para conectarse a máquina virtual con conmutación por error en Azure. [Uso del documento de solución de problemas para RDP en la máquina virtual](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

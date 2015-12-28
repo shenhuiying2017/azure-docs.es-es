@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/07/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Proveedor de recursos de red
@@ -274,4 +274,6 @@ Puede implementar servicios en Azure desde una plantilla mediante PowerShell, CL
 
 [Implementaciones de plantilla](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=Oct15_HO3-->
+de hoy
+
+<!---HONumber=AcomDC_1217_2015-->

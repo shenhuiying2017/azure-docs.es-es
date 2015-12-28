@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="12/11/2015" 
 	ms.author="emgerner"/>
 
 # Uso del almacenamiento de colas de Python
@@ -113,4 +113,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [paquete de almacenamiento de Azure para Python]: https://pypi.python.org/pypi/azure-storage
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

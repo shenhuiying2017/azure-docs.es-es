@@ -70,4 +70,4 @@ Ahora que ha completado este tutorial de autenticación básica, considere la po
 <!-- URLs. -->
 [Introducción a Aplicaciones móviles]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1210_2015--->
+<!----HONumber=AcomDC_1217_2015-->

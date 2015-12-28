@@ -52,19 +52,26 @@ Para tener acceso al almacenamiento de blobs de Azure, deberá crear una credenc
 2. Use [CREATE MASTER KEY (Transact-SQL)][] para crear una clave maestra para la base de datos. Si la base de datos ya tiene una clave maestra, no tiene que crear otra. Esta clave sirve para cifrar el "secreto" de la credencial en el paso siguiente.
 
     ```
-    -- Create a E master key
+    -- Create a master key
     CREATE MASTER KEY;
     ```
 
 1. Compruebe si ya tiene las credenciales de la base de datos. Para ello, use la vista del sistema sys.database\_credentials, no sys.credentials que solo muestra las credenciales del servidor.
 
     ```
-    -- Compruebe las credenciales de ámbito de base de datos existentes.
-    SELECT * FROM sys.database\_credentials;
+    -- Check for existing database-scoped credentials.
+    SELECT * FROM sys.database_credentials;
+    ```
 
 3. Use [CREATE CREDENTIAL (Transact-SQL)][] para crear una credencial con ámbito de base de datos para cada cuenta de almacenamiento de Azure a la que quiera acceder. En este ejemplo, IDENTITY es un nombre descriptivo para la credencial. No afecta a la autenticación en el almacenamiento de Azure. SECRET se refiere a la clave de la cuenta de almacenamiento de Azure.
 
-    -- Cree una credencial con ámbito de base de datos: CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe' , secreto = '<azure_storage_account_key>' ; ```
+    ```
+    -- Create a database scoped credential
+    CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
+    WITH IDENTITY = 'joe'
+    ,    Secret = '<azure_storage_account_key>'
+    ;
+    ```
 
 1. Si necesita quitar una credencial de ámbito de base de datos, use [DROP CREDENTIAL (Transact-SQL)][]\:
 
@@ -75,7 +82,7 @@ DROP DATABASE SCOPED CREDENTIAL ASBSecret
 ```
 
 ## Paso 2: Creación de un origen de datos externo
-El origen de datos externo es un objeto de base de datos que almacena la ubicación de los datos de almacenamiento de blobs de Azure y la información de acceso. Use [CREATE EXTERNAL DATA SOURCE (Transact-SQL)][] para definir un origen de datos externo para cada blob de almacenamiento de Azure al que quiera acceder.
+El origen de datos externo es un objeto de base de datos que almacena la ubicación de los datos de almacenamiento de blobs de Azure y la información de acceso. Use [CREATE EXTERNAL DATA SOURCE (Transact-SQL)][] para definir un origen de datos externo para cada blob de almacenamiento de Azure al que quiera obtener acceso.
 
     ```
     -- Create an external data source for an Azure storage blob
@@ -236,7 +243,7 @@ Vea [CREATE TABLE AS SELECT (Transact-SQL)][].
 
 ## Crear estadísticas de los datos recién cargados
 
-Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas. Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos. Si quiere ver una explicación detallada de las estadísticas, consulte el tema [Estadísticas][] en el grupo de temas relacionados con el desarrollo. A continuación, puede ver un ejemplo rápido de cómo crear estadísticas sobre los datos cargados y organizados en tablas que aparecen en este ejemplo.
+Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas. Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos. Si quiere ver una explicación detallada de las estadísticas, vea el tema [Estadísticas][] en el grupo de temas relacionados con el desarrollo. A continuación, puede ver un ejemplo rápido de cómo crear estadísticas sobre los datos cargados y organizados en tablas que aparecen en este ejemplo.
 
 ```
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -359,4 +366,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

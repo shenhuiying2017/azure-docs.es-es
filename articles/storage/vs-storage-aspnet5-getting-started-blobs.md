@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,19 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Introducción al almacenamiento de blobs de Azure y los servicios conectados de Visual Studio (ASP.NET 5)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-aspnet5-getting-started-blobs.md)
-> - [What happened](vs-storage-aspnet5-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet5-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
 ##Información general
 
@@ -33,7 +24,7 @@ En este artículo se describe cómo empezar a usar el almacenamiento de blobs de
 
 El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados a los que puede obtenerse acceso desde cualquier lugar del mundo a través de HTTP o HTTPS. Un solo blob puede tener cualquier tamaño. Los blobs pueden tener forma de imágenes, archivos de audio y vídeo, archivos sin procesar y archivos de documentos. En este artículo se describe cómo empezar a usar el almacenamiento de blobs después de crear una cuenta de almacenamiento de Azure con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio en un proyecto de ASP.NET 5.
 
-Al igual que los archivos residen en carpetas, los blobs de almacenamiento residen en contenedores. Después de haber creado un almacenamiento, puede crear uno o varios contenedores en el almacenamiento. Por ejemplo, en un almacenamiento llamado "Scrapbook" puede crear contenedores en el almacenamiento denominados "images" para almacenar imágenes y "audio" para almacenar archivos de audio. Una vez creados los contenedores, puede cargar archivos de blob individuales a ellos. Consulte [Uso del almacenamiento de blobs en .NET](storage-dotnet-how-to-use-blobs.md "Uso del almacenamiento de blobs en .NET") para obtener más información sobre la manipulación de blobs mediante programación.
+Al igual que los archivos residen en carpetas, los blobs de almacenamiento residen en contenedores. Después de haber creado un almacenamiento, puede crear uno o varios contenedores en el almacenamiento. Por ejemplo, en un almacenamiento llamado "Scrapbook" puede crear contenedores en el almacenamiento denominados "images" para almacenar imágenes y "audio" para almacenar archivos de audio. Una vez creados los contenedores, puede cargar archivos de blob individuales a ellos. Vea [Uso del almacenamiento de blobs en .NET](storage-dotnet-how-to-use-blobs.md "Uso del almacenamiento de blobs en .NET") para más información sobre la manipulación de blobs mediante programación.
 
 
 
@@ -81,7 +72,7 @@ También puede usar el **CloudBlobClient** para crear un contenedor en su cuenta
     await container.CreateIfNotExistsAsync();
 
 
-**NOTA:** las API que realizan llamadas al almacenamiento de Azure en ASP.NET 5 son asincrónicas. Consulte [Programación asincrónica con Async y Await](http://msdn.microsoft.com/library/hh191443.aspx) para obtener más información. El código siguiente supone que se están utilizando métodos de programación asincrónica.
+**NOTA:** las API que realizan llamadas al almacenamiento de Azure en ASP.NET 5 son asincrónicas. Vea [Programación asincrónica con Async y Await](http://msdn.microsoft.com/library/hh191443.aspx) para más información. El código siguiente supone que se están utilizando métodos de programación asincrónica.
 
 Para poner los archivos del contenedor a disposición de todo el mundo, puede convertir el contenedor en público usando el código siguiente:
 
@@ -105,7 +96,7 @@ Para cargar un archivo de blob en un contenedor, obtenga una referencia de conte
     }
 
 ##Enumerar los blobs de un contenedor
-Para enumerar los blobs de un contenedor, primero obtenga una referencia de contenedor. A continuación, llame al método **ListBlobsSegmentedAsync** del contenedor para recuperar los blobs o los directorios que contiene. Para obtener acceso a las numerosas propiedades y métodos de una lista **IListBlobItem** recuperada, debe convertir esta última en un objeto **CloudBlockBlob**, **CloudPageBlob**, o **CloudBlobDirectory**. Si no conoce el tipo de blob, puede utilizar una comprobación de tipo para determinar el formato al que debe convertirlo. El código siguiente demuestra cómo recuperar y consultar el URI de cada elemento del contenedor.
+Para enumerar los blobs de un contenedor, primero obtenga una referencia de contenedor. Luego, llame al método **ListBlobsSegmentedAsync** del contenedor para recuperar los blobs o los directorios que contiene. Para obtener acceso a las numerosas propiedades y métodos de una lista **IListBlobItem** recuperada, debe convertir esta última en un objeto **CloudBlockBlob**, **CloudPageBlob**, o **CloudBlobDirectory**. Si no conoce el tipo de blob, puede utilizar una comprobación de tipo para determinar el formato al que debe convertirlo. El código siguiente demuestra cómo recuperar y consultar el URI de cada elemento del contenedor.
 
 	BlobContinuationToken token = null;
         do
@@ -137,10 +128,10 @@ Para enumerar los blobs de un contenedor, primero obtenga una referencia de cont
             }
         } while (token != null);
 
-Hay otras maneras de enumerar el contenido de un contenedor de blobs. Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
+Hay otras maneras de enumerar el contenido de un contenedor de blobs. Para más información, vea [Uso del almacenamiento de blobs en .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
 
 ##Descarga de un blob
-Para descargar un blob, primero obtenga una referencia al blob y, a continuación, llame al método **DownloadToStreamAsync**. En el siguiente ejemplo se usa el método **DownloadToStreamAsync** para transferir el contenido del blob a un objeto de secuencia que, a continuación, puede guardar como archivo local.
+Para descargar un blob, primero obtenga una referencia al blob y luego llame al método **DownloadToStreamAsync**. En el siguiente ejemplo se usa el método **DownloadToStreamAsync** para transferir el contenido del blob a un objeto de secuencia que luego puede guardar como archivo local.
 
 	// Get a reference to a blob named "photo1.jpg".
 	CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");
@@ -151,10 +142,10 @@ Para descargar un blob, primero obtenga una referencia al blob y, a continuació
     	await blockBlob.DownloadToStreamAsync(fileStream);
 	}
 
-Hay otras maneras de guardar blobs como archivos. Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](storage-dotnet-how-to-use-blobs.md/#download-blobs).
+Hay otras maneras de guardar blobs como archivos. Para más información, vea [Uso del almacenamiento de blobs en .NET](storage-dotnet-how-to-use-blobs.md/#download-blobs).
 
 ##Eliminar un blob
-Para eliminar un blob, obtenga primero una referencia al blob y, a continuación, llame al método **DeleteAsync**.
+Para eliminar un blob, obtenga primero una referencia al blob y luego llame al método **DeleteAsync**.
 
 	// Get a reference to a blob named "myblob.txt".
 	CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");
@@ -166,4 +157,4 @@ Para eliminar un blob, obtenga primero una referencia al blob y, a continuación
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

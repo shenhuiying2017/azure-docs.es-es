@@ -80,7 +80,7 @@ Tenga en cuenta que los servidores físicos se ejecutarán como máquinas virtua
 
 ### ¿Qué máquinas virtuales de VMware se pueden proteger?
 
-En este escenario necesitará un servidor VMware vCenter, un hipervisor vSphere y máquinas virtuales con herramientas de VMware en ejecución. Para conocer los requisitos exactos, consulte [¿Qué se necesita?](site-recovery-vmware-to-azure.md/#what-do-i-need). Se aplican las mismas limitaciones si está replicando servidores físicos a Azure o a un sitio secundario.
+En este escenario necesitará un servidor VMware vCenter, un hipervisor vSphere y máquinas virtuales que ejecutan herramientas de VMware. Para conocer los requisitos exactos, vea [¿Qué se necesita?](site-recovery-vmware-to-azure.md/#what-do-i-need). Se aplican las mismas limitaciones si está replicando servidores físicos a Azure o a un sitio secundario.
 
 ### ¿Hay algún requisito previo para replicar las máquinas virtuales a Azure?
 
@@ -223,4 +223,4 @@ Sí, es posible replicar máquinas virtuales de Hyper-V y Azure, o entre sitios 
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="12/11/2015" 
 	ms.author="josephd"/>
 
 # Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas
@@ -185,4 +185,4 @@ Este entorno ya está preparado para realizar pruebas de aplicaciones de Office�
 
 [Instrucciones de implementación de los servicios de infraestructura de Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

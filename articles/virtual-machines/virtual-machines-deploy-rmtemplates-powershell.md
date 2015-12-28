@@ -20,9 +20,11 @@
 # Administración de máquinas virtuales con el Administrador de recursos de Azure y con PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-windows-tutorial.md)
-- [PowerShell - Windows](virtual-machines-deploy-rmtemplates-powershell.md)
+- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 - [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
+
+<br>
+
 
 El uso de plantillas de Azure PowerShell y del Administrador de recursos te proporciona mucha eficacia y flexibilidad al administrar los recursos de Microsoft Azure. Puedes usar las tareas de este artículo para crear y administrar recursos de máquinas virtuales.
 
@@ -55,7 +57,7 @@ Después de definir una plantilla de recursos basada en JSON, la puedes usar con
 
 Los recursos que crea con las plantillas del Administrador de recursos de Azure se implementan en un *grupo de recursos de Azure* nuevo o ya existente. Un grupo de recursos te permite administrar varios recursos implementados conjuntamente como un grupo lógico, para que puedas administrar el ciclo de vida general del grupo o de la aplicación.
 
-Si está interesado en la creación de plantillas, vea [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
+Si le interesa la creación de plantillas, vea [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 
 ### Crear un grupo de recursos
 
@@ -67,7 +69,7 @@ En el comando siguiente, reemplace el *nombre del grupo de recursos* por el nomb
 
 ## <a id="windowsvm"></a>TAREA: Creación de una máquina virtual
 
-Esta tarea usa una plantilla de la galería de plantillas. Para obtener más información sobre la plantilla, vea [Implementación de una máquina virtual de Windows sencilla en el oeste de EE. UU.](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/)
+Esta tarea usa una plantilla de la galería de plantillas. Para más información sobre la plantilla, vea [Implementación de una máquina virtual de Windows sencilla en el oeste de EE. UU.](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/)
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
 
@@ -126,7 +128,7 @@ Si quieres ver un vídeo en el que se realiza esta tarea, mira aquí:
 
 ## <a id="customvm"></a>TAREA: Creación de una máquina virtual con un disco especializado
 
-Esta tarea usa una plantilla de la galería de plantillas. Para obtener más información sobre la plantilla, vea [Creación de una máquina virtual desde un disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/).
+Esta tarea usa una plantilla de la galería de plantillas. Para más información sobre la plantilla, vea [Creación de una máquina virtual desde un disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-vm-from-specialized-vhd/).
 
 En el comando siguiente, reemplace el *nombre de la implementación* por el nombre que quiera usar para la implementación, y el *nombre del grupo de recursos* por el nombre del grupo de recursos existente, y ejecútelo:
 
@@ -155,7 +157,7 @@ Si quieres ver un vídeo en el que se realiza esta tarea, mira aquí:
 
 ## <a id="multivm"></a>TAREA: Creación de varias máquinas virtuales en una red virtual con un equilibrador de carga externo
 
-Esta tarea usa una plantilla de la galería de plantillas. Para obtener más información sobre la plantilla, vea [Creación de una máquina virtual desde un disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
+Esta tarea usa una plantilla de la galería de plantillas. Para más información sobre la plantilla, vea [Creación de una máquina virtual desde un disco VHD especializado](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/multivmextlb.png)
 
@@ -376,4 +378,4 @@ Si quieres ver un vídeo en el que se realiza esta tarea, mira aquí:
 
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

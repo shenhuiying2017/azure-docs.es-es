@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/18/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Conexión de redes virtuales clásicas a redes virtuales nuevas
@@ -363,4 +363,4 @@ Ahora que dispone de las dos redes de virtuales conectadas, es momento de probar
 - Obtenga más información sobre [el proveedor de recursos de red (NRP) para ARM](../resource-groups-networking.md).
 - Consulte las instrucciones generales sobre cómo [crear una conexión VPN de S2S entre una red virtual clásica y una red virtual de ARM](../virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

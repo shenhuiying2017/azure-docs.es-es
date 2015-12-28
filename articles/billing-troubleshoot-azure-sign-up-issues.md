@@ -60,4 +60,4 @@ Sugerencias: Si ya activó una suscripción de Azure en el pasado y se produce u
 ## ¿Sigue sin poder suscribirse?
 [Póngase en contacto con el soporte técnico de Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para que le asistan si sigue experimentando problemas para realizar la suscripción o si el problema que tiene no se trata en este artículo.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

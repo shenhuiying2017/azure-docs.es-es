@@ -68,7 +68,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "Configurar dirección URL de la aplicación")
 
-4. Si ya ha configurado un inicio de sesión único para otra instancia de Salesforce Sandbox en su directorio, también debe configurar la **URL de emisor** para que tenga el mismo valor que la **URL de inicio de sesión**. El campo **URL del emisor** puede encontrarse al activar la casilla **Mostrar la configuración avanzada** en la página **Configurar dirección URL de la aplicación** del cuadro de diálogo.
+4. Si ya ha configurado un inicio de sesión único para otra instancia de Salesforce Sandbox en su directorio, también debe configurar la **Identificador** para que tenga el mismo valor que la **URL de inicio de sesión**. El campo **Identificador** puede encontrarse al activar la casilla **Mostrar la configuración avanzada** en la página **Configurar dirección URL de la aplicación** del cuadro de diálogo.
 
 4.  En la página **Configurar inicio de sesión único en Salesforce Sandbox**, haga clic en **Descargar certificado** y después guarde el archivo de certificado en el equipo.
 
@@ -191,4 +191,4 @@ Ahora debería esperar 10 minutos y comprobar si la cuenta se ha sincronizado en
   
 Si quiere probar su configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,16 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/14/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli" />
 
 # Conmutación por error y recuperación ante desastres para el dispositivo StorSimple
 
 ## Información general
 
-En este tutorial se describen los pasos necesarios para conmutar por error un dispositivo StorSimple en caso de desastre. La conmutación por error permite migrar los datos desde un dispositivo de origen en el centro de datos a otro dispositivo físico o incluso virtual situado en la misma ubicación geográfica o en otra diferente. La conmutación por error de un dispositivo se coordina a través de la característica de recuperación ante desastres y se inicia desde la página Dispositivos. Esta página recoge en formato de tabla todos los dispositivos de StorSimple conectados al servicio de Administrador de StorSimple. Para cada dispositivo se muestran el nombre descriptivo, el estado, la capacidad aprovisionada y máxima, el tipo y el modelo.
+En este tutorial se describen los pasos necesarios para conmutar por error un dispositivo StorSimple en caso de desastre. La conmutación por error permite migrar los datos desde un dispositivo de origen en el centro de datos a otro dispositivo físico o incluso virtual situado en la misma ubicación geográfica o en otra diferente.
+
+La conmutación por error de un dispositivo se coordina a través de la característica de recuperación ante desastres y se inicia desde la página Dispositivos. Esta página recoge en formato de tabla todos los dispositivos de StorSimple conectados al servicio de Administrador de StorSimple. Para cada dispositivo se muestran el nombre descriptivo, el estado, la capacidad aprovisionada y máxima, el tipo y el modelo.
 
 ![Página de dispositivos](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
+
+Las instrucciones de este tutorial se aplican a dispositivos físicos y virtuales de StorSimple en todas las versiones de software.
+
+
 
 ## Recuperación ante desastres y conmutación por error del dispositivo
 
@@ -40,6 +46,18 @@ En todos los tipos de conmutación por error del dispositivo, tenga en cuenta lo
 - Los requisitos previos para la recuperación ante desastres son que todos los volúmenes incluidos en los contenedores de volúmenes estén desconectados y que los contenedores de volúmenes tengan asociada una instantánea en la nube. 
 - Los dispositivos de destino disponibles para la recuperación ante desastres son dispositivos con espacio suficiente para alojar los contenedores de volúmenes seleccionados. 
 - Los dispositivos que están conectados al servicio pero que no cumplen los criterios de espacio suficiente no estarán disponibles como dispositivos de destino.
+
+#### Conmutación por error del dispositivo a través de las versiones de software
+
+Un servicio del administrador de StorSimple en una implementación puede tener varios dispositivos tanto virtuales como físicos, y todos ellos pueden ejecutar versiones de software diferentes. En función de la versión de software, los tipos de volúmenes de los dispositivos también pueden ser diferentes. Por ejemplo, un dispositivo que ejecuta Update 2 o posterior tendría volúmenes anclados localmente y en capas (de tal forma que los archivos serían un subconjunto de las capas). Por otro lado, un dispositivo con una versión anterior a Update 2 puede tener volúmenes en capas y de archivado.
+
+Utilice la tabla siguiente para determinar si puede conmutar por error a otro dispositivo que ejecuta una versión diferente de software y el comportamiento de los tipos de volumen durante la recuperación ante desastres.
+
+| Conmutación por error a partir de | Permitida para dispositivo físico | Permitida para dispositivo virtual |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+| Update 2 a versión anterior a Update 1 (lanzamiento, 0.1, 0.2, 0.3) | No | No |
+| Update 2 a Update 1 (1, 1.1, 1.2) | Sí <br></br>Si utiliza volúmenes anclados localmente o en capas o una combinación de ambos, la conmutación por error de tales volúmenes siempre se realiza en capas. | Sí<br></br>Si utiliza volúmenes anclados localmente, su conmutación por error se realiza en capas. |
+| Update 2 a Update 2 (versión posterior) | Sí<br></br>Si utiliza volúmenes anclados localmente o en capas o una combinación de ambos, la conmutación por error de tales volúmenes se realiza como el tipo de volumen de partida; los volúmenes en capas como en capas y los anclados localmente como anclados localmente. | Sí<br></br>Si utiliza volúmenes anclados localmente, su conmutación por error se realiza en capas. |
 
 ## Conmutar por error a otro dispositivo físico
 
@@ -95,10 +113,8 @@ Siga estos pasos si solo dispone de un dispositivo y necesita realizar una conmu
 
 ## Conmutar por error a un dispositivo virtual de StorSimple
 
-Debe crear y configurar un dispositivo virtual de StorSimple antes de ejecutar este procedimiento.
+Debe crear y configurar un dispositivo virtual de StorSimple antes de ejecutar este procedimiento. Si ejecuta Update 2, considere el uso de un dispositivo virtual 8020 para la recuperación ante desastres que tiene 64 TB y utiliza el almacenamiento premium.
  
->[AZURE.NOTE]**En esta versión, la cantidad de almacenamiento que se admite en el dispositivo virtual de StorSimple es 30 TB.**
-
 Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorSimple de destino.
 
 1. Compruebe que el contenedor de volúmenes que desea conmutar por error tiene asociadas instantáneas en la nube.
@@ -119,7 +135,6 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorS
 
 	b. En **Elegir un dispositivo de destino para los volúmenes de los contenedores seleccionados**, seleccione el dispositivo virtual de StorSimple en la lista desplegable de dispositivos disponibles. En la lista desplegable solo se muestran los dispositivos con capacidad suficiente.
 	
-	>[AZURE.NOTE]**Si el dispositivo físico ejecuta Update 1, solo puede conmutar a un dispositivo virtual que ejecute Update 1. Si el dispositivo virtual de destino está ejecutando una versión anterior del software, verá un error en el sentido de que es necesario actualizar el software del dispositivo de destino.**
 
 1. Por último, revise toda la configuración de conmutación por error en **Confirmar conmutación por error**. Haga clic en el icono de marca de verificación ![Icono de marca de verificación](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
@@ -147,7 +162,7 @@ Después de realizar la conmutación por error, puede que deba:
 - [Desactivar el dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [Eliminar el dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-Para obtener información sobre cómo usar el servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
+Para obtener información sobre cómo usar el servicio del administrador de StorSimple, vaya a [Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

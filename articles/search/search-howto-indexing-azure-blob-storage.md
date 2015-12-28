@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="12/09/2015"
+ms.date="12/11/2015"
 ms.author="eugenesh" />
 
 # Indexación de documentos en Almacenamiento de blobs de Azure con Búsqueda de Azure
 
-Ya hace algún tiempo que los clientes de Búsqueda de Azure están indexando "automágicamente" algunos orígenes de datos populares usando indexadores para [Base de datos SQL de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) y [Azure DocumentDB](documentdb-search-indexer.md).
+Ya hace algún tiempo que los clientes de Búsqueda de Azure están indexando "automágicamente" algunos orígenes de datos populares usando indexadores para [Base de datos SQL de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) y [Azure DocumentDB](../documentdb/documentdb-search-indexer.md).
 
 Ahora agregamos compatibilidad para la indexación de los documentos guardados en Almacenamiento de blobs de Azure. Muchos clientes nos han solicitado que simplifiquemos la indexación de los documentos almacenados en blobs, como los archivos PDF, documentos de Office o páginas HTML. Hasta ahora, era necesario escribir código personalizado para realizar la extracción de texto y agregar los documentos a un índice de Búsqueda de Azure.
 
@@ -104,7 +104,7 @@ Búsqueda de Azure indexa cada documento (blob) como sigue:
 
 No es necesario definir campos para todas las propiedades anteriores en el índice de búsqueda, capture solo las propiedades que necesita para la aplicación.
 
-> [AZURE.NOTE]A menudo, los nombres de campo en el índice existente serán diferentes de los nombres de campo generados durante la extracción del documento. Puede usar **asignaciones de campos** para asignar los nombres de propiedad proporcionados por Búsqueda de Azure a los nombres de campo en el índice de búsqueda.
+> [AZURE.NOTE]A menudo, los nombres de campo en el índice existente serán diferentes de los nombres de campo generados durante la extracción del documento. Puede usar **asignaciones de campos** para asignar los nombres de propiedad proporcionados por Búsqueda de Azure a los nombres de campo en el índice de búsqueda. A continuación, verá un ejemplo del uso de las asignaciones de campos.
 
 ## Selección del campo de clave de documento y uso de diferentes nombres de campo
 
@@ -144,6 +144,8 @@ Para conectar todo esto, aquí está la forma de agregar asignaciones de campo y
 	  "parameters" : { "base64EncodeKeys": true }
 	}
 
+> [AZURE.NOTE]Para más información sobre las asignaciones de campos, vea [este artículo](search-indexers-customization.md).
+
 ## Indexación incremental y detección de eliminación
 
 Al configurar un indexador de blob para ejecutarlo en una programación, se vuelven a indexar solamente los blobs modificados, que vienen determinados por marca de tiempo `LastModified` del blob.
@@ -152,7 +154,7 @@ Al configurar un indexador de blob para ejecutarlo en una programación, se vuel
 
 Para indicar que determinados documentos tienen que quitarse del índice, debe usar una estrategia de eliminación temporal: en lugar de eliminar los blobs correspondientes, agregue una propiedad de metadatos personalizada para indicar que están eliminados y configure una directiva de detección de eliminación temporal en el origen de datos.
 
-> [AZURE.NOTE]Si en lugar de usar una directiva de detección de eliminación, simplemente elimina los blobs, los documentos correspondientes no se eliminarán del índice de búsqueda.
+> [AZURE.WARNING]Si en lugar de usar una directiva de detección de eliminación, simplemente elimina los blobs, los documentos correspondientes no se eliminarán del índice de búsqueda.
 
 Por ejemplo, la directiva que se muestra a continuación considerará que un blob se elimina si tiene una propiedad de metadatos `IsDeleted` con el valor `true`:
 
@@ -177,189 +179,33 @@ Por ejemplo, la directiva que se muestra a continuación considerará que un blo
 
 La tabla siguiente resume el procesamiento que se realiza para cada formato de documento y describe las propiedades de metadatos extraídas por Búsqueda de Azure.
 
-<table style="font-size:12">
-
-<tr>
-<th>Formato de documento/Tipo de contenido</th>
-<th>Propiedades de metadatos específicas del tipo de contenido</th>
-<th>Detalles de procesamiento </th>
-</tr>
-
-<tr>
-<td>HTML (' texto/html')</td>
-<td>
-'metadata_content_encoding'<br/>
-`metadata_content_type`<br/>
-'metadata_language'<br/>
-'metadata_description'<br/>
-'metadata_keywords'<br/>
-'metadata_title'
-</td>
-<td>Seccionar el marcado HTML y extraer texto</td>
-</tr>
-
-<tr>
-<td>PDF (`application/pdf`)</td>
-<td>
-`metadata_content_type`<br/>
-'metadata_language'<br/>
-`metadata_author`<br/>
-'metadata_title'
-</td>
-<td>Extraer texto, incluyendo los documentos insertados (excepto las imágenes)</td>
-</tr>
-
-<tr>
-<td>DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_character_count`<br/>
-'metadata_creation_date'<br/>
-'metadata_last_modified'<br/>
-`metadata_page_count`<br/>
-`metadata_word_count`
-</td>
-<td>Extraer texto, incluyendo los documentos insertados</td>
-</tr>
-
-<tr>
-<td>DOC (application/msword)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_character_count`<br/>
-'metadata_creation_date'<br/>
-'metadata_last_modified'<br/>
-`metadata_page_count`<br/>
-`metadata_word_count`
-</td>
-<td>Extraer texto, incluyendo los documentos insertados</td>
-</tr>
-
-<tr>
-<td>XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-'metadata_creation_date'<br/>
-'metadata_last_modified'
-</td>
-<td>Extraer texto, incluyendo los documentos insertados</td>
-</tr>
-
-<tr>
-<td>XLS (application/vnd.ms-excel)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-'metadata_creation_date'<br/>
-'metadata_last_modified'
-</td>
-<td>Extraer texto, incluyendo los documentos insertados</td>
-</tr>
-
-<tr>
-<td>PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-'metadata_creation_date'<br/>
-'metadata_last_modified'<br/>
-`metadata_slide_count`<br/>
-'metadata_title'
-</td>
-<td>Extraer texto, incluyendo los documentos insertados</td>
-</tr>
-
-<tr>
-<td>PPT (application/vnd.ms-powerpoint)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-'metadata_creation_date'<br/>
-'metadata_last_modified'<br/>
-`metadata_slide_count`<br/>
-'metadata_title'
-</td>
-<td>Extraer texto, incluyendo los documentos insertados</td>
-</tr>
-
-<tr>
-<td>MSG (application/vnd.ms-outlook)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_message_from`<br/>
-`metadata_message_to`<br/>
-`metadata_message_cc`<br/>
-`metadata_message_bcc`<br/>
-'metadata_creation_date'<br/>
-'metadata_last_modified'<br/>
-'metadata_subject'
-</td>
-<td>Extraer texto, incluidos los datos adjuntos</td>
-</tr>
-
-<tr>
-<td>ZIP (application/zip)</td>
-<td>
-`metadata_content_type`
-</td>
-<td>Extraer el texto de todos los documentos en el archivo</td>
-</tr>
-
-<tr>
-<td>XML (application/xml)</td>
-<td>
-`metadata_content_type`</br>
-'metadata_content_encoding'</br>
-</td>
-<td>Seccionar el marcado XML y extraer texto </td>
-</tr>
-
-<tr>
-<td>JSON (application/json)</td>
-<td>
-`metadata_content_type`</br>
-'metadata_content_encoding'
-</td>
-<td></td>
-</tr>
-
-<tr>
-<td>Plain text (text/plain)</td>
-<td>
-`metadata_content_type`</br>
-'metadata_content_encoding'</br>
-</td>
-<td></td>
-</tr>
-</table>
+Formato de documento/Tipo de contenido | Propiedades de metadatos específicas del tipo de contenido | Detalles de procesamiento
+-------------------------------|-------------------------------------------|-------------------
+HTML (`text/html`) | `metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` | Seccionar el marcado HTML y extraer texto
+PDF (`application/pdf`) | `metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title`| Extraer texto, incluyendo los documentos insertados (excepto las imágenes)
+DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | Extraer texto, incluyendo los documentos insertados
+DOC (application/msword) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | Extraer texto, incluyendo los documentos insertados
+XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | Extraer texto, incluyendo los documentos insertados
+XLS (application/vnd.ms-excel) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | Extraer texto, incluyendo los documentos insertados
+PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Extraer texto, incluyendo los documentos insertados
+PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Extraer texto, incluyendo los documentos insertados
+MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extraer texto, incluidos los datos adjuntos
+ZIP (application/zip) | `metadata_content_type` | Extraer el texto de todos los documentos en el archivo
+XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Seccionar el marcado XML y extraer texto </td>
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extraer texto<br/>NOTA: si necesita extraer varios campos de documentos de un blob JSON, vote [esta sugerencia de UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs)
+Plain text (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
 ## Uso de los metadatos personalizados para el control de la extracción de documentos
 
 Puede agregar propiedades de metadatos a un blob para controlar algunos aspectos de la indexación del blob y del proceso de extracción de documentos. En la actualidad se admiten las siguientes propiedades:
 
-<table style="font-size:12">
-
-<tr>
-<th>Nombre de propiedad</th>
-<th>Valor de la propiedad</th>
-<th>Explicación</th>
-</tr>
-
-<tr>
-<td>AzureSearch_Skip</td>
-<td>"true"</td>
-<td>Da instrucciones al indexador del blob de omitir completamente el blob; no se intentará la extracción ni de metadatos ni de contenido. Esto es útil cuando desea omitir determinados tipos de contenido, o cuando un blob en particular falla varias veces e interrumpe el proceso de indexación.
-</td>
-</tr>
-
-</table>
+Nombre de propiedad | Valor de la propiedad | Explicación
+--------------|----------------|------------
+AzureSearch\_Skip | "true" | Da instrucciones al indexador del blob de omitir completamente el blob; no se intentará la extracción ni de metadatos ni de contenido. Esto es útil cuando desea omitir determinados tipos de contenido, o cuando un blob en particular falla varias veces e interrumpe el proceso de indexación.
 
 ## Ayúdenos a mejorar Búsqueda de Azure
 
 Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="09/29/2015" 
+	ms.date="12/15/2015" 
 	ms.author="cephalin"/>
 
 # Crear una aplicación web de .NET MVC en Servicio de aplicaciones de Azure con autenticación de AD FS
@@ -61,9 +61,9 @@ La aplicación de muestra de este tutorial, [WebApp-WSFederation-DotNet)](https:
 
 	> [AZURE.NOTE]Las instrucciones de [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) muestran cómo configurar la aplicación con Azure Active Directory, pero en este tutorial lo configurará con AD FS, por lo que, en su lugar, debe seguir los pasos siguientes.
 
-3.	Abra la solución y, a continuación, Controllers\\AccountController.cs en el **Explorador de soluciones**.
+3.	Abra la solución y, a continuación, Controllers\AccountController.cs en el **Explorador de soluciones**.
 
-	Verá que el código simplemente emite un desafío de autenticación para autenticar al usuario con WS-Federation. Toda la autenticación se configura en App\_Start\\Startup.Auth.cs.
+	Verá que el código simplemente emite un desafío de autenticación para autenticar al usuario con WS-Federation. Toda la autenticación se configura en App_Start\Startup.Auth.cs.
 
 4.  Abra App_Start\Startup.Auth.cs. En el método `ConfigureAuth`, observe la línea:
 
@@ -120,7 +120,7 @@ Aquí publicará la aplicación en una aplicación web en Aplicaciones web del S
 
 	![](./media/web-sites-dotnet-lob-application-adfs/01-publish-website.png)
 
-2. Seleccione **Aplicaciones web de Microsoft Azure**.
+2. Seleccione **Servicio de aplicaciones de Microsoft Azure**.
 3. Si no ha iniciado sesión en Azure, haga clic en **Iniciar sesión** y use la cuenta de Microsoft de su suscripción de Azure para iniciar sesión.
 4. Cuando haya iniciado sesión, haga clic en **Nuevo** para crear una nueva aplicación web.
 5. Rellene todos los campos obligatorios. Se conectará a datos locales más tarde, por lo que no creará una base de datos para esta aplicación web.
@@ -145,7 +145,7 @@ Si desea asociar la aplicación web publicada en Azure al depurador (es decir, d
 <a name="bkmk_rptrusts"></a>
 ## Configurar las relaciones de confianza para usuarios autenticados en la administración de AD FS ##
 
-Ahora debe configurar una relación de confianza para usuario autenticado en la administración de AD FS para que su aplicación de muestra se pueda autenticar realmente con AD FS. Deberá configurar dos relaciones de confianza para usuarios autenticados independientes, una para su entorno de depuración y otra para su aplicación web publicada.
+Ahora debe configurar una relación de confianza para usuario autenticado en la administración de AD FS para poder usar su aplicación de muestra y que se pueda autenticar realmente con AD FS. Deberá configurar dos relaciones de confianza para usuarios autenticados independientes, una para su entorno de depuración y otra para su aplicación web publicada.
 
 > [AZURE.NOTE]Asegúrese de repetir los pasos siguientes para ambos entornos.
 
@@ -353,4 +353,4 @@ Aplicaciones web del Servicio de aplicaciones de Azure admite el acceso a bases 
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->
