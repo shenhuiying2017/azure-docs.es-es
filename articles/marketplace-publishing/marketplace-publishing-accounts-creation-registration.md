@@ -22,7 +22,7 @@ Este artículo le guía a través del proceso necesario de creación y registro 
 ## 1\. Creación de una cuenta Microsoft
 > [AZURE.WARNING]Para finalizar el proceso de publicación, deberá crear una cuenta Microsoft. Esta cuenta se utilizará para registrarse e iniciar sesión en el **Centro para desarrolladores de Microsoft** y el **Portal de publicación de Azure**. Solo debe tener una cuenta Microsoft para sus ofertas de Azure Marketplace. Esta no debe ser específica para servicios u ofertas.
 
-La dirección que constituye el nombre de usuario debe estar en su dominio y estar controlada por su equipo de TI (por ejemplo, publishing@example.com)). Los pagos, la información fiscal y los informes se tramitarán con esta cuenta.
+La dirección que constituye el nombre de usuario debe estar en su dominio y estar controlada por su equipo de TI (por ejemplo, publishing@example.com). Los pagos, la información fiscal y los informes se tramitarán con esta cuenta.
 
   >[AZURE.WARNING]No se admiten palabras como "Azure" y "Microsoft" en el registro de la cuenta Microsoft. Evite el uso de estas palabras para completar el proceso de creación y registro de cuentas.
 
@@ -65,7 +65,7 @@ El Centro para desarrolladores de Microsoft se usa para registrar la informació
 
 2. Vaya a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure).
 
-3. Inicie sesión con su cuenta Microsoft de registro de la compañía (por ejemplo, marketplace@example.com))
+3. Inicie sesión con su cuenta Microsoft de registro de la compañía (por ejemplo, marketplace@example.com).
 
     ![dibujo][img-signin]
 
@@ -79,7 +79,9 @@ El Centro para desarrolladores de Microsoft se usa para registrar la informació
 
 6. Seleccione el "Tipo de cuenta", **Individual** o **Empresa**.
 
-    <!-- Insert screenshot -->> [AZURE.IMPORTANT]Para comprender mejor los tipos de cuenta y cuál es la mejor para sus necesidades, consulte la página [Tipos de cuenta, ubicaciones y precios](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx).
+    <!-- Insert screenshot -->
+
+    > [AZURE.IMPORTANT]Para comprender mejor los tipos de cuenta y cuál es la mejor para sus necesidades, consulte la página [Tipos de cuenta, ubicaciones y precios](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx).
 
 7. Escriba el **nombre para mostrar del publicador**, que suele ser el nombre de su compañía.
 
@@ -143,11 +145,15 @@ El portal de publicación de Azure se usa para publicar y administrar sus oferta
 
 2.	Vaya a [http://publish.windowsazure.com](http://publish.windowsazure.com).
 
-3.	Inicie sesión con su cuenta Microsoft de registro de la compañía (es decir, marketplace@example.com)) y, si es necesario, agregue coadministradores.
+3.	Inicie sesión con su cuenta Microsoft de registro de la compañía (es decir, marketplace@example.com) y, si es necesario, agregue coadministradores.
 
   >[AZURE.TIP]Las directivas de participación se describen en el [sitio web de Azure](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > Si tiene problemas para completar el registro en el Centro para desarrolladores, abra una incidencia de soporte técnico tal como se indica a continuación: 1. Póngase en contacto con [Soporte técnico](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=es-ES&pesid=15635&ccsid=635847950577064286). 2. Elija **Centro para desarrolladores**. 3. Elija **Perfil**. 4. Elija un método de contacto.
+  > Si tiene problemas para completar el registro en el Centro para desarrolladores, abra una incidencia de soporte técnico tal como se indica a continuación:
+  1. Póngase en contacto con [Soporte técnico](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=es-ES&pesid=15635&ccsid=635847950577064286).
+  2. Elija **Centro para desarrolladores**.
+  3. Elija **Perfil**.
+  4. Elija un método de contacto.
 
 
 
@@ -160,8 +166,8 @@ Ahora que ya se creó y se registró la cuenta, haga clic en el tipo de artefact
 || Imagen de máquina virtual | Servicio para desarrolladores | Servicio de datos | Plantilla de solución |
 |----|-----|-----|-----|-----|
 |**Paso 2: Creación de la oferta** | [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md)| [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md) | [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md) | [Requisitos previos generales no técnicos](marketplace-publishing-pre-requisites.md) |
-|| [Requisitos previos técnicos de imagen de la máquina virtual][link-single-vm-prereq] | Requisitos previos técnicos de servicio de desarrolladores | Requisitos previos técnicos de servicio de datos | [Requisitos previos técnicos de plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [Guía de publicación de imágenes de máquina virtual][link-single-vm] | Guía de publicación de servicios de desarrolladores | Guía de publicación de servicios de datos | [Guía de publicación de plantillas de solución](marketplace-publishing-solution-template-creation.md)
+|| [Requisitos previos técnicos de imagen de la máquina virtual][link-single-vm-prereq] | Requisitos previos técnicos de servicio de desarrolladores | [Requisitos previos técnicos de servicio de datos](marketplace-publishing-data-service-creation-prerequisites.md)  | [Requisitos previos técnicos de plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [Guía de publicación de imágenes de máquina virtual][link-single-vm] | Guía de publicación de servicios de desarrolladores | [Guía de publicación de servicios de datos](marketplace-publishing-data-service-creation.md) | [Guía de publicación de plantillas de solución](marketplace-publishing-solution-template-creation.md)
 || [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] |
 
 ## Consulte también
