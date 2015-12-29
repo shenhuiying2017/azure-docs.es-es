@@ -4,8 +4,8 @@ Este tutorial está basado en el código que descarga el inicio rápido de Servi
 
 
 <!-- URLs. 
-[Get started with Mobile Services]: ../articles/mobile-services-android-get-started.md
-[Add Mobile Services to an existing app]: ../articles/mobile-services-android-get-started-data.md
+[Introducción a Servicios móviles]: ../articles/mobile-services-android-get-started.md
+[Agregar Servicios móviles a una aplicación existente]: ../articles/mobile-services-android-get-started-data.md
 -->
 
 <!---HONumber=Oct15_HO3-->

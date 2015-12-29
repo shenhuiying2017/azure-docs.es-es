@@ -51,5 +51,8 @@ Si simplemente está empezando a conocer las máquinas virtuales de Azure, aseg�
 [App Service]: app-service-choose-me.md
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
+[Servicio de aplicaciones]: app-service-choose-me.md
+[Máquinas virtuales]: #tellmevm
+[Servicios en la nube]: cloud-services-choose-me.md
 
 <!---HONumber=AcomDC_1203_2015-->
