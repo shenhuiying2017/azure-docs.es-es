@@ -72,6 +72,7 @@ Para configurar la integración de Moxtra en Azure AD, es preciso agregar Moxtra
 ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_01.png)<br>
 7. En el panel de resultados, seleccione **Moxtra** y luego **Completar** para agregar la aplicación.
 <br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_02.png)<br>
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Moxtra con un usuario de prueba llamado "Britta Simon".
@@ -322,4 +323,4 @@ Al hacer clic en el icono de Moxtra en el panel de acceso, debería iniciar sesi
 [204]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
