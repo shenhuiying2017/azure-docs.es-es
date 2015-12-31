@@ -21,7 +21,7 @@
 
 En este artículo se muestra cómo empezar a usar Docker y [Compose](http://github.com/docker/compose) para definir y ejecutar una aplicación compleja en una máquina virtual de Linux en Azure. Con Compose (el sucesor de*Fig*), use un archivo de texto simple para definir una aplicación compuesta de varios contenedores de Docker. A continuación, gire la aplicación en un único comando que hace todo para ejecutarlo en la máquina virtual. Como ejemplo, en este artículo se muestra cómo configurar rápidamente un blog de WordPress con una base de datos SQL MariaDB de back-end, pero también puede utilizar Compose para configurar aplicaciones más complejas.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Modelo del Administrador de recursos](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/).
 
 
 Si no tiene experiencia con Docker o con los contenedores, consulte la [pizarra de alto nivel de Docker](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
@@ -73,7 +73,7 @@ db:
 
 ```
 
-## Step 4: Start the containers with Compose
+## Paso 4: Inicio de los contenedores con Compose
 
 En el directorio de trabajo de la m¨¢quina virtual, ejecute el comando siguiente.
 
