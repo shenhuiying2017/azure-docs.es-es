@@ -92,7 +92,9 @@ Un proyecto de prueba de carga se compone de uno o varios de los escenarios desc
 1. En la sección **Combinación de pruebas**, elija el botón **Agregar** y, a continuación, seleccione la prueba que desea incluir en la prueba de carga. Puede usar la columna **Distribución** para especificar el porcentaje total de pruebas que se ejecutaron para cada prueba.
 
 1. En la sección **Parámetros de ejecución**, especifique la duración de la prueba de carga.
+
     >[AZURE.NOTE]La opción **Iteraciones de prueba** está disponible solo para ejecutar pruebas de carga localmente mediante Visual Studio.
+
 
 1. En la sección **Ubicación** de **Parámetros de ejecución**, especifique la ubicación donde se generan las solicitudes de prueba de carga. El asistente puede solicitarle que inicie sesión en su cuenta de Team Services. Inicie sesión con su cuenta de Team Services y elija una ubicación geográfica. Cuando haya terminado, elija el botón **Finalizar**.
 

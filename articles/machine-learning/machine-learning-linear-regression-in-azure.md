@@ -21,7 +21,9 @@
 
 > *Kate Baroni* y *Ben Boatman* son arquitectos de soluciones para empresas del Centro de excelencia de Data Insights de Microsoft. En este artículo, se describe su experiencia al migrar un conjunto existente de análisis de regresión a una solución basada en la nube mediante Aprendizaje automático (ML) de Azure.
 
+
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
 
 ## Objetivo
 
@@ -90,7 +92,12 @@ Al aplicar las recomendaciones, logramos el mismo rendimiento de línea de base 
 
 Además, los coeficientes de Excel son muy similares a los pesos de la característica en el modelo de entrenamiento de Azure:
 
-||Coeficientes de Excel |Pesos de las características de Azure | |---|:---:|:---:| |Intercepción/desviación|19470209,88|19328500| |Característica A|0,832653063|0,834156| |Característica B|11071967,08|11007300| |Característica C|25383318,09|25140800|
+||Coeficientes de Excel |Pesos de las características de Azure |
+|---|:---:|:---:|
+|Intercepción/desviación|19470209,88|19328500|
+|Característica A|0,832653063|0,834156|
+|Característica B|11071967,08|11007300|
+|Característica C|25383318,09|25140800|
 
 ## Pasos siguientes
 
@@ -152,4 +159,4 @@ A continuación, encontrará algunos recursos que le ayudarán a trabajar con la
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

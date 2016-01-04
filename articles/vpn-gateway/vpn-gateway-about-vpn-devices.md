@@ -112,7 +112,11 @@ Después de descargar el ejemplo de configuración del dispositivo VPN proporcio
 |--------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------------------|
 | Versión de IKE | IKEv1 | IKEv2 |
 | Algoritmo hash | SHA1(SHA128) | SHA1(SHA128) |
-| Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 2 | 3.600 segundos | - | | Vida útil (rendimiento) de la asociación de seguridad (SA) de la fase 2 | 102.400.000 KB | - | | Cifrado y ofertas de autenticación de SA de IPsec (por orden de preferencia) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. No disponible | Vea *ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento* (a continuación) | | Confidencialidad directa total (PFS) | No | Sí (DH Grupo1) | | Detección de nodos fallidos | No se admite | Se admite |
+| Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 2 | 3.600 segundos | - |
+| Vida útil (rendimiento) de la asociación de seguridad (SA) de la fase 2 | 102.400.000 KB | - |
+| Cifrado y ofertas de autenticación de SA de IPsec (por orden de preferencia) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. No disponible | Vea *ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento* (a continuación) |
+| Confidencialidad directa total (PFS) | No | Sí (DH Grupo1) |
+| Detección de nodos fallidos | No se admite | Se admite |
 
 ### Ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento
 
@@ -136,7 +140,8 @@ En la tabla encontrará una lista de las ofertas de autenticación y cifrado de 
 | 14 | AH MD5 con ESP DES HMAC nulo, sin vida útil propuesta | AH MD5 con ESP DES MD5, sin vida útil |
 | 15 | AH SHA1 con ESP DES SHA1, sin vida útil | ESP SHA, sin vida útil |
 | 16 | AH MD5 con ESP DES MD5, sin vida útil | ESP MD5, sin vida útil |
-| 17 | - | AH SHA, sin vida útil | | 18 | - | AH MD5, sin vida útil |
+| 17 | - | AH SHA, sin vida útil |
+| 18 | - | AH MD5, sin vida útil |
 
 
 - Puede especificar el cifrado IPsec ESP NULL con puerta de enlace de VPN de alto rendimiento y basada en enrutamiento. Esto está pensado para las conexiones de red virtual a red virtual dentro de redes de Azure. 
