@@ -143,7 +143,7 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 
 6. Abra el archivo *App.config* del proyecto ContosoAdsWebJob.
 
-	Este archivo tiene dos cadenas de conexión de almacenamiento, una para los datos de aplicación y otra para registro. Para este tutorial, usará la misma cuenta para ambas. Las cadenas de conexión tienen marcadores de posición para las claves de la cuenta de almacenamiento.
+	Este archivo tiene dos cadenas de conexión de almacenamiento, una para los datos de aplicación y otra para registro. Puede utilizar cuentas de almacenamiento independientes para los datos de aplicación y el registro, y usar [varias cuentas de almacenamiento para datos](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs). Para este tutorial, usará solamente una única cuenta de almacenamiento. Las cadenas de conexión tienen marcadores de posición para las claves de la cuenta de almacenamiento. 
   	<pre class="prettyprint">&lt;configuration&gt;
     &lt;connectionStrings&gt;
         &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
@@ -814,4 +814,4 @@ Para obtener más información, consulte [Obtención de un panel para desarrollo
 
 Para obtener más información, consulte [Recursos de documentación de WebJobs de Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

@@ -207,7 +207,7 @@ También necesitará una cola del Bus de servicio para permitir el procesamiento
 
         using Microsoft.ServiceBus.Messaging;
 
-    A continuación, modifique el método **Main** para la clase **Program** como se muestra a continuación y sustituya la cadena de conexión **iothubowner** del Centro de IoT (del tutorial [Introducción al Centro de IoT]), la cadena de conexión de almacenamiento y la cadena de conexión del Bus de servicio por los permisos de **envío** para la cola llamada **d2ctutorial**:
+    A continuación, modifique el método **Main** para la clase **Program** como se muestra a continuación y sustituya la cadena de conexión **iothubowner** del Centro de IoT (del tutorial [Introducción a los Centros de eventos]), la cadena de conexión de almacenamiento y la cadena de conexión del Bus de servicio por los permisos de **envío** para la cola llamada **d2ctutorial**:
 
         static void Main(string[] args)
         {
@@ -324,4 +324,4 @@ En esta sección, escribirá una aplicación de consola de Windows que recibe me
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->

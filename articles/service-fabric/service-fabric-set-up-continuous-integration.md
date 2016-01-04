@@ -39,6 +39,7 @@ Antes de poder configurar la máquina de compilación, debe crear una "entidad d
 
 1.	Instale Azure PowerShell.
     - Instale PowerShellGet. Para ello, instale [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), que incluye PowerShellGet.
+
     >[AZURE.NOTE]Si ejecuta Windows 10 con las actualizaciones más recientes, puede omitir este paso.
 
 1.	Instale y actualice el módulo AzureRM.
@@ -339,4 +340,4 @@ En las instrucciones anteriores se crea un nuevo clúster para cada compilación
 
 Para obtener más información sobre la integración continua con aplicaciones de Service Fabric, lea los siguientes artículos. - [Página principal de documentación sobre compilación](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [Implementación de un agente de compilación](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [Creación y configuración de una definición de compilación](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
