@@ -43,7 +43,8 @@ Busque la dirección URL de blob en el nuevo [Portal de Microsoft Azure](https:/
 
 ### Descarga de un disco duro virtual
 Una vez que conozca la dirección URL de blob, podrá descargar el disco duro virtual mediante el [Portal de Azure](http://manage.windowsazure.com/) o PowerShell.
-> [AZURE.NOTE]En el momento de la creación de esta guía, la funcionalidad para descargar un disco duro virtual no está todavía presente en el nuevo Portal de Microsoft Azure.
+
+> [AZURE.NOTE] En el momento de la creación de esta guía, la funcionalidad para descargar un disco duro virtual no está todavía presente en el nuevo Portal de Microsoft Azure.
 
 **Descarga del disco duro virtual del sistema operativo a través del [Portal de Azure](http://manage.windowsazure.com/) actual**
 
@@ -138,4 +139,4 @@ Con la [Herramienta de línea de comandos de Linux](../virtual-machines/command-
 - [Creación de una imagen de máquina virtual para Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configuración de Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

@@ -140,9 +140,6 @@ Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el
 + [Uso de scripts del servidor en Servicios móviles] 
 	<br/>Muestra cómo trabajar con scripts del servidor, el programador de trabajos y las API personalizadas.
 
-+ [Llamar a una API personalizada desde el cliente] 
-	<br/> Muestra cómo crear API personalizadas que se pueden llamar desde el cliente.
-
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
 [Install Git and create the local repository]: #clone-repo
@@ -164,4 +161,4 @@ Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el
 [Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

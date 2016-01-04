@@ -35,13 +35,15 @@ Como punto de partida de este tema, vamos a usar la aplicación del tutorial [Us
 1. Compile el proyecto para realizar pruebas en el emulador: en el Project Explorer (Explorador de proyectos) de Eclipse, haga clic en **MyAzureProject**, **Properties** (Propiedades), **Azure**, y establezca **Build for** (Compilar para) en **Deployment to cloud** (Implementación en la nube).
 1. Recompile el proyecto: en el menú de Eclipse, haga clic en **Project** (Proyecto) y luego en **Build All** (Compilar todo).
 1. Implementación de la aplicación en *ensayo* de Azure
-    >[AZURE.IMPORTANT]Como se mencionó anteriormente, se recomienda especialmente depurar en el emulador de proceso en la mayoría de los casos y luego depurar en el entorno de ensayo solo si se requiere depuración adicional. Se recomienda no depurar en el entorno de producción.
+
+    > [AZURE.IMPORTANT] Como se mencionó anteriormente, se recomienda especialmente depurar en el emulador de proceso en la mayoría de los casos y luego depurar en el entorno de ensayo solo si se requiere depuración adicional. Se recomienda no depurar en el entorno de producción.
 1. Cuando la implementación esté lista en Azure, obtenga el nombre DNS para la implementación del [Portal de administración de Azure][]. Una implementación de ensayo tiene un nombre DNS en forma de http://*&lt;guid&gt;*.cloudapp.net, donde *&lt;guid&gt;* es un valor GUID que Azure asigna.
 1. En el explorador de proyectos de Eclipse, haga clic con el botón derecho en **WorkerRole1**, **Azure**, y luego en **Debugging** (Depuración).
 1. En el cuadro de diálogo **Properties for WorkerRole1 Debugging** (Propiedades para la depuración de WorkerRole1):
     1. Active **Enable remote debugging for this role** (Habilitar la depuración remota para este rol).
     1. Como **Input endpoint to use** (Punto de conexión de entrada que se va a usar), use **Debugging (public:8090, private:8090)** (Depuración (público:8090, privado:8090)).
     1. Asegúrese de que **Start JVM in suspended mode, waiting for a debugger connection** (Iniciar JVM en modo suspendido, esperando una conexión del depurador) está desactivada.
+
         >[AZURE.IMPORTANT]La opción **Start JVM in suspended mode, waiting for a debugger connection** está diseñada solo para escenarios de depuración avanzada en el emulador de proceso (no para implementaciones en la nube). Si se usa la opción **Start JVM in suspended mode, waiting for a debugger connection**, suspenderá el proceso de inicio del servidor hasta que el depurador de Eclipse se conecte a su JVM. Aunque puede emplear esta opción para una sesión de depuración con el emulador de proceso, no la use para una sesión de depuración en una implementación en la nube. La inicialización de un servidor se produce en una tarea de inicio de Azure y la nube de Azure no tiene puntos de conexión públicos disponibles hasta que se complete la tarea de inicio. Por lo tanto, un proceso de inicio no se completará correctamente si esta opción está habilitada en una implementación de la nube, ya que no será capaz de recibir una conexión desde un cliente externo de Eclipse.
     1. Haga clic en **Create Debug Configurations** (Crear configuraciones de depuración).
 1. En el cuadro de diálogo **Azure Debug Configuration** (Configuración de depuración de Azure):
@@ -132,4 +134,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

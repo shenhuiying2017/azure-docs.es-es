@@ -93,7 +93,7 @@ Para establecer las opciones de configuración de la aplicación en el back-end 
 
 + **MS\_MasterKey** puede establecerse en cualquier valor, pero debe ser el mismo valor que usen los clientes o las API de administración. Se recomienda un GUID.
 
-Al migrar un servicio móvil, la clave principal y la clave de aplicación se pueden obtener ambas en la pestaña [Configurar] de la sección Servicios móviles del **Portal de Azure clásico**. Haga clic en **Administrar claves** en la parte inferior y copie las claves.
+Al migrar un servicio móvil, la clave principal y la clave de aplicación se pueden obtener ambas en la pestaña Configurar de la sección Servicios móviles del **Portal de Azure clásico**. Haga clic en **Administrar claves** en la parte inferior y copie las claves.
 
 
 ### <a name="client-sdk"></a>Modificación del SDK de cliente
@@ -185,4 +185,4 @@ Los registros se controlan mediante las características de registro estándar d
 [Servicios móviles frente a Servicio de aplicaciones]: app-service-mobile-value-prop-migration-from-mobile-services-preview.md
 [migrate a mobile service to a mobile app on App Service]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-----HONumber=AcomDC_1210_2015-->
