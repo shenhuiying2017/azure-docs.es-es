@@ -88,12 +88,12 @@ En los pasos siguientes se describe el flujo de trabajo más común al usar la A
 	> Es posible que también reciba una respuesta HTTP/1.1 200 que contenga la descripción de metadatos de la API de ODATA.
 3. Registre las llamadas de API posteriores en la nueva dirección URL. 
 	
-		Por ejemplo, si después de intentar conectarse, obtiene lo siguiente:
+	Por ejemplo, si después de intentar conectarse, obtiene lo siguiente:
 		
 		HTTP/1.1 301 Moved Permanently
 		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-		Debe registrar las llamadas posteriores de API en https://wamsbayclus001rest-hs.cloudapp.net/api/.
+	Debe registrar las llamadas posteriores de API en https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ###Obtención de un token de acceso
 

@@ -107,6 +107,7 @@ Ya ha creado una aplicación web, pero todavía no hay contenido en él. El sigu
 5. En el cuadro de diálogo **Nuevo proyecto de ASP.NET**, seleccione la plantilla **Formularios Web Forms**. Desactive la casilla **Host en la nube** si está activada y haga clic en **Aceptar**.  
 	![Cuadro de diálogo New ASP.NET Project](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms03.png)  
 	Se creará la aplicación de formularios Web Forms.
+
 ###Actualización de la página maestra
 En ASP.NET Web Forms, las páginas maestro permiten crear un diseño coherente de las páginas en la aplicación. Una sola página maestro define la apariencia y el comportamiento estándar que desea para todas las páginas (o un grupo de páginas) en su aplicación. Después, puede crear páginas de contenido individuales con el contenido que desee mostrar. Cuando los usuarios solicitan las páginas de contenido, ASP.NET las combina con la página maestra para producir un resultado que combine el diseño de la página maestra con el contenido de la página de contenido. El nuevo sitio necesita el nombre de la aplicación y un vínculo actualizado. Este vínculo apuntará a una página que mostrará los datos de contacto. Para realizar estos cambios, debe modificar el código HTML en la página maestro.
 
@@ -722,7 +723,7 @@ Si cerró y volvió a abrir Visual Studio después de crear el perfil de publica
 	**Contraseña**: `Pa$$word1`  
 	![Página Iniciar sesión](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms28.png)  
 
-4. Escriba nuevos datos para cada campo y, a continuación, presione el botón **Insertar**. ![Página Agregar nuevo contacto](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms30.png) Se abrirá la página *EditContactList.aspx* con el nuevo registro. ![Página Agregar nuevo contacto](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms31.png)
+4. Escriba nuevos datos para cada campo y, a continuación, presione el botón **Insertar**.  
 	![Página Agregar nuevo contacto](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms30.png)  
 	Se abrirá la página *EditContactList.aspx* con el nuevo registro.  
 	![Página Agregar nuevo contacto](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms31.png)
@@ -737,8 +738,8 @@ Con el fin de impedir que otras personas se registren y usen su aplicación de e
 3. Haga clic con el botón derecho en cada sesión del sitio web y seleccione **Detener aplicación web**. 
 	![Elemento de menú Detener sitio web](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26a.png)  
 
-	También existe la opción de seleccionar la aplicación web en el Portal de Azure clásico y después hacer clic en el icono **stop** situado en la parte inferior de la página. 
-	![Página Agregar nuevo contacto](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26b.png)
+	También existe la opción de seleccionar la aplicación web en el Portal de Azure clásico y después hacer clic en el icono **stop** situado en la parte inferior de la página.  
+	![Página Agregar nuevo contacto](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms26b.png)  
 
 ##Revisión de la base de datos 
 Es importante saber cómo ver y modificar la base de datos directamente. Saber cómo trabajar directamente con la base de datos le permite confirmar los datos de la base de datos y comprender cómo se almacenan en cada tabla.
