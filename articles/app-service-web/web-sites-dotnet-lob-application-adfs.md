@@ -103,8 +103,10 @@ La aplicación de muestra de este tutorial, [WebApp-WSFederation-DotNet)](https:
 		<mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
 		<mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
 		<mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
+
 	&lt;/appSettings>
 	</pre>
+
 	Rellene los valores de clave en función de su entorno respectivo.
 
 7.	Compile la aplicación para asegurarse de que no hay ningún error.
@@ -198,18 +200,19 @@ Ahora debe configurar una relación de confianza para usuario autenticado en la 
 10.	Seleccione **Enviar notificaciones con una regla personalizada** y haga clic en **Siguiente**.
 11.	Pegue el siguiente lenguaje de regla en el cuadro **Regla personalizada**, asigne el nombre **Por identificador de sesión** a la regla y haga clic en **Finalizar**.  
 	<pre class="prettyprint">
-c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
-	=> add(
-		store = "_OpaqueIdStore",
-		types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
-		query = "{0};{1};{2};{3};{4}",
-		param = "useEntropy",
-		param = c1.Value,
-		param = c1.OriginalIssuer,
-		param = "",
-		param = c2.Value);
+	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
+	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+		=> add(
+			store = "_OpaqueIdStore",
+			types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
+			query = "{0};{1};{2};{3};{4}",
+			param = "useEntropy",
+			param = c1.Value,
+			param = c1.OriginalIssuer,
+			param = "",
+			param = c2.Value);
 	</pre>
+
 	Su regla personalizada debe tener un aspecto similar al siguiente:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
@@ -263,21 +266,21 @@ Puesto que ha incluido las pertenencias a grupos como notificaciones de rol en l
 1. Abra Controllers\HomeController.cs.
 2. Represente los métodos de acción `About` y `Contact` similares a los siguientes, con las pertenencias a grupos de seguridad que su usuario autenticado tiene.  
 	<pre class="prettyprint">
-<mark>[Authorize(Roles="Grupo de prueba")]</mark>
-public ActionResult About()
-{
+    <mark>[Authorize(Roles="Grupo de prueba")]</mark>
+    public ActionResult About()
+    {
     ViewBag.Message = "Su página de descripción de la aplicación.";
 
     return View();
-}
+    }
 
-<mark>[Authorize(Roles="Admins. del dominio")]</mark>
-public ActionResult Contact()
-{
+    <mark>[Authorize(Roles="Admins. del dominio")]</mark>
+    public ActionResult Contact()
+    {
     ViewBag.Message = "Su página de contacto.";
 
     return View();
-}
+    }
 	</pre>
 	Puesto que he agregado **Usuario de prueba** a **Grupo de prueba** en mi entorno de laboratorio de AD FS, usaré el grupo de prueba para probar la autorización en `About`. Para `Contact`, probaré el caso negativo de **Admins. del dominio**, al que no pertenece el **Usuario de prueba**.
 
@@ -353,4 +356,4 @@ Aplicaciones web del Servicio de aplicaciones de Azure admite el acceso a bases 
  
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1217_2015--->

@@ -35,7 +35,7 @@ En el resto del artículo se describe cómo configurar ElasticSearch en Azure, s
 La manera más sencilla de configurar el servicio ElasticSearch en Azure es mediante [**plantillas de Azure ARM**](../resource-group-overview.md). Hay una [plantilla ARM de inicio rápido para ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) en el repositorio de plantillas de inicio rápido de Azure. Esta plantilla usa cuentas de almacenamiento diferentes para las unidades de escalado (grupos de nodos) y puede aprovisionar nodos de cliente y de servidor independientes con distintas configuraciones y varios números de discos de datos adjuntos.
 
 En este artículo usaremos otra plantilla llamada **ES-MultiNode** del [repositorio ELK de Modelos y prácticas de Microsoft](https://github.com/mspnp/semantic-logging/tree/elk/). Esta plantilla es un poco más fácil de usar y, de forma predeterminada, crea un clúster de ElasticSearch protegido por autenticación básica HTTP. Antes de continuar, descargue a su equipo el [repositorio “elk” de Modelos y prácticas de Microsoft](https://github.com/mspnp/semantic-logging/tree/elk/) en GitHub (ya sea mediante clonación del repositorio o descargando un archivo ZIP). La plantilla ES-MultiNode se encuentra en la carpeta con el mismo nombre.
->[AZURE.NOTE]La plantilla ES-MultiNode y los scripts asociados admiten actualmente la versión 1.7 de ElasticSearch. Se agregará compatibilidad para ElasticSearch 2.0 más adelante.
+>[AZURE.NOTE] La plantilla ES-MultiNode y los scripts asociados admiten actualmente la versión 1.7 de ElasticSearch. Se agregará compatibilidad para ElasticSearch 2.0 más adelante.
 
 ### Preparación de un equipo para ejecutar scripts de instalación de ElasticSearch
 La manera más fácil de usar la plantilla ES-MultiNode es mediante un script de PowerShell llamado `CreateElasticSearchCluster`. Para usar este script, se deben instalar módulos de Azure PowerShell y una herramienta llamada openssl. Esta es necesaria para crear una clave SSH que se puede usar para administrar el clúster de ElasticSearch de forma remota.
@@ -246,4 +246,4 @@ Ya está. Ahora, cada vez que se ejecute el servicio, empezará a enviar seguimi
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
