@@ -79,7 +79,10 @@
 
      `Get-HcsSystem`
 
-    Debe ver las siguientes versiones: - HcsSoftwareVersion: 6.3.9600.17491 - CisAgentVersion: 1.0.9037.0 - MdsAgentVersion: 26.0.4696.1433
+    Debe ver las siguientes versiones:
+    - HcsSoftwareVersion: 6.3.9600.17491
+    - CisAgentVersion: 1.0.9037.0
+    - MdsAgentVersion: 26.0.4696.1433
  
 9. Ejecute el siguiente cmdlet para confirmar que la actualización de firmware se aplicó correctamente:
 
@@ -117,7 +120,9 @@
 	
 	![Registrar el dispositivo 7 de StorSimple](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)
 
-      >[AZURE.IMPORTANT]Para copiar el texto de la ventana de la consola serie, simplemente seleccione el texto. Luego, podrá pegarlo en el Portapapeles o en cualquier editor de texto. >> No use Ctrl + C para copiar la clave de cifrado de datos de servicio. Si usa Ctrl+C, saldrá del Asistente para instalación. Como resultado, no se cambiará la contraseña del administrador del dispositivo y el dispositivo volverá a usar la contraseña predeterminada.
+      >[AZURE.IMPORTANT]Para copiar el texto de la ventana de la consola serie, simplemente seleccione el texto. Luego, podrá pegarlo en el Portapapeles o en cualquier editor de texto.
+      > 
+      > No use Ctrl + C para copiar la clave de cifrado de datos de servicio. Si usa Ctrl+C, saldrá del Asistente para instalación. Como resultado, no se cambiará la contraseña del administrador del dispositivo y el dispositivo volverá a usar la contraseña predeterminada.
 
 16. Salga de la consola serie.
 
@@ -128,9 +133,9 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
+        Si el estado del dispositivo es **Desconectado**, espere un par de minutos hasta que el dispositivo se conecte. 
       
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
+        Si el dispositivo continúa desconectado pasados unos minutos, necesitará asegurarse de que configuró la red de Firewall tal y como se describe en los [requisitos de red del dispositivo StorSimple](https://msdn.microsoft.com/library/dn772371.aspx). Si es incompatible con HTTP 1.1, asegúrese de que el puerto 9354 está abierto para las comunicaciones de salida. Este puerto se usa para que el administrador StorSimple y su dispositivo StorSimple puedan comunicarse.
      
         
 

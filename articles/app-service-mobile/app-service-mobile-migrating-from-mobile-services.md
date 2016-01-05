@@ -80,7 +80,7 @@ Un proyecto de Servicios móviles también se puede hospedar en un [entorno del 
 >[AZURE.NOTE]Si realiza una migración manual, *no puede* conservar su dirección URL **service.azure mobile.net** existente. Si tiene clientes móviles que se conectan a esta dirección URL, debe usar la opción de migración automática o mantener el servicio móvil en ejecución hasta que todos los clientes móviles se hayan actualizado a la nueva dirección URL.
 
 
-### <a name="app-settings">Configuración de la aplicación</a>
+### <a name="app-settings"></a>Configuración de la aplicación
 Servicios móviles requiere que varias opciones de configuración de la aplicación estén disponibles en el entorno, lo que se describe en esta sección.
 
 Para establecer las opciones de configuración de la aplicación en el back-end de aplicación móvil, inicie sesión primero en el [Portal de Azure]. Navegue a la aplicación del Servicio de aplicaciones que quiera usar como back-end de aplicación móvil, haga clic en **Configuración** > **Configuración de la aplicación** y desplácese hacia abajo hasta **Configuración de la aplicación**, donde puede establecer los siguientes pares de clave y valor necesarios:
@@ -93,7 +93,7 @@ Para establecer las opciones de configuración de la aplicación en el back-end 
 
 + **MS\_MasterKey** puede establecerse en cualquier valor, pero debe ser el mismo valor que usen los clientes o las API de administración. Se recomienda un GUID.
 
-Al migrar un servicio móvil, la clave principal y la clave de aplicación se pueden obtener ambas en la pestaña Configurar de la sección Servicios móviles del **Portal de Azure clásico**. Haga clic en **Administrar claves** en la parte inferior y copie las claves.
+Al migrar un servicio móvil, la clave principal y la clave de aplicación se pueden obtener ambas en la pestaña **Configurar** de la sección Servicios móviles del [Portal de Azure clásico]. Haga clic en **Administrar claves** en la parte inferior y copie las claves.
 
 
 ### <a name="client-sdk"></a>Modificación del SDK de cliente

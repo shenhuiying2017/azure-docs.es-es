@@ -40,7 +40,7 @@ Antes de poder configurar la máquina de compilación, debe crear una "entidad d
 1.	Instale Azure PowerShell.
     - Instale PowerShellGet. Para ello, instale [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), que incluye PowerShellGet.
 
-    >[AZURE.NOTE]Si ejecuta Windows 10 con las actualizaciones más recientes, puede omitir este paso.
+    >[AZURE.NOTE] Si ejecuta Windows 10 con las actualizaciones más recientes, puede omitir este paso.
 
 1.	Instale y actualice el módulo AzureRM.
     1.  Si tiene instalada una versión anterior de Azure PowerShell, quítela. Haga clic con el botón derecho en Inicio y seleccione "Agregar o quitar programas". Busque "Azure PowerShell" y desinstálelo.
@@ -138,7 +138,7 @@ Instale el [SDK de Service Fabric](https://azure.microsoft.com/campaigns/service
     ```
 
 3.	Si NuGet.config no existe, créelo con el siguiente contenido. Reemplace `<path to service fabric SDK>` por la ruta de acceso al SDK de Service Fabric en la máquina de compilación.
->[AZURE.NOTE]De forma predeterminada, `<path to service fabric SDK>` es `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
+>[AZURE.NOTE] De forma predeterminada, `<path to service fabric SDK>` es `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
 
     NuGet.config:
 
