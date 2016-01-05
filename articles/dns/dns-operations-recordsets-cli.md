@@ -49,7 +49,7 @@ DNS de Azure es compatible con todos los tipos de registro siguientes: A, AAAA, 
 
 DNS de Azure admite [registros de carácter comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Estos se devuelven en cualquier consulta con un nombre coincidente (a menos que haya una coincidencia más próxima de un conjunto de registros que no sean de caracteres comodín).
 
->[AZURE.NOTE]Para crear un conjunto de registros de carácter comodín, use el nombre de conjunto de registros "*" o un nombre cuya primera etiqueta sea "*", por ejemplo, "*.foo".
+>[AZURE.NOTE]Para crear un conjunto de registros de carácter comodín, use el nombre de conjunto de registros "\*" o un nombre cuya primera etiqueta sea "\*", por ejemplo, "\*.foo".
 
 >Los conjuntos de registros de carácter comodín son compatibles con todos los tipos de registro, excepto NS y SOA.
 
@@ -243,4 +243,4 @@ Se puede usar el modificador opcional “-q” para suprimir el mensaje de confi
 [Delegar un dominio a DNS de Azure](dns-domain-delegation.md)<BR> [Administrar zonas DNS](dns-operations-dnszones-cli.md)<BR> [Automatizar operaciones mediante el SDK de .NET](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
