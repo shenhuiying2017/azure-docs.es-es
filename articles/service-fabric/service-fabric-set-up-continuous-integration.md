@@ -138,7 +138,9 @@ Instale el [SDK de Service Fabric](https://azure.microsoft.com/campaigns/service
     ```
 
 3.	Si NuGet.config no existe, créelo con el siguiente contenido. Reemplace `<path to service fabric SDK>` por la ruta de acceso al SDK de Service Fabric en la máquina de compilación.
->[AZURE.NOTE]De forma predeterminada, `<path to service fabric SDK>` es `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
+
+>[AZURE.NOTE] De forma predeterminada, `<path to service fabric SDK>` es `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
+
 
     NuGet.config:
 
