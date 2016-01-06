@@ -130,7 +130,7 @@ Azure proporciona flexibilidad en la administración de servicios durante una ac
 La reversión de una actualización en curso tiene los efectos siguientes en la implementación:
 
 -   Las instancias de rol que aún no se hayan actualizado a la nueva versión no se actualizan, porque esas instancias ya están ejecutando la versión de destino del servicio.
--   Las instancias de rol que ya se hayan actualizado a la nueva versión del archivo de paquete de servicio (*.cspkg) o del archivo de configuración (*.cscfg) (o ambos archivos), se revierten a la versión previa a la actualización de estos archivos.
+-   Las instancias de rol que ya se hayan actualizado a la nueva versión del archivo de paquete de servicio (\*.cspkg) o del archivo de configuración (\*.cscfg) (o ambos archivos), se revierten a la versión previa a la actualización de estos archivos.
 
 Esta funcionalidad la proporcionan las características siguientes:
 

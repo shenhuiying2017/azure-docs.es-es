@@ -108,7 +108,7 @@ La aplicación Moxtra espera las aserciones de SAML en un formato específico, q
 3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes:
 <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_04.png) <br>
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba la siguiente URL: ****https://www.moxtra.com/service/#login**.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba la siguiente URL: **https://www.moxtra.com/service/#login**.
 
     b. Haga clic en **Siguiente**.
  
@@ -132,7 +132,7 @@ La aplicación Moxtra espera las aserciones de SAML en un formato específico, q
 
     a. En el cuadro de texto **Nombre**, escriba el nombre de la configuración (por ejemplo, *SAML*).
 
-    b. En el Portal de Azure, en la página del cuadro de diálogo **Configurar inicio de sesión único en Moxtra**, copie el valor de **Id. de entidad ** y péguelo en el cuadro de texto **Id. de entidad de IdP**.
+    b. En el Portal de Azure, en la página del cuadro de diálogo **Configurar inicio de sesión único en Moxtra**, copie el valor de **Id. de entidad** y péguelo en el cuadro de texto **Id. de entidad de IdP**.
 
     c. En el Portal de Azure, en la página del cuadro de diálogo **Configurar inicio de sesión único en Moxtra**, copie el valor de **Dirección URL del inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
 
