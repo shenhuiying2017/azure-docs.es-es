@@ -226,13 +226,8 @@ Agregue máquinas virtuales a grupos de protección para habilitar su protecció
 		![Configuración de propiedades de la máquina virtual](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
 	- Establecer la configuración de una máquina virtual adicional en *Elementos protegidos* > **Grupos de protección** > *nombre\_grupo\_protección* > **Máquinas virtuales** *nombre\_máquina\_virtual* > **Configurar**, incluidos:
 
-		- **Adaptadores de red**: el número de adaptadores de red viene determinado por el tamaño que especifique para la máquina virtual de destino.
-			- Grande (A3) y A6: 2
-			- Extra grande (A4) y A7:
-			- A9: 2
-			- D3: 2
-			- D4: 4
-			- D13: 4
+		- **Adaptadores de red**: el número de adaptadores de red viene determinado por el tamaño que especifique para la máquina virtual de destino. Compruebe las [especificaciones de tamaño de la máquina virtual](../virtual-machines/virtual-machines-size-specs.md#size-tables) para conocer el número de NIC que se admiten.
+
 
 			Al modificar el tamaño de una máquina virtual y guardar la configuración, el número del adaptador de red cambiará la próxima vez que abra la página **Configurar**. El número de adaptadores de red de máquinas virtuales de destino es el mínimo número de adaptadores de red en la máquina virtual de origen y el número máximo de adaptadores de red compatible con el tamaño de la máquina virtual elegida. Se explica a continuación:
 
@@ -297,4 +292,4 @@ Ejecute la conmutación por error de prueba de la manera siguiente:
 
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) acerca de la conmutación por error.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

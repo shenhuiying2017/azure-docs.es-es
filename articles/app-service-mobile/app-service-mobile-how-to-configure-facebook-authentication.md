@@ -54,7 +54,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 11. Haga clic en la pestaña **Avanzado**, agregue el **URI de redireccionamiento** de la aplicación a **URI de redireccionamiento de OAuth válidos** y haga clic en **Guardar cambios**. El URI de redireccionamiento es la dirección URL de la aplicación anexada a la ruta de acceso, _/.auth/login/facebook/callback_. Por ejemplo: `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Asegúrese de que está utilizando el esquema HTTPS.
 
 
-	> [AZURE.NOTE]Si usa la puerta de enlace en lugar de la característica Autenticación o autorización del Servicio de aplicaciones, la URL de redireccionamiento usará en su lugar la URL de la puerta de enlace con la ruta de acceso _/signin-facebook_.
+> [AZURE.NOTE]Si usa la puerta de enlace en lugar de la característica Autenticación o autorización del Servicio de aplicaciones, la URL de redireccionamiento usará en su lugar la URL de la puerta de enlace con la ruta de acceso _/signin-facebook_.
 
 
 12. La cuenta de Facebook que se utilizó para registrar la aplicación es un administrador de la aplicación. En este momento, solo los administradores pueden iniciar sesión en esta aplicación. Para autenticar otras cuentas de Facebook, haga clic en **Estado y revisión** en el panel de navegación de la izquierda. A continuación, haga clic en **Sí** para habilitar el acceso del público en general.
@@ -93,4 +93,4 @@ De este modo ya estará listo para usar Facebook para realizar la autenticación
 [Get started with authentication]: /es-ES/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

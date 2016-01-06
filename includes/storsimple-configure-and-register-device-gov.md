@@ -133,10 +133,11 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        Si el estado del dispositivo es **Desconectado**, espere un par de minutos hasta que el dispositivo se conecte. 
+        Si el estado del dispositivo es **Desconectado**, espere un par de minutos para que el servicio vuelva a estar en línea.
+ 
       
-        Si el dispositivo continúa desconectado pasados unos minutos, necesitará asegurarse de que configuró la red de Firewall tal y como se describe en los [requisitos de red del dispositivo StorSimple](https://msdn.microsoft.com/library/dn772371.aspx). Si es incompatible con HTTP 1.1, asegúrese de que el puerto 9354 está abierto para las comunicaciones de salida. Este puerto se usa para que el administrador StorSimple y su dispositivo StorSimple puedan comunicarse.
+        Si el dispositivo sigue sin conexión tras unos minutos, hay que asegurarse de que la red de Firewall se haya configurado tal como se describe en [requisitos de red para su dispositivo StorSimple](https://msdn.microsoft.com/library/dn772371.aspx). Si no tiene compatibilidad con HTTP 1.1, compruebe el puerto 9354 para asegurarse de que está abierto para la comunicación saliente. Este puerto se usa para la comunicación entre el servicio StorSimple Manager y el dispositivo StorSimple.
      
         
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
