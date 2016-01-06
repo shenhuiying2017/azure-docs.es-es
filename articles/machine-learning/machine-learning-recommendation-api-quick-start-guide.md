@@ -295,26 +295,36 @@ En esta sección se muestra cómo enviar eventos en tiempo real a las recomendac
   		</EventData>
 		</Event>
 
-- Ejemplo para evento 'Purchase': <Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId> <SessionId>11112222</SessionId> <EventData> <EventData> <Name>Purchase</Name> <PurchaseItems> <PurchaseItems> <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId> <Count>3</Count> </PurchaseItems> </PurchaseItems> </EventData> </EventData> </Event>
-
-- Ejemplo con envío de 2 eventos, 'Click' y 'AddShopCart':
+- Ejemplo para evento 'Purchase':
 
 		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
   		<SessionId>11112222</SessionId>
   		<EventData>
     	<EventData>
-      	<Name>Click</Name>
-      	<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
-      	<ItemName>itemName</ItemName>
-      	<ItemDescription>item description</ItemDescription>
-      	<ItemCategory>category</ItemCategory>
-    	</EventData>
-    	<EventData>
-      	<Name>AddShopCart</Name>
-      	<ItemId>552A1940-21E4-4399-82BB-594B46D7ED54</ItemId>
+      	<Name>Purchase</Name> <PurchaseItems> <PurchaseItems> <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId> <Count>3</Count> </PurchaseItems> </PurchaseItems> 
     	</EventData>
   		</EventData>
+		</Event>
+
+- Ejemplo con envío de 2 eventos, 'Click' y 'AddShopCart':
+
+		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
+		<SessionId>11112222</SessionId>
+		<EventData>
+		<EventData>
+			<Name>Click</Name>
+			<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
+			<ItemName>itemName</ItemName>
+				<ItemDescription>item description</ItemDescription>
+				<ItemCategory>category</ItemCategory>
+			</EventData>
+		<EventData>
+		<Name>AddShopCart</Name>
+      	<ItemId>552A1940-21E4-4399-82BB-594B46D7ED54</ItemId>
+		</EventData>
+		</EventData>
 		</Event>
 
 **Respuesta**: código de estado HTTP: 200
@@ -684,4 +694,4 @@ XML de OData
 Este documento se ofrece "tal cual". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso. Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse. Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia. © 2014 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

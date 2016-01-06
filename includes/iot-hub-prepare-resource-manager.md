@@ -26,9 +26,9 @@ En los pasos siguientes se muestra cómo configurar la autenticación de contras
 3. Cree una nueva aplicación de Azure Active Directory con el siguiente comando, reemplazando los marcadores de posición:
 
     - **{Nombre para mostrar}:** nombre para mostrar de la aplicación como **MySampleApp**
-    - **{Dirección URL de la página principal}:** la dirección URL de la página principal de la aplicación como ****http://mysampleapp/home**. Esta dirección URL no tiene que señalar a una aplicación real.
-- **{Identificador de aplicación}:** identificador único como ****http://mysampleapp**. Esta dirección URL no tiene que señalar a una aplicación real.
-- **{Contraseña}:** una contraseña que se usará para autenticar con la aplicación.
+    - **{Dirección URL de la página principal}:** la dirección URL de la página principal de la aplicación como **http://mysampleapp/home**. Esta dirección URL no tiene que señalar a una aplicación real.
+    - **{Identificador de aplicación}:** identificador único como ****http://mysampleapp**. Esta dirección URL no tiene que señalar a una aplicación real.
+    - **{Contraseña}:** una contraseña que se usará para autenticar con la aplicación.
 
     ```
     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} IdentifierUris {Application identifier} -Password {Password}
@@ -58,4 +58,4 @@ Ahora ha terminado de crear la aplicación de Azure AD que le permitirá autenti
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 [lnk-powershell-install]: https://azure.microsoft.com/es-ES/blog/azps-1-0-pre/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

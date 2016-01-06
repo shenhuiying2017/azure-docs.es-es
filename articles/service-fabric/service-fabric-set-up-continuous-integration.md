@@ -139,8 +139,7 @@ Instale el [SDK de Service Fabric](https://azure.microsoft.com/campaigns/service
 
 3.	Si NuGet.config no existe, créelo con el siguiente contenido. Reemplace `<path to service fabric SDK>` por la ruta de acceso al SDK de Service Fabric en la máquina de compilación.
 
->[AZURE.NOTE] De forma predeterminada, `<path to service fabric SDK>` es `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
-
+>[AZURE.NOTE]De forma predeterminada, `<path to service fabric SDK>` es `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
 
     NuGet.config:
 
@@ -342,4 +341,4 @@ En las instrucciones anteriores se crea un nuevo clúster para cada compilación
 
 Para obtener más información sobre la integración continua con aplicaciones de Service Fabric, lea los siguientes artículos. - [Página principal de documentación sobre compilación](https://msdn.microsoft.com/Library/vs/alm/Build/overview) - [Implementación de un agente de compilación](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows) - [Creación y configuración de una definición de compilación](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!------HONumber=AcomDC_1217_2015-->
+<!-------HONumber=AcomDC_1217_2015-->
