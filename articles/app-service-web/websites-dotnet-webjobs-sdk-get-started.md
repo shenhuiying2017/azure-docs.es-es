@@ -123,9 +123,11 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 	La cadena de conexión de almacenamiento es un ejemplo que tiene marcadores de posición para la clave de acceso y el nombre de la cuenta de almacenamiento. Se sustituirá por una cadena de conexión con el nombre y la clave de su cuenta de almacenamiento.
 
 	<pre class="prettyprint">&lt;connectionStrings>
-  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
-  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[nombredecuenta]</mark>;AccountKey=<mark>[clavedeacceso]</mark>"/>
-&lt;/connectionStrings></pre>La cadena de conexión de almacenamiento se denomina AzureWebJobsStorage porque ese es el nombre que el SDK de WebJobs usa de forma predeterminada. Aquí se usa el mismo nombre, de modo que solo tenga que establecer el valor de una cadena de conexión en el entorno de Azure.
+	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
+	  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[nombredecuenta]</mark>;AccountKey=<mark>[clavedeacceso]</mark>"/>
+	&lt;/connectionStrings></pre>
+
+	La cadena de conexión de almacenamiento se denomina AzureWebJobsStorage porque ese es el nombre que el SDK de WebJobs usa de forma predeterminada. Aquí se usa el mismo nombre, de modo que solo tenga que establecer el valor de una cadena de conexión en el entorno de Azure.
 
 2. En el **Explorador de servidores**, haga clic con el botón secundario en la cuenta de almacenamiento en el nodo **Almacenamiento** y, a continuación, haga clic en **Propiedades**.
 
@@ -814,4 +816,4 @@ Para obtener más información, consulte [Obtención de un panel para desarrollo
 
 Para obtener más información, consulte [Recursos de documentación de WebJobs de Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!----HONumber=AcomDC_1217_2015-->
+<!-----HONumber=AcomDC_1217_2015-->

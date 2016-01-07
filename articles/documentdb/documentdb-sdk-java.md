@@ -26,7 +26,13 @@
 
 ##SDK para Java de DocumentDB
 
-<table> <tr><td>**Descargar**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr> <tr><td>**Contribuciones**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr> <tr><td>**Documentación**</td><td>[Documentación de referencia del SDK para Java](http://azure.github.io/azure-documentdb-java/)</td></tr> <tr><td>**Introducción**</td><td>[Introducción al SDK para Java](documentdb-java-application.md)</td></tr> <tr><td>**Runtime admitido actualmente**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr> </table></br>
+<table>
+<tr><td>**Descargar**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
+<tr><td>**Contribuciones**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
+<tr><td>**Documentación**</td><td>[Documentación de referencia del SDK para Java](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**Introducción**</td><td>[Introducción al SDK para Java](documentdb-java-application.md)</td></tr>
+<tr><td>**Runtime admitido actualmente**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+</table></br>
 
 ## Notas de la versión
 
@@ -85,4 +91,4 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 Para más información sobre DocumentDB, consulte la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

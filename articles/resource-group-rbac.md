@@ -47,7 +47,8 @@ Para comprender los conceptos RBAC, echemos un vistazo a algunos ejemplos de def
 
 | Rol | Acciones permitidas |
 | ------- | ----------------- |
-| Lector | **/lector (leer todo) | | Propietario | * (Leer/escribir todo) |
+| Lector | **/lector (leer todo) |
+| Propietario | * (Leer/escribir todo) |
 
 Para asignar el rol **Lector** al **Usuario A** para el grupo de recursos denominado **ExampleGroup** y el rol **Propietario** al **Usuario B** para toda la suscripción, se podría asignar lo siguiente:
 
@@ -280,4 +281,4 @@ Cree la asignación de rol.
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

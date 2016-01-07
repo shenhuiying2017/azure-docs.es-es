@@ -34,7 +34,8 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 	Nombre | Obligatorio | Descripción
 --- | --- | ---
-Dirección URL del sitio | Sí | Especifique la dirección URL completa del sitio web de SharePoint. Por ejemplo, escriba: **https://microsoft.sharepoint.com/teams/wabstest*. Biblioteca de documentos/Lista de URL relacionadas | Sí | Especifique las direcciones URL de las URL de listas/bibliotecas de documentos relacionadas con la dirección URL del sitio de SharePoint que puede modificar el conector. Por ejemplo, escriba: *Listas/Tareas, Documentos compartidos*.
+Dirección URL del sitio | Sí | Especifique la dirección URL completa del sitio web de SharePoint. Por ejemplo, escriba: **https://microsoft.sharepoint.com/teams/wabstest*.
+Biblioteca de documentos/Lista de URL relacionadas | Sí | Especifique las direcciones URL de las URL de listas/bibliotecas de documentos relacionadas con la dirección URL del sitio de SharePoint que puede modificar el conector. Por ejemplo, escriba: *Listas/Tareas, Documentos compartidos*.
 
 5. Cuando haya terminado, la configuración del paquete tendrá un aspecto similar al siguiente: ![][1]
 
@@ -51,7 +52,8 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 	Nombre | Obligatorio | Descripción
 --- | --- | ---
-Dirección URL del sitio | Sí | Especifique la dirección URL completa del sitio web de SharePoint. Por ejemplo, escriba: *https://microsoft.sharepoint.com/teams/wabstest*. Modo de autenticación | Sí | Especifique el modo de autenticación para conectarse al sitio de SharePoint. Las opciones incluyen:<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Si selecciona Default, se usan las credenciales con las que se ejecuta el conector de SharePoint; no se necesitan ni el nombre de usuario ni la contraseña. El nombre de usuario y la contraseña son necesarios para otros tipos de autenticación.<br/><br/>**Nota** No se admite la autenticación anónima.
+Dirección URL del sitio | Sí | Especifique la dirección URL completa del sitio web de SharePoint. Por ejemplo, escriba: *https://microsoft.sharepoint.com/teams/wabstest*.
+Modo de autenticación | Sí | Especifique el modo de autenticación para conectarse al sitio de SharePoint. Las opciones incluyen:<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Si selecciona Default, se usan las credenciales con las que se ejecuta el conector de SharePoint; no se necesitan ni el nombre de usuario ni la contraseña. El nombre de usuario y la contraseña son necesarios para otros tipos de autenticación.<br/><br/>**Nota** No se admite la autenticación anónima.
 User Name | No | Especifique un nombre de usuario válido para conectarse al sitio de SharePoint, en caso de que el modo de autenticación no sea el predeterminado.
 Password | No | Especifique una contraseña válida para conectarse al sitio de SharePoint, en caso de que el modo de autenticación no sea el predeterminado.
 Biblioteca de documentos/Lista de URL relacionadas | Sí | Especifique las direcciones URL de las URL de listas/bibliotecas de documentos relacionadas con la dirección URL del sitio de SharePoint que puede modificar el conector. Por ejemplo, escriba: *Listas/Tareas, Documentos compartidos*.
@@ -472,4 +474,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
