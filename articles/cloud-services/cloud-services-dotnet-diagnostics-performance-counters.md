@@ -21,7 +21,10 @@ En este artículo se describen las ventajas y el procedimiento para usar contado
 
 También puede recopilar y usar los contadores de rendimiento disponibles para Windows Server, IIS y ASP.NET para determinar el estado de los roles web, los roles de trabajo y Máquinas virtuales de Azure. Además, puede crear y usar contadores de rendimiento personalizados.
 
-Puede examinar los datos del contador de rendimiento; 1) Directamente en el host de la aplicación con la herramienta Monitor de rendimiento, a la que se accede mediante Escritorio remoto; 2) Con System Center Operations Manager mediante el módulo de administración de Azure; 3) Con otras herramientas de supervisión que acceden a los datos de diagnóstico transferidos al almacenamiento de Azure. Consulte [Guardar y ver datos de diagnóstico en el almacenamiento de Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx) para obtener más información.
+Puede examinar los datos del contador de rendimiento;
+1) Directamente en el host de la aplicación con la herramienta Monitor de rendimiento, a la que se accede mediante Escritorio remoto;
+2) Con System Center Operations Manager mediante el módulo de administración de Azure;
+3) Con otras herramientas de supervisión que acceden a los datos de diagnóstico transferidos al almacenamiento de Azure. Consulte [Guardar y ver datos de diagnóstico en el almacenamiento de Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx) para obtener más información.
 
 Para obtener información sobre la supervisión del rendimiento de la aplicación en el [Portal de Azure clásico](http://manage.azure.com/), consulte [Supervisión de servicios en la nube](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
@@ -53,7 +56,16 @@ Azure proporciona un subconjunto de los contadores de rendimiento disponibles pa
 |ASP.NET v4.0.30319 |Solicitudes rechazadas |Contadores de rendimiento para ASP.NET|
 |Memoria |MB disponibles |Contadores de rendimiento de memoria|
 |Memoria |Bytes confirmados |Contadores de rendimiento de memoria|
-|Procesador(\_Total) |% de tiempo de procesador |Contadores de rendimiento para ASP.NET| |TCPv4 |Errores de conexión |Objeto TCP| |TCPv4 |Conexiones establecidas |Objeto TCP| |TCPv4 |Conexiones reinicializadas |Objeto TCP| |TCPv4 |Segmentos enviados/s |Objeto TCP| |Interfaz de red(*) |Bytes recibidos/s |Objeto de interfaz de red| |Interfaz de red(*) |Bytes enviados/seg. |Objeto de interfaz de red| |Interfaz de red(Adaptador de red de bus de máquina virtual de Microsoft \_2)|Bytes recibidos/s|Objeto de interfaz de red| |Interfaz de red(Adaptador de red de bus de máquina virtual de Microsoft \_2)|Bytes enviados/seg.|Objeto de interfaz de red| |Interfaz de red(Adaptador de red de bus de máquina virtual de Microsoft \_2)|Total de bytes por segundo|Objeto de interfaz de red|
+|Procesador(\_Total) |% de tiempo de procesador |Contadores de rendimiento para ASP.NET|
+|TCPv4 |Errores de conexión |Objeto TCP|
+|TCPv4 |Conexiones establecidas |Objeto TCP|
+|TCPv4 |Conexiones reinicializadas |Objeto TCP|
+|TCPv4 |Segmentos enviados/s |Objeto TCP|
+|Interfaz de red(*) |Bytes recibidos/s |Objeto de interfaz de red|
+|Interfaz de red(*) |Bytes enviados/seg. |Objeto de interfaz de red|
+|Interfaz de red(Adaptador de red de bus de máquina virtual de Microsoft \_2)|Bytes recibidos/s|Objeto de interfaz de red|
+|Interfaz de red(Adaptador de red de bus de máquina virtual de Microsoft \_2)|Bytes enviados/seg.|Objeto de interfaz de red|
+|Interfaz de red(Adaptador de red de bus de máquina virtual de Microsoft \_2)|Total de bytes por segundo|Objeto de interfaz de red|
 
 ## Creación e incorporación de contadores de rendimiento personalizados a la aplicación
 
@@ -313,4 +325,4 @@ Ahora que ha aprendido los aspectos básicos de la recopilación de contadores d
 
 [Supervisión de servicios en la nube](./how-to-monitor-a-cloud-service.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

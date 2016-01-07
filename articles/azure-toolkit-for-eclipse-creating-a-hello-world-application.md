@@ -44,7 +44,8 @@ En primer lugar, empezaremos con la creación de un proyecto Java.
 * Haga clic en **Finalizar**
 * En la vista del explorador de proyectos de Eclipse, expanda **MyHelloWorld**. Haga clic con el botón secundario en **WebContent**, luego haga clic en **Nuevo** y, a continuación, en **JSP File**.
 * En el cuadro de diálogo **Nuevo archivo JSP**, asigne al archivo el nombre **index.jsp**. Mantenga la carpeta principal como **MyHelloWorld/WebContent**, tal como aparece a continuación:
-    ![][ic659262].
+
+    ![][ic659262]
 * En el cuadro de diálogo **Seleccionar plantilla JSP**, para este tutorial, seleccione **Nuevo archivo JSP (html)** y haga clic en **Finalizar**.
 * Cuando el archivo index.jsp se abra en Eclipse, agregue texto para que se muestre dinámicamente **Hola a todos** dentro del elemento `<body>` existente. Su contenido de `<body>` actualizado debería aparecer de la siguiente manera:
 ```
@@ -193,4 +194,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 
-<!----HONumber=AcomDC_1210_2015-->
+<!-----HONumber=AcomDC_1210_2015-->

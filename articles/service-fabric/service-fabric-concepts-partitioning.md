@@ -281,7 +281,7 @@ También merece la pena tener en cuenta que la dirección URL publicada es liger
       }
       ```
 
-    Let's walk through it step by step. The code reads the first letter of the query string parameter `lastname` into a char. Then it determines the partition key for this letter by subtracting the hex value of `A` from the hex value of the last names' first letter.
+    Le guiaremos paso a paso. El código lee la primera letra del parámetro de la cadena de consulta `lastname` en un carácter. Después determina la clave de partición por esta letra al restar el valor hexadecimal de `A` del valor hexadecimal de la primera letra de los apellidos.
 
     ```CSharp
     string lastname = context.Request.QueryString["lastname"]; char firstLetterOfLastName = lastname.First(); int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A'; ```
@@ -336,4 +336,4 @@ Para obtener información sobre los conceptos de Service Fabric, vea lo siguient
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_1125_2015-->

@@ -30,18 +30,22 @@
 ![][15]
 
 4. En **PowerApps**, seleccione **Administrar API**:    
-![Examine las APIs registradas][1]
+
+	![Examine las APIs registradas][1]
 
 5. En **Administrar API**, seleccione **Agregar** para agregar la nueva API:  
-![Add API][2]
+
+	![Add API][2]
 
 6. Escriba un **nombre** descriptivo para la API.
 	
 7. En **Origen**, seleccione **API disponibles** para seleccionar las API preconfiguradas y seleccione **Usuarios de Office 365**:  
-![seleccionar la api de usuarios de Office 365][3]
+
+	![seleccionar la api de usuarios de Office 365][3]
 
 8. Seleccione **Configuración: Configure los ajustes necesarios**:  
-![establecer la configuración de la API de usuarios de Office 365][4]
+
+	![establecer la configuración de la API de usuarios de Office 365][4]
 
 9. Escriba el *Id. de cliente* y el *Secreto de cliente* de la aplicación Azure Active Directory (AAD) de Office 365. Si no dispone de estos, consulte la sección "Registrar una aplicación de AAD para su uso con PowerApps" en este tema para crear el identificador y los valores secretos que necesita.
 
@@ -84,10 +88,11 @@ Si no tiene una aplicación AAD existente con los valores de clave y secreto, us
 	![Agregar aplicación de AAD: propiedades de la aplicación][9]
 
 7. Cuando se finalice correctamente, se le redirigirá a la nueva aplicación de AAD. Seleccione **Configurar**:  
-![Aplicación AAD de Contoso][10]
+	![Aplicación AAD de Contoso][10]
 
 8. Establezca la **Dirección URL de respuesta** de la sección _OAuth 2_ en la dirección URL de redireccionamiento que recibió cuando se agregó la nueva API de usuarios de Office 365 en el Portal de Azure (en este tema). Seleccione **Agregar una aplicación**:  
-![Configurar aplicación AAD de Contoso][11]
+
+	![Configurar aplicación AAD de Contoso][11]
 
 9. En la ventana **Permisos para otras aplicaciones**, seleccione **API unificada de Office 365 (vista previa)** y seleccione **Aceptar**.
 
@@ -116,4 +121,4 @@ En este tema ha agregado la API de Usuarios de Office 365 a su empresa PowersApp
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!----HONumber=AcomDC_1217_2015-->
+<!-----HONumber=AcomDC_1217_2015-->

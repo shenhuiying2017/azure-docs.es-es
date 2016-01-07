@@ -26,7 +26,14 @@
 
 ##SDK para Node.js de DocumentDB
 
-<table> <tr><td>**Descargar**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr> <tr><td>**Contribuciones**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr> <tr><td>**Documentación**</td><td>[Documentación de referencia del SDK para Node.js](http://azure.github.io/azure-documentdb-node/)</td></tr> <tr><td>**Ejemplos**</td><td>[Ejemplos de código de Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr> <tr><td>**Introducción**</td><td>[Introducción al SDK para Node.js](documentdb-nodejs-get-started.md)</td></tr> <tr><td>**Plataforma admitida actualmente**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr> </table></br>
+<table>
+<tr><td>**Descargar**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
+<tr><td>**Contribuciones**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
+<tr><td>**Documentación**</td><td>[Documentación de referencia del SDK para Node.js](http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td>**Ejemplos**</td><td>[Ejemplos de código de Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
+<tr><td>**Introducción**</td><td>[Introducción al SDK para Node.js](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**Plataforma admitida actualmente**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
+</table></br>
 
 ## Notas de la versión
 
@@ -114,5 +121,5 @@ Todas las versiones del SDK de Azure DocumentDB para Node.js anteriores a la ver
 
 Para más información sobre DocumentDB, consulte la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
 
