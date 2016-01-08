@@ -25,7 +25,7 @@ Ya tengo una suscripción de Azure. ¿Qué relación guarda con Azure AD? [Asoci
 
 Para tareas administrativas de Azure AD como la administración de usuarios, la administración de dominios o la configuración de inicio de sesión único, use el Módulo de Azure Active Directory para cmdlets de Windows PowerShell. [Administración de Azure AD mediante Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)
 
-Use la API Graph de Azure Active Directory para el acceso mediante programación a Azure AD a través de los extremos de la API de REST. [ API de gráficos de Windows Azure AD](https://msdn.microsoft.com/library/azure/hh974476.aspx)
+Use la API Graph de Azure Active Directory para el acceso mediante programación a Azure AD a través de los extremos de la API de REST. [ API de gráficos de Microsoft Azure AD](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 
 Puede agregar su propio nombre de dominio personalizado a Azure Active Directory para usarlo con Microsoft Online Services. [Administración de dominios de Internet](active-directory-add-domain.md)
 

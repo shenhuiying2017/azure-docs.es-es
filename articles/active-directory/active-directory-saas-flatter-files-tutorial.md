@@ -91,7 +91,7 @@ Para configurar el inicio de sesión único para Flatter Files, se necesita un d
 
 1. En el Portal de Azure AD, en la página de integración de aplicaciones de **Flatter Files**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br>![Configurar inicio de sesión único][6]<br>
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Flatter Files?**, seleccione **Inicio de sesión único de Windows Azure AD** y, luego , haga clic en **Siguiente**.
+2. En la página **¿Cómo desea que los usuarios inicien sesión en Flatter Files?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, luego , haga clic en **Siguiente**.
 <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_02.png) <br>
 
 3. En la página de diálogo **Configurar las opciones de la aplicación**, haga clic en **Siguiente**.

@@ -166,8 +166,8 @@ El tamaño de origen de datos se mide según se menciona a continuación
 
 	| Ruta de acceso del Registro | Clave del Registro | Valor |
 	| ------ | ------- | ------ |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>Nueva ubicación de la carpeta de la memoria caché</i> |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Nueva ubicación de la carpeta de la memoria caché</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config` | ScratchLocation | <i>Nueva ubicación de la carpeta de la memoria caché</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Nueva ubicación de la carpeta de la memoria caché</i> |
 
 
 + Para iniciar OBEngine, ejecute el siguiente comando en un símbolo del sistema con privilegios elevados:

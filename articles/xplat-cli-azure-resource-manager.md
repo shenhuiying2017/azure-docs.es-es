@@ -1,6 +1,6 @@
 <properties
 	pageTitle="CLI de Azure con el Administrador de recursos | Microsoft Azure"
-	description="Use CLI de Azure para Mac, Linux y Windows Azure para implementar varios recursos como un grupo de recursos."
+	description="Use CLI de Azure para Mac, Linux y Microsoft Azure para implementar varios recursos como un grupo de recursos."
 	editor=""
 	manager="timlt"
 	documentationCenter=""

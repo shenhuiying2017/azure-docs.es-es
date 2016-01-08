@@ -117,7 +117,7 @@ Para obtener más información acerca del uso de Windows PowerShell, consulte [E
 ## Otras referencias
 
 -  [Instalación de un bosque nuevo de Active Directory en una red virtual de Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
--  [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Windows Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+-  [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Microsoft Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 -  [Configuración de una red virtual solo en la nube](../virtual-network/virtual-networks-create-vnet.md)
 -  [Configuración de una VPN de sitio a sitio](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 -  [Instalación de un controlador de dominio de Active Directory de réplica en una red virtual de Azure](../virtual-networks-install-replica-active-directory-domain-controller.md)
