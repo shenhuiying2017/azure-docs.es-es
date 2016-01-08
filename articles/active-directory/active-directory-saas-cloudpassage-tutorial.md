@@ -91,7 +91,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 1. En el Portal de Azure AD, en la página de integración de aplicaciones de **CloudPassage**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.<br><br>
 ![Configurar inicio de sesión único][7]
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en CloudPassage?**, seleccione **Inicio de sesión único de Windows Azure AD** y, luego , haga clic en **Siguiente**.<br><br>
+2. En la página **¿Cómo desea que los usuarios inicien sesión en CloudPassage?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, luego , haga clic en **Siguiente**.<br><br>
 ![Configurar inicio de sesión único][8]
 
 3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes: <br><br>![Configurar las opciones de la aplicación][9]

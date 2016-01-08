@@ -109,7 +109,7 @@ Para obtener más información acerca del uso de Windows PowerShell, consulte [E
 
 ## Recursos adicionales
 
--  [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Windows Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+-  [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Microsoft Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 -  [Cómo cargar los controladores de dominio de Hyper-V locales existentes a Azure con Azure PowerShell](http://support.microsoft.com/kb/2904015)
 -  [Instalación de un bosque nuevo de Active Directory en una red virtual de Azure](../active-directory-new-forest-virtual-machine.md)
 -  [Red virtual de Azure](../virtual-network/virtual-networks-overview.md)

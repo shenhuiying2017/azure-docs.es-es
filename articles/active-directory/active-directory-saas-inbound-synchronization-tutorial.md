@@ -17,7 +17,7 @@
 #Tutorial: configuración de Workday para la sincronización de entrada
 >[AZURE.NOTE]Azure Active Directory (AD) Premium está disponible para los clientes de China mediante la instancia internacional de Azure AD. Azure AD Premium no es compatible actualmente en el servicio de Microsoft Azure operado por 21Vianet en China.
 
-El objetivo de este tutorial es mostrar los pasos que se deben realizar en Workday y Windows Azure AD para importar contactos de Workday en Microsoft Azure AD. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar los pasos que se deben realizar en Workday y Microsoft Azure AD para importar contactos de Workday en Microsoft Azure AD. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida  
 -   Un inquilino en Workday  

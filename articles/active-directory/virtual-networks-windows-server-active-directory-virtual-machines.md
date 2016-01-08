@@ -24,7 +24,7 @@ Este tema de navegación contiene vínculos a otros temas acerca de cómo implem
 
 ## Directrices conceptuales
 
-- [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Windows Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx) 
+- [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Microsoft Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx) 
 
 ## Vídeo
 
