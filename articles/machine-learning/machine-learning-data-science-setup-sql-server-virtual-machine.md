@@ -30,7 +30,7 @@ La galería de máquinas virtuales de Azure incluye varias imágenes que contien
 
 ##<a name="Provision"></a>Conexión al Portal de Azure clásico y aprovisionamiento de una máquina virtual de SQL Server
 
-1.  Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com/) con su cuenta. Si no tiene una cuenta de Azure, visite [Evaluación gratuita de Azure](http://www.microsoftazure.com/pricing/free-trial/).
+1.  Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com/) con su cuenta. Si no tiene una cuenta de Azure, visite [Evaluación gratuita de Azure](http://www.windowsazure.com/pricing/free-trial/).
 
 2.  En el Portal de Azure clásico, en la parte inferior izquierda de la página web, haga clic sucesivamente en **+NUEVO**, **PROCESO**, **MÁQUINA VIRTUAL** y, a continuación, haga clic en **DESDE LA GALERÍA**.
 
