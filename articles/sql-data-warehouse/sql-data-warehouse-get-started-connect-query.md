@@ -34,7 +34,7 @@ Este tutorial muestra cómo conectarse y realizar consultas en un Almacenamiento
 
 ## Obtención del nombre completo del servidor de Azure SQL Server
 
-Para conectarse a la base de datos, necesita el nombre completo del servidor (****servername**.database.windows.net*) que contiene la base de datos a la que quiere conectarse.
+Para conectarse a la base de datos, necesita el nombre completo del servidor (**servername**.*database.windows.net*) que contiene la base de datos a la que quiere conectarse.
 
 1. Vaya al [Portal de Azure](https://portal.azure.com).
 2. Vaya a la base de datos a la que quiere conectarse.
@@ -91,4 +91,4 @@ Ahora que puede conectarse y realizar consultas, pruebe a [conectarse con PowerB
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

@@ -213,7 +213,7 @@ Para compilar y ejecutar la aplicación localmente, realice los pasos siguientes
 
 		php -S localhost:8000
 
-Ahora puede dirigirse a ****http://localhost:8000/** para probar la aplicación.
+Ahora puede dirigirse a **http://localhost:8000/** para probar la aplicación.
 
 
 ##Publicación de la aplicación
@@ -302,4 +302,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
