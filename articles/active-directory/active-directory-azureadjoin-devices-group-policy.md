@@ -70,7 +70,7 @@ Los dispositivos unidos a un dominio usarán este objeto para detectar informaci
 
 >[AZURE.NOTE]Reemplace [*nombre de la cuenta del conector*] por la cuenta de dominio usada como cuenta del conector de AD.
 
->[AZURE.NOTE]El nombre de usuario de la credencial que se escribió cuando se muestra el mensaje emergente Get-Credential, debe tener el formato **user@example.com*.
+>[AZURE.NOTE]El nombre de usuario de la credencial que se escribió cuando se muestra el mensaje emergente Get-Credential, debe tener el formato *user@example.com*.
 
 ### Configuración de reglas de notificaciones de AD FS
 Este procedimiento permite el registro instantáneo de un equipo en Azure DRS al permitir que los equipos se autentiquen mediante Kerberos o NTLM a través de AD FS. Sin este paso, los equipos llegarán a Azure AD con retraso (en función de los tiempos de sincronización de Azure AD Connect).
@@ -137,4 +137,4 @@ Puede usar una directiva de grupo de Active Directory para configurar sus dispos
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

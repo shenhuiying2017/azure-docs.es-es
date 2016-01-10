@@ -539,7 +539,7 @@ Con todas las piezas en su lugar, el proyecto debe ser ahora como una aplicació
 Si no lo ha hecho, [configure el entorno de desarrollo](service-fabric-get-started.md).
 
 
-Ahora puede compilar e implementar su servicio. Presione **F5** en Visual Studio para compilar e implementar la aplicación. En la ventana de Eventos de diagnósticos, se debe ver un mensaje que indica que el servidor web se abrió en ****http://localhost:80/webapp/api**.
+Ahora puede compilar e implementar su servicio. Presione **F5** en Visual Studio para compilar e implementar la aplicación. En la ventana de Eventos de diagnósticos, se debe ver un mensaje que indica que el servidor web se abrió en **http://localhost:80/webapp/api**.
 
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
@@ -583,4 +583,4 @@ En ASP.NET 5, el concepto y modelo de programación de separar la *aplicación* 
 
 [Depuración de la aplicación de Service Fabric en Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->
