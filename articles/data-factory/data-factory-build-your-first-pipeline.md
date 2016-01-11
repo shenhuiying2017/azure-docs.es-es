@@ -49,7 +49,7 @@ En este tutorial, realizará los siguientes pasos:
 3.	Crear la **canalización**. Una canalización puede tener una o varias actividades como la actividad de copia para copiar datos desde un origen a un destino o la actividad de Hive de HDInsight para transformar los datos de entrada con el script de Hive para generar datos de salida. Este ejemplo usa la actividad de Hive de HDInsight que ejecuta un script de Hive. El script crea primero una tabla externa que hace referencia a los datos de blog sin procesar almacenados en Almacenamiento de blobs de Azure y, después, divide los datos sin procesar por año y mes.
 
 La primera canalización, denominada **MyFirstPipeline**, usa una actividad de Hive para transformar y analizar un blog que va a cargar en la carpeta **inputdata** en el contenedor **adfgetstarted** (adfgetstarted/inputdata) en Almacenamiento de blobs de Azure.
- 
+
 ![Vista de diagrama](./media/data-factory-build-your-first-pipeline/diagram-view.png)
 
 
@@ -159,7 +159,7 @@ En esta sección, hará lo siguiente:
 		FROM WebLogsRaw
 
 ### Creación de un archivo de entrada de ejemplo
-Mediante el Bloc de notas, cree un archivo denominado **input.log** en **c:\\adfgetstarted** con el siguiente contenido:
+Mediante el Bloc de notas, cree un archivo denominado **input.log** en **c:\adfgetstarted** con el siguiente contenido:
 
 	#Software: Microsoft Internet Information Services 8.0
 	#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
@@ -188,12 +188,12 @@ Mediante el Bloc de notas, cree un archivo denominado **input.log** en **c:\\adf
 Puede usar cualquier herramienta de su elección (por ejemplo: el Explorador de Almacenamiento de Azure, CloudXPlorer de ClumsyLeaf Software) para realizar esta tarea. Esta sección proporciona instrucciones sobre cómo usar la herramienta AzCopy.
 	 
 2. Para preparar el almacenamiento de Azure para el tutorial:
-	1. Descargue la [versión más reciente de [AzCopy](http://aka.ms/downloadazcopypr)](http://aka.ms/downloadazcopy) o la **versión preliminar más reciente**. Consulte el artículo [Uso de AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
+	1. Descargue la [versión más reciente de [AzCopy](http://aka.ms/downloadazcopypr)](http://aka.ms/downloadazcopy) o la [versión preliminar más reciente](http://aka.ms/downloadazcopypr). Consulte el artículo [Cómo usar AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
 	2. Después de instalar AzCopy, puede agregarlo a la ruta de acceso del sistema ejecutando el comando siguiente en un símbolo del sistema. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. Navegue hasta la carpeta c:\\adfgetstarted y ejecute el siguiente comando para cargar el archivo **input.log** en la cuenta de almacenamiento (contenedor **adfgetstarted** y carpeta **inputdata**). Reemplace **StorageAccountName** por el nombre de la cuenta de almacenamiento y **Storage Key** por la clave de la cuenta de almacenamiento.
+	3. Navegue hasta la carpeta c:\adfgetstarted y ejecute el siguiente comando para cargar el archivo **input.log** en la cuenta de almacenamiento (contenedor **adfgetstarted** y carpeta **inputdata**). Reemplace **StorageAccountName** por el nombre de la cuenta de almacenamiento y **Storage Key** por la clave de la cuenta de almacenamiento.
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 

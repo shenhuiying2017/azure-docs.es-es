@@ -18,7 +18,9 @@
 
 #Creación de una aplicación para Windows
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+&nbsp;
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Información general
 
@@ -72,9 +74,11 @@ Una vez configurado el back-end de aplicación móvil, puede crear una nueva apl
 
 ##Pasos siguientes
 
-* [Incorporación de autenticación a la aplicación ](app-service-mobile-windows-store-dotnet-get-started-users.md) <br/>Obtenga información acerca de cómo autenticar a los usuarios de su aplicación con un proveedor de identidades.
+* [Incorporación de autenticación a la aplicación ](app-service-mobile-windows-store-dotnet-get-started-users.md) 
+  <br/>Obtenga información acerca de cómo autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
-* [Incorporación de notificaciones de inserción a la aplicación](app-service-mobile-windows-store-dotnet-get-started-push.md) <br/>Aprenda a enviar una notificación push muy básica a la aplicación.
+* [Incorporación de notificaciones de inserción a la aplicación](app-service-mobile-windows-store-dotnet-get-started-push.md) 
+  <br/>Aprenda a enviar una notificación push muy básica a la aplicación.
 
 <!-- Anchors. -->
 <!-- Images. -->

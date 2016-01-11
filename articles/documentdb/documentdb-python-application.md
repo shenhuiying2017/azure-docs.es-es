@@ -60,7 +60,8 @@ Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede i
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-<br/> Ahora veremos cómo crear una nueva aplicación web de Phyton Flask partiendo de cero.
+<br/> 
+Ahora veremos cómo crear una nueva aplicación web de Phyton Flask partiendo de cero.
 
 ## Paso 2: Creación de una nueva aplicación web de Phyton Flask
 

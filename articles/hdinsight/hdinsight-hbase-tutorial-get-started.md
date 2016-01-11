@@ -299,10 +299,13 @@ En este tutorial de HBase para HDInsight, ha aprendido a aprovisionar un clúste
 
 Para más información, consulte:
 
-- [Información general de HBase de HDInsight][hdinsight-hbase-overview]. HBase es una base de datos NoSQL de código abierto Apache basada en Hadoop que ofrece un acceso aleatorio y una coherencia fuerte para grandes cantidades de datos no estructurados y semiestructurados.
-- [Creación de clústeres de HBase en Red virtual de Azure][hdinsight-hbase-provision-vnet]. Con la integración de red virtual, los clústeres de HBase se pueden implementar en la misma red que sus aplicaciones para que estas puedan comunicarse directamente con HBase.
+- [Información general de HBase de HDInsight][hdinsight-hbase-overview]. 
+HBase es una base de datos NoSQL de código abierto Apache basada en Hadoop que ofrece un acceso aleatorio y una coherencia fuerte para grandes cantidades de datos no estructurados y semiestructurados.
+- [Creación de clústeres de HBase en Red virtual de Azure][hdinsight-hbase-provision-vnet]. 
+Con la integración de red virtual, los clústeres de HBase se pueden implementar en la misma red que sus aplicaciones para que estas puedan comunicarse directamente con HBase.
 - [Configuración de la replicación de HBase en HDInsight](hdinsight-hbase-geo-replication.md). Aprenda a configurar la replicación de HBase entre dos centros de datos de Azure.
-- [Análisis de opiniones de Twitter con HBase en HDInsight][hbase-twitter-sentiment]. Descubra cómo realizar [análisis de opinión](http://en.wikipedia.org/wiki/Sentiment_analysis) de macrodatos en tiempo real con HBase en un clúster de Hadoop en HDInsight.
+- [Análisis de opiniones de Twitter con HBase en HDInsight][hbase-twitter-sentiment]. 
+Descubra cómo realizar [análisis de opinión](http://en.wikipedia.org/wiki/Sentiment_analysis) de macrodatos en tiempo real con HBase en un clúster de Hadoop en HDInsight.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md

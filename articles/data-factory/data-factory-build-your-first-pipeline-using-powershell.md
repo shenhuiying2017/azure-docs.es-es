@@ -106,7 +106,7 @@ En este paso, vinculará su cuenta de Almacenamiento de Azure con su factoría d
 ### Creación de un servicio vinculado de HDInsight de Azure
 En este paso, vinculará un clúster de HDInsight a petición con la factoría de datos. El clúster de HDInsight se crea automáticamente en tiempo de ejecución y se elimina después de hacer el procesamiento y de permanecer inactivo durante el período de tiempo especificado. Puede usar su propio clúster de HDInsight en lugar de usar un clúster de HDInsight a petición. Consulte [Servicios vinculados de procesos](data-factory-compute-linked-services.md) para más información.
 
-1. Cree un archivo JSON con el nombre **HDInsightOnDemandLinkedService**.json en la carpeta **C:\\ADFGetStarted** con el siguiente contenido.
+1. Cree un archivo JSON con el nombre **HDInsightOnDemandLinkedService**.json en la carpeta **C:\ADFGetStarted** con el siguiente contenido.
 
 		{
 		  "name": "HDInsightOnDemandLinkedService",
@@ -139,7 +139,7 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 En este paso, creará conjuntos de datos que representen los datos de entrada y salida para el procesamiento de Hive. Estos conjuntos de datos hacen referencia al servicio **StorageLinkedService** que ha creado anteriormente en este tutorial. El servicio vinculado apunta a una cuenta de Almacenamiento de Azure y los conjuntos de datos especifican el contenedor, la carpeta y el nombre de archivo en el almacenamiento que contiene los datos de entrada y salida.
 
 ### Creación del conjunto de datos de entrada
-1. Cree un archivo JSON con el nombre **InputTable.json** en la carpeta **C:\\ADFGetStarted** con el siguiente contenido:
+1. Cree un archivo JSON con el nombre **InputTable.json** en la carpeta **C:\ADFGetStarted** con el siguiente contenido:
 
 		{
 			"name": "AzureBlobInput",
@@ -184,7 +184,7 @@ En este paso, creará conjuntos de datos que representen los datos de entrada y 
 ### Creación del conjunto de datos de salida
 Ahora, va a crear el conjunto de datos de salida que representa los datos de salida almacenados en Almacenamiento de blobs de Azure.
 
-1. Cree un archivo JSON con el nombre **OutputTable.json** en la carpeta **C:\\ADFGetStarted** con el siguiente contenido:
+1. Cree un archivo JSON con el nombre **OutputTable.json** en la carpeta **C:\ADFGetStarted** con el siguiente contenido:
 
 		{
 		  "name": "AzureBlobOutput",
@@ -215,7 +215,7 @@ Ahora, va a crear el conjunto de datos de salida que representa los datos de sal
 En este paso, creará la primera canalización con una actividad **HDInsightHive**. Tenga en cuenta que el segmento de entrada está disponible mensualmente (frecuencia: mes, intervalo: 1), el segmento de salida se genera mensualmente y la propiedad de programador también se establece en mensual para la actividad (consulte a continuación). La configuración del conjunto de datos de salida y la del programador de la actividad deben coincidir. En este momento, el conjunto de datos de salida es lo que impulsa la programación, por lo que debe crear un conjunto de datos de salida incluso si la actividad no genera ninguna salida. Si la actividad no toma ninguna entrada, puede omitir la creación del conjunto de datos de entrada. Al final de esta sección se explican las propiedades usadas en el siguiente JSON.
 
 
-1. Cree un archivo JSON con el nombre MyFirstPipelinePSH.json en la carpeta C:\\ADFGetStarted con el siguiente contenido:
+1. Cree un archivo JSON con el nombre MyFirstPipelinePSH.json en la carpeta C:\ADFGetStarted con el siguiente contenido:
 
 	> [AZURE.IMPORTANT]Reemplace **storageaccountname** por el nombre de la cuenta de almacenamiento en JSON.
 		

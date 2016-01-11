@@ -24,7 +24,7 @@ En este artículo se hace referencia a las conexiones de Puerta de enlace de VPN
 
 **Información sobre los modelos de implementación de Azure**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 ## Acerca de la creación de una conexión de punto a sitio
  

@@ -39,7 +39,8 @@ Consulte la sección de modelos de conectividad para obtener detalles sobre los 
 
 ## Requisitos de redundancia para la conectividad
 
-No hay ningún requisito de redundancia sobre la conectividad física entre la infraestructura de cliente y la infraestructura del proveedor de servicio. Microsoft requiere redundancia en el nivel 3. Microsoft requiere la configuración del enrutamiento redundante entre el borde de Microsoft y la red del cliente a través del proveedor de servicio para cada uno de los emparejamientos que se van a habilitar. Si las sesiones de enrutamiento no se configuran de forma redundante, el contrato de nivel de servicio de disponibilidad de servicio se anulará.
+No hay ningún requisito de redundancia sobre la conectividad física entre la infraestructura de cliente y la infraestructura del proveedor de servicio. Microsoft requiere redundancia en el nivel 3.
+Microsoft requiere la configuración del enrutamiento redundante entre el borde de Microsoft y la red del cliente a través del proveedor de servicio para cada uno de los emparejamientos que se van a habilitar. Si las sesiones de enrutamiento no se configuran de forma redundante, el contrato de nivel de servicio de disponibilidad de servicio se anulará.
 
 ## Consideraciones sobre las direcciones IP y el enrutamiento
 

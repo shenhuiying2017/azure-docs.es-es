@@ -39,7 +39,7 @@ Además de los requisitos previos que se enumeran en el tema de información gen
 
 ## Paso 1: Creación de la plantilla de ARM
 
-Cree un archivo JSON llamado **ADFTutorialARM.json** en la carpeta **C:\\ADFGetStarted** con el siguiente contenido:
+Cree un archivo JSON llamado **ADFTutorialARM.json** en la carpeta **C:\ADFGetStarted** con el siguiente contenido:
 
 > [AZURE.IMPORTANT]Cambie los valores de las variables **storageAccountName** y **storageAccountKey**. Cambie también el valor de **dataFactoryName** porque el nombre debe ser único.
 
@@ -226,9 +226,11 @@ Haga clic en la pestaña **Utilización del Editor de la Factoría de datos** pa
 
 ## Supervisar la canalización
  
-1.	Después de iniciar sesión en el [Portal de Azure](http://portal.azure.com/), haga clic en **Examinar** y seleccione **Factorías de datos**. ![Examinar todo -> Fábricas de datos](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+1.	Después de iniciar sesión en el [Portal de Azure](http://portal.azure.com/), haga clic en **Examinar** y seleccione **Factorías de datos**. 
+		![Examinar todo -> Fábricas de datos](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	En la hoja **Factorías de datos**, haga clic en la factoría de datos (**TutorialFactoryARM**) que creó.	
-2.	En la hoja **Factoría de datos** de su factoría de datos, haga clic en **Diagrama**. ![Icono Diagrama](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+2.	En la hoja **Factoría de datos** de su factoría de datos, haga clic en **Diagrama**. 
+		![Icono Diagrama](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	En la **Vista de diagrama**, verá información general de las canalizaciones y los conjuntos de datos empleados en este tutorial.
 	
 	![Vista de diagrama](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
