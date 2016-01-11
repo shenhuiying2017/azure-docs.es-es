@@ -39,7 +39,8 @@ Consulte la sección de modelos de conectividad para obtener detalles sobre los 
 
 ## Requisitos de redundancia para la conectividad
 
-No hay ningún requisito de redundancia sobre la conectividad física entre la infraestructura de cliente y la infraestructura del proveedor de servicio. Microsoft requiere redundancia en el nivel 3. Microsoft requiere la configuración del enrutamiento redundante entre el borde de Microsoft y la red del cliente a través del proveedor de servicio para cada uno de los emparejamientos que se van a habilitar. Si las sesiones de enrutamiento no se configuran de forma redundante, el contrato de nivel de servicio de disponibilidad de servicio se anulará.
+No hay ningún requisito de redundancia sobre la conectividad física entre la infraestructura de cliente y la infraestructura del proveedor de servicio. Microsoft requiere redundancia en el nivel 3.
+Microsoft requiere la configuración del enrutamiento redundante entre el borde de Microsoft y la red del cliente a través del proveedor de servicio para cada uno de los emparejamientos que se van a habilitar. Si las sesiones de enrutamiento no se configuran de forma redundante, el contrato de nivel de servicio de disponibilidad de servicio se anulará.
 
 ## Consideraciones sobre las direcciones IP y el enrutamiento
 
@@ -58,7 +59,7 @@ Consulte [Requisitos NAT de ExpressRoute](expressroute-nat.md) para obtener inst
 Revise los siguientes recursos para obtener más información acerca de los requisitos de Office 365.
 
 - [Planificación de la red y ajuste del rendimiento para Office 365](http://aka.ms/tune)
-- [Administración del tráfico de red de Office 365](https://msft.spoppe.com/teams/cpub/teams/IW_Admin/modsquad/_layouts/15/WopiFrame.aspx?sourcedoc=%7b23f09224-0668-4476-8627-aaff30931439%7d&action=edit&source=https%3A%2F%2Fmsft%2Espoppe%2Ecom%2Fteams%2Fcpub%2Fteams%2FIW%5FAdmin%2Fmodsquad%2FSitePages%2FHome%2Easpx)
+- [Administración del tráfico de red de Office 365](https://support.office.com/article/Office-365-network-traffic-management-e1da26c6-2d39-4379-af6f-4da213218408)
 - Consulte el artículo [Requisitos de calidad de servicio (QoS) de ExpressRoute ](expressroute-qos.md) para obtener instrucciones detalladas sobre los requisitos y configuraciones de QoS. Consulte a su proveedor de conectividad para saber si ofrece varias clases de servicio para su VPN. 
 
 ## Pasos siguientes
@@ -71,4 +72,4 @@ Revise los siguientes recursos para obtener más información acerca de los requ
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

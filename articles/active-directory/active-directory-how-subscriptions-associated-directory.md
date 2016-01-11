@@ -34,7 +34,8 @@ Aunque Azure inicialmente permitía el acceso únicamente a los usuarios de cuen
 
 Por ejemplo, aquí un usuario con una cuenta Microsoft inicia sesión en el Portal de Azure clásico.
 
-> [AZURE.NOTE]Para iniciar sesión en el Portal de Azure clásico, msmith@hotmail.com debe tener una suscripción a Azure. La cuenta debe ser un administrador de servicios o un coadministrador de la suscripción.
+> [AZURE.NOTE]
+> Para iniciar sesión en el Portal de Azure clásico, msmith@hotmail.com debe tener una suscripción a Azure. La cuenta debe ser un administrador de servicios o un coadministrador de la suscripción.
 
 ![][1]
 
@@ -100,7 +101,7 @@ En este caso, solo necesitará [registrarse en Azure](sign-up-organization.md) u
 
 ### Tengo una suscripción de Azure con mi cuenta Microsoft
 
-Si se ha registrado en Office 365 con una cuenta profesional o educativa y, a continuación, se ha registrado en Azure con una cuenta Microsoft, tiene dos directorios: uno de tipo profesional y educativo y un directorio predeterminado que se creó cuando se registró en Azure.
+Si se ha suscrito a Office 365 con una cuenta profesional o educativa y, a continuación, se ha suscrito a Azure con una cuenta Microsoft, tiene dos directorios: uno de tipo profesional o educativo y un directorio predeterminado que se creó cuando se suscribió a Azure.
 
 Para administrar ambos directorios en el Portal de Azure clásico, siga estos pasos.
 
@@ -124,4 +125,4 @@ Para administrar ambos directorios en el Portal de Azure clásico, siga estos pa
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

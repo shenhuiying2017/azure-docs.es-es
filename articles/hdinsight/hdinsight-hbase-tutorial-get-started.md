@@ -55,7 +55,7 @@ Antes de empezar este tutorial de HBase, debe contar con lo siguiente:
 	- **Grupo de recursos**: cree un grupo de recursos de Azure o seleccione uno existente. Para más información, vea [Información general del Administrador de recursos de Azure](resource-group-overview.md).
 	- **Credenciales**: en el caso de clústeres basados en Windows, puede crear un usuario de clúster (también denominado usuario HTTP, usuario de servicio web HTTP) y un usuario de Escritorio remoto. Haga clic en **Habilitar Escritorio remoto** para agregar las credenciales de usuario de Escritorio remoto. La siguiente sección requiere RDP.
 	- **Origen de datos**: cree una cuenta de almacenamiento de Azure o seleccione una existente para usarla como sistema de archivos predeterminado para el clúster. La ubicación predeterminada de la cuenta de almacenamiento determina la ubicación del clúster. La cuenta de almacenamiento predeterminada y el clúster deben colocarse en el mismo centro de datos.
-	- **Tenga en cuenta los planes de tarifa:** seleccione el número de servidores de región para el clúster de HBase.
+	- **Niveles de precios de nodo**: seleccione el número de servidores de región para el clúster de HBase.
 
 		> [AZURE.WARNING]Para lograr alta disponibilidad de servicios de HBase, debe crear un clúster que contenga al menos **tres** nodos. Esto garantiza que, si un nodo deja de funcionar, las regiones de datos de HBase están disponibles en otros nodos.
 
@@ -299,10 +299,13 @@ En este tutorial de HBase para HDInsight, ha aprendido a aprovisionar un clúste
 
 Para más información, consulte:
 
-- [Información general de HBase de HDInsight][hdinsight-hbase-overview]. HBase es una base de datos NoSQL de código abierto Apache basada en Hadoop que ofrece un acceso aleatorio y una coherencia fuerte para grandes cantidades de datos no estructurados y semiestructurados.
-- [Creación de clústeres de HBase en Red virtual de Azure][hdinsight-hbase-provision-vnet]. Con la integración de red virtual, los clústeres de HBase se pueden implementar en la misma red que sus aplicaciones para que estas puedan comunicarse directamente con HBase.
+- [Información general de HBase de HDInsight][hdinsight-hbase-overview]. 
+HBase es una base de datos NoSQL de código abierto Apache basada en Hadoop que ofrece un acceso aleatorio y una coherencia fuerte para grandes cantidades de datos no estructurados y semiestructurados.
+- [Creación de clústeres de HBase en Red virtual de Azure][hdinsight-hbase-provision-vnet]. 
+Con la integración de red virtual, los clústeres de HBase se pueden implementar en la misma red que sus aplicaciones para que estas puedan comunicarse directamente con HBase.
 - [Configuración de la replicación de HBase en HDInsight](hdinsight-hbase-geo-replication.md). Aprenda a configurar la replicación de HBase entre dos centros de datos de Azure.
-- [Análisis de opiniones de Twitter con HBase en HDInsight][hbase-twitter-sentiment]. Descubra cómo realizar [análisis de opinión](http://en.wikipedia.org/wiki/Sentiment_analysis) de macrodatos en tiempo real con HBase en un clúster de Hadoop en HDInsight.
+- [Análisis de opiniones de Twitter con HBase en HDInsight][hbase-twitter-sentiment]. 
+Descubra cómo realizar [análisis de opinión](http://en.wikipedia.org/wiki/Sentiment_analysis) de macrodatos en tiempo real con HBase en un clúster de Hadoop en HDInsight.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -331,4 +334,4 @@ Para más información, consulte:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

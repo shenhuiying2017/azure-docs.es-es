@@ -25,7 +25,7 @@ Búsqueda de Microsoft Azure es un servicio de búsqueda hospedado en la nube qu
 
 Como administrador, puede agregar Búsqueda de Azure a una suscripción de Azure existente sin costo alguno al seleccionar el servicio compartido (o a una tarifa estándar cuando se opta por recursos específicos).
 
-1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
 2. En la barra de salto, haga clic en **Nuevo** > **Datos + almacenamiento** > **Búsqueda**.
 
@@ -92,10 +92,7 @@ Después de crear el servicio, puede volver al Portal de Azure clásico para obt
 <a id="sub-4"></a>
 ## Prueba de operaciones del servicio
 
-La confirmación de que su servicio está operativo y que puede obtener acceso a él desde una aplicación cliente es el paso final en la configuración de la Búsqueda de Azure. Puede usar cualquiera de los siguientes vínculos para un enfoque sin código para comprobar la disponibilidad del servicio.
-
-- [Cómo usar Chrome Postman con Búsqueda de Azure](search-chrome-postman.md)
-- [Cómo usar Telerik Fiddler con Búsqueda de Azure](search-fiddler.md)
+La confirmación de que su servicio está operativo y que puede obtener acceso a él desde una aplicación cliente es el paso final en la configuración de la Búsqueda de Azure. Puede usar [Fiddler con Búsqueda de Azure](search-fiddler.md) para comprobar la disponibilidad del servicio.
 
 <!--Next steps and links -->
 <a id="next-steps"></a>
@@ -123,4 +120,4 @@ En la siguiente información adicional, se explica cómo compilar y administrar 
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->
