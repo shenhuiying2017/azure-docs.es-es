@@ -13,18 +13,17 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="12/18/2015"
 	ms.author="heidist"/>
 
 # Usar Fiddler para evaluar y probar las API de REST de Búsqueda de Azure
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-En este procedimiento se explica cómo usar Fiddler, disponible como [descarga gratuita de Telerik](http://www.telerik.com/fiddler), para emitir solicitudes HTTP y ver las respuestas usando la API de REST de Búsqueda de Azure sin tener que escribir código. Búsqueda de Azure es un servicio de búsqueda hospedado en la nube en Microsoft Azure, fácilmente programable a través de API de .NET y REST. Las API de REST del servicio Búsqueda de Azure están documentadas en [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+En este procedimiento se explica cómo usar Fiddler, disponible como [descarga gratis de Telerik](http://www.telerik.com/fiddler), para emitir solicitudes HTTP y ver las respuestas usando la API de REST de Búsqueda de Azure sin tener que escribir código. Búsqueda de Azure es un servicio de búsqueda hospedado en la nube en Microsoft Azure, fácilmente programable a través de API de .NET y REST. Las API de REST del servicio Búsqueda de Azure están documentadas en [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 En los siguientes pasos, podrá crear un índice, cargar documentos, consultar el índice y, a continuación, consultar el sistema en busca de información de servicio.
 
@@ -43,7 +42,7 @@ Para completar estos pasos, necesitará un servicio Búsqueda de Azure y `api-ke
 3. Escriba una dirección URL que especifica la dirección URL del servicio, los atributos de la solicitud y la versión de la API. Algunos indicadores que tener en cuenta:
    + Use HTTPS como el prefijo.
    + El atributo de solicitud es "/índices/hoteles". Esto le indica a la búsqueda que cree un índice llamado "hoteles".
-   + La versión de la API se escribe en minúsculas y se especifica como "?api-version=2015-02-28". Las versiones de API son importantes porque Búsqueda de Azure implementa actualizaciones regularmente. En raras ocasiones, una actualización de servicio puede presentar un cambio innovador en la API. Al usar las versiones de API, puede seguir usando la versión actual y actualizar a una más nueva cuando sea conveniente.
+   + La versión de la API se escribe en minúsculas y se especifica como "?api-version=2015-02-28". Las versiones de API son importantes porque Búsqueda de Azure implementa actualizaciones regularmente. En raras ocasiones, una actualización de servicio puede presentar un cambio innovador en la API. Por este motivo, Búsqueda de Azure requiere una versión de la API en cada solicitud para que tenga el control total sobre cuál se usa.
 
     La URL completa debe ser similar al siguiente ejemplo.
 
@@ -63,7 +62,7 @@ Para completar estos pasos, necesitará un servicio Búsqueda de Azure y `api-ke
         "fields": [
           {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
           {"name": "baseRate", "type": "Edm.Double"},
-          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false,},
+          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
           {"name": "hotelName", "type": "Edm.String"},
           {"name": "category", "type": "Edm.String"},
           {"name": "tags", "type": "Collection(Edm.String)"},
@@ -83,7 +82,7 @@ Si obtiene HTTP 504, compruebe que la URL especifique HTTPS. Si se muestra el er
 
 ## Carga de documentos
 
-En la pestaña **Compositor**, se verá su solicitud para enviar documentos como a continuación. El cuerpo de la solicitud contiene los datos de búsqueda de cuatro hoteles.
+En la pestaña **Compositor**, su solicitud para publicar documentos será similar a la siguiente. El cuerpo de la solicitud contiene los datos de búsqueda de cuatro hoteles.
 
    ![][2]
 
@@ -204,7 +203,7 @@ La siguiente consulta de ejemplo proviene del tema [Operación de índice de bú
 
 ## Consultas al sistema
 
-También puede consultar al sistema para obtener recuentos de documentos y consumo de almacenamiento. En la pestaña **Compositor**, su solicitud tendrá la siguiente apariencia y la respuesta devolverá un recuento de la cantidad de documentos y el espacio usado.
+También puede consultar al sistema para obtener recuentos de documentos y consumo de almacenamiento. En la pestaña **Compositor**, su solicitud será similar a la siguiente y la respuesta devolverá un recuento de la cantidad de documentos y el espacio usado.
 
  ![][5]
 
@@ -229,10 +228,8 @@ También puede consultar al sistema para obtener recuentos de documentos y consu
 
 ## Pasos siguientes
 
-Los vínculos siguientes proporcionan información sobre cómo administrar y usar Búsqueda de Azure sin código.
+Consulte [Administración del servicio de búsqueda en Microsoft Azure](search-manage.md) para un enfoque sin código para administrar y usar Búsqueda de Azure.
 
--  [Administrar el servicio de búsqueda en Azure](search-manage.md)
--  [Cómo usar Chrome Postman con Búsqueda de Azure](search-chrome-postman.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/AzureSearch_Fiddler1_PutIndex.png
@@ -241,4 +238,4 @@ Los vínculos siguientes proporcionan información sobre cómo administrar y usa
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

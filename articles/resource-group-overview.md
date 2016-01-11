@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="12/22/2015"
    ms.author="tomfitz"/>
 
 # Información general del Administrador de recursos de Azure
@@ -49,7 +49,7 @@ Un grupo de recursos es un contenedor que incluye los recursos relacionados de u
 
 Hay algunos factores importantes que se deben tener en cuenta al definir el grupo de recursos:
 
-1. Todos los recursos del grupo deben compartir el mismo ciclo de vida. Se implementarán, actualizarán y eliminarán de forma conjunta. Si un recurso, como un servidor de base de datos, debe existir en un ciclo de implementación diferente, debe estar en otro grupo de recursos.
+1. Todos los recursos del grupo deberían compartir el mismo ciclo de vida. Se implementarán, actualizarán y eliminarán de forma conjunta. Si un recurso, como un servidor de base de datos, debe existir en un ciclo de implementación diferente, debe estar en otro grupo de recursos.
 2. Cada recurso solo puede existir en un grupo de recursos.
 3. Puede agregar o quitar un recurso de un grupo de recursos en cualquier momento.
 4. Puede mover un recurso de un grupo de recursos a otro. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](resource-group-move-resources.md).
@@ -57,13 +57,19 @@ Hay algunos factores importantes que se deben tener en cuenta al definir el grup
 5. Un grupo de recursos puede utilizarse para definir el ámbito de control de acceso para las acciones administrativas.
 6. Se puede vincular un recurso a otro recurso de un grupo de recursos distinto cuando los dos recursos deben interactuar entre sí pero no comparten el mismo ciclo de vida (por ejemplo, varias aplicaciones que se conectan a una base de datos). Para obtener más información, consulte [Vinculación de recursos en el Administrador de recursos de Azure](resource-group-link-resources.md).
 
+## Proveedores de recursos
+
+Un proveedor de recursos es un servicio que proporciona los recursos que puede implementar y administrar mediante el Administrador de recursos. Cada proveedor de recursos ofrece operaciones de API de REST para trabajar con los recursos. Por ejemplo, si desea implementar un Almacén de claves de Azure para almacenar claves y secretos, trabajará con el proveedor de recursos **Microsoft.KeyVault**. Este proveedor de recursos ofrece un tipo de recursos denominados **almacenes** para crear el almacén de claves, un tipo de recurso denominado **almacenes o secretos** para crear un secreto en el almacén de claves y un conjunto de [operaciones de API de REST](https://msdn.microsoft.com/library/azure/dn903609.aspx).
+
+Para implementar y administrar la infraestructura, debe conocer los detalles acerca de los proveedores de recursos como, por ejemplo, los tipos de recurso que ofrece, los números de versión de las operaciones de API de REST, las operaciones que admite y el esquema que se usará al establecer los valores del tipo de recurso que desea crear. Para información sobre los proveedores de recursos admitidos, consulte [proveedores del Administrador de recursos, regiones, versiones de API y esquemas](resource-manager-supported-services.md).
+
 ## Implementación de plantilla
 
 Con Administrador de recursos, puede crear una plantilla sencilla (en formato JSON) que define la implementación y configuración de la aplicación. Esta plantilla se conoce como plantilla de Administrador de recursos y proporciona una manera declarativa de definir la implementación. El uso de una plantilla permite implementar la aplicación repetidamente a lo largo del ciclo de vida de esta y tener la seguridad de que los recursos se implementan de forma coherente.
 
-Dentro de la plantilla puede definir la infraestructura de la aplicación, cómo configurar dicha infraestructura y cómo publicar el código de aplicación en ella. No necesita preocuparse por el orden de implementación porque Administrador de recursos de Azure analiza las dependencias para asegurarse de que los recursos se crean en el orden correcto. Para obtener más información, consulte [Definición de dependencias en plantillas del Administrador de recursos de Azure](resource-group-define-dependencies.md).
+Dentro de la plantilla puede definir la infraestructura de la aplicación, cómo configurar dicha infraestructura y cómo publicar el código de aplicación en ella. No necesita preocuparse por el orden de implementación porque Administrador de recursos de Azure analiza las dependencias para asegurarse de que los recursos se crean en el orden correcto. Para más información, consulte [Definición de dependencias en plantillas del Administrador de recursos de Azure](resource-group-define-dependencies.md).
 
-No es necesario definir toda la infraestructura en una sola plantilla. A menudo, tiene sentido dividir los requisitos de implementación en un conjunto de plantillas seleccionadas, específicas para un propósito. Puede fácilmente volver a usar estas plantillas para distintas soluciones. Para implementar una solución determinada, cree una plantilla maestra que vincule todas las plantillas necesarias. Para obtener más información, consulte [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
+No es necesario definir toda la infraestructura en una sola plantilla. A menudo, tiene sentido dividir los requisitos de implementación en un conjunto de plantillas seleccionadas, específicas para un propósito. Puede fácilmente volver a usar estas plantillas para distintas soluciones. Para implementar una solución determinada, cree una plantilla maestra que vincule todas las plantillas necesarias. Para más información, consulte [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
 
 También puede utilizar la plantilla para las actualizaciones de la infraestructura. Por ejemplo, puede agregar un nuevo recurso a la aplicación y agregar reglas de configuración para los recursos que ya están implementados. Si la plantilla especifica la creación de un nuevo recurso pero ese recurso ya existe, Administrador de recursos de Azure realiza una actualización en lugar de crear un nuevo recurso. Administrador de recursos de Azure actualiza el activo existente al mismo estado que tendría si fuese nuevo. O bien, puede especificar que el Administrador de recursos elimine todos los recursos no especificados en la plantilla. Para conocer las diferentes opciones al implementar, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
@@ -77,11 +83,9 @@ Por último, la plantilla se convierte en parte del código fuente de la aplicac
 
 Para obtener más información sobre la creación de plantillas, consulte [Crear plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md).
 
-Para los esquemas de plantilla, consulte [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas).
+Para más información acerca del uso de una plantilla para la implementación, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-Para obtener información acerca del uso de una plantilla para la implementación, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
-
-Para obtener instrucciones sobre cómo estructurar las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
+Para instrucciones sobre cómo estructurar las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
 
 Para ver instrucciones sobre cómo implementar la solución en diferentes entornos, consulte [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments-preview-portal.md).
 
@@ -99,13 +103,11 @@ Administrador de recursos permite controlar quién tiene acceso a acciones espec
 
 Administrador de recursos registra automáticamente las acciones del usuario para la auditoría. Para más información sobre cómo trabajar con los registros de auditoría, consulte [Operaciones de auditoría con el Administrador de recursos](resource-group-audit.md).
 
-Para obtener más información acerca del control de acceso basado en rol, consulte [Control de acceso basado en rol en el Portal de vista previa de Azure](role-based-access-control-configure.md). Este tema contiene una lista de roles integrados y acciones permitidas. Los roles integrados incluyen roles generales como propietario, lector y colaborador, así como roles específicos del servicio como colaborador de la máquina virtual, colaborador de la red virtual y administrador de seguridad SQL (por nombrar solo algunos de los roles disponibles).
-
-Para ver ejemplos de asignación de roles, consulte [Administración del acceso a los recursos](resource-group-rbac.md).
+Para más información sobre el control de acceso basado en roles, consulte [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md). El tema [RBAC: Roles integrados](./active-directory/role-based-access-built-in-roles.md) contiene una lista de roles integrados y acciones permitidas. Los roles integrados incluyen roles generales como propietario, lector y colaborador, así como roles específicos del servicio como colaborador de la máquina virtual, colaborador de la red virtual y administrador de seguridad SQL (por nombrar solo algunos de los roles disponibles).
 
 También puede bloquear explícitamente recursos críticos para impedir que los usuarios los eliminen o modifiquen. Para más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 
-Para conocer los procedimientos recomendados, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
+Para conocer las prácticas recomendadas, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
 
 ## Administración de recursos con directivas personalizadas
 
@@ -113,7 +115,7 @@ El Administrador de recursos permite crear directivas personalizadas para admini
 
 ## Capa de administración coherente
 
-Administrador de recursos proporciona operaciones totalmente compatibles a través de Azure PowerShell, CLI de Azure para Mac, Linux y Windows, Portal de vista previa de Azure o la API de REST. Puede utilizar la interfaz que más le convenga y moverse rápidamente entre las interfaces sin confusión. El portal incluso muestra notificación sobre las acciones realizadas fuera de él.
+El Administrador de recursos proporciona operaciones totalmente compatibles a través de Azure PowerShell, CLI de Azure para Mac, Linux y Windows, Portal de Azure o la API de REST. Puede utilizar la interfaz que más le convenga y moverse rápidamente entre las interfaces sin confusión. El portal incluso muestra notificación sobre las acciones realizadas fuera de él.
 
 Para obtener información sobre PowerShell, consulte [Uso de Azure PowerShell con Administrador de recursos](./powershell-azure-resource-manager.md) y [Cmdlets de Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
@@ -121,19 +123,19 @@ Para obtener información sobre CLI de Azure, consulte [Uso de la CLI de Azure p
 
 Para obtener información acerca de la API de REST, consulte [Referencia de la API de REST del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
-Para más información sobre cómo usar el portal de vista previa, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md).
+Para más información sobre cómo usar el portal, consulte [Uso del Portal de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md).
 
 El Administrador de recursos de Azure admite el uso compartido de recursos entre orígenes (CORS). Con CORS, puede llamar a la API de REST del Administrador de recursos o un API de REST de un servicio Azure desde una aplicación web que reside en un dominio diferente. Sin compatibilidad con CORS, el explorador web evitaría que una aplicación en un dominio acceda a recursos de otro dominio. El Administrador de recursos habilita CORS para todas las solicitudes con credenciales de autenticación válidas.
 
 ## Pasos siguientes
 
-- Para obtener información sobre cómo crear plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md).
+- Para información sobre cómo crear plantillas, consulte [Creación de plantillas](./resource-group-authoring-templates.md).
 - Para implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
-- Para comprender las funciones que puede usar en una plantilla, consulte [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md)
+- Para comprender las funciones que puede usar en una plantilla, consulte [Expresiones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md)
 - Para ver instrucciones sobre cómo diseñar las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
 
 La siguiente es una demostración de esta introducción.
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

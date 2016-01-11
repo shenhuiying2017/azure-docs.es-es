@@ -7,8 +7,8 @@
 	 
 		>[AZURE.IMPORTANT]Al cambiar un back-end de aplicación existente a Node.js, se sobrescribirá todo el contenido del sitio.
 
-	+ **Back-end de .NET (C#)**: haga clic en **Descargar**, extraiga los archivos de proyecto comprimidos en el equipo local, abra la solución en Visual Studio, compile el proyecto para restaurar los paquetes de NuGet y después implemente el proyecto en Azure. Para aprender a implementar un proyecto de servidor back-end de .NET en Azure, consulte la sección *Implementación del proyecto en la aplicación web* de [Creación de una aplicación web ASP.NET en el Servicio de aplicaciones de Azure](../articles/app-service-web/web-sites-dotnet-get-started.md#deploy-the-project-to-the-web-app). En el Servicio de aplicaciones, un back-end de aplicación móvil es equivalente a una aplicación web.
+	+ **Back-end de .NET (C#)**: haga clic en **Descargar**, extraiga los archivos de proyecto comprimidos en el equipo local, abra la solución en Visual Studio, compile el proyecto para restaurar los paquetes de NuGet y después implemente el proyecto en Azure. Para más información sobre cómo implementar un proyecto de servidor back-end de .NET en Azure, consulte [Procedimientos: Publicación del proyecto de servidor](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#publish-server-project) en el tema SDK de back-end de .NET.
 	 
 Ahora el back-end de aplicación móvil está listo para usarse con la aplicación cliente.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

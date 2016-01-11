@@ -21,12 +21,11 @@
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
 Las soluciones personalizadas con Búsqueda de Azure para una experiencia de búsqueda insertada necesitan incluir código que cree la consulta de búsqueda y la envíe a un servicio de búsqueda para su procesamiento.
 
-Puede usar el SDK de .NET o la API de REST para escribir métodos que ejecuten la consulta. Para pruebas preliminares o de exploración, puede usar herramientas como Fiddler o Chrome Postman para enviar consultas a su servicio.
+Puede usar el SDK de .NET o la API de REST para escribir métodos que ejecuten la consulta. Para pruebas preliminares o de exploración, puede usar herramientas como Fiddler para enviar consultas a su servicio.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

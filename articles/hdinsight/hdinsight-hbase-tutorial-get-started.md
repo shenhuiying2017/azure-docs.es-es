@@ -55,7 +55,7 @@ Antes de empezar este tutorial de HBase, debe contar con lo siguiente:
 	- **Grupo de recursos**: cree un grupo de recursos de Azure o seleccione uno existente. Para más información, vea [Información general del Administrador de recursos de Azure](resource-group-overview.md).
 	- **Credenciales**: en el caso de clústeres basados en Windows, puede crear un usuario de clúster (también denominado usuario HTTP, usuario de servicio web HTTP) y un usuario de Escritorio remoto. Haga clic en **Habilitar Escritorio remoto** para agregar las credenciales de usuario de Escritorio remoto. La siguiente sección requiere RDP.
 	- **Origen de datos**: cree una cuenta de almacenamiento de Azure o seleccione una existente para usarla como sistema de archivos predeterminado para el clúster. La ubicación predeterminada de la cuenta de almacenamiento determina la ubicación del clúster. La cuenta de almacenamiento predeterminada y el clúster deben colocarse en el mismo centro de datos.
-	- **Tenga en cuenta los planes de tarifa:** seleccione el número de servidores de región para el clúster de HBase.
+	- **Niveles de precios de nodo**: seleccione el número de servidores de región para el clúster de HBase.
 
 		> [AZURE.WARNING]Para lograr alta disponibilidad de servicios de HBase, debe crear un clúster que contenga al menos **tres** nodos. Esto garantiza que, si un nodo deja de funcionar, las regiones de datos de HBase están disponibles en otros nodos.
 
@@ -331,4 +331,4 @@ Para más información, consulte:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

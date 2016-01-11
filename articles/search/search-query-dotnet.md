@@ -21,7 +21,6 @@
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
@@ -48,7 +47,7 @@ El fragmento de código siguiente crea un método que pasa una entrada de cadena
 		}
 	}
 	
-En primer lugar, el método crea el objeto SearchParameters. Esto se utiliza para especificar opciones adicionales para la consulta, como el orden, los filtros, la paginación y las facetas. En este ejemplo, solo vamos a establecer la propiedad Filter.
+En primer lugar, este método crea el objeto SearchParameters. Esto se utiliza para especificar opciones adicionales para la consulta, como el orden, los filtros, la paginación y las facetas. En este ejemplo, solo vamos a establecer la propiedad Filter.
 
 El siguiente paso consiste en ejecutar la consulta de búsqueda. Esto se realiza mediante el método Documents.Search. En este caso, pasamos como una cadena el texto de búsqueda que se usará, además de los parámetros de búsqueda creados anteriormente. También especificamos Hotel como el parámetro de tipo para Documents.Search, lo que indica al SDK que deserialice los documentos de los resultados de búsqueda en objetos de tipo Hotel.
 
@@ -59,8 +58,8 @@ Veamos más de cerca cómo se llama a este método:
 	SearchDocuments(indexClient, searchText: "fancy wifi");
 	SearchDocuments(indexClient, searchText: "*", filter: "category eq 'Luxury'");
 
-En la primera llamada estamos buscando todos los documentos que contienen los términos de consulta "fancy" o "wifi". En la segunda llamada, el texto de búsqueda se define como "*", lo que significa "buscar todos los elementos". Puede encontrar más información acerca de la sintaxis de expresiones de consulta de búsqueda en [Sintaxis de la consulta simple en Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798920.aspx).
+En la primera llamada estamos buscando todos los documentos que contienen los términos de consulta "fancy" o "wifi". En la segunda llamada, el texto de búsqueda se define como "*", lo que significa "buscar todos los elementos". Puede encontrar más información acerca de la sintaxis de expresiones de consulta de búsqueda en [Sintaxis de consulta simple en Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798920.aspx).
 
 La segunda llamada usa una expresión OData $filter, categoría igual a 'Lujo'. Esto restringe la búsqueda de forma que devuelva solo aquellos documentos en los que el campo de categoría coincida exactamente con la cadena "Lujo". Puede encontrar ejemplos adicionales sobre la sintaxis de OData en [Sintaxis de expresiones de OData para Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

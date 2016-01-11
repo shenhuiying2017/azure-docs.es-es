@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="12/09/2015"
+	ms.date="12/17/2015" 
 	ms.author="juliako"/>
 
 
@@ -579,6 +579,7 @@ En el ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de S
 		                                         FirstOrDefault();
 		
 		            // Create a 30-day readonly access policy. 
+                	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 		            IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
 		                TimeSpan.FromDays(30),
 		                AccessPermissions.Read);
@@ -630,4 +631,4 @@ En el ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de S
 
 [Anuncio de los servicios de entrega de licencias de la vista previa pública de Google Widevine de Servicios multimedia de Azure](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

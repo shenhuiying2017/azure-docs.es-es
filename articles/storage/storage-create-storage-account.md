@@ -65,7 +65,7 @@ También puede configurar un nombre de dominio personalizado para usarlo con la 
 
 ## Crear una cuenta de almacenamiento
 
-1. Inicie sesión en el [Portal de Azure](portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
 2. En el menú del concentrador, seleccione **Nuevo** -> **Datos + almacenamiento** -> **Cuenta de almacenamiento**.
 
@@ -103,7 +103,7 @@ Al crear una cuenta de almacenamiento, Azure genera dos claves de acceso de alma
 
 ### Visualización y copia de las claves de acceso de almacenamiento
 
-En el [Portal de Azure](portal.azure.com), diríjase a su cuenta de almacenamiento y haga clic en el icono de **claves** para ver, copiar y regenerar las claves de acceso de la cuenta. La hoja de **claves de acceso** también incluye cadenas de conexión configuradas previamente que usan claves principales y secundarias que puede copiar para usarlas en las aplicaciones.
+En el [Portal de Azure](https://portal.azure.com), diríjase a su cuenta de almacenamiento y haga clic en el icono de **claves** para ver, copiar y regenerar las claves de acceso de la cuenta. La hoja de **claves de acceso** también incluye cadenas de conexión configuradas previamente que usan claves principales y secundarias que puede copiar para usarlas en las aplicaciones.
 
 ### Nueva generación de las claves de acceso de almacenamiento
 
@@ -129,7 +129,7 @@ Este es el proceso de rotación de las claves de acceso de almacenamiento:
 
 ## Eliminar una cuenta de almacenamiento
 
-Para quitar una cuenta de almacenamiento que ya no se está usando, vaya a la cuenta de almacenamiento en el [Portal de Azure](portal.azure.com) y haga clic en **Eliminar**. Si se elimina la cuenta de almacenamiento, se elimina toda la cuenta, incluidos todos los datos de la cuenta.
+Para quitar una cuenta de almacenamiento que ya no se está usando, vaya a la cuenta de almacenamiento en el [Portal de Azure](https://portal.azure.com) y haga clic en **Eliminar**. Si se elimina la cuenta de almacenamiento, se elimina toda la cuenta, incluidos todos los datos de la cuenta.
 
 > [AZURE.WARNING]No es posible restaurar una cuenta de almacenamiento eliminada ni recuperar el contenido que contenía antes de la eliminación. Asegúrese de hacer una copia de seguridad de cualquier contenido que desee guardar antes de eliminar la cuenta. Esto también es verdad para los recursos de la cuenta: cuando se elimina un blob, tabla, cola o archivo, este se eliminará definitivamente.
 
@@ -139,4 +139,4 @@ Para quitar una cuenta de almacenamiento que ya no se está usando, vaya a la cu
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 - [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

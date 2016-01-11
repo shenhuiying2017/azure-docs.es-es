@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/10/2015"
+	ms.date="12/22/2015"
 	ms.author="jroth"/>
 
 # Opciones y rendimiento de Base de datos SQL: comprender lo que está disponible en cada nivel de servicio
@@ -96,4 +96,4 @@ Si desea administrar varias bases de datos como un grupo, consulte [Grupos de ba
 Ahora que conoce los niveles de Base de datos SQL, pruébelos con una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) y aprenda a [crear su primera base de datos SQL](sql-database-get-started.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

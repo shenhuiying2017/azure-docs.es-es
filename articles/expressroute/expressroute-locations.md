@@ -61,7 +61,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Compatible | Compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Tokio, Washington DC |
 |**China Telecom Global** | Compatible | No compatible | Hong Kong |
 |**Cologix** | Próximamente | No compatible | Montreal+, Toronto+ |
-| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Compatible | Compatible | Ámsterdam y Londres |
+| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Compatible | Compatible | Ámsterdam, Dublín +, Londres |
 | **Comcast** | Compatible | No compatible | Silicon Valley, Washington DC |
 | **CoreSite** | Compatible | Compatible | Los Ángeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Compatible | Compatible | Ámsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Ángeles, Melbourne, Nueva York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapur, Sidney, Tokio, Toronto+, Washington DC |
@@ -74,7 +74,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **MTN** | Compatible | Compatible | Londres |
 | **NEXTDC** | Compatible | Compatible | Melbourne, Sidney |
 | **NTT Communications** | Compatible | No compatible | Londres+, Tokio |
-| **[Orange](http://www.orange-business.com/)** | Compatible | No compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Washington DC |
+| **[Orange](http://www.orange-business.com/)** | Compatible | Compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Washington DC |
 | **PCCW Global Limited** | Compatible | No compatible | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Compatible | No compatible | Singapur |
 | **Softbank** | Próximamente | No compatible | Osaka, Tokyo | 
@@ -139,4 +139,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 - Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 - Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

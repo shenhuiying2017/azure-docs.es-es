@@ -1,6 +1,6 @@
 <properties
    pageTitle="Configuración de una conexión VPN de punto a sitio a una red virtual | Microsoft Azure"
-   description="Conéctese de forma segura a la red virtual de Azure mediante la creación de una conexión VPN de punto a sitio. Instrucciones para redes virtuales creadas con el modelo de implementación de administración del servicio (clásico)."
+   description="Conéctese de forma segura a la Red virtual de Azure mediante la creación de una conexión VPN de punto a sitio. Instrucciones para redes virtuales creadas con el modelo de implementación de administración del servicio (clásico)."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,21 +14,23 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="12/16/2015"
    ms.author="cherylmc"/>
 
 # Configuración de una conexión VPN de punto a sitio a una red virtual
 
 
-En este artículo se hace referencia a las conexiones de punto a sitio para redes virtuales que se crean usando el modo de implementación clásica (Administración de servicios).
+En este artículo se hace referencia a las conexiones de Puerta de enlace de VPN de punto a sitio a una red virtual que se crean usando el modo de implementación clásica (Administración de servicios). Ya están disponibles las conexiones de punto a sitio para redes virtuales creadas con el modelo de implementación del Administrador de recursos de Azure usando las API de REST y PowerShell. Estamos trabajando en un artículo que le guiará mediante el uso de PowerShell. Voy a actualizar esta página e incluiré el vínculo cuando el artículo esté listo. Actualmente lo estamos planeando para principios de enero.
 
-**En este momento, no se admiten las conexiones de punto a sitio mediante una red virtual creada en el modo de implementación del Administrador de recursos de Azure.** Esta página se actualizará cuando esta característica se admita para el modelo de implementación del Administrador de recursos.
+**Información sobre los modelos de implementación de Azure**
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-El siguiente procedimiento le guiará paso a paso para crear una conexión de punto a sitio segura mediante una red virtual. Aunque la configuración de una conexión de punto a sitio conlleva varios pasos, es una excelente forma de tener una conexión segura desde su equipo a la red virtual sin adquirir ni configurar un dispositivo VPN.
+## Acerca de la creación de una conexión de punto a sitio
+ 
+Los pasos siguientes le guiarán paso a paso para crear una conexión de punto a sitio segura mediante una red virtual. Aunque la configuración de una conexión de punto a sitio conlleva varios pasos, es una excelente forma de tener una conexión segura desde su equipo a la red virtual sin adquirir ni configurar un dispositivo VPN.
 
-La configuración de una conexión de punto a sitio se desglosa en tres secciones: la red virtual y la puerta de enlace de VPN, los certificados usados para la autenticación y el cliente VPN que se usará para conectarse a la red virtual. El orden en el que se configura cada una de ellas es importante, por lo que no debe omitir pasos ni adelantarse.
+La configuración de una conexión de punto a sitio se divide en tres secciones. La **sección 1** le guiará por la creación de una red virtual y la puerta de enlace de VPN, la **sección 2** le ayudará a crear los certificados usados para la autenticación y la **sección 3** le guiará por los pasos para el cliente VPN que se usará para conectarse a la red virtual. El orden en el que se configura cada una de ellas es importante, por lo que no debe omitir pasos ni adelantarse.
 
 ## Sección 1: Crear una red virtual y una puerta de enlace de VPN
 
@@ -56,7 +58,7 @@ Paso 2: Crear una puerta de enlace de enrutamiento dinámico
 1. Escriba la información siguiente y, a continuación, haga clic en la marca de verificación para comenzar a crear la red virtual.
  - **Espacio de direcciones**: Agregue el intervalo de direcciones IP interno que desea usar para esta red virtual, incluida la dirección IP inicial y el recuento. Es importante seleccionar un intervalo que no se superponga a ninguno de los intervalos usados para la red local. Necesitará coordinarse con el administrador de red, quien es posible que necesite definir un intervalo de direcciones IP desde el espacio de direcciones de red local para el uso en la red virtual.
  - **Agregar subred**: No se necesitan subredes adicionales, pero puede que desee crear una subred independiente para las máquinas virtuales que tengan DIP estáticas. O bien, puede que desee que las máquinas virtuales se encuentren en una subred independiente de las demás instancias de rol.
- - **Agregar subred de puerta de enlace**: La subred de puerta de enlace es necesaria para una VPN de punto a sitio. Haga clic para agregar la subred de puerta de enlace. La subred de puerta de enlace solo se utiliza para la puerta de enlace de red virtual.
+ - **Agregar subred de puerta de enlace**: la subred de puerta de enlace es necesaria para una VPN de punto a sitio. Haga clic para agregar la subred de puerta de enlace. La subred de puerta de enlace solo se utiliza para la puerta de enlace de red virtual.
 1. Una vez creada la red virtual, verá **Creado** como **Estado** en la página de redes del Portal de Azure clásico. Una vez creada la red virtual, puede crear la puerta de enlace de enrutamiento dinámico.
 
 ### Creación de una puerta de enlace de enrutamiento dinámico
@@ -68,7 +70,7 @@ El tipo de puerta de enlace debe configurarse como dinámica. Las puertas de enl
 
 ## Sección 2: Generar y cargar certificados
 
-Los certificados se utilizan para autenticar a los clientes VPN para VPN de punto a sitio. Anteriormente, era necesario para generar su propio certificado autofirmado. Ahora, puede usar los certificados que se generaron mediante una solución empresarial. Puede cargar hasta 20 certificados raíz en Azure.
+Los certificados se usan para autenticar a los clientes VPN para VPN de punto a sitio. Anteriormente, era necesario para generar su propio certificado autofirmado. Ahora, puede usar los certificados que se generaron mediante una solución empresarial. Puede cargar hasta 20 certificados raíz en Azure.
 
 Si desea usar un certificado autofirmado, los pasos siguientes le guiarán a través del proceso. Si planea usar una solución de certificados de empresa, los pasos dentro de cada sección serán diferentes, pero todavía será necesario hacer lo siguiente:
 
@@ -185,12 +187,8 @@ Ejemplo:
 
 ## Pasos siguientes
 
-Puede obtener más información acerca de la conectividad de red virtual entre locales en el artículo [Información sobre la conectividad segura entre locales de redes virtuales](vpn-gateway-cross-premises-options.md).
-
-Si desea configurar una conexión VPN de sitio a sitio, consulte [Crear una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure](vpn-gateway-site-to-site-create.md).
-
 Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
-Si desea obtener más información acerca de las redes virtuales, consulte la página [Documentación de redes virtuales](https://azure.microsoft.com/documentation/services/virtual-network/).
+Si desea obtener más información acerca de las redes virtuales, consulte la página [Virtual Network documentation](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

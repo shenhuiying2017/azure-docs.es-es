@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="12/18/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
@@ -27,7 +27,7 @@
 
 En este artículo se muestra cómo crear un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) escalable con el Portal de Azure. Una configuración de Base de datos SQL con grupos de base de datos elásticas simplifica la administración y el uso compartido de los recursos entre varias bases de datos.
 
-> [AZURE.NOTE]Los grupos de bases de datos elásticas están actualmente en vista previa y solo estarán disponibles en servidores con bases de datos SQL V12. Si tiene un servidor de Base de datos SQL V11, puede [usar PowerShell para actualizar a V12 y crear un grupo](sql-database-upgrade-server.md) en un solo paso.
+> [AZURE.NOTE]Los grupos de bases de datos elásticas están actualmente en vista previa y solo estarán disponibles en servidores con bases de datos SQL V12. Si tiene un servidor de Base de datos SQL V11, puede [usar PowerShell para actualizar a V12 y crear un grupo](sql-database-upgrade-server-powershell.md) en un solo paso.
 
 
 Antes de comenzar, necesita una base de datos en un servidor de Base de datos SQL V12. Si no la tiene, consulte [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md) para crear una en menos de cinco minutos. O, si ya tiene un servidor de Base de datos SQL V11, puede [actualizar a V12 en el Portal](sql-database-v12-upgrade.md) y, después, vuelva y siga estas instrucciones para crear un grupo.
@@ -89,7 +89,9 @@ El servicio evalúa las necesidades de recursos y la rentabilidad de mover las b
 
 ## Paso 3: agregue bases de datos al grupo
 
-En cualquier momento, puede seleccionar las bases de datos específicas que desea incluir en el grupo. Cuando cree un nuevo grupo, Azure recomendará y marcará las bases de datos más indicadas para su inclusión en el grupo. Puede agregar todas las bases de datos disponibles en el servidor, o bien puede activar o desactivar las bases de datos de la lista inicial como desee.
+En cualquier momento, puede seleccionar las bases de datos específicas que desea incluir en el grupo. (Para crear una nueva base de datos en un grupo, consulte [Agregar y quitar bases de datos](sql-database-elastic-pool-portal.md#add-and-remove-databases-from-the-pool) a continuación.)
+
+Cuando cree un nuevo grupo, Azure recomendará y marcará las bases de datos más indicadas para su inclusión en el grupo. Puede agregar todas las bases de datos disponibles en el servidor, o bien puede activar o desactivar las bases de datos de la lista inicial como desee.
 
    ![Adición de bases de datos][5]
 
@@ -99,19 +101,19 @@ Cuando selecciona una base de datos para agregarla a un grupo, deben cumplirse l
 - Las características actuales que utiliza la base de datos deben estar disponibles en el grupo.
 
 
-## Paso 4: ajuste las características de rendimiento
+## Paso 4: Establecimiento de las características de rendimiento del grupo
 
-El rendimiento del grupo se configura estableciendo los parámetros de rendimiento para el grupo y las bases de datos elásticas del grupo. Tenga en cuenta que la **configuración de bases de datos elásticas** se aplica a todas las bases de datos del grupo.
+El rendimiento del grupo se configura estableciendo los parámetros de rendimiento para el grupo y las bases de datos elásticas del grupo. Tenga en cuenta que la **configuración de Base de datos elástica** se aplica a todas las bases de datos del grupo.
 
    ![Configuración de grupos elásticos][3]
 
-Existen tres parámetros que puede establecer y que definen el rendimiento del grupo: el número garantizado de eDTU del grupo, así como el eDTU MIN y el eDTU MAX de bases de datos elásticas del grupo. La tabla siguiente describe cada uno de estos parámetros y ofrece algunas indicaciones sobre cómo configurarlos. Para saber la configuración de valor disponible específica, consulte la [referencia de grupo de bases de datos elásticas](sql-database-elastic-pool-reference.md).
+Existen tres parámetros que puede establecer y que definen el rendimiento del grupo: el número garantizado de eDTU del grupo, así como el eDTU MIN y el eDTU MAX de bases de datos elásticas del grupo. La tabla siguiente describe cada uno de estos parámetros y ofrece algunas indicaciones sobre cómo configurarlos. Para la configuración de valor disponible específica, vea la [referencia de grupo de bases de datos elásticas](sql-database-elastic-pool-reference.md).
 
 | Parámetro de rendimiento | Descripción |
 | :--- | :--- |
 | **POOL eDTU**: garantía de eDTU para el grupo | El número garantizado de eDTU para el grupo es el número garantizado de eDTU disponibles y compartidas por todas las bases de datos del grupo. <br> El tamaño específico del número garantizado de eDTU para un grupo debe aprovisionarse teniendo en cuenta el uso histórico de eDTU del grupo. Como alternativa, este valor se puede establecer según el número garantizado de DTU por base de datos y el uso de bases de datos activas al mismo tiempo. El número garantizado de DTU para el grupo también guarda relación con la cantidad de almacenamiento disponible para el grupo, ya que por cada DTU que se asigne al grupo se obtiene una cantidad fija de almacenamiento de base de datos. <br> **¿En qué valor debo establecer el número garantizado de eDTU del grupo?** <br>Como mínimo, debe establecer el número garantizado de eDTU del grupo en un valor equivalente al resultado de la operación siguiente: ([n.º de bases de datos] x [promedio de uso de DTU por base de datos]). |
 | **eDTU MIN**: número garantizado de eDTU para cada base de datos | El número garantizado de eDTU por base de datos es el número de eDTU que se garantiza en una base de datos única del grupo. Por ejemplo, en grupos Standard, este número garantizado se puede establecer en 0, 10, 20, 50 o 100 eDTU. O bien, puede no proporcionar ningún número garantizado a las bases de datos del grupo (eDTU MIN=0). <br>**¿En qué valor debo establecer el número garantizado de eDTU por base de datos?** <br>Normalmente, el número garantizado de eDTU por base de datos (eDTU MIN) se establece en cualquier valor entre 0 y el ([promedio de uso por base de datos]). El número garantizado de eDTU por base de datos es un ajuste global que establece el número garantizado de eDTU para todas las bases de datos del grupo. |
-| **eDTU MAX**: límite de eDTU por base de datos | El valor eDTU MAX por base de datos indica el número máximo de eDTU que puede usar cada una de las bases de datos del grupo. Establezca la capacidad de eDTU por base de datos en un valor lo suficientemente alto como para soportar las fluctuaciones de demanda de las bases de datos. Puede establecer esta capacidad en el límite del sistema, que dependerá del nivel de precios del grupo (1000 eDTU en el caso de Premium). La capacidad específica debe soportar los picos de utilización de las bases de datos del grupo. Se admite un cierto grado de exceso de asignación de recursos, ya que el grupo suele basarse en patrones de uso en frío y caliente de las bases de datos, cuando en realidad los picos de demanda no tienen lugar en todas las bases de datos a la vez.<br> **¿En qué valor debo establecer la capacidad de eDTU por base de datos?** <br> Establezca el valor eDTU MAX o límite de eDTU por base de datos en ([uso máximo de base de datos)]. Por ejemplo, suponga que el pico de utilización de cada base de datos es de 50 DTU y solo el 20% de las 100 bases de datos del grupo registran simultáneamente un pico de rendimiento. Si la capacidad de eDTU de cada base de datos se establece en 50 eDTU, deberá asignar una cantidad de recursos cinco veces mayor y establecer el número garantizado de eDTU para el grupo en 1000 eDTU. También debe tener en cuenta que la capacidad de eDTU no es un número garantizado de recursos para las bases de datos, sino que es un valor máximo que puede llegar a alcanzarse si está disponible. |
+| **eDTU MAX**: capacidad de eDTU por base de datos | El valor eDTU MAX por base de datos indica el número máximo de eDTU que puede usar cada una de las bases de datos del grupo. Establezca la capacidad de eDTU por base de datos en un valor lo suficientemente alto como para soportar las fluctuaciones de demanda de las bases de datos. Puede establecer esta capacidad en el límite del sistema, que dependerá del nivel de precios del grupo (1000 eDTU en el caso de Premium). La capacidad específica debe soportar los picos de utilización de las bases de datos del grupo. Se admite un cierto grado de exceso de asignación de recursos, ya que el grupo suele basarse en patrones de uso en frío y caliente de las bases de datos, cuando en realidad los picos de demanda no tienen lugar en todas las bases de datos a la vez.<br> **¿En qué valor debo establecer la capacidad de eDTU por base de datos?** <br> Establezca el valor eDTU MAX o capacidad de eDTU por base de datos en ([uso pico de base de datos)]. Por ejemplo, suponga que el pico de utilización de cada base de datos es de 50 DTU y solo el 20% de las 100 bases de datos del grupo registran simultáneamente un pico de rendimiento. Si la capacidad de eDTU de cada base de datos se establece en 50 eDTU, deberá asignar una cantidad de recursos cinco veces mayor y establecer el número garantizado de eDTU para el grupo en 1000 eDTU. También debe tener en cuenta que la capacidad de eDTU no es un número garantizado de recursos para las bases de datos, sino que es un valor máximo que puede llegar a alcanzarse si está disponible. |
 
 ## Grupos de bases de datos elásticas recomendados
 
@@ -138,9 +140,23 @@ Al igual que las recomendaciones del nivel de precios para un grupo de bases de 
 
 ## Agregar y quitar bases de datos del grupo
 
-Una vez creado el grupo, puede agregarle o quitarle bases de datos activando o desactivando las bases de datos en la página **Agregar bases de datos**.
+### Agregar una base de datos existente al grupo
 
-Después de crear un grupo, también puede usar Transact-SQL para crear bases de datos elásticas nuevas en el grupo y mover las bases de datos dentro y fuera de un grupo. Para obtener información detallada, consulte [Referencia de grupos de bases de datos elásticas - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+Una vez creado el grupo, puede agregar o quitar bases de datos existentes dentro y fuera del grupo al agregar o quitar bases de datos en la página **Bases de datos elásticas** (busque su grupo y haga clic en el vínculo **Bases de datos elásticas** en **Essentials**).
+
+Después de crear un grupo, también puede usar Transact-SQL para crear bases de datos elásticas nuevas en el grupo y mover las bases de datos dentro y fuera de un grupo. Para más información, consulte [Referencia de grupos de bases de datos elásticas de Base de datos SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+
+
+### Agregar una nueva base de datos al grupo
+
+Cree una nueva base de datos en un grupo mediante la búsqueda del grupo deseado y haciendo clic en **Crear base de datos**.
+
+La base de datos SQL ya está configurada para el servidor y el grupo correctos, por lo que debe escribir un nombre y seleccionar las opciones de la base de datos y haga clic en **Aceptar** para crear la nueva base de datos:
+
+
+   ![creación de bases de datos elásticas][13]
+
+
 
 
 ## Supervisión y administración de un grupo de bases de datos elásticas
@@ -201,5 +217,6 @@ Después de crear un grupo de bases de datos elásticas, puede administrar las b
 [10]: ./media/sql-database-elastic-pool-portal/star.png
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
+[13]: ./media/sql-database-elastic-pool-portal/create-database.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->
