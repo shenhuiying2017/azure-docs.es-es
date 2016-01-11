@@ -134,11 +134,11 @@ En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.
 
 Este ejemplo de código muestra el uso de transacciones con las que podrá realizar lo siguiente:
 
-- Iniciar una transacción
+-Iniciar una transacción
 
-- Insertar una fila de datos, actualizar otra fila de datos
+-Insertar una fila de datos, actualizar otra fila de datos
 
-- Confirmar la transacción si la inserción y actualización se realizaron correctamente y revertir la transacción si uno de ellos no lo ha sido
+-Confirmar la transacción si la inserción y actualización se realizaron correctamente y revertir la transacción si uno de ellos no lo ha sido
 
 
 	function Transactions()

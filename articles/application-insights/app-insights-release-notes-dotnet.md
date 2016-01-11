@@ -49,7 +49,7 @@ Consulte [Introducción a Application Insights para .NET](app-insights-asp-net.m
 
 ## Versión 2.0.0-beta2
 - Se ha agregado compatibilidad para ITelemetryProcessor y la posibilidad de configuración a través de código o de la propia configuración. [Habilita el filtrado personalizado en el SDK](app-insights-api-telemetry-processors/#telemetry-processors)
-- Se han quitado los inicializadores de contexto. En su lugar, se usan [inicializadores de telemetría](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers).
+- Se han quitado los inicializadores de contexto. En su lugar, se usan [inicializadores de telemetría]( https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers).
 - Application Insights para .Net Framework 4.6 actualizado. 
 - Los nombres de evento personalizados ahora pueden tener hasta 512 caracteres.
 - El nombre de la propiedad ```OperationContext.Name``` cambia a ```RootName```.
@@ -124,4 +124,4 @@ No existen notas de la versión para versiones anteriores.
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_1223_2015--->

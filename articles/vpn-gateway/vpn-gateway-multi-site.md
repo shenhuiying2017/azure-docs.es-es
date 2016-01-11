@@ -47,7 +47,7 @@ Antes de comenzar la configuración, compruebe que dispone de lo siguiente:
 
 - Una dirección IP IPv4 pública orientada externamente para cada dispositivo VPN. La dirección IP no se puede ubicar detrás de un NAT. Esto es un requisito.
 
-- La versión más reciente de los cmdlets de Azure PowerShell Puede descargar e instalar la versión más reciente desde la sección Windows PowerShell de la página [Descargas](http://azure.microsoft.com/downloads/).
+-   La versión más reciente de los cmdlets de Azure PowerShell Puede descargar e instalar la versión más reciente desde la sección Windows PowerShell de la página [Descargas](http://azure.microsoft.com/downloads/).
 
 - Alguna persona con experiencia en configuración de hardware de VPN No podrá usar scripts de VPN generados automáticamente desde el Portal de Azure clásico para configurar los dispositivos de VPN. Esto significa que tendrá un conocimiento amplio de cómo configurar el dispositivo VPN o trabajar con alguien que lo tenga.
 

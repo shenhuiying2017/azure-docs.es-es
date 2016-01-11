@@ -32,7 +32,7 @@ Antes de comenzar con las instrucciones de este artículo, debe tener una suscri
 
 ##<a id="configuration"></a>¿Cuáles son las diferentes opciones de configuración?
 
-### Almacenamiento adicional
+###Almacenamiento adicional
 
 Durante la configuración, debe especificar una cuenta de almacenamiento de blobs de Azure y un contenedor predeterminado. El clúster usa este contenedor como ubicación de almacenamiento predeterminada. Si lo desea, puede especificar una cuenta de almacenamiento de Azure adicional que también se asociará con el clúster.
 
@@ -40,7 +40,7 @@ Durante la configuración, debe especificar una cuenta de almacenamiento de blob
 
 Para obtener más información sobre el uso de almacenes de blobs secundarios, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](hdinsight-use-blob-storage.md).
 
-### Tienda de metadatos
+###Tienda de metadatos
 
 Spark permite definir esquemas y tablas de Hive con datos sin procesar. Puede guardar estos esquemas y metadatos de las tablas en las tiendas de metadatos externas. El uso de la tienda de metadatos lo ayuda a conservar sus metadatos de Hive, por lo que no es necesario volver a crear tablas de Hive al crear un nuevo clúster. De forma predeterminada, Hive utiliza una base de datos integrada para almacenar esta información. La base de datos incrustada no puede conservar los metadatos cuando se elimina el clúster.
 
@@ -51,7 +51,7 @@ Para obtener instrucciones sobre cómo crear una Base de datos SQL en Azure, vea
 Puede instalar componentes adicionales o personalizar la configuración del clúster mediante el uso de scripts durante la creación. Tales scripts se invocan mediante la opción de **Acción de script**, una opción de configuración que se puede usar a partir de los cmdlets de Windows PowerShell de HDInsight, en el Portal de Azure o el SDK de .NET para HDInsight. Para obtener más información, consulte [Personalizar el clúster de HDInsight mediante la acción de script][hdinsight-customize-cluster].
 
 
-### Redes virtuales
+###Redes virtuales
 
 [Red virtual de Azure](http://azure.microsoft.com/documentation/services/virtual-network/) permite crear una red segura y persistente que contenga los recursos que necesita para la solución. Una red virtual permite hacer lo siguiente:
 
@@ -77,7 +77,7 @@ Para obtener más información sobre las características, las ventajas y la fun
 >
 > Se recomienda encarecidamente designar una única subred para un clúster.
 
-##<a id="portal"></a> Uso del Portal de vista previa de Azure
+##<a id="portal"></a> Uso del portal de vista previa de Azure
 
 Los clústeres Spark en HDInsight usan un contenedor de almacenamiento de blobs de Azure como sistema de archivos predeterminado. Es preciso tener una cuenta de almacenamiento de Azure ubicada en el mismo centro de datos antes de crear un clúster de HDInsight. Para obtener más información, consulte [Uso de Almacenamiento de blobs de Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obtener información acerca de la creación de una cuenta de almacenamiento de Azure, consulte [Creación de una cuenta de almacenamiento][azure-create-storageaccount].
 
@@ -189,7 +189,7 @@ Los clústeres Spark en HDInsight usan un contenedor de almacenamiento de blobs 
 	* **Panel de clúster**: inicia la hoja Panel de clúster desde la que puede iniciar el panel de clúster propio o iniciar cuadernos de Zeppelin y Jupyter.
 
 
-##<a id="powershell"></a>Uso de Azure PowerShell
+##<a id="powershell"></a> Uso de Azure PowerShell
 
 Vea [Creación de clústeres de HDInsight](hdinsight-provision-clusters.md#create-using-azure-powershell).
 

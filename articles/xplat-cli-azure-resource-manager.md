@@ -1,6 +1,6 @@
 <properties
 	pageTitle="CLI de Azure con el Administrador de recursos | Microsoft Azure"
-	description="Use CLI de Azure para Mac, Linux y Windows Azure para implementar varios recursos como un grupo de recursos."
+	description="Use CLI de Azure para Mac, Linux y Microsoft Azure para implementar varios recursos como un grupo de recursos."
 	editor=""
 	manager="timlt"
 	documentationCenter=""
@@ -210,4 +210,4 @@ Para ver información registrada sobre operaciones realizadas en un grupo, utili
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_1223_2015--->

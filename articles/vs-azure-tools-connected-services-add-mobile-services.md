@@ -49,7 +49,9 @@ Puede usar el cuadro de diálogo Servicios conectados para conectarse a Servicio
 
 1. En el cuadro de diálogo **Servicios móviles de Azure**, seleccione un servicio móvil existente si tiene uno. Si necesita crear un servicio móvil de Azure, siga el procedimiento indicado a continuación para ello. Si no, continúe con el paso siguiente.
 
-    Para crear una cuenta de servicio móvil: 1. elija el vínculo **Creación de un servicio** de la parte inferior del cuadro de diálogo. ![Agregar nuevo servicio conectado móvil](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
+    Para crear una cuenta de servicio móvil:
+    1. elija el vínculo **Creación de un servicio** de la parte inferior del cuadro de diálogo.
+        ![Agregar nuevo servicio conectado móvil](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
 
 
 

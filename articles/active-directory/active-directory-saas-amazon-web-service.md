@@ -96,7 +96,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 1. En el Portal de Azure AD, en la página de integración de aplicaciones de **Amazon Web Service (AWS)**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br>![Configurar inicio de sesión único][7]<br>
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Amazon Web Service (AWS)?**, seleccione **Inicio de sesión único de Windows Azure AD** y, luego , haga clic en **Siguiente**. <br><br>![Configurar inicio de sesión único][8]<br>
+2. En la página **¿Cómo desea que los usuarios inicien sesión en Amazon Web Service (AWS)?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, luego , haga clic en **Siguiente**. <br><br>![Configurar inicio de sesión único][8]<br>
 
 3. En la página de diálogo **Configurar las opciones de la aplicación**, haga clic en Siguiente. <br><br>![Configurar las opciones de la aplicación][9]<br>
  
@@ -320,4 +320,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_1223_2015--->

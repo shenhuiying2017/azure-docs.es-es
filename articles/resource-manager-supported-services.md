@@ -18,7 +18,8 @@
 
 # Proveedores, regiones, versiones de API y esquemas del Administrador de recursos
 
-El Administrador de recursos de Azure le proporciona una nueva manera de implementar y administrar los servicios que conforman sus aplicaciones. La mayoría de los servicios, aunque no todos, admiten el Administrador de recursos y algunos lo admiten solo parcialmente. Microsoft habilitará el Administrador de recursos para cada servicio que sea importante para las soluciones futuras, pero hasta que la compatibilidad sea coherente, debe conocer el estado actual de cada servicio. Este tema proporciona una lista de proveedores de recursos admitidos para el Administrador de recursos de Azure.
+El Administrador de recursos de Azure le proporciona una nueva manera de implementar y administrar los servicios que conforman sus aplicaciones.
+La mayoría de los servicios, aunque no todos, admiten el Administrador de recursos y algunos lo admiten solo parcialmente. Microsoft habilitará el Administrador de recursos para cada servicio que sea importante para las soluciones futuras, pero hasta que la compatibilidad sea coherente, debe conocer el estado actual de cada servicio. Este tema proporciona una lista de proveedores de recursos admitidos para el Administrador de recursos de Azure.
 
 Al implementar sus recursos, también debe saber qué regiones admiten esos recursos y qué versiones de API están disponibles para los recursos. En la sección [Regiones admitidas](#supported-regions) se muestra cómo averiguar qué regiones funcionarán para su suscripción y recursos. En la sección [Versiones de API admitidas](#supported-api-versions) se muestra cómo determinar las versiones de API que puede usar.
 
@@ -108,9 +109,11 @@ Al trabajar con aplicaciones web, no se puede mover solo un plan del Servicio de
 
 ## Administración de identidad y acceso 
 
-| Servicio | Administrador de recursos habilitado | Mover recursos | API de REST | Esquema | Plantillas de inicio rápido |
-| ------- | ------- | -------------- | -------- | ------ | ------ |
-| Azure Active Directory | No | - | - | - | | Azure Active Directory B2C | No | - | - | - | | Multi-Factor Authentication | No | - | - | - |
+| Servicio | Administrador de recursos habilitado | Portal | Mover recursos | API de REST | Esquema |
+| ------- | ------- | -------------- | -------------- | -------- | ------ |
+| Azure Active Directory | No | No | - | - | - | 
+| Azure Active Directory B2C | No | No | - | - | - | 
+| Multi-Factor Authentication | No | No | - | - | - |
 
 ## Servicios de desarrollador 
 

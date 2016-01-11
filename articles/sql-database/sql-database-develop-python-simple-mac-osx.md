@@ -114,12 +114,12 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 - Revertir la transacción para deshacer la inserción
 
 
-	import pymssql
-	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
-	cursor = conn.cursor()
-	cursor.execute("BEGIN TRANSACTION")
-	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
-	cnxn.rollback()
+		import pymssql
+		conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
+		cursor = conn.cursor()
+		cursor.execute("BEGIN TRANSACTION")
+		cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
+		cnxn.rollback()
 
 
 ## Pasos siguientes

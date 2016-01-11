@@ -44,12 +44,64 @@ Antes de entrar en los detalles de la implementación de una aplicación existen
   En el mundo de Service Fabric, las aplicaciones son “unidades que se pueden actualizar”. Una aplicación se puede actualizar como una sola unidad donde la plataforma administra los posibles errores (y posibles reversiones). La plataforma garantiza que el proceso de actualización es completamente satisfactorio, o bien, si se produce un error, no deja a la aplicación en un estado desconocido o inestable.
 
 
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <ApplicationManifest ApplicationTypeName="actor2Application"
+                       ApplicationTypeVersion="1.0.0.0"
+                       xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="actor2Pkg" ServiceManifestVersion="1.0.0.0" />
+      <ConfigOverrides />
+    </ServiceManifestImport>
+
+    <DefaultServices>
+      <Service Name="actor2">
+        <StatelessService ServiceTypeName="actor2Type">
+          <SingletonPartition />
+        </StatelessService>
+      </Service>
+    </DefaultServices>
+
+  </ApplicationManifest>
+  ```
+
 * **Manifiesto de servicio**
 
   El manifiesto de servicio describe los componentes de un servicio. Incluye datos, como el nombre y tipo de servicio (que es información que Service Fabric usa para administrar el servicio) y sus componentes de código, configuración y datos. El manifiesto de servicio también incluye algunos parámetros adicionales que pueden usarse para configurar el servicio una vez que se implementa.
 
   No vamos a entrar en detalles sobre todos los parámetros que están disponibles en el manifiesto de servicio. Revisaremos el subconjunto que se requiere para que una aplicación existente se ejecute en Service Fabric.
 
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <ServiceManifest Name="actor2Pkg"
+                   Version="1.0.0.0"
+                   xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ServiceTypes>
+      <StatelessServiceType ServiceTypeName="actor2Type" />
+    </ServiceTypes>
+
+    <CodePackage Name="Code" Version="1.0.0.0">
+      <EntryPoint>
+        <ExeHost>
+          <Program>actor2.exe</Program>
+        </ExeHost>
+      </EntryPoint>
+    </CodePackage>
+
+    <ConfigPackage Name="Config" Version="1.0.0.0" />
+
+    <Resources>
+      <Endpoints>
+        <Endpoint Name="ServiceEndpoint" />
+      </Endpoints>
+    </Resources>
+  </ServiceManifest>
+  ```
 
 ## Estructura de archivo del paquete de aplicación
 Para implementar una aplicación en Service Fabric, la aplicación debe seguir una estructura de directorios predefinida. A continuación, se muestra un ejemplo de esta estructura:

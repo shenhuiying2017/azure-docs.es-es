@@ -81,7 +81,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
     ![Configurar las opciones de la aplicación](./media/active-directory-saas-empcenter-tutorial/IC802921.png "Configurar las opciones de la aplicación")
 
     1.  En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en la aplicación EmpCenter (p. ej.: **https://partner-authenticati.empcenter.com/workforce/SSO.do*)).
-2.  Haga clic en **Siguiente**.
+    2.  Haga clic en **Siguiente**.
 
 4.  En la página **Configurar inicio de sesión único en EmpCenter**, para descargar los metadatos, haga clic en **Descargar metadatos** y luego guarde el archivo de metadatos en el equipo.
 
