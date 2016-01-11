@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="12/17/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -23,8 +23,10 @@
 **Base de datos única**
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-import.md)
+- [Azure Portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
+- [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
 
 Este artículo proporciona instrucciones para crear una base de datos SQL de Azure a partir de un archivo BACPAC mediante el [Portal de Azure](https://portal.azure.com).
 
@@ -110,4 +112,4 @@ Al hacer clic en **Crear** se envía una solicitud de importación de base de da
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

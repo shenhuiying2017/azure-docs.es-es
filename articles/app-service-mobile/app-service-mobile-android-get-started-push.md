@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="12/18/2015"
 	ms.author="yuaxu"/>
 
 # Incorporación de notificaciones push a la aplicación de Android
@@ -49,11 +49,9 @@ Para completar este tutorial, necesitará lo siguiente:
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
-## <a name="publish-the-service"></a>Publicación del back-end móvil en Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
 ## Incorporación de notificaciones de inserción a la aplicación
+
+Debe asegurarse de que su proyecto de aplicación Android está listo para controlar las notificaciones de inserción.
 
 ###Comprobación de la versión del SDK de Android
 
@@ -82,4 +80,4 @@ Puede probar la aplicación conectando directamente un teléfono Android con un 
 <!-- URLs -->
 [inicio rápido de Android]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1210_2015--->
+<!----HONumber=AcomDC_1223_2015-->

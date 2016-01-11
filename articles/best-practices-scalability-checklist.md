@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/16/2015"
    ms.author="masashin"/>
 
 # Lista de comprobación de escalabilidad
@@ -66,4 +66,4 @@
 - **Posibilidad de reducir el número de cuentas de servicio**. Por ejemplo, utilice una cuenta específica para obtener acceso a recursos o servicios que imponen un límite de conexiones o consiga un mejor rendimiento manteniendo menos conexiones. Este enfoque es común para servicios como bases de datos pero puede afectar a la capacidad de auditar con precisión las operaciones debido a la suplantación del usuario original.
 - **Realización de pruebas de generación de perfiles de rendimiento y de carga ** durante el desarrollo, como parte de las rutinas de prueba y antes de la versión final para asegurarse de que la aplicación funciona y escala como corresponde. Estas pruebas deben realizarse en el mismo tipo de hardware que la plataforma de producción y con los mismos tipos y cantidades de datos y de carga de usuarios que se encontrarán en producción. Para obtener más información, consulte la página [Probar el rendimiento de un servicio en la nube](https://msdn.microsoft.com/library/azure/hh369930.aspx) en el sitio web de Microsoft.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

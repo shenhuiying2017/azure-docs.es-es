@@ -28,10 +28,6 @@ Este tema muestra cómo realizar tareas comunes, como crear, actualizar y escala
 
 ## Requisitos previos
 
->[AZURE.IMPORTANT]La primera vez que crea una caché en Redis en una suscripción mediante el portal de Azure, el portal registra el `Microsoft.Cache` espacio de nombres para esa suscripción. Si intenta crear la primera caché en Redis en una suscripción mediante PowerShell, primero debe registrar ese espacio de nombres mediante el comando siguiente; en caso contrario los cmdlets como `New-AzureRmRedisCache` y `Get-AzureRmRedisCache` producirán un error.
->
->`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
-
 Si ya ha instalado Azure PowerShell, debe tener la versión 1.0.0 (o posterior) de Azure PowerShell. Puede comprobar la versión de Azure PowerShell que ha instalado con este comando en el símbolo del sistema de Azure PowerShell.
 
 	Get-Module azure | format-table version
@@ -60,7 +56,7 @@ Para obtener ayuda detallada con cualquier cmdlet que aparezca en este tutorial,
 
 	Get-Help <cmdlet-name> -Detailed
 
-Por ejemplo, para obtener ayuda para el cmdlet `New-AzureRmRedisCache`, escriba:
+Por ejemplo, para ayuda para el cmdlet `New-AzureRmRedisCache`, escriba:
 
 	Get-Help New-AzureRmRedisCache -Detailed
 
@@ -79,7 +75,7 @@ La tabla siguiente contiene las propiedades y las descripciones de los parámetr
 | RedisConfiguration | Especifica la configuración de Redis para maxmemory-delta, maxmemory-policy, y notify-keyspace-events. Tenga en cuenta que maxmemory-delta y notify-keyspace-events solo están disponibles para memorias caché estándar y premium. | |
 | EnableNonSslPort | Indica si el puerto no SSL está habilitado. | False |
 | MaxMemoryPolicy | Este parámetro está en desuso; utilice RedisConfiguration en su lugar. | |
-| StaticIP | Si hospeda la memoria caché en una red virtual, especifica una dirección IP única en la subred de la memoria caché. | |
+| StaticIP | Si hospeda la memoria caché en una red virtual, especifica una dirección IP única en la subred de la memoria caché. Si no se ofrece, elija una para usted en la subred. | |
 | Subred | Si hospeda la memoria caché en una red virtual, especifica el nombre de la subred en la que se va a implementar la memoria caché. | |
 | VirtualNetwork | Si hospeda la memoria caché en una red virtual, especifica el identificador de recurso de la red virtual en la que se va a implementar la memoria caché. | |
 | KeyType | Especifica la clave de acceso que hay que volver a generar cuando se renueven las claves de acceso. Los valores válidos son: primario, secundario | | | |
@@ -88,6 +84,10 @@ La tabla siguiente contiene las propiedades y las descripciones de los parámetr
 ## Creación de una memoria caché en Redis
 
 Se crean nuevas instancias de caché en Redis de Azure mediante el cmdlet [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx).
+
+>[AZURE.IMPORTANT]La primera vez que crea una caché en Redis en una suscripción mediante el portal de Azure, el portal registra el espacio de nombres `Microsoft.Cache` para esa suscripción. Si intenta crear la primera caché en Redis en una suscripción mediante PowerShell, primero debe registrar ese espacio de nombres mediante el comando siguiente; en caso contrario los cmdlets como `New-AzureRmRedisCache` y `Get-AzureRmRedisCache` producirán un error.
+>
+>`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
 Para ver una lista de parámetros disponibles y sus descripciones para `New-AzureRmRedisCache`, ejecute el siguiente comando.
 
@@ -242,24 +242,25 @@ El comando siguiente actualiza el parámetro maxmemory-policy para la caché en 
 
 	Set-AzureRmRedisCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
 
-## Escalamiento de una caché en Redis con PowerShell
+<a name="scale"></a>
+## Para escalar una caché en Redis
 
-Se puede utilizar `Set-AzureRmRedisCache` para escalar una instancia de caché en Redis de Azure si se modifican las propiedades `Size`, `Sku`, o `ShardCount`.
+Se puede usar `Set-AzureRmRedisCache` para escalar una instancia de caché en Redis de Azure si se modifican las propiedades `Size`, `Sku`, o `ShardCount`.
 
 >[AZURE.NOTE]El escalado de una caché con PowerShell está sujeto a los mismos límites y directrices que el escalado de una caché desde el portal de Azure. Puede escalar a un nivel de precios diferente con las siguientes restricciones.
 >
 >-	No puede escalar a una memoria caché de nivel **Premium** o desde esta.
->-	No puede escalar de una memoria caché de nivel **estándar** a una de nivel **básico**.
->-	Puede escalar desde una memoria caché de nivel **básico** a una memoria caché de nivel **estándar**, pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
+>-	No puede escalar de una memoria caché **Standard** a una **Basic**.
+>-	Puede escalar desde una memoria caché **Basic** a una memoria caché **Standard**, pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
 >-	No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)**.
 >
->Para más información, consulte [Escalado de caché en Redis de Azure](cache-how-to-scale.md).
+>Para más información, vea [Escalado de caché en Redis de Azure](cache-how-to-scale.md).
 
 En el ejemplo siguiente se muestra cómo escalar una memoria caché denominada `myCache` a una caché de 2,5 GB. Tenga en cuenta que este comando funcionará con una memoria caché básica o una estándar.
 
 	Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
-Después de emitir este comando, el estado de la memoria caché se devuelve (de forma similar a una llamada a `Get-AzureRmRedisCache`). Tenga en cuenta que el `ProvisioningState` es `Scaling`.
+Después de emitir este comando, el estado de la memoria caché se devuelve (de forma similar a una llamada a `Get-AzureRmRedisCache`). Tenga en cuenta que `ProvisioningState` es `Scaling`.
 
 	PS C:\> Set-AzureRmRedisCache -Name myCache -ResourceGroupName myGroup -Size 2.5GB
 	
@@ -288,13 +289,13 @@ Después de emitir este comando, el estado de la memoria caché se devuelve (de 
 	TenantSettings     : {}
 	ShardCount         :
 
-Una vez completada la operación de escalado el `ProvisioningState` cambiará a `Succeeded`. Si necesita realizar una operación de escalado subsiguiente, como cambiar de básica a estándar y, a continuación, cambiar el tamaño, debe esperar hasta que se complete la operación anterior o recibirá un error similar al siguiente.
+Cuando se complete la operación de escalado, `ProvisioningState` cambiará a `Succeeded`. Si necesita realizar una operación de escalado subsiguiente, como cambiar de básica a estándar y, a continuación, cambiar el tamaño, debe esperar hasta que se complete la operación anterior o recibirá un error similar al siguiente.
 
 	Set-AzureRmRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
 
 ## Obtención de información acerca de una caché de Redis
 
-Puede recuperar información acerca de una caché con el cmdlet [AzureRmRedisCache Get](https://msdn.microsoft.com/library/azure/mt634514.aspx).
+Puede recuperar información sobre una caché con el cmdlet [Get-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634514.aspx).
 
 Para ver una lista de parámetros disponibles y sus descripciones para `Get-AzureRmRedisCache`, ejecute el siguiente comando.
 
@@ -335,15 +336,15 @@ Para ver una lista de parámetros disponibles y sus descripciones para `Get-Azur
 	        OutBuffer, PipelineVariable, and OutVariable. For more information, see
 	        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-Para devolver información acerca de todas las cachés de la suscripción actual, ejecute `Get-AzureRmRedisCache` sin ningún parámetro.
+Para devolver información sobre todas las cachés de la suscripción actual, ejecute `Get-AzureRmRedisCache` sin ningún parámetro.
 
 	Get-AzureRmRedisCache
 
-Para devolver información acerca de todas las cachés de un grupo de recursos específico, ejecute `Get-AzureRmRedisCache` con el parámetro `ResourceGroupName`.
+Para devolver información sobre todas las cachés de un grupo de recursos específico, ejecute `Get-AzureRmRedisCache` con el parámetro `ResourceGroupName`.
 
 	Get-AzureRmRedisCache -ResourceGroupName myGroup
 
-Para devolver información acerca de una caché específica, ejecute `Get-AzureRmRedisCache` con el parámetro `Name` que contiene el nombre de la caché y el parámetro `ResourceGroupName` con el grupo de recursos que contiene esa caché.
+Para devolver información sobre una caché específica, ejecute `Get-AzureRmRedisCache` con el parámetro `Name` que contiene el nombre de la caché y el parámetro `ResourceGroupName` con el grupo de recursos que contiene esa caché.
 
 	PS C:\> Get-AzureRmRedisCache -Name myCache -ResourceGroupName myGroup
 	
@@ -371,7 +372,7 @@ Para devolver información acerca de una caché específica, ejecute `Get-AzureR
 
 ## Recuperación de las claves de acceso de una caché en Redis
 
-Para recuperar las claves de acceso de la caché, puede usar el cmdlet [AzureRmRedisCacheKey Get](https://msdn.microsoft.com/library/azure/mt634516.aspx).
+Para recuperar las claves de acceso de la caché, puede usar el cmdlet [Get-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634516.aspx).
 
 Para ver una lista de parámetros disponibles y sus descripciones para `Get-AzureRmRedisCacheKey`, ejecute el siguiente comando.
 
@@ -463,7 +464,7 @@ Para regenerar la clave principal o secundaria de la caché, llame al cmdlet `Ne
 
 ## Eliminación de una caché en Redis
 
-Para eliminar una caché en Redis, utilice el cmdlet [Remove-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634515.aspx).
+Para eliminar una caché en Redis, use el cmdlet [Remove-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634515.aspx).
 
 Para ver una lista de parámetros disponibles y sus descripciones para `Remove-AzureRmRedisCache`, ejecute el siguiente comando.
 
@@ -568,4 +569,4 @@ Para obtener más información acerca de Windows PowerShell con Azure, consulte 
 - [Blog de Windows PowerShell](http://blogs.msdn.com/powershell): obtenga información acerca de las nuevas características de Windows PowerShell.
 - [Blog ¡Hola, chicos del scripting!](http://blogs.technet.com/b/heyscriptingguy/): Obtenga sugerencias y trucos del mundo real de la comunidad de Windows PowerShell.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

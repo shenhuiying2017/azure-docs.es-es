@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="12/23/2015"
    ms.author="tomfitz"/>
 
 # Expresiones de la plantilla del Administrador de recursos de Azure
@@ -167,13 +167,14 @@ El Administrador de recursos ofrece las siguientes expresiones para trabajar con
 - [replace](#replace)
 - [split](#split)
 - [cadena](#string)
+- [substring](#substring)
 - [toLower](#tolower)
 - [toUpper](#toupper)
 - [trim](#trim)
 - [uniqueString](#uniquestring)
 - [uri](#uri)
 
-Para obtener el número de caracteres de una cadena o una matriz, vea [longitud](#length).
+Para el número de caracteres de una cadena o una matriz, vea [longitud](#length).
 
 <a id="base64" />
 ### base64
@@ -292,6 +293,28 @@ En el siguiente ejemplo se convierte el valor del parámetro proporcionado por e
     },
     "variables": { 
         "stringValue": "[string(parameters('appId'))]"
+    }
+
+<a id="substring" />
+### substring
+
+**substring(stringToParse, startIndex, length)**
+
+Devuelve una subcadena que empieza en la posición de carácter especificada y que contiene el número especificado de caracteres.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| stringToParse | Sí | La cadena original desde la que se extrae la subcadena.
+| startIndex | No | La posición de carácter inicial basado en cero de la subcadena.
+| length | No | El número de caracteres de la subcadena.
+
+En el ejemplo siguiente se extraen los tres primeros caracteres de un parámetro.
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "prefix": "[substring(parameters('inputString'), 0, 3)]"
     }
 
 <a id="tolower" />
@@ -417,7 +440,7 @@ El Administrador de recursos ofrece las siguientes expresiones para obtener valo
 - [parameters](#parameters)
 - [variables](#variables)
 
-Para obtener valores de recursos, grupos de recursos o suscripciones, vea [Expresiones de recursos](#resource-expressions).
+Para valores de recursos, grupos de recursos o suscripciones, vea [Expresiones de recursos](#resource-expressions).
 
 <a id="deployment" />
 ### deployment
@@ -743,7 +766,7 @@ En el ejemplo siguiente se muestra la función de suscripción a la que se llama
 ## Pasos siguientes
 - Para una descripción de las secciones de una plantilla del Administrador de recursos de Azure, vea [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para combinar varias plantillas, vea [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
-- Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
-- Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
+- Para iterar una cantidad de veces determinada al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
+- Para saber cómo implementar la plantilla que creó, vea [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

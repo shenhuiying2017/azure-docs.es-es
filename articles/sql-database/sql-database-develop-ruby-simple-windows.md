@@ -14,13 +14,27 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/08/2015"
-	ms.author="mebha"/>
+	ms.date="12/17/2015"
+	ms.author="meetb"/>
 
 
 # Conexión a Base de datos SQL mediante Ruby en Windows
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
+<!--
+Older Selector technique, with dynamic drop-down lists.
+ [ A ZURE . I NCLUDE [s ql-database-develop-includes-selector-language-platform-depth](../../inclu des/sql-database-develop-includes-selector-language-platform-depth.m d)]
+-->
+
+
+> [AZURE.SELECTOR]
+- [C#](sql-database-develop-dotnet-simple.md)
+- [PHP](sql-database-develop-php-simple-windows.md)
+- [Python](sql-database-develop-python-simple-windows.md)
+- [Ruby](sql-database-develop-ruby-simple-windows.md)
+- [Java](sql-database-develop-java-simple-windows.md)
+- [Node.js](sql-database-develop-nodejs-simple-windows.md)
+
 
 En este tema se presenta un ejemplo de código Ruby que se ejecuta en un equipo Windows con Windows 8.1 para conectarse a una base de datos de Base de datos SQL de Azure.
 
@@ -30,17 +44,17 @@ En este tema se presenta un ejemplo de código Ruby que se ejecuta en un equipo 
 
 Abra el terminal e instale lo siguiente:
 
-**1) Ruby:** si el equipo no tiene Ruby, instálelo. En el caso de nuevos usuarios de Ruby, se recomienda usar los instaladores de Ruby 2.1.X. Proporcionan un lenguaje estable y una amplia lista de paquetes (gemas) que son compatibles y están actualizados. [Vaya a página de descarga de Ruby](http://rubyinstaller.org/downloads/) y descargue el instalador de 2.1.x adecuado. Por ejemplo, si se encuentra en un equipo de 64 bits, descargue el instalador de **Ruby 2.1.6 (x 64)**. <br/><br/>Una vez descargado el instalador, haga lo siguiente:
+**1) Ruby:** si el equipo no tiene Ruby, instálelo. En el caso de nuevos usuarios de Ruby, se recomienda usar los instaladores de Ruby 2.1.X. Proporcionan un lenguaje estable y una amplia lista de paquetes (gemas) que son compatibles y están actualizados. [Vaya a página de descarga de Ruby](http://rubyinstaller.org/downloads/) y descargue el instalador adecuado de 2.1.x. Por ejemplo, si se encuentra en un equipo de 64 bits, descargue el instalador de **Ruby 2.1.6 (x 64)**. <br/><br/>Una vez descargado el instalador, haga lo siguiente:
 
 
 - Haga doble clic en el archivo para iniciar el instalador.
 
 - Seleccione el idioma y acepte los términos.
 
-- En la pantalla de configuración de la instalación, active las casillas situadas junto a *Add Ruby executables to your PATH* (Agregar ejecutables de Ruby a su PATH) y *Associate .rb and .rbw files with this Ruby installation* (Asociar archivos .rb y .rbw a esta instalación de Ruby).
+- En la pantalla de configuración de la instalación, active las casillas situadas junto a *Add Ruby executables to your PATH* y *Associate .rb and .rbw files with this Ruby installation*.
 
 
-**2) DevKit:** descargue DevKit desde la [página RubyInstaller](http://rubyinstaller.org/downloads/).
+**2) DevKit:** descargar DevKit desde la [página RubyInstaller](http://rubyinstaller.org/downloads/)
 
 Una vez finalizada la descarga, haga lo siguiente:
 
@@ -67,7 +81,7 @@ Ahora tiene un Ruby totalmente funcional con RubyGems.
 
 ### Base de datos SQL
 
-Consulte la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
+Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
 
 
 ## Paso 1: Obtención de detalles de la conexión
@@ -105,7 +119,7 @@ En el ejemplo de código, la función [TinyTds::Result](https://github.com/rails
 
 En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) de forma segura, pasar parámetros que protejan la aplicación ante vulnerabilidad de [inyección de código SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) y recuperar el valor [Clave principal](https://msdn.microsoft.com/library/ms179610.aspx) generado automáticamente.
 
-Para usar TinyTDS con Azure, se recomienda ejecutar varias instrucciones `SET` para cambiar la forma en que la sesión actual trata determinada información. Las instrucciones `SET` recomendadas se proporcionan en el código de ejemplo. Por ejemplo, `SET ANSI_NULL_DFLT_ON` permitirá crear nuevas columnas para permitir valores NULL, aunque no se indique explícitamente el estado de nulabilidad de la columna.
+Para usar TinyTDS con Azure, se recomienda ejecutar varias instrucciones `SET` para cambiar la forma en que la sesión actual trata determinada información. Las instrucciones `SET` recomendadas se ofrecen en el código de ejemplo. Por ejemplo, `SET ANSI_NULL_DFLT_ON` permitirá crear nuevas columnas para permitir valores null, aunque no se indique explícitamente el estado de aceptación de valores NULL de la columna.
 
 Para estar en consonancia con el formato [datetime](http://msdn.microsoft.com/library/ms187819.aspx) de Microsoft SQL Server, use la función [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) para convertir al formato de fecha y hora correspondiente.
 
@@ -130,4 +144,4 @@ Para estar en consonancia con el formato [datetime](http://msdn.microsoft.com/li
     puts row
     end
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

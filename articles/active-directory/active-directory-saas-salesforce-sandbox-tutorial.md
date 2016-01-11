@@ -1,5 +1,20 @@
-<properties pageTitle="Tutorial: Integración de Azure Active Directory con Salesforce Sandbox | Microsoft Azure" description="Aprenda cómo usar Salesforce Sandbox con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="10/07/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Tutorial: Integración de Azure Active Directory con Salesforce Sandbox | Microsoft Azure" description="Aprenda cómo usar Salesforce Sandbox con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    services="active-directory" 
+    authors="jeevansd"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="12/18/2015" 
+    ms.author="jeedes" />
+
+
 #Tutorial: Integración de Azure Active Directory con Salesforce Sandbox
 >[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=521878).
   
@@ -191,4 +206,4 @@ Ahora debería esperar 10 minutos y comprobar si la cuenta se ha sincronizado en
   
 Si quiere probar su configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

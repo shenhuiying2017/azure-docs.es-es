@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/25/2015"
+   ms.date="12/17/2015"
    ms.author="prkumar"/>
 
 
@@ -61,7 +61,7 @@ Una vez creada la aplicación de la API, ahora puede usar el agente de escucha d
 9.	Por último, para enviar una respuesta, agregue otro agente de escucha de HTTP y seleccione la acción Enviar respuesta HTTP. En Id. de solicitud, seleccione el RequestID obtenido del agente de escucha HTTP y rellene el cuerpo de la respuesta y el estado HTTP que desee devolver: ![][9]
 
 ## Uso de la acción de HTTP
-Las aplicaciones lógicas admiten de forma nativa la acción de HTTP y no es necesario crear una aplicación de API primero para poder usarla. Puede insertar una acción de HTTP en cualquier momento en la aplicación lógica y elegir el URI, los encabezados y el cuerpo de la llamada. La acción HTTP admite varias opciones para la seguridad del cliente. Para utilizar estas opciones, consulte el artículo [aquí](http://aka.ms/logicapphttpauth).
+Las aplicaciones lógicas admiten de forma nativa la acción de HTTP y no es necesario crear una aplicación de API primero para poder usarla. Puede insertar una acción de HTTP en cualquier momento en la aplicación lógica y elegir el URI, los encabezados y el cuerpo de la llamada. La acción HTTP admite varias opciones para la seguridad del cliente. Vea las [opciones de seguridad del lado cliente](../scheduler-outbound-authentication.md).
 
 El resultado de la acción de HTTP son los encabezados y el cuerpo, que se pueden usar en el flujo similar al de cómo se consume el resultado de otras acciones y conectores.
 
@@ -86,4 +86,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

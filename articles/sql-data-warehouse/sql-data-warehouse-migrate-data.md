@@ -3,8 +3,8 @@
    description="Sugerencias para migrar los datos a Almacenamiento de datos SQL de Azure a fin de desarrollar soluciones."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="12/17/2015"
+   ms.author="barbkess"/>
 
 # Migración de los datos
 El objetivo principal al migrar datos es rellenar la base de datos SQLDW. Este proceso se puede lograr de varias maneras. Puede usarse Copia de ADF, SSIS y bcp para lograr este objetivo. Sin embargo, a medida que la cantidad de datos aumente debería pensar en descomponer en pasos el proceso de migración de datos. Esto le ofrece la posibilidad de optimizar cada paso en cuanto a rendimiento y resistencia para garantizar una migración de datos sin problemas.
@@ -179,7 +179,7 @@ Para obtener más información sobre la migración, vea [Migración de la soluci
 [Migración de la solución a Almacenamiento de datos SQL]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [Uso de bcp para cargar datos en Almacenamiento de datos SQL]: sql-data-warehouse-load-with-bcp.md
-[Uso de PolyBase para cargar datos en Almacenamiento de datos SQL]: sql-data-warehouse-load-with-polybase.md
+[Uso de PolyBase para cargar datos en Almacenamiento de datos SQL]: sql-data-warehouse-get-started-load-with-polybase.md
 
 
 <!--MSDN references-->
@@ -194,4 +194,4 @@ Para obtener más información sobre la migración, vea [Migración de la soluci
 [Adaptador de destino de ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
 [documentación de SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

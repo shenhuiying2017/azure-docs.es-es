@@ -50,9 +50,11 @@ Use el procedimiento que corresponda al tipo de proyecto de back-end: [back-end 
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
+4. Vuelva a publicar el proyecto de servidor.
+
 ### <a name="nodejs"></a>Proyecto de back-end de Node.js
 
-1. Si no lo ha hecho todavía, [descargue el proyecto de inicio rápido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) o utilice el [editor en línea del Portal de Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+1. Si no lo ha hecho todavía, [descargue el proyecto de inicio rápido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) o use el [editor en línea del Portal de Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
  
 1. Reemplace el código existente en el archivo todoitem.js por lo siguiente:
 
@@ -103,4 +105,4 @@ Use el procedimiento que corresponda al tipo de proyecto de back-end: [back-end 
 
 2. Cuando edite el archivo en el equipo local, vuelva a publicar el proyecto de servidor.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

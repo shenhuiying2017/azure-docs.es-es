@@ -3,7 +3,7 @@
 	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory y DocuSign."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2015"
-	ms.author="markvi"/>
+	ms.date="12/18/2015"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Integración de Azure Active Directory con DocuSign
@@ -208,4 +208,4 @@ Para obtener más información sobre el Panel de acceso, consulte Introducción 
 [42]: ./media/active-directory-saas-docussign-tutorial/tutorial_docusign_17.png
 [43]: ./media/active-directory-saas-docussign-tutorial/tutorial_docusign_18.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

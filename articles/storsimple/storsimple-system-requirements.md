@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/14/2015"
+   ms.date="12/18/2015"
    ms.author="alkohli"/>
 
 # Software de StorSimple, alta disponibilidad y requisitos de red
@@ -103,17 +103,12 @@ Update 2 tiene varias mejoras relacionadas con las redes y las métricas de enru
 
 - Un conjunto de valores predeterminados se han asignado a interfaces de red. 	
 		
-- Considere una tabla de ejemplo que se muestra a continuación con valores (ejemplo) asignados a las diversas interfaces de red si están habilitadas para la nube o deshabilitadas para la nube pero con una puerta de enlace configurada.
+- Considere una tabla de ejemplo que se muestra a continuación con valores asignados a las diversas interfaces de red si están habilitadas para la nube o deshabilitadas para la nube pero con una puerta de enlace configurada. Tenga en cuenta que los valores asignados aquí son solo valores de ejemplo.
 
 		
 	| Interfaz de red | Habilitada para la nube | Deshabilitada para la nube con puerta de enlace |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - El orden en que el tráfico de nube se enrutará a través de las interfaces de red es:
@@ -136,12 +131,11 @@ Update 2 tiene varias mejoras relacionadas con las redes y las métricas de enru
 - Si se produce un error de la IP virtual de una interfaz de red habilitada para iSCSI, se producirán 3 reintentos con un retraso de 2 segundos. Este comportamiento ha sido el mismo desde las versiones anteriores. Si se produce un error en todas las interfaces de red iSCSI, se producirá una conmutación por error del controlador (acompañada de un reinicio).
 
 
-- También se genera una alerta en el dispositivo de StorSimple cuando hay un error en la IP virtual. Para obtener más información, vaya a [alerta de error de IP virtual](storsimple-manage-alerts.md).
+- También se genera una alerta en el dispositivo de StorSimple cuando hay un error en la IP virtual. Para más información, vaya a la [referencia rápida de alertas](storsimple-manage-alerts.md).
 	
 - En términos de reintentos, iSCSI tendrá prioridad sobre la nube.
 
-	Considere el ejemplo siguiente:
-	un dispositivo de StorSimple tiene dos interfaces de red habilitadas, Data 0 y Data 1. Data 0 está habilitada para la nube mientras que Data 1 está habilitada para la nube y para iSCSI. Ninguna otra interfaz de red de este dispositivo está habilitada para la nube ni para iSCSI.
+	Considere el ejemplo siguiente: un dispositivo de StorSimple tiene dos interfaces de red habilitadas, Data 0 y Data 1. Data 0 está habilitada para la nube mientras que Data 1 está habilitada para la nube y para iSCSI. Ninguna otra interfaz de red de este dispositivo está habilitada para la nube ni para iSCSI.
 		
 	Si se produce un error de Data 1, dado que es la última interfaz de red de iSCSI, esto produce una conmutación por error del controlador a Data 1 en el otro controlador.
 
@@ -262,4 +256,4 @@ Revise cuidadosamente estos procedimientos recomendados para garantizar la alta 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/12/2015"  
+	ms.date="12/17/2015"  
 	ms.author="juliako"/>
 
 #Configuración de directivas de entrega de activos con .NET SDK
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
+
+##Información general
 
 Si tiene pensado entregar activos cifrados, uno de los pasos del flujo de trabajo de entrega de contenido de Servicios multimedia consiste en configurar directivas de entrega para los activos. La directiva de entrega de recursos indica a los Servicios multimedia cómo desea usted que se entregue el recurso: en qué protocolo de streaming se debe empaquetar de forma dinámica el recurso (por ejemplo, MPEG DASH, HLS, Smooth Streaming o todos) o si desea o no cifrar de forma dinámica el recurso y de qué manera (cifrado de sobre o común).
 
@@ -53,6 +55,14 @@ HDS
 
 Para obtener instrucciones sobre cómo publicar un recurso y generar una dirección URL de streaming, vea [Creación de una dirección URL de streaming](media-services-deliver-streaming-content.md).
 
+##Consideraciones
+
+- No puede eliminar una entidad AssetDeliveryPolicy asociada a un activo mientras hay un localizador OnDemand (transmisión) para ese activo. Se recomienda quitar la directiva del activo antes de eliminar la directiva.
+- No se puede crear un localizador de transmisión en un activo cifrado de almacenamiento cuando no se establece ninguna directiva de entrega de activos. Si el activo no está cifrado para almacenamiento, el sistema le permitirá crear un localizador y transmitir el activo sin cifrar, sin una directiva de entrega de activos.
+- Puede tener varias directivas de entrega de activos asociadas a un único activo, pero solo se puede especificar una forma de controlar un AssetDeliveryProtocol determinado, es decir, si intenta vincular dos directivas de entrega que especifican el protocolo AssetDeliveryProtocol.SmoothStreaming que producirá un error porque el sistema no sabe cuál quiere que aplique cuando un cliente realiza una solicitud de Smooth Streaming.  
+- Si tiene un activo con un localizador de transmisión existente, no puede vincular una nueva directiva al activo (puede desvincular una directiva existente del activo o actualizar una directiva de entrega asociada al activo). Primero debe quitar el localizador de transmisión, ajustar las directivas y volver a crear el localizador de transmisión. Puede usar el mismo locatorId al volver a crear el localizador de transmisión, pero debe asegurarse de que no causará problemas para los clientes ya que se puede almacenar en caché el contenido por el origen o una red CDN de nivel inferior.  
+
+
 ##Directiva de entrega de recursos sin cifrar 
 
 El método **ConfigureClearAssetDeliveryPolicy** siguiente especifica que no se aplique el cifrado dinámico y se entregue la secuencia en cualquiera de los siguientes protocolos: MPEG DASH, HLS y Smooth Streaming. Querrá aplicar esta directiva a los activos cifrados de almacenamiento.
@@ -72,7 +82,7 @@ Para obtener información sobre los valores que puede especificar al crear una e
 ##Directiva de entrega de recursos DynamicCommonEncryption 
 
 
-El método siguiente **CreateAssetDeliveryPolicy** crea la directiva **AssetDeliveryPolicy** que se configura para aplicar el cifrado común dinámico (**DynamicCommonEncryption**) a un protocolo de Smooth Streaming (no se aplicará el streaming en otros protocolos). El método toma dos parámetros: **Asset** (el recurso al que desea aplicar la directiva de entrega) y **IContentKey** (la clave de contenido de tipo **CommonEncryption**. Para obtener más información, consulte: [Creación de una clave de contenido](media-services-dotnet-create-contentkey.md#common_contentkey)).
+El método siguiente **CreateAssetDeliveryPolicy** crea la directiva **AssetDeliveryPolicy** que se configura para aplicar el cifrado común dinámico (**DynamicCommonEncryption**) a un protocolo de Smooth Streaming (no se aplicará la transmisión en otros protocolos). El método toma dos parámetros: **Asset** (el recurso al que desea aplicar la directiva de entrega) y **IContentKey** (la clave de contenido de tipo **CommonEncryption**. Para obtener más información, consulte: [Creación de una clave de contenido](media-services-dotnet-create-contentkey.md#common_contentkey)).
 
 Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types).
 
@@ -134,7 +144,7 @@ Los Servicios multimedia de Azure también permiten agregar el cifrado de Widevi
 
 ##Directiva de entrega de recursos DynamicEnvelopeEncryption 
 
-El método siguiente **CreateAssetDeliveryPolicy** crea el **AssetDeliveryPolicy** que se configura para aplicar el cifrado de sobre dinámico (**DynamicEnvelopeEncryption**) para protocolos HLS y DASH (no se aplicará el streaming en otros protocolos). El método toma dos parámetros: **Asset** (el recurso al que desea aplicar la directiva de entrega) y **IContentKey** (la clave de contenido de tipo **EnvelopeEncryption**. Para obtener más información, consulte: [Creación de una clave de contenido](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
+El método siguiente **CreateAssetDeliveryPolicy** crea el **AssetDeliveryPolicy** que se configura para aplicar el cifrado de sobre dinámico (**DynamicEnvelopeEncryption**) para protocolos HLS y DASH (no se aplicará la transmisión en otros protocolos). El método toma dos parámetros: **Asset** (el recurso al que desea aplicar la directiva de entrega) y **IContentKey** (la clave de contenido de tipo **EnvelopeEncryption**. Para obtener más información, consulte: [Creación de una clave de contenido](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
 
 
 Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types).
@@ -338,4 +348,4 @@ Para obtener información sobre los valores que puede especificar al crear una e
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

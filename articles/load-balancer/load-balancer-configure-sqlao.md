@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/19/2015"
+   ms.date="12/21/2015"
    ms.author="joaoma" />
 
 # Configuración del equilibrador de carga para SQL Always On
@@ -53,7 +53,7 @@ Paso 2:
 
 En el ejemplo anterior, tiene 2 máquinas virtuales llamadas "sqlsvc1" y "sqlsvc2" que se ejecutan en el servicio en la nube "Sqlsvc". Después de crear el ILB con el conmutador "DirectServerReturn", agregará los extremos con equilibrio de carga al ILB para permitir que SQL configure los agentes de escucha para los grupos de disponibilidad.
 
-Encontrará más detalles creando un Alwayson de SQL en [Tutorial: grupos de disponibilidad AlwaysOn en Azure](https://msdn.microsoft.com/library/dn249504.aspx) o [mediante la galería del portal](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+Encontrará más detalles creando un Alwayson de SQL en la [implementación AlwaysOn de SQL con la platilla del Administrador de recursos de Azure](virtual-machines-workload-template-sql-alwayson.md) o [mediante la galería del portal](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
 
 
 ## Otras referencias
@@ -67,4 +67,4 @@ Encontrará más detalles creando un Alwayson de SQL en [Tutorial: grupos de dis
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1223_2015-->

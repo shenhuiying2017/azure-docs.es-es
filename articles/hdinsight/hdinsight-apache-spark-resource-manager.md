@@ -14,61 +14,115 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="12/22/2015" 
 	ms.author="nitinme"/>
 
 
-# Administración de recursos para el clúster Apache Spark en HDInsight de Azure
+# Administración de recursos para el clúster Apache Spark en HDInsight de Azure (Linux)
 
-El Administrador de recursos es un componente del panel de clúster Spark que le permite administrar los recursos como núcleos y RAM usados por cada aplicación que se ejecuta en el clúster.
+Spark en HDInsight de Azure (Linux) proporciona la interfaz de usuario web de Ambari para administrar los recursos del clúster y supervisar el estado del clúster. También puede utilizar el servidor de historial de Spark para realizar el seguimiento de las aplicaciones que han terminado de ejecutarse en el clúster. Puede utilizar la interfaz de usuario de YARN para supervisar lo que se encuentra en ejecución en el clúster. En este artículo se ofrecen instrucciones sobre cómo acceder a estas interfaces de usuario y cómo realizar algunas tareas básicas de administración de recursos con estas interfaces.
 
-## <a name="launchrm"></a>¿Cómo se inicia el Administrador de recursos?
+**Requisitos previos:**
 
-1. Desde el [Portal de Azure](https://ms.portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**. 
+Debe tener lo siguiente:
+
+- Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Un clúster Apache Spark en HDInsight Linux. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
+
+## ¿Cómo se puede iniciar la interfaz de usuario web de Ambari?
+
+1. Desde el [Portal de vista previa de Azure](https://ms.portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ha anclado al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**. 
  
-2. En la hoja del clúster de Spark, haga clic en **Panel**. Cuando se le pida, escriba las credenciales de administrador del clúster Spark.
+2. En la hoja del clúster Spark, haga clic en **Panel**. Cuando se le pida, escriba las credenciales de administrador del clúster Spark.
 
-	![Iniciar el Administrador de recursos](./media/hdinsight-apache-spark-resource-manager/HDI.Cluster.Launch.Dashboard.png "Inicio del Administrador de recursos")
+	![Iniciar Ambari](./media/hdinsight-apache-spark-resource-manager/hdispark.cluster.launch.dashboard.png "Inicio del Administrador de recursos")
 
-##<a name="scenariosrm"></a>¿Cómo se pueden solucionar estos problemas mediante el Administrador de recursos?
+3. Esto debería iniciar la interfaz de usuario web de Ambari, como se muestra a continuación.
 
-Presentamos algunos escenarios comunes que pueden aparecer con el clúster Spark y las instrucciones para solucionarlos con el Administrador de recursos.
+	![Interfaz de usuario web de Ambari](./media/hdinsight-apache-spark-resource-manager/ambari-web-ui.png "Interfaz de usuario web de Ambari")
 
-### El clúster Spark en HDInsight es lento
+## ¿Cómo se puede iniciar el servidor de historial de Spark?
 
-El clúster Apache Spark en HDInsight está diseñado para una arquitectura multiempresa, por lo que los recursos se dividen entre varios componentes (cuadernos, servidor de trabajo, etc.). Esto le permite usar todos los componentes de Spark simultáneamente sin preocuparse de que alguno de ellos no pueda obtener los recursos para ejecutarse, aunque cada componente será más lento, ya que los recursos están fragmentados. Esto se puede ajustar según sus necesidades.
+1. Desde el [Portal de vista previa de Azure](https://ms.portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ha fijado en el panel de inicio).
+
+2. En la hoja de clúster, en **Vínculos rápidos**, haga clic en **Panel de clúster**. En la hoja **Panel de clúster**, haga clic en **Servidor de historial de Spark**.
+
+	![Servidor de historial de Spark](./media/hdinsight-apache-spark-resource-manager/launch-history-server.png "Servidor de historial de Spark")
+
+	Cuando se le pida, escriba las credenciales de administrador del clúster Spark.
 
 
-### Solo uso el cuaderno de Jupyter con el clúster Spark. ¿Cómo puedo asignarle todos los recursos?
+## ¿Cómo se puede iniciar la interfaz de usuario de Yarn?
 
-1. En el **Panel de Spark**, haga clic en la pestaña **IU de Spark** para averiguar el número máximo de núcleos y la cantidad máxima de RAM que puede asignar a las aplicaciones.
+Puede utilizar la interfaz de usuario de YARN para supervisar las aplicaciones que se encuentran en ejecución en el clúster Spark. Antes de acceder a la interfaz de usuario de YARN, debe habilitar la tunelización SSH para el clúster. Para obtener instrucciones, vea [Uso de la tunelización SSH para tener acceso a la interfaz de usuario web de Ambari](hdinsight-linux-ambari-ssh-tunnel.md)
 
-	![Asignación de recursos](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Resource.png "Encontrar los recursos asignados a un clúster Spark")
+1. Inicie la interfaz de usuario web de Ambari como se ha indicado en la sección anterior.
 
-	Según la captura de pantalla anterior, el número máximo de núcleos que puede asignar es 7 (un total de 8 núcleos, de los cuales 1 está en uso) y la cantidad máxima de RAM que se puede asignar es 9 GB (un total de 12 GB de RAM, de los cuales 2 GB se deben reservar para uso del sistema y 1 GB para el uso de las demás aplicaciones).
+2. En la interfaz de usuario web de Ambari, seleccione YARN en la lista de la izquierda de la página.
 
-	También se deben tener en cuenta todas las aplicaciones que se estén ejecutando. Puede consultarlas en la pestaña **IU de Spark**.
+3. Cuando se muestra la información del servicio YARN, seleccione **Vínculos rápidos**. Aparecerá una lista de los nodos del clúster principal. Seleccione uno de los nodos principales y luego seleccione **IU de ResourceManager**.
 
-	![Aplicaciones en ejecución](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Running.Apps.png "Aplicaciones que se ejecutan en el clúster")
+	![Iniciar interfaz de usuario de YARN](./media/hdinsight-apache-spark-resource-manager/launch-yarn-ui.png "Iniciar interfaz de usuario de YARN")
+
+4. Esto debería iniciar la interfaz de usuario de YARN y debería ver una página similar a la siguiente:
+
+	![IU de YARN](./media/hdinsight-apache-spark-resource-manager/yarn-ui.png "IU de YARN")
+
+##<a name="scenariosrm"></a>¿Cómo se administran los recursos mediante la interfaz de usuario web de Ambari?
+
+Presentamos algunos escenarios comunes que pueden aparecer con el clúster Spark y las instrucciones para abordarlos mediante la interfaz de usuario web de Ambari.
+
+### No uso BI con el clúster Spark. ¿Cómo elimino los recursos de nuevo?
+
+1. Inicie la interfaz de usuario web de Ambari como se ha indicado anteriormente. En el panel de navegación izquierdo, haga clic en **Spark** y luego en **Configs** (Configuraciones).
+
+2. En la lista de configuraciones disponibles, busque **Custom spark-thrift-sparkconf** (Personalizar spark-thrift-sparkconf) y cambie los valores de **spark.executor.memory** y **spark.drivers.core** a **0**.
+
+	![Recursos para BI](./media/hdinsight-apache-spark-resource-manager/spark-bi-resources.png "Recursos para BI")
+
+3. Haga clic en **Guardar**. Escriba una descripción de los cambios realizados y después vuelva a hacer clic en **Save** (Guardar).
+
+4. En la parte superior de la página, verá un símbolo del sistema para reiniciar el servicio Spark. Haga clic en **Reiniciar** para que los cambios surtan efecto.
+
+
+### Mis cuadernos de Jupyter no se ejecutan según lo previsto. ¿Cómo se puede reiniciar el servicio?
+
+1. Inicie la interfaz de usuario web de Ambari como se ha indicado anteriormente. En el panel de navegación izquierdo, haga clic en **Jupyter**, haga clic en **Service Actions** (Acciones de servicio) y luego haga clic en **Restart All** (Reiniciar todo). Esto iniciará el servicio de Jupyter en todos los nodos principales.
+
+	![Reiniciar Jupyter](./media/hdinsight-apache-spark-resource-manager/restart-jupyter.png "Reiniciar Jupyter")
 
 	
-2. En el panel de Spark de HDInsight, haga clic en la pestaña **Administrador de recursos** y especifique los valores para **Recuento de núcleos de la aplicación predeterminados** y **Memoria de ejecución predeterminada por nodo de trabajo**. Establezca las demás propiedades en 0.
 
-	![Asignación de recursos](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Allocate.Resources.png "Asignar recursos a las aplicaciones")
 
-### No uso herramientas de BI con el clúster Spark. ¿Cómo puedo recuperar recursos? 
+## <a name="seealso"></a>Otras referencias
 
-Especifique el recuento de núcleos de servidor Thrift y la memoria de ejecución por nodo de trabajo de servidor Thrift como 0. Sin núcleos ni memoria asignados, el servidor Thrift pasará al estado **EN ESPERA**.
-
-![Asignación de recursos](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.No.Thrift.png "No hay recursos en el servidor Thrift")
-
-##<a name="seealso"></a>Otras referencias
 
 * [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
-* [Aprovisionamiento de un clúster Spark de HDInsight](hdinsight-apache-spark-provision-clusters.md)
-* [Uso de herramientas de BI con Apache Spark en HDInsight de Azure](hdinsight-apache-spark-use-bi-tools.md)
-* [Uso de Spark en HDInsight para crear aplicaciones de aprendizaje automático](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Streaming con Spark: Procesamiento de eventos desde el Centro de eventos de Azure con Apache Spark en HDInsight](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
+
+### Escenarios
+
+* [Spark con BI: realización de análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](hdinsight-apache-spark-use-bi-tools.md)
+
+* [Spark con Aprendizaje automático: uso de Spark en HDInsight para analizar la temperatura de edificios con los de datos del sistema de acondicionamiento de aire](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+
+* [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+
+* [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
+
+* [Análisis del registro del sitio web con Spark en HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+
+### Creación y ejecución de aplicaciones
+
+* [Creación de una aplicación independiente mediante Scala](hdinsight-apache-spark-create-standalone-application.md)
+
+* [Ejecución remota de trabajos en un clúster Spark mediante Livy](hdinsight-apache-spark-livy-rest-interface.md)
+
+### Extensiones
+
+* [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+
+* [Kernels disponibles para el cuaderno de Jupyter en el clúster Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+
 
 
 [hdinsight-versions]: ../hdinsight-component-versioning/
@@ -82,4 +136,4 @@ Especifique el recuento de núcleos de servidor Thrift y la memoria de ejecució
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

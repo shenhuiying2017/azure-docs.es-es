@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="12/17/2015" 
 	ms.author="juliako"/>
 
 #Realización de una codificación en directo con codificadores locales
@@ -214,6 +214,8 @@ Para obtener información sobre cómo configurar un codificador en directo, cons
 		
 		        public static ILocator CreateLocatorForAsset(IAsset asset, TimeSpan ArchiveWindowLength)
 		        {
+                	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
+
 		            var locator = _context.Locators.CreateLocator
 		                (
 		                    LocatorType.OnDemandOrigin,
@@ -383,4 +385,4 @@ Para obtener información sobre cómo configurar un codificador en directo, cons
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -3,7 +3,7 @@
 	description="Se describen los pasos necesarios para actualizar manualmente el script de PowerShell que se incluye con los proyectos de implementación del grupo de recursos de Azure."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
 	editor="tlee" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="11/20/2015"
-	ms.author="kempb" />
+	ms.author="tarcher" />
 
 # Actualización del script de PowerShell para el proyecto del grupo de recursos de Azure
 
@@ -229,4 +229,4 @@ New-AzureRMResourceGroupDeployment `
 
 ```
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

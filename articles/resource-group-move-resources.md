@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="12/18/2015" 
 	ms.author="tomfitz"/>
 
 # Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
@@ -28,8 +28,8 @@ Hay algunas consideraciones importantes cuando se mueve un recurso:
 
 1. No puede cambiar la ubicación del recurso. Si se mueve un recurso, solo se mueve a un nuevo grupo de recursos. El nuevo grupo de recursos puede tener una ubicación diferente, pero no cambia la ubicación del recurso.
 2. El grupo de recursos de destino debe contener únicamente los recursos que comparten el mismo ciclo de vida de aplicación que los recursos que se van a mover.
-3. Si usa Azure PowerShell, asegúrese de que está utilizando la versión más reciente. El comando **Move-AzureRmResource** se actualiza con frecuencia. Para actualizar su versión, ejecute el Instalador de plataforma web de Microsoft y compruebe si hay disponible una nueva versión. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
-4. La operación de traslado puede tardar en completarse y durante ese tiempo el símbolo del sistema de PowerShell esperará hasta que se haya completado la operación.
+3. Si usa Azure PowerShell o la CLI de Azure, asegúrese de que está usando la versión más reciente. Para actualizar su versión, ejecute el Instalador de plataforma web de Microsoft y compruebe si hay disponible una nueva versión. Para más información, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md) e [Instalación de la CLI de Azure](xplat-cli-install.md).
+4. La operación de traslado puede tardar en completarse y durante ese tiempo el símbolo del sistema esperará hasta que se haya completado la operación.
 5. Al mover los recursos, el grupo de origen y el grupo de destino se bloquean durante la operación. Las operaciones de escritura y eliminación están bloqueadas en los grupos hasta que se completa el movimiento.
 
 ## Servicios admitidos
@@ -89,13 +89,23 @@ El segundo ejemplo muestra cómo trasladar varios recursos a un nuevo grupo de r
 
 Para moverlos a una nueva suscripción, especifique un valor para el parámetro **DestinationSubscriptionId**.
 
+## Uso de CLI de Azure para mover recursos
+
+Para mover recursos existentes a otro grupo de recursos o a otra suscripción, use el comando **azure resource move**. En el siguiente ejemplo se muestra cómo trasladar una Caché de Redis a un nuevo grupo de recursos. En el parámetro **-i**, ofrezca una lista separada por comas del id. de recurso que se va a mover.
+
+    azure resource move -i "/subscriptions/{guid}/resourceGroups/OldRG/providers/Microsoft.Cache/Redis/examplecache" -d "NewRG"
+    info:    Executing command resource move
+    Move selected resources in OldRG to NewRG? [y/n] y
+    + Moving selected resources to NewRG
+    info:    resource move command OK
+
 ## Uso de la API de REST para trasladar recursos
 
 Para trasladar recursos existentes a otro grupo de recursos o a una suscripción, ejecute:
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-En el cuerpo de la solicitud, especifique el grupo de recursos de destino y los recursos a mover. Para obtener más información acerca de la operación REST de movimiento, consulte [Mover recursos](https://msdn.microsoft.com/library/azure/mt218710.aspx).
+En el cuerpo de la solicitud, especifique el grupo de recursos de destino y los recursos a mover. Para más información sobre la operación REST de movimiento, vea [Mover recursos](https://msdn.microsoft.com/library/azure/mt218710.aspx).
 
 ## Pasos siguientes
 - [Uso de Azure PowerShell con el Administrador de recursos](./powershell-azure-resource-manager.md)
@@ -103,4 +113,4 @@ En el cuerpo de la solicitud, especifique el grupo de recursos de destino y los 
 - [Uso del Portal de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md)
 - [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1223_2015-->

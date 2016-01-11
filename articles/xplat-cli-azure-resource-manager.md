@@ -44,7 +44,7 @@ Trabajar con el Administrador de recursos de Azure a través de la CLI de Azure 
 
 Para obtener más información acerca de cómo autenticarse en Microsoft Azure, consulte [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](xplat-cli-connect.md).
 
->[AZURE.NOTE]Cuando use una cuenta profesional o educativa, administrada por Azure Active Directory, también puede utilizar el Control de acceso basado en roles de Azure (RBAC) para administrar el acceso y el uso de recursos de Azure. Para obtener más información, [Administración y auditoría del acceso a los recursos](resource-group-rbac.md)
+>[AZURE.NOTE]Cuando use una cuenta profesional o educativa, administrada por Azure Active Directory, también puede utilizar el Control de acceso basado en roles de Azure (RBAC) para administrar el acceso y el uso de recursos de Azure. Para detalles, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
 
 ## Configuración del modo Administrador de recursos de Azure
 
@@ -77,7 +77,7 @@ Después puede empezar a agregar recursos a este grupo y usarlo para configurar 
 
 Cuando trabaje con plantillas, puede [crear una plantilla propia](resource-group-authoring-templates.md), o usar una de la [galería de plantillas](https://azure.microsoft.com/documentation/templates/), que están también disponibles en [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-La creación de una nueva plantilla está fuera del ámbito de este artículo, así que para empezar vamos a usar la plantilla _101-simple-vm-from-image_ disponible en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). De forma predeterminada, esto crea una sola máquina virtual 4.04.2-LTS Ubuntu en una nueva red virtual con una sola subred en la región Oeste de EE. UU. Solo tiene que especificar los siguientes parámetros para utilizar esta plantilla:
+La creación de una nueva plantilla está fuera del ámbito de este artículo, así que para empezar vamos a usar la plantilla _101-simple-vm-from-image_ disponible en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). De forma predeterminada, esto crea una sola máquina virtual 14.04.2-LTS Ubuntu en una nueva red virtual con una sola subred en la región Oeste de EE. UU. Solo tiene que especificar los siguientes parámetros para utilizar esta plantilla:
 
 * Un nombre de cuenta de almacenamiento único
 * Un nombre de usuario de administración para la máquina virtual
@@ -210,4 +210,4 @@ Para ver información registrada sobre operaciones realizadas en un grupo, utili
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015--->

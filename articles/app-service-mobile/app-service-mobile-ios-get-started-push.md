@@ -44,11 +44,7 @@ El [simulador de iOS no admite notificaciones push](https://developer.apple.com/
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-## <a name="publish-the-service"></a>Implementación del proyecto de servidor en Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
-## <a id="add-push"></a>Incorporación de notificaciones push a la aplicación
+## <a id="add-push"></a>Agregar notificaciones push a la aplicación
 
 [AZURE.INCLUDE [app-service-mobile-add-push-notifications-to-ios-app.md](../../includes/app-service-mobile-add-push-notifications-to-ios-app.md)]
 
@@ -76,4 +72,4 @@ El [simulador de iOS no admite notificaciones push](https://developer.apple.com/
 <!-- URLs. -->
 [inicio rápido de iOS]: app-service-mobile-ios-get-started.md
 
-<!---HONumber=AcomDC_1203_2015--->
+<!----HONumber=AcomDC_1223_2015-->

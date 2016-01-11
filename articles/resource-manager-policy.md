@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/10/2015"
+	ms.date="12/18/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # Uso de directivas para administrar los recursos y controlar el acceso
@@ -71,10 +71,10 @@ A continuación se muestran los operadores lógicos admitidos junto con la sinta
 | Nombre del operador | Sintaxis |
 | :------------- | :------------- |
 | Not | "not" : {&lt;condition or operator &gt;} |
-| Y | "allOf" : [ {&lt;condición1&gt;},{&lt;condición2&gt;}] |
-| O | "anyOf" : [ {&lt;condición1&gt;},{&lt;condición2&gt;}] |
+| Y | "allOf" : [ {&lt;condition or operator &gt;},{&lt;condition or operator &gt;}] |
+| O | "anyOf" : [ {&lt;condition or operator &gt;},{&lt;condition or operator &gt;}] |
 
-No se admiten condiciones anidadas.
+El Administrador de recursos permite especificar una lógica compleja en su directiva a través de operadores anidados. Por ejemplo, puede denegar la creación de recursos en una ubicación determinada para un tipo de recurso especificado. A continuación se muestra un ejemplo de operadores anidados.
 
 ## Condiciones
 
@@ -88,7 +88,6 @@ Una condición evalúa si un **campo** o un **origen** cumple determinados crite
 | En el | "in" : [ "&lt;valor1&gt;","&lt;valor2&gt;" ]|
 | ContainsKey | "containsKey" : "&lt;nombre de clave&gt;" |
 
-
 ## Campos y orígenes
 
 Las condiciones se crean mediante el uso de campos y orígenes. Un campo representa las propiedades de la carga de solicitud de recursos. Un origen representa las características de la propia solicitud.
@@ -97,9 +96,9 @@ Estos son los campos y orígenes admitidos:
 
 Campos: **name**, **kind**, **type**, **location**, **tags**, **tags.***.
 
-Orígenes: **action**
+Orígenes: **action**.
 
-Para obtener más información acerca de las acciones, consulte [Roles integrados en Azure RBAC](active-directory/role-based-access-built-in-roles.md).
+Para obtener más información acerca de las acciones, vea [RBAC - Roles integrados](active-directory/role-based-access-built-in-roles.md). Actualmente, la directiva solo funciona en las solicitudes PUT.
 
 ## Ejemplos de definición de directivas
 
@@ -185,6 +184,30 @@ El ejemplo siguiente muestra el uso de caracteres comodín compatibles con la co
         "effect" : "deny"
       }
     }
+    
+### Requisito de etiqueta solo para los recursos de almacenamiento
+
+En el ejemplo siguiente se muestra cómo anidar operadores lógicos para que requieran una etiqueta de aplicación solo para los recursos de almacenamiento.
+
+    {
+        "if": {
+            "allOf": [
+              {
+                "not": {
+                  "field": "tags",
+                  "containsKey": "application"
+                }
+              },
+              {
+                "source": "action",
+                "like": "Microsoft.Storage/*"
+              }
+            ]
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
 
 ## Asignación de directiva
 
@@ -226,7 +249,7 @@ Con un cuerpo de solicitud similar al siguiente:
     }
 
 
-La definición de la directiva puede definirse como uno de los ejemplos anteriores. Para obtener la versión de la API, use *2015-10-01-preview*. Para obtener más ejemplos y más detalles, vea la [API de REST para definiciones de directiva](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+La definición de la directiva puede definirse como uno de los ejemplos anteriores. Para la versión de la API, use *2015-10-01-preview*. Para ejemplos y más detalles, vea la [API de REST para definiciones de directiva](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Crear una definición de directiva con PowerShell
 
@@ -258,7 +281,7 @@ Para crear una nueva asignación de directiva, ejecute:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} es el nombre de la asignación de directiva. Para obtener la versión de la API, use *2015-10-01-preview*.
+{policy-assignment} es el nombre de la asignación de directiva. Para la versión de la API, use *2015-10-01-preview*.
 
 Con un cuerpo de solicitud similar al siguiente:
 
@@ -273,7 +296,7 @@ Con un cuerpo de solicitud similar al siguiente:
       "name":"VMPolicyAssignment"
     }
 
-Para obtener más ejemplos y más detalles, consulte la [API de REST para asignaciones de directivas](https://msdn.microsoft.com/library/azure/mt588466.aspx).
+Para ejemplos y más detalles, vea la [API de REST para asignaciones de directivas](https://msdn.microsoft.com/library/azure/mt588466.aspx).
 
 ### Asignación de directivas con PowerShell
 
@@ -291,4 +314,17 @@ Puede obtener, cambiar o quitar definiciones de la directiva mediante los cmdlet
 
 De forma similar, puede obtener, cambiar o quitar las asignaciones de directivas mediante los cmdlets Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment y Remove-AzureRmPolicyAssignment respectivamente.
 
-<!---HONumber=Nov15_HO3-->
+##Eventos de auditoría de directivas
+
+Después de aplicar la directiva, puede empezar a ver los eventos relacionados con ella. Puede ir al portal o usar PowerShell para obtener estos datos.
+
+Para ver todos los eventos relacionados con el efecto de denegación, puede usar el siguiente comando.
+
+    Get-AzureRmLog | where {$_.subStatus -eq "Forbidden"}     
+
+Para ver todos los eventos relacionados con el efecto de auditoría, puede usar el siguiente comando.
+
+    Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
+    
+
+<!---HONumber=AcomDC_1223_2015-->

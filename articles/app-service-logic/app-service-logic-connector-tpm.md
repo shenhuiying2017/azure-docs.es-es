@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Introducción a Administración de socios comerciales de BizTalk y su incorporación a su aplicación lógica
@@ -25,7 +25,7 @@ La aplicación de API TPM es el requisito básico del conector AS2, de la aplica
 - Base de datos de SQL Azure en blanco: debe crear primero una base de datos de SQL Azure en blanco antes de crear una nueva aplicación de API de TPM.
 
 ## Descripción de socios, contratos y perfiles
-Para obtener más información sobre los contratos de socios comerciales, haga clic [aquí][1]
+Obtenga más información sobre cómo [crear un contrato de socio comercial][1].
 
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
@@ -39,4 +39,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

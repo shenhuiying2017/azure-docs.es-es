@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015" 
+	ms.date="12/17/2015" 
 	ms.author="juliako"/>
 
 #Implementación de un escenario de streaming de conmutación por error
@@ -314,6 +314,8 @@ En esta sección creará y configurará un proyecto de aplicación de consola de
 		    IAssetFile manifestFile = GetPrimaryFile(assetToStream);
 		
 		    // Create a 30-day readonly access policy. 
+        	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
+        
 		    IAccessPolicy policy = context.AccessPolicies.Create("Streaming policy",
 		        TimeSpan.FromDays(30),
 		        AccessPermissions.Read);
@@ -395,7 +397,8 @@ En esta sección creará y configurará un proyecto de aplicación de consola de
 		    if (!string.IsNullOrEmpty(acsToken))
 		    {
 		        var asset = context.Assets.Where(a => a.Id == targetAssetId).FirstOrDefault();
-		
+
+            	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 		        var accessPolicy = context.AccessPolicies.Create("RestTest", TimeSpan.FromDays(100),
 		                                                            AccessPermissions.Read);
 		        if (asset != null)
@@ -969,4 +972,4 @@ Ahora puede usar un administrador de tráfico para enrutar las solicitudes entre
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

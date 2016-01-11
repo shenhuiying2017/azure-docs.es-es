@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Acceso a nubes privadas de Azure con Visual Studio"
+   pageTitle="Acceso a nubes privadas de Azure con Visual Studio | Microsoft Azure"
    description="Obtenga información sobre cómo tener acceso a recursos de nube privada mediante Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="12/17/2015"
    ms.author="tarcher" />
 
 # Acceso a nubes privadas de Azure con Visual Studio
@@ -43,4 +43,4 @@ De forma predeterminada, Visual Studio admite extremos REST de nube pública de 
 
 [Descarga e importación de la configuración de publicación y la información de suscripción] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

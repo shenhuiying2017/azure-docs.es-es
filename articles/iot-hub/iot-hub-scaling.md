@@ -18,9 +18,9 @@
 
 # Escalado del Centro de IoT
 
-El Centro de IoT puede admitir hasta un millón de dispositivos conectados al mismo tiempo; para ello, se aumenta el número de S1 o S2 del Centro de IoT a 2000. Para obtener más información, consulte [Centro de IoT Precios][lnk-pricing].
+El Centro de IoT de Azure puede admitir hasta un millón de dispositivos conectados al mismo tiempo; para ello, se aumenta el número de unidades del nivel S1 o S2 del Centro de IoT a 2000. Para más información, vea [Precios del Centro de IoT][lnk-pricing].
 
-Cada unidad del Centro de IoT permite un número determinado de identidades de dispositivo en el Registro, todos los cuales se pueden conectar simultáneamente, y un número diario de mensajes.
+Cada unidad del Centro de IoT permite un número determinado de dispositivos en el Registro y todos ellos se pueden conectar simultáneamente. Cada unidad también permite un número de mensajes diarios.
 
 Para escalar correctamente su solución, debe tener en cuenta el uso particular que haga del Centro de IoT. En concreto, tenga en cuenta la capacidad de procesamiento máxima requerida para las siguientes categorías de operaciones:
 
@@ -28,7 +28,7 @@ Para escalar correctamente su solución, debe tener en cuenta el uso particular 
 * Mensajes de nube a dispositivo
 * Operaciones de registro de identidad
 
-Además de esta información sobre la capacidad de procesamiento, recuerde consultar el tema sobre [Cuotas y limitaciones del Centro de IoT][] y diseñar su solución en consecuencia.
+Además de esta información sobre la capacidad de procesamiento, vea [Cuotas y limitaciones del Centro de IoT][] y diseñe su solución en consecuencia.
 
 ## Capacidad de procesamiento para los mensajes de dispositivo a nube y de nube a dispositivo
 
@@ -38,33 +38,33 @@ Los mensajes de dispositivo a nube siguen estas directrices de capacidad de proc
 
 | Nivel: | Capacidad de procesamiento sostenida | Velocidad de envío sostenida |
 | ---- | -------------------- | ------------------- |
-| S1 | hasta 8 kb/m por dispositivo | promedio de 4 mensajes por hora por dispositivo |
-| S2 | hasta 4 kb/m por dispositivo | promedio de 2 mensajes por minuto por dispositivo |
+| S1 | Hasta 8 KB/hora por dispositivo | Promedio de 4 mensajes por hora y dispositivo |
+| S2 | Hasta 4 KB/min por dispositivo | Promedio de 2 mensajes por minuto y dispositivo |
 
 Al recibir los mensajes de dispositivo a nube, la aplicación back-end puede esperar el rendimiento máximo siguiente (a través de todos los lectores).
 
 | Nivel: | Capacidad de procesamiento sostenida |
 | ---- | -------------------- |
-| S1 | hasta 120 Kb/m por unidad, con un mínimo de 2 Mb/s |
-| S2 | hasta 4 Mb/m por unidad, con un mínimo de 2 Mb/s |
+| S1 | Hasta 120 KB/min por unidad, con un mínimo de 2 MB/s |
+| S2 | Hasta 4 MB/min por unidad, con un mínimo de 2 MB/s |
 
-El rendimiento de los mensajes de nube a dispositivo escala en cada dispositivo, y cada dispositivo recibe hasta 5 mensajes por minuto.
+El rendimiento de los mensajes de nube a dispositivo escala por dispositivo, y cada dispositivo recibe hasta 5 mensajes por minuto.
 
 ## Capacidad de procesamiento para las operaciones de registro de identidad
 
 Las operaciones de registro de identidad del Centro de IoT no deberían ser operaciones en tiempo de ejecución porque tienen que ver principalmente con el aprovisionamiento de dispositivos.
 
-Consulte las cifras de rendimiento de ráfaga en [Cuotas y limitaciones del Centro de IoT][].
+Vea las cifras de rendimiento de ráfaga específicas en [Cuotas y limitaciones del Centro de IoT][].
 
 ## Clave de particionamiento
 
-Aunque un único Centro de IoT puede escalarse a millones de dispositivos, a veces la solución requiere características de rendimiento específicas que un único Centro de IoT no puede garantizar. En ese caso, se recomienda particionar los dispositivos en varios Centros de IoT, con el fin de suavizar las ráfagas de tráfico y obtener la capacidad de proceso y las velocidades de funcionamiento necesarias.
+Aunque un único Centro de IoT puede escalarse a millones de dispositivos, a veces la solución requiere características de rendimiento específicas que un único Centro de IoT no puede garantizar. En ese caso, se recomienda realizar particiones de los dispositivos en varios centros de IoT. Varios centros de IoT suavizan las ráfagas de tráfico y obtienen el rendimiento necesario o las velocidades de funcionamiento necesarias.
 
 ## Pasos siguientes
 
 Siga estos vínculos para obtener más información sobre el Centro de IoT de Azure:
 
-- [Introducción a los Centros de IoT (Tutorial)][lnk-get-started]
+- [Introducción al Centro de IoT (Tutorial)][lnk-get-started]
 - [¿Qué es el Centro de IoT de Azure?][]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
@@ -73,4 +73,4 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

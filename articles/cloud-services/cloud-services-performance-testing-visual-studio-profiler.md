@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Generación del perfil de un servicio en la nube en modo local en el emulador de proceso" 
+	pageTitle="Generación del perfil de un servicio en la nube en modo local en el emulador de proceso | Microsoft Azure" 
 	services="cloud-services"
 	description="Investigar los problemas de rendimiento en servicios en la nube con el generador de perfiles de Visual Studio" 
 	documentationCenter=""
 	authors="TomArcher" 
 	manager="douge" 
-	editor="tglee"
+	editor=""
 	tags="" 
 	/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/21/2015" 
 	ms.author="tarcher"/>
 
 # Prueba del rendimiento de un servicio en la nube de manera local en el emulador de proceso de Azure con el generador de perfiles de Visual Studio
@@ -186,4 +186,4 @@ La instrumentación de binarios de Azure en el emulador no es compatible en el g
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

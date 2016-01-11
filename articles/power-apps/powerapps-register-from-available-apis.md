@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/09/2015"
+   ms.date="12/17/2015"
    ms.author="guayan"/>
 
 # Registro de una API administrada por Microsoft o una API administrada por TI
@@ -70,7 +70,7 @@ Algunos de los beneficios adicionales incluyen:
 
 - Usted supervisa los recursos, incluida la red, la memoria o las configuraciones de seguridad. Por ejemplo, si necesita más memoria para mostrar datos de Excel en su aplicación, usted controla cuánta memoria más debe agregar al entorno. 
 - Configura la confianza y controla la seguridad entre las aplicaciones y la API. Por ejemplo, determina si la API de Office365 puede ser una API administrada por Microsoft (una confianza automática) o usa la API de Office365 dentro de su propio entorno (crea su propia confianza). 
-- **Todas** las API administradas por Microsoft también pueden ser API administradas por TI. Por ejemplo, si desea crear su propia instancia de Office365 y tener el control total de esta instancia, puede hacerlo. Luego, puede usar su API de Office365 administrada por TI y la API de Office365 administrada por Microsoft en el mismo entorno. En realidad, depende de las necesidades de la aplicación.
+- **Todas** las API administradas por Microsoft también pueden ser API administradas por TI. Por ejemplo, si quiere crear su propia instancia de Office365 y tener el control total de esta instancia, puede hacerlo. Luego, puede usar su API de Office365 administrada por TI y la API de Office365 administrada por Microsoft en el mismo entorno. En realidad, depende de las necesidades de la aplicación.
 - Cuando se conecta a sistemas locales o con la API de Búsqueda de Bing, controla la seguridad, la autenticación, las licencias, etc.
 
 
@@ -155,4 +155,4 @@ En este tema, vio cómo registrar su propia instancia de las API disponibles que
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

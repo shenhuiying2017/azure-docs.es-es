@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 
@@ -146,4 +146,4 @@ Para obtener información acerca de tareas de almacenamiento más complejas, sig
 - Repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 - [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

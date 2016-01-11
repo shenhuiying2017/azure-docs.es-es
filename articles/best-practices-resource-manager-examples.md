@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/13/2015"
+	ms.date="12/17/2015"
 	ms.author="mmercuri"/>
 
 # Ejemplos contextuales de procedimientos recomendados para la implementación de plantillas
@@ -254,4 +254,4 @@ Por último, puede que se quiera garantizar que determinados recursos no se elim
 - Para obtener recomendaciones sobre cómo controlar la seguridad en el Administrador de recursos de Azure, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
 - Para obtener información sobre cómo compartir el estado dentro y fuera de las plantillas, consulte [Uso compartido del estado en las plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

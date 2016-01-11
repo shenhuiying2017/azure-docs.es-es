@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Introducción al conector AS2 y su incorporación a una aplicación lógica
@@ -59,7 +59,7 @@ Nombre de la instancia de TPM | Escriba el nombre de la aplicación de API de **
 
 Los socios comerciales son las entidades implicadas en comunicaciones B2B (negocio a negocio). Cuando dos asociados establecen una relación, esto se conoce como contrato. El contrato definido se basa en la comunicación que los dos socios desean lograr y es específico del protocolo o el transporte.
 
-Los pasos necesarios para crear un contrato de socio comercial se documentan [aquí][2].
+Vea los pasos para [crear un contrato de socio comercial][2].
 
 ## Uso del conector como desencadenador
 
@@ -117,4 +117,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

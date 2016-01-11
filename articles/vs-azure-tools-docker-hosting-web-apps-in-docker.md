@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/20/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Hospedaje de Aplicaciones web en Docker
@@ -177,4 +177,4 @@ Para obtener información sobre los problemas con el uso de Docker en Visual Stu
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

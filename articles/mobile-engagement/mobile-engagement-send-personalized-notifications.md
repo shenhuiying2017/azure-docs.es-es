@@ -59,7 +59,7 @@ Ahora está listo para enviar notificaciones con este **user\_name**.
 
 ![][4]
 
-> [AZURE.NOTE]Los usuarios para los que no se establece la app-info user\_name, no recibirán ninguna notificación.
+> [AZURE.NOTE]Los usuarios para los que no se establece la app-info user\_name, no recibirán ninguna notificación. Si ejecuta la campaña de notificación en modo de prueba y no tiene información de aplicación establecida, enviaremos el carácter '?' para reemplazar el marcador de posición.
 
 2) cuando Mobile Engagement seleccione un dispositivo para enviar esta notificación, mirará esta app-info y reemplazará el valor en el marcador de posición. Por ejemplo, si hemos configurado `str = "Scott"` para un usuario, el dispositivo se asociará a la app-info de **user\_name = SCOTT** para este usuario y el usuario verá el exterior de la notificación de inserción de la aplicación con el formato siguiente.
 
@@ -72,4 +72,4 @@ Ahora está listo para enviar notificaciones con este **user\_name**.
 [4]: ./media/mobile-engagement-send-personalized-notifications/personal-notification.png
 [5]: ./media/mobile-engagement-send-personalized-notifications/notification.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

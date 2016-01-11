@@ -15,7 +15,7 @@
    ms.date="12/14/2015"
    ms.author="alkohli" />
 
-# Usar el servicio de Administrador de StorSimple para ver y administrar trabajos de StorSimple
+# Usar el servicio de Administrador de StorSimple para ver y administrar trabajos de StorSimple (Update 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
@@ -93,4 +93,4 @@ Ahora se cancelará este trabajo.
 
 - Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

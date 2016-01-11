@@ -1,6 +1,6 @@
 <properties
    pageTitle="Implementación de una aplicación de Node.js con MongoDB | Microsoft Azure"
-   description="Tutorial sobre cómo empaquetar varias aplicaciones para implementarlas en un clúster de Azure Service Fabric"
+   description="Tutorial sobre cómo empaquetar varias aplicaciones para implementarlas en un clúster de Service Fabric de Azure"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
@@ -19,15 +19,15 @@
 
 # Implementación de varias aplicaciones personalizadas
 
-En este artículo se muestra cómo empaquetar e implementar varias aplicaciones en Service Fabric con la versión de vista previa de la herramienta de empaquetado de Service Fabric, que está disponible en http://aka.ms/servicefabricpacktool.
+En este artículo se muestra cómo empaquetar e implementar varias aplicaciones en Service Fabric de Azure con la versión de vista previa de la herramienta de empaquetado de Service Fabric, que está disponible en [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
 
-Para crear manualmente un paquete de Service Fabric, consulte el artículo [Implementación de una aplicación existente en Azure Service Fabric](service-fabric-deploy-existing-app.md).
+Para crear manualmente un paquete de Service Fabric, consulte el artículo [Implementación de una aplicación personalizada en Service Fabric](service-fabric-deploy-existing-app.md).
 
 Aunque este tutorial muestra cómo implementar una aplicación con un front-end de Node.js que usa MongoDB como almacén de datos, puede aplicar estos pasos en cualquier aplicación que tenga dependencias en otra aplicación.
 
 ## Empaquetado de la aplicación Node.js
 
-Este artículo asume que no tiene instalado Node.js en los nodos del clúster de Service Fabric. Por tanto, es precioso agregar node.exe en el directorio raíz de la aplicación de nodo antes del empaquetado. La estructura del directorio de la aplicación Node.js (con marco de web Express y un motor de creación de plantillas Jade) debe ser similar al siguiente:
+Este artículo asume que no tiene instalado Node.js en los nodos del clúster de Service Fabric. Por tanto, es preciso agregar Node.exe en el directorio raíz de la aplicación de nodo antes del empaquetado. La estructura del directorio de la aplicación Node.js (con marco web Express y un motor de plantillas Jade) debe ser similar a la siguiente:
 
 ```
 |-- NodeApplication
@@ -60,14 +60,14 @@ El siguiente paso consiste en crear un paquete de aplicación para la aplicació
 
 A continuación se muestra una descripción de los parámetros usados:
 
-- **/source**: señala al directorio de la aplicación que se debe empaquetar.
-- **/target**: define el directorio en el que se debe crear el paquete. Este directorio tiene que ser diferente del directorio de destino.
-- **/appname**: define el nombre de aplicación de la aplicación existente. Es importante comprender que esto se convierte en el nombre del servicio del manifiesto y no en el nombre de la aplicación de Service Fabric.
-- **/exe**: define el archivo ejecutable que debe iniciar Service Fabric, en este caso `node.exe`.
-- **/ma**: define el argumento que se usa para iniciar el ejecutable. Como no está instalado Node.js, Service Fabric debe iniciar el servidor web de Node.js mediante la ejecución de `node.exe bin/www`. `/ma:'bin/www'` indica a la herramienta de empaquetado que use `bin/ma` como argumento para node.exe.
-- **/AppType**: define el nombre del tipo de aplicación de Service Fabric. Si
+- **/source** señala al directorio de la aplicación que se debe empaquetar.
+- **/target** define el directorio en el que se debe crear el paquete. Este directorio tiene que ser diferente del directorio de destino.
+- **/appname** define el nombre de aplicación de la aplicación existente. Es importante comprender que esto se convierte en el nombre del servicio del manifiesto y no en el nombre de la aplicación de Service Fabric.
+- **/exe** define el archivo ejecutable que debe iniciar Service Fabric, en este caso `node.exe`.
+- **/ma** define el argumento que se usa para iniciar el archivo ejecutable. Como no está instalado Node.js, Service Fabric debe iniciar el servidor web de Node.js mediante la ejecución de `node.exe bin/www`. `/ma:'bin/www'` indica a la herramienta de empaquetado que use `bin/ma` como argumento para node.exe.
+- **/AppType** define el nombre del tipo de aplicación de Service Fabric.
 
-Si examina el directorio especificado en el parámetro/Target, podrá ver que la herramienta ha creado un paquete de Service Fabric totalmente operativo, como se muestra a continuación:
+Si examina el directorio especificado en el parámetro /target, podrá ver que la herramienta ha creado un paquete de Service Fabric totalmente operativo, como se muestra a continuación:
 
 ```
 |--[yourtargetdirectory]
@@ -109,31 +109,31 @@ En este ejemplo, el servidor web de Node.js escucha el puerto 3000, por lo que t
       </Endpoints>
 </Resources>
 ```
-Ahora que ha empaquetado la aplicación Node.js, puede continuar y empaquetar MongoDB. Como se mencionó antes, los pasos siguientes no son específicos de Node.js y MongoDB, porque sirven para todas las aplicaciones que están diseñadas a empaquetarse juntas como una aplicación de Service Fabric.
+Ahora que ha empaquetado la aplicación Node.js, puede continuar y empaquetar MongoDB. Como se mencionó antes, los pasos que realizará ahora no son específicos de Node.js y MongoDB. De hecho, se aplican a todas las aplicaciones que están diseñadas para empaquetarse como una aplicación de Service Fabric.
 
-Para empaquetar MongoDB, debe asegurarse de que empaqueta mongod.exe y mongo.exe. Ambos archivos binarios se encuentran en el directorio `bin` del directorio de instalación de MongoDB. La estructura del directorio es similar a la siguiente.
+Para empaquetar MongoDB, debe asegurarse de que empaqueta Mongod.exe y Mongo.exe. Ambos archivos binarios se encuentran en el directorio `bin` del directorio de instalación de MongoDB. La estructura del directorio es similar a la siguiente.
 
 ```
 |-- MongoDB
 	|-- bin
         |-- mongod.exe
         |-- mongo.exe
-        |-- etc.
+        |-- anybinary.exe
 ```
 Service Fabric debe iniciar MongoDB con un comando similar al siguiente, por lo que se debería usar el parámetro `/ma` al empaquetar MongoDB.
 
 ```
 mongod.exe --dbpath [path to data]
 ```
-> [AZURE.NOTE]Los datos no se conservan en caso de que se produzca un error de nodo si coloca el directorio de datos de MongoDB en el directorio local del nodo. Debe usar en este caso un almacenamiento duradero o implementar ReplicaSet de MongoDB para evitar la pérdida de datos.
+> [AZURE.NOTE]Los datos no se conservan en caso de que se produzca un error de nodo si coloca el directorio de datos de MongoDB en el directorio local del nodo. Debe usar en este caso un almacenamiento duradero o implementar el conjunto de réplicas de MongoDB para evitar la pérdida de datos.
 
-En PowerShell o el Shell de comandos se ejecuta la herramienta de empaquetado con los parámetros siguientes:
+En PowerShell o el shell de comandos se ejecuta la herramienta de empaquetado con los parámetros siguientes:
 
 ```
 .\ServiceFabricAppPackageUtil.exe /source: [yourdirectory]\MongoDB' /target:'[yourtargetdirectory]' /appname:MongoDB /exe:'bin\mongod.exe' /ma:'--dbpath [path to data]' /AppType:NodeAppType
 ```
 
-Para agregar MongoDB al paquete de aplicación de Service Fabric, deberá asegurarse de que el parámetro /target apunta al mismo directorio que ya contiene el manifiesto de la aplicación junto con la aplicación Node.js y que está usando el mismo nombre de ApplicationType.
+Para agregar MongoDB al paquete de aplicación de Service Fabric, deberá asegurarse de que el parámetro /target apunta al mismo directorio que ya contiene el manifiesto de la aplicación junto con la aplicación de Node.js. También debe asegurarse de que está utilizando el mismo nombre de ApplicationType.
 
 Examinemos el directorio y la herramienta que se ha creado.
 
@@ -190,12 +190,12 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\NodeAp
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-Cuando la aplicación se publica correctamente en el clúster local, puede acceder a la aplicación Node.js en el puerto que hemos especificado en el manifiesto de servicio de la aplicación Node.js, por ejemplo http://localhost:3000.
+Cuando la aplicación se publica correctamente en el clúster local, puede acceder a la aplicación de Node.js en el puerto que hemos especificado en el manifiesto de servicio de la aplicación de Node.js, por ejemplo http://localhost:3000.
 
-En este tutorial ha visto cómo empaquetar fácilmente dos aplicaciones existentes como una aplicación de Service Fabric e implementarla en Service Fabric para que pueda beneficiarse de algunas de las características del Service Fabric, como la alta disponibilidad y la integración del sistema de estado.
+En este tutorial, ha visto cómo empaquetar fácilmente dos aplicaciones existentes como una aplicación de Service Fabric. También ha aprendido cómo implementarla en Service Fabric para que pueda beneficiarse de algunas de las características de Service Fabric, como la alta disponibilidad y la integración del sistema de mantenimiento.
 
 ## Pasos siguientes
 
-Obtenga información acerca de cómo [empaquetar una única aplicación manualmente](service-fabric-deploy-existing-app.md).
+- Obtenga información acerca de cómo [empaquetar una única aplicación manualmente](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1223_2015-->

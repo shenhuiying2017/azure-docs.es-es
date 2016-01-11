@@ -48,7 +48,7 @@ Observe cómo la infraestructura de Azure toma el rol del enrutador, lo que le p
 - **Conectividad**. Las redes virtuales pueden conectarse entre sí, e incluso al centro de datos local usando una conexión VPN de sitio a sitio o una conexión ExpressRoute. Para más información sobre puertas de enlace de VPN, visite [Acerca de puertas de enlace de VPN](./vpn-gateway-about-vpngateways.md). Para más información sobre ExpressRoute, visite [Introducción técnica de ExpressRoute](./expressroute-introduction.md).
 
     >[AZURE.NOTE]Asegúrese de crear una red virtual antes de implementar instancias de rol de Paas o máquinas virtuales de Iaas en el entorno de Azure. Las máquinas virtuales basadas en ARM requieren una red virtual, y si no especifica una red virtual, Azure crea una predeterminada que puede tener un conflicto de bloque de dirección de CIDR con la red local. Esto hace que la conexión de la red virtual con la red local sea imposible.
-    
+
 ## Subredes
 
 La subred es un intervalo de direcciones IP en la red virtual; puede dividir una red virtual en varias subredes para la organización y la seguridad. Las instanacias de rol de PaaS y máquinas virtuales implementadas en subredes (iguales o distintas) dentro de una red virtual pueden comunicarse entre sí sin ninguna configuración adicional. También puede configurar tablas de rutas y NSG para una subred.
@@ -58,7 +58,7 @@ La subred es un intervalo de direcciones IP en la red virtual; puede dividir una
 
 Hay dos tipos de direcciones IP asignadas a recursos en Azure: *públicas* y *privadas*. Las direcciones IP públicas permiten a los recursos de Azure comunicarse con Internet y otros servicios de acceso público de Azure como [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/), [Centros de eventos de Azure](https://azure.microsoft.com/documentation/services/event-hubs/). Las direcciones IP privadas permite la comunicación entre los recursos de una red virtual, junto con aquellos conectados a través de una VPN, sin usar direcciones IP enrutables por Internet.
 
-Para más información sobre las direcciones IP en Azure, visite [Direcciones IP de red virtual](virtual-network-ip-addresses-arm.md)
+Para más información sobre las direcciones IP en Azure, visite [Direcciones IP de red virtual](virtual-network-ip-addresses-overview-arm.md).
 
 ## Equilibradores de carga de Azure
 
@@ -98,4 +98,4 @@ No hay ningún coste adicional para el uso de redes virtuales en Azure. A las in
 - [Reserva de una dirección IP pública](../virtual-networks-reserved-public-ip.md).
 - Obtención de más información sobre [rutas definidas por el usuario y reenvío IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -5,11 +5,11 @@ Se utiliza un equilibrador de carga cuando desea escalar sus aplicaciones. Entre
 
 | Propiedad | Descripción |
 |---|---|
-| *Configuración de direcciones IP front-end* | un Equilibrador de carga puede incluir una o varias direcciones IP de front-end, también conocidas como IP virtuales (VIP). Estas direcciones IP sirven como entrada para el tráfico y pueden ser de IP pública o privada |
-|*Grupo de direcciones de back-end* | se trata de direcciones IP asociadas a las NIC de la máquina virtual a la que se distribuirá la carga |
-|*Reglas de equilibrio de carga* | una propiedad de regla asigna una combinación dada de dirección IP de front-end y puerto, a un conjunto de combinaciones de direcciones IP de back-end y puerto. Con una única definición de un recurso de equilibrador de carga, puede definir varias reglas de equilibrio de carga, donde cada regla refleja una combinación de dirección IP de front-end y puerto y de dirección IP de back-end y puerto asociada con las máquinas virtuales. La regla es un puerto en el grupo de front-end para muchas máquinas virtuales en el grupo de back-end |  
+| *frontendIPConfigurations* | un Equilibrador de carga puede incluir una o varias direcciones IP de front-end, también conocidas como IP virtuales (VIP). Estas direcciones IP sirven como entrada para el tráfico y pueden ser de IP pública o privada |
+|*backendAddressPools* | se trata de direcciones IP asociadas a las NIC de la máquina virtual a la que se distribuirá la carga |
+|*loadBalancingRules* | una propiedad de regla asigna una combinación dada de dirección IP de front-end y puerto, a un conjunto de combinaciones de direcciones IP de back-end y puerto. Con una única definición de un recurso de equilibrador de carga, puede definir varias reglas de equilibrio de carga, donde cada regla refleja una combinación de dirección IP de front-end y puerto y de dirección IP de back-end y puerto asociada con las máquinas virtuales. La regla es un puerto en el grupo de front-end para muchas máquinas virtuales en el grupo de back-end |  
 | *Sondeos* | los sondeos le permiten realizar un seguimiento del estado de las instancias de máquina virtual. Si se produce un error en un sondeo de estado, la instancia de la máquina virtual se sacará automáticamente de la rotación |
-| *Reglas NAT de entrada* | las reglas NAT definen el tráfico entrante que fluye a través de la dirección IP de front-end y se distribuye a la dirección IP de back-end hacia una instancia de máquina virtual específica. La regla NAT es un puerto en el grupo de front-end para una máquina virtual en el grupo de back-end | 
+| *inboundNatRules* | las reglas NAT definen el tráfico entrante que fluye a través de la dirección IP de front-end y se distribuye a la dirección IP de back-end hacia una instancia de máquina virtual específica. La regla NAT es un puerto en el grupo de front-end para una máquina virtual en el grupo de back-end | 
 
 Ejemplo de plantilla de equilibrador de carga en formato Json:
 
@@ -190,4 +190,4 @@ Ejemplo de plantilla de equilibrador de carga en formato Json:
 
 Lea el artículo [API de REST del Equilibrador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx) para obtener más información.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

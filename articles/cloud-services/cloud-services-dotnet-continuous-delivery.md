@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -58,7 +58,7 @@ En esta sección se describe cómo construir un comando de MSBuild que compila u
 
     De manera opcional, puede especificar el nombre del proyecto como un parámetro de MSBuild. Si no se especifica, se utiliza el directorio actual. Para obtener más información acerca de las opciones de línea de comandos de MSBuild, consulte [Referencia de la línea de comandos de MSBuild][1].
 
-4.  Busque el resultado. De manera predeterminada, este comando crea un directorio en relación con la carpeta raíz del proyecto, como *ProjectDir*\\bin\\*Configuration*\\app.publish\\. Al compilar un proyecto de Azure, se generan dos archivos: el archivo del paquete mismo y el archivo de configuración que lo acompaña:
+4.  Busque el resultado. De manera predeterminada, este comando crea un directorio en relación con la carpeta raíz del proyecto, como *ProjectDir*\\bin\*Configuration*\\app.publish\\. Al compilar un proyecto de Azure, se generan dos archivos: el archivo del paquete mismo y el archivo de configuración que lo acompaña:
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -85,7 +85,7 @@ Para configurar TFS a fin de compilar paquetes de Azure, realice los siguientes 
 
     ![][0]
 
-2.  Haga clic en la pestaña **Desencadenador** y especifique las condiciones deseadas para cuando desea que se compile el paquete. Por ejemplo, especifique **Integración continua** para compilar el paquete cada vez que se produce una protección del control de código fuente.
+2.  Haga clic en la pestaña **Desencadenador** y especifique las condiciones deseadas para cuándo desea que se compile el paquete. Por ejemplo, especifique **Integración continua** para compilar el paquete cada vez que se produce una protección del control de código fuente.
 
 3.	Elija la pestaña **Configuración de origen** y asegúrese de que la carpeta del proyecto se muestra en la columna **Carpeta de control de código fuente** y de que el estado es **Activo**.
 
@@ -123,7 +123,7 @@ En esta sección se describen los pasos para construir un script de Windows Powe
 
     Se muestra información sobre su suscripción. Verifique que todo esté correcto.
 
-4.  Guarde la plantilla de script que aparece al final de este artículo en la carpeta de scripts como c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**.
+4.  Guarde la plantilla de script que se proporciona al [final de este artículo][] en la carpeta de scripts como c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**.
 
 5.  Revise la sección de parámetros del script. Agregue o modifique cualquiera de los valores predeterminados. Estos valores siempre pueden omitirse al pasar parámetros explícitos.
 
@@ -573,4 +573,4 @@ Para habilitar la depuración remota cuando se usa la entrega continua, consulte
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

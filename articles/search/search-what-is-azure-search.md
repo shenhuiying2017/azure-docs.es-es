@@ -1,134 +1,85 @@
 <properties
 	pageTitle="¿Qué es Búsqueda de Azure? | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
-	description="Búsqueda de Azure es un servicio de búsqueda hospedado en la nube. Más información en esta información técnica y resumen de características."
+	description="Búsqueda de Azure es un servicio de búsqueda completamente administrado hospedado en la nube. Conozca más en la información general de esta característica."
 	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
-    tags="azure-portal"/>
+	authors="ashmaka"
+	documentationCenter=""/>
 
 <tags
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
-	ms.author="heidist"/>
+	ms.date="12/18/2015"
+	ms.author="ashmaka"/>
 
 # ¿Qué es Búsqueda de Azure?
+Búsqueda de Azure es una solución de búsqueda como servicio en la nube que delega la administración de los servidores y la infraestructura a Microsoft, dejando así un servicio listo para utilizar que puede completar con sus propios datos, que será con los que se realice la búsqueda. Búsqueda de Azure le permite agregar fácilmente una sólida experiencia de búsqueda a sus aplicaciones utilizando una sencilla API de REST o SDK de .NET sin necesidad de administrar la infraestructura de búsqueda y convertirse en un experto en esta materia.
 
-El servicio Búsqueda de Azure es un servicio de búsqueda hospedado en la nube totalmente administrado que permite a los desarrolladores crear eficaces aplicaciones de búsqueda mediante un SDK de .NET o las API de REST. Incluye búsquedas de texto completo que abarcan todo el contenido, además de comportamientos de búsqueda avanzada similares a los que presentan los motores de búsqueda web comerciales, por ejemplo, sugerencias de escritura anticipada de consultas, basadas en la entrada parcial de una palabra, resaltado de los aciertos encontrados y navegación por facetas. La compatibilidad con el lenguaje natural está integrada y se utilizan las reglas lingüísticas que corresponden al idioma especificado.
+## Ofrezca a los usuarios una eficaz experiencia de búsqueda
 
-Es posible escalar el servicio en función de las necesidades de aumento de la capacidad de búsqueda o de almacenamiento. Por ejemplo, los minoristas pueden aumentar la capacidad para satisfacer los volúmenes adicionales que acompañan a los eventos de promoción o de compras de temporada.
+Se pueden formular **potentes consultas** utilizando operadores lógicos, expresiones de comparación etc. con [sintaxis de OData](https://msdn.microsoft.com/library/azure/dn798921.aspx) y [sintaxis de consulta simple](https://msdn.microsoft.com/library/azure/dn798920.aspx). Además, la [sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) (actualmente en vista previa) puede habilitar la búsqueda aproximada, la búsqueda de proximidad, la priorización de términos y las expresiones regulares. Búsqueda de Azure también admite analizadores léxicos personalizados para permitir que su aplicación administre consultas de búsqueda complejas mediante la coincidencia fonética y las expresiones regulares.
 
-El servicio Búsqueda de Azure, basado en API, está destinado a desarrolladores e integradores de sistemas que saben trabajar con servicios web y HTTP. El servicio Búsqueda de Azure elimina la complejidad de administrar un servicio de búsqueda en la nube y simplifica la creación de aplicaciones web y móviles basadas en búsquedas.
+Se incluye **compatibilidad** con [56 idiomas diferentes](https://msdn.microsoft.com/library/azure/dn879793.aspx). Haciendo uso de analizadores de Lucene y Microsoft (perfeccionados por años de procesamiento de lenguaje natural en Office y Bing), Búsqueda de Azure puede analizar texto mediante la separación de palabras, la normalización de texto, la lematización, etc. Esto permite al cuadro de búsqueda de la aplicación controlar de forma inteligente los errores ortográficos, los tiempos verbales, las formas irregulares, etc.
 
-##Cómo funciona
+Las **sugerencias de búsqueda** pueden habilitarse las barras de búsqueda de autocompletado y las consultas de escritura automática. [Se sugieren los documentos correspondientes en el índice](https://msdn.microsoft.com/library/azure/dn798936.aspx) a medida que los usuarios escriben entradas de búsqueda parciales.
 
-Búsqueda de Azure es un [servicio PaaS](https://wikipedia.org/wiki/Platform_as_a_service) que delega la administración de los servidores y la infraestructura a Microsoft, pero deja un servicio listo para usar que se rellena con los datos de búsqueda y al que se tiene acceso posteriormente desde la aplicación. Dependiendo de cómo se configure, se usará el servicio gratuito que se comparte con otros suscriptores de Búsqueda de Azure o se aplicará el nivel de precios Estándar que ofrece recursos dedicados en exclusividad. La búsqueda estándar es escalable, con opciones que satisfacen el aumento de la demanda de almacenamiento o de cargas de consultas.
+**El resaltado de referencias** [permite](https://msdn.microsoft.com/library/azure/dn798927.aspx) a los usuarios ver el fragmento de texto de cada resultado que contenga las coincidencias para su consulta. Se puede elegir qué campos devuelven fragmentos resaltados.
 
-Búsqueda de Azure almacena los datos en un índice donde se pueden llevar a cabo consultas de texto completo. Es posible crear el esquema de estos índices en el Portal de Azure clásico o mediante programación, usando las API de REST o la biblioteca de cliente. Una vez que se ha definido el esquema, se pueden cargar los datos en el servicio Búsqueda de Azure, donde se indizan seguidamente.
+**La navegación por facetas** se agrega fácilmente a la página de resultados de búsqueda con Búsqueda de Azure. Usando [simplemente un parámetro de consulta](https://msdn.microsoft.com/library/azure/dn798927.aspx), Búsqueda de Azure devolverá toda la información necesaria para construir una experiencia de búsqueda por facetas en la interfaz de usuario de la aplicación para permitir que los usuarios profundicen en los resultados de la búsqueda y los filtren (por ejemplo, filtrar elementos de un catálogo por rango de precios o marca).
 
-Se pueden emplear modelos de inserción o de extracción para la carga de los datos en el índice. El modelo de extracción se proporciona a través de indizadores que se pueden configurar para actualizaciones bajo demanda o programadas (consulte [Operaciones del indizador (API de REST del servicio Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn946891.aspx)), lo que permite introducir fácilmente datos y cambios de datos de DocumentDB de Azure, Base de datos SQL de Azure o SQL Server hospedado en una máquina virtual de Azure. El modelo de inserción se proporciona a través del SDK o las API de REST usadas para enviar documentos actualizados a un índice. Se puede insertar datos desde cualquier conjunto de datos prácticamente, siempre y cuando tengan formato JSON. Consulte [Adición, actualización o eliminación de documentos](https://msdn.microsoft.com/library/azure/dn798930.aspx) o [Uso del SDK de .NET)](search-howto-dotnet-sdk.md) para obtener instrucciones sobre la carga de datos.
+**El soporte** [geoespacial](https://msdn.microsoft.com/library/azure/dn798921.aspx) permite procesar, filtrar y mostrar de forma inteligente las ubicaciones geográficas. Búsqueda de Azure permite a los usuarios explorar datos basados en la proximidad de un resultado de búsqueda a una ubicación determinada o en una región geográfica específica.
 
-Algunos desarrolladores elegirán un indizador por la comodidad que proporciona. Para otros, vale la pena hacer un poco más de trabajo y emplear el modelo de inserción. Los motivos para elegir el modelo de inserción son dos. Primero, se evita la carga adicional que conllevan los mecanismos estilo rastreador en los servidores de datos. En segundo lugar, se evita la latencia inherente a la indización programada. En días de campañas de ventas, por ejemplo, se necesitan búsquedas que reflejen al segundo el estado de disponibilidad en el inventario. El modelo de inserción ofrece este grado de precisión.
+Los **filtros** pueden utilizarse para incorporar fácilmente una navegación por facetas (por ejemplo, el filtrado por categoría o precio), mejorar la formulación de consultas y filtrar según los criterios especificados por el usuario o el desarrollador.
 
-##Qué se puede crear y almacenar
+## Faculte a los desarrolladores con un servicio de fácil de usar
 
-Un flujo de trabajo típico consiste en generar el esquema y los documentos en un entorno de desarrollo local y, a continuación, usar el SDK de .NET o la API de REST para cargar, procesar y, en última instancia, consultar los datos. Todos los datos indizados se conservan en el servicio Búsqueda de Azure para mejorar el rendimiento y garantizar la coherencia entre operaciones de búsqueda.
+La **alta disponibilidad** garantiza una experiencia de servicio de búsqueda muy confiable. Cuando se escala correctamente, [Búsqueda de Azure ofrece un contrato de nivel de servicio del 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-Se puede utilizar el editor integrado en el portal para crear el esquema de índice y los perfiles de puntuación, lo que es ideal para la creación de prototipos. Los desarrolladores que necesiten un enfoque automatizado y repetible tal vez prefieran crear el índice en el código. Primero se agregan las características más recientes a la API, de forma que según los requisitos de la aplicación, un enfoque de programación puede ser la única opción.
+**Completamente administrada** como una solución de un extremo a otro, Búsqueda de Azure no requiere absolutamente ninguna administración de la infraestructura. El servicio se puede adaptar fácilmente a sus necesidades mediante el escalado en dos dimensiones para controlar más almacenamiento de documentos, mayores cargas de consultas o ambos.
 
-Cuando se genera el esquema, se definen los campos y sus atributos admitidos en la aplicación de búsqueda. Los campos contienen datos en los que se puede buscar, por ejemplo, nombres de productos, descripciones, comentarios de los clientes, marcas, precios, anuncios promocionales, etcétera. Los atributos informan sobre el tipo de operaciones que pueden llevarse a cabo. Entre los atributos que más se utilizan se encuentra si un campo admite búsqueda de texto completo (searchable=true), filtros (filterable=true) o facetas (facetable=true)
+**La integración de datos** con [indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx) permite a Búsqueda de Azure rastrear automáticamente la Base de datos SQL de Azure o Azure DocumentDB para sincronizar el contenido del índice de la búsqueda con el almacén de datos principal.
 
-Los campos también contienen datos que no admiten búsquedas relevantes para la aplicación de búsqueda, por ejemplo, valores que se usan internamente en filtros y perfiles de puntuación, o quizá direcciones URL que dirigen a contenido almacenado en otras plataformas de almacenamiento (por ejemplo, archivos de imágenes o vídeos guardados en almacenamiento de blobs). Un ejemplo citado a menudo como campo solo para uso interno es un margen de beneficio o cualquier otro valor que indique el potencial de ingresos. Tal vez la aplicación de búsqueda debe promover aquellos elementos específicos que aportan más beneficio financiero a la compañía. El esquema puede incluir atributos de campo que permitan estos tipos de comportamientos de búsqueda.
+La **averiguación de documento** está disponible para [leer e indexar los principales formatos de archivo](search-howto-indexing-azure-blob-storage.md), incluidos documentos de Microsoft Office, PDF y HTML.
 
-Los documentos son los datos detallados que devuelve el motor de búsqueda en los resultados de búsqueda. Por ejemplo, si la aplicación de búsqueda es un catálogo en línea, habrá un documento por cada SKU y la página de los resultados de búsqueda se creará utilizando los valores de los documentos devueltos que coinciden con los términos de búsqueda.
+El **análisis de tráfico de búsqueda** se [recopila y analiza fácilmente](search-traffic-analytics.md) para conocer qué usuarios están escribiendo en el cuadro de búsqueda.
 
-##Véalo en acción
+La **puntuación simple** es una ventaja clave de Búsqueda de Azure. Los [perfiles de puntuación](https://msdn.microsoft.com/library/azure/dn798928.aspx) se utilizan para permitir que las organizaciones modelen la relevancia en función de los valores de los propios documentos. Por ejemplo, tal vez se desea que los productos más recientes o con descuento aparezcan arriba en los resultados de búsqueda. También se pueden crear perfiles de puntuación mediante etiquetas para puntuaciones personalizadas, según las preferencias de búsqueda de los clientes de las que se ha hecho seguimiento y se han almacenado por separado.
 
-Vea nuestros vídeos para conocer distintos escenarios y capacidades. Visite [Búsqueda de Azure: ejemplos, tutoriales y demostraciones en vídeo](search-video-demo-tutorial-list.md) para obtener vínculos a contenido de vídeo.
+La **clasificación** se ofrece para varios campos mediante el esquema de índice y luego se activa o se desactiva en el momento de consulta con un único parámetro de búsqueda.
 
-##Exploración en profundidad de las características
+La **paginación** y limitación de los resultados de búsqueda se aplican fácilmente con el control adaptado que Búsqueda de Azure ofrece a través de los resultados de búsqueda.
 
-El servicio Búsqueda de Azure ofrece valor añadido en varias categorías, como aprovisionamiento y escala, programación, acceso y control, y en las características que se elijan implementar en la aplicación de búsqueda personalizada.
+El **explorador de Búsqueda** permite emitir consultas sobre todos los índices directamente desde el Portal de Azure de su cuenta para que pueda probar consultas y perfeccionar los perfiles de puntuación fácilmente.
 
-La siguiente lista de comprobación de características ayuda a evaluar Búsqueda de Azure según las necesidades de una aplicación de búsqueda. Encontrará anuncios sobre nuevas características en Actualizaciones recientes de Búsqueda de Azure. También puede consultar la página de solicitud de características de Búsqueda de Azure para comprobar el estado de aquellas características que aún no se han implementado.
+## Cómo funciona
 
-¿Alguna pregunta acerca de una característica específica? Acuda al [foro de Búsqueda de Azure en MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch). También puede revisar la [página de solicitud de características de Búsqueda de Azure](http://feedback.azure.com/forums/263029-azure-search) para comprobar el estado de las características que aún no se han implementado.
+### 1\. Servicio de aprovisionamiento
+Puede poner en marcha un servicio de Búsqueda de Azure mediante el [Portal de Azure](https://portal.azure.com/) o la [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn832684.aspx).
 
-###Características de capacidad y escala, y restricciones
+Dependiendo de cómo se configure el servicio, usará el nivel Gratis que se comparte con otros suscriptores de Búsqueda de Azure o el [plan de tarifa](https://azure.microsoft.com/pricing/details/search/) Estándar que ofrece recursos dedicados en exclusividad. Al aprovisionar el servicio, también se elige la región del centro de datos que hospeda el servicio.
 
-El servicio puede ejecutarse como una implementación estándar o compartida. La búsqueda estándar admite recursos dedicados que se pueden escalar en función de las cargas de trabajo. El servicio compartido es gratuito y está pensado para probar la funcionalidad de los servicios, ya que no hay ninguna garantía de rendimiento.
+Cuando se utiliza la Búsqueda de Azure en el nivel Estándar, puede escalar el servicio en dos dimensiones: 1) Agregar réplicas para aumentar su capacidad a fin de manejar grandes cargas de consultas y 2) Agregar particiones para agregar almacenamiento para más documentos. Al controlar el almacenamiento de documentos y el rendimiento de consultas por separado, puede personalizar el servicio de búsqueda para sus necesidades específicas.
 
-Es **escalable** en incrementos de almacenamiento y recuentos de documentos (particiones) o en la carga de consultas (réplicas). Cada réplica ejecuta una copia de un índice. Una alta disponibilidad requiere 2 réplicas para cargas de trabajo de consulta y 3 réplicas para cargas de trabajo de lectura y escritura (consulta e indización). Para obtener más información acerca de cómo planear la capacidad, consulte Límites y restricciones (Búsqueda de Azure).
+### 2\. Creación de índice
+Para cargar el contenido en el servicio Búsqueda de Azure, primero debe definir un índice de Búsqueda de Azure. Un índice es como una tabla de base de datos que contiene los datos y puede aceptar consultas de búsqueda. El esquema de índice se define para su asignación a la estructura de los documentos que desea buscar, igual que los campos de una base de datos.
 
-El servicio Búsqueda de Azure extiende automáticamente los índices y los documentos entre las particiones que se han asignado a este servicio. Esto significa que no se pueden vincular índices y documentos a un conjunto de particiones y réplicas.
+Es posible crear el esquema de estos índices en el Portal de Azure, o mediante programación [utilizando el SDK de .NET](search-howto-dotnet-sdk.md) o la [API de REST](https://msdn.microsoft.com/library/azure/dn798941.aspx). Una vez que se ha definido el índice, se pueden cargar los datos en el servicio Búsqueda de Azure, donde se indexan seguidamente.
 
-Las particiones y las réplicas son recursos de todo el servicio, y todos los índices se ejecutan en todas las réplicas. Si se necesita aislamiento de índice o si existen requisitos de dispersión geográfica de servicios y recursos en distintos centros de datos, se puede crear un segundo servicio.
+### 3\. Datos de índice
+Una vez que haya definido los campos y los atributos del índice, estará listo para cargar el contenido en el índice. Se pueden emplear modelos de inserción o de extracción para la carga de los datos en el índice.
 
-Hay límites en el almacenamiento y el número de índices y documentos que se cargan en el servicio. El límite real será lo que suceda primero: se agota el almacenamiento físico o se alcanza el límite máximo de los recuentos de documentos e índices. Vea [Límites y restricciones (Búsqueda de Azure)](search-limits-quotas-capacity.md) para obtener detalles.
+El modelo de extracción se proporciona a través de indexadores que se pueden configurar para actualizaciones bajo demanda o programadas (consulte [Operaciones de indexador (API de REST del servicio de Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn946891.aspx)), lo que permite introducir fácilmente datos y cambios de datos de Azure DocumentDB, Base de datos SQL de Azure, Almacenamiento de blobs de Azure o SQL Server hospedado en una máquina virtual de Azure.
 
-###Capacidad de programación
+El modelo de inserción se proporciona a través del SDK o las API de REST usadas para enviar documentos actualizados a un índice. Se pueden insertar datos desde prácticamente cualquier conjunto de datos usando el formato JSON. Consulte [Agregar, actualizar o eliminar documentos](https://msdn.microsoft.com/library/azure/dn798930.aspx) o [Cómo usar Búsqueda de Azure desde una aplicación .NET](search-howto-dotnet-sdk.md) para obtener instrucciones sobre la carga de datos.
 
-La API de REST se compone de solicitudes y respuestas HTTP con contenido en formato JSON. Hay una API para el acceso al servicio y otra para administrarlo. Consulte [API de REST del servicio Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) y [API de REST de administración de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn832684.aspx) para obtener detalles.
+### 4\. Search
+Una vez que se ha completado el índice de Búsqueda de Azure, podrá [emitir consultas de búsqueda](https://msdn.microsoft.com/library/azure/dn798927.aspx) al punto de conexión de servicio mediante solicitudes HTTP sencillas con la API de REST o el SDK. NET.
 
-El SDK de .NET incluye clases que facilitan el uso del servicio Búsqueda de Azure sin necesidad de trabajar directamente con HTTP y JSON. Para obtener más información, consulte [Uso del SDK de .NET de Búsqueda de Azure](search-howto-dotnet-sdk.md).
+## Pruébelo ahora (¡gratis!)
+Puede probar búsqueda de Azure hoy mismo. Si ya tiene una cuenta de Azure, puede [aprovisionar un servicio en el nivel Gratis](search-create-service-portal.md).
 
-###Acceso y control
+Si no tiene una cuenta de Azure, puede probar una sesión gratuita de 60 minutos sin necesidad de registrarse. Vaya a [Try Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) y seleccione "Aplicación web". A continuación, seleccione la plantilla "ASP.NET + Azure Search" para empezar.
 
-La búsqueda solo es accesible a través de HTTPS.
-
-La autenticación desde la aplicación host en Búsqueda de Azure se realiza mediante una clave de API de administración en un encabezado HTTP. No hay ningún modelo de autenticación o autorización por usuario. Sin embargo, se puede usar $filter para restringir el acceso por identidad de usuario. También se pueden usar varias claves de API de consulta que se asignan a distintas aplicaciones de cliente. Consulte [Administración del servicio de búsqueda en Microsoft Azure](search-manage.md) para obtener más información sobre administración de claves. Consulte [Búsqueda de documentos (API de REST del servicio Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) para obtener más información sobre $filter.
-
-###Índices y documentos
-
-Es posible tener varios índices (vea [Límites y restricciones (Búsqueda de Azure)](search-limits-quotas-capacity.md) para obtener información sobre los límites basados en niveles de precios). Tenga en cuenta que ya no se ofrece compatibilidad para la combinación de índices. Una solicitud de búsqueda puede especificar un índice.
-
-Los **documentos** contienen campos y atributos asociados. Los campos incluyen texto donde se puede buscar, valores que se utilizan principalmente (o incluso exclusivamente) en filtros y perfiles de puntuación, y muy probablemente: direcciones URL o punteros a contenido, por ejemplo, imágenes, de otros almacenamientos de datos. Muchas aplicaciones de búsqueda usan varias formas de almacenamiento. Se pueden almacenar imágenes o vídeos de manera más económica en otros medios de almacenamiento, como el Almacenamiento de blobs de Azure.
-
-Se pueden usar los **indizadores** para programar actualizaciones del índice de datos modificados en Base de datos SQL de Azure, SQL Server en máquinas virtuales de Azure o DocumentDB de Azure. Consulte [operaciones del indizador (API de REST del servicio Búsqueda de Azure)]((https://msdn.microsoft.com/library/azure/dn946891.aspx) para obtener más información.
-
-Se pueden formular **consultas** utilizando la sintaxis de OData para filtros booleanos y la sintaxis de consulta simple para la búsqueda de texto completo. Consulte [Sintaxis de expresiones de OData para Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798921.aspx) y [Sintaxis de consulta simple en Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798920.aspx) para obtener más información.
-
-Se pueden buscar documentos específicos basándose en su identificador y recuperar rápidamente elementos específicos. Esto resulta útil cuando un usuario hace clic en un resultado concreto y se quieren buscar detalles específicos acerca de ese documento. Consulte [Búsqueda de documento (API de REST del servicio Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798929.aspx) para obtener más información.
-
-##Características de las aplicaciones de búsqueda
-
-La **búsqueda de texto completo** (habilitada de forma predeterminada para campos de texto) está habilitada para cualquier campo con el atributo de que se puede buscar. La búsqueda de texto completo se basa en la coincidencia de los prefijos, es decir, las coincidencias se basan en la primera parte de un término de búsqueda, no en el medio ni en el final de la palabra. Consulte [Creación de índice (API de REST de servicio de Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798941.aspx) o [Creación de un índice de Búsqueda de Azure en el portal](search-create-index-portal.md) para conocer los pasos para definir un índice.
-
-Los **perfiles de puntuación** se utilizan para generar modelos de clasificación que optimizan la búsqueda basada en objetivos de negocio. Por ejemplo, tal vez se desea que los productos más recientes o con descuento aparezcan arriba en los resultados de búsqueda. También se pueden crear perfiles de puntuación mediante etiquetas para puntuaciones personalizadas, según las preferencias de búsqueda de los clientes de las que se ha hecho seguimiento y se han almacenado por separado. Consulte [Adición de perfiles de puntuación a un índice de búsqueda (API de REST de servicio Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798928.aspx) para obtener más información.
-
-La **compatibilidad de idioma** está integrada para 50 idiomas, con varias opciones de pilas de procesamiento de lenguaje natural, incluidos los conocidos analizadores de Lucene y los analizadores propios de Microsoft que alimentan Microsoft Office y Bing (solo en la versión preview). Consulte [Compatibilidad de idioma (API de REST de servicio de Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn879793.aspx) para Lucene y [API de REST del servicio Búsqueda de Azure versión 2015-02-28-Preview](search-api-2015-02-28-Preview.md) para los procesadores de lenguaje natural.
-
-El término **navegación por facetas** hace referencia a un árbol de clasificación utilizado para la búsqueda autodirigida, a menudo basada en marcas, modelos, tamaños o cualquier categoría que tenga sentido para los datos. La navegación por facetas se implementa mediante atributos en el índice, junto con un campo de facetas que se proporciona en una consulta. Consulte [Navegación por facetas](search-faceted-navigation.md) para obtener más información.
-
-Las **sugerencias** para escritura anticipada o autocompletar consultas se admiten a través de atributos en el índice. El servicio Búsqueda de Azure admite tanto las coincidencias aproximadas como de infijo (coincidencia con cualquier parte del contenido del campo). Se pueden hacer ambas, no son mutuamente excluyentes. Consulte [Creación de índice (API de REST del servicio Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798941.aspx) para obtener información acerca de cómo habilitar las sugerencias y [Sugerencias (API de REST de servicio de Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798936.aspx) para su uso.
-
-Se pueden usar los **filtros** para implementar la navegación por facetas, usada en la construcción de las consultas, o globalmente para restringir las operaciones de búsqueda y filtrar según los criterios que se establecen en el código. Los filtros están habilitados para campos específicos mediante el esquema de índice y a través del parámetro de búsqueda $Filter. Consulte [Creación de índice (API de REST de servicio de Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798941.aspx) y [Búsqueda de documentos (API de REST del servicio de Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) para obtener más información.
-
-También la función **Ordenar** está habilitada para campos específicos a través del esquema de índice e implementada después como un parámetro de búsqueda a través del parámetro $orderBy. Una vez más, los detalles se encuentran en [Creación de índice (API de REST del servicio Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798941.aspx) y [Búsqueda de documentos (API de REST del servicio Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
-
-El **recuento** de las coincidencias de búsqueda devueltas en una consulta y la capacidad de limitar la cantidad de coincidencias que se devuelven de una vez se implementan a través de $top y $skip. Consulte [Búsqueda de documentos (API de REST del servicio Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) para obtener más información.
-
-El **resaltado de los aciertos** se especifica mediante el parámetro de resaltado de consulta y permite mostrar un fragmento de texto con el resaltado de las palabras clave encontradas a partir de los términos de búsqueda especificados por el usuario. Consulte [Búsqueda de documentos (API de REST del servicio Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) para obtener más información acerca de los parámetros de consulta.
-
-##Informes y análisis
-
-El uso de los recursos se muestra en el panel del servicio, de forma que se puede obtener rápidamente una idea de cómo se utiliza el almacenamiento.
-
-El número de índices, el recuento de documentos y el consumo de almacenamiento están disponibles en el portal. También se puede utilizar la API. Consulte [Obtención de estadísticas de índice (API de REST del servicio Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798942.aspx) para obtener más información.
-
-No hay ningún mecanismo integrado para medir el rendimiento de las consultas u otras operaciones del servicio. Además, actualmente no hay ninguna compatibilidad para el registro o el análisis de los resultados de la búsqueda (por ejemplo, recuperar una lista de términos de búsqueda que no produjo ningún resultado o informar sobre el origen de las solicitudes de búsqueda).
-
-##Prueba
-
-Visite [Creación de un servicio de Búsqueda de Azure](search-create-service-portal.md) para configurar el servicio o use [Probar el Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/p/?LinkId=618214) para obtener una sesión de una hora gratis sin necesidad de instalación ni suscripción.
-
-También puede consultar estos tutoriales:
-
-[Uso de Búsqueda de Azure en .NET](search-howto-dotnet-sdk.md) [Introducción a Búsqueda de Azure](search-get-started-dotnet.md) [Búsqueda de Azure: ejemplos, tutoriales y demostraciones en vídeo](search-video-demo-tutorial-list.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

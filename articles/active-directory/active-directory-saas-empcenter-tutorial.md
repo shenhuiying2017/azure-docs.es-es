@@ -2,7 +2,7 @@
     pageTitle="Tutorial: integración de Azure Active Directory con EmpCenter | Microsoft Azure" 
     description="Aprenda a usar EmpCenter con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/01/2015" 
-    ms.author="markvi" />
+    ms.date="12/18/2015" 
+    ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con EmpCenter
   
@@ -81,7 +81,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
     ![Configurar las opciones de la aplicación](./media/active-directory-saas-empcenter-tutorial/IC802921.png "Configurar las opciones de la aplicación")
 
     1.  En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en la aplicación EmpCenter (p. ej.: **https://partner-authenticati.empcenter.com/workforce/SSO.do*)).
-2.  Haga clic en **Siguiente**.
+    2.  Haga clic en **Siguiente**.
 
 4.  En la página **Configurar inicio de sesión único en EmpCenter**, para descargar los metadatos, haga clic en **Descargar metadatos** y luego guarde el archivo de metadatos en el equipo.
 
@@ -118,4 +118,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1223_2015-->

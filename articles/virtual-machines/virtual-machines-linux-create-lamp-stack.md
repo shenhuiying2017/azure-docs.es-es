@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/10/2015"
+	ms.date="12/15/2015"
 	ms.author="ningk"/>
 
 #Cómo crear una pila LAMP con Microsoft Azure
@@ -36,7 +36,7 @@ Se supone que el lector ya tiene una suscripción de Azure. Si no, puede registr
 
 Además de este tema, si ya dispone de una máquina virtual y solo busca los aspectos básicos de la instalación de una pila LAMP en distintas distribuciones de Linux, consulte [Instalación de la pila LAMP en una máquina virtual de Linux en Azure](virtual-machines-linux-install-lamp-stack.md).
 
-También puede implementar imágenes LAMP preconfiguradas desde Azure Marketplace. El vídeo de 10 minutos siguiente presenta la implementación de imágenes LAMP integradas desde Azure Marketplace: (pila LAMP en máquinas virtuales de Azure](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
+También puede implementar imágenes LAMP preconfiguradas desde Azure Marketplace. El vídeo de 10 minutos siguiente presenta la implementación de imágenes LAMP integradas desde Azure Marketplace: [pila LAMP en máquinas virtuales de Azure](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
 
 ##Fase 1: Creación de una imagen
 En esta fase, creará una máquina virtual mediante una imagen de Linux en Azure.
@@ -46,7 +46,7 @@ SSH es una herramienta importante para los administradores del sistema. Sin emba
 
 Siga estos pasos para generar la clave de autenticación SSH.
 
--	Descargue e instale Puttygen desde la siguiente ubicación: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/)
+-	Descargue e instale Puttygen en [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 -	Ejecute puttygen.exe.
 -	Haga clic en **Generar** para generar las claves. En el proceso puede aumentar la aleatoriedad al mover el mouse sobre el área en blanco en la ventana. ![][1]
 -	Después del proceso de generar, Puttygen.exe mostrará la clave generada. Por ejemplo: ![][2]
@@ -58,11 +58,11 @@ En el [Portal de Azure](https://portal.azure.com/), haga clic en **Nuevo** en la
 
 ![][3]
 
-Para **Nombre de host**, especifique el nombre de la dirección URL que los clientes de Internet van a usar para acceder a esta máquina virtual. Defina la última parte del nombre DNS, por ejemplo LAMPDemo, y Azure generará la dirección URL como Lampdemo.cloudapp.net.
+Para **Nombre de host**, especifique el nombre de la dirección URL que los clientes de Internet van a usar para obtener acceso a esta máquina virtual. Defina la última parte del nombre DNS, por ejemplo LAMPDemo, y Azure generará la dirección URL como *lampdemo.cloudapp.net*.
 
 Para **Nombre de usuario**, elija un nombre que usará más adelante para iniciar sesión en la máquina virtual.
 
-Para **Clave de autenticación SSH**, copie el valor de clave del archivo **publicKey.pem**, que contiene la clave pública generada por puttygen.
+Para **Clave de autenticación SSH**, copie el valor clave del archivo **publicKey.pem**, que contiene la clave pública generada por puttygen.
 
 ![][4]
 
@@ -76,11 +76,11 @@ Los extremos en Azure constan de un protocolo (TCP o UDP), junto con un puerto p
 
 El puerto TCP 80 es el número de puerto predeterminado que escucha Apache. Abrir este puerto con un extremo de Azure le permitirá a usted y a otros clientes de Internet acceder al servidor web Apache.
 
-En el Portal de Azure, haga clic en **Examinar -> Máquina virtual** y, luego, haga clic en la máquina virtual que creó.
+En el Portal de Azure, haga clic en **Examinar -> Máquina virtual** y luego haga clic en la máquina virtual que creó.
 
 ![][5]
 
-Para agregar un extremo a una máquina virtual, haga clic en el cuadro **Extremos**.
+Para agregar un punto de conexión a una máquina virtual, haga clic en el cuadro **Extremos**.
 
 ![][6]
 
@@ -88,7 +88,7 @@ Haga clic en **Agregar**. Al aprovisionar una nueva máquina virtual puede habil
 
 Configurar el extremo:
 
-1.	Escriba un nombre para el extremo en **Extremo**.
+1.	Escriba un nombre para el punto de conexión en **Punto de conexión**.
 2.	Escriba 80 en **Puerto público**. Si cambia el puerto de escucha predeterminado de Apache, debe actualizar el Puerto privado para que coincida con el puerto de escucha de Apache.
 3.	Escriba 80 en **Puerto público**. De forma predeterminada, el tráfico HTTP usa el puerto 80. Si se establece en 80, no necesita incluir el número de puerto en la dirección URL que le permite acceder al servicio web de Apache. Por ejemplo: http://lampdemo.cloudapp.net. Si establece el puerto de escucha de Apache a otro valor, como el 81, deberá agregar el número de puerto a la dirección URL para acceder al servicio web de Apache. Por ejemplo, http://lampdemo.cloudapp.net:81/.
 
@@ -102,7 +102,7 @@ Haga clic en **Aceptar** para agregar el extremo a la máquina virtual.
 ###Paso 2: Conexión a la imagen creada
 Puede elegir cualquier herramienta SSH para conectarse a la nueva máquina virtual. En este ejemplo, se usa Putty.
 
-En primer lugar, obtenga el nombre DNS de la máquina virtual desde el Portal de Azure. Haga clic en **Examinar -> Máquinas virtuales** -> el nombre de la máquina virtual**-> Propiedades** y, luego, preste atención al campo **Nombre de dominio** del icono **Propiedades**.
+En primer lugar, obtenga el nombre DNS de la máquina virtual desde el Portal de Azure. Haga clic en **Examinar -> Máquinas virtuales ->** nombre de la máquina virtual **-> Propiedades** y luego preste atención al campo **Nombre de dominio** del icono **Propiedades**.
 
 Obtenga el número de puerto para las conexiones SSH desde el campo **SSH**. Aquí tiene un ejemplo.
 
@@ -114,7 +114,7 @@ Después de descargar, haga clic en el archivo ejecutable PUTTY.EXE. Configure l
 
 ![][9]
 
-En el panel izquierdo, haga clic en **Conexión -> SSH -> Autenticación** y, luego, haga clic en **Examinar** para especificar la ubicación del archivo **privateKey.ppk** que contiene la clave privada generada por puttygen en la Fase 1: Creación de una imagen. Aquí tiene un ejemplo:
+En el panel izquierdo, haga clic en **Conexión -> SSH -> Autenticación** y luego haga clic en **Examinar** para especificar la ubicación del archivo **privateKey.ppk** que contiene la clave privada generada por puttygen en la Fase 1: Creación de una imagen. Aquí tiene un ejemplo:
 
 ![][10]
 
@@ -147,7 +147,7 @@ Una vez instalado, inicie Apache con este comando:
 	sudo service httpd start
 
 ####Probar Apache
-Para comprobar si Apache se ha instalado correctamente, busque el nombre DNS del servidor Apache (para la dirección URL de ejemplo en este artículo, http://lampdemo.cloudapp.net/)). La página debe mostrar las palabras “It works!" ![][14]
+Para comprobar si Apache se ha instalado correctamente, busque el nombre DNS del servidor Apache (para la dirección URL de ejemplo en este artículo, http://lampdemo.cloudapp.net/)). La página debe mostrar las palabras “It works!"![][14].
 
 ####Solución de problemas
 Si se ejecuta Apache, pero no puede ver la página anterior predeterminada de Apache, deberá comprobar lo siguiente:
@@ -268,7 +268,7 @@ Esto se ha probado en Ubuntu 14.04.
 
 Ubuntu se basa en Debian. Puede instalar la pila LAMP de la misma forma que la serie Red Hat. Para simplificar los pasos, use la herramienta Tasksel.
 
-Tasksel es una herramienta de Debian y Ubuntu que instala varios paquetes relacionados como una tarea coordinada en el sistema. Para obtener más información, consulte [Tasksel - Community Help Wiki](https://help.ubuntu.com/community/Tasksel) (Tasksel: wiki de ayuda de la comunidad).
+Tasksel es una herramienta de Debian y Ubuntu que instala varios paquetes relacionados como una tarea coordinada en el sistema. Para más información, vea [Tasksel: wiki de ayuda de la comunidad](https://help.ubuntu.com/community/Tasksel).
 
 Use tasksel para instalar el software necesario para la pila LAMP.
 
@@ -361,7 +361,7 @@ Una vez que haya configurado la pila LAMP correctamente, puede implementar la ap
 
 -	**Síntoma** Apache se está ejecutando, pero no puede ver la página predeterminada de Apache con el explorador.
 -	**Caso de raíz posible**
-	1.	El puerto de escucha de Apache no coincide con el del puerto privado del extremo de su máquina virtual para el tráfico web.</br> Compruebe la configuración del extremo del puerto público y del puerto privado, y asegúrese de que el puerto privado es el mismo que el puerto de escucha de Apache. Consulte Fase 1: Creación de una imagen para obtener instrucciones acerca de cómo configurar extremos para la máquina virtual.</br> Para determinar el puerto de escucha de Apache, abra /etc/httpd/conf/httpd.conf (versión Red Hat) o /etc/apache2/ports.conf (versión Debian), busque la cadena "Listen". El puerto predeterminado es 80.
+	1.	El puerto de escucha de Apache no coincide con el del puerto privado del punto de conexión de su máquina virtual para el tráfico web.</br> Compruebe la configuración del extremo del puerto público y del puerto privado, y asegúrese de que el puerto privado es el mismo que el puerto de escucha de Apache. Vea Fase 1: Crear una imagen para instrucciones sobre cómo configurar puntos de conexión para la máquina virtual.</br> Para determinar el puerto de escucha de Apache, abra /etc/httpd/conf/httpd.conf (versión Red Hat) o /etc/apache2/ports.conf (versión Debian), busque la cadena "Listen". El puerto predeterminado es 80.
 
 	2.	El firewall ha deshabilitado el puerto de escucha de Apache.</br> Si puede ver la página predeterminada de Apache desde el host local, es probable que el problema sea que el puerto de escucha de Apache esté bloqueado por el firewall. Puede usar la herramienta w3m para explorar la página web. Los siguientes comandos instalan w3m y exploran la página predeterminada de Apache:
 
@@ -397,7 +397,7 @@ Una vez que haya configurado la pila LAMP correctamente, puede implementar la ap
 		Error:	/var/www/html/info.php: open for write: permission denied
 		Error:	File transfer failed
 
--	**Caso de raíz posible** No tiene permisos para acceder a la carpeta /var/www/html.
+-	**Caso de raíz posible** No tiene permisos para obtener acceso a la carpeta /var/www/html.
 -	**Solución** Necesita obtener permiso de la cuenta raíz. Puede cambiar la propiedad de esa carpeta de raíz al nombre de usuario que se usó al aprovisionar la máquina. Este es un ejemplo con el nombre de cuenta de azureuser:  
 
 		sudo chown azureuser -R /var/www/html  
@@ -456,4 +456,4 @@ Una vez que haya configurado la pila LAMP correctamente, puede implementar la ap
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -14,15 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="12/08/2015" 
 	ms.author="nitinme"/>
 
 
-# Servidor de trabajo Spark en clústeres de HDInsight de Azure
+# Servidor de trabajo Spark en clústeres de HDInsight de Azure (Windows)
+
+> [AZURE.NOTE]HDInsight ofrece ahora clústeres de Spark en Linux, que usa Livy para enviar trabajos de forma remota a un clúster de Spark. Para información sobre cómo usar Livy con HDInsight Spark clústeres en Linux, vea [trabajos Spark enviar remotamente con Livio con clústeres de Spark en HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md).
 
 El clúster Apache Spark en HDInsight de Azure empaqueta el servidor de trabajo Spark como parte de la implementación del clúster. El servidor de trabajo Spark proporciona API de REST para crear contexto Spark, enviar una aplicación Spark al contexto, comprobar el estado del trabajo, eliminar el contexto, etc. En este artículo se proporcionan algunos ejemplos de cómo usar Curl para realizar algunas tareas comunes en un clúster Spark mediante un servidor de trabajo.
 
->[AZURE.NOTE]Para obtener documentación completa sobre el servidor de trabajo Spark, consulte [https://github.com/spark-jobserver/spark-jobserver](https://github.com/spark-jobserver/spark-jobserver).
+>[AZURE.NOTE]Para documentación completa sobre el servidor de trabajo Spark, vea [https://github.com/spark-jobserver/spark-jobserver](https://github.com/spark-jobserver/spark-jobserver).
 
 ## <a name="uploadjar"></a>Carga de un archivo jar en un clúster Spark
 
@@ -64,11 +66,11 @@ Ejemplo:
 
 ##<a name="seealso"></a>Otras referencias
 
-* [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
-* [Aprovisionamiento de clústeres Apache Spark en HDInsight mediante opciones personalizadas](hdinsight-apache-spark-provision-clusters.md)
-* [Uso de herramientas de BI con Apache Spark en HDInsight de Azure](hdinsight-apache-spark-use-bi-tools.md)
-* [Uso de Spark en HDInsight para crear aplicaciones de aprendizaje automático](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Streaming con Spark: Procesamiento de eventos desde el Centro de eventos de Azure con Apache Spark en HDInsight](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
+* [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview-v1.md)
+* [Creación de un clúster Spark de HDInsight](hdinsight-apache-spark-provision-clusters.md)
+* [Uso de herramientas de BI con Apache Spark en HDInsight de Azure](hdinsight-apache-spark-use-bi-tools-v1.md)
+* [Uso de Spark en HDInsight para crear aplicaciones de aprendizaje automático](hdinsight-apache-spark-ipython-notebook-machine-learning-v1.md)
+* [Streaming con Spark: procesamiento de eventos desde el Centro de eventos de Azure con Apache Spark en HDInsight](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
 
@@ -82,4 +84,4 @@ Ejemplo:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

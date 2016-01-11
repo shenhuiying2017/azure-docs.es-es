@@ -17,10 +17,9 @@
    ms.author="anmola"/>
 
 # Escenarios de Testability
-Los grandes sistemas distribuidos, como infraestructuras de nube, son inherentemente poco confiables. Service Fabric ofrece a los desarrolladores la capacidad de escribir servicios para ejecutarse sobre infraestructuras poco confiables. Para poder escribir servicios de alta calidad, los desarrolladores deben poder inducir tal infraestructura confiable para probar la estabilidad de sus servicios. Service Fabric permite a los desarrolladores la capacidad de inducir acciones de error para probar los servicios en presencia de errores. Sin embargo, hasta ahora solo se obtendrán errores simulados dirigidos. Para seguir realizando pruebas, Service Fabric incluye escenarios de prueba predefinidos. Los escenarios simulan errores continuos intercalados, tanto correctos como incorrectos, en todo el clúster durante períodos prolongados de tiempo. Una vez configurado con la tasa y el tipo de errores, se ejecuta como una herramienta de cliente, a través de las API de C# o de PowerShell para generar errores en el clúster y en el servicio. Como parte de la característica de capacidad de prueba se incluyen los escenarios siguientes.
+Los grandes sistemas distribuidos, como infraestructuras de nube, son inherentemente poco confiables. Azure Service Fabric ofrece a los desarrolladores la capacidad de escribir servicios para ejecutarse sobre infraestructuras poco confiables. Para poder escribir servicios de alta calidad, los desarrolladores deben poder inducir tal infraestructura confiable para probar la estabilidad de sus servicios.
 
-1.	Prueba de caos
-2.	Prueba de conmutación por error
+Service Fabric permite a los desarrolladores la capacidad de inducir acciones de error para probar los servicios en presencia de errores. Sin embargo, hasta ahora se obtendrán solo errores simulados dirigidos. Para realizar más pruebas, puede usar los escenarios de prueba en Service Fabric: una prueba de caos y una prueba de conmutación por error. Estos escenarios simulan errores continuos intercalados, tanto correctos como incorrectos, en todo el clúster durante períodos prolongados de tiempo. Una vez configurada una prueba con la tasa y el tipo de errores, se ejecuta como una herramienta de cliente, a través de las API de C# o de PowerShell para generar errores en el clúster y en el servicio.
 
 ## Prueba de caos
 El escenario de caos genera errores en todo el clúster de Service Fabric. El escenario comprime los errores que se ven por lo general durante meses o años en unas pocas horas. Esta combinación de errores intercalados con una elevada tasa de errores encuentra casos excepcionales que de otra manera pasan desapercibidos. Esto conduce a una mejora considerable en la calidad del código del servicio.
@@ -33,12 +32,16 @@ El escenario de caos genera errores en todo el clúster de Service Fabric. El es
  - Desplazamiento de una réplica principal (opcional)
  - Desplazamiento de una réplica secundaria (opcional)
 
-La prueba de caos ejecuta varias iteraciones de errores y las validaciones de clúster para el período de tiempo especificado. También se puede configurar el tiempo empleado por el clúster para que la estabilización y la validación sean correctas. Se produce un error en el escenario cuando se encuentra un error en la validación del clúster. Por ejemplo, considere un conjunto de pruebas que se van a ejecutar durante 1 hora y con un máximo de tres errores simultáneos. La prueba inducirá 3 errores y después validará el mantenimiento del clúster. La prueba recorrerá en iteración el paso anterior hasta que el clúster pase a ser incorrecto o transcurra 1 hora. Si en cualquier iteración el clúster pasa a ser incorrecto, es decir, no se estabiliza dentro de un tiempo configurado, la prueba producirá un error con una excepción. Esta excepción indica que algo salió mal y que se necesita más investigación. En su forma actual el motor de generación de errores de la prueba de caos induce solo errores seguros. Esto significa que en ausencia de errores externos nunca se producirá una pérdida de quórum o de datos.
+La prueba de caos ejecuta varias iteraciones de errores y las validaciones de clúster para el período de tiempo especificado. También se puede configurar el tiempo empleado por el clúster para que la estabilización y la validación sean correctas. Se produce un error en el escenario cuando se encuentra un error en la validación del clúster.
+
+Por ejemplo, considere un conjunto de pruebas que se va a ejecutar durante una hora con un máximo de tres errores simultáneos. La prueba inducirá tres errores y después validará el mantenimiento del clúster. La prueba recorrerá en iteración el paso anterior hasta que el clúster pase a ser incorrecto o transcurra una hora. Si el clúster pasa a ser incorrecto en cualquier iteración, es decir, no se estabiliza dentro de un tiempo configurado, la prueba producirá un error con una excepción. Esta excepción indica que algo salió mal y que se necesita más investigación.
+
+En su forma actual, el motor de generación de errores de la prueba de caos induce solo errores seguros. Esto significa que en ausencia de errores externos nunca se producirá una pérdida de quórum o de datos.
 
 ### Opciones de configuración importantes
- - **TimeToRun**: tiempo total en el que se ejecutará la prueba antes de completarse con éxito. La prueba puede completarse antes en lugar de un error de validación.
- - **MaxClusterStabilizationTimeout**: cantidad máxima de tiempo de espera para que el mantenimiento del clúster sea correcto antes de cancelar la prueba. Las comprobaciones realizadas son si el mantenimiento del clúster es correcto, si el mantenimiento del servicio es correcto, el tamaño del conjunto de réplicas de destino para la partición de servicio y si no hay réplicas InBuild.
- - **MaxConcurrentFaults**: número máximo de errores simultáneos inducidos en cada iteración. Cuanto mayor sea el número más agresiva será la prueba, por tanto, dará como resultado combinaciones de conmutaciones por error y de transición más complejas. La prueba garantiza que en ausencia de errores externos no habrá pérdida de quórum o de datos, con independencia de lo elevado del número de esta configuración.
+ - **TimeToRun**: tiempo total en el que se ejecutará la prueba antes de finalizarse con éxito. La prueba puede finalizarse antes en lugar de un error de validación.
+ - **MaxClusterStabilizationTimeout**: cantidad máxima de tiempo de espera para que el mantenimiento del clúster sea correcto antes de cancelar la prueba. Las comprobaciones realizadas son si el mantenimiento del clúster es correcto, el mantenimiento del servicio es correcto, se consigue el tamaño del conjunto de réplicas de destino para la partición de servicio y si no hay réplicas InBuild.
+ - **MaxConcurrentFaults**: número máximo de errores simultáneos inducidos en cada iteración. Cuanto mayor sea el número, más agresiva será la prueba. Por lo tanto, dará como resultado combinaciones de conmutaciones por error y de transición más complejas. La prueba garantiza que en ausencia de errores externos no habrá pérdida de quórum o de datos, con independencia de lo elevado del número de esta configuración.
  - **EnableMoveReplicaFaults**: habilita o deshabilita los errores provocando el movimiento de las réplicas principales o secundarias. Estos errores están deshabilitados de forma predeterminada.
  - **WaitTimeBetweenIterations**: cantidad de tiempo de espera entre iteraciones, es decir, después de una ronda de errores y de su validación correspondiente.
 
@@ -89,10 +92,10 @@ class Test
         uint maxConcurrentFaults = 3;
         bool enableMoveReplicaFaults = true;
 
-        // Create FabricClient with connection & security information here.
+        // Create FabricClient with connection and security information here.
         FabricClient fabricClient = new FabricClient(clusterConnection);
 
-        // The Chaos Test Scenario should run at least 60 minutes or up until it fails.
+        // The chaos test scenario should run at least 60 minutes or until it fails.
         TimeSpan timeToRun = TimeSpan.FromMinutes(60);
         ChaosTestScenarioParameters scenarioParameters = new ChaosTestScenarioParameters(
           maxClusterStabilizationTimeout,
@@ -146,15 +149,15 @@ El escenario de prueba de conmutación por error es una versión del escenario d
 - Reinicio de una réplica principal/secundaria (si se conserva el servicio)
 - Desplazamiento de una réplica principal
 - Desplazamiento de una réplica secundaria
-- Reinicie la partición.
+- Reinicio de la partición
 
-La prueba de conmutación por error provoca un error seleccionado y después ejecuta la validación en el servicio para garantizar su estabilidad. La prueba de conmutación por error solo provoca un error a la ver en lugar de varios errores posibles en la prueba de caos. Si después de cada error la partición de servicio no se estabiliza en el tiempo de espera configurado, la prueba produce un error. La prueba induce únicamente errores seguros. Esto significa que, en ausencia de errores externos, nunca se producirá una pérdida de quórum o de datos.
+La prueba de conmutación por error provoca un error seleccionado y después ejecuta la validación en el servicio para garantizar su estabilidad. La prueba de conmutación por error solo provoca un error a la ver en lugar de varios errores posibles en la prueba de caos. Si la partición de servicio no se estabiliza en el tiempo de espera configurado después del error, la prueba produce un error. La prueba provoca únicamente errores seguros. Esto significa que, en ausencia de errores externos, nunca se producirá una pérdida de quórum o de datos.
 
 ### Opciones de configuración importantes
  - **PartitionSelector**: objeto selector que especifica la partición a la que debe dirigirse.
- - **TimeToRun**: tiempo total en el que se ejecutará la prueba antes de completarse.
+ - **TimeToRun**: tiempo total en el que se ejecutará la prueba antes de finalizarse.
  - **MaxClusterStabilizationTimeout**: cantidad máxima de tiempo de espera para que el mantenimiento del clúster sea correcto antes que la prueba produzca un error. Las comprobaciones realizadas son si el mantenimiento del servicio es correcto, el tamaño del conjunto de réplicas de destino conseguido para todas las particiones y si no hay réplicas InBuild.
- - **WaitTimeBetweenFaults**: cantidad de tiempo de espera entre cada ciclo de error y validación
+ - **WaitTimeBetweenFaults**: cantidad de tiempo de espera entre cada ciclo de error y validación.
 
 ### Ejecución de la prueba de conmutación por error
 Ejemplo de C#
@@ -203,10 +206,10 @@ class Test
         TimeSpan maxServiceStabilizationTimeout = TimeSpan.FromSeconds(180);
         PartitionSelector randomPartitionSelector = PartitionSelector.RandomOf(serviceName);
 
-        // Create FabricClient with connection & security information here.
+        // Create FabricClient with connection and security information here.
         FabricClient fabricClient = new FabricClient(clusterConnection);
 
-        // The Chaos Test Scenario should run at least 60 minutes or up until it fails.
+        // The chaos test scenario should run at least 60 minutes or until it fails.
         TimeSpan timeToRun = TimeSpan.FromMinutes(60);
         FailoverTestScenarioParameters scenarioParameters = new FailoverTestScenarioParameters(
           randomPartitionSelector,
@@ -249,6 +252,4 @@ Connect-ServiceFabricCluster $connection
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
 
- 
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1223_2015-->

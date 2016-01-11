@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/02/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Configuración de credenciales de autenticación con nombre
@@ -71,4 +71,4 @@ En el siguiente procedimiento, se da por supuesto que el cuadro de diálogo **Nu
 
     1. Pegue la ruta de acceso completa del archivo .cer que acaba de crear y después escriba la contraseña que especificó.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="12/17/2015"
 	ms.author="mandia"/>
 
 
@@ -104,21 +104,21 @@ Otro ejemplo es la operación de asignación de expresión **If-Then-Else**. En 
 
 ### Migración de asignaciones de BizTalk Server
 
-Servicios de BizTalk de Microsoft Azure proporciona una herramienta de migración de asignaciones de BizTalk Server a transformaciones de Servicios de BizTalk. La **BTMMigrationTool** está disponible como parte del paquete **Herramientas** proporcionado con el SDK de Servicios de BizTalk y se puede descargar desde [aquí](http://go.microsoft.com/fwlink/p/?LinkId=235057). Para obtener más información acerca de la herramienta, consulte [Convertir una asignación de BizTalk en una transformación de servicios de BizTalk](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
+Servicios de BizTalk de Microsoft Azure proporciona una herramienta de migración de asignaciones de BizTalk Server a transformaciones de Servicios de BizTalk. La **BTMMigrationTool** está disponible como parte del paquete **Herramientas** proporcionado con la [descarga del SDK de Servicios de BizTalk](http://go.microsoft.com/fwlink/p/?LinkId=235057). Para obtener más información acerca de la herramienta, consulte [Convertir una asignación de BizTalk en una transformación de servicios de BizTalk](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
 
-También puede ver un ejemplo realizado por Sandro Pereira, MVP de BizTalk, sobre cómo migrar asignaciones de BizTalk Server a transformaciones de los Servicios de BizTalk. El ejemplo está disponible [aquí](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
+También puede ver un ejemplo realizado por Sandro Pereira, MVP de BizTalk, sobre cómo [migrar asignaciones de BizTalk Server a transformaciones de los Servicios de BizTalk](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
 
 ## Orquestaciones
 
 Si necesita migrar a Microsoft Azure el procesamiento de la orquestación de BizTalk Server, las orquestaciones tendrían que reescribirse porque Microsoft Azure no admite la ejecución de las orquestaciones de BizTalk Server. Puede volver a escribir la funcionalidad de orquestación en un servicio de Windows Workflow Foundation 4.0 (WF4). Esto sería una reescritura completa, ya que no hay actualmente ninguna migración desde orquestaciones de BizTalk Server a WF4. Estos son algunos recursos para el flujo de trabajo de Windows:
 
-- *Cómo integrar un servicio de flujo de trabajo de WCF con temas y colas de Bus de servicio*, por Paolo Salvatori. Consulte [aquí](https://msdn.microsoft.com/library/azure/hh709041.aspx).
+- [*Cómo integrar un servicio de flujo de trabajo de WCF con temas y colas de Bus de servicio*](https://msdn.microsoft.com/library/azure/hh709041.aspx), por Paolo Salvatori. 
 
-- Conferencia de *Generación de aplicaciones con una sesión de Windows Workflow Foundation y Azure* desde la compilación 2011. Consulte [aquí](http://go.microsoft.com/fwlink/p/?LinkId=237314).
+- [*Generación de aplicaciones con una sesión de Windows Workflow Foundation y Azure* ](http://go.microsoft.com/fwlink/p/?LinkId=237314)desde la compilación 2011.
 
-- *Centro de desarrolladores de Windows Workflow Foundation en MSDN*. Consulte [aquí](http://go.microsoft.com/fwlink/p/?LinkId=237315).
+- [*Centro de desarrolladores de Windows Workflow Foundation*](http://go.microsoft.com/fwlink/p/?LinkId=237315) en MSDN.
 
-- *Documentación de Windows Workflow Foundation 4 (WF4) en MSDN*. Consulte [aquí] (https://msdn.microsoft.com/library/dd489441(v=vs.100).aspx).
+- [*Documentación de Windows Workflow Foundation 4 (WF4)*](https://msdn.microsoft.com/library/dd489441.aspx) en MSDN.
 
 ## Otras consideraciones
 
@@ -126,7 +126,7 @@ A continuación se facilitan algunas consideraciones que debe realizar durante e
 
 ### Contratos de reserva
 
-El procesamiento de EDI de BizTalk Server tiene el concepto de "contratos de reserva". Servicios de BizTalk **no** tiene un concepto de contrato de reserva hasta ahora. Consulte los temas de la documentación de BizTalk [El rol de los contratos en el procesamiento de EDI](http://go.microsoft.com/fwlink/p/?LinkId=237317) y [Configuración de las propiedades del contrato global o de reserva](https://msdn.microsoft.com/library/bb245981.aspx) para obtener información sobre cómo se usan los acuerdos de reserva en BizTalk Server.
+El procesamiento de EDI de BizTalk Server tiene el concepto de "contratos de reserva". Servicios de BizTalk **no** tiene un concepto de contrato de reserva hasta ahora. Vea los temas de la documentación de BizTalk [El rol de los contratos en el procesamiento de EDI](http://go.microsoft.com/fwlink/p/?LinkId=237317) y [Configuración de las propiedades del contrato global o de reserva](https://msdn.microsoft.com/library/bb245981.aspx) para información sobre cómo se usan los acuerdos de reserva en BizTalk Server.
 
 ### Redirección a múltiples destinos
 
@@ -142,4 +142,4 @@ Servicios de BizTalk de Microsoft Azure se actualiza a intervalos regulares para
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

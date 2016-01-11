@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/08/2015"
+   ms.date="12/19/2015"
    ms.author="tarcher" />
 
 # Uso de scripts de Windows PowerShell para publicar en entornos de prueba y desarrollo.
@@ -351,4 +351,4 @@ Para obtener ayuda para las funciones que puede usar en el símbolo del sistema 
 
 Obtenga más información sobre el scripting de PowerShell leyendo [Scripting con Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) y vea otros scripts de Azure PowerShell en el [Centro de scripts](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

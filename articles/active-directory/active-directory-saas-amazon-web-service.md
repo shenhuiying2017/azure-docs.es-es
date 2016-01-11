@@ -3,7 +3,7 @@
 	description="Aprenda a usar Amazon Web Service (AWS) con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/30/2015"
-	ms.author="markvi"/>
+	ms.date="12/18/2015"
+	ms.author="jeedes"/>
 
 
 # Tutorial: integración de Azure Active Directory con Amazon Web Service (AWS)
@@ -320,4 +320,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015--->

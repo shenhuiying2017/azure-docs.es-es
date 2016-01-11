@@ -3,7 +3,7 @@
 	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory y CS Stars."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2015"
-	ms.author="markusvi"/>
+	ms.date="12/18/2015"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Integración de Azure Active Directory con CS Stars
@@ -205,4 +205,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 
 [400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_403.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

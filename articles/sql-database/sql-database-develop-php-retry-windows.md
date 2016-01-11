@@ -14,14 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Conexión a la Base de datos SQL mediante PHP en Windows mediante el control de errores transitorios
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 Este tema muestra cómo puede conectarse a la base de datos SQL de Azure desde una aplicación cliente escrita en PHP que se ejecuta en Windows.
@@ -31,7 +34,7 @@ Este tema muestra cómo puede conectarse a la base de datos SQL de Azure desde u
 
 ### Base de datos SQL
 
-Consulte la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
+Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
 
 
 ## Paso 1: Obtención de detalles de la conexión
@@ -42,7 +45,7 @@ Consulte la [página de introducción](sql-database-get-started.md) para aprende
 
 El programa de demostración está diseñado para que un error transitorio producido durante un intento de conexión provoque un reintento. Pero un error transitorio durante un comando de consulta provoca que el programa descarte la conexión y cree una nueva antes de reintentar el comando de consulta. No se recomienda ni lo contrario esta opción de diseño. El programa de demostración muestra la flexibilidad del diseño que se encuentra disponible.
 
-<br>La longitud de este ejemplo de código se debe principalmente a la lógica de excepción de filtrado. Hay disponible una versión más corta de este archivo Program.cs [aquí](sql-database-develop-php-simple-windows.md). <br>El método Main se encuentra en Program.cs. La pila de llamadas se ejecuta del modo indicado a continuación: * Main llama a ConnectAndQuery. * ConnectAndQuery llama a EstablishConnection. * EstablishConnection llama a IssueQueryCommand.
+<br>La longitud de este ejemplo de código se debe principalmente a la lógica de excepción catch. Hay disponible una versión más corta de este archivo Program.cs [aquí](sql-database-develop-php-simple-windows.md). <br>El método Main se encuentra en Program.cs. La pila de llamadas se ejecuta del modo indicado a continuación: * Main llama a ConnectAndQuery. * ConnectAndQuery llama a EstablishConnection. * EstablishConnection llama a IssueQueryCommand.
 
 La función [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) puede usarse para recuperar un conjunto de resultados de una consulta realizada a la Base de datos SQL. Esta función acepta básicamente cualquier consulta y el objeto de conexión, y devuelve un conjunto de resultados que se puede iterar mediante el uso de [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
@@ -136,4 +139,4 @@ La función [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php
 
 Para obtener más información sobre el uso y la instalación de PHP, vea [Acceso a bases de datos de SQL Server con PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

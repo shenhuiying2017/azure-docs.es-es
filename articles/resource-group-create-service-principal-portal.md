@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/17/2015"
    ms.author="tomfitz"/>
 
 # Creación de aplicación de Active Directory y entidad de servicio mediante el portal
 
 ## Información general
-Si tiene una aplicación o un proceso automatizado que necesita tener acceso a un recurso o modificarlo en su suscripción, puede usar el portal para crear una aplicación de Active Directory y asignarla a un rol con los permisos correctos. Si crea una aplicación de Active Directory a través del portal, en realidad se crea la aplicación y una entidad de servicio. La entidad de servicio se utiliza al establecer los permisos.
+Si tiene una aplicación o un proceso automatizado que necesita tener acceso a un recurso o modificarlo en su suscripción, puede usar el portal clásico para crear una aplicación de Active Directory y asignarla a un rol con los permisos correctos. Si crea una aplicación de Active Directory a través del portal clásico, en realidad se crea la aplicación y una entidad de servicio. La entidad de servicio se utiliza al establecer los permisos.
 
-En este tema se muestra cómo crear una nueva aplicación y entidad de servicio mediante el portal de Azure. Actualmente, debe usar el portal de Microsoft Azure para crear una nueva aplicación de Active Directory. Esta capacidad se agregará al portal de vista previa de Azure en una versión posterior. Puede utilizar el portal de vista previa para asignar la aplicación a un rol. También puede llevar a cabo estos pasos a través de Azure PowerShell o CLI de Azure. Para más información, vea [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
+En este tema se muestra cómo crear una nueva aplicación y entidad de servicio mediante el portal clásico. Actualmente, debe usar el portal clásico para crear una nueva aplicación de Active Directory. Esta capacidad se agregará al portal de Azure en una versión posterior. Puede utilizar el portal para asignar la aplicación a un rol. También puede llevar a cabo estos pasos a través de Azure PowerShell o CLI de Azure. Para obtener más información sobre cómo usar PowerShell o CLI con la entidad de servicio, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
 
 ## Conceptos
 1. Azure Active Directory (AAD): un servicio de administración de identidades y acceso creado para la nube. Para obtener más información, consulte [¿Qué es Azure Active Directory?](active-directory/active-directory-whatis.md)
@@ -33,7 +33,7 @@ Para obtener una explicación más detallada de las aplicaciones y entidades de 
 
 ## Creación de los objetos de la aplicación y la entidad de servicio
 
-1. Inicie sesión en su cuenta de Azure a través del [portal](https://manage.windowsazure.com/).
+1. Inicie sesión en su cuenta de Azure a través del [portal clásico](https://manage.windowsazure.com/).
 
 2. Seleccione **Active Directory** en el panel izquierdo.
 
@@ -101,15 +101,31 @@ La aplicación está ahora lista y la entidad de servicio creada en el inquilino
 
 ## Asignación de la aplicación a un rol
 
-Debe asignar la aplicación a un rol para concederle permisos para realizar acciones. Puede utilizar el [portal de vista previa](https://portal.azure.com) para asignar la aplicación de Active Directory a un rol con los permisos correctos.
+Debe asignar la aplicación a un rol para concederle permisos para realizar acciones. Para asignar la aplicación a un rol, cambie desde el portal clásico al [Portal de Azure](https://portal.azure.com). Debe decidir qué rol agregar a la aplicación y en qué ámbito. Para obtener más información acerca de los roles disponibles, vea [RBAC: Roles integrados](./active-directory/role-based-access-built-in-roles.md). Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o recurso. Los permisos se heredan en los niveles inferiores de ámbito (por ejemplo, el hecho de agregar una aplicación al rol Lector para un grupo de recursos significa que esta puede leer el grupo de recursos y los recursos que contenga).
 
-Para empezar a usar el control de acceso en el portal de vista previa, seleccione el icono **Acceso**.
+1. En el portal, desplácese hasta el nivel de ámbito al que desea asignar la aplicación. En este tema, puede navegar a un grupo de recursos y, en la hoja del grupo de recursos, seleccione el icono **Acceso**.
 
-![seleccionar usuarios](./media/resource-group-create-service-principal-portal/select-users.png)
+     ![seleccionar usuarios](./media/resource-group-create-service-principal-portal/select-users.png)
 
-Seleccione el rol al que quiere asignar la aplicación y busque la aplicación.
+2. Seleccione **Agregar**.
 
-![seleccionar usuarios](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+     ![seleccionar agregar](./media/resource-group-create-service-principal-portal/select-add.png)
+
+3. Seleccione el rol **lector** (o el rol que desea asignar a la aplicación).
+
+     ![seleccionar rol](./media/resource-group-create-service-principal-portal/select-role.png)
+
+4. En primer lugar, verá la lista de usuarios que puede agregar al rol, no verá las aplicaciones. Solo verá el grupo y los usuarios.
+
+     ![mostrar usuarios](./media/resource-group-create-service-principal-portal/show-users.png)
+
+5. Para que la aplicación aparezca, debe buscarla. Comience a escribir el nombre de la aplicación y cambiará la lista de opciones disponibles. Seleccione la aplicación cuando la vea en la lista.
+
+     ![asignar a rol](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+
+6. Seleccione **Aceptar** para finalizar la asignación de un rol. Ahora debería ver la aplicación en la lista de usos asignados a un rol para el grupo de recursos.
+
+     ![mostrar](./media/resource-group-create-service-principal-portal/show-app.png)
 
 Para obtener más información acerca de cómo asignar usuarios y aplicaciones a los roles a través del portal, consulte [Administración del acceso con el Portal de administración de Azure](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
 
@@ -141,8 +157,8 @@ En la aplicación, agregue un método similar al siguiente para recuperar el tok
 
 ## Pasos siguientes
 
-- Para obtener información sobre cómo especificar directivas de seguridad, consulte [Administración y auditoría del acceso a los recursos](resource-group-rbac.md).  
-- Para ver una demostración en vídeo de estos pasos, consulte [Habilitación de la administración mediante programación de un recurso de Azure con Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
+- Para obtener información sobre cómo especificar directivas de seguridad, consulte [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).  
+- Para ver una demostración en vídeo de estos pasos, consulte [Enabling Programmatic Management of an Azure Resource with Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 - Para obtener información acerca del uso de Azure PowerShell o la CLI de Azure para trabajar con aplicaciones de Active Directory y entidades de servicio, incluida la forma de utilizar un certificado para la autenticación, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](./resource-group-authenticate-service-principal.md).
 - Para obtener instrucciones sobre cómo implementar la seguridad con el Administrador de recursos de Azure, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
 
@@ -162,4 +178,4 @@ En la aplicación, agregue un método similar al siguiente para recuperar el tok
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

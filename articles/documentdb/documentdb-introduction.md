@@ -48,8 +48,7 @@ Azure DocumentDB ofrece las siguientes capacidades y ventajas clave:
 
 -	**Ejecución de JavaScript en la base de datos**: expresa la lógica de las aplicaciones como procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) con JavaScript estándar. Esto permite que la lógica de su aplicación opere con datos sin preocuparse de la discordancia entre la aplicación y el esquema de la base de datos. DocumentDB proporciona una ejecución transaccional completa de la lógica de aplicaciones de JavaScript directamente dentro del motor de la base de datos. La integración profunda de JavaScript permite la ejecución de las operaciones INSERTAR, REEMPLAZAR, ELIMINAR y SELECCIONAR desde un programa JavaScript como una transacción aislada. Obtenga más información en [Programación de servidor DocumentDB](documentdb-programming.md).
 
--	**Niveles de coherencia ajustables**: seleccione entre cuatro niveles de coherencia bien definidos para lograr un equilibrio óptimo entre la coherencia y el rendimiento. Para las consultas y las operaciones de lectura, DocumentDB ofrece cuatro niveles de coherencia diferentes: fuerte, obsolescencia entrelazada, sesión y eventual. Estos niveles de coherencia bien definidos y pormenorizados le permiten realizar equilibrios profundos entre la coherencia, la disponibilidad
--	y la latencia. Obtenga más información en [Uso de los niveles de coherencia para maximizar la disponibilidad y el rendimiento en DocumentDB](documentdb-consistency-levels.md).
+-	**Niveles de coherencia ajustables**: seleccione entre cuatro niveles de coherencia bien definidos para lograr un equilibrio óptimo entre la coherencia y el rendimiento. Para las consultas y las operaciones de lectura, DocumentDB ofrece cuatro niveles de coherencia diferentes: fuerte, obsolescencia entrelazada, sesión y eventual. Estos niveles de coherencia bien definidos y pormenorizados le permiten realizar equilibrios profundos entre la coherencia, la disponibilidad y la latencia. Obtenga más información en [Uso de los niveles de coherencia para maximizar la disponibilidad y el rendimiento en DocumentDB](documentdb-consistency-levels.md).
 
 -	**Completamente administrados**: elimine la necesidad de administrar recursos de bases de datos y máquinas. Como un servicio de Microsoft Azure completamente administrado, no es necesario que administre las máquinas virtuales, administrar y configurar software o realizar complejas actualizaciones a nivel de datos. Se realiza una copia de seguridad de cada base de datos además de protegerlas contra fallas regionales. Puede agregar fácilmente una cuenta de DocumentDB y aprovisionar capacidad a medida que la necesita, lo que le permite concentrarse en su aplicación en lugar de la operación y administración de la base de datos.
 
@@ -103,7 +102,7 @@ Si ya tiene una cuenta de Azure, puede empezar a trabajar con DocumentDB en el [
 
 Si no tiene una cuenta de Azure, puede:
 
-- Si es la primera vez que usa Azure, regístrese para una [prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/), que le proporciona 30 días y 200 USD para que pruebe todos los servicios de Azure. 
+- Si es la primera vez que usa Azure, regístrese para una [evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/), que le ofrece 30 días y 200 USD para que pruebe todos los servicios de Azure. 
 - Si tiene una suscripción a MSDN, puede recibir [150 USD en créditos gratis de Azure al mes](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usarlos en cualquier servicio de Azure. 
 
 A continuación, cuando esté listo para obtener más información, visite nuestra [ruta de aprendizaje](http://azure.microsoft.com/documentation/learning-paths/documentdb/) para navegar por todos los recursos de aprendizaje disponibles.
@@ -112,4 +111,4 @@ A continuación, cuando esté listo para obtener más información, visite nuest
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

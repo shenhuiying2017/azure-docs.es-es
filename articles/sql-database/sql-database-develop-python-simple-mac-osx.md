@@ -14,14 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Conexión a la base de datos SQL mediante Python en Mac OS
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [Node.js](sql-database-develop-nodejs-simple-mac.md)
+- [Python](sql-database-develop-python-simple-mac-osx.md)
+- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
 
 
 Este tema presenta un ejemplo de código escrito en Python. El ejemplo se ejecuta en un equipo Mac. El ejemplo se conecta a una base de datos SQL de Azure mediante el controlador **pymssql**. Adicionalmente, use nuestro vídeo [Introducción a Python en Mac](https://www.youtube.com/watch?v=OMpugPTwnTI) para complementar esta documentación.
@@ -104,23 +107,23 @@ En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.
 Este ejemplo de código muestra el uso de transacciones con las que podrá realizar lo siguiente:
 
 
--Iniciar una transacción
+- Iniciar una transacción
 
--Insertar una fila de datos
+- Insertar una fila de datos
 
--Revertir la transacción para deshacer la inserción
+- Revertir la transacción para deshacer la inserción
 
 
-	import pymssql
-	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
-	cursor = conn.cursor()
-	cursor.execute("BEGIN TRANSACTION")
-	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
-	cnxn.rollback()
+		import pymssql
+		conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
+		cursor = conn.cursor()
+		cursor.execute("BEGIN TRANSACTION")
+		cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
+		cnxn.rollback()
 
 
 ## Pasos siguientes
 
-Para más información, consulte el [Centro para desarrolladores de Python](/develop/python/).
+Para más información, vea el [Centro para desarrolladores de Python](/develop/python/).
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -479,7 +479,7 @@ Propiedad | Descripción | Obligatorio
 folderPath | Ruta de acceso a la carpeta. Ejemplo: myfolder<p>Use el carácter de escape ' \\ ' para los caracteres especiales de la cadena. Por ejemplo: para folder\\subfolder, especifique folder\\subfolder y para d:\\samplefolder, especifique d:\\samplefolder.</p><p>Puede combinarlo con **partitionBy** para tener rutas de acceso a carpetas basadas en las fechas y horas de inicio y finalización de los segmentos.</p> | Sí
 fileName | Especifique el nombre del archivo en **folderPath** si quiere que la tabla haga referencia a un archivo específico de la carpeta. Si no especifica ningún valor para esta propiedad, la tabla apunta a todos los archivos de la carpeta.<p>Si no se especifica fileName para un conjunto de datos de salida, el nombre del archivo tendría este formato:</p><p>Data.<Guid>. txt (por ejemplo: : Data.0a405f8a 93ff 4c6f b3be f69616f1df7a.txt</p> | No
 partitionedBy | partitionedBy se puede usar para especificar un folderPath dinámico, un nombre de archivo para datos de series temporales. Por ejemplo, folderPath se parametriza por cada hora de datos. | No
-Formato | Se admiten dos tipos de formatos: **TextFormat** y **AvroFormat**. Deberá establecer la propiedad type en format en cualquiera de estos valores. Cuando el formato de forAvroFormatmat es TextFormat, puede especificar propiedades opcionales adicionales para format. Consulte la sección sobre formato a continuación para obtener más detalles. | No
+Formato | Se admiten dos tipos de formatos: **TextFormat** y **AvroFormat**. Deberá establecer la propiedad type en format en cualquiera de estos valores. Cuando el formato de forAvroFormatmat es TextFormat, puede especificar propiedades opcionales adicionales para format. Consulte la sección sobre formato a continuación para obtener más detalles. **La propiedad de formato no se admite actualmente para los sistemas de archivos locales. Deberá habilitarse en breve como aparece aquí.** | No
 fileFilter | Especifique el filtro que se va a usar para seleccionar un subconjunto de archivos de folderPath, en lugar de todos los archivos. <p>Los valores permitidos son: * (varios caracteres) y ? (un solo carácter).</p><p>Ejemplo 1: "fileFilter": "*. log"</p>Ejemplo 2: "fileFilter": 2014-1-?. txt"</p><p>**Nota**: fileFilter es aplicable a un conjunto de datos de FileShare de entrada</p> | No
 | compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: GZip y Deflate y BZip2 y los niveles admitidos son: óptimo y más rápido. Vea la sección [Compatibilidad de compresión](#compression-support) para más detalles. | No |
 
@@ -603,4 +603,4 @@ false | mergeFiles | <p>Para una carpeta de origen Folder1 con la siguiente estr
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

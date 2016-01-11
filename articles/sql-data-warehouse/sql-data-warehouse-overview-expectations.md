@@ -58,12 +58,6 @@ Las instantáneas se copian de forma asincrónica en una región de Azure remota
 
 Almacenamiento de datos SQL almacena los datos en uno o más nodos informáticos que almacenan cada uno algunos de los datos de usuario y controlan la ejecución de consultas en esos datos. Como parte de la arquitectura de procesamiento masivamente paralela (MPP), las consultas se ejecutan en paralelo en los nodos de cálculo. Almacenamiento de datos SQL detecta y mitiga automáticamente los errores de nodo de cálculo. Sin embargo, en la versión preliminar, es posible que una operación falle (por ejemplo, la carga o la consulta de datos) debido a errores de nodo individual. En la versión preliminar, realizamos mejoras continuas para completar correctamente las operaciones a pesar de los errores de nodo.
 
-En función de los datos de telemetría, calculamos que la confiabilidad actual de Almacenamiento de datos SQL de Azure equivale al 98%. Esto significa que, como promedio, es posible que 2 de cada 100 consultas den error debido a errores del sistema. Este no es un Contrato de nivel de servicio. La probabilidad de que una consulta falle aumenta con su tiempo de ejecución. Por ejemplo, una consulta que se ejecuta durante más de 2 horas tiene una probabilidad mucho mayor de fallar que una consulta que se ejecuta menos de 10 minutos. En la versión preliminar estamos mejorando la fiabilidad para poder garantizar el mismo nivel de confiabilidad en las operaciones, con independencia de su tiempo de ejecución. Actualizaremos la confiabilidad esperada a medida que publicamos estas mejoras. Para aumentar la disponibilidad general, la confiabilidad estará respaldada por un Contrato de nivel de servicio.
-
-### Tiempo activo del servicio
-
-Es posible que Almacenamiento de datos SQL de Azure tenga hasta 4 eventos de mantenimiento al mes para la instalación de correcciones críticas. Cada evento puede provocar errores de consulta hasta 2 horas. El tiempo dependerá del número de DWU asignado al servicio.
-
 
 ## Pasos siguientes
 
@@ -78,4 +72,4 @@ Es posible que Almacenamiento de datos SQL de Azure tenga hasta 4 eventos de man
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

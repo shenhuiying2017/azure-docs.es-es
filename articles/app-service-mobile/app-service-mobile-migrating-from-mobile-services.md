@@ -3,7 +3,7 @@
 	description="Obtenga información acerca de cómo migrar fácilmente la aplicación Servicios móviles a una Aplicación móvil del Servicio de aplicaciones"
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,176 +13,376 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/25/2015"
-	ms.author="mahender"/>
+	ms.date="12/11/2015"
+	ms.author="adrianhall"/>
 
-# Migración del Servicio móvil de Azure existente a Servicio de aplicaciones
+# <a name="article-top"></a>Migración del servicio móvil de Azure existente al Servicio de aplicaciones de Azure
 
-En este tema se muestra cómo migrar una aplicación existente de Servicios móviles de Azure a una nueva Aplicación móvil del Servicio de aplicaciones. Cualquier servicio móvil existente puede migrarse fácilmente a un nuevo back-end de aplicación móvil. Durante la migración, el servicio móvil existente, seguirá funcionando.
+Con la [disponibilidad general del Servicio de aplicaciones de Azure], los sitios de Servicios móviles de Azure se pueden migrar fácilmente in situ para aprovechar todas las características del Servicio de aplicaciones de Azure. En este documento se explica lo que puede esperar al migrar su sitio de Servicios móviles de Azure al Servicio de aplicaciones de Azure.
 
-Cuando un servicio móvil se migra a Servicio de aplicaciones de Azure, accede a todas las características de Servicio de aplicaciones y se factura conforme a los [precios del Servicio de aplicaciones], no según los precios de Servicios móviles.
+## <a name="what-does-migration-do"></a>Qué repercusiones tiene la migración para su sitio
 
-Cabe mencionar también que los trabajos programados se moverán de un plan del Programador de Azure administrado por Microsoft a un plan del Programador de Azure en su propia suscripción y bajo su control. De forma similar a las ventajas de migrar al Servicio de aplicaciones, esto le permite aprovechar la potencia completa del Programador de Azure.
-
-### <a name="why-host"></a>¿Por qué hospedar en Servicio de aplicaciones?
-
-El Servicio de aplicaciones proporciona un entorno de hospedaje repleto de características para su aplicación. Al hospedar en el Servicio de aplicaciones, el servicio obtiene acceso a ranuras de ensayo, dominios personalizados, soporte técnico del Administrador de tráfico y otras muchas características. Si bien puede actualizar un servicio móvil a un back-end de aplicación móvil después de migrar a Servicio de aplicaciones, puede que algunos clientes quieran sacar partido de estas características inmediatamente, sin realizar aún la actualización del SDK.
-
-Para más información sobre las ventajas del Servicio de aplicaciones, vea el tema [Servicios móviles frente a Servicio de aplicaciones].
-
-## Migración frente a actualización
+La migración de su servicio móvil de Azure convertirá el servicio móvil en una aplicación del [Servicio de aplicaciones de Azure] sin que el código se vea afectado de ninguna forma. Los Centros de notificaciones, la conexión de datos SQL, la configuración de la autenticación, los trabajos programados y el nombre de dominio permanecerán sin cambios. Los clientes móviles que usan el servicio móvil de Azure seguirán funcionando con normalidad. La migración reiniciará el servicio una vez que se haya transferido al Servicio de aplicaciones de Azure.
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
-- Para los proyectos de servidor basados en Node.js, el nuevo [SDK para Node.js de Aplicaciones móviles](https://github.com/Azure/azure-mobile-apps-node) proporciona varias nuevas características. Por ejemplo, ahora puede desarrollar y depurar localmente, usar cualquier versión de Node.js posterior a la 0.10 y personalizar con cualquier middleware de Express.js.
+## <a name="why-migrate"></a>Por qué debe migrar el sitio
 
-- Para proyectos de servidor basados en .NET, los nuevos [paquetes NuGet del SDK de Aplicaciones móviles](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) tienen más flexibilidad en las dependencias de NuGet, son compatibles con las nuevas características de autenticación del Servicio de aplicaciones y se componen con cualquier proyecto de ASP.NET, incluido MVC. Para más información sobre la actualización, vea [Actualización del Servicio móvil de .NET existente a Servicio de aplicaciones](app-service-mobile-net-upgrading-from-mobile-services.md).
+Microsoft recomienda migrar el servicio móvil de Azure para aprovechar las características del Servicio de aplicaciones de Azure, como por ejemplo:
 
+  *  Nuevas características de host, como [WebJobs] y [nombres de dominio personalizados].
+  *  Conectividad a los recursos locales mediante una [red virtual] además de [conexiones híbridas].
+  *  Supervisión y solución de problemas con New Relic o [Application Insights].
+  *  Herramientas integradas de DevOps, lo que incluye [ranuras de ensayo], reversión y pruebas en producción.
+  *  [Escalado automático], equilibrio de carga y [supervisión del rendimiento].
 
-## <a name="understand"></a>Descripción de las aplicaciones móviles del Servicio de aplicaciones
+Para más información sobre las ventajas del Servicio de aplicaciones de Azure, consulte el tema [Servicios móviles frente al Servicio de aplicaciones].
 
-Aplicaciones móviles del Servicio de aplicaciones supone una nueva forma de crear aplicaciones móviles con Azure. Puede obtener más información sobre Aplicaciones móviles en el tema [¿Qué son las aplicaciones móviles?]
+## <a name="why-not-migrate"></a>Por qué no debería migrar el sitio
 
-Al migrar a Aplicaciones móviles, se conserva todas las funciones de aplicaciones existentes, incluida la lógica de negocios. Además, hay nuevas características disponibles para la aplicación. En el modelo de aplicaciones móviles, el código se ejecuta realmente en una aplicación web del Servicio de aplicaciones (la nueva versión de Sitios web de Azure). El usuario tiene control total sobre la aplicación web y su funcionamiento. Además, ahora pueden usarse las características de aplicaciones web que antes no estaban disponibles para los clientes de Servicios móviles, como el Administrador de tráfico y Espacios de implementación.
+Existen varias razones por las que no debería migrar ahora sus servicios móviles de Azure:
 
-La limitación principal de la actualización es que los trabajos programados de Servicios móviles no están integrados y, una de dos, se debe configurar el Programador de Azure para llamar a las API personalizadas o se deben habilitar las características de trabajos web.
+  *  Se encuentra actualmente en un período de mucha actividad y no puede permitirse un reinicio del sitio en este momento.
+  *  No desea que su sitio de producción se vea afectado antes de probar el proceso de migración.
+  *  Tiene varios sitios en los niveles de precios Gratis y Básico y no desea migrar todos los sitios al mismo tiempo.
+  *  Tiene trabajos programados configurados como a petición que quiere migrar.
 
-## Migración del Servicio móvil con el asistente de Migrar al Servicio de aplicaciones
+Si se encuentra en un período de mucha actividad, planee la migración durante una ventana de mantenimiento programado. El proceso de migración reinicia el sitio como parte del proceso y los usuarios pueden percibir esta interrupción momentánea en la disponibilidad.
 
-La forma más sencilla, y recomendable, de migrar el servicio móvil a Servicio de aplicaciones consiste en usar el asistente para Migrar al Servicio de aplicaciones, que está disponible en el Portal de Azure clásico. Navegue hasta el [Portal de Azure clásico], busque los servicios móviles y seleccione un servicio móvil que quiere migrar; en la parte inferior de la pantalla, verá un botón **Migrar al Servicio de aplicaciones** que le guiará a través del proceso de migración del servicio móvil.
+Existen soluciones alternativas para la mayoría de los elementos de esta lista. Consulte la sección [Antes de empezar](#before-you-begin) para más información.
 
-### <a name="what-gets-migrated"></a>¿Qué es lo que se migra?
+## <a name="before-you-begin"></a>Antes de empezar
 
-Con el Asistente para la migración, las granjas de servidores que hospeda el servicio móvil pasan de estar administradas por Servicios móviles a estarlo por el Servicio de aplicaciones. Este asistente también mueve los planes del Programador que Servicios móviles administraba de una suscripción administrada por Microsoft a su suscripción. Cuando las granjas de servidores se transfieren al control de la administración del Servicio de aplicaciones, se mueven a la vez todos los servicios móviles asociados a la granja de servidores.
+Antes de migrar el sitio, debe seguir los pasos siguientes:
 
-Servicios móviles organiza los servicios móviles en granjas de servidores en función de la región y la SKU (plan gratuito, básico y estándar). Todos los servicios gratuitos de una región están en la misma granja de servidores y se migran juntos; algunos servicios básicos de una región se hospedan juntos en la misma granja, pero si tiene muchos servicios básicos, estarán en planes independientes; cada servicio estándar está en su propia granja de servidores. Si desea migrar un solo servicio o evitar que un servicio tenga que moverse con los demás sitios, puede actualizarlo a un plan básico y estará en su propio plan independiente.
+  *  [Hacer una copia de seguridad de los scripts y la base de datos SQL de su servicio móvil]
+  *  (Opcional) Elevar el nivel del servicio móvil a Estándar
 
-Si estuviera usando trabajos programados, también tendrá que agregar planes del Programador de Azure a la suscripción. Se permite un número limitado de trabajos programados gratuitos por suscripción, por lo que puede haber algunos costos asociados que conviene revisar después de la suscripción.
+Si quiere probar el proceso de migración antes de migrar su sitio de producción, duplique el servicio móvil de Azure de producción (junto con una copia del origen de datos) y pruebe la migración con la nueva dirección URL. También necesitará una implementación del cliente de prueba que apunte al sitio de prueba para probar correctamente el sitio migrado.
 
-###  Uso del Asistente para migración
+### <a name="opt-raise-service-tier"></a>(Opcional) Elevar el nivel del servicio móvil a Estándar
 
-1. Navegue hasta el [Portal de Azure clásico] y haga clic en Servicios móviles. 
+Todos los sitios de Servicios móviles que comparten un plan de hospedaje se migran a la vez. Los Servicios móviles de los planes de tarifa Gratis o Básico comparten un plan de hospedaje con otros servicios del mismo plan de tarifa y [región de Azure]. Si su servicio móvil está funcionando en el plan de tarifa Estándar, se encuentra en su propio plan de hospedaje. Si desea migrar individualmente sitios de los planes de tarifa Gratis o Básico, actualice temporalmente el plan de tarifa del servicio móvil a Estándar. Puede hacerlo en el menú ESCALA del servicio móvil.
 
-2. Seleccione el servicio móvil que va a migrar y haga clic en "Migrar al Servicio de aplicaciones" en la barra de menús de la parte inferior. Se presentará un cuadro emergente con la lista de servicios móviles que se van a migrar. Vea la [sección anterior](#what-gets-migrated) para más información sobre los servicios que se muestran y por qué.
+  1.  Inicie sesión en el [Portal de Azure clásico].
+  2.  Seleccione su servicio móvil.
+  3.  Seleccione la pestaña **ESCALA**.
+  4.  En **Capa de servicio móvil**, haga clic en el nivel **ESTÁNDAR**. Haga clic en el icono **GUARDAR** situado en la parte inferior de la página.
 
-3. Escriba el nombre del servicio móvil para confirmar la migración y haga clic en la marca de verificación para continuar. Cuando se incluyan varios servicios móviles en la migración, todavía tendrá que escribir el nombre del servicio original que se seleccionó.
+Recuerde establecer el plan de tarifa en un valor adecuado después de la migración.
 
-4. Después iniciarse la migración, puede ver el estado actual en la lista de Servicios móviles del [Portal de Azure clásico]. El estado aparecerá como "migrando" para todos los servicios que actualmente se migran. Cuando todas las migraciones aparezcan como completadas, podrá verlas en el [Portal de Azure] en Aplicaciones móviles. Durante la migración y después, los servicios móviles seguirán funcionando y la dirección URL no cambiará.
+## <a name="migrating-site"></a>Migración del sitio
 
-## Migración manual para el back-end .NET de Servicios móviles
+Para migrar el sitio:
 
->[AZURE.NOTE]Recuerde que la forma recomendada de migrar un servicio móvil es a través del asistente de Migrar al Servicio de aplicaciones, que se describe en la sección anterior. Solo debe usarse la migración manual en situaciones en las que no se puede usar el asistente.
+  1.  Inicie sesión en el [Portal de Azure clásico].
+  2.  Seleccione su servicio móvil.
+  3.  Haga clic en el botón **Migrar al Servicio de aplicaciones**.
 
-En esta sección se muestra cómo hospedar un proyecto de Servicios móviles de .NET en el Servicio de aplicaciones de Azure. Con una aplicación hospedada de este modo puede usar todos los tutoriales del runtime de .NET de *Servicios móviles*, si bien es necesario sustituir las direcciones URL que usen el dominio azure-mobile.net por el dominio de la instancia del Servicio de aplicaciones.
+    ![El botón migrar][0]
 
-Un proyecto de Servicios móviles también se puede hospedar en un [entorno del Servicio de aplicaciones]. Todo el contenido de este tema sigue siendo aplicable, pero el sitio tendrá el formato `contoso.contosoase.p.azurewebsites.net` en lugar de `contoso.azurewebsites.net`.
+  4.  Lea el cuadro de diálogo Migrar al Servicio de aplicaciones.
+  5.  Escriba el nombre del servicio móvil en el cuadro correspondiente. Por ejemplo, si el nombre de dominio es contoso.azure-mobile.net, escriba entonces _contoso_ en el cuadro proporcionado.
+  6.  Haga clic en el botón de marca.
 
->[AZURE.NOTE]Si realiza una migración manual, *no puede* conservar su dirección URL **service.azure mobile.net** existente. Si tiene clientes móviles que se conectan a esta dirección URL, debe usar la opción de migración automática o mantener el servicio móvil en ejecución hasta que todos los clientes móviles se hayan actualizado a la nueva dirección URL.
+Si va a migrar un servicio móvil de los planes de tarifa Gratis o Básico, todos los servicios móviles de ese plan de tarifa se migrarán a la vez. Para evitar este problema, [eleve el servicio móvil que va a migrar](#opt-raise-service-tier) a Estándar durante la migración.
 
+Puede supervisar el estado de la migración en el monitor de actividad y el sitio se mostrará como *migrando* en el Portal de Azure clásico.
 
-### <a name="app-settings"></a>Configuración de la aplicación
-Servicios móviles requiere que varias opciones de configuración de la aplicación estén disponibles en el entorno, lo que se describe en esta sección.
+  ![Monitor de actividad de migración][1]
 
-Para establecer las opciones de configuración de la aplicación en el back-end de aplicación móvil, inicie sesión primero en el [Portal de Azure]. Navegue a la aplicación del Servicio de aplicaciones que quiera usar como back-end de aplicación móvil, haga clic en **Configuración** > **Configuración de la aplicación** y desplácese hacia abajo hasta **Configuración de la aplicación**, donde puede establecer los siguientes pares de clave y valor necesarios:
+Cada migración puede tardar entre 3 y 15 minutos por cada servicio móvil migrado. Su sitio seguirá estando disponible durante la migración, pero se reiniciará al final del proceso. El sitio no estará disponible durante el proceso de reinicio, que puede durar unos segundos.
 
-+ **MS\_MobileServiceName** debe establecerse en el nombre de la aplicación. Por ejemplo, cuando la dirección URL de su back-end es `contoso.azurewebsites.net`, el valor correcto es *contoso*.
+## <a name="finalizing-migration"></a>Finalización de la migración
 
-+ **MS\_MobileServiceDomainSuffix** debe establecerse en el nombre de la aplicación web. Por ejemplo, cuando la dirección URL de su back-end es `contoso.azurewebsites.net`, el valor correcto es *azurewebsites.net*.
+Al término del proceso de migración, debe planear la prueba del sitio desde un cliente móvil. Asegúrese de que puede realizar todas las acciones comunes de cliente sin que el cliente móvil experimente cambios. Además, debe asegurarse de que los cambios realizados para llevar a cabo la migración (como cambiar el plan de tarifa) se reviertan en caso necesario.
 
-+ **MS\_ApplicationKey** puede establecerse en cualquier valor, pero debe ser el mismo valor que use el SDK de cliente. Se recomienda un GUID.
+### <a name="update-app-service-tier"></a>Selección de un plan de tarifa adecuado del Servicio de aplicaciones
 
-+ **MS\_MasterKey** puede establecerse en cualquier valor, pero debe ser el mismo valor que usen los clientes o las API de administración. Se recomienda un GUID.
+Después de migrar al Servicio de aplicaciones de Azure, dispone de una mayor flexibilidad en los precios.
 
-Al migrar un servicio móvil, la clave principal y la clave de aplicación se pueden obtener ambas en la pestaña **Configurar** de la sección Servicios móviles del [Portal de Azure clásico]. Haga clic en **Administrar claves** en la parte inferior y copie las claves.
+  1.  Inicie sesión en el [Portal de Azure].
+  2.  Seleccione **Todos los recursos** o **Servicios de aplicaciones** y luego haga clic en el nombre del servicio móvil migrado.
+  3.  Se abrirá la hoja Configuración de forma predeterminada; si no, haga clic en **Configuración**.
+  4.  Haga clic en **Plan del servicio de aplicaciones** en el menú Configuración.
+  5.  Haga clic en el icono **Plan de tarifa**.
+  6.  Haga clic en el icono adecuado para sus requisitos y luego haga clic en **Seleccionar**. Puede que deba hacer clic en **Ver todo** para ver los planes de tarifa disponibles.
 
+Como punto de partida, se recomienda lo siguiente:
 
-### <a name="client-sdk"></a>Modificación del SDK de cliente
+| Plan de tarifa del servicio móvil | Plan de tarifa del Servicio de aplicaciones |
+| :-------------------------- | :----------------------- |
+| Gratuito | F1 Gratis |
+| Básica | Básico B1 |
+| Standard | S1 Estándar |
 
-En el proyecto de la aplicación cliente, modifique el constructor del objeto cliente de Servicios móviles para aceptar la nueva dirección URL de aplicación (por ejemplo, `https://contoso.azurewebsites.net`) y la clave de aplicación que se configuró anteriormente. La versión del SDK de cliente debe ser una versión de **Servicios móviles** y **no** debe actualizarse. En clientes iOS y Android, use las versiones 2.x y en Windows/Xamarin, use 1.3.2. Los clientes JavaScript deben estar usando 1.2.7.
+Tenga en cuenta que hay una flexibilidad considerable en la elección del plan de tarifa adecuado para su aplicación. Consulte [Precios de Servicio de aplicaciones] para obtener detalles sobre los precios de su nuevo Servicio de aplicaciones.
 
-### <a name="data"></a>Habilitación de las características de datos
+> [AZURE.TIP]El nivel Estándar del Servicio de aplicaciones contiene acceso a muchas características que querrá usar, como [ranuras de ensayo], copias de seguridad automáticas y ajuste de escala automático. Examine las nuevas funciones mientras está ahí.
 
-Para trabajar con las clases de Entity Framework predeterminadas en Servicios móviles, se requieren dos configuraciones de aplicación adicionales.
+### <a name="review-migration-scheduler-jobs"></a>Revisión de los trabajos del Programador migrados
 
-Las cadenas de conexión se almacenan en la sección **Cadenas de conexión** de la hoja Configuración de la aplicación, justo debajo de la sección **Configuración de aplicación**. La cadena de conexión de la base de datos debe establecerse en la clave **MS\_TableConnectionString**. Al migrar un servicio móvil existente a Servicio de aplicaciones, navegue a la sección **Cadenas de conexión** de la pestaña **Configurar** de Servicios móviles en el [Portal de Azure clásico](https://manage.windowsazure.com/). Haga clic en **Mostrar cadenas de conexión** y copie el valor.
+Los trabajos del Programador no estarán visibles hasta unos 30 minutos después de la migración. Los trabajos programados se seguirán ejecutando en segundo plano. Para ver los trabajos programados:
 
-De forma predeterminada, el esquema que se usará es **MS\_MobileServiceName**, pero se puede sobrescribir con la configuración **MS\_TableSchema**. De nuevo en **Configuración de la aplicación**, establezca **MS\_TableSchema** como nombre del esquema que se usará. Si va a migrar una aplicación existente de Servicios móviles, entonces ya se creó un esquema con Entity Framework. Se trata del nombre del servicio móvil, no de la instancia del Servicio de aplicaciones que va a hospedar el código ahora.
+  1.  Inicie sesión en el [Portal de Azure].
+  2.  Seleccione **Examinar >**, escriba **Programación** en el cuadro _Filtro_ y luego seleccione **Colecciones de Programador**.
 
-### <a name="push"></a>Habilitación de las características de inserción
+Existe un número limitado de trabajos de Programador gratuitos que están disponibles después de la migración. Revise su uso y los [planes del Programador de Azure].
 
-Para que el proceso de inserción funcione, la aplicación web debe tener también información sobre el Centro de notificaciones.
+### <a name="configure-cors"></a>Configuración de CORS si es necesario
 
-En **Cadenas de conexión**, establezca **MS\_NotificationHubConnectionString** con la cadena de conexión DefaultFullSharedAccessSignature del Centro de notificaciones. Para migrar un servicio móvil existente, navegue a la sección **Cadenas de conexión** de la pestaña **Configurar** de Servicios móviles en el [Portal de Azure clásico](https://manage.windowsazure.com/). Haga clic en **Mostrar cadenas de conexión** y copie el valor.
+El uso compartido de recursos entre orígenes es una técnica que permite que un sitio web acceda a una API web en un dominio diferente. Si estaba usando Servicios móviles de Azure con un sitio web asociado, deberá configurar CORS como parte de la migración. Si estaba accediendo a Servicios móviles de Azure exclusivamente desde dispositivos móviles, no es necesario configurar CORS salvo en casos excepcionales.
 
-La configuración de aplicación **MS\_NotificationHubName** se debe establecer en el nombre del centro. Al migrar un servicio móvil existente, puede obtener este valor de la pestaña **Insertar** del [Portal de Azure clásico](https://manage.windowsazure.com/). Los demás campos de esta pestaña están vinculados al propio centro y no es necesario copiarlos en ninguna parte.
+La configuración de CORS migrada está disponible como la configuración de aplicación **MS\_CrossDomainWhitelist**. Para migrar el sitio a las instalaciones de CORS del Servicio de aplicaciones:
 
-### <a name="auth"></a>Habilitación de las características de autenticación
+  1.  Inicie sesión en el [Portal de Azure].
+  2.  Seleccione **Todos los recursos** o **Servicios de aplicaciones** y luego haga clic en el nombre del servicio móvil migrado.
+  3.  Se abrirá la hoja Configuración de forma predeterminada; si no, haga clic en **Configuración**.
+  4.  Haga clic en **CORS** en el menú de API.
+  5.  Especifique los orígenes permitidos en el cuadro que aparece y presione ENTRAR después de cada uno de ellos.
+  6.  Cuando la lista de orígenes permitidos sea correcta, haga clic en el botón Guardar.
 
-Las características de identidad también tienen requisitos de configuración de aplicación para los distintos proveedores. Si migra desde un servicio móvil existente, cada uno de los campos de la pestaña **Identidad** del Portal de Azure clásico tiene una configuración de aplicación correspondiente.
+Esta es una tarea opcional, pero se proporciona para una mejor experiencia de administración a partir de ahora.
 
-Cuenta Microsoft
+> [AZURE.TIP]Una de las ventajas de usar un Servicio de aplicaciones de Azure es que puede ejecutar su sitio web y el servicio móvil en el mismo sitio. Para más información, consulte la sección [Pasos siguientes](#next-steps).
 
-* **MS\_MicrosoftClientID**
+## <a name="working-with-your-site"></a>Migración posterior al sitio
 
-* **MS\_MicrosoftClientSecret**
+Empezará a trabajar con su nuevo Servicio de aplicaciones en la migración posterior del [Portal de Azure]. Las siguientes son algunas notas sobre operaciones específicas que se suelen realizar en el [Portal de Azure clásico], junto con su equivalente del Servicio de aplicaciones.
 
-* **MS\_MicrosoftPackageSID**
+### <a name="publishing-your-site"></a>Descarga y publicación del sitio migrado
 
-Facebook
+El sitio está disponible a través de git o ftp y se puede volver a publicar con varios mecanismos diferentes, como WebDeploy, TFS, Mercurial, GitHub y FTP. Las credenciales de implementación se migran con el resto del sitio. Si no estableció las credenciales de implementación o no las recuerda, puede restablecerlas:
 
-* **MS\_FacebookAppID**
+  1. Inicie sesión en el [Portal de Azure].
+  2. Seleccione **Todos los recursos** o **Servicios de aplicaciones** y luego haga clic en el nombre del servicio móvil migrado.
+  3. Se abrirá la hoja Configuración de forma predeterminada; si no, haga clic en **Configuración**.
+  4. Haga clic en **Credenciales de implementación** en el menú PUBLICACIÓN.
+  5. Escriba las nuevas credenciales de implementación en los cuadros correspondientes y luego haga clic en el botón Guardar.
 
-* **MS\_FacebookAppSecret**
+Puede usar estas credenciales para clonar el sitio con git o configurar implementaciones automatizadas desde GitHub, TFS o Mercurial. Para más información, consulte la [documentación de implementación del Servicio de aplicaciones de Azure].
 
-Twitter
+### <a name="appsettings"></a>Configuración de aplicación
 
-* **MS\_TwitterConsumerKey**
+La mayoría de las configuraciones de un servicio móvil migrado están disponible a través de Configuración de aplicación. Puede obtener una lista de la configuración de aplicación desde el [Portal de Azure]. Para ver o cambiar la configuración de aplicación:
 
-* **MS\_TwitterConsumerSecret**
+  1. Inicie sesión en el [Portal de Azure].
+  2. Seleccione **Todos los recursos** o **Servicios de aplicaciones** y luego haga clic en el nombre del servicio móvil migrado.
+  3. Se abrirá la hoja Configuración de forma predeterminada; si no, haga clic en **Configuración**.
+  4. Haga clic en **Configuración de aplicación** en el menú GENERAL.
+  5. Desplácese hasta la sección Configuración de aplicación y busque su configuración de aplicación.
+  6. Haga clic en el valor de la configuración de aplicación para editar el valor. Haga clic en **Guardar** para guardar el valor.
 
-Google
+Puede actualizar varias configuraciones de aplicación al mismo tiempo.
 
-* **MS\_GoogleClientID**
+> [AZURE.TIP]Observará que hay dos configuraciones de aplicación con el mismo valor. Por ejemplo, verá _ApplicationKey_ y _MS\_ApplicationKey_. Solo necesitará modificar la configuración con el prefijo **MS\_**. Sin embargo, es una buena idea actualizar ambas configuraciones de aplicación al mismo tiempo.
 
-* **MS\_GoogleClientSecret**
+### <a name="authentication"></a>Autenticación
 
-AAD
+Todas las configuraciones de autenticación están disponibles como configuración de aplicación en su sitio migrado. Para actualizar la configuración de autenticación, debe modificar la configuración de aplicación adecuada. En la siguiente tabla se muestra la configuración de aplicación adecuada para el proveedor de autenticación:
 
-* **MS\_AadClientID**
+| Proveedor | Id. de cliente | Secreto del cliente | Otras configuraciones |
+| :---------------- | :------------------------ | :--------------------------- | :------------------------- |
+| Cuenta Microsoft | **MS\_MicrosoftClientID** | **MS\_MicrosoftClientSecret** | **MS\_MicrosoftPackageSID** |
+| Facebook | **MS\_FacebookAppID** | **MS\_FacebookAppSecret** | |
+| Twitter | **MS\_TwitterConsumerKey** | **MS\_TwitterConsumerSecret** | |
+| Google | **MS\_GoogleClientID** | **MS\_GoogleClientSecret** | |
+| Azure AD | **MS\_AadClientID** | | **MS\_AadTenants** |
 
-* **MS\_AadTenants** - Nota: **MS\_AadTenants** se almacena como una lista de dominios de inquilino separados por coma (los campos **Inquilinos permitidos** del Portal de Azure clásico).
+Nota: **MS\_AadTenants** se almacena como una lista de dominios de inquilino separados por coma (los campos "Inquilinos permitidos" del Portal de Servicios móviles).
 
-### <a name="publish"></a>Publicación del proyecto de Servicios móviles
+> [AZURE.WARNING]**No utilice los mecanismos de autenticación del menú Configuración**.
+>
+> El Servicio de aplicaciones de Azure proporciona un sistema de autenticación y autorización "sin código" independiente en el menú de configuración _Autenticación y autorización_ y la opción (en desuso) _Autenticación móvil_ en el menú Configuración. Estas opciones no son compatibles con un servicio móvil de Azure migrado. Puede [actualizar su sitio] para aprovechar la autenticación del Servicio de aplicaciones de Azure.
 
-1. En el [Portal de Azure], navegue a la aplicación, haga clic en **Obtener perfil de publicación** en la barra de comandos y guarde el perfil descargado en el equipo local.
-2. En Visual Studio, haga clic con el botón derecho en el proyecto de servidor de Servicios móviles y haga clic en **Publicar**. 
-3. En la pestaña Perfil, elija **Importar** y busque el perfil descargado.
-3. Haga clic en **Publicar** para implementar el código en el Servicio de aplicaciones.
+### <a name="easytables"></a>Datos
 
-Los registros se controlan mediante las características de registro estándar del Servicio de aplicaciones. Para más información sobre el registro, vea [Habilitación del registro de diagnóstico en el Servicio de aplicaciones de Azure].
+La pestaña _Datos_ de Servicios móviles se ha reemplazado por _Tablas fáciles_ dentro del Portal de Azure. Para tener acceso a Tablas fáciles:
 
+  1. Inicie sesión en el [Portal de Azure].
+  2. Seleccione **Todos los recursos** o **Servicios de aplicaciones** y luego haga clic en el nombre del servicio móvil migrado.
+  3. Se abrirá la hoja Configuración de forma predeterminada; si no, haga clic en **Configuración**.
+  4. Haga clic en **Tablas fáciles** en el menú MÓVIL.
 
+Para agregar una nueva tabla, haga clic en el botón **Agregar** o acceda a sus tablas existentes haciendo clic en el nombre de una tabla. Hay una serie de operaciones que puede realizar desde esta hoja, como por ejemplo:
 
-<!-- URLs. -->
+  * Cambiar los permisos de tabla
+  * Editar los scripts operativos
+  * Administrar el esquema de tabla
+  * Eliminar la tabla
+  * Borrar el contenido de la tabla
+  * Eliminar filas específicas de la tabla
 
-[Portal de Azure]: https://portal.azure.com/
-[Configurar]: https://manage.windowsazure.com/
-[Portal de Azure clásico]: https://manage.windowsazure.com/
-[¿Qué son las aplicaciones móviles?]: app-service-mobile-value-prop.md
-[I already use web sites and mobile services – how does App Service help me?]: /es-ES/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
-[Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
-[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
-[Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Azure Scheduler]: /es-ES/documentation/services/scheduler/
-[Web Job]: ../app-service-web/websites-webjobs-resources.md
-[How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+### <a name="easyapis"></a>API
 
+La pestaña _API_ de Servicios móviles se ha reemplazado por _API fáciles_ dentro del Portal de Azure. Para obtener acceso a las API fáciles:
 
-[Habilitación del registro de diagnóstico en el Servicio de aplicaciones de Azure]: web-sites-enable-diagnostic-log.md
-[precios del Servicio de aplicaciones]: https://azure.microsoft.com/es-ES/pricing/details/app-service/
-[entorno del Servicio de aplicaciones]: app-service-app-service-environment-intro.md
-[Servicios móviles frente a Servicio de aplicaciones]: app-service-mobile-value-prop-migration-from-mobile-services-preview.md
-[migrate a mobile service to a mobile app on App Service]: app-service-mobile-migrating-from-mobile-services.md
+  1. Inicie sesión en el [Portal de Azure].
+  2. Seleccione **Todos los recursos** o **Servicios de aplicaciones** y luego haga clic en el nombre del servicio móvil migrado.
+  3. Se abrirá la hoja Configuración de forma predeterminada; si no, haga clic en **Configuración**.
+  4. Haga clic en **API fáciles** en el menú MÓVIL.
 
-<!-----HONumber=AcomDC_1210_2015-->
+Las API migradas ya aparecen en la hoja. También puede agregar una nueva API desde esta hoja. Para administrar una API específica, haga clic en la API. Desde la nueva hoja, puede ajustar los permisos y editar los scripts de la API.
+
+### <a name="on-demand-jobs"></a>Trabajos programados a petición
+
+Los trabajos programados a petición se activan a través de una solicitud web. Se recomienda usar un cliente HTTP, como [Postman], [Fiddler] o [curl]. Si su sitio se llama 'contoso', tendrá un punto de conexión https://contoso.azure-mobile.net/jobs/_yourjobname_ que puede usar para desencadenar la tarea a petición. Deberá enviar un encabezado adicional **X-ZUMO-MASTER** con la clave maestra.
+
+Puede obtener la clave maestra de la manera siguiente:
+
+  1. Inicie sesión en el [Portal de Azure].
+  2. Seleccione **Todos los recursos** o **Servicios de aplicaciones** y luego haga clic en el nombre del servicio móvil migrado.
+  3. Se abrirá la hoja Configuración de forma predeterminada; si no, haga clic en **Configuración**.
+  4. Haga clic en **Configuración de aplicación** en el menú GENERAL.
+  5. Busque la configuración de aplicación **MS\_MasterKey**.
+
+Puede cortar y pegar la clave maestra en la sesión de Postman. Este es un ejemplo de desencadenar un trabajo a petición en un servicio móvil migrado:
+
+  ![Desencadenar un trabajo a petición con Postman][2]
+
+Anote la configuración:
+
+  * Método: **POST**
+  * URL: https://_yoursite_.azure-mobile.net/jobs/_yourjobname_
+  * Encabezados: X-ZUMO-MASTER: _your-master-key_
+
+También puede usar [curl] para desencadenar el trabajo a petición en una línea de comandos:
+
+    curl -H 'X-ZUMO-MASTER: yourmasterkey' --data-ascii '' https://yoursite.azure-mobile.net/jobs/yourjob
+
+Los trabajos a petición se encuentran en `App_Data/config/scripts/scheduler post-migration`. Se recomienda convertir todos los trabajos a petición a [WebJobs].
+
+### <a name="notification-hubs"></a>Centros de notificaciones
+
+Los Servicios móviles usan Centros de notificaciones para las notificaciones push. Las siguientes configuraciones de aplicación se usan para vincular el centro de notificaciones al servicio móvil tras la migración:
+
+| Configuración de aplicación | Descripción |
+| :------------------------------------- | :--------------------------------------- |
+| **MS\_PushEntityNamespace** | El espacio de nombres del centro de notificaciones. |
+| **MS\_NotificationHubName** | El nombre del centro de notificaciones. |
+| **MS\_NotificationHubConnectionString** | La cadena de conexión del centro de notificaciones |
+| **MS\_NamespaceName** | Un alias para MS\_PushEntityNamespace |
+
+El centro de notificaciones se administrará mediante el [Portal de Azure]. Anote el nombre del centro de notificaciones (puede encontrarlo mediante la configuración de aplicación):
+
+  1. Inicie sesión en el [Portal de Azure].
+  2. Seleccione **Examinar**> y luego **Centros de notificaciones**.
+  3. Haga clic en el nombre del centro de notificaciones asociado al servicio móvil.
+
+> [AZURE.NOTE]El centro de notificaciones no será visible si es de tipo "Mixto". Los centros de notificaciones mixtos usan características de Centros de notificaciones y características heredadas de Bus de servicio. Deberá [convertir los espacios de nombres mixtos]. Una vez finalizada la conversión, el centro de notificaciones aparecerá en el [Portal de Azure].
+
+Para más información, revise la documentación de [Centros de notificaciones].
+
+> [AZURE.TIP]Las características de administración de Centros de notificaciones en el [Portal de Azure] se encuentran aún en versión preliminar. El [Portal de Azure clásico] sigue estando disponible para administrar todos los centros de notificaciones.
+
+### <a name="app-settings"></a>Otra configuración de aplicación
+
+La siguiente configuración de aplicación adicional se migra desde el servicio móvil y está disponible en *Configuración* > *Configuración de aplicación*:
+
+| Configuración de aplicación | Descripción |
+| :------------------------------- | :-------------------------------------- |
+| **MS\_MobileServiceName** | El nombre de la aplicación. |
+| **MS\_MobileServiceDomainSuffix** | El prefijo de dominio, es decir, azure-mobile.net. |
+| **MS\_ApplicationKey** | La clave de aplicación. |
+| **MS\_MasterKey** | La clave maestra de aplicación. |
+
+La clave de aplicación y la clave maestra deben ser idénticas a las claves de aplicación del servicio móvil original. En concreto, los clientes móviles envían la clave de aplicación para validar su uso de la API móvil.
+
+### <a name="cliequivalents"></a>Equivalentes de línea de comandos
+
+Ya no podrá usar el comando _azure mobile_ para administrar el sitio de Servicios móviles de Azure. Muchas de las funciones se han reemplazado por el comando _azure site_. Utilice la siguiente tabla para buscar equivalentes para los comandos más comunes:
+
+| Comando _Azure Mobile_ | Comando _Azure Site_ equivalente |
+| :----------------------------------------- | :----------------------------------------- |
+| mobile locations | site location list |
+| mobile list | site list |
+| mobile show _name_ | site show _name_ |
+| mobile restart _name_ | site restart _name_ |
+| mobile redeploy _name_ | site deployment redeploy _commitId_ _name_ |
+| mobile key set _name_ _type_ _value_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=\_value\_ _name_ |
+| mobile config list _name_ | site appsetting list _name_ |
+| mobile config get _name_ _key_ | site appsetting show _key_ _name_ |
+| mobile config set _name_ _key_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=\_value\_ _name_ |
+| mobile domain list _name_ | site domain list _name_ |
+| mobile domain add _name_ _domain_ | site domain add _domain_ _name_ |
+| mobile domain delete _name_ | site domain delete _domain_ _name_ |
+| mobile scale show _name_ | site show _name_ |
+| mobile scale change _name_ | site scale mode _mode_ _name_ <br /> site scale instances _instances_ _name_ |
+| mobile appsetting list _name_ | site appsetting list _name_ |
+| mobile appsetting add _name_ _key_ _value_ | site appsetting add _key_=\_value\_ _name_ |
+| mobile appsetting delete _name_ _key_ | site appsetting delete _key_ _name_ |
+| mobile appsetting show _name_ _key_ | site appsetting delete _key_ _name_ |
+
+Para actualizar la configuración de autenticación o de notificaciones push, actualice la configuración de aplicación adecuada. Edite los archivos y publique su sitio mediante ftp o git.
+
+### <a name="diagnostics"></a>Diagnósticos y registro
+
+El registro de diagnóstico está normalmente deshabilitado en un Servicio de aplicaciones de Azure. Para habilitar el registro de diagnóstico:
+
+  1. Inicie sesión en el [Portal de Azure].
+  2. Seleccione **Todos los recursos** o **Servicios de aplicaciones** y luego haga clic en el nombre del servicio móvil migrado.
+  3. Se abrirá la hoja Configuración de forma predeterminada; si no, haga clic en **Configuración**.
+  4. Seleccione **Registros de diagnóstico** en el menú de CARACTERÍSTICAS.
+  5. Haga clic en **ACTIVAR** en los registros siguientes: **Registro de la aplicación (Filesystem)**, **Mensajes de error detallados** y **Seguimiento de solicitudes con error**.
+  6. Haga clic en **Sistema de archivos** en el registro de servidor web.
+  7. Haga clic en **Guardar**.
+
+Para ver los registros:
+
+  1. Inicie sesión en el [Portal de Azure].
+  2. Seleccione **Todos los recursos** o **Servicios de aplicaciones** y luego haga clic en el nombre del servicio móvil migrado.
+  3. Haga clic en el botón **Herramientas**.
+  4. Seleccione **Secuencia de registro** en el menú de RESPETAR.
+
+Los registros se transmitirán a la ventana proporcionada cuando se generen. También puede descargar los registros para analizarlos posteriormente mediante sus credenciales de implementación. Consulte la documentación de [Registro] para más información.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Tenga en cuenta que como la aplicación se migra al Servicio de aplicaciones, hay incluso más características que puede aprovechar:
+
+  * Las [ranuras de ensayo] de implementación le permiten ensayar cambios en el sitio y ejecutar pruebas A/B.
+  * [WebJobs] ofrece una sustitución para trabajos programados a petición.
+  * Puede [implementar su sitio de forma continuada] si lo vincula a GitHub, TFS o Mercurial.
+  * Puede usar [Application Insights] para supervisar el sitio.
+  * Proporcionar servicio a un sitio web y a una API móvil con el mismo código.
+
+### <a name="upgrading-your-site"></a>Actualización del sitio de Servicios móviles al SDK de Aplicaciones móviles
+
+  * Para los proyectos de servidor basados en Node.js, el nuevo [SDK para Node.js de Aplicaciones móviles] proporciona varias características nuevas. Por ejemplo, ahora puede desarrollar y depurar localmente, usar cualquier versión de Node.js posterior a la 0.10 y personalizar con cualquier middleware de Express.js.
+
+  * Para proyectos de servidor basados en .NET, los nuevos [paquetes NuGet del SDK de Aplicaciones móviles](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) tienen más flexibilidad en las dependencias de NuGet, son compatibles con las nuevas características de autenticación del Servicio de aplicaciones y se componen con cualquier proyecto de ASP.NET, incluido MVC. Para más información sobre la actualización, consulte [Actualización del servicio móvil de .NET existente a Servicio de aplicaciones](app-service-mobile-net-upgrading-from-mobile-services.md).
+
+<!-- Images -->
+[0]: ./media/app-service-mobile-migrating-from-mobile-services/migrate-to-app-service-button.PNG
+[1]: ./media/app-service-mobile-migrating-from-mobile-services/migration-activity-monitor.png
+[2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
+
+<!-- Links -->
+[Precios de Servicio de aplicaciones]: https://azure.microsoft.com/es-ES/pricing/details/app-service/
+[Application Insights]: ../application-insights/app-insights-overview.md
+[Escalado automático]: ../app-service-web/web-sites-scale.md
+[Servicio de aplicaciones de Azure]: ../app-service/app-service-value-prop-what-is.md
+[documentación de implementación del Servicio de aplicaciones de Azure]: ../app-service-web/web-sites-deploy.md
+[Portal de Azure clásico]: https://manage.windowsazure.com
+[Portal de Azure]: https://portal.azure.com
+[región de Azure]: https://azure.microsoft.com/es-ES/regions/
+[planes del Programador de Azure]: ../scheduler/scheduler-plans-billing.md
+[implementar su sitio de forma continuada]: ../app-service-web/web-sites-publish-source-control.md
+[convertir los espacios de nombres mixtos]: https://azure.microsoft.com/es-ES/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[curl]: http://curl.haxx.se/
+[nombres de dominio personalizados]: ../app-service-web/web-sites-custom-domain-name.md
+[Fiddler]: http://www.telerik.com/fiddler
+[disponibilidad general del Servicio de aplicaciones de Azure]: /blog/announcing-general-availability-of-app-service-mobile-apps/
+[conexiones híbridas]: ../app-service-web/web-sites-hybrid-connection-get-started.md
+[Registro]: ../app-service-web/web-sites-enable-diagnostic-log.md
+[SDK para Node.js de Aplicaciones móviles]: https://github.com/azure/azure-mobile-apps-node
+[Servicios móviles frente al Servicio de aplicaciones]: app-service-mobile-value-prop-migration-from-mobile-services.md
+[Centros de notificaciones]: ../notification-hubs/notification-hubs-overview.md
+[supervisión del rendimiento]: ../app-service-web/web-sites-monitor.md
+[Postman]: http://www.getpostman.com/
+[Hacer una copia de seguridad de los scripts y la base de datos SQL de su servicio móvil]: ../mobile-services/mobile-services-disaster-recovery.md
+[ranuras de ensayo]: ../app-service-web/web-sites-staged-publishing.md
+[red virtual]: ../app-service-web/web-sites-integrate-with-vnet.md
+[WebJobs]: ../app-service-web/websites-webjobs-resources.md
+
+<!---HONumber=AcomDC_1223_2015-->

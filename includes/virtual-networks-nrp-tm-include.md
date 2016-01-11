@@ -1,11 +1,11 @@
 ## Perfil del Administrador de tráfico
 
-El Administrador de tráfico y su recurso de punto de conexión secundario permiten el enrutamiento DNS a los extremos de Azure y fuera de Azure. Esta distribución de tráfico se rige por los métodos de directivas de enrutamiento. El Administrador de tráfico también permite supervisar el estado del extremo y desviar el tráfico adecuadamente según el estado de un extremo.
+El Administrador de tráfico y su recurso de punto de conexión secundario permiten el enrutamiento DNS a los puntos de conexión dentro y fuera de Azure. Esta distribución de tráfico se rige por los métodos de directivas de enrutamiento. El Administrador de tráfico también permite supervisar el estado del extremo y desviar el tráfico adecuadamente según el estado de un extremo.
 
 | Propiedad | Descripción |
 |---|---|
-|**Método de enrutamiento del tráfico**| Los valores posibles son *Performance*, *Weighted* y *Priority* | 
-| **Configuración de DNS** | FQDN para el perfil | 
+|**trafficRoutingMethod**| Los valores posibles son *Performance*, *Weighted* y *Priority*. | 
+| **dnsConfig** | FQDN para el perfil | 
 | **Protocolo** | protocolo de supervisión, los valores posibles son *HTTP* y *HTTPS*|
 | **Puerto** | puerto de supervisión |  
 | **Ruta de acceso** | ruta de acceso de supervisión |
@@ -17,10 +17,10 @@ Un extremo es un recurso secundario de un perfil de Administrador de tráfico. R
 
 | Propiedad | Descripción | 
 |---|---| 
-| **Tipo** | el tipo de punto de conexión, los posibles valores son *punto de conexión de Azure*, *punto de conexión externo* y *punto de conexión anidado*. | 
-| **Identificador de recurso de destino** | dirección IP pública de servicio o punto de conexión web. Puede tratarse de un extremo de Azure o uno externo. | 
+| **Tipo** | el tipo de punto de conexión, los posibles valores son *punto de conexión de Azure*, *punto de conexión externo* y *punto de conexión anidado* | 
+| **targetResourceId** | dirección IP pública de servicio o punto de conexión web. Puede tratarse de un extremo de Azure o uno externo. | 
 | **Peso** | ponderación del punto de conexión usada en la administración del tráfico. | 
-| **Prioridad** | prioridad del punto de conexión, usada para definir una acción de conmutación por error |
+| **Prioridad** | prioridad del punto de conexión, usado para definir una acción de conmutación por error |
 
 Ejemplo de Administrador de tráfico en formato Json:
 
@@ -82,6 +82,6 @@ Ejemplo de Administrador de tráfico en formato Json:
  
 ## Recursos adicionales
 
-Para obtener más información, lea la [documentación de API de REST para el Administrador de tráfico](https://msdn.microsoft.com/library/azure/mt163664.aspx).
+Para más información, lea la [documentación de API de REST para el Administrador de tráfico](https://msdn.microsoft.com/library/azure/mt163664.aspx).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

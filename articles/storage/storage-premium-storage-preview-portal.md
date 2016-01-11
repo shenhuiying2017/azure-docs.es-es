@@ -25,9 +25,11 @@ El Almacenamiento premium de Azure le ofrece soporte de disco de alto rendimient
 
 Una máquina virtual de Azure admite la conexión de varios discos de Almacenamiento premium para que las aplicaciones puedan disponer de hasta 64 TB de almacenamiento por máquina virtual. Con el Almacenamiento premium, las aplicaciones pueden tener hasta 80.000 E/S por segundo (operaciones de entrada/salida por segundo) por máquina virtual, así como un rendimiento del disco de 2.000 MB por segundo por máquina virtual, con latencias extremadamente bajas para operaciones de lectura.
 
+Con el Almacenamiento premium, Azure ofrece la capacidad de levantar y mover realmente sus exigentes aplicaciones empresariales como Dynamics AX, Dynamics CRM, Exchange Server, granjas de servidores de SharePoint y el conjunto de aplicaciones de SAP Business, a la nube. Puede ejecutar una variedad de cargas de trabajo de bases de datos de rendimiento intensivo como SQL Server, Oracle, MongoDB, MySQL, Redis, que requieren una baja latencia y un alto rendimiento coherentes en el almacenamiento Premium.
+
 >[AZURE.NOTE]Se recomienda migrar cualquier disco de máquina virtual que requiera un número elevado de operaciones de entrada/salida por segundo al Almacenamiento premium de Azure para mejorar el rendimiento de la aplicación. Si el disco no requiere un número elevado de operaciones de entrada/salida por segundo, puede limitar los costos mediante el mantenimiento del almacenamiento estándar, que almacena los datos de disco de máquina virtual en unidades de disco duro (HDD) en lugar de SSD.
 
-Para empezar a usar Almacenamiento premium de Azure, visite la página [Empiece de forma gratuita](http://azure.microsoft.com/pricing/free-trial/). Para obtener información sobre cómo migrar las máquinas virtuales existentes al Almacenamiento premium, consulte [Migrar a Almacenamiento premium de Azure](storage-migration-to-premium-storage.md).
+Para empezar a usar Almacenamiento premium de Azure, visite la página [Empiece de forma gratuita](http://azure.microsoft.com/pricing/free-trial/). Para información sobre cómo migrar las máquinas virtuales existentes al Almacenamiento premium, vea [Migrar al Almacenamiento premium de Azure](storage-migration-to-premium-storage.md).
 
 ## Cosas importantes acerca del Almacenamiento premium
 
@@ -37,7 +39,7 @@ La siguiente es una lista de las cosas importantes que deben tenerse en cuenta a
 
 - Almacenamiento premium está disponible en el [Portal de Azure](portal.azure.com) y es accesible a través de las siguientes bibliotecas de SDK: [API de REST de almacenamiento](http://msdn.microsoft.com//library/azure/dd179355.aspx) versión 2014-02-14 o posterior; [API de REST de administración del servicio](http://msdn.microsoft.com/library/azure/ee460799.aspx) versión 2014-10-01 o posterior; y [Azure PowerShell](../install-configure-powershell.md) versión 0.8.10 o posterior.
 
-- Para obtener una lista de regiones que admiten actualmente almacenamiento Premium, consulte [Servicios de Azure por región](http://azure.microsoft.com/regions/#services).
+- Para una lista de regiones que admiten actualmente almacenamiento Premium, vea [Servicios de Azure por región](http://azure.microsoft.com/regions/#services).
 
 - Almacenamiento premium admite solo blobs en páginas de Azure, que se usan para contener discos persistentes para máquinas virtuales de Azure (VM). Para obtener información acerca de los blobs en páginas de Azure, consulte [Introducción a los blobs en bloques y a los blobs en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx). Almacenamiento premium no admite Blobs en bloque de Azure, archivos de Azure, tablas de Azure ni colas de Azure.
 
@@ -59,7 +61,7 @@ Puede usar Almacenamiento premium para discos de una de las siguientes maneras:
 
 Azure usa la cuenta de almacenamiento como un contenedor para el sistema operativo (SO) y los discos de datos. En otras palabras, si crea una VM de serie DS o GS de Azure y selecciona una cuenta de Almacenamiento premium de Azure, el sistema operativo y los discos de datos se almacenan en dicha cuenta de almacenamiento.
 
-Para obtener información sobre cómo migrar las máquinas virtuales existentes al Almacenamiento premium, consulte [Migrar al Almacenamiento premium de Azure](storage-migration-to-premium-storage.md).
+Para información sobre cómo migrar las máquinas virtuales existentes al Almacenamiento premium, vea [Migrar al Almacenamiento premium de Azure](storage-migration-to-premium-storage.md).
 
 Para aprovechar las ventajas de Almacenamiento premium, cree primero una cuenta de Almacenamiento premium mediante un tipo de cuenta *Premium\_LRS*. Para ello, puede usar el [Portal de Azure](portal.azure.com), [Azure PowerShell](../install-configure-powershell.md) o la [API de REST de administración del servicio](http://msdn.microsoft.com/library/azure/ee460799.aspx). Para obtener instrucciones detalladas, consulte [Creación y uso de una cuenta de Almacenamiento Premium para discos](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
@@ -71,7 +73,7 @@ Para aprovechar las ventajas de Almacenamiento premium, cree primero una cuenta 
 
 	Tenga en cuenta que estos límites son para el tráfico de disco por sí solo, sin incluir los aciertos de caché y el tráfico de red. Hay un ancho de banda independiente disponible para el tráfico de red de máquina virtual, que es diferente del ancho de banda dedicado para discos de Almacenamiento premium.
 	
-	Para obtener la última información sobre el número máximo de E/S por segundo y el rendimiento (ancho de banda) de las máquinas virtuales de las series DS y GS, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](../virtual-machines/virtual-machines-size-specs.md). Para obtener información acerca de los discos del Almacenamiento premium y sus E/S por segundo y límites de rendimiento, consulte la tabla que encontrará en la sección [Objetivos de escalabilidad y rendimiento al usar el Almacenamiento premium](#scalability-and-performance-targets-whes-ESing-premium-storage) de este artículo.
+	Para la última información sobre el número máximo de E/S por segundo y el rendimiento (ancho de banda) de las máquinas virtuales de las series DS y GS, vea [Tamaños de máquinas virtuales y servicios en la nube de Azure](../virtual-machines/virtual-machines-size-specs.md). Para información acerca de los discos del Almacenamiento premium y sus E/S por segundo y límites de rendimiento, vea la tabla que encontrará en la sección [Objetivos de escalabilidad y rendimiento al usar el Almacenamiento premium](#scalability-and-performance-targets-whes-ESing-premium-storage) de este artículo.
 
 > [AZURE.NOTE]Los aciertos de caché no están limitados por las E/S o rendimiento asignados del disco. Es decir, cuando se utiliza un disco de datos con la configuración de caché de solo lectura en una VM de la serie DS o GS, las lecturas que se atienden desde la memoria caché no están sujetas a los límites de disco de Almacenamiento premium. Por lo tanto, podría obtener un rendimiento muy alto desde un disco si la carga de trabajo es fundamentalmente de lectura. Tenga en cuenta que la caché depende de límites de E/S por segundo o de rendimiento independientes a nivel de la máquina virtual en función del tamaño de dicha máquina. Las máquinas virtuales de la serie DS tienen aproximadamente 4000 E/S por segundo y 33 MB/seg. por núcleo de caché y E/S de SSD locales.
 
@@ -393,4 +395,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

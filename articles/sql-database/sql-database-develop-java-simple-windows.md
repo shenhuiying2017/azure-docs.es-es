@@ -14,14 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="lbosq"/>
 
 
 # Conexión a la base de datos SQL mediante Java con JDBC en Windows
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [C#](sql-database-develop-dotnet-simple.md)
+- [PHP](sql-database-develop-php-simple-windows.md)
+- [Python](sql-database-develop-python-simple-windows.md)
+- [Ruby](sql-database-develop-ruby-simple-windows.md)
+- [Java](sql-database-develop-java-simple-windows.md)
+- [Node.js](sql-database-develop-nodejs-simple-windows.md)
 
 
 Este tema presenta un ejemplo de código de Java que puede usar para conectarse a la base de datos SQL de Azure. El ejemplo de Java se basa en la versión 1.8 del kit de desarrollo de Java (JDK). El ejemplo se conecta a una base de datos SQL de Azure mediante el controlador JDBC.
@@ -36,7 +42,7 @@ Este tema presenta un ejemplo de código de Java que puede usar para conectarse 
 
 ### Base de datos SQL
 
-Consulte la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos.
+Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos.
 
 ### Tabla SQL
 
@@ -226,6 +232,6 @@ Copie y pegue este segmento Java breve en el ejemplo de código principal donde 
 
 ## Pasos siguientes
 
-Para más información, consulte el [Centro para desarrolladores de Java](/develop/java/).
+Para obtener más información, consulte el [Centro para desarrolladores de Java](/develop/java/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

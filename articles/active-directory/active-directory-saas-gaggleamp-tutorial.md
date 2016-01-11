@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="12/18/2015"
 	ms.author="v-aabrol"/>
 
 
@@ -64,7 +64,7 @@ Para configurar la integración de GaggleAMP en Azure AD, deberá agregar Gaggle
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro de búsqueda, escriba **GaggleAMP**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_01.png)<br>
-7. En el panel de resultados, seleccione **GaggleAMP** y después haga clic en **Completar** para agregar la aplicación.<br><br>
+7. En el panel de resultados, seleccione **GaggleAMP** y luego haga clic en **Completar** para agregar la aplicación. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_02.png)<br>
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con GaggleAMP con una usuaria de prueba llamada "Britta Simon".
@@ -91,7 +91,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 2. En la página **¿Cómo desea que los usuarios inicien sesión en GaggleAMP?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**.<br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_03.png) <br>
 
-3. En la página de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_04.png) <br>
+3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_04.png) <br>
 
 
     a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de GaggleAMP con el siguiente patrón: **“https://secure4.gaggleamp.com”**.
@@ -103,7 +103,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 4. En la página **Configurar inicio de sesión único en GaggleAMP**, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_05.png) <br>
 
-    a. Haga clic en **Descargar certificado** y después guarde el archivo en el equipo. Necesitaremos este certificado y las direcciones URL de metadatos (Id. de entidad, Dirección URL de inicio de sesión SSO y Dirección URL de cierre de sesión) para configurar el SSO en el lado de GaggleAMP.
+    a. Haga clic en **Descargar certificado** y luego guarde el archivo en el equipo. Necesitaremos este certificado y las direcciones URL de metadatos (Id. de entidad, Dirección URL de inicio de sesión SSO y Dirección URL de cierre de sesión) para configurar el SSO en el lado de GaggleAMP.
 
     b. Haga clic en **Siguiente**.
 
@@ -141,7 +141,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_04.png) <br>
 
-5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes: <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_05.png) <br>
+5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes: <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_05.png) <br>
 
     a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
 
@@ -149,7 +149,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     c. Haga clic en **Siguiente**.
 
-6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_06.png) <br>
+6.  En la página del cuadro de diálogo **Perfil de usuario**, realice los siguientes pasos: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_06.png) <br>
 
     a. En el cuadro de texto **Nombre**, escriba **Britta**.
 
@@ -161,9 +161,9 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     e. Haga clic en **Siguiente**.
 
-7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_07.png) <br>
+7. En la página del cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_07.png) <br>
 
-8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_08.png) <br>
+8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_08.png) <br>
 
     a. Anote el valor del campo **Nueva contraseña**.
 
@@ -184,9 +184,9 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 **Para asignar a Britta Simon a GaggleAMP, realice los pasos siguientes:**
 
-1. En el Portal de Azure, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior. <br><br>![Asignar usuario][201] <br>
+1. En el Portal de Azure, abra la vista de aplicaciones; para ello, en la vista de directorio, haga clic en **Aplicaciones** en el menú principal. <br><br>![Asignar usuario][201] <br>
 
-2. En la lista de aplicaciones, seleccione **GaggleAMP**. <br><br>![Lista de Azure](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_50.png) <br>
+2. En la lista de aplicaciones, seleccione **GaggleAMP**. <br><br>![Lista de Azure](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_50.png)<br>
 
 1. En el menú de la parte superior, haga clic en **Usuarios**. <br><br>![Asignar usuario][203] <br>
 
@@ -225,4 +225,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

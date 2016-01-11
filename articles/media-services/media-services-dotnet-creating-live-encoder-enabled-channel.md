@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/08/2015"  
+	ms.date="12/17/2015"
 	ms.author="juliako"/>
 
 
@@ -24,11 +24,13 @@
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+>[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+
 ##Información general
 
 Este tutorial le guía por los pasos para crear un **canal** que reciba una secuencia en directo de una sola velocidad de bits y la codifique como secuencia de varias velocidades de bits.
 
->[AZURE.NOTE]Para obtener información más detallada sobre los canales habilitados para la codificación en directo, consulte [Uso de canales que realizan la codificación en directo de una secuencia de una sola velocidad de bits a otra de varias velocidades](media-services-manage-live-encoder-enabled-channels.md).
+Para obtener información más detallada sobre los canales habilitados para la codificación en directo, consulte [Uso de canales que realizan la codificación en directo de una secuencia de una sola velocidad de bits a otra de varias velocidades](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ##Escenario común de streaming en vivo
@@ -39,17 +41,17 @@ Los pasos siguientes describen las tareas para crear aplicaciones comunes de str
 
 1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-Este paso también puede realizarse después de crear el canal.
+	Este paso también puede realizarse después de crear el canal.
 
 1. Cree e inicie un canal.
 
 1. Recupere la URL de ingesta de canales.
 
-El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
+	El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
 
 1. Recupere la URL de vista previa de canal.
 
-Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en directo.
+	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en directo.
 
 2. Cree un recurso.
 3. Si desea que el recurso se cifre dinámicamente durante la reproducción, haga lo siguiente:
@@ -59,14 +61,14 @@ Use esta dirección URL para comprobar que el canal recibe correctamente la secu
 3. Cree un programa y especifique que se use el recurso que ha creado.
 1. Publique el recurso asociado al programa mediante la creación de un localizador a petición.
 
-Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
+	Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
 
 1. Inicie el programa cuando esté listo para iniciar el streaming y el archivo.
 2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
 1. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
 1. Elimine el programa (y, opcionalmente, elimine el recurso).
 
-##En este tema
+## Temas que se abordarán
 
 Este tema muestra cómo ejecutar distintas operaciones en los canales y programas mediante el SDK .NET de Servicios multimedia. Dado que la ejecución de muchas de las operaciones es prolongada, se usan las API de .NET que administran operaciones de este tipo.
 
@@ -82,6 +84,18 @@ En el tema se muestra cómo:
 1. Limpiar el canal y todos los recursos asociados.
 
 
+##Requisitos previos
+
+Los siguientes requisitos son necesarios para completar el tutorial.
+
+- Para completar este tutorial, deberá tener una cuenta de Azure. 
+	
+	En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Obtenga créditos que puede usar para probar los servicios de Azure de pago. Incluso después de que se agoten los créditos, puede mantener la cuenta y usar los servicios y características gratuitos de Azure, como la característica de Aplicaciones web del Servicio de aplicaciones de Azure.
+- Una cuenta de Servicios multimedia. Para crear una cuenta de Servicios multimedia, consulte el tema de [creación de cuenta](media-services-create-account.md).
+- Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express) o versiones posteriores.
+- Debe usar el SDK de Servicios multimedia para .NET versión 3.2.0.0 o posterior.
+- Una cámara web y un codificador que pueda enviar una secuencia en vivo de una sola velocidad de bits.
+
 ##Consideraciones
 
 - Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Póngase en contacto con amslived en Microsoft punto com si necesita ejecutar un canal durante largos períodos de tiempo.
@@ -91,14 +105,6 @@ En el tema se muestra cómo:
 
 Obtenga y ejecute un ejemplo desde [aquí](http://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
-##Requisitos previos
-Los siguientes requisitos son necesarios para completar el tutorial.
-
-- Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](azure.microsoft.com).
-- Una cuenta de Servicios multimedia. Para crear una cuenta de Servicios multimedia, consulte el tema de [creación de cuenta](media-services-create-account.md).
-- Visual Studio 2010 SP1 o superior.
-- Debe usar el SDK de Servicios multimedia para .NET versión 3.2.0.0 o posterior.
-- Una cámara web y un codificador que puede enviar una secuencia en directo de una sola velocidad de bits.
 
 ##Configuración para el desarrollo con el SDK de Servicios multimedia para .NET
 
@@ -334,6 +340,7 @@ Agregue la sección appSettings al archivo app.config y establezca los valores d
 	        /// <returns></returns>
 	        public static ILocator CreateLocatorForAsset(IAsset asset, TimeSpan ArchiveWindowLength)
 	        {
+             	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 	            var locator = _context.Locators.CreateLocator
 	                (
 	                    LocatorType.OnDemandOrigin,
@@ -516,4 +523,4 @@ Agregue la sección appSettings al archivo app.config y establezca los valores d
 
 Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna forma sus necesidades, háganos llegar sus comentarios mediante el subproceso de Disqus siguiente.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

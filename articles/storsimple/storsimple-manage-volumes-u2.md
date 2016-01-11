@@ -15,7 +15,7 @@
    ms.date="12/15/2015"
    ms.author="v-sharos" />
 
-# Usar el servicio de Administrador de StorSimple para administrar volúmenes
+# Usar el servicio de Administrador de StorSimple para administrar volúmenes (Update 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
@@ -291,4 +291,4 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

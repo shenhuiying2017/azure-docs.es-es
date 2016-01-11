@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/18/2015" 
+	ms.date="12/17/2015" 
 	ms.author="juliako"/>
 
 #Configuración de directivas de entrega de recursos
@@ -54,6 +54,14 @@ HDS
 
 Para obtener instrucciones sobre cómo publicar un recurso y generar una dirección URL de streaming, vea [Creación de una dirección URL de streaming](media-services-deliver-streaming-content.md).
 
+
+##Consideraciones
+
+- No puede eliminar una entidad AssetDeliveryPolicy asociada a un activo mientras hay un localizador OnDemand (transmisión) para ese activo. Se recomienda quitar la directiva del activo antes de eliminar la directiva.
+- No se puede crear un localizador de transmisión en un activo cifrado de almacenamiento cuando no se establece ninguna directiva de entrega de activos. Si el activo no está cifrado para almacenamiento, el sistema le permitirá crear un localizador y transmitir el activo sin cifrar, sin una directiva de entrega de activos.
+- Puede tener varias directivas de entrega de activos asociadas a un único activo, pero solo se puede especificar una forma de controlar un AssetDeliveryProtocol determinado, es decir, si intenta vincular dos directivas de entrega que especifican el protocolo AssetDeliveryProtocol.SmoothStreaming que producirá un error porque el sistema no sabe cuál quiere que aplique cuando un cliente realiza una solicitud de Smooth Streaming.  
+- Si tiene un activo con un localizador de transmisión existente, no puede vincular una nueva directiva al activo, desvincular una directiva existente del activo o actualizar una directiva de entrega asociada al activo. Primero debe quitar el localizador de transmisión, ajustar las directivas y volver a crear el localizador de transmisión. Puede usar el mismo locatorId al volver a crear el localizador de transmisión, pero debe asegurarse de que no causará problemas para los clientes ya que se puede almacenar en caché el contenido por el origen o una red CDN de nivel inferior.  
+ 
 >[AZURE.NOTE]Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
 >
 >Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
@@ -185,7 +193,7 @@ Respuesta:
 
 ###Creación de directiva de entrega de recursos
 
-La solicitud HTTP siguiente crea la entidad **AssetDeliveryPolicy** que se configura para aplicar el cifrado Envelope dinámico (**DynamicEnvelopeEncryption**) en el protocolo **HLS** (en este ejemplo, se bloquearán los protocolos para streaming).
+La solicitud HTTP siguiente crea la entidad **AssetDeliveryPolicy** que se configura para aplicar el cifrado Envelope dinámico (**DynamicEnvelopeEncryption**) en el protocolo **HLS** (en este ejemplo, se bloquearán los protocolos para transmisión).
 
 
 Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types).
@@ -243,7 +251,7 @@ Obtenga la dirección URL de entrega para el método de entrega de PlayReady de 
 
 ###Creación de directiva de entrega de recursos
 
-La solicitud HTTP siguiente crea la entidad **AssetDeliveryPolicy** que se configura para aplicar el cifrado común dinámico (**DynamicCommonEncryption**) en el protocolo **Smooth Streaming** (en este ejemplo, se bloquearán otros protocolos para streaming).
+La solicitud HTTP siguiente crea la entidad **AssetDeliveryPolicy** que se configura para aplicar el cifrado común dinámico (**DynamicCommonEncryption**) en el protocolo **Smooth Streaming** (en este ejemplo, se bloquearán otros protocolos para transmisión).
 
 Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types).
 
@@ -448,4 +456,4 @@ Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#l
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

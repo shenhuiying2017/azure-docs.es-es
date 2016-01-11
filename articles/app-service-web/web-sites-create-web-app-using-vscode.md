@@ -13,21 +13,25 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="12/17/2015" 
 	ms.author="erikre"/>
 
 # Creación de una aplicación web ASP.NET 5 en Visual Studio Code
 
 ## Información general
 
-En este tutorial se muestra cómo se crea una aplicación web de ASP.NET 5 utilizando [Visual Studio Code (VS Code)](http://code.visualstudio.com//Docs/whyvscode) y cómo se implementa en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md). ASP.NET 5 es un rediseño significativo de ASP.NET. ASP.NET 5 es un nuevo marco de código abierto multiplataforma diseñado para crear modernas aplicaciones web basadas en la nube con .NET. Para obtener más información, consulte [Introducción a ASP.NET 5](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html). Para obtener información sobre Aplicaciones web del Servicio de aplicaciones de Azure, consulte [Introducción a aplicaciones web](app-service-web-overview.md).
+En este tutorial se muestra cómo se crea una aplicación web de ASP.NET 5 utilizando [Visual Studio Code (VS Code)](http://code.visualstudio.com//Docs/whyvscode) y cómo se implementa en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md).
+
+> [AZURE.NOTE]Aunque este artículo se refiere a las aplicaciones web, también se aplica a las aplicaciones de API y las aplicaciones móviles.
+
+ASP.NET 5 es un rediseño significativo de ASP.NET. ASP.NET 5 es un nuevo marco de código abierto multiplataforma diseñado para crear modernas aplicaciones web basadas en la nube con .NET. Para obtener más información, consulte [Introducción a ASP.NET 5](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html). Para obtener información sobre Aplicaciones web del Servicio de aplicaciones de Azure, consulte [Introducción a aplicaciones web](app-service-web-overview.md).
 
 [AZURE.INCLUDE [app-service-web-try-app-service.md](../../includes/app-service-web-try-app-service.md)]
 
 ## Requisitos previos  
 
 * Instalación de [VS Code](http://code.visualstudio.com/Docs/setup).
-* Instalación de [Node.js](http://nodejs.org) - Node.js es una plataforma para crear aplicaciones de servidor rápidas y escalables mediante JavaScript. Node es el tiempo de ejecución (Node) y [npm](http://www.npmjs.com/) es el Administrador de paquetes para los módulos de Node. En este tutorial utilizará npm para aplicar la técnica scaffolding a una aplicación web ASP.NET 5.
+* Instalación de [Node.js](http://nodejs.org): Node.js es una plataforma para crear aplicaciones de servidor rápidas y escalables mediante JavaScript. Node es el tiempo de ejecución (Node) y [npm](http://www.npmjs.com/) es el Administrador de paquetes para los módulos de Node. En este tutorial utilizará npm para aplicar la técnica scaffolding a una aplicación web ASP.NET 5.
 * Instalación de Git. Puede instalarlo desde cualquiera de estas ubicaciones: [Chocolatey](https://chocolatey.org/packages/git) o [git-scm.com](http://git-scm.com/downloads). Si no está familiarizado con Git, elija [git-scm.com](http://git-scm.com/downloads) y seleccione la opción para **usar Git desde el símbolo del sistema de Windows**. Una vez que instale Git, también tendrá que establecer el nombre de usuario de Git y el correo electrónico, ya que es necesario más adelante en el tutorial (al realizar una confirmación desde VS Code).  
 
 ## Instalación de ASP.NET 5 y DNX
@@ -85,11 +89,11 @@ En esta sección se explica cómo aplicar la técnica scaffolding a una nueva ap
 
 		yo aspnet
 
-4. Utilice las teclas de dirección para seleccionar el tipo **básico de aplicación web** en el menú del generador de ASP.NET 5 y presione **&lt;Intro>**.
+4. Use las teclas de dirección para seleccionar el tipo **básico de aplicación web** en el menú del generador de ASP.NET 5 y presione **&lt;Entrar>**.
 
 	![Yeoman - Generador de ASP.NET 5](./media/web-sites-create-web-app-using-vscode/01-yo-aspnet.png)
 
-5. Defina el nombre de la nueva aplicación web ASP.NET como **SampleWebApp**. Este nombre se usa en todo el tutorial, si selecciona otro nombre, deberá sustituir cada aparición de **SampleWebApp** por dicho nombre. Al presionar **&lt;Intro>**, Yeoman creará una carpeta nueva con el nombre **SampleWebApp**, además de los archivos necesarios para la nueva aplicación.
+5. Defina el nombre de la nueva aplicación web ASP.NET como **SampleWebApp**. Este nombre se usa en todo el tutorial, si selecciona otro nombre, deberá sustituir cada aparición de **SampleWebApp** por dicho nombre. Al presionar **&lt;Entrar>**, Yeoman creará una carpeta nueva con el nombre **SampleWebApp**, además de los archivos necesarios para la nueva aplicación.
 
 6. En el símbolo del sistema, cambie los directorios a la carpeta de proyecto nueva:
 
@@ -237,7 +241,7 @@ En esta sección, creará un repositorio Git local e insertará desde ese reposi
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE]Si realiza cambios en la aplicación, puede volver a publicar directamente en VS Code con la funcionalidad integrada de Git seleccionando la opción **Confirmar todo** seguida de la opción **Insertar**. Encontrará la opción **Insertar** en el menú desplegable junto a los botones **Confirmar todo** y **Actualizar**.
+> [AZURE.NOTE]Si realiza cambios en la aplicación, puede volver a publicar directamente en el código de VS con la funcionalidad integrada de Git seleccionando la opción **Confirmar todo** seguida de la opción **Insertar**. Encontrará la opción **Insertar** en el menú desplegable junto a los botones **Confirmar todo** y **Actualizar**.
 
 Si necesita para colaborar en un proyecto, considere la posibilidad de insertar en GitHub entre la inserción en Azure.
 
@@ -250,12 +254,12 @@ Esto puede hacerse de dos maneras:
 
 		http://SampleWebAppDemo.azurewebsites.net
  
-* En el Portal de Azure, busque la hoja de aplicación web para la aplicación web y haga clic en **Examinar** para ver la aplicación
+* En el Portal de Azure, busque la hoja de aplicación web para la aplicación web y haga clic en **Examinar** para ver la aplicación.
 * en el explorador predeterminado.
 
 ![Aplicación web de Azure](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)
 
 ## Resumen
-En este tutorial, ha aprendido a crear una aplicación web en VS Code y a implementarla en Azure. Para obtener más información sobre VS Code, consulte el artículo [¿Por qué Visual Studio Code?](https://code.visualstudio.com/Docs/). Para obtener más información sobre Aplicaciones web del Servicio de aplicaciones de Azure, consulte [Información general de aplicaciones web](app-service-web-overview.md).
+En este tutorial, ha aprendido a crear una aplicación web en VS Code y a implementarla en Azure. Para más información sobre VS Code, vea el artículo [¿Por qué Visual Studio Code?](https://code.visualstudio.com/Docs/). Para obtener más información sobre Aplicaciones web del Servicio de aplicaciones de Azure, consulte [Información general de aplicaciones web](app-service-web-overview.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->
