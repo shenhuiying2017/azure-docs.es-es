@@ -15,7 +15,7 @@
    ms.date="12/14/2015"
    ms.author="v-sharos" />
 
-# Restaurar un volumen de StorSimple de un conjunto de copia de seguridad
+# Restaurar un volumen de StorSimple de un conjunto de copia de seguridad (Update 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
@@ -115,4 +115,4 @@ Para completar correctamente la operación de restauración, desconecte el volum
 
 - Obtenga información sobre cómo [usar el servicio del administrador de StorSimple para administrar el dispositivo StorSimple](storsimple-manager-service-administration-u2.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

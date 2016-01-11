@@ -109,4 +109,8 @@ Propiedades como nombre, descripción, tablas de entrada y salida, varias direct
 
 En el caso de la actividad de copia, la sección **typeProperties** varía en función de los tipos de origen y receptor. En cada la página específica del almacén de datos en los documentos enumerados anteriormente se encuentran las propiedades específicas del tipo de almacén de datos.
 
-<!---HONumber=AcomDC_1203_2015-->
+
+### Optimización y rendimiento de la actividad de copia 
+Vea el artículo [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md), en el que se describen los factores claves que afectan al rendimiento del movimiento de datos (actividad de copia) en la Factoría de datos de Azure. También muestra el rendimiento observado durante las pruebas internas y trata diversas maneras de optimizar el rendimiento de la actividad de copia.
+
+<!---HONumber=AcomDC_1223_2015-->

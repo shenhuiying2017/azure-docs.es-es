@@ -13,12 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/18/2015" 
 	ms.author="tarcher"/>
-
-
-
-
 
 # Creación de una aplicación de chat Node.js con Socket.IO en un servicio en la nube de Azure
 
@@ -174,4 +170,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
   
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

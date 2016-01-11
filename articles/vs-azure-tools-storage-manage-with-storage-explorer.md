@@ -3,7 +3,7 @@
 	description="Describe cómo utilizar el Explorador de almacenamiento de Microsoft Azure (versión preliminar) para crear y administrar recursos de almacenamiento de Azure."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
 	editor="tlee" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="11/17/2015"
-	ms.author="kempb" />
+	ms.author="tarcher" />
 
 # Administración de recursos de almacenamiento de Azure con el Explorador de almacenamiento (versión preliminar)
 
@@ -182,4 +182,4 @@ Obtenga más información sobre las características de los servicios de Almacen
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

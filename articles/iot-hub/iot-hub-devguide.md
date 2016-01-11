@@ -475,7 +475,7 @@ A continuación se muestra la lista de las limitaciones aplicadas. Los valores h
 | -------- | ------------- |
 | Las operaciones de registro de identidades (crear, recuperar, enumerar, actualizar y eliminar), importación y exportación masiva o individual | 100/min/unidad, hasta 5.000/min |
 | Conexiones de dispositivos | 100/s/unidad |
-| Envíos D2C | 2000/min/unidad (para S2), 60/min/unidad (para S1). Mínimo de 100/s. |
+| Envíos D2C | 120/seg/unidad (para S2), 12/seg/unidad (para S1). Mínimo de 100/s. |
 | Operaciones de C2D (envíos, recepción, comentarios) | 100/min/unidad |
 
 **Nota**. En cualquier momento, es posible aumentar las cuotas o las limitaciones si aumenta el número de unidades aprovisionadas en un Centro de IoT.
@@ -532,4 +532,4 @@ Ahora que vio información general sobre el desarrollo del Centro de IoT, siga e
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

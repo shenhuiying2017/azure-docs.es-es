@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Introducción a la aplicación de API X12 de BizTalk y su incorporación a su aplicación lógica
@@ -33,7 +33,7 @@ Para usar el conector X12 de BizTalk, primero debe crear una instancia de la apl
 ## Configuración del conector X12 de BizTalk
 Los socios comerciales son las entidades implicadas en comunicaciones B2B (negocio a negocio). Cuando dos asociados establecen una relación, esto se conoce como contrato. El contrato definido se basa en la comunicación que los dos socios desean lograr y es específico del protocolo o el transporte.
 
-Los pasos para crear un contrato de socio comercial se documentan [aquí][2]
+Vea los pasos para [crear un contrato de socio comercial][2].
 
 ## Uso del conector X12 en la superficie del diseñador de aplicaciones lógicas
 El conector X12 puede usarse como un desencadenador o como una acción.
@@ -83,4 +83,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

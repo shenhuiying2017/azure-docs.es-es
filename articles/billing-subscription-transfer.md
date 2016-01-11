@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="12/01/2015"
+   ms.date="12/21/2015"
    ms.author="curtand;kareni;ruchic"/>
 
 # Transferencia de suscripciones de Azure
@@ -94,7 +94,7 @@ Puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure para las su
 
 -   **¿Puede usar el destinatario un mecanismo de pago diferente?**
 
-    Sí, y de hecho este mecanismo se puede usar para cambiar el método de pago de la suscripción de factura a tarjeta de crédito. Solo tiene que realizar la transferencia a otra cuenta propia e indicar su tarjeta de crédito al recibir la suscripción. Aquí existen limitaciones: ahora el historial de facturación de la suscripción se divide en dos cuentas. Pero la ventaja es que puede hacerlo sin tener que [ponerse en contacto con el servicio de soporte técnico](http://go.microsoft.com/fwlink/?LinkID=619338).
+    Sí. Aquí existen limitaciones: ahora el historial de facturación de la suscripción se divide en dos cuentas. Pero la ventaja es que puede hacerlo sin tener que [ponerse en contacto con el servicio de soporte técnico](http://go.microsoft.com/fwlink/?LinkID=619338).
 
 ## Pasos siguientes después de aceptar la propiedad de una suscripción
 
@@ -107,4 +107,4 @@ Puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure para las su
 4. Actualice las alertas de facturación para esta suscripción en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions). [Más información](http://go.microsoft.com/fwlink/?LinkID=533292).
 5. 	Si trabaja con un asociado, considere la posibilidad de actualizar el identificador del asociado en esta suscripción. Puede hacerlo en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

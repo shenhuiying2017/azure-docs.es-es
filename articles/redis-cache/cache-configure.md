@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="12/11/2015"
+	ms.date="12/16/2015"
 	ms.author="sdanie" />
 
 # Configuración de Caché en Redis de Azure
@@ -118,15 +118,16 @@ Haga clic en **Aceptar** para guardar la configuración de persistencia.
 
 >[AZURE.IMPORTANT]La persistencia de los datos en Redis solo está disponible para las memorias cachés premium. Para más información, vea [Cómo configurar la persistencia para una Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md).
 
+<a name="cluster-size"></a>
 ## Tamaño del Clúster en Redis
 
-Haga clic en **Tamaño del Clúster en Redis (VERSIÓN PRELIMINAR)** para agregar o quitar particiones de una caché premium en ejecución con la agrupación de clústeres habilitada.
+Haga clic en **Tamaño del Clúster en Redis (VERSIÓN PRELIMINAR)** para cambiar el tamaño del clúster para una caché premium en ejecución con la agrupación de clústeres habilitada.
 
 >[AZURE.NOTE]Tenga en cuenta que, a pesar de que el nivel Premium de Caché en Redis de Azure se publicó con disponibilidad general, la característica Tamaño del clúster en Redis está actualmente en la versión preliminar.
 
 ![Tamaño del clúster en Redis](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
-Para cambiar el número de particiones, use el control deslizante o escriba un número entre 1 y 10 en el cuadro de texto **Número de particiones** y haga clic en **Aceptar** para guardar.
+Para cambiar el tamaño del clúster, use el control deslizante o escriba un número entre 1 y 10 en el cuadro de texto **Número de particiones** y haga clic en **Aceptar** para guardar.
 
 >[AZURE.IMPORTANT]La agrupación en clústeres de Redis solo está disponible para las memorias cachés premium. Para más información, vea [Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md).
 
@@ -147,7 +148,7 @@ Las nuevas instancias de Caché en Redis de Azure se configuran con los siguient
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
->Es posible configurar aquellos valores que permitan esta opción, como **max-memory-policy**, a través del Portal de Azure.
+>Es posible configurar aquellos valores que permitan esta opción, como **max-memory-policy**, a través del Portal de Azure o las herramientas de administración de la línea de comandos como la CLI de Azure o PowerShell.
 
 |Configuración|Valor predeterminado|Descripción|
 |---|---|---|
@@ -177,7 +178,7 @@ Las nuevas instancias de Caché en Redis de Azure se configuran con los siguient
 
 ## No se admiten comandos de Redis en Caché en Redis de Azure
 
->[AZURE.IMPORTANT]Dado que la configuración y la administración de instancias de Caché en Redis de Azure se realizan mediante el Portal de Azure, se deshabilitan los comandos siguientes. Si intenta invocarlos, recibirá un mensaje de error similar a `"(error) ERR unknown command"`.
+>[AZURE.IMPORTANT]Dado que la configuración y la administración de instancias de Caché en Redis de Azure se administra por Microsoft, se deshabilitan los siguientes comandos. Si intenta invocarlos, recibirá un mensaje de error similar a `"(error) ERR unknown command"`.
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
@@ -212,4 +213,4 @@ Para una lista de los comandos de Redis deshabilitados para Caché en Redis de A
 ## Pasos siguientes
 -	Para más información sobre cómo trabajar con los comandos de Redis, vea [¿Cómo puedo ejecutar comandos de Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

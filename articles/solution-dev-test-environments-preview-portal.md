@@ -144,7 +144,7 @@ En la siguiente tabla se muestran los valores predeterminados de estos parámetr
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## Creación de entornos
-Todos los recursos de Azure deben crearse dentro de un [grupo de recursos de Azure](azure-portal/resource-group-portal.md). Los grupos de recursos le permiten agrupar recursos de Azure y así administrarlos de forma colectiva. Se pueden asignar [permisos](resource-group-rbac.md) a grupos de recursos para que personas específicas dentro de su organización puedan crearlos, modificarlos, eliminarlos o verlos, junto con los recursos que contienen. Se pueden ver alertas e información de facturación de los recursos del grupo de recursos en el [Portal de vista previa de Azure](https://portal.azure.com). Los grupos de recursos se crean en una [ubicación](http://azure.microsoft.com/regions/) de Azure. En este artículo, todos los recursos se crean en la ubicación Centro de EE. UU. Cuando empiece a crear entornos reales, elegirá la ubicación que mejor cumpla sus requisitos.
+Todos los recursos de Azure deben crearse dentro de un [grupo de recursos de Azure](azure-portal/resource-group-portal.md). Los grupos de recursos le permiten agrupar recursos de Azure y así administrarlos de forma colectiva. Se pueden asignar [permisos](./active-directory/role-based-access-control-configure.md) a grupos de recursos para que personas específicas dentro de su organización puedan crearlos, modificarlos, eliminarlos o verlos, junto con los recursos que contienen. Se pueden ver alertas e información de facturación de los recursos del grupo de recursos en el [Portal de vista previa de Azure](https://portal.azure.com). Los grupos de recursos se crean en una [ubicación](http://azure.microsoft.com/regions/) de Azure. En este artículo, todos los recursos se crean en la ubicación Centro de EE. UU. Cuando empiece a crear entornos reales, elegirá la ubicación que mejor cumpla sus requisitos.
 
   **Paso 5:** Creación de grupos de recursos para los entornos de desarrollo y pruebas mediante uno de los métodos siguientes. Con ambos métodos se obtiene exactamente el mismo resultado.
 
@@ -178,7 +178,7 @@ Todos los recursos de Azure deben crearse dentro de un [grupo de recursos de Azu
 
   **Método 2:** PowerShell
 
-  Asegúrese de que tiene PowerShell instalado en un equipo Windows y que está conectado a su suscripción como se detalla en el artículo [Instalación y configuración de Azure PowerShell](powershell-install-configure.md). En el símbolo del sistema de PowerShell, escriba el comando siguiente para crear el grupo de recursos del entorno de desarrollo. Si está utilizando la versión de vista previa de Azure PowerShell 1.0, el comando es **New-AzureRmResourceGroup** tal como se muestra a continuación. Si está utilizando una versión de Azure PowerShell anterior a la versión de vista previa 1.0, el comando es **New-AzureResourceGroup**.
+  Asegúrese de que tiene PowerShell instalado en un equipo Windows y que está conectado a su suscripción como se detalla en el artículo [Instalación y configuración de Azure PowerShell](powershell-install-configure.md). En el símbolo del sistema de PowerShell, escriba el comando siguiente para crear el grupo de recursos del entorno de desarrollo. Si está utilizando la versión preliminar de Azure PowerShell 1.0, el comando es **New-AzureRmResourceGroup** tal como se muestra a continuación. Si está utilizando una versión de Azure PowerShell anterior a la versión preliminar 1.0, el comando es **New-AzureResourceGroup**.
 
 	New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
 
@@ -256,7 +256,7 @@ Todos los recursos de Azure deben crearse dentro de un [grupo de recursos de Azu
   
   **Método 2:** PowerShell
 
-  En el símbolo del sistema de PowerShell, escriba el comando siguiente para implementar recursos en el grupo de recursos que creó para el entorno de desarrollo, y sustituya [path] por la ruta de acceso a los archivos guardados en los pasos anteriores. Si está utilizando la versión de vista previa de Azure PowerShell 1.0, el comando es **New-AzureRmResourceGroupDeployment** tal como se muestra a continuación. Si está utilizando una versión de Azure PowerShell anterior a la versión de vista previa 1.0, el comando es **New-AzureResourceGroupDeployment**.
+  En el símbolo del sistema de PowerShell, escriba el comando siguiente para implementar recursos en el grupo de recursos que creó para el entorno de desarrollo, y sustituya [path] por la ruta de acceso a los archivos guardados en los pasos anteriores. Si está utilizando la versión preliminar de Azure PowerShell 1.0, el comando es **New-AzureRmResourceGroupDeployment** tal como se muestra a continuación. Si está utilizando una versión de Azure PowerShell anterior a la versión preliminar 1.0, el comando es **New-AzureResourceGroupDeployment**.
 
 	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
 
@@ -346,7 +346,7 @@ Una vez que ha terminado con un entorno, querrá eliminarlo para así no incurri
   
   **Método 2:** PowerShell
 
-  Si está utilizando la versión de vista previa de Azure PowerShell 1.0, el comando es **Remove-AzureRmResourceGroup** tal como se muestra a continuación. Si está utilizando una versión de Azure PowerShell anterior a la versión de vista previa 1.0, el comando es **Remove-AzureResourceGroup**. En un símbolo del sistema de PowerShell, escriba lo siguiente:
+  Si está utilizando la versión preliminar de Azure PowerShell 1.0, el comando es **Remove-AzureRmResourceGroup** tal como se muestra a continuación. Si está utilizando una versión de Azure PowerShell anterior a la versión preliminar 1.0, el comando es **Remove-AzureResourceGroup**. En un símbolo del sistema de PowerShell, escriba lo siguiente:
 
 	Remove-AzureRmResourceGroup -Name TestApp1-Development
 
@@ -381,7 +381,7 @@ Ahora que ha experimentado lo fácil que es crear, mantener y eliminar entornos 
 - [Cree e implemente plantillas del Administrador de recursos de Azure en Visual Studio](http://msdn.microsoft.com/library/azure/Dn872471.aspx) con Azure SDK 2.6 instalado.
 - Cree la aplicación mediante [Visual Studio Enterprise](https://www.visualstudio.com/products/visual-studio-enterprise-vs), [Visual Studio Code](http://www.visualstudio.com/products/code-vs) o [Web Matrix](http://www.microsoft.com/web/webmatrix/).
 - [Implemente una aplicación web](app-service-web/web-sites-deploy.md) en los entornos que creó.
-- Use [Visual Studio Release Management](http://msdn.microsoft.com/Library/vs/alm/Release/overview) para crear canalizaciones de implementación continuas y administradas y liberarlas de forma rápida, fácil y con frecuencia.
+- Use [Visual Studio Release Management](http://msdn.microsoft.com/Library/vs/alm/Release/overview) para crear canalizaciones de implementación continua y administrada con el fin de que el lanzamiento sea rápido, sencillo y frecuente.
 - Solicite una invitación para la vista previa de [Laboratorio de desarrollo y pruebas de Azure](http://azure.microsoft.com/campaigns/devtest-lab/). Esta aplicación le permite administrar entornos de laboratorio de desarrollo y pruebas mediante plantillas y configurar cuotas y directivas para su uso dentro de la organización.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1223_2015-->

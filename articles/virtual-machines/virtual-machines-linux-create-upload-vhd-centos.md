@@ -322,11 +322,21 @@ La preparación de una máquina virtual CentOS 7 para Azure es muy similar a Cen
 
 12.	Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque. Este es normalmente el valor predeterminado.
 
-13. Instale el Agente de Linux de Azure ejecutando el comando siguiente:
+13.	**Solo si la imagen se crea desde VMWare, VirtualBox o KVM:** agregue módulos de Hyper-V en initramfs:
+
+    Edite `/etc/dracut.conf` y agregue contenido:
+
+        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+
+    Vuelva a generar initramfs:
+
+        # dracut –f -v
+
+14. Instale el Agente de Linux de Azure ejecutando el comando siguiente:
 
 		# sudo yum install WALinuxAgent
 
-14.	No cree un espacio de intercambio en el disco del sistema operativo.
+15.	No cree un espacio de intercambio en el disco del sistema operativo.
 
 	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
@@ -336,12 +346,12 @@ La preparación de una máquina virtual CentOS 7 para Azure es muy similar a Cen
 		ResourceDisk.EnableSwap=y
 		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-15.	Ejecute los comandos siguientes para desaprovisionar la máquina virtual y prepararla para aprovisionarse en Azure:
+16.	Ejecute los comandos siguientes para desaprovisionar la máquina virtual y prepararla para aprovisionarse en Azure:
 
 		# sudo waagent -force -deprovision
 		# export HISTSIZE=0
 		# logout
 
-16. Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
+17. Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1223_2015-->

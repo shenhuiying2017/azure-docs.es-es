@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="12/23/2015"
    ms.author="tomfitz"/>
 
 # Implementación de una aplicación con la plantilla del Administrador de recursos de Azure
@@ -38,7 +38,7 @@ A través de Azure PowerShell o la API de REST, puede especificar una actualizac
 - **agrega** recursos que se especifican en la plantilla, pero que no existen en el grupo de recursos 
 - **no vuelve a aprovisionar** recursos que existen en el grupo de recursos en la misma condición definida en la plantilla
  
-El tipo de implementación se especifica a través de la propiedad **Mode**.
+El tipo de implementación se especifica a través de la propiedad **Mode**, como se muestra en los ejemplos siguientes de PowerShell y la API de REST.
 
 ## Implementación con PowerShell
 
@@ -100,9 +100,9 @@ El tipo de implementación se especifica a través de la propiedad **Mode**.
           Mode              : Incremental
           ...
 
-     Para ejecutar una implementación completa, establezca el **Modo** en **Completo**.
+     Para ejecutar una implementación completa, establezca el **Modo** en **Completo**. Observe que se le pida que confirme que quiere usar el modo Completado, lo que puede implicar la eliminación de recursos.
 
-          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -Mode Complete
+          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -Mode Complete -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> 
           Confirm
           Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
           included in the template will be deleted.
@@ -203,7 +203,7 @@ Si todavía no ha usado la CLI de Azure con Administrador de recursos, consulte 
              }
            }
    
-3. Cree una nueva implementación del grupo de recursos Proporcione el identificador de suscripción, el nombre del grupo de recursos para implementar, el nombre de la implementación y la ubicación de la plantilla. Para obtener información sobre el archivo de plantilla, consulte [Archivo de parámetros](./#parameter-file). Para obtener más información acerca de la API de REST para crear un grupo de recursos, consulte [Creación de una implementación de plantilla](https://msdn.microsoft.com/library/azure/dn790564.aspx). Para ejecutar una implementación completa, establezca el **Modo** en **Completo**.
+3. Cree una nueva implementación del grupo de recursos Proporcione el identificador de suscripción, el nombre del grupo de recursos para implementar, el nombre de la implementación y la ubicación de la plantilla. Para obtener información sobre el archivo de plantilla, consulte [Archivo de parámetros](./#parameter-file). Para obtener más información acerca de la API de REST para crear un grupo de recursos, consulte [Creación de una implementación de plantilla](https://msdn.microsoft.com/library/azure/dn790564.aspx). Observe que el **modo** se establece en **Incremental**. Para ejecutar una implementación completa, establezca el **modo** en **Completo**.
     
          PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
             <common headers>
@@ -238,7 +238,7 @@ Para una introducción para el uso de Visual Studio con grupos de recursos, vea 
 
 ![Nuevo](./media/resource-group-template-deploy/new.png)
 
-Para obtener más información sobre el uso del portal con el Administrador de recursos de Azure, vea [Uso del Portal de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md).
+Para más información sobre el uso del portal con el Administrador de recursos de Azure, vea [Uso del Portal de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md).
 
 
 ## Archivo de parámetros
@@ -264,12 +264,12 @@ Si utiliza un archivo de parámetros para pasar los valores de parámetro a la p
 El tamaño del archivo de parámetros no puede ser superior a 64 KB.
 
 ## Pasos siguientes
-- Para obtener un ejemplo de cómo implementar los recursos a través de la biblioteca cliente .NET, vea [Implementación de recursos mediante bibliotecas de .NET y una plantilla](arm-template-deployment.md).
-- Para obtener un ejemplo en profundidad de la implementación de una aplicación, vea [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
-- Para ver instrucciones sobre cómo implementar la solución en diferentes entornos, consulte [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- Para un ejemplo de cómo implementar los recursos a través de la biblioteca cliente .NET, vea [Implementación de recursos mediante bibliotecas de .NET y una plantilla](arm-template-deployment.md).
+- Para un ejemplo en profundidad de la implementación de una aplicación, vea [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
+- Para instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments-preview-portal.md).
 - Para información sobre las secciones de la plantilla del Administrador de recursos de Azure, vea [Creación de plantillas](resource-group-authoring-templates.md).
 - Para una lista de las funciones que puede usar en una plantilla del Administrador de recursos de Azure, vea [Funciones de plantillas](resource-group-template-functions.md).
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

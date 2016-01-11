@@ -16,13 +16,13 @@
    ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Depuración de la aplicación de Service Fabric con Visual Studio
+# Depurar la aplicación de Service Fabric con Visual Studio
 
-Puede ahorrar tiempo y dinero implementando y depurando la aplicación de Service Fabric en un clúster de desarrollo del equipo local. Visual Studio puede implementar la aplicación en el clúster local y conectar automáticamente el depurador a todas las instancias de la aplicación.
+Puede ahorrar tiempo y dinero implementando y depurando su aplicación de Service Fabric de Azure en un clúster de desarrollo del equipo local. Visual Studio puede implementar la aplicación en el clúster local y conectar automáticamente el depurador a todas las instancias de la aplicación.
 
 1. Inicie un clúster de desarrollo local siguiendo los pasos descritos en [Configurar el entorno de desarrollo de Service Fabric](service-fabric-get-started.md).
 
-2. Presione **F5** o haga clic en **Depurar** > **Iniciar depuración**
+2. Presione **F5** o haga clic en **Depurar** > **Iniciar depuración**.
 
     ![Empezar a depurar una aplicación][startdebugging]
 
@@ -34,7 +34,7 @@ Puede ahorrar tiempo y dinero implementando y depurando la aplicación de Servic
 
     ![Ver eventos de diagnóstico en tiempo real][diagnosticevents]
 
-5. También puede abrir la ventana de **eventos de diagnóstico** en el Explorador de servidores. En **Azure**, haga clic con el botón secundario en **Cluster de Service Fabric** > **Ver eventos de diagnóstico...**
+5. También puede abrir la ventana de **eventos de diagnóstico** en el Explorador de servidores. En **Azure**, haga clic con el botón secundario en **Cluster de Service Fabric** > **Ver eventos de diagnóstico**
 
     ![Abrir la ventana de eventos de diagnóstico][viewdiagnosticevents]
 
@@ -48,7 +48,7 @@ Puede ahorrar tiempo y dinero implementando y depurando la aplicación de Servic
 
     ![Filtrar, pausar y reanudar, o inspeccionar eventos en tiempo real][diagnosticeventsactions]
 
-8. Depurar servicios es similar a la depuración de cualquier otra aplicación. Los puntos de interrupción se pueden establecer normalmente a través de Visual Studio para una depuración sencilla. Aunque las colecciones de confianza se replican a través de varios nodos, siguen implementando IEnumerable, lo que significa que puede usar la vista de resultados en Visual Studio durante la depuración para ver lo que ha almacenado dentro. Solo tiene que establecer un punto de interrupción en el código.
+8. Depurar servicios es similar a la depuración de cualquier otra aplicación. Los puntos de interrupción se pueden establecer normalmente a través de Visual Studio para una depuración sencilla. Aunque las Colecciones fiables se replican en varios nodos, siguen implementando IEnumerable. Esto significa que puede usar la vista de resultados en Visual Studio durante la depuración para ver lo que ha almacenado dentro. Solo tiene que establecer un punto de interrupción en el código.
 
     ![Empezar a depurar una aplicación][breakpoint]
 
@@ -56,7 +56,7 @@ Puede ahorrar tiempo y dinero implementando y depurando la aplicación de Servic
 ## Pasos siguientes
 
 - [Pruebe un servicio de Service Fabric](service-fabric-testability-overview.md).
-- [Administración de la aplicación de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+- [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!--Image references-->
 [startdebugging]: ./media/service-fabric-debugging-your-application/startdebugging.png
@@ -65,4 +65,4 @@ Puede ahorrar tiempo y dinero implementando y depurando la aplicación de Servic
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

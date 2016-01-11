@@ -12,16 +12,21 @@
 	ms.service="sql-database" 
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/17/2015" 
 	ms.author="genemi"/>
 
 
 # Ejemplo de código: lógica de reintento en C# para conectarse a la Base de datos SQL
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
+
 
 
 Este tema ofrece un ejemplo de código C# que muestra la lógica de reintento personalizada. La lógica de reintento está diseñada para procesar correctamente los errores temporales o *errores transitorios* que tienden a desaparecer si el programa espera unos segundos y vuelve a intentarlo.
@@ -72,9 +77,9 @@ La muestra de código C# consta de un archivo denominado Program.cs. Su código 
 Puede compilar el ejemplo con los pasos siguientes:
 
 
-1. En la [versión gratuita de Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs), cree un nuevo proyecto, cree un nuevo proyecto desde la plantilla de aplicación de consola de C#.
+1. En la [edición gratuita de Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs), cree un nuevo proyecto desde la plantilla de aplicación de consola de C#.
  - Archivo > Nuevo > Proyecto > Instalado > Plantillas > Visual C# > Windows > Escritorio clásico > Aplicación de consola
- - Asigne al proyecto el nombre RetryAdo2.
+ - Asigne al proyecto el nombre **RetryAdo2**.
 
 2. Abra el panel del Explorador de soluciones.
  - Vea el nombre del proyecto.
@@ -90,7 +95,7 @@ Puede compilar el ejemplo con los pasos siguientes:
 #### Código fuente de C# para pegar
 
 
-Pegue este código fuente siguiente en su archivo **Program.cs**.
+Pegue este código en su archivo **Program.cs**.
 
 
 A continuación, debe modificar las cadenas del nombre de servidor, la contraseña y así sucesivamente. Encontrará estas cadenas en el método denominado **GetSqlConnectionStringBuilder**.
@@ -245,7 +250,7 @@ filetable_updates_2105058535    2105058535
 A continuación se muestra una forma práctica de probar la lógica de prueba:
 
 
-1. Agregue temporalmente **11001** a la colección de valores **SqlConnection.Number** que se considerarán como errores transitorios.
+1. Agregue temporalmente **11001** a su colección de valores **SqlConnection.Number** que se considerarán como errores transitorios.
 
 2. Vuelva a compilar el programa.
 
@@ -282,4 +287,6 @@ Ejecute el programa con el parámetro "test" y compruebe en primer lugar si se p
 
 - [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+- [Prueba de Base de datos SQL: Use C# para crear una Base de datos SQL con la biblioteca de Base de datos SQL para .NET](sql-database-get-started-csharp.md)
+
+<!---HONumber=AcomDC_1223_2015-->

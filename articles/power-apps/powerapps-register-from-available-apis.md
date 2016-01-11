@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/09/2015"
+   ms.date="12/17/2015"
    ms.author="guayan"/>
 
 # Registro de una API administrada por Microsoft o una API administrada por TI
@@ -70,7 +70,7 @@ Algunos de los beneficios adicionales incluyen:
 
 - Usted supervisa los recursos, incluida la red, la memoria o las configuraciones de seguridad. Por ejemplo, si necesita más memoria para mostrar datos de Excel en su aplicación, usted controla cuánta memoria más debe agregar al entorno. 
 - Configura la confianza y controla la seguridad entre las aplicaciones y la API. Por ejemplo, determina si la API de Office365 puede ser una API administrada por Microsoft (una confianza automática) o usa la API de Office365 dentro de su propio entorno (crea su propia confianza). 
-- **Todas** las API administradas por Microsoft también pueden ser API administradas por TI. Por ejemplo, si desea crear su propia instancia de Office365 y tener el control total de esta instancia, puede hacerlo. Luego, puede usar su API de Office365 administrada por TI y la API de Office365 administrada por Microsoft en el mismo entorno. En realidad, depende de las necesidades de la aplicación.
+- **Todas** las API administradas por Microsoft también pueden ser API administradas por TI. Por ejemplo, si quiere crear su propia instancia de Office365 y tener el control total de esta instancia, puede hacerlo. Luego, puede usar su API de Office365 administrada por TI y la API de Office365 administrada por Microsoft en el mismo entorno. En realidad, depende de las necesidades de la aplicación.
 - Cuando se conecta a sistemas locales o con la API de Búsqueda de Bing, controla la seguridad, la autenticación, las licencias, etc.
 
 
@@ -107,17 +107,13 @@ La tabla siguiente compara las funcionalidades de las API administradas por Micr
 
 ## Registro de una API administrada por Microsoft o una API administrada por TI
 
-1. En el [Portal de Azure](https://portal.azure.com/), seleccione **PowerApps** y, luego, seleccione **Administrar API**:  
-![][17]
-2. En Administrar API, seleccione **Agregar**:  
-![][18]  
+1. En el [Portal de Azure](https://portal.azure.com/), seleccione **PowerApps** y, luego, seleccione **Administrar API**: ![][17]
+2. En Administrar API, seleccione **Agregar**: ![][18]  
 3. En **Agregar API**, especifique las propiedades de la API:  
 
 	- En **Nombre**, escriba un nombre para la API. Tenga en cuenta que el nombre que escriba se incluirá en la dirección URL de tiempo de ejecución de la API. Elija un nombre descriptivo y único dentro de su organización.
-	- En **Origen**, seleccione **Desde API disponibles**:  
-	![][19]
-4. Seleccione **API** y, luego, elija la API que desea registrar:  
-![][20]
+	- En **Origen**, seleccione **Desde API disponibles**: ![][19]
+4. Seleccione **API** y, luego, elija la API que desea registrar: ![][20]
 5. Seleccione la API específica y agregue cualquier propiedad configurable.
 6. Seleccione **AGREGAR** para completar estos pasos.
 
@@ -155,4 +151,4 @@ En este tema, vio cómo registrar su propia instancia de las API disponibles que
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

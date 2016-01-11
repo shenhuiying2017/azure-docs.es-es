@@ -5,9 +5,7 @@ DNS de Azure es un servicio de hospedaje para los dominios DNS, que permite reso
 
 | Propiedad | Descripción | Valor de ejemplo |
 |---|---|---|
-| Zonas DNS | Información de la zona de dominio para hospedar los registros de DNS de un dominio determinado | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com",
-providers/Microsoft.Network/dnszones/contoso.com/A/www |
-| Zonas DNS | Información de la zona de dominio para hospedar los registros de DNS de un dominio determinado | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com"
+| **DNSzones** | Información de la zona de dominio para hospedar los registros de DNS de un dominio determinado | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com"| 
 
 
 ### Conjuntos de registros de DNS
@@ -26,7 +24,7 @@ Las zonas DNS tienen un objeto secundario, llamado conjunto de registros. Los co
 
 <sup>1</sup> solo se permite un valor por conjunto de registros.
 
-<sup>2</sup> solo se permite un tipo de registro por SOA por zona DNS.
+<sup>2</sup> solo se permite un tipo de registro SOA por zona DNS.
 
 Ejemplo de una zona DNS en formato JSON:
 
@@ -85,8 +83,8 @@ Ejemplo de una zona DNS en formato JSON:
 
 ## Recursos adicionales
 
-Para obtener más información, lea la [documentación de API de REST para las zonas DNS](https://msdn.microsoft.com/library/azure/mt130626.aspx).
+Para más información, lea la [documentación de API de REST para las zonas DNS](https://msdn.microsoft.com/library/azure/mt130626.aspx).
 
-Para obtener más información, lea la [documentación de API de REST para los conjuntos de registros DNS](https://msdn.microsoft.com/library/azure/mt130626.aspx).
+Para más información, lea la [documentación de API de REST para los conjuntos de registros DNS](https://msdn.microsoft.com/library/azure/mt130626.aspx).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

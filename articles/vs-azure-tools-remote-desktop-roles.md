@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Uso de Escritorio de remoto con los roles de Azure
@@ -37,7 +37,7 @@ Mediante el SDK de Azure y los servicios de escritorio remoto, puede acceder a l
  
     Esto muestra un cuadro de lista desplegable que le permite crear o seleccionar un certificado para que puede cifrar la información de credenciales al conectarse a través de escritorio remoto.
 
-1. En la lista desplegable, elija **<Create>**, o elija uno existente en la lista.
+1. En la lista desplegable, elija **&lt;Crear>**, o elija uno existente en la lista.
 
     Si elige un certificado existente, omita los pasos siguientes.
 
@@ -45,7 +45,7 @@ Mediante el SDK de Azure y los servicios de escritorio remoto, puede acceder a l
 
     Aparece el cuadro de diálogo **Crear certificado**.
 
-    1. Proporcione un nombre descriptivo para el nuevo certificado y, a continuación, seleccione el botón **Aceptar**. El nuevo certificado aparece en el cuadro de lista desplegable.
+    1. Proporcione un nombre descriptivo para el nuevo certificado y luego seleccione el botón **Aceptar**. El nuevo certificado aparece en el cuadro de lista desplegable.
 
     1. En el cuadro de diálogo **Configuración de escritorio remoto**, proporcione un nombre de usuario y una contraseña.
     
@@ -55,7 +55,7 @@ Mediante el SDK de Azure y los servicios de escritorio remoto, puede acceder a l
 
     1. Elija una fecha en la que caducará la cuenta y pasada la cual se bloquearán las conexiones a Escritorio remoto.
 
-    1. Una vez que haya proporcionado toda la información necesaria, elija el botón **Aceptar**.
+    1. Una vez que haya dado toda la información necesaria, elija el botón **Aceptar**.
     
         Se agregan varias opciones a los archivos .cscfg y .csdef. que activan los servicios de acceso remoto.
 
@@ -67,12 +67,12 @@ Mediante el SDK de Azure y los servicios de escritorio remoto, puede acceder a l
 
 Después de publicar el servicio en la nube en Azure, puede usar el Explorador de servidores para iniciar sesión en las máquinas virtuales que hospeda Azure.
 
-1. En el Explorador de servidores, expanda el nodo **Azure** y, a continuación, expanda el nodo para un servicio en la nube y uno de sus roles para mostrar una lista de instancias.
+1. En el Explorador de servidores, expanda el nodo **Azure** y luego expanda el nodo para un servicio en la nube y uno de sus roles para mostrar una lista de instancias.
 
-1. Abra el menú contextual de un nodo de instancia y, a continuación, elija **Conectar con Escritorio remoto**.
+1. Abra el menú contextual de un nodo de instancia y luego elija **Conectar con Escritorio remoto**.
 
     ![Conexión a través del escritorio remoto](./media/vs-azure-tools-remote-desktop-roles/IC799162.png)
 
 1. Escriba el nombre de usuario y la contraseña que ha creado anteriormente. Ahora está registrado en la sesión remota.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

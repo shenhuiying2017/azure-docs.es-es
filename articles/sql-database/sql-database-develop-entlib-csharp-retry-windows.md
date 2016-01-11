@@ -14,11 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="12/17/2015" 
 	ms.author="genemi"/>
 
 
 # Ejemplo de código: lógica de reintento de Enterprise Library 6, en C&#x23; para conectarse a Base de datos SQL
+
+
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 Este tema presenta un ejemplo de código completo que muestra Enterprise Library (EntLib). EntLib simplifica muchas tareas para programas cliente que interactúan con servicios en la nube como Base de datos SQL de Azure. Nuestro ejemplo se centra en la tarea importante de incluir la lógica de reintento en caso de errores transitorios.
@@ -29,7 +35,11 @@ Las clases de EntLib están diseñadas para distinguir dos categorías de errore
 - Errores que nunca se corregirán automáticamente, como un nombre de servidor mal escrito.
 - Errores transitorios, como la suspensión del servidor durante varios segundos y su aceptación de nuevas conexiones, mientras el sistema de Azure equilibra cargas.
 
+
 Enterprise Library 6 (EntLib60) es la versión más reciente y se lanzó en abril de 2013.
+
+- Microsoft ha publicado el código fuente para el público.
+- Microsoft no tiene planes para mantener aún más el código fuente.
 
 
 ## Requisitos previos
@@ -67,7 +77,7 @@ Formas de instalar EntLib60:
  - En NuGet, busque **enterpriselibrary**.
 
 
-- En el [tema de documentación principal de EntLib60](http://msdn.microsoft.com/library/dn169621.aspx), encuentre la fila etiquetada como **Descargas** y, luego, haga clic en [Microsoft Enterprise Library 6](http://go.microsoft.com/fwlink/?linkid=290898) para descargar los archivos de ensamblado .DLL binarios.
+- En el [tema de documentación principal de EntLib60](http://msdn.microsoft.com/library/dn169621.aspx), encuentre la fila etiquetada como **Descargas** y luego haga clic en [Microsoft Enterprise Library 6](http://go.microsoft.com/fwlink/?linkid=290898) para descargar los archivos de ensamblado .DLL binarios.
 
 
 EntLib60 tiene varios archivos de ensamblado .DLL con nombres que comienzan con el mismo prefijo **Microsoft.Practices.EnterpriseLibrary.&#x2a;.dll**, pero a este código de ejemplo solo le interesan los siguientes dos ensamblados:
@@ -306,7 +316,7 @@ SELECT TOP 3
  - Este tema tiene un botón en la parte superior que ofrece [descargar el código fuente de EntLib60 ](http://go.microsoft.com/fwlink/p/?LinkID=290898), si le interesa ver el código fuente.
 
 
-- Libro electrónico gratuito de Microsoft en formato PDF: [Developer’s Guide to Microsoft Enterprise Library, 2nd Edition](http://www.microsoft.com/download/details.aspx?id=41145) (Guía del desarrollador para Microsoft Enterprise Library, segunda edición).
+- Libro electrónico gratuito de Microsoft en formato PDF:[ Guía del desarrollador para Microsoft Enterprise Library, segunda edición](http://www.microsoft.com/download/details.aspx?id=41145).
 
 
 - [Espacio de nombres Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling](http://msdn.microsoft.com/library/microsoft.practices.enterpriselibrary.transientfaulthandling.aspx)
@@ -320,4 +330,4 @@ SELECT TOP 3
 
 - [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

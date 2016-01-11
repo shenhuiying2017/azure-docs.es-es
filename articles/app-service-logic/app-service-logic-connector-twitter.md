@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="sameerch"/>
 
 
@@ -53,7 +53,7 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 5. Especifique otra configuración necesaria en el nombre del conector, el servicio de la aplicación y el grupo de recursos.
 6.	Haga clic en **Crear**.
 
-> [AZURE.NOTE]Si desea proteger aún más su API de Twitter con la dirección URL de redireccionamiento, puede ver detalles sobre cómo hacerlo [aquí](app-service-logic-oauth-security.md).
+> [AZURE.NOTE]Si quiere proteger aún más su API de Twitter con la dirección URL de redireccionamiento, puede usar la [seguridad de OAUTH](app-service-logic-oauth-security.md).
 
 
 ## Uso del conector Twitter en su aplicación lógica
@@ -90,4 +90,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

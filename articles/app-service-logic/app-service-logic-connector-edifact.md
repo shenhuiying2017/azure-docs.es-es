@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Introducción al conector Edifact de BizTalk y su incorporación a su aplicación lógica  
@@ -32,7 +32,7 @@ Para usar el conector Edifact, deberá crear primero una instancia de la aplicac
 ## Configuración del conector Edifact de BizTalk
 Los socios comerciales son las entidades implicadas en comunicaciones B2B (negocio a negocio). Cuando dos asociados establecen una relación, esto se conoce como contrato. El contrato definido se basa en la comunicación que los dos socios desean lograr y es específico del protocolo o el transporte.
 
-Los pasos necesarios para crear un contrato de socio comercial se documentan [aquí][2]
+Vea los pasos para [crear un contrato de socio comercial][2].
 
 ## Uso del conector Edifact en la superficie del diseñador de aplicaciones lógicas
 El conector Edifact puede usarse como un desencadenador o como una acción.
@@ -89,4 +89,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

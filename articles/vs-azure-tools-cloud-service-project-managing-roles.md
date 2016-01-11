@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/08/2015"
+   ms.date="12/19/2015"
    ms.author="tarcher" />
 
 # Administración de roles en los proyectos de servicios en la nube de Azure con Visual Studio
@@ -58,4 +58,4 @@ Por ejemplo, es posible que quite un rol de servicio web y más adelante decida 
 
 Vea [Configuración de los roles para un servicio en la nube de Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md) para saber cómo configurar los roles en Visual Studio.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -18,7 +18,7 @@
 
 # Diseño de la solución
 
-Este artículo le ofrece una guía para diseñar las siguientes capacidades en la solución de IoT:
+Este artículo le ofrece una guía para diseñar las siguientes capacidades en la solución de Internet de las cosas (IoT):
 
 - Aprovisionamiento de dispositivos
 - Puertas de enlace de campo
@@ -34,23 +34,23 @@ Las soluciones de IoT almacenan datos acerca de los dispositivos individuales, c
 - Capacidades y versiones del software
 - Historial de comandos de dispositivo
 
-Los datos del dispositivo que almacena una determinada solución IoT dependen de los requisitos específicos de esa solución pero, como mínimo, debe almacenar las identidades del dispositivo y las claves de autenticación. El Centro de IoT incluye un [registro de identidad][lnk-devguide-identityregistry] que puede almacenar valores para cada dispositivo como identificadores, claves de autenticación y códigos de estado. Una posible solución consiste en usar otros servicios de Azure como tablas, blobs o DocumentDB para almacenar datos de dispositivos adicionales.
+Los datos del dispositivo que almacena una solución de IoT determinada dependen de los requisitos específicos de la solución. Sin embargo, como mínimo, una solución debe almacenar identidades del dispositivo y claves de autenticación. El Centro de IoT incluye un [registro de identidades][lnk-devguide-identityregistry] que puede almacenar valores para cada dispositivo como identificadores, claves de autenticación y códigos de estado. Una posible solución consiste en usar otros servicios de Azure como tablas, blobs o DocumentDB de Azure para almacenar datos de dispositivos adicionales.
 
-*Aprovisionamiento de dispositivos* es el proceso de agregar los datos iniciales del dispositivo a los almacenes de la solución. Para habilitar un nuevo dispositivo para conectarse al concentrador debe agregar un nuevo identificador de dispositivo y las claves al [registro de identidad del Centro de IoT][lnk-devguide-identityregistry]. Como parte del proceso de aprovisionamiento, deberá inicializar datos específicos del dispositivo en otros almacenes de la solución.
+*Aprovisionamiento de dispositivos* es el proceso de agregar los datos iniciales del dispositivo a los almacenes de la solución. Para habilitar un nuevo dispositivo para conectarse al centro, debe agregar un nuevo identificador de dispositivo y claves al [registro de identidades del Centro de IoT][lnk-devguide-identityregistry]. Como parte del proceso de aprovisionamiento, es posible que tenga que inicializar datos específicos del dispositivo en otros almacenes de la solución.
 
 El artículo [Guía de administración de dispositivos del Centro de IoT][lnk-device-management] describe algunas estrategias habituales para el aprovisionamiento de dispositivos. Las [API de registro de identidad del Centro de IoT][lnk-devguide-identityregistry] le permiten integrarlo en el proceso de aprovisionamiento.
 
 ## Puertas de enlace de campo
 
-En una solución de IoT, una *puerta de enlace de campo* se sitúa entre los dispositivos y el Centro de IoT y suele encontrarse cerca de los dispositivos. Los dispositivos se comunican directamente con la puerta de enlace de campo mediante un protocolo compatible con ellos y, a su vez, la puerta de enlace de campo se comunica con el Centro de IoT mediante otro protocolo compatible con él. Una puerta de enlace de campo puede ser un dispositivo independiente especializado o un software que se ejecuta en un hardware ya existente.
+En una solución de IoT, un *puerta de enlace de campo* se encuentra entre los dispositivos y el Centro de IoT. Suele encontrarse cerca de los dispositivos. Los dispositivos se comunican directamente con la puerta de enlace de campo mediante un protocolo compatible con los dispositivos. La puerta de enlace de campo se comunica con el Centro de IoT mediante un protocolo que es compatible con el Centro de IoT. Una puerta de enlace de campo puede ser un dispositivo independiente especializado o un software que se ejecuta en un hardware ya existente.
 
-Una puerta de enlace de campo es diferente de un dispositivo de enrutamiento de tráfico simple (como un firewall o un dispositivo NAT) porque normalmente desempeña un rol activo en la administración del acceso y del flujo de la información en su solución. Por ejemplo, una puerta de enlace de campo puede:
+Una puerta de enlace de campo es diferente de un dispositivo de enrutamiento de tráfico simple (como un firewall o un dispositivo de traducción de direcciones de red (NAT)) porque normalmente desempeña un rol activo en la administración del acceso y del flujo de la información en su solución. Por ejemplo, una puerta de enlace de campo puede:
 
 - Administrar dispositivos locales. Por ejemplo, una puerta de enlace de campo puede llevar a cabo procesamiento de reglas de evento y enviar comandos a los dispositivos en respuesta a datos específicos de telemetría.
 - Filtrar o agregar los datos de telemetría antes de que los reenvíe al Centro de IoT. Esto puede reducir la cantidad de datos que se envían al Centro de IoT y los costos de la solución.
 - Ayudar a aprovisionar dispositivos.
 - Transformar los datos de telemetría para facilitar el procesamiento en el back-end de solución.
-- Realizar la conversión del protocolo para que los dispositivos puedan comunicarse con el Centro de IoT incluso cuando no usan los protocolos de transporte que este admite.
+- Realizar la conversión del protocolo para que los dispositivos puedan comunicarse con el Centro de IoT, incluso cuando no usan los protocolos de transporte que este admite.
 
 > [AZURE.NOTE]Aunque normalmente se implementa una puerta de enlace de campo local en sus dispositivos, en algunos casos podría implementar una [puerta de enlace de protocolo][lnk-gateway] en la nube.
 
@@ -58,9 +58,9 @@ Una puerta de enlace de campo es diferente de un dispositivo de enrutamiento de 
 
 Una puerta de enlace de campo puede ser *transparente* u *opaca*:
 
-| &nbsp; | Transparente | Opaca |
+| &nbsp; | Puerta de enlace transparente | Puerta de enlace opaca|
 |--------|-------------|--------|
-| Identidades que se almacenan en el registro de identidad del Centro de IoT | Todos los dispositivos conectados | Solo la identidad de la puerta de enlace de campo |
+| Identidades que se almacenan en el registro de identidades del Centro de IoT | Identidades de todos los dispositivos conectados | Solo la identidad de la puerta de enlace de campo |
 | El Centro de IoT puede proporcionar [protección contra la suplantación de identidad del dispositivo][lnk-devguide-antispoofing] | Sí | No |
 | [Limitaciones y cuotas][lnk-throttles-quotas] | Se aplican a cada dispositivo | Se aplican a la puerta de enlace de campo |
 
@@ -72,26 +72,26 @@ Puede usar los [SDK de dispositivo IoT de Azure][lnk-device-sdks] para implement
 
 Puede usar el [registro de identidades de dispositivo][lnk-devguide-identityregistry] del Centro de IoT para configurar las credenciales de seguridad de cada dispositivo y el control de acceso. Sin embargo, si una solución IoT ya realizó una inversión importante en un registro personalizado de identidades de dispositivo o en un esquema de autenticación, puede integrar esta infraestructura ya existente con el Centro de IoT mediante la creación de un *servicio de token*. De este modo, puede usar otras características de IoT en la solución.
 
-El servicio de token es un servicio personalizado en la nube que usa una *directiva de acceso compartido* del Centro de IoT con permisos **DeviceConnect** para crear tokens *orientados al dispositivo* que habiliten a un dispositivo para conectarse al Centro de IoT.
+Un servicio de token es un servicio en la nube personalizado. Usa una *directiva de acceso compartido* del Centro de IoT con permisos **DeviceConnect** para crear tokens *centrados en el dispositivo*. Estos tokens permiten que un dispositivo se conecte al Centro de IoT.
 
-  ![][img-tokenservice]
+  ![Pasos del modelo de servicio de tokens][img-tokenservice]
 
 Estos son los pasos principales del modelo de servicio de tokens:
 
 1. Cree una [directiva de acceso compartido del Centro de IoT][lnk-devguide-security] con permisos **DeviceConnect** para el Centro de IoT. Puede crear esta directiva en el [portal de Azure][lnk-portal] o mediante programación. El servicio de tokens usará esta directiva para firmar los tokens que crea.
-2. Cuando un dispositivo necesita tener acceso al Centro de IoT, solicita un token firmado al servicio de tokens. El dispositivo se puede autenticar mediante su registro de identidades de dispositivo o esquema de autenticación personalizados para determinar la identidad del dispositivo que el servicio de token usa para crear el token.
-3. El servicio de tokens devuelve un token, creado tal y como se describe en la [Guía para desarrolladores del Centro de IoT: Seguridad][lnk-devguide-security], usando `/devices/{deviceId}` como `resourceURI`, con `deviceId` como dispositivo que se va a autenticar. El servicio de token usa la directiva de acceso compartido para construir el token.
+2. Cuando un dispositivo necesita tener acceso al Centro de IoT, solicita un token firmado al servicio de tokens. El dispositivo se puede autenticar mediante el esquema de autenticación o registro de identidades de dispositivos personalizado para determinar la identidad del dispositivo que el servicio de token usa para crear el token.
+3. El servicio de token devuelve un token. El token se crea según la [sección de seguridad de la Guía del desarrollador del Centro de IoT][lnk-devguide-security] utilizando `/devices/{deviceId}` como `resourceURI`, con `deviceId` como el dispositivo que se autentica. El servicio de token usa la directiva de acceso compartido para construir el token.
 4. El dispositivo usa el token directamente con el Centro de IoT.
 
 > [AZURE.NOTE]Puede usar la clase .NET [SharedAccessSignatureBuilder][lnk-dotnet-sas] o la clase de Java [IotHubServiceSasToken][lnk-java-sas] para crear un token en el servicio correspondiente.
 
-El servicio de token puede establecer la caducidad de los tokens como desee. Cuando expira el token, el Centro de IoT rompe la conexión del dispositivo y este debe solicitar uno nuevo al servicio correspondiente. Si usa un tiempo de expiración corto, aumentará la carga tanto en el dispositivo como en el servicio de token.
+El servicio de token puede establecer la caducidad de los tokens como desee. Cuando expira el token, el Centro de IoT interrumpe la conexión de dispositivo. A continuación, el dispositivo debe solicitar un nuevo token al servicio de token. Si usa un tiempo de expiración corto, aumentará la carga tanto en el dispositivo como en el servicio de token.
 
-Para que un dispositivo se conecte al centro, deberá agregarlo al registro de identidades de dispositivo del Centro de IoT aunque ya use un token y no una clave de dispositivo para conectarse. Por tanto, puede continuar usando el control de acceso por dispositivo habilitando o deshabilitando las identidades del dispositivo en el [registro de identidades de dispositivo del Centro de IoT][lnk-devguide-identityregistry] en aquellos casos en los que el dispositivo se autentique con un token. Esto mitiga los riesgos de usar tokens con tiempos de expiración largos.
+Para que un dispositivo se conecte al centro, deberá agregarlo al registro de identidades del dispositivo del Centro de IoT aunque ya use un token y no una clave de dispositivo para conectarse. Por tanto, puede continuar usando el control de acceso por dispositivo habilitando o deshabilitando las identidades del dispositivo en el [registro de identidades de dispositivo del Centro de IoT][lnk-devguide-identityregistry] en aquellos casos en los que el dispositivo se autentique con un token. Esto mitiga los riesgos de usar tokens con tiempos de expiración largos.
 
 ### Comparación con una puerta de enlace personalizada
 
-El modelo de servicio de token es el método recomendado para implementar un registro de identidades o un esquema de autenticación personalizados en el Centro de IoT, porque permite al Centro de IoT controlar la mayoría del tráfico de la solución. Hay casos, sin embargo, en los que el esquema de autenticación personalizado está tan imbricado con el protocolo (por ejemplo, [TLS-PSK][lnk-tls-psk]) que se necesita un servicio que procese todo el tráfico (*puerta de enlace personalizada*). Consulte el tema [Puerta de enlace de protocolo][lnk-gateway] para más información.
+El modelo de servicio de token es el método recomendado para implementar un esquema de autenticación o registro de identidades personalizado en el Centro de IoT. Se recomienda porque el Centro de IoT sigue controlando la mayoría del tráfico de la solución. Hay casos, sin embargo, en los que el esquema de autenticación personalizado está tan imbricado con el protocolo que se necesita un servicio que procese todo el tráfico (*puerta de enlace personalizada*). Un ejemplo de esto es la [seguridad de la capa de transporte (TLS) y las claves previamente compartidas (PSK)][lnk-tls-psk]. Consulte el tema [Puerta de enlace de protocolos][lnk-gateway] para más información.
 
 ## Pasos siguientes
 
@@ -119,4 +119,4 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

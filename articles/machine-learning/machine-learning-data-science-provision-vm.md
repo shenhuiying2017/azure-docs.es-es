@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/26/2015" 
+	ms.date="12/17/2015" 
 	ms.author="bradsev" />
 
 
@@ -91,6 +91,20 @@ Una vez creada la máquina virtual, puede iniciar sesión en ella mediante el es
 
 Una vez creada y aprovisionada la máquina virtual, está listo para comenzar a usar las herramientas que se instalan y configuran en ella. Hay iconos del escritorio e iconos del menú inicio para muchas de las herramientas.
 
+## Cómo crear una contraseña segura en la máquina virtual de ciencia de datos
+
+Ejecute el siguiente comando desde la línea de comandos en la máquina virtual de la ciencia de datos para crear su propia contraseña segura para la máquina.
+
+	c:\anaconda\python.exe -c "import IPython;print IPython.lib.passwd()"
+
+Escriba la contraseña cuando se le solicite.
+
+Verá el hash de contraseña en el formato "sha1:xxxxxx" en la salida. Copie este hash de contraseña y reemplace el hash existente que se encuentra en el archivo de configuración del cuaderno que se encuentra en: **C:\\Aaqs.ipython\\profile\_nbserver\\ipython\_notebook\_config.py** por un nombre de parámetro ***c.NotebookApp.password***.
+
+Solo debe reemplazar el valor de hash existente que se encuentra entre comillas. Deben conservarse las comillas y el prefijo ***sha1:*** del valor del parámetro.
+
+Por último, debe detener y reiniciar el servidor de Ipython que se ejecuta en la máquina virtual como una tarea programada de Windows denominada "Start\_IPython\_Notebook". Si no se acepta la nueva contraseña después de reiniciar esta tarea, pruebe a reiniciar la máquina virtual.
+
 ## Herramientas instaladas en Microsoft Data Science Virtual Machine
 
 ### R
@@ -108,18 +122,18 @@ Visual Studio Community Edition instalado en la máquina virtual. Es una versió
 Nota: puede obtener un mensaje que indica que el período de evaluación ha caducado. Puede escribir las credenciales de la cuenta de Microsoft o crear una cuenta y volver a escribirlas para obtener acceso a Visual Studio Community Edition. Una ahí, puede crear proyectos en lenguajes como C#, Python
 
 ### SQL Server Express
-También se ha empaquetado una versión limitada de SQL Server con Visual Studio Community Edition. Para acceder a SQL Server, inicie **SQL Server Management Studio**. El nombre de la máquina virtual se rellenará como Nombre del servidor. Use Autenticación de Windows cuando inicie sesión como administrador en Windows. Una vez que esté en SQL Server Management Studio, puede crear otros usuarios, crear bases de datos, importar datos y ejecutar consultas SQL.
+También se ha empaquetado una versión limitada de SQL Server con Visual Studio Community Edition. Para acceso a SQL Server, inicie **SQL Server Management Studio**. El nombre de la máquina virtual se rellenará como Nombre del servidor. Use Autenticación de Windows cuando inicie sesión como administrador en Windows. Una vez que esté en SQL Server Management Studio, puede crear otros usuarios, crear bases de datos, importar datos y ejecutar consultas SQL.
 
 ### Las tablas de Azure 
-Varias herramientas de Azure están instaladas en la máquina virtual: - Hay un acceso directo de escritorio para acceder a la documentación del SDK de Azure. - **AzCopy** se usa para pasar datos a y desde la cuenta de Almacenamiento de Microsoft Azure. - **Explorador de almacenamiento de Azure** se usa para explorar los objetos que haya almacenado en la cuenta de Almacenamiento de Azure. - **Microsoft Azure Powershell** es un lenguaje de scripts que permite administrar los recursos de Azure en un lenguaje de scripts que también está instalado en su VM.
+Varias herramientas de Azure están instaladas en la máquina virtual: - Hay un acceso directo de escritorio para obtener acceso a la documentación del SDK de Azure. - **AzCopy** se usa para pasar datos a y desde la cuenta de Almacenamiento de Microsoft Azure. - **Explorador de almacenamiento de Azure** se usa para explorar los objetos que haya almacenado en la cuenta de Almacenamiento de Azure. - **Microsoft Azure Powershell** es un lenguaje de scripts que permite administrar los recursos de Azure en un lenguaje de scripts que también está instalado en su VM.
 
 ###Power BI
 
-Para ayudarle a crear paneles y visualizaciones excelentes, se instaló **Power BI Desktop**. Use esta herramienta para extraer datos de orígenes diferentes, para crear los paneles e informes y publicarlos en la nube. Para obtener información, consulte el sitio de [Power BI](http://powerbi.microsoft.com).
+Para ayudarle a crear paneles y visualizaciones excelentes, se instaló **Power BI Desktop**. Use esta herramienta para extraer datos de orígenes diferentes, para crear los paneles e informes y publicarlos en la nube. Para información, vea el sitio de [Power BI](http://powerbi.microsoft.com).
 
 Nota: se necesita una cuenta de Office 365 para tener acceso a Power BI.
 
 ## Herramientas de desarrollo de Microsoft adicionales
 Puede usar el [**Instalador de plataforma web de Microsoft**](https://www.microsoft.com/web/downloads/platform.aspx) para detectar y descargar otras herramientas de desarrollo de Microsoft. También hay un acceso directo a la herramienta que se proporciona en el escritorio de Microsoft Data Science Virtual Machine.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

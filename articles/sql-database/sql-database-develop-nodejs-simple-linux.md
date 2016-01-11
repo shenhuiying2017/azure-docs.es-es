@@ -14,14 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Conexión a la base de datos SQL mediante Node.Js con Tedious en Ubuntu Linux
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [Python](sql-database-develop-python-simple-ubuntu-linux.md)
+- [Node.js](sql-database-develop-nodejs-simple-linux.md)
+- [Ruby](sql-database-develop-ruby-simple-linux.md)
 
 
 Este tema presenta un ejemplo de código de Node.js que se ejecuta en Ubuntu Linux. El ejemplo se conecta a una base de datos SQL de Azure mediante el controlador Tedious.
@@ -49,7 +52,7 @@ Cuando el equipo esté configurado con **node** y **npm**, navegue hasta el dire
 
 ### Base de datos SQL
 
-Consulte la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
+Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
 
 ## Paso 1: Obtención de detalles de la conexión
 
@@ -170,6 +173,6 @@ En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.
 
 ## Pasos siguientes
 
-Para más información, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/).
+Para más información, vea el [Centro para desarrolladores de Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

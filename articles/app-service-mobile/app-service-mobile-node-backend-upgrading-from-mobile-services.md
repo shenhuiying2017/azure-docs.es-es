@@ -3,7 +3,7 @@
 	description="Aprenda a actualizar fácilmente la aplicación de Servicios móviles a una aplicación móvil del Servicio de aplicaciones."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="christopheranderson"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -42,13 +42,13 @@ La actualización al nuevo [SDK de Aplicaciones móviles](https://www.npmjs.com/
 
 - Creado para desarrollo multiplataforma y local, el SDK de Aplicaciones móviles se puede desarrollar y ejecutar localmente en plataformas Windows, Linux y OSX. Ahora es fácil usar técnicas de desarrollo comunes de Node como, por ejemplo, ejecutar pruebas [Mocha](https://mochajs.org/) antes de la implementación.
 
-- Puede usar Redis con módulos nativos como [hiredis](https://www.npmjs.com/package/hiredis); y como Servicio de aplicaciones instalará automáticamente los paquetes npm, al implementar, no es necesario incluir archivos binarios en los paquetes de implementación.
+- Puede utilizar Redis con módulos nativos como [hiredis](https://www.npmjs.com/package/hiredis). No es necesario incluir archivos binarios en los paquetes de implementación ya que el Servicio de aplicaciones instalará los paquetes npm de forma automática.
 
 ## <a name="overview"></a>Información general básica de actualización
 
 A diferencia del SDK de Aplicaciones móviles para .NET, la actualización de un back-end de Node de Servicios móviles a Aplicaciones móviles no es tan simple como intercambiar paquetes. Ahora posee la pila de toda la aplicación, en lugar de controlarla Azure y, por tanto, tiene que crear una aplicación Express básica para hospedar el back-end móvil. En el caso de la tabla y los controladores de API, los conceptos son similares, pero ahora debe exportar objetos de tabla y las API de función han cambiado ligeramente. Este artículo le guiará a través de las estrategias básicas de la actualización, pero para poder migrar, conviene que lea los [procedimientos de back-end de Node](app-service-mobile-node-backend-how-to-use-server-sdk.md) antes de empezar.
 
->[AZURE.TIP]Se recomienda leer y comprender totalmente el resto de este tema antes de iniciar una actualización. Tome nota de cualquier característica usada que se mencione a continuación.
+>[AZURE.TIP]Lea y comprenda por completo el resto de este tema antes de iniciar una actualización. Tome nota de cualquier característica usada que se mencione a continuación.
 
 Los SDK de cliente de Servicios móviles **no** son compatibles con el nuevo SDK de servidor de Aplicaciones móviles. A fin de ofrecer continuidad del servicio para la aplicación, no debe publicar cambios en un sitio que actualmente presta servicio a clientes publicados. En su lugar, debe crear una aplicación móvil que actúe como duplicado. Puede colocar esta aplicación en el mismo Plan del Servicio de aplicaciones para evitar incurrir en costos financieros adicionales.
 
@@ -56,20 +56,23 @@ Entonces tendrá dos versiones de la aplicación,: una que permanece igual y pre
 
 El esquema completo del proceso de actualización es el siguiente:
 
-1. Creación de una aplicación móvil
-2. Actualización del proyecto para usar los nuevos SDK de servidor
-3. Publique una versión nueva de la aplicación cliente
-4. (Opcional) Eliminación de la aplicación de servicio móvil original migrada
+1. Crear una aplicación móvil
+2. Actualizar el proyecto para usar los nuevos SDK de servidor
+3. Publicar el proyecto en la nueva aplicación móvil
+4. Publicar una nueva versión de la aplicación cliente que utilice la nueva aplicación móvil
+5. (Opcional) Eliminar la aplicación de servicio móvil migrada original
+
+La eliminación puede tener lugar cuando no vea tráfico alguno en la aplicación de servicio móvil migrada original.
 
 ## <a name="mobile-app-version"></a> Inicio de la actualización
-El primer paso en la actualización es crear el recurso de aplicación móvil que hospedará la nueva versión de la aplicación. Si ya ha migrado un servicio móvil existente, conviene crear esta versión en el mismo plan de hospedaje. Abra el [Portal de Azure] y navegue a la aplicación migrada. Tome nota del Plan del Servicio de aplicaciones en el que se ejecuta.
+El primer paso en la actualización es crear el recurso de aplicación móvil que hospedará la nueva versión de la aplicación. Si ya ha migrado un servicio móvil existente, conviene crear esta versión en el mismo plan de hospedaje. Abra el [Portal de Azure] y vaya a la aplicación migrada. Tome nota del Plan del Servicio de aplicaciones en el que se ejecuta.
 
 ### Creación de una segunda instancia de aplicación
 A continuación, cree una segunda instancia de aplicación. Cuando se le pida que seleccione el Plan del Servicio de aplicaciones o el "plan de hospedaje", elija el plan de la aplicación migrada.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-Probablemente deseará usar la misma base de datos y la base de datos central de notificaciones como hizo en Servicios móviles. Para copiar estos valores, abra el [Portal de Azure] y navegue a la aplicación original, luego haga clic en **Configuración** > **Configuración de la aplicación**. En **Cadenas de conexión**, copie `MS_NotificationHubConnectionString` y `MS_TableConnectionString`. Navegue al nuevo sitio de actualización y péguelos en él, sobrescribiendo los valores existentes. Repita este proceso para cualquier otra opción de configuración de la aplicación que la aplicación requiera. Si no usa un servicio migrado, puede leer las cadenas de conexión y la configuración de la aplicación en la pestaña **Configurar** de la sección Servicios móviles del [Portal de Azure].
+Probablemente deseará usar la misma base de datos y la base de datos central de notificaciones como hizo en Servicios móviles. Para copiar estos valores, abra el [Portal de Azure] y vaya a la aplicación original, luego haga clic en **Configuración** > **Configuración de aplicación**. En **Cadenas de conexión**, copie `MS_NotificationHubConnectionString` y `MS_TableConnectionString`. Navegue al nuevo sitio de actualización y péguelos en él, sobrescribiendo los valores existentes. Repita este proceso para cualquier otra opción de configuración de la aplicación que la aplicación requiera. Si no usa un servicio migrado, puede leer las cadenas de conexión y la configuración de aplicación en la pestaña **Configurar** de la sección Servicios móviles del [Portal de Azure].
 
 ### Creación de un back-end de aplicación móvil básico con Node
 
@@ -110,18 +113,21 @@ Cada back-end de Node.js de aplicación móvil del Servicio de aplicaciones de A
            app.use(mobile);
 
            // Start listening on HTTP
-           app.listen(process.env.PORT || 3000);
-           console.log('Now listening on ' + (process.env.PORT || 3000)));
+           var port = process.env.PORT || 3000;
+           app.listen(port, function () {
+               console.log('Now listening on ', port)
+           });
         });
 
+Para obtener más ejemplos, consulte nuestro [repositorio de GitHub](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples).
 
 ## Actualización del proyecto de servidor
 
-Aplicaciones móviles ofrece un nuevo [SDK de servidor de Aplicaciones móviles] que proporciona prácticamente la misma funcionalidad que el tiempo de ejecución de Servicios móviles, pero ahora usted posee el tiempo de ejecución completo; Aplicaciones móviles no le obliga a usar una versión de Node ni ninguna actualización de código. Si ha seguido los pasos anteriores, dispone de una versión básica en tiempo de ejecución de Node Mobile. Ahora puede comenzar a mover las tablas y la lógica de la API de su Servicio móvil a su Aplicación móvil, personalizar la configuración del servidor, habilitar la inserción, configurar la autenticación, etc.
+El servicio Aplicaciones móviles ofrece un nuevo [SDK de servidor de Aplicaciones móviles] que proporciona prácticamente la misma funcionalidad que el tiempo de ejecución de Servicios móviles, pero ahora usted posee el tiempo de ejecución completo; no le obliga a usar una versión de Node ni ninguna actualización de código. Si ha seguido los pasos anteriores, dispone de una versión básica en tiempo de ejecución de Node Mobile. Ahora puede comenzar a mover las tablas y la lógica de la API de su Servicio móvil a su Aplicación móvil, personalizar la configuración del servidor, habilitar la inserción, configurar la autenticación, etc.
 
 ### Configuración base
 
-El servidor cuenta con gran cantidad de opciones de configuración, pero incluye diversos valores predeterminados para que se sea fácil empezar a trabajar. Muchas de las opciones se configurarán automáticamente en el [Portal de Azure], a través los menús de configuración **Datos**, **Autenticación/autorización** e **Inserción**. En el caso del desarrollo local, si desea usar datos, autenticación e inserción, puede que tenga que configurar el entorno de desarrollo local.
+El servidor cuenta con gran cantidad de opciones de configuración, pero incluye diversos valores predeterminados para que se sea fácil empezar a trabajar. Muchas de las opciones se configurarán automáticamente en el [Portal de Azure], mediante los menús de configuración **Datos**, **Autenticación/autorización** e **Inserción**. En el caso del desarrollo local, si desea usar datos, autenticación e inserción, puede que tenga que configurar el entorno de desarrollo local.
 
 Puede definir la configuración del servidor mediante variables de entorno que se establecen a través de Configuración de aplicaciones en el back-end de aplicación móvil.
 
@@ -144,7 +150,10 @@ Para empezar a migrar parte de la lógica, necesitará una función de la tabla 
 
 En un Servicio móvil con una tabla TodoItem y una operación de lectura que filtra los elementos por userid, similar al siguiente:
 
-  function(query, user, request) { query.where({ userId: user.userId}); request.execute(); }
+    function(query, user, request) {
+        query.where({ userId: user.userId});
+        request.execute();
+    }
 
 La función que agregamos al código de la tabla de Aplicaciones móviles de Azure tendría el siguiente aspecto:
 
@@ -153,7 +162,22 @@ La función que agregamos al código de la tabla de Aplicaciones móviles de Azu
         return context.execute();
     });
 
-Al inspeccionar el código, puede ver que la mayoría de los parámetros de función de
+La consulta, el usuario y la solicitud se combinan en un contexto. Los siguientes campos están disponibles en el objeto de contexto:
+
+| Campo | Tipo | Descripción |
+| :------ | :--------------------- | :---------- |
+| query | queryjs/Query | La consulta de OData analizada |
+| id | cadena o número | El identificador asociado a la solicitud |
+| item | objeto | El elemento que se inserta o elimina |
+| req | express.Request | El objeto de solicitud rápida actual |
+| res | express.Response | El objeto de respuesta rápida actual |
+| data | data | El proveedor de datos configurado |
+| tables | function | Una función que acepta un nombre de tabla de cadena y devuelve un objeto de acceso de tabla |
+| user | auth/user | Nombre del usuario autenticado |
+| results | objeto | Los resultados de la operación de ejecución |
+| push | NotificationHubService | El servicio de Centros de notificaciones, si se ha configurado |
+
+Para más información, consulte la [documentación actual de la API](http://azure.github.io/azure-mobile-apps-node).
 
 ### CORS
 
@@ -163,7 +187,7 @@ El principal motivo de preocupación si se usa CORS es que deben permitirse los 
 
 ### Notificaciones de inserción
 
-El SDK de Centros de notificaciones de Azure ha tenido algunas actualizaciones importantes desde Servicios móviles, por lo que algunas firmas de función de los Centros de notificaciones pueden ser diferentes. De lo contrario, la funcionalidad es similar a la de Servicios móviles; si existe la configuración de aplicaciones para Centros de notificaciones, el Azure Mobile SDK aprovisionará una instancia de Centros de notificaciones y la expondrá en `context.push`. Puede encontrar una muestra en [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/push-on-insert/tables/TodoItem.js), con la sección correspondiente que se muestra a continuación:
+El SDK de Centros de notificaciones de Azure ha tenido algunas actualizaciones importantes desde Servicios móviles, por lo que algunas firmas de función de los Centros de notificaciones pueden ser diferentes. De lo contrario, la funcionalidad es similar a la de Servicios móviles; si existe la configuración de aplicación para Centros de notificaciones, Azure Mobile SDK aprovisionará una instancia de Centros de notificaciones y la expondrá en `context.push`. Puede encontrar un ejemplo en [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/push-on-insert/tables/TodoItem.js), con la sección correspondiente que se muestra a continuación:
 
     table.insert(function (context) {
         // For details of the Notification Hubs JavaScript SDK,
@@ -197,11 +221,11 @@ El SDK de Centros de notificaciones de Azure ha tenido algunas actualizaciones i
 
 
 ### Trabajos programados
-Los trabajos programados no están integrados en las aplicaciones móviles, por lo que tendrá que actualizar individualmente los trabajos existentes que tenga en el back-end de Servicios móviles. Una opción es crear un [trabajo web] programado en el sitio del código de aplicación móvil. También puede configurar una API que contenga el código de trabajo y configurar el [Programador de Azure] para acertar ese punto de conexión en la programación prevista.
+Los trabajos programados no están integrados en las aplicaciones móviles, por lo que tendrá que actualizar individualmente los trabajos existentes que tenga en el back-end de Servicios móviles. Una opción es crear un [trabajo web] programado en el sitio del código de aplicación móvil. También puede configurar una API que contenga el código de trabajo y configurar el [Programador de Azure] para llegar a ese punto de conexión en la programación prevista.
 
 ## <a name="authentication"></a>Consideraciones de autenticación
 
-Ahora, los componentes de autenticación de Servicios móviles se han movido a la característica Autenticación/autorización de Servicio de aplicaciones. Para aprender a habilitar esto para el sitio, lea el tema [Adición de autenticación a una aplicación móvil](app-service-mobile-ios-get-started-users.md).
+Ahora, los componentes de autenticación de Servicios móviles se han movido a la característica Autenticación/autorización de Servicio de aplicaciones. Para aprender a habilitar esta característica para el sitio, lea el tema [Incorporación de autenticación a una aplicación móvil](app-service-mobile-ios-get-started-users.md).
 
 Con algunos proveedores, como AAD, Facebook y Google, podrá aprovechar el registro existente de la aplicación de copia. Basta con ir al portal del proveedor de identidades y agregar una nueva dirección URL de redirección al registro. Seguidamente, configure Autenticación/autorización de Servicio de aplicaciones con el identificador y el secreto del cliente.
 
@@ -214,7 +238,7 @@ Puede acceder a la información de identidad de usuario a través del método `u
 ## <a name="updating-clients"></a>Actualización de clientes
 Cuando tenga un back-end de aplicación móvil operativo, podrá trabajar en una nueva versión de la aplicación cliente que lo usa. Aplicaciones móviles incluye también una nueva versión de los SDK de cliente y, de forma similar a la actualización del servidor anterior, tendrá que quitar todas las referencias a los SDK de Servicios móviles antes de instalar las versiones de Aplicaciones móviles.
 
-Uno de los principales cambios entre las versiones es que los constructores ya no requieren una clave de aplicación. Ahora basta con pasar la dirección URL de la aplicación móvil. Por ejemplo, en los clientes .NET, el `MobileServiceClient` constructor ahora es:
+Uno de los principales cambios entre las versiones es que los constructores ya no requieren una clave de aplicación. Ahora basta con pasar la dirección URL de la aplicación móvil. Por ejemplo, en los clientes .NET, el constructor `MobileServiceClient` es ahora:
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://contoso.azurewebsites.net", // URL of the Mobile App
@@ -264,4 +288,4 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

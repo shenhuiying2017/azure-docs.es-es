@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"  
+	ms.date="12/17/2015"  
 	ms.author="juliako"/>
 
 
@@ -46,6 +46,7 @@ Para crear el localizador de streaming a petición y obtener las direcciones URL
    		
 	Si planea la descarga progresiva, obtenga los nombres de los archivos MP4 del recurso. 
    4. Genere direcciones URL para el archivo de manifiesto o archivos MP4. 
+   5. Tenga en cuenta que no se puede crear un localizador de transmisión mediante una AccessPolicy que incluye permisos de escritura o eliminación.
 
 
 ###Creación de una directiva de acceso
@@ -186,4 +187,8 @@ ejemplo:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+##Consulte también
+
+[Configuración de directivas de entrega de activos](media-services-rest-configure-asset-delivery-policy.md)
+
+<!---HONumber=AcomDC_1223_2015-->

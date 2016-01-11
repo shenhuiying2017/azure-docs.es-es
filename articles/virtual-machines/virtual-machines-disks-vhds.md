@@ -33,13 +33,13 @@ Cada máquina virtual tiene un disco de sistema operativo acoplado. Está regist
 
 El disco temporal se crea automáticamente. En las máquinas virtuales de Windows, este disco se etiqueta como unidad D:. En las máquinas virtuales de Linux, el disco es normalmente /dev/sdb y es formateado y montado en /mnt/resource por el agente de Linux de Azure.
 
->[AZURE.WARNING]No almacene datos en el disco temporal. Proporciona almacenamiento temporal para aplicaciones y procesos y está destinado únicamente a almacenar datos como archivos de páginas o de intercambio. Para reasignar este disco para una máquina virtual de Windows, consulte [Cambio de la letra de unidad del disco temporal de Windows](virtual-machines-windows-change-drive-letter.md).
+>[AZURE.WARNING]No almacene datos en el disco temporal. Proporciona almacenamiento temporal para aplicaciones y procesos y está destinado únicamente a almacenar datos como archivos de páginas o de intercambio. Para reasignar este disco para una máquina virtual de Windows, vea [Cambio de la letra de unidad del disco temporal de Windows](virtual-machines-windows-change-drive-letter.md).
 
 ## Disco de datos
 
 Un disco de datos es un disco duro virtual que se adjunta a una máquina virtual para almacenar los datos de la aplicación u otros datos que necesita mantener. Los discos de datos se registran como unidades SCSI y se etiquetan con una letra elegida por usted. Cada disco de datos tiene una capacidad máxima de 1023 GB. El tamaño de la máquina virtual determina cuántos discos de datos puede conectar y el tipo de almacenamiento que puede usar para hospedar los discos.
 
-	For more details about virtual machines capacities, see [Sizes for virtual machines](virtual-machines-size-specs.md).
+>[AZURE.NOTE]Para obtener más detalles acerca de las capacidades de las máquinas virtuales, consulte [Tamaños de máquinas virtuales](virtual-machines-size-specs.md).
 
 Azure crea un disco del sistema operativo cuando se crea una máquina virtual desde una imagen. Si usa una imagen que incluye discos de datos, Azure también crea los discos de datos al crear la máquina virtual. (Puede usar una imagen de Azure, de un socio o una proporcionada por usted). De lo contrario, agregue discos de datos después de crear la máquina virtual.
 
@@ -74,4 +74,4 @@ Máquinas virtuales de Windows:
 -  [Captura de una máquina virtual de Windows](virtual-machines-capture-image-windows-server.md)
 -  [Desacople un disco](storage-windows-detach-disk.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

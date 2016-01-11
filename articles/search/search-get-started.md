@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="12/18/2015" 
 	ms.author="heidist"/>
 
 # Introducción a Búsqueda de Azure
@@ -78,7 +78,7 @@ La configuración de recursos dedicados puede tardar unos minutos (15 minutos o 
 
 **Paso 1: Creación de un servicio nuevo con un nivel de precios estándar**
 
-1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com) con su suscripción actual. 
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com) con su suscripción actual. 
 
 2. Haga clic en **Nuevo** en la parte inferior de la página.
 
@@ -310,7 +310,7 @@ También puede consultar al sistema para obtener recuentos de documentos y consu
 
 Si necesita un actualizador sobre dónde buscar las páginas de configuración, siga los siguientes pasos para ubicar el panel de servicio.
 
-1.	Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com) con su suscripción actual. 
+1.	Inicie sesión en el [Portal de Azure](https://portal.azure.com) con su suscripción actual. 
 2.	Haga clic en **Inicio** y, a continuación, haga clic en el icono del servicio Búsqueda.
 
  	![][22]
@@ -378,4 +378,4 @@ Si necesita un actualizador sobre dónde buscar las páginas de configuración, 
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

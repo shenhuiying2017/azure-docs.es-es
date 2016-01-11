@@ -5,14 +5,14 @@
    documentationCenter="n/a"
    authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="visual-studio-online"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/14/2015"
+   ms.date="12/17/2015"
    ms.author="tarcher" />
 
 
@@ -37,7 +37,7 @@ Para habilitar IntelliTrace para una aplicación de Azure, debe crear y publicar
  
     Aparecerá el asistente para publicar aplicación de Azure.
 
-1. Para recopilar registros de IntelliTrace para su aplicación al publicarse en la nube, seleccione la casilla de verificación **Habilitar IntelliTrace**.
+1. Para recopilar registros de IntelliTrace para su aplicación al publicarse en la nube, seleccione la casilla **Habilitar IntelliTrace**.
 
     >[AZURE.NOTE]Puede habilitar IntelliTrace o bien la generación de perfiles al publicar su aplicación de Azure. No puede habilitar ambas cosas.
 
@@ -69,4 +69,4 @@ Puede continuar trabajando en Visual Studio mientras se descargan los registros 
 
 [Depuración de Servicios en la nube](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

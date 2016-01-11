@@ -18,9 +18,7 @@
 
 # Incorporación de notificaciones push a la aplicación universal Windows en tiempo de ejecución 8.1
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Información general
 
@@ -103,9 +101,11 @@ Tras habilitar las notificaciones push en la aplicación, debe actualizar el bac
 	
 	Este código indica al centro de notificaciones que envíe una notificación push después de la inserción de un elemento nuevo.
 
+4. Vuelva a publicar el proyecto de servidor.
+
 ### <a name="nodejs"></a>Proyecto de back-end de Node.js
 
-1. Si no lo ha hecho todavía, [descargue el proyecto de inicio rápido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) o utilice el [editor en línea del Portal de Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+1. Si no lo ha hecho todavía, [descargue el proyecto de inicio rápido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) o use el [editor en línea del Portal de Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 
 2. Reemplace el código existente en el archivo todoitem.js por lo siguiente:
 
@@ -152,10 +152,6 @@ Tras habilitar las notificaciones push en la aplicación, debe actualizar el bac
 	Esta acción envía una notificación del sistema de WNS que contiene el item.text cuando se inserta un nuevo elemento todo.
 
 2. Cuando edite el archivo en el equipo local, vuelva a publicar el proyecto de servidor.
-
-## <a name="publish-the-service"></a>Publicación del back-end móvil en Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ##<a id="update-service"></a>Incorporación de notificaciones de inserción a la aplicación
 
@@ -205,7 +201,7 @@ La carpeta ahora ya está lista para recibir notificaciones.
 ##<a id="more"></a>Más
 
 * Las plantillas proporcionan flexibilidad para enviar inserciones multiplataforma e inserciones localizadas. El artículo [Uso del cliente administrado para Aplicaciones móviles de Azure](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) muestra cómo registrar plantillas.
-* Las etiquetas permiten dirigirse a clientes segmentados con inserciones. El articulo [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) muestra cómo agregar etiquetas a la instalación de un dispositivo.
+* Las etiquetas permiten dirigirse a clientes segmentados con inserciones. [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) muestra cómo agregar etiquetas a la instalación de un dispositivo.
 
 <!-- Anchors. -->
 
@@ -214,4 +210,4 @@ La carpeta ahora ya está lista para recibir notificaciones.
 
 <!-- Images. -->
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_1223_2015-->

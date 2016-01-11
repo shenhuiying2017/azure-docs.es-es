@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="12/18/2015"
    ms.author="maroche"/>
 
 # ¿Qué es el Catálogo de datos de Azure?
@@ -80,8 +80,12 @@ El proceso de registro implica tres pasos básicos:
 - Archivo HDFS
 - Directorio HDFS
 - Tabla de Hive
+- Archivo del Almacén de Azure Data Lake
+- Directorio del Almacén de Azure Data Lake
+- Tabla de MySQL
+- Vista de MySQL
 
-Se agregarán orígenes de datos y tipos de recursos adicionales durante la vista previa del **Catálogo de datos de Azure**.
+Se agregarán orígenes de datos y tipos de activos adicionales durante la vista previa del **Catálogo de datos de Azure**.
 
 > [AZURE.IMPORTANT]Registrar un origen de datos en el **Catálogo de datos de Azure** no copia los datos del origen de datos, a menos que seleccione "Incluir vista previa" en la herramienta de registro del origen de datos. El registro de copia los metadatos del origen de datos, no los datos. Entre los ejemplos de los metadatos se incluyen los nombres de las tablas y otros objetos de origen de datos, junto con los nombres y tipos de datos de columnas y otros atributos de orígenes de datos. Los metadatos también incluyen la ubicación del origen de datos, para que los usuarios que detectan el origen de datos usando el **Catálogo de datos de Azure** puedan conectarse a continuación al origen de datos. Si selecciona "Incluir vista previa", la herramienta de registro de origen de datos también copiará en el **Catálogo de datos de Azure** un pequeño conjunto de registros que se mostrará a los usuarios que detecten el origen de datos en el portal del **Catálogo de datos de Azure**.
 
@@ -89,8 +93,8 @@ Se agregarán orígenes de datos y tipos de recursos adicionales durante la vist
 
 Cuando se complete el registro, se pueden detectar y consumir los orígenes de datos, pero el verdadero valor del **Catálogo de datos de Azure** reside en disponer de metadatos de empresa descriptivos en la misma experiencia que los metadatos estructurales extraídos del origen de datos. Estos metadatos adicionales ofrecen tres ventajas importantes:
 
--	Los orígenes de datos registrados son más fácilmente detectables. Los metadatos proporcionados por el usuario se agregan al índice de búsqueda del **Catálogo de datos de Azure**. Esto permite a los usuarios descubrir los datos mediante el uso de términos y conceptos que es posible que no estén presentes en el origen de datos original. Por ejemplo, si una tabla de base de datos que contiene datos del consumidor se denomina "tbl\_c45", proporcionar el nombre descriptivo "Cliente" provocará que se pueda detectar más fácilmente por parte de los usuarios que buscan los datos del cliente. Del mismo modo, proporcionar una descripción que incluye los nombres de los informes, paneles o procesos que usan los datos hará que el origen de datos sea más fácil de encontrar para los usuarios que usan dichos artefactos de bajada como sus términos de búsqueda.
--	Los orígenes de datos registrados son más fáciles de comprender una vez detectados. Los metadatos proporcionados por el usuario se presentan para cualquier usuario del **Catálogo de datos de Azure** que vea el origen de datos anotado, lo cual ayuda a proporcionar contexto e información adicionales. Normalmente, la mayoría de los orígenes de datos no incluyen descripciones significativas ni documentación, y los que lo hacen a menudo se centran en las audiencias técnicas de desarrollador de bases de datos o DBA. Mediante el enriquecimiento de orígenes de datos en el **Catálogo de datos de Azure** mediante descripciones y etiquetas adecuadas para la audiencia, los usuarios pueden ayudar a garantizar que los usuarios que detectan los datos puedan entender sus detalles y su uso previsto.
+-	Los orígenes de datos registrados son más fácilmente detectables. Los metadatos ofrecidos por el usuario se agregan al índice de búsqueda del **Catálogo de datos de Azure**. Esto permite a los usuarios descubrir los datos mediante el uso de términos y conceptos que es posible que no estén presentes en el origen de datos original. Por ejemplo, si una tabla de base de datos que contiene datos del consumidor se denomina "tbl\_c45", proporcionar el nombre descriptivo "Cliente" provocará que se pueda detectar más fácilmente por parte de los usuarios que buscan los datos del cliente. Del mismo modo, proporcionar una descripción que incluye los nombres de los informes, paneles o procesos que usan los datos hará que el origen de datos sea más fácil de encontrar para los usuarios que usan dichos artefactos de bajada como sus términos de búsqueda.
+-	Los orígenes de datos registrados son más fáciles de comprender una vez detectados. Los metadatos ofrecidos por el usuario se presentan para cualquier usuario del **Catálogo de datos de Azure** que vea el origen de datos anotado, lo cual ayuda a ofrecer contexto e información adicionales. Normalmente, la mayoría de los orígenes de datos no incluyen descripciones significativas ni documentación, y los que lo hacen a menudo se centran en las audiencias técnicas de desarrollador de bases de datos o DBA. Mediante el enriquecimiento de orígenes de datos en el **Catálogo de datos de Azure** mediante descripciones y etiquetas adecuadas para la audiencia, los usuarios pueden ayudar a garantizar que los usuarios que detectan los datos puedan entender sus detalles y su uso previsto.
 -  Cada origen de datos registrado puede incluir información de acceso a solicitudes, para que los usuarios pueden comprender con facilidad y seguir los procesos existentes para solicitar el acceso al origen de datos y sus datos.
 
 > [AZURE.NOTE]Cada usuario del **Catálogo de datos de Azure** puede agregar sus propias etiquetas y descripciones para los atributos y recursos de datos. El **Catálogo de datos de Azure** realizará un seguimiento del valor y el origen de cada anotación y mostrará el usuario que lo agregó. Este enfoque de micromecenazgo de los metadatos garantiza que todos los usuarios con una perspectiva de los datos y su uso puedan compartir sus opiniones y recursos con la comunidad de usuarios en general.
@@ -99,7 +103,7 @@ Cuando se complete el registro, se pueden detectar y consumir los orígenes de d
 
 El objetivo de registrar y enriquecer los orígenes de datos en el **Catálogo de datos de Azure** es que se puedan detectar, comprender y usar por parte de los usuarios de la empresa. El portal del **Catálogo de datos de Azure** es la herramienta principal de este proceso.
 
-El portal del **Catálogo de datos de Azure** proporciona dos mecanismos principales para la detección y exploración de los datos: la búsqueda y el filtrado.
+El portal del **Catálogo de datos de Azure** ofrece dos mecanismos principales para la detección y exploración de los datos: la búsqueda y el filtrado.
 
 Para buscar orígenes de datos en el **Catálogo de datos de Azure**, simplemente escriba un término de búsqueda en el cuadro de búsqueda del portal del **Catálogo de datos de Azure**. El portal mostrará un icono para cada origen de datos registrado que coincida con el término de búsqueda; los iconos contendrán el nombre, la descripción y las etiquetas asignadas al origen de datos, junto con otra información de alto nivel.
 
@@ -129,4 +133,4 @@ El objetivo final de la detección de datos es encontrar los datos que necesita 
 
 > [AZURE.NOTE]Para la vista previa privada del Catálogo de datos de Azure, de forma directa solo se admitirán y estarán disponibles Microsoft Excel y el Administrador de informes de SQL Server Reporting Services en el menú **Abrir en**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

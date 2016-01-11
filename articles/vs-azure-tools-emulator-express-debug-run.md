@@ -5,14 +5,14 @@
    documentationCenter="n/a"
    authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="visual-studio-online"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/14/2015"
+   ms.date="12/17/2015"
    ms.author="tarcher" />
 
 
@@ -28,7 +28,7 @@ Al crear un nuevo proyecto en el SDK de Azure 2.3 o posterior, Emulator Express 
 
 1. En el menú contextual del proyecto de Azure, elija **Propiedades**, y, a continuación, elija la pestaña **Web**.
 
-1. En **Servidor de desarrollo local**, elija el botón de **opción Usar IIS Express**. Emulator Express no es compatible con el servidor web de IIS.
+1. En **Servidor de desarrollo local**, elija el botón de opción **Usar IIS Express**. Emulator Express no es compatible con el servidor web de IIS.
 
 1. En **Emulador**, elija el botón de opción **Usar Emulator Express**.
 
@@ -54,4 +54,4 @@ Antes de usar Emulator Express, debe tener en cuenta algunas limitaciones:
 
 [Depuración de Servicios en la nube](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

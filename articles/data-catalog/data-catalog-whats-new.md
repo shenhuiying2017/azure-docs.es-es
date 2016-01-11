@@ -13,12 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="12/18/2015"
    ms.author="maroche"/>
 
 # Novedades en el Catálogo de datos de Azure
 
 De forma periódica se publican actualizaciones al **Catálogo de datos de Azure**. No todas las versiones incluirán nuevas características de cara al usuario, algunas se centran en la funcionalidad del servicio back-end. En esta página se resaltan las nuevas funcionalidades de cara al usuario que se han agregado al servicio **Catálogo de datos de Azure** .
+
+## Novedades de la versión correspondiente a la semana del 18 de diciembre de 2015
+
+Desde la semana del 18 de diciembre de 2015 se agregaron las siguientes funcionalidades al Catálogo de datos de Azure:
+
+- Compatibilidad con perfiles de datos para orígenes de datos de Almacenamiento de datos SQL de Azure. Al registrar las vistas y tablas de Almacenamiento de datos SQL de Azure, los usuarios pueden optar por incluir métricas de perfil de datos con los metadatos extraídos del origen de datos.
+- Compatibilidad para el registro y la detección de objetos de MySQL y bases de datos. Los usuarios pueden registrar orígenes de datos de MySQL mediante la herramienta de registro de orígenes de datos del **Catálogo de datos de Azure** y pueden anotar y detectar los orígenes de datos de MySQL registrados mediante el portal del **Catálogo de datos de Azure**.
+
+## Novedades de la versión correspondiente a la semana del 4 de diciembre de 2015
+
+Desde la semana del 4 de diciembre de 2015 se agregaron las siguientes funcionalidades al Catálogo de datos de Azure:
+
+- Compatibilidad con SPNEGO y la autenticación de Windows para orígenes de datos de Teradata. Al registrar tablas y vistas de Teradata, los usuarios pueden optar por conectarse a Teradata mediante SPNEGO y Windows así como con LDAP y autenticación TD2.
+- Compatibilidad con orígenes de datos de Almacén de Azure Data Lake. Los usuarios ahora pueden registrar y detectar los orígenes de datos de Almacén de Azure Data Lake mediante el Catálogo de datos de Azure.
+- Compatibilidad para especificar manualmente la configuración de proxy de red en la herramienta de registro de orígenes de datos del Catálogo de datos de Azure. Los usuarios pueden seleccionar "Modifique la configuración del proxy" en la página de bienvenida de la herramienta y especificar el puerto y la dirección de proxy y el puerto que va a usar la herramienta.
+
+> [AZURE.NOTE]"Abrir en Power BI Desktop" requiere la instalación de una versión actual de Power BI Desktop. Si encuentra problemas o errores al usar esta característica, asegúrese de que tiene la versión más reciente de Power BI Desktop en [PowerBI.com](https://powerbi.com/).
+
 
 ## Novedades de la versión correspondiente a la semana del 20 de noviembre de 2015
 
@@ -44,7 +62,7 @@ Desde la semana del 6 de noviembre de 2015 se agregaron las siguientes funcional
 
 - Compatibilidad con la vista preliminar de orígenes de datos de Teradata. Al registrar las vistas y tablas de Teradata, los usuarios pueden elegir incluir registros de instantánea con los metadatos extraídos del origen de datos.
 - Compatibilidad con "Abrir en Excel" para orígenes de datos de Almacenamiento de datos SQL de Azure.
-- Compatibilidad con definir y modificar esquemas de nivel de columna para los activos de datos registrados manualmente. Después de crear manualmente un recurso de datos mediante el portal del **Catálogo de datos de Azure**, los usuarios pueden agregar definiciones de columna en las propiedades del activo de datos.
+- Compatibilidad con definir y modificar esquemas de nivel de columna para los activos de datos registrados manualmente. Después de crear manualmente un activo de datos mediante el portal del **Catálogo de datos de Azure**, los usuarios pueden agregar definiciones de columna en las propiedades del activo de datos.
 - Compatibilidad con consultas "has" al buscar en el **Catálogo de datos de Azure** para habilitar la detección de activos de datos registrados que poseen metadatos específicos. La sintaxis de consulta del **Catálogo de datos de Azure** ahora incluye:
 
 | Sintaxis de consulta | Propósito |
@@ -74,7 +92,7 @@ A partir de la semana del 23 de octubre de 2015, se agregaron las siguientes fun
 A partir de la semana del 16 de octubre de 2015, se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
 
 - Compatibilidad con orígenes de datos de Hive locales. Los usuarios ahora pueden registrarse y detectar tablas de Hive de Apache Hive en orígenes de datos locales de Hadoop.
-- Compatibilidad con búsquedas guardadas en el portal del **Catálogo de datos de Azure**. Los usuarios pueden guardar términos de búsqueda y filtrar selecciones para repetir con facilidad búsquedas anteriores y definir vistas útiles del contenido del Catálogo. El usuario puede marcar una búsqueda guardada como su búsqueda predeterminada. Cuando un usuario hace clic en el icono de búsqueda de "lupa" en la página principal del portal del **Catálogo de datos de Azure** o en la página de "introducción", el usuario irá a parar directamente a la búsqueda guardada marcada como predeterminada.
+- Compatibilidad con búsquedas guardadas en el portal del **Catálogo de datos de Azure**. Los usuarios pueden guardar términos de búsqueda y filtrar selecciones para repetir con facilidad búsquedas anteriores y definir vistas útiles del contenido del Catálogo. El usuario puede marcar una búsqueda guardada como su búsqueda predeterminada. Cuando un usuario hace clic en el icono de búsqueda de "lupa" en la página principal del portal del **Catálogo de datos de Azure** o en la página de "introducción", el usuario va a parar directamente a la búsqueda guardada marcada como predeterminada.
 
 
 ## Novedades de la versión correspondiente a la semana del 9 de octubre de 2015
@@ -147,4 +165,4 @@ A partir de la semana del 21 de agosto de 2015, se agregaron las siguientes func
 - Solo en la edición estándar: cuando se agregan propietarios a los activos de datos, el **Catálogo de datos de Azure** admite ahora tanto cuentas de usuario como grupos de seguridad como propietarios. Para agregar un grupo de seguridad como propietario de los activos de datos seleccionados, puede especificar el nombre para mostrar del grupo o la dirección de correo electrónico UPN del grupo, si tiene alguna.
 - Compatibilidad con orígenes de datos de almacenamiento de blobs de Azure. Los usuarios pueden registrarse ahora y detectar el almacenamiento de blobs de Azure y los directorios.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -21,9 +21,9 @@
 
 Al mirar los aspectos de seguridad de las plantillas del Administrador de recursos de Azure, hay varias áreas a tener en cuenta: claves y secretos, control de acceso basado en roles y grupos de seguridad de red.
 
-En este tema se supone que está familiarizado con el control de acceso basado en rol (RBAC) del Administrador de recursos de Azure. Para obtener más información, vea [Control de acceso basado en roles en el Portal de Microsoft Azure](role-based-access-control-configure.md) y [Administración y auditoría del acceso a los recursos](resource-group-rbac.md).
+En este tema se supone que está familiarizado con el control de acceso basado en rol (RBAC) del Administrador de recursos de Azure. Para más información, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
 
-Este tema forma parte de un artículo más extenso. Si desea leer el artículo completo, descargue [World Class ARM Templates Considerations and Proven Practices] (Consideraciones y prácticas comprobadas sobre plantillas ARM de clase mundial) (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+Este tema forma parte de un artículo más extenso. Si quiere leer el artículo completo, descargue [World Class ARM Templates Considerations and Proven Practices] (Consideraciones y prácticas comprobadas sobre plantillas ARM de clase mundial) (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 ## Secretos y certificados
 
@@ -170,7 +170,7 @@ Una combinación de una entidad de servicio y RBAC puede utilizarse para satisfa
 
 Muchos escenarios tendrán requisitos que especifican cómo se controla el tráfico a una o más instancias de máquina virtual en la red virtual. Puede usar un grupo de seguridad de red (NSG) para hacer esto como parte de una implementación de la plantilla ARM.
 
-Un grupo de seguridad de red es un objeto de nivel superior que está asociado a su suscripción. Un grupo de seguridad de red contiene reglas de control de acceso que permiten o deniegan el tráfico a instancias de máquina virtual. Las reglas de un grupo de seguridad de red pueden cambiarse en cualquier momento; los cambios se aplican a todas las instancias asociadas. Para usar un grupo de seguridad de red, debe tener una red virtual asociada a una región (ubicación). Los grupos de seguridad de red no son compatibles con redes virtuales asociadas a un grupo de afinidad. Si no dispone de una red virtual regional y quiere controlar el tráfico hacia los extremos, consulte [Acerca de las listas de control de acceso (ACL) de red](../virtual-network/virtual-networks-acl.md).
+Un grupo de seguridad de red es un objeto de nivel superior que está asociado a su suscripción. Un grupo de seguridad de red contiene reglas de control de acceso que permiten o deniegan el tráfico a instancias de máquina virtual. Las reglas de un grupo de seguridad de red pueden cambiarse en cualquier momento; los cambios se aplican a todas las instancias asociadas. Para usar un grupo de seguridad de red, debe tener una red virtual asociada a una región (ubicación). Los grupos de seguridad de red no son compatibles con redes virtuales asociadas a un grupo de afinidad. Si no dispone de una red virtual regional y quiere controlar el tráfico hacia los extremos, vea [Acerca de las listas de control de acceso (ACL) de red](../virtual-network/virtual-networks-acl.md).
 
 Puede asociar un grupo de seguridad de red a una máquina virtual o a una subred dentro de una red virtual. Cuando se asocia a una máquina virtual, el grupo de seguridad de red se aplica a todo el tráfico enviado y recibido por la instancia de máquina virtual. Cuando se aplica a una subred dentro de la red virtual, se aplica a todo el tráfico enviado y recibido por todas las instancias de máquina virtual de la subred. Una máquina virtual o una subred solo puede asociarse a 1 grupo de seguridad de red, pero cada grupo de seguridad de red puede contener hasta 200 reglas. Puede tener 100 grupos de seguridad de red por suscripción.
 
@@ -261,7 +261,7 @@ Puede asociar un grupo de seguridad de red a una máquina virtual y otro grupo d
 
 ![Asociación de grupo de seguridad de red a una subred y una máquina virtual](./media/best-practices-resource-manager-security/nsg-subnet-vm.png)
 
-Cuando un grupo de seguridad de red está asociado a una máquina virtual o una subred, las reglas de control de acceso de la red pasan a ser muy explícitas. La plataforma no insertará ninguna regla implícita para permitir el tráfico a un puerto determinado. En este caso, si crea un extremo en la máquina virtual, también debe crear una regla para permitir el tráfico de Internet. Si no es así, no se puede tener acceso a *VIP:{Puerto}*.
+Cuando un grupo de seguridad de red está asociado a una máquina virtual o una subred, las reglas de control de acceso de la red pasan a ser muy explícitas. La plataforma no insertará ninguna regla implícita para permitir el tráfico a un puerto determinado. En este caso, si crea un extremo en la máquina virtual, también debe crear una regla para permitir el tráfico de Internet. Si no es así, no se puede tener acceso a *VIP:{Puerto}* desde el exterior.
 
 Por ejemplo, puede crear una nueva máquina virtual y un nuevo grupo de seguridad de red. Asociar el grupo de seguridad de red a la máquina virtual. La máquina virtual puede comunicarse con otras máquinas virtuales de la red virtual a través de la regla ALLOW VNET INBOUND (PERMITIR ENTRANTE DE RED VIRTUAL). La máquina virtual puede realizar conexiones salientes a Internet mediante la regla ALLOW INTERNET OUTBOUND (PERMITIR SALIENTE DE INTERNET). Posteriormente, cree un extremo en el puerto 80 para recibir tráfico en su sitio web que se ejecuta en la máquina virtual. Los paquetes destinados al puerto 80 en la dirección IP virtual pública (VIP) desde Internet no llegarán a la máquina virtual hasta que agregue una regla similar a la siguiente tabla al grupo de seguridad de red.
 
@@ -332,9 +332,9 @@ Como se describió anteriormente, una de las razones principales para crear una 
 La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tráfico entrante que no se dirige a sí mismo. Para permitir que una máquina virtual reciba el tráfico dirigido a otros destinos, debe habilitar el reenvío IP en la máquina virtual.
 
 ## Pasos siguientes
-- Para comprender cómo configurar las entidades de seguridad con el acceso correcto para trabajar con recursos en su organización, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
-- Si desea bloquear el acceso a un recurso, puede usar bloqueos de administración. Consulte [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
-- Para obtener más información sobre cómo configurar el enrutamiento y el reenvío IP, consulte [Creación de rutas y habilitación del reenvío IP en Azure](virtual-network/virtual-networks-udr-how-to.md). 
-- Para obtener información general sobre el control de acceso basado en rol, consulte [Control de acceso basado en roles en el Portal de Microsoft Azure](role-based-access-control-configure.md).
+- Para comprender cómo configurar las entidades de seguridad con el acceso correcto para trabajar con recursos en su organización, vea [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
+- Si desea bloquear el acceso a un recurso, puede usar bloqueos de administración. Vea [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
+- Para configurar el enrutamiento y el reenvío IP, vea [Creación de rutas y habilitación del reenvío IP en Azure](virtual-network/virtual-networks-udr-how-to.md). 
+- Para obtener información general sobre el control de acceso basado en roles, vea [Control de acceso basado en roles en el portal de Microsoft Azure](role-based-access-control-configure.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -42,10 +42,10 @@ Además, las características que ofrecen las Aplicaciones de API, las Aplicacio
 
 >[AZURE.NOTE]Puede usar [Administración de API de Azure](../api-management/api-management-key-concepts.md) para controlar el acceso de cliente a las API que se hospedan en aplicaciones de API del Servicio de aplicaciones. Aunque las Aplicaciones de API proporcionan servicios de autenticación, hay otras características de administración de acceso que no ofrecen, que sí ofrece la Administración de API, como la consolidación y la limitación de los puntos de conexión.
 
-## Conceptos de Aplicaciones de API ##
+## <a id="concepts"></a> Conceptos de Aplicaciones de API
 
 - **Swagger**: un marco para la documentación y la detección de una API de RESTful, que se usa de forma predeterminada en las aplicaciones de API. Para obtener más información, consulte [http://swagger.io/](http://swagger.io/).
-- **Uso compartido de recursos entre orígenes (CORS)**: un mecanismo que permite a JavaScript ejecutarse en un explorador para realizar llamadas a una API hospedada en un dominio diferente a aquel en el que se cargó la página web. Para más información, consulte [Consumo de una aplicación de API desde JavaScript con CORS](app-service-api-cors-consume-javascript.md). 
+- **Uso compartido de recursos entre orígenes (CORS)**: un mecanismo que permite a JavaScript ejecutarse en un explorador para realizar llamadas a una API hospedada en un dominio diferente a aquel en el que se cargó la página web. Para más información, vea [Consumo de una aplicación de API desde JavaScript con CORS](app-service-api-cors-consume-javascript.md). 
 - **Desencadenador**: una API de REST que las [aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md) pueden llamar para iniciar un proceso de flujo de trabajo cuando se cumple una determinada condición. Por ejemplo, una aplicación de API puede proporcionar un método al que la aplicación lógica llame periódicamente para buscar una frase determinada en una fuente de Twitter. Para obtener más información, consulte [Desencadenadores de aplicación de API](app-service-api-dotnet-triggers.md).
 - **Acción**: una API de REST a la que las [aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md) pueden llamar para procesar datos después de que un desencadenador haya iniciado un flujo de trabajo. Por ejemplo, una aplicación de API puede proporcionar un método al que la aplicación lógica llame para responder a un tweet encontrado por el desencadenador de Twitter. Las acciones son métodos de API expuestos por una definición de la API de Swagger.
 
@@ -53,8 +53,8 @@ Además, las características que ofrecen las Aplicaciones de API, las Aplicacio
 
 Para empezar a trabajar con aplicaciones de API, siga el tutorial [Introducción a Aplicaciones de API](app-service-api-dotnet-get-started.md).
 
-Para ver una lista de problemas conocidos con aplicaciones de API, consulte [la entrada del foro de problemas conocidos de Aplicaciones de API](https://social.msdn.microsoft.com/Forums/es-ES/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
+Para ver una lista de problemas conocidos con aplicaciones de API, vea [la entrada del foro de problemas conocidos de Aplicaciones de API](https://social.msdn.microsoft.com/Forums/es-ES/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
 
 Para obtener más información acerca de la plataforma de Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="12/16/2015" 
 	ms.author="sdanie"/>
 
 # Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium
@@ -56,7 +56,9 @@ Cada partición es un par de caché principal/réplica administrado por Azure y 
 
 Cuando se haya creado la memoria caché, conéctese a ella y úsela simplemente como una memoria caché no agrupada y Redis distribuirá los datos a través de las particiones de memoria caché. Si el diagnóstico está [habilitado](cache-how-to-monitor.md#enable-cache-diagnostics), las métricas se capturan por separado para cada partición y pueden [verse](cache-how-to-monitor.md) en la hoja Caché en Redis.
 
->[AZURE.IMPORTANT]Al conectarse a una Caché en Redis de Azure con la agrupación en clústeres habilitada mediante StackExchange.Redis, puede experimentar un problema y recibir excepciones `MOVE`. Esto ocurre porque se tarda un breve intervalo en que el cliente de caché StackExchange.Redis recopile información sobre los nodos del clúster de la caché. Estas excepciones se pueden producir si se conecta a la memoria caché por primera vez e inmediatamente realiza llamadas a la memoria caché antes de que el cliente haya terminado de recopilar esta información. La manera más sencilla de resolver este problema en su aplicación es conectarse a la memoria caché y esperar segundo antes de realizar llamadas a la memoria caché. Para ello, agregue `Thread.Sleep(1000)` como se muestra en el siguiente código de ejemplo. Tenga en cuenta que `Thread.Sleep(1000)` solo se produce durante la conexión inicial a la memoria caché. Para más información, vea [StackExchange.Redis.RedisServerException - MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248). Se está desarrollando una solución para este problema y las actualizaciones se publicarán aquí.
+Para obtener el código de ejemplo sobre el trabajo con clústeres con el cliente StackExchange.Redis, consulte la parte [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) del ejemplo [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
+
+>[AZURE.IMPORTANT]Al conectarse a Caché en Redis de Azure con la agrupación en clústeres habilitada mediante StackExchange.Redis, puede experimentar un problema y recibir excepciones `MOVE`. Esto ocurre porque se tarda un breve intervalo en que el cliente de caché StackExchange.Redis recopile información sobre los nodos del clúster de la caché. Estas excepciones se pueden producir si se conecta a la memoria caché por primera vez e inmediatamente realiza llamadas a la memoria caché antes de que el cliente haya terminado de recopilar esta información. La manera más sencilla de resolver este problema en su aplicación es conectarse a la memoria caché y esperar segundo antes de realizar llamadas a la memoria caché. Para ello, agregue `Thread.Sleep(1000)` como se muestra en el siguiente código de ejemplo. Tenga en cuenta que `Thread.Sleep(1000)` solo se produce durante la conexión inicial a la memoria caché. Para más información, vea [StackExchange.Redis.RedisServerException - MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248). Se está desarrollando una solución para este problema y las actualizaciones se publicarán aquí.
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
@@ -78,15 +80,16 @@ Cuando se haya creado la memoria caché, conéctese a ella y úsela simplemente 
 	    }
 	}
 
-## Agregar o quitar particiones de una caché premium en ejecución
+<a name="cluster-size"></a>
+## Cambio del tamaño del clúster en una caché premium en ejecución
 
-Para agregar o quitar particiones de una caché premium en ejecución con la agrupación en clústeres habilitada, haga clic en **(VISTA PREVIA) Tamaño del clúster en Redis** desde la hoja **Configuración**.
+Para cambiar el tamaño del clúster de una caché premium en ejecución con la agrupación en clústeres habilitada, haga clic en **(VISTA PREVIA) Tamaño del clúster en Redis** desde la hoja **Configuración**.
 
->[AZURE.NOTE]Tenga en cuenta que, a pesar de que el nivel Premium de Caché en Redis de Azure se lanzó con disponibilidad general, la característica Tamaño del clúster en Redis está actualmente en vista previa.
+>[AZURE.NOTE]Tenga en cuenta que, a pesar de que el nivel Premium de Caché en Redis de Azure se publicó con disponibilidad general, la característica Tamaño del clúster en Redis está actualmente en la versión preliminar.
 
 ![Tamaño del Clúster en Redis][redis-cache-redis-cluster-size]
 
-Para cambiar el número de particiones, use el control deslizante o escriba un número entre 1 y 10 en el cuadro de texto **Número de particiones** y haga clic en **Aceptar** para guardar.
+Para cambiar el tamaño del clúster, use el control deslizante o escriba un número entre 1 y 10 en el cuadro de texto **Número de particiones** y haga clic en **Aceptar** para guardar.
 
 ## P+F de agrupación en clústeres
 
@@ -97,8 +100,8 @@ La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre
 -	Cuando la agrupación en clústeres está habilitada, solo está disponible la base de datos 0. Si la aplicación cliente usa varias bases de datos e intenta leer o escribir en una base de datos distinta de 0, se produce la siguiente excepción. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
 -	Si usa [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), debe usar la versión 1.0.481 o posterior. Se conecta a la memoria caché con los mismos [puntos de conexión, puertos y claves](cache-configure.md#properties) que usa al conectarse a una memoria caché que no tenga la agrupación en clústeres habilitada. La única diferencia es que se deben realizar todas las lecturas y escrituras en la base de datos 0.
 	-	Otros clientes pueden tener requisitos diferentes. Consulte [¿Todos los clientes de Redis admiten la agrupación en clústeres?](#do-all-redis-clients-support-clustering)
--	Si la aplicación usa varias operaciones de claves por lotes en un solo comando, todas las claves deben estar ubicadas en la misma partición. Para lograr esto, consulte [¿Cómo se distribuyen las claves en un clúster?](#how-are-keys-distributed-in-a-cluster).
--	Si está usando el proveedor de estado de sesión de ASP.NET de Redis, debe usar 2.0.0 o posterior. Consulte [¿Puedo usar la agrupación en clústeres con los proveedores de estado de sesión y de almacenamiento en caché de salida de ASP.NET de Redis?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers).
+-	Si la aplicación usa varias operaciones de claves por lotes en un solo comando, todas las claves deben estar ubicadas en la misma partición. Para lograr esto, consulte [¿Cómo se distribuyen las claves en un clúster?](#how-are-keys-distributed-in-a-cluster)
+-	Si está usando el proveedor de estado de sesión de ASP.NET de Redis, debe usar 2.0.1 o posterior. Consulte [¿Puedo usar la agrupación en clústeres con los proveedores de estado de sesión y de almacenamiento en caché de salida de ASP.NET de Redis?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
 ## ¿Cómo se distribuyen las claves en un clúster?
 
@@ -111,13 +114,15 @@ Para optimizar el rendimiento, se recomienda distribuir las claves de manera uni
 
 Para obtener más información, consulte [Modelo de distribución de claves](http://redis.io/topics/cluster-spec#keys-distribution-model), [Particionamiento de datos de clúster Redis](http://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding) y [Etiquetas hash de claves](http://redis.io/topics/cluster-spec#keys-hash-tags).
 
+Para obtener el código de ejemplo sobre el trabajo con agrupación en clústeres y la ubicación de claves en la misma partición con el cliente StackExchange.Redis, consulte la parte [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) del ejemplo [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
+
 ## ¿Cuál es el mayor tamaño de caché que puedo crear?
 
 El tamaño máximo de caché premium es 53 GB. Puede crear hasta 10 particiones con un tamaño máximo de 530 GB. Si necesita un tamaño mayor, puede [solicitar más](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Para obtener más información, consulte [Precios de Caché en Redis de Azure](https://azure.microsoft.com/pricing/details/cache/).
 
 ## ¿Todos los clientes de Redis admiten la agrupación en clústeres?
 
-En este momento no todos los clientes admiten la agrupación en clústeres de Redis. StackExchange.Redis es uno de los que los admiten. Para obtener más información sobre otros clientes, consulte la sección [Jugar con el clúster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) de [Tutorial de clúster de Redis](http://redis.io/topics/cluster-tutorial).
+En este momento no todos los clientes admiten la agrupación en clústeres de Redis. StackExchange.Redis es uno de los que los admiten. Para obtener más información sobre otros clientes, consulte la sección [Jugar con el clúster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) del [Tutorial de clúster de Redis](http://redis.io/topics/cluster-tutorial).
 
 >[AZURE.NOTE]Si está usando StackExchange.Redis como su cliente, asegúrese de que está usando la versión más reciente de [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 o posterior para que la agrupación en clústeres funcione correctamente.
 
@@ -141,7 +146,7 @@ Para ssl, reemplace `1300N` por `1500N`.
 
 ## ¿Puedo configurar la agrupación en clústeres para una memoria caché creada anteriormente?
 
-En este momento solo puede habilitar la agrupación en clústeres cuando cree una memoria caché. También puede cambiar el número de particiones una vez creada la memoria caché, pero no puede agregar la agrupación en clústeres a una caché premium o quitar la agrupación en clústeres de una memoria caché premium una vez creada la caché. Una memoria caché premium que tiene habilitada la agrupación en clústeres y solo una partición es distinta de una memoria caché premium del mismo tamaño, sin agrupación en clústeres.
+En este momento solo puede habilitar la agrupación en clústeres cuando cree una memoria caché. También puede cambiar el tamaño de clúster una vez creada la memoria caché, pero no puede agregar la agrupación en clústeres a una caché premium o quitar la agrupación en clústeres de una memoria caché premium una vez creada la memoria caché. Una memoria caché premium que tiene habilitada la agrupación en clústeres y solo una partición es distinta de una memoria caché premium del mismo tamaño, sin agrupación en clústeres.
 
 ## ¿Puedo configurar la agrupación en clústeres para una caché básica o estándar?
 
@@ -149,8 +154,8 @@ La agrupación en clústeres solo está disponible para las memorias cachés pre
 
 ## ¿Puedo usar la agrupación en clústeres con los proveedores de estado de sesión y de almacenamiento en caché de salida de ASP.NET de Redis?.
 
--	**Proveedor de caché de salida de Redis**: No se requieren cambios.
--	**Proveedor de estado de sesión de Redis**: Para usar la agrupación en clústeres, debe usar [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.0 o superior o se iniciará una excepción. Este es un cambio importante. Para obtener más información, consulte [Detalles sobre cambios importantes de la versión 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+-	**Proveedor de caché de salida de Redis**: no se requieren cambios.
+-	**Proveedor de estado de sesión de Redis**: para usar la agrupación en clústeres, debe usar [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 o superior o se iniciará una excepción. Este es un cambio importante. Para obtener más información, consulte [Detalles sobre cambios importantes de la versión 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 ## Pasos siguientes
 Obtenga información acerca de cómo usar más características de la memoria caché del nivel Premium.
@@ -178,4 +183,4 @@ Obtenga información acerca de cómo usar más características de la memoria ca
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

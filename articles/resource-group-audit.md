@@ -158,8 +158,8 @@ Puede seleccionar cualquier operación para obtener más detalles sobre ella.
 
 ## Pasos siguientes
 
-- Para obtener información sobre cómo establecer directivas de seguridad, vea [Administración del acceso a los recursos](resource-group-rbac.md).
+- Para información sobre cómo establecer directivas de seguridad, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
 - Para obtener información sobre la concesión del acceso a una entidad de seguridad de servicio, vea [Autenticación de una entidad de seguridad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
 - Para aprender a realizar acciones en un recurso para todos los usuarios, vea [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

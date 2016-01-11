@@ -1,18 +1,18 @@
-## Next steps
-After enabling Azure Key Vault Integration, you can enable SQL Server encryption on your SQL VM. First, you will need to create an asymmetric key inside your key vault and a symmetric key within SQL Server on your VM. Then, you will be able to execute T-SQL statements to enable encryption for your databases and backups.
+## Pasos siguientes
+Después de habilitar la integración de Almacén de claves de Azure, puede habilitar el cifrado de SQL Server en la máquina virtual de SQL. En primer lugar, tendrá que crear una clave asimétrica en el Almacén de claves y una clave simétrica dentro de SQL Server en la máquina virtual. A continuación, podrá ejecutar las instrucciones de T-SQL para habilitar el cifrado de las bases de datos y las copias de seguridad.
 
-There are several forms of encryption you can take advantage of:
+Hay varias formas de cifrado que puede aprovechar:
 
-- [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
-- [Encrypted backups](https://msdn.microsoft.com/library/dn449489.aspx)
-- [Column Level Encryption (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
+- [Cifrado de datos transparente (TDE) ](https://msdn.microsoft.com/library/bb934049.aspx)
+- [Copias de seguridad cifradas](https://msdn.microsoft.com/library/dn449489.aspx)
+- [Cifrado de nivel de columna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
 
-The following Transact-SQL scripts provide examples for each of these areas.
+Los siguientes scripts de Transact-SQL proporcionan ejemplos para cada una de estas áreas.
 
->[AZURE.NOTE] Each example is based on the two prerequisites: an asymmetric key from your key vault called **CONTOSO_KEY** and a credential created by the AKV Integration feature called **Azure_EKM_TDE_cred**.
+>[AZURE.NOTE]Cada ejemplo se basa en los dos requisitos previos: una clave asimétrica del Almacén de claves denominada **CONTOSO\_KEY** y una credencial creada por la característica de integración de AKV llamada **Azure\_EKM\_TDE\_cred**.
 
-### Transparent Data Encryption (TDE)
-1. Create a SQL Server login to be used by the Database Engine for TDE, then add the credential to it.
+### Cifrado de datos transparente (TDE)
+1. Cree un inicio de sesión de SQL Server que el motor de base de datos usará para TDE, después agréguele la credencial.
 	
 		USE master;
 		-- Create a SQL Server login associated with the asymmetric key 
@@ -28,7 +28,7 @@ The following Transact-SQL scripts provide examples for each of these areas.
 		ADD CREDENTIAL Azure_EKM_TDE_cred;
 		GO
 	
-2. Create the database encryption key that will be used for TDE.
+2. Cree la clave de cifrado de base de datos que se usará para TDE.
 	
 		USE ContosoDatabase;
 		GO
@@ -43,8 +43,8 @@ The following Transact-SQL scripts provide examples for each of these areas.
 		SET ENCRYPTION ON;
 		GO
 
-### Encrypted backups
-1. Create a SQL Server login to be used by the Database Engine for encrypting backups, and add the credential to it.
+### Copias de seguridad cifradas
+1. Cree un inicio de sesión de SQL Server que el motor de base de datos usará para cifrar las copias de seguridad, después agréguele la credencial.
 	
 		USE master;
 		-- Create a SQL Server login associated with the asymmetric key 
@@ -59,7 +59,7 @@ The following Transact-SQL scripts provide examples for each of these areas.
 		ADD CREDENTIAL Azure_EKM_Backup_cred ;
 		GO
 	
-2. Backup the database specifying encryption with the asymmetric key stored in the key vault.
+2. Realice una copia de seguridad de la base de datos especificando el cifrado con la clave asimétrica guardada en el Almacén de claves.
 	
 		USE master;
 		BACKUP DATABASE [DATABASE_TO_BACKUP]
@@ -68,8 +68,8 @@ The following Transact-SQL scripts provide examples for each of these areas.
 		ENCRYPTION(ALGORITHM = AES_256, SERVER ASYMMETRIC KEY = [CONTOSO_KEY]);
 		GO
 
-### Column Level Encryption (CLE)
-This script creates a symmetric key protected by the asymmetric key in the key vault, and then uses the symmetric key to encrypt data in the database.
+### Cifrado de nivel de columna (CLE)
+Este script crea una clave simétrica protegida por la clave asimétrica en el Almacén de claves y, a continuación, usa la clave simétrica para cifrar los datos de la base de datos.
 
 	CREATE SYMMETRIC KEY DATA_ENCRYPTION_KEY
 	WITH ALGORITHM=AES_256
@@ -90,7 +90,9 @@ This script creates a symmetric key protected by the asymmetric key in the key v
 	--Close the symmetric key
 	CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 
-## Additional resources
-For more information on how to use these encryption features, see [Using EKM with SQL Server Encryption Features](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
+## Recursos adicionales
+Para más información sobre cómo usar estas características de cifrado, vea [Uso de la administración extensible de claves con las características de cifrado de SQL Server](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Note that the steps in this article assume that you already have SQL Server running on an Azure virtual machine. If not, see [Provision a SQL Server virtual machine in Azure](../articles/virtual-machines/virtual-machines-provision-sql-server.md). For other guidance on running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
+Tenga en cuenta que en los pasos descritos en este artículo se supone que ya tiene SQL Server en ejecución en una máquina virtual de Azure. De lo contrario, vea [Aprovisionamiento de una máquina virtual de SQL Server en Azure](../articles/virtual-machines/virtual-machines-provision-sql-server.md) Para otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, vea [Información general sobre SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
+
+<!---HONumber=AcomDC_1223_2015-->

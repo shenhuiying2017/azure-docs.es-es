@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/17/2015"
    ms.author="masashin"/>
 
 # Guía de supervisión y diagnósticos
@@ -101,7 +101,7 @@ Puede calcular el porcentaje de disponibilidad de un servicio en un período de 
 %Availability =  ((Total Time – Total Downtime) / Total Time ) * 100
 ```
 
-Esto es útil para fines de SLA (La [supervisión de SLA](#SLA-monitoring) se describe con más detalle más adelante en esta guía). La definición de _tiempo de inactividad_ depende del servicio. Por ejemplo, Visual Studio Team Services define el tiempo de inactividad como el período durante el cual los intentos de un cliente para conectarse al servicio tardan más de 120 segundos y todas las operaciones básicas de lectura y escritura producen un error después de establecer la conexión dentro de ese período.
+Esto es útil para fines de SLA (La [supervisión de SLA](#SLA-monitoring) se describe con más detalle más adelante en esta guía). La definición de _tiempo de inactividad_ depende del servicio. Por ejemplo, el servicio de compilación de Visual Studio Team Services define el tiempo de inactividad como el período (minutos acumulados totales) durante el cual el servicio de compilación está disponible. Se considera que un minuto no está disponible si todas las solicitudes HTTP que recibe el servicio de compilación para realizar operaciones iniciadas por el cliente a lo largo del minuto dan lugar a un código de error o no devuelven ninguna respuesta.
 
 ## Supervisión del rendimiento
 Como el sistema se somete a condiciones de carga cada vez mayores a medida que el volumen de usuarios incrementa y el tamaño de los conjuntos de datos a los que tienen acceso crece, los errores posibles en uno o varios componentes son cada vez más probables. Con frecuencia, el error de componentes está precedido por una disminución del rendimiento. Si puede detectar esa disminución, puede tomar medidas proactivas para remediar la situación.
@@ -283,14 +283,14 @@ Para examinar el uso del sistema, un operador normalmente necesitaría ver ciert
 - El volumen del almacenamiento de datos que ocupa cada usuario.
 - Los recursos a los que accede cada usuario.
 
-Un operador también debe ser capaz de generar gráficas; por ejemplo, mediante la visualización de los usuarios que utilizan más recursos o los recursos a los que se accede con más frecuencia.
+Un operador también debe ser capaz de generar gráficas, por ejemplo, mediante la visualización de los usuarios que usan más recursos o las características del sistema o los recursos a los que se accede con más frecuencia.
 
 ### Requisitos de colecciones de datos, instrumentación y orígenes de datos
 El seguimiento de uso se puede realizar en un nivel relativamente alto, teniendo en cuenta los tiempos de inicio y finalización de cada solicitud y la naturaleza de la misma (lectura, escritura, etc., según el recurso en cuestión). Puede obtener esta información mediante:
 
 - El seguimiento de la actividad de usuario.
 - La captura de los contadores de rendimiento que miden la utilización de cada recurso.
-- La supervisión del uso de CPU y E/S de las operaciones que realiza cada usuario.
+- La supervisión del consumo de recursos por cada usuario.
 
 Para fines de medición, también deberá ser capaz de identificar qué usuarios son responsables de realizar qué operaciones y los recursos que usan dichas operaciones. La información recopilada debe ser lo suficientemente detallada para permitir una factura precisa.
 
@@ -324,7 +324,7 @@ Para realizar un seguimiento de los eventos inesperados y otros problemas, es vi
 ### Requisitos de colecciones de datos, instrumentación y orígenes de datos
 La solución de problemas puede implicar tener que realizar un seguimiento de todos los métodos (y sus parámetros) que se invoquen como parte de una operación, para crear un árbol que represente el flujo lógico a través del sistema cuando un cliente realice una solicitud concreta. Se deben capturar y registrar las excepciones y advertencias que genera el sistema como resultado de este flujo.
 
-Para admitir la depuración, el sistema puede ofrecer enlaces que permitan que un operador capture información de estado en los puntos esenciales del sistema o que entregue información detallada paso a paso como el progreso de las operaciones seleccionadas. La captura de datos con este nivel de detalle puede imponer una carga adicional en el sistema que debería ser un proceso temporal, que principalmente se use cuando se produzca una serie de eventos muy poco habituales y que sean difíciles de replicar, o cuando una nueva versión de uno o varios elementos en un sistema requiera una supervisión cuidadosa para asegurarse de que funcionan según lo esperado.
+Para admitir la depuración, el sistema puede ofrecer enlaces que permitan que un operador capture información de estado en los puntos esenciales del sistema o que entregue información detallada paso a paso como el progreso de las operaciones seleccionadas. La captura de datos con este nivel de detalle puede imponer una carga adicional en el sistema y debería ser un proceso temporal, que principalmente se use cuando se produzca una serie de eventos muy poco habituales que sean difíciles de replicar, o cuando una nueva versión de uno o varios elementos en un sistema requiera una supervisión cuidadosa para asegurarse de que funcionan según lo esperado.
 
 ## La canalización de supervisión y diagnósticos
 La supervisión de un sistema distribuido a gran escala plantea un desafío importante y cada uno de los escenarios descritos en la sección anterior no se deben considerar necesariamente de forma aislada. Es probable que sea una superposición significativa en los datos de supervisión y diagnóstico necesarios para cada situación, aunque es posible que estos datos deban procesarse y presentarse de maneras distintas. Por estas razones, debe tener una vista holística de la supervisión y los diagnósticos.
@@ -446,7 +446,6 @@ Tenga en cuenta que se trata de una vista simplificada. El servicio de recopilac
 
 Para los servicios y aplicaciones de Azure, Diagnósticos de Azure (WAD) ofrece una solución posible para capturar los datos. WAD recopila datos de los siguientes orígenes para cada nodo de ejecución, los agrupa y, después, los carga en el almacenamiento de Azure:
 
-- Registros de Azure
 - Registros IIS
 - Registros de solicitudes con error de IIS
 - Registros de eventos de Windows
@@ -454,6 +453,8 @@ Para los servicios y aplicaciones de Azure, Diagnósticos de Azure (WAD) ofrece 
 - Volcados de memoria
 - Registros de infraestructura de diagnóstico de Azure  
 - Registros de errores personalizados
+- .NET EventSource
+- ETW basado en manifiesto
 
 Para obtener más información, consulte el artículo [Azure: conceptos básicos de la telemetría y solución de problemas](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx) en el sitio web de Microsoft.
 
@@ -465,7 +466,7 @@ Para optimizar el uso del ancho de banda, puede elegir transferir datos menos ur
 #### _Extracción e inserción de datos de instrumentación_
 El subsistema de recopilación de datos de instrumentación puede recuperar de forma activa datos de instrumentación de los distintos registros y otros orígenes para cada instancia de la aplicación (el _modelo de extracción_) o puede actuar como receptor pasivo esperando a que los datos se envíen desde los componentes que conforman cada instancia de la aplicación (el _modelo de inserción_).
 
-Un enfoque para implementar el modelo de extracción es usar agentes de supervisión que se ejecuten localmente con cada instancia de la aplicación. Un agente de supervisión es un proceso independiente que recupera periódicamente (extrae) datos de telemetría recopilados en el nodo local y escribe esta información directamente en un almacenamiento centralizado que comparten todas las instancias de la aplicación. Este es el mecanismo que implementa WAD. Cada instancia de un rol de trabajo o web de Azure puede configurarse para que capture información de diagnóstico y otra información de seguimiento, que se almacena localmente. El agente de supervisión que se ejecuta al mismo tiempo copia los datos especificados en el almacenamiento de Azure. La página [Configuración de los diagnósticos para los servicios en la nube y las máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/dn186185.aspx) del sitio web de Microsoft ofrece más detalles sobre este proceso. Algunos elementos, como los registros de IIS, los volcados de memoria y los registros de errores personalizados se escriben en el almacenamiento de blobs, mientras que los datos del registro de eventos de Windows, los eventos ETW y los contadores de rendimiento se registran en el almacenamiento de tablas. En la Ilustración 3 se muestra este mecanismo:
+Un enfoque para implementar el modelo de extracción es usar agentes de supervisión que se ejecuten localmente con cada instancia de la aplicación. Un agente de supervisión es un proceso independiente que recupera periódicamente (extrae) datos de telemetría recopilados en el nodo local y escribe esta información directamente en un almacenamiento centralizado que comparten todas las instancias de la aplicación. Este es el mecanismo que implementa WAD. Cada instancia de un rol de trabajo o web de Azure puede configurarse para que capture información de diagnóstico y otra información de seguimiento, que se almacena localmente. El agente de supervisión que se ejecuta al mismo tiempo copia los datos especificados en el almacenamiento de Azure. La página [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](cloud-services-dotnet-diagnostics.md) del sitio web de Microsoft ofrece más detalles sobre este proceso. Algunos elementos, como los registros de IIS, los volcados de memoria y los registros de errores personalizados se escriben en el almacenamiento de blobs, mientras que los datos del registro de eventos de Windows, los eventos ETW y los contadores de rendimiento se registran en el almacenamiento de tablas. En la Ilustración 3 se muestra este mecanismo:
 
 ![](media/best-practices-monitoring/PullModel.png)
 
@@ -473,7 +474,6 @@ _Ilustración 3: Uso de un agente de supervisión para extraer información y es
 
 > [AZURE.NOTE]El uso de un agente de supervisión es ideal para capturar datos de instrumentación que se extraen naturalmente de un origen de datos, como información de las vistas de administración de SQL Server o la longitud de una cola del Bus de servicio de Azure.
 
-Para obtener información sobre la configuración y el uso de Diagnósticos de Azure, visite la página [Recopilar datos de registro mediante Diagnósticos de Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) del sitio web de Microsoft.
 
 Los datos de telemetría para una aplicación a pequeña escala que se ejecuta en un número limitado de nodos se pueden almacenarse de forma factible en una sola ubicación mediante el enfoque descrito anteriormente. Sin embargo, una aplicación de la nube global, compleja y altamente escalable puede generar con facilidad grandes volúmenes de datos de cientos roles web y de trabajo, particiones de base de datos y otros servicios. Esta avalancha de datos podría sobrecargar fácilmente el ancho de banda de E/S disponible en una única ubicación central. Por lo tanto, la solución de telemetría debe ser escalable para evitar que actúe como un cuello de botella a medida que el sistema se amplíe y lo ideal es incorporar un grado de redundancia para reducir el riesgo de perder información importante de supervisión (por ejemplo, los datos de auditoría o de facturación) si se produce un error en una parte del sistema.
 
@@ -604,12 +604,11 @@ En muchos casos, los informes se pueden generar mediante procesos por lotes seg�
 ## Más información
 - El artículo[Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md) del sitio web de Microsoft.
 - El artículo [Azure: conceptos básicos de la telemetría y solución de problemas](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx) del sitio web de Microsoft.
-- La página [Recopilar datos de registro mediante Diagnósticos de Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) del sitio web de Microsoft.
-- La página [Configuración de los diagnósticos para los servicios en la nube y las máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/dn186185.aspx) del sitio web de Microsoft.
+- La página [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](cloud-services-dotnet-diagnostics.md) del sitio web de Microsoft.
 - Las páginas [Caché en Redis de Azure](http://azure.microsoft.com/services/cache/), [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) y [HDInsight](http://azure.microsoft.com/services/hdinsight/) del sitio web de Microsoft.
-- La página [cómo usar las colas del Bus de servicio](http://azure.microsoft.com/) del sitio web de Microsoft.
+- La página [cómo usar las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md) del sitio web de Microsoft.
 - El artículo [Business Intelligence de SQL Server en Máquinas virtuales de Azure](./virtual-machines/virtual-machines-sql-server-business-intelligence.md) del sitio web de Microsoft.
-- La página [Descripción de la supervisión de alertas y notificaciones en Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) del sitio web de Microsoft.
-- La página de [Application Insights](app-insights-get-started/) del sitio web de Microsoft.
+- Las páginas [Recibir notificaciones de alerta](insights-receive-alert-notifications.md) y [Seguimiento del estado del servicio](insights-service-health.md) del sitio web de Microsoft.
+- La página de [Application Insights](app-insights-get-started.md) del sitio web de Microsoft.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="12/18/2015"
 	ms.author="billmath;andkjell"/>
 
 # Habilitación de escritura diferida de dispositivos en Azure AD Connect
@@ -26,6 +26,9 @@ Esto ofrece seguridad adicional y la garantía de que el acceso a las aplicacion
 
 >[AZURE.NOTE]Se necesita una suscripción a Azure AD Premium para la reescritura de dispositivos.
 
+.
+
+>[AZURE.IMPORTANT]Los dispositivos deben encontrarse en el mismo bosque que los usuarios. Puesto que los dispositivos deben volver a escribir en un único bosque, esta característica no admite actualmente una implementación con varios bosques de usuarios.
 
 ## Parte 1: Instalación de Azure AD Connect
 1. Instale Azure AD Connect mediante la configuración rápida o personalizada. Para empezar, se recomienda tener sincronizados correctamente todos los usuarios y grupos antes de habilitar la reescritura de dispositivos.
@@ -64,8 +67,8 @@ Parámetros:
 Lleve a cabo el siguiente procedimiento para habilitar la reescritura de dispositivos en Azure AD Connect.
 
 1.	Ejecute de nuevo el Asistente para la instalación. Seleccione **Personalizar las opciones de sincronización** en la página Tareas adicionales y haga clic en **Siguiente**. ![Instalación personalizada](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback2.png)
-2.	En la página Características opcionales, la reescritura de dispositivos ya no estará atenuada. Tenga en cuenta que si no se completan los pasos preparatorios de Azure AD Connect, la reescritura de dispositivos se atenuará en la página de características opcionales. Active la casilla para la reescritura de dispositivos y haga clic en **Siguiente**. Si la casilla sigue desactivada, consulte la [sección de solución de problemas](#the-writeback-checkbox-is-still-disabled). ![Escritura diferida de dispositivos](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback3.png)
-3.	En la página de reescritura, verá el dominio suministrado como el bosque de reescritura de dispositivos predeterminado. ![Instalación personalizada](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback4.png)
+2.	En la página Características opcionales, la reescritura de dispositivos ya no estará atenuada. Tenga en cuenta que si no se completan los pasos preparatorios de Azure AD Connect, la reescritura de dispositivos se atenuará en la página de características opcionales. Active la casilla para la escritura diferida de dispositivos y haga clic en **Siguiente**. Si la casilla sigue desactivada, vea la [sección de solución de problemas](#the-writeback-checkbox-is-still-disabled). ![Escritura diferida de dispositivos](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback3.png)
+3.	En la página de escritura diferida, verá el dominio suministrado como el bosque de escritura diferida de dispositivos predeterminado. ![Instalación personalizada](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback4.png)
 4.	Complete la instalación del asistente sin realizar ningún cambio de configuración adicional. En caso necesario, consulte [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 
@@ -126,4 +129,4 @@ Compruebe la configuración de Active Directory:-Compruebe que el servicio de re
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

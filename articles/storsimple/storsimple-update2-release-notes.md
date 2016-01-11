@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="12/22/2015"
    ms.author="v-sharos" />
 
 # Notas de la versión de la actualización 2 de la serie StorSimple 8000  
@@ -28,7 +28,7 @@ Revise la información contenida en las notas de la versión antes de implementa
 >[AZURE.IMPORTANT]
 > 
 - Esta actualización tarda aproximadamente 4-7 horas en instalarse (incluidas las actualizaciones de Windows). 
-- La actualización 2 tiene actualizaciones de software, USM, controlador LSI y firmware de SSD.
+- La actualización 2 tiene actualizaciones de software, controlador LSI y firmware de SSD.
 - Para las nuevas versiones, no podrán ver las actualizaciones de inmediato porque hacemos una implementación por fases de las actualizaciones. Espere unos días y luego busque actualizaciones de nuevo ya que estas estarán disponibles pronto.
 
 
@@ -55,7 +55,6 @@ La actualización 2 presenta las siguientes características nuevas.
 - **Mejoras en las actualizaciones**: en la actualización 1.2 y en las versiones anteriores, la serie StorSimple 8000 se ha actualizado a través de dos canales: Windows Update para la agrupación en clústeres, iSCSI, y así sucesivamente, y Microsoft Update para los archivos binarios y el firmware. La actualización 2 usa Microsoft Update para todos los paquetes de actualizaciones. Esto debería reducir el tiempo de la aplicación de revisiones o de la realización de conmutaciones por error.
 
 - **Actualizaciones de firmware**: se incluyen las siguientes actualizaciones del firmware:
-    - USM 3.33 RC5
     - LSI: versión del producto 2.00.72.10 lsi\_sas2.sys
     - SSD solo (ninguna actualización de la unidad de disco duro): XMGG, XGEG, KZ50, F6C2 y VR08
 
@@ -81,7 +80,7 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
 | 1 | Cuórum de disco | En raras ocasiones, si se desconecta la mayoría de los discos en el revestimiento de EBOD de un dispositivo 8600 y no se produce un cuórum de disco, el grupo de almacenamiento se desconectará. Seguirá desconectado incluso si se vuelven a conectar los discos. | Necesitará reiniciar el dispositivo. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft para conocer los pasos siguientes. | Sí | No |
 | 2 | Identificador de controlador incorrecto | Cuando se realiza un reemplazo de controlador, el controlador 0 puede aparecer como controlador 1. Durante el reemplazo de controlador, cuando se carga la imagen desde el nodo del mismo nivel, el identificador de controlador puede mostrarse inicialmente como el identificador del controlador del mismo nivel. En raras ocasiones, este comportamiento también puede aparecer después del reinicio del sistema. | No se requiere ninguna acción del usuario. La situación se solucionará una vez completado el reemplazo del controlador. | Sí | No |
-| 3 | Cuentas de almacenamiento | El uso del servicio de almacenamiento para eliminar la cuenta de almacenamiento es un escenario no admitido. Esto provocará una situación en la que no se pueden recuperar los datos de usuario. | Sí | Sí |
+| 3 | Cuentas de almacenamiento | El uso del servicio de almacenamiento para eliminar la cuenta de almacenamiento es un escenario no admitido. Esto provocará una situación en la que no se pueden recuperar los datos de usuario.| | Sí | Sí |
 | 4 | Conmutación por error del dispositivo | No se admiten varias conmutaciones por error de un contenedor de volúmenes del mismo dispositivo de origen a diferentes dispositivos de destino. La conmutación por error de un único dispositivo inactivo a varios dispositivos hará que los contenedores de volúmenes del primer dispositivo conmutado por error pierdan la propiedad de los datos. Después de este tipo de conmutación por error, estos contenedores de volúmenes aparecerán o se comportarán de forma diferente cuando se visualicen en el Portal de Azure clásico. | | Sí | No |
 | 5 | Instalación | Durante la instalación del adaptador de StorSimple para SharePoint, deberá proporcionar una dirección IP de dispositivo para que la instalación finalice correctamente. | | Sí | No |
 | 6 | Proxy web | Si la configuración de proxy web tiene HTTPS como protocolo especificado, la comunicación de dispositivo a servicio se verá afectada y el dispositivo se desconectará. También se generarán paquetes de compatibilidad en el proceso, que consumen muchos recursos en el dispositivo. | Asegúrese de que la dirección URL del proxy web tiene HTTP como protocolo especificado. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](storsimple-configure-web-proxy.md). | Sí | No |
@@ -93,18 +92,23 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 | 12| Migración | Una vez completada la migración, el dispositivo de las series 5000/7000 no debe tener acceso a los contenedores de datos migrados. | Cuando la migración finaliza y se envía, se recomienda eliminar los contenedores de datos migrados. | Sí | No |
 | 13| Clonación y recuperación ante desastres | Los dispositivos StorSimple con la actualización 1 no se pueden clonar. Tampoco se puede realizar la recuperación ante desastres en un dispositivo que ejecute el software anterior a la actualización 1. | Para que se puedan realizar estas operaciones, tendrá que implementar la actualización 1 en el dispositivo de destino | Sí | Sí |
 | 14 | Migración | En los dispositivos de las series 5000-7000, se puede producir un error en la copia de seguridad de la configuración para la migración cuando haya grupos de volúmenes sin volúmenes asociados. | Elimine todos los grupos de volúmenes vacíos sin volúmenes asociados y vuelva a intentar realizar la copia de seguridad de la configuración.| Sí | No |
-| 15 | Cmdlets de Azure PowerShell y volúmenes anclados localmente | No se puede crear un volumen anclado localmente mediante los cmdlets de Azure PowerShell. (Se puede almacenar en capas cualquier volumen creado con Azure PowerShell). |Utilice siempre el servicio del administrador de StorSimple para configurar volúmenes anclados localmente.|
-| 16 |Espacio disponible para los volúmenes anclados localmente | Si elimina un volumen anclado localmente, puede que el espacio disponible para los volúmenes nuevos no se actualice inmediatamente. El servicio del administrador de StorSimple actualiza el espacio local disponible aproximadamente cada hora.| Espere una hora antes de intentar crear el nuevo volumen. |
+| 15 | Cmdlets de Azure PowerShell y volúmenes anclados localmente | No se puede crear un volumen anclado localmente mediante los cmdlets de Azure PowerShell. (Se puede almacenar en capas cualquier volumen creado con Azure PowerShell). |Utilice siempre el servicio del administrador de StorSimple para configurar volúmenes anclados localmente.| Sí | No |
+| 16 |Espacio disponible para los volúmenes anclados localmente | Si elimina un volumen anclado localmente, puede que el espacio disponible para los volúmenes nuevos no se actualice inmediatamente. El servicio del administrador de StorSimple actualiza el espacio local disponible aproximadamente cada hora.| Espere una hora antes de intentar crear el nuevo volumen. | Sí | No |
+| 17 | Volúmenes anclados localmente | El trabajo de restauración expone la copia de seguridad de instantánea temporal en el catálogo de copia de seguridad, pero solo para la duración de la tarea de restauración. | Este comportamiento puede producirse si el trabajo de restauración ha anclado solo localmente volúmenes o una mezcla de volúmenes nivelados y anclados localmente. Si el trabajo de restauración incluye solo volúmenes nivelados, este comportamiento no se producirá. No se requiere ninguna intervención del usuario. | Sí | No |
+| 18 | Volúmenes anclados localmente | Si cancela un trabajo de restauración y se produce una conmutación por error de controlador inmediatamente después, el trabajo de restauración mostrará **Cancelado** en lugar de **Erróneo**. Si se produce un error en un trabajo de restauración y se produce una conmutación por error de controlador inmediatamente después, el trabajo de restauración mostrará **Cancelado** en lugar de **Erróneo**. | Este comportamiento puede producirse si el trabajo de restauración ha anclado solo localmente volúmenes o una mezcla de volúmenes nivelados y anclados localmente. Si el trabajo de restauración incluye solo volúmenes nivelados, este comportamiento no se producirá. No se requiere ninguna intervención del usuario. | Sí | No |
+| 19 |Volúmenes anclados localmente | Si se cancela un trabajo de restauración o si se produce un error en una restauración y, a continuación, se produce una conmutación por error de controlador, aparece un trabajo de restauración adicional en la página **Trabajos**. | Este comportamiento puede producirse si el trabajo de restauración ha anclado solo localmente volúmenes o una mezcla de volúmenes nivelados y anclados localmente. Si el trabajo de restauración incluye solo volúmenes nivelados, este comportamiento no se producirá. No se requiere ninguna intervención del usuario. | Sí | No |
+| 20 | |Vista previa del mensaje en la creación del servicio StorSimple Manager | El mensaje de vista previa que se muestra en la creación de un servicio StorSimple Manager solo es aplicable a la serie de la matriz virtual de Microsoft Azure StorSimple. La serie de la matriz virtual se inició recientemente y es una vista previa que se ofrece en este momento, con las [condiciones complementarias de vista previa](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). El servicio StorSimple Manager y la serie del dispositivo físico StorSimple son soluciones de disponibilidad general y los términos complementarios de vista previa no se aplican a ellos. | | |
+| 21 |Volúmenes anclados localmente | El trabajo de restauración expone un grupo de disco virtual con el prefijo **tmpCollection** en la página **Directivas de copia de seguridad**, pero solo para la duración de la tarea de restauración.|Este comportamiento puede producirse si el trabajo de restauración ha anclado solo localmente volúmenes o una mezcla de volúmenes nivelados y anclados localmente. Si el trabajo de restauración incluye solo volúmenes nivelados, este comportamiento no se producirá. No se requiere ninguna intervención del usuario.|
 
 ## Actualizaciones del firmware y del controlador en la actualización 2
 
 Esta versión actualiza el controlador y el firmware del disco en el dispositivo.
  
-- Para obtener más información sobre la actualización del firmware de USM y LSI, consulte el artículo 3121900 de Microsoft Knowledge Base. 
+- Para obtener más información sobre la actualización del firmware de LSI, consulte el artículo 3121900 de Microsoft Knowledge Base. 
 - Para obtener más información sobre la actualización del firmware del disco, consulte el artículo 3121899 de Microsoft Knowledge Base.
  
 ## Actualizaciones del dispositivo virtual en la actualización 2
 
 No se puede aplicar esta actualización al dispositivo virtual. Deben crearse nuevos dispositivos virtuales.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

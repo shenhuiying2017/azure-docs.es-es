@@ -22,17 +22,17 @@ Como administrador, existen escenarios en los que deseará bloquear una suscripc
 
 El Administrador de recursos de Azure proporciona la capacidad para restringir las operaciones en los recursos a través de bloqueos de administración de recursos. Los bloqueos son directivas que aplican un nivel de bloqueo en un ámbito determinado. El ámbito puede ser una suscripción, un grupo de recursos o un recurso. El nivel de bloqueo identifica el tipo de cumplimiento para la directiva, que actualmente tiene dos valores: **CanNotDelete** y **ReadOnly**. **CanNotDelete** significa que los usuarios autorizados todavía pueden leer y modificar recursos, pero no pueden eliminar ninguno de los recursos restringidos. **ReadOnly** significa que los usuarios autorizados todavía pueden leer el recurso, pero no pueden modificar ni eliminar ninguno de los recursos restringidos.
 
-Los bloqueos son diferentes del uso del control de acceso basado en rol para asignar permisos de usuario para realizar determinadas acciones. Para obtener información sobre cómo establecer permisos para usuarios y roles, consulte [Control de acceso basado en roles en el portal](role-based-access-control-configure.md) y [Administración y auditoría del acceso a los recursos](resource-group-rbac.md). Al contrario que con el control de acceso basado en rol, se usan los bloqueos de administración para aplicar una restricción a todos los usuarios y roles, y normalmente se aplican los bloqueos solo durante un tiempo limitado.
+Los bloqueos son diferentes del uso del control de acceso basado en rol para asignar permisos de usuario para realizar determinadas acciones. Para información sobre cómo establecer permisos para usuarios y roles, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md). Al contrario que con el control de acceso basado en rol, se usan los bloqueos de administración para aplicar una restricción a todos los usuarios y roles, y normalmente se aplican los bloqueos solo durante un tiempo limitado.
 
 ## Escenarios comunes
 
-Un escenario común es cuando tiene un grupo de recursos con algunos recursos que se usa en un patrón de activación y desactivación. Los recursos de máquinas virtuales se activan periódicamente para procesar los datos para un intervalo de tiempo determinado y, luego, se desactivan. En este escenario, querrá habilitar el apagado de las máquinas virtuales, pero es fundamental que no se elimine una cuenta de almacenamiento. En este escenario, se usaría un bloqueo de recurso con un nivel de bloqueo **CanNotDelete** en la cuenta de almacenamiento.
+Un escenario común es cuando tiene un grupo de recursos con algunos recursos que se usa en un patrón de activación y desactivación. Los recursos de máquinas virtuales se activan periódicamente para procesar los datos para un intervalo de tiempo determinado y, luego, se desactivan. En este escenario, querrá habilitar el apagado de las máquinas virtuales, pero es fundamental que no se elimine una cuenta de almacenamiento. En este escenario, se utilizaría un bloqueo de recurso con un nivel de bloqueo **CanNotDelete** en la cuenta de almacenamiento.
 
 En otro escenario, su empresa puede tener períodos en los que no desea que las actualizaciones pasen a la fase de producción. El nivel de bloqueo **ReadOnly** detiene la creación o las actualizaciones. Si es una compañía de venta directa, es posible que no desee permitir las actualizaciones durante los períodos de compra de vacaciones. Si es una empresa de servicios financieros, probablemente tenga restricciones relacionadas con las implementaciones durante ciertas horas del mercado. Un bloqueo de recurso puede proporcionar una directiva para bloquear los recursos según corresponda. Esto puede aplicarse a determinados recursos o a la totalidad del grupo de recursos.
 
 ## Quién puede crear o eliminar bloqueos en su organización
 
-Para crear o eliminar bloqueos de administración, debe tener acceso a las acciones **Microsoft.Authorization/*** o **Microsoft.Authorization/locks/***. Entre los roles integrados, solamente se conceden esas acciones a **Propietario** y **Administrador de acceso de usuarios**. Para obtener más información sobre la asignación del control de acceso, consulte [Administración y auditoría del acceso a los recursos](resource-group-rbac.md).
+Para crear o eliminar bloqueos de administración, debe tener acceso a las acciones **Microsoft.Authorization/*** o **Microsoft.Authorization/locks/***. Entre los roles integrados, solamente se conceden esas acciones a **Propietario** y **Administrador de acceso de usuarios**. Para más información sobre la asignación del control de acceso, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
 
 ## Herencia de bloqueo
 
@@ -89,7 +89,7 @@ En la solicitud, incluya un objeto JSON que especifique las propiedades para el 
 
 Para el nivel de bloqueo, especifique **CanNotDelete** o **ReadOnly**.
 
-Para obtener ejemplos, consulte la [API de REST para bloqueos de administración](https://msdn.microsoft.com/library/azure/mt204563.aspx).
+Para ejemplos, vea la [API de REST para bloqueos de administración](https://msdn.microsoft.com/library/azure/mt204563.aspx).
 
 ## Creación de un bloqueo con Azure PowerShell
 
@@ -99,13 +99,13 @@ Puede bloquear los recursos implementados con Azure PowerShell mediante **New-Az
 
     PS C:\> New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites
 
-Azure PowerShell proporciona otros comandos para bloqueos de trabajo, como **Set-AzureRmResourceLock** para actualizar un bloqueo y **Remove-AzureRmResourceLock** para eliminarlo.
+Azure PowerShell ofrece otros comandos para bloqueos de trabajo, como **Set-AzureRmResourceLock** para actualizar un bloqueo y **Remove-AzureRmResourceLock** para eliminarlo.
 
 ## Pasos siguientes
 
-- Para obtener más información sobre cómo trabajar con bloqueos de recursos, consulte [Bloqueo de los recursos de Azure](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx).
-- Para aprender a organizar de manera lógica los recursos, consulte [Uso de etiquetas para organizar sus recursos](resource-group-using-tags.md).
-- Para cambiar el grupo de recursos en que reside un recurso, consulte [Traslado de los recursos a un nuevo grupo de recursos](resource-group-move-resources.md).
-- Puede aplicar restricciones y convenciones a través de su suscripción con directivas personalizadas. Para obtener más información, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
+- Para más información sobre cómo trabajar con bloqueos de recursos, vea [Bloqueo de los recursos de Azure](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx).
+- Para aprender a organizar de manera lógica los recursos, vea [Uso de etiquetas para organizar sus recursos](resource-group-using-tags.md).
+- Para cambiar el grupo de recursos en que reside un recurso, vea [Traslado de los recursos a un nuevo grupo de recursos](resource-group-move-resources.md).
+- Puede aplicar restricciones y convenciones a través de su suscripción con directivas personalizadas. Para más información, vea [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

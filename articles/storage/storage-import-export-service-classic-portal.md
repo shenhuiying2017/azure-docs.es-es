@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Uso de la importación y exportación para transferir datos al almacenamiento en blobs | Microsoft Azure" 
-	description="Aprenda a crear trabajos de importación y exportación en el Portal de administración de Azure para transferir datos al almacenamiento en blobs." 
+	description="Aprenda a crear trabajos de importación y exportación en el Portal de Azure clásico para transferir datos al almacenamiento de blobs." 
 	authors="robinsh" 
 	manager="carmonm" 
 	editor="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="12/22/2015" 
 	ms.author="robinsh"/>
 
 
@@ -29,10 +29,10 @@ Para transferir un gran conjunto de datos de archivo al almacenamiento de blobs,
 
 Puede crear y administrar los trabajos de importación y exportación de las dos siguientes maneras:
 
-- Mediante el Portal de administración de Azure.
+- Mediante el Portal de Azure clásico.
 - Mediante la interfaz REST del servicio.
 
-Este artículo proporciona un resumen del servicio de importación y exportación y describe la forma en que se debe utilizar el Portal de administración para hacer uso del servicio de importación/exportación. Para obtener más información acerca de la API de REST, consulte [Referencia de la API de REST del servicio de importación y exportación](http://go.microsoft.com/fwlink/?LinkID=329099).
+Este artículo proporciona información general acerca del servicio de Importación/Exportación y describe la forma en que se debe utilizar el Portal clásico para hacer uso del servicio de Importación/Exportación. Para obtener más información acerca de la API de REST, consulte [Referencia de la API de REST del servicio de importación y exportación](http://go.microsoft.com/fwlink/?LinkID=329099).
 
 ## Introducción al servicio de importación y exportación ##
 
@@ -60,7 +60,7 @@ Cuando cree un trabajo de importación o de exportación, deberá tener también
 
   >[AZURE.IMPORTANT]No se admiten unidades de disco duro externas que incorporen un adaptador USB integrado en este servicio. No prepare una unidad de disco duro externa. El disco que se encuentra dentro de la carcasa externa tampoco no se puede usar para importar datos. Use una unidad de disco duro **interna** SATA II/III de 3,5 pulgadas. Si no puede conectar el disco SATA directamente a la máquina, use un adaptador SATA a USB externo. Consulte la lista de adaptadores recomendados en la sección de preguntas más frecuentes.
 
-## Creación de un trabajo de importación en el Portal de administración##
+## Crear un trabajo de importación en el Portal clásico##
 
 Cree un trabajo de importación para notificar al servicio de importación y exportación que va a enviar al centro de datos una o varias unidades que contienen datos que desea importar a su cuenta de almacenamiento.
 
@@ -78,7 +78,7 @@ La herramienta de importación y exportación de Microsoft Azure genera un archi
 
 ### Creación del trabajo de importación
 
-1.	Una vez preparada la unidad, diríjase a su cuenta de almacenamiento en el Portal de administración y visualice el Panel. En **vista rápida**, haga clic en **Crear un trabajo de importación**. 
+1.	Una vez preparada la unidad, diríjase a su cuenta de almacenamiento en el Portal clásico y visualice el Panel. En **vista rápida**, haga clic en **Crear un trabajo de importación**. 
  
 2.	En el paso 1 del asistente, indique que ha preparado su unidad y que tiene el archivo de diario de la unidad disponible.
  
@@ -98,17 +98,17 @@ La herramienta de importación y exportación de Microsoft Azure genera un archi
 
 	Si todavía no tiene un número de seguimiento, elija **Facilitaré mi información de envío para este trabajo de importación cuando haya enviado mi paquete** y, a continuación, finalice el proceso de importación.
 
-7. Para escribir el número de seguimiento después de haber enviado el paquete, vuelva a la página **Importación/Exportación** de su cuenta de almacenamiento en el Portal de administración, seleccione el trabajo en la lista y elija **Información de envío**. Navegue por el asistente y escriba el número de seguimiento en el paso 2.
+7. Para escribir el número de seguimiento después de haber enviado el paquete, vuelva a la página **Importación/Exportación** de su cuenta de almacenamiento en el Portal clásico, seleccione el trabajo en la lista y elija **Información de envío**. Navegue por el asistente y escriba el número de seguimiento en el paso 2.
 	
 	Si el número de seguimiento no se actualiza dentro del plazo de 2 semanas desde la creación del trabajo, este expirará.
 
 	Si el estado se encuentra en estado de creación, envío o transferencia, también puede actualizar el número de cuenta del transportista en el paso 2 del asistente. Una vez que el trabajo se encuentre en estado de empaquetado, no podrá actualizar el número de cuenta del transportista de ese trabajo.
 
-## Creación de un trabajo de exportación en el Portal de administración##
+## Crear un trabajo de exportación en el Portal clásico##
 
 Cree un trabajo de exportación para notificar al servicio de importación y exportación que va a enviar al centro de datos una o varias unidades vacías, para que se exporten los datos de su cuenta de almacenamiento a las unidades y recibirlas posteriormente.
 
-1. 	Para crear un trabajo de exportación, diríjase a su cuenta de almacenamiento en el Portal de administración y visualice el Panel. En **vista rápida**, haga clic en **Crear un trabajo de exportación** y siga los pasos del asistente.
+1. 	Para crear un trabajo de exportación, diríjase a su cuenta de almacenamiento en el Portal clásico y vea el Panel. En **vista rápida**, haga clic en **Crear un trabajo de exportación** y siga los pasos del asistente.
 
 2. 	En el paso 2, proporcione la información de contacto de la persona responsable de este trabajo de exportación. Si desea guardar datos de registro detallados del trabajo de exportación, active la opción **Guardar el registro detallado en mi contenedor de blobs 'waimportexport'**.
 
@@ -142,7 +142,7 @@ Cree un trabajo de exportación para notificar al servicio de importación y exp
 
 	Si todavía no tiene un número de seguimiento, elija **Proporcionaré la información de envío de este trabajo de exportación cuando haya enviado el paquete** y, a continuación, finalice el proceso de exportación.
 
-6. Para escribir el número de seguimiento después de haber enviado el paquete, vuelva a la página **Importación/Exportación** de su cuenta de almacenamiento en el Portal de administración, seleccione el trabajo en la lista y elija **Información de envío**. Navegue por el asistente y escriba el número de seguimiento en el paso 2.
+6. Para escribir el número de seguimiento después de haber enviado el paquete, vuelva a la página **Importación/Exportación** de su cuenta de almacenamiento en el Portal clásico, seleccione el trabajo en la lista y elija **Información de envío**. Navegue por el asistente y escriba el número de seguimiento en el paso 2.
 	
 	Si el número de seguimiento no se actualiza dentro del plazo de 2 semanas desde la creación del trabajo, este expirará.
 
@@ -150,9 +150,9 @@ Cree un trabajo de exportación para notificar al servicio de importación y exp
 
 > [AZURE.NOTE]Si el blob que se va a exportar está en uso en el momento de la copia en la unidad de disco duro, el servicio de importación y exportación de Azure tomará una instantánea del blob y copiará la instantánea.
 
-## Seguimiento del estado de los trabajos en el Portal de administración##
+## Seguimiento del estado de los trabajos en el Portal clásico##
 
-Puede realizar el seguimiento del estado de sus trabajos de importación y exportación desde el Portal de administración. Diríjase a su cuenta de almacenamiento en el Portal de administración y haga clic en la pestaña **Importación/Exportación**. En la página aparecerá una lista con sus trabajos. Puede filtrar la lista en función del estado del trabajo, el nombre del trabajo, el tipo de trabajo o el número de seguimiento.
+Puede realizar el seguimiento del estado de sus trabajos de importación y exportación desde el Portal clásico. Diríjase a su cuenta de almacenamiento en el Portal clásico y haga clic en la pestaña **Importación/Exportación**. En la página aparecerá una lista con sus trabajos. Puede filtrar la lista en función del estado del trabajo, el nombre del trabajo, el tipo de trabajo o el número de seguimiento.
 
 La tabla describe lo que significa cada designación de estado del trabajo.
 
@@ -167,7 +167,7 @@ Complete|El disco duro ya se le ha enviado.
 
 ## Visualización de claves de BitLocker de un trabajo de exportación ##
 
-Para los trabajos de exportación, puede visualizar y copiar las claves de BitLocker que ha generado este servicio para su unidad, de modo que pueda descifrar los datos exportados cuando haya recibido las unidades del centro de datos de Azure. Diríjase a su cuenta de almacenamiento en el Portal de administración y haga clic en la pestaña **Importación/Exportación**. Seleccione su trabajo de exportación de la lista y haga clic en el botón **Ver claves**. Las claves de BitLocker se ven como se muestra a continuación:
+Para los trabajos de exportación, puede visualizar y copiar las claves de BitLocker que ha generado este servicio para su unidad, de modo que pueda descifrar los datos exportados cuando haya recibido las unidades del centro de datos de Azure. Diríjase a su cuenta de almacenamiento en el Portal clásico y haga clic en la pestaña **Importación/Exportación**. Seleccione su trabajo de exportación de la lista y haga clic en el botón **Ver claves**. Las claves de BitLocker se ven como se muestra a continuación:
 
 ![Visualización de claves de BitLocker de un trabajo de exportación][export-job-bitlocker-keys]
 
@@ -212,7 +212,7 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 
 - Puede cancelar un trabajo si el estado es Creating o Shipping.
 
-**¿Durante cuánto tiempo puedo visualizar el estado de los trabajos completados en el Portal de administración?**
+**¿Durante cuánto tiempo puedo visualizar el estado de los trabajos completados en el Portal clásico?**
 
 - Puede ver el estado de los trabajos completados durante 90 días. Todos los trabajos completados se eliminarán una vez transcurrido ese plazo.
 
@@ -278,4 +278,4 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="12/17/2015"
    ms.author="tarcher" />
 
 # Administración de configuraciones de servicio y perfiles
@@ -41,16 +41,16 @@ También puede abrir el cuadro de diálogo **Administrar configuraciones** en la
 
 1. (Opcional) Para dar un nombre diferente a la configuración del servicio, elija la nueva configuración de servicio en la lista Nombre y, a continuación, haga clic en **Cambiar nombre**. En el cuadro de texto **Nombre**, escriba el nombre que desea usar para esta configuración de servicio y, a continuación, haga clic en **Aceptar**.
 
-    Se agrega un nuevo archivo de configuración de servicio denominado ServiceConfiguration.<New Name>.cscfg al proyecto de Azure en el Explorador de soluciones.
+    Se agrega un nuevo archivo de configuración de servicio denominado ServiceConfiguration.[Nuevo nombre].cscfg al proyecto de Azure en el Explorador de soluciones.
 
 
 ### Para eliminar una configuración de servicio
 
-1. En el Explorador de soluciones, abra el menú contextual del proyecto de Azure y, a continuación, haga clic en **Administrar configuraciones**.
+1. En el Explorador de soluciones, abra el menú contextual del proyecto de Azure y luego haga clic en **Administrar configuraciones**.
 
     Aparece el cuadro de diálogo **Administrar configuraciones de servicio**.
 
-1. Para eliminar una configuración de servicio, elija la configuración que desea eliminar de la lista **Nombre** y, a continuación, haga clic en **Quitar**. Aparece un cuadro de diálogo para verificar que desea eliminar esta configuración.
+1. Para eliminar una configuración de servicio, elija la configuración que quiera eliminar en la lista **Nombre** y luego haga clic en **Quitar**. Aparece un cuadro de diálogo para verificar que desea eliminar esta configuración.
 
 1. Hacer clic en **Eliminar**.
 
@@ -59,17 +59,17 @@ También puede abrir el cuadro de diálogo **Administrar configuraciones** en la
 
 ### Para cambiar el nombre de una configuración de servicio
 
-1. En el Explorador de soluciones, abra el menú contextual del proyecto de Azure y, a continuación, haga clic en **Administrar configuraciones**.
+1. En el Explorador de soluciones, abra el menú contextual del proyecto de Azure y luego haga clic en **Administrar configuraciones**.
 
     Aparece el cuadro de diálogo **Administrar configuraciones de servicio**.
 
-1. Para dar un nombre diferente a la configuración de servicio, elija la nueva configuración de servicio en la lista **Nombre** y, a continuación, haga clic en **Cambiar nombre**. En el cuadro de texto **Nombre**, escriba el nombre que desea usar para esta configuración de servicio y, a continuación, haga clic en **Aceptar**.
+1. Para dar un nombre diferente a la configuración de servicio, elija la nueva configuración de servicio en la lista **Nombre** y luego haga clic en **Cambiar nombre**. En el cuadro de texto **Nombre**, escriba el nombre que quiera usar para esta configuración de servicio y luego haga clic en **Aceptar**.
 
     Se cambia el nombre del archivo de configuración de servicio del proyecto de Azure en el Explorador de soluciones.
 
 ### Para cambiar una configuración de servicio
 
-- Si desea cambiar una configuración del servicio, abra el menú contextual del rol concreto que desea cambiar en el proyecto de Azure y, a continuación, haga clic en Propiedades. Para más información consulte [Configuración de los roles para un servicio en la nube de Azure con Visual Studio](https://msdn.microsoft.com/library/azure/hh369931.aspx).
+- Si desea cambiar una configuración del servicio, abra el menú contextual del rol concreto que desea cambiar en el proyecto de Azure y, a continuación, haga clic en Propiedades. Para más información vea [Configuración de los roles para un servicio en la nube de Azure con Visual Studio](https://msdn.microsoft.com/library/azure/hh369931.aspx).
 
 ## Uso de los perfiles para realizar diferentes combinaciones de valores
 
@@ -91,7 +91,7 @@ Al ejecutar el asistente por primera vez, se crea un perfil predeterminado. Visu
 
     ![Administrar diálogo de perfiles](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/manage-profiles.png)
 
-1. En la lista **Nombre**, elija un perfil y, a continuación, haga clic en **Crear copia**.
+1. En la lista **Nombre**, elija un perfil y luego haga clic en **Crear copia**.
 
 1. Elija el botón **Cerrar**.
 
@@ -99,7 +99,7 @@ Al ejecutar el asistente por primera vez, se crea un perfil predeterminado. Visu
 
 1. En la lista **Perfil de destino** , haga clic en el perfil que acaba de crear. La configuración del Asistente para publicación se rellena con las opciones del perfil seleccionado.
 
-1. Haga clic en los botones **Anterior** y **Siguiente** para mostrar cada página del Asistente para publicación y, a continuación, personalice la configuración para este perfil. Para más información consulte [Asistente para publicar aplicación de Azure](http://go.microsoft.com/fwlink/p/?LinkID=623085).
+1. Haga clic en los botones **Anterior** y **Siguiente** para mostrar cada página del Asistente para publicación y luego personalice la configuración para este perfil. Para más información vea [Asistente para publicar aplicación de Azure](http://go.microsoft.com/fwlink/p/?LinkID=623085).
 
 1. Cuando termine de personalizar la configuración, haga clic en **Siguiente** para volver a la página de configuración. El perfil se guarda cuando se publica el servicio usando estos valores o si hace clic en **Guardar** junto a la lista de perfiles.
 
@@ -109,7 +109,7 @@ Al ejecutar el asistente por primera vez, se crea un perfil predeterminado. Visu
 
 1. En la lista **Perfil de destino**, haga clic en **Administrar**.
 
-1. En el cuadro de diálogo **Administrar perfiles**, haga clic en el perfil que desea eliminar y, a continuación, haga clic en **Quitar**.
+1. En el cuadro de diálogo **Administrar perfiles**, haga clic en el perfil que quiere eliminar y luego haga clic en **Quitar**.
 
 1. En el cuadro de diálogo de confirmación que aparece, haga clic en **Aceptar**.
 
@@ -121,7 +121,7 @@ Al ejecutar el asistente por primera vez, se crea un perfil predeterminado. Visu
 
 1. En la lista **Perfil de destino** , haga clic en el perfil que quiera cambiar.
 
-1. Haga clic en los botones **Anterior** y **Siguiente** para mostrar cada página del Asistente para publicación y, a continuación, cambie los valores de configuración que quiera. Para más información consulte [Asistente para publicar aplicación de Azure](http://go.microsoft.com/fwlink/p/?LinkID=623085).
+1. Haga clic en los botones **Anterior** y **Siguiente** para mostrar cada página del Asistente para publicación y luego cambie los valores de configuración que quiera. Para más información vea [Asistente para publicar aplicación de Azure](http://go.microsoft.com/fwlink/p/?LinkID=623085).
 
 1. Cuando termine de cambiar la configuración, haga clic en **Siguiente** para volver a la página de **configuración**.
 
@@ -129,6 +129,6 @@ Al ejecutar el asistente por primera vez, se crea un perfil predeterminado. Visu
 
 ## Pasos siguientes
 
-Para obtener información acerca de cómo configurar otras partes de su proyecto de Azure desde Visual Studio, consulte [Configurar un proyecto de Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
+Para información sobre cómo configurar otras partes de su proyecto de Azure desde Visual Studio, vea [Configurar un proyecto de Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -14,14 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Conexión a la base de datos SQL mediante Node.js en Windows
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [C#](sql-database-develop-dotnet-simple.md)
+- [PHP](sql-database-develop-php-simple-windows.md)
+- [Python](sql-database-develop-python-simple-windows.md)
+- [Ruby](sql-database-develop-ruby-simple-windows.md)
+- [Java](sql-database-develop-java-simple-windows.md)
+- [Node.js](sql-database-develop-nodejs-simple-windows.md)
 
 
 Este tema presenta un ejemplo de código de Node.js que puede usar para conectarse a la base de datos SQL de Azure. El programa de Node.js se ejecuta en un equipo cliente de Windows. Para administrar la conexión, se usa el controlador msnodesql.
@@ -51,7 +57,7 @@ A continuación, navegue hasta la carpeta node\_modules\\msnodesql y ejecute el 
 
 ### Base de datos SQL
 
-Consulte la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
+Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
 
 
 ## Paso 1: Obtención de detalles de la conexión
@@ -226,6 +232,6 @@ Para que este ejemplo de código funcione, primero debe tener o crear un procedi
 
 ## Pasos siguientes
 
-Para más información, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/).
+Para más información, vea el [Centro para desarrolladores de Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

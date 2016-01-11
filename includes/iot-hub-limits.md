@@ -2,8 +2,7 @@ En la tabla siguiente se enumeran los límites asociados a los diferentes nivele
 
 | Recurso | S1 Estándar | S2 Estándar | F1 Gratis |
 | -------- | ----------- | ----------- | ------- |
-| Dispositivos/unidad | 500 | 500 | 10 |
-| Mensajes por día | 50\.000 | 1\.500.000 | 3\.000 |
+| Mensajes por día | 400\.000 | 6\.000.000 | 8\.000 |
 | Unidades máximas | 200 | 200 | 1 |
 | Actualizaciones de dispositivos (crear, actualizar, <br/> eliminar) por unidad al día | 1100 | 1100 | 1100 |
 
@@ -29,9 +28,9 @@ El servicio de Centro de IoT limita las solicitudes cuando se superan las cuotas
 
 | Limitación | Valor por centro |
 | -------- | ------------- |
-| Las operaciones de registro de identidades <br/> (crear, recuperar, enumerar, actualizar y eliminar), <br/> importación y exportación masiva o individual | 100/min/unidad, hasta 5.000/min |
+| Las operaciones de registro de identidades <br/> (crear, recuperar, enumerar, actualizar y eliminar), importación y exportación masiva o individual <br/> | 100/min/unidad, hasta 5.000/min |
 | Conexiones de dispositivos | 100/s/unidad |
-| Envíos de dispositivo a nube | 2000/min/unidad (para S2), 60/min/unidad (para S1) <br/> Mínimo de 100/seg |
+| Envíos de dispositivo a nube | 120/seg/unidad (para S2), 12/seg/unidad (para S1) <br/> Mínimo de 100/seg |
 | Operaciones de nube a dispositivo <br/> (envíos, recepciones, comentarios) | 100/min/unidad |
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1223_2015-->
