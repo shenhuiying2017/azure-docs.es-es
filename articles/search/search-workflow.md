@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="12/29/2015"
 	ms.author="heidist"/>
 
 # Flujo de trabajo de desarrollo típico para Búsqueda de Azure
@@ -42,7 +42,7 @@ Hay dos niveles de precios para elegir. Se recomienda el servicio compartido (gr
 
 Después de crear el servicio, está listo para crear un índice, empezando con su definición de esquema.
 
-La manera más rápida y fácil de crear un índice es a través del Portal de Azure clásico. Como mínimo, cada documento tiene que tener una clave única y al menos un campo que contenga datos que se puedan buscar. Para comenzar, consulte [Creación de un índice de Búsqueda de Azure en el portal](search-create-index-portal.md).
+La manera más rápida y fácil de crear un índice es a través del Portal de Azure. Como mínimo, cada documento tiene que tener una clave única y al menos un campo que contenga datos que se puedan buscar. Para comenzar, consulte [Creación de un índice de Búsqueda de Azure en el portal](search-create-index-portal.md).
 
 > [AZURE.NOTE]Dentro de un índice de Búsqueda de Azure
 >
@@ -73,7 +73,7 @@ Una segunda opción es escribir un programa sencillo mediante la API de REST o l
 - [Agregar, actualizar o eliminar documentos (API de REST)](https://msdn.microsoft.com/library/dn798930.aspx)
 - [DocumentOperationsExtensions Class](https://msdn.microsoft.com/library/microsoft.azure.search.documentoperationsextensions.aspx)
 
-Una tercera opción que funciona para los conjuntos de datos muy pequeños es usar [Fiddler](search-fiddler.md) o [Chrome Postman](search-chrome-postman.md) para cargar los documentos.
+Una tercera opción que funciona para los conjuntos de datos muy pequeños es usar [Fiddler](search-fiddler.md) para cargar los documentos.
 
 Una cuarta opción, posiblemente la más sencilla, consiste en tomar prestado el código bien del [ejemplo de la API de REST con C# de Adventure Works ](https://azuresearchadventureworksdemo.codeplex.com/) que carga los documentos desde una base de datos incrustada (.mdf) en la solución, o del [ejemplo de la API de REST con C# de perfiles de puntuación](https://azuresearchscoringprofiles.codeplex.com/) que carga los datos de archivos de datos JSON incluidos en la solución.
 
@@ -83,7 +83,7 @@ Una cuarta opción, posiblemente la más sencilla, consiste en tomar prestado el
 
 Una vez que se cargan los documentos en el índice, puede escribir la primera consulta.
 
-La forma más rápida de obtener los primeros resultados de búsqueda en el servicio de Búsqueda es con el uso de [Fiddler](search-fiddler.md) o [Chrome Postman](search-chrome-postman.md) para ver una respuesta, aunque de forma realista, lo mejor es escribir un código de interfaz de usuario simple para ver los resultados en un formato legible.
+La forma más rápida de obtener los primeros resultados de búsqueda en el servicio de Búsqueda es con el uso de [Fiddler](search-fiddler.md) para ver una respuesta, aunque de forma realista, lo mejor es escribir un código de interfaz de usuario simple para ver los resultados en un formato legible.
 
 Las API para las operaciones de búsqueda incluyen:
 
@@ -112,7 +112,7 @@ Ahora que tiene un servicio y un índice, puede experimentar con otras caracter�
 
 **Proveedores de sugerencias:** se refiere a la característica que autocompleta o anticipa la escritura de las consultas, devolviendo sugerencias para los términos de búsqueda a medida que el usuario escribe los primeros caracteres de una frase de búsqueda. Consulte [Sugerencias](https://msdn.microsoft.com/library/dn798936.aspx) o [Suggesters Class](https://msdn.microsoft.com/library/microsoft.azure.search.models.suggester.aspx) para obtener más información.
 
-**Analizadores de lenguaje:** proporcionan las reglas lingüísticas utilizadas durante el análisis de texto. El analizador de lenguaje predeterminado para Búsqueda de Azure es Lucene para inglés, pero se pueden utilizar otros o incluso varios analizadores especificándolos en el índice. Los analizadores de Lucene están disponibles en todas las API. Los procesadores de lenguaje natural de Microsoft solo están disponibles en [Versión de API de REST 2015-02-28 Preview](search-api-2015-02-28-preview.md). Consulte [Compatibilidad de idioma](https://msdn.microsoft.com/library/dn879793.aspx) para obtener más información.
+**Analizadores de lenguaje:** proporcionan las reglas lingüísticas utilizadas durante el análisis de texto. El analizador de lenguaje predeterminado para Búsqueda de Azure es Lucene para inglés, pero se pueden utilizar otros o incluso varios analizadores especificándolos en el índice. Los analizadores de Lucene están disponibles en todas las API. Los procesadores de lenguaje natural de Microsoft solo están disponibles en [Versión de API de REST 2015-02-28 Preview](search-api-2015-02-28-preview.md). Consulte [Compatibilidad de idioma ](https://msdn.microsoft.com/library/dn879793.aspx) para obtener más información.
 
 ### Paso 6: actualización de índices y documentos
 
@@ -140,7 +140,8 @@ Búsqueda de Azure proporciona dos modelos de programación: la biblioteca de .N
 
 Actualmente, un pequeño subconjunto de características no están aún en la biblioteca. NET, por lo que incluso si prefiere escribir código administrado, tendrá que usar la API de REST para obtener las características que desee. Características que solo están disponibles en la API de REST incluyen:
 
-- [Procesadores de lenguaje natural de Microsoft - solo vista previa](../search-api-2015-02-28-preview/)
+- [Analizadores personalizados: solo en versión preliminar](https://msdn.microsoft.com/library/azure/mt605304.aspx)
+- [Analizador de consultas de Lucene: solo en versión preliminar](https://msdn.microsoft.com/library/azure/mt589323.aspx)
 - [característica moreLikeThis - solo vista previa](../search-api-2015-02-28-preview/)
 - [API de REST de administración de Búsqueda de Azure](https://msdn.microsoft.com/library/dn832684.aspx)
 
@@ -190,4 +191,4 @@ Recuerde que solo el nivel de precios estándar se pueden escalar o reducir. Ade
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

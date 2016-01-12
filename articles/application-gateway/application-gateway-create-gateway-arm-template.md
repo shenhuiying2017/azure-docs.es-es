@@ -33,11 +33,6 @@ Aprenderá a descargar y modificar una plantilla de ARM existente desde GitHub, 
 Si simplemente va a implementar la plantilla ARM directamente desde GitHub, sin realizar ningún cambio, vaya a implementar una plantilla desde github.
 
 
->[AZURE.IMPORTANT]Antes de trabajar con recursos de Azure, es importante comprender que Azure tiene actualmente dos modelos de implementación: el Administrador de recursos y el clásico. Asegúrese de que comprende los [modelos de implementación y las herramientas](azure-classic-rm.md) antes de trabajar con recursos de Azure. Puede ver la documentación de las distintas herramientas haciendo clic en las pestañas de la parte superior de este artículo. Este documento tratará de la creación de una Puerta de enlace de aplicaciones con el Administrador de recursos de Azure. Para usar la versión básica, vaya a [crear una implementación clásica de la Puerta de enlace de aplicaciones con PowerShell](application-gateway-create-gateway.md).
-
-
-
-
 ## Escenario
 
 En este escenario, creará:
@@ -87,7 +82,7 @@ Puede descargar la plantilla ARM existente para crear una red virtual y dos subr
 	- **properties**. Lista de propiedades para el recurso. Esta plantilla usa la red virtual y la dirección IP pública durante la creación de la Puerta de enlace de aplicaciones.
 
 7. Vuelva a https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json.
-8. Haga clic en **azuredeploy-paremeters.json** y luego en **RAW**.
+8. Haga clic en **azuredeploy-paremeters.json**, y, a continuación, haga clic en **RAW**.
 9. Guarde el archivo en un una carpeta local en su equipo.
 10. Abra el archivo que acaba de guardar y edite los valores de los parámetros. Use los siguientes valores para implementar la red Puerta de enlace de aplicaciones que se describe en nuestro escenario.
 
@@ -122,19 +117,35 @@ Puede descargar la plantilla ARM existente para crear una red virtual y dos subr
 ## Implementación de la plantilla ARM con PowerShell
 
 1. Si es la primera vez que usa Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
-2. En un símbolo del sistema de Azure PowerShell, ejecute el cmdlet **Switch-AzureMode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
-		Switch-AzureMode AzureResourceManager
+### Paso 1
+
+		Login-AzureRmAccount
+
+
+
+### Paso 2
+
+Compruebe las suscripciones para la cuenta.
+
+		get-AzureRmSubscription 
+
+Se le pedirá que se autentique con sus credenciales.<BR>
+
+### Paso 3 
+
+Elija qué suscripción de Azure va a utilizar.<BR>
+
+
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+
+
+### Paso 4
+
 	
-Resultado esperado:
+En caso necesario, cree un nuevo grupo de recursos con el cmdlet `New-AzureResourceGroup`. En el ejemplo siguiente, creará un grupo de recursos denominado AppgatewayRG en la ubicación Este de EE. UU.:
 
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
->[AZURE.WARNING]El cmdlet Switch-AzureMode pronto estará en desuso. Cuando esto suceda, se cambiará el nombre de todos los cmdlets del Administrador de recursos.
-	
-3. En caso necesario, cree un nuevo grupo de recursos con el cmdlet `New-AzureResourceGroup`. En el ejemplo siguiente, creará un grupo de recursos denominado AppgatewayRG en la ubicación Este de EE. UU.:
-
-		PS C:\> New-AzureResourceGroup -Name AppgatewayRG -Location "East US"
+	 New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
 
 
@@ -149,9 +160,9 @@ Resultado esperado:
 
 		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
-4. Ejecute el cmdlet New-AzureResourceGroupDeployment para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que descargó y modificó antes.
+4. Ejecute el cmdlet New-AzureRmResourceGroupDeployment para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que descargó y modificó antes.
 
-		New-AzureResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+		New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
  		   -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 
 La salida generada por la línea de comandos será la siguiente:
@@ -180,7 +191,7 @@ La salida generada por la línea de comandos será la siguiente:
 
 Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
-1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalar y configurar la CLI de Azure](xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
 		azure config mode arm
@@ -264,7 +275,7 @@ En la hoja "implementación personalizada", haga clic en "crear".
  
 ## Pasos siguientes
 
-Si quiere configurar la descarga SSL, vea [Configuración de una Puerta de enlace de aplicaciones para descarga SSL](application-gateway-ssl.md).
+Si desea configurar la descarga SSL, consulte [Configuración de una puerta de enlace de aplicaciones para descarga SSL](application-gateway-ssl.md).
 
 Si quiere configurar una Puerta de enlace de aplicaciones para usarla con ILB, vea [Creación de una Puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
 
@@ -273,4 +284,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

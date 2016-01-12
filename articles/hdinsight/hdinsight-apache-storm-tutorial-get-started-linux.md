@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/05/2015"
    ms.author="larryfr"/>
 
 
@@ -32,7 +32,7 @@ Debe cumplir los siguientes requisitos previos para poder completar correctament
 
 - **Familiaridad con SSH y SCP**. Para obtener más información sobre el uso de SSH y SCP con HDInsight, vea lo siguiente:
 
-    - **Clientes Linux, Unix u OS X**: consulte [Uso de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+    - **Clientes Linux, Unix u OS X**: vea [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X (vista previa)](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 	- **Clientes Windows**: consulte [Uso de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
@@ -46,19 +46,21 @@ Storm en HDInsight usa el almacenamiento de blobs de Azure para almacenar archiv
 
 	![Creación de un clúster en el Portal de Azure](./media/hdinsight-apache-storm-tutorial-get-started-linux/new-cluster.png)
 
-3. Escriba un __Nombre de clúster__ y, a continuación, seleccione __Storm__ para el __Tipo de clúster__. Si está disponible, aparecerá una marca de verificación verde junto al __Nombre del clúster__.
+3. Escriba un __Nombre de clúster__ y, a continuación, seleccione __Storm__ para el __Tipo de clúster__. Si está disponible, aparecerá una marca de verificación verde junto al __Nombre de clúster__.
 
 	![Nombre del clúster, tipo de clúster y tipo de sistema operativo](./media/hdinsight-apache-storm-tutorial-get-started-linux/clustername.png)
 
 	Seleccione __Ubuntu__ para crear un clúster de HDInsight basado en Linux.
+    
+    > [AZURE.NOTE]Deje el campo __Versión__ en el valor predeterminado cuando realice los pasos de este documento.
 	
-4. Si tiene más de una suscripción, seleccione la entrada __Suscripción__ entrada para seleccionar la suscripción de Azure que se usará para el clúster.
+4. Si tienes más de una suscripción, selecciona la entrada __Suscripción__ entrada para seleccionar la suscripción de Azure que se usará para el clúster.
 
-5. Para el __Grupo de recursos__, puede seleccionar la entrada para ver una lista de grupos de recursos existentes y después seleccionar en el que quiera crear el clúster. También puede seleccionar __Crear nuevo__ y escribir el nombre del nuevo grupo de recursos. Aparecerá una marca de verificación verde para indicar si el nuevo nombre de grupo está disponible.
+5. Para el __Grupo de recursos__, puedes seleccionar la entrada para ver una lista de grupos de recursos existentes y después seleccionar en el que quieras crear el clúster. También puede seleccionar __Crear nuevo__ y escribir el nombre del nuevo grupo de recursos. Aparecerá una marca de verificación verde para indicar si el nuevo nombre de grupo está disponible.
 
 	> [AZURE.NOTE]Esta entrada se establecerá de manera predeterminada en uno de sus grupos de recursos existentes, si hay alguno disponible.
 
-6. Seleccione __Credenciales__ y después escriba una __Contraseña de inicio de sesión de clúster__ y un __Nombre de usuario de inicio de sesión de clúster__. También debe especificar un __Nombre de usuario de SSH__ y una __CONTRASEÑA__ o una __CLAVE PÚBLICA__, que se usarán para autenticar el usuario de SSH. Por último, use el botón __Seleccionar__ para establecer las credenciales.
+6. Selecciona __Credenciales__ y después escribe una __Contraseña de inicio de sesión de clúster__ y un __Nombre de usuario de inicio de sesión de clúster__. También tienes que especificar un __Nombre de usuario de SSH__ y una __CONTRASEÑA__ o una __CLAVE PÚBLICA__, que se usará para autenticar al usuario de SSH. Por último, use el botón __Seleccionar__ para establecer las credenciales.
 
 	![Hoja Credenciales de clúster](./media/hdinsight-administer-use-portal-linux/clustercredentials.png)
 
@@ -68,13 +70,15 @@ Storm en HDInsight usa el almacenamiento de blobs de Azure para almacenar archiv
 
 	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-6. En __Origen de datos__, puede seleccionar la entrada para elegir un origen de datos existente o crear uno nuevo.
+6. Como __Origen de datos__, puede seleccionar la entrada para elegir un origen de datos existente o crear uno nuevo.
 
 	![Hoja Origen de datos](./media/hdinsight-apache-storm-tutorial-get-started-linux/datasource.png)
 	
-	Actualmente puede seleccionar una cuenta de almacenamiento de Azure como origen de datos para un clúster de HDInsight. Use lo siguiente para comprender las entradas de la hoja __Origen de datos__.
+	Actualmente puede seleccionar una cuenta de almacenamiento de Azure como origen de datos para un clúster de HDInsight. Usa lo siguiente para comprender las entradas de la hoja de __Origen de datos__.
 	
-	- __Método de selección__: establézcalo en __De todas las suscripciones__ para habilitar la exploración de cuentas de almacenamiento en sus suscripciones. Establezca __Tecla de acceso__ si quiere especificar el __Nombre de almacenamiento__ y la __Tecla de acceso__ de una cuenta de almacenamiento existente.
+	- __Método de selección__: establézcalo en __De todas las suscripciones__ para habilitar la exploración de cuentas de almacenamiento en sus suscripciones. Establézcalo como __Tecla de acceso__ si desea especificar el __Nombre de almacenamiento__ y la __Tecla de acceso__ de una cuenta de almacenamiento existente.
+    
+    - __Seleccionar cuenta de almacenamiento__: si ya existe una cuenta de almacenamiento para su suscripción, úsela para seleccionar la cuenta que se utilizará para el clúster.
 	
 	- __Crear nuevo__: use esta opción para crear una nueva cuenta de almacenamiento. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparecerá una marca de verificación verde.
 	
@@ -83,20 +87,28 @@ Storm en HDInsight usa el almacenamiento de blobs de Azure para almacenar archiv
 	- __Ubicación__: la región geográfica en la que se encontrará o donde se creará la cuenta de almacenamiento.
 	
 		> [AZURE.IMPORTANT]Al seleccionar la ubicación del origen de datos predeterminado también establecerá la ubicación del clúster de HDInsight. El origen de datos predeterminado y el clúster deben encontrarse en la misma región.
+    
+    - __Identidad de AAD del clúster__: utilice esta opción para seleccionar una identidad de Azure Active Directory que usará el clúster para acceder al Almacén de Azure Data Lake.
+    
+        > [AZURE.NOTE]No se usa en este documento y puede dejarse en su valor predeterminado. Para más información sobre el uso de esta entrada y del Almacén de Azure Data Lake con HDInsight, consulte [Aprovisionamiento de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md).
 		
 	- __Seleccionar__: use esta opción para guardar la configuración del origen de datos.
 	
-7. Seleccione __Planes de tarifa de nodo__ para mostrar información sobre los nodos que se crearán para este clúster. De forma predeterminada, el número de nodos de trabajo será __4__. El costo estimado del clúster se mostrará en la parte inferior de esta hoja.
+7. Seleccione __Planes de tarifa de nodo__ para mostrar información sobre los nodos que se crearán para este clúster. De forma predeterminada, el número de nodos de trabajo se establecerá en __4__. El costo estimado del clúster se mostrará en la parte inferior de esta hoja.
 
 	![Hoja Niveles de precios de nodo](./media/hdinsight-apache-storm-tutorial-get-started-linux/nodepricingtiers.png)
 	
-	Use el botón __Seleccionar__ para guardar la información de __Planes de tarifa de nodo__.
+    Puede seleccionar cada tipo de nodo para cambiar el tipo de máquina virtual usado por estos nodos en el clúster. Deje la configuración predeterminada cuando realice los pasos de este documento.
+    
+	Use el botón __Seleccionar__ para guardar la información de los __Niveles de precios de nodo__.
 
-8. Seleccione __Configuración opcional__. Esta hoja le permite seleccionar la versión del clúster y configurar otros valores de configuración opcionales, como unir una __Red virtual__ o configurar una __Tienda de metadatos personalizada__ para almacenar datos de Hive y Oozie.
+8. Seleccione __Configuración opcional__. Esta hoja le permite unir el clúster a una __red virtual__, use __Acciones de script__ para personalizar el clúster o un __tienda de metadatos personalizada__ para almacenar los datos de Hive y Oozie.
 
 	![Hoja Configuración opcional](./media/hdinsight-apache-storm-tutorial-get-started-linux/optionalconfiguration.png)
+    
+    Deje esta configuración como __No configurado__ cuando realice los pasos de este documento.
 
-9. Asegúrese de que __Anclar a Panel de inicio__ está seleccionada y luego elija __Crear__. Esto creará el clúster y agregará un icono para él en el panel de inicio de su Portal de Azure. El icono indicará que el clúster está aprovisionando y cambiará para mostrar el icono de HDInsight cuando se haya completado el proceso.
+9. Asegúrese de que la opción __Anclar a Panel de inicio__ está seleccionada y luego elija __Crear__. Esto creará el clúster y agregará un icono para él en el panel de inicio de su Portal de Azure. El icono indicará que el clúster está aprovisionando y cambiará para mostrar el icono de HDInsight cuando se haya completado el proceso.
 
 	| Durante el aprovisionamiento | Aprovisionamiento completado |
 	| ------------------ | --------------------- |
@@ -112,7 +124,7 @@ Los ejemplos de [storm-starter](https://github.com/apache/storm/tree/master/exam
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 		
-	Si usó una contraseña para proteger la cuenta de usuario SSH, se le pedirá la contraseña. Si usa una clave pública, tal vez tenga que usar el parámetro `-i` para especificar la clave privada correspondiente. Por ejemplo: `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+	Si usó una contraseña para proteger la cuenta de usuario SSH, se le pedirá la contraseña. Si usa una clave pública, tal vez tenga que usar el parámetro `-i` para especificar la ruta de acceso a la correspondiente clave privada. Por ejemplo: `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 		
 	Para obtener más información sobre el uso de SSH con HDInsight basado en Linux, vea los siguientes artículos:
 	
@@ -176,7 +188,7 @@ Lleve a cabo los pasos siguientes para ver la interfaz de usuario de Storm:
 
 	* **Desactivar**: pausa una topología en ejecución.
 
-	* **Reequilibrar**: ajusta el paralelismo de la topología. Debe volver a equilibrar las topologías en ejecución después de haber cambiado el número de nodos del clúster. Esto permite que la topología ajuste el paralelismo para compensar el mayor o menor número de nodos del clúster. Para obtener más información, consulte [Descripción del paralelismo de una topología de Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+	* **Reequilibrar**: ajusta el paralelismo de la topología. Debe volver a equilibrar las topologías en ejecución después de haber cambiado el número de nodos del clúster. Esto permite que la topología ajuste el paralelismo para compensar el mayor o menor número de nodos del clúster. Para más información, consulte la entrada de blog [Understanding the parallelism of a Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
 	* **Eliminar**: finaliza una topología de Storm tras el tiempo de espera especificado.
 
@@ -233,4 +245,4 @@ En este tutorial de Apache Storm, usó el inicio de Storm para aprender a crear 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -85,7 +85,7 @@ A continuación, guarde el punto de conexión de la cuenta de DocumentDB y la cl
     private const string EndpointUrl = "<your endpoint URI>";
     private const string AuthorizationKey = "<your key>";
 
-Comenzaremos la aplicación de demostración mediante la creación de una nueva instancia de **DocumentClient**. Cree una nueva tarea asincrónica llamada **GetStartedDemo** y cree una instancia de nuestro nuevo **DocumentClient**.
+Comenzaremos la aplicación de demostración de introducción creando una nueva instancia de **DocumentClient**. Cree una nueva tarea asincrónica llamada **GetStartedDemo** y cree una instancia de nuestro nuevo **DocumentClient**.
 
 	private static async Task GetStartedDemo()
     {
@@ -471,13 +471,11 @@ Para restaurar las referencias al SDK de DocumentDB para .NET en Visual Studio, 
 -   ¿Desea un tutorial de ASP.NET MVC NoSQL más complejo? Consulte [Creación de una aplicación web con ASP.NET MVC mediante DocumentDB](documentdb-dotnet-application.md).
 -	Aprenda a [supervisar una cuenta de DocumentDB](documentdb-monitor-accounts.md).
 -	Ejecute las consultas en nuestro conjunto de datos de ejemplo en el [área de consultas](https://www.documentdb.com/sql/demo).
--	Obtenga más información sobre el modelo de programación en la sección de desarrollo de la [página de documentación de DocumentDB](../../services/documentdb/).
+-	Obtenga más información sobre el modelo de programación en la sección sobre desarrollo de la [página de documentación de DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
-[doc-landing-page]: ../../services/documentdb/
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
-
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

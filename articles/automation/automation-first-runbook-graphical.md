@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Mi primer runbook gráfico en Automatización de Azure"
-	description="Tutorial que le guiará a través de la creación, prueba y publicación de un runbook gráfico simple. Se tratan varios conceptos como la autenticación en los recursos de Azure, los parámetros de entrada y los vínculos condicionales."
+	pageTitle="Mi primer runbook gráfico en Automatización de Azure | Microsoft Azure"
+	description="Tutorial que le guiará a través de la creación, prueba y publicación de un runbook gráfico simple."
 	services="automation"
 	documentationCenter=""
 	authors="bwren"
@@ -22,6 +22,7 @@
 > [AZURE.SELECTOR]
 - [Graphical](automation-first-runbook-graphical.md)
 - [PowerShell Workflow](automation-first-runbook-textual.md)
+- [PowerShell](automation-first-runbook-textual-PowerShell.md)
 
 Este tutorial le guiará por la creación de un [runbook gráfico](automation-runbook-types.md#graphical-runbooks) en Automatización de Azure. Comenzaremos con un runbook simple que probaremos y publicaremos, y explicaremos cómo hacer un seguimiento del estado del trabajo del runbook. A continuación, modificaremos el runbook para administrar recursos de Azure, en este caso, iniciar una máquina virtual de Azure. A continuación, haremos un runbook más sólido agregando parámetros de runbook y un vínculo condicional.
 
@@ -42,21 +43,21 @@ Empezaremos creando un runbook simple que genere el texto *Hello World*.
 2. Haga clic en el icono **Runbooks** para abrir la lista de runbooks.<br> ![Control de runbooks](media/automation-first-runbook-graphical/runbooks-control.png)
 2. Para crear un nuevo runbook, haga clic en el botón **Agregar un runbook** y luego en **Crear un nuevo runbook**.
 3. Asigne al runbook el nombre *MyFirstRunbook-Graphical*.
-4. En este caso, vamos a crear un [runbook gráfico](automation-graphical-authoring-intro.md), por lo que seleccionaremos **Gráfico** para **Tipo de runbook**.<br> ![Nuevo runbook](media/automation-first-runbook-graphical/new-runbook.png)
+4. En este caso, vamos a crear un [runbook gráfico](automation-graphical-authoring-intro.md), por lo que seleccionaremos **Gráfico** para **Tipo de runbook**.<br>![Nuevo runbook](media/automation-first-runbook-graphical/new-runbook.png)
 5. Haga clic en **Crear** para crear el runbook y abrir el editor gráfico.
 
 ## Paso 2: agregar actividades al runbook
 
 El control Biblioteca en el lado izquierdo del editor le permite seleccionar actividades para agregarlas al runbook. Vamos a agregar un cmdlet **Write-Output** para generar el texto desde el runbook.
 
-1.   En el control Biblioteca, expanda el nodo **Cmdlets** y **Microsoft.PowerShell.Utility**.<br> ![Microsoft.PowerShell.Utility](media/automation-first-runbook-graphical/cmdlets-powershell-utility.png)
+1.   En el control Biblioteca, expanda el nodo **Cmdlets** y **Microsoft.PowerShell.Utility**.<br>![Microsoft.PowerShell.Utility](media/automation-first-runbook-graphical/cmdlets-powershell-utility.png)
 2.   Desplácese hasta la parte inferior de la lista. Haga clic en **Write-Output** y en **Agregar al lienzo**.
 4.   Haga clic en la actividad **Write-Output** en el lienzo. Se abrirá el control Configuración, que le permite configurar la actividad.
-5.   El campo **Etiqueta** tiene como valor predeterminado el nombre del cmdlet, pero se puede cambiar a algo más descriptivo. Cámbielo a *Escribir Hello World en la salida*.
-6.   Haga clic en **Parámetros** para especificar los valores de los parámetros del cmdlet. Algunos cmdlets tienen varios conjuntos de parámetros y debe seleccionar los que usará. En este caso, **Write-Output** solo tiene un conjunto de parámetros, por lo que no es necesario seleccionar uno. <br> ![Propiedades Write-Output](media/automation-first-runbook-graphical/write-output-properties.png)
+5.   El campo **Etiqueta** tiene como valor predeterminado el nombre del cmdlet, pero se puede cambiar a algo más descriptivo. Cámbielo a *Escribir Hello World para la salida*.
+6.   Haga clic en **Parámetros** para especificar los valores de los parámetros del cmdlet. Algunos cmdlets tienen varios conjuntos de parámetros y debe seleccionar los que usará. En este caso, **Write-Output** solo tiene un conjunto de parámetros, por lo que no es necesario seleccionar uno. <br>![Propiedades Write-Output](media/automation-first-runbook-graphical/write-output-properties.png)
 7.   Seleccione el parámetro **InputObject**. Este es el parámetro donde especificaremos el texto que se va a enviar a la secuencia de salida.
 9.   En la lista desplegable **Origen de datos**, seleccione **Expresión de PowerShell**. La lista desplegable **Origen de datos** proporciona diferentes orígenes que se usan para rellenar un valor de parámetro. Puede usar la salida de esos orígenes como otra actividad, un recurso de Automatización o una expresión de PowerShell. En este caso, solo deseamos generar el texto *Hello World*. Podemos usar una expresión de PowerShell y especificar una cadena.
-10.   En el cuadro **Expresión**, escriba *"Hello World"* y haga clic en **Aceptar** dos veces para volver al lienzo.<br> ![Expresión de PowerShell](media/automation-first-runbook-graphical/expression-hello-world.png)
+10.   En el cuadro **Expresión**, escriba*"Hello World"* y haga clic en **Aceptar** dos veces para volver al lienzo.<br>![Expresión de PowerShell](media/automation-first-runbook-graphical/expression-hello-world.png)
 11.   Para guardar el runbook, haga clic en **Guardar**.<br> ![Guardar runbook](media/automation-first-runbook-graphical/runbook-edit-toolbar-save.png)
 
 ## Paso 3: probar el runbook
@@ -79,10 +80,10 @@ El runbook que acabamos de crear aún está en modo borrador. Tenemos que public
 3. Desplácese hacia la derecha para ver el panel de **MyFirstRunbook**. Las opciones en la parte superior nos permiten iniciar el runbook, programarlo para que se inicie en algún momento en el futuro o crear un [webhook](automation-webhooks.md) para que se inicie a través de una llamada HTTP. 
 4. Queremos iniciar el runbook, por lo que debe hacer clic en **Iniciar** y, a continuación, en **Sí** cuando se le solicite.<br> ![Iniciar runbook](media/automation-first-runbook-graphical/runbook-toolbar-start.png)
 5. Se abre un panel de trabajo para el trabajo de runbook que acabamos de crear. Podemos cerrar este panel, pero en este caso lo dejaremos abierto para que podamos ver el progreso del trabajo.
-6.  El estado del trabajo se muestra en **Resumen de trabajos** y coincide con los estados que vimos cuando probamos el runbook.<br> ![Resumen del trabajo](media/automation-first-runbook-graphical/job-pane-summary.png)
+6.  El estado del trabajo se muestra en **Resumen de trabajos** y coincide con los estados que vimos cuando probamos el runbook.<br>![Resumen del trabajo](media/automation-first-runbook-graphical/job-pane-summary.png)
 7.  Cuando el estado del runbook aparezca como *Completado*, haga clic en **Salida**. El panel **Salida** se abre y podemos ver *Hello World*.<br> ![Resumen del trabajo](media/automation-first-runbook-graphical/job-pane-output.png)  
 8.  Cierre el panel Salida.
-9.  Haga clic en **Secuencias** para abrir el panel Secuencias para el trabajo de runbook. Solo deberíamos ver *Hello World* en la secuencia de salida, pero se pueden mostrar otras secuencias de un trabajo de runbook como Detallado y Error si el runbook escribe en ellas.<br> ![Resumen del trabajo](media/automation-first-runbook-graphical/job-pane-streams.png) 
+9.  Haga clic en **Secuencias** para abrir el panel Secuencias para el trabajo de runbook. Solo deberíamos ver *Hello World* en el flujo de salida, pero se pueden mostrar otras secuencias de un trabajo de runbook como Detallado y Error si el runbook escribe en ellas.<br> ![Resumen del trabajo](media/automation-first-runbook-graphical/job-pane-streams.png) 
 9. Cierre el panel de secuencias y el panel de trabajo para volver al panel de MyFirstRunbook.
 9.  Haga clic en **Trabajos** para abrir el panel Trabajos de este runbook. Enumera todos los trabajos creados por este runbook. Solo deberíamos ver un trabajo en la lista ya que solo ejecutamos el trabajo una vez.<br> ![Trabajos](media/automation-first-runbook-graphical/runbook-control-jobs.png) 
 9. Puede hacer clic en esta tarea para abrir el mismo panel Trabajo que vimos cuando se inició el runbook. Esto permite volver atrás en el tiempo y ver los detalles de cualquier trabajo que se creó para un runbook determinado.
@@ -132,15 +133,15 @@ Actualmente, nuestro runbook inicia la máquina virtual que especificamos en el 
 11.  Cierre el panel Prueba.
 12.  Haga clic en **Publicar** para publicar la nueva versión del runbook.
 13.  Detenga la máquina virtual que inició en el paso anterior.
-13.  Haga clic en **Iniciar** para iniciar el runbook. Escriba el valor de **VMName** y **VMServiceName** para la máquina virtual que va a iniciar.<br> ![Inicio del runbook](media/automation-first-runbook-graphical/start-runbook-input-params.png) 
+13.  Haga clic en **Iniciar** para iniciar el runbook. Escriba el valor de **VMName** y **VMServiceName** para la máquina virtual que va a iniciar.<br>![Inicio del runbook](media/automation-first-runbook-graphical/start-runbook-input-params.png) 
 14.  Cuando se complete el runbook, compruebe que la máquina virtual se ha iniciado.
 
 ## Paso 8: crear un vínculo condicional
 
 Ahora modificaremos el runbook para que solo intente iniciar el runbook si no se ha iniciado ya. Haremos esto agregando un cmdlet **Get-AzureVM** al runbook que incluirá el estado actual de la máquina virtual. A continuación, agregaremos un vínculo condicional que solo ejecutará **Start-AzureVM** si se detiene el estado de ejecución actual. Si no se detiene el runbook, genere un mensaje.
 
-1. Abra **MyFirstRunbook** en el editor gráfico.
-2. Quite el vínculo entre **Add-AzureAccount** y **Start-AzureVM**; para ello, haga clic en él y, a continuación, presione la tecla *Eliminar*.
+1. Abra **MyFirstRunbook**en el editor gráfico.
+2. Quite el vínculo entre **Add-AzureAccount** y **Start-AzureVM** haciendo clic en él y, a continuación, presione la tecla *Eliminar*.
 3. En el control Biblioteca, expanda **Cmdlets** y, a continuación, **Azure**.
 4. Agregue **Get-AzureVM** al lienzo.
 5. Cree un vínculo desde **Add-AzureAccount** a **Get-AzureVM**. Cree otro vínculo desde **Get-AzureVM** a **Start-AzureVM**.<br> ![Runbook con Get-AzureVM](media/automation-first-runbook-graphical/get-azurevm.png)   
@@ -156,7 +157,7 @@ Ahora modificaremos el runbook para que solo intente iniciar el runbook si no se
 14.  Seleccione el vínculo y cambie **Aplicar condición** a **True**.
 14.  Para **Expresión de condición**, escriba *$ActivityOutput['Get-AzureVM'].PowerState -ne "Stopped"*. **Write-Output** ahora solo se ejecutará si no se detiene la máquina virtual.<br> ![Runbook con Write-Output](media/automation-first-runbook-graphical/write-output-link.png) 
 15.  Seleccione **Write-Output** y haga clic en **Parámetros**.
-16.  Para **InputObject**, cambie **Origen de datos** a **Expresión de PowerShell** y escriba la expresión *"$VMName.Name already started."*.
+16.  Para **InputObject**, cambie **Origen de datos** a **Expresión de PowerShell** y escriba la expresión *"$VMName.Name ya iniciado."*.
 17.  Guarde el runbook y abra el panel Prueba.
 18.  Inicie el runbook con la máquina virtual detenida- Se debería iniciar.
 19.  Inicie el runbook con la máquina virtual iniciada. Deberá obtener el resultado de que ya se ha iniciado.
@@ -166,7 +167,7 @@ Ahora modificaremos el runbook para que solo intente iniciar el runbook si no se
 
 - [Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md)
 - [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
-
+- [Mi primer runbook de PowerShell](automation-first-runbook-textual-PowerShell.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

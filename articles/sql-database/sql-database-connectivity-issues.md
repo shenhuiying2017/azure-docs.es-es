@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/10/2015"
+	ms.date="01/06/2016"
 	ms.author="daleche"/>
 
 
@@ -94,7 +94,7 @@ También puede establecer un número máximo de reintentos antes de que el progr
 
 Los ejemplos de código con lógica de reintento, en una variedad de lenguajes de programación, están disponibles en:
 
-- [Ejemplos de código de inicio rápido](sql-database-develop-quick-start-client-code-samples.md).
+- [Ejemplos de código de inicio rápido.](sql-database-develop-quick-start-client-code-samples.md)
 
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
@@ -144,7 +144,7 @@ La cadena de conexión necesaria para conectarse a Base de datos SQL de Azure es
 ### Parámetros .NET SqlConnection para reintento de conexión
 
 
-Si el programa cliente se conecta a Base de datos SQL de Azure mediante la clase .NET Framework **System.Data.SqlClient.SqlConnection**, debe usar .NET 4.5.1 o una versión posterior para poder aprovechar su característica de reintento de conexión. Los detalles de la característica están [aquí](http://go.microsoft.com/fwlink/?linkid=393996).
+Si el programa cliente se conecta a Base de datos SQL de Azure mediante la clase .NET Framework **System.Data.SqlClient.SqlConnection**, debe usar .NET 4.6.1 o una versión posterior para poder aprovechar su característica de reintento de conexión. Los detalles de la característica están [aquí](http://go.microsoft.com/fwlink/?linkid=393996).
 
 
 <!--
@@ -220,7 +220,7 @@ Por ejemplo, cuando el programa cliente está hospedado en un equipo con Windows
 7. &gt; Nueva regla
 
 
-Si el programa cliente se hospeda en una máquina virtual (VM) de Azure, debe leer:<br/>[Puertos a partir de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+Si el programa cliente se hospeda en una máquina virtual (VM) de Azure, debe leer:<br/>[Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 Para obtener información general acerca de la configuración de puertos y la dirección IP, consulte: [Firewall de Base de datos SQL de Azure](sql-database-firewall-configure.md).
@@ -228,19 +228,19 @@ Para obtener información general acerca de la configuración de puertos y la di
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-## Conexión: ADO.NET 4.5
+## Conexión: ADO.NET 4.6.1
 
 
-Si el programa usa clases ADO.NET como **System.Data.SqlClient.SqlConnection** para conectarse a Base de datos SQL de Azure, le recomendamos que use .NET Framework 4.5 o una versión posterior.
+Si el programa usa clases ADO.NET como **System.Data.SqlClient.SqlConnection** para conectarse a Base de datos SQL de Azure, le recomendamos que use .NET Framework 4.6.1 o una versión posterior.
 
 
-ADO.NET 4.5: - Agrega compatibilidad al protocolo TDS 7.4. Esto incluye mejoras de conexión más allá de las que ofrecía 4.0. - Admite la agrupación de conexiones. Esto incluye una comprobación eficaz de que el objeto de conexión que ofrece el programa está funcionando.
+ADO.NET 4.6.1: agrega compatibilidad al protocolo TDS 7.4. Esto incluye mejoras de conexión más allá de las que ofrecía 4.0. - Admite la agrupación de conexiones. Esto incluye una comprobación eficaz de que el objeto de conexión que ofrece el programa está funcionando.
 
 
 Cuando se usa un objeto de conexión desde un grupo de conexiones, se recomienda que el programa cierre temporalmente la conexión cuando no la está usando inmediatamente. Volver a abrir una conexión no es tan costoso como crear una nueva conexión.
 
 
-Si está usando ADO.NET 4.0 o versiones anteriores, se recomienda que lo actualice a la versión más reciente de ADO.NET más reciente. Desde julio de 2015, puede [descargar ADO.NET 4.6](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
+Si está usando ADO.NET 4.0 o versiones anteriores, se recomienda que lo actualice a la versión de ADO.NET más reciente. Desde noviembre de 2015, puede [descargar ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
@@ -268,7 +268,7 @@ Supongamos que sospecha que fallan los intentos de conexión debido a problemas 
 En Linux, resultan útiles las utilidades siguientes: `netstat -nap` o `nmap -sS -O 127.0.0.1` (cambie el valor del ejemplo por su dirección IP).
 
 
-En Windows la utilidad [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) resulta de gran ayuda. Esta es una ejecución de ejemplo que consultó la situación del puerto en un servidor de Base de datos SQL de Azure y que se ejecutó en un equipo portátil:
+En Windows la utilidad [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) resulta útil. Esta es una ejecución de ejemplo que consultó la situación del puerto en un servidor de Base de datos SQL de Azure y que se ejecutó en un equipo portátil:
 
 
 ```
@@ -313,8 +313,8 @@ Presentamos algunas instrucciones SELECT de Transact-SQL que consultan los regis
 
 | Consulta de un registro | Descripción |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La vista [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) ofrece información sobre eventos individuales, incluidos los errores que pueden causar fallos de conectividad o errores transitorios.<br/><br/>Lo ideal es poder correlacionar los valores de **start\_time** o **end\_time** con información sobre cuándo el programa cliente experimentó los problemas.<br/><br/>**SUGERENCIA:** tiene que conectarse a la base de datos **principal** para su ejecución. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | La vista [sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) ofrece recuentos agregados de los tipos de eventos, para realizar diagnósticos adicionales.<br/><br/>**SUGERENCIA:** tiene que conectarse a la base de datos **principal** para su ejecución. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La vista [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) ofrece información sobre eventos individuales, incluidos aquellos que pueden causar errores transitorios o problemas de conectividad.<br/><br/>Lo ideal es poder correlacionar los valores de **start\_time** o **end\_time** con información sobre cuándo el programa cliente experimentó los problemas.<br/><br/>**SUGERENCIA:** Tiene que conectarse a la base de datos **principal** para su ejecución. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | La vista [sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) ofrece recuentos agregados de los tipos de eventos, para realizar diagnósticos adicionales.<br/><br/>**SUGERENCIA:** Tiene que conectarse a la base de datos **principal** para su ejecución. |
 
 
 ### Diagnóstico: Buscar eventos de problema en el registro de la Base de datos SQL
@@ -367,7 +367,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 ## Enterprise Library 6
 
 
-Enterprise Library 6 (EntLib60) es un marco de clases de .NET que ayuda a implementar a clientes sólidos de servicios en la nube, uno de los cuales es el servicio de Base de datos SQL de Azure. Puede buscar temas dedicados a cada área en la que EntLib60 puede servir de ayuda en:- [Enterprise Library 6: abril de 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)-
+Enterprise Library 6 (EntLib60) es un marco de clases de .NET que ayuda a implementar a clientes sólidos de servicios en la nube, uno de los cuales es el servicio de Base de datos SQL de Azure. Puede buscar temas dedicados a cada área en la que puede ayudar EntLib60 en:- [Enterprise Library 6: abril de 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)-
 
 
 La lógica de reintento para tratar errores transitorios es un área en la que EntLib60 le puede ayudar: [4 - La perseverancia, el secreto de todos los triunfos: uso del bloque de aplicación de control de errores transitorios](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
@@ -514,4 +514,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* es una biblioteca de reintentos de uso general con licencia de Apache 2.0, escrita en **Python**, para simplificar la tarea de agregar comportamiento de reintento a prácticamente todo.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

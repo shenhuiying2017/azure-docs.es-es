@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm"/>
 
 # Carga de datos con la Factoría de datos de Azure
@@ -206,4 +206,4 @@ En la sección 'Crear e implementar', haga clic en 'Más comandos' y, a continua
 	}
 	
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

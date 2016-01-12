@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/15/2015"
+	ms.date="01/05/2016"
 	ms.author="spelluru"/>
 
-# Compilación de la primera canalización mediante Azure PowerShell
+# Compilación de la primera canalización de Factoría de datos de Azure con Administrador de recursos de Azure
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -39,7 +39,7 @@ Además de los requisitos previos que se enumeran en el tema de información gen
 
 ## Paso 1: Creación de la plantilla de ARM
 
-Cree un archivo JSON llamado **ADFTutorialARM.json** en la carpeta **C:\ADFGetStarted** con el siguiente contenido:
+Cree un archivo JSON llamado **ADFTutorialARM.json** en la carpeta **C:\\ADFGetStarted** con el siguiente contenido:
 
 > [AZURE.IMPORTANT]Cambie los valores de las variables **storageAccountName** y **storageAccountKey**. Cambie también el valor de **dataFactoryName** porque el nombre debe ser único.
 
@@ -226,11 +226,9 @@ Haga clic en la pestaña **Utilización del Editor de la Factoría de datos** pa
 
 ## Supervisar la canalización
  
-1.	Después de iniciar sesión en el [Portal de Azure](http://portal.azure.com/), haga clic en **Examinar** y seleccione **Factorías de datos**. 
-		![Examinar todo -> Fábricas de datos](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+1.	Después de iniciar sesión en el [Portal de Azure](http://portal.azure.com/), haga clic en **Examinar** y seleccione **Factorías de datos**. ![Examinar todo -> Fábricas de datos](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	En la hoja **Factorías de datos**, haga clic en la factoría de datos (**TutorialFactoryARM**) que creó.	
-2.	En la hoja **Factoría de datos** de su factoría de datos, haga clic en **Diagrama**. 
-		![Icono Diagrama](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+2.	En la hoja **Factoría de datos** de su factoría de datos, haga clic en **Diagrama**. ![Icono Diagrama](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	En la **Vista de diagrama**, verá información general de las canalizaciones y los conjuntos de datos empleados en este tutorial.
 	
 	![Vista de diagrama](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
@@ -243,4 +241,4 @@ Haga clic en la pestaña **Utilización del Editor de la Factoría de datos** pa
 10. Cuando el segmento se encuentre en el estado **Listo**, busque los datos de salida en la carpeta **partitioneddata** del contenedor **adfgetstarted** de Almacenamiento de blobs.  
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->
