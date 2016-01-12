@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Visualización de datos de Almacenamiento de datos SQL con Power BI | Microsoft Azure"
-    description="Visualización de datos de Almacenamiento de datos SQL con Power BI"
-    services="sql-data-warehouse"
-    documentationCenter="NA"
-    authors="lodipalm"
-    manager="barbkess"
-    editor=""/>
+   pageTitle="Visualización de datos de Almacenamiento de datos SQL con Power BI | Microsoft Azure"
+   description="Visualización de datos de Almacenamiento de datos SQL con Power BI"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""/>
 
 <tags
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="10/21/2015"
-    ms.author="lodipalm"/>
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="01/04/2016"
+   ms.author="lodipalm"/>
 
 # Visualización de datos con Power BI
 
@@ -110,4 +110,4 @@ Ahora que le hemos dado algún tiempo para familiarizarse con los datos de ejemp
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
 	ms.workload="na"
-	ms.date="09/16/2015"
+	ms.date="12/24/2015"
 	ms.author="cfowler"/>
 
 # Conexión de una aplicación web en Servicio de aplicaciones de Azure a Caché en Redis a través del protocolo Memcache
@@ -30,8 +30,8 @@ Las correcciones de compatibilidad (shim) de Memcache de Aplicaciones web se pue
 
 Siga los pasos descritos en estos artículos:
 
-* [Aprovisionamiento de una entrada del Servicio de Caché en Redis de Azure][1]
-* [Implementación de un sitio escalable de WordPress en Azure][0]
+* [Aprovisionamiento de una entrada del Servicio de Caché en Redis de Azure][0]
+* [Implementación de un sitio escalable de WordPress en Azure][1]
 
 Una vez que se implementa el sitio web escalable de WordPress y que se aprovisiona una instancia de Caché en Redis, estará preparado para proceder con la habilitación de las correcciones de compatibilidad (shim) de Memcache en Aplicaciones web del Servicio de aplicaciones de Azure.
 
@@ -124,7 +124,7 @@ $memcached_servers = array(
 
 Una vez que se pega este código, monaco guardará automáticamente el documento.
 
-El paso siguiente es habilitar el complemento object-cache. Para hacerlo, arrastre y suelte **object-cache.php** desde la carpeta **wp-content/memcached** a la carpeta **wp-content** para habilitar la funcionalidad Caché de objetos de Memcache.
+El paso siguiente es habilitar el complemento object-cache. Para hacerlo, arrastre y suelte **object-cache.php** desde la carpeta **wp-content/plugins/memcached** a la carpeta **wp-content** para habilitar la funcionalidad Caché de objetos de Memcache.
 
 ![Buscar complemento object-cache.php de memcache](./media/web-sites-connect-to-redis-using-memcache-protocol/13-locate-memcache-object-cache-plugin.png)
 
@@ -166,7 +166,7 @@ Abra la consola de línea de comandos de su preferencia y escriba el siguiente c
 redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –p 6379
 ```
 
-Reemplace **<hostname-for-redis-cache>** por el nombre de host xxxxx.redis.cache.windows.net real y **<primary-key-for-redis-cache>** por la clave de acceso para la memoria caché y, a continuación, presione **Entrar**. Una vez que la CLI se conecte a la instancia de Caché en Redis, emita cualquier comando de Redis. En la captura de pantalla que aparece a continuación, elegí enumerar las claves.
+Reemplace **&lt;hostname-for-redis-cache&gt;** por el nombre de host xxxxx.redis.cache.windows.net real y **&lt;primary-key-for-redis-cache&gt;** por la clave de acceso para la memoria caché y, después, presione **Entrar**. Una vez que la CLI se conecte a la instancia de Caché en Redis, emita cualquier comando de Redis. En la captura de pantalla que aparece a continuación, elegí enumerar las claves.
 
 ![Conectarse a Caché en Redis de Azure desde CLI de Redis en el terminal](./media/web-sites-connect-to-redis-using-memcache-protocol/19-redis-cli-terminal.png)
 
@@ -182,7 +182,7 @@ La llamada para enumerar las claves debe devolver un valor. Si no es así, inten
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, vea: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 
-[0]: http://bit.ly/1F0m3tw
+[0]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache
 [1]: http://bit.ly/1t0KxBQ
 [2]: http://manage.windowsazure.com
 [3]: http://portal.azure.com
@@ -197,4 +197,4 @@ La llamada para enumerar las claves debe devolver un valor. Si no es así, inten
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

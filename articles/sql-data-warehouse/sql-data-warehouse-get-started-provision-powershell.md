@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create SQL Data Warehouse by using Powershell | Microsoft Azure"
-   description="Create SQL Data Warehouse by using Powershell"
+   pageTitle="Crear Almacenamiento de datos SQL mediante el uso de Powershell | Microsoft Azure"
+   description="Creación de Almacenamiento de datos SQL con Powershell"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -13,17 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm"/>
 
 # Creación de Almacenamiento de datos SQL con Powershell
 
 > [AZURE.SELECTOR]
-- [Portal de Azure](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-> [AZURE.NOTE]  Para usar Microsoft Azure Powershell con Almacenamiento de datos SQL, se necesita la versión 0.9.4 o superior. Puede comprobar la versión ejecutando (Get-Module Azure). Versión de Powershell.
+> [AZURE.NOTE]Para usar Microsoft Azure Powershell con Almacenamiento de datos SQL, se necesita la versión 0.9.4 o superior. Puede comprobar la versión ejecutando (Get-Module Azure). Versión de Powershell.
 
 ## Obtención y ejecución de los cmdlets de Azure PowerShell.
 Si no tiene ya instalado Powershell, puede:
@@ -71,4 +71,4 @@ Si está interesado en obtener más información sobre cómo administrar el Alma
 [firewall rules]: https://azure.microsoft.com/es-ES/documentation/articles/sql-database-configure-firewall-settings/
 [Instalación y configuración de Azure PowerShell]: powershell-install-configure.md
 
-<!------HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

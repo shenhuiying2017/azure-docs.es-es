@@ -48,7 +48,7 @@ Al seguir este tutorial de base de datos, podrá crear una aplicación de admini
 
 Antes de seguir las instrucciones del presente artículo, debe asegurarse de tener lo siguiente:
 
-- Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](../../pricing/free-trial/).
+- Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Node.js][] versión v0.10.29 o superior
 - [Express Generator](http://www.expressjs.com/starter/generator.html) (puede instalarlo mediante `npm install express-generator -g`)
 - [Git][].
@@ -63,7 +63,7 @@ Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede i
 
 ## <a name="_Toc395783178"></a>Paso 2: Creación de una nueva aplicación Node.js
 
-Ahora aprenderemos a crear un proyecto básico de Node.js Hello World con el marco [Express](http://expressjs.com/).
+Ahora aprendamos a crear un proyecto Node.js básico de Hello World usando el marco [Express](http://expressjs.com/).
 
 1. Abra su terminal favorito.
 
@@ -544,7 +544,7 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 
 ## <a name="_Toc395783182"></a>Paso 7: Implementación del proyecto de desarrollo de aplicación en Sitios web de Azure
 
-1. Si todavía no lo ha hecho, habilite un repositorio para el sitio web de Azure. Encontrará información sobre cómo hacerlo [aquí](../web-sites-publish-source-control-git.md#step4).
+1. Si todavía no lo ha hecho, habilite un repositorio para el sitio web de Azure. Puede encontrar instrucciones sobre cómo hacerlo en el tema [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](../app-service-web/web-sites-publish-source-control.md).
 
 2. Agregue el sitio web de Azure como un git remoto.
 
@@ -562,11 +562,11 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 
 El código fuente de la aplicación de referencia completa se puede descargar de [GitHub][].
 
-Para obtener más información, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/).
+Para obtener más información, consulte el [Centro para desarrolladores de Node.js](https://azure.microsoft.com/develop/nodejs/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->
