@@ -43,15 +43,15 @@ Cuando se ejecutan las instrucciones TSQL anteriores, tenga en cuenta que los pa
 + 250 GB
 + 500 GB
 + 750 GB
-+ 1\.024 GB
-+ 5\.120 GB
-+ 10\.240 GB
-+ 20\.480 GB
-+ 30\.720 GB
-+ 40\.960 GB
-+ 51\.200 GB
++ 1.024 GB
++ 5.120 GB
++ 10.240 GB
++ 20.480 GB
++ 30.720 GB
++ 40.960 GB
++ 51.200 GB
 
-SERVICE\_OBJECTIVE indica el número de DWU con la que se iniciará la instancia y aceptará los valores siguientes:
+SERVICE_OBJECTIVE indica el número de DWU con la que se iniciará la instancia y aceptará los valores siguientes:
 
 + DW100
 + DW200

@@ -134,7 +134,8 @@ Realice los pasos siguientes para crear el dispositivo virtual de StorSimple.
 
 	4. **Cuenta de almacenamiento para crear un dispositivo virtual**: la cuenta de almacenamiento que se usará para almacenar la imagen del dispositivo virtual durante el aprovisionamiento. Esta cuenta de almacenamiento debe estar en la misma región que el dispositivo virtual y la red virtual. No debe utilizarse para el almacenamiento de datos por el dispositivo físico o el dispositivo virtual. De forma predeterminada, para ello se creará una nueva cuenta de almacenamiento. Sin embargo, si sabe que ya tiene una cuenta de almacenamiento que es adecuada para este uso, puede seleccionarla en la lista.
 
-4. Haga clic en la marca de verificación para indicar que sabe que los datos almacenados en el dispositivo virtual estarán hospedados en un centro de datos de Microsoft. Ahora se creará un dispositivo virtual. La creación de un dispositivo virtual puede demorar entre 45 minutos y 1 hora. ![Fase de creación de dispositivo virtual de StorSimple](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
+4. Haga clic en la marca de verificación para indicar que sabe que los datos almacenados en el dispositivo virtual estarán hospedados en un centro de datos de Microsoft. Ahora se creará un dispositivo virtual. La creación de un dispositivo virtual puede demorar entre 45 minutos y 1 hora. 
+	![Fase de creación de dispositivo virtual de StorSimple](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
 
 Cuando se utiliza solo un dispositivo físico, la clave de cifrado se mantiene con el dispositivo; por lo tanto, Microsoft no podrá descifrarla. Cuando se utiliza un dispositivo virtual, la clave de cifrado y la clave de descifrado se almacenan en Microsoft Azure. Para obtener más información, consulte [Consideraciones de seguridad para utilizar un dispositivo virtual](#security-considerations-for-using-a-virtual-device).
 
