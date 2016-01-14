@@ -46,7 +46,9 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 | ---- | ---- | -------- | ---------------- | ----------- |
 | type | enum | Sí | Para recursos: <br />**{namespace}/{type}/providers/locks**<br /><br />Para grupos de recursos:<br />**Microsoft.Authorization/locks** | El tipo de recurso que se creará. |
 | apiVersion | enum | Sí | **2015-01-01** | La versión de la API que se usará para crear el recurso. |  
-| name | cadena | Sí | Para recursos:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />Para grupos de recursos:<br />**{lockname}****<br /><br />hasta 64 caracteres<br />No puede incluir <, > %, &, ? ni ningún carácter de control. | Un valor que especifica el recurso que se bloqueará y un nombre para el bloqueo. | | dependsOn | array | No | Una lista separada por comas de los nombres de un recurso o de los identificadores únicos de un recurso. | La colección de recursos de la que depende este bloqueo. Si el recurso que bloquea se implementa en la misma plantilla, incluya el nombre de ese recurso en este elemento para garantizar que el recurso se implemente primero. | | properties | object | Yes | (se muestra a continuación) | Un objeto que identifica el tipo de bloqueo y notas sobre el bloqueo. | 
+| name | cadena | Sí | Para recursos:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />Para grupos de recursos:<br />**{lockname}****<br /><br />hasta 64 caracteres<br />No puede incluir <, > %, &, ? ni ningún carácter de control. | Un valor que especifica el recurso que se bloqueará y un nombre para el bloqueo. |
+| dependsOn | array | No | Una lista separada por comas de los nombres de un recurso o de los identificadores únicos de un recurso. | La colección de recursos de la que depende este bloqueo. Si el recurso que bloquea se implementa en la misma plantilla, incluya el nombre de ese recurso en este elemento para garantizar que el recurso se implemente primero. |
+| properties | object | Yes | (se muestra a continuación) | Un objeto que identifica el tipo de bloqueo y notas sobre el bloqueo. | 
 
 ### properties object
 
@@ -133,4 +135,4 @@ El próximo ejemplo aplica un bloqueo de solo lectura al grupo de recursos.
 - Para obtener más información sobre la estructura de la plantilla, consulte [Crear plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para obtener más información sobre los bloqueos, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->
