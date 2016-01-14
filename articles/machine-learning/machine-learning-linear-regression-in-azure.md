@@ -21,9 +21,7 @@
 
 > *Kate Baroni* y *Ben Boatman* son arquitectos de soluciones para empresas del Centro de excelencia de Data Insights de Microsoft. En este artículo, se describe su experiencia al migrar un conjunto existente de análisis de regresión a una solución basada en la nube mediante Aprendizaje automático (ML) de Azure.
 
-
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
 
 ## Objetivo
 
@@ -159,4 +157,4 @@ A continuación, encontrará algunos recursos que le ayudarán a trabajar con la
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!------HONumber=AcomDC_1210_2015-->
