@@ -56,10 +56,20 @@ Entre los usos típicos de la red CDN se incluyen:
 En la lista siguiente se muestran ejemplos del tiempo medio hasta el primer byte desde distintas ubicaciones geográficas. El rol web de destino se implementa en Azure en la zona oeste de EE. UU. Hay una correlación estrecha entre el mayor aumento debido a la red CDN y su proximidad a un nodo de la red CDN. Encontrará una lista completa de las ubicaciones de los nodos de la red CDN de Azure en [Ubicaciones de nodos de la red de entrega de contenido (CDN) de Azure](cdn/cdn-pop-locations.md/).
 
 
-|| Tiempo (ms) hasta primer byte (origen) | Tiempo (ms) hasta primer (CDN) | % de mejora de tiempo de CDN| |---|---|---|---| | * San José, CA| 47.5 | 46.5 | 2% | | ** Dulles, VA| 109 | 40,5 | % de 169 || Buenos Aires, AR| 210 | 151 | 39% | | * Londres, UK| 195 | 44 | % de 343 | | Shangai, CN| 242 | 206 | 17% | | * Singapur | 214 | 74 | % De 189 | | * Tokio, Japón | 163 | 48 | 204% || Seúl, KR| 190 | 190 | 0% |
+|| Tiempo (ms) hasta primer byte (origen) | Tiempo (ms) hasta primer (CDN) | % de mejora de tiempo de CDN|
+|---|---|---|---|
+| * San José, CA| 47.5 | 46.5 | 2% |
+| ** Dulles, VA| 109 | 40,5 | % de 169 |
+| Buenos Aires, AR| 210 | 151 | 39% |
+| * Londres, UK| 195 | 44 | % de 343 |
+| Shangai, CN| 242 | 206 | 17% |
+| * Singapur | 214 | 74 | % De 189 |
+| * Tokio, Japón | 163 | 48 | 204% |
+| Seúl, KR| 190 | 190 | 0% |
 
 
-* Tiene un nodo de la red CDN de Azure en la misma ciudad. ** Tiene un nodo de la red CDN de Azure en una ciudad vecina.
+\* Tiene un nodo de la red CDN de Azure en la misma ciudad.  
+\*\* Tiene un nodo de la red CDN de Azure en una ciudad vecina.
 
 ## Desafíos  
 
@@ -196,7 +206,13 @@ Incluya la red CDN como parte de la estrategia de supervisión de la aplicación
 
 Habilite el registro en la red CDN y supervise dicho registro como parte de las operaciones diarias.
 
-Consider la posibilidad de analizar el tráfico de la red CDN para encontrar patrones de uso. El Portal de Azure proporciona herramientas que permiten supervisar: + Ancho de banda, + Datos transferidos, + Accesos (códigos de estado), + Estado de la caché, + Proporción de aciertos de la caché y + Proporción de solicitudes de IPV4 o IPV6.
+Consider la posibilidad de analizar el tráfico de la red CDN para encontrar patrones de uso. El Portal de Azure proporciona herramientas que permiten supervisar:
++ Ancho de banda,
++ Datos transferidos,
++ Accesos (códigos de estado),
++ Estado de la caché,
++ Proporción de aciertos de la caché y
++ Proporción de solicitudes de IPV4 o IPV6.
 
 Para más información, consulte [Análisis de patrones de uso de la red CDN de Azure](cdn/cdn-analyze-usage-patterns.md/).
 
