@@ -66,16 +66,17 @@ Este tutorial se basa en las series de tutoriales de aplicaciones de API:
 1. Actualice la vista `Contact` para que refleje la lista dinámica de contactos con el código siguiente:
 	<pre>// Add to the very top of the view file
 	@model IList&lt;MyContactsList.Web.Models.Contact&gt;
-
-// Replace the default email addresses with the following
+	
+	// Replace the default email addresses with the following
     &lt;h3&gt;Public Contacts&lt;/h3&gt;
     &lt;ul&gt;
-    @foreach (var contact in Model)
-    {
+        @foreach (var contact in Model)
+        {
             &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt;
-    }
+        }
     &lt;/ul&gt; 
 	</pre>
+
 	![Actualizaciones de código de Contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## Implementación de la aplicación web en Aplicaciones web del Servicio de aplicaciones

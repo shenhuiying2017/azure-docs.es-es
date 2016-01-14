@@ -23,7 +23,7 @@ Las direcciones IP públicas se usan para la comunicación con Internet, incluid
 
 Las direcciones IP privadas se usa para la comunicación dentro de una red virtual (VNet) de Azure y en la red local cuando se usa una puerta de enlace de VPN o un circuito ExpressRoute para ampliar la red a Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [modelo de implementación clásica](virtual-network-ip-addresses-overview-classic.md).
 
 ## Direcciones IP públicas
 Las direcciones IP públicas permiten que los recursos de Azure se comuniquen con Internet y servicios de acceso público de Azure como [Caché en Redis de Azure](https://azure.microsoft.com/services/cache), [Centros de eventos de Azure](https://azure.microsoft.com/services/event-hubs), [Bases de datos SQL](sql-database-technical-overview.md) y [Almacenamiento de Azure](storage-introduction.md).
@@ -125,7 +125,16 @@ En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asign
 ## Comparación entre la implementación del Administrador de recursos y la clásica
 A continuación, se muestra una comparación de la dirección IP entre el Administrador de recursos y el modelo de implementación clásica.
 
-||Recurso|Clásica|Administrador de recursos| |---|---|---|---| |**Dirección IP pública**|Máquina virtual|Denominada ILPIP (solo dinámica)|Denominada IP pública (dinámica o estática)| |||Asignada a una máquina virtual IaaS o una instancia de rol PaaS|Asociada a la tarjeta NIC de la máquina virtual| ||Equilibrador de carga accesible desde Internet|Denominada VIP (dinámica) o IP reservada (estática)|Denominada IP pública (dinámica o estática)| |||Asignada a un servicio en la nube|Asociada a la configuración del front-end del equilibrador de carga| |||| |**Dirección IP privada**|Máquina virtual|Denominada DIP|Denominada dirección IP privada| |||Asignada a una máquina virtual IaaS o una instancia de rol PaaS|Asociada a la tarjeta NIC de la máquina virtual| ||Equilibrador de carga interno (ILB)|Asignada al ILB (dinámica o estática)|Asignada a la configuración del front-end del ILB (dinámica o estática)|
+||Recurso|Clásica|Administrador de recursos|
+|---|---|---|---|
+|**Dirección IP pública**|Máquina virtual|Denominada ILPIP (solo dinámica)|Denominada IP pública (dinámica o estática)|
+|||Asignada a una máquina virtual IaaS o una instancia de rol PaaS|Asociada a la tarjeta NIC de la máquina virtual|
+||Equilibrador de carga accesible desde Internet|Denominada VIP (dinámica) o IP reservada (estática)|Denominada IP pública (dinámica o estática)|
+|||Asignada a un servicio en la nube|Asociada a la configuración del front-end del equilibrador de carga|
+||||
+|**Dirección IP privada**|Máquina virtual|Denominada DIP|Denominada dirección IP privada|
+|||Asignada a una máquina virtual IaaS o una instancia de rol PaaS|Asociada a la tarjeta NIC de la máquina virtual|
+||Equilibrador de carga interno (ILB)|Asignada al ILB (dinámica o estática)|Asignada a la configuración del front-end del ILB (dinámica o estática)|
 
 ## Pasos siguientes
 - [Implementación de una máquina virtual con una IP pública estática](virtual-network-deploy-static-pip-arm-template.md)
@@ -137,3 +146,4 @@ A continuación, se muestra una comparación de la dirección IP entre el Admini
 - [Creación, inicio o eliminación de una Puerta de enlace de aplicaciones con el Administrador de recursos de Azure](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
 
 <!---HONumber=AcomDC_1223_2015-->
+
