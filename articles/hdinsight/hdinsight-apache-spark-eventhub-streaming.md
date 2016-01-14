@@ -180,7 +180,7 @@ En [https://github.com/hdinsight/spark-streaming-data-persistence-examples](http
 
 ## Ejecución remota de aplicaciones en un clúster Spark mediante Livy
 
-Usaremos Livy para ejecutar la aplicación de streaming de forma remota en un clúster de Spark. Para obtener una explicación detallada sobre cómo usar Livy con un clúster de HDInsight Spark, consulte [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md). Antes de empezar a ejecutar los trabajos remotos en los eventos de transmisión mediante Spark debe realizar dos operaciones:
+Usaremos Livy para ejecutar la aplicación de streaming de forma remota en un clúster de Spark. Para obtener una explicación detallada sobre cómo usar Livy con un clúster de HDInsight Spark, consulte [Envío de trabajos de Spark de manera remota mediante Livy con clústeres de Spark en HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md). Antes de empezar a ejecutar los trabajos remotos en los eventos de transmisión mediante Spark debe realizar dos operaciones:
 
 1. Inicie la aplicación autónoma local para generar eventos y enviarlos al Centro de eventos. Utilice el siguiente comando para hacerlo:
 
@@ -340,19 +340,19 @@ Debería ver una salida similar a la siguiente:
 
 * [Spark con Aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Análisis del registro de sitios web con Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Creación y ejecución de aplicaciones
 
-* [Create a standalone application using ScalaCreate a standalone Scala application and to run on HDInsight Spark cluster (Linux)](hdinsight-apache-spark-create-standalone-application.md)
+* [Creación de una aplicación independiente con Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md)
+* [Envío de trabajos de Spark de manera remota mediante Livy con clústeres de Spark en HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Extensiones
 
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Uso de cuadernos de Zeppelin con un clúster de Spark en HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Kernels disponibles para cuadernos de Jupyter Notebook en un clúster de Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
 ### Administración de recursos
 
@@ -369,4 +369,4 @@ Debería ver una salida similar a la siguiente:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->
