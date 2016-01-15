@@ -113,11 +113,11 @@ Al trabajar con aplicaciones web, no se puede mover solo un plan del Servicio de
 
 ## Administración de identidad y acceso 
 
-| Servicio | Administrador de recursos habilitado | Portal | Mover recursos | API de REST | Esquema |
+| Servicio | Administrador de recursos habilitado | Mover recursos | API de REST | Esquema | Plantillas de inicio rápido |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | No | No | - | - | - | 
-| Azure Active Directory B2C | No | No | - | - | - | 
-| Multi-Factor Authentication | No | No | - | - | - |
+| Azure Active Directory | No | - | - | - | 
+| Azure Active Directory B2C | No |- | - | - | 
+| Multi-Factor Authentication | No |- | - | - |
 
 ## Servicios de desarrollador 
 
