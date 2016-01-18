@@ -44,7 +44,7 @@ En el siguiente diagrama se muestra la relación entre aplicaciones e instancias
 ![Particiones y réplicas dentro de un servicio][cluster-application-instances]
 
 
->[AZURE.TIP]Puede ver el diseño de las aplicaciones en un clúster mediante la herramienta Explorador de Service Fabric disponible en http://&lt;yourclusteraddress&gt;:19080/Explorer. Para más información, consulte [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md).
+>[AZURE.TIP] Puede ver el diseño de las aplicaciones en un clúster mediante la herramienta Explorador de Service Fabric disponible en http://&lt;yourclusteraddress&gt;:19080/Explorer. Para más información, consulte [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md).
 
 ## Describir un servicio
 

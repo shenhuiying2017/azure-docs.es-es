@@ -267,7 +267,7 @@ El historial de ejecución contiene como máximo las 50 ejecuciones completadas 
 
  - Para más información sobre Azure DocumentDB, consulte la [página del servicio DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
- - Para obtener más información sobre Búsqueda de Azure, consulte la [página del servicio Búsqueda](https://azure.microsoft.com/es-ES/services/search/).
+ - Para obtener más información sobre Búsqueda de Azure, consulte la [página del servicio Búsqueda](https://azure.microsoft.com/services/search/).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0107_2016--->

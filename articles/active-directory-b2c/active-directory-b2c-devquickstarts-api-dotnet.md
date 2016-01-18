@@ -74,8 +74,8 @@ Cuando el usuario interactúa con la `TaskWebApp`, el cliente envía solicitudes
     <add key="ClientValidationEnabled" value="true" />
     <add key="UnobtrusiveJavaScriptEnabled" value="true" />
     <add key="ida:Tenant" value="{Enter the name of your B2C directory, e.g. contoso.onmicrosoft.com}" />
-    <add key="ida:ClientId" value="{Enter the Application Id assigned to your app by the Azure Portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609}" />
-    <add key="ida:ClientSecret" value="{Enter the Application Secret you created in the Azure Portal, e.g. yGNYWwypRS4Sj1oYXd0443n}" />
+    <add key="ida:ClientId" value="{Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609}" />
+    <add key="ida:ClientSecret" value="{Enter the Application Secret you created in the Azure portal, e.g. yGNYWwypRS4Sj1oYXd0443n}" />
     <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}{1}{2}" />
     <add key="ida:RedirectUri" value="https://localhost:44316/" />
     <add key="ida:SignUpPolicyId" value="[Enter your sign up policy name, e.g. b2c_1_sign_up]" />
@@ -219,8 +219,10 @@ Por último, compile y ejecute tanto `TaskWebApp` como `TaskService`. Regístres
 
 ## 8\. Editar sus directivas
 
-Ahora que tiene una API protegida con Azure AD B2C, puede jugar con las directivas de la aplicación y ver cómo afectan (en caso de hacerlo) en la API. Puede <!--add **identity providers**
-to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->manipular las **notificaciones de aplicación** de las directivas y modificar la información de usuario que está disponible en la API web. Las notificaciones adicionales que agregue estarán disponibles para su API web de .NET MVC en el objeto `ClaimsPrincipal`, como se describió anteriormente.
+Ahora que tiene una API protegida con Azure AD B2C, puede jugar con las directivas de la aplicación y ver cómo afectan (en caso de hacerlo) en la API. Puede manipular las **notificaciones de aplicación** de las directivas y modificar la información de usuario que está disponible en la API web. Las notificaciones adicionales que agregue estarán disponibles para su API web de .NET MVC en el objeto `ClaimsPrincipal`, como se describió anteriormente.
+<!--add **identity providers**
+to the policies, allowing you users to sign into the Task Client using social accounts.  You can also 
+-->
 
 <!--
 

@@ -74,7 +74,7 @@ Las ACU marcadas con un asterisco * usan la tecnología Intel® Turbo para incre
 
 Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 
->[AZURE.NOTE]La capacidad de almacenamiento se representa mediante 1024^3 bytes como unidad de medida para GB. En ocasiones, esto se conoce como gibibyte o definición de base 2 Al comparar los tamaños que utilizan distintos sistemas de base, tenga en cuenta que los tamaños de base 2 podrían parecer más pequeños que los de base 10. No obstante, para cualquier tamaño específico (como 1 GB), un sistema de base 2 ofrece más capacidad que un sistema de base 10, ya que 1024^3 es mayor que 1000^3.
+>[AZURE.NOTE] La capacidad de almacenamiento se representa mediante 1024^3 bytes como unidad de medida para GB. En ocasiones, esto se conoce como gibibyte o definición de base 2 Al comparar los tamaños que utilizan distintos sistemas de base, tenga en cuenta que los tamaños de base 2 podrían parecer más pequeños que los de base 10. No obstante, para cualquier tamaño específico (como 1 GB), un sistema de base 2 ofrece más capacidad que un sistema de base 10, ya que 1024^3 es mayor que 1000^3.
 
 <br>
 
@@ -146,16 +146,16 @@ Nota: Para obtener información y algunas consideraciones sobre el uso de estos 
 
 |Tamaño |Núcleos de CPU|Memoria|NICs (Máx)|Tamaño máx. del disco|Discos máximos de datos (1023 GB cada uno)|Tamaño de caché (GB)|E/S de disco máx. y ancho de banda|
 |---|---|---|---|---|---|---|---|
-|Standard\_DS1 |1|3,5|1|Disco SSD local = 7 GB |2|43| 3\.200 32 MB por segundo |
-|Standard\_DS2 |2|7|2|Disco SSD local = 14 GB |4|86| 6\.400 64 MB por segundo |
-|Standard\_DS3 |4|14|4|Disco SSD local = 28 GB |8|172| 12\.800 128 MB por segundo |
-|Standard\_DS4 |8|28|8|Disco SSD local = 56 GB |16|344| 25\.600 256 MB por segundo |
-|Standard\_DS11 |2|14|2|Disco SSD local = 28 GB |4|72| 6\.400 64 MB por segundo |
-|Standard\_DS12 |4|28|4|Disco SSD local = 56 GB |8|144| 12\.800 128 MB por segundo |
-|Standard\_DS13 |8|56|8|Disco SSD local = 112 GB |16|288| 25\.600 256 MB por segundo |
-|Standard\_DS14 |16|112|8|Disco SSD local = 224 GB |32|576| 50\.000 512 MB por segundo |
+|Standard\_DS1 |1|3,5|1|Disco SSD local = 7 GB |2|43| 3.200 32 MB por segundo |
+|Standard\_DS2 |2|7|2|Disco SSD local = 14 GB |4|86| 6.400 64 MB por segundo |
+|Standard\_DS3 |4|14|4|Disco SSD local = 28 GB |8|172| 12.800 128 MB por segundo |
+|Standard\_DS4 |8|28|8|Disco SSD local = 56 GB |16|344| 25.600 256 MB por segundo |
+|Standard\_DS11 |2|14|2|Disco SSD local = 28 GB |4|72| 6.400 64 MB por segundo |
+|Standard\_DS12 |4|28|4|Disco SSD local = 56 GB |8|144| 12.800 128 MB por segundo |
+|Standard\_DS13 |8|56|8|Disco SSD local = 112 GB |16|288| 25.600 256 MB por segundo |
+|Standard\_DS14 |16|112|8|Disco SSD local = 224 GB |32|576| 50.000 512 MB por segundo |
 
-**Las operaciones de entrada/salida máximas por segundo (E/S) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie DS se ven afectadas por el tamaño del disco. Para obtener información detallada, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage-premium-storage-preview-portal.md).
+*Las operaciones de entrada/salida máximas por segundo (E/S) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie DS se ven afectadas por el tamaño del disco. Para obtener información detallada, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage-premium-storage-preview-portal.md).
 
 ## Nivel estándar: serie G
 
@@ -171,11 +171,11 @@ Nota: Para obtener información y algunas consideraciones sobre el uso de estos 
 
 |Tamaño |Núcleos de CPU|Memoria|NICs (Máx)|Tamaño máx. del disco|Discos máximos de datos (1023 GB cada uno)|Tamaño de caché (GB)|E/S de disco máx. y ancho de banda|
 |---|---|---|---|---|---|---|---|
-|Standard\_GS1|2|28|1|Disco SSD local = 56 GB |4|264| 5\.000 125 MB por segundo |
-|Standard\_GS2|4|56|2|Disco SSD local = 112 GB |8|528| 10\.000 250 MB por segundo |
-|Standard\_GS3|8|112|4|Disco SSD local = 224 GB |16|1056| 20\.000 500 MB por segundo |
-|Standard\_GS4|16|224|8|Disco SSD local = 448 GB |32|2112| 40\.000 1.000 MB por segundo |
-|Standard\_GS5|32|448|8|Disco SSD local = 896 GB |64|4224| 80\.000 2.000 MB por segundo |
+|Standard\_GS1|2|28|1|Disco SSD local = 56 GB |4|264| 5.000 125 MB por segundo |
+|Standard\_GS2|4|56|2|Disco SSD local = 112 GB |8|528| 10.000 250 MB por segundo |
+|Standard\_GS3|8|112|4|Disco SSD local = 224 GB |16|1056| 20.000 500 MB por segundo |
+|Standard\_GS4|16|224|8|Disco SSD local = 448 GB |32|2112| 40.000 1.000 MB por segundo |
+|Standard\_GS5|32|448|8|Disco SSD local = 896 GB |64|4224| 80.000 2.000 MB por segundo |
 
 
 ### Consulte también

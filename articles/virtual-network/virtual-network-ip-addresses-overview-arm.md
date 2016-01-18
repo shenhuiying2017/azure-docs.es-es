@@ -128,7 +128,12 @@ En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asign
 
 La tabla siguiente muestra los límites impuestos al direccionamiento IP en Azure por región, por suscripción. Puede [ponerse en contacto con el soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar los límites predeterminados hasta alcanzar los límites máximos, según las necesidades empresariales.
 
-||Límite predeterminado|Límite máximo| |---|---|---| |Direcciones IP públicas (dinámicas)|60|póngase en contacto con el soporte técnico| |Direcciones IP públicas (estáticas)|20|póngase en contacto con el soporte técnico| |Direcciones IP front-end públicas por equilibrador de carga|5|póngase en contacto con el soporte técnico| |Direcciones IP front-end privadas por equilibrador de carga|1|póngase en contacto con el soporte técnico|
+||Límite predeterminado|Límite máximo|
+|---|---|---|
+|Direcciones IP públicas (dinámicas)|60|póngase en contacto con el soporte técnico|
+|Direcciones IP públicas (estáticas)|20|póngase en contacto con el soporte técnico|
+|Direcciones IP front-end públicas por equilibrador de carga|5|póngase en contacto con el soporte técnico|
+|Direcciones IP front-end privadas por equilibrador de carga|1|póngase en contacto con el soporte técnico|
 
 Asegúrese de leer el conjunto completo de [límites para redes](azure-subscription-service-limits.md#networking-limits) en Azure.
 

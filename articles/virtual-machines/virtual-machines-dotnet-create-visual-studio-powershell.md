@@ -19,14 +19,14 @@
 
 # Creación de una máquina virtual para una aplicación web con Visual Studio
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo del Administrador de recursos.
 
 Cuando cree una aplicación web para un sitio web de Azure, puede aprovisionar una máquina virtual en Azure. Después, puede configurar la máquina virtual con software adicional o usar dicha máquina para diagnósticos o depuración.
 
 Para crear una máquina virtual cuando cree una aplicación web, siga estos pasos:
 
 1. En Visual Studio, haga clic en **Archivo** > **Nuevo** > **Proyecto** > **Web** y luego elija **Aplicación web ASP.NET** (en los nodos **Visual C#** o **Visual Basic**).
-2. En el cuadro de diálogo** Nuevo proyecto ASP.NET**, seleccione el tipo de aplicación web que desee y en la sección de Azure de dicho cuadro de diálogo (en la esquina inferior derecha), asegúrese de que la casilla **Host en la nube** está seleccionada (esta casilla tiene la etiqueta **Crear recursos remotos** en algunas instalaciones).
+2. En el cuadro de diálogo **Nuevo proyecto ASP.NET**, seleccione el tipo de aplicación web que desee y en la sección de Azure de dicho cuadro de diálogo (en la esquina inferior derecha), asegúrese de que la casilla **Host en la nube** está seleccionada (esta casilla tiene la etiqueta **Crear recursos remotos** en algunas instalaciones).
 
 	![][0]
 

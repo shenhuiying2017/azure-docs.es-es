@@ -133,7 +133,9 @@ Los colaboradores pueden administrar todo el contenido, excepto el acceso
 | **Acciones** ||
 | ------- | ------ |
 | * | Crear y administrar recursos de todos los tipos |
-| ****Sin acciones | | | Microsoft.Authorization/*/Write | No puede crear roles ni asignaciones de roles | | Microsoft.Authorization/*/Delete | No puede eliminar roles ni asignaciones de roles |
+| ****Sin acciones |  |
+| Microsoft.Authorization/*/Write | No puede crear roles ni asignaciones de roles |
+| Microsoft.Authorization/*/Delete | No puede eliminar roles ni asignaciones de roles |
 
 ### Colaborador de factoría de datos
 Puede administrar las factorías de datos
@@ -379,7 +381,8 @@ Puede administrar el acceso de usuarios a los recursos de Azure
 
 | **Acciones** ||
 | ------- | ------ |
-| */read | Leer recursos de todos los tipos, excepto secretos. | | Microsoft.Authorization/* | Leer autorización |
+| */read | Leer recursos de todos los tipos, excepto secretos. |
+| Microsoft.Authorization/* | Leer autorización |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Colaborador de la máquina virtual clásica

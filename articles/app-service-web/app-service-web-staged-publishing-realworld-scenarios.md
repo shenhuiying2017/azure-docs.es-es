@@ -287,7 +287,7 @@ Examine y pruebe la aplicación web provisional. Si consideramos un escenario en
 
 ![Vista previa de los cambios de intercambio para WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- >[AZURE.NOTE]Si tiene un escenario en el que solo necesita insertar archivos (sin actualizaciones de la base de datos), entonces **active** la casilla **Configuración de ranuras** de todas las bases de datos relacionadas con la *configuración de aplicaciones* y la *configuración de cadenas de conexión* en la hoja de configuración de la aplicación web, dentro del Portal de Azure, antes de realizar el intercambio. En este caso DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, la configuración predeterminada de cadena de conexión, no se debe mostrar en los cambios de vista previa al realizar un **intercambio**. En este momento, cuando finalice la operación de **intercambio**, la aplicación web de WordPress **SOLO** tendrá los archivos actualizados.
+ >[AZURE.NOTE] Si tiene un escenario en el que solo necesita insertar archivos (sin actualizaciones de la base de datos), entonces **active** la casilla **Configuración de ranuras** de todas las bases de datos relacionadas con la *configuración de aplicaciones* y la *configuración de cadenas de conexión* en la hoja de configuración de la aplicación web, dentro del Portal de Azure, antes de realizar el intercambio. En este caso DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, la configuración predeterminada de cadena de conexión, no se debe mostrar en los cambios de vista previa al realizar un **intercambio**. En este momento, cuando finalice la operación de **intercambio**, la aplicación web de WordPress **SOLO** tendrá los archivos actualizados.
 
 Antes de realizar un intercambio, aquí está la aplicación web de WordPress de producción ![Aplicación web de producción antes del intercambio de ranuras](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
@@ -371,14 +371,21 @@ Para configurarlo, debe actualizar el archivo courier.config en la carpeta **Con
   </repositories>
  ```
 
-Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
+En `<repositories>`, introduzca la dirección URL del sitio de producción y la información de usuario. Si está usando el proveedor de pertenencia de Umbraco predeterminado, agregue el identificador del usuario de administración en la sección <user>. Si está usando el proveedor de pertenencia de Umbraco personalizado, use `<login>`,`<password>` para que el módulo Courier2 sepa cómo conectarse al sitio de producción. Para obtener más información, revise la [documentación](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) del módulo Courier.
 
-Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
+De igual forma, instale el módulo Courier en el sitio de producción y configúrelo para que apunte a la aplicación web de ensayo en su archivo courier.config respectivo, tal como se muestra aquí.
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
+  <repositories>
+        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
+        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
+            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
+            <user>0</user>
+           </repository>
+  </repositories>
+```
 
 Haga clic en la pestaña Courier2 en el panel de aplicaciones web de CMS de Umbraco y seleccione las ubicaciones. Debería ver el nombre del repositorio como se mencionó en `courier.config`. Haga esto tanto en aplicaciones web de producción como de ensayo.
 

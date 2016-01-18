@@ -96,7 +96,6 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 <td>ValidationRetry</td><td>En espera de que se vuelva a intentar la validación.</td>
 </tr>
 <tr>
-&lt;tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>Validación en curso.</td>
 </tr>
 <td></td>
@@ -540,7 +539,9 @@ Puede implementar alertas para las métricas de la misma manera que lo hace para
  
 Reemplace subscriptionId, resourceGroupName y dataFactoryName en el ejemplo anterior con los valores adecuados.
 
-*metricName* a partir de ahora admite dos valores: - FailedRuns - SuccessfulRuns.
+*metricName* a partir de ahora admite dos valores:
+- FailedRuns
+- SuccessfulRuns.
 
 **Implementación de alertas:**
 

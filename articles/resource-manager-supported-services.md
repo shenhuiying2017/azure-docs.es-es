@@ -35,7 +35,9 @@ En las tablas siguientes se muestra qué servicios admiten la implementación y 
 | Lote | Sí | Sí | [REST de Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx) | | [Microsoft.Batch](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Batch%22&type=Code) |
 | Dynamics Lifecycle Services | Sí | | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (vista previa) | Sí | | [Rest de Service Fabric](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
-| Máquinas virtuales (clásicas) | Limitado | Parcial (ver a continuación) | - | - | | RemoteApp | No | - | - | - | | Servicios en la nube (clásicos) | No | Parcial (ver a continuación) | - | - | - |
+| Máquinas virtuales (clásicas) | Limitado | Parcial (ver a continuación) | - | - | 
+| RemoteApp | No | - | - | - | 
+| Servicios en la nube (clásicos) | No | Parcial (ver a continuación) | - | - | - |
 
 Máquinas virtuales (clásicas) hace referencia a recursos que se implementaron mediante el modelo de implementación clásica, en lugar de a través del modelo de implementación del Administrador de recursos. En general, estos recursos no admiten las operaciones del Administrador de recursos, pero hay algunas operaciones que se han habilitado. Para obtener más información sobre estos modelos de implementación, vea [Descripción de la implementación del Administrador de recursos y la implementación clásica](resource-manager-deployment-model.md).
 
@@ -64,7 +66,8 @@ Las redes virtuales se pueden mover a un nuevo grupo de recursos, pero no a nuev
 | Base de datos SQL | Sí | Sí | [REST de Base de datos SQL](https://msdn.microsoft.com/library/azure/mt163571.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) | [Microsoft.Sql](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
 | Search | Sí | Sí | [REST de Búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) | | [Microsoft.Search](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Search%22&type=Code) |
 | Almacenamiento de datos SQL | Sí | | | |
-| StorSimple | No | - | - | - | | Memoria caché administrada | No | - | - | - |
+| StorSimple | No | - | - | - | 
+| Memoria caché administrada | No | - | - | - |
 
 ## Web y móvil
 
@@ -90,7 +93,8 @@ Al trabajar con aplicaciones web, no se puede mover solo un plan del Servicio de
 | Análisis de transmisiones | Sí | | [REST de Análisis de transmisiones](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
 | HDInsights | Sí | Sí | [REST de HDInsights](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Factoría de datos | Sí | Sí | [REST de Factoría de datos](https://msdn.microsoft.com/library/azure/dn906738.aspx) | | [Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
-| Aprendizaje automático | No | - | - | - | | Catálogo de datos | No | - | - | - |
+| Aprendizaje automático | No | - | - | - | 
+| Catálogo de datos | No | - | - | - |
 
 ## Multimedia y CDN
 
@@ -106,13 +110,16 @@ Al trabajar con aplicaciones web, no se puede mover solo un plan del Servicio de
 | ------- | ------- | -------------- | -------- | ------ | ------ |
 | Servicios de BizTalk | Sí | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Bus de servicio | Sí | | [REST de Bus de servicio](https://msdn.microsoft.com/library/azure/hh780717.aspx) | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Copia de seguridad | No | - | - | - | | Recuperación del sitio | No | - | - | - |
+| Copia de seguridad | No | - | - | - | 
+| Recuperación del sitio | No | - | - | - |
 
 ## Administración de identidad y acceso 
 
 | Servicio | Administrador de recursos habilitado | Mover recursos | API de REST | Esquema | Plantillas de inicio rápido |
 | ------- | ------- | -------------- | -------- | ------ | ------ |
-| Azure Active Directory | No | - | - | - | | Azure Active Directory B2C | No | - | - | - | | Multi-Factor Authentication | No | - | - | - |
+| Azure Active Directory | No | - | - | - | 
+| Azure Active Directory B2C | No | - | - | - | 
+| Multi-Factor Authentication | No | - | - | - |
 
 ## Servicios de desarrollador 
 

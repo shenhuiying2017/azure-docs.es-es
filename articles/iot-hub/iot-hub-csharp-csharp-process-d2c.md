@@ -41,7 +41,7 @@ Al final de este tutorial ejecutará tres aplicaciones de consola de Windows:
 * **ProcessDeviceToCloudMessages**, que usa la clase [EventProcessorHost] para recuperar mensajes desde el punto de conexión compatible con el Centro de eventos y luego almacenar mensajes de punto de datos de forma confiable en un blob de Azure y reenviar mensajes interactivos a una cola del Bus de servicio.
 * **ProcessD2CInteractiveMessages**, que quita los mensajes interactivos de la cola del Bus de servicio.
 
-> [AZURE.NOTE]El Centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes, entre los que se incluyen C, Java y JavaScript. Consulte el [Centro para desarrolladores de IoT de Azure] para obtener instrucciones paso a paso sobre cómo reemplazar el dispositivo simulado de este tutorial por un dispositivo físico y, en general, sobre cómo conectar dispositivos al Centro de IoT de Azure.
+> [AZURE.NOTE] El Centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes, entre los que se incluyen C, Java y JavaScript. Consulte el [Centro para desarrolladores de IoT de Azure] para obtener instrucciones paso a paso sobre cómo reemplazar el dispositivo simulado de este tutorial por un dispositivo físico y, en general, sobre cómo conectar dispositivos al Centro de IoT de Azure.
 
 Este tutorial se puede aplicar directamente a otras formas de consumir mensajes compatibles con centros de eventos como, por ejemplo, proyectos de [Hadoop]. Consulte la [Guía del desarrollador del Centro de IoT de Azure] para más información.
 
@@ -99,6 +99,7 @@ Información adicional sobre el centro de IoT:
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
+[control de errores transitorios]: https://msdn.microsoft.com/es-ES/library/hh680901(v=pandp.50).aspx
 
 [Guía del desarrollador del Centro de IoT de Azure]: https://azure.microsoft.com/es-ES/documentation/articles/iot-hub-devguide/#d2c
 
@@ -107,7 +108,9 @@ Información adicional sobre el centro de IoT:
 
 
 
+[Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Envío de mensajes de nube a dispositivo con el Centro de IoT]: iot-hub-csharp-csharp-c2d.md
+[Procesamiento de mensajes de dispositivo a nube]: iot-hub-csharp-csharp-process-d2c.md
 [Carga de archivos desde dispositivos]: iot-hub-csharp-csharp-file-upload.md
 
 [Información general sobre el centro de IoT]: iot-hub-what-is-iot-hub.md

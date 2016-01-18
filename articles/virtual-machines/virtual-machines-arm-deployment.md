@@ -47,7 +47,7 @@ Para usar Azure AD para autenticar las solicitudes con el Administrador de recur
 
 			New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]Anote el identificador de la aplicación que se devuelve después de crear la aplicación, ya que la necesitará para el siguiente paso. Asimismo, también puede encontrar el identificador de la aplicación en el campo del identificador de cliente de la aplicación, en la sección de Active Directory del Portal de Azure.
+	>[AZURE.NOTE] Anote el identificador de la aplicación que se devuelve después de crear la aplicación, ya que la necesitará para el siguiente paso. Asimismo, también puede encontrar el identificador de la aplicación en el campo del identificador de cliente de la aplicación, en la sección de Active Directory del Portal de Azure.
 
 3. Reemplace {application-id} por el identificador que acaba de anotar y, a continuación, cree la entidad de servicio correspondiente a la aplicación:
 
@@ -489,7 +489,7 @@ Ahora que ha creado todos los recursos auxiliares, puede crear una máquina virt
 	}
 	```
 
-	>[AZURE.NOTE]En este tutorial se crea una máquina virtual donde se ejecuta una versión del sistema operativo Windows Server. Para obtener más información sobre la selección de otras imágenes, consulte [Seleccione y navegue por imágenes de máquina virtual de Azure con PowerShell y la CLI de Azure](resource-groups-vm-searching.md).
+	>[AZURE.NOTE] En este tutorial se crea una máquina virtual donde se ejecuta una versión del sistema operativo Windows Server. Para obtener más información sobre la selección de otras imágenes, consulte [Seleccione y navegue por imágenes de máquina virtual de Azure con PowerShell y la CLI de Azure](resource-groups-vm-searching.md).
 
 2. Agregue el código siguiente al método Main para llamar al método que acaba de agregar:
 

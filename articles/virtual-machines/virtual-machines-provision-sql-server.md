@@ -60,9 +60,9 @@ Para obtener la información más actualizada sobre las imágenes compatibles de
 	- Una **FECHA DE LANZAMIENTO DE LA VERSIÓN**. Si hay varias imágenes disponibles, seleccione la más reciente.
 	- Un **NOMBRE DE LA MÁQUINA VIRTUAL** exclusivo.
 	- En el cuadro **NUEVO NOMBRE DE USUARIO**, un nombre de usuario exclusivo para la cuenta de administrador local de la máquina.
-	- En el cuadro **CONTRASEÑA NUEVA**, escriba una contraseña segura.
+	- En el cuadro **CONTRASEÑA NUEVA**, escriba una contraseña segura. 
 	- En el cuadro **CONFIRMAR CONTRASEÑA**, vuelva a escribir la contraseña.
-	- Seleccione el **TAMAÑO** correspondiente en la lista desplegable.
+	- Seleccione el **TAMAÑO** correspondiente en la lista desplegable. 
 
 	![Configuración de MV](./media/virtual-machines-provision-sql-server/4VM-Config.png)
 
@@ -75,13 +75,13 @@ Para obtener la información más actualizada sobre las imágenes compatibles de
 
 5. En la segunda página de **Configuración de máquina virtual**, configure recursos para las redes, el almacenamiento y la disponibilidad:
 	- En el cuadro **Servicio en la nube**, seleccione **Crear un nuevo servicio en la nube**.
-	- En el cuadro **Nombre DNS de servicio en la nube**, proporcione la primera parte de un nombre DNS que elija, para que así se complete un nombre con el formato **TESTNAME.cloudapp.net**
+	- En el cuadro **Nombre DNS de servicio en la nube**, proporcione la primera parte de un nombre DNS que elija, para que así se complete un nombre con el formato **TESTNAME.cloudapp.net** 
 	- Seleccione una **SUSCRIPCIÓN**, si tiene varias suscripciones entre las que elegir. La opción determina qué **cuentas de almacenamiento **están disponibles.
-- En el cuadro **REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL**, seleccione una región donde se hospedará esta imagen virtual.
-	- En la **Cuenta de almacenamiento**, genere automáticamente una cuenta o seleccione una en la lista. Cambie la **SUSCRIPCIÓN** para ver más cuentas.
+	- En el cuadro **REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL**, seleccione una región donde se hospedará esta imagen virtual.
+	- En la **Cuenta de almacenamiento**, genere automáticamente una cuenta o seleccione una en la lista. Cambie la **SUSCRIPCIÓN** para ver más cuentas. 
 	- En el cuadro **CONJUNTO DE DISPONIBILIDAD**, seleccione **(none)**.
 	- Lea y acepte los términos legales.
-
+	
 
 6. Haga clic en la flecha de avance para continuar.
 
@@ -95,7 +95,7 @@ Para obtener la información más actualizada sobre las imágenes compatibles de
 	- **Inicio (aprovisionamiento)**
 	- **Ejecución (aprovisionamiento)**
 	- **Ejecución**
-
+	
 
 ##<a id="RemoteDesktop">Abra la máquina virtual usando el Escritorio remoto para completar la configuración</a>.
 
