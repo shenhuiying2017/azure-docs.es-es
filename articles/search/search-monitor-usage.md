@@ -21,11 +21,11 @@
 
 Llevar un seguimiento del crecimiento de los índices y el tamaño de los documentos puede ayudarle a ajustar la capacidad de forma proactiva antes de alcanzar el límite superior que haya establecido para el servicio.
 
-Para supervisar el uso de recursos, puede ver con facilidad los recuentos y las estadísticas en el [Portal de Azure clásico](https://portal.azure.com), pero también puede obtener la información mediante programación si va a crear una herramienta de administración de servicio personalizada. En este artículo se muestran los pasos para ambas técnicas.
+Para supervisar el uso de recursos, los recuentos y las estadísticas pueden verse con facilidad en el [Portal de Azure](https://portal.azure.com), pero también se puede obtener la información mediante programación si va a crear una herramienta de administración de servicio personalizada. En este artículo se muestran los pasos para ambas técnicas.
 
 ##Ver recuentos y métricas en el portal 
 
-1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com). 
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). 
 
 2. Abra el panel del servicio Búsqueda de Azure. Puede buscar los mosaicos del servicio en la página principal, o puede desplazarse hasta el servicio usando Explorar, en la barra de salto. Consulte [Crear un servicio](search-create-service-portal.md) para obtener instrucciones paso a paso.
 
@@ -57,4 +57,4 @@ Visite [Administración del servicio de búsqueda en Microsoft Azure](search-man
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

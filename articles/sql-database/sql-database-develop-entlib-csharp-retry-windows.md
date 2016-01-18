@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Reintento de EntLib para la conexión a Base de datos SQL | Microsoft Azure"
 	description="Enterprise Library está diseñado para simplificar muchas tareas para programas cliente de servicios en la nube, incluida la integración de la lógica de reintento en caso de errores transitorios."
 	services="sql-database"
@@ -8,23 +8,19 @@
 	editor="" />
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/17/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/17/2015"
 	ms.author="genemi"/>
 
 
 # Ejemplo de código: lógica de reintento de Enterprise Library 6, en C&#x23; para conectarse a Base de datos SQL
 
-
-> [AZURE.SELECTOR]
-- [PHP](sql-database-develop-php-retry-windows.md)
-- [C#](sql-database-develop-csharp-retry-windows.md)
-- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Este tema presenta un ejemplo de código completo que muestra Enterprise Library (EntLib). EntLib simplifica muchas tareas para programas cliente que interactúan con servicios en la nube como Base de datos SQL de Azure. Nuestro ejemplo se centra en la tarea importante de incluir la lógica de reintento en caso de errores transitorios.
@@ -330,4 +326,4 @@ SELECT TOP 3
 
 - [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

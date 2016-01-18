@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # Usar el servicio de Administrador de StorSimple para administrar volúmenes (Update 2)
@@ -108,31 +108,28 @@ Ya [creó un volumen](storsimple-deployment-walkthrough-u2.md#step-6-create-a-vo
 
 3. Haga clic en **Agregar** en la parte inferior de la página. Se iniciará el Asistente para agregar volúmenes.
 
-     ![Agregar configuración básica del asistente de volumen](./media/storsimple-manage-volumes-u2/AddVolume1.png)
+     ![Agregar configuración básica del asistente de volumen](./media/storsimple-manage-volumes-u2/TieredVolEx.png)
 
 4. En el Asistente para agregar volúmenes, en **Configuración básica**, haga lo siguiente:
 
   1. Proporcione un **Nombre** para el volumen.
-  2. Seleccione un valor para **Tipo de uso** en la lista desplegable. Para cargas de trabajo que requieren que los datos estén disponibles localmente en el dispositivo en todo momento, seleccione **Anclado localmente**. Para todos los demás tipos de datos, seleccione **En capas**. (**En capas** es el valor predeterminado).
+  2. Seleccione un **Tipo de uso** en la lista desplegable. Para cargas de trabajo que requieren que los datos estén disponibles localmente en el dispositivo en todo momento, seleccione **Anclado localmente**. Para todos los demás tipos de datos, seleccione **En capas**. (**En capas** es el valor predeterminado).
   3. Si seleccionó **En capas** en el paso 2, puede activar la casilla **Usar este volumen para los datos de archivo a los que accede con menos frecuencia** para configurar un volumen de archivo.
   4. Especifique un valor para **Capacidad aprovisionada** para el volumen en GB o TB. Para conocer los tamaños máximos de cada dispositivo y tipo de volumen, consulte [Capacidad aprovisionada](#provisioned-capacity). Para determinar cuánto almacenamiento hay realmente disponible en el dispositivo, consulte **Capacidad disponible**.
 
-    Si va a configurar un volumen anclado localmente, verá el mensaje siguiente.
+5. Haga clic en el icono de flecha![Icono de flecha](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png). Si va a configurar un volumen anclado localmente, verá el mensaje siguiente.
 
-    ![Cambiar el mensaje de tipo de volumen](./media/storsimple-manage-volumes-u2/LocalVolMessage.png)
-
-    Aparece la siguiente página.
+    ![Cambiar el mensaje de tipo de volumen](./media/storsimple-manage-volumes-u2/LocalVolEx.png)
+   
+5. Vuelva a hacer clic en el icono de flecha ![Icono de flecha](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)para ir a la página **Configuración adicional**.
 
     ![Agregar configuración adicional del asistente de volumen](./media/storsimple-manage-volumes-u2/AddVolume2.png)<br>
-   
-5. Haga clic en el icono de flecha ![Icono de flecha](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) para ir a la página **Configuración adicional**.
 
 6. En **Configuración adicional**, agregue un nuevo registro de control de acceso (ACR):
   
   1. Seleccione un registro de control de acceso (ACR) de la lista desplegable. También puede agregar un nuevo ACR. Los ACR determinan qué hosts pueden acceder a los volúmenes haciendo coincidir el IQN del host con el que aparece en el registro. Si no especifica un ACR, verá el siguiente mensaje.
 
         ![Specify ACR](./media/storsimple-manage-volumes-u2/SpecifyACR.png)
-
 
   2. Le recomendamos que active la casilla **Habilitar una copia de seguridad predeterminada para este volumen**.
   3. Haga clic en el icono de marca de verificación ![Icono de marca de verificación](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) para crear el volumen con la configuración especificada.
@@ -211,13 +208,11 @@ Puede que desee cambiar un volumen anclado localmente por uno en capas si necesi
     - Si va a cambiar el tipo a **Anclado localmente**, StorSimple comprobará si hay capacidad suficiente.
     - Si va a cambiar el tipo a **En capas** y este volumen se va a usar para los datos de archivo, active la casilla **Usar este volumen para los datos de archivo a los que accede con menos frecuencia**.
 
-    ![Casilla de verificación de archivo](./media/storsimple-manage-volumes-u2/ModifyVolume1.png)
+        ![Casilla de verificación de archivo](./media/storsimple-manage-volumes-u2/ModifyTieredVolEx.png)
 
-5. Haga clic en el icono de flecha ![Icono de flecha](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) para ir a la página **Configuración adicional**.
+5. Haga clic en el icono de flecha ![Icono de flecha](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) para ir a la página **Configuración adicional**. Si configura un volumen anclado localmente, aparecerá el siguiente mensaje.
 
-    Aparece el mensaje siguiente.
-
-    ![Cambiar el mensaje de tipo de volumen](./media/storsimple-manage-volumes-u2/TypeChangeMessage.png)
+    ![Cambiar el mensaje de tipo de volumen](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
 
 6. Haga clic de nuevo en el icono de flecha ![icono de flecha](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) para continuar.
 
@@ -280,9 +275,7 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 
 4. En la parte inferior de la página, haga clic en **Modificar**.
 
-5. En el Asistente para modificar volúmenes, en **Configuración básica**, seleccione **Habilitar** o **Deshabilitar** en la lista desplegable **Supervisión**.
-
-    ![Casilla de verificación de archivo](./media/storsimple-manage-volumes-u2/ModifyVolume1.png)
+5. En el Asistente para modificar volúmenes, en **Configuración básica**, seleccione **Habilitar** o **Deshabilitar** en la lista desplegable de **Supervisión**.
 
 ## Pasos siguientes
 
@@ -291,4 +284,4 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

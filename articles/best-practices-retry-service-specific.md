@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/28/2015"
    ms.author="masashin"/>
 
 # Vuelva a intentar la orientación específica del servicio
@@ -679,7 +679,7 @@ namespace RetryCodeSamples
 
 ## Más información
 
-* [Patrones de mensajería asincrónica y alta disponibilidad](http://msdn.microsoft.com/library/azure/dn292562.aspx).
+* [Patrones de mensajería asincrónica y alta disponibilidad.](http://msdn.microsoft.com/library/azure/dn292562.aspx)
 
 ## Directrices de reintento de caché (Redis)
 
@@ -1121,4 +1121,4 @@ El bloque de aplicaciones de control de errores transitorios tiene las siguiente
 | **Lineal (intervalo fijo)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 segundo<br />true | Número de reintentos.<br />Intervalo entre reintentos.<br />Si el primer reintento se realizará inmediatamente. |
 Para obtener ejemplos del uso del bloque de aplicaciones de control de errores transitorios, consulte las secciones de ejemplos mostradas anteriormente en esta guía para la Base de datos SQL de Azure mediante ADO.NET y Azure Active Directory.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

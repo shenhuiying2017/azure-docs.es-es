@@ -20,7 +20,7 @@
 
 Si desea mejorar las experiencias de búsqueda en los datos de DocumentDB, use el indizador de Búsqueda de Azure para dicha base de datos. En este artículo mostraremos cómo integrar Azure DocumentDB con Búsqueda de Azure sin necesidad de escribir código alguno para mantener la infraestructura de indización.
 
-Para establecer esta opción, debe [configurar una cuenta de Búsqueda de Azure](../search-get-started.md#start-with-the-free-service) (no es necesario actualizar a la búsqueda estándar) y, a continuación, llamar a la [API de REST de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) para crear un **origen de datos** de DocumentDB y un **indizador** para dicho origen de datos.
+Para establecer esta opción, debe [configurar una cuenta de Búsqueda de Azure](../search/search-get-started.md#start-with-the-free-service) (no es necesario actualizar a la búsqueda estándar) y, a continuación, llamar a la [API de REST de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) para crear un **origen de datos** de DocumentDB y un **indizador** para dicho origen de datos.
 
 ##<a id="Concepts"></a>Conceptos del indizador de Búsqueda de Azure
 
@@ -121,7 +121,7 @@ Si el origen de datos se crea correctamente, recibirá una respuesta HTTP 201 qu
 
 ##<a id="CreateIndex"></a>Paso 2: Creación de un índice
 
-Si aún no tiene un índice de Búsqueda de Azure de destino, créelo. Puede crearlo desde la [interfaz de usuario del Portal de Azure clásico](../search-get-started.md#test-service-operations) o mediante la [API de creación de índices](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Si aún no tiene un índice de Búsqueda de Azure de destino, créelo. Puede crearlo desde la [interfaz de usuario del Portal de Azure clásico](../search/search-get-started.md#test-service-operations) o mediante la [API de creación de índices](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -265,9 +265,9 @@ El historial de ejecución contiene como máximo las 50 ejecuciones completadas 
 
 ¡Enhorabuena! En este artículo ha aprendido a integrar Azure DocumentDB con Búsqueda de Azure usando el indizador para dicha base de datos.
 
- - Para obtener más información sobre Azure DocumentDB, haga clic [aquí](/services/documentdb/).
+ - Para más información sobre Azure DocumentDB, consulte la [página del servicio DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
- - Para obtener más información sobre Búsqueda de Azure, haga clic [aquí](/services/search/).
+ - Para obtener más información sobre Búsqueda de Azure, consulte la [página del servicio Búsqueda](https://azure.microsoft.com/services/search/).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016--->

@@ -5,8 +5,8 @@
 	documentationCenter=""
 	authors="danielsollondon"
 	manager="jeffreyg"
-   editor="monicar"    
-   tags="azure-service-management"/>
+	editor="monicar"    
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="10/02/2015"
+	ms.date="01/06/2015"
 	ms.author="jroth"/>
 
 # Usar el almacenamiento Premium de Azure con SQL Server en máquinas virtuales
@@ -89,7 +89,7 @@ Para moverlo a una red virtual regional en Europa Occidental, cambie la configur
 
 Necesitará crear una cuenta de almacenamiento nueva que esté configurada para el almacenamiento Premium. Tenga en cuenta que el uso del almacenamiento Premium se establece en la cuenta de almacenamiento, no en VHD individuales. Sin embargo, cuando se usa una máquina virtual de la serie DS*, se puede adjuntar VHD desde cuentas de almacenamiento estándar y Premium. Puede considerar esta opción si no desea colocar el VHD del sistema operativo en la cuenta de almacenamiento Premium.
 
-El siguiente comando **New-AzureStorageAccountPowerShell** con el **tipo** “Premium\_LRS” crea una cuenta de almacenamiento Premium:
+El siguiente comando **New-AzureStorageAccountPowerShell** con el **tipo** “Premium_LRS” crea una cuenta de almacenamiento Premium:
 
     $newstorageaccountname = "danpremstor" 
     New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "West Europe" -Type "Premium_LRS"   
@@ -151,7 +151,7 @@ El nivel de rendimiento del almacenamiento depende del tamaño especificado de l
 
 El aumento de IOPS se consigue con tamaños de disco mayores. Debe tenerlo en cuenta al considerar la ruta de acceso de la migración. Para obtener más información, [vea la tabla de IOPS y tipos de discos](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whes-ESing-premium-storage).
 
-Por último, tenga en cuenta que las máquinas virtuales admiten diferentes anchos de banda de disco máximos para todos los discos conectados. Con una carga elevada, podría saturar el ancho de banda de disco máximo disponible para ese tamaño de rol de máquina virtual. Por ejemplo, un Standard\_DS14 admitirá hasta 512 MB/s; por lo tanto, con tres discos P30 podría saturar el ancho de banda de disco de la máquina virtual. No obstante, en este ejemplo, se puede superar el límite de rendimiento en función de la combinación de E/S de lectura y escritura.
+Por último, tenga en cuenta que las máquinas virtuales admiten diferentes anchos de banda de disco máximos para todos los discos conectados. Con una carga elevada, podría saturar el ancho de banda de disco máximo disponible para ese tamaño de rol de máquina virtual. Por ejemplo, un Standard_DS14 admitirá hasta 512 MB/s; por lo tanto, con tres discos P30 podría saturar el ancho de banda de disco de la máquina virtual. No obstante, en este ejemplo, se puede superar el límite de rendimiento en función de la combinación de E/S de lectura y escritura.
 
 ## Nuevas implementaciones
 
@@ -380,7 +380,7 @@ Hay dos estrategias para migrar las implementaciones de AlwaysOn que permiten ci
 1. **Agregar más réplicas secundarias a un clúster de AlwaysOn existente**
 1. **Migrar a un clúster de AlwaysOn nuevo**
 
-#### 1\. Agregar más réplicas secundarias a un clúster de AlwaysOn existente
+#### 1. Agregar más réplicas secundarias a un clúster de AlwaysOn existente
 
 Una estrategia consiste en agregar más elementos secundarios al grupo de disponibilidad AlwaysOn. Deberá agregarlos a un servicio en la nube nuevo y actualizar el agente de escucha con la dirección IP nueva del equilibrador de carga.
 
@@ -427,7 +427,7 @@ Debe aprovisionar tiempo donde se pueda realizar una conmutación por error manu
 - El tiempo de transferencia de datos de SQL podría ser largo cuando se configuran los elementos secundarios.
 - Hay costos adicionales durante la migración cuando se tienen máquinas nuevas que se ejecutan en paralelo.
 
-#### 2\. Migrar a un clúster de AlwaysOn nuevo
+#### 2. Migrar a un clúster de AlwaysOn nuevo
 
 Otra estrategia consiste en crear un clúster de AlwaysOn nuevo con nodos completamente nuevos en el servicio en la nube nuevo y, a continuación, redirigir los clientes para que lo usen.
 
@@ -458,7 +458,7 @@ Hay dos estrategias para migrar las implementaciones de AlwaysOn para un tiempo 
 1. **Usar un elemento secundario existente: sitio único**
 1. **Usar una réplica de un elemento secundario existente: multisitio**
 
-#### 1\. Usar un elemento secundario existente: sitio único
+#### 1. Usar un elemento secundario existente: sitio único
 
 Una estrategia para el tiempo de inactividad mínimo consiste en tomar un elemento secundario existente en la nube y quitarlo del servicio en la nube actual. A continuación, copie los VHD a la nueva cuenta de almacenamiento Premium y cree la máquina virtual en el nuevo servicio en la nube. A continuación, actualice el agente de escucha en la agrupación en clústeres y la conmutación por error.
 
@@ -504,7 +504,7 @@ Este documento no muestra un ejemplo completo de un extremo a otro; sin embargo,
 - Si sigue los pasos 5ii, agregue SQL1 como posible propietario para el recurso de dirección IP agregada.
 - Pruebe las conmutaciones por error.
 
-#### 2\. Usar una réplica de un elemento secundario existente: multisitio
+#### 2. Usar una réplica de un elemento secundario existente: multisitio
 
 Si tiene nodos en más de un centro de datos (DC) de Azure o si tiene un entorno híbrido, puede usar una configuración de AlwaysOn en este entorno para minimizar el tiempo de inactividad.
 
@@ -1149,4 +1149,4 @@ Para agregar la dirección IP, consulte el paso 14 del [Apéndice](#appendix-mig
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

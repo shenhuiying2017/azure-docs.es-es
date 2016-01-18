@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/21/2015"
+	ms.date="01/05/2015"
 	ms.author="genli"/>
 
 # Incorporación o cambio de roles de administrador de Azure
@@ -42,13 +42,13 @@ Se puede agregar la siguiente dirección de correo electrónico como coadministr
 
 **Nota:**
 
- * Cada suscripción está asociada con una instancia de Azure Active Directory (el directorio predeterminado). Para encontrar el directorio predeterminado al que está asociada la suscripción, vaya al [Portal de Azure clásico](https://manage.windowsazure.com/), seleccione **Configuración** > **Suscripciones** y compruebe el id. de suscripción.
+ * Cada suscripción está asociada con una instancia de Azure Active Directory (el directorio predeterminado). Para buscar el directorio predeterminado al que está asociada la suscripción, vaya al [Portal de Azure clásico](https://manage.windowsazure.com/) y seleccione **Configuración** > **Suscripciones**. Compruebe el identificador de la suscripción para encontrar el directorio predeterminado.
 
  * Si ha iniciado sesión con una cuenta Microsoft, solo puede agregar otras cuentas Microsoft o usuarios del directorio predeterminado como coadministrador.
  * Si ha iniciado sesión con una cuenta de organización, puede agregar otras cuentas de organización de su organización como coadministrador. Por ejemplo, abby@contoso.com puede agregar bob@contoso.com como administrador de servicios o coadministrador, pero no puede agregar john@notcontoso.com a menos que john@noncontoso.com sea el usuario en el directorio predeterminado. Los usuarios que han iniciado sesión con cuentas de organización pueden continuar agregando usuarios de cuentas Microsoft como coadministrador o administrador de servicios.
  * Ahora que es posible iniciar sesión en Azure con una cuenta profesional, estos son los cambios en los requisitos de la cuenta de administrador de servicios y coadministrador:
 
-| Método de inicio de sesión| ¿Agregar cuentas Microsoft o usuarios del directorio predeterminado como coadministrador o administrador de servicios? |¿Agregar una cuenta de organización de la misma organización como coadministrador o administrador de servicios? |¿Agregar una cuenta de organización de una organización diferente como coadministrador o administrador de servicios?
+| Método de inicio de sesión| ¿Desea agregar cuentas Microsoft o usuarios del directorio predeterminado como coadministrador o administrador de servicios? |¿Desea agregar una cuenta de organización en la misma organización que el coadministrador o administrador de servicios? |¿Desea agregar una cuenta de organización en una organización diferente a la del coadministrador o administrador de servicios?
 | ------------- | ------------- |---------------|---------------|
 |Cuenta Microsoft |Sí|No|No|
 |Cuenta de organización|Sí|Sí|No|
@@ -66,4 +66,4 @@ Solo el administrador de cuenta puede cambiar el administrador de servicios de u
 
 Para transferir la propiedad de la cuenta de Azure a otra cuenta, consulte [Transferencia de suscripciones de Azure](../billing-subscription-transfer.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

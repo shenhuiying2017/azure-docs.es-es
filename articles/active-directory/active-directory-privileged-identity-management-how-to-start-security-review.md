@@ -51,7 +51,7 @@ Al hacer clic en el botón **Revisar**, aparecerán las hojas **Empezar a revisa
   - ¿A cuántas personas se revisa?
   - ¿Con qué rapidez los usuarios podrán agregar la extensión y completar la revisión?
 4. Haga clic en el botón Aceptar de la hoja **Cambiar valores predeterminados**. Se cerrará.
-5. Haga clic en el botón Aceptar de la hoja **Iniciar una revisión de un rol**. Se cerrará. Aparecerá una notificación en el menú principal del portal. Actualice el panel haciendo clic en el botón **Actualizar** y la revisión de seguridad aparecerá en la sección **Revisiones de seguridad**.
+5. Haga clic en el botón Aceptar de la hoja **Iniciar una revisión de un rol**. Se cerrará. Aparecerá una notificación en el menú principal del Portal de Azure. Actualice el panel haciendo clic en el botón **Actualizar** y la revisión de seguridad aparecerá en la sección **Revisiones de seguridad**.
 6. Notifique a los usuarios del rol que tendrán que agregar la extensión y luego revisar su propio acceso administrativo. Vea el paso siguiente.
 6. [Revisión del acceso administrativo](active-directory-privileged-identity-management-how-to-perform-security-review.md)
 
@@ -63,4 +63,4 @@ Si seleccionó la opción "Yo" como revisor, continúe con la revisión de segur
 ## Tabla de contenido de PIM
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

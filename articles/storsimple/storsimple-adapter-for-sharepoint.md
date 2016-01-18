@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # Instalar y configurar el adaptador de StorSimple para SharePoint
@@ -79,7 +79,7 @@ Revise lo siguiente antes de configurar RBS:
 
         `SELECT SUM([Size]) FROM [ContentDatabaseName].[dbo].[AllDocs] WHERE [Content] IS NULL`
 
-        Este paso obtiene el tamaño de los BLOBs que se han externalizado.
+        Este paso obtiene el tamaño de los BLOB que se externalizaron.
 
 - Recomendamos guardar todo el contenido BLOB y de bases de datos localmente en el dispositivo StorSimple. El dispositivo StorSimple es un clúster de dos nodos para alta disponibilidad. Al colocar las bases de datos de contenido y los BLOBs en el dispositivo StorSimple, se obtiene una alta disponibilidad.
 
@@ -197,7 +197,7 @@ Después de instalar el adaptador de StorSimple para SharePoint, configure RBS s
 
 Cuando los objetos se eliminan de un sitio de SharePoint, no se eliminan automáticamente del volumen de almacenamiento de RBS. En cambio, un programa de mantenimiento asincrónico que se ejecuta en segundo plano elimina los BLOBS huérfanos del almacén de archivos. Los administradores del sistema pueden programar este proceso para que se ejecute periódicamente o pueden iniciarlo cuando lo estimen necesario.
 
-Este programa de mantenimiento (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) se instala automáticamente en todos los servidores WFE y servidores de aplicaciones de SharePoint al habilitar RBS. El programa se instala en la siguiente ubicación: <boot drive>:\\Archivos de programa\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
+Este programa de mantenimiento (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) se instala automáticamente en todos los servidores WFE y servidores de aplicaciones de SharePoint al habilitar RBS. El programa se instala en la siguiente ubicación: *unidad de arranque*:\\Archivos de programa\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
 
 Para obtener información sobre cómo configurar y usar el programa de mantenimiento, vea [Mantener RBS en SharePoint Server 2013][8].
 
@@ -308,4 +308,4 @@ Cuando haya devuelto los blobs a las bases de datos de contenido de SQL Server, 
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/es-ES/library/ff943565.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

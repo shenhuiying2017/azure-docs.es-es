@@ -1,6 +1,6 @@
 <properties
    pageTitle="Plantilla del Administrador de recursos para los bloqueos de recursos | Microsoft Azure"
-   description="Muestra el esquema del Administrador de recursos para los bloqueos de recursos."
+   description="Muestra el esquema del Administrador de recursos para implementar los bloqueos de recursos mediante una plantilla."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # Bloqueos de recursos: esquema de plantilla
@@ -135,4 +135,4 @@ El próximo ejemplo aplica un bloqueo de solo lectura al grupo de recursos.
 - Para obtener más información sobre la estructura de la plantilla, consulte [Crear plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para obtener más información sobre los bloqueos, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

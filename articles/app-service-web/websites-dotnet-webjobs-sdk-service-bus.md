@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # Uso del Bus de servicio de Azure con el SDK de WebJobs
@@ -26,12 +26,21 @@ En la guía se supone que sabe [cómo crear un proyecto de trabajos web en Visua
 
 Los fragmentos de código solo muestran funciones, no el código que crea el objeto `JobHost` como en este ejemplo:
 
-		static void Main(string[] args)
-		{
-		    JobHost host = new JobHost();
-		    host.RunAndBlock();
-		}
-		
+```
+public class Program
+{
+   public static void Main()
+   {
+      JobHostConfiguration config = new JobHostConfiguration();
+      config.UseServiceBus();
+      JobHost host = new JobHost(config);
+      host.RunAndBlock();
+   }
+}
+```
+
+Puede encontrar un [ejemplo de código de Bus de servicio completo](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Program.cs) en el repositorio azure-webjobs-sdk-samples en GitHub.com.
+
 ## <a id="prerequisites"></a> Requisitos previos
 
 Para trabajar con el Bus de servicio debe instalar el paquete NuGet [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) además de los otros paquetes del SDK de trabajos web.
@@ -146,6 +155,17 @@ Para escribir una función a la que llama el SDK cuando se recibe un mensaje en 
 
 Para crear un mensaje sobre un tema, use el atributo `ServiceBus` con un nombre de un tema de la misma manera que lo usa con un nombre de cola.
 
+## Características agregadas en la versión 1.1
+
+Las siguientes características se agregaron en la versión 1.1:
+
+* Se permite la personalización profunda del procesamiento de mensajes a través de `ServiceBusConfiguration.MessagingProvider`.
+* `MessagingProvider` admite la personalización de `MessagingFactory` y `NamespaceManager` del Bus de servicio.
+* Un patrón de estrategia `MessageProcessor` le permite especificar un procesador por cola/tema.
+* La simultaneidad del procesamiento de mensajes se admite de manera predeterminada. 
+* La personalización sencilla de `OnMessageOptions` a través de `ServiceBusConfiguration.MessageOptions`.
+* Se permite especificar [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) en `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (en los escenarios donde es probable que no tenga derechos de administración). 
+
 ## <a id="queues"></a>Temas relacionados tratados en el artículo de procedimientos de las colas de almacenamiento
 
 Para obtener información acerca de los escenarios del SDK de trabajos web no específicos del Bus de servicio, vea [Uso del almacenamiento de colas de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
@@ -166,4 +186,4 @@ Entre los temas tratados en este artículo se incluyen los siguientes:
 En esta guía se han proporcionado ejemplos de código que muestran cómo controlar los escenarios comunes para trabajar con el Bus de servicio de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

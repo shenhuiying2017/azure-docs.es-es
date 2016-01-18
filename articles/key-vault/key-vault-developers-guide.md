@@ -19,9 +19,9 @@
 
 > [AZURE.VIDEO azure-key-vault-developer-quick-start]
 
-Los desarrolladores pueden usar el Almacén de clave de Azure para administrar las claves criptográficas en el entorno de Microsoft Azure. Almacén de claves admite varios tipos de claves y algoritmos y puede usarse con módulos de seguridad de hardware (HSM) para las claves de cliente de alto valor. Además, puede usar el almacén de claves para almacenar de forma segura los secretos que son objetos de octeto de tamaño limitado sin ninguna semántica específica. Un almacén de claves puede contener una combinación de claves y secretos. El control de acceso para los tipos de objetos se administra de forma independiente.
+Los desarrolladores pueden usar el Almacén de claves de Azure para administrar las claves criptográficas en el entorno de Microsoft Azure. Almacén de claves admite varios tipos de claves y algoritmos, y puede usarse con módulos de seguridad de hardware (HSM) para claves de alto valor. Además, puede usar el almacén de claves para almacenar de forma segura los secretos que son objetos de octeto de tamaño limitado sin ninguna semántica específica. El control de acceso para los tipos de objetos se administra de forma independiente.
 
-Los usuarios, siempre que obtengan una autorización correcta, pueden hacer lo siguiente:
+Con la debida autorización, podrá hacer lo siguiente:
 
 - Administrar claves criptográficas mediante [Crear](https://msdn.microsoft.com/library/azure/dn903634.aspx), [Importar](https://msdn.microsoft.com/library/azure/dn903626.aspx), [Actualizar](https://msdn.microsoft.com/library/azure/dn903616.aspx), [Eliminar](https://msdn.microsoft.com/library/azure/dn903611.aspx) y otras operaciones
 
@@ -65,4 +65,4 @@ Los artículos siguientes proporcionan orientación específica de tareas:
 
 - [Las extensiones del Almacén de claves de Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) proporcionan capacidades ampliadas para el Almacén de claves de Azure.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante SDK de .NET
@@ -49,24 +49,27 @@ Aprenda a utilizar el SDK de .NET del Almacén de Azure Data Lake para crear una
 
 4. Haga clic en **Aceptar** para crear el proyecto.
 
-5. Agregue el paquete Nuget al proyecto.
+5. Agregue los paquetes de Nuget al proyecto.
 
 	1. Haga clic con el botón derecho en el Explorador de soluciones y haga clic en **Administrar paquetes de NuGet**.
 	2. En la pestaña **Administrador de paquetes de Nuget**, asegúrese de que **Origen del paquete** está establecido en **nuget.org** y que la casilla **Incluir versión preliminar** está activada.
-	3. Busque e instale los paquetes siguientes:
+	3. Busque e instale los siguientes paquetes del Almacén de Data Lake:
 	
-		* Microsoft.Azure.Common.Authentication
 		* Microsoft.Azure.Management.DataLake.Store
 		* Microsoft.Azure.Management.DataLake.StoreFileSystem
 		* Microsoft.Azure.Management.DataLake.StoreUploader
 
-		![Agregue un origen de Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Creación de una nueva cuenta de Azure Data Lake")
+		![Agregue un origen de Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Crear una nueva cuenta de Azure Data Lake")
+
+	4. También debe instalar el paquete **Microsoft.Azure.Common.Authentication**. Esto también es un paquete en versión preliminar y es necesario para la autenticación con el Almacén de Azure Data Lake.
+
+		![Agregue un origen de Nuget](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "Creación de una nueva cuenta de Azure Data Lake")
 
 	4. Cierre el **Administrador de paquetes Nuget**.
 
 7. Abra el archivo **Program.cs** y sustituya el bloque de código existente por el siguiente. Además, se proporcionan los valores para los parámetros en el fragmento de código.
 
-	Este código recorre el proceso de creación de un Almacén de Data Lake, de creación de carpetas en el almacén, de la carga de archivos, de la descarga de archivos y finalmente de la eliminación de la cuenta. Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	Este código recorre el proceso de creación de un Almacén de Data Lake, de creación de carpetas en el almacén, de la carga de archivos, de la descarga de archivos y finalmente de la eliminación de la cuenta. Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 	
 		using System;
 		using System.Collections.Generic;
@@ -224,4 +227,4 @@ Aprenda a utilizar el SDK de .NET del Almacén de Azure Data Lake para crear una
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

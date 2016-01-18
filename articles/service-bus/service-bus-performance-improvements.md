@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica del Bus de servicio
@@ -142,7 +142,7 @@ Si se envía un mensaje que contiene información importante y que no debe perde
 
 ## Uso de colas o temas particionados
 
-De forma interna, el Bus de servicio usa el mismo nodo y el mismo almacén de mensajería para procesar y almacenar todos los mensajes para una entidad de mensajería (cola o tema). Por otro lado, una cola o un tema particionados se distribuyen entre varios nodos y almacenes de mensajería. Las colas y los temas particionados no solo producen un rendimiento mayor que las colas y los temas normales, sino que también ofrecen una mayor disponibilidad. Para crear una entidad particionada, establezca la propiedad [EnablePartitioning][] en **true**, como se muestra en el ejemplo siguiente. Para obtener más información sobre las entidades particionadas, consulte [Particionamiento de entidades de mensajería][].
+De forma interna, el Bus de servicio usa el mismo nodo y el mismo almacén de mensajería para procesar y almacenar todos los mensajes para una entidad de mensajería (cola o tema). Por otro lado, una cola o un tema particionados se distribuyen entre varios nodos y almacenes de mensajería. Las colas y los temas particionados no solo producen un rendimiento mayor que las colas y los temas normales, sino que también ofrecen una mayor disponibilidad. Para crear una entidad particionada, establezca la propiedad [EnablePartitioning][] en **true**, como se muestra en el ejemplo siguiente. Para más información sobre las entidades con particiones, consulte [Entidades de mensajería con particiones][].
 
 ```
 // Create partitioned queue.
@@ -275,7 +275,7 @@ Para maximizar el rendimiento, haga lo siguiente:
 
 ## Pasos siguientes
 
-Para obtener más información acerca de cómo optimizar el rendimiento del Bus de servicio, consulte [Particionamiento de entidades de mensajería][].
+Para más información acerca de cómo optimizar el rendimiento de Bus de servicio, consulte [Entidades de mensajería con particiones][].
 
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
@@ -288,7 +288,7 @@ Para obtener más información acerca de cómo optimizar el rendimiento del Bus 
   [SubscriptionClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx
   [ForcePersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx
   [EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
-  [Particionamiento de entidades de mensajería]: service-bus-partitioning.md
+  [Entidades de mensajería con particiones]: service-bus-partitioning.md
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

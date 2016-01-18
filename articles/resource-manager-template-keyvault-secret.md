@@ -1,6 +1,6 @@
 <properties
    pageTitle="Plantilla del Administrador de recursos para un secreto en un almacén de claves | Microsoft Azure"
-   description="Muestra el esquema del Administrador de recursos para los scretos del almacén de claves."
+   description="Muestra el esquema del Administrador de recursos para implementar los secretos del almacén de claves mediante una plantilla."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # Esquema de la plantilla del secreto del Almacén de claves
@@ -227,4 +227,4 @@ En el segundo ejemplo se implementa el secreto como un recurso de nivel superior
 - Para obtener información general sobre almacenes de claves, consulte [Introducción al Almacén de claves de Azure](./key-vault/key-vault-get-started.md).
 - Para obtener un ejemplo de referencia de un secreto de almacén de claves al implementar plantillas, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

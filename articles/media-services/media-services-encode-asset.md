@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015"  
+	ms.date="01/05/2015"  
 	ms.author="juliako"/>
 
 #Información general y comparación de codificadores multimedia a petición de Azure
@@ -72,13 +72,17 @@ Codificador multimedia estándar se configura mediante uno de los valores preest
 
 [Aquí](http://msdn.microsoft.com/library/azure/dn783217.aspx) se describen los metadatos de salida de los codificadores.
 
-###Miniatura
+###Generación de miniaturas
 
-Para obtener información sobre cómo generar vistas en miniatura, vea [Generación de vistas en miniatura con Codificador multimedia estándar](media-services-dotnet-generate-thumbnail-with-mes.md).
+Para obtener información, vea [Generación de miniaturas mediante Media Encoder Estándar](media-services-custom-mes-presets-with-dotnet.md#thumbnails).
 
-###Superposiciones de vídeos y audio
+###Recorte de vídeos
 
-Actualmente, no se admite.
+Para obtener información, vea [Recorte de vídeos mediante Media Encoder Estándar](media-services-custom-mes-presets-with-dotnet.md#trim_video).
+
+###Creación de superposiciones
+
+Para obtener información, vea [Creación de superposiciones mediante Media Encoder Estándar](media-services-custom-mes-presets-with-dotnet.md#overlay).
 
 ###Consulte también
 
@@ -88,7 +92,7 @@ Actualmente, no se admite.
 
 ###Información general
 
-Codificador multimedia de Azure es uno de los codificadores compatibles con Servicios multimedia. A partir de julio de 2015, se recomienda usar [Codificador multimedia estándar](media-services-encode-asset.md#media_encoder_standard).
+Codificador multimedia de Azure es uno de los codificadores compatibles con Servicios multimedia. A partir de julio de 2015, se recomienda usar [Media Encoder Estándar](media-services-encode-asset.md#media_encoder_standard).
 
 ###Modo de uso
 
@@ -100,7 +104,7 @@ Codificador multimedia de Azure es uno de los codificadores compatibles con Serv
 
 ###Valores preestablecidos
 
-El Codificador multimedia de Azure se configura con uno de los valores preestablecidos de codificador descritos [aquí](https://msdn.microsoft.com/library/azure/dn619392.aspx). También puede obtener los verdaderos archivos preestablecidos de Codificador multimedia de Azure [aquí](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder).
+Codificador multimedia de Azure se configura con uno de los valores preestablecidos de codificador descritos [aquí](https://msdn.microsoft.com/library/azure/dn619392.aspx). También puede obtener los verdaderos archivos preestablecidos de Codificador multimedia de Azure [aquí](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder).
 
 ###Metadatos de entrada y salida
 
@@ -114,7 +118,7 @@ El Codificador multimedia de Azure se configura con uno de los valores preestabl
 
 ###Superposiciones de vídeos y audio
 
-[Creación de superposiciones](media-services-azure-media-customize-ame-presets.md#creating-overlays)
+[Creación de superposiciones](media-services-azure-media-customize-ame-presets.md#creating-overlays).
 
 ###Convención de nomenclatura
 
@@ -144,7 +148,7 @@ El flujo de trabajo del Codificador multimedia Premium se configura mediante flu
 Nombre de procesador multimedia|Precios aplicables|Notas
 ---|---|---
 **Media Encoder Estándar** |ENCODER|Las tareas de codificación se cobrarán en función del tamaño de los activos de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR.
-**Codificador multimedia de Azure** |ENCODER|Las tareas de codificación se cobrarán en función del tamaño de los activos de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR.
+**Codificador multimedia de Azure** |ENCODER|Las tareas de codificación se cobrarán en función del tamaño de los recursos de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR.
 **Flujo de trabajo del Codificador multimedia** |CODIFICADOR PREMIUM|Las tareas de codificación se cobrarán en función del tamaño de los activos de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR PREMIUM.
 
 
@@ -266,4 +270,4 @@ Windows Media Audio|No|Sí|Sí
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

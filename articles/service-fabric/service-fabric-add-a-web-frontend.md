@@ -107,6 +107,10 @@ Ahora que hemos definido la interfaz, tenemos que implementarla en nuestro servi
 2. Busque la clase que hereda de `StatefulService`, como `MyStatefulService`, y amplíela para implementar la interfaz `ICounter`.
 
     ```c#
+    using MyStatefulService.Interfaces;
+
+    ...
+
     public class MyStatefulService : StatefulService, ICounter
     {        
           // ...
@@ -136,9 +140,13 @@ Con la interfaz `ICounter` implementada, el paso final para habilitar el servici
 
 >[AZURE.NOTE]El método equivalente para abrir un canal de comunicación a los servicios sin estado se llama `CreateServiceInstanceListeners`.
 
-En este caso, ofreceremos un `ServiceRemotingListener`, que crea un punto de conexión RPC al que se puede llamar desde los clientes usando `ServiceProxy`.
+En este caso, reemplazaremos el método `CreateServiceReplicaListeners` existente y ofreceremos un `ServiceRemotingListener`, que crea un punto de conexión RPC al que se puede llamar desde los clientes usando `ServiceProxy`.
 
 ```c#
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
+
+...
+
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
 {
     return new List<ServiceReplicaListener>()
@@ -162,6 +170,11 @@ Nuestro servicio con estado está listo ahora para recibir tráfico de otros ser
 3. En la carpeta de controladores, abra la clase `ValuesController`. Tenga en cuenta que el método `Get` actualmente solo devuelve una matriz de cadenas codificadas de forma rígida de "value1" y "value2", que coincide con lo que vimos anteriormente en el explorador. Reemplace esta implementación con el siguiente código:
 
     ```c#
+    using MyStatefulService.Interfaces;
+    using Microsoft.ServiceFabric.Services.Remoting.Client;
+
+    ...
+
     public async Task<IEnumerable<string>> Get()
     {
         ICounter counter =
@@ -194,7 +207,7 @@ Nuestro servicio con estado está listo ahora para recibir tráfico de otros ser
 
 Este tutorial se centra en la incorporación de un front-end de web que se comunica con un servicio con estado, pero puede seguir un modelo muy parecido para hablar con actores. De hecho, es algo más sencillo.
 
-Cuando se crea un proyecto de actor, Visual Studio genera automáticamente un proyecto de interfaz. Puede usar esta interfaz para generar un proxy de actor en el proyecto web para comunicarse con el actor. El canal de comunicación se ofrece automáticamente por lo que no es necesario hacer nada equivalente a establecer un `ServiceRemotingListener` como tuvo que hacer para el servicio con estado en este tutorial.
+Cuando se crea un proyecto de actor, Visual Studio genera automáticamente un proyecto de interfaz. Puede usar esta interfaz para generar un proxy de actor en el proyecto web para comunicarse con el actor. El canal de comunicación se proporciona automáticamente por lo que no es necesario hacer nada equivalente a establecer un `ServiceRemotingListener` como tuvo que hacer para el servicio con estado en este tutorial.
 
 ## Ejecución de servicios web en un clúster local
 
@@ -221,4 +234,4 @@ Para obtener información sobre cómo configurar valores diferentes para diferen
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

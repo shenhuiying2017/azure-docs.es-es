@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/04/2016"
 	ms.author="markusvi"/>
 
 
@@ -335,7 +335,7 @@ Ambos ejemplos devuelven "*Hola a todos*"
 ----------
 ### DNComponentRev
 
-**Descripción:** <br> la función DNComponentRev devuelve el valor de un componente DN especificado a partir de la derecha (el final).
+**Descripción:** <br> la función DNComponentRev devuelve el valor de un componente DN especificado a partir de la derecha (final).
 
 **Sintaxis:** <br> `str DNComponentRev(ref dn, num ComponentNumber)` <br> `str DNComponentRev(ref dn, num ComponentNumber, enum Options)`
 
@@ -433,7 +433,7 @@ Ambos ejemplos devuelven "*Hola a todos*"
 - start: posición de inicio para encontrar la subcadena <br>
 - compare: vbTextCompare o vbBinaryCompare
 
-**Comentarios:** <br> devuelve la posición en la que se encontró la subcadena o 0 si no se encuentra.
+**Comentarios:**<br> devuelve la posición en la que se encontró la subcadena o 0 si no se encuentra.
 
 **Ejemplo:** <br> `InStr("The quick brown fox","quick")` <br> se evalúa en 5
 
@@ -456,7 +456,7 @@ Ambos ejemplos devuelven "*Hola a todos*"
 
 **Comentarios:** <br> devuelve la posición en la que se encontró la subcadena o 0 si no se encuentra.
 
-**Ejemplo:** <br> `InStrRev("abbcdbbbef","bb")` <br> devuelve 7.
+**Ejemplo:** <br> `InStrRev("abbcdbbbef","bb")` <br> devuelve 7
 
 
 
@@ -536,7 +536,7 @@ Se usa para determinar si CGuid() es correcto.
 
 **Comentarios:** <br> para un atributo, esto se evaluaría como True si el atributo no está presente o está presente pero es una cadena vacía.<br> La función contraria a esta es IsPresent.
 
-**Ejemplo:** <br> `IsNull([displayName])` <br> devuelve True si el atributo no está presente o si es una cadena vacía en CS o MV.
+**Ejemplo:**<br>`IsNull([displayName])`<br> devuelve True si el atributo no está presente o si es una cadena vacía en CS o MV.
 
 
 
@@ -568,7 +568,7 @@ Se usa para determinar si CGuid() es correcto.
 ----------
 ### IsPresent
 
-**Descripción:** <br> la función IsPresent devuelve True si la expresión se evalúa como una cadena que no es Null y no está vacía.
+**Descripción:**<br> la función IsPresent devuelve True si la expresión se evalúa como una cadena que no es Null y no está vacía.
 
 **Sintaxis:** <br> `bool IsPresent(var expression)`
 
@@ -584,7 +584,7 @@ Se usa para determinar si CGuid() es correcto.
 ----------
 ### Elemento
 
-**Descripción:** <br> la función Item devuelve un elemento de un atributo o una cadena de varios valores.
+**Descripción:**<br> la función Item devuelve un elemento de un atributo o una cadena de varios valores.
 
 **Sintaxis:** <br> `var Item(mvstr attribute, num index)`
 
@@ -603,7 +603,7 @@ Se produce un error si el índice está fuera de los límites.
 ----------
 ### ItemOrNull
 
-**Descripción:** <br> la función ItemOrNull devuelve un elemento de un atributo o una cadena de varios valores.
+**Descripción:**<br> la función ItemOrNul devuelve un elemento de un atributo o una cadena de varios valores.
 
 **Sintaxis:** <br> `var ItemOrNull(mvstr attribute, num index)`
 
@@ -637,7 +637,7 @@ Devuelve un valor Null si el índice está fuera de los límites.
 ----------
 ### LCase
 
-**Descripción:** <br> la función LCase convierte todos los caracteres de una cadena a minúsculas.
+**Descripción:**<br> la función LCase convierte todos los caracteres de una cadena a minúsculas.
 
 **Sintaxis:** <br> `str LCase(str value)`
 
@@ -804,7 +804,7 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 ----------
 ### PCase
 
-**Descripción:** <br> la función PCase convierte el primer carácter de cada palabra delimitada por espacios de una cadena a mayúsculas, y todos los demás caracteres se convierten a minúsculas.
+**Descripción:**<br> la función PCase convierte el primer carácter de cada palabra delimitada por espacios de una cadena a mayúsculas, y todos los demás caracteres se convierten a minúsculas.
 
 **Sintaxis:** <br> `String PCase(string)`
 
@@ -847,7 +847,7 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 
 **Sintaxis:** <br> `str Replace(str string, str OldValue, str NewValue)`
 
-- string: una cadena en la que reemplazar valores. <br>
+- string: una cadena en la que reemplazar los valores. <br>
 - OldValue: la cadena que se va a buscar y reemplazar. <br>
 - NewValue: la cadena que reemplazar.
 
@@ -869,7 +869,7 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 ----------
 ### ReplaceChars
 
-**Descripción:** <br> la función ReplaceChars reemplaza todas las apariciones de caracteres encontrados en la cadena ReplacePattern.
+**Descripción:**<br> la función ReplaceChars reemplaza todas las apariciones de caracteres encontrados en la cadena ReplacePattern.
 
 **Sintaxis:** <br> `str ReplaceChars(str string, str ReplacePattern)`
 
@@ -977,7 +977,7 @@ Si la cadena contiene menos caracteres que el número especificado en NumChars, 
 ----------
 ### Switch
 
-**Descripción:** <br> la función Switch se usa para devolver un único valor según las condiciones evaluadas.
+**Descripción:** <br> la función Switch se utiliza para devolver un único valor según las condiciones evaluadas.
 
 **Sintaxis:** <br> `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
@@ -1028,7 +1028,7 @@ El valor puede ser también la función Error que devolvería una cadena persona
 ----------
 ### Word
 
-**Descripción:** <br> la función Word devuelve una palabra incluida en una cadena, según los parámetros que describen los delimitadores para usar y el número de palabras para devolver.
+**Descripción:** <br> la función Word devuelve una palabra incluida en una cadena, según los parámetros que describen los delimitadores que usar y el número de palabras que devolver.
 
 **Sintaxis:** <br> `str Word(str string, num WordNumber, str delimiters)`
 
@@ -1044,7 +1044,7 @@ El valor puede ser también la función Error que devolvería una cadena persona
 Si la cadena contiene menos palabras o si la cadena no contiene palabras identificadas por los delimitadores, se devuelve una cadena vacía.
 
 
-**Ejemplo:** <br> `Word(“The quick brown fox”,3,” “)` <br> devuelve “brown”
+**Ejemplo:** <br> `Word(“The quick brown fox”,3,” “)` <br> Devuelve “brown”
 
 `Word(“This,string!has&many seperators”,3,”,!&#”)` <br> devolvería “has”
 
@@ -1058,4 +1058,4 @@ Si la cadena contiene menos palabras o si la cadena no contiene palabras identif
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

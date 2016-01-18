@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/09/2015"
+    ms.date="01/06/2016"
     ms.author="torsteng;sidneyh" />
 
 # Consulta de bases de datos elásticas para consultas entre bases de datos (particionamiento vertical)
 
 En este documento, se explica cómo configurar una consulta elástica para escenarios de consulta entre bases de datos (particionamiento vertical) y cómo realizar las consultas. Para obtener una definición del escenario de particionamiento vertical, consulte [Información general sobre la consulta de bases de datos elásticas de Base de datos SQL de Azure (vista previa)](sql-database-elastic-query-overview.md).
+
+![Consultas entre tablas de bases de datos diferentes][1]
 
 ## Creación de objetos de base de datos
 
@@ -182,6 +184,9 @@ Puede usar cadenas de conexión de SQL Server normales para conectar sus herrami
 
 
 <!--Image references-->
+[1]: ./media/sql-database-elastic-query-vertical-partitioning/verticalpartitioning.png
+
+
 <!--anchors-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

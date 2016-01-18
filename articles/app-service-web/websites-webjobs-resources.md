@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # Recursos de documentación de WebJobs de Azure
 
 ## Información general
 
-Este tema establece vínculos a recursos de documentación acerca de cómo usar WebJobs de Azure y el SDK de WebJobs de Azure. WebJobs de Azure proporciona una manera fácil de ejecutar scripts o programas como procesos en segundo plano en [Aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714). Puede cargar y ejecutar un archivo ejecutable como cmd, bat, exe (.NET), ps1, sh, php, py, js y jar. Estos programas se ejecutan como WebJobs según una programación (cron) o de forma continua.
+Este tema establece vínculos a recursos de documentación acerca de cómo usar WebJobs de Azure y el SDK de WebJobs de Azure. WebJobs de Azure proporciona una forma simple de ejecutar scripts o programas como procesos en segundo plano en el contexto de una [aplicación web del Servicio de aplicaciones, aplicación de API o aplicación móvil](../app-service/app-service-value-prop-what-is.md). Puede cargar y ejecutar un archivo ejecutable como cmd, bat, exe (.NET), ps1, sh, php, py, js y jar. Estos programas se ejecutan como WebJobs según una programación (cron) o de forma continua.
 
-El SDK de WebJobs facilita el uso del Almacenamiento de Azure. El SDK de WebJobs tiene un sistema de enlace y desencadenador que funciona con Blobs de almacenamiento, Colas y Tablas de Microsoft Azure, así como con Colas de Bus de servicio.
+El propósito del [SDK de WebJobs](websites-webjobs-resources.md) es simplificar el código que escriba para las tareas comunes que puede realizar un WebJob, como procesamiento de imágenes, procesamiento de colas, agregación de RSS, mantenimiento de archivos y enviar de correos electrónicos. El SDK de WebJobs tiene características integradas para trabajar con Almacenamiento de Azure y Bus de servicio, para programar tareas y controlar errores, y para muchos otros escenarios comunes. Además, se ha diseñado para ser extensible y hay un [repositorio de código abierto para las extensiones](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
 La creación, implementación y administración de WebJobs se realiza de manera fluida gracias al conjunto de herramientas integradas en Visual Studio. Puede crear WebJobs a partir de plantillas, así como publicarlos y administrarlos (procesos de ejecución, detención, supervisión o implementación).
 
@@ -31,16 +31,17 @@ El panel de WebJobs en el Portal de Azure proporciona capacidades de administrac
 ##<a name="getstarted"></a>Introducción a WebJobs y el SDK de WebJobs
 
 * [Introducción a WebJobs de Azure](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
-* [Azure WebJobs are awesome and you should start using them right now!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (¡Los WebJobs de Azure son impresionantes y debería comenzar a usarlos ya!) (Blog publicado por Troy Hunt.)
+* [Azure WebJobs are awesome and you should start using them right now! (¡Los WebJobs de Azure son impresionantes y debería comenzar a usarlos ya!)](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Blog publicado por Troy Hunt.)
 * [Características de WebJobs de Azure](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [¿Qué es el SDK de WebJobs](websites-dotnet-webjobs-sdk.md)
 * [Orientación sobre trabajos en segundo plano: Microsoft Patterns and Practices](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)
-* [Anuncio de la versión RTM 1.0.0 del SDK de WebJobs de Microsoft Azure](/blog/2014/10/25/announcing-the-1-0-0-rtm-of-microsoft-azure-webjobs-sdk/)
+* [Anuncio de la versión RTM 1.1.0 del SDK de WebJobs de Microsoft Azure](/blog/azure-webjobs-sdk-1-1-0-rtm/)
 * [Introducción al SDK de WebJobs de Azure](websites-dotnet-webjobs-sdk-get-started.md)
 * [Uso del almacenamiento de colas de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
 * [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 * [Uso del almacenamiento de tablas de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Uso del Bus de servicio de Azure con el SDK de trabajos web](websites-dotnet-webjobs-sdk-service-bus.md)
+* [Cómo utiliza WebHooks con el SDK de WebJobs, con ejemplos para GitHub, IFTTT y HTTP](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/WebHooks-Walkthrough)
 * [Referencia rápida del SDK de WebJobs de Azure (descarga de PDF)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
 * [Documentación de configuración de WebJobs en GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs).
 * Vídeos
@@ -48,6 +49,7 @@ El panel de WebJobs en el Portal de Azure proporciona capacidades de administrac
 	* [Serie de vídeos de WebJobs de Azure en Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 	* [Presentación del conjunto de herramientas de WebJobs de Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
 	* [Herramientas de WebJobs y depuración remota](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster)
+	* [Azure WebJobs Update with Pranav Rastogi - Extensibility in Release 1.1](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-183-Azure-WebJobs-Update-with-Pranav-Rastogi) (Actualización de WebJobs de Azure con Pranav Rastogi: Extensibilidad en la versión 1.1)
 
 Consulte también las siguientes secciones en [Implementación de WebJobs](#deploy) y [Prueba y depuración de WebJobs](#debug).
 
@@ -57,8 +59,8 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 * [Implementación de WebJobs mediante el Portal de Azure](web-sites-create-web-jobs.md)
 * [Habilitación de la línea de comandos o entrega continua de WebJobs de Azure](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Implementación de Git de una aplicación de consola .NET en Azure usando WebJobs](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
-* [Deploying an F# WebJob to Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx) (Implementación de un WebJob de F# en Azure)
-* [Deploying custom services as Azure Webjobs](http://withouttheloop.com/articles/2015-06-23-deploying-custom-services-as-azure-webjobs/) (Implementación de servicios personalizados como Webjobs de Azure
+* [Deploying an F# WebJob to Azure (Implementación de un WebJob de F# en Azure)](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
+* [Deploying custom services as Azure Webjobs (Implementación de servicios personalizados como Webjobs de Azure](http://withouttheloop.com/articles/2015-06-23-deploying-custom-services-as-azure-webjobs/)
 * Vídeos
 	* [Presentación del conjunto de herramientas de WebJobs de Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
 	* [Herramientas de WebJobs y depuración remota](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
@@ -69,6 +71,7 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 * [Creación de un WebJob programado en el Portal de Azure](web-sites-create-web-jobs.md#CreateScheduled)
 * [Enlace de un trabajo del programador con un WebJob](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Programación de WebJobs de Azure con expresiones cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
+* [Programación de funciones individuales de WebJob con el SDK de WebJobs TimerTrigger](websites-dotnet-webjobs-sdk.md#schedule)
 
 ##<a name="debug"></a>Prueba y depuración de WebJobs
 
@@ -78,7 +81,6 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 * [WebJobs de depuración remota](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebugwj)
 * [¿Quién escribió ese blob?](http://blogs.msdn.com/b/jmstall/archive/2014/02/19/who-wrote-that-blob.aspx) 
 * [Código interactivo de hospedaje en la nube](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
-* [Obtención de un panel de información para el desarrollo local con el SDK de WebJobs](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)
 * [Incorporación de seguimiento a Sitios web de Azure y WebJobs](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)
 * [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting/)
 * Vídeos
@@ -106,9 +108,9 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 
 ##<a name="additionalsdk"></a>Recursos adicionales de SDK de WebJobs
 
+* [Notas de la versión del SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes)
+* [Repositorio de código abierto para extensiones del SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk-extensions), con una [guía detallada para el modelo de extensibilidad](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).  
 * [Código fuente del SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk)
-* [¿Cómo funciona [BlobTrigger]?](http://blogs.msdn.com/b/jmstall/archive/2014/04/17/how-does-blobinput-work.aspx) 
-* [Enlaces avanzados con el SDK de WebJobs de Azure](http://victorhurdugaci.com/advanced-bindings-with-the-windows-azure-web-jobs-sdk/)
 * [WebJob para cargar archivos FREB al Almacenamiento de Azure con el SDK de WebJobs](http://thenextdoorgeek.com/post/WAWS-WebJob-to-upload-FREB-files-to-Azure-Storage-using-the-WebJobs-SDK)
 * [Hospedaje de WebJobs de Azure fuera de Azure, con las ventajas del registro desde un WebJob hospedado de Azure](http://bypassion.dk/?p=510)
 * [Creación de una herramienta de importación de datos con WebJobs de Azure](http://www.freshconsulting.com/building-data-import-tool-azure-webjobs/)
@@ -135,11 +137,6 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 * [Foro de aplicaciones web del Servicio de aplicaciones de Azure](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
 * [Sitio para el usuario de Aplicaciones web de Azure](http://feedback.azure.com/forums/169385-websites)
 * [Twitter](http://twitter.com/). Utilice el hashtag #AzureWebJobs.
-* [Report a WebJobs bug or issue](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues) (Notificar un problema o error de WebJobs)
+* [Report a WebJobs bug or issue (Notificar un problema o error de WebJobs)](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-## Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

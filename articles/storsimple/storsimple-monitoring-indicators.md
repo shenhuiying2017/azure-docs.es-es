@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/31/2015"
+    ms.date="01/05/2016"
     ms.author="v-sharos" />
 
 # Usar indicadores de supervisión de StorSimple para administrar su dispositivo   
@@ -31,7 +31,7 @@ En lo que resta de artículo se describen los distintos indicadores LED de super
 
 ## Indicadores LED en el panel frontal
 
-El panel frontal, también conocido como *panel de operaciones*, muestra el estado global de todos los módulos del sistema. El panel frontal es idéntico en el dispositivo StorSimple y el revestimiento de EBOD, como se ilustra aquí.
+El panel frontal, también conocido como *panel de operaciones*, muestra el estado global de todos los módulos del sistema. El panel frontal es idéntico en el gabinete EBOD y el gabinete principal de StorSimple, tal como se ilustra a continuación.
 
    ![Panel frontal del dispositivo][1]
  
@@ -256,4 +256,4 @@ Obtenga más información sobre los [componentes de hardware de StorSimple y su 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

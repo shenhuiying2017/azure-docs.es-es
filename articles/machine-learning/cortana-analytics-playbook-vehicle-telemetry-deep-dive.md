@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="01/05/2015" 
 	ms.author="bradsev" />
 
 
@@ -106,7 +106,12 @@ XUF99EW9OIQOMV7Q7 | Berlina familiar
 3.	Ejecute la aplicación **CarEventGenerator.exe**.
 
 ### Referencias
-[Solución de simulador telemático de vehículo de Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075) [Centro de eventos de Azure](http://azure.microsoft.com/services/event-hubs/) [Factoría de datos de Azure](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+
+[Solución de simulador telemático de vehículo de Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075)
+
+[Centro de eventos de Azure](http://azure.microsoft.com/services/event-hubs/)
+
+[Factoría de datos de Azure](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
 
 ## Ingesta de datos
@@ -149,7 +154,12 @@ Una vez que la canalización se ejecuta correctamente y se marca el conjunto de 
 *Ilustración 10: Resultado de PrepareSampleDataPipeline*
 
 ### Referencias
-[SDK del Centro de eventos de Azure para la ingesta de transmisiones](event-hubs-csharp-ephcs-getstarted.md) [Capacidades para el movimiento de datos de Factoría de datos](data-factory-data-movement-activities.md) [Actividad DotNet de Factoría de datos de Azure](data-factory-use-custom-activities.md) [Solución de Visual Studio de actividad DotNet de Factoría de datos de Azure para preparar los datos de muestra](http://go.microsoft.com/fwlink/?LinkId=717077)
+
+[SDK del Centro de eventos de Azure para ingesta de transmisiones](event-hubs-csharp-ephcs-getstarted.md)
+
+[Funcionalidades de movimiento de datos de Factoría de datos de Azure](data-factory-data-movement-activities.md) [Actividad DotNet de Factoría de datos de Azure](data-factory-use-custom-activities.md)
+
+[Solución de Visual Studio para la actividad DotNet de Factoría de datos de Azure para preparar datos de ejemplo](http://go.microsoft.com/fwlink/?LinkId=717077)
 
 
 ## Preparación
@@ -696,4 +706,4 @@ Haga clic aquí para obtener instrucciones detalladas sobre cómo configurar los
 
 Este documento contiene un desglose detallado de la solución de análisis de telemetría de vehículos. Se presenta un patrón de arquitectura lambda para análisis en tiempo real y de procesamiento por lotes con predicciones y acciones. Este patrón se aplica a una amplia gama de casos de uso que requieren análisis con ruta de acceso activa (en tiempo real) y la ruta de acceso frío (lote).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

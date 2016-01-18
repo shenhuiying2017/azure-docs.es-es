@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2015"
 	ms.author="markusvi"/>
 
 # Consideraciones de seguridad y privacidad de Cloud App Discovery
@@ -90,6 +90,8 @@ La siguiente información de HTTP:
 
 > [AZURE.NOTE]La información HTTP anterior se recopila para todas las conexiones no cifradas. Para las conexiones TLS, esta información solo se captura cuando está activada la inspección en profundidad en el portal. El valor es ‘ON’ (activado) de forma predeterminada. Para obtener más información, vea a continuación y consulte [Introducción a Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx).
 
+
+Además de los datos que el agente recopila sobre la actividad de red, también recopila información anónima sobre la configuración del software y el hardware, los informes de errores e información sobre cómo se utiliza el agente.
 
 <br><br>
 ### Cómo funciona el agente
@@ -177,4 +179,4 @@ Con el fin de proteger los datos recopilados, de forma predeterminada, solo los 
 
 * [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/06/2016"
 	ms.author="coreyp"/>
 
 # Cómo instalar y configurar Azure PowerShell#
@@ -23,22 +23,112 @@
 ##¿Qué es Azure PowerShell?#
 Azure PowerShell es un módulo que ofrece cmdlet para administrar Azure con Windows PowerShell. Puede utilizar los cmdlets para crear, probar, implementar y administrar soluciones y servicios ofrecidos a través de la plataforma de Azure. En la mayoría de los casos, se pueden usar los cmdlet para las mismas tareas que el Portal de administración de Azure, como la creación y configuración de servicios en la nube, máquinas virtuales, redes virtuales y aplicaciones web.
 
-El módulo y el código fuente están disponibles para descargarse en un repositorio disponible públicamente:
-
-- [PowerShell 1.0.1](https://github.com/Azure/azure-powershell/releases/download/v1.0.1-November2015/azure-powershell.1.0.1.msi)
-- [Código fuente de Azure PowerShell 1.0.1](https://github.com/Azure/azure-powershell/archive/v1.0.1-November2015.zip)
-
 <a id="Install"></a>
 ## Paso 1: Instalar
-Descargue e instale [PowerShell 1.0.1](https://github.com/Azure/azure-powershell/releases/download/v1.0.1-November2015/azure-powershell.1.0.1.msi) <a id="Connect"></a>
+
+A continuación se indican los dos métodos con los que puede instalar Azure PowerShell. Puede instalarlo desde WebPI o de la Galería de PowerShell:
+
+> [AZURE.NOTE]Puede que tenga que reiniciar tras la instalación para poder ver todos los comandos de la característica Entorno de scripting integrado (ISE) de Windows PowerShell.
+
+###Instalar Azure PowerShell desde WebPI
+
+La instalación de Azure PowerShell 1.0 y versiones posteriores desde WebPI es igual que para 0.9.x. Descargue [Azure Powershell](http://aka.ms/webpi-azps) e inicie la instalación. Si tiene Azure PowerShell 0.9.x instalado, se le pedirá que desinstale 0.9.x. Si ha instalado módulos de Azure PowerShell desde la Galería de PowerShell, el instalador requiere que los módulos se quiten antes de la instalación para garantizar un entorno coherente de Azure PowerShell.
+
+> [AZURE.NOTE]Si ha instalado los módulos de Azure desde la Galería de PowerShell, se le pedirá que la desinstale. Esto tiene por objeto evitar confusiones sobre los módulos que ha instalado y dónde se encuentran. Los módulos de la Galería de PowerShell normalmente se instalarán en **%ProgramFiles%\\WindowsPowerShell\\Modules**. En cambio, el instalador de WebPI instalará los módulos de Azure en **%ProgramFiles%\\Microsoft SDKs\\Azure\\PowerShell**. **PowerShellGet** desinstalará módulos y dejará los archivos .dll bloqueados y sus carpetas si hay cargada una dependencia del módulo cuando se desinstala. Si ha desinstalado los módulos de la Galería de PowerShell y sigue recibiendo el error en la instalación, elimine las carpetas Azure* de la carpeta **%ProgramFiles%\\WindowsPowerShell\\Modules**.
+
+Si ha instalado Azure PowerShell a través de la Galería de PowerShell pero quiere usar la instalación de WebPI, ejecute los siguientes comandos antes de instalar desde WebPI.
+
+    # Uninstall the AzureRM component modules
+    Uninstall-AzureRM
+
+    # Uninstall AzureRM module
+    Uninstall-Module AzureRM
+
+    # Uninstall the Azure module
+    Uninstall-Module Azure
+
+    # Or, you can remove all Azure modules
+    # Uninstall-Module Azure* -Force
+
+> [AZURE.NOTE]Existe un problema conocido con **$env: PSModulePath** de PowerShell que se produce cuando se instala desde WebPI. Si el equipo requiere un reinicio debido a otras instalaciones o actualizaciones del sistema, puede provocar que la **$env: PSModulePath** no incluya la ruta de acceso donde está instalado Azure PowerShell. Esto puede corregirse reiniciando el equipo o agregando la ruta de acceso de Azure PowerShell a la **$env: PSModulePath**.
+
+###Instalación de Azure PowerShell desde la galería
+
+Instale Azure PowerShell 1.0 o versión posterior desde la galería mediante los siguientes comandos:
+
+    # Install the Azure Resource Manager modules from the PowerShell Gallery
+    Install-Module AzureRM
+    Install-AzureRM
+
+    # Install the Azure Service Management module from the PowerShell Gallery
+    Install-Module Azure
+
+    # Import AzureRM modules for the given version manifest in the AzureRM module
+    Import-AzureRM
+
+    # Import Azure Service Management module
+    Import-Module Azure
+
+####Más información sobre estos comandos
+
+- **Install-Module AzureRM** instala un módulo de arranque para los módulos de AzureRM. Este módulo contiene cmdlets para actualizar, desinstalar e importar los módulos de AzureRM de una manera segura y coherente. El módulo AzureRM contiene una lista de módulos y el intervalo de versiones (min y max) necesario para asegurarse se introducirán cambios importantes para la versión principal de AzureRM. Para obtener más información sobre el control de versiones semánticas, vea [semver.org](http://semver.org). Esto significa que puede crear sus cmdlets con una versión específica de AzureRM y saber que todos los módulos instalados mediante el programa previo, no introducirán ningún cambio importante.
+- **Install-AzureRM** instala todos los módulos declarados en el módulo de arranque.
+- **Install-Module Azure** instala el módulo de Azure. Se trata del módulo Administración de servicios de Azure PowerShell 0.9.x. No debe tener cambios importantes y poderse intercambiar por la versión anterior del módulo de Azure.
+- **Import-AzureRM** importa todos los módulos de la lista de módulos y versiones de AzureRM. De este modo se garantiza que los módulos de Azure PowerShell que se cargan quedan dentro del intervalo de versiones requerido por el módulo AzureRM.
+- **Import-Module Azure** importa el módulo Administración de servicios de Azure. Observe que el módulo de Azure y los módulos de AzureRM se cargan en la sesión de PowerShell y se pueden usar juntos.
+
 
 ## Paso 2: Iniciar
-El módulo instala una consola personalizada para Azure PowerShell. Puede ejecutar los cmdlet desde la consola estándar de Windows PowerShell o desde la consola de Azure PowerShell.
+El módulo instala una consola personalizada para Azure PowerShell. Puede ejecutar los cmdlet desde la consola estándar de Windows PowerShell o desde la consola de Azure PowerShell. El método que debe seguir para abrir cualquiera de estas consolas depende de la versión de Windows que esté utilizando:
+
+- Si el equipo dispone de Windows 8 o Windows Server 2012, o una versión posterior, puede utilizar la búsqueda integrada. En la pantalla **Inicio**, comience a escribir power. De este modo, se devuelve una lista de aplicaciones que incluyen Windows PowerShell y Azure PowerShell. Haga clic en cualquier aplicación para abrir la consola. (Para anclar la aplicación a la pantalla **Inicio**, haga clic con el botón derecho en el icono).
+
+- Si el equipo dispone de una versión anterior a Windows 8 o Windows Server 2012, use el menú **Inicio**. En el menú **Inicio**, haga clic en **Todos los programas**, **Azure** y luego en **Azure PowerShell**.
+
+También puede ejecutar el **Windows PowerShell ISE** para usar elementos de menú y métodos abreviados de teclado para realizar muchas de las mismas tareas que realizaría en la consola de Windows PowerShell. Para usar el ISE, en la consola de Windows PowerShell, ejecute Cmd.exe o, en el cuadro **Ejecutar**, escriba **powershell\_ise.exe**.
+
+###Comandos para ayudarle a empezar a trabajar
+
+    # To make sure the Azure PowerShell module is available after you install
+    Get-Module –ListAvailable 
+	
+	# If the Azure PowerShell module is not listed when you run Get-Module, you may need to import it
+    Import-Module Azure 
+	
+    # To login to Azure Resource Manager
+    Login-AzureRmAccount
+
+    # You can also use a specific Tenant if you would like a faster login experience
+    # Login-AzureRmAccount -TenantId xxxx
+
+    # To view all subscriptions for your account
+    Get-AzureRmSubscription
+
+    # To select a default subscription for your current session
+    Get-AzureRmSubscription –SubscriptionName “your sub” | Select-AzureRmSubscription
+
+    # View your current Azure PowerShell session context
+    # This session state is only applicable to the current session and will not affect other sessions
+    Get-AzureRmContext
+
+    # To select the default storage context for your current session
+    Set-AzureRmCurrentStorageAccount –ResourceGroupName “your resource group” –StorageAccountName “your storage account name”
+
+    # View your current Azure PowerShell session context
+    # Note: the CurrentStorageAccount is now set in your session context
+    Get-AzureRmContext
+
+    # To import the Azure.Storage data plane module (blob, queue, table)
+    Import-Module Azure.Storage
+
+    # To list all of the blobs in all of your containers in all of your accounts
+    Get-AzureRmStorageAccount | Get-AzureStorageContainer | Get-AzureStorageBlob
+
 
 ## Paso 3: Conectar
 Los cmdlets necesitan la suscripción para que puedan administrar los servicios. Puede comprar una suscripción de Azure si no tiene ya una. Para instrucciones, consulte [Instrucciones para contratar Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
 
-1. Escriba **Add-AzureAccount**
+1. Escriba **Login-AzureRmAccount**
 
 2. Escriba la dirección de correo electrónico y la contraseña asociadas a su cuenta. Azure autentica y guarda las credenciales y, a continuación, cierra la ventana.
 
@@ -46,8 +136,12 @@ Los cmdlets necesitan la suscripción para que puedan administrar los servicios.
 
 Inicie sesión en su cuenta profesional o educativa:
 
-        $cred = Get-Credential
-        Add-AzureAccount -Credential $cred
+    $cred = Get-Credential
+    Login-AzureRmAccount -Credential $cred
+> [AZURE.NOTE]Si tiene más de un inquilino asociado a la cuenta de su organización, especifique el parámetro TenantId:
+
+    $loadersubscription = Get-AzureRmSubscription -SubscriptionName $YourSubscriptionName -TenantId $YourAssociatedSubscriptionTenantId
+
 
 > [AZURE.NOTE]Este método de inicio de sesión no interactivo solo funciona con una cuenta profesional o educativa. Una cuenta profesional o educativa es un usuario bajo la administración del trabajo o de la escuela y que está definido en la instancia de Azure Active Directory para el trabajo o la escuela. Si actualmente no tiene una cuenta profesional o educativa y usa una cuenta Microsoft para iniciar sesión en su suscripción de Azure, puede crear una fácilmente siguiente los pasos que se indican a continuación.
 
@@ -63,54 +157,15 @@ Inicie sesión en su cuenta profesional o educativa:
 
 > Para obtener más información acerca del inicio de sesión en Microsoft Azure con una cuenta profesional o educativa, consulte [Inicio de sesión en Azure como una organización](sign-up-organization.md).
 
+> Para obtener más información acerca de la autenticación y la administración de la suscripción en Azure, consulte [Administrar cuentas, suscripciones y roles administrativos](http://go.microsoft.com/fwlink/?LinkId=324796).
+
 ### Visualización de los detalles de las cuentas y las suscripciones
 
-Puede tener varias cuentas y suscripciones disponibles para su uso por parte de Azure PowerShell. Puede agregar múltiples cuentas ejecutando **Add-AzureAccount** más de una vez.
+Puede tener varias cuentas y suscripciones disponibles para su uso por parte de Azure PowerShell. Puede agregar varias cuentas ejecutando **Add-AzureRmAccount** más de una vez.
 
 Para mostrar las cuentas de Azure disponibles, escriba **Get-AzureAccount**.
 
-Para mostrar las suscripciones de Azure, escriba **Get-AzureSubscription**.
-
-## Paso 4: Prueba<a id="Ex"></a>
-
-
-Después de instalar el módulo y configurar el equipo para que se conecte a su suscripción, puede crear una aplicación web de Azure para asegurarse de que todo funciona correctamente.
-
-1. Inicie la consola de Azure PowerShell.
-
-2. Elija un nombre para la aplicación web. Elija un nombre que se ajuste a las convenciones de nomenclatura de DNS. Los nombres válidos puede contener solo las letras de la 'a' a la 'z', los números entre '0' y '9', y un guión ('-').
-
-	El nombre de la aplicación web debe ser único en Azure. En este ejemplo, usaremos "mySite". Sin embargo, asegúrese de elegir un nombre diferente, tal como el nombre de cuenta seguido de un número.
-
-	Una vez que elija un nombre, escriba un comando similar al siguiente. Sustituya el nombre de la aplicación web por "mySite".
-
-		New-AzureWebsite mySite
-
-	El cmdlet crea la aplicación web y devuelve un objeto que representa la nueva aplicación web. Las propiedades del objeto incluyen información útil acerca de la aplicación web.
-
-3. Para obtener información sobre la aplicación web, escriba el comando siguiente. Devuelve un poco de información sobre todas las aplicaciones web de la suscripción, incluida la que acaba de crear.
-
-		Get-AzureWebsite
-
-4. Para obtener más información acerca de la aplicación web, incluya el nombre de esta en el comando. Asegúrese de sustituir el nombre de la aplicación web por "mySite".
-
-		Get-AzureWebsite -Name mySite
-
-5. Las aplicaciones web se inician después de crearse. Para detener la aplicación web, escriba este comando, incluido el nombre de la aplicación web.
-
-		Stop-AzureWebsite -Name mySite
-
-6. Para comprobar que el estado del sitio es 'detenido', vuelva a ejecutar el comando Get-AzureWebsite.
-
-		Get-AzureWebsite
-
-7. Para completar esta prueba, elimine la aplicación web. Escriba:
-
-		Remove-AzureWebsite -Name mySite
-
-7. Para completar la tarea, confirme que la aplicación web se ha eliminado.
-
-		Get-AzureWebsite -Name mySite
+Para mostrar las suscripciones de Azure, escriba **Get-AzureRmSubscription**.
 
 ##<a id="Help"></a>Ayuda##
 
@@ -119,13 +174,20 @@ Estos recursos ofrecen ayuda para cmdlets concretos:
 
 -   Desde la consola, puede utilizar el sistema de ayuda integrado. El cmdlet **Get-Help** proporciona acceso a este sistema. 
 
+- Para obtener ayuda de la comunidad, utilice estos foros populares:
+
+ - [Foro de Azure en MSDN](http://go.microsoft.com/fwlink/p/?LinkId=320212)
+ - [Stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
+
+##Más información
 
 
-- En la biblioteca de Azure existe información de referencia acerca de los cmdlets de los módulos de Azure PowerShell. Para obtener información, consulte [Referencia de cmdlets de Azure](https://msdn.microsoft.com/library/azure/dn708514.aspx).
+Para más información sobre el uso de cmdlets, vea los siguientes recursos:
 
-Para obtener ayuda de la comunidad, utilice estos foros populares:
+Para obtener instrucciones básicas sobre el uso de Windows PowerShell, vea [Uso de Windows PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=321939).
 
-- [Foro de Azure en MSDN](http://go.microsoft.com/fwlink/p/?LinkId=320212)
-- [Stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
+Para más información sobre los cmdlets, vea [Referencia de cmdlets de Azure](https://msdn.microsoft.com/library/windowsazure/jj554330.aspx).
 
-<!---HONumber=AcomDC_1217_2015-->
+Para ver scripts de ejemplo e instrucciones que le ayuden a aprender a usar scripting para administrar Azure, vea el [Centro de scripts](http://go.microsoft.com/fwlink/p/?LinkId=321940).
+
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,30 +14,19 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/18/2015"
+	ms.date="12/29/2015"
 	ms.author="danlep"/>
 
 # Instalación de la CLI de Azure
 
-Este artículo describe cómo instalar la interfaz de la línea de comandos de Azure (CLI de Azure). La CLI de Azure proporciona un conjunto de comandos de código abierto basado en shell para la creación y la administración de recursos de Microsoft Azure.
+Instale rápidamente la interfaz de la línea de comandos de Azure (CLI de Azure) para utilizar un conjunto de comandos de código abierto basados en shell para crear y administrar recursos en Microsoft Azure. Utilice uno de los paquetes de instalación proporcionados para instalar la CLI de Azure en el sistema operativo, instale la CLI mediante el uso de Node.js y **npm**, o bien instálela como contenedor en un host de Docker. Si desea obtener más opciones y antecedentes, consulte el repositorio del proyecto en [GitHub](https://github.com/azure/azure-xplat-cli).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-both-include.md)]
 
+Una vez que instale la CLI de Azure, podrá [conectarla con su suscripción a Azure](xplat-cli-connect.md) y ejecutar los comandos **azure** desde la interfaz de la línea de comandos (Bash, Terminal, símbolo del sistema, etc.) para trabajar con los recursos de Azure.
 
-La CLI de Azure se escribe en JavaScript y requiere [Node.js](https://nodejs.org). Se implementa mediante el [SDK de Azure para Node](https://github.com/azure/azure-sdk-for-node) y se lanza con una licencia de Apache 2.0. El repositorio de proyectos se encuentra en [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli).
 
-> [AZURE.NOTE]Si ya ha instalado la CLI de Azure, conéctese con sus recursos de Azure. Para obtener más información, consulte [Conexión con su suscripción de Azure](xplat-cli-connect.md#configure).
 
-<a id="install"></a>
-## Instalación de la CLI de Azure
-
-Hay varias maneras de instalar la CLI de Azure.
-
-1. Uso de un instalador
-2. Instalación de Node.js y npm y uso posterior del comando **npm install**
-3. Ejecute la CLI de Azure como contenedor de Docker
-
-Una vez instalada la CLI de Azure, podrá usar el comando **azure** desde su interfaz de la línea de comandos (Bash, Terminal, símbolo del sistema, etc.) para tener acceso a los comandos de la CLI de Azure.
 
 ## Uso de un instalador
 
@@ -58,7 +47,8 @@ Si tiene instalado Node.js en su sistema, utilice el comando siguiente para inst
 
 > [AZURE.NOTE]En distribuciones Linux, puede que tenga que usar `sudo` para ejecutar correctamente el comando __npm__.
 
-### Instalación de node.js y npm en distribuciones Linux que usan administración de paquetes [dpkg](http://en.wikipedia.org/wiki/Dpkg)
+### Instalación de Node.js y npm en distribuciones Linux que usan administración de paquetes [dpkg](http://en.wikipedia.org/wiki/Dpkg)
+
 Las distribuciones más habituales usan [herramienta de empaquetado avanzado (apt)](http://en.wikipedia.org/wiki/Advanced_Packaging_Tool) u otras herramientas en función del formato del paquete `.deb`. Algunos ejemplos son Ubuntu y Debian.
 
 La mayoría de las distribuciones más recientes requieren la instalación de **nodejs-legacy** para obtener una herramienta **npm** correctamente configurada para instalar la CLI de Azure. En el código siguiente se muestran los comandos que instala **npm** correctamente en Ubuntu 14.04.
@@ -67,18 +57,18 @@ La mayoría de las distribuciones más recientes requieren la instalación de **
 	sudo apt-get install npm
 	sudo npm install -g azure-cli
 
-Algunas de las distribuciones anteriores, como Ubuntu 12.04, requieren la instalación de la distribución actual binaria de node.js. En el código siguiente se muestra cómo hacer esto mediante la instalación y el uso de **curl**.
+Algunas de las distribuciones anteriores, como Ubuntu 12.04, requieren la instalación de la distribución actual binaria de Node.js. En el código siguiente se muestra cómo hacer esto mediante la instalación y el uso de **curl**.
 
->[AZURE.NOTE]Los comandos que se muestran aquí se toman de las instrucciones de instalación de Joyent que encontrará [aquí](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager). Sin embargo, al usar **sudo** como un destino de canalización siempre debe comprobar las secuencias de comandos que va a instalar y validar que hacen exactamente lo que se espera antes de ejecutarlas a través de **sudo**. Un gran poder conlleva una gran responsabilidad.
+>[AZURE.NOTE]Los comandos se toman de las instrucciones de instalación que encontrará [aquí](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager). Sin embargo, al usar **sudo** como un destino de canalización siempre debe comprobar las secuencias de comandos que va a instalar y validar que hacen exactamente lo que se espera antes de ejecutarlas a través de **sudo**. Un gran poder conlleva una gran responsabilidad.
 
 	sudo apt-get install curl
 	curl -sL https://deb.nodesource.com/setup | sudo bash -
 	sudo apt-get install -y nodejs
 	sudo npm install -g azure-cli
 
-### Instalación de node.js y npm en distribuciones Linux que usan administración de paquetes [rpm](http://en.wikipedia.org/wiki/RPM_Package_Manager)
+### Instalación de Node.js y npm en distribuciones Linux que usan administración de paquetes [rpm](http://en.wikipedia.org/wiki/RPM_Package_Manager)
 
-La instalación de node.js en distribuciones basadas en RPM requiere la habilitación del repositorio EPEL. En el código siguiente se muestran las prácticas recomendadas para la instalación en CentOS 7. (Tenga en cuenta que en la primera línea, a continuación, el '-' (guión) es importante)
+La instalación de Node.js en distribuciones basadas en RPM requiere la habilitación del repositorio EPEL. En el código siguiente se muestran las prácticas recomendadas para la instalación en CentOS 7. (Tenga en cuenta que en la primera línea, a continuación, el '-' (guión) es importante)
 
 	su -
 	yum update [enter]
@@ -88,9 +78,9 @@ La instalación de node.js en distribuciones basadas en RPM requiere la habilita
 	yum install npm [enter]
 	npm install -g azure-cli  [enter]
 
-### Instalación de node.js y npm en Windows y Mac OS X
+### Instalación de Node.js y npm en Windows y Mac OS X
 
-Puede instalar node.js y npm en Windows y OS X mediante los instaladores de [Nodejs.org](https://nodejs.org/download/). Deberá reiniciar el equipo para completar la instalación. Compruebe si node y npm se instalaron correctamente; para ello, abra una ventana de comandos y escriba
+Puede instalar Node.js y npm en Windows y OS X mediante los instaladores de [Nodejs.org](https://nodejs.org/en/download/). Deberá reiniciar el equipo para completar la instalación. Compruebe si node y npm se instalaron correctamente; para ello, abra una ventana de comandos o terminal y escriba
 
 	npm -v
 
@@ -120,33 +110,46 @@ Al final de la instalación, debería ver algo parecido a esto:
 
 >[AZURE.NOTE]Para los sistemas Linux, también puede instalar la CLI de Azure creándola desde el [origen](http://go.microsoft.com/fwlink/?linkid=253472). Para obtener más información acerca de la creación desde el origen, consulte el archivo INSTALL que se incluye en el archivo.
 
-## Uso de contenedor Docker
+## Uso de un contenedor Docker
 
-En un host Docker, ejecute: ```
-	docker run -it microsoft/azure-cli
-```
-
-## Ejecución de comandos de la CLI de Azure
-
-Una vez instalada la CLI de Azure, podrá usar el comando **azure** desde su interfaz de usuario de la línea de comandos (Bash, Terminal, símbolo del sistema, etc.) para tener acceso a los comandos de la CLI de Azure. Por ejemplo, para ejecutar el comando help en Windows, abra una ventana de comandos y escriba lo siguiente:
+En un host de Docker, ejecute:
 
 ```
-	c:> azure help
+docker run -it microsoft/azure-cli
 ```
 
-De este modo, ya está listo. A continuación puede [conectarse a su suscripción de Azure desde la CLI de Azure](xplat-cli-connect.md) y empezar a usar los comandos **azure**.
+## Ejecución de los comandos de la CLI de Azure
+Una vez instalada la CLI de Azure, podrá usar el comando **azure** desde su interfaz de usuario de la línea de comandos (Bash, Terminal, símbolo del sistema, etc.). Por ejemplo, si desea ejecutar el comando help, escriba lo siguiente:
 
+```
+azure help
+```
 
-<a id="additional-resources"></a>
+Para saber qué versión de la CLI de Azure instaló, escriba lo siguiente:
+
+```
+azure --version
+```
+
+De este modo, ya está listo. Para obtener acceso a todos los comandos de la CLI a fin de trabajar con sus propios recursos, [conéctese a su suscripción a Azure desde la CLI de Azure](xplat-cli-connect.md).
+
+## Actualización de la CLI
+
+Microsoft publica con frecuencia versiones actualizadas de la CLI de Azure. Reinstale la CLI con el instalador correspondiente a su sistema operativo, o bien, si Node.js y npm están instalados, escriba lo siguiente para actualizarla (en las distribuciones de Linux, es posible que necesite utilizar **sudo**).
+
+```
+npm upgrade -g azure-cli
+```
+
 ## Recursos adicionales
 
-* [Uso de la CLI de Azure con los comandos del Administrador de recursos de Azure][cliarm]
+* [Uso de la CLI de Azure con Administrador de recursos de Azure][cliarm]
 
-* [Uso de la interfaz de la línea de comandos de Azure con los comandos de la Administración de servicios (modo clásico)][cliasm]
+* [Uso de la CLI de Azure con administración de servicios de Azure][cliasm]
 
 * Si desea obtener más información acerca de la CLI de Azure, descargar el código fuente, informar sobre problemas o colaborar con el proyecto, visite el [Repositorio de GitHub para la CLI de Azure](https://github.com/azure/azure-xplat-cli).
 
-* Si tiene problemas al usar la CLI de Azure o Azure, visite los [Foros de Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home).
+* Si tiene preguntas sobre cómo usar la CLI de Azure o Azure, visite los [foros de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=azurescripting).
 
 
 
@@ -156,4 +159,4 @@ De este modo, ya está listo. A continuación puede [conectarse a su suscripció
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -22,7 +22,7 @@ En este artículo se describe cómo invocar un programa **MapReduce** desde una 
 ## Introducción 
 Una canalización en una factoría de datos de Azure procesa los datos de los servicios de almacenamiento vinculados mediante el uso de servicios de proceso vinculados. Contiene una secuencia de actividades donde cada actividad realiza una operación de procesamiento específica. En este artículo se describe el uso de la actividad MapReduce de HDInsight.
  
-Consulte el artículo [Pig](data-factory-pig-activity) y [Hive](data-factory-hive-activity.md) para obtener detalles acerca de la ejecución de scripts de Pig/Hive en un clúster de HDInsight basado en Windows/Linux desde una canalización de la factoría de datos de Azure mediante actividades Pig y Hive de HDInsight.
+Consulte el artículo [Pig](data-factory-pig-activity.md) y [Hive](data-factory-hive-activity.md) para obtener detalles acerca de la ejecución de scripts de Pig/Hive en un clúster de HDInsight basado en Windows/Linux desde una canalización de la factoría de datos de Azure mediante actividades Pig y Hive de HDInsight.
 
 ## JSON para la actividad MapReduce de HDInsight 
 
@@ -221,4 +221,4 @@ linkedServiceName | hace referencia al servicio vinculado a HDInsight creado ant
 [Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

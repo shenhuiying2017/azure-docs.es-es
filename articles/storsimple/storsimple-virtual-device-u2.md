@@ -32,7 +32,7 @@ El dispositivo virtual de StorSimple es una capacidad adicional que se incluye c
 El dispositivo virtual de StorSimple está disponible en dos modelos: estándar 8010 y premium 8020 (introducido en la actualización 2). A continuación se incluye una tabla comparativa de los dos modelos.
 
 
-| Modelo de dispositivo | 8010<sup>1, 2</sup> | 8020<sup>3</sup> |
+| Modelo de dispositivo | 8010<sup>1</sup> | 8020 |
 |-----------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **Capacidad máxima** | 30 TB | 64 TB |
 | **MV de Azure** | Standard\_A3 (4 núcleos, 7 GB de memoria) | Standard\_DS3 (4 núcleos, 14 GB de memoria) |
@@ -41,7 +41,7 @@ El dispositivo virtual de StorSimple está disponible en dos modelos: estándar 
 | **Tipo de almacenamiento** | Usa el almacenamiento estándar de Azure <br></br> Infórmese de cómo [crear una cuenta de almacenamiento estándar]() | Usa el Almacenamiento premium de Azure <br></br> Infórmese de cómo [crear una cuenta de almacenamiento premium](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Guía de la carga de trabajo** | Recuperación a nivel de elemento de archivos de copias de seguridad | Escenarios de desarrollo y pruebas en la nube, baja latencia, mayores cargas de trabajo de rendimiento <br></br>Dispositivo secundario para recuperación ante desastres |
  
-<sup>1</sup> *Anteriormente conocido como 1100*, <sup>2</sup> *A se refiere a factor de forma de Azure*, <sup>3</sup> *AP se refiere a factor de forma de Azure Premium.*
+<sup>1</sup> *Anteriormente conocido como 1100*.
 
 
 Este artículo describe paso a paso el proceso de implementación de un dispositivo virtual de StorSimple en Azure. Después de leer este artículo, habrá aprendido lo siguiente:
@@ -259,4 +259,4 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
  
 - Obtenga información sobre cómo [Restaurar un volumen de StorSimple de un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

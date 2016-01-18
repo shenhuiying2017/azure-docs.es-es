@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
-    authors="sidneyh"/>
+    authors="torsteng"/>
 
 <tags
     ms.service="sql-database"
@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/15/2015"
+    ms.date="01/06/2016"
     ms.author="sidneyh;torsteng" />
 
 # Consultas de bases de datos elásticas para particionamiento horizontal
 
 En este documento, se explica cómo configurar consultas elásticas para escenarios de particionamiento horizontal y cómo realizar las consultas. Para obtener una definición del escenario de particionamiento horizontal, consulte [Información general sobre consulta de bases de datos elásticas de Base de datos SQL de Azure (vista previa)](sql-database-elastic-query-overview.md).
+
+![Consultas entre particiones][1]
 
 La funcionalidad es una parte del [conjunto de características de bases de datos elásticas de Base de datos ](sql-database-elastic-scale.md) SQL de Azure.
  
@@ -236,6 +238,7 @@ Use cadenas de conexión de SQL Server normales para conectar su aplicación, su
 
 
 <!--Image references-->
+[1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

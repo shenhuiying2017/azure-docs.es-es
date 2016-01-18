@@ -1,14 +1,14 @@
-### To verify your connection using the Azure portal
+### Para comprobar la conexión mediante el uso del Portal de Azure
 
-You can verify a VPN connection in the Azure Portal by navigating to **Virtual network gateways** -> ***click your gateway name*** -> **Settings** -> **Connections**. By selecting the name of the connection, you can view more information in the **Connection** blade.  
+Para comprobar una conexión VPN en el Portal de Azure, vaya a **Puertas de enlace de red virtual** -> ***haga clic en el nombre de su puerta de enlace*** -> **Configuración** -> **Conexiones**. Para ver más información en la hoja **Conexión**, seleccione el nombre de la conexión.
 
-### To verify your connection using PowerShell
+### Para comprobar la conexión mediante el uso de PowerShell
 
-It is also possible to verify that your connection succeeded by using *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. In the future, we'll have a cmdlet for this. You can use the following cmdlet example, configuring the values to match your own. When prompted, select *A* in order to run All.
+También es posible comprobar que la conexión se realizó correctamente; para ello, utilice *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. En el futuro, tendremos un cmdlet para esto. Puedes usar el siguiente ejemplo de cmdlet, configurando los valores para que coincidan con los tuyos. Cuando se le pida, seleccione *A* para poder ejecutar Todo.
 
 	Get-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
 
- After the cmdlet has finished, scroll through to view the values. In the example below, the connection status shows as *Connected* and you can see ingress and egress bytes.
+ Cuando el cmdlet haya finalizado, desplázate para ver los valores. En el ejemplo siguiente, el estado de conexión aparece como *Connected* y pueden verse los bytes de entrada y salida.
 
 	Body:
 	{
@@ -36,3 +36,5 @@ It is also possible to verify that your connection succeeded by using *Get-Azure
 	    "ingressBytesTransferred": 33509044,
 	    "egressBytesTransferred": 4142431
 	  }
+
+<!---HONumber=AcomDC_0107_2016-->

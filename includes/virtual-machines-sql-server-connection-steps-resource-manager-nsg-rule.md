@@ -1,34 +1,35 @@
-### Configure a Network Security Group inbound rule for the VM
+### Configuración de una regla de entrada de grupo de seguridad de red para la máquina virtual
 
-If you want to be able to connect to SQL Server over the internet, you have to configure an inbound rule on the Network Security Group for the port that your SQL Server instance is listening. By default, this is TCP port 1433.
+Si desea conectarse a SQL Server a través de Internet, debe configurar una regla de entrada en el grupo de seguridad de red del puerto al que escucha su instancia de SQL Server. De manera predeterminada, se trata del puerto TCP 1433.
 
-1. In the portal, select **Virtual machines**, and then select your SQL Server VM.
+1. En el portal, seleccione **Máquinas virtuales** y, luego, seleccione su máquina virtual de SQL Server.
 
-2. Click the **All settings** link.
+2. Haga clic en el vínculo **Toda la configuración**.
 
-3. Expand **Nework interfaces**.
+3. Expanda **Interfaces de red**.
 
-	![network interface](./media/virtual-machines-sql-server-connection-steps/rm-network-interface.png)
+	![interfaz de red](./media/virtual-machines-sql-server-connection-steps/rm-network-interface.png)
 
-4. Then select the Network Interface for your VM. 
+4. Luego, seleccione la interfaz de red para la máquina virtual.
 
-4. Click the **Network security group** link.
+4. Haga clic en el vínculo **Grupo de seguridad de red**.
 
-	![network interface](./media/virtual-machines-sql-server-connection-steps/rm-network-security-group.png)
+	![interfaz de red](./media/virtual-machines-sql-server-connection-steps/rm-network-security-group.png)
 
-6. In the properties of the Network Security Group, expand **Inbound security rules**.
+6. En las propiedades del grupo de seguridad de red, expanda **Reglas de seguridad de entrada**.
 
-5. Click the **Add** button.
+5. Haga clic en el botón **Add** (Agregar).
 
-6. Provide a **Name** of "SQLServerPublicTraffic".
+6. Proporcione el **nombre** de "SQLServerPublicTraffic".
 
-7. Change **Protocol** to **TCP**.
+7. Cambie el **Protocolo** a **TCP**.
 
-8. Specify a **Destination port range** of 1433 (or the port that your SQL Server Instance is listening on). 
+8. Especifique un **Intervalo de puertos de destino** de 1433 (o el puerto en el que escucha su instancia de SQL Server).
 
-9. Verify that **Action** is set to **Allow**. The security rule dialog should look similar to the following screenshot.
+9. Compruebe que la opción **Acción** está definida en **Permitir**. El cuadro de diálogo de la regla de seguridad debe verse como la siguiente captura de pantalla.
 
-	![network security rule](./media/virtual-machines-sql-server-connection-steps/rm-network-security-rule.png)
+	![regla de seguridad de red](./media/virtual-machines-sql-server-connection-steps/rm-network-security-rule.png)
 
-9. Click **OK** to save the rule for your VM.
+9. Haga clic en **Aceptar** para guardar la regla correspondiente a su máquina virtual.
 
+<!---HONumber=AcomDC_0107_2016-->

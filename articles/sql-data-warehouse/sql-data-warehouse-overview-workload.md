@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="barbkess;twounder;JRJ@BigBangData.co.uk"/>
 
 
@@ -28,7 +28,7 @@ Los almacenamientos de datos se caracterizan por consultas que analizan un mayor
 
 - Un almacenamiento de datos funciona mejor cuando los datos se almacenan de manera que se optimizan las consultas que necesitan analizar grandes cantidades de filas o de intervalos de datos. Este tipo de análisis funciona mejor cuando los datos se almacenan y se buscan por columnas, en lugar de por filas. 
 
->[AZURE.NOTE]El índice de almacén de columnas en memoria, que usa el almacenamiento por columnas, proporciona hasta 5 veces más ganancias de compresión y 10 veces el rendimiento de las consultas, en comparación con los árboles binarios tradicionales, para consultas de informes y análisis. Consideramos los índices de almacén de columnas como el estándar para almacenar y analizar datos de gran tamaño en un almacenamiento de datos.
+>[AZURE.NOTE]El índice de almacén de columnas en memoria, que usa el almacenamiento por columnas, proporciona hasta 10 veces más ganancias de compresión y 100 veces el rendimiento de las consultas, en comparación con los árboles binarios tradicionales, para consultas de informes y análisis. Consideramos los índices de almacén de columnas como el estándar para almacenar y analizar datos de gran tamaño en un almacenamiento de datos.
 
 - Un almacenamiento de datos tiene requisitos diferentes de un sistema que se optimiza para el procesamiento de transacciones en línea (OLTP). El sistema OLTP tiene muchas operaciones de inserción, actualización y eliminación. Estas operaciones buscan en filas específicas de la tabla. Las búsquedas en tablas son más eficaces cuando los datos se almacenan por filas. Los datos se pueden ordenar rápidamente y hacer búsquedas por partes, en un enfoque denominado búsqueda binaria de árbol.
 
@@ -73,4 +73,4 @@ Para empezar a desarrollar el almacenamiento de datos, vea [Introducción al des
 
 <!--Other web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

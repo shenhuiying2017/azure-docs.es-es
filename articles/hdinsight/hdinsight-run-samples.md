@@ -48,7 +48,7 @@ En la actualidad, muchas personas prefieren Hive y Pig a MapReduce. Para más in
 - **un clúster de HDInsight**. Para obtener instrucciones acerca de varias formas de creación de dichos clústeres, consulte [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md).
 - **Una estación de trabajo con Azure PowerShell**. Consulte [Instalar Azure PowerShell 1.0 y versiones posteriores](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
-## Recuento de palabras: Java 
+## <a name="hdinsight-sample-wordcount"></a>Recuento de palabras: Java 
 
 Para enviar un proyecto de MapReduce, primero hay que crear una definición de trabajo de MapReduce. En la definición del trabajo, se especifica el archivo jar de programa de MapReduce y la ubicación del archivo jar, que es ****wasb:///example/jars/hadoop-mapreduce-examples.jar**, el nombre de clase y los argumentos. El programa de MapReduce de recuento de palabras toma dos argumentos: el archivo de origen que se usará para contar las palabras y la ubicación del resultado.
 
@@ -114,7 +114,7 @@ Para conocer el procedimiento de desarrollo del programa MapReduce de Java, cons
 
 3. Establezca las 3 variables y ejecute el script.
 
-## Recuento de palabras: streaming en C#
+## <a name="hdinsight-sample-csharp-streaming"></a>Recuento de palabras: streaming en C#
 
 Hadoop ofrece una API de streaming para MapReduce que le permite escribir mapas y reducir funciones en lenguajes distintos de Java.
 
@@ -148,7 +148,7 @@ Para obtener más información acerca de la interfaz de streaming de Hadoop, con
 	
 		example/data/StreamingOutput/wc.txt/part-00000		
 								
-## Estimador de pi
+## <a name="hdinsight-sample-pi-estimator"></a>Estimador de pi
 
 El estimador de pi usa un método estadístico (cuasi Monte Carlo) para calcular el valor de pi. Los puntos colocados en el interior aleatorio de un cuadrado unitario también entran dentro de un círculo inscrito dentro de ese cuadrado con una probabilidad igual al área del círculo, pi/4. El valor de pi se puede estimar a partir del valor de 4R, donde R es la proporción de la cantidad de puntos contados dentro del círculo con respecto al número total de puntos que se encuentran dentro del cuadrado. Mientras más grande sea la muestra de puntos usada, mejor resulta el valor calculado.
 
@@ -163,7 +163,7 @@ El script que se proporciona para esta muestra envía un trabajo jar de Hadoop y
 									-ClassName "pi" `
 									-Arguments "16", "10000000"
 
-## GraySort de 10 GB
+## <a name="hdinsight-sample-10gb-graysort"></a>GraySort de 10 GB
 
 Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativamente rápido. En él se emplean las aplicaciones de MapReduce, desarrolladas por Owen O'Malley y Arun Murthy, que ganaron el estándar de comparación anual de ordenación de terabytes de fin general ("daytona") en 2009 con una velocidad de 0,578 TB/min (100 TB en 173 minutos). Para obtener más información sobre este y otros estándares de comparación de ordenación, consulte el sitio [Sortbenchmark](http://sortbenchmark.org/).
 
@@ -987,10 +987,10 @@ En esta sección se analiza el código del programa de MapReduce de TeraSort.
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
 [hdinsight-samples]: hdinsight-run-samples.md
-[hdinsight-sample-10gb-graysort]: hdinsight-sample-10gb-graysort.md
-[hdinsight-sample-csharp-streaming]: hdinsight-sample-csharp-streaming.md
-[hdinsight-sample-pi-estimator]: hdinsight-sample-pi-estimator.md
-[hdinsight-sample-wordcount]: hdinsight-sample-wordcount.md
+[hdinsight-sample-10gb-graysort]: #hdinsight-sample-10gb-graysort
+[hdinsight-sample-csharp-streaming]: #hdinsight-sample-csharp-streaming
+[hdinsight-sample-pi-estimator]: #hdinsight-sample-pi-estimator
+[hdinsight-sample-wordcount]: #hdinsight-sample-wordcount
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
@@ -998,4 +998,4 @@ En esta sección se analiza el código del programa de MapReduce de TeraSort.
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

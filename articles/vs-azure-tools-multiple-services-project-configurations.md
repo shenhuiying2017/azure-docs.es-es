@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configuración de su proyecto Azure mediante varias configuraciones de servicio"
+   pageTitle="Configuración de su proyecto Azure mediante varias configuraciones de servicio | Microsoft Azure"
    description="Cambie los archivos ServiceDefinition.csdef y ServiceConfiguration.cscfg para saber cómo configurar un proyecto de servicio en la nube de Azure."
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/29/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # Configuración de su proyecto Azure mediante varias configuraciones de servicio
@@ -39,7 +39,7 @@ En la página **Almacenamiento en caché**, puede configurar los servicios de al
 
 En la página **Configuración**, puede establecer estas propiedades:
 
-**Instancias**.
+**Instancias.**
 
 Establezca la propiedad **Número de instancias** en el número de instancias que el servicio debe ejecutar para este rol
 
@@ -85,7 +85,7 @@ Un rol de trabajador puede tener un número indeterminado de extremos HTTP, HTTP
 
 ## Pagina Almacenamiento local
 
-Puede usar la página de propiedades **Almacenamiento local** para reservar uno o más recursos de almacenamiento local para un rol. Un recurso de almacenamiento local es un directorio reservado en el sistema de archivos de la máquina virtual de Azure donde se ejecuta una instancia de un rol. Para obtener más información acerca de cómo trabajar con los recursos de almacenamiento local, consulte [Configuración de los recursos de almacenamiento local](cloud-services-configure-local-storage-resources.md).
+Puede usar la página de propiedades **Almacenamiento local** para reservar uno o más recursos de almacenamiento local para un rol. Un recurso de almacenamiento local es un directorio reservado en el sistema de archivos de la máquina virtual de Azure donde se ejecuta una instancia de un rol. Para obtener más información acerca de cómo trabajar con los recursos de almacenamiento local, vea [Configurar los recursos de almacenamiento local](cloud-services-configure-local-storage-resources.md).
 
 ## Página Certificados
 
@@ -93,7 +93,7 @@ En la página **Certificados**, puede asociar certificados a un rol. Los certifi
 
 La página de propiedades **Certificados** agrega información sobre los certificados a la configuración del servicio. Tenga en cuenta que sus certificados no se incluyen con el servicio, debe cargarlos por separado en Azure a través del [Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-Para asociar un certificado a su rol, proporcione un nombre para el certificado. Usará este nombre para hacer referencia al certificado cuando configure un extremo HTTPS en la página de propiedades **Extremos**. A continuación, especifique si el almacén de certificados es **Máquina local** o **Usuario actual**, así como el nombre del almacén Por último, especifique la huella digital del certificado. Si el certificado está en el almacén Current User\\Personal (My), para especificar la huella digital del certificado selecciónelo en una lista rellenada. Si se encuentra en otra ubicación, especifique el valor de la huella digital manualmente.
+Para asociar un certificado a su rol, proporcione un nombre para el certificado. Usará este nombre para hacer referencia al certificado cuando configure un extremo HTTPS en la página de propiedades **Extremos**. A continuación, especifique si el almacén de certificados es **Local Machine** o **Current User**, así como el nombre del almacén Por último, especifique la huella digital del certificado. Si el certificado está en el almacén Current User\\Personal (My), para especificar la huella digital del certificado selecciónelo en una lista rellenada. Si se encuentra en otra ubicación, especifique el valor de la huella digital manualmente.
 
 Al agregar un certificado del almacén de certificados, cualquier certificado intermedio se agrega automáticamente a la configuración. Estos certificados intermedios también se deben cargar en Azure para configurar el servicio correctamente para SSL.
 
@@ -110,4 +110,4 @@ Para configurar los valores que se aplican a todo un proyecto de servicio en la 
 |Desarrollo|Desde esta página, puede especificar las instrucciones de la configuración de compilación y las condiciones bajos las cuales se ejecutan los eventos posteriores a la compilación.|
 |Web|Desde esta página, puede configurar los valores relacionados con el servidor web.|
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

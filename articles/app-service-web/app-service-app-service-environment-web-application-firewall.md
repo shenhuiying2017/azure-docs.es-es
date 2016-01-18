@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/24/2015" 
 	ms.author="naziml"/>
 
 # Configuración de un firewall de aplicaciones web (WAF) para entornos del Servicio de aplicaciones
@@ -29,7 +29,7 @@ Para este documento, configuraremos nuestro entorno del Servicio de aplicaciones
 ![Arquitectura][Architecture]
 
 ## Configuración del entorno del Servicio de aplicaciones ##
-Para configurar un entorno del Servicio de aplicaciones, vea [nuestra documentación](app-service-web-how-to-create-an-app-service-environment.md) sobre el tema. Después de crear un entorno del Servicio de aplicaciones, puede crear [aplicaciones web](app-service-web-overview.md), [aplicaciones de API](app-service-api-apps-why-best-platform.md) y [aplicaciones móviles](app-service-mobile-value-prop-preview.md) en este entorno, que se protegerán detrás del WAF que vamos a configurar en la sección siguiente.
+Para configurar un entorno del Servicio de aplicaciones, consulte [nuestra documentación](app-service-web-how-to-create-an-app-service-environment.md) sobre el tema. Después de crear un entorno del Servicio de aplicaciones, puede crear [aplicaciones web](app-service-web-overview.md), [aplicaciones de API](app-service-api-apps-why-best-platform.md) y [aplicaciones móviles](app-service-mobile-value-prop-preview.md) en este entorno, que se protegerán detrás del WAF que vamos a configurar en la sección siguiente.
 
 ## Configuración del servicio en la nube Barracuda WAF ##
 Barracuda tiene un [artículo detallado](https://techlib.barracuda.com/WAF/AzureDeploy) sobre la implementación de su WAF en una máquina virtual en Azure. No obstante, habida cuenta de que queremos redundancia y no introducir un único punto de error, hay que implementar al menos dos máquinas virtuales de la instancia de WAF en el mismo servicio en la nube al seguir estas instrucciones.
@@ -99,4 +99,4 @@ Reemplace SourceAddressPrefix con la dirección IP virtual (VIP) del servicio en
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="12/22/2015"
 	ms.author="dastrock"/>
 	
 # Vista previa de Azure AD B2C: crear una API web de .NET
@@ -61,7 +61,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Dot
 
 La aplicación completada también estará [disponible como .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) o en la rama `complete` del mismo repositorio.
 
-Cuando haya descargado el código de ejemplo, abra el archivo `.sln` de Visual Studio para empezar. Observará que hay dos proyectos en la solución: un proyecto `TaskWebApp` y un proyecto `TaskService`. `TaskWebApp` es una aplicación web MVC con la que el usuario interactúa. `TaskService` es la API web de back-end de la aplicación que almacena la lista de tareas pendientes de cada usuario.
+Una vez descargado el código de ejemplo, abra el archivo `.sln` de Visual Studio para empezar. Observará que hay dos proyectos en la solución: un proyecto `TaskWebApp` y un proyecto `TaskService`. `TaskWebApp` es una aplicación web MVC con la que el usuario interactúa. `TaskService` es la API web de back-end de la aplicación que almacena la lista de tareas pendientes de cada usuario.
 
 ## 5\. Configurar la aplicación web de tarea
 
@@ -137,7 +137,7 @@ Abra el archivo `web.config` en la raíz del proyecto `TaskService` y reemplace 
 ```
 
 #### Agregar una clase de inicio de OWIN
-Agregue una clase de inicio de OWIN al proyecto `TaskService` llamada `Startup.cs`. Haga clic con el botón derecho en el proyecto --> **Agregar** --> **Nuevo elemento** --> Busque "OWIN".
+Agregue una clase de inicio de OWIN al proyecto `TaskService` llamado `Startup.cs`. Haga clic con el botón derecho en el proyecto --> **Agregar** --> **Nuevo elemento** --> Busque "OWIN".
   
 
 ```C#
@@ -219,7 +219,7 @@ Por último, compile y ejecute tanto `TaskWebApp` como `TaskService`. Regístres
 
 ## 8\. Editar sus directivas
 
-Ahora que tiene una API protegida con Azure AD B2C, puede jugar con las directivas de la aplicación y ver cómo afectan (en caso de hacerlo) en la API. Puede manipular las **notificaciones de aplicación** en las directivas y cambiar la información del usuario que está disponible en la API web. Las notificaciones adicionales que agregue estarán disponibles para su API web de .NET MVC en el objeto `ClaimsPrincipal`, como se describió anteriormente.
+Ahora que tiene una API protegida con Azure AD B2C, puede jugar con las directivas de la aplicación y ver cómo afectan (en caso de hacerlo) en la API. Puede manipular las **notificaciones de aplicación** de las directivas y modificar la información de usuario que está disponible en la API web. Las notificaciones adicionales que agregue estarán disponibles para su API web de .NET MVC en el objeto `ClaimsPrincipal`, como se describió anteriormente.
 <!--add **identity providers**
 to the policies, allowing you users to sign into the Task Client using social accounts.  You can also 
 -->
@@ -236,4 +236,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

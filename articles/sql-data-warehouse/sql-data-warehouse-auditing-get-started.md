@@ -1,23 +1,23 @@
 <properties 
-	pageTitle="Introducción a la auditoría de bases de datos de Almacenamiento de datos SQL | Microsoft Azure" 
-	description="Introducción a la auditoría de bases de datos de Almacenamiento de datos SQL" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="Introducción a la auditoría de bases de datos de Almacenamiento de datos SQL | Microsoft Azure" 
+   description="Introducción a la auditoría de bases de datos de Almacenamiento de datos SQL" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-data-warehouse" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/04/2016" 
+   ms.author="twounder"/>
  
 # Introducción a la auditoría de bases de datos de Almacenamiento de datos SQL 
-<p> La auditoría de Almacenamiento de datos SQL de Azure realiza el seguimiento de los eventos de base de datos y escribe los eventos auditados en un registro de auditoría en la cuenta de Almacenamiento de Azure.
+La auditoría de Almacenamiento de datos SQL de Azure realiza el seguimiento de los eventos de base de datos y escribe los eventos auditados en un registro de auditoría en la cuenta de Almacenamiento de Azure.
 
 La auditoría puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas.
 
@@ -141,4 +141,4 @@ Cuando esté en el modo Administrador de recursos de Azure, ejecute `Get-Command
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

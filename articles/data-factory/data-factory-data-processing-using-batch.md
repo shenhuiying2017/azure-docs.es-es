@@ -31,7 +31,7 @@ Las canalizaciones, que son un grupo lógico de actividades, mueven y procesan l
 
 ## Diagrama de la arquitectura
 
-En el diagrama, se muestra 1) cómo Factoría de datos organiza el movimiento y el procesamiento de datos y 2) cómo Lote de Azure procesa los datos en paralelo. Descargue e imprima el diagrama para facilitar la referencia (279 × 432 mm o tamaño A3): [Lote de Microsoft Azure y Factoría de datos de Azure: Arquitectura para procesamiento de datos a gran escala](http://go.microsoft.com/fwlink/?LinkId=717686).
+En el diagrama, se muestra 1) cómo Factoría de datos organiza el movimiento y el procesamiento de datos y 2) cómo Lote de Azure procesa los datos en paralelo. Descargue e imprima el diagrama para facilitar la referencia (279 × 432 mm o tamaño A3): [Microsoft Azure Batch and Azure Data Factory: Architecture for large-scale data processing](http://go.microsoft.com/fwlink/?LinkId=717686).
 
 ![](./media/data-factory-data-processing-using-batch/image1.png)
 
@@ -396,7 +396,7 @@ El método tiene algunos componentes clave que debe conocer.
 
 	![](./media/data-factory-data-processing-using-batch/image5.png)
 
-13.  Cargue **MyDotNetActivity.zip** como blob al contenedor de blobs **customactvitycontainer** en el Almacenamiento de blobs de Azure que el servicio vinculado **StorageLinkedService** usa en **ADFTutorialDataFactory**. Cree el contenedor de blobs **customactivitycontainer** si no existe.
+13.  Cargue **MyDotNetActivity.zip** como un blob en el contenedor de blobs: **customactvitycontainer** en el Almacenamiento de blobs de Azure que usa el servicio vinculado **StorageLinkedService** en **ADFTutorialDataFactory**. Cree el contenedor de blobs **customactivitycontainer** si no existe.
 
 ### Método Execute
 
@@ -466,7 +466,7 @@ En esta sección se proporcionan más detalles y notas sobre el código del mét
 		outputBlob.UploadText(output);
 
 
-### Creación de la factoría de datos
+## Creación de la factoría de datos
 
 En la sección [Creación de la actividad personalizada](#create-the-custom-activity), se creó una actividad personalizada y se cargó el archivo ZIP con archivos binarios y el archivo PDB en un contenedor de blobs de Azure. En esta sección, creará una **factoría de datos** de Azure con una **canalización** que usa la **actividad personalizada**.
 
@@ -855,7 +855,7 @@ La depuración se compone de varias técnicas básicas:
 
 2.  En el método **Execute** de la actividad personalizada, use el objeto **IActivityLogger** para registrar información que lo ayudará a solucionar problemas. Los mensajes registrados se mostrarán en el archivo user\_0.log.
 
-    En la hoja **OutputDataset**, haga clic en el segmento para ver la hoja **SEGMENTO DE DATOS** correspondiente. Verá **ejecuciones de actividad** para ese segmento. Debería ver una ejecución de actividad del segmento. Si hace clic en **Ejecutar** en la barra de comandos, podrá iniciar otra ejecución de actividad para el mismo segmento.
+    En la hoja **OutputDataset**, haga clic en el segmento para ver la hoja **SEGMENTO DE DATOS** de dicho segmento. Verá **ejecuciones de actividad** para ese segmento. Debería ver una ejecución de actividad del segmento. Si hace clic en **Ejecutar** en la barra de comandos, podrá iniciar otra ejecución de actividad para el mismo segmento.
 
     Cuando haga clic en la ejecución de actividad, verá la hoja **DETALLES DE LA EJECUCIÓN DE ACTIVIDAD** con una lista de archivos de registro. Verá mensajes registrados en el archivo **user\_0.log**. Si se produce un error, verá tres ejecuciones de actividad, ya que el número de reintentos está establecido en 3 en la canalización o actividad JSON. Al hacer clic en la ejecución de actividad, verá los archivos de registro que puede revisar para solucionar el error.
 
@@ -927,7 +927,7 @@ Después de procesar datos, puede consumirlos con herramientas en línea como **
 
 -   [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
-    -   [Datos básicos de Lote de Batch](../batch/batch-technical-overview.md)
+    -   [Conceptos básicos sobre Lote de Azure](../batch/batch-technical-overview.md)
 
     -   [Información general de las características de Lote de Azure](../batch/batch-api-basics.md)
 
@@ -935,4 +935,4 @@ Después de procesar datos, puede consumirlos con herramientas en línea como **
 
     -   [Introducción a la biblioteca de Lote de Azure para .NET](../batch/batch-dotnet-get-started.md)
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

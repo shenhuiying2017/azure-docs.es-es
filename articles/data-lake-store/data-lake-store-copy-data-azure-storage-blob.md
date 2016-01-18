@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
+   ms.date="01/05/2016"
    ms.author="nitinme"/>
 
 # Copia de datos de los blobs de almacenamiento de Azure en el Almacén de Data Lake
 
-Almacén de Azure Data Lake proporciona una herramienta de línea de comandos, [AdlCopy](http://aka.ms/downloadadlcopy), para copiar datos desde los blobs de almacenamiento de Azure a Almacén de Data Lake. Hay dos formas de usar la herramienta:
+El Almacén de Azure Data Lake proporciona una herramienta de línea de comandos, [AdlCopy](http://aka.ms/downloadadlcopy), para copiar datos **desde los blobs de Almacenamiento de Azure al Almacén de Data Lake**. No puede utilizar AdlCopy para copiar datos del Almacén de Data Lake a los blobs de Almacenamiento de Azure.
+
+Puede utilizar la herramienta AdlCopy de dos maneras:
 
 * **Independiente**, donde la herramienta usa recursos de Almacén de Data Lake para realizar la tarea.
 * **Con una cuenta de Análisis de Data Lake**, donde las unidades asignadas a la cuenta de Análisis de Data Lake se usan para realizar la operación de copia. Puede que desee usar esta opción cuando quiera realizar las tareas de copia de forma predecible.
@@ -68,9 +70,12 @@ A continuación, se describen los parámetros de la sintaxis:
 		Initializing Copy.
 		Copy Started.
 		...............
-		The total progress of copy operation is 0.00%.
+		0.00% data copied.
 		. . .
-		The total progress of copy operation is 100.00%.
+		. . .
+		100% data copied.
+		Finishing copy.
+		....
 		Copy Completed.
 
 1. También puede copiar todos los blobs desde un contenedor a la cuenta de Almacén de Data Lake con el siguiente comando:
@@ -103,10 +108,14 @@ Por ejemplo:
 
 * Si usa la herramienta AdlCopy con la cuenta de Análisis de Data Lake, se aplicarán las [tarifas de facturación de Análisis de Data Lake](https://azure.microsoft.com/pricing/details/data-lake-analytics/) estándar.
 
+## Consideraciones para usar AdlCopy
+
+* AdlCopy no admite la copia de datos de orígenes que tienen más de 1000 archivos y carpetas de forma colectiva. Lo que se podría hacer en este caso es distribuir los archivos o carpetas en subcarpetas diferentes y usar la ruta de acceso a esas subcarpetas como origen en su lugar.
+
 ## Pasos siguientes
 
 - [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Plantilla del Administrador de recursos para las asignaciones de roles | Microsoft Azure"
-   description="Muestra el esquema del Administrador de recursos para crear una asignación de roles durante la implementación."
+   description="Muestra el esquema del Administrador de recursos para implementar una asignación de rol mediante una plantilla."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/10/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # Asignaciones de roles: esquema de plantilla
@@ -58,7 +58,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 | ámbito | cadena | Sí | Para el grupo de recursos:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}**<br /><br />Para el recurso:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** | El ámbito en el que se aplica esta asignación de roles. |
 
 
-## Cómo usar el recurso de bloqueo
+## Cómo usar el recurso de asignación de rol
 
 Una asignación de roles se agrega a la plantilla cuando se necesita agregar un usuario, un grupo o una entidad de servicio a un rol durante la implementación. Las asignaciones de roles se heredan de los niveles de ámbito más elevados; por tanto, si ya ha agregado una entidad a un rol en el nivel de suscripción, no es necesario volver a asignarla para el grupo de recursos o el recurso.
 
@@ -119,10 +119,17 @@ En el ejemplo siguiente se asigna un grupo a un rol para el grupo de recursos.
         "outputs": {}
     }
 
+## Plantillas de inicio rápido
+
+Las plantillas siguientes muestran cómo usar el recurso de asignación de rol:
+
+- [Assign built-in role to resource group](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-resourcegroup) (Asignar rol integrado al grupo de recursos)
+- [Assign built-in role to existing VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-virtualmachine)
+- [Assign built-in role to multiple existing VMs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-rbac-builtinrole-multipleVMs)
 
 ## Pasos siguientes
 
 - Para obtener más información sobre la estructura de la plantilla, consulte [Crear plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para obtener más información acerca del control de acceso basado en roles, vea [Control de acceso basado en roles de Azure Active Directory](active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,29 +1,29 @@
-If you need to change the prefixes for your local site, use the instructions below.  Two sets of instructions are provided and depend on whether you have already created your VPN gateway connection. 
+Si tienes que cambiar los prefijos de sitio local, usa las instrucciones siguientes. Se proporcionan dos conjuntos de instrucciones y dependen de si ya creaste o no la conexión VPN de puerta de enlace.
 
-### Add or remove prefixes without a VPN gateway connection
+### Agregar o quitar los prefijos sin una conexión de Puerta de enlace de VPN
 
 
-- **To add** additional address prefixes to a local site that you created, but that doesn't yet have a VPN gateway connection, use the example below.
+- **Para agregar** prefijos de dirección adicionales a un sitio local que creó, pero que todavía no dispone de una conexión de puerta de enlace de VPN, use el ejemplo siguiente.
 
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 
 
-- **To remove** an address prefix from a local site that doesn't have a VPN connection, use the example below. Leave out the prefixes that you no longer need. In this example, we no longer need prefix 20.0.0.0/24 (from the previous example), so we will update the local site and exclude that prefix.
+- **Para quitar** un prefijo de dirección de un sitio local que no dispone de una conexión VPN, use el ejemplo siguiente. Omita los prefijos que ya no necesite. En este ejemplo, ya no necesitamos el prefijo 20.0.0.0/24 (del ejemplo anterior), por lo que se actualizará el sitio local y se excluirá ese prefijo.
 
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
-### Add or remove prefixes with a VPN gateway connection
+### Agregar o quitar los prefijos con una conexión de Puerta de enlace de VPN
 
-If you have created your VPN connection and want to add or remove the IP address prefixes contained in your local site, you'll need to do the following steps in order. This will result in some downtime for your VPN connection, as you will need to remove and rebuild the gateway.  However, because you have requested an IP address for the connection, you won't need to re-configure your on-premises VPN router unless you decide to change the values you previously used.
+Si creaste la conexión VPN y quieres agregar o quitar los prefijos de dirección IP contenidos en el sitio local, tendrás que realizar los pasos siguientes en orden. Esto provocará un tiempo de inactividad en la conexión de VPN, ya que tendrás que eliminar y volver a crear la puerta de enlace. Sin embargo, como solicitaste una dirección IP para la conexión, no tendrás que volver a configurar el enrutador VPN local a menos que decidas cambiar los valores que usaste anteriormente.
 
  
-1. Remove the gateway connection. 
-2. Modify the prefixes for your local site. 
-3. Create a new gateway connection. 
+1. Quitar la conexión de puerta de enlace. 
+2. Modificar los prefijos de tu sitio local. 
+3. Crear una nueva conexión de puerta de enlace. 
 
-You can use the following sample as a guideline.
+Puedes usar el ejemplo siguiente como guía.
 
 
 	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -35,3 +35,5 @@ You can use the following sample as a guideline.
 	Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 	
 	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+
+<!---HONumber=AcomDC_0107_2016-->

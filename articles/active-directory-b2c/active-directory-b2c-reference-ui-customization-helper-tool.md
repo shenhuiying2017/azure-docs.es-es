@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="12/22/2015"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: una herramienta auxiliar que se usa para mostrar la característica de personalización de la interfaz de usuario (IU) de página
@@ -36,7 +36,7 @@ Deberá [registrar la aplicación](active-directory-b2c-app-registration.md) en 
 
 - Compilar una de las aplicaciones de inicio rápido de Azure AD B2C que aparecen [aquí](active-directory-b2c-overview.md#getting-started).
 - Usar la aplicación de [área de juegos de Azure AD B2C](https://aadb2cplayground.azurewebsites.net) previamente compilada. Si decide usar el área de juegos, debe registrar una aplicación en el inquilino B2C mediante el **URI de redirección** `https://aadb2cplayground.azurewebsites.net/`
-- Use el botón **Ejecutar ahora** en la directiva en el [Portal de vista previa de Azure](https://portal.azure.com).
+- Use el botón **Ejecutar ahora** en la directiva del [Portal de Azure](https://portal.azure.com).
 
 ## Personalización de la directiva
 
@@ -44,7 +44,7 @@ Para personalizar la apariencia y comportamiento de las directivas, debe crear p
 
 Para los fines de este tutorial, ya hemos creado algún contenido de ejemplo y lo hemos hospedado en el almacenamiento de blobs de Azure. El contenido de ejemplo es una personalización muy básica del tema de nuestra empresa artificial, "Contoso B2C". Para probarlo en su propia directiva, siga estos pasos:
 
-1. Inicie sesión en el inquilino en el [Portal de vista previa de Azure](https://portal.azure.com) y vaya hasta la hoja de características B2C.
+1. Inicie sesión en el inquilino en el [Portal de Azure](https://portal.azure.com) y vaya hasta la hoja de características B2C.
 2. Haga clic en **Directivas de registro** y, luego, en la directiva de registro (por ejemplo, "b2c\_1\_sign\_up").
 3. Haga clic en **Personalización de la interfaz de usuario de página** y, luego, en **Página de selección de proveedor de identidades**.
 4. Alterne el conmutador **Usar plantilla personalizada** a **Sí**. En el campo **URI de página personalizada**, escriba `https://contosob2c.blob.core.windows.net/static/Index.html`. Haga clic en **OK**.
@@ -59,7 +59,7 @@ Si desea usar el almacenamiento de blobs de Azure para hospedar el contenido de 
 
 #### Crear una cuenta de almacenamiento
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Haga clic en **+ Nuevo** -> **Datos + almacenamiento** -> **Cuenta de almacenamiento**. Necesitará una suscripción de Azure para crear una cuenta de Almacenamiento de blobs de Azure. Puede registrarse para una evaluación gratuita [aquí](https://azure.microsoft.com/pricing/free-trial/).
 3. Proporcione un **Nombre** para la cuenta de almacenamiento (por ejemplo, "contoso") y elija las selecciones adecuadas para **Plan de tarifa**, **Grupo de recursos** y **Suscripción**. Asegúrese de tener la opción **Anclar a Panel de inicio** activada. Haga clic en **Crear**.
 4. Regrese al panel de inicio y haga clic en la cuenta de almacenamiento que acaba de crear.
@@ -90,4 +90,4 @@ Ahora que ha cargado el contenido de ejemplo en su propia cuenta de almacenamien
         
 Ahora puede usar el botón **Ejecutar ahora** o su propia aplicación para ejecutar de nuevo la directiva. El resultado debería ser casi exactamente el mismo, ya que usó el mismo HTML y CSS de ejemplo en ambos casos. Sin embargo, las directivas ahora hacen referencia a su propia instancia de almacenamiento de blobs de Azure, y es libre de editar y volver a cargar los archivos a su gusto. Para obtener más información sobre la personalización del contenido HTML y CSS, consulte el [artículo principal sobre personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

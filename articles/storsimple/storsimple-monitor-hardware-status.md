@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="01/05/2016"
    ms.author="alkohli" />
 
 # Usar el servicio de Administrador de StorSimple para supervisar componentes y estados de hardware
@@ -21,7 +21,9 @@
 
 En este artículo se describen los distintos componentes físicos y lógicos en el dispositivo StorSimple local. También se explica cómo supervisar el estado de los componentes del dispositivo mediante la página **Mantenimiento** del servicio Administrador de StorSimple.
 
-En la página **Mantenimiento** aparece el estado del hardware de todos los componentes del dispositivo StorSimple. En la lista de componentes para 8100, se describen tres secciones:
+En la página **Mantenimiento** aparece el estado del hardware de todos los componentes del dispositivo StorSimple.
+
+En la lista de componentes para 8100, se describen tres secciones:
 
 - **Componentes compartidos**: no forman parte de los controladores, como las unidades de disco, el revestimiento, los componentes del PCM y la temperatura del PCM, la tensión de línea y los sensores de corriente de línea.
 
@@ -44,8 +46,9 @@ Un dispositivo 8600 tiene componentes adicionales que se corresponden con el rev
 
 Realice los pasos siguientes para ver el estado de hardware de un componente del dispositivo:
 
-1. Vaya a **Dispositivos** y seleccione un dispositivo de StorSimple concreto. Haga clic en él para ir al menú de nivel de dispositivo y, elija la pestaña **Mantenimiento**. 
+1. Vaya a **Dispositivos** y seleccione un dispositivo de StorSimple concreto. Haga clic en él para ir al menú de nivel de dispositivo y haga clic en **Mantenimiento**. 
 2. Busque la sección **Estado de hardware** y elija entre los componentes disponibles (como se describió anteriormente). Simplemente haga clic en una flecha situada antes de la etiqueta del componente para expandir la lista y ver el estado de los distintos componentes del dispositivo. Consulte la [lista detallada de componentes del revestimiento principal](#component-list-for-primary-enclosure-of-storsimple-device) y la [lista detallada de componentes del revestimiento de EBOD](#component-list-for-ebod-enclosure-of-storsimple-device).
+
 2. Use el siguiente esquema de codificación de color para interpretar el estado de los componentes:
 	-  **Marca de verificación verde**: denota un componente **Correcto** u **OK**.
 	-  **Amarillo**: denota un componente en estado **Advertencia**.
@@ -125,7 +128,7 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 |Conexión al controlador del dispositivo|E/S|Física|Controller|No|Indica el estado de la conexión entre el módulo de E/S de EBOD y el controlador del dispositivo.|
 
 ## Pasos siguientes
-- Para obtener información sobre el uso del servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Para utilizar el servicio StorSimple Manager para administrar el dispositivo, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 - Si necesita solucionar problemas de un componente del dispositivo que tiene un estado degradado o con error, vea [Indicadores de supervisión de StorSimple](storsimple-monitoring-indicators.md).
 
@@ -133,4 +136,4 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 
 - Si sigue teniendo problemas con el dispositivo, [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

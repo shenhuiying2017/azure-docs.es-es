@@ -13,20 +13,39 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="01/05/2016"
    ms.author="tomfitz"/>
 
 # Creación de plantillas del Administrador de recursos de Azure
 
-Normalmente, las aplicaciones de Azure requieren una combinación de recursos (por ejemplo, un servidor de base de datos, una base de datos o un sitio web) para cumplir los objetivos deseados. En lugar de implementar y administrar cada recurso por separado, puede crear una plantilla del Administrador de recursos de Azure que implementa y aprovisiona todos los recursos de su aplicación en una operación única y coordinada. En la plantilla, se definen los recursos necesarios para la aplicación y se especifican los parámetros de implementación para especificar valores para diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación.
+Normalmente, las aplicaciones de Azure requieren una combinación de recursos (por ejemplo, un servidor de base de datos, una base de datos o un sitio web) para cumplir los objetivos deseados. En lugar de implementar y administrar cada recurso por separado, puede crear una plantilla del Administrador de recursos de Azure que implementa y aprovisiona todos los recursos de su aplicación en una operación única y coordinada. En la plantilla, se definen los recursos necesarios para la aplicación y se especifican los parámetros de implementación para especificar valores para diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación. En este tema se describen las secciones de la plantilla.
 
-En este tema se describen las secciones de la plantilla. Para los esquemas reales, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas). Visual Studio ofrece las herramientas para ayudarle a crear plantillas. Para más información sobre el uso de Visual Studio con las plantillas, vea [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) y [Edición de las plantillas del Administrador de recursos con Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
+Visual Studio ofrece las herramientas para ayudarle a crear plantillas. Para más información sobre el uso de Visual Studio con las plantillas, vea [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) y [Edición de las plantillas del Administrador de recursos con Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
 
 Debe limitar el tamaño de la plantilla a 1 MB y cada archivo de parámetros a 64 KB. El límite de 1 MB se aplica al estado final de la plantilla una vez se ha ampliado con definiciones de recursos iterativas y los valores de variables y parámetros.
 
+## Planeamiento de la plantilla
+
+Antes de comenzar con la plantilla, debe dedicar algún tiempo a averiguar lo que quiere implementar y cómo usará la plantilla. Específicamente, debe plantearse:
+
+1. Qué tipos de recursos tiene que implementar
+2. Dónde van a residir los recursos
+3. Qué versión de la API del proveedor de recursos usará al implementar el recurso
+4. Si alguno de los recursos debe implementarse después de otros recursos
+5. Qué valores quiere pasar durante la implementación y qué valores desea definir directamente en la plantilla
+6. Si necesita devolver valores de la implementación
+
+Para ayudarle a descubrir qué tipos de recursos están disponibles para la implementación, qué regiones son compatibles con el tipo y las versiones de API disponibles para cada tipo, vea [Proveedores, regiones, versiones de API y esquemas del Administrador de recursos](resource-manager-supported-services.md). En este tema se ofrecen ejemplos y vínculos que le ayudarán a determinan los valores que debe especificar en la plantilla.
+
+Si un recurso debe implementarse después de otro, puede marcarlo como dependiente del otro recurso. Verá cómo hacerlo en la sección [Recursos](#resources) a continuación.
+
+Puede variar el resultado de la implementación de plantilla especificando valores de parámetros durante la ejecución. Verá cómo hacerlo en la sección [Parámetros](#parameters) a continuación.
+
+Puede devolver valores de la implementación en la sección [Salidas](#outputs).
+
 ## Formato de plantilla
 
-En el ejemplo siguiente se muestran las secciones que componen la estructura básica de una plantilla.
+En la estructura más simple, una plantilla contiene los siguientes elementos.
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -39,8 +58,8 @@ En el ejemplo siguiente se muestran las secciones que componen la estructura bá
 
 | Nombre del elemento | Obligatorio | Descripción
 | :------------: | :------: | :----------
-| $schema | Sí | Ubicación del archivo de esquema JSON que describe la versión del idioma de la plantilla.
-| contentVersion | Sí | Versión de la plantilla (por ejemplo, 1.0.0.0). Al implementar los recursos con la plantilla, este valor se puede usar para asegurarse de que se está usando la plantilla correcta.
+| $schema | Sí | Ubicación del archivo de esquema JSON que describe la versión del idioma de la plantilla. Debe usar la dirección URL mostrada anteriormente.
+| contentVersion | Sí | Versión de la plantilla (por ejemplo, 1.0.0.0). Puede especificar cualquier valor para este elemento. Al implementar los recursos con la plantilla, este valor se puede usar para asegurarse de que se está usando la plantilla correcta.
 | parameters | No | Valores que se proporcionan cuando se ejecuta la implementación para personalizar la implementación de recursos.
 | variables | No | Valores que se usan como fragmentos JSON en la plantilla para simplificar expresiones de idioma de la plantilla.
 | resources | Sí | Tipos de servicios que se implementan o actualizan en un grupo de recursos.
@@ -67,9 +86,11 @@ Para obtener la lista completa de las funciones de plantilla, consulte [Funcione
 
 ## Parámetros
 
-En la sección de parámetros de la plantilla, especifique los valores que el usuario puede introducir al implementar los recursos. Puede usar estos valores de parámetros a lo largo de la plantilla para establecer valores para los recursos implementados. Solo los parámetros declarados en la sección de parámetros se pueden usar en otras secciones de la plantilla.
+En la sección de parámetros de la plantilla, especifique los valores que el usuario puede introducir al implementar los recursos. Estos valores de parámetros permiten personalizar la implementación al proporcionar valores que son específicos para un entorno concreto (por ejemplo, desarrollo, prueba y producción). No tiene que especificar parámetros en la plantilla, pero sin parámetros la plantilla implementaría siempre los mismos recursos con los mismos nombres, ubicaciones y propiedades.
 
-En la sección de parámetros, no puede usar un valor de parámetro para construir otro valor de parámetro. Ese tipo de operación suele producirse en la sección de variables.
+Puede usar estos valores de parámetros a lo largo de la plantilla para establecer valores para los recursos implementados. Solo los parámetros declarados en la sección de parámetros se pueden usar en otras secciones de la plantilla.
+
+En la sección de parámetros, no puede usar un valor de parámetro para construir otro valor de parámetro. Cree nuevos valores en la sección de variables.
 
 Defina recursos con la estructura siguiente:
 
@@ -150,7 +171,7 @@ En el ejemplo siguiente se muestra cómo definir los parámetros.
 
 ## Variables
 
-En la sección de variables puede construir valores que se utilizan para simplificar las expresiones de idioma de la plantilla. Normalmente, estas variables se basarán en los valores proporcionados de los parámetros.
+En la sección de variables, se crean valores que pueden usarse en toda la plantilla. Normalmente, estas variables se basarán en los valores proporcionados de los parámetros. No es necesario definir las variables, pero a menudo simplifican la plantilla reduciendo expresiones complejas.
 
 Defina variables con la siguiente estructura:
 
@@ -204,7 +225,7 @@ En el ejemplo siguiente se muestra una variable que es un tipo JSON complejo y l
 
 ## Recursos
 
-En la sección de recursos, se define que los recursos se implementan o se actualizan.
+En la sección de recursos, se define que los recursos se implementan o se actualizan. Aquí es donde la plantilla puede ser más complicada porque es preciso entender los tipos que se implementan para proporcionar los valores correctos. Para aprender gran parte de lo que necesita saber sobre proveedores de recursos, vea [Proveedores, regiones, versiones de API y esquemas del Administrador de recursos](resource-manager-supported-services.md).
 
 Defina recursos con la siguiente estructura:
 
@@ -221,7 +242,7 @@ Defina recursos con la siguiente estructura:
          ],
          "properties": "<settings-for-the-resource>",
          "resources": [
-           "<array-of-dependent-resources>"
+           "<array-of-child-resources>"
          ]
        }
     ]
@@ -231,18 +252,46 @@ Defina recursos con la siguiente estructura:
 | apiVersion | Sí | Versión de la API de REST que debe usar para crear el recurso. Para determinar los números de versión disponibles para un determinado tipo de recurso, consulte [Versiones de API compatibles](../resource-manager-supported-services/#supported-api-versions).
 | type | Sí | Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso que admite el proveedor de recursos.
 | name | Sí | Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986.
-| location | No | Ubicaciones geográficas compatibles del recurso proporcionado.
+| location | No | Ubicaciones geográficas compatibles del recurso proporcionado. Para determinar las ubicaciones disponibles, vea [Regiones admitidas](../resource-manager-supported-services/#supported-regions).
 | etiquetas | No | Etiquetas asociadas al recurso.
 | comentarios | No | Notas para documentar los recursos de la plantilla
 | dependsOn | No | Recursos de los que depende el recurso que se está definiendo. Las dependencias entre los recursos se evalúan y los recursos se implementan en su orden dependiente. Cuando no hay recursos dependientes entre sí, se intenta implementarlos en paralelo. El valor puede ser una lista separada por comas de nombres de recursos o identificadores de recursos únicos.
-| propiedades | No | Opciones de configuración específicas de recursos.
-| resources | No | Recursos secundarios que dependen del recurso que se está definiendo. Solo puede proporcionar los tipos de recursos que permite el esquema del recurso principal. El nombre completo del tipo de recurso secundario incluye el tipo de recurso principal, como **Microsoft.Web/sites/extensions**.
+| propiedades | No | Opciones de configuración específicas de recursos. Los valores de las propiedades son exactamente los mismos valores que se especifican en el cuerpo de la solicitud de la operación de API de REST (método PUT) para crear el recurso. Para obtener vínculos a documentación del esquema de recursos o la API de REST, vea [Proveedores, regiones, versiones de API y esquemas del Administrador de recursos](resource-manager-supported-services.md).
+| resources | No | Recursos secundarios que dependen del recurso que se está definiendo. Solo puede proporcionar los tipos de recursos que permite el esquema del recurso principal. El nombre completo del tipo de recurso secundario incluye el tipo de recurso principal, como **Microsoft.Web/sites/extensions**. La dependencia del recurso primario no está implícita; debe definir explícitamente esa dependencia. 
+
 
 Si el nombre del recurso no es único, puede usar la función auxiliar **resourceId** (descrita a continuación) para obtener el identificador único para cualquier recurso.
 
-Los valores del elemento **properties** son exactamente iguales que los valores que se especifican en el cuerpo de la solicitud para que la operación de API de REST (método PUT) cree el recurso. Consulte [Referencia de Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) para las operaciones de API de REST para el recurso que quiere implementar.
+La sección de recursos contiene una matriz de los recursos para implementar. En cada recurso, puede definir también una matriz de recursos secundarios para esos recursos. Por lo tanto, la sección de recursos podría tener una estructura como:
 
-En el ejemplo siguiente se muestra un recurso **Microsoft.Web/serverfarms** y un recurso **Microsoft.Web/Sites** con un recurso **Extensions** anidado:
+    "resources": [
+       {
+           "name": "resourceA",
+           ...
+       },
+       {
+           "name": "resourceB",
+           ...
+           "resources": [
+               {
+                   "name": "firstChildResourceB",
+                   ...
+               },
+               {   
+                   "name": "secondChildResourceB",
+                   ...
+               }
+           ]
+       },
+       {
+           "name": "resourceC",
+           ...
+       }
+    ]
+
+
+
+En el ejemplo siguiente se muestra un recurso **Microsoft.Web/serverfarms** y un recurso **Microsoft.Web/Sites** con un recurso secundario **Extensions**: Observe que el sitio se ha marcado como dependiente de la granja de servidores ya que la granja de servidores debe existir antes para que se pueda implementar el sitio. Observe también que el recurso **Extensions** es un elemento secundario del sitio.
 
     "resources": [
         {
@@ -329,7 +378,7 @@ En este tema se ofrece una visión preliminar de la plantilla. Sin embargo, el e
 
 Puede que necesite combinar dos plantillas o usar una plantilla secundaria dentro de una plantilla principal. Para más información, consulte [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
 
-Para iterar una cantidad de veces determinada al crear un tipo de recurso, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
+Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 
 Puede que necesite usar los recursos que existen dentro de un grupo de recursos diferente. Esto es habitual al trabajar con cuentas de almacenamiento o redes virtuales que se comparten entre varios grupos de recursos. Para obtener más información, vea la [función resourceId](../resource-group-template-functions#resourceid).
 
@@ -418,7 +467,7 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
 ## Pasos siguientes
 - Para información detallada sobre las funciones que puede usar desde una plantilla, consulte [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md).
 - Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
-- Para un ejemplo detallado de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
+- Para obtener un ejemplo en profundidad de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para ver los esquemas disponibles, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

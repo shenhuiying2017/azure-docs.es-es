@@ -20,8 +20,8 @@
 
 ## Activación o desactivación de un rol
 
-1. Inicie sesión en [http://portal.azure.com/](http://portal.azure.com).
-2. Siga los pasos de [Introducción a Privileged Identity Management de Azure](active-directory-privileged-identity-management-getting-started.md) para colocar PIM de Azure en el panel del portal.
+1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
+2. Siga los pasos que se indican en [Introducción a Privileged Identity Management de Azure](active-directory-privileged-identity-management-getting-started.md) para colocar PIM de Azure en el panel del portal.
 3. Después de completar los pasos del Asistente para seguridad, verá el menú principal de PIM de Azure.
 4. Haga clic en **Activar mi rol**.
 5. Aparecerá una lista de los roles que se le asignaron.
@@ -38,4 +38,4 @@
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

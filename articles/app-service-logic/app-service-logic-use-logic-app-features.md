@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de las características de aplicaciones lógicas" 
+	pageTitle="Uso de las características de aplicaciones lógicas | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar las características avanzadas de las aplicaciones lógicas." 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/04/2016"
 	ms.author="stepsic"/>
 	
 # Uso de las características de aplicaciones lógicas
@@ -49,15 +49,15 @@ La repetición toma una lista de elementos y ejecuta la acción para cada elemen
 
 3. Haga clic en el icono de engranaje y seleccione **Repetir en una lista**.
  
-2. Junto al cuadro **Repetir**, haga clic en `...` y seleccione **Cuerpo**. Esto escribirá:
+2. Junto al cuadro **Repetir**, haga clic en `...` y seleccione **Cuerpo**. Esto proporcionará la siguiente entrada:
 
     	@body('twitterconnector')
 
 	En el cuadro de texto. Esta función genera una lista de tweets.
 
-3. Seleccione todo el texto del cuadro de texto **Contenido** y elimínelo. A continuación, haga clic en `...` y seleccione **Texto de los tweets**. Se insertará la función **repeatItem()**, que devuelve cada elemento de la lista.
+3. Seleccione todo el texto del cuadro de texto **Contenido** y elimínelo. A continuación, haga clic en `...` y seleccione **Texto de los tweets**. Esto inserta la función **repeatItem()**, que devuelve cada elemento de la lista.
 
-Por último, tenga en cuenta que las salidas de las acciones de repetición son especiales. Si desea hacer referencia a los resultados de la operación de Dropbox, por ejemplo, *no* podría hacer lo normal `@actions('dropboxconnector').outputs.body`. En lugar de ello, haría: `@actions('dropboxconnector').outputs.repeatItems`. Esto devuelve una lista de todas las veces que se ejecutó la operación, junto con las salidas de cada una. Por ejemplo, `@first(actions('dropboxconnector').outputs.repeatItems).outputs.body.FilePath` devolverá la ruta de acceso del primer archivo cargado.
+Por último, tenga en cuenta que las salidas de las acciones de repetición son especiales. Si desea hacer referencia a los resultados de la operación de Dropbox, por ejemplo, *no* podría hacer lo normal `@actions('dropboxconnector').outputs.body`. En lugar de ello, haría: `@actions('dropboxconnector').outputs.repeatItems`. Esto devuelve una lista de todas las veces que se ejecutó la operación, junto con las salidas de cada una. Por ejemplo, `@first(actions('dropboxconnector').outputs.repeatItems).outputs.body.FilePath` devuelve la ruta de acceso del primer archivo cargado.
 
 ### Condicional
 Esta aplicación lógica sigue dando como resultado una gran cantidad de archivos que se cargan en Dropbox. Los siguientes pasos agregan lógica adicional para asegurarse de que solo reciba un archivo cuando el tweet tenga un número determinado de retweets.
@@ -106,7 +106,7 @@ Lo siguiente actualiza la aplicación lógica existente para que use parámetros
 
 Los parámetros son una buena forma de extraer valores que probablemente cambie mucho. Son especialmente útiles cuando necesite reemplazar parámetros en entornos diferentes. Para obtener más información sobre cómo invalidar los parámetros basados en el entorno, consulte nuestra [documentación de API de REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
 
-Ahora, al hacer clic en **Guardar**, cada hora recibirá los nuevos tweets que tengan más de 5 retweets en una carpeta llamada **tweets** en su Dropbox.
+Ahora, al hacer clic en **Guardar**, a cada hora recibirá los nuevos tweets que tengan más de 5 retweets en una carpeta llamada **tweets** en su Dropbox.
 
 Para obtener más información acerca de las definiciones de aplicación lógica, consulte [Creación de definiciones de aplicación lógica](app-service-logic-author-definitions.md).
 
@@ -114,7 +114,7 @@ Para obtener más información acerca de las definiciones de aplicación lógica
 Hay varias opciones para iniciar el flujo de trabajo definido en la aplicación lógica. Un flujo de trabajo siempre se puede iniciar a petición en el [Portal de Azure].
 
 ### Desencadenadores periódicos
-Un desencadenador periódicos se ejecuta en un intervalo que especifique. Cuando el desencadenador tiene lógica condicional, el desencadenador determina si necesita ejecutar el flujo de trabajo. Un desencadenador indica si se debe ejecutar; para ello, devuelve un código de estado de `200`. Cuando no es necesario ejecutarlo, devuelve el código de estado `202`.
+Un desencadenador periódico se ejecuta en un intervalo que especifique. Cuando el desencadenador tiene lógica condicional, el desencadenador determina si necesita ejecutar el flujo de trabajo. Un desencadenador indica si se debe ejecutar; para ello, devuelve un código de estado de `200`. Cuando no es necesario ejecutarlo, devuelve un código de estado `202`.
 
 ### Devolución de llamada mediante las API de REST
 Los servicios pueden llamar a un extremo de aplicación lógica para iniciar un flujo de trabajo. Para buscar el extremo al que desea tener acceso, desplácese hasta la hoja **Propiedades** desde el botón de la barra de comandos **Configuración** en la aplicación lógica.
@@ -129,12 +129,12 @@ Puede usar esta devolución de llamada para invocar una aplicación lógica desd
             "outputs" : { "property" : "value" }
         }
 
-Puede pasar salidas al flujo de trabajo y hacer referencia a ellas en el flujo de trabajo. Por ejemplo, con el desencadenador anterior, si incluye `@triggers().outputs.property`, obtendrá `value`.
+Puede pasar salidas al flujo de trabajo y hacer referencia a ellas en el flujo de trabajo. Por ejemplo, con el desencadenador anterior, si incluye `@triggers().outputs.property`, obtiene `value`.
 
 Para obtener más información, consulte la [documentación de REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
 
 ### Ejecución manual
-Puede definir una aplicación lógica que no tenga ningún desencadenador. En este caso se debe iniciar el flujo de trabajo a petición. Este tipo de aplicación lógica es más adecuado para un proceso que solo debe ejecutarse de forma intermitente. Para crear una aplicación lógica sin ningún desencadenador, seleccione **Ejecutar esta lógica manualmente** en el cuadro **Iniciar lógica** en el diseñador.
+Puede definir una aplicación lógica que no tenga ningún desencadenador. En este caso, se debe iniciar el flujo de trabajo a petición. Este tipo de aplicación lógica es más adecuado para un proceso que solo debe ejecutarse de forma intermitente. Para crear una aplicación lógica sin ningún desencadenador, seleccione **Ejecutar esta lógica manualmente** en el cuadro **Iniciar lógica** en el diseñador.
 
 Para iniciar la aplicación lógica a petición, haga clic en el botón **Ejecutar ahora** en la barra de comandos.
 
@@ -143,4 +143,4 @@ Para iniciar la aplicación lógica a petición, haga clic en el botón **Ejecut
 [Creación de una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

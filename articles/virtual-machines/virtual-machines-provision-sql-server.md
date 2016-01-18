@@ -1,33 +1,32 @@
-<properties 
-	pageTitle="Aprovisionamiento de una máquina virtual de SQL Server | Microsoft Azure" 
-	description="En este tutorial se le enseña cómo crear y configurar una máquina virtual de SQL Server en Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="rothja" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Aprovisionamiento de una máquina virtual de SQL Server | Microsoft Azure"
+	description="En este tutorial se le enseña cómo crear y configurar una máquina virtual de SQL Server en Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="rothja"
+	manager="jeffreyg"
 	editor="monicar"
-	tags="azure-service-management"
-	/>
+	tags="azure-service-management"	/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows-sql-server" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/26/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/22/2015"
 	ms.author="jroth"/>
 
 # Aprovisionamiento de una máquina virtual de SQL Server en Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](virtual-machines-provision-sql-server.md)
+- [Classic portal](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
+- [Azure Resource Manager portal](virtual-machines-sql-server-provision-resource-manager.md)
 
 ## Información general
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
- 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos. .
 
 La galería de máquinas virtuales de Azure incluye varias imágenes que contienen Microsoft SQL Server. Puede seleccionar una de las imágenes de máquina virtual en la galería y, con unos pocos clics, puede aprovisionar la máquina virtual a su entorno de Azure.
 
@@ -54,7 +53,7 @@ Para obtener la información más actualizada sobre las imágenes compatibles de
 
 >[AZURE.NOTE]Si tiene una máquina virtual creada con la edición de evaluación de SQL Server de imagen de plataforma, no puede actualizarla a una imagen de edición de pago por minuto en la galería. Puede elegir una de las dos siguientes opciones:
 >
-> - Puede crear una nueva máquina virtual mediante la edición de SQL Server pagada por minuto desde la galería y migrar los archivos de base de datos a esta nueva máquina virtual siguiendo los pasos de [Migración de una base de datos a SQL Server en una máquina virtual de Azure](virtual-machines-migrate-onpremises-database).
+> - Puede crear una nueva máquina virtual mediante la edición de SQL Server pagada por minuto desde la galería y migrar los archivos de base de datos a esta nueva máquina virtual siguiendo los pasos en [Migración de una base de datos a SQL Server en una máquina virtual de Azure](virtual-machines-migrate-onpremises-database)
 > - O bien, puede actualizar una instancia existente de SQL Server Evaluation Edition a otra edición de SQL Server bajo el contrato de [Movilidad de Licencias de Microsoft a través de Software Assurance en Azure](http://azure.microsoft.com/pricing/license-mobility/) siguiendo los pasos de [Actualizar a una edición diferente de SQL Server](https://msdn.microsoft.com/library/cc707783.aspx). Para obtener información sobre cómo comprar la copia con licencia de SQL Server, consulte [Cómo comprar SQL Server](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
 
 4. En la primera página de **Configuración de máquina virtual**, facilite la siguiente información:
@@ -98,7 +97,7 @@ Para obtener la información más actualizada sobre las imágenes compatibles de
 	- **Ejecución**
 	
 
-##<a id="RemoteDesktop">Apertura de la VM usando Escritorio remoto para completar la configuración</a>
+##<a id="RemoteDesktop">Abra la máquina virtual usando el Escritorio remoto para completar la configuración</a>.
 
 1. Cuando se completa el aprovisionamiento, haga clic en el nombre de la máquina virtual para ir a la página PANEL. En la parte inferior de la página, haga clic en **Conectar**.
 
@@ -106,7 +105,7 @@ Para obtener la información más actualizada sobre las imágenes compatibles de
 
 	![Haga clic en el botón Abrir](./media/virtual-machines-provision-sql-server/click-open-to-connect.png)
 
-3. En el cuadro de diálogo **Seguridad de Windows**, haga clic en **Usar otra cuenta**.
+3. En el cuadro de diálogo **Windows Security**, haga clic en **Usar otra cuenta**.
 
 	![Hacer clic en Usar otra cuenta](./media/virtual-machines-provision-sql-server/credentials.png)
 
@@ -116,9 +115,29 @@ Para obtener la información más actualizada sobre las imágenes compatibles de
 
 Una vez se haya conectado a la máquina virtual con el Escritorio remoto de Windows, la máquina virtual funcionará como cualquier otro equipo. Conéctese a la instancia predeterminada de SQL Server con SQL Server Management Studio (en ejecución en la máquina virtual) de manera normal.
 
-##<a id="SSMS">Conéctese a la instancia de VM de SQL Server desde SSMS en otro equipo</a>
+##<a id="SSMS">Conéctese a la instancia de máquina virtual de SQL Server desde SSMS en otro equipo</a>
+
+Los pasos siguientes muestran cómo conectarse a la instancia de SQL Server a través de Internet mediante SQL Server Management Studio (SSMS). Sin embargo, se aplican los mismos pasos para hacer que la máquina virtual de SQL Server sea accesible para sus aplicaciones, tanto locales como en el modelo de implementación clásica de Azure. Si la máquina virtual se implementa en el modelo del Administrador de recursos, consulte [Conexión a una máquina virtual de SQL Server en Azure (Administrador de recursos)](virtual-machines-sql-server-connectivity-resource-manager.md).
+
+Antes de que pueda conectarse a la instancia de SQL Server desde otra máquina virtual o Internet, debe completar las siguientes tareas descritas en las secciones que aparecen a continuación:
+
+- [Creación de un extremo TCP para la máquina virtual](#create-a-tcp-endpoint-for-the-virtual-machine)
+- [Apertura de puertos TCP en el firewall de Windows](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
+- [Configuración de SQL Server para escuchar en el protocolo TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
+- [Configuración de SQL Server para autenticación de modo mixto](#configure-sql-server-for-mixed-mode-authentication)
+- [Creación de inicios de sesión para la autenticación de SQL Server](#create-sql-server-authentication-logins)
+- [Determinación del nombre DNS de la máquina virtual](#determine-the-dns-name-of-the-virtual-machine)
+- [Conexión al motor de base de datos desde otro equipo](#connect-to-the-database-engine-from-another-computer)
+
+El siguiente diagrama resume la ruta de conexión:
+
+![Conexión a una máquina virtual de SQL Server](../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
+
+[AZURE.INCLUDE [Conexión a SQL Server en un punto de conexión TCP clásico de máquina virtual](../../includes/virtual-machines-sql-server-connection-steps-classic-tcp-endpoint.md)]
 
 [AZURE.INCLUDE [Conexión a SQL Server en una máquina virtual](../../includes/virtual-machines-sql-server-connection-steps.md)]
+
+[AZURE.INCLUDE [Pasos clásicos para la conexión a SQL Server en una máquina virtual](../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
 ## <a id="cdea">Conexión al motor de base de datos desde su aplicación</a>
 
@@ -130,7 +149,7 @@ Para obtener más información, consulte [Solución de problemas de conexión al
 
 ##<a id="Optional">Pasos siguientes</a>
 
-Ha visto cómo crear y configurar SQL Server en una máquina virtual de Azure mediante el uso de la imagen de plataforma. En muchos casos, el siguiente paso es migrar las bases de datos a esta nueva VM de SQL Server. Para obtener instrucciones sobre la migración de bases de datos, consulte [Migración de una base de datos a SQL Server en una máquina virtual de Azure](virtual-machines-migrate-onpremises-database.md).
+Ha visto cómo crear y configurar SQL Server en una máquina virtual de Azure mediante el uso de la imagen de plataforma. En muchos casos, el siguiente paso es migrar las bases de datos a esta nueva VM de SQL Server. Para obtener instrucciones para la migración de bases de datos, consulte [Migración de una base de datos a SQL Server en una máquina virtual de Azure](virtual-machines-migrate-onpremises-database.md).
 
 En la lista siguiente se proporcionan recursos adicionales para SQL Server en máquinas virtuales de Azure.
 
@@ -156,4 +175,4 @@ En la lista siguiente se proporcionan recursos adicionales para SQL Server en m�
 
 - [Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Entidades de mensajería con particiones
 
 Bus de servicios de Azure emplea varios agentes de mensajes para procesar mensajes y varios almacenes de mensajería para almacenar mensajes. Un único agente de mensajes controla una cola o tema convencional, que se almacena en un almacén de mensajería. Bus de servicio también permite que las colas o temas se dividan entre varios agentes de mensajes y almacenes de mensajería. Esto significa que el rendimiento general de una cola o tema particionado ya no está limitado por el rendimiento de un solo agente o almacén de mensajería. Además, una interrupción temporal de un almacén de mensajería no hace que una cola o tema con particiones deje de estar disponible. Las colas y los temas con particiones pueden contener todas las características avanzadas del Bus de servicio, como la compatibilidad con transacciones y sesiones.
 
-Para obtener más información sobre los aspectos internos del Bus de servicio, consulte el tema [Arquitectura del Bus de servicio][].
+Para más información sobre los aspectos internos de Bus de servicio, consulte el tema [Arquitectura del Bus de servicio][].
 
 ## Temas y colas con particiones
 
@@ -31,7 +31,7 @@ No hay costos adicionales cuando se envía un mensaje a una cola o tema con part
 
 ## Habilitación de las particiones
 
-Para usar colas o temas con particiones con Bus de servicio de Microsoft Azure, use Azure SDK versión 2.2 o posterior, o especifique `api-version=2013-10` en sus solicitudes HTTP.
+Para usar colas o temas con particiones con Bus de servicio de Azure, use Azure SDK versión 2.2 o posterior, o especifique `api-version=2013-10` en sus solicitudes HTTP.
 
 Puede crear colas y temas de Bus de servicio en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas, el Bus de servicio crea 16 particiones por cada GB que especifique. Por lo tanto, si crea una cola con un tamaño de 5 GB, con 16 particiones, el tamaño de cola máximo se convierte en (5 * 16) = 80 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en el [Portal de Azure clásico][].
 
@@ -125,7 +125,7 @@ En su implementación actual, Bus de servicio impone las siguientes limitaciones
 
 ## Pasos siguientes
 
-Consulte la explicación de la compatibilidad con AMQP 1.0 para las colas y temas con particiones de Bus de servicio (próximamente) para obtener más información acerca de las entidades de mensajería con particiones.
+Consulte la explicación en [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio][] para más información acerca de las entidades de mensajería con particiones.
 
   [Arquitectura del Bus de servicio]: service-bus-architecture.md
   [Portal de Azure clásico]: http://manage.windowsazure.com
@@ -142,6 +142,6 @@ Consulte la explicación de la compatibilidad con AMQP 1.0 para las colas y tema
   [MessagingFactorySettings.OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
-  [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-entities-amqp-overview.md
+  [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

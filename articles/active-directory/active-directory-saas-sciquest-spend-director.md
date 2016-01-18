@@ -3,7 +3,7 @@
 	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SciQuest Spend Director."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
-	ms.author="markusvi"/>
+	ms.date="01/05/2016"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Integración de Azure Active Directory con SciQuest Spend Director
@@ -61,7 +61,7 @@ Para configurar la integración de SciQuest Spend Director en Azure AD, deberá 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
 3. Para abrir la vista de aplicaciones, haga clic en **Aplicaciones**, en el menú superior de la vista de directorios.<br><br>![Aplicaciones][2]
-4. Haga clic en **Agregar** en la parte inferior de la página.<br><br>![Aplicaciones][3]
+4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]
 5. En el cuadro de diálogo **Qué desea hacer**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]
 6. En el cuadro de búsqueda, escriba **SciQuest Spend Director**.<br>![Aplicaciones][5]
 7. En el panel de resultados, seleccione **SciQuest Spend Director** y, luego, haga clic en **Completa** para agregar la aplicación.<br> ![Aplicaciones][6]
@@ -115,7 +115,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en **Active Directory**. <br><br>![Qué es Azure AD Connect][100] 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
-3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**. <br><br>![Qué es Azure AD Connect][101] 
+3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.<br><br>![Qué es Azure AD Connect][101] 
 4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**. <br><br>![Qué es Azure AD Connect][102] 
 5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes: <br><br>![Qué es Azure AD Connect][103] 
   1. Como **Tipo de usuario**, seleccione **Nuevo usuario de la organización**.
@@ -195,4 +195,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=AcomDC_0107_2016-->

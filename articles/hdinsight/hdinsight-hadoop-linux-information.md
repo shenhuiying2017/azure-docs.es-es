@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/06/2015"
    ms.author="larryfr"/>
 
 # Información sobre el uso de HDInsight en Linux
@@ -69,8 +69,8 @@ Esto devuelve un documento JSON que describe el servicio y, luego, jq extrae sol
 
 Puede encontrar los archivos relacionados con Hadoop en los nodos de clúster en `/usr/hdp`. Este directorio raíz contiene los siguientes subdirectorios:
 
-* __2.2.4.9-1__: este directorio se denomina con el nombre de la versión de Hortonworks Data Platform que usó HDInsight, por lo que el número del clúster puede ser diferente al que aparece aquí.
-* __current__: este directorio contiene vínculos a los directorios que se encuentran en el directorio __2.2.4.9-1__ y existe para que no sea necesario escribir un número de versión (que puede cambiar) cada vez que desee tener acceso a un archivo.
+* __2.2.4.9-1__: este directorio se denomina con el nombre de la versión de Hortonworks Data Platform usada por HDInsight, por lo que el número de su clúster puede ser diferente del que aparece aquí.
+* __current__: este directorio contiene vínculos a los directorios que se encuentran en el directorio __2.2.4.9-1__ y existe para que no tengas que escribir un número de versión (que puede cambiar) cada vez que quieras acceder a un archivo.
 
 Es posible encontrar los archivos JAR y datos de ejemplo en el Sistema de archivos distribuido de Hadoop (HDFS) o en el almacenamiento de blobs de Azure en "/example" o "wasb:///example".
 
@@ -98,27 +98,31 @@ HDInsight también le permite asociar varias cuentas de almacenamiento de blobs 
 
 Durante la creación del clúster, seleccionó usar un contenedor y una cuenta de almacenamiento de Azure existentes, o bien, crear una nueva. Por lo tanto, probablemente se le olvidó. Puede encontrar la cuenta de almacenamiento y el contenedor predeterminados con la API de REST de Ambari.
 
-1. Use el comando siguiente para recuperar información de configuración de HDFS:
+1. Utilice el siguiente comando para recuperar información de configuración de HDFS con curl y filtrarla mediante [jq](https://stedolan.github.io/jq/):
 
-        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
+    
+    > [AZURE.NOTE]Esto devolverá la primera configuración aplicada al servidor (`service_config_version=1`), la que contendrá esta información. Si recupera un valor que se modificó después de la creación del clúster, es posible que deba enumerar las versiones de configuración y recuperar la más reciente.
 
-2. En los datos de JSON devueltos, busque la entrada `fs.defaultFS`. Esta contendrá el nombre de la cuenta de almacenamiento y el contenedor predeterminado con un formato similar al siguiente:
+    Esto devolverá un valor similar al siguiente, donde __CONTAINER__ es el contenedor predeterminado y __ACCOUNTNAME__ es el nombre de la cuenta de almacenamiento de Azure:
 
-        wasb://CONTAINTERNAME@STORAGEACCOUNTNAME.blob.core.windows.net
+        wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-	> [AZURE.TIP]Si instaló [jq](http://stedolan.github.io/jq/), puede utilizar lo siguiente para devolver solo la entrada `fs.defaultFS`:
-	>
-	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
+1. Para obtener el grupo de recursos para la cuenta de Almacenamiento, use la [CLI de Azure](../xplat-cli-install.md). En el comando siguiente, reemplace __ACCOUNTNAME__ por el nombre de la cuenta de almacenamiento que se recuperó de Ambari:
 
-3. Para buscar la clave usada para autenticar a la cuenta de almacenamiento, o para encontrar las cuentas de almacenamiento secundarias asociadas al clúster, use lo siguiente:
+        azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
+    
+    Esto devolverá el nombre del grupo de recursos de la cuenta.
+    
+    > [AZURE.NOTE]Si este comando no devuelve nada, debe cambiar la CLI de Azure al modo Administrador de recursos de Azure y ejecutar el comando de nuevo. Para cambiar al modo Administrador de recursos de Azure, use el siguiente comando:
+    >
+    > `azure config mode arm`
+    
+2. Obtenga la clave de la cuenta de almacenamiento. Reemplace __GROUPNAME__ por el grupo de recursos del paso anterior. Reemplace __ACCOUNTNAME__ por el nombre de la cuenta de almacenamiento:
 
-		curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
 
-4. En los datos de JSON devueltos, encuentre la entrada que empieza por `fs.azure.account.key`. El resto del nombre de la entrada es el nombre de la cuenta de almacenamiento. Por ejemplo: `fs.azure.account.key.mystorage.blob.core.windows.net`. El valor almacenado en esta entrada es la clave utilizada para autenticar a la cuenta de almacenamiento.
-
-	> [AZURE.TIP]Si instaló [jq](http://stedolan.github.io/jq/), puede usar lo siguiente para devolver una lista de las claves y los valores:
-	>
-	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
+    Esto devolverá la clave principal de la cuenta.
 
 También puede encontrar la información de almacenamiento mediante el portal de Azure:
 
@@ -126,7 +130,7 @@ También puede encontrar la información de almacenamiento mediante el portal de
 
 2. En la sección __Essentials__, seleccione __Todas las configuraciones__.
 
-3. En __Configuración__, seleccione __Claves de almacenamiento de Azure__.
+3. En __Configuración__, selecciona __Claves de almacenamiento de Azure__.
 
 4. En __Claves de almacenamiento de Azure__, seleccione una de las cuentas de almacenamiento que aparecen en la lista. Entonces, se mostrará información sobre la cuenta de almacenamiento.
 
@@ -203,7 +207,7 @@ Los diferentes tipos de clúster se ven afectados por la escala de esta manera:
 
 			![la interfaz de usuario de storm](./media/hdinsight-hadoop-linux-information/storm-ui.png)
 
-		3. Seleccione la topología que desea reequilibrar y después seleccione el botón __Reequilibrar__. Especifica el retraso antes de realizar la operación de reequilibrio.
+		3. Selecciona la topología que quieres equilibrar y después selecciona el botón __Reequilibrar__. Especifica el retraso antes de realizar la operación de reequilibrio.
 
 Para obtener información específica sobre cómo ampliar tu clúster de HDInsight, consulta:
 
@@ -252,4 +256,4 @@ Si el clúster le proporciona una versión de un componente como un archivo jar 
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="10/20/2015" 
+  ms.date="01/05/2016" 
   ms.author="tamram"/>
 
 # Replicación de almacenamiento de Azure
@@ -26,7 +26,7 @@ Cuando cree una cuenta de almacenamiento, debe seleccionar una de las siguientes
 - [Almacenamiento con redundancia local (LRS)](#locally-redundant-storage)
 - [Almacenamiento con redundancia de zona (ZRS)](#zone-redundant-storage)
 - [Almacenamiento con redundancia geográfica (GRS)](#geo-redundant-storage)
-- [Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)](#read-access-geo-redundant-storage).
+- [Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS).](#read-access-geo-redundant-storage)
 
 La siguiente tabla proporciona una breve descripción de las diferencias entre LRS, ZRS, GRS y RA-GRS, mientras que secciones subsiguientes abordan con más detalle cada tipo de replicación.
 
@@ -106,4 +106,4 @@ Cuando habilita el acceso de solo lectura a los datos en la región secundaria, 
 - [Emulador de almacenamiento de Microsoft Azure 3.1 con RA-GRS ](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Documento de SOSP de Almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/30/2015"
    ms.author="alkohli" />
 
 # Uso del panel del dispositivo StorSimple Manager
@@ -21,7 +21,7 @@
 
 El panel del dispositivo StorSimple Manager ofrece una visión general de la información de un dispositivo StorSimple específico, a diferencia del panel de servicio, que proporciona información acerca de todos los dispositivos incluidos en la solución de Microsoft Azure StorSimple.
 
-![Página de Panel del dispositivo](./media/storsimple-device-dashboard/HCS_DeviceDashboardPage.png)
+![Página de Panel del dispositivo](./media/storsimple-device-dashboard/StorSimple_DeviceDashbaord1M.png)
 
 El panel contiene la información siguiente:
 
@@ -100,4 +100,4 @@ Es posible que necesite el IQN de destino del dispositivo para configurar el Pro
 - [Obtenga más información sobre el panel del servicio StorSimple Manager](storsimple-service-dashboard.md).
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

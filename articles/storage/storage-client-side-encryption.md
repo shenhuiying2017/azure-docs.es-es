@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## Información general
 
-La [Biblioteca de cliente del Almacenamiento de Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) permite tanto el cifrado de datos dentro de las aplicaciones de cliente antes de cargarlos en el Almacenamiento de Azure, como el descifrado de datos mientras estos se descargan al cliente. Asimismo, la biblioteca también admite la integración con el [Almacén de claves de Azure](http://azure.microsoft.com/services/key-vault/) para la administración de claves de la cuenta de almacenamiento.
+La [Biblioteca de cliente de almacenamiento de Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) admite el cifrado de datos dentro de las aplicaciones de cliente antes de cargarlos en el Almacenamiento de Azure y el descifrado de los datos mientras se descargan al cliente. Asimismo, la biblioteca también admite la integración con el [Almacén de claves de Azure](http://azure.microsoft.com/services/key-vault/) para la administración de claves de la cuenta de almacenamiento.
 
 Para el cifrado del lado cliente con Java, consulte el artículo [Cifrado del lado cliente con Java para el Almacenamiento de Microsoft Azure](storage-client-side-encryption-java.md).
 
@@ -66,7 +66,7 @@ Durante el cifrado, la biblioteca de cliente generará un vector de inicializaci
 
 Descargar un blob cifrado implica recuperar el contenido del blob completo mediante los cómodos métodos **DownloadTo***/**BlobReadStream**. La CEK encapsulada se desencapsula y se utiliza junto con el vector de inicialización (que se almacena como metadatos de blob, en este caso) para devolver los datos descifrados a los usuarios.
 
-Descargar un intervalo arbitrario (métodos **DownloadRange***) en el objeto de blob cifrado, implica ajustar el intervalo proporcionado por los usuarios para obtener una pequeña cantidad de datos adicionales que pueden usarse para descifrar correctamente el intervalo solicitado.
+Descargar un intervalo arbitrario (métodos **DownloadRange***) en el objeto de blob cifrado implica ajustar el intervalo proporcionado por los usuarios para obtener una pequeña cantidad de datos adicionales que pueden utilizarse para descifrar correctamente el intervalo solicitado.
 
 Todos los tipos de blobs (blobs en bloques, blobs de anexión) se pueden cifrar y descifrar usando este esquema.
 
@@ -136,7 +136,7 @@ La compatibilidad con el cifrado solo está disponible en la biblioteca de clien
 >- Al leer desde un blob cifrado o escribir en él, utilice comandos de carga completa del blob y comandos de descarga de blobs de intervalo/completos. Evite escribir en un blob cifrado mediante operaciones de protocolo, como Colocar bloque, Colocar lista de bloque, Escribir páginas, Borrar páginas o Anexar bloque; de lo contrario, puede dañar el objeto blob cifrado y que no sea legible.
 >- Para las tablas, existe una restricción similar. Tenga cuidado de no actualizar propiedades cifradas sin actualizar los metadatos de cifrado.
 >- Si establece los metadatos en el objeto blob cifrado, puede sobrescribir los metadatos relacionados con el cifrado necesarios para el descifrado, ya que el establecimiento de metadatos no es aditivo. Esto también se aplica a las instantáneas: evite la especificación de metadatos durante la creación de una instantánea de un blob cifrado. Si se deben establecer metadatos, asegúrese de llamar primero al método **FetchAttributes**, para así obtener los metadatos de cifrado actuales y evitar las escrituras simultáneas mientras se estos se establecen.
->- Habilite la propiedad **RequireEncryption** en las opciones de solicitud predeterminadas para aquellos usuarios que deban trabajar solo con datos cifrados. Vea a continuación para obtener más información.
+>- Habilite la propiedad **RequireEncryption** en las opciones de solicitud predeterminadas para los usuarios que deben trabajar solo con datos cifrados. Vea a continuación para obtener más información.
 
 
 ## Interfaz/API de cliente
@@ -152,7 +152,7 @@ Los [ejemplos de cifrado](https://github.com/Azure/azure-storage-net/tree/master
 
 ### Modo RequireEncryption
 
-Los usuarios pueden habilitar opcionalmente un modo de operación en el que se deben cifrar todas las cargas y descargas. En este modo, los intentos de cargar datos sin una directiva de cifrado o de descargar datos no cifrados en el servicio generarán un error en el cliente. Este comportamiento lo controla la propiedad **RequireEncryption** de los controles de objeto de las opciones de solicitud. Si la aplicación va a cifrar todos los objetos almacenados en el Almacenamiento de Azure, puede establecer la propiedad **RequireEncryption** en las opciones de solicitud predeterminadas del objeto de cliente de servicio. Por ejemplo, establezca **CloudBlobClient.DefaultRequestOptions.RequireEncryption** en **true** para solicitar que se realice el cifrado para todas las operaciones de blob realizadas a través de ese objeto de cliente.
+Los usuarios pueden habilitar opcionalmente un modo de operación en el que se deben cifrar todas las cargas y descargas. En este modo, los intentos de cargar datos sin una directiva de cifrado o de descargar datos no cifrados en el servicio generarán un error en el cliente. Este comportamiento lo controla la propiedad **RequireEncryption** de los controles de objeto de las opciones de solicitud. Si la aplicación va a cifrar todos los objetos almacenados en el Almacenamiento de Azure, puede establecer la propiedad **RequireEncryption** en las opciones de solicitud predeterminadas del objeto de cliente de servicio. Por ejemplo, establezca **CloudBlobClient.DefaultRequestOptions.RequireEncryption** en **true** para requerir que se realice el cifrado para todas las operaciones de blobs realizadas a través de ese objeto de cliente.
 
 ### Cifrado del servicio de blobs
 
@@ -176,7 +176,7 @@ Cree un objeto **BlobEncryptionPolicy** y configúrelo en las opciones de solici
 
 ### Cifrado del servicio Cola
 
-Cree un objeto **QueueEncryptionPolicy** y configúrelo en las opciones de solicitud (por API o en el nivel del cliente mediante el elemento **DefaultRequestOptions**). Todo lo demás lo controlará la biblioteca de cliente internamente.
+Cree un objeto **QueueEncryptionPolicy** y configúrelo en las opciones de solicitud (por API o en el nivel del cliente usando **DefaultRequestOptions**). Todo lo demás lo controlará la biblioteca de cliente internamente.
 
 
 	// Create the IKey used for encryption.
@@ -244,6 +244,9 @@ Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da l
 
 ## Pasos siguientes
 
-Descargue el [paquete NuGet de la Biblioteca de cliente de Almacenamiento de Azure para .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) Descargue el [código fuente de la Biblioteca de cliente de Almacenamiento de Azure para .NET](https://github.com/Azure/azure-storage-net) desde GitHub Descargue los paquetes NuGet [Básico](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) y [Extensiones](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) del Almacén de claves de Azure Consulte la [documentación del Almacén de claves de Azure](../articles/key-vault-whatis.md)
+Descargue el [paquete NuGet de la Biblioteca de cliente de Almacenamiento de Azure para .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) 
+Descargue el [código fuente de la Biblioteca de cliente de Almacenamiento de Azure para .NET](https://github.com/Azure/azure-storage-net) desde GitHub 
+Descargue los paquetes NuGet [Básico](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) y [Extensiones](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) del Almacén de claves de Azure 
+Consulte la [documentación del Almacén de claves de Azure](../articles/key-vault-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

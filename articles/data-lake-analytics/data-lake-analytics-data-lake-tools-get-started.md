@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/21/2015"
+   ms.date="01/07/2015"
    ms.author="jgao"/>
 
 # Tutorial: Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio
@@ -56,7 +56,7 @@ U-SQL es un lenguaje muy escalable y altamente extensible para preparar, transfo
 
 ## Carga de archivos de datos de origen
 
-Se cargaron algunos datos en la sección **Requisitos previos** anteriormente en el tutorial.
+Se cargaron algunos datos en la sección **Requisitos previos**, anteriormente en el tutorial.
 
 Si desea usar sus propios datos, estos son los procedimientos para cargar los datos desde Data Lake Tools.
 
@@ -79,7 +79,7 @@ Si desea usar sus propios datos, estos son los procedimientos para cargar los da
 
 ## Desarrollar scripts U-SQL 
 
-Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para obtener más información sobre U-SQL, consulte [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md) y [Referencia del lenguaje U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para obtener más información sobre U-SQL, consulte [Introducción al lenguaje U-SQL](data-lake-analytics-u-sql-get-started.md) y [Referencia sobre el lenguaje U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 **Para crear y enviar un trabajo de Análisis de Data Lake**
 
@@ -88,6 +88,8 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
 
 	![Nuevo proyecto U-SQL en Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
+	>[AZURE.NOTE]Actualmente, las herramientas Data Lake Tools no admiten rutas de acceso de proyecto UNC en ejecución local.
+	
 3. Haga clic en **Aceptar**. Visual Studio crea una solución con un archivo **Script.usql**.
 4. Incluya el siguiente script en el archivo **Script.usql**:
 
@@ -161,7 +163,7 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
     Para obtener más información, consulte [Uso del catálogo de U-SQL](data-lake-analytics-use-u-sql-catalog.md).
 
 5. En el **Explorador de soluciones**, haga clic con el botón derecho en **Script.usql** y después haga clic en **Compilar script**. Compruebe el resultado en el panel Salida.
-6. En el **Explorador de soluciones**, haga clic con el botón derecho en **Script.usql** y después haga clic en **Enviar script**. Si lo desea, también puede hacer clic **Enviar** en el panel de Script.usql. Consulte la captura de pantalla anterior. Haga clic en la flecha hacia abajo situada junto al botón Enviar para enviar mediante las opciones avanzadas:
+6. En el **Explorador de soluciones**, haga clic con el botón derecho en **Script.usql** y después haga clic en **Enviar script**. Si lo desea, también puede hacer clic **Enviar** desde el panel de Script.usql. Consulte la captura de pantalla anterior. Haga clic en la flecha hacia abajo situada junto al botón Enviar para enviar mediante las opciones avanzadas:
 7. Especifique el **Nombre del trabajo**, compruebe la **Cuenta de Análisis** y haga clic en **Enviar**. Los resultados del envío y el vínculo del trabajo están disponibles en la ventana de resultados de Data Lake Tools for Visual Studio cuando se completa el envío.
 
 	![Enviar proyecto U-SQL de Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
@@ -198,7 +200,7 @@ La reproducción del trabajo permite ver el progreso de la ejecución del trabaj
 
 1. Haga clic en **Cargar perfil** en la esquina superior derecha. Consulte la captura de pantalla anterior.
 2. Haga clic en el botón Reproducir, en la esquina inferior izquierda, para revisar el progreso de la ejecución del trabajo. 
-3. Durante la reproducción, haga clic en **Pausa** para detenerla o arrastre directamente la barra de progreso a posiciones específicas. 
+3. Durante la reproducción, haga clic en **Pausa** para detenerla o arrastre directamente de la barra de progreso a posiciones específicas. 
 
 
 ###Mapa térmico 
@@ -218,6 +220,10 @@ Verá una cuenta *Local* en Visual Studio y el instalador creará una carpeta *D
 - Almacene metadatos incluidos tablas, bases de datos, funciones TVF, etc.
 - Para un script determinado: si se hace referencia a una ruta de acceso relativa en rutas de acceso de entrada y salida, buscaremos la DataRoot (así como la ruta de acceso del script si es su entrada).
 - NO se hará referencia a la carpeta DataRoot si está intentando registrar un ensamblado y usar una ruta de acceso relativa (vea la parte "Usar ensamblados al realizar la ejecución local" para más detalles).
+
+El vídeo siguiente muestra la característica de ejecución local U-SQL:
+
+>[AZURE.VIDEO usql-localrun]
 
 ### Problemas conocidos y limitaciones
 
@@ -263,8 +269,6 @@ El siguiente procedimiento solo funciona en Visual Studio 2015. En versiones ant
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	Establezca puntos de interrupción en el código de C#.
 4.	Presione **F5** para depurar el script con referencia a la dll de C# localmente.  
- 
-
 
 ##Consulte también
 
@@ -353,4 +357,4 @@ El siguiente script de PowerShell prepara una cuenta de Análisis de Azure Data 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

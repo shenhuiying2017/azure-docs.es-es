@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # Administración del control de acceso basado en roles con la interfaz de la línea de comandos de Azure (CLI de Azure) #
@@ -144,11 +144,11 @@ Si intenta ejecutar otros cmdlets, como `azure group create`, obtendrá un error
 Si quiere más información sobre cómo administrar el control de acceso basado en roles con CLI de Azure y otros temas relacionados:
 
 - [Control de acceso basado en rol de Azure](../role-based-access-control-configure.md)
-- [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli-install.md).
+- [Instalación y configuración de la interfaz de la línea de comandos de Azure.](../xplat-cli-install.md)
 - [Uso de la interfaz de la línea de comandos de Azure con Administrador de recursos](../xplat-cli-azure-resource-manager.md)
 - [Uso de grupos de recursos para administrar los recursos de Azure](../azure-preview-portal-using-resource-groups.md): obtenga información acerca de la creación y administración de grupos de recursos en el Portal de administración de Azure.
 - [Blog de Azure](http://blogs.msdn.com/windowsazure): obtenga información acerca de las nuevas características de Azure.
 - [Configuración del control de acceso basado en roles usando Windows PowerShell](role-based-access-control-powershell.md)
 - [Solución de problemas de control de acceso basado en roles](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

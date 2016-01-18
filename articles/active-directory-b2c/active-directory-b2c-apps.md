@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="12/22/2015"
 	ms.author="dastrock"/>
 
 # Vista previa de Azure AD B2C: Tipos de aplicaciones
@@ -23,10 +23,10 @@ Azure AD B2C admite la autenticación de una gran variedad de arquitecturas de a
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Conceptos básicos
-Cada aplicación que usa Azure AD B2C deberá estar registrada en su [directorio de B2C](active-directory-b2c-get-started.md) mediante el [Portal de vista previa de Azure](https://portal.azure.com). El proceso de registro de la aplicación recopilará y asignará algunos valores a la aplicación:
+Cada aplicación que usa Azure AD B2C deberá estar registrada en su [directorio de B2C](active-directory-b2c-get-started.md) mediante el [Portal de Azure](https://portal.azure.com). El proceso de registro de la aplicación recopilará y asignará algunos valores a la aplicación:
 
 - Un **Id. de aplicación** que identifica de forma única su aplicación
-- Un **URI de redirección** que puede usarse para dirigir las respuestas de nuevo a la aplicación
+- Un **URI de redireccionamiento** que puede utilizarse para dirigir las respuestas de nuevo a la aplicación
 - Algunos otros valores específicos de cada escenario. Para obtener más detalles, aprenda cómo [registrar una aplicación](active-directory-b2c-app-registration.md).
 
 Una vez registrada, la aplicación se comunica con Azure AD mediante el envío de solicitudes al extremo v2.0 de Azure AD:
@@ -128,4 +128,4 @@ Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de 
 
 Este escenario de API web encadenadas puede admitirse mediante la concesión de credenciales de portador Jwt de OAuth 2.0, también conocido como flujo "en nombre de". Sin embargo, el flujo "en nombre de" no está implementado actualmente en la vista previa de Azure AD B2C.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

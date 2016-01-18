@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Aprovisionamiento de clústeres de Hadoop en HDInsight con el Almacén de Azure Data Lake mediante el Portal | Azure" 
-   description="Use el Portal de Azure para configurar y usar clústeres de Hadoop en HDInsight con el Almacén de Azure Data Lake" 
+   pageTitle="Creación de un clúster de Hadoop en HDInsight con el Almacén de Azure Data Lake mediante el portal | Azure" 
+   description="Use el Portal de Azure para crear y usar clústeres de Hadoop en HDInsight con el Almacén de Azure Data Lake." 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="01/06/2016"
    ms.author="nitinme"/>
 
-# Aprovisionamiento de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure
+# Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Aprenda a usar el Portal de Azure para configurar un clúster de HDInsight (Hadoop, HBase o Storm) para trabajar con un Almacén de Azure Data Lake. Algunas consideraciones importantes sobre esta versión:
+Aprenda a usar el Portal de Azure para crear un clúster de HDInsight (Hadoop, HBase o Storm) con acceso al Almacén de Azure Data Lake. Algunas consideraciones importantes sobre esta versión:
 
 * **En clústeres de Hadoop y Storm (Windows y Linux)**, el almacén de Data Lake solo puede usarse como cuenta de almacenamiento adicional. La cuenta de almacenamiento predeterminada para los clústeres de este tipo seguirán Blobs de almacenamiento de Azure (WASB).
 
@@ -92,7 +92,7 @@ En esta sección, se crea un clúster de Hadoop en HDInsight que usa el Almacén
 	Realice las tareas siguientes en su cuenta de Almacén de Data Lake.
 
 	* [Cree una carpeta en el Almacén de Data Lake](data-lake-store-get-started-portal.md#createfolder).
-	* [Cargue un archivo en su Almacén de Data Lake](data-lake-store-get-started-portal.md#uploaddata). Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	* [Cargue un archivo a su Almacén de Data Lake](data-lake-store-get-started-portal.md#uploaddata). Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 	Usará los archivos cargados más adelante al probar la cuenta de Almacén de Data Lake con el clúster de HDInsight.
 
@@ -207,4 +207,4 @@ Para obtener instrucciones sobre cómo agregar una entidad de servicio a un sist
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Objective-C"
     ms.topic="article"
-    ms.date="10/07/2015"
+    ms.date="01/05/2016"
     ms.author="micurd"/>
 
 # Uso del almacenamiento de blobs desde iOS
@@ -111,7 +111,7 @@ En el siguiente ejemplo se muestra cómo usar la CLI de Azure para generar un to
 		// Get a reference to a container in your Storage account
     	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-Como puede ver, si se usa un token de SAS, el nombre de cuenta y la clave de cuenta no quedan expuestos en la aplicación de iOS. Para obtener más información acerca de SAS, consulte el [tutorial Firma de acceso compartido](../storage-dotnet-shared-access-signature-part-1).
+Como puede ver, si se usa un token de SAS, el nombre de cuenta y la clave de cuenta no quedan expuestos en la aplicación de iOS. Para obtener más información acerca de SAS, consulte el consultando el [tutorial de firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1).
 
 ##Operaciones asincrónicas
 > [AZURE.NOTE]Todos los métodos que realizan una solicitud en el servicio son operaciones asincrónicas. En los ejemplos de código, encontrará que estos métodos tienen un controlador de finalización. El código de dentro del controlador de finalización se ejecutará **después** de que se haya completado la solicitud. El código posterior al controlador de finalización se ejecutará **mientras** se realiza la solicitud.
@@ -359,4 +359,4 @@ Si tiene alguna pregunta sobre esta biblioteca, puede publicarla en el [foro de 
 [API de REST de almacenamiento de Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

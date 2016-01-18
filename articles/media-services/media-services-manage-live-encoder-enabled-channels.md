@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015"  
+	ms.date="12/22/2015"  
 	ms.author="juliako"/>
 
 #Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure
@@ -130,7 +130,8 @@ Los emisores profesionales suelen trabajar con codificadores locales en directo 
 
 Consideraciones:
 
-- Se recomienda encarecidamente el uso de una entrada de secuencias de transporte de un solo programa (SPTS). Sin embargo, se admite el uso de varias pistas de audio de idioma.
+- Se recomienda encarecidamente el uso de una entrada de secuencias de transporte de un solo programa (SPTS). 
+- Puede introducir un máximo de ocho secuencias de audio con MPEG-2 TS a través de RTP. 
 - La secuencia de vídeo debe tener una velocidad de bits media inferior a 15 Mbps.
 - La suma de la velocidad de bits media de las secuencias de audio debe ser inferior a 1 Mbps.
 - A continuación, se indican los códecs admitidos:
@@ -244,7 +245,7 @@ Puede obtener la dirección URL de vista previa al crear el canal. Para obtenerl
 
 Una vez que el canal empieza a consumir datos, puede obtener una vista previa de la secuencia.
 
-**Nota** Actualmente la secuencia de vista previa solo se puede entregar en formato MP4 fragmentado (Smooth Streaming), independientemente del tipo de entrada especificado. Puede usar el reproductor [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para probar el formato Smooth Stream. También puede usar un reproductor hospedado en el Portal de Azure clásico para ver la transmisión.
+>[AZURE.NOTE]Actualmente la secuencia de vista previa solo se puede entregar en formato MP4 fragmentado (Smooth Streaming), independientemente del tipo de entrada especificado. Puede usar el reproductor [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para probar el formato Smooth Stream. También puede usar un reproductor hospedado en el Portal de Azure clásico para ver la transmisión.
 
 ###Direcciones IP permitidas
 
@@ -253,6 +254,8 @@ Puede definir las direcciones IP permitidas para conectarse al extremo de vista 
 ##Configuración de la codificación en directo
 
 En esta sección se describe cómo configurar los valores del codificador en directo dentro del canal cuando el **Tipo de codificación** del canal se establece en **Estándar**.
+
+>[AZURE.NOTE]Al introducir varias pistas de idioma y realizar codificación en directo con Azure, solo se admite RTP como entrada de varios idiomas. Puede definir hasta ocho secuencias de audio con MPEG-2 TS a través de RTP. Actualmente no se admite la introducción de varias pistas de audio con Smooth Streaming ni RTMP. Al realizar la codificación en directo con [codificaciones en directo locales](media-services-manage-channels-overview.md), no hay ninguna limitación de este tipo porque todo lo que se envía a AMS pasa a través de un canal sin más procesamiento.
 
 ###Origen de marcador de anuncio
 
@@ -427,6 +430,7 @@ Detenido|Detenido|No
 - Solo se le cobrará cuando el canal esté en estado **En ejecución**. Para obtener más información, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) sección.
 - Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Póngase en contacto con amslived en Microsoft punto com si necesita ejecutar un canal durante largos períodos de tiempo.
 - Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
+- Al introducir varias pistas de idioma y realizar codificación en directo con Azure, solo se admite RTP como entrada de varios idiomas. Puede definir hasta ocho secuencias de audio con MPEG-2 TS a través de RTP. Actualmente no se admite la introducción de varias pistas de audio con Smooth Streaming ni RTMP. Al realizar la codificación en directo con [codificaciones en directo locales](media-services-manage-channels-overview.md), no hay ninguna limitación de este tipo porque todo lo que se envía a AMS pasa a través de un canal sin más procesamiento.
 - No olvide DETENER SUS CANALES cuando haya terminado. Si no lo hace, la facturación continuará. 
 
 ##Problemas conocidos
@@ -466,4 +470,4 @@ Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

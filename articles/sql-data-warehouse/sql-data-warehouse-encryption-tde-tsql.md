@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Introducción al cifrado de datos transparente (TDE) del Almacenamiento de datos SQL TSQL | Microsoft Azure" 
-	description="Introducción al cifrado de datos transparente (TDE) del Almacenamiento de datos SQL TSQL" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="Introducción al cifrado de datos transparente (TDE) del Almacenamiento de datos SQL TSQL | Microsoft Azure" 
+   description="Introducción al cifrado de datos transparente (TDE) del Almacenamiento de datos SQL TSQL" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/21/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-data-warehouse" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/04/2016" 
+   ms.author="twounder"/>
  
 # Introducción al cifrado de datos transparente (TDE)
 > [AZURE.SELECTOR]
@@ -73,4 +73,4 @@ Un resultado de ```1``` indica una base de datos cifrada, ```0``` indica una bas
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

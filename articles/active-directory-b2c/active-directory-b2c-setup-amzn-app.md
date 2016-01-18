@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/06/2016"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Proporcionar a los consumidores registro e inicio de sesión con cuentas de Amazon
@@ -34,21 +34,21 @@ Para usar Amazon como proveedor de identidades en Azure Active Directory (AD) B2
 
     ![Amazon - registro de aplicación](./media/active-directory-b2c-setup-amzn-app/amzn-register-app.png)
 
-5. En la sección **Web Settings** (Configuración web), copie los valores de **Client ID** (Id. de cliente) y **Client secret** (Secreto de cliente) (para ver este valor debe hacer clic en el botón **Show Secret** (Mostrar secreto). Necesitará ambos para configurar Amazon como proveedor de identidades de su directorio. Haga clic en **Edit** (Editar) en la parte inferior de la sección.
+5. En la sección **Web Settings** (Configuración web), copie los valores de **Client ID** (Id. de cliente) y **Client secret** (Secreto de cliente) (para ver este valor debe hacer clic en el botón **Show Secret** (Mostrar secreto). Necesitará ambos para configurar Amazon como proveedor de identidades de su inquilino. Haga clic en **Edit** (Editar) en la parte inferior de la sección.
 
-    > [AZURE.NOTE]El **secreto de cliente** es una credencial de seguridad importante.
+> [AZURE.NOTE]El **secreto de cliente** es una credencial de seguridad importante.
 
-    ![Amazon - secreto del cliente](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
+    ![Amazon - Client secret](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
 
-6. Escriba [https://login.microsoftonline.com](https://login.microsoftonline.com) en el campo **Allowed JavaScript origins** (Orígenes JavaScript permitidos) y [https://login.microsoftonline.com/te/{directory}/oauth2/authresp](https://login.microsoftonline.com/te/{directory}/oauth2/authresp) en el campo **Allowed Return URLs** (Direcciones URL de retorno permitidas), donde **{directory}** se sustituirá por el nombre de su directorio (por ejemplo, contoso.onmicrosoft.com). Haga clic en **Save**.
+6. Escriba [https://login.microsoftonline.com](https://login.microsoftonline.com) en el campo **Allowed JavaScript origins** (Orígenes de JavaSscript permitidos) y `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` en el campo **Allowed Return URLs** (Direcciones URL de retorno permitidas), donde **{tenant}** se sustituirá por el nombre de su inquilino (por ejemplo, contoso.onmicrosoft.com). Haga clic en **Save**.
 
-    > [AZURE.NOTE]El valor de **{directory}** distingue mayúsculas de minúsculas.
+> [AZURE.NOTE]El valor de **{tenant}** distingue mayúsculas de minúsculas.
 
-    ![Amazon - URL](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
+    ![Amazon - URLs](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
 
-## Configuración de Amazon como proveedor de identidades del directorio
+## Configuración de Amazon como proveedor de identidades del inquilino
 
-1. [Vaya a la hoja de características B2C del Portal de vista previa de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Siga estos pasos para desplazarse hasta la hoja de características B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. En la hoja de características B2C, haga clic en **Proveedores de identidades**.
 3. Haga clic en **+Agregar** en la parte superior de la hoja.
 4. Proporcione un **Nombre** descriptivo para la configuración del proveedor de identidades. Por ejemplo, "Amzn".
@@ -56,4 +56,4 @@ Para usar Amazon como proveedor de identidades en Azure Active Directory (AD) B2
 6. Haga clic en **Configurar este proveedor de identidades** y escriba el **id. de cliente** y el **secreto de cliente** de la aplicación de Amazon que creó anteriormente.
 7. Haga clic en **Aceptar** y, luego, en **Crear** para guardar la configuración de Amazon.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

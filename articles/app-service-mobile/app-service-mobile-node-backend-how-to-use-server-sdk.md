@@ -24,7 +24,7 @@
 
 En este artículo se ofrece información detallada y ejemplos sobre cómo trabajar con un back-end de Node.js en Aplicaciones móviles del Servicio de aplicaciones de Azure.
 
-> [AZURE.NOTE]Este SDK está en VERSIÓN PRELIMINAR. Por ello, se recomienda no usar este SDK en un entorno de producción. Los ejemplos de este documento usan la versión v2.0.0-beta1 de [azure-mobile-apps].
+> [AZURE.NOTE]Este SDK está en VERSIÓN PRELIMINAR. Por ello, se recomienda no usar este SDK en un entorno de producción. Los ejemplos de este documento usan la versión v2.0.0-beta2 de [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introducción
 
@@ -105,7 +105,7 @@ Visual Studio 2015 requiere una extensión para desarrollar aplicaciones Node.js
 
 6. Quizá tenga que actualizar el catálogo npm al crear su primera aplicación de Node.js. En caso de ser necesario, se le pedirá que lo haga; para ello, haga clic en **Actualizar**.
 
-7. Escriba _azure-mobile-apps_ en el cuadro de búsqueda. Haga clic en el paquete **azure-mobile-apps 2.0.0** y después en **Instalar paquete**.
+7. Escriba _azure-mobile-apps_ en el cuadro de búsqueda. Haga clic en el paquete **azure-mobile-apps 2.0.0** y haga clic en **Instalar paquete**.
 
 	![Instalar nuevos paquetes npm][2]
 
@@ -254,7 +254,7 @@ El SDK de Node.js de Aplicaciones móviles de Azure usa el [paquete de mssql par
 
   1. Expanda el nodo **Configuración de red de SQL Server** en el menú de árbol de la izquierda.
   2. Haga clic en **Protocolos para SQLEXPRESS**.
-  3. Haga clic con el botón derecho en **TCP/IP** y seleccione **Habilitar**. Haga clic en **Aceptar**, en el cuadro de diálogo emergente.
+  3. Haga clic con el botón derecho en **TCP/IP** y seleccione **Habilitar**. Haga clic en **Aceptar** en el cuadro de diálogo emergente.
   4. Haga clic con el botón derecho en **TCP/IP** y seleccione **Propiedades**.
   5. Haga clic en la pestaña **Direcciones IP**.
   6. Busque el nodo **IPAll**. En el campo **Puerto TCP**, escriba **1433**.
@@ -362,7 +362,7 @@ El uso de Base de datos SQL de Azure como almacén de datos es idéntico en todo
 
 3. En el cuadro **Grupo de recursos**, escriba el mismo nombre de la aplicación.
 
-4. Se seleccionará el Plan del Servicio de aplicaciones predeterminado. Si quiere cambiar el plan del Servicio de aplicaciones, haga clic en Plan del Servicio de aplicaciones > **+ Crear nuevo**. Proporcione un nombre al Plan del Servicio de aplicaciones nuevo y seleccione una ubicación adecuada. Haga clic en el nivel de precios y seleccione un nivel de precios adecuado para el servicio. Seleccione **Ver todos** para ver más opciones de precios, como **Gratis** y **Compartido**. Una vez seleccionado el plan de tarifa, haga clic en el botón **Seleccionar**. De nuevo en la hoja **Plan del Servicio de aplicaciones**, haga clic en **Aceptar**.
+4. Se seleccionará el Plan del Servicio de aplicaciones predeterminado. Si desea cambiar el Plan del Servicio de aplicaciones, haga clic en el Plan del Servicio de aplicaciones > **+ Crear nuevo**. Proporcione un nombre al Plan del Servicio de aplicaciones nuevo y seleccione una ubicación adecuada. Haga clic en el nivel de precios y seleccione un nivel de precios adecuado para el servicio. Seleccione **Ver todos** para ver más opciones de precios, como **Gratis** y **Compartido**. Una vez seleccionado el plan de tarifa, haga clic en el botón **Seleccionar**. De nuevo en la hoja **Plan del Servicio de aplicaciones**, haga clic en **Aceptar**.
 
 5. Haga clic en **Crear**. Se crea un back-end de la aplicación móvil, donde implementará después el proyecto de servidor. El aprovisionamiento de un back-end de la aplicación móvil puede tardar unos minutos. Cuando se aprovisiona el back-end de la aplicación móvil, el portal abrirá la hoja **Configuración** del back-end de la aplicación móvil.
 
@@ -372,21 +372,21 @@ Una vez creado el back-end de la aplicación móvil, puede conectar una base de 
 
 6. En el nuevo back-end de la aplicación móvil, haga clic en **Configuración** > **Aplicación móvil** > **Datos** > **+Agregar**.
 
-7. En la hoja **Agregar conexión de datos**, haga clic en **Base de datos SQL - Configurar los valores obligatorios** > **Crear una base de datos nueva**. Escriba el nombre de la nueva base de datos en el campo **Nombre**.
+7. En la hoja **Agregar conexión de datos**, haga clic en **Base de datos SQL - Configurar los valores obligatorios** > **Crear una base de datos nueva**. Escriba el nombre de la base de datos nueva en el campo **Nombre**.
 
-8. Haga clic en **Servidor**. En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor** y proporcione un **Inicio de sesión del administrador del servidor ** y una **Contraseña** adecuados. Asegúrese de que **Permitir que los servicios de Azure accedan al servidor** esté activada. Haga clic en **Aceptar**.
+8. Haga clic en **Servidor**. En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor** y proporcione un **Inicio de sesión del administrador del servidor ** y una **Contraseña** adecuados. Asegúrese de que **Permitir que los servicios de Azure accedan al servidor** está activado. Haga clic en **Aceptar**.
 
 	![Creación de una Base de datos SQL de Azure][6]
 
 9. En la hoja **Nueva base de datos**, haga clic en **Aceptar**.
 
-10. De nuevo en la hoja **Agregar conexión de datos**, seleccione **Cadena de conexión** y especifique el inicio de sesión y la contraseña que proporcionó al crear la base de datos. Si usa una base de datos existente, indique las credenciales de inicio de sesión de esa base de datos. Cuando las especifique, haga clic en **Aceptar**.
+10. En la hoja **Agregar conexión de datos**, seleccione **Cadena de conexión** y especifique el inicio de sesión y la contraseña que proporcionó al crear la base de datos. Si usa una base de datos existente, indique las credenciales de inicio de sesión de esa base de datos. Cuando las especifique, haga clic en **Aceptar**.
 
 11. De nuevo en la hoja **Agregar conexión de datos**, haga clic en **Aceptar** para crear la base de datos.
 
 <!--- END OF ALTERNATE INCLUDE -->
 
-La creación de la base de datos puede tardar unos minutos. Use el área **Notificaciones** para supervisar el progreso de la implementación. No continúe hasta que la base de datos se haya implementado correctamente. Una vez implementada correctamente, se creará una cadena de conexión para la instancia de Base de datos SQL en la configuración de la aplicación de back-end móvil. Puede ver la configuración de esta aplicación en **Configuración** > **Configuración de la aplicación** > **Cadenas de conexión**.
+La creación de la base de datos puede tardar unos minutos. Use el área de **notificaciones** para supervisar el progreso de la implementación. No continúe hasta que la base de datos se haya implementado correctamente. Una vez implementada correctamente, se creará una cadena de conexión para la instancia de Base de datos SQL en la configuración de la aplicación de back-end móvil. Puede ver la configuración de esta aplicación en **Configuración** > **Configuración de la aplicación** > **Cadenas de conexión**.
 
 ### <a name="howto-tables-auth"></a>Autenticación necesaria para el acceso a las tablas
 
@@ -482,7 +482,7 @@ Un requisito común para las operaciones de tabla consiste en proporcionar una v
 
     module.exports = table;
 
-Las operaciones que normalmente ejecutan una consulta tendrán una propiedad de consulta que se puede ajustar con una cláusula where. La propiedad de consulta es un objeto [QueryJS] que se usa para convertir una consulta de OData en algo que pueda procesar el back-end de datos. En los casos de igualdad simple (como el anterior), puede usarse un mapa. También es relativamente fácil agregar cláusulas SQL específicas:
+Las operaciones que normalmente ejecutan una consulta tendrán una propiedad de consulta que se puede ajustar con una cláusula where. La propiedad de consulta es un objeto [QueryJS] que se usa para convertir una consulta de OData en algo que puede procesar el back-end de datos. En los casos de igualdad simple (como el anterior), puede usarse un mapa. También es relativamente fácil agregar cláusulas SQL específicas:
 
     context.query.where('myfield eq ?', 'value');
 
@@ -559,7 +559,7 @@ Si quiere usar la autenticación del Servicio de aplicaciones con una API person
 
 Las API personalizadas se definen en forma muy parecida a la API de tablas.
 
-1. Creación de un directorio **api**.
+1. Crear un directorio **api**.
 2. Cree un archivo JavaScript de definición de API en el directorio **api**.
 3. Use el método import para importar el directorio **api**.
 
@@ -633,7 +633,7 @@ El Servicio de aplicaciones de Azure proporciona varias técnicas de depuración
 
 ### <a name="howto-diagnostic-logs"></a>Escritura en los registros de diagnóstico de Aplicaciones móviles de Azure
 
-Las aplicaciones Node.js tienen acceso a una amplia gama de herramientas de registro de diagnóstico. Internamente, el SDK de Node.js de Aplicaciones móviles de Azure usa [Winston] para el registro de diagnóstico. Este se habilita automáticamente al activar el modo de depuración o al establecer la configuración de la aplicación **MS\_DebugMode** en true en el [Portal de Azure]. Los registros generados aparecerán en los registros de diagnóstico en el [Portal de Azure].
+Las aplicaciones Node.js tienen acceso a una amplia gama de herramientas de registro de diagnóstico. Internamente, el SDK de Node.js de Aplicaciones móviles de Azure usa [Winston] para el registro de diagnóstico. Esto se habilita automáticamente al activar el modo de depuración o al establecer la configuración de la aplicación **MS\_DebugMode** en true en el [Portal de Azure]. Los registros generados aparecerán en los registros de diagnóstico en el [Portal de Azure].
 
 ## <a name="in-portal-editing"></a>Experiencia en edición de código en portal
 
@@ -698,7 +698,7 @@ En el editor, también puede ejecutar el código en el sitio.
 [Configuración de la aplicación para usar el inicio de sesión de Google]: app-service-mobile-how-to-configure-google-authentication.md
 [Configuración de la aplicación para usar el inicio de sesión de Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Configuración de la aplicación para usar el inicio de sesión de Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
-[Guía de implementación del Servicio de aplicaciones de Azure]: ../app-service-web/web-site-deploy.md
+[Guía de implementación del Servicio de aplicaciones de Azure]: ../app-service-web/web-sites-deploy.md
 [Supervisión de Aplicaciones web en el Servicio de aplicaciones de Azure]: ../app-service-web/web-sites-monitor.md
 [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
@@ -722,4 +722,4 @@ En el editor, también puede ejecutar el código en el sitio.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

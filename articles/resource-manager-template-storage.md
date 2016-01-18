@@ -1,6 +1,6 @@
 <properties
    pageTitle="Plantilla del Administrador de recursos para almacenamiento | Microsoft Azure"
-   description="Muestra el esquema del Administrador de recursos para las cuentas de almacenamiento."
+   description="Muestra el esquema del Administrador de recursos para implementar las cuentas de almacenamiento mediante una plantilla."
    services="azure-resource-manager,storage"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # Cuenta de almacenamiento: esquema de plantilla
@@ -78,9 +78,22 @@ En el ejemplo siguiente, se implementa una cuenta de almacenamiento con redundan
 	    "outputs": {}
     }
 
+## Plantillas de inicio rápido
+
+Hay muchas plantillas de inicio rápido que incluyen una cuenta de almacenamiento. Las plantillas siguientes muestran algunos escenarios comunes:
+
+- [Create a Standard Storage Account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create) (Crear una cuenta de almacenamiento estándar)
+- [Simple deployment of an Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
+- [Simple deployment of an Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+- [Create a CDN Profile, a CDN Endpoint with a Storage Account as origin](https://github.com/Azure/azure-quickstart-templates/tree/master/201-cdn-with-storage-account) (Crear un perfil de CDN, un punto de conexión de CDN con una cuenta de almacenamiento como origen)
+- [Create a High Availabilty SharePoint Farm with 9 VMs using the Powershell DSC Extension](https://github.com/Azure/azure-quickstart-templates/tree/master/sharepoint-server-farm-ha)
+- [Simple deployment of a 5 Node secure Service Fabric Cluster with WAD enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad)
+- [Create a Virtual Machine from a Windows Image with 4 Empty Data Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) (Crear una máquina virtual a partir de una imagen de Windows con cuatro discos de datos vacíos)
+
+
 ## Pasos siguientes
 
 - Para obtener información general sobre el almacenamiento, consulte [Introducción a Almacenamiento de Microsoft Azure](./storage/storage-introduction.md).
 - Si desea obtener ejemplos de plantillas que usan una cuenta de almacenamiento nueva con una máquina virtual, consulte [Implementación de una máquina virtual simple de Linux](https://azure.microsoft.com/documentation/templates/101-simple-linux-vm/) o [Implementación de una máquina virtual simple de Windows](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

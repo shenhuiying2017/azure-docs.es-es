@@ -14,14 +14,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
+	ms.date="01/03/2016"
 	ms.author="rasquill"/>
 
 
 
 # Informática de código abierto y Linux en Azure
 
-El objeto de este documento es reunir en un solo lugar todos los temas que Microsoft y sus partners han escrito sobre la ejecución de máquinas virtuales basadas en Linux, así como otros entornos y aplicaciones informáticas de código abierto en Microsoft Azure. Dado que Azure y el mundo de la informática de código abierto son destinos muy cambiantes, es prácticamente seguro que este documento no esté actualizado, *a pesar de* que hacemos todo lo posible para seguir agregando nuevos temas y eliminar los desactualizados. Si hemos omitido alguno, comuníquenoslo en los comentarios o envíe una solicitud de extracción a nuestro [Repositorio de Github](https://github.com/Azure/azure-content/).
+El objeto de este documento es reunir en un solo lugar todos los temas que Microsoft y sus partners han escrito sobre la ejecución de máquinas virtuales basadas en Linux, así como otros entornos y aplicaciones informáticas de código abierto en Microsoft Azure. Se indican los artículos que describen solo el modelo de implementación clásica, al igual que los que usan el modelo de implementación del Administrador de recursos. Los artículos en los que no se indica un modelo de implementación describen a ambos modelos.
+
+Dado que Azure y el mundo de la informática de código abierto son destinos muy cambiantes, es prácticamente seguro que este documento no esté actualizado, *a pesar de* que hacemos todo lo posible para seguir agregando nuevos temas y eliminar los desactualizados. Si hemos omitido alguno, comuníquenoslo en los comentarios o envíe una solicitud de extracción a nuestro [Repositorio de Github](https://github.com/Azure/azure-content/).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -32,9 +34,9 @@ Las secciones se desglosan a la derecha de esta página. (Los vínculos pueden a
 - [Azure Marketplace](http://azure.microsoft.com/marketplace/virtual-machines/)
 - [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index)
 - [Eventos y demostraciones: Microsoft Openness CEE](http://www.opennessatcee.com/)
-- [Carga de su propia imagen de distro](virtual-machines-linux-create-upload-vhd.md) (y también instrucciones de uso de una [Distribución respaldada por Azure](virtual-machines-linux-endorsed-distributions.md))
+- [Implementación clásica]: [Carga de su propia imagen de distro](virtual-machines-linux-create-upload-vhd.md) (además de instrucciones para usar una [distribución respaldada por Azure](virtual-machines-linux-endorsed-distributions.md))
 - [Notas: Requisitos generales de Linux para ejecutarse en Azure](virtual-machines-linux-create-upload-vhd-generic.md)
-- [Notas: Introducción general a Linux en Azure](virtual-machines-linux-introduction.md)
+- [Implementación clásica]: [Notas:Introducción general a Linux en Azure](virtual-machines-linux-introduction.md)
 
 <!--
 - [Distros](#distros) &mdash; Topics to do with a specific distro.
@@ -57,14 +59,12 @@ Ubuntu es una distribución de Linux ampliamente conocida que está respaldada e
 
 1. [Carga de su propia imagen de Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)
 2. [Pila LAMP de Ubuntu](virtual-machines-linux-install-lamp-stack.md)
-2. [Imágenes: Pila LAPP](http://azure.microsoft.com/marketplace/partners/bitnami/lappstack54310ubuntu1404/)
-3. [Clústeres de MySQL](virtual-machines-linux-mysql-cluster.md)
-4. [Node.js and Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
-5. [Bloc de notas de IPython](virtual-machines-python-ipython-notebook.md)
-6. [Geeking out: Ejecución de ASP.NET 5 en Linux mediante contenedores Docker](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
+3. [Implementación clásica]: [Clústeres de MySQL](virtual-machines-linux-mysql-cluster.md)
+4. [Implementación clásica]: [Node.js y Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
+5. [Implementación del Administrador de recursos]: [IPython Notebook](virtual-machines-python-ipython-notebook.md)
+6. [Implementación clásica]: [Geeking out: Ejecución de ASP.NET 5 en Linux mediante contenedores Docker](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 7. [Imágenes: Servidor de Redis](http://azure.microsoft.com/marketplace/partners/cognosys/redisserver269ubuntu1204lts/)
 8. [Imágenes: Servidor de Minecraft](http://azure.microsoft.com/marketplace/partners/bitnami/craftbukkitminecraft179r030ubuntu1210/)
-9. [Imágenes: Moodle](http://azure.microsoft.com/marketplace/partners/bitnami/moodle270ubuntu1404/)
 11. [Imágenes: Mono como un servicio](http://azure.microsoft.com/marketplace/partners/aegis/monoasaserviceubuntu1204/)
 
 
@@ -79,17 +79,17 @@ La distribución de Linux CentOS es una plataforma estable, predecible, administ
 1. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=centos)
 2. [Galería de imágenes](http://azure.microsoft.com/marketplace/partners/OpenLogic/)
 3. [Preparación de una máquina virtual personalizada basada en CentOS para Azure](virtual-machines-linux-create-upload-vhd-centos.md)
-4. [Blog: Implementación de una imagen de máquina virtual CentOS desde OpenLogic](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
-6. [Instalación de Apache Qpid Proton-C para AMQP y Bus de servicio](http://msdn.microsoft.com/library/azure/dn235560.aspx)
+4. [Implementación clásica]: [Blog: Implementación de una imagen virtual CentOS desde OpenLogic](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
+6. [Implementación clásica]: [Instalación de Apache Qpid Proton-C para AMQP y Bus de servicio](../service-bus/service-bus-amqp-apache.md/)
 7. [Imágenes: Apache 2.2.15 en OpenLogic CentOS 6.3](http://azure.microsoft.com/marketplace/partners/cognosys/apache2215onopenlogiccentos63/)
 8. [Imágenes: Drupal 7.2, servidor LAMP en OpenLogic CentOS 6.3](http://azure.microsoft.com/marketplace/partners/cognosys/drupal720lampserveronopenlogiccentos63/)
 
 ### SUSE Linux Enterprise Server y openSUSE
 
 9. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=OpenSUSE)
-11. [Instalación y ejecución de MySQL](virtual-machines-linux-mysql-use-opensuse.md)
+11. [Implementación clásica]: [Instalación y ejecución de MySQL](virtual-machines-linux-mysql-use-opensuse.md)
 12. [Preparación de un SLES personalizado o una máquina virtual openSUSE](virtual-machines-linux-create-upload-vhd-suse.md)  
-13. [[SUSE forum] How to: Move to a New Patch Server](https://forums.suse.com/showthread.php?5622-New-Update-Infrastructure) (Foro SUSE Cómo: Moverse a un nuevo servidor de revisión)
+13. [[SUSE forum] How to: Move to a New Patch Server (Foro SUSE Cómo: Moverse a un nuevo servidor de revisión)](https://forums.suse.com/showthread.php?5622-New-Update-Infrastructure)
 14. [Imágenes: SUSE Linux Enterprise Server para la biblioteca de aplicaciones de nube de SAP](http://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver11sp3forsapcloudappliance/)
 
 ### CoreOS
@@ -97,12 +97,9 @@ La distribución de Linux CentOS es una plataforma estable, predecible, administ
 CoreOS es una distro pequeña y optimizada para el escalado de cálculo puro con un alto grado de control para la personalización.
 
 10. [Galería de imágenes](http://azure.microsoft.com/marketplace/partners/coreos/)  
-11. [Uso de CoreOS en Azure](virtual-machines-linux-coreos-how-to.md)
-12. [Introducción a Fleet y Docker en CoreOS en Azure](virtual-machines-linux-coreos-fleet-get-started.md)
-13. [Blog: TechEd Europe -- Contenedores de Linux y de cliente Docker de Windows](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)
-14. [Blog:Azure es cada vez más grande, más rápido y más abierto](http://azure.microsoft.com/blog/2014/10/20/azures-getting-bigger-faster-and-more-open/)
-15. [GitHub: Inicio rápido para la implementación de CoreOS en Azure](https://github.com/timfpark/coreos-azure)
-16. [GitHub: Implementación de aplicaciones de Java con Spring Boot, MongoDB y CoreOS](https://github.com/chanezon/azure-linux/tree/master/coreos/cloud-init)
+11. [Implementación clásica]: [Uso de CoreOS en Azure](virtual-machines-linux-coreos-how-to.md)
+12. [Implementación clásica]: [Introducción a Fleet y Docker en CoreOS en Azure](virtual-machines-linux-coreos-fleet-get-started.md)
+
 
 #### [Oracle Linux](http://azure.microsoft.com/marketplace/?term=Oracle+Linux)
   2. [Preparación de una máquina virtual Oracle Linux para Azure](virtual-machines-linux-create-upload-vhd-oracle.md)
@@ -110,8 +107,8 @@ CoreOS es una distro pequeña y optimizada para el escalado de cálculo puro con
 ### FreeBSD
 
 12. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Date&search=FreeBSD)
-13. [Blog: Ejecución de FreeBSD en Azure](http://azure.microsoft.com/blog/2014/05/22/running-freebsd-in-azure/)
-14. [Blog: Implementación fácil de FreeBSD](http://msopentech.com/blog/2014/10/24/easy-deploy-freebsd-microsoft-azure-vm-depot/)
+13. [Implementación clásica]: [Blog: Ejecución de FreeBSD en Azure](http://azure.microsoft.com/blog/2014/05/22/running-freebsd-in-azure/)
+14. [Implementación clásica]: [Blog: Implementación fácil de FreeBSD](http://msopentech.com/blog/2014/10/24/easy-deploy-freebsd-microsoft-azure-vm-depot/)
 15. [Blog: Implementación de una imagen personalizada de FreeBSD](http://msopentech.com/blog/2014/05/14/deploy-customize-freebsd-virtual-machine-image-microsoft-azure/)
 17. [Instalación del agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md)
 18. [Marketplace: Kaspersky antivirus para el servidor de archivos de Linux](http://azure.microsoft.com/marketplace/partners/kaspersky-lab/kav-for-lfs-kav-for-lfs/)
@@ -119,26 +116,25 @@ CoreOS es una distro pequeña y optimizada para el escalado de cálculo puro con
 ## Conceptos básicos
 
 1. [Conceptos básicos: Interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-install.md)
-4. [Conceptos básicos: Uso y administración de certificados](http://msdn.microsoft.com/library/azure/gg981929.aspx)
+<!-- 4. [The basics: Certificate Use and Management](http://msdn.microsoft.com/library/azure/gg981929.aspx)-->
 5. [Conceptos básicos: Selección de nombres de usuario de Linux](virtual-machines-linux-usernames.md)
-6. [Conceptos básicos: Inicio de sesión en una máquina virtual de Linux con el Portal de Azure clásico](virtual-machines-linux-how-to-log-on.md)
+6. [Implementación clásica]: [Conceptos básicos: Inicio de sesión en una máquina virtual de Linux con el Portal de Azure clásico](virtual-machines-linux-how-to-log-on.md)
 7. [Conceptos básicos: SSH](virtual-machines-linux-use-ssh-key.md)
-8. [Conceptos básicos: Restablecimiento de una contraseña o de las propiedades SSH de Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
+8. [Implementación clásica]: [Conceptos básicos: Restablecimiento de una contraseña o de las propiedades SSH de Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
 9. [Conceptos básicos: Uso de la raíz](virtual-machines-linux-use-root-privileges.md)
-10. [Conceptos básicos: Asociación de un disco de datos a una máquina virtual Linux](virtual-machines-linux-how-to-attach-disk.md)
-11. [Conceptos básicos: Desasociación de un disco de datos de una máquina virtual Linux](virtual-machines-linux-how-to-detach-disk.md)
+10. [Implementación clásica]: [Conceptos básicos: Asociación de un disco de datos a una máquina virtual Linux](virtual-machines-linux-how-to-attach-disk.md)
+11. [Implementación clásica]: [Conceptos básicos: Desasociación de un disco de datos de una máquina virtual Linux](virtual-machines-linux-how-to-detach-disk.md)
 12. [Blogs con los conceptos básicos: Optimización del almacenamiento, los discos y el rendimiento con Linux y Azure](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
 13. [Conceptos básicos: RAID](virtual-machines-linux-configure-raid.md)
-14. [Conceptos básicos: Captura de una máquina virtual de Linux para usar como plantilla](virtual-machines-linux-capture-image.md)
+14. [Implementación clásica]: [Conceptos básicos: Captura de una máquina virtual de Linux para usar como plantilla](virtual-machines-linux-capture-image.md)
 15. [Conceptos básicos: Instalación del agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md)
 16. [Conceptos básicos: Características y extensiones de máquina virtual de Azure](virtual-machines-extensions-features.md)
-17. [Conceptos básicos: Inserción de datos personalizados en una máquina virtual para su uso con Cloud-init](virtual-machines-how-to-inject-custom-data.md)
-18. [Blogs con los conceptos básicos: Creación de Linux de alta disponibilidad en Azure en 12 pasos](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
-19. [Blogs con los conceptos básicos: Automatización del aprovisionamiento de Linux en Azure con CLI de Azure, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
-19. [Creación de una implementación de varias máquinas virtuales mediante la CLI de Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli-install.md)
+17. [Implementación clásica]: [Conceptos básicos: Inserción de datos personalizados en una máquina virtual para su uso con Cloud-init](virtual-machines-how-to-inject-custom-data.md)
+18. [Implementación clásica]: [Blogs con los conceptos básicos: Creación de Linux de alta disponibilidad en Azure en 12 pasos](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
+19. [Implementación clásica]: [Blogs con los conceptos básicos: Automatización del aprovisionamiento de Linux en Azure con CLI de Azure, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
 20. [Conceptos básicos: Extensión de la máquina virtual de Azure Docker](virtual-machines-docker-vm-extension.md)
-23. [Referencia de la API de REST de administración de servicios de Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx)
-24. [GlusterFS en Azure](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
+23. [Implementación clásica]: Referencia de la [API de REST de administración de servicios de Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx)
+24. [Implementación clásica]: [GlusterFS en Azure](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
 
 ## Repositorios e imágenes de la comunidad
 3. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index) &mdash; para las imágenes de máquina virtual que proporciona la comunidad.
@@ -159,9 +155,7 @@ CoreOS es una distro pequeña y optimizada para el escalado de cálculo puro con
 7. [Blog: MSOpenTech contribuye con OpenJDK](http://msopentech.com/blog/2014/10/21/ms-open-techs-first-contribution-openjdk/)
 8. [Imágenes: WebSphere](http://azure.microsoft.com/marketplace/partners/msopentech/was-8-5-was-8-5-5-3/)
 9. [Imágenes: WebLogic](http://azure.microsoft.com/marketplace/?term=weblogic)
-10. [Imágenes: JDK6 en Windows](http://azure.microsoft.com/marketplace/partners/msopentech/jdk6onwindowsserver2012/)
-11. [Imágenes: JDK7 en Windows](http://azure.microsoft.com/marketplace/partners/msopentech/jdk7onwindowsserver2012/)
-12. [Imágenes: JDK8 en Windows](http://azure.microsoft.com/marketplace/partners/msopentech/jdk8onwindowsserver2012r2/)
+
 
 ### Lenguajes JVM
 
@@ -185,7 +179,6 @@ CoreOS es una distro pequeña y optimizada para el escalado de cálculo puro con
 
 Buscar en esta sección que se llenará rápidamente. Si tiene sugerencias, envíenos un PR o déjelas en los comentarios, a continuación.
 
-1. [Creación de una implementación de varias máquinas virtuales mediante la CLI de Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli-install.md)
 2. [Repositorio de Github de Linux y Azure de Patrick Chanezon](https://github.com/chanezon/azure-linux)
 3. [Video: Cómo mover datos de USB locales en Linux a Azure mediante **usbip**](http://channel9.msdn.com/Blogs/Open/On-premises-USB-devices-on-Linux-on-Azure-via-usbip)
 4. [Vídeo: Acceso a la interfaz gráfica de usuario basada en Linux en Azure en el explorador con fernapp](http://channel9.msdn.com/Blogs/Open/Accessing-Linux-based-GUI-on-Azure-over-browser-with-fernapp)
@@ -206,7 +199,7 @@ En esta sección se incluye información acerca de distintos enfoques y tecnolog
     - [Slideshare (MSOpenTech): Experiencias con CouchDb en Azure](http://www.slideshare.net/brianbenz/experiences-using-couchdb-inside-microsofts-azure-team)
     - [Blog: Ejecución de CouchDB como servicio con node.js, CORS y Grunt](http://msopentech.com/blog/2013/12/19/tutorial-building-multi-tier-windows-azure-web-application-use-cloudants-couchdb-service-node-js-cors-grunt-2/)
 3. MongoDB
-    - [Creación de una aplicación Node.js en Azure con MongoDB y el complemento de MongoLab](store-mongolab-web-sites-nodejs-store-data-mongodb.md)
+    - [Creación de una aplicación Node.js en Azure con MongoDB y el complemento de MongoLab](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md)
 4. Cassandra
     - [Ejecución de Cassandra con Linux en Azure y acceso desde Node.js](virtual-machines-linux-nodejs-running-cassandra.md)
 5. Redis
@@ -218,8 +211,7 @@ En esta sección se incluye información acerca de distintos enfoques y tecnolog
 ### Datos de gran tamaño
 2. Hadoop/Cloudera  
 	- [Blog: Instalación de Hadoop en máquinas virtuales Linux de Azure](http://blogs.msdn.com/b/benjguin/archive/2013/04/05/how-to-install-hadoop-on-windows-azure-linux-virtual-machines.aspx)
-	- [Empezar a trabajar con Hadoop y Hive con HDInsight](hdinsight-get-started.md)  
-3. [HDInsight de Azure](http://azure.microsoft.com/services/hdinsight/): Un servicio Hadoop totalmente administrado en Azure.
+3. [HDInsight de Azure](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/): Un servicio Hadoop totalmente administrado en Azure.
 
 ### Base de datos relacional
 2. MySQL
@@ -227,8 +219,7 @@ En esta sección se incluye información acerca de distintos enfoques y tecnolog
     - [Optimización del rendimiento de MySQL en Azure](virtual-machines-linux-optimize-mysql-perf.md)
     - [Clústeres de MySQL](virtual-machines-linux-mysql-cluster.md)
     - [Creación de una base de datos de MySQL con Marketplace](store-php-create-mysql-database.md)
-    - [Django y MySQL en Sitios web Azure con Python y Visual Studio](web-sites-python-ptvs-django-mysql.md)
-    - [PHP y MySQL en Sitios web Azure con WebMatrix](web-sites-php-mysql-use-webmatrix.md)
+    - [Django y MySQL en Sitios web Azure con Python y Visual Studio](../app-service-web/web-sites-python-ptvs-django-mysql.md)
     - [Arquitectura de MySQL de alta disponibilidad en Microsoft Azure](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
 7. MariaDB
     - [Creación de un clúster con varios maestros de MariaDbs](virtual-machines-mariadb-cluster.md)
@@ -262,7 +253,7 @@ Esta sección comienza con una entrada de blog que contiene una serie de vídeos
 
 1. Docker
 	- [Extensión de la máquina virtual de Docker para Linux en Azure](virtual-machines-docker-vm-extension.md)
-	- [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)](virtual-machines-docker-with-../xplat-cli-install.md)
+	- [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)](virtual-machines-docker-with-xplat-cli.md)
 	- [Uso de la extensión de la máquina virtual de Docker con el Portal de Azure](virtual-machines-docker-with-portal.md)
 	- [Introducción rápida a Docker en Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 	- [Cómo usar una máquina Docker en Azure](virtual-machines-docker-machine.md)
@@ -281,7 +272,7 @@ Esta sección comienza con una entrada de blog que contiene una serie de vídeos
 	- [Terceros: Complemento esclavo de Hudson para Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
 	- [Terceros: Complemento de almacenamiento de Hudson para Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
 10. Chef
-	- [Chef y máquinas virtuales](virtual-machines-windows-install-chef-client.md)
+	- [Chef y máquinas virtuales](virtual-machines-automation-with-chef.md)
 	- [Vídeo: ¿Qué es Chef y cómo funciona?](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
 
 12. Automatización de Azure
@@ -311,4 +302,4 @@ Esta sección comienza con una entrada de blog que contiene una serie de vídeos
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -19,8 +19,6 @@
 
 # Uso del servicio de importación y exportación de Microsoft Azure para transferir datos al almacenamiento en blobs
 
-[AZURE.INCLUDE [storage-selector-portal-import-export-service](../../includes/storage-selector-portal-import-export-service.md)]
-
 ## Información general
 
 Puede utilizar el servicio de importación y exportación de Microsoft Azure para transferir grandes cantidades de datos de archivo al almacenamiento en blobs de Azure en situaciones en las que el proceso de carga a la red es prohibitivamente caro o no es viable. También puede utilizar el servicio de importación y exportación para transferir grandes cantidades de datos almacenados en blobs a su instalación local de una forma rápida y rentable.
@@ -278,4 +276,4 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

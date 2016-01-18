@@ -8,7 +8,7 @@
 
 3. En el cuadro de diálogo **Modificar contenedor de volúmenes**, realice lo siguiente:
 
-    1. Cambiar el nombre del contenedor de volúmenes, modificar el ancho de banda asociado y especificar si es necesario o no cifrar los datos que residen en la nube.
+    1. Cambie el nombre del contenedor de volúmenes y modifique el ajuste de ancho de banda asociado. 
 
         ![Modificación de un contenedor de volúmenes con la plantilla de ancho de banda 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
 
@@ -26,4 +26,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

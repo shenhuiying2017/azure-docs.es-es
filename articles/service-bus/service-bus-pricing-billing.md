@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/10/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Precios y facturación de Bus de servicio
 
 Bus de servicio está disponible en los niveles Básico, Estándar y [Premium](service-bus-premium-messaging.md). Puede elegir un nivel de servicio para cada espacio de nombres del servicio Bus de servicio que cree y esta selección de nivel se aplica a todas las colas, temas/suscripciones, retransmisiones y Centros de eventos creados dentro de ese espacio de nombres.
 
->[AZURE.NOTE]Para obtener más información sobre los precios de Bus de servicio, consulte [P+F de precios de Bus de servicio](service-bus-pricing-faq.md).
+>[AZURE.NOTE]Para más información sobre los precios actuales de Bus de servicio, consulte las [P+F de precios de Bus de servicio](service-bus-pricing-faq.md).
 
 Bus de servicio usa los siguientes dos medidores para colas y temas/suscripciones:
 
@@ -39,19 +39,19 @@ En la tabla siguiente se resumen las diferencias funcionales entre los niveles B
 
 |Capacidad|Básica|Estándar/Premium|
 |---|---|---|
-|Centros de eventos|SÍ|SÍ|
-|Colas|SÍ|SÍ|
-|Mensajes programados|SÍ|SÍ|
-|Temas/suscripciones|NO|SÍ|
-|Relés|NO|SÍ|
-|Transacciones|NO|SÍ|
-|Desduplicación|NO|SÍ|
-|Sesiones|NO|SÍ|
-|Mensajes grandes|NO|SÍ|
-|ForwardTo|NO|SÍ|
-|SendVia|NO|SÍ|
+|Centros de eventos|Sí|Sí|
+|Colas|Sí|Sí|
+|Mensajes programados|Sí|Sí|
+|Temas/suscripciones|No|Sí|
+|Relés|No|Sí|
+|Transacciones|No|Sí|
+|Desduplicación|No|Sí|
+|Sesiones|No|Sí|
+|Mensajes grandes|No|Sí|
+|ForwardTo|No|Sí|
+|SendVia|No|Sí|
 |Conexiones asíncronas (incluidas)|100 por cada espacio de nombres de Bus de servicio|1\.000 por cada suscripción de Azure|
-|Conexiones asíncronas (se permite el uso por encima del límite)|NO|SÍ (facturable)|
+|Conexiones asíncronas (se permite el uso por encima del límite)|No|SÍ (facturable)|
 
 ## Operaciones de mensajería
 
@@ -83,7 +83,7 @@ Los siguientes precios están vigentes desde el 1 de noviembre de 2014:
 |---|---|
 |Diario|11,13 $ de tarifa fija por unidad de mensaje|
 
-## Conexiones asíncronas
+## Conexiones asincrónicas
 
 Las *conexiones asincrónicas* se adaptan a los patrones de uso de los clientes que implican una gran cantidad de remitentes/receptores "conectados de forma persistente" contra colas, temas/suscripciones o Centros de eventos. Los remitentes/receptores conectados de forma persistente son aquellos que se conectan mediante AMQP o HTTP con un tiempo de expiración de recepción distinto a cero (por ejemplo, HTTP long polling). Los remitentes y receptores con un tiempo de expiración inmediato no generarán conexiones asíncronas.
 
@@ -143,10 +143,10 @@ Por ejemplo:
 
 Sí. No hay ningún cargo de conexión por el envío de eventos mediante HTTP, independientemente del número de sistemas o dispositivos emisores. La recepción de eventos con HTTP con un tiempo de expiración superior a cero, que a menudo se conoce como "long polling", genera cargos por conexión asíncrona. Las conexiones AMQP generan cargos por conexiones asíncronas, sin importar si las conexiones se usan para enviar o para recibir. Tenga en cuenta que se permiten 100 conexiones asíncronas sin cargo en un espacio de nombres Básico. Este es también el número máximo de conexiones asíncronas permitidas para la suscripción de Azure. Las primeras 1.000 conexiones asíncronas a lo largo de todos los espacios de nombre Estándar en una suscripción de Azure se incluyen sin ningún cargo adicional (más allá del cargo base). Dado que estos números son suficientes para cubrir una gran cantidad de escenarios de mensajería entre servicios, los cargos por conexión asíncrona normalmente solo son relevantes si planea usar AMQP o HTTP long-polling con un gran número de clientes; por ejemplo, para conseguir una mayor eficiencia en el streaming de eventos o para habilitar la comunicación bidireccional con muchos dispositivos o instancias de aplicación.
 
-## Otras referencias
+## Pasos siguientes
 
-[P+F de precios de Bus de servicio](service-bus-pricing-faq.md)
+Para más información sobre los precios de Bus de servicio, consulte las [P+F de precios de Bus de servicio](service-bus-pricing-faq.md).
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

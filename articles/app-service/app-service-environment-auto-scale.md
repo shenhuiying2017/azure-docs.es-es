@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="01/05/2016" 
 	ms.author="byvinyal"
 />
 	
@@ -48,7 +48,7 @@ Una vez definido un perfil, se pueden agregar reglas de escalado automático bas
 
 ![][scale-rule]
 
- En la definición de las reglas de escalado automático se pueden usar las métricas del **grupo de trabajo** o de **front-end**. Se trata de las mismas métricas que puede supervisar en los gráficos de la hoja de recursos o para las que puede configurar alertas.
+ En la definición de las reglas de escalado automático se pueden usar las métricas del **grupo de trabajo** o de **front-end**. Son las mismas métricas que puede supervisar en los gráficos de la hoja de recursos o para las que puede configurar alertas.
  
 ##Ejemplo de escalado automático
 La mejor manera de ilustrar el escalado automático de un **entorno del Servicio de aplicaciones** es a través de un escenario. En este artículo veremos todas las consideraciones que se deben tener en cuenta al configurar el escalado automático y todas las interacciones que entran en juego cuando aplicamos el escalado automático en **entornos del Servicio de aplicaciones** que se hospedan en un ASE.
@@ -124,7 +124,7 @@ En el caso de la regla *Escalado automático - Reducir verticalmente* del perfil
 
 Esto significa que el **plan del Servicio de aplicaciones** de producción puede crecer a una tasa máxima de **8** instancias por hora durante la semana y de **4** instancias por hora durante los fines de semana. Además, puede liberar las instancias a una tasa máxima de **4** instancias por hora durante la semana y **6** instancias por hora durante los fines de semana.
 
-Si se hospedan varios **planes del Servicio de aplicaciones** en un **grupo de trabajo**, debe calcularse la **tasa de inflación total**, que se puede expresar como la *suma* de la tasa de inflación de todos los **planes del Servicio de aplicaciones** que se hospedan en dicho **grupo de trabajo**.
+Si se hospedan varios **Planes del Servicio de aplicaciones** en un **grupo de trabajo**, debe calcularse la **tasa de inflación total**, que se puede expresar como la *suma* de la tasa de inflación de todos los **Planes del Servicio de aplicaciones** que se hospedan en dicho **grupo de trabajo**.
 
 ![][ASP-Total-Inflation]
 
@@ -170,7 +170,7 @@ El rango objetivo definido en el perfil se calcula sumando el número mínimo de
 
 El rango máximo debe ser la suma de todos los rangos máximos de todos los **planes del Servicio de aplicaciones** alojados en el **grupo de trabajo**.
 
-El recuento de aumento de las reglas de escalado vertical se debe configurar al menos en 1X de la **tasa de inflación del plan del Servicio de aplicaciones** para el escalado vertical.
+El recuento de aumento de las reglas de escalado vertical se debe configurar al menos en 1X de la **tasa de inflación del Plan del Servicio de aplicaciones** para el escalado vertical.
 
 El recuento de reducción se puede ajustar en un valor situado entre 1/2X y 1X de la **tasa de inflación del plan del Servicio de aplicaciones** para la reducción vertical.
 
@@ -227,4 +227,4 @@ En este escenario, Frank sabe que la tasa de errores aumenta una vez que los ser
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

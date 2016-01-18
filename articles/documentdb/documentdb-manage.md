@@ -74,7 +74,7 @@ De forma predeterminada, la Base de datos de documentos indexa todos los documen
 ## Pasos siguientes
 Para obtener instrucciones sobre cómo supervisar los niveles de rendimiento en el Portal de Azure, consulte [Supervisión de una cuenta de DocumentDB](documentdb-monitor-accounts.md).
 
-Para obtener más información sobre la elección de los niveles de rendimiento para las colecciones, consulte [Niveles de rendimiento en DocumentDB](documentdb-performance-levels).
+Para obtener más información sobre la elección de los niveles de rendimiento para las colecciones, consulte [Niveles de rendimiento en DocumentDB](documentdb-performance-levels.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -8,14 +8,14 @@
     manager="stevenpo"
     editor=""/>
 
-   <tags
-      ms.service="active-directory"
-      ms.devlang="na"
-      ms.topic="article"
-      ms.tgt_pltfrm="na"
-      ms.workload="identity"
-      ms.date="12/01/2015"
-      ms.author="curtand"/>
+<tags
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="01/05/2016"
+    ms.author="curtand"/>
 
 # Integración del inicio de sesión único de Azure Active Directory con aplicaciones SaaS  
 
@@ -49,7 +49,7 @@ La configuración del inicio de sesión único para una aplicación que ya se us
 
 Normalmente, la identidad de un usuario tiene un identificador único que podría ser una dirección de correo electrónico o un nombre universal personal (UPN). Tendrá que vincular (asignar) la identidad de la aplicación de cada usuario a sus respectivas identidades de Azure AD. Hay dos maneras de lograrlo en función del requisito de autenticación de la aplicación.
 
-Para obtener más información sobre la asignación de identidades de la aplicación con identidades de Azure AD, consulte [Personalización de notificaciones emitidas en el token SAML](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx) y [Personalización de asignaciones de atributos para aprovisionamiento](active-directory-saas-customizing-attribute-mappings.md).
+Para obtener más información sobre la vinculación de identidades de la aplicación con identidades de Azure AD, consulte [Personalización de notificaciones emitidas en el token SAML](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx) y [Personalización de asignaciones de atributos para aprovisionamiento](active-directory-saas-customizing-attribute-mappings.md).
 
 ### Descripción de la experiencia de inicio de sesión del usuario
 
@@ -68,4 +68,4 @@ Si la aplicación no está en la galería de aplicaciones, puede [agregarla a la
 
 Encontrará más información sobre todos estos problemas en la biblioteca de Azure.com, por ejemplo, [Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

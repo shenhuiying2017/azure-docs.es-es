@@ -218,10 +218,10 @@ En este caso, la compresión de datos BZIP2 podría estar ralentizando toda la c
 Estas son algunas referencias para la supervisión y la optimización del rendimiento para algunos de los almacenes de datos compatibles:
 
 - Almacenamiento de Azure (incluidos Blob de Azure y Tabla de Azure): [Objetivos de escalabilidad de Almacenamiento de Azure](../storage/storage-scalability-targets.md) y [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](../storage//storage-performance-checklist.md)
-- Base de datos SQL de Azure: puede [supervisar el rendimiento](../sql-database/sql-database-service-tiers.md?rnd=1#monitoring-performance) y comprobar el porcentaje de unidades de capacidad de proceso de base de datos (DTU).
-- Almacenamiento de datos SQL de Azure: su capacidad se mide por unidades de almacenamiento de datos (DWU). Consulte [Rendimiento y escala flexibles con Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-performance-scale/).
-- Azure DocumentDB: [Performance level in DocumentDB](../documentdb/documentdb-performance-levels/).
+- Base de datos SQL de Azure: puede [supervisar el rendimiento](../sql-database/sql-database-service-tiers.md#monitoring-performance) y comprobar el porcentaje de unidades de capacidad de proceso de base de datos (DTU).
+- Almacenamiento de datos SQL de Azure: su capacidad se mide por unidades de almacenamiento de datos (DWU). Consulte [Rendimiento y escala flexibles con Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-performance-scale.md).
+- Azure DocumentDB: [Performance level in DocumentDB](../documentdb/documentdb-performance-levels.md).
 - Instancia de SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx).
 - Servidor de archivos local: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

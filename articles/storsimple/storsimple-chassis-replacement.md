@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Reemplazar el chasis en un dispositivo StorSimple | Microsoft Azure"
-   description="Describe cómo quitar y reemplazar el chasis en su dispositivo StorSimple"
+   description="Describe cómo quitar y reemplazar el chasis del gabinete EBOD y del gabinete principal de StorSimple."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="12/30/2015"
    ms.author="alkohli" />
 
 # Reemplazar el chasis en el dispositivo StorSimple
 
 ## Información general
 
-Este tutorial explica cómo quitar y reemplazar un chasis en un dispositivo de StorSimple. El modelo StorSimple 8100 es un dispositivo de un solo gabinete (un chasis), mientras que el 8600 es un dispositivo de dos gabinetes (dos chasis). Para un modelo 8600, hay potencialmente dos chasis que pueden producir un error en el dispositivo: el chasis para el gabinete principal o el chasis del gabinete EBOD.
+Este tutorial explica cómo quitar y reemplazar un chasis en un dispositivo de la serie 8000 de StorSimple. El modelo StorSimple 8100 es un dispositivo de un solo gabinete (un chasis), mientras que el 8600 es un dispositivo de dos gabinetes (dos chasis). Para un modelo 8600, hay potencialmente dos chasis que pueden producir un error en el dispositivo: el chasis para el gabinete principal o el chasis del gabinete EBOD.
 
 En cualquier caso, el chasis de reemplazo que se distribuye por Microsoft estará vacío. No se incluirán Módulos de alimentación y refrigeración (PCM), módulos de controlador, unidades de disco de estado sólido (SSD), unidades de disco duro (HDD) o módulos EBOD.
 
@@ -55,7 +55,7 @@ Realice los pasos siguientes para instalar el chasis en un dispositivo StorSimpl
 
 3. Instale las unidades en las mismas posiciones y ranuras en las que estaban previamente instaladas.
 
-    >[AZURE.NOTE]En general, se recomienda que coloque las SSD en las ranuras en primer lugar y, a continuación, instale los discos duros.
+    >[AZURE.NOTE]Se recomienda que primero instale las SSD en las ranuras y, luego, instale los discos duros.
 
 2. Con el dispositivo montado en el bastidor y los componentes instalados, conecte el dispositivo a las fuentes de alimentación adecuadas y encienda el dispositivo. Para obtener más información, consulte [Cableado del dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) o [Cableado del dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
@@ -63,4 +63,4 @@ Realice los pasos siguientes para instalar el chasis en un dispositivo StorSimpl
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

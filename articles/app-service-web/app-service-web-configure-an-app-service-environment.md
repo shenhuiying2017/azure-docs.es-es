@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="01/04/2016" 
 	ms.author="ccompy"/>
 
 
@@ -33,7 +33,7 @@ A un alto nivel, un entorno del Servicio de aplicaciones consta de varios compon
 - Una red virtual clásica "v1" con al menos una subred
 - Subred con el servicio hospedado del entorno del Servicio de aplicaciones de Azure que se ejecuta en él
 
-Se usan los recursos de proceso para los cuatro grupos de recursos. Cada entorno del Servicio de aplicaciones tiene un conjunto de servidores front-end y tres grupos de trabajo. No es necesario usar los tres grupos de trabajo y, si lo desea, puede usar solo uno. Los servidores front-end son los puntos de conexión HTTP para las aplicaciones que se mantienen en el ASE. Los trabajadores están donde las aplicaciones que ejecutan realmente. Si se necesita agregar más servidores front-end o más trabajadores dependerá de cómo se realizan las aplicaciones que se colocan en el ASE. Por ejemplo, supongamos que solo tiene una aplicación en el ASE y es una aplicación de tipo Hola a todos que obtiene un gran número de solicitudes. En ese caso sería necesario escalar verticalmente los servidores front-end para controlar la carga HTTP pero en cambio no necesita escalar verticalmente sus trabajos. Intentar controlar todo esto a mano es bastante complicado, especialmente cuando se considera que cada ASE probablemente tiene una mezcla de aplicaciones que se ejecutan en él con distintos criterios de rendimiento. Afortunadamente, hemos agregado suficiente escalado automático a entornos del Servicio de aplicaciones y esto es lo que simplifica considerablemente todo. Para obtener más información sobre el escalado y el escalado automático de los entornos del Servicio de aplicaciones, siga el vínculo de [Configuración del escalado automático en un entorno del Servicio de aplicaciones][ASEAutoscale]
+Se usan los recursos de proceso para los cuatro grupos de recursos. Cada entorno del Servicio de aplicaciones tiene un conjunto de servidores front-end y tres grupos de trabajo. No es necesario usar los 3 grupos de trabajo y, si lo desea, puede usar solo uno. Los servidores front-end son los puntos de conexión HTTP para las aplicaciones que se mantienen en el ASE. Los trabajadores están donde las aplicaciones que ejecutan realmente. Si se necesita agregar más servidores front-end o más trabajadores dependerá de cómo se realizan las aplicaciones que se colocan en el ASE. Por ejemplo, supongamos que solo tiene una aplicación en el ASE y es una aplicación de tipo Hola a todos que obtiene un gran número de solicitudes. En ese caso sería necesario escalar verticalmente los servidores front-end para controlar la carga HTTP pero en cambio no necesita escalar verticalmente sus trabajos. Intentar controlar todo esto a mano es bastante complicado, especialmente cuando se considera que cada ASE probablemente tiene una mezcla de aplicaciones que se ejecutan en él con distintos criterios de rendimiento. Afortunadamente, hemos agregado suficiente escalado automático a entornos del Servicio de aplicaciones y esto es lo que simplifica considerablemente todo. Para obtener más información sobre el escalado y el escalado automático de los entornos del Servicio de aplicaciones, siga el vínculo de [Configuración del escalado automático en un entorno del Servicio de aplicaciones][ASEAutoscale]
 
 Cada ASE se configura con 500 Gb de almacenamiento. Este espacio se usa en todas las aplicaciones del ASE. Este espacio de almacenamiento es parte del ASE y actualmente no se puede cambiar para usar el espacio de almacenamiento del cliente.
 
@@ -45,7 +45,7 @@ La interfaz de usuario para administrar y supervisar el entorno del Servicio de 
 
 ![][1]
 
-Puede usar el icono o seleccionar el botón de contenido adicional (símbolo mayor que) en la parte inferior de la barra lateral y seleccionar entornos del Servicio de aplicaciones. Ambos hacen lo mismo, es decir, abren la interfaz de usuario que muestra todos los entornos del Servicio de aplicaciones. Al seleccionar uno de los ASE mostrados, se abre la interfaz de usuario usada para supervisarlo y administrarlo.
+Puede usar el icono o seleccionar el botón de contenido adicional (símbolo mayor que) en la parte inferior de la barra lateral y seleccionar entornos del Servicio de aplicaciones. Ambos hacen lo mismo, es decir, abren la IU que muestra todos los entornos del Servicio de aplicaciones. Al seleccionar uno de los ASE mostrados, se abre la interfaz de usuario usada para supervisarlo y administrarlo.
 
 ![][2]
 
@@ -200,4 +200,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

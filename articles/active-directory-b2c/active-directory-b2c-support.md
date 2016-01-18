@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="01/04/2016"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Presentación de solicitudes de soporte técnico para Azure Active Directory B2C
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-Puede presentar solicitudes de soporte técnico para Azure Active Directory (AD) B2C en el Portal de vista previa de Azure siguiendo estos pasos:
+Puede presentar solicitudes de soporte técnico para Azure Active Directory (AD) B2C en el Portal de Azure mediante estos pasos:
 
-1. [Vaya a la hoja de características de B2C del Portal de vista previa de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Siga estos pasos para desplazarse hasta la hoja de características B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Cambie del inquilino B2C a otro inquilino que tenga asociada una suscripción de Azure. Normalmente, éste es el inquilino del empleado o el inquilino predeterminado que se crea cuando se registra para una suscripción de Azure. Lea [este artículo](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad) para obtener más información sobre la relación entre las suscripciones de Azure y los directorios de Azure AD.
 
     > [AZURE.IMPORTANT]
@@ -52,4 +52,4 @@ Si el paso 2 descrito anteriormente no le ha salido e intenta crear una solicitu
 
 ![Soporte técnico - sin suscripción](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

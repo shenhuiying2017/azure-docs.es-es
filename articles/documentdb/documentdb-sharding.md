@@ -98,13 +98,13 @@ foreach (UserProfile activeUser in query)
 ## Resolución de partición por hash
 Con la creación de particiones por hash, las particiones se asignan en función del valor de una función hash, lo que permite distribuir uniformemente las solicitudes y los datos entre una cantidad determinada de particiones. Este enfoque se utiliza normalmente para la creación de particiones de datos producidos o consumidos desde un gran número de clientes distintos, y es útil para almacenar perfiles de usuario, elementos de catálogos y datos de telemetría de IoT ("Internet de las cosas").
 
-**Creación de particiones por hash** ![Diagrama que ilustra cómo la creación de particiones por hash distribuye uniformemente las solicitudes entre las particiones](media/documentdb-sharding/partition-hash.png "Creación de particiones por hash")
+**Creación de particiones por hash** ![Diagrama que ilustra cómo la creación de particiones por hash distribuye uniformemente las solicitudes entre las particiones](media/documentdb-sharding/partition-hash.png)
 
 Un esquema sencillo de la creación de particiones por hash entre *N* colecciones sería tomar cualquier documento y calcular *hash(d) mod N* para determinar en qué colección se coloca. Sin embargo, esta sencilla técnica presenta un problema, y es que no funciona bien cuando agrega nuevas colecciones o quita colecciones, ya que esto requeriría la reestructuración de la práctica totalidad de los datos. [La aplicación coherente de hash](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.23.3738) es un algoritmo muy conocido que soluciona este problema mediante la implementación de un esquema de hash que minimiza la cantidad de movimiento de datos necesario durante la adición o la eliminación de las colecciones.
 
 La clase [HashPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) implementa la lógica para crear un anillo de hash coherente a través de la función de hash especificada en la interfaz [IHashGenerator](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.ihashgenerator.aspx). De forma predeterminada, HashPartitionResolver utiliza una función de hash MD5, pero esto se puede cambiar por su propia implementación de hash. El HashPartitionResolver crea internamente 16 valores hash o "nodos virtuales" en el anillo de hash para cada colección a fin de lograr una distribución más uniforme de documentos entre las colecciones, pero puede cambiar este número para compensar el sesgo de datos con la cantidad de cálculo del lado cliente.
 
-**Aplicación coherente de hash con HashPartitionResolver:** ![Diagrama que ilustra cómo HashPartitionResolver crea un anillo de hash](media/documentdb-sharding/HashPartitionResolver.JPG "Aplicación coherente de hash")
+**Aplicación coherente de hash con HashPartitionResolver:** ![Diagrama que ilustra cómo HashPartitionResolver crea un anillo de hash](media/documentdb-sharding/HashPartitionResolver.JPG)
 
 ## Resolución de partición por rangos
 
@@ -114,7 +114,7 @@ En la creación de particiones por rangos, las particiones se asignan en funció
 
 **Creación de particiones por rangos:**
 
-![Diagrama que ilustra cómo la creación de particiones por rangos distribuye uniformemente las solicitudes entre las particiones](media/documentdb-sharding/partition-range.png "Creación de particiones por rangos")
+![Diagrama que ilustra cómo la creación de particiones por rangos distribuye uniformemente las solicitudes entre las particiones](media/documentdb-sharding/partition-range.png)
 
 Un caso especial de la creación de particiones por rangos es cuando el rango es simplemente un único valor discreto, a veces denominado "creación de particiones por búsquedas". Esto se utiliza normalmente para crear particiones por región (por ejemplo, la partición de Escandinavia contiene Noruega, Dinamarca y Suecia) o para crear particiones de los inquilinos en una aplicación de varios inquilinos.
 
@@ -167,4 +167,4 @@ Puede encadenar PartitionResolvers implementando su propio valor de IPartitionRe
 * [Blog de DocumentDB sobre sugerencias de rendimiento](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

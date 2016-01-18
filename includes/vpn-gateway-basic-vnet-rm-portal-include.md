@@ -1,29 +1,31 @@
-To create a VNet based on the scenario above by using the Azure portal, follow the steps below.
+Para crear una red virtual basada en el escenario anterior por medio del Portal de Azure, siga estos pasos.
 
-1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
+1. Desde un explorador, vaya a http://portal.azure.com y, si es necesario, inicie sesión con su cuenta de Azure.
 
-2. Click **NEW** > **Networking** > **Virtual network**, then click **Resource Manager** from the **Select a deployment model** list, and then click **Create**.
+2. Haga clic en **NUEVO** > **Redes** > **Red virtual** y, luego, haga clic en **Administrador de recursos** de la lista **Seleccionar un modelo de implementación** y, finalmente, haga clic en **Crear**.
 
-3. On the **Create virtual network** blade, configure the VNet settings as shown in the figure below.
+3. En la hoja **Crear red virtual**, configure los valores de la red virtual, como se muestra en la figura siguiente.
 
-	![Create virtual network blade](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
+	![Hoja Crear red virtual](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
 
-4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
+4. Haga clic en **Grupo de recursos** y seleccione un grupo de recursos al que va a agregar la red virtual, o haga clic en **Crear nuevo** para agregar la red virtual a un nuevo grupo de recursos. En la siguiente figura se muestra la configuración de grupo de recursos de un nuevo grupo de recursos denominado **TestRG**. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](resource-group-overview.md/#resource-groups).
 
-	![Resource group](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
+	![Grupos de recursos](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 
-5. If necessary, change the **Subscription** and **Location** settings for your VNet. 
+5. Si es necesario, cambie la configuración de la **Suscripción** y la **Ubicación** de la red virtual.
 
-6. Click **Create** and notice the tile named **Creating Virtual network** as shown in the figure below.
+6. Haga clic en **Crear** y observe el icono denominado **Creación de red virtual** tal como se muestra en la figura siguiente.
 
-	![Creating virtual network tile](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure4.png)
+	![Icono de Crear red virtual](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure4.png)
 
-7. Wait for the VNet to be created, then in the **Virtual network** blade, click **All settings** > **Subnets** > **Add**.
+7. Espere a que se cree la red virtual y, luego, en la hoja **Red virtual**, haga clic en **Toda la configuración** > **Subredes** > **Agregar**.
 
-8. Specify the subnet settings for the *BackEnd* subnet, as shown below, and then click **OK**. 
+8. Especifique la configuración de subred para la subred *BackEnd*, tal como se muestra a continuación y haga clic en **Aceptar**.
 
-	![Subnet settings](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure6.png)
+	![Configuración de subred](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure6.png)
 
-9. View the list of subnets.
+9. Consulte la lista de subredes.
 
-	![List of subnets in VNet](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
+	![Lista de subredes en la red virtual](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
+
+<!---HONumber=AcomDC_0107_2016-->

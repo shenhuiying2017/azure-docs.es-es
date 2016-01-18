@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/16/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Creación de aplicaciones que usan temas y suscripciones del Bus de servicio
@@ -148,6 +148,6 @@ Todas las razones para usar las colas descritas en [Creación de aplicaciones qu
 
 ## Pasos siguientes
 
-Para ver cómo usar las colas en el escenario minorista de PDV, consulte [Creación de aplicaciones que usan temas y suscripciones del Bus de servicio](service-bus-create-topics-subscriptions.md).
+Para más información cómo usar las colas en el escenario minorista de PDV, consulte [Creación de aplicaciones que usan colas de Bus de servicio](service-bus-create-queues.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

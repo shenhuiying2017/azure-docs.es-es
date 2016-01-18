@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="12/23/2015"
 	ms.author="heidist"/>
 
 #Búsqueda de Azure: tutoriales, demostraciones de vídeo y ejemplos
@@ -67,32 +67,35 @@ Tutorial|Descripción
 [Tutorial de perfiles de puntuación](search-get-started-scoring-profiles.md)|Pruebe los perfiles de puntuación con una aplicación de consola.
 [Tutorial de la API de REST de administración de Búsqueda de Azure](search-get-started-management-api.md)|Cómo usar la API de REST de administración para aprovisionar el servicio y administrar claves de api de administrador o de consulta.
 
-##Ejemplos de código
+##Sitios de ejemplos de código
 
-[****https://github.com/liamca/AzureSearchDemos**](https://github.com/liamca/AzureSearchDemos) es un repositorio de GitHub que contiene ejemplos de código creados por Liam Cavanagh. En este repositorio se pueden encontrar los ejemplos siguientes:
+Examine estos sitios que incluyen ejemplos de código de Búsqueda de Azure:
 
-- [AdventureWorksWP8]() es una aplicación de Windows Phone.
-- [AzSearchAutoScaleWeb](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) 
-- [BabyNameJS](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) es un archivo index.html que ofrece datos en un tutorial.
-- [DotNetSample](https://github.com/liamca/AzureSearchDemos/tree/master/DotNetSample) es una aplicación de ASP.NET MVC para Búsqueda de Azure.
-- [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET) ofrece código fuente para el sitio web activo de demostración NYCJobs.
-- [Recommendations](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) usa Factoría de datos, Base de datos SQL, Almacenamiento de blobs y HDInsight de Active para implementar recomendaciones de productos según la frecuencia con la que se compran juntos.
+- [https://github.com/Azure-Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=+only%3Asources+search)
+- [https://github.com/AzureSearch](https://github.com/AzureSearch) 
+- [https://github.com/liamca/AzureSearchDemos](https://github.com/liamca/AzureSearchDemos)
+- [https://github.com/MicrosoftLearning/AzureSearch-MVA](https://github.com/MicrosoftLearning/AzureSearch-MVA)
 
-[****https://github.com/AzureSearch**](https://github.com/AzureSearch) es otro repositorio de GitHub para Búsqueda de Azure que contiene ejemplos de código creados por el equipo de desarrollo de Búsqueda de Azure. Puede examinar el repositorio para ver lo que contiene o hacer clic en vínculos que aparecen a continuación para ir directamente a ejemplos concretos.
+##Lista de ejemplos de código
 
-- [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
-- [**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)
-- [**.NET-2015-02-28-Sample**](https://github.com/AzureSearch/.NET-2015-02-28-Sample) es una aplicación de ASP.NET MVC 5 que usa la biblioteca cliente de .NET en operaciones de búsqueda.
+- El [**código de ejemplo para la biblioteca cliente .NET-2015-02-28**](https://github.com/AzureSearch/.NET-2015-02-28-Sample) es una aplicación ASP.NET MVC 5 que usa la biblioteca cliente de .NET en operaciones de búsqueda.
+- [**Código de ejemplo para el tutorial de introducción a Búsqueda de Azure con Java**](https://github.com/Azure-Samples/search-java-getting-started)
+- [**Código de ejemplo para el tutorial de introducción a Búsqueda de Azure**](https://github.com/Azure-Samples/search-dotnet-getting-started)
+- [**Código de ejemplo para la demostración del indexador de Java**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
+- [**Código de ejemplo para la demostración del indexador de NodeJS**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)
+- [**El ejemplo de sitio web de los trabajos de la ciudad de Nueva York mediante ASP.NET MVC**](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) un sitio de Búsqueda de Azure de demostración en vivo sobre datos de trabajos de la ciudad de Nueva York.
+- [**search-dotnet-management-api**](https://github.com/Azure-Samples/search-dotnet-management-api/) es una aplicación de consola de Windows que usa la API de REST de administración.
+- [**El ejemplo de reconocimiento de voz mediante Cortana para Windows Phone**](https://github.com/Azure-Samples/search-dotnet-windows-phone-cortana-speech) muestra cómo usar el reconocimiento de voz desde un teléfono con Windows Phone para realizar una búsqueda en Búsqueda de Azure.
+- [**El ejemplo de recomendaciones de los productos comprados frecuentemente juntos**](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) usa Factoría de datos, Base de datos SQL, Almacenamiento de blobs y HDInsight de Active para implementar recomendaciones de productos según la frecuencia con la que se compran juntos.
+- [**AzSearchAutoScaleWeb**](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) es un código de ejemplo que muestra cómo escalar automáticamente un servicio de Búsqueda de Azure.
+- [**BabyNameJS**](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) es un archivo index.html que ofrece datos en un tutorial.
 
-Se usa un repositorio de GitHub independiente para [**Materiales de aprendizaje de la Academia virtual de AzureSearch-Microsoft**](https://github.com/MicrosoftLearning/AzureSearch-MVA). Incluye varios ejemplos que se usan en el curso de 7 partes.
+En CodePlex, puede encontrar varios ejemplos más antiguos publicados durante la vista previa pública que siguen siendo relevantes en la versión actual.
 
-En CodePlex, puede encontrar varios ejemplos publicados durante la vista previa pública que siguen siendo relevantes en la versión actual.
-
-- [**Management REST API Demo**](https://azuresearchmgmtapi.codeplex.com/) es una aplicación de consola de Windows que usa la API de REST de administración.
 - [**AdventureWorks Demo**](https://azuresearchadventureworksdemo.codeplex.com/) es una aplicación ASP.NET MVC 4.
 - [**Suggestions Demo**](https://azsearchsuggestions.codeplex.com/SourceControl/latest) es una aplicación ASP.NET MVC 4.
 - [**GeoSearch sample**](https://azuresearchgeospatial.codeplex.com/) es una aplicación ASP.NET MVC 4.
 - [**SQL Server to Azure Search Sync Sample**](http://sqlserver2azuresearch.codeplex.com/) es una aplicación de consola de Windows que carga un conjunto de filas de SQL Server desde una base de datos local insertada.
 - [**Scoring Profiles Demo**](https://azuresearchscoringprofiles.codeplex.com/) es una aplicación de consola de Windows que define, ejecuta y actualiza un perfil de puntuación para optimizar los resultados de la búsqueda.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/22/2015"
+   ms.date="01/04/2016"
    ms.author="jgao"/>
 
 # Tutorial: Introducción a Análisis de Azure Data Lake mediante el Portal de Azure
@@ -33,7 +33,7 @@ En este tutorial, desarrollará un trabajo que lee un archivo de valores separad
 3. Desarrolle un script U-SQL.
 4. Envíe un trabajo (script U-SQL) a la cuenta de Análisis de Data Lake. El trabajo lee desde el origen de datos, procesa los datos como se indica en el script U-SQL y después guarda la salida en una cuenta de Almacén de Data Lake o de almacenamiento de blobs.
 
-**Requisitos previos**
+###Requisitos previos
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
@@ -43,7 +43,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 Debe tener una cuenta de Análisis de Data Lake para poder ejecutar trabajos.
 
-Cada cuenta de Análisis de Data Lake tiene una cuenta de [Almacén de Azure Data Lake]() dependiente. Esta cuenta se conoce como la cuenta predeterminada de Almacén de Data Lake. Puede crear la cuenta de Almacén de Data Lake previamente o cuando cree la cuenta de Análisis de Data Lake. En este tutorial, creará la cuenta de Almacén de Data Lake con la cuenta de Análisis de Data Lake.
+Cada cuenta de Análisis de Data Lake depende de una cuenta del [Almacén de Azure Data Lake](). Esta cuenta se conoce como la cuenta predeterminada de Almacén de Data Lake. Puede crear la cuenta de Almacén de Data Lake previamente o cuando cree la cuenta de Análisis de Data Lake. En este tutorial, creará la cuenta de Almacén de Data Lake con la cuenta de Análisis de Data Lake.
 
 **Para crear una cuenta de Análisis de Data Lake**
 
@@ -54,9 +54,9 @@ Cada cuenta de Análisis de Data Lake tiene una cuenta de [Almacén de Azure Dat
     ![Hoja del portal de Análisis de Azure Data Lake](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
 	- **Nombre**: el nombre de la cuenta de Análisis.
-	- **Almacén de Data Lake**: cada cuenta de Análisis de Data Lake tiene una cuenta de Almacén de Data Lake dependiente. La cuenta de Análisis de Data Lake y la cuenta de Almacén de Data Lake dependiente deben ubicarse en el mismo centro de datos de Azure. Siga las instrucciones para crear una nueva cuenta de Almacén de Data Lake o seleccione una existente.
+	- **Almacén de Data Lake**: cada cuenta de Análisis de Data Lake depende de una cuenta del Almacén de Data Lake. La cuenta de Análisis de Data Lake y la cuenta de Almacén de Data Lake dependiente deben ubicarse en el mismo centro de datos de Azure. Siga las instrucciones para crear una nueva cuenta de Almacén de Data Lake o seleccione una existente.
 	- **Suscripción**: seleccione la suscripción de Azure usada para la cuenta de Análisis.
-	- **Grupo de recursos**. seleccione un grupo de recursos de Azure existente o cree uno nuevo. El Administrador de recursos de Azure (ARM) permite trabajar con los recursos de la aplicación como grupo. Para obtener más información, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md). 
+	- **Grupo de recursos**: seleccione un grupo de recursos de Azure existente o cree uno nuevo. El Administrador de recursos de Azure (ARM) permite trabajar con los recursos de la aplicación como grupo. Para obtener más información, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md). 
 	- **Ubicación**: seleccione un centro de datos de Azure para la cuenta de Análisis de Data Lake. 
 7. Seleccione **Anclar a Panel de inicio**. Esto es necesario para seguir este tutorial.
 8. Haga clic en **Crear**. Se abre el Panel de inicio del portal. Se agrega un nuevo icono al Panel de inicio con la etiqueta "Implementación de Análisis de Azure Data Lake". Se tarda unos momentos en crear una cuenta de Análisis de Data Lake. Cuando la cuenta está creada, se abre la cuenta en una hoja nueva en el portal.
@@ -157,9 +157,9 @@ Después de preparar el origen de datos, puede comenzar a desarrollar un script 
 
 - Para ver una consulta más compleja, consulte la página sobre el [análisis de registros de sitio web mediante Análisis de Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
 - Para empezar a desarrollar aplicaciones con U-SQL, consulte [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-- Para aprender U-SQL, consulte [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
+- Para obtener más información sobre U-SQL, consulte [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 - Para las tareas de administración, consulte [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md).
 - Para obtener información general acerca de Análisis de Data Lake, consulte la página de [información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
 - Para ver el mismo tutorial con otras herramientas, haga clic en los selectores de pestañas en la parte superior de la página.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->
