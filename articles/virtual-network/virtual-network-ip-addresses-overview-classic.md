@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="12/23/2015"
    ms.author="telmos" />
 
 # Direcciones IP (clásica) en Azure
@@ -23,7 +23,7 @@ Las direcciones IP públicas se usan para la comunicación con Internet, incluid
 
 Las direcciones IP privadas se utilizan para la comunicación dentro de una red virtual (VNet) de Azure, un servicio en la nube y la red local cuando se usa una puerta de enlace de VPN o un circuito ExpressRoute para ampliar la red a Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [resource manager deployment model](virtual-network-ip-addresses-overview-arm.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
 
 ## Direcciones IP públicas
 Las direcciones IP públicas permiten que los recursos de Azure se comuniquen con Internet y servicios de acceso público de Azure como [Caché en Redis de Azure](https://azure.microsoft.com/services/cache), [Centros de eventos de Azure](https://azure.microsoft.com/services/event-hubs), [Bases de datos SQL](sql-database-technical-overview.md) y [Almacenamiento de Azure](storage-introduction.md).
@@ -37,7 +37,7 @@ Una dirección IP pública se asocia a los siguientes tipos de recursos:
 - Puertas de enlace de aplicaciones
 
 ### Método de asignación
-Cuando se necesita asignar una dirección IP pública a un recurso de Azure, se asigna *dinámicamente* desde un grupo de dirección IP pública disponible dentro de la ubicación en la que se crea el recurso. Esta dirección IP se libera cuando se detiene el recurso. En caso de un servicio en la nube, esto sucede cuando se detienen todas las instancias de rol, que puede evitarse mediante el uso de una dirección IP *estática* (reservada) (consulte Servicios en la nube a continuación).
+Cuando se necesita asignar una dirección IP pública a un recurso de Azure, se asigna *dinámicamente* desde un grupo de dirección IP pública disponible dentro de la ubicación en la que se crea el recurso. Esta dirección IP se libera cuando se detiene el recurso. En caso de un servicio en la nube, esto sucede cuando se detienen todas las instancias de rol, lo que puede evitarse mediante el uso de una dirección IP *estática* (reservada) (consulte [Servicios en la nube](#Cloud-services)).
 
 >[AZURE.NOTE]La lista de intervalos IP desde la que se asignan direcciones IP públicas a recursos de Azure está publicada en [Intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -80,7 +80,7 @@ En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asign
 ## Direcciones IP privadas
 Las direcciones IP privadas permiten que los recursos de Azure se comuniquen con otros recursos en un servicio en la nube o en una [red virtual](virtual-networks-overview.md), o en la red local a través de una puerta de enlace de VPN o un circuito ExpressRoute, sin usar una dirección IP accesible desde Internet.
 
-En el modelo de implementación clásica de Azure, una dirección IP privada se asigna a diversos recursos de Azure.
+En el modelo de implementación clásica de Azure, es posible asignar una dirección IP privada a los siguientes recursos de Azure:
 
 - Instancias de rol PaaS y máquinas virtuales IaaS
 - Equilibrador de carga interno
@@ -101,7 +101,7 @@ En el caso de un servicio en la nube implementado en una red virtual, los recurs
 
 Además, en caso de servicios en la nube dentro de una red virtual, se asigna una dirección IP privada *dinámicamente* (con DHCP) de forma predeterminada. Puede cambiar cuando se detiene e inicia el recurso. Para asegurarse de que la dirección IP sigue siendo la misma, debe establecer el método de asignación en *estático*, y proporcionar una dirección IP válida dentro del intervalo de direcciones correspondiente.
 
- Las direcciones IP privadas estáticas se suelen usar para:
+Las direcciones IP privadas estáticas se suelen usar para:
 
  - Máquinas virtuales que actúan como controladores de dominio o servidores DNS.
  - Máquinas virtuales que requieren reglas de firewall que usan direcciones IP.
@@ -128,6 +128,23 @@ En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asign
 |Front-end de equilibrador de carga interno|Sí|Sí|Sí|
 |Front-end de Puerta de enlace de aplicaciones|Sí|Sí|Sí|
 
+## Límites
+
+La tabla siguiente muestra los límites impuestos al direccionamiento IP en Azure por suscripción. Puede [ponerse en contacto con el soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar los límites predeterminados hasta alcanzar los límites máximos, según las necesidades empresariales.
+
+||Límite predeterminado|Límite máximo| |---|---|---| |Direcciones IP públicas (dinámicas)|5|póngase en contacto con el soporte técnico| |Direcciones IP públicas reservadas|20|póngase en contacto con el soporte técnico| |VIP pública por implementación (servicio en la nube)|5|póngase en contacto con el soporte técnico| |VIP privada (ILB) por implementación (servicio en la nube)|1|1|
+
+Asegúrese de leer el conjunto completo de [límites para redes](azure-subscription-service-limits.md#networking-limits) en Azure.
+
+## Precios
+
+En la mayoría de los casos, las direcciones IP públicas son gratis. El uso de direcciones IP públicas adicionales o estáticas implica un cargo nominal. Asegúrese de comprender la [estructura de precios de las direcciones IP públicas](https://azure.microsoft.com/pricing/details/ip-addresses/).
+
+## Diferencias entre la implementación del Administración de recursos y la implementación clásica
+A continuación, se muestra una comparación de las características de direccionamiento IP en el modelo de implementación del Administrador de recursos y el modelo de implementación clásica.
+
+||Recurso|Clásica|Administrador de recursos| |---|---|---|---| |**Dirección IP pública**|Máquina virtual|Denominada ILPIP (solo dinámica)|Denominada IP pública (dinámica o estática)| |||Asignada a una máquina virtual IaaS o una instancia de rol PaaS|Asociada a la tarjeta NIC de la máquina virtual| ||Equilibrador de carga accesible desde Internet|Denominada VIP (dinámica) o IP reservada (estática)|Denominada IP pública (dinámica o estática)| |||Asignada a un servicio en la nube|Asociada a la configuración del front-end del equilibrador de carga| |||| |**Dirección IP privada**|Máquina virtual|Denominada DIP|Denominada dirección IP privada| |||Asignada a una máquina virtual IaaS o una instancia de rol PaaS|Asociada a la tarjeta NIC de la máquina virtual| ||Equilibrador de carga interno (ILB)|Asignada al ILB (dinámica o estática)|Asignada a la configuración del front-end del ILB (dinámica o estática)|
+
 ## Pasos siguientes
 - [Implementación de una máquina virtual con una IP pública estática](virtual-network-deploy-static-pip-classic-ps.md)
 - [Establecimiento de una dirección IP privada estática en el Portal de vista previa](virtual-networks-static-private-ip-classic-pportal.md)
@@ -136,4 +153,4 @@ En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asign
 - [Creación de una puerta de enlace de aplicaciones con PowerShell](application-gateway-create-gateway.md)
 - [Creación de una puerta de enlace de aplicaciones interna con PowerShell](application-gateway-ilb.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

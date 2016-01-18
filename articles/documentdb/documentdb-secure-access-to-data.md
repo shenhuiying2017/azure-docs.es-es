@@ -18,7 +18,7 @@
 
 # Protección del acceso a los datos de DocumentDB #
 
-En este artículo se proporciona información general sobre la protección del acceso a los datos almacenados en [DocumentDB de Microsoft Azure](../../services/documentdb/).
+En este artículo se proporciona información general sobre la protección del acceso a los datos almacenados en [DocumentDB de Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
 Después de leer dicha información, podrá responder a las preguntas siguientes:
 
@@ -163,4 +163,4 @@ Para poder obtener fácilmente todos los recursos de permiso asociados a un usua
 - Para obtener más información acerca de cómo construir tokens de autorización de DocumentDB, haga clic [aquí](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

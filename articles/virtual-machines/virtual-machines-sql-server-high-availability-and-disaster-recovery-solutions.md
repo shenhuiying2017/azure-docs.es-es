@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Alta disponibilidad y recuperación ante desastres para SQL Server | Microsoft Azure"
-	description="Este tutorial utiliza los recursos creados con el modelo de implementación clásica y describe los diversos tipos de estrategias HADR para SQL Server cuando se ejecuta en máquinas virtuales de Azure."
+	description="Un análisis de los diversos tipos de estrategias HADR de SQL Server en ejecución en máquinas virtuales de Azure."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="01/07/2015"
 	ms.author="jroth" />
 
 # Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure
@@ -39,6 +39,7 @@ Entre las tecnologías HADR de SQL Server compatibles con Azure se incluyen:
 - [Creación de reflejo de la base de datos](https://technet.microsoft.com/library/ms189852.aspx)
 - [Trasvase de registros](https://technet.microsoft.com/library/ms187103.aspx)
 - [Copia de seguridad y restauración con el servicio Almacenamiento de blobs de Azure](https://msdn.microsoft.com/library/jj919148.aspx)
+- [Instancias de clúster de conmutación por error AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx) 
 
 Es posible combinar las tecnologías para implementar una solución SQL Server que posea alta disponibilidad y, al mismo tiempo, capacidades de recuperación ante desastres. Según la tecnología que se use, una implementación híbrida puede requerir un túnel VPN con la red virtual de Azure. Las secciones siguientes muestran algunas de las arquitecturas de implementación de ejemplo.
 
@@ -48,8 +49,9 @@ Puede tener una solución de alta disponibilidad para sus bases de datos de SQL 
 
 |Technology|Arquitecturas de ejemplo|
 |---|---|
-|**Grupos de disponibilidad AlwaysOn**|Todas las réplicas de disponibilidad que se ejecutan en máquinas virtuales de Azure para lograr alta disponibilidad en la misma región. Debe configurar un controlador de dominio además de las máquinas virtuales de SQL Server porque los clústeres de conmutación por error de Windows Server (WSFC) requieren un dominio de Active Directory.<br/> ![Grupos de disponibilidad AlwaysOn](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>Para obtener más información, consulte [Configuración de los grupos de disponibilidad AlwaysOn en Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).|
+|**Grupos de disponibilidad AlwaysOn**|Todas las réplicas de disponibilidad que se ejecutan en máquinas virtuales de Azure para lograr alta disponibilidad en la misma región. Debe configurar una máquina virtual de controlador de dominio, porque los clústeres de conmutación por error de Windows Server (WSFC) requieren un dominio de Active Directory.<br/> ![Grupos de disponibilidad AlwaysOn](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>Para obtener más información, consulte [Configuración de los grupos de disponibilidad AlwaysOn en Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).|
 |**Creación de reflejo de la base de datos**|Los servidores principal, de reflejo y testigo se ejecutan todos en el mismo centro de datos de Azure para lograr una alta disponibilidad. Puede realizar la implementación con un controlador de dominio.<br/>![Creación de reflejo de la base de datos](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring1.gif)<br/>También puede implementar la misma configuración de creación de reflejo de la base de datos sin un controlador de dominio con certificados de servidor.<br/>![Creación de reflejo de la base de datos](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring2.gif)|
+|**Instancias de clúster de conmutación por error AlwaysOn**|Las instancias de clúster de conmutación por error (FCI), que requieren almacenamiento compartido, se pueden crear de dos maneras distintas.<br/><br/>1. Una FCI en un WSFC de dos nodos que se ejecuta en máquinas virtuales de Azure con almacenamiento con el respaldo de una solución de clústeres de terceros. Si desea obtener un ejemplo específico con SIOS DataKeeper, consulte [High availability for a file share using WSFC and 3rd party software SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/) (Alta disponibilidad de un recurso compartido de archivos con WSFC y SIOS Datakeeper de software de terceros).<br/><br/>2. Una FCI en un WSFC de dos nodos que se ejecuta en máquinas virtuales de Azure con almacenamiento en bloque compartido de destino iSCSI remoto a través de ExpressRoute. Por ejemplo, NetApp Private Storage (NPS) expone un destino iSCSI a través de ExpressRoute con Equinix a las máquinas virtuales de Azure.<br/><br/>En el caso de las soluciones de replicación de datos y almacenamiento compartido de terceros, deberá ponerse en contacto con el proveedor en caso de tener problemas relacionados con el acceso a los datos en la conmutación por error.<br/><br/>Tenga en cuenta que todavía no se admite el uso de FCI basado en el [Almacenamiento de archivos de Azure](https://azure.microsoft.com/services/storage/files/), porque esta solución no utiliza Almacenamiento premium. Trabajamos para que pronto sea compatible.|
 
 ## Exclusiva de Azure: soluciones de recuperación ante desastres
 
@@ -108,7 +110,7 @@ Los agentes de escucha del grupo de disponibilidad son compatibles con máquinas
 
 Existen dos opciones principales para configurar el agente de escucha: externa (público) o interna. El agente de escucha externo (público) está asociado a una IP virtual pública (VIP) que es accesible a través de internet. Si usa un agente de escucha externo, debe habilitar Direct Server Return, lo que significa que debe conectarse al agente de escucha desde un equipo que no esté en el mismo servicio en la nube que los nodos de grupo de disponibilidad AlwaysOn. La otra opción, es un agente de escucha interno que utilice un Equilibrador de carga interno (ILB). Un agente de escucha interno sólo admite clientes dentro de la misma red virtual.
 
-Si el grupo de disponibilidad abarca varias subredes de Azure (como por ejemplo, una implementación que comprenda varias regiones de Azure), la cadena de conexión de cliente debe incluir "**MultisubnetFailover = True**". Esto se traduce en intentos de conexión en paralelo a las réplicas de las diferentes subredes. Para obtener instrucciones acerca de cómo configurar un agente de escucha, consulte
+Si el grupo de disponibilidad abarca varias subredes de Azure (como por ejemplo, una implementación que comprenda varias regiones de Azure), la cadena de conexión de cliente debe incluir "**MultisubnetFailover = True**". Esto se traduce en intentos de conexión en paralelo a las réplicas de las diferentes subredes. Para obtener instrucciones sobre cómo configurar un agente de escucha, consulte
 
 - [Configurar un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
 - [Configurar un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md).
@@ -152,4 +154,4 @@ Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de
 - [Instalación de un nuevo bosque de Active Directory en Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Crear el clúster WSFC para grupos de disponibilidad AlwaysOn en la VM de Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

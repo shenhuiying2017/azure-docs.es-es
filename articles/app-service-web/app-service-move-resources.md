@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="01/04/2016"
 	ms.author="zarizvi"/>
 	
 # Configuraciones admitidas para traslados
@@ -26,4 +26,4 @@ Las aplicaciones web de Azure admiten actualmente los siguientes escenarios de t
 	* Nota: El grupo de recursos de destino no puede contener ningún recurso Microsoft.Web en este escenario.
 * Trasladar aplicaciones web individuales a un grupo de recursos diferente, manteniéndolas hospedadas en el plan de servicio de aplicaciones en que se encuentran actualmente (el plan de servicio de aplicaciones se encuentra en el grupo de recursos anterior)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0107_2016-->

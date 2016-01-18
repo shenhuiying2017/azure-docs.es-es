@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/04/2016"
 	ms.author="jgao"/>
 
 # Administración de clústeres de Hadoop en HDInsight con PowerShell de Azure
@@ -60,7 +60,7 @@ Hay dos opciones principales para instalar Azure PowerShell.
 
 	Para más información, vea [Galería de PowerShell](https://www.powershellgallery.com/).
 
-- [Instalador de plataforma web de Microsoft (WebPI)](http://aka.ms/webpi-azps). Si tiene Azure PowerShell 0.9.x instalado, se le pedirá que desinstale 0.9.x. Si ha instalado módulos de Azure PowerShell desde la Galería de PowerShell, el programa de instalación requiere que los módulos se quiten antes de la instalación para garantizar un entorno coherente de PowerShell de Azure. Para las instrucciones, vea [Instalación de Azure PowerShell 1.0 mediante WebPI](https://azure.microsoft.com/blog/azps-1-0/).
+- [Instalador de plataforma web de Microsoft (WebPI)](http://aka.ms/webpi-azps). Si tiene Azure PowerShell 0.9.x instalado, se le pedirá que desinstale 0.9.x. Si ha instalado módulos de Azure PowerShell desde la Galería de PowerShell, el programa de instalación requiere que los módulos se quiten antes de la instalación para garantizar un entorno coherente de PowerShell de Azure. Para instrucciones, consulte [Instalación de Azure PowerShell 1.0 mediante WebPI](https://azure.microsoft.com/blog/azps-1-0/).
 
 WebPI recibirá actualizaciones mensuales. La Galería de PowerShell recibirá actualizaciones de forma continua. Si se encuentra cómodo con la instalación de la Galería de PowerShell, ese será el primer canal para lo mejor y lo más reciente de Azure PowerShell.
 
@@ -164,7 +164,7 @@ Use el comando siguiente para eliminar un clúster:
 ##Escalado de clústeres
 La característica de escalado de clústeres permite cambiar la cantidad de nodos de trabajo que usa un clúster que se ejecuta en HDInsight de Azure sin necesidad de volver a crear el clúster.
 
->[AZURE.NOTE]Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades. Vea [Familiarizarse con la interfaz del portal del clúster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
+>[AZURE.NOTE]Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades. Consulte [Familiarizarse con la interfaz del portal del clúster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
 
 A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de datos de cada tipo de clúster compatible con HDInsight:
 
@@ -232,7 +232,7 @@ Para conceder:
 
 	# Credential option 1
 	$hadoopUserName = "admin"
-	$hadoopUserPassword = "Pass@word123"
+	$hadoopUserPassword = "<Enter the Password>"
 	$hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
 	$credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
 
@@ -332,4 +332,4 @@ Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

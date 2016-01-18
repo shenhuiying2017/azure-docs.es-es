@@ -22,14 +22,14 @@ Administración de identidades con privilegios de AD Azure le permite administra
 
 Para que los usuarios puedan realizar operaciones con privilegios, a menudo las organizaciones han tenido que proporcionar a muchos de su usuarios acceso con privilegios permanente en Azure AD o para recursos de Azure u Office 365, así como para otras aplicaciones de SaaS. Para muchos clientes, esto es un riesgo de seguridad creciente para los recursos hospedados en la nube porque no pueden supervisar suficientemente qué hacen esos usuarios con sus privilegios administrativos. Además, una cuenta de usuario en peligro que tiene acceso con privilegios puede afectar su seguridad global en la nube. Administración de identidades con privilegios de Azure AD le ayuda a resolver este riesgo.
 
-Administración de identidades con privilegios de Azure AD en esta vista previa le permite:
+Azure AD Privileged Identity Management le permite:
 
 - Detectar qué usuarios son los administradores de Azure AD
 - Habilitar, a petición, el acceso administrativo "justo a tiempo" a los recursos del directorio
 - Obtener informes sobre el historial de acceso de administrador y sobre los cambios en las asignaciones de administrador
 - Obtener alertas sobre el acceso a un rol con privilegios
 
-En esta vista previa, Administración de identidades con privilegios de Azure AD puede administrar los roles organizativos integrados de Azure Active Directory:
+Azure AD Privileged Identity Management puede administrar los roles de organización integrados de Azure Active Directory:
 
 - Administrador global
 - Administrador de facturación
@@ -43,15 +43,17 @@ Históricamente, se podía asignar a un usuario un rol de administrador a travé
 
 ## Habilitación de Administración de identidades con privilegios para el directorio
 
-Puede empezar a usar Administración de identidades con privilegios de Azure AD a través del [Portal de Microsoft Azure](https://portal.azure.com/). De momento, Administración de identidades con privilegios de Azure AD solo aparece en el Portal de Microsoft Azure. Debe ser administrador global para habilitar Administración de identidades con privilegios de Azure AD para un directorio.
+Para empezar a usar Privileged Identity Management de Azure AD, acceda al [Portal de Azure](https://portal.azure.com/). De momento, Privileged Identity Management de Azure AD solo aparece en el Portal de Azure. No aparece en el portal clásico. Debe ser administrador global para habilitar Administración de identidades con privilegios de Azure AD para un directorio.
 
 ![][1]
 
-Después de inicializar esta extensión, se convertirá automáticamente en el primer **administrador de seguridad** del directorio. Solo un administrador de seguridad puede tener acceso a esta extensión para administrar el acceso de otros administradores. Durante la inicialización, se agregará un icono de Administración de identidades con privilegios de Azure AD al panel de inicio del Portal de vista previa de Azure.
+Después de inicializar esta extensión, se convertirá automáticamente en el primer **administrador de seguridad** del directorio. Solo un administrador de seguridad puede tener acceso a esta extensión para administrar el acceso de otros administradores.
+
+Durante la inicialización, se agrega un icono de Privileged Identity Management de Azure AD al panel de inicio del Portal de Azure.
 
 ## Panel de Administración de identidades con privilegios
 
-Administrador de identidades con privilegios de Azure AD proporciona un panel que ofrece información importante como:
+Privileged Identity Management de Azure AD proporciona un panel que ofrece información importante, por ejemplo:
 
 - El número de usuarios que están asignados a cada rol con privilegios  
 - El número de administradores temporales y permanentes
@@ -79,7 +81,7 @@ Mediante la opción de configuración de activación de rol, puede configurar pr
 
 Para activar un rol, un administrador temporal debe solicitar una "activación" controlada por tiempo para el rol. Se puede solicitar la activación mediante la opción **Activar mi rol** en Administración de identidades con privilegios de Azure AD.
 
-Un administrador que quiera activar un rol necesita inicializar Administración de identidades con privilegios de Azure AD en el Portal de vista previa de Azure.
+Un administrador que quiera activar un rol necesita inicializar Privileged Identity Management de Azure AD en el Portal de Azure.
 
 Cualquier tipo de administrador puede usar Administración de identidades con privilegios de Azure AD para activar su propio rol.
 
@@ -104,4 +106,4 @@ Mediante Administración de identidades con privilegios de Azure AD, también pu
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

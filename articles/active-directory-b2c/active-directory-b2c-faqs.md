@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="12/28/2015"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Preguntas más frecuentes
@@ -22,13 +22,13 @@ Esta página responde a las preguntas más frecuentes acerca de la vista previa 
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-### ¿Puedo usar Azure AD B2C en mi inquilino de Azure de AD existente, basado en empleados?
+### ¿Puedo usar las características de Azure AD B2C en mi inquilino de Azure de AD existente, basado en empleados?
 
 Actualmente, las características de Azure AD B2C no pueden activarse en su inquilino existente de Azure AD. Se recomienda que cree un inquilino independiente para usar características de Azure AD B2C, es decir, para administrar los consumidores.
 
 ### ¿Puedo usar Azure AD B2C para proporcionar un inicio de sesión social (Facebook y Google+) en Office 365?
 
-Azure AD B2C no se puede usar con Office 365. En general, no se puede usar para proporcionar autenticación para aplicaciones SaaS (Salesforce, Workday, etc.). Ofrece administración de identidades y acceso para aplicaciones móviles y web orientadas al consumidor y no está diseñado para escenarios de empleados o socios.
+Azure AD B2C no se puede usar con Office 365. En general, no se puede usar para proporcionar autenticación a ninguna aplicación SaaS (O365, Salesforce, Workday, etc.). Solo proporciona administración de identidades y accesos para aplicaciones móviles y web orientadas al consumidor y no es aplicable a escenarios de empleados o socios.
 
 ### ¿Qué son las "cuentas locales" en Azure AD B2C? ¿En qué se distinguen de las "cuentas de trabajo o educativas" en Azure AD?
 
@@ -38,7 +38,7 @@ En un inquilino de Azure AD B2C, la mayoría de las aplicaciones solicita al usu
 
 ### ¿Qué proveedores de identidades sociales se admiten ahora? ¿Cuáles se prevén que se van a admitir en el futuro?
 
-Actualmente, se admiten Facebook, Google+, LinkedIn y Amazon. Agregaremos compatibilidad para Cuenta de Microsoft y otros proveedores de identidades sociales populares en función de la demanda de los clientes.
+Actualmente, se admiten Facebook, Google+, LinkedIn y Amazon. Agregaremos compatibilidad con otros proveedores de identidades sociales conocidos en función de la demanda del cliente.
 
 ### ¿Puedo configurar 'Ámbitos' para recopilar más información acerca de los consumidores de distintos proveedores de identidades sociales?
 
@@ -53,17 +53,21 @@ No, pero esta característica está en nuestro mapa de ruta. Los ámbitos predet
 
 No, puede hospedar la aplicación en cualquier lugar (en la nube o de forma local). Todo lo que necesita para interactuar con Azure AD B2C es la capacidad de enviar y recibir solicitudes HTTP en extremos de acceso público.
 
-### Tengo varios directorios de Azure AD B2C ¿Cómo puedo administrarlos en el Portal de vista previa de Azure?
+### Tengo varios inquilinos de Azure AD B2C ¿Cómo puedo administrarlos en el Portal de Azure?
 
-Cada inquilino de Azure AD B2C tiene su propia hoja de características de B2C en el Portal de vista previa de Azure. Lea [aquí](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sobre cómo puede navegar a una hoja de características de B2C de un inquilino específico en el Portal de vista previa de Azure. El cambio entre directorios de Azure AD B2C en el Portal de vista previa de Azure no mantendrá la hoja de características B2C abierta en la mayoría de los exploradores.
+Cada inquilino de Azure AD B2C tiene su propia hoja de características B2C en el Portal de Azure. Lea [aquí](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sobre cómo puede desplazarse a la hoja de características B2C de un inquilino específico en el Portal de Azure. El cambio entre directorios de Azure AD B2C en el Portal de Azure no mantendrá abierta la hoja de características B2C en la mayoría de los exploradores.
 
 ### ¿Cómo puedo personalizar los mensajes de correo electrónico de comprobación (el contenido y el campo remitente, es decir, el campo "De:") enviados por Azure AD B2C?
 
-Lea [este artículo acerca de la personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md) para obtener más detalles.
+Utilice la [característica de personalización de marca corporativa](./active-directory/active-directory-add-company-branding.md) para personalizar el contenido de los mensajes de correo electrónico de comprobación. El campo de remitente puede cambiarse a través del soporte técnico.
 
 ### ¿Cómo puedo migrar mis nombres de usuario, contraseñas y perfiles existentes desde la base de datos a Azure AD B2C?
 
 Puede usar la API de Azure AD Graph (consulte nuestro ejemplo [aquí](active-directory-b2c-devquickstarts-graph-dotnet.md)) para escribir la herramienta de migración. Ofreceremos varias opciones de migración y herramientas listas para usar en el futuro.
+
+### ¿Qué es la directiva de contraseña usada para las cuentas locales en Azure AD B2C?
+
+La directiva de contraseña de Azure AD B2C para cuentas locales se basa en Azure AD. Azure AD B2C utiliza la seguridad de contraseña "segura" y la opción de que ninguna contraseña caduca. Lea [Directiva de contraseña en Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para más detalles.
 
 ### ¿Puedo usar Azure AD Connect para migrar identidades de consumidores almacenadas en mi Active Directory local a Azure AD B2C?
 
@@ -87,7 +91,7 @@ Actualmente, Azure AD B2C está optimizado solo para inglés. Tenemos previsto i
 
 ### ¿Puedo usar mis propias direcciones URL en las páginas de registro y de inicio servidas por Azure AD B2C? Por ejemplo, ¿cambiar las direcciones URL de login.microsoftonline.com a login.contoso.com?
 
-Actualmente, no. Esta característica está en nuestro mapa de ruta. Tenga en cuenta también que "comprobar" su dominio en la pestaña **Dominios** de su inquilino en el portal de Azure no hará esto.
+Actualmente, no. Esta característica está en nuestro mapa de ruta. Tenga en cuenta también que "comprobar" su dominio en la pestaña **Dominios** de su inquilino en el Portal de Azure clásico no servirá para tal fin.
 
 ### ¿Puedo obtener Azure AD B2C como parte de Enterprise Mobility Suite (EMS)?
 
@@ -105,4 +109,4 @@ No podemos proporcionar información sobre la fecha en la que estará disponible
 
 Es posible que desee ver las [limitaciones y restricciones de la versión preliminar](active-directory-b2c-limitations.md) actual.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

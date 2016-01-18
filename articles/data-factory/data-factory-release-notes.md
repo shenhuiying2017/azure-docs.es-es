@@ -338,7 +338,7 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
     
   		Vea el tutorial [Uso de actividades personalizadas en una canalización de la Factoría de datos de Azure][adf-custom-activities] sobre cómo crear una actividad personalizada y usarla en una canalización de la Factoría de datos de Azure.
 
-[adf-azure-ml]: data-factory-create-predictive-pipelines.md
+[adf-azure-ml]: data-factory-azure-ml-batch-execution-activity.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
 [adf-editor]: data-factory-editor.md
 
@@ -354,4 +354,4 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

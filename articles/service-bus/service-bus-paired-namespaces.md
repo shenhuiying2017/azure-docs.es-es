@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Detalles de implementación y costes asociados de los espacios de nombres emparejados
@@ -117,9 +117,6 @@ Para obtener más información sobre la mensajería asincrónica del bus de serv
   [MessagingException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
   [TimeoutException]: https://msdn.microsoft.com/library/azure/system.timeoutexception.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-  [0]: ./media/service-bus-paired-namespaces/IC673405.png
-  [1]: ./media/service-bus-paired-namespaces/IC673406.png
-  [2]: ./media/service-bus-paired-namespaces/IC673407.png
   [QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
   [TimeSpan]: https://msdn.microsoft.com/library/azure/system.timespan.aspx
   [PingPrimaryInterval]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.pingprimaryinterval.aspx
@@ -128,5 +125,8 @@ Para obtener más información sobre la mensajería asincrónica del bus de serv
   [ContentType]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx
   [TimeToLive]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
   [Patrones de mensajería asincrónica y alta disponibilidad]: service-bus-async-messaging.md
+  [0]: ./media/service-bus-paired-namespaces/IC673405.png
+  [1]: ./media/service-bus-paired-namespaces/IC673406.png
+  [2]: ./media/service-bus-paired-namespaces/IC673407.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

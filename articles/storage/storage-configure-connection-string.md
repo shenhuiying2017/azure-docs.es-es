@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 # Configuración de las cadenas de conexión de Almacenamiento de Azure
@@ -122,4 +122,4 @@ Por ejemplo, la cadena de conexión debe tener un aspecto similar a la siguiente
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

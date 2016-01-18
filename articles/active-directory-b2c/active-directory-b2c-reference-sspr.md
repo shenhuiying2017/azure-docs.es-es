@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="12/22/2015"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Configuración del autoservicio de restablecimiento de contraseña para los consumidores
@@ -22,7 +22,7 @@
 
 Esta característica permite a los consumidores (que se registraron para obtener cuentas locales) restablecer sus contraseñas ellos mismos. De esta manera se reduce significativamente la carga del personal de soporte técnico, especialmente si la aplicación tiene millones de consumidores que la usan de forma periódica. Actualmente, solo se admite como método de recuperación el uso de una dirección de correo electrónico comprobada. Agregaremos métodos de recuperación adicionales (número de teléfono comprobado, preguntas de seguridad, etc.) en el futuro. De forma predeterminada, el directorio no tendrá activado el autoservicio de restablecimiento de contraseña. Para activarlo, siga estos pasos:
 
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com/) como administrador de la suscripción. Esta cuenta es la misma cuenta profesional o educativa o la misma cuenta Microsoft que usó para crear el directorio.
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) como administrador de la suscripción. Esta cuenta es la misma cuenta profesional o educativa o la misma cuenta Microsoft que usó para crear el directorio.
 2. Vaya a la extensión de Active Directory en la barra de navegación del lado izquierdo.
 3. Busque su directorio en la pestaña **Directorio** y haga clic en él.
 4. Haga clic en la pestaña **Configurar**.
@@ -36,4 +36,4 @@ Para probar, use la característica "Ejecutar ahora" en cualquier directiva de i
 
 > [AZURE.NOTE]Las páginas de autoservicio de restablecimiento de contraseña se pueden personalizar con la [característica de personalización de marca de la empresa](active-directory-add-company-branding.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

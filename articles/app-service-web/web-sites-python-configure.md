@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
-	ms.author="huguesv"/>
+	ms.date="12/16/2015" 
+	ms.author="huvalo"/>
 
 
 
@@ -40,7 +40,7 @@ Azure Marketplace contiene plantillas para los marcos de Bottle, Django y Flask.
 
 En este tutorial se asume que existe una suscripción a Azure y que ya se tiene acceso al Portal de Azure.
 
-Si no tiene una aplicación web, puede crearla en el [Portal de Azure](https://portal.azure.com). Haga clic en el botón NUEVO situado en la esquina inferior izquierda y luego en **Web + móvil** > **Aplicación web**.
+Si no tiene una aplicación web, puede crearla en el [Portal de Azure](https://portal.azure.com). Haga clic en el botón NUEVO que aparece en la esquina superior izquierda y, luego, haga clic en **Web + móvil** > **Aplicación web**.
 
 ## Publicación Git
 
@@ -385,4 +385,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

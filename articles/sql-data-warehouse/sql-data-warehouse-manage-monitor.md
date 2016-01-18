@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="sahajs"/>
 
 # Supervisión de la carga de trabajo mediante DMV
@@ -203,4 +203,4 @@ Para obtener más sugerencias sobre cómo administrar el Almacenamiento de datos
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

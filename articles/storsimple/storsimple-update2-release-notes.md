@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/22/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # Notas de la versión de la actualización 2 de la serie StorSimple 8000  
@@ -99,6 +99,8 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 | 19 |Volúmenes anclados localmente | Si se cancela un trabajo de restauración o si se produce un error en una restauración y, a continuación, se produce una conmutación por error de controlador, aparece un trabajo de restauración adicional en la página **Trabajos**. | Este comportamiento puede producirse si el trabajo de restauración ha anclado solo localmente volúmenes o una mezcla de volúmenes nivelados y anclados localmente. Si el trabajo de restauración incluye solo volúmenes nivelados, este comportamiento no se producirá. No se requiere ninguna intervención del usuario. | Sí | No |
 | 20 | |Vista previa del mensaje en la creación del servicio StorSimple Manager | El mensaje de vista previa que se muestra en la creación de un servicio StorSimple Manager solo es aplicable a la serie de la matriz virtual de Microsoft Azure StorSimple. La serie de la matriz virtual se inició recientemente y es una vista previa que se ofrece en este momento, con las [condiciones complementarias de vista previa](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). El servicio StorSimple Manager y la serie del dispositivo físico StorSimple son soluciones de disponibilidad general y los términos complementarios de vista previa no se aplican a ellos. | | |
 | 21 |Volúmenes anclados localmente | El trabajo de restauración expone un grupo de disco virtual con el prefijo **tmpCollection** en la página **Directivas de copia de seguridad**, pero solo para la duración de la tarea de restauración.|Este comportamiento puede producirse si el trabajo de restauración ha anclado solo localmente volúmenes o una mezcla de volúmenes nivelados y anclados localmente. Si el trabajo de restauración incluye solo volúmenes nivelados, este comportamiento no se producirá. No se requiere ninguna intervención del usuario.|
+| 22 |Volúmenes anclados localmente | Si intenta convertir un volumen en niveles (creado y clonado con la actualización 1.2 o anterior) a un volumen anclado localmente y el dispositivo ya no tiene espacio o si hay una interrupción en la nube, es posible que los clones resulten dañados.| Este problema solo se produce con los volúmenes que se crearon y clonaron con software anterior a la actualización 2. Este debería ser un escenario poco frecuente.|
+| 23 | Conversión de volumen | No actualice los ACR anexados a un volumen mientras se realiza una conversión de volumen (de un volumen en niveles a un volumen anclado localmente o viceversa). Actualizar los ACR podría dañar los datos. | En caso de ser necesario, actualice los ACR antes de realizar la conversión de volumen y no realice ninguna actualización ACR adicional mientras la conversión esté en progreso. |
 
 ## Actualizaciones del firmware y del controlador en la actualización 2
 
@@ -111,4 +113,4 @@ Esta versión actualiza el controlador y el firmware del disco en el dispositivo
 
 No se puede aplicar esta actualización al dispositivo virtual. Deben crearse nuevos dispositivos virtuales.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

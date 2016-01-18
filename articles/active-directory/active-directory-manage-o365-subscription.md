@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/01/2015"
+   ms.date="01/05/2016"
    ms.author="curtand"/>
 
 #Administración del directorio para la suscripción de Office 365 en Azure
@@ -70,4 +70,4 @@ Ahora imaginemos que John Doe necesita iniciar sesión en el Portal de Azure cl�
 ##Pasos siguientes
 Para obtener más información sobre la relación entre suscripciones y directorios, vea [Asociación de una suscripción con un directorio](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

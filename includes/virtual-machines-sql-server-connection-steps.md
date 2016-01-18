@@ -1,40 +1,3 @@
-Los pasos siguientes muestran cómo conectarse a la instancia de SQL Server a través de Internet mediante SQL Server Management Studio (SSMS). Sin embargo, se aplican los mismos pasos para hacer que la máquina virtual de SQL Server sea accesible para sus aplicaciones, tanto locales como de Azure.
-
-Antes de que pueda conectarse a la instancia de SQL Server desde otra máquina virtual o Internet, debe completar las siguientes tareas descritas en las secciones que aparecen a continuación:
-
-- [Creación de un extremo TCP para la máquina virtual](#create-a-tcp-endpoint-for-the-virtual-machine)
-- [Apertura de puertos TCP en el firewall de Windows](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
-- [Configuración de SQL Server para escuchar en el protocolo TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
-- [Configuración de SQL Server para autenticación de modo mixto](#configure-sql-server-for-mixed-mode-authentication)
-- [Creación de inicios de sesión para la autenticación de SQL Server](#create-sql-server-authentication-logins)
-- [Determinación del nombre DNS de la máquina virtual](#determine-the-dns-name-of-the-virtual-machine)
-- [Conexión al motor de base de datos desde otro equipo](#connect-to-the-database-engine-from-another-computer)
-
-El siguiente diagrama resume la ruta de conexión:
-
-![Conexión a una máquina virtual de SQL Server](./media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
-
-### Creación de un extremo TCP para la máquina virtual
-
-Para poder acceder a SQL Server desde Internet, la máquina virtual debe tener un extremo para escuchar la comunicación TCP de entrada. Este paso de la configuración de Azure dirige el tráfico del puerto TCP de entrada a un puerto TCP al que puede tener acceso la máquina virtual.
-
->[AZURE.NOTE]Si se va a conectar en el mismo servicio en la nube o red virtual, no es necesario crear un extremo accesible públicamente. En ese caso, puede continuar con el paso siguiente. Para obtener más información, consulte: [Escenarios de conexión](../articles/virtual-machines/virtual-machines-sql-server-connectivity.md#connection-scenarios).
-
-1. En el Portal de administración de Azure, haga clic en **MÁQUINAS VIRTUALES**.
-	
-2. Haga clic en la máquina virtual recién creada. Se muestra información acerca de su máquina virtual.
-	
-3. Cerca de la parte superior de la página, seleccione la página **EXTREMOS** y, a continuación, en la parte inferior de la página haga clic en **AGREGAR**.
-	
-4. En la página **Agregar extremo a máquina virtual**, haga clic en **Agregar extremo independiente** y, a continuación, en la flecha de avance para continuar.
-	
-5. En la página **Especifique los detalles del extremo**, proporcione la siguiente información.
-
-	- En el cuadro **NOMBRE**, escriba un nombre para el extremo.
-	- En el cuadro **PROTOCOLO**, seleccione **TCP**. De manera similar, puede escribir **57500** en el cuadro **PUERTO PÚBLICO**. Del mismo modo, puede escribir el puerto de escucha predeterminado de SQL Server **1433** en el cuadro **Puerto privado**. Observe que muchas organizaciones seleccionan números de puerto distintos para evitar ataques malintencionados a la seguridad. 
-
-6. Haga clic en la marca de verificación para continuar. Se crea el extremo.
-
 ### Apertura de puertos TCP en el firewall de Windows para la instancia predeterminada del motor de base de datos
 
 1. Conéctese a la máquina virtual a través del Escritorio remoto de Windows. Una vez que ha iniciado sesión, en la pantalla Inicio, escriba **WF.msc** y, a continuación, presione ENTRAR. 
@@ -161,26 +124,4 @@ Para conectarse al motor de base de datos desde otro equipo, debe crear al menos
 
 Para ver más información acerca de los inicios de sesión de SQL Server, consulte [Crear un inicio de sesión](http://msdn.microsoft.com/library/aa337562.aspx).
 
-### Determinación del nombre DNS de la máquina virtual
-
-Para conectarse al motor de base de datos de SQL Server desde otro equipo, debe conocer el nombre del Sistema de nombres de dominio (DNS) de la máquina virtual. (Este es el nombre que Internet utiliza para identificar la máquina virtual. Puede utilizar la dirección IP, pero esta podría cambiar cuando Azure mueva recursos por redundancia o mantenimiento. El nombre DNS será estable, porque se puede redirigir a una dirección IP nueva).
-
-1. En el Portal de administración de Azure (o desde el paso anterior), seleccione **MÁQUINAS VIRTUALES**. 
-
-2. En la página **INSTANCIAS DE MÁQUINA VIRTUA**L, en la columna **Vista rápida**, encuentre y copie el nombre DNS para la máquina virtual.
-
-	![Nombre DNS](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
-	
-
-### Conexión al motor de base de datos desde otro equipo
- 
-1. En otro equipo conectado a Internet, abra SQL Server Management Studio.
-2. En el cuadro de diálogo **Conectar al servidor ** o **Conectar al motor de base de datos**, en el cuadro **Nombre del servidor**, escriba el nombre DNS de la máquina virtual (determinado en la tarea anterior) y un número de puerto de extremo público con formato *NombreDNS,nombrepuerto*, tal como **tutorialtestVM.cloudapp.net,57500**. Para obtener el número de puerto, inicie sesión en el Portal de administración de Azure y encuentre la máquina virtual. En el panel, haga clic en **EXTREMOS** y use el **PUERTO PÚBLICO** asignado a **MSSQL**. ![Public Port](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-3. En el cuadro **Autenticación**, seleccione **Autenticación de SQL Server**.
-5. En el cuadro **Inicio de sesión**, escriba el nombre de un inicio de sesión que haya creado en una tarea anterior.
-6. En el cuadro **Contraseña**, escriba la contraseña del inicio de sesión que creó en una tarea anterior.
-7. Haga clic en **Conectar**.
-
-	![Conectar mediante SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

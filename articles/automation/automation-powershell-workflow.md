@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Aprendizaje del flujo de trabajo de PowerShell"
-   description="Los runbooks de Automatización de Azure se basan en el flujo de trabajo de Windows PowerShell. Este artículo está destinado como una lección rápida para que los autores familiarizados con PowerShell comprendan las diferencias específicas entre Powershell y el flujo de trabajo de PowerShell."
+   description="Este artículo está destinado como una lección rápida para que los autores familiarizados con PowerShell comprendan las diferencias específicas entre Powershell y el flujo de trabajo de PowerShell."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -25,9 +25,9 @@ Para obtener información detallada sobre los temas de este artículo, vea [Intr
 
 ## Tipos de runbook
 
-Hay dos tipos de runbook en Automatización de Azure: *textual* y *gráfico*. El tipo de runbook se define cuando se crea el runbook, y no puede convertir un runbook en el otro tipo una vez creado.
+Hay tres tipos de runbook en Automatización de Azure: *flujo de trabajo de PowerShell*, *PowerShell* y *gráfico*. El tipo de runbook se define cuando se crea el runbook, y no puede convertir un runbook en el otro tipo una vez creado.
 
-Los runbooks textuales están destinados a los usuarios que prefieren trabajar directamente con el código de flujo de trabajo de PowerShell mediante el editor de texto de Automatización de Azure o un editor sin conexión como PowerShell ISE. Debe entender la información de este artículo si va a crear un runbook textual.
+Los runbooks de flujo de trabajo de PowerShell y de PowerShell están destinados a los usuarios que prefieren trabajar directamente con el código de PowerShell mediante el editor de texto de Automatización de Azure o un editor sin conexión como PowerShell ISE. Debe comprender la información de este artículo si va a crear un runbook de flujo de trabajo de PowerShell.
 
 Los runbooks gráficos permiten crear un runbook con las mismas actividades y cmdlets pero mediante una interfaz gráfica que oculta la complejidad del flujo de trabajo subyacente de PowerShell. Los conceptos de este artículo, como los puntos de comprobación y la ejecución en paralelo se siguen aplican a los runbooks gráficos, pero no tendrá que preocuparse por la sintaxis detallada.
 
@@ -249,4 +249,4 @@ Para obtener más información acerca de los puntos de control, consulte [Adici�
 
 - [Introducción al flujo de trabajo de Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

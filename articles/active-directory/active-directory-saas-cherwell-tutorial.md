@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Cherwell | Microsoft Azure" 
     description="Aprenda a usar Cherwell con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/20/2015" 
-    ms.author="markvi" />
+    ms.date="01/05/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Cherwell
 
@@ -79,13 +79,13 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-cherwell-tutorial/IC798992.png "Configurar dirección URL de la aplicación")
 
     1.  En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en la aplicación **Cherwell** (p. ej.: **https://pictdev.cherwellondemand.com/cherwellclient*)
-    2.  Haga clic en **Siguiente**.
+2.  Haga clic en **Siguiente**.
 
 4.  En la página **Configurar inicio de sesión único en Cherwell**, siga estos pasos:
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-cherwell-tutorial/IC798993.png "Configurar inicio de sesión único")
 
-    1.  Haga clic en **Descargar certificado** y, a continuación, guarde el certificado en el equipo.
+    1.  Haga clic en **Descargar certificado** y luego guarde el certificado en el equipo.
     2.  Copie la **Dirección URL del proveedor de identidades**.
     3.  Copie la **Dirección URL del servicio de inicio de sesión único**.
     4.  Haga clic en **Siguiente**.
@@ -115,10 +115,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-cherwell-tutorial/IC798995.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, luego, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-cherwell-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -30,23 +30,12 @@ Puerta de enlace de aplicaciones actualmente admite la entrega de aplicación de
 
 ![Puerta de enlace de aplicaciones](./media/application-gateway-introduction/appgateway1.png)
 
-## Equilibrio de carga de nivel 7 HTTP
-
-Azure ofrece equilibrio de carga de nivel 4 a través del equilibrador de carga de Azure operativo en el nivel de transporte (TCP/UDP), y la carga de todo el tráfico de red entrante se equilibra en el servicio Puerta de enlace de aplicaciones. La Puerta de enlace de aplicaciones aplicará las reglas de enrutamiento al tráfico HTTP, ofreciendo un equilibrio de carga de nivel 7 (HTTP). Cuando se crea una puerta de enlace de aplicaciones, un punto de conexión (VIP) se asocia y usa como dirección IP pública para el tráfico de red de entrada.
-
-La Puerta de enlace de aplicaciones enrutará el tráfico HTTP en función de su configuración, independientemente de que se trate de una máquina virtual, un servicio en la nube, una aplicación web o una dirección IP externa.
-
-En el diagrama siguiente se explica cómo fluye el tráfico para la Puerta de enlace de aplicaciones:
-
- 
-![Puerta de enlace de aplicaciones2](./media/application-gateway-introduction/appgateway2.png)
-
 El equilibrio de carga de nivel 7 HTTP es útil para:
-
 
 - Aplicaciones que requieren solicitudes de la misma sesión de usuario o cliente para llegar a la misma máquina virtual back-end. Ejemplos de esto serían las aplicaciones de carro de la compra y los servidores de correo web.
 - Aplicaciones que desean liberar a las granjas de servidores web de la sobrecarga de terminación SSL.
 - Aplicaciones, como la red CDN, que requieren que varias solicitudes HTTP en la misma conexión TCP de ejecución prolongada se enruten a servidores backend diferentes o su carga se equilibre entre estos.
+
 
 ## Tamaños e instancias de puerta de enlace
 
@@ -68,9 +57,7 @@ En la tabla siguiente se muestra un promedio de rendimiento para cada instancia 
 ## Supervisión del estado
  
 
-Puerta de enlace de aplicaciones de Azure supervisa el estado de las instancias de back-end cada 30 segundos. Envía una solicitud de sondeo de estado HTTP a cada instancia en el puerto configurado en elementos *BackendHttpSettings* de la configuración. El sondeo del estado espera una respuesta HTTP correcta con un código de estado de respuesta en el intervalo comprendido entre 200 y 399.
-
-Cuando se recibe una respuesta HTTP correcta, el servidor back-end se marca con un estado correcto y sigue recibiendo tráfico de la Puerta de enlace de aplicaciones de Azure. Si se produce un error en el sondeo, la instancia de back-end se quita de un grupo correcto y el tráfico deja de fluir a este servidor. El sondeo del estado se sigue realizando cada 30 segundos a la instancia de back-end con error para comprobar su estado actual. Cuando la instancia de back-end responde correctamente al sondeo de estado, se vuelve a agregar como correcta al grupo de back-end y el tráfico vuelve a fluir a esta instancia.
+La puerta de enlace de aplicaciones de Azure supervisa el estado de las instancias de back-end automáticamente. Vaya a [Sondeos y supervisión de estado de la puerta de enlace de aplicaciones](application-gateway-probe-overview.md) para más información.
 
 ## Configuración y administración
 
@@ -84,4 +71,4 @@ Creación de una puerta de enlace de aplicaciones. Consulte [Creación de una pu
 
 Configuración de la descarga SSL. Consulte [Configuración de la descarga SSL con Puerta de enlace de aplicaciones](application-gateway-ssl.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

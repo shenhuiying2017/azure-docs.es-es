@@ -13,19 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/17/2015"
+	ms.date="01/05/2016"
 	ms.author="tarcher"/>
 
 # Introducción a Servicios móviles (proyectos .NET)
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
-> - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
 El primer paso que debe realizar para seguir el código de estos ejemplos depende del tipo de servicio móvil al que se conecte.
 
@@ -33,7 +26,7 @@ El primer paso que debe realizar para seguir el código de estos ejemplos depend
 
 - Si utiliza un servicio móvil del backend .NET, hay ya una tabla TodoItem en la plantilla de proyecto predeterminada que Visual Studio ha creado para usted, pero tiene que publicarla en Azure. Para publicarla, abra el menú contextual del proyecto de servicio móvil en el Explorador de soluciones y elija **Publicación web**. Acepte los valores predeterminados y elija el botón **Publicar**.
 
-#####Obtención de referencia a una tabla
+##Obtención de referencia a una tabla
 
 El código siguiente crea una referencia a una tabla (`todoTable`) que contiene datos para TodoItem, que puede usar en operaciones posteriores para leer y actualizar la tabla de datos. Necesitará la clase TodoItem con atributos configurados para interpretar el JSON que el servicio móvil envía en respuesta a sus consultas.
 
@@ -52,14 +45,14 @@ El código siguiente crea una referencia a una tabla (`todoTable`) que contiene 
 
 Este código funciona si la tabla tiene permisos establecidos en **Cualquier persona con la clave de aplicación**. Si cambia los permisos para asegurar el servicio móvil, tendrá que agregar compatibilidad con la autenticación de usuarios. Consulte [Introducción a la autenticación](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
-#####Adición de un elemento de tabla
+##Adición de un elemento de tabla
 
 Inserte un nuevo elemento en una tabla de datos.
 
 	TodoItem todoItem = new TodoItem() { Text = "My first to do item", Complete = false };
 	await todoTable.InsertAsync(todoItem);
 
-#####Lectura o consulta de una tabla
+##Lectura o consulta de una tabla
 
 El código siguiente consulta una tabla para todos los elementos. Tenga en cuenta que devuelve solo la primera página de los datos, que de manera predeterminada contiene 50 elementos. Puede pasar el tamaño de página que desee, ya que es un parámetro opcional.
 
@@ -75,13 +68,13 @@ El código siguiente consulta una tabla para todos los elementos. Tenga en cuent
     }
 
 
-#####Actualización de un elemento de tabla
+##Actualización de un elemento de tabla
 
 Actualice una fila en la tabla de datos. El elemento de parámetro es el objeto TodoItem que se va a actualizar.
 
 	await todoTable.UpdateAsync(item);
 
-#####Eliminación de un elemento de tabla
+##Eliminación de un elemento de tabla
 
 Elimine una fila en la base de datos. El elemento de parámetro es el objeto TodoItem que se va a eliminar.
 
@@ -90,4 +83,4 @@ Elimine una fila en la base de datos. El elemento de parámetro es el objeto Tod
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

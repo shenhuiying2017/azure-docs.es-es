@@ -21,13 +21,7 @@
 # Conexión a la base de datos SQL mediante Python en Windows
 
 
-> [AZURE.SELECTOR]
-- [C#](sql-database-develop-dotnet-simple.md)
-- [PHP](sql-database-develop-php-simple-windows.md)
-- [Python](sql-database-develop-python-simple-windows.md)
-- [Ruby](sql-database-develop-ruby-simple-windows.md)
-- [Java](sql-database-develop-java-simple-windows.md)
-- [Node.js](sql-database-develop-nodejs-simple-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Este tema presenta un ejemplo de código escrito en Python. El ejemplo se ejecuta en un equipo Windows. El ejemplo se conecta a una base de datos SQL de Azure mediante el controlador **pymssql**.
@@ -57,7 +51,7 @@ Puede encontrar instrucciones para habilitar el uso de pip [aquí](http://stacko
 
 ### Base de datos SQL
 
-Consulte la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
+Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo. Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**.
 
 ## Paso 1: Obtención de detalles de la conexión
 
@@ -116,15 +110,15 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 - Revertir la transacción para deshacer la inserción
 
 
-		import pymssql
-		conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
-		cursor = conn.cursor()
-		cursor.execute("BEGIN TRANSACTION")
-		cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
-		cnxn.rollback()
+	import pymssql
+	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
+	cursor = conn.cursor()
+	cursor.execute("BEGIN TRANSACTION")
+	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
+	cnxn.rollback()
 
 ## Pasos siguientes
 
 Para más información, vea el [Centro para desarrolladores de Python](/develop/python/).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

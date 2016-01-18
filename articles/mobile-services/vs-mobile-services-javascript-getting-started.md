@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="09/17/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tarcher"/>
 
 # Introducción a una aplicación móvil de Javascript después de agregar los servicios móviles de Azure usando Visual Studio Connected Services
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-javascript-getting-started.md)
-> - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
 El primer paso que debe realizar para seguir el código de estos ejemplos depende del tipo de servicio móvil al que se conecte.
 
@@ -80,7 +76,7 @@ Actualice una fila en la tabla de datos. En este ejemplo, *todoItem* es el eleme
             todoItems.splice(todoItems.indexOf(item), 1, item);
         });
 
-#####Eliminación de una entrada
+##Eliminación de una entrada
 
 Elimine una fila en la tabla de datos. Llame al método [done]() en el objeto [Promise](https://msdn.microsoft.com/library/dn802826.aspx) devuelto para obtener una copia del objeto insertado y abordar los errores.
 
@@ -92,4 +88,4 @@ Elimine una fila en la tabla de datos. Llame al método [done]() en el objeto [P
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

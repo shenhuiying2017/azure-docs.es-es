@@ -15,7 +15,7 @@
    ms.date="09/18/2015"
    ms.author="sethm" />
 
-# Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones del Bus de servicio
+# Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Bus de servicio
 
 Las aplicaciones esenciales deben funcionar de manera continua, incluso si se producen interrupciones imprevistas o desastres. En este tema se describen técnicas que puede usar para proteger las aplicaciones del Bus de servicio ante un posible desastre o una interrupción del servicio.
 
@@ -109,4 +109,4 @@ Para obtener más información acerca de la recuperación ante desastres, consul
   [Continuidad de negocio de Base de datos SQL de Azure]: https://msdn.microsoft.com/library/azure/hh852669.aspx
   [Orientación técnica de la continuidad del negocio de Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

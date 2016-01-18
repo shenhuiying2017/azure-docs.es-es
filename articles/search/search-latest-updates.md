@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="12/23/2015" 
 	ms.author="heidist"/>
 
 #Novedades en la actualización más reciente de Búsqueda de Azure#
@@ -125,4 +125,4 @@ La versión preliminar de [API de REST de administración](search-management-api
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

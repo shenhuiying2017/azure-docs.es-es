@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Encadenamiento de entidades de Bus de servicio con reenvío automático
@@ -59,7 +59,7 @@ Para obtener información detallada sobre el reenvío automático, consulte los 
 - [QueueDescription][]
 - [SubscriptionDescription][]
 
-Para obtener más información acerca de las mejoras de rendimiento del Bus de servicio, consulte [Particionamiento de entidades de mensajería][].
+Para más información acerca de las mejoras de rendimiento de Bus de servicio, consulte [Entidades de mensajería con particiones][].
 
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
@@ -67,6 +67,6 @@ Para obtener más información acerca de las mejoras de rendimiento del Bus de s
   [SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
   [0]: ./media/service-bus-auto-forwarding/IC628631.gif
   [1]: ./media/service-bus-auto-forwarding/IC628632.gif
-  [Particionamiento de entidades de mensajería]: service-bus-partitioning.md
+  [Entidades de mensajería con particiones]: service-bus-partitioning.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

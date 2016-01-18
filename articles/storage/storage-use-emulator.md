@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 # Uso del emulador de almacenamiento de Azure para desarrollo y pruebas
@@ -232,4 +232,4 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 - La versión 2013-08-15 de los servicios de almacenamiento de Azure ahora es totalmente compatible. (Anteriormente esta versión solo era compatible con versión la versión 2.2.1 Preview del emulador de almacenamiento.)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

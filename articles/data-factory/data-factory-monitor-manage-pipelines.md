@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/04/2016" 
 	ms.author="spelluru"/>
 
 # Supervisión y administración de canalizaciones de la Factoría de datos de Azure
@@ -96,6 +96,7 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 <td>ValidationRetry</td><td>En espera de que se vuelva a intentar la validación.</td>
 </tr>
 <tr>
+&lt;tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>Validación en curso.</td>
 </tr>
 <td></td>
@@ -194,7 +195,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
 2.	En la hoja **Conjuntos de datos con errores**, haga clic en la tabla en la que está interesado.
 
 	![Hoja Conjuntos de datos con errores](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.	En la hoja **TABLA**, haga clic en el segmento con problemas con **ESTADO** establecido en **Error**.
+3.	En la hoja **TABLA**, haga clic en el segmento problemático con el **ESTADO** establecido en **En error**.
 
 	![Hoja Tabla con segmentos con problemas](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 4.	En la hoja **SEGMENTO DE DATOS**, haga clic en la ejecución de actividad que produjo el error.
@@ -206,9 +207,6 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
 
 #### Uso de PowerShell para depurar un error
 1.	Inicie **Azure PowerShell**.
-2.	Cambie al modo **AzureResourceManager**, ya que los cmdlets de Factoría de datos solo están disponibles en este modo.
-
-		switch-azuremode AzureResourceManager
 3.	Ejecute el comando **Get-AzureRmDataFactorySlice** para ver los segmentos y sus estados. Debería ver un segmento con el estado: **En error**.
 
 		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -322,7 +320,7 @@ Para especificar una definición de alerta, cree un archivo JSON que describa la
 	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
 	                        "operationName": "RunFinished",
 	                        "status": "Failed",
-	                            "subStatus": "FailedExecution"   
+	                        "subStatus": "FailedExecution"   
 	                    }
 	                },
 	                "action": 
@@ -354,9 +352,9 @@ OnDemandClusterDeleted | Succeeded
 Vea [Crear regla de alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para más información sobre los elementos JSON usados en el ejemplo anterior.
 
 #### Implementación de alertas 
-Para implementar una alerta, use el cmdlet de PowerShell de Azure: **New-AzureResourceGroupDeployment**, como se muestra en el ejemplo siguiente:
+Para implementar la alerta, use el cmdlet de Azure PowerShell **New-AzureRmResourceGroupDeployment**, como se muestra en el ejemplo siguiente:
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
 Una vez completada correctamente la implementación del grupo de recursos, verá los siguientes mensajes:
 
@@ -376,9 +374,9 @@ Una vez completada correctamente la implementación del grupo de recursos, verá
 	Outputs           :
 
 #### Recuperación de la lista de implementaciones del grupo de recursos de Azure
-Para recuperar la lista de implementaciones del grupo de recursos de Azure implementado, use el cmdlet: **Get-AzureResourceGroupDeployment**, como se muestra en el ejemplo siguiente:
+Para recuperar la lista de implementaciones del grupo de recursos de Azure implementado, use el cmdlet **Get-AzureRmResourceGroupDeployment**, como se muestra en el ejemplo siguiente:
 
-	Get-AzureResourceGroupDeployment -ResourceGroupName adf
+	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
 	
 	DeploymentName    : ADFAlertFailedSlice
 	ResourceGroupName : adf
@@ -395,7 +393,7 @@ Para recuperar la lista de implementaciones del grupo de recursos de Azure imple
 
 - Aparecerán todos los eventos generados después de hacer clic en el icono **Operaciones** y se pueden configurar alertas en cualquiera de estas operaciones visibles en la hoja **Eventos**:
 
-![Operaciones](./media/data-factory-monitor-manage-pipelines/operations.png)
+	![Operaciones](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
 - Vea el artículo [Azure Insight Cmdlets](https://msdn.microsoft.com/library/mt282452.aspx) para ver los cmdlets de PowerShell que puede usar para agregar, obtener o quitar alertas. Estos son algunos ejemplos del uso del cmdlet **Get-AlertRule**:
@@ -542,15 +540,13 @@ Puede implementar alertas para las métricas de la misma manera que lo hace para
  
 Reemplace subscriptionId, resourceGroupName y dataFactoryName en el ejemplo anterior con los valores adecuados.
 
-*metricName* a partir de ahora admite dos valores:
-- FailedRuns
-- SuccessfulRuns.
+*metricName* a partir de ahora admite dos valores: - FailedRuns - SuccessfulRuns.
 
 **Implementación de alertas:**
 
-Para implementar una alerta, use el cmdlet de PowerShell de Azure: **New-AzureResourceGroupDeployment**, como se muestra en el ejemplo siguiente:
+Para implementar la alerta, use el cmdlet de Azure PowerShell **New-AzureRmResourceGroupDeployment**, como se muestra en el ejemplo siguiente:
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
 Debería ver el siguiente mensaje después de la implementación correcta:
 
@@ -568,4 +564,7 @@ Debería ver el siguiente mensaje después de la implementación correcta:
 	Parameters        :
 	Outputs           
 
-<!---HONumber=AcomDC_1217_2015-->
+
+También puede usar el cmdlet **Add-AlertRule** para implementar una regla de alerta. Consulte el tema [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) para obtener información detallada y ejemplos.
+
+<!---HONumber=AcomDC_0107_2016-->

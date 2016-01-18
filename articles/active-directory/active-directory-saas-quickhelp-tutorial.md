@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/06/2015"
 	ms.author="jeedes"/>
 
 
@@ -60,8 +60,8 @@ Para configurar la integración de QuickHelp en Azure AD, deberá agregar QuickH
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-3. Para abrir la vista de aplicaciones, haga clic en **Aplicaciones**, en el menú superior de la vista de directorio.<br><br> ![Aplicaciones][2]<br>
-4. Haga clic en **Agregar** en la parte inferior de la página. <br><br>![Aplicaciones][3]<br>
+3. Para abrir la vista de aplicaciones, en la vista de directorios, haga clic en **Aplicaciones** en el menú superior.<br><br> ![Aplicaciones][2]<br>
+4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro de búsqueda, escribs **QuickHelp**.<br><br> ![Aplicaciones][5]<br>
 7. En el panel de resultados, seleccione **QuickHelp** y luego haga clic en **Completar** para agregar la aplicación. <br><br>![Aplicaciones][500]<br>
@@ -117,13 +117,13 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     b. Para cargar el archivo de metadatos de Azure descargado, haga clic en **Examinar**, navegue hasta el archivo y luego haga clic en **Cargar metadatos**.
 
-    d. En el cuadro de texto **Correo electrónico**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    c. En el cuadro de texto **Correo electrónico**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    e. En el cuadro de texto **First Name** (Nombre), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    d. En el cuadro de texto **First Name** (Nombre), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 
-    f. En el cuadro de texto **Last Name** (Apellido), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    e. En el cuadro de texto **Last Name** (Apellido), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
-    g. En la **barra de acción**, haga clic en **Guardar**.
+    f. En la **barra de acción**, haga clic en **Guardar**.
 
 
 
@@ -139,7 +139,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 
 ### Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en el portal de Azure llamado Britta Simon.<br> En la lista Usuarios, seleccione **Britta Simon**.<br><br>![Creación de un usuario de Azure AD][20]<br>
+El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure llamado Britta Simon.<br> En la lista Usuarios, seleccione **Britta Simon**.<br><br>![Creación de un usuario de Azure AD][20]<br>
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
@@ -171,7 +171,7 @@ El objetivo de esta sección es crear un usuario de prueba en el portal de Azure
 
 7. En la página del cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_07.png) <br>
  
-8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_08.png) <br>
+8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_08.png) <br>
   
     a. Anote el valor del campo **Nueva contraseña**.
 
@@ -255,4 +255,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

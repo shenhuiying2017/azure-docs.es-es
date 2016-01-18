@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Kintone | Microsoft Azure" 
     description="Aprenda a usar Kintone con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/20/2015" 
-    ms.author="markvi" />
+    ms.date="01/05/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Kintone
   
@@ -72,7 +72,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-kintone-tutorial/IC785872.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en Kintone?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en Kintone?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-kintone-tutorial/IC785873.png "Configurar inicio de sesión único")
 
@@ -90,7 +90,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Settings](./media/active-directory-saas-kintone-tutorial/IC785879.png "Settings")
 
-7.  Haga clic en **Administración del sistema y usuarios**.
+7.  Haga clic en **Users & System Administration** (Administración del sistema y usuarios).
 
     ![Administración del sistema y usuarios](./media/active-directory-saas-kintone-tutorial/IC785880.png "Administración del sistema y usuarios")
 
@@ -111,7 +111,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     3.  Haga clic en **Examinar** para cargar el certificado descargado.
     4.  Haga clic en **Guardar**.
 
-11. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+11. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-kintone-tutorial/IC785884.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -126,7 +126,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Kintone, deben apr
 
     ![Settings](./media/active-directory-saas-kintone-tutorial/IC785879.png "Settings")
 
-3.  Haga clic en **Administración del sistema y usuarios**.
+3.  Haga clic en **Users & System Administration** (Administración del sistema y usuarios).
 
     ![Administración del sistema y usuario](./media/active-directory-saas-kintone-tutorial/IC785880.png "Administración del sistema y usuario")
 
@@ -159,10 +159,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-kintone-tutorial/IC785891.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-kintone-tutorial/IC767830.png "Sí")
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

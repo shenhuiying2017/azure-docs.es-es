@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="twounder;sidneyh;barbkess"/>
 
 # Introducción a los cmdlets de Almacenamiento de datos de Azure y a las API de REST
@@ -111,4 +111,4 @@ Para obtener más información de referencia, vea [Información general de refer
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

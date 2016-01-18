@@ -1,6 +1,6 @@
 <properties
    pageTitle="Plantilla del Administrador de recursos para la vinculación de recursos | Microsoft Azure"
-   description="Muestra el esquema de la plantilla del administrador de recursos para crear vínculos entre recursos relacionados."
+   description="Muestra el esquema del Administrador de recursos para implementar vínculos entre recursos relacionados mediante una plantilla."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # Vínculos de recursos: esquema de plantilla
@@ -124,9 +124,20 @@ El ejemplo siguiente aplica un bloqueo de solo lectura a una aplicación web.
         "outputs": {}
     }
 
+## Plantillas de inicio rápido
+
+Las siguientes plantillas de inicio rápido implementan recursos con un vínculo.
+
+- [Alert to queue with Logic app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app) (Alerta a cola con aplicaciones lógicas)
+- [Alert to Slack with Logic app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app) (Alerta al margen de demora con aplicaciones lógicas).
+- [Aprovisionamiento de una aplicación de API con una puerta de enlace existente](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-existing)
+- [Aprovisionamiento de una aplicación de API con una nueva puerta de enlace](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-new)
+- [Creación de una aplicación lógica y una aplicación de API mediante una plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-api-app-create)
+- [Logic app that sends a text message when an alert fires](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app) (Aplicación lógica que envía un mensaje de texto cuando se desencadena una alerta)
+
 
 ## Pasos siguientes
 
 - Para obtener más información sobre la estructura de la plantilla, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

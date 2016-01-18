@@ -32,8 +32,8 @@ Después de completar este tutorial, podrá responder a las preguntas siguientes
 Antes de seguir las instrucciones de este tutorial, asegúrese de contar con lo siguiente:
 
 - Una suscripción de Azure. Azure es una plataforma basada en suscripción. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra](http://azure.microsoft.com/pricing/purchase-options/), [Ofertas para miembros](http://azure.microsoft.com/pricing/member-offers/) o [Prueba gratuita](http://azure.microsoft.com/pricing/free-trial/).
-- Una cuenta de almacenamiento de Azure. Para obtener instrucciones, vea [Acerca de las cuentas de almacenamiento de Azure](../storage-whatis-account.md).
-- Una estación de trabajo con Azure PowerShell 0.9.8. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md). Este tutorial aún no se ha actualizado para la versión preliminar de Azure PowerShell 1.0. 
+- Una cuenta de almacenamiento de Azure. Para obtener instrucciones, vea [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
+- Una estación de trabajo con Azure PowerShell 0.9.8. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). Este tutorial aún no se ha actualizado para la versión preliminar de Azure PowerShell 1.0. 
 
 ##<a id="CreateDB"></a>Paso 1: Descarga y extracción de los archivos de ejemplo ##
 Vamos a empezar descargando los archivos de ejemplo que usaremos en este tutorial.
@@ -210,4 +210,4 @@ Ahora implementaremos nuestra segunda plantilla.
 >[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

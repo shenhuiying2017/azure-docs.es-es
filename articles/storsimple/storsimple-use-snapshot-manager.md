@@ -12,22 +12,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/28/2015"
    ms.author="v-sharos" />
 
 # Interfaz de usuario de Administrador de instantáneas StorSimple
 
 ## Información general
 
-Administrador de instantáneas StorSimple tiene una interfaz gráfica de usuario (GUI) intuitiva que puede usar para administrar copias de seguridad de grupos de volúmenes, incluyendo las almacenadas localmente y en la nube. Este tutorial proporciona una introducción a la interfaz y, a continuación, explica cómo usar cada uno de los componentes. (Para obtener una descripción detallada de StorSimple Snapshot Manager, consulte [¿Qué es StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
+Administrador de instantáneas StorSimple tiene una interfaz gráfica de usuario (GUI) intuitiva que puede usar para administrar copias de seguridad de grupos de volúmenes, incluyendo las almacenadas localmente y en la nube. Este tutorial proporciona una introducción a la interfaz y, a continuación, explica cómo usar cada uno de los componentes. Para obtener una descripción detallada de StorSimple Snapshot Manager, consulte [¿Qué es StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
 ### Descripción de la consola
 
 Para ver la interfaz de usuario, haga clic en el icono de Administrador de instantáneas StorSimple que se encuentra en su escritorio. Aparece la ventana de consola, tal como se muestra en la siguiente ilustración.
 
 ![Paneles de Administrador de instantáneas StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_gui_panes.png)
-
-**Ilustración 1: Interfaz de usuario de Administrador de instantáneas StorSimple**
 
 La ventana de consola tiene cinco elementos principales. Haga clic en el vínculo correspondiente para obtener una descripción completa de cada elemento.
 
@@ -57,8 +55,6 @@ Haga clic en cualquier elemento de la barra de menús para ver una lista de los 
 
 ![Menú Vista seleccionado](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
 
-**Ilustración 2: Barra de menús de Administrador de instantáneas StorSimple con el menú Vista seleccionado**
-
 ### Menú Archivo
 
 El menú **Archivo** contiene comandos estándar de Microsoft Management Console (MMC).
@@ -69,8 +65,6 @@ Para ver el menú **Archivo**, haga clic en **Archivo** en la barra de menús. A
 
 ![Menú Archivo de Administrador de instantáneas StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_FileMenu.png)
 
-**Ilustración 3: Menú Archivo de Administrador de instantáneas StorSimple**
-
 #### Descripción del menú
 
 La tabla siguiente describe los elementos que aparecen en el menú **Archivo**.
@@ -80,7 +74,7 @@ La tabla siguiente describe los elementos que aparecen en el menú **Archivo**.
 | Nuevo | Haga clic en **Nuevo** para crear una nueva consola basada en Administrador de instantáneas StorSimple. |
 | Abrir | Haga clic en **Abrir** para abrir una consola existente. |
 | Save | Haga clic en **Guardar** para guardar la consola actual. |
-| Guardar como | Haga clic en **Guardar como** para crear una nueva instancia de la consola actual con un nombre diferente. Use la opción **Guardar como** para personalizar una vista y guardarla para su recuperación posterior. Por ejemplo, puede crear complementos de Administrador de instantáneas StorSimple que apunten a servidores específicos. |
+| Guardar como | Haga clic en **Guardar como** para crear una nueva instancia de la consola actual con un nombre diferente. Utilice la opción **Guardar como** para personalizar una vista y guardarla para su recuperación posterior. Por ejemplo, puede crear complementos de Administrador de instantáneas StorSimple que apunten a servidores específicos. |
 | Agregar o quitar complemento | Haga clic en **Agregar o quitar complemento** para agregar o quitar complementos y organizar los nodos en el panel **Ámbito**. Para obtener más información, vaya a [Agregar, quitar y organizar complementos y extensiones en MMC 3.0](https://technet.microsoft.com/library/cc722035.aspx). |
 | Opciones | Haga clic en **Opciones** para cambiar el icono de la consola, especificar los modos de acceso y permisos del usuario o eliminar archivos de consola para aumentar el espacio en disco disponible. |
 | Lista de rutas de acceso | Haga clic en una ruta de acceso en la lista numerada para volver a abrir un archivo que haya abierto recientemente. |
@@ -102,13 +96,9 @@ Por ejemplo, si selecciona el primer nodo en el panel **Ámbito** y luego hace c
  
 ![Menú Acción de Administrador de instantáneas StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_Action_menu.png)
 
-**Ilustración 4: Menú Acción de Administrador de instantáneas StorSimple**
-
 El panel **Acciones** (a la derecha de la consola) contiene la misma lista de acciones que el menú **Acción**. El panel **Acciones** contiene además las opciones del menú **Vista** que le permiten crear una vista personalizada del panel **Resultados**.
 
 ![Panel de Acciones con el menú Vista abierto](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
-
-**Ilustración 5: Panel de Acciones de Administrador de instantáneas StorSimple con el menú Vista**
 
 #### Descripción del menú
 
@@ -116,11 +106,11 @@ La tabla siguiente contiene una lista alfabética de las acciones de Administrad
 
 - La columna **Acción** muestra las acciones que puede realizar en los nodos y los resultados. 
 
-- La columna **Navegación** explica cómo mostrar el menú **Acción** apropiado para poder seleccionar la acción. Algunas acciones aparecen en varios menús **Acción**. Para estas acciones, seleccione una opción de **Navegación** en la lista con viñetas.
+- La columna **Navegación** explica cómo mostrar el menú **Acción** apropiado para poder seleccionar la acción. Algunas acciones aparecen en varios menús **Acción**. Para estas acciones, seleccione una opción **Navegación** en la lista con viñetas.
 
-- La columna **Descripción** explica cómo usar cada acción en el menú **Acción** o el panel Acciones, y explica lo que hace.
+- La columna **Descripción** explica cómo usar cada acción en el menú **Acción** o el panel Acciones y explica lo que hace.
 
->[AZURE.NOTE]El panel **Acciones** y los menús **Acción** contienen opciones adicionales, como **Vista**, **Nueva ventana desde aquí**, **Actualizar**, **Exportar lista** y **Ayuda**. Estas opciones están disponibles como parte de MMC y no son específicas de Administrador de instantáneas StorSimple. La tabla incluye descripciones de estas opciones.
+>[AZURE.NOTE]El panel **Acciones** y los menús **Acción** contienen opciones adicionales, como **Vista**, **Nueva ventana desde aquí**, **Actualizar**, **Exportar lista** **Ayuda**. Estas opciones están disponibles como parte de MMC y no son específicas de Administrador de instantáneas StorSimple. La tabla incluye descripciones de estas opciones.
  
 | Acción | Navegación | Descripción |
 |:--------|:------------|:-------------|
@@ -130,7 +120,7 @@ La tabla siguiente contiene una lista alfabética de las acciones de Administrad
 | Crear directiva de copia de seguridad | Realice una de las siguientes acciones:<ul><li>Haga clic con el botón derecho en **Directivas de copia de seguridad**.</li><li>Haga clic o expanda **Grupos de volúmenes** y luego haga clic con el botón derecho en un grupo de volúmenes.</li><li>Haga clic o expanda **Catálogo de copia de seguridad** y luego haga clic con el botón derecho en un grupo de volúmenes.</li></ul> | Haga clic en **Crear directiva de copia de seguridad** para configurar una copia de seguridad programada para un grupo de volúmenes. |
 | Crear grupo de volúmenes | Realice una de las siguientes acciones:<ul><li>Haga clic en el nodo **Volúmenes** y luego haga clic con el botón derecho en un volumen en el panel **Resultados**.</li><li>Haga clic con el botón derecho en el nodo **Grupos de volúmenes**.</li></ul> | Haga clic en **Crear grupo de volúmenes** para asignar volúmenes a un grupo de volúmenes. |
 | Eliminar | Haga clic en un nodo o resultado (este elemento aparece en muchos menús **Acción** y paneles de **Acciones**). | Haga clic en **Eliminar** para eliminar el nodo o el resultado seleccionado. Cuando aparezca el cuadro de diálogo de confirmación, confirme o cancele la eliminación. |
-| Detalles | Haga clic en el nodo **Dispositivos** y luego haga clic con el botón derecho en un dispositivo en el panel **Resultados**. | Haga clic en **Detalles** para ver los detalles de configuración de un dispositivo. |
+| Detalles | Haga clic en el nodo **Dispositivos** y, a continuación, haga clic con el botón derecho en un dispositivo en el panel **Resultados**. | Haga clic en **Detalles** para ver los detalles de configuración de un dispositivo. |
 | Edit | Haga clic en **Directivas de copia de seguridad** y luego haga clic con el botón derecho en una directiva en el panel **Resultados**. | Haga clic en **Editar** para cambiar la programación de copia de seguridad para un grupo de volúmenes. |
 | Exportar lista | Haga clic en cualquier nodo o resultado (este elemento aparece en todos los menús **Acción** y paneles de **Acciones**). | Haga clic en **Exportar lista** para guardar una lista en un archivo de valores separados por comas (CSV). A continuación, puede importar este archivo en una aplicación de hoja de cálculo para su análisis. |
 | Ayuda | Haga clic en cualquier nodo o resultado. (Este elemento aparece en todos los menús **Acción** y paneles de **Acciones**). | Haga clic en **Ayuda** para abrir la Ayuda en pantalla en una ventana independiente del explorador. |
@@ -153,8 +143,6 @@ Puede acceder al menú **Vista** en la barra de menús o en el panel **Acciones*
 
 ![Menú Vista de Administrador de instantáneas StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_View_menu.png)
 
-**Ilustración 6: Menú Vista de Administrador de instantáneas StorSimple **
-
 #### Descripción del menú
 
 La tabla siguiente describe los elementos que aparecen en el menú **Vista**.
@@ -174,8 +162,6 @@ Puede acceder al menú **Favoritos** desde la barra de menús.
 
 ![Menú Favoritos de Administrador de instantáneas StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_FavoritesMenu.png)
 
-**Ilustración 7: Menú Favoritos de Administrador de instantáneas StorSimple**
-
 #### Descripción del menú
 
 La tabla siguiente describe los elementos que aparecen en el menú **Favoritos**.
@@ -187,15 +173,13 @@ La tabla siguiente describe los elementos que aparecen en el menú **Favoritos**
 
 ### Menú Ventana
 
-Use el menú **Ventana** para agregar y organizar las ventanas de la consola de Administrador de instantáneas StorSimple.
+Utilice el menú **Ventana** para agregar y organizar las ventanas de la consola de StorSimple Snapshot Manager.
 
 #### Acceso al menú
 
 Puede acceder al menú **Ventana** desde la barra de menús.
 
 ![Menú Ventana de Administrador de instantáneas StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_WindowMenu.png)
-
-**Ilustración 8: Menú Ventana de Administrador de instantáneas StorSimple **
 
 La lista numerada en la parte inferior del menú muestra las ventanas que están actualmente abiertas. Haga clic en cualquier ventana de esa lista para sacarla a primer plano.
 
@@ -217,8 +201,6 @@ Use el menú **Ayuda** para ver la ayuda en pantalla disponible para Administrad
 Puede acceder al menú **Ayuda** desde la barra de menús. También puede acceder a los temas de Ayuda de Administrador de instantáneas StorSimple desde el panel **Acciones**.
 
 ![Menú Ayuda de Administrador de instantáneas StorSimple](./media/storsimple-use-snapshot-manager/HCS_SSM_HelpMenu.png)
-
-**Ilustración 9: Menú Ayuda de Administrador de instantáneas StorSimple **
 
 #### Descripción del menú
 
@@ -259,8 +241,6 @@ El panel **Ámbito** es el panel izquierdo, en la interfaz de usuario de Adminis
 El panel **Ámbito** contiene una serie de objetos seleccionables (nodos) organizados en una estructura de árbol.
 
 ![Panel de Ámbito](./media/storsimple-use-snapshot-manager/HCS_SSM_Scope_pane.png)
-
-**Ilustración 10: Panel de Ámbito de Administrador de instantáneas StorSimple **
 
 - Para expandir o contraer un nodo, haga clic en el icono de flecha situado junto al nombre del nodo.
 
@@ -352,7 +332,7 @@ El nodo **Instantáneas locales** ofrece una lista de las instantáneas locales 
 
 ### Nodo Instantáneas de nube
 
-El nodo **Instantáneas de nube** ofrece una lista de las instantáneas de nube para un grupo de volúmenes específico. El nodo se encuentra dentro del nodo **Catálogo de copias de seguridad** en el panel **Ámbito**. Las instantáneas de nube son copias instantáneas de los datos del volumen que se almacenan en la nube. Una instantánea de nube es equivalente a una instantánea replicada en un sistema de almacenamiento externo. Las instantáneas en la nube son especialmente útiles en escenarios de recuperación ante desastres.
+El nodo **Instantáneas de nube** ofrece una lista de las instantáneas de nube para un grupo de volúmenes específico. El nodo se encuentra dentro del nodo **Catálogo de copia de seguridad** en el panel **Ámbito**. Las instantáneas de nube son copias instantáneas de los datos del volumen que se almacenan en la nube. Una instantánea de nube es equivalente a una instantánea replicada en un sistema de almacenamiento externo. Las instantáneas en la nube son especialmente útiles en escenarios de recuperación ante desastres.
 
 - Para expandir el nodo, haga clic en el icono de flecha junto a **Instantáneas de nube**.
 
@@ -376,15 +356,13 @@ El nodo **Trabajos** contiene información acerca de los trabajos de copia de se
 
 ## Panel de Resultados
 
-El panel **Resultados** es el panel central en la interfaz de usuario de Administrador de instantáneas StorSimple. Contiene listas e información de estado detallada para el nodo que esté seleccionado en el panel **Ámbito**.
+El panel **Resultados** es el panel central en la interfaz de usuario de StorSimple Snapshot Manager. Contiene listas e información de estado detallada para el nodo que esté seleccionado en el panel **Ámbito**.
 
 ### Ejemplo
 
 Para ver el ejemplo siguiente, haga clic en el nodo **Grupos de volúmenes** en el panel **Ámbito**. El panel **Resultados** muestra una lista de grupos de volúmenes con detalles acerca de cada grupo.
 
 ![Panel de Resultados](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png)
-
-**Ilustración 11: Panel de Resultados de Administrador de instantáneas StorSimple **
 
 Puede configurar los detalles que aparece en el panel **Resultados**: haga clic con el botón derecho en un nodo en el panel **Ámbito**, haga clic en **Vista** y luego haga clic en **Agregar o quitar columnas**.
 
@@ -398,13 +376,9 @@ Para ver el ejemplo siguiente, en el panel **Ámbito**, expanda el nodo **Trabaj
 
 ![Ejemplo de los trabajos programados del panel Acciones](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane.png)
 
-**Ilustración 12: Panel de Acciones de Administrador de instantáneas StorSimple (trabajos programados)**
-
-Para ver más opciones, en panel **Ámbito**, expanda el nodo **Trabajos**, haga clic en **Programado** y luego haga clic en un trabajo programado en el panel **Resultados**. El panel **Acciones** muestra las acciones disponibles para el trabajo programado, tal como se muestra en el ejemplo siguiente.
+Para ver más opciones, en panel **Ámbito**, expanda el nodo **Trabajos**, haga clic en **Programado** y, luego, haga clic en un trabajo programado en el panel **Resultados**. El panel **Acciones** muestra las acciones disponibles para el trabajo programado, tal como se muestra en el ejemplo siguiente.
 
 ![Ejemplo de acciones de trabajo del panel Acciones](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
-
-**Ilustración 13: Panel de Acciones de Administrador de instantáneas StorSimple (para un trabajo específico)**
 
 ## Métodos abreviados y navegación mediante el teclado
 
@@ -503,7 +477,7 @@ Las siguientes tablas muestran las combinaciones de teclas de método abreviado 
 |:----------------|:------------------------------------|
 | G | Abre la página **Crear un grupo de volúmenes**. |
 | V | Abre el menú **Vista**. |
-| W | Abre una nueva consola de Administrador de instantáneas StorSimple centrada en el nodo **Grupos de volúmenes**.|
+| W | Abre una nueva consola de StorSimple Snapshot Manager centrada en el nodo **Grupos de volúmenes**.|
 | F | Actualiza la consola de Administrador de instantáneas StorSimple. |
 | L | Abre la página **Exportar lista**. |
 | H | Abre la Ayuda en pantalla.|
@@ -514,7 +488,7 @@ Las siguientes tablas muestran las combinaciones de teclas de método abreviado 
 |:----------------|:------------------------------------|
 | B | Abre la página **Crear una directiva**. |
 | V | Abre el menú **Vista**. |
-| W | Abre una nueva consola de Administrador de instantáneas StorSimple centrada en el nodo **Grupos de volúmenes**.|
+| W | Abre una nueva consola de StorSimple Snapshot Manager centrada en el nodo **Grupos de volúmenes**.|
 | F | Actualiza la consola de Administrador de instantáneas StorSimple.|
 | L | Abre la página **Exportar lista**. | H | Abre la Ayuda en pantalla. |
  
@@ -522,7 +496,7 @@ Las siguientes tablas muestran las combinaciones de teclas de método abreviado 
 
 | Método abreviado de menú | Resultado |
 |:----------------|:------------------------------------|
-| W | Abre una nueva consola de Administrador de instantáneas StorSimple centrada en el nodo **Grupos de volúmenes**. |
+| W | Abre una nueva consola de StorSimple Snapshot Manager centrada en el nodo **Grupos de volúmenes**. |
 | F | Actualiza la consola de Administrador de instantáneas StorSimple. |
 | H | Abre la Ayuda en pantalla.|
  
@@ -541,4 +515,4 @@ Las siguientes tablas muestran las combinaciones de teclas de método abreviado 
 - Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 - Aprenda a [usar StorSimple Snapshot Manager para conectarse y administrar dispositivos](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

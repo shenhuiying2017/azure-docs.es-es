@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/15/2015"
+   ms.date="01/04/2016"
    ms.author="sahajs"/>
 
 # Proteger una base de datos en Almacenamiento de datos SQL
@@ -119,4 +119,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Other Web references-->
 [Control de acceso basado en rol en el Portal de Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

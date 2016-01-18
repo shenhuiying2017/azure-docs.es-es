@@ -39,7 +39,7 @@ Además de los requisitos previos que se enumeran en el tema de información gen
 Si usa Azure PowerShell de una **versión inferior a 1.0**, deberá usar los cmdlets que se documentan [aquí][old-cmdlet-reference]. También debe ejecutar los comandos siguientes antes de usar los cmdlets de Factoría de datos:
 
 1. Inicie Azure PowerShell y ejecute los comandos siguientes. Mantenga Azure PowerShell abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
-	1. Ejecute **Add-AzureAccount** y escriba el mismo nombre de usuario y la contraseña que usó para iniciar sesión en el Portal de Azure.
+	1. Ejecute **Add-AzureAccount** y escriba el mismo nombre de usuario y contraseña que utilizó para iniciar sesión en el Portal de Azure.
 	2. Ejecute **Get-AzureSubscription** para ver todas las suscripciones para esta cuenta.
 	3. Ejecute **Select-AzureSubscription** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que la usada en el Portal de Azure.
 4. Cambie al modo AzureResourceManager a medida que los cmdlets de Factoría de datos de Azure están disponibles en este modo: **Switch-AzureMode AzureResourceManager**.
@@ -60,9 +60,9 @@ Paso | Descripción
 En este paso, use PowerShell de Azure para crear una factoría de datos de Azure llamada **ADFTutorialDataFactoryPSH**.
 
 1. Inicie Azure PowerShell y ejecute el comando siguiente. Mantenga Azure PowerShell abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
-	- Ejecute **Login-AzureRmAccount** y escriba el mismo nombre de usuario y la contraseña que usó para iniciar sesión en el Portal de Azure.  
+	- Ejecute **Login-AzureRmAccount** y escriba el mismo nombre de usuario y contraseña que utilizó para iniciar sesión en el Portal de Azure.  
 	- Ejecute **Get-AzureSubscription** para ver todas las suscripciones para esta cuenta.
-	- Ejecute **Select-AzureSubscription <Name of the subscription>** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que la usada en el Portal de Azure.
+	- Ejecute **Select-AzureSubscription<Name of the subscription>** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que la usada en el Portal de Azure.
 3. Cree un grupo de recursos de Azure con el nombre: **ADFTutorialResourceGroup** ejecutando el siguiente comando.
    
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
@@ -222,8 +222,8 @@ Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, 
 	- **folderPath** se establece en el contenedor **adftutorial**. 
 	- **fileName** se establece en **emp.txt**. Si no especifica el nombre del blob, los datos de todos los blobs del contenedor se consideran datos de entrada.  
 	- el **tipo** de formato se establece en **TextFormat**
-	- Hay dos campos en el archivo de texto: **FirstName** y **LastName** separados por un carácter de coma (**columnDelimiter**).	
-	- **availability** se establece en **hourly** (**frequency** se establece en **hour** e **interval** se establece en **1**), por lo que el servicio de Factoría de datos buscará los datos de entrada cada hora en la carpeta raíz del contenedor de blobs (**adftutorial**) especificado.
+	- Hay dos campos en el archivo de texto: **FirstName** y **LastName** separados por un carácter de coma (**columnDelimiter**)	
+	- La **disponibilidad** se establece en **cada hora** (**frecuencia** se establece en **hora** e **intervalo** se establece en **1**), por lo que el servicio de la factoría de datos buscará los datos de entrada cada hora en la carpeta raíz del contenedor de blob (**adftutorial**) especificado.
 
 	Si no especifica **fileName** para una **tabla** de **entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada. Consulte los archivos de muestra del [tutorial][adf-tutorial] para ver algunos ejemplos.
  
@@ -431,7 +431,6 @@ Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234.aspx
 [old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[data-factory-create-storage]: ../storage-create-storage-account.md
 
 [adf-get-started]: data-factory-get-started.md
 [azure-portal]: http://portal.azure.com
@@ -440,7 +439,7 @@ Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener
 
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-monitor-manage-using-powershell/getstarted-storage-explorer.png
 
-[sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
+[sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

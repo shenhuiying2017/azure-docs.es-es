@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/03/2015"
+   ms.date="01/04/2015"
    ms.author="larryfr"/>
 
 #Uso de Vista de Hive con Hadoop en HDInsight
@@ -123,7 +123,7 @@ Se trata de la vista __Explicación visual__ de la consulta, que puede ser útil
 
 ###Tez
 
-Seleccione el icono de __Explicación visual__ a la derecha del editor.
+Seleccione el icono de __Tez__ a la derecha del editor.
 
 ![iconos](./media/hdinsight-hadoop-use-hive-ambari-view/tez.png)
 
@@ -131,7 +131,7 @@ Se mostrará el grafo acíclico dirigido (DAG) usado por Tez para esta consulta,
 
 ###Notificaciones
 
-Seleccione el icono de __Explicación visual__ a la derecha del editor.
+Seleccione el icono __Notificaciones__ a la derecha del editor.
 
 ![iconos](./media/hdinsight-hadoop-use-hive-ambari-view/notifications.png)
 
@@ -199,4 +199,4 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

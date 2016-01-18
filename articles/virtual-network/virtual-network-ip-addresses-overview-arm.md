@@ -13,17 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="12/23/2015"
    ms.author="telmos" />
 
-# Direcciones IP en el Administrador de recursos de Azure
+# Direcciones IP en Azure
 Puede asignar direcciones IP a los recursos de Azure para que se comuniquen con otros recursos de Azure, la red local e Internet. Hay dos tipos de direcciones IP que puede usar en Azure: públicas y privadas.
 
 Las direcciones IP públicas se usan para la comunicación con Internet, incluidos los servicios de acceso público de Azure.
 
 Las direcciones IP privadas se usa para la comunicación dentro de una red virtual (VNet) de Azure y en la red local cuando se usa una puerta de enlace de VPN o un circuito ExpressRoute para ampliar la red a Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [modelo de implementación clásica](virtual-network-ip-addresses-overview-classic.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
+
+Si está familiarizado con el modelo de implementación clásica, revise las [diferencias en el direccionamiento IP entre la implementación clásica y el Administrador de recursos](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
 
 ## Direcciones IP públicas
 Las direcciones IP públicas permiten que los recursos de Azure se comuniquen con Internet y servicios de acceso público de Azure como [Caché en Redis de Azure](https://azure.microsoft.com/services/cache), [Centros de eventos de Azure](https://azure.microsoft.com/services/event-hubs), [Bases de datos SQL](sql-database-technical-overview.md) y [Almacenamiento de Azure](storage-introduction.md).
@@ -46,7 +48,7 @@ Las direcciones IP públicas se suelen usar en los escenarios siguientes:
 
 - Los usuarios finales necesitan actualizar las reglas de firewall para comunicarse con los recursos de Azure.
 - La resolución de nombres DNS, en la que un cambio de dirección IP requeriría actualizar los registros D.
-- Los recursos de Azure se comunican con otros servicios web que emplean un modelo de seguridad basado en IP.
+- Los recursos de Azure se comunican con otras aplicaciones o servicios que utilizan un modelo de seguridad basado en dirección IP.
 - Usa certificados SSL vinculados a una dirección IP.
 
 >[AZURE.NOTE]La lista de intervalos IP desde la que se asignan direcciones IP públicas (dinámicas o estáticas) a recursos de Azure está publicada en [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -122,19 +124,27 @@ En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asign
 |Front-end de equilibrador de carga interno|Sí|Sí|Sí|
 |Front-end de Puerta de enlace de aplicaciones|Sí|Sí|Sí|
 
-## Comparación entre la implementación del Administrador de recursos y la clásica
-A continuación, se muestra una comparación de la dirección IP entre el Administrador de recursos y el modelo de implementación clásica.
+## Límites
 
-||Recurso|Clásica|Administrador de recursos|
-|---|---|---|---|
-|**Dirección IP pública**|Máquina virtual|Denominada ILPIP (solo dinámica)|Denominada IP pública (dinámica o estática)|
-|||Asignada a una máquina virtual IaaS o una instancia de rol PaaS|Asociada a la tarjeta NIC de la máquina virtual|
-||Equilibrador de carga accesible desde Internet|Denominada VIP (dinámica) o IP reservada (estática)|Denominada IP pública (dinámica o estática)|
-|||Asignada a un servicio en la nube|Asociada a la configuración del front-end del equilibrador de carga|
-||||
-|**Dirección IP privada**|Máquina virtual|Denominada DIP|Denominada dirección IP privada|
-|||Asignada a una máquina virtual IaaS o una instancia de rol PaaS|Asociada a la tarjeta NIC de la máquina virtual|
-||Equilibrador de carga interno (ILB)|Asignada al ILB (dinámica o estática)|Asignada a la configuración del front-end del ILB (dinámica o estática)|
+La tabla siguiente muestra los límites impuestos al direccionamiento IP en Azure por región, por suscripción. Puede [ponerse en contacto con el soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar los límites predeterminados hasta alcanzar los límites máximos, según las necesidades empresariales.
+
+||Límite predeterminado|Límite máximo| |---|---|---| |Direcciones IP públicas (dinámicas)|60|póngase en contacto con el soporte técnico| |Direcciones IP públicas (estáticas)|20|póngase en contacto con el soporte técnico| |Direcciones IP front-end públicas por equilibrador de carga|5|póngase en contacto con el soporte técnico| |Direcciones IP front-end privadas por equilibrador de carga|1|póngase en contacto con el soporte técnico|
+
+Asegúrese de leer el conjunto completo de [límites para redes](azure-subscription-service-limits.md#networking-limits) en Azure.
+
+## Precios
+
+En la mayoría de los casos, las direcciones IP públicas son gratis. El uso de direcciones IP públicas adicionales o estáticas implica un cargo nominal. Asegúrese de comprender la [estructura de precios de las direcciones IP públicas](https://azure.microsoft.com/pricing/details/ip-addresses/).
+
+En resumen, la siguiente estructura de precios se aplica a los recursos de direcciones IP públicas:
+
+- Las puertas de enlace de VPN y las puertas de enlace de aplicaciones solo utiliza una dirección IP pública dinámica gratis.
+- Las máquinas virtuales usan solo una dirección IP pública, que es gratis siempre que se trate de una dirección IP dinámica. Si una máquina virtual usa una dirección IP pública estática, se cuenta dentro del uso de direcciones IP públicas estáticas (reservadas).
+- Cada equilibrador de carga puede utilizar varias direcciones IP públicas. La primera dirección IP pública es gratis. Las direcciones IP dinámicas adicionales tienen un costo de USD 0.004/hora. Las direcciones IP públicas estáticas se cuentan dentro del uso de direcciones IP públicas estáticas (reservadas).
+- Uso de direcciones IP públicas estáticas (reservadas): 
+	- Las primeras cinco (en uso) son gratis. Las direcciones IP públicas estáticas adicionales tienen un costo de USD 0.004/hora. 
+	- Las direcciones IP públicas estáticas que no están asignadas a ningún recurso tienen un costo de USD 0.004/hora.
+	- El uso se calcula según la cantidad total de direcciones IP públicas estáticas en la suscripción.
 
 ## Pasos siguientes
 - [Implementación de una máquina virtual con una IP pública estática](virtual-network-deploy-static-pip-arm-template.md)
@@ -145,5 +155,4 @@ A continuación, se muestra una comparación de la dirección IP entre el Admini
 - [Introducción a la creación de un equilibrador de carga interno mediante PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-front-end-ip-pool-and-backend-address-pool)
 - [Creación, inicio o eliminación de una Puerta de enlace de aplicaciones con el Administrador de recursos de Azure](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
 
-<!---HONumber=AcomDC_1223_2015-->
-
+<!---HONumber=AcomDC_0107_2016-->

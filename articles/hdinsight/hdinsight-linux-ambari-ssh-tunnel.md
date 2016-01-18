@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="11/02/2015"
+ms.date="01/05/2015"
 ms.author="larryfr"/>
 
 #Uso de la tunelación SSH para tener acceso a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web
@@ -46,7 +46,7 @@ Cuando se usa un túnel SSH para el tráfico web, debe tener lo siguiente:
 
 * Un cliente SSH. Para las distribuciones de Linux y Unix o Macintosh OS X, el comando `ssh` se proporciona con el sistema operativo. Para Windows, se recomienda [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
-	> [AZURE.NOTE]Si desea usar un cliente SSH distinto de `ssh` o PuTTY, consulte la documentación de su cliente acerca de cómo establecer un túnel SSH.
+	> [AZURE.NOTE]Si desea usar un cliente SSH distinto de `ssh` o PuTTY, vea la documentación de su cliente sobre cómo establecer un túnel SSH.
 
 * Un explorador web que se puede configurar para usar un proxy SOCKS
 
@@ -56,7 +56,7 @@ Cuando se usa un túnel SSH para el tráfico web, debe tener lo siguiente:
 
 ##<a name="usessh"></a>Creación de un túnel con el comando SSH
 
-Use el siguiente comando para crear un túnel SSH con el comando `ssh`. Reemplace __USERNAME__ por un usuario SSH para su clúster de HDInsight y reemplace __CLUSTERNAME__ por el nombre de su clúster de HDInsight
+Use el siguiente comando para crear un túnel SSH con el comando `ssh`. Reemplace __USERNAME__ por un usuario SSH para su clúster de HDInsight y reemplace __CLUSTERNAME__ por el nombre de su clúster de HDInsight.
 
 	ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
@@ -86,7 +86,7 @@ Una vez que se completa el comando, el tráfico enviado al puerto 9876 del equip
 
 Use los siguientes pasos para crear un túnel SSH con PuTTY.
 
-1. Abra PuTTY y escriba la información de conexión. Si no está familiarizado con PuTTY, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md) para obtener información sobre cómo usarlo con HDInsight.
+1. Abra PuTTY y escriba la información de conexión. Si no está familiarizado con PuTTY, vea [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md) para obtener información sobre cómo usarlo con HDInsight.
 
 2. En la sección **Category** (Categoría) a la izquierda del cuadro de diálogo, expanda **Connection** (Conexión), **SSH** y, a continuación, seleccione **Tunnels** (Túneles).
 
@@ -118,7 +118,7 @@ Use los siguientes pasos para crear un túnel SSH con PuTTY.
 
 ###Extensiones del explorador
 
-A pesar de que la configuración del explorador para que use el túnel funciona, normalmente no desearía enrutar todo el tráfico a través del túnel. Las extensiones del explorador, como [FoxyProxy](http://getfoxyproxy.org/), son compatibles con la coincidencia de patrones para las solicitudes de dirección URL (solo FoxyProxy Standard o Plus), de forma que solo se envíen las solicitudes para direcciones URL específicas a través del túnel.
+A pesar de que la configuración del explorador para que use el túnel funciona, normalmente no desearía enrutar todo el tráfico a través del túnel. Las extensiones del explorador, como [FoxyProxy](http://getfoxyproxy.org/), son compatibles con la coincidencia de patrones para las solicitudes de dirección URL (FoxyProxy Standard o Plus solamente), de manera tal que solo las solicitudes para direcciones URL específicas se enviarán a través del túnel.
 
 Si instaló FoxyProxy Standard, use los siguientes pasos para configurarlo para que solo desvíe tráfico para HDInsight a través del túnel.
 
@@ -149,6 +149,11 @@ Si instaló FoxyProxy Standard, use los siguientes pasos para configurarlo para 
 	* **Patrón de URL** - ***internal.cloudapp.net*** - Define un patrón que coincide con el nombre de dominio completo interno de los nodos del clúster.
 
 	![patrón de foxyproxy](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
+    
+    Si está utilizando Storm en el clúster de HDInsight, también debe agregar un modelo con los siguientes valores:
+    
+    * **Nombre de patrón** - **Nodos de trabajo**
+    * **Modelo de dirección URL** - *** 10.0.0*** -Permite a la IU de Storm obtener acceso a datos en nodos de trabajo por dirección IP.
 
 4. Seleccione **Aceptar** para agregar el proxy y cierre la **Configuración de proxy**.
 
@@ -170,7 +175,7 @@ Una vez que se ha establecido el clúster, siga estos pasos para comprobar que p
 
 	![Imagen con YARN seleccionado](./media/hdinsight-linux-ambari-ssh-tunnel/yarnservice.png)
 
-3. Cuando se muestra la información del servicio YARN, seleccione __Vínculos rápidos__. Aparecerá una lista de los nodos del clúster principal. Seleccione uno de los nodos principales y, a continuación, seleccione __IU de ResourceManager__.
+3. Cuando se muestra la información del servicio YARN, seleccione __Vínculos rápidos__. Aparecerá una lista de los nodos del clúster principal. Seleccione uno de los nodos principales y luego seleccione __IU de ResourceManager__.
 
 	![Imagen con el menú Vínculos rápidos expandido](./media/hdinsight-linux-ambari-ssh-tunnel/yarnquicklinks.png)
 
@@ -197,4 +202,4 @@ Para obtener más información sobre el uso de SSH con HDInsight, vea lo siguien
 
 * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0107_2016-->

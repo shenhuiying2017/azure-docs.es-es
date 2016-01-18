@@ -65,7 +65,7 @@ Instalación del PowerShell Azure más reciente, disponible en la página de des
 ### Paso 2
 Inicio de sesión en la cuenta de Azure
 
-	PS C:\> Login-AzureRmAccopunt
+	PS C:\> Login-AzureRmAccount
 
 Se le pedirá que se autentique con sus credenciales.
 
@@ -141,12 +141,13 @@ Por ejemplo, para cambiar el perfil de TTL:
 	PS C:\> $profile.Ttl = 300
 	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
-## Agregue puntos de conexión de Administrador de tráfico. [](#adding-traffic-manager-endpoints)
+## Agregue puntos de conexión de Administrador de tráfico
 Hay tres tipos de puntos de conexión de Administrador de tráfico: 1. Puntos de conexión de Azure: representan los servicios hospedados en Azure. 2. Puntos de conexión externos: representan los servicios hospedados fuera de Azure. 3. Puntos de conexión anidados: se usan para construir jerarquías anidadas de perfiles de Administrador de tráfico, para habilitar configuraciones avanzadas de enrutamiento de tráfico para las aplicaciones más complejas. Todavía no se admiten a través de la API de ARM.
 
 En los tres casos, se pueden agregar puntos de conexión de dos maneras: 1. Mediante un proceso de tres pasos similar al descrito en [Actualización de un perfil de Administrador de tráfico](#update-traffic-manager-profile): obtener el objeto de perfil mediante Get-AzureRmTrafficManagerProfile; actualizarlo sin conexión para agregar un punto de conexión, mediante Add-AzureRmTrafficManagerEndpointConfig; cargar los cambios en el Administrador de tráfico de Azure mediante Set-AzureRmTrafficManagerProfile. La ventaja de este método es que puede realizarse una serie de cambios del punto de conexión en una sola actualización. 2. Con el cmdlet New-AzureRmTrafficManagerEndpoint. Se agrega un punto de conexión a un perfil de Administrador de tráfico existente en una sola operación.
 
 ### Adición de puntos de conexión de Azure
+
 Los puntos de conexión de Azure hacen referencia a los servicios hospedados en Azure. Actualmente, se admiten tres tipos de puntos de conexión de Azure: 1. Aplicaciones web de Azure 2. Servicios en la nube "clásicos" (que pueden contener un servicio PaaS o máquinas virtuales IaaS) 3. Recursos de Microsoft.Network/publicIpAddress de ARM (que se pueden agregar a un equilibrador de carga o a una NIC de máquina virtual). Tenga en cuenta que publicIpAddress debe tener un nombre DNS asignado para usarse en el Administrador de tráfico.
 
 En cada caso: - El servicio se especifica mediante el parámetro 'targetResourceId' de Add-AzureRmTrafficManagerEndpointConfig o New-AzureRmTrafficManagerEndpoint. - El valor de 'Target' y 'EndpointLocation' no debe especificarse, está implícito en el valor de TargetResourceId especificado antes. - La especificación del valor de 'Weight' es opcional. Los pesos solo se usan si el perfil se configura para usar el método de enrutamiento de tráfico "ponderado". Si se especifica, deben encontrarse entre 1 y 1000. El valor predeterminado es '1'. -Especificar el valor de 'Priority' es opcional. Las prioridades solo se usan si el perfil se configura para usar el método de enrutamiento de tráfico de 'Priority'. Los valores válidos van de 1 a 1000 (los valores más bajos son de mayor prioridad). Si se especifica para un punto de conexión, se debe especificar para todos los puntos de conexión. Si se omite, se aplican los valores predeterminados desde 1, 2, 3, etc., en el orden en que se proporcionan los puntos de conexión.
@@ -228,7 +229,7 @@ Para habilitar un punto de conexión de Administrador de tráfico, use el cmdlet
 
 	PS C:\> Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup
 
-De forma similar, para deshabilitar un perfil de Administrador de tráfico:
+De forma similar, para deshabilitar un punto de conexión de Administrador de tráfico:
 
  	PS C:\> Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup -Force
 
@@ -264,4 +265,4 @@ Se puede canalizar igualmente esta secuencia:
 [Consideraciones de rendimiento sobre el Administrador de tráfico](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0107_2016-->

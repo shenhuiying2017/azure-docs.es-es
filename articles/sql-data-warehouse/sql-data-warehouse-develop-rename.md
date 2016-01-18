@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/05/2015"
+   ms.date="01/04/2016"
    ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
 
 # Cambio de nombre en el Almacenamiento de datos SQL
@@ -27,7 +27,6 @@ Actualmente, solo puede cambiarse el nombre de tablas. La sintaxis para cambiar 
 RENAME OBJECT Customer TO NewCustomer;
 ```
 
-> [AZURE.NOTE] Las sesiones del Almacenamiento de datos SQL están precedidas por “SID”; deberá incluir esto y el número de sesión al invocar el comando KILL. Por ejemplo, ```KILL 'SID1234'``` terminaría la sesión 1234, suponiendo que tenga los permisos adecuados para ejecutarlo.
 Al cambiar el nombre de una tabla, se actualizan todos los objetos y las propiedades asociados a la tabla para hacer referencia al nuevo nombre de la tabla. Por ejemplo, se actualizan las definiciones, los índices, las restricciones y los permisos de la tabla. Las vistas no se actualizan.
 
 ## Cambio de nombre de una tabla externa
@@ -54,4 +53,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Article references-->
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

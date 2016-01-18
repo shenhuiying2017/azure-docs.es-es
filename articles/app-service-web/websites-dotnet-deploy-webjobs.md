@@ -100,8 +100,7 @@ Para crear un nuevo proyecto con funcionalidad WebJobs, puede usar la plantilla 
 
 	Cree un proyecto configurado para implementarse automáticamente como WebJob cuando se implementa un proyecto web en la misma solución. Utilice esta opción cuando desee ejecutar su trabajo web en la misma aplicación web en la que ejecuta la aplicación web relacionada.
 
-En el SDK 2.4, la plantilla para nuevos proyectos WebJobs no es mucho más sencilla que crear un proyecto de aplicación de consola y habilitar la implementación WebJobs. En el futuro, la plantilla para nuevos proyectos de WebJobs será más práctica para la implementación del [SDK de WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs), porque instalará los paquetes de NuGet del SDK de WebJobs apropiados automáticamente. Hasta entonces, puede configurar un proyecto para usar el SDK de WebJobs instalando los paquetes manualmente tal y como se muestra en el [tutorial del SDK de WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs).
-
+> [AZURE.NOTE]La plantilla new-project de WebJobs instala automáticamente los paquetes NuGet e incluye código en *Program.cs* para el [SDK de WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Si no desea utilizar el SDK de WebJobs, o bien si desea utilizar un trabajo web programado en lugar de continuo, quite o cambie la instrucción `host.RunAndBlock` en *Program.cs*.
 
 ### <a id="createnolink"></a> Uso de la plantilla para nuevos proyectos de WebJobs para un trabajo web independiente
   
@@ -198,4 +197,4 @@ Este artículo explica cómo implementar WebJobs con Visual Studio. Para obtener
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

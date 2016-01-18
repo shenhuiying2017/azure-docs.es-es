@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configuración de clústeres de HDInsight con el Almacén de Azure Data Lake mediante PowerShell | Azure" 
-   description="Use Azure PowerShell para configurar y usar clústeres de Hadoop en HDInsight con Azure Data Lake" 
+   pageTitle="Creación de un clúster de HDInsight con el Almacén de Azure Data Lake mediante Azure PowerShell | Azure" 
+   description="Use Azure PowerShell para crear y usar clústeres de Hadoop en HDInsight con Azure Data Lake" 
    services="data-lake" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/04/2015"
+   ms.date="01/06/2016"
    ms.author="nitinme"/>
 
-# Aprovisionamiento de un clúster de HDInsight con el Almacén de Data Lake mediante Azure PowerShell
+# Creación de un clúster de HDInsight con el Almacén de Data Lake mediante Azure PowerShell
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Aprenda a usar Azure PowerShell para configurar un clúster de HDInsight (Hadoop, HBase o Storm) para trabajar con un Almacén de Azure Data Lake. Algunas consideraciones importantes sobre esta versión:
+Aprenda a usar Azure PowerShell para configurar un clúster de HDInsight (Hadoop, HBase o Storm) con acceso a un Almacén de Azure Data Lake. Algunas consideraciones importantes sobre esta versión:
 
 * **En clústeres de Hadoop y Storm (Windows y Linux)**, el almacén de Data Lake solo puede usarse como cuenta de almacenamiento adicional. La cuenta de almacenamiento predeterminada para los clústeres de este tipo seguirán Blobs de almacenamiento de Azure (WASB).
 
@@ -44,7 +44,7 @@ La configuración de HDInsight para trabajar con el Almacén de Data Lake median
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Habilite su suscripción de Azure** para la versión de vista previa pública del almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
+- **Habilite su suscripción de Azure** para la versión de vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
 - **Windows SDK**. Puede instalarlo desde [aquí](https://dev.windows.com/es-ES/downloads). Úselo para crear un certificado de seguridad.
 
 
@@ -73,7 +73,7 @@ Hay dos opciones principales para instalar Azure PowerShell.
 		# Import Azure Service Management module
 		Import-Module Azure
 
-	Para más información, consulte [Galería de PowerShell](https://www.powershellgallery.com/).
+	Para más información, vea [Galería de PowerShell](https://www.powershellgallery.com/).
 
 - [Instalador de plataforma web de Microsoft (WebPI)](http://aka.ms/webpi-azps). Si tiene Azure PowerShell 0.9.x instalado, se le pedirá que desinstale 0.9.x. Si ha instalado módulos de Azure PowerShell desde la Galería de PowerShell, el programa de instalación requiere que los módulos se quiten antes de la instalación para garantizar un entorno coherente de PowerShell de Azure. Para instrucciones, consulte [Instalación de Azure PowerShell 1.0 mediante WebPI](https://azure.microsoft.com/blog/azps-1-0/).
 
@@ -103,7 +103,7 @@ Siga estos pasos para crear un Almacén de Data Lake.
 		$resourceGroupName = "<your new resource group name>"
     	New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
-	![Crear un grupo de recursos de Azure](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateResourceGroup.png "Crear un grupo de recursos de Azure")
+	![Creación de un grupo de recursos de Azure](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateResourceGroup.png "Crear un grupo de recursos de Azure")
 
 2. Cree una cuenta de Almacén de Azure Data Lake. El nombre de cuenta que especifique debe contener solo letras minúsculas y números.
 
@@ -118,7 +118,7 @@ Siga estos pasos para crear un Almacén de Data Lake.
 
 	El resultado debe ser **True**.
 
-4. Cargue datos de ejemplo a Azure Data Lake. Los usaremos más adelante en este artículo para comprobar que se puede acceder a los datos desde un clúster de HDInsight. Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+4. Cargue datos de ejemplo a Azure Data Lake. Los usaremos más adelante en este artículo para comprobar que se puede acceder a los datos desde un clúster de HDInsight. Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 		
 		$myrootdir = "/"
@@ -316,7 +316,7 @@ Una vez que configure el clúster de HDInsight para que use el Almacén de Data 
 		Found 1 items
 		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/vehicle1_09142014.csv
 
-	También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en Azure Data Lake y después usar `hdfs dfs -ls` para comprobar si los archivos se cargaron correctamente.
+	También puede usar el comando `hdfs dfs -put` para cargar algunos archivos a Azure Data Lake y después usar `hdfs dfs -ls` para comprobar si los archivos se cargaron correctamente.
 
 ## Otras referencias
 
@@ -325,4 +325,4 @@ Una vez que configure el clúster de HDInsight para que use el Almacén de Data 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

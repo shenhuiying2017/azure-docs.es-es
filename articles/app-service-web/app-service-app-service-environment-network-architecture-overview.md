@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="12/17/2015" 
 	ms.author="stefsch"/>
 
 # Información general sobre la arquitectura de red de los entornos del Servicio de aplicaciones
@@ -73,7 +73,7 @@ Aunque las llamadas entre diferentes entornos de Servicio de aplicaciones se tra
 ## Información y vínculos adicionales ##
 Se puede obtener más información sobre los puertos de entrada usados por los entornos de Servicio de aplicaciones y sobre el uso de grupos de seguridad de red para controlar el tráfico entrante [aquí][controllinginboundtraffic].
 
-Los detalles sobre el uso de rutas definidas por el usuario para conceder acceso saliente a Internet a los entornos de Servicio de aplicaciones están disponibles en este [artículo][ExpressRoute].
+Los detalles sobre el uso de rutas definidas por el usuario para conceder acceso saliente a Internet a los entornos del Servicio de aplicaciones están disponibles en este [artículo][ExpressRoute].
 
 
 <!-- LINKS -->
@@ -87,4 +87,4 @@ Los detalles sobre el uso de rutas definidas por el usuario para conceder acceso
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

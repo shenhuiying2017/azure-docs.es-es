@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="01/05/2016" 
 	ms.author="awills"/>
 
 # API de Application Insights para eventos y métricas personalizados 
@@ -254,7 +254,7 @@ Los SDK capturan muchas excepciones automáticamente, por lo que no siempre es n
 
 * ASP.NET: [escritura de código para detectar excepciones](app-insights-asp-net-exceptions.md)
 * J2EE: [las excepciones se detectan automáticamente](app-insights-java-get-started.md#exceptions-and-request-failures)
-* Aplicaciones de Windows: [los bloqueos se detectan automáticamente](app-insights-windows-crashes.md)
+* Aplicaciones de Windows: [Los bloqueos se detectan automáticamente](app-insights-windows-crashes.md)
 * JavaScript: Detectado automáticamente. Si desea deshabilitar la colección automática, agregue una línea al fragmento de código que se inserta en las páginas web:
 
     ```
@@ -300,7 +300,7 @@ Utilice esta llamada para realizar un seguimiento de los tiempos de respuesta y 
             }
 ```
 
-Recuerde que los SDK del servidor incluyen un [módulo de dependencia](app-insights-dependencies.md) que detecta y realiza automáticamente el seguimiento de determinadas llamadas de dependencia; por ejemplo, a bases de datos y API de REST. Debe instalar un agente en el servidor para que el módulo funcione. Utilizará esta llamada si desea hacer un seguimiento de las llamadas no captadas por el seguimiento automatizado, o bien si no desea instalar el agente.
+Recuerde que los SDK del servidor incluyen un [módulo de dependencia](app-insights-dependencies.md) que detecta y realiza automáticamente el seguimiento de ciertas llamadas de dependencia; por ejemplo, a bases de datos y API de REST. Debe instalar un agente en el servidor para que el módulo funcione. Utilizará esta llamada si desea hacer un seguimiento de las llamadas no captadas por el seguimiento automatizado, o bien si no desea instalar el agente.
 
 Para desactivar el módulo de seguimiento de dependencias estándar, edite [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) y elimine la referencia a `DependencyCollector.DependencyTrackingTelemetryModule`.
 
@@ -666,7 +666,7 @@ Hay algunos límites en el número de métricas y eventos por aplicación (es de
  * Hasta 500 puntos de datos por segundo para todos los demás datos, donde se incluyen la telemetría estándar enviada por los módulos del SDK, y los eventos personalizados, las métricos y otros datos de telemetría enviados por su código. (100 por segundo para el plan de tarifa gratuito).
 1. Volumen total mensual de datos, según el [plan de tarifa](app-insights-pricing.md).
 1.	Máximo de 200 nombres de métrica únicos y 200 nombres de propiedad únicos para la aplicación. Las métricas incluyen el envío de datos a través de TrackMetric, así como mediciones u otros tipos de datos como eventos. Los nombres de métricas y propiedades son globales por clave de instrumentación, no limitadas al tipo de datos.
-2.	Las propiedades se pueden usar para filtrar y agrupar por solo cuando tienen menos de 100 valores únicos para cada propiedad. Después de que los valores únicos superen 100, una propiedad todavía se puede usar para búsqueda y filtrado pero no para filtros.
+2.	Las propiedades se pueden usar para filtrar y agrupar por solo cuando tienen menos de 100 valores únicos para cada propiedad. Después de que los valores únicos superen los 100, la propiedad todavía se puede usar para búsqueda, pero no para filtros.
 3.	Las propiedades estándar como el nombre de la solicitud y la URL de página se limitan a 1000 valores únicos por semana. Después de 1000 valores únicos, los valores adicionales se marcan como "Otros valores". El valor original puede seguir usándose para la búsqueda de texto completo y el filtrado.
 
 *¿Cómo puedo evitar llegar al límite de velocidad de datos?*
@@ -705,9 +705,9 @@ Hay algunos límites en el número de métricas y eventos por aplicación (es de
 
 
 
-* *¿Hay una API de REST?*
+* *¿Hay una API de REST para obtener datos desde el portal?*
 
-    Sí, pero aún no está publicada.
+    Sí (próximamente) Mientras tanto, use la [exportación continua](app-insights-export-telemetry.md).
 
 ## <a name="next"></a>Pasos siguientes
 
@@ -736,4 +736,4 @@ Hay algunos límites en el número de métricas y eventos por aplicación (es de
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/03/2015"
+   ms.date="01/04/2016"
    ms.author="v-darmi"/>
 
 
@@ -63,7 +63,7 @@ Existen ciertos compromisos cuando se usa un estilo de fire and forget de solici
 La directiva `send-request` permite usar un servicio externo para realizar funciones complejas de procesamiento y devolver datos al servicio de Administración de API que pueden usarse para un posterior procesamiento de directivas.
 
 ### Autorización de tokens de referencia
-Una de las funciones principales de Administración de API es proteger los recursos de back-end. Si el servidor de autorización que usa su API crea [tokens de JWT](http://jwt.io/) como parte de su flujo de OAuth2, igual que hace [Azure Active Directory](../active-directory/active-directory-aadconnect.md), puede usar la directiva `validate-jwt` para comprobar la validez del token. Sin embargo, algunos servidores de autorización crean lo que se denomina [tokens de referencia](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/), que no se pueden comprobar sin llamar de vuelta al servidor de autorización.
+Una de las funciones principales de Administración de API es proteger los recursos de back-end. Si el servidor de autorización que usa su API crea [tokens de JWT](http://jwt.io/) como parte de su flujo de OAuth2, igual que hace [Azure Active Directory](../active-directory/active-directory-aadconnect.md), puede usar la directiva `validate-jwt` para comprobar la validez del token. Pero algunos servidores de autorización crean lo que se denomina [tokens de referencia](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/), que no se pueden comprobar sin llamar de vuelta al servidor de autorización.
 
 ### Introspección estandarizada
 En el pasado no existía una forma estandarizada de comprobar un token de referencia con un servidor de autorización. Pero IETF publicó un estándar propuesto recientemente, [RFC 7662](https://tools.ietf.org/html/rfc7662), que define cómo un servidor de recursos puede comprobar la validez de un token.
@@ -162,7 +162,7 @@ Una vez creada la operación de `dashboard`, se puede configurar una directiva p
 
 ![Operación del panel](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
-El primer paso es extraer los parámetros de consulta de la solicitud entrante, de modo que puedan reenviarse al back-end. En este ejemplo, nuestro panel muestra información basada en un período de tiempo y, por tanto, tiene un parámetro `fromDate` y otro `toDate`. Se puede usar la directiva `set-variable` para extraer la información de la dirección URL de la solicitud.
+El primer paso es extraer los parámetros de consulta de la solicitud entrante, de modo que puedan reenviarse al back-end. En este ejemplo, nuestro panel muestra información basada en un período de tiempo y, por tanto, tiene un parámetro `fromDate` y `toDate`. Se puede usar la directiva `set-variable` para extraer la información de la dirección URL de la solicitud.
 
     <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
     <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
@@ -264,4 +264,9 @@ En la configuración de la operación de marcador de posición se puede configur
 ## Resumen
 El servicio de administración de API de Azure proporciona directivas flexibles que se pueden aplicar de forma selectiva al tráfico HTTP y permite la composición de servicios de back-end. Si desea mejorar la puerta de enlace de la API con funciones de alerta, comprobación, capacidades de validación o crear nuevos recursos compuestos basados en varios servicios de back-end, la directiva `send-request` y otras relacionadas ofrecen todo un mundo de posibilidades.
 
-<!---HONumber=AcomDC_1210_2015-->
+## Ver un vídeo de información general de estas directivas
+Para más información sobre las directivas [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) y [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) que se describen en este artículo, vea el siguiente vídeo.
+
+> [AZURE.VIDEO send-request-and-return-response-policies]
+
+<!---HONumber=AcomDC_0107_2016-->

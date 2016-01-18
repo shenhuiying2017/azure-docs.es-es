@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/14/2015"
+   ms.date="12/30/2015"
    ms.author="v-sharos" />
 
 # Usar el servicio de Administrador de StorSimple para administrar su catálogo de copia de seguridad
 
 ## Información general
 
-La página **Catálogo de copias de seguridad** del servicio StorSimple Manager muestra todos los conjuntos de copia de seguridad que se crean cuando se realizan copias de seguridad manuales o automatizadas. Puede usar esta página para enumerar todas las copias de seguridad para un volumen o una directiva de copia de seguridad, seleccionar o eliminar las copias de seguridad, o usar una copia de seguridad para restaurar o clonar un volumen.
+En la página **Catálogo de copias de seguridad** del servicio StorSimple Manager se muestran todos los conjuntos de copia de seguridad que se crean cuando se realizan copias de seguridad manuales o programadas. Puede usar esta página para enumerar todas las copias de seguridad para un volumen o una directiva de copia de seguridad, seleccionar o eliminar las copias de seguridad, o usar una copia de seguridad para restaurar o clonar un volumen.
 
 En este tutorial se explica cómo enumerar, seleccionar y eliminar un conjunto de copia de seguridad. Para obtener información sobre cómo restaurar su dispositivo de copia de seguridad, vaya a [Restaurar el dispositivo desde un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md). Para aprender cómo clonar un volumen, vaya a [Clonar un volumen de StorSimple](storsimple-clone-volume.md).
 
@@ -39,11 +39,11 @@ A continuación, los conjuntos de copias de seguridad filtrados se presentan en 
 
 - **Tamaño**: tamaño real del conjunto de copias de seguridad.
 
-- **Creado** en: fecha y hora en que se crearon las copias de seguridad.
+- **Creada en**: Fecha y hora en que se crearon las copias de seguridad.
 
 - **Tipo**: los conjuntos de copias de seguridad pueden ser instantáneas locales o instantáneas en la nube. Una instantánea local es una copia de seguridad de todos los datos del volumen que se almacenan localmente en el dispositivo, mientras que una instantánea en la nube hace referencia a la copia de seguridad de los datos del volumen que residen en la nube. Las instantáneas locales proporcionan un acceso más rápido, mientras que las instantáneas en la nube son preferibles para la resistencia de los datos.
 
-- **Iniciada por**: las copias de seguridad se pueden iniciar automáticamente por una programación o manualmente por el usuario. Puede usar una directiva de copia de seguridad para programar copias de seguridad. Como alternativa, puede usar la opción **Realizar copia de seguridad** para realizar una copia de seguridad interactiva.
+- **Iniciada por**: las copias de seguridad se pueden iniciar automáticamente por una programación o manualmente por el usuario. Puede usar una directiva de copia de seguridad para programar copias de seguridad. Como alternativa, puede usar la opción **Realizar copia de seguridad** para crear una copia de seguridad manual.
 
 ## Mostrar conjuntos de copia de seguridad para un volumen
  
@@ -85,7 +85,7 @@ Complete los pasos siguientes para seleccionar un conjunto de copias de segurida
 
     Las copias de seguridad asociadas al volumen o la directiva de copia de seguridad seleccionados deben aparecer en la lista de conjuntos de copias de seguridad.
 
-3. Selecciona y expanda un conjunto de copia de seguridad. Las opciones **Restaurar y eliminar** se muestran en la parte inferior de la página. Puede realizar cualquiera de estas acciones en el conjunto de copia de seguridad que haya seleccionado.
+3. Selecciona y expanda un conjunto de copia de seguridad. Las opciones **Restaurar** y **Eliminar** aparecen en la parte inferior de la página. Puede realizar cualquiera de estas acciones en el conjunto de copia de seguridad que haya seleccionado.
 
 ## Eliminación de un conjunto de copia de seguridad
 
@@ -107,7 +107,7 @@ Elimine una copia de seguridad cuando ya no desee conservar los datos asociados 
 
     Las copias de seguridad asociadas al volumen o la directiva de copia de seguridad seleccionados deben aparecer en la lista de conjuntos de copias de seguridad.
 
-3. Selecciona y expanda un conjunto de copia de seguridad. Las opciones **Restaurar y eliminar** se muestran en la parte inferior de la página. Hacer clic en **Eliminar**.
+3. Selecciona y expanda un conjunto de copia de seguridad. Las opciones **Restaurar** y **Eliminar** aparecen en la parte inferior de la página. Hacer clic en **Eliminar**.
 
 4. Se le notificará cuando la eliminación esté en curso y cuando haya finalizado correctamente. Cuando finalice la eliminación, actualice la consulta en esta página. El conjunto de copia de seguridad eliminado ya no aparecerá en la lista de conjuntos de copia de seguridad.
 
@@ -117,4 +117,4 @@ Elimine una copia de seguridad cuando ya no desee conservar los datos asociados 
 
 - Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

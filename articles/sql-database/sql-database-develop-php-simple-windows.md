@@ -21,13 +21,7 @@
 # Conexión a la base de datos SQL mediante PHP en Windows
 
 
-> [AZURE.SELECTOR]
-- [C#](sql-database-develop-dotnet-simple.md)
-- [PHP](sql-database-develop-php-simple-windows.md)
-- [Python](sql-database-develop-python-simple-windows.md)
-- [Ruby](sql-database-develop-ruby-simple-windows.md)
-- [Java](sql-database-develop-java-simple-windows.md)
-- [Node.js](sql-database-develop-nodejs-simple-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 Este tema muestra cómo puede conectarse a la base de datos SQL de Azure desde una aplicación cliente escrita en PHP que se ejecuta en Windows.
@@ -134,11 +128,11 @@ En este ejemplo se muestra cómo ejecutar la instrucción [INSERT](https://msdn.
 
 Este ejemplo de código muestra el uso de transacciones con las que podrá realizar lo siguiente:
 
--Iniciar una transacción
+- Iniciar una transacción
 
--Insertar una fila de datos, actualizar otra fila de datos
+- Insertar una fila de datos, actualizar otra fila de datos
 
--Confirmar la transacción si la inserción y actualización se realizaron correctamente y revertir la transacción si uno de ellos no lo ha sido
+- Confirmar la transacción si la inserción y actualización se realizaron correctamente y revertir la transacción si uno de ellos no lo ha sido
 
 
 	function Transactions()
@@ -186,4 +180,4 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 
 Para obtener más información sobre el uso y la instalación de PHP, vea [Acceso a bases de datos de SQL Server con PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

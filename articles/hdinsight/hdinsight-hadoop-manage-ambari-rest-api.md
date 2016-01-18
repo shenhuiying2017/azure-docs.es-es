@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/06/2015"
    ms.author="larryfr"/>
 
 #Administración de clústeres de HDInsight con la API de REST de Ambari
@@ -111,6 +111,10 @@ Luego, puede usar esta información con la [CLI de Azure](../xplat-cli-install.m
     
     Esto devolverá el nombre del grupo de recursos de la cuenta.
     
+    > [AZURE.NOTE]Si este comando no devuelve nada, debe cambiar la CLI de Azure al modo Administrador de recursos de Azure y ejecutar el comando de nuevo. Para cambiar al modo Administrador de recursos de Azure, use el siguiente comando:
+    >
+    > `azure config mode arm`
+    
 2. Obtenga la clave de la cuenta de almacenamiento. Reemplace __GROUPNAME__ por el grupo de recursos del paso anterior. Reemplace __ACCOUNTNAME__ por el nombre de la cuenta de almacenamiento:
 
         azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
@@ -131,4 +135,4 @@ Para obtener una referencia completa de la API de REST, consulte [Referencia de 
 
 > [AZURE.NOTE]Cierta funcionalidad de Ambari está deshabilitada, puesto que está administrada por el servicio en la nube de HDInsight; por ejemplo, agregar o quitar hosts del clúster o agregar nuevos servicios.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

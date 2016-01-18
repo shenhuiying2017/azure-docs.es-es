@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/04/2016"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Habilitación de Multi-Factor Authentication en las aplicaciones orientadas al consumidor
@@ -31,7 +31,7 @@ Al usar esta característica, las aplicaciones pueden tratar escenarios como los
 
 ## Modificación de la directiva de registro para habilitar Multi-Factor Authentication
 
-1. [Vaya a la hoja de características B2C del Portal de vista previa de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Siga estos pasos para desplazarse hasta la hoja de características B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Haga clic en **Directivas de registro**.
 3. Abra la directiva de registro (por ejemplo, "B2C\_1\_SiUp") haciendo clic en ella.
 4. Haga clic en **Autenticación multifactor** y configure el **Estado** como **Activado**. Haga clic en **OK**.
@@ -43,7 +43,7 @@ Se crea una cuenta de consumidor en su directorio antes de que se produzca el pa
 
 ## Modificación de la directiva de inicio de sesión para habilitar Multi-Factor Authentication
 
-1. Vaya a la hoja de características B2C del [Portal de vista previa de Azure](htts://portal.azure.com/). Lea [aquí](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) sobre cómo hacerlo.
+1. [Siga estos pasos para desplazarse hasta la hoja de características B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Haga clic en **Directivas de inicio de sesión**.
 3. Abra la directiva de inicio de sesión (por ejemplo, "B2C\_1\_SiIn") haciendo clic en ella. Haga clic en **Editar** en la parte superior de la hoja.
 4. Haga clic en **Autenticación multifactor** y configure el **Estado** como **Activado**. Haga clic en **OK**.
@@ -53,4 +53,4 @@ Puede usar la característica "Ejecutar ahora" en la directiva para comprobar la
 
 Cuando el consumidor inicia la sesión (mediante una cuenta local o social), si un número de teléfono comprobado está asociado a su cuenta, se le pide que lo compruebe. Si no hay ningún número de teléfono adjunto, se pide al consumidor que proporcione uno y que lo compruebe; tras una correcta comprobación, el número de teléfono se adjunta a la cuenta de consumidor para su uso posterior.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

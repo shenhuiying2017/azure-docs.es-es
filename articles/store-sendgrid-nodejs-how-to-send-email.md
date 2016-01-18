@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="01/05/2016" 
 	ms.author="erikre"/>
 # Envío de correo electrónico con SendGrid desde Node.js
 
@@ -182,4 +182,4 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
 -   Documentación sobre la API de SendGrid: <https://sendgrid.com/docs>
 -   Oferta especial de SendGrid para clientes de Azure: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html) [oferta especial]: https://sendgrid.com/windowsazure.html [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs [Configuración de filtros]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html [Documentación sobre la API de SendGrid]: https://sendgrid.com/docs [servicio de correo electrónico basado en la nube]: https://sendgrid.com/email-solutions [entrega de correo electrónico transaccional]: https://sendgrid.com/transactional-email
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

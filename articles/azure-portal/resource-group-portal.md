@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/29/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -25,7 +25,7 @@ Históricamente, la administración de un recurso (como un servidor de base de d
 
 Normalmente, un grupo de recursos contiene recursos relacionados con una aplicación específica. Por ejemplo, un grupo puede contener una aplicación web que hospeda el sitio web público, una Base de datos SQL que almacena datos relacionales que usa el sitio y una cuenta de almacenamiento que conserva recursos no relacionales. Todos los recursos de un grupo de recursos deben compartir el mismo ciclo de vida. Para obtener más información sobre el Administrador de recursos, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
 
-Este tema proporciona información general sobre cómo usar grupos de recursos en el Portal de Azure. Actualmente, no todos los servicios son compatibles con el portal o con el Administrador de recursos. Para esos servicios, deberá usar el [portal clásico](https://manage.windowsazure.com). Para obtener información acerca del estado de cada servicio, consulte [Compatibilidad del Administrador de recursos para servicios, regiones y versiones de API](resource-manager-supported-services.md).
+Este tema proporciona información general sobre cómo usar grupos de recursos en el Portal de Azure. Actualmente, no todos los servicios son compatibles con el portal o con el Administrador de recursos. Para esos servicios, deberá usar el [portal clásico](https://manage.windowsazure.com). Para más información sobre el estado de cada servicio, consulte [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/) (Gráfico de disponibilidad del Portal de Azure).
 
 ## Creación de recursos y de un grupo de recursos
 
@@ -147,11 +147,11 @@ Después de iniciar la implementación de la plantilla, puede crear la plantilla
 Introducción
 
 - Para obtener información sobre los conceptos del Administrador de recursos, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).  
-- Para obtener información sobre cómo usar Azure PowerShell al implementar recursos, consulte [Uso de Azure PowerShell con Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
+- Para obtener información sobre cómo usar Azure PowerShell al implementar recursos, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
 - Para obtener información sobre cómo usar la interfaz de la línea de comandos (CLI) de Azure al implementar recursos, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](../xplat-cli-azure-resource-manager.md). 
   
 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/14/2015" 
+	ms.date="12/30/2015" 
 	ms.author="jeffstok"
 />
 
@@ -57,7 +57,7 @@ En este paso puede usar cualquier archivo CSV, incluso el especificado en la int
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - explorador de servidores](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-server-explorer.png)
 
-2.	Expanda el almacenamiento que acaba de asociar y elija **Crear contenedor de blobs** y ofrezca un nombre lógico. Una vez creado, haga doble clic en el contenedor para ver su contenido (que estará vacío en este momento).
+2.	Expanda el almacenamiento que acaba de asociar y elija **Crear contenedor de blobs** y proporcione un nombre lógico. Una vez creado, haga doble clic en el contenedor para ver su contenido (que estará vacío en este momento).
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - crear blob](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-create-blob.png)
 
@@ -142,7 +142,7 @@ Tome nota de la clave de acceso y de la dirección URL de servicio web desde el 
 
 En este tutorial, se creó un trabajo de Análisis de transmisiones que lee datos de texto de trasmisiones y aplica el análisis de opinión en tiempo real. Puede hacerlo sin tener que preocuparse por las complejidades de la creación de un modelo de análisis de opinión. Esta es una de las ventajas de Cortana Analytics Suite.
 
-También pueden observarse las métricas relacionadas con funciones del lenguaje de máquina de Azure. Haga clic en la pestaña **MONITOR**. Se muestran tres métricas relacionadas con funciones.
+También se pueden observar las métricas relacionadas con funciones de Aprendizaje automático de Azure. Haga clic en la pestaña **MONITOR**. Se muestran tres métricas relacionadas con funciones.
   
 - SOLICITUDES DE FUNCIÓN indica el número de solicitudes en el servicio web de Aprendizaje automático.  
 - EVENTOS DE FUNCIÓN indica el número de eventos de la solicitud. De forma predeterminada, cada solicitud de servicio web de Aprendizaje automático contiene hasta 1000 eventos.  
@@ -150,4 +150,4 @@ También pueden observarse las métricas relacionadas con funciones del lenguaje
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - vista de monitor de aprendizaje automático](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

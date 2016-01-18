@@ -45,7 +45,6 @@ Existen varias razones por las que no debería migrar ahora sus servicios móvil
   *  Se encuentra actualmente en un período de mucha actividad y no puede permitirse un reinicio del sitio en este momento.
   *  No desea que su sitio de producción se vea afectado antes de probar el proceso de migración.
   *  Tiene varios sitios en los niveles de precios Gratis y Básico y no desea migrar todos los sitios al mismo tiempo.
-  *  Tiene trabajos programados configurados como a petición que quiere migrar.
 
 Si se encuentra en un período de mucha actividad, planee la migración durante una ventana de mantenimiento programado. El proceso de migración reinicia el sitio como parte del proceso y los usuarios pueden percibir esta interrupción momentánea en la disponibilidad.
 
@@ -146,6 +145,24 @@ Esta es una tarea opcional, pero se proporciona para una mejor experiencia de ad
 
 > [AZURE.TIP]Una de las ventajas de usar un Servicio de aplicaciones de Azure es que puede ejecutar su sitio web y el servicio móvil en el mismo sitio. Para más información, consulte la sección [Pasos siguientes](#next-steps).
 
+### <a name="download-publish-profile"></a>Descarga de un nuevo perfil de publicación
+
+El perfil de publicación del sitio cambia al migrar al Servicio de aplicaciones de Azure. Si va a publicar el sitio desde dentro de Visual Studio necesitará un nuevo perfil de publicación. Para descargar el nuevo perfil de publicación:
+
+  1.  Inicie sesión en el [Portal de Azure].
+  2.  Seleccione **Todos los recursos** o **Servicios de aplicaciones** y luego haga clic en el nombre del servicio móvil migrado.
+  3.  Haga clic en **Obtener perfil de publicación**.
+
+El archivo PublishSettings se descargará en su PC. Normalmente se llamará _nombre\_del\_sitio_.PublishSettings. Después, puede importar la configuración de publicación en el proyecto existente:
+
+  1.  Abra Visual Studio y el proyecto de Servicio móvil de Azure.
+  2.  Haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y seleccione **Publicar...**.
+  3.  Haga clic en **Importar**.
+  4.  Haga clic en **Examinar** y seleccione el archivo de configuración de publicación descargado. Haga clic en **Aceptar**.
+  5.  Haga clic en **Validar conexión** para asegurar el trabajo de configuración de publicación.
+  6.  Haga clic en **Publicar** para publicar el sitio.
+
+
 ## <a name="working-with-your-site"></a>Migración posterior al sitio
 
 Empezará a trabajar con su nuevo Servicio de aplicaciones en la migración posterior del [Portal de Azure]. Las siguientes son algunas notas sobre operaciones específicas que se suelen realizar en el [Portal de Azure clásico], junto con su equivalente del Servicio de aplicaciones.
@@ -191,7 +208,7 @@ Todas las configuraciones de autenticación están disponibles como configuraci�
 
 Nota: **MS\_AadTenants** se almacena como una lista de dominios de inquilino separados por coma (los campos "Inquilinos permitidos" del Portal de Servicios móviles).
 
-> [AZURE.WARNING]**No utilice los mecanismos de autenticación del menú Configuración**.
+> [AZURE.WARNING]**No utilice los mecanismos de autenticación del menú Configuración.**
 >
 > El Servicio de aplicaciones de Azure proporciona un sistema de autenticación y autorización "sin código" independiente en el menú de configuración _Autenticación y autorización_ y la opción (en desuso) _Autenticación móvil_ en el menú Configuración. Estas opciones no son compatibles con un servicio móvil de Azure migrado. Puede [actualizar su sitio] para aprovechar la autenticación del Servicio de aplicaciones de Azure.
 
@@ -224,33 +241,24 @@ La pestaña _API_ de Servicios móviles se ha reemplazado por _API fáciles_ den
 
 Las API migradas ya aparecen en la hoja. También puede agregar una nueva API desde esta hoja. Para administrar una API específica, haga clic en la API. Desde la nueva hoja, puede ajustar los permisos y editar los scripts de la API.
 
-### <a name="on-demand-jobs"></a>Trabajos programados a petición
+### <a name="on-demand-jobs"></a>Trabajos de Programador
 
-Los trabajos programados a petición se activan a través de una solicitud web. Se recomienda usar un cliente HTTP, como [Postman], [Fiddler] o [curl]. Si su sitio se llama 'contoso', tendrá un punto de conexión https://contoso.azure-mobile.net/jobs/_yourjobname_ que puede usar para desencadenar la tarea a petición. Deberá enviar un encabezado adicional **X-ZUMO-MASTER** con la clave maestra.
-
-Puede obtener la clave maestra de la manera siguiente:
+Todos los trabajos de Programador están disponibles a través de la sección de colecciones de trabajo de Programador. Para acceder a los trabajos de Programador:
 
   1. Inicie sesión en el [Portal de Azure].
-  2. Seleccione **Todos los recursos** o **Servicios de aplicaciones** y luego haga clic en el nombre del servicio móvil migrado.
-  3. Se abrirá la hoja Configuración de forma predeterminada; si no, haga clic en **Configuración**.
-  4. Haga clic en **Configuración de aplicación** en el menú GENERAL.
-  5. Busque la configuración de aplicación **MS\_MasterKey**.
+  2. Seleccione **Examinar >**, escriba **Programación** en el cuadro _Filtro_ y luego seleccione **Colecciones de Programador**.
+  3. Seleccione la colección de trabajos para su sitio. Se denominará _nombre\_del\_sitio_-Jobs.
+  4. Haga clic en **Configuración**.
+  5. Haga clic en **Trabajos de Programador** en ADMINISTRAR.
 
-Puede cortar y pegar la clave maestra en la sesión de Postman. Este es un ejemplo de desencadenar un trabajo a petición en un servicio móvil migrado:
+Los trabajos programados se mostrarán con la frecuencia que especifique antes de la migración. Los trabajos a petición se deshabilitarán. Para ejecutar un trabajo a petición:
 
-  ![Desencadenar un trabajo a petición con Postman][2]
+  1. Seleccione el trabajo que desee ejecutar.
+  2. Si es necesario, haga clic en **Habilitar** para habilitar el trabajo.
+  3. Haga clic en **Configuración** y después en **Programar**.
+  4. Seleccione **Una vez** para la periodicidad y después haga clic en **Guardar**.
 
-Anote la configuración:
-
-  * Método: **POST**
-  * URL: https://_yoursite_.azure-mobile.net/jobs/_yourjobname_
-  * Encabezados: X-ZUMO-MASTER: _your-master-key_
-
-También puede usar [curl] para desencadenar el trabajo a petición en una línea de comandos:
-
-    curl -H 'X-ZUMO-MASTER: yourmasterkey' --data-ascii '' https://yoursite.azure-mobile.net/jobs/yourjob
-
-Los trabajos a petición se encuentran en `App_Data/config/scripts/scheduler post-migration`. Se recomienda convertir todos los trabajos a petición a [WebJobs].
+Los trabajos a petición se encuentran en `App_Data/config/scripts/scheduler post-migration`. Se recomienda convertir todos los trabajos a petición a [WebJobs]. Debe escribir los nuevos trabajos de Programador como [WebJobs].
 
 ### <a name="notification-hubs"></a>Centros de notificaciones
 
@@ -385,4 +393,4 @@ Tenga en cuenta que como la aplicación se migra al Servicio de aplicaciones, ha
 [red virtual]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

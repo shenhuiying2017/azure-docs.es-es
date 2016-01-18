@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/28/2015"
    ms.author="v-sharos" />
 
 # Uso de Administrador de instantáneas StorSimple para administrar el catálogo de copia de seguridad
 
 ## Información general
 
-La función principal de Administrador de instantáneas StorSimple es permitirle crear copias de seguridad coherentes con las aplicaciones de los volúmenes de Azure StorSimple en el formato de instantáneas. Las instantáneas se enumeran en un archivo XML llamado *catálogo de copia de seguridad*. El catálogo de copia de seguridad organiza las instantáneas por grupo de volúmenes y, a continuación, por instantáneas locales o instantánea de nube.
+La función principal de Administrador de instantáneas StorSimple es permitirle crear copias de seguridad coherentes con las aplicaciones de los volúmenes de Azure StorSimple en el formato de instantáneas. Las instantáneas se enumeran en un archivo XML llamado *catálogo de copia de seguridad*. El catálogo de copia de seguridad organiza las instantáneas por grupo de volúmenes y, luego, por instantáneas locales o instantánea de nube.
 
 Puede ver el catálogo de copia de seguridad expandiendo el nodo **Catálogo de copia de seguridad** en el panel **Ámbito** y luego el grupo de volúmenes.
 
@@ -208,4 +208,4 @@ Debe hacer de forma regular copias de seguridad de la base de datos de Administr
 - Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 - Obtenga más información sobre las [tareas y flujos de trabajo de Snapshot Manager de StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

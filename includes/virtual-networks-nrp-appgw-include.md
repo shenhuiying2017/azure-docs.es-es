@@ -1,14 +1,6 @@
 ## Puerta de enlace de aplicaciones
 
-La puerta de enlace de aplicaciones ofrece una solución de equilibrio de carga HTTP administrada de Azure basada en el equilibrio de carga de nivel 7. El equilibrio de carga de aplicaciones permite el uso de reglas de enrutamiento para el tráfico de red basado en HTTP.
-
-| Propiedad | Descripción | 
-|---|---|
-| **backendAddressPools** | Lista de direcciones IP de los servidores back-end. Las direcciones IP mostradas deben pertenecer a la subred de la red virtual o ser una VIP/IP pública o una IP privada. |
-| **backendHttpSettingsCollection** | Cada grupo tiene una configuración como el puerto, el protocolo y la afinidad basada en las cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo. |
-| **frontendPorts** | Este puerto es el puerto público abierto en la Puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end. |
-| **httpListeners** | El agente de escucha tiene un puerto front-end, un protocolo (Http o Https; tenga en cuenta que se distinguen mayúsculas y minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL) |
-| **requestRoutingRules** | La regla enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se redirigirá el tráfico. Trabaja actualmente como round robin |
+La puerta de enlace de aplicaciones ofrece una solución de equilibrio de carga HTTP administrada de Azure basada en el equilibrio de carga de nivel 7. El equilibrio de carga de aplicación permite utilizar reglas de enrutamiento para el tráfico de red basadas en HTTP. <BR> | Propiedad | Descripción | |---|---| | **backendAddressPools** | La lista de direcciones IP de los servidores back-end. Las direcciones IP que aparecen deben pertenecer a la subred de la red virtual o deben ser una dirección IP pública/VIP o una dirección IP privada. | | **backendHttpSettingsCollection** | Cada grupo tiene una configuración como el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo se aplican a todos los servidores del grupo. | | **frontendPorts** | Este puerto es el puerto público abierto en la Puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end. | | **httpListeners** | El agente de escucha tiene un puerto front-end, un protocolo (Http o Https; tenga en cuenta que se distinguen mayúsculas y minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL). | | **requestRoutingRules** | La regla enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se redirigirá el tráfico. Trabaja actualmente como round robin |
 
 
 Ejemplo de una plantilla de Json de una puerta de enlace de aplicaciones:
@@ -221,4 +213,4 @@ Ejemplo de una plantilla de Json de una puerta de enlace de aplicaciones:
 
 Lea [ API de REST de la puerta de enlace de aplicaciones](https://msdn.microsoft.com/library/azure/mt299388.aspx) para obtener más información.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

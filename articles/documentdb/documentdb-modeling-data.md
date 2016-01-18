@@ -383,7 +383,7 @@ Lo más importante de este artículo es comprender que el modelado de datos en u
 
 Como no hay ninguna manera única de representar un elemento de datos en una pantalla, no hay una única forma de modelar los datos. Necesita comprender la aplicación y saber cómo producirá, consumirá y procesará los datos. A continuación, mediante la aplicación de algunas directrices presentadas aquí, puede crear un modelo que aborde las necesidades inmediatas de la aplicación. Cuando las aplicaciones necesitan cambiar, puede aprovechar la flexibilidad de una base de datos sin esquemas para adoptar ese cambio y que el modelo de datos evolucione con facilidad.
 
-Para obtener más información acerca de Azure DocumentDB, la página de [documentación](../../services/documentdb/).
+Para obtener más información acerca de Azure DocumentDB,consulte la página de [documentación](https://azure.microsoft.com/documentation/services/documentdb/) del servicio.
 
 Para obtener información sobre el ajuste de índices en Azure DocumentDB, consulte el artículo sobre [directivas de indexación](documentdb-indexing-policies.md).
 
@@ -392,4 +392,4 @@ Para comprender cómo particionar los datos en varias particiones, consulte [Par
 Y por último, para obtener información sobre el particionamiento y el modelado de datos para aplicaciones de varios inquilinos, consulte [Escalación de una aplicación de varios inquilinos con Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

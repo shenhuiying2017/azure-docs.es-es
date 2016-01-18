@@ -25,7 +25,7 @@ Azure PowerShell es un potente entorno de scripting que puede usar para controla
 
 > [AZURE.NOTE]Azure PowerShell solo está disponible en clientes de Windows. Si está usando un cliente de Linux, Unix o Mac OS X, vea [Crear un clúster de HDInsight basado en Linux con la CLI de Azure](hdinsight-hadoop-create-linux-cluster-azure-cli.md) para obtener información sobre el uso de la CLI de Azure para crear un clúster.
 
-##Requisitos previos
+###Requisitos previos
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -106,6 +106,11 @@ Los valores que se especifican para **$clusterCredentials** se usan para crear l
 
 Puede tardar hasta 15 minutos en completarse el aprovisionamiento.
 
+##Personalización de los clústeres
+
+- Consulte [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
+- Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Windows)](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
+
 ##Pasos siguientes
 
 Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para aprender a trabajar con el clúster:
@@ -135,4 +140,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

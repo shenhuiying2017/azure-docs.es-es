@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.date="01/05/2016"
 	ms.author="spelluru"/>
 
 # Uso de actividades personalizadas en una canalización de Factoría de datos de Azure
@@ -126,6 +126,18 @@ El método tiene algunos componentes clave que debe conocer.
             Activity activity,
             IActivityLogger logger)
         {
+			// to get extended properties (for example: SliceStart)
+			DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
+            string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];
+
+			// to log all extended properties			
+			IDictionary<string, string> extendedProperties = dotNetActivity.ExtendedProperties;
+			logger.Write("Logging extended properties if any...");
+			foreach (KeyValuePair<string, string> entry in extendedProperties)
+			{
+				logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
+			}
+		
 
             // declare types for input and output data stores
             AzureStorageLinkedService inputLinkedService;
@@ -330,11 +342,11 @@ En esta sección se proporcionan más detalles y notas sobre el código del mét
 			// Convert to blob location object.
 			outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
 
-4.	El código también llama a un método auxiliar: **GetFolderPath** para recuperar la ruta de acceso de la carpeta (el nombre del contenedor de almacenamiento).
+4.	El código también llama a un método auxiliar, **GetFolderPath**, para recuperar la ruta de acceso de la carpeta (el nombre del contenedor de almacenamiento).
  
 			folderPath = GetFolderPath(outputDataset);
 
-	El **GetFolderPath** convierte el objeto DataSet en una clase AzureBlobDataSet, que tiene una propiedad denominada FolderPath.
+	El método **GetFolderPath** convierte el objeto DataSet en una clase AzureBlobDataSet, que tiene una propiedad denominada FolderPath.
 			
 			AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 			
@@ -360,7 +372,7 @@ En esta sección se proporcionan más detalles y notas sobre el código del mét
 
 ## Creación de la factoría de datos
 
-En la sección **Creación de la actividad personalizada**, se creó una actividad personalizada y se cargó el archivo ZIP con binarios y el archivo PDB en un contenedor de blobs de Azure. En esta sección, creará una **Factoría de datos** de Azure con una **canalización** que usa la **actividad personalizada**.
+En la sección **Creación de la actividad personalizada**, se creó una actividad personalizada y se cargó el archivo ZIP con archivos binarios y el archivo PDB en un contenedor de blobs de Azure. En esta sección, creará una **factoría de datos** de Azure con una **canalización** que usa la **actividad personalizada**.
  
 El conjunto de datos de entrada de la actividad personalizada representa los blobs (archivos) de la carpeta de entrada (mycontainer\\inputfolder) del almacenamiento de blobs. El conjunto de datos de salida de la actividad representa los blobs de salida de la carpeta de salida (mycontainer\\outputfolder) del almacenamiento de blobs.
 
@@ -388,7 +400,7 @@ Estos son los pasos que realizará en esta sección:
 	1.	Haga clic en **NUEVO** en el menú de la izquierda.
 	2.	Haga clic en **Datos y análisis** en la hoja **Nuevo**.
 	3.	Haga clic en **Factoría de datos** en la hoja **Análisis de datos**.
-2.	En la hoja **Nueva fábrica de datos**, escriba **LogProcessingFactory** en el campo Nombre. El nombre del generador de datos de Azure debe ser único global. Si recibe el error: **El nombre "CustomActivityFactory" de fábrica de datos no está disponible**, cambie el nombre de la factoría de datos (por ejemplo, **yournameADFTutorialDataFactory**) e intente crearla de nuevo.
+2.	En la hoja **Nueva factoría de datos**, escriba **CustomActivityFactory** en el campo Nombre. El nombre del generador de datos de Azure debe ser único global. Si recibe el error **El nombre "CustomActivityFactory" de factoría de datos no está disponible**, cambie el nombre de la factoría de datos (por ejemplo, **suNombreCustomActivityFactory**) e intente crearla de nuevo.
 3.	Haga clic en **NOMBRE DEL GRUPO DE RECURSOS** y seleccione un grupo de recursos existente, o buen cree uno nuevo. 
 4.	Compruebe que usa la **suscripción** y **región** correctas en las que desea que se cree la factoría de datos. 
 5.	Haga clic en **Crear** en la hoja **Nueva fábrica de datos**.
@@ -403,7 +415,7 @@ Los servicios vinculados vinculan almacenes de datos o servicios de proceso con 
 
 1.	Haga clic en el icono **Crear e implementar** de la hoja **FACTORÍA DE DATOS** de **CustomActivityFactory**. Esto inicia el Editor de la Factoría de datos.
 2.	Haga clic en **Nuevo almacén de datos** en la barra de comandos y elija **Almacenamiento de Azure**. Debería ver el script JSON para crear un servicio vinculado de Almacenamiento de Azure en el editor.
-3.	Reemplace **account name** por el nombre de la cuenta de Almacenamiento de Azure y **account key** por la clave de acceso de la cuenta de Almacenamiento de Azure. Para aprender a obtener una clave de acceso de almacenamiento, consulte [Visualización y copia de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+3.	Reemplace **account name** por el nombre de la cuenta de Almacenamiento de Azure y **account key** por la clave de acceso de la cuenta de Almacenamiento de Azure. Para aprender a obtener una clave de acceso de almacenamiento, consulte [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 4.	Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
 
@@ -627,7 +639,7 @@ En este paso, creará conjuntos de datos que representen los datos de entrada y 
 
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
 
-10.	Use el [Portal de Azure][azure-preview-portal] o los cmdlets de Azure PowerShell para supervisar su factoría de datos, canalizaciones y conjuntos de datos. Puede ver mensajes de **ActivityLogger** en el código de la actividad personalizada en los registros (de forma específica user-0.log) que puede descargar desde el portal o mediante los cmdlets.
+10.	Use el [Portal de Azure][azure-preview-portal] o los cmdlets de Azure PowerShell para supervisar su factoría de datos, canalizaciones y conjuntos de datos. Puede ver mensajes desde **ActivityLogger** en el código de la actividad personalizada en los registros (de forma específica user-0.log) que puede descargar desde el portal o con cmdlets.
 
 	![registros de descarga de la actividad personalizada][image-data-factory-download-logs-from-custom-activity]
 
@@ -640,7 +652,7 @@ La depuración se compone de varias técnicas básicas:
 1.	Si el segmento de entrada no está establecido en **Listo**, confirme que la estructura de la carpeta de entrada es correcta y que file.txt existe en las carpetas de entrada.
 2.	En el método **Execute** método de la actividad personalizada, use el objeto **IActivityLogger** para registrar la información que le ayudará a solucionar los problemas. Los mensajes registrados se mostrarán en el archivo user\_0.log. 
 
-	En la hoja **OutputDataset**, haga clic en el segmento para ver la hoja **SEGMENTO DE DATOS** de dicho segmento. Verá las **ejecuciones de actividad** del segmento. Debería ver una ejecución de actividad del segmento. Si hace clic en Ejecutar en la barra de comandos, podrá iniciar otra ejecución de actividad en el mismo segmento.
+	En la hoja **OutputDataset**, haga clic en el segmento para ver la hoja **SEGMENTO DE DATOS** de dicho segmento. Verá **ejecuciones de actividad** para ese segmento. Debería ver una ejecución de actividad del segmento. Si hace clic en Ejecutar en la barra de comandos, podrá iniciar otra ejecución de actividad en el mismo segmento.
 
 	Al hacer clic en la ejecución de actividad, verá la hoja **DETALLES DE LA EJECUCIÓN DE ACTIVIDAD** con una lista de archivos de registro. Los mensajes registrados se verán en el archivo user\_0.log. Si se produce un error, verá tres ejecuciones de actividad, ya que el número de reintentos está establecido en 3 en la canalización o actividad JSON. Al hacer clic en la ejecución de actividad, verá los archivos de registro que puede revisar para solucionar el error.
 
@@ -656,6 +668,37 @@ La depuración se compone de varias técnicas básicas:
 
 ## Actualización de la actividad personalizada
 Si actualiza el código de la actividad personalizada, compílelo y cargue el archivo comprimido que contiene los nuevos binarios en el almacenamiento de blobs.
+
+## Acceso a las propiedades extendidas
+Puede declarar propiedades extendidas en la actividad de JSON como se muestra a continuación:
+
+	"typeProperties": {
+	  "AssemblyName": "MyDotNetActivity.dll",
+	  "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
+	  "PackageLinkedService": "StorageLinkedService",
+	  "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
+	  "extendedProperties": {
+	    "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))",
+		"DataFactoryName": "CustomActivityFactory"
+	  }
+	},
+
+En el ejemplo anterior, hay dos propiedades extendidas: **SliceStart** y **DataFactoryName**. El valor de SliceStart se basa en la variable del sistema SliceStart. Consulte [Variables del sistema](data-factory-scheduling-and-execution.md#data-factory-system-variables) para obtener una lista de las variables del sistema admitidas. El valor de DataFactoryName está codificado de forma rígida para "CustomActivityFactory".
+
+Para acceder a estas propiedades extendidas en el método **Execute**, use código similar al siguiente:
+
+	// to get extended properties (for example: SliceStart)
+	DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
+	string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];
+
+	// to log all extended properties                               
+    IDictionary<string, string> extendedProperties = dotNetActivity.ExtendedProperties;
+    logger.Write("Logging extended properties if any...");
+    foreach (KeyValuePair<string, string> entry in extendedProperties)
+    {
+    	logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
+	}
+
 
 ## <a name="AzureBatch"></a> Uso del servicio vinculado de Lote de Azure
 > [AZURE.NOTE]Consulte [Datos básicos de Lote de Azure][batch-technical-overview] para obtener información general del servicio Lote de Azure y consulte [Introducción a la biblioteca de .NET de Lote de Azure][batch-get-started] para empezar a trabajar rápidamente con el servicio Lote de Azure.
@@ -674,7 +717,7 @@ Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azu
 1. Cree una cuenta de Lote de Azure desde el [Portal de Azure](http://manage.windowsazure.com). Para obtener instrucciones, consulte el artículo [Creación y administración de una cuenta de Lote de Azure en el Portal de Azure][batch-create-account]. Anote el nombre y la clave de la cuenta de Lote de Azure.
 
 	También puede usar el cmdlet [New-AzureBatchAccount][new-azure-batch-account] para crear una cuenta de Lote de Azure. Consulte [Uso de Azure PowerShell para administrar la cuenta de Lote de Azure][azure-batch-blog] para obtener instrucciones detalladas sobre cómo utilizar este cmdlet.
-2. Cree un grupo de Lote de Azure Puede descargar el código fuente de la [herramienta Explorador de Lote de Azure][batch-explorer], compilarlo y usarla, o bien usar la [biblioteca de .NET de Lote de Azure][batch-net-library] para crear un grupo de Lote de Azure. Consulte el [tutorial de ejemplo del Explorador de Lote de Azure][batch-explorer-walkthrough] para obtener instrucciones paso a paso para usar el Explorador de Lote de Azure.
+2. Cree un grupo de Lote de Azure Puede descargar el código fuente para la [herramienta Explorador de Lote de Azure][batch-explorer] para usarla (o), usar la [Biblioteca de Lote de Azure para .NET][batch-net-library] para crear un grupo de Lote de Azure. Consulte el [tutorial de ejemplo del Explorador de Lote de Azure][batch-explorer-walkthrough] para obtener instrucciones paso a paso para usar el Explorador de Lote de Azure.
 
 	También puede usar el cmdlet [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) para crear un grupo de Lote de Azure.
 
@@ -760,4 +803,4 @@ Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azu
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

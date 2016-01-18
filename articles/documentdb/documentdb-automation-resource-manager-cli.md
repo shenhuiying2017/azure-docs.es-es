@@ -59,7 +59,7 @@ Lo que genera el siguiente resultado:
     Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
-> [AZURE.NOTE]Si no tiene una cuenta de Azure, verá un mensaje de error que indica que necesita un otro tipo de cuenta. Para crear una a partir su cuenta de Azure actual, consulte [Crear una identidad profesional o educativa en Azure Active Directory](../resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE]Si no tiene una cuenta de Azure, verá un mensaje de error que indica que necesita un otro tipo de cuenta. Para crear una a partir su cuenta de Azure actual, consulte [Crear una identidad profesional o educativa en Azure Active Directory](../virtual-machines/resource-group-create-work-id-from-personal.md).
 
 Abra [https://aka.ms/devicelogin](https://aka.ms/devicelogin) en un explorador y escriba el código proporcionado en la salida del comando.
 
@@ -326,7 +326,7 @@ Si recibe errores como `Deployment provisioning state was not successful` al cre
 
     	azure group log show new_res_group --last-deployment
 
-    Después, consulte [Solución de problemas de implementaciones de grupo de recursos en Azure](../resource-group-deploy-debug.md) para más información.
+    Después, consulte [Solución de problemas de implementaciones de grupo de recursos en Azure](../virtual-machines/resource-group-deploy-debug.md) para más información.
 
 - También hay información del error disponible en el Portal de Azure, como se muestra en la captura de pantalla siguiente. Para navegar a la información de error: haga clic en Grupos de recursos en la barra de salto, seleccione el grupo de recursos que tuvo el error. En el área Essentials de la hoja Grupo de recursos, haga clic en la fecha de la última implementación. En la hoja Historial de implementaciones, seleccione la implementación con errores. En la hoja Implementación, haga clic en los detalles de la operación con el signo de exclamación rojo. El mensaje de estado para la implementación con errores se muestra en la hoja Detalles de la operación.
 
@@ -351,4 +351,4 @@ Para obtener más información acerca de DocumentDB, explore estos recursos:
 
 Para obtener más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

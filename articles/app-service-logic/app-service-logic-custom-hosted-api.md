@@ -7,15 +7,18 @@
 	services="app-service\logic" 
 	documentationCenter=""/>
 
-<tags ms.service="app-service-logic" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na"
-	
+<tags
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"	
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="01/04/2016"
 	ms.author="stepsic"/>
 	
 # Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas
 
-Aunque las aplicaciones lógicas poseen un amplio conjunto de más de 40 conectores para diversos servicios, es posible que prefiera llamar a su propia API personalizada que puede ejecutar su propio código. Una de las maneras más fáciles y escalables de hospedar sus propias API web personalizadas es usar Servicio de aplicaciones. En este artículo, se explica cómo llamar a cualquier API web hospedada en una aplicación web de Servicio de aplicaciones.
+Aunque Aplicaciones lógicas tiene un conjunto completo de más de 40 conectores para una gran variedad de servicios, puede que desee recurrir a su propia API personalizada que puede ejecutar su propio código. Una de las maneras más fáciles y escalables de hospedar sus propias API web personalizadas es usar Servicio de aplicaciones. En este artículo se explica cómo llamar a cualquier API web hospedada en una aplicación de API del Servicio de aplicaciones, en una aplicación web o en una aplicación móvil.
 
 ## Implementación de la aplicación web
 
@@ -25,19 +28,19 @@ Asegúrese de obtener la **URL** de su aplicación web; aparece en **Aspectos b�
 
 ## Llamada a la API
 
-Empiece creando una nueva aplicación lógica en blanco. Una vez que haya creado una aplicación de lógica en blanco, haga clic en **Editar** o **Desencadenadores y acciones** y seleccione **Crear desde cero**.
+Empiece creando una nueva aplicación lógica en blanco. Una vez creada una aplicación lógica en blanco, haga clic en **Editar** o **Desencadenadores y acciones** y seleccione **Crear desde cero**.
 
 En primer lugar, podría usar un desencadenador de periodicidad o hacer clic en **Ejecutar esta lógica manualmente**. A continuación, deberá realizar la llamada en sí a la API. Para ello, haga clic en la acción **HTTP** de color verde en el lado derecho.
 
-1. Elija el **Método**; esto estará definido en el código de la API.
-2. En la sección **URL**, pegue la **URL** para la aplicación web implementada.
-3. Si necesita **Encabezados**, inclúyalos en formato JSON como este: `{"Content-type" : "application/json", "Accept" : "application/json" }`
+1. Elija un valor en **Método**; esto se definido en el código de la API.
+2. En la sección **URL**, pegue la dirección **URL** para la aplicación web implementada.
+3. Si necesita **Encabezados**, inclúyalos en formato JSON como esto: `{"Content-type" : "application/json", "Accept" : "application/json" }`
 4. Si la API es pública, puede dejar **Autenticación** en blanco. Si desea proteger las llamadas a la API, consulte las secciones siguientes.
 5. Por último, se incluye el **Cuerpo** de la pregunta que ha definido en la API.
 
 Haga clic en **Guardar** en la barra de comandos. Si hace clic en **Ejecutar ahora**, debería ver la llamada a la API y la respuesta en la lista de ejecuciones.
 
-Esto funciona muy bien si tiene una API pública pero, si desea proteger su API, existen distintas formas de hacerlo:
+Esto funciona bien si tiene una API pública. Pero si desea proteger su API, existen distintas formas de hacerlo:
 
 1. *No se requiere ningún cambio de código*: se puede usar Azure Active Directory para proteger su API sin necesidad de cambiar el código ni volver a implementarlo.
 2. Exija autenticación básica, autenticación de AAD o autenticación de certificado en el código de la API. 
@@ -48,7 +51,7 @@ En esta sección, creará dos aplicaciones de Azure Active Directory: una para l
 
 ### Parte 1: Configurar una identidad de aplicación para la aplicación lógica
 
-Esto es lo que la aplicación lógica usará para autenticarse en Active Directory. Solo *necesita* hacer esto una vez para su directorio; por ejemplo, puede usar la misma identidad para todas las aplicaciones lógicas, aunque también puede crear una única para cada aplicación lógica si lo desea. Puede hacerlo en la interfaz de usuario o usar PowerShell.
+Esto es lo que la aplicación lógica usa para autenticarse en Active Directory. Solo *necesita* hacer esto una vez para su directorio. Por ejemplo, puede usar la misma identidad para todas las aplicaciones lógicas, aunque también puede crear una única identidad para cada aplicación lógica si lo desea. Puede hacerlo en la interfaz de usuario o usar PowerShell.
 
 #### Creación de la identidad de aplicación mediante el Portal de Azure clásico
 
@@ -79,7 +82,7 @@ Si ya se implementó la aplicación web, basta con habilitarla en el portal. De 
 2. Haga clic en **Autorización/Autenticación**. 
 3. **Actívelo**.
 
-En este momento, se creará automáticamente una aplicación. Necesitará el identificador de cliente de esta aplicación para la parte 3, por lo que tendrá que hacer lo siguiente:
+En este momento, se crea una aplicación automáticamente. Necesita el identificador de cliente de esta aplicación para la parte 3, por lo que tendrá que hacer lo siguiente:
 
 1. Vaya a [Active Directory en el Portal de Azure clásico](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) y seleccione su directorio. 
 2. Busque la aplicación en el cuadro de búsqueda.
@@ -168,6 +171,6 @@ Por ejemplo, si desea limitar la API solamente a la aplicación lógica, puede e
 
 Además, si desea implementarla totalmente en su propio código y no aprovechar la característica del Portal, lea este artículo: [Usar Active Directory para la autenticación en Servicio de aplicaciones de Azure](web-sites-authentication-authorization.md).
 
-Necesitará seguir los pasos anteriores para crear una identidad de aplicación para la aplicación lógica y usarla para llamar a la API.
+Necesita seguir los pasos anteriores para crear una identidad de aplicación para la aplicación lógica y usarla para llamar a la API.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

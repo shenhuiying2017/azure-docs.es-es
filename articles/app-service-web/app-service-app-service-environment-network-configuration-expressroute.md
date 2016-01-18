@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="01/05/2016" 
 	ms.author="stefsch"/>
 
 # Detalles de configuración de red para entornos del Servicio de aplicaciones con ExpressRoute 
@@ -29,8 +29,8 @@ Los clientes pueden conectar un circuito de [Azure ExpressRoute][ExpressRoute] a
 Existen requisitos de conectividad de red para entornos del Servicio de aplicaciones que no pueden cumplirse inicialmente en una red virtual conectada a ExpressRoute. Los entornos del Servicio de aplicaciones requieren todas las opciones siguientes para funcionar correctamente:
 
 
--  Conectividad de red saliente a los puntos de conexión de Almacenamiento de Azure en todo el mundo. Esto incluye a los puntos de conexión situados en la misma región que el entorno del Servicio de aplicaciones, así como los puntos de conexión de almacenamiento ubicados en **otras** regiones de Azure. Los puntos de conexión de Almacenamiento de Azure se resuelven en los dominios DNS siguientes: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* y *file.core.windows.net*.  
--  Conectividad de red saliente a los puntos de conexión de Base de datos SQL ubicados en la misma región que el entorno del Servicio de aplicaciones. Los puntos de conexión de la Base de datos SQL se resuelven el dominio siguiente: *database.windows.net*.
+-  Conectividad de red saliente a los puntos de conexión de Almacenamiento de Azure en todo el mundo. Esto incluye los puntos de conexión situados en la misma región que el Entorno del Servicio de aplicaciones, así como los puntos de conexión de almacenamiento ubicados en **otras** regiones de Azure. Los puntos de conexión de Almacenamiento de Azure se resuelven en los dominios DNS siguientes: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* y *file.core.windows.net*.  
+-  Conectividad de red saliente a los puntos de conexión de Base de datos SQL ubicados en la misma región que el entorno del Servicio de aplicaciones. Los puntos de conexión de la Base de datos SQL se resuelven en el dominio siguiente: *database.windows.net*.
 -  Conectividad de la red saliente a los puntos de conexión del plano de administración de Azure (puntos de conexión ASM y ARM). Incluye conectividad saliente tanto a *management.core.windows.net* como a *management.azure.com*. 
 -  Conectividad de red saliente a *ocsp.msocsp.com*. Es necesario para admitir la funcionalidad SSL.
 -  La configuración de DNS para la red virtual debe ser capaz de resolver todos los puntos de conexión y dominios mencionados en los puntos anteriores. Si estos puntos de conexión no se pueden resolver, se producirá un error en los intentos de creación del entorno del Servicio de aplicaciones y los entornos del Servicio de aplicaciones existentes se marcarán como incorrectos.
@@ -68,7 +68,7 @@ Los detalles sobre cómo crear y configurar las rutas definidas por el usuario e
 
 **Requisitos previos**
 
-1. Instale la versión más reciente de Azure PowerShell desde la [página Descargas de Azure][AzureDownloads] (fecha: junio de 2015 o posterior). En "Herramientas de línea de comandos" hay un vínculo "Instalar" en "Windows Powershell" que instalará los cmdlets más recientes de PowerShell.
+1. Instale la última versión de Azure PowerShell desde la página [Descargas de Azure][AzureDownloads] (fecha: junio de 2015 o posterior). En "Herramientas de línea de comandos" hay un vínculo "Instalar" en "Windows Powershell" que instalará los cmdlets más recientes de PowerShell.
 
 2. Se recomienda crear una única subred para que el entorno del Servicio de aplicaciones lo utilice de manera exclusiva. Esto garantiza que las rutas definidas por el usuario aplicadas a la subred solo abrirán el tráfico saliente para el entorno del Servicio de aplicaciones.
 3. **Importante**: no implemente el entorno del Servicio de aplicaciones hasta **después** de haber completado los siguientes pasos de configuración. Esto garantiza que la conectividad de red saliente esté disponible antes de intentar implementar un entorno del Servicio de aplicaciones.
@@ -137,4 +137,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

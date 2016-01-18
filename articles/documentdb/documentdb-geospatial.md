@@ -24,7 +24,7 @@ Este artículo es una introducción a la funcionalidad geoespacial en [Azure Doc
 - ¿Cómo puedo consultar los datos geoespaciales en Azure DocumentDB en SQL y LINQ?
 - ¿Qué tengo que hacer para habilitar y deshabilitar la indexación en DocumentDB?
 
-Consulte el [proyecto Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial) para obtener ejemplos de código.
+Consulte el [proyecto Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) para obtener ejemplos de código.
 
 ## Introducción a los datos espaciales
 
@@ -177,7 +177,7 @@ Las funciones espaciales pueden usarse para realizar consultas de proximidad con
       "id": "WakefieldFamily"
     }]
 
-Si incluye la indexación espacial en la directiva de indexación, las "consultas de distancia" se atenderán eficazmente a través del índice. Para obtener más detalles sobre la indexación espacial, consulte la sección siguiente. Aunque no tenga un índice espacial para las rutas de acceso especificadas, podrá realizar consultas espaciales mediante la especificación del encabezado de solicitud `x-ms-documentdb-query-enable-scan` con el valor establecido en "true". En. NET, para hacerlo es preciso pasar el argumento **FeedOptions** opcional en consultas en las que [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) está establecido en true.
+Si incluye la indexación espacial en la directiva de indexación, las "consultas de distancia" se atenderán eficazmente a través del índice. Para obtener más detalles sobre la indexación espacial, consulte la sección siguiente. Aunque no tenga un índice espacial para las rutas de acceso especificadas, aún podrá realizar consultas espaciales mediante la especificación del encabezado de solicitud `x-ms-documentdb-query-enable-scan` con el valor establecido en "true". En. NET, para hacerlo es preciso pasar el argumento **FeedOptions** opcional en consultas en las que [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) está establecido en true.
 
 ST\_WITHIN puede usarse para comprobar si un punto se encuentra dentro de un polígono. Normalmente, los polígonos se usan para representar límites, como códigos postales, límites estatales o formaciones naturales. Una vez más, si incluye la indexación espacial en la directiva de indexación, las consultas "interiores" se atenderán eficazmente a través del índice.
 
@@ -350,9 +350,9 @@ Y aquí vemos cómo puede modificar una colección existente para aprovechar las
 ## Pasos siguientes
 Ahora que ya sabe cómo empezar a trabajar con la compatibilidad geoespacial en DocumentDB, puede:
 
-- Comenzar a codificar con los [ejemplos de código geoespacial .NET en Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial)
+- Comenzar a codificar con los [ejemplos de código geoespacial .NET en Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)
 - Empezar a realizar consultas geoespaciales en el [Área de consultas de DocumentDB](http://www.documentdb.com/sql/demo#geospatial)
 - Obtener más información en [Base de datos de documentos de consulta](documentdb-sql-query.md).
 - Obtener más información sobre [Directivas de indexación de DocumentDB](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Plantilla del Administrador de recursos para almacén de claves | Microsoft Azure"
-   description="Muestra el esquema del Administrador de recursos para los almacenes de claves."
+   description="Muestra el esquema del Administrador de recursos para implementar los almacenes de claves mediante una plantilla."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # Esquema de la plantilla del Almacén de claves
@@ -234,10 +234,16 @@ En el ejemplo siguiente se implementa un almacén de claves y un secreto.
         }]
     }
 
+## Plantillas de inicio rápido
+
+La siguiente plantilla de inicio rápido implementa un almacén de claves.
+
+- [Create Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
+
 
 ## Pasos siguientes
 
 - Para obtener información general sobre almacenes de claves, consulte [Introducción al Almacén de claves de Azure](./key-vault/key-vault-get-started.md).
 - Para obtener un ejemplo de referencia de un secreto de almacén de claves al implementar plantillas, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article" 
-    ms.date="09/28/2015"
+    ms.date="01/05/2016"
     ms.author="chungli;jiyang;yaxia;tamram"/>
 
 # Uso de la CLI de Azure con Almacenamiento de Azure
@@ -222,4 +222,4 @@ A continuación encontrará algunos artículos relacionados y recursos para obte
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

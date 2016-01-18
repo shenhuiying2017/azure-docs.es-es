@@ -13,19 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/17/2015"
+	ms.date="01/05/2016"
 	ms.author="tarcher"/>
 
 # ¿Dónde está mi proyecto de Visual Studio .NET después de agregar los servicios móviles de Azure mediante Connected Services?
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
-> - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
 ## Se han agregado referencias
 
@@ -48,4 +41,4 @@ Si se crea un servicio móvil .NET en el proveedor de servicios conectado, se cr
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

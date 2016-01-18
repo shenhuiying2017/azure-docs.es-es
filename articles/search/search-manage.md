@@ -21,7 +21,7 @@
 
 Búsqueda de Azure es un servicio basado en la nube con una API basada en HTTP que puede usarse en aplicaciones de búsqueda personalizadas. Nuestro servicio de búsqueda proporciona el motor para análisis de texto de búsqueda de texto completo, características de búsqueda avanzadas, almacenamiento de datos de búsqueda y una sintaxis de comando de consulta.
 
-En este artículo se explica cómo administrar un servicio de búsqueda en el [Portal de Azure clásico](https://portal.azure.com).
+En este artículo se explica cómo administrar un servicio de búsqueda en el [Portal de Azure](https://portal.azure.com).
 
 Como alternativa, puede utilizar la API de REST de administración. Consulte [Introducción a la API de REST de administración de la Búsqueda de Azure](search-get-started-management-api.md) y [Referencia a la API de REST de administración de la Búsqueda de Azure](http://msdn.microsoft.com/library/azure/dn832684.aspx) para obtener información detallada.
 
@@ -193,4 +193,4 @@ Los roles proporcionan control de acceso después de crear el servicio. Solo los
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

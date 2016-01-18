@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/16/2015"
+   ms.date="12/31/2015"
    ms.author="v-sharos" />
 
 # Usar el servicio de Administrador de StorSimple para administrar contenedores de volúmenes de StorSimple
@@ -25,7 +25,7 @@ En un dispositivo Microsoft Azure StorSimple, los contenedores de volúmenes con
 
 Los contenedores de volúmenes tienen los siguientes atributos:
 
-- **Volúmenes**: los volúmenes de StorSimple con aprovisionamiento fino contenidos en el contenedor de volúmenes. Un contenedor de volúmenes puede contener hasta 256 volúmenes de StorSimple con aprovisionamiento fino.
+- **Volúmenes**: Los volúmenes de StorSimple en niveles o anclados localmente que se encuentran dentro del contenedor de volúmenes. Un contenedor de volúmenes puede contener hasta 256 volúmenes de StorSimple.
 
 - **Cifrado**: una clave de cifrado que se puede definir para cada contenedor de volúmenes. Esta clave se utiliza para cifrar los datos que se envían desde un dispositivo de StorSimple a la nube. Se utiliza una clave de grado militar AES de 256 bits con la clave especificada por el usuario. Para proteger los datos, se recomienda habilitar siempre el cifrado de almacenamiento en la nube.
 
@@ -66,4 +66,4 @@ Los contenedores de volúmenes contienen volúmenes. Solo se puede eliminar si p
 - Obtenga más información sobre la [administración de volúmenes de StorSimple](storsimple-manage-volumes.md). 
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

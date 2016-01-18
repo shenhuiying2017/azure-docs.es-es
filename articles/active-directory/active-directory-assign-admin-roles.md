@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 # Asignación de roles de administrador en Azure Active Directory (Azure AD)
@@ -28,9 +28,7 @@ Los roles de administrador disponibles son los siguientes:
 - **Administrador global**: tiene acceso a todas las características administrativas. La persona que se suscribe a la cuenta de Azure se convierte en un administrador global. Los administradores globales son los únicos que pueden asignar otros roles de administrador. Puede haber más de un administrador global en su empresa.
 - **Administrador de contraseñas**: restablece las contraseñas, administra las solicitudes de servicio y supervisa el estado del servicio. Los administradores de contraseñas pueden restablecer contraseñas solo para los usuarios y otros administradores de contraseñas.
 - **Administrador de servicios**: administra las solicitudes de servicio y supervisa el estado del servicio.
-
-    > [AZURE.NOTE]
-    > Para asignar el rol de administrador de servicios a un usuario, el administrador global debe asignar primero permisos administrativos al usuario en el servicio, como Exchange Online, y después asignar el rol de administrador de servicios al usuario en el Portal de administración de Azure. 
+> [AZURE.NOTE]Para asignar el rol de administrador de servicios a un usuario, el administrador global debe asignar primero permisos administrativos al usuario en el servicio, como Exchange Online, y después asignar el rol de administrador de servicios al usuario en el portal de Azure clásico.
 
 - **Administrador de usuarios**: restablece las contraseñas, supervisa el estado del servicio y administra cuentas de usuario, grupos de usuarios y solicitudes de servicio. Existen algunas limitaciones en los permisos de un administrador de usuarios. Por ejemplo, este no puede eliminar a un administrador global ni puede crear otros administradores. Tampoco puede restablecer las contraseñas de los administradores de facturación, globales y de servicio.
 
@@ -87,4 +85,4 @@ El administrador global tiene acceso a todos los roles administrativos. De forma
 - [Administrar contraseñas](active-directory-manage-passwords.md)
 - [Administrar grupos](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

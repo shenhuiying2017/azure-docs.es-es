@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="CLI de Azure con el Administrador de recursos | Microsoft Azure"
 	description="Use CLI de Azure para Mac, Linux y Microsoft Azure para implementar varios recursos como un grupo de recursos."
@@ -68,7 +69,7 @@ Un grupo de recursos es una agrupación lógica de recursos de red, de almacenam
 
 	azure group create -n "testRG" -l "West US"
 
-Después puede empezar a agregar recursos a este grupo y usarlo para configurar un recurso como una nueva máquina virtual.
+Este grupo de recursos "testRG" se implementará más adelante, cuando use una plantilla para iniciar una máquina virtual Ubuntu. Una vez que haya creado un grupo de recursos, podrá agregar recursos como máquinas virtuales y redes o almacenamiento.
 
 
 ## Uso de plantillas de grupo de recursos
@@ -79,48 +80,50 @@ Cuando trabaje con plantillas, puede [crear una plantilla propia](resource-group
 
 La creación de una nueva plantilla está fuera del ámbito de este artículo, así que para empezar vamos a usar la plantilla _101-simple-vm-from-image_ disponible en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). De forma predeterminada, esto crea una sola máquina virtual 14.04.2-LTS Ubuntu en una nueva red virtual con una sola subred en la región Oeste de EE. UU. Solo tiene que especificar los siguientes parámetros para utilizar esta plantilla:
 
-* Un nombre de cuenta de almacenamiento único
-* Un nombre de usuario de administración para la máquina virtual
-* Una contraseña
-* Un nombre de dominio para la máquina virtual
+* Un nombre de usuario de administración para la máquina virtual = `adminUsername`
+* Una contraseña = `adminPassword`
+* Un nombre de dominio para la máquina virtual = `dnsLabelPrefix`
 
 >[AZURE.TIP]Estos pasos muestran solo una de las formas de usar una plantilla de máquina virtual con la CLI de Azure. Para ver otros ejemplos, consulte [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y CLI de Azure](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
 
-1. Descargue los archivos azuredeploy.json y azuredeploy.parameters.json de [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) en una carpeta de trabajo en el equipo local.
+1. Descargue los archivos azuredeploy.json y azuredeploy.parameters.json de [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) en una carpeta de trabajo en el equipo local.
 
 2. Abra el archivo azuredeploy.parameters.json en un editor de texto y especifique valores de parámetro adecuados para su entorno (deje el valor **ubuntuOSVersion** sin modificar).
 
-		{
-	  	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	  	"contentVersion": "1.0.0.0",
-	  	"parameters": {
-		    "newStorageAccountName": {
-		      "value": "MyStorageAccount"
-		    },
-		    "adminUsername": {
-		      "value": "MyUserName"
-		    },
-		    "adminPassword": {
-		      "value": "MyPassword"
-		    },
-		    "dnsNameForPublicIP": {
-		      "value": "MyDomainName"
-		    },
-		    "ubuntuOSVersion": {
-		      "value": "14.04.2-LTS"
-		    }
-		  }
-		}
-	```
-3. Después de guardar el archivo azuredeploy.parameters.json, use el siguiente comando para crear un grupo de recursos nuevo basado en la plantilla. La opción `-e` especifica el archivo azuredeploy.parameters.json que modificó en el paso anterior. Reemplace *testRG* con el nombre de grupo que desea usar y *testDeploy* con el nombre de implementación que desee. La ubicación debe ser la misma que la especificada en el archivo de parámetros de plantilla.
 
-		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
+```
+			{
+			  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+			  "contentVersion": "1.0.0.0",
+			  "parameters": {
+			    "adminUsername": {
+			      "value": "azureUser"
+			    },
+			    "adminPassword": {
+			      "value": "GEN-PASSWORD"
+			    },
+			    "dnsLabelPrefix": {
+			      "value": "GEN-UNIQUE"
+			    },
+			    "ubuntuOSVersion": {
+			      "value": "14.04.2-LTS"
+			    }
+			  }
+			}
+
+```
+
+3.  Una vez que se modificaron los parámetros de la implementación, se implementará la máquina virtual Ubuntu en el grupo de recursos que se creó anteriormente. Elija un nombre para la implementación y use el comando siguiente para iniciarla.
+
+		azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
+
+	En este ejemplo, se crea una implementación llamada _testRGDeploy_, la que se implementa en el grupo de recursos _testRG_. La opción `-e` especifica el archivo azuredeploy.parameters.json que modificó en el paso anterior. La opción `-f` especifica el archivo de plantilla azuredeploy.json.
 
 	Este comando se ejecutará correctamente después de que se haya cargado la implementación, pero antes de que se aplique a los recursos del grupo.
 
 4. Utilice el comando siguiente para comprobar el estado de la implementación.
 
-		azure group deployment show "testRG" "testDeploy"
+		azure group deployment show "testRG" "testRGDeploy"
 
 	El valor **ProvisioningState** muestra el estado de la implementación.
 
@@ -210,4 +213,4 @@ Para ver información registrada sobre operaciones realizadas en un grupo, utili
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_1223_2015--->
+<!---HONumber=AcomDC_0107_2016-->

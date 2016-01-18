@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/10/2015"
+   ms.date="01/06/2016"
    ms.author="mbaldwin"/>
 
 
@@ -31,7 +31,7 @@ Al ser una plataforma de administración de identidades como servicio (IDMaaS), 
 
 1. [API Graph de Azure Active Directory](active-directory-graph-api.md): use la API Graph de Azure Active Directory para acceder mediante programación a Azure Active Directory a través de extremos de la API de REST. Tenga en cuenta que la API Graph de Azure AD también es accesible a través de [Microsoft Graph](https://graph.microsoft.io/), una API unificada que permite el acceso a varias API del servicio de Microsoft Cloud a través de un punto de conexión de API de REST único y con un token de acceso único.
 
-1. [Bibliotecas de autenticación de Azure Active Directory](active-directory-authentication-libraries.md): autentique a los usuarios fácilmente para obtener tokens de acceso con las bibliotecas de autenticación de Azure para [.NET](https://msdn.microsoft.com/library/azure/mt417579.aspx), [JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js), [Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc), [Android](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/o), [etc](active-directory-authentication-libraries.md).
+1. [Bibliotecas de autenticación de Azure Active Directory](active-directory-authentication-libraries.md): autentique a los usuarios fácilmente para obtener tokens de acceso mediante las bibliotecas de autenticación de Azure para .NET, JavaScript, Objective-C, Android, etc.
 
 
 ## Introducción
@@ -93,7 +93,7 @@ Estos artículos proporcionan información básica sobre las API de REST y de la
 
 - [Referencia de API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx): referencia de REST para la API Graph de Azure Active Directory. [Vea la experiencia con la referencia interactiva de API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-- [Ámbitos de los permisos de API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes): ámbitos de los permisos de OAuth 2.0 que sirven para controlar el acceso que una aplicación tiene a los datos de directorio en un inquilino.
+- [Ámbitos de los permisos de API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): ámbitos de los permisos de OAuth 2.0 que sirven para controlar el acceso que una aplicación tiene a los datos de directorio en un inquilino.
 
 ### Bibliotecas de autenticación
 
@@ -125,7 +125,7 @@ Los ponentes de estas presentaciones de información general sobre el desarrollo
 - [Desarrollo de aplicaciones nativas modernas con Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)
 
 ### Azure Friday
-[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) es una serie periódica de vídeos de 1:1 que se publica los viernes y ofrece entrevistas breves (de 10 a 15 minutos) con expertos en diversos temas de Azure. Utilice la característica de filtro de servicios de la página para ver todos los vídeos de Azure Active Directory.
+[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) es una serie periódica de vídeos de 1:1 que se publica los viernes y ofrece entrevistas breves (de 10 a 15 minutos) a expertos en diversos temas de Azure. Utilice la característica de filtro de servicios de la página para ver todos los vídeos de Azure Active Directory.
 
 - [Identidad de Azure 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)
 - [Identidad de Azure 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
@@ -141,4 +141,4 @@ Los ponentes de estas presentaciones de información general sobre el desarrollo
 
 - [Azure Active Directory en Twitter](https://twitter.com/azuread): anuncios de Azure Active Directory en 140 caracteres o menos.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

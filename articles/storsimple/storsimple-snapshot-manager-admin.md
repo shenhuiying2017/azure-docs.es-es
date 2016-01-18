@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/28/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # Uso del Administrador de instantáneas StorSimple para administrar la solución de StorSimple
@@ -39,6 +39,8 @@ Este artículo proporciona vínculos a tutoriales que describen Administrador de
 
 - Para los procedimientos de implementación de Administrador de instantáneas StorSimple, vaya a [Implementación de Administrador de instantáneas StorSimple](storsimple-snapshot-manager-deployment.md).
 
+>[AZURE.NOTE]No puede utilizar StorSimple Snapshot Manager para administrar las matrices virtuales de Microsoft Azure StorSimple (también conocidas como dispositivos virtuales locales de StorSimple).
+
 ## Tareas y flujos de trabajo de Administrador de instantáneas StorSimple
 
 Administrador de instantáneas StorSimple se puede usar para supervisar y administrar trabajos de copia de seguridad próximos, programados y completados. Además, Administrador de instantáneas StorSimple proporciona un catálogo de hasta 64 copias de seguridad completadas. El catálogo se puede usar para buscar y restaurar volúmenes o archivos individuales.
@@ -60,4 +62,4 @@ Administrador de instantáneas StorSimple se puede usar para supervisar y admini
 
 [Descarga de Administrador de instantáneas StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/12/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # ¿Qué es Administrador de instantáneas StorSimple?
@@ -25,6 +25,8 @@ Esta información general presenta el Administrador de instantáneas StorSimple,
 
 Para obtener información general de todo el sistema de Microsoft Azure StorSimple, incluido el dispositivo de StorSimple, el servicio StorSimple Manager, el Administrador de instantáneas StorSimple y el Adaptador de StorSimple para SharePoint, consulte [Serie StorSimple 8000: una solución híbrida de almacenamiento en la nube](storsimple-overview.md).
  
+>[AZURE.NOTE]No puede utilizar StorSimple Snapshot Manager para administrar las matrices virtuales de Microsoft Azure StorSimple (también conocidas como dispositivos virtuales locales de StorSimple).
+
 ## Arquitectura y propósito de Administrador de instantáneas StorSimple
 
 Administrador de instantáneas StorSimple proporciona una consola de administración central que se puede usar para crear copias de seguridad de un momento dado y coherentes de datos locales y en la nube. Por ejemplo, la consola se puede usar para:
@@ -141,7 +143,7 @@ Para obtener información acerca de la configuración de directivas de copia de 
 
 Administrador de instantáneas de StorSimple se puede usar para supervisar y administrar trabajos de copia de seguridad próximos, programados y completados. Además, Administrador de instantáneas StorSimple proporciona un catálogo de hasta 64 copias de seguridad completadas. El catálogo se puede usar para buscar y restaurar volúmenes o archivos individuales.
 
-Para obtener información acerca de la supervisión de trabajos de copia de seguridad, vaya a [Uso del Administrador de instantáneas StorSimple para ver y administrar trabajos de copia de seguridad](storsimple-snapshot-manager-manage-backup-jobs.md).
+Para obtener información acerca de la supervisión de trabajos de copia de seguridad, vaya a [Uso de Administrador de instantáneas StorSimple para ver y administrar trabajos de copia de seguridad](storsimple-snapshot-manager-manage-backup-jobs.md).
 
 
 ## Pasos siguientes
@@ -150,4 +152,4 @@ Para obtener información acerca de la supervisión de trabajos de copia de segu
 
 - Descargue el [Administrador de instantáneas StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

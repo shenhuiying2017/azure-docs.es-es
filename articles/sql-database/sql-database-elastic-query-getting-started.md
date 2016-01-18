@@ -28,7 +28,7 @@ Descargue [Introducción al ejemplo de herramientas de base de datos elástica](
 
 Aquí se creará un administrador de mapas de particiones junto con varias particiones, seguido de la inserción de datos en las particiones. Si resulta que ya dispone de la configuración de particiones con almacenes de datos en ellas, puede omitir los pasos siguientes y pasar a la sección siguiente.
 
-1. Cree y ejecute la aplicación de ejemplo **Introducción a las herramientas de base de datos elástica**. Siga los pasos hasta el paso 7 en la sección [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). Al final del paso 7, verá la siguiente línea de comandos:
+1. Cree y ejecute la aplicación de ejemplo **Introducción a las herramientas de base de datos elástica**. Siga los pasos hasta el paso 7 de la sección [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). Al final del paso 7, verá la siguiente línea de comandos:
 
 	![símbolo del sistema][1]
 
@@ -44,11 +44,11 @@ Aquí se creará un administrador de mapas de particiones junto con varias parti
 ## Creación una base de datos de consulta elástica
 
 1. Abra el [Portal de Azure](https://portal.azure.com) e inicie sesión.
-2. Cree una nueva Base de datos SQL de Azure en el mismo servidor que la configuración de la partición. Utilice el nombre "ElasticDBQuery" para la base de datos. Para un nivel de precios, debe seleccionar una de las ofertas premium. La consulta de base de datos elástica solo está disponible actualmente en el nivel premium.
+2. Cree una nueva Base de datos SQL de Azure en el mismo servidor que la configuración de la partición. Utilice el nombre "ElasticDBQuery" para la base de datos. 
 
 	![Portal de Azure y nivel de precios][3]
 
-	Nota: puede utilizar una base de datos premium existente. Si puede hacerlo, no debe ser una de las particiones en las que desee ejecutar las consultas. Esta base de datos se usará para crear los objetos de metadatos para una consulta de base de datos elástica.
+	Nota: Puede usar una base de datos existente. Si puede hacerlo, no debe ser una de las particiones en las que desee ejecutar las consultas. Esta base de datos se usará para crear los objetos de metadatos para una consulta de base de datos elástica.
 
 
 ## Creación de objetos de base de datos
@@ -113,12 +113,12 @@ Observará que la consulta agrega resultados de todas las particiones y proporci
 
 1. Inicie Excel 2013.
 2. 	Diríjase a la barra de herramientas **Datos**.
-3. 	Haga clic en **Desde otros orígenes** y haga clic en **Desde SQL Server**.
+3. 	Haga clic en **Desde otros orígenes** y luego en **Desde SQL Server**.
 
 	![Importación de Excel desde otros orígenes][5]
 4. 	En el **Asistente de conexión de datos**, escriba el nombre del servidor y las credenciales de inicio de sesión. A continuación, haga clic en **Siguiente**.
 5. 	En el cuadro de diálogo **Seleccione la base de datos que contiene la información que desea**, seleccione la base de datos **ElasticDBQuery**.
-6. 	Seleccione la tabla **Clientes** de la vista de lista y haga clic en **Siguiente**. A continuación, haga clic en **Finalizar**.
+6. 	Seleccione la tabla **Clientes** de la vista de lista y haga clic en **Siguiente**. Haga clic en **Finalizar**.
 7. 	En el formulario **Importar datos**, en **Seleccione cómo desea ver estos datos en el libro**, seleccione **Tabla** y haga clic en **Aceptar**.
 
 Todas las filas de la tabla **Clientes**, almacenadas en distintas particiones, completan la hoja de Excel.
@@ -127,7 +127,7 @@ Todas las filas de la tabla **Clientes**, almacenadas en distintas particiones, 
 Ahora puede usar las funciones de visualización de datos decisivas de Excel. Puede usar la cadena de conexión con el nombre de servidor, el nombre de base de datos y las credenciales para conectar su BI y las herramientas de integración de datos a la base de datos de consulta elástica. Asegúrese de que SQL Server se admite como origen de datos para la herramienta. Puede consultar la base de datos de consulta elástica y las tablas externas como cualquier otra base de datos SQL Server y las tablas de SQL Server que quiera conectar con la herramienta.
 
 ### Coste
-No hay ningún cargo adicional por usar la característica de consulta de base de datos elástica. Sin embargo, en este momento la característica está solo disponible en bases de datos premium como extremo, pero las particiones pueden ser de cualquier nivel de servicio.
+No hay ningún cargo adicional por usar la característica de consulta de base de datos elástica.
 
 Para obtener información sobre los precios, consulte [Detalles de precios de Base de datos SQL](http://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -142,4 +142,4 @@ Para obtener información sobre los precios, consulte [Detalles de precios de Ba
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

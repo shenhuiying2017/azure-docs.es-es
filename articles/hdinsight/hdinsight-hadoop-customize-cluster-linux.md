@@ -19,6 +19,8 @@
 
 # Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)
 
+[AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
+
 HDInsight proporciona una opción de configuración denominada **Acción de script** que invoca scripts personalizados, que definen la personalización que se realizará en el clúster en el proceso de aprovisionamiento. Estos scripts pueden utilizarse para instalar software adicional en un clúster o para cambiar la configuración de las aplicaciones de un clúster.
 
 > [AZURE.NOTE]La información de este artículo es específica de los clústeres de HDInsight basados en Linux. Para obtener una versión de este artículo específica para clústeres basados en Windows, vea [Personalización de clústeres de HDInsight mediante la acción de script (Windows)](hdinsight-hadoop-customize-cluster.md)
@@ -49,7 +51,7 @@ HDInsight proporciona varios scripts para instalar los siguientes componentes en
 Nombre | Script
 ----- | -----
 **Instalación de Hue** | https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh. Consulte [Instalación y uso de Hue en clústeres de HDInsight](hdinsight-hadoop-hue-linux.md)
-**Instalar Spark** | https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh. Consulte [Instalación y uso de Spark en clústeres de HDInsight](hdinsight-hadoop-spark-install-linux.md).
+**Instalar Spark** | https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh. Vea [Instalación y uso de Spark en clústeres de HDInsight](hdinsight-hadoop-spark-install-linux.md).
 **Instalar R** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. Consulte [Instalación y uso de R en clústeres de HDInsight](hdinsight-hadoop-r-scripts-linux.md).
 **Instalar Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. Consulte [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md).
 **Instalación de Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Consulte [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md).
@@ -329,7 +331,7 @@ Lleve a cabo los siguiente pasos:
 	| --------- | ---------- |
 	| Configuración | Objeto de configuración al que se agrega la información de la acción de script. |
 	| Nombre | Nombre de la acción de script. |
-	| NodeType | Especifica el nodo en el que se ejecuta el script de personalización. Los valores válidos son **HeadNode** (para instalar en el nodo principal), **WorkerNode** (para instalar en todos los nodos de datos) o **ZookeeperNode** (para instalar en el nodo de Zookeeper). |
+	| NodeType | Especifica el nodo en el que se ejecuta el script de personalización. Los valores válidos son **HeadNode** (para instalar en el nodo principal), **WorkerNode** (para instalar en todos los nodos de datos) o **ZookeeperNode** (para instalar en el nodo zookeeper). |
 	| Parámetros | Parámetros requeridos por el script. |
 	| URI | Especifica el URI para el script que se ejecuta. |
 
@@ -357,131 +359,7 @@ El clúster puede tardar varios minutos en crearse.
 
 ## Use una acción de script desde .NET SDK de HDInsight
 
-El .NET SDK de HDInsight proporciona bibliotecas de cliente que facilitan el trabajo con HDInsight desde una aplicación .NET. Los pasos siguientes muestran cómo usar un script para personalizar un clúster desde .NET SDK de HDInsight.
-
-> [AZURE.IMPORTANT]Tiene que crear primero un certificado autofirmado, instálelo en su estación de trabajo y cárguelo en su suscripción de Azure. Para obtener instrucciones, consulte [Creación de un certificado autofirmado](http://go.microsoft.com/fwlink/?LinkId=511138).
-
-
-### Creación de un proyecto de Visual Studio
-
-
-1. Cree una aplicación de consola en C# mediante Visual Studio.
-2. En la **Consola del Administrador de paquetes Nuget**, ejecute los siguientes comandos:
-
-		Install-Package Microsoft.Azure.Common.Authentication -pre
-		Install-Package Microsoft.Azure.Management.HDInsight -Pre
-
-	Estos comandos agregan las bibliotecas y referencias .NET al proyecto de Visual Studio actual.
-
-3. Abra el archivo **Program.cs** y agregue las siguientes instrucciones using:
-
-		using System;
-		using System.Security;
-		using Microsoft.Azure;
-		using Microsoft.Azure.Common.Authentication;
-		using Microsoft.Azure.Common.Authentication.Factories;
-		using Microsoft.Azure.Common.Authentication.Models;
-		using Microsoft.Azure.Management.HDInsight;
-		using Microsoft.Azure.Management.HDInsight.Models;
-
-4. Sustituya el código de la clase por lo siguiente.
-
-        private static HDInsightManagementClient _hdiManagementClient;
-
-        private static Guid SubscriptionId = new Guid("<AZURE SUBSCRIPTION ID>");
-        private const string ResourceGroupName = "<AZURE RESOURCEGROUP NAME>";
-
-        private const string NewClusterName = "<HDINSIGHT CLUSTER NAME>";
-        private const int NewClusterNumNodes = <NUMBER OF NODES>;
-        private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
-        private const string NewClusterVersion = "3.2";
-        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
-        private const OSType NewClusterOSType = OSType.Linux;
-
-        private const string ExistingStorageName = "<STORAGE ACCOUNT NAME>.blob.core.windows.net";
-        private const string ExistingStorageKey = "<STORAGE ACCOUNT KEY>";
-        private const string ExistingContainer = "<DEFAULT CONTAINER NAME>"; 
-
-        private const string NewClusterUsername = "admin";
-        private const string NewClusterPassword = "<HTTP USER PASSWORD>";
-
-        private const string NewClusterSshUserName = "sshuser";
-        private const string NewClusterSshPublicKey = @"---- BEGIN SSH2 PUBLIC KEY ----
-			Comment: ""rsa-key-20150731""
-			AAAAB3NzaC1yc2EAAAABJQAAAQEA4QiCRLqT7fnmUA5OhYWZNlZo6lLaY1c+IRsp
-			gmPCsJVGQLu6O1wqcxRqiKk7keYq8bP5s30v6bIljsLZYTnyReNUa5LtFw7eauGr
-			yVt3Pve6ejfWELhbVpi0iq8uJNFA9VvRkz8IP1JmjC5jsdnJhzQZtgkIrdn3w0e6
-			WVfu15kKyY8YAiynVbdV51EB0SZaSLdMZkZQ81xi4DDtCZD7qvdtWEFwLa+EHdkd
-			pzO36Mtev5XvseLQqzXzZ6aVBdlXoppGHXkoGHAMNOtEWRXpAUtEccjpATsaZhQR
-			zZdZlzHduhM10ofS4YOYBADt9JohporbQVHM5w6qUhIgyiPo7w==
-			---- END SSH2 PUBLIC KEY ----"; //replace the public key with your own
-
-        private static void Main(string[] args)
-        {
-            var tokenCreds = GetTokenCloudCredentials();
-            var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
-
-            _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
-
-            CreateCluster();
-        }
-
-        public static SubscriptionCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
-        {
-            var authFactory = new AuthenticationFactory();
-
-            var account = new AzureAccount { Type = AzureAccount.AccountType.User };
-
-            if (username != null && password != null)
-                account.Id = username;
-
-            var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
-
-            var accessToken =
-                authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
-                    .AccessToken;
-
-            return new TokenCloudCredentials(accessToken);
-        }
-
-        public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(SubscriptionCloudCredentials creds, Guid subId)
-        {
-            return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
-        }
-
-
-        private static void CreateCluster()
-        {
-            var parameters = new ClusterCreateParameters
-            {
-                ClusterSizeInNodes = NewClusterNumNodes,
-                Location = NewClusterLocation,
-                ClusterType = NewClusterType,
-                OSType = NewClusterOSType,
-                Version = NewClusterVersion,
-
-                DefaultStorageAccountName = ExistingStorageName,
-                DefaultStorageAccountKey = ExistingStorageKey,
-                DefaultStorageContainer = ExistingContainer,
-
-                UserName = NewClusterUsername,
-                Password = NewClusterPassword,
-                SshUserName = NewClusterSshUserName,
-        		SshPublicKey = NewClusterSshPublicKey
-            };
-
-            ScriptAction rScriptAction = new ScriptAction("Install R",
-                new Uri("https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh"), "");
-
-            parameters.ScriptActions.Add(ClusterNodeType.HeadNode,new System.Collections.Generic.List<ScriptAction> { rScriptAction});
-            parameters.ScriptActions.Add(ClusterNodeType.WorkerNode, new System.Collections.Generic.List<ScriptAction> { rScriptAction });
-
-            _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
-        }
-		
-6. Reemplace los valores de miembro de clase.
-
-7. Presione **F5** para ejecutar la aplicación. Una ventana de consola se abrirá y mostrará el estado de la aplicación. También se le pedirá que escriba las credenciales de la cuenta de Azure. La creación del clúster de HDInsight puede durar varios minutos.
+El .NET SDK de HDInsight proporciona bibliotecas de cliente que facilitan el trabajo con HDInsight desde una aplicación .NET. Para ver un ejemplo de código, consulte [Crear clústeres basados en Linux en HDInsight con el SDK de .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action).
 
 
 ## Solución de problemas
@@ -494,7 +372,7 @@ Puede usar la interfaz de usuario web de Ambari para ver la información registr
 
 	Cuando se le solicite, escriba el nombre de cuenta de administrador (admin) y la contraseña de administrador para el clúster. Tendrá que volver a escribir las credenciales de administrador en un formulario web.
 
-2. En la barra de la parte superior de la página, seleccione la entrada __ops__. Esto mostrará una lista de las operaciones actuales y anteriores realizadas en el clúster a través de Ambari.
+2. En los vínculos de la parte superior de la página, seleccione la entrada __ops__. Esto mostrará una lista de las operaciones actuales y anteriores realizadas en el clúster a través de Ambari.
 
 	![Barra de interfaz de usuario web de Ambari con ops seleccionado](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
 
@@ -512,12 +390,9 @@ Si se produce un error en la creación del clúster debido a un error en la acci
 
 	![Captura de pantalla de operaciones](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-	En este caso, los registros se organizan por separado para el nodo principal, el nodo de trabajo y el nodo de Zookeeper. Algunos ejemplos son:
-	* **nodo principal** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
-	* **nodo de trabajo** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
-	* **nodo de Zookeeper** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+	En este caso, los registros se organizan por separado para el nodo principal, el nodo de trabajo y el nodo de Zookeeper. Algunos ejemplos son: * **nodo principal** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net` * **nodo de trabajo** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net` * **nodo de Zookeeper** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* Todos los stdout y stderr del host correspondiente se cargan en la cuenta de almacenamiento. Hay un archivo **output-*.txt** y **errors-\*.txt** para cada acción de script. El archivo de output-*.txt contiene información sobre el URI del script que se ejecuta en el host. Por ejemplo:
+* Todos los stdout y stderr del host correspondiente se cargan en la cuenta de almacenamiento. Hay un archivo **output-*.txt** y **errors-*.txt** para cada acción de script. El archivo de output-*.txt contiene información sobre el URI del script que se ejecuta en el host. Por ejemplo:
 
 		'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
@@ -544,7 +419,7 @@ Hay dos tipos de componentes de código abierto que están disponibles en el ser
 
 > [AZURE.WARNING]Los componentes ofrecidos con HDInsight son totalmente compatibles. Además, el soporte técnico de Microsoft le ayudará a aislar y resolver problemas relacionados con estos componentes.
 >
-> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. Esto podría resolver el problema o pedirle que forme parte de los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la Comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/es-ES/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Además, los proyectos de Apache tienen sitios de proyecto en [http://apache.org](http://apache.org), por ejemplo, [Hadoop](http://hadoop.apache.org/) y [Spark](http://spark.apache.org/).
+> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. Esto podría resolver el problema o pedirle que forme parte de los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/es-ES/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Además, los proyectos de Apache tienen sitios del proyecto en [http://apache.org](http://apache.org), por ejemplo, [Hadoop](http://hadoop.apache.org/) y [Spark](http://spark.apache.org/).
 
 El servicio HDInsight proporciona varias maneras de utilizar los componentes personalizados. Independientemente de cómo se use el componente o cómo se instale en el clúster, se aplica el mismo nivel de soporte técnico. A continuación, se muestra una lista de las maneras más comunes que se pueden usar los componentes personalizados en los clústeres de HDInsight:
 
@@ -568,4 +443,4 @@ Consulte la siguiente información y ejemplos sobre la creación y uso de script
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fases durante la creación del clúster"
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -26,10 +26,10 @@ Resulta muy fácil revisar el acceso con privilegios una vez [iniciada una revis
 ### Revisión por mí mismo
 1. En el menú principal de PIM, haga clic en **Revisar acceso administrativo**. Aparecerá una lista de revisiones de seguridad.
 2. Seleccione en la lista los **usuarios** cuyo acceso quiere cambiar. Nota: El acceso se cambiará realmente. Este proceso consiste simplemente en crear una lista de comprobación de aquellos cuyo acceso del rol se cambiaría. Después de seleccionar al menos un usuario, se habilitarán los botones **Aprobar acceso** y **Denegar acceso**.
-3. Haga clic en **Aprobar acceso** o **Denegar el acceso** para los usuarios que seleccionó. Aparecerá una notificación en el menú principal del portal y desaparecerá la lista de revisión. Cierre la hoja **Revisar roles de Azure AD**.
+3. Haga clic en **Aprobar acceso** o **Denegar el acceso** para los usuarios que seleccionó. Aparecerá una notificación en el menú principal del Portal de Azure y desaparecerá la lista de revisión. Cierre la hoja **Revisar roles de Azure AD**.
 
 ### Autorrevisión
-1. El usuario recibirá un correo electrónico que indica que debe revisar su acceso. El correo electrónico contendrá un vínculo para iniciar sesión en el portal.
+1. El usuario recibirá un correo electrónico que indica que debe revisar su acceso. El correo electrónico contendrá un vínculo para iniciar sesión en el Portal de Azure.
 2. Una vez allí, el usuario puede aprobar o denegar su propio acceso haciendo clic en los botones **Aprobar acceso** o **Denegar acceso**. Su nombre desaparecerá de la lista.
 
 ## Para Administradores de revisión: Administración de revisiones de seguridad
@@ -60,4 +60,4 @@ Puede exportar una revisión para su uso con Excel u otros programas que puedan 
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

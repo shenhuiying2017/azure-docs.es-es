@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Seguimiento de estado en Service Fabric | Microsoft Azure"
-   description="Introducción al modelo de seguimiento de estado de Azure Service Fabric, que proporciona supervisión del clúster y sus aplicaciones y servicios."
+   pageTitle="Supervisión del mantenimiento en Service Fabric | Microsoft Azure"
+   description="Una introducción al modelo de supervisión del mantenimiento de Azure Service Fabric, que proporciona supervisión del clúster y de sus aplicaciones y servicios."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -16,81 +16,81 @@
    ms.date="10/23/2015"
    ms.author="oanapl"/>
 
-# Introducción a la supervisión del estado de Service Fabric
-Service Fabric presenta un modelo de estado que ofrece informes y evaluación de estado enriquecido, flexible y extensible. Esto incluye supervisión casi en tiempo real del estado del clúster y de los servicios que se ejecutan en él. Puede obtener con facilidad la información de estado y realizar acciones para corregir posibles problemas antes de que aparezcan en cascada y causen interrupciones masivas. El modelo típico es que los servicios envían informes basados en la vista local y se agrega la información para proporcionar una vista de nivel de clúster general.
+# Introducción a la supervisión del mantenimiento de Service Fabric
+Azure Service Fabric presenta un modelo de mantenimiento que proporciona informes y datos de evaluación del mantenimiento completos, flexibles y extensibles. Dicho modelo incluye supervisión casi en tiempo real del estado tanto del clúster como de los servicios que se ejecutan en él. Puede obtener con facilidad información sobre el mantenimiento y realizar las acciones pertinentes para corregir posibles problemas antes de que se propaguen y causen interrupciones masivas. En el modelo típico, los servicios envían informes basados en sus vistas locales, y dicha información se agrega para proporcionar una vista general del nivel del clúster.
 
-Los componentes de Service Fabric usan este modelo de estado para informar de su estado actual. Además, puede usar el mismo mecanismo para informar del estado de sus aplicaciones. La calidad y riqueza de los informes de mantenimiento específicos para sus condiciones personalizadas determinará la facilidad con la que podrá detectar y corregir los problemas de la aplicación en ejecución.
+Los componentes de Service Fabric usan este modelo de estado para informar de su estado actual. Este mismo mecanismo puede usar para informar del mantenimiento de las aplicaciones. La calidad y exhaustividad de los informes de mantenimiento específicos para sus condiciones personalizadas determinarán la facilidad con la que podrá detectar y corregir los problemas de la aplicación en ejecución.
 
-> [AZURE.NOTE]Comenzamos el subsistema de estado como una necesidad para las actualizaciones supervisadas. Service Fabric ofrece actualizaciones supervisadas que saben cómo actualizar un clúster o una aplicación sin tiempo de inactividad, como una intervención del usuario mínima o ninguna intervención, y con disponibilidad completa de clúster y aplicación. Para ello, la actualización comprueba el estado en función de las directivas de actualización configuradas y permite que la actualización continúe solo cuando el estado respeta los umbrales deseados. De lo contrario, la actualización se revierte automáticamente o se pausa para ofrecer a los administradores una oportunidad de solucionar los problemas. Para obtener más información sobre las actualizaciones de aplicaciones, vea [este artículo](service-fabric-application-upgrade.md).
+> [AZURE.NOTE]El subsistema de mantenimiento se inició para cubrir la necesidad de actualizaciones supervisadas. Service Fabric proporciona actualizaciones supervisadas que saben cómo actualizar un clúster o una aplicación sin tiempo de inactividad, con una intervención del usuario mínima o nula, y con disponibilidad completa no solo del clúster, sino también de la aplicación. Para ello, la actualización comprueba el mantenimiento según las directivas de actualización configuradas y solo permite que la actualización continúe cuando dicho mantenimiento respeta los umbrales deseados. De lo contrario, la actualización se revierte automáticamente o se pausa para ofrecer a los administradores una oportunidad de solucionar los problemas. Para más información sobre la actualización de aplicaciones, consulte [este artículo](service-fabric-application-upgrade.md).
 
-## Almacén de estados
-El almacén de estados conserva la información relacionada con estados sobre entidades del clúster para una evaluación y recuperación sencillas. Se implementa como un servicio con estado persistente de Service Fabric para garantizar alta disponibilidad y escalabilidad. Forma parte de la aplicación fabric:/System y está disponible tan pronto como el clúster está en funcionamiento.
+## Almacén de estado
+El Almacén de estado conserva la información relacionada con el mantenimiento de las entidades del clúster, con el fin de facilitar su recuperación y evaluación. Se implementa como un servicio con estado persistente de Service Fabric para garantizar alta disponibilidad y escalabilidad. El Almacén de estado forma parte de la aplicación **fabric:/System** y está disponible en cuanto el clúster entra en funcionamiento.
 
 ## Jerarquía y entidades de mantenimiento
-Las entidades de mantenimiento se organizan en una jerarquía lógica que captura las interacciones y las dependencias entre diferentes entidades. Las entidades y la jerarquía se generan automáticamente por el almacén de estados en función de los informes que se reciben de los componentes de Service Fabric.
+Las entidades de mantenimiento se organizan en una jerarquía lógica que captura las interacciones y dependencias entre entidades diferentes. El Almacén de estado crea automáticamente tanto las entidades como la jerarquía en función de los informes que recibe de los componentes de Service Fabric.
 
-Las entidades de mantenimiento reflejan las entidades de Service Fabric (por ejemplo, la entidad de la aplicación de estado coincide con una instancia de la aplicación implementada en el clúster, la entidad del nodo de estado coincide con un nodo de clúster de Service Fabric). La jerarquía de estado captura las interacciones de las entidades del sistema y es la base para la evaluación de estado avanzada. Puede aprender los conceptos clave de Service Fabric en la [Información general de Service Fabric](service-fabric-technical-overview.md). Para obtener más información sobre la aplicación, vaya al [modelo de aplicación de Service Fabric](service-fabric-application-model.md).
+Las entidades de mantenimiento son un reflejo las entidades de Service Fabric (por ejemplo, la **entidad de la aplicación de mantenimiento** coincide con una instancia de aplicación implementada en el clúster, mientras que la **entidad del nodo de mantenimiento** coincide con un nodo de clúster de Service Fabric). La jerarquía de mantenimiento captura las interacciones de las entidades del sistema y es la base para la evaluación avanzada del mantenimiento. Para obtener información sobre los conceptos clave de Service Fabric, consulte [Introducción técnica a Service Fabric](service-fabric-technical-overview.md). Para más información sobre la aplicación, consulte [Modelar una aplicación en Service Fabric](service-fabric-application-model.md).
 
-La jerarquía y las entidades de mantenimiento permite los informes, la depuración y la supervisión efectivos del clúster y las aplicaciones. El modelo de estado permite una representación **granular** y precisa del mantenimiento de las numerosas piezas móviles del clúster.
+Las entidades de mantenimiento y la jerarquía permiten depurar, supervisar y realizar informes tanto del clúster como de las aplicaciones. El modelo de mantenimiento proporciona una representación *pormenorizada* y precisa del mantenimiento de las numerosas piezas móviles del clúster.
 
-![Entidades de mantenimiento.][1] Las entidades de mantenimiento, organizadas en una jerarquía basada en relaciones de elementos principales y secundarios.
+![Entidades de mantenimiento.][1] Las entidades de mantenimiento, organizadas en una jerarquía basada en relaciones entre elementos primarios y secundarios.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 
 Las entidades de mantenimiento son:
 
-- **Clúster**. Representa el estado de un clúster de Service Fabric. Los informes de mantenimiento del clúster describen las condiciones que afectan a todo el clúster y no se pueden restringir a uno o más elementos secundarios incorrectos. Ejemplo: cerebro dividido del clúster debido a problemas de creación de particiones de red o comunicación.
+- **Clúster**. Representa el estado de un clúster de Service Fabric. Los informes de mantenimiento del clúster describen las condiciones que afectan a todo el clúster y no se pueden restringir a uno o más elementos secundarios incorrectos. Entre los ejemplos se incluye el cerebro de la división del clúster debida problema de creación de particiones de red o de comunicación.
 
-- **Nodo**. Representa el estado de un nodo de Service Fabric. Los informes de mantenimiento del nodo describen las condiciones que afectan a la funcionalidad del nodo y normalmente afectan a todas las entidades implementadas que se ejecutan en él. Ejemplo: el nodo se encuentra fuera del espacio del disco (u otra propiedad ancha de máquina como la memoria, las conexiones, etc.) o el nodo está inactivo. La entidad del nodo se identifica por el nombre del nodo (cadena).
+- **Nodo**. Representa el estado de un nodo de Service Fabric. Los informes de mantenimiento del nodo describen las condiciones que afectan a la funcionalidad del nodo. Normalmente afectan a todas las entidades implementadas que se ejecutan en él. Entre los ejemplos se incluyen que un nodo se encuentre fuera del espacio del disco (u otra propiedad de toda la máquina como la memoria y las conexiones) que un nodo esté inactivo. La entidad del nodo se identifica por el nombre del nodo (cadena).
 
-- **Aplicación**. Representa el estado de una instancia de aplicación que se ejecuta en el clúster. Los informes de mantenimiento de aplicación describen las condiciones que afectan al estado general de la aplicación y no se pueden restringir a sus elementos secundarios individuales (servicios o aplicaciones implementadas). Ejemplo: la interacción descentralizada entre los diferentes servicios de la aplicación. La entidad de la aplicación se identifica mediante el nombre de la aplicación (URI).
+- **Aplicación**. Representa el estado de una instancia de aplicación que se ejecuta en el clúster. Los informes de mantenimiento de aplicación describen las condiciones que afectan el mantenimiento general de la aplicación. No se pueden restringir a elementos secundarios individuales (servicios o aplicaciones implementadas). Entre los ejemplos se incluye la interacción de un extremo a otro entre los diferentes servicios de la aplicación. La entidad de la aplicación se identifica mediante el nombre de la aplicación (identificador URI).
 
-- **Servicio**. Representa el estado de un servicio que se ejecuta en el clúster. Los informes de mantenimiento de servicio describen las condiciones que afectan al estado general del servicio y no se pueden restringir a una partición o una réplica. Ejemplo: una configuración del servicio (como un puerto o recurso de compartido de archivo externo) que está causando problemas para todas las particiones. La entidad de servicio se identifica por el nombre del servicio (URI).
+- **Servicio**. Representa el estado de un servicio que se ejecuta en el clúster. Los informes de mantenimiento de servicio describen las condiciones que afectan al mantenimiento general del servicio y no se pueden restringir a una partición o una réplica. Entre los ejemplos se incluye una configuración del servicio (como un puerto o un recurso compartido de archivos externo) que causa problemas en todas las particiones. La entidad de servicio se identifica mediante el nombre del servicio (identificador URI).
 
-- **Partición**. Representa el estado de una partición de servicio. Los informes de mantenimiento de la partición describen las condiciones que afectan al conjunto completo de réplicas. Ejemplo: el número de réplicas es inferior al recuento de destino o la partición tiene una pérdida de cuórum. La entidad de la partición se identifica por el id. de partición (GUID).
+- **Partición**. Representa el estado de una partición de servicio. Los informes de mantenimiento de la partición describen las condiciones que afectan al conjunto completo de réplicas. Entre los ejemplos se incluye cuando el número de réplicas es inferior al recuento de destino y cuando la partición tiene una pérdida de cuórum. La entidad de la partición se identifica mediante el identificador de la partición (GUID).
 
-- **Réplica**. Representa el estado de una réplica de servicio con estado o una instancia de servicio sin estado. Se trata del guardián de unidad más pequeño y los componentes del sistema puede informar para una aplicación. Ejemplo: para los servicios con estado, la réplica principal puede informar si no puede replicar operaciones a elementos secundarios o si la replicación no sigue el ritmo esperado. Una instancia sin estado puede informar de si se está quedando sin recursos o si tiene problemas de conectividad. La entidad de réplica se identifica por el id. de partición (Guid) y el id. de réplica o instancia (largo).
+- **Réplica**. Representa el estado de una réplica de servicio con estado o una instancia de servicio sin estado. Es la unidad guardián más pequeña y los componentes del sistema puede informar para una aplicación. En los servicios con estado, entre los ejemplos se incluye que una réplica principal genere un informe cuando no pueda replicar operaciones a replicas secundarios o cuando la replicación no se efectúa al ritmo esperado. Además, se puede notificar una instancia sin estado si se está quedando sin recursos o tiene problemas de conectividad. La entidad de réplica se identifica mediante el identificador de la partición (GUID) y el identificador de la réplica o instancia (largo).
 
-- **DeployedApplication**. Representa el estado de a *aplicación que se ejecuta en un nodo*. Los informes de mantenimiento de la aplicación implementada describen las condiciones específicas de la aplicación en el nodo que no se pueden restringir a paquetes de servicio implementados en el mismo nodo. Ejemplo: no se puede descargar el paquete de aplicación en ese nodo o hay un problema al configurar las entidades de seguridad de la aplicación en el nodo. La aplicación implementada se identifica por el nombre de la aplicación (URI) y el nombre del nodo (cadena).
+- **DeployedApplication**. Representa el estado de a *aplicación que se ejecuta en un nodo*. Los informes de mantenimiento de la aplicación implementada describen las condiciones específicas de la aplicación en el nodo que no se pueden restringir a paquetes de servicio implementados en el mismo nodo. Entre los ejemplos se incluye cuando el paquete de aplicación no se puede descargar en ese nodo y aparece algún problema al configurar las entidades de seguridad de la aplicación en el nodo. La aplicación implementada se identifica mediante el nombre de la aplicación (identificador URI) y el nombre del nodo (cadena).
 
-- **DeployedServicePackage**. Representa el estado de un paquete de servicio de una aplicación que se ejecuta en un nodo del clúster. Describe las condiciones específicas de un paquete de servicio que no afectan a los demás paquetes de servicio del mismo nodo para la misma aplicación. Ejemplo: un paquete de código del paquete de servicio no se puede iniciar o no se puede leer el paquete de configuración. El paquete de servicio implementado se identifica por el nombre de la aplicación (URI), el nombre de nodo (cadena) y el nombre de manifiesto de servicio (cadena).
+- **DeployedServicePackage**. Representa el estado de un paquete de servicio de una aplicación que se ejecuta en un nodo del clúster. Describe las condiciones específicas de un paquete de servicio que no afectan a los demás paquetes de servicio del mismo nodo para la misma aplicación. Entre los ejemplos se incluye un paquete de código del paquete de servicio que no se puede iniciar y un paquete de configuración que no se puede leer. El paquete de servicio implementado se identifica mediante el nombre de la aplicación (identificador URI), el nombre del nodo (cadena) y el nombre del manifiesto de servicio (cadena).
 
-La granularidad del modelo de mantenimiento facilita la detección y corrección de problemas. Por ejemplo, si un servicio no responde, es posible informar de que la instancia de aplicación es incorrecto; sin embargo, esto no es lo idóneo porque puede que el problema no afecte a todos los servicios dentro de esa aplicación. El informe se debe aplicar en el servicio incorrecto, o bien, si más información señala a una partición secundaria concreta, en esa partición. Los datos aparecerán automáticamente por la jerarquía: una partición incorrecta se hará visible en los niveles de servicio y de aplicación. Esto le ayudará a identificar y resolver la causa raíz de los problemas con mayor rapidez.
+La granularidad del modelo de mantenimiento facilita la detección y corrección de problemas. Por ejemplo, si un servicio no responde, es viable informar de que la instancia de la aplicación es incorrecta. Sin embargo, esto no es ideal, ya que es posible que el problema no afecte a todos los servicios de la aplicación. El informe se debe aplicar al servicio incorrecto o a una partición secundaria concreta, en caso de que otra información apunte a dicha partición. Los datos aparecerán automáticamente en la jerarquía y una partición incorrecta se hará podrá ver en los niveles de servicio y de aplicación. Esto ayudará a identificar y resolver más rápidamente la causa principal del problema.
 
-La jerarquía de estado se compone de relaciones de elementos principales y secundarios. El clúster se compone de nodos y aplicaciones; las aplicaciones tienen servicios y aplicaciones implementadas; las aplicaciones implementadas tienen paquetes de servicio implementados. Los servicios tienen particiones y cada partición tiene una o más réplicas. Hay una relación especial entre los nodos y las entidades implementadas. Si un nodo es incorrecto según lo notifica su componente de sistema de autoridad (servicio del administrador de conmutación por error), afectará a las aplicaciones implementadas, a los paquetes de servicios y a las aplicaciones implementadas en él.
+La jerarquía del mantenimiento se compone de relaciones entre elementos primarios y secundarios. Los clústeres se componen de nodos y aplicaciones. Las aplicaciones tienen servicios y aplicaciones implementadas. Las aplicaciones implementadas han implementado paquetes de servicio. Los servicios tienen particiones y cada partición tiene una o más réplicas. Hay una relación especial entre los nodos y las entidades implementadas. Si un nodo es incorrecto, tal como lo notifica su componente de sistema de autoridad (servicio Administrador de conmutación por error), afectará a las aplicaciones implementadas, a los paquetes de servicios y a las aplicaciones implementadas en él.
 
-La jerarquía de estado representa el estado más reciente del sistema basándose en los informes de mantenimiento más recientes, que es información casi en tiempo real. Los guardianes internos y externos pueden informar de las mismas entidades según la lógica específica de la aplicación o las condiciones supervisadas personalizadas. Los informes de usuario coexisten con los informes del sistema.
+La jerarquía de estado representa el estado más reciente del sistema basándose en los informes de mantenimiento más recientes, que es información casi en tiempo real. Los guardianes internos y externos pueden generar informes sobre las mismas entidades según la lógica específica de la aplicación o las condiciones supervisadas personalizadas. Los informes de usuario coexisten con los informes del sistema.
 
-Invertir tiempo en la planeación de cómo informar y responder al estado mientras se diseña el servicio facilita la depuración, la supervisión y el posterior manejo de servicios en la nube de mayor tamaño.
+Al diseñar un servicio en la nube grande, el tiempo que se invierte en la planeación de cómo informar y responder al mantenimiento puede facilitar la depuración, la supervisión y el posterior manejo del servicio.
 
 ## Estados de mantenimiento
-Service Fabric usa tres estados de mantenimiento para describir si una entidad es correcta o no: Correcto, Advertencia y Error. Cualquier informe enviado al almacén de estados debe especificar uno de estos estados. El resultado de la evaluación de estado es uno de estos estados.
+Service Fabric usa tres estados de mantenimiento para describir si una entidad es correcta o no: Correcto, Advertencia y Error. Todos los informes que se envíen al Almacén de estado deben especificar uno de estos estados. El resultado de la evaluación de estado es uno de estos estados.
 
 Los estados posibles de mantenimiento son:
 
-- Correcto: la entidad es correcta. No hay ningún problema conocido notificado en ella o en sus elementos secundarios (en los casos aplicables).
+- **Correcto**. La entidad es correcta. No hay ningún problema conocido notificado en ella o en sus elementos secundarios (en los casos aplicables).
 
-- Advertencia: la entidad tiene algunos problemas pero todavía no es incorrecta (por ejemplo, el retraso inesperado que no causa ningún problema funcional). En algunos casos, la condición de advertencia puede corregirse por sí sola sin ninguna intervención especial y resulta útil para proporcionar visibilidad en lo que está ocurriendo. En otros casos, la condición de advertencia puede dar lugar a un problema grave sin intervención del usuario.
+- **Advertencia**. La entidad tiene algunos problemas, pero aún no es incorrecta (por ejemplo, ningún retraso inesperado causa problemas funcionales). En algunos casos, la condición de advertencia puede corregirse por sí sola sin ninguna intervención especial y resulta útil para proporcionar visibilidad en lo que está ocurriendo. En otros casos, la condición de advertencia puede dar lugar a un problema grave si no interviene el usuario.
 
-- Error: la entidad es incorrecta. Se debe llevar a cabo una acción para corregir el estado de la entidad, ya que no puede funcionar correctamente.
+- **Error**. La entidad es incorrecta. Se debe realizar una acción para corregir el estado de la entidad, ya que no puede funcionar correctamente.
 
-- Desconocido: la entidad no existe en el almacén de estados. Este resultado se puede obtener a partir de consultas distribuidas como obtener las aplicaciones y los nodos de Service Fabric. Estas consultas combinan los resultados de varios componentes del sistema. Si otro componente del sistema tiene una entidad que no ha alcanzado el almacén de estados todavía o que se ha limpiado del almacén de estados, la consulta combinada rellenará el resultado de mantenimiento con el estado de mantenimiento 'Desconocido'.
+- **Desconocido**. La entidad no existe en el Almacén de estado. Este resultado puede obtenerse a partir de las consultas distribuidas que combinan los resultados de varios componentes. Estas pueden incluir la consulta para obtener la lista de nodos de Service Fabric, que va a **FailoverManager** y **HealthManager**, o la consulta para obtener la lista de aplicaciones, que va a **ClusterManager** y **HealthManager**. Estas consultas combinan los resultados de varios componentes del sistema. Si otro componente del sistema tiene una entidad que aún no ha alcanzado el Almacén de estado o que se ha eliminado del Almacén de estado, la consulta combinada rellenará el resultado de mantenimiento con el estado de mantenimiento Desconocido.
 
 ## Directivas de mantenimiento
-El almacén de estados se aplica a las directivas de mantenimiento para determinar si una entidad es correcta en función de sus informes y sus elementos secundarios.
+El Almacén de estado aplica directivas de mantenimiento para determinar si una entidad es correcta en función de sus informes y sus elementos secundarios.
 
-> [AZURE.NOTE]Las directivas de mantenimiento se pueden especificar en el manifiesto de clúster (para la evaluación de estado de los clústeres y los nodos) o en el manifiesto de aplicación (para la evaluación de la aplicación y cualquiera de sus elementos secundarios). Las solicitudes de evaluación de estado también se pueden pasar en directivas de evaluación de estado personalizadas, que solo se usarán para dicha evaluación.
+> [AZURE.NOTE]Las directivas de mantenimiento se pueden especificar en el manifiesto de clúster (para la evaluación del mantenimiento del clúster y el nodo) o en el manifiesto de aplicación (para la evaluación de la aplicación y cualquiera de sus elementos secundarios). Las solicitudes de evaluación del mantenimiento también pueden pasar directivas de evaluación de mantenimiento personalizadas, que solo se usarán para dicha evaluación.
 
-De forma predeterminada, Service Fabric aplica reglas estrictas (todo debe ser correcto) para la relación jerárquica de elementos principales y secundarios; siempre que uno de los elementos secundarios tenga un evento incorrecto, el elemento secundario se considera incorrecto.
+De manera predeterminada, Service Fabric aplica reglas estrictas (todo debe estar correcto) a la relación jerárquica entre elementos primarios y secundarios. Si uno solo de los elementos secundarios tiene un evento incorrecto, el elemento primario se considera incorrecto.
 
-### Directiva de mantenimiento de clústeres
-La directiva de mantenimiento de clústeres se usa para evaluar el estado del mantenimiento del clúster y los estados de mantenimiento del nodo. Se puede definir en el manifiesto de clúster. Si no está presente, toma como valor predeterminado la directiva predeterminada (0 errores tolerados). Contiene:
+### Directiva de mantenimiento de clúster
+La directiva de mantenimiento de clúster se usa para evaluar el estado del mantenimiento del clúster y los estados de mantenimiento del nodo. La directiva se puede definir en el manifiesto de clúster. Si no está presente, se utiliza la directiva predeterminada (cero errores tolerados). La directiva de mantenimiento de clúster contiene:
 
-- **ConsiderWarningAsError**. Especifica si se deben tratar los informes de mantenimiento de advertencia como errores durante la evaluación de estado. Valor predeterminado: false.
+- **ConsiderWarningAsError**. Especifica si los informes de mantenimiento de advertencia se tratan como errores durante la evaluación del mantenimiento. Valor predeterminado: false.
 
-- **MaxPercentUnhealthyApplications**. El porcentaje máximo tolerado de aplicaciones que pueden ser incorrectas antes de que el clúster se considere erróneo.
+- **MaxPercentUnhealthyApplications**. Especifica el porcentaje máximo tolerado de aplicaciones que pueden ser incorrectas antes de que el clúster se considere erróneo.
 
-- **MaxPercentUnhealthyNodes**. El porcentaje máximo tolerado de nodos que pueden ser incorrectos antes de que el clúster se considera erróneo. En clústeres de gran tamaño, siempre habrá nodos inactivos o excluidos para reparaciones, por lo que este porcentaje debe configurarse para tolerar ese hecho.
+- **MaxPercentUnhealthyNodes**. Especifica el porcentaje máximo tolerado de nodos que pueden ser incorrectas antes de que el clúster se considere erróneo. En los clústeres grandes, siempre habrá nodos inactivos o inoperativos debido a reparaciones, por lo que este porcentaje debe configurarse para tolerar ese hecho.
 
 Lo siguiente es un extracto de un manifiesto de clúster:
 
@@ -104,25 +104,25 @@ Lo siguiente es un extracto de un manifiesto de clúster:
 </FabricSettings>
 ```
 
-### Directiva de mantenimiento de la aplicación
-En la directiva de mantenimiento de la aplicación se describe cómo se realiza la evaluación de la agregación de los estados de los elementos secundarios y los eventos para la aplicación y sus elementos secundarios. Se puede definir en el manifiesto de aplicación, ApplicationManifest.xml, en el paquete de aplicación. Si no se especifica, Service Fabric supone que la entidad es incorrecta si tiene un informe de mantenimiento o un elemento secundario en el estado de mantenimiento de Advertencia o Error. Las directivas configurables son:
+### Directiva de mantenimiento de aplicación
+La directiva de mantenimiento de aplicación describe la forma en que se realiza la evaluación de la agregación de los eventos y de los estados de los elementos secundarios en las aplicaciones y sus elementos secundarios. Se puede definir en el manifiesto de la aplicación, **ApplicationManifest.xml**, del paquete de aplicación. Si no se especifican directivas, Service Fabric asume que la entidad es incorrecta si tiene un informe de mantenimiento o un elemento secundario en los estados de mantenimiento Advertencia o Error. Las directivas configurables son:
 
-- **ConsiderWarningAsError**. Especifica si se deben tratar los informes de mantenimiento de advertencia como errores durante la evaluación de estado. Valor predeterminado: false.
+- **ConsiderWarningAsError**. Especifica si los informes de mantenimiento de advertencia se tratan como errores durante la evaluación del mantenimiento. Valor predeterminado: false.
 
-- **MaxPercentUnhealthyDeployedApplications**. El porcentaje máximo tolerado de aplicaciones implementadas que pueden ser incorrectas antes de que la aplicación se considere erróneo. Esto se calcula dividiendo el número de aplicaciones implementadas incorrectas sobre el número de nodos en que las aplicaciones están implementadas actualmente en el clúster. El cálculo se redondea hacia arriba para tolerar un error en un número reducido de nodos. Valor predeterminado: 0 %.
+- **MaxPercentUnhealthyDeployedApplications**. Especifica el porcentaje máximo tolerado de aplicaciones implementadas que pueden ser incorrectas antes de que la aplicación se considere errónea. Dicho porcentaje se calcula dividiendo el número de aplicaciones implementadas incorrectas entre el número de nodos en que las aplicaciones están implementadas actualmente en el clúster. El cálculo se redondea hacia arriba para tolerar un error en números reducidos de nodos. Porcentaje de predeterminado: cero.
 
 - **DefaultServiceTypeHealthPolicy**. Especifica la directiva de mantenimiento del tipo de servicio predeterminada, que reemplazará la directiva de mantenimiento predeterminada para todos los tipos de servicio de la aplicación.
 
-- **ServiceTypeHealthPolicyMap**. Asigne con directivas de mantenimiento de servicio por tipo de servicio, que reemplazan la directiva de mantenimiento del tipo de servicio predeterminado para los tipos de servicio especificados. Por ejemplo, en una aplicación que contiene un tipo de servicio de pasarela sin estado y un tipo de servicio del motor con estado, la directiva de mantenimiento para el servicio con estado y sin estado puede configurarse de forma diferente. La especificación de la directiva por tipos de servicio permite un control más pormenorizado del estado del servicio.
+- **ServiceTypeHealthPolicyMap**. Proporciona un mapa de las directivas de mantenimiento de servicios por tipo de servicio. Reemplazan las directivas de mantenimiento del tipo de servicio predeterminado en todos los tipos de servicio especificados. Por ejemplo, en una aplicación que contiene un tipo de servicio de pasarela sin estado y un tipo de servicio de motor con estado, las directivas de mantenimiento de los servicios con estado y sin estado se pueden configurar de forma diferente. Si especifica una directiva por tipo de servicio, podrá obtener un control más pormenorizado del mantenimiento del servicio.
 
-### Directiva de mantenimiento del tipo de servicio
-La directiva de mantenimiento del tipo de servicio especifica cómo evaluar y agregar elementos secundarios del servicio. Contiene:
+### Directiva de mantenimiento de tipo de servicio
+La directiva de mantenimiento de tipo de servicio especifica cómo evaluar y agregar los elementos secundarios de los servicios. La directiva contiene:
 
-- **MaxPercentUnhealthyPartitionsPerService**. Porcentaje máximo tolerado de particiones incorrectas antes de que un servicio se considere incorrecto. Valor predeterminado: 0 %.
+- **MaxPercentUnhealthyPartitionsPerService**. Especifica el porcentaje máximo tolerado de particiones incorrectas antes de que un servicio se considere incorrecto. Porcentaje de predeterminado: cero.
 
-- **MaxPercentUnhealthyReplicasPerPartition**. Porcentaje máximo tolerado de réplicas incorrectas antes de que una partición se considere incorrecta. Valor predeterminado: 0 %.
+- **MaxPercentUnhealthyReplicasPerPartition**. Especifica el porcentaje máximo tolerado de réplicas incorrectas antes de que una partición se considere incorrecta. Porcentaje de predeterminado: cero.
 
-- **MaxPercentUnhealthyServices**. Porcentaje máximo tolerado de servicios incorrectos antes de que la aplicación se considere incorrecta. Valor predeterminado: 0 %
+- **MaxPercentUnhealthyServices**. Especifica el porcentaje máximo tolerado de servicios incorrectos antes de que la aplicación se considere incorrecta. Porcentaje de predeterminado: cero.
 
 Lo siguiente es un extracto de un manifiesto de aplicación:
 
@@ -147,112 +147,111 @@ Lo siguiente es un extracto de un manifiesto de aplicación:
 ```
 
 ## Evaluación de estado
-Los usuarios o servicios automatizados pueden evaluar el estado de cualquier entidad en cualquier momento en el tiempo. Para evaluar el estado de una entidad, el almacén de estados agrega todos los informes de mantenimiento en la entidad y evalúa todos sus elementos secundarios (si procede). El algoritmo de agregación de estado usa las directivas de mantenimiento que especifican cómo evaluar informes de mantenimiento, además de cómo agregar estados de mantenimiento de elementos secundarios (en los casos aplicables).
+Los usuarios y servicios automatizados pueden evaluar el mantenimiento de cualquier entidad en cualquier momento. Para evaluar el mantenimiento de una entidad, el Almacén de estado agrega todos los informes de mantenimiento de la entidad y evalúa todos sus elementos secundarios (si procede). El algoritmo de agregación de mantenimiento usa las directivas de mantenimiento que especifican cómo se evalúan los informes de mantenimiento y cómo se agregan los estados de mantenimiento de los elementos secundarios (si procede).
 
 ### Agregación de informes de mantenimiento
-Una entidad puede tener varios informes de mantenimiento enviados por informadores diferentes (componentes del sistema o guardianes) en diferentes propiedades. La agregación usa las directivas de mantenimiento asociados, en concreto, el miembro ConsiderWarningAsError de aplicación o la directiva de mantenimiento del clúster, que especifica cómo evaluar las advertencias.
+Una entidad puede tener varios informes de mantenimiento enviados por informadores diferentes (componentes del sistema o guardianes) en diferentes propiedades. La agregación usa las directivas de mantenimiento asociadas, en concreto, el miembro ConsiderWarningAsError de la aplicación o la directiva de mantenimiento del clúster. Así se especifica cómo evaluar las advertencias.
 
-El estado de mantenimiento agregado se desencadena por los **peores** informes de mantenimiento sobre la entidad. Si hay al menos un informe de mantenimiento de Error, el estado de mantenimiento agregado es Error.
+El estado de mantenimiento agregado se desencadena por los *peores* informes de mantenimiento sobre la entidad. Si hay al menos un informe de mantenimiento que indica un error, el estado de mantenimiento agregado será Error.
 
-![Agregación de informes de estado con informe de errores.][2]
+![Agregación de informe de mantenimiento a informe de errores.][2]
 
-El informe de mantenimiento de error desencadena la entidad de mantenimiento para que esté en el estado de Error.
+Un informe de mantenimiento que indica un error desencadena que la entidad de mantenimiento pase al estado Error.
 
 [2]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-error.png
 
-Si no hay ningún informe de Error, y una o más advertencias, el estado de mantenimiento agregado es Advertencia o Error, en función de la marca de la directiva ConsiderWarningAsError.
+Si no hay informes de error, pero aparecen una o varias advertencias, el estado de mantenimiento agregado es Advertencia o Error, en función de la marca de la directiva ConsiderWarningAsError.
 
-![Agregación del informe de estado con informe de advertencias y ConsiderWarningAsError falso.][3]
+![Agregación de informe de mantenimiento a informe de advertencias y ConsiderWarningAsError establecido en false.][3]
 
-Agregación del informe de mantenimiento con informe de advertencia y falso de ConsiderWarningAsError (valor predeterminado).
+Agregación del informe de mantenimiento con el informe de advertencia y ConsiderWarningAsError establecido en false (valor predeterminado).
 
 [3]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-warning.png
 
-### Agregación de estado de elementos secundarios
-El estado de mantenimiento agregado de una entidad refleja los estados de mantenimiento de los elementos secundarios (en los casos aplicables). El algoritmo para la agregación de los estados de mantenimiento de los elementos secundarios usa las directivas de mantenimiento aplicables según el tipo de entidad.
+### Agregación de mantenimiento de elementos secundarios
+El estado de mantenimiento agregado de una entidad refleja los estados de mantenimiento de los elementos secundarios (si procede). El algoritmo para la agregación de estados de mantenimiento de elementos secundarios usa las directivas de mantenimiento aplicables según el tipo de entidad.
 
-![Agregación de estado de elementos secundarios.][4]
+![Agregación de mantenimiento de entidades secundarias.][4]
 
-Agregación de elementos secundarios basada en las directivas de mantenimiento.
+Agregación de elementos secundarios basada en directivas de mantenimiento.
 
 [4]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy-eval.png
 
-Tras evaluar todos los elementos secundarios, el almacén de estados agrega los estados de mantenimiento en función del porcentaje máximo configurado tomado de la directiva en función del tipo de entidad y elemento secundario.
+Después de que el Almacén de estado haya evaluado todos los elementos secundarios, agrega sus estados de mantenimiento en función del porcentaje máximo configurado de los elementos secundarios incorrectos. Dicho dato se obtiene de la directiva según el tipo de entidad y de elemento secundario.
 
-- Si todos los elementos secundarios tienen estados Correcto, el estado de mantenimiento agregado de los elementos secundarios es correcto.
+- Si el estado de todos los elementos secundarios es Correcto, el estado de mantenimiento agregado de los elementos secundarios es Correcto.
 
 - Si los elementos secundarios tienen los estados Correcto y Advertencia, el estado de mantenimiento agregado de los elementos secundarios es Advertencia.
 
-- Si hay elementos secundarios con estados de Error que no respetan el porcentaje máximo permitido de los elementos secundarios incorrectos, el estado de mantenimiento agregado es error.
+- Si hay elementos secundarios con los estados Error que no respetan el porcentaje máximo permitido de elementos secundarios incorrectos, el estado de mantenimiento agregado es Error.
 
 - Si los elementos secundarios con estados de Error respetan el porcentaje máximo permitido de los elementos secundarios incorrectos, el estado de mantenimiento agregado es Advertencia.
 
 ## Informes de mantenimiento
-Los componentes del sistema y guardianes internos o externos pueden informar con las entidades de Service Fabric. El *informadores* realizan una determinación **local** del estado de la entidad supervisada según algunas condiciones que están supervisando. No es necesario mirar ningún estado global ni agregar datos. Esto no es lo que se desea, ya que convertiría a los informadores en organismos complejos que deben examinar muchas cuestiones para deducir qué información enviará.
+Tanto los componentes del sistema como los guardianes internos o externos pueden generar informes de las entidades de Service Fabric. Los informadores realizan determinaciones *locales* del estado del mantenimiento de las entidades supervisadas en función de las condiciones que supervisan. No necesitan examinar ningún estado global ni agregar datos. Esto no es lo que se desea, ya que convertiría a los informadores en organismos complejos que necesitan examinar muchos datos para inferir la información que van a enviar.
 
-Para enviar los datos de estado al almacén de estados, los informadores necesitan identificar la entidad afectada y crear un informe de mantenimiento. Luego, el informe se podrá enviar mediante API con FabricClient.HealthManager.ReportHealth, a través de Powershell o a través de REST.
+Para enviar datos de mantenimiento al Almacén de estado, los informadores necesitan identificar la entidad afectada y crear un informe de mantenimiento. Luego, el informe se podrá enviar mediante la API con **FabricClient.HealthManager.ReportHealth**, mediante PowerShell o mediante REST.
 
 ### Informes de mantenimiento
 Los informes de mantenimiento para cada una de las entidades del clúster contienen la siguiente información:
 
-- SourceId. Cadena que identifica de forma única el informador del evento de estado.
+- **SourceId**. Cadena que identifica de forma única el informador del evento de estado.
 
-- Identificador de la entidad. Identifica la entidad en la que se aplica el informe. Es diferente según el [tipo de entidad](service-fabric-health-introduction.md#health-entities-and-hierarchy):
+- **Identificador de entidad**. Identifica la entidad en la que se aplica el informe. Es diferente según el [tipo de entidad](service-fabric-health-introduction.md#health-entities-and-hierarchy):
 
-  - Clúster: ninguno
+  - Clúster. Ninguno.
 
-  - Nodo: nombre de nodo (cadena).
+  - Nodo. Nombre de nodo (cadena).
 
-  - Aplicación: nombre de aplicación (URI). Representa el nombre de la instancia de aplicación implementada en el clúster.
+  - Aplicación. Nombre de aplicación (identificador URI). Representa el nombre de la instancia de aplicación implementada en el clúster.
 
-  - Servicio: nombre de servicio (URI). Representa el nombre de la instancia de servicio implementada en el clúster.
+  - Servicio. Nombre de servicio (identificador URI). Representa el nombre de la instancia de servicio implementada en el clúster.
 
-  - Partición: id. de partición (GUID). Representa el identificador único de la partición.
+  - Partición. Identificador de partición (GUID). Representa el identificador único de la partición.
 
-  - Réplica: el id. de réplica de servicio con estado o el id. de instancia de servicio sin estado (Int64).
+  - Réplica. El identificador de réplica de servicio con estado o el identificador de instancia de servicio sin estado (INT64).
 
-  - DeployedApplication: nombre de la aplicación (URI) y nombre del nodo (cadena).
+  - DeployedApplication. Nombre de aplicación (identificador URI) y nombre de nodo (cadena).
 
-  - DeployedServicePackage: nombre de la aplicación (URI), nombre del nodo (cadena) y nombre de manifiesto de servicio (cadena).
+  - DeployedServicePackage. Nombre de aplicación (identificador URI), nombre de nodo (cadena) y nombre de manifiesto de servicio (cadena).
 
-- Propiedad. Un *cadena* (no una enumeración fija) que permite al informador clasificar el evento de estado para una propiedad específica de la entidad. Por ejemplo, el informador A puede informar del estado en la propiedad de "almacenamiento" de Node01 y el informador B puede informar del estado en la propiedad de "conectividad" de Node01. Ambos informes se tratan como eventos de estado independientes en el almacén de estados para la entidad Node01.
+- **Propiedad**. Una *cadena* (no una enumeración fija) que permite al informador clasificar el evento de estado para una propiedad específica de la entidad. Por ejemplo, el informador A puede informar del mantenimiento de la propiedad de "almacenamiento" de Node01 y el informador B puede informar del mantenimiento de la propiedad de "conectividad" de Node01. En el Almacén de estado, estos informes se tratan como eventos de mantenimiento de la entidad Node01.
 
-- Descripción. Una cadena que permite al informador ofrecer información detallada sobre el evento de estado. SourceId, Property y HealthState deben describir el informe completamente. La descripción agrega información de lenguaje natural sobre el informe para facilitar su comprensión a los usuarios y administradores.
+- **Descripción**. Una cadena que permite a un informador proporcionar información detallada sobre el evento de mantenimiento. **SourceId**, **Property** y **HealthState** deben describir el informe completamente. La descripción agrega información en lenguaje natural sobre el informe. Esto facilita la comprensión tanto a usuarios como a administradores.
 
-- HealthState. Una [enumeración](service-fabric-health-introduction.md#health-states) que describe el estado de mantenimiento del informe. Los valores aceptados son Correcto, Advertencia y Error.
+- **HealthState**. Una [enumeración](service-fabric-health-introduction.md#health-states) que describe el estado de mantenimiento del informe. Los valores aceptados son Correcto, Advertencia y Error.
 
-- TimeToLive. Intervalo de tiempo que indica cuánto tiempo es válido el informe de mantenimiento. Combinado con RemoveWhenExpired, permite a HealthStore saber cómo evaluar los eventos expirados. De forma predeterminada, el valor es infinito y el informe es válido para siempre.
+- **TimeToLive**. Intervalo de tiempo que indica cuánto tiempo es válido el informe de mantenimiento. Si se combina con **RemoveWhenExpired**, permite al Almacén de estado saber cómo evaluar los eventos expirados. De forma predeterminada, el valor es infinito y el informe es válido para siempre.
 
-- RemoveWhenExpired. Valor booleano. Si se establece en true, el informe de mantenimiento expirado se elimina automáticamente del almacén de estados y no afecta a la evaluación de estado de la entidad. Se usa cuando el informe es válido durante un período de tiempo solo y el informador no necesita vaciarlo de manera explícita. También sirve para eliminar informes del almacén de estados. Por ejemplo, se cambia un guardián y deja de enviar informes con la propiedad y el origen anterior. Por tanto, puede enviar un informe con TTL pequeño y RemoveWhenExpired para borrar cualquier estado anterior del almacén de estados. Si se establece en false, el informe expirado se trata como un error en la evaluación de estado. Señala al almacén de estados que el origen debería notificar periódicamente sobre esta propiedad; de no ser así, debe haber algún problema con el guardián. El estado del guardián se captura considerando el evento como error.
+- **RemoveWhenExpired**. Un valor booleano. Si se establece en true, el informe de mantenimiento expirado se elimina automáticamente del Almacén de estado y no afecta a la evaluación del mantenimiento de la entidad. Se usa cuando el informe es válido solo durante un período de tiempo y el informador no necesita vaciarlo de manera explícita. También se utiliza para eliminar informes del Almacén de estado (por ejemplo, se cambia un guardián y deja de enviar informes con la propiedad y el origen anteriores). Puede enviar un informe con valor de TimeToLive pequeño, junto con RemoveWhenExpired para borrar cualquier estado anterior del Almacén de estado. Si el valor se establece en false, el informe expirado se trata como un error en la evaluación del mantenimiento. El valor false indica al Almacén de estado que el origen debe notificar periódicamente esta propiedad. Si no lo hace, debe haber algún error en el guardián. El mantenimiento del guardián se captura considerando el evento como error.
 
-- SequenceNumber. Un entero positivo que deba ir siempre en aumento, ya que representa el orden de los informes. Se usa por el almacén de estado para detectar informes obsoletos, recibidos tarde debido a retrasos en la red u otros problemas. Los informes se rechazan si el número de secuencia es menor o igual que la más reciente aplicada para la misma entidad, origen y propiedad. El número de secuencia se genera automáticamente si no se especifica. Solo es necesario colocar el número de secuencia al informar sobre las transiciones de estado: el origen necesita recordar qué informes envió y conservar la información para recuperación en la conmutación por error.
+- **SequenceNumber**. Un entero positivo que debe ir en constante aumento y representa el orden de los informes. Lo usa el Almacén de estado para detectar informes obsoletos que se reciben tarde debido a retrasos en la red u otros problemas. Un informe se rechaza si el número de secuencia es menor o igual que el último número aplicado a la misma entidad, origen y propiedad. Si no se especifica, el número de secuencia se genera automáticamente. Solo es necesario colocar el número de secuencia cuando se informa de las transiciones de estado. En esta situación, el origen necesita recordar los informes que envió y conservar la información para la recuperación de conmutación por error.
 
-SourceId, el identificador de la entidad, Property y HealthState son necesarios para cada informe de mantenimiento. No se permite que la cadena de SourceId empiece por el prefijo "System.", que se reserva para los informes del sistema. Para la misma entidad, solo hay un informe para el mismo origen y propiedad; si se generan varios informes para el mismo origen y propiedad, se invalidan entre sí, en el lado del cliente de estado (si se procesan por lotes) o en el lado del almacén de estados. El reemplazo se realiza basándose en el número de secuencia: informes más recientes (con el número de secuencia más elevando) reemplazan a informes anteriores.
+Estos cuatro datos (SourceId, entity identifier, Property y HealthState) se requieren en todos los informes de mantenimiento. No se permite que la cadena de SourceId comience por el prefijo "**System.**", que se reserva para los informes del sistema. Para la misma entidad solo hay un informe del mismo origen y propiedad. Si se generan varios informes del mismo origen y propiedad, se invalidan entre sí, en el lado del cliente de mantenimiento (si se procesan por lotes) o en el lado del Almacén de estado. La sustitución se realiza basándose en los números de secuencia; los informes más recientes (con un número de secuencia mayor) reemplazan a los informes anteriores.
 
 ### Eventos de estado
-Internamente, el almacén de estados conserva eventos de estado, que contienen toda la información de los informes más metadatos adicionales, como la hora en que se dio el informe especificado al cliente de estado y la hora en que se modificó en el lado servidor. Los eventos de estado se devuelven por las [consultas de estado](service-fabric-view-entities-aggregated-health.md#health-queries).
+Internamente, el Almacén de estado conserva los eventos de mantenimiento, que contienen toda la información de los informes, así como los metadatos adicionales. Aquí se incluye la hora en que el informe se dio al cliente de mantenimiento y la hora en que modificó en el servidor. Los eventos de mantenimiento los devuelven las [consultas de mantenimiento](service-fabric-view-entities-aggregated-health.md#health-queries).
 
 Los metadatos agregados contienen:
 
-- SourceUtcTimestamp: la hora en que el informe se dio al cliente de mantenimiento (UTC)
+- **SourceUtcTimestamp**. La hora en que el informe se dio al cliente de mantenimiento (hora universal coordinada)
 
-- LastModifiedUtcTimestamp: la hora en que el informe se modificó por última vez en el lado servidor (UTC)
+- **LastModifiedUtcTimestamp**. La hora en que el informe se modificó por última vez en el servidor (hora universal coordinada)
 
-- IsExpired: marca para indicar si el informe expiró en el momento en que el almacén de estados ejecutó la consulta. Se puede expirar un evento solo si RemoveWhenExpired es false; de lo contrario, el evento no se devuelve por la consulta, se quita del almacén.
+- **IsExpired**. Marca que indica si el informe había expirado cuando el Almacén de estado ejecutó la consulta. Un evento ha expirado solo si RemoveWhenExpired está establecido en false. De lo contrario, la consulta no devuelve el evento y se elimina del almacén.
 
-- LastOkTransitionAt, LastWarningTransitionAt, LastErrorTransitionAt: última hora para las transiciones de Correcto, Advertencia o Error. Estos campos muestran el historial de la transición de los estados de mantenimiento para el evento.
+- **LastOkTransitionAt**, **LastWarningTransitionAt**, **LastErrorTransitionAt**. La última hora de las transiciones correctas, con advertencia o con error. Estos campos muestran el historial de las transiciones del estado de mantenimiento del evento.
 
-Los campos de la transición de estado se pueden usar para alertas más inteligentes o información de eventos de estado "histórica". Permiten escenarios como:
+Los campos de la transición de estado se pueden usar para alertas inteligentes o información del "historial" de eventos de mantenimiento. Habilitan escenarios como:
 
-- Alertar cuando una propiedad ha estado en el estado Advertencia/Error durante más de X minutos. Esto evita la generación de alertas sobre condiciones temporales. Por ejemplo, la alerta si el estado de mantenimiento ha sido Advertencia durante más de 5 minutos se puede traducir en (HealthState == Advertencia y ahora: LastWarningTransitionTime
-> 5 minutes).
+- Alertar cuando una propiedad ha estado en los estados Advertencia o Error durante más de X minutos. Así se evita que se generen alertas cuando las condiciones son temporales. Por ejemplo, una alerta si el estado de mantenimiento ha sido Advertencia durante más de cinco minutos se puede traducir como (HealthState == Warning y Now - LastWarningTransitionTime > 5 minutes).
 
-- Alertar solo sobre las condiciones que han cambiado en los últimos X minutos. Si el estado de un informe es Error desde antes de eso, se puede omitir (porque ya se había señalado anteriormente).
+- Alertar solo sobre las condiciones que han cambiado en los últimos X minutos. Si el estado de un informe ya era Error antes de la hora especificada, se puede ignorar, porque ya se había señalado con anterioridad.
 
-- Si una propiedad está alternando entre Advertencia y Error, determine cuánto tiempo ha sido incorrecta (es decir, el estado no ha sido Correcto). Por ejemplo, la alerta si la propiedad no era correcta durante más de 5 minutos se pueden traducir en: (HealthState != Correcto y ahora - LastOkTransitionTime > 5 minutos).
+- Si una propiedad alterna entre Advertencia y Error, determine cuánto tiempo ha sido incorrecta (es decir, el estado no ha sido Correcto). Por ejemplo, una alerta si la propiedad no ha sido correcta durante más de cinco minutos se pueden traducir como (HealthState != Ok y Now - LastOkTransitionTime > 5 minutes).
 
-## Ejemplo: informar y evaluar del estado de la aplicación
-En el ejemplo siguiente se envía un informe de estado a través de Powershell en la aplicación denominada fabric:/WordCount desde el MyWatchdog de origen. El informe de estado contiene información acerca de la disponibilidad de la propiedad de estado en un estado de mantenimiento de Error, con TTL infinito. Luego consulta el estado de aplicación, que devolverá el error de estado de mantenimiento agregado y el evento de estado notificado como parte de la lista de eventos de estado.
+## Ejemplo: informar y evaluar el mantenimiento de una aplicación
+En el ejemplo siguiente se envía un informe de mantenimiento a través de PowerShell en la aplicación **fabric:/WordCount** desde el **MyWatchdog** de origen. El informe de mantenimiento contiene información sobre la disponibilidad de la propiedad de mantenimiento en un estado de mantenimiento de Error, con un valor de TimeToLive infinito. Luego consulta el mantenimiento de la aplicación, que devuelve los errores del estado de mantenimiento agregado y los eventos de mantenimiento notificados en la lista de eventos de mantenimiento.
 
 ```powershell
 PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
@@ -320,20 +319,19 @@ HealthEvents                    :
 ```
 
 ## Uso del modelo de estado
-El modelo de estado permite escalar a los servicios en la nube y a la plataforma subyacente de Service Fabric subyacente, dado que la supervisión y la determinación del estado se distribuyen entre los distintos monitores dentro del clúster. Otros sistemas tienen un servicio centralizado único en el nivel de clúster analizando toda la información *potencialmente* útil emitida por los servicios. Esto impide su escalabilidad y no les permite recopilar información muy específica para ayudar a identificar problemas y posibles problemas tan cerca de la causa raíz como sea posible.
+El modelo de mantenimiento permite escalar los servicios en la nube y la plataforma de Service Fabric subyacente, ya que las determinaciones de supervisión y mantenimiento se distribuyen entre los distintos monitores del clúster. Otros sistemas tienen un servicio centralizado único en el nivel de clúster que analiza toda la información *potencialmente* útil que emiten los servicios. Este enfoque dificulta su escalabilidad. Tampoco les permite recopilar información muy específica para ayudar a identificar problemas reales y potenciales tan próximos a la causa raíz como sea posible.
 
-El modelo de estado se usa mucho para la supervisión y el diagnóstico, para evaluar el estado del clúster y la aplicación, y para actualizaciones supervisadas. Otros servicios usan los datos de estado para realizar reparaciones automáticas, para generar el historial de mantenimiento de clúster y para emitir alertas en determinadas condiciones.
+El modelo de mantenimiento se usa mucho para la supervisión y el diagnóstico, para evaluar el mantenimiento de clústeres y aplicaciones, y para las actualizaciones supervisadas. Otros servicios usan los datos de mantenimiento para realizar reparaciones automáticas, generar el historial de mantenimiento de los clústeres y emitir alertas en determinadas condiciones.
 
 ## Pasos siguientes
-[Cómo ver los informes de mantenimiento de Service Fabric](service-fabric-view-entities-aggregated-health.md)
+[Vista de los informes de estado de Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 [Uso de informes de mantenimiento del sistema para solucionar problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-[Adición de informes de mantenimiento de Service Fabric personalizados](service-fabric-report-health.md)
+[Incorporación de informes de mantenimiento de Service Fabric personalizados](service-fabric-report-health.md)
 
-[Cómo supervisar y diagnosticar servicios localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[Supervisión y diagnóstico de los servicios localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

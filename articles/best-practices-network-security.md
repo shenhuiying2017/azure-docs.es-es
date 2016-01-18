@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="01/06/2016"
    ms.author="jonor;sivae"/>
 
 # Servicios en la nube de Microsoft y seguridad de red
@@ -77,7 +77,7 @@ Una vez que el tráfico llega a la red virtual, hay muchas características que 
 5.	**Rutas definidas por el usuario** (UDR) y **Reenvío IP** permiten a los clientes definir las rutas de comunicación entre distintos niveles dentro de una red virtual. Los clientes pueden implementar un firewall, identificadores y direcciones IP y otros dispositivos virtuales y enrutar el tráfico de red a través de estos dispositivos de seguridad para la aplicación de directivas de límites de seguridad, auditoría e inspección.
 6.	**Dispositivos virtuales de red** en Azure Marketplace: hay dispositivos de seguridad, como firewalls, equilibradores de carga e identificadores/direcciones IP (servicios de detección y prevención de intrusiones) disponibles en Azure Marketplace y la Galería de imágenes de máquina virtual. Los clientes pueden implementar estos dispositivos en sus redes virtuales y, en concreto, en los límites de seguridad (incluidas las subredes de la red perimetral) para completar un entorno de red segura en múltiples niveles.
 
-Con estas características y capacidades, se muestra a continuación un ejemplo de cómo se puede construir una arquitectura de red perimetral en Azure:
+Con estas características y funcionalidades, a continuación se muestra un ejemplo de cómo se puede construir una arquitectura de red perimetral en Azure:
 
 ![Red perimetral en una red virtual de Azure][5]
 
@@ -307,7 +307,13 @@ Una vez creadas las tablas de enrutamiento se enlazan a sus subredes. Una vez cr
 		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE]Existen limitaciones actuales con redes de enrutamiento definido por el usuario e híbridas. Esto se resolverá en una futura versión; a continuación, se describen ejemplos de cómo habilitar la red perimetral con ExpressRoute o redes de sitio a sitio en los ejemplos 3 y 4.
+>[AZURE.NOTE]Hay determinadas restricciones en el uso del enrutamiento definido por el usuario (UDR) con ExpressRoute debido a la complejidad del enrutamiento dinámico que se usa en la puerta de enlace virtual de Azure. Son las siguientes:
+>
+> 1. El enrutamiento definido por el usuario no se debe aplicar a la subred de la puerta de enlace en la que está conectada la puerta de enlace virtual de Azure vinculada a ExpressRoute.
+> 2. La puerta de enlace virtual de Azure vinculada a ExpressRoute no puede ser el dispositivo NextHop para otras subredes enlazadas con enrutamiento definido por el usuario.
+>
+>La capacidad para integrar completamente el enrutamiento definido por el usuario y ExpressRoute se habilitará en una futura versión de Azure; a continuación, se describen ejemplos de cómo habilitar la red perimetral con ExpressRoute o redes de sitio a sitio en los ejemplos 3 y 4.
+
 
 #### Descripción de reenvío IP
 Una característica complementaria del enrutamiento definido por el usuario es el reenvío IP. Es una opción de configuración de los dispositivos virtuales que les permite recibir tráfico no dirigido específicamente al dispositivo y, después, reenviar ese tráfico a su destino final.
@@ -436,9 +442,15 @@ Las redes híbridas que usan una conexión de configuración entre pares privado
 
 Como se muestra en la ilustración anterior, la configuración entre pares privados de ExpressRoute proporciona una conexión directa entre la red local y la red virtual de Azure. El tráfico transita solo por la red del proveedor de servicio y la red de Microsoft Azure y no toca nunca Internet.
 
->[AZURE.NOTE]Hay una limitación en el uso del enrutamiento definido por el usuario (UDR) y ExpressRoute debido a la complejidad del enrutamiento dinámico que se usa en la puerta de enlace virtual de Azure. Las subredes que se comunican con la puerta de enlace de Azure y que proporcionan la conexión de ExpressRoute no deben tener aplicado enrutamiento definido por el usuario. Además, la puerta de enlace de Azure no puede ser dispositivo NextHop para otras subredes enlazadas con enrutamiento definido por el usuario. La capacidad de integrar totalmente el enrutamiento definido por el usuario y ExpressRoute se habilitará en una futura versión de Azure.
+>[AZURE.NOTE]Hay determinadas restricciones en el uso del enrutamiento definido por el usuario (UDR) con ExpressRoute debido a la complejidad del enrutamiento dinámico que se usa en la puerta de enlace virtual de Azure. Son las siguientes:
+>
+> 1. El enrutamiento definido por el usuario no se debe aplicar a la subred de la puerta de enlace en la que está conectada la puerta de enlace virtual de Azure vinculada a ExpressRoute.
+> 2. La puerta de enlace virtual de Azure vinculada a ExpressRoute no puede ser el dispositivo NextHop para otras subredes enlazadas con enrutamiento definido por el usuario.
+>
+>La capacidad de integrar totalmente el enrutamiento definido por el usuario y ExpressRoute se habilitará en una futura versión de Azure.
 
-</br>
+<br />
+
 >[AZURE.TIP]Mediante ExpressRoute, se mantiene el tráfico de la red corporativa fuera de Internet para una mayor seguridad, se aumenta significativamente el rendimiento y se permiten los contratos de nivel de servicio del proveedor de ExpressRoute. En cuanto al rendimiento de ExpressRoute, la puerta de enlace de Azure puede pasar a 2 Gbps con ExpressRoute, mientras que con la puerta de enlace de Azure de VPN de sitio a sitio, el rendimiento máximo es de 200 Mbps.
 
 Tal como se ve en el diagrama siguiente, con esta opción el entorno tiene ahora dos bordes de red, el dispositivo virtual de red y el grupo de seguridad de red controlan los flujos de tráfico para redes internas de Azure y entre Azure e Internet, mientras que la puerta de enlace de VPN de Azure es un borde de red totalmente independiente y aislado entre local y Azure.
@@ -499,4 +511,4 @@ Pronto estarán disponible y enlazados desde esta página.
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

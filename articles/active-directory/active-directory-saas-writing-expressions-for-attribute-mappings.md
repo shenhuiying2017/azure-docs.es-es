@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="01/04/2016"
 	ms.author="markusvi"/>
 
 
@@ -121,7 +121,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 |--- | ---                 | ---  | ---   |
 | **de origen** | Obligatorio | String | Normalmente el nombre del atributo. |
 | **start** | Obligatorio | integer | Índice de la cadena de **origen** donde debe empezar la subcadena. El primer carácter de la cadena tendrá el índice de 1, el segundo carácter tendrá el índice de 2, y así sucesivamente. |
-| **length** | Obligatorio | integer | Longitud de la subcadena. Si la longitud acaba fuera de la cadena de **source**, la función devolverá la subcadena desde el índice de **start** hasta el final de la cadena de **source**. |
+| **length** | Obligatorio | integer | Longitud de la subcadena. Si la longitud acaba fuera de la cadena de **origen**, la función devolverá la subcadena desde el índice de **inicio** hasta el final de la cadena de **origen**. |
 
 
 
@@ -174,7 +174,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 |--- | ---                 | ---  | ---   |
 | **de origen** | Obligatorio | Cadena | Normalmente el nombre del atributo del objeto de origen. |
 | **oldValue** | Opcional | String | Valor que se debe reemplazar en **source** o **template**. |
-| **regexPattern** | Opcional | Cadena | Patrón Regex del valor que se va a reemplazar en el **source**. O bien, cuando se utiliza replacementPropertyName, patrón para extraer el valor de la propiedad de reemplazo. |
+| **regexPattern** | Opcional | Cadena | Patrón Regex del valor que se va a reemplazar en **source**. O bien, cuando se utiliza replacementPropertyName, patrón para extraer el valor de la propiedad de reemplazo. |
 | **regexGroupName** | Opcional | Cadena | Nombre del grupo dentro de **regexPattern**. Sólo cuando se utiliza replacementPropertyName, se extrae el valor de este grupo como replacementValue de la propiedad de reemplazo. |
 | **replacementValue** | Opcional | Cadena | Nuevo valor para reemplazar uno anterior. |
 | **replacementAttributeName** | Opcional | String | Nombre del atributo que se utilizará para el valor de reemplazo, cuando el origen no tiene ningún valor. |
@@ -209,8 +209,8 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 |Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
 | **de origen** | Obligatorio | String | Valor de **source** que se actualiza. |
-| **defaultValue** | Opcional | Cadena | Valor predeterminado que se usará si el origen no coincide con ninguna clave. Puede tratarse de una cadena vacía (""). |
-| **key** | Obligatorio | Cadena | **Clave** con la que se compara el valor de **source**. |
+| **defaultValue** | Opcional | String | Valor predeterminado que se usará si el origen no coincide con ninguna clave. Puede tratarse de una cadena vacía (""). |
+| **key** | Obligatorio | String | **Clave** con la que se compara el valor de **source**. |
 | **value** | Obligatorio | Cadena | Valor de reemplazo para el **source** que coincide con la clave. |
 
 
@@ -307,4 +307,4 @@ Debe definir la zona horaria del usuario según el código de estado almacenado 
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

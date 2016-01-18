@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/14/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # Control de acceso basado en roles de Azure
@@ -22,7 +22,7 @@
 El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. Gracias a RBAC puede dividir las tareas entre el equipo de DevOps, y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
 
 ### Aspectos básicos de la administración de acceso en Azure
-Cada una de las suscripciones de Azure está asociada a un Azure Active Directory. Solo se puede conceder acceso a los usuarios, los grupos y las aplicaciones de ese directorio para que administren los recursos en la suscripción de Azure, mediante el Portal de Azure, las herramientas de línea de comandos de Azure y las API de administración de Azure.
+Cada suscripción de Azure está asociada a un directorio Azure Active Directory. Solo se puede conceder acceso a los usuarios, los grupos y las aplicaciones de ese directorio para que administren los recursos en la suscripción de Azure, mediante el Portal de Azure, las herramientas de línea de comandos de Azure y las API de administración de Azure.
 
 El acceso se concede mediante la asignación de rol RBAC adecuado a los usuarios, grupos y aplicaciones en el ámbito correcto. Para conceder acceso a toda la suscripción, asigne un rol en el ámbito de la suscripción. Para conceder acceso a un grupo de recursos específico dentro de una suscripción, asigne un rol en el ámbito de grupo de recursos. También puede asignar roles a recursos específicos, como sitios web, máquinas virtuales y subredes para conceder acceso a un único recurso.
 
@@ -70,7 +70,6 @@ Seleccione la configuración de acceso en la sección Essentials de la hoja de g
 
 > [AZURE.NOTE]Las asignaciones heredadas no se pueden quitar de los ámbitos secundarios. Navegue al ámbito principal y quite allí las asignaciones.
 
-
 ![](./media/role-based-access-control-configure/remove-access2.png)
 
 ## Administración del acceso con Azure Powershell
@@ -98,6 +97,9 @@ El acceso se puede administrar mediante el uso de comandos de Azure RBAC en la i
 -	Use `azure role assignment delete` para quitar el acceso.
 
 Consulte [Administración de acceso con la CLI de Azure](role-based-access-control-manage-access-azure-cli.md) para ver ejemplos más detallados de la administración de acceso con la CLI de Azure.
+
+## Administración del acceso mediante la API de REST
+Consulte [Managing Role-Based Access Control with the REST API](role-based-access-control-manage-access-rest.md) (Administración del control de acceso basado en rol con la API de REST) para obtener más ejemplos de la administración del acceso a la API de REST.
 
 ## Uso del informe de historial de cambios de acceso
 Todos los cambios de acceso que tienen lugar en las suscripciones de Azure se registran en eventos de Azure.
@@ -173,10 +175,12 @@ Use los comandos `Get-AzureRmProviderOperation` o `azure provider operations sho
 ### No acciones
 Si el conjunto de operaciones que desea permitir se expresa fácilmente excluyendo operaciones específicas, en lugar de incluir todas las operaciones, use la propiedad **NotActions** de un rol personalizado. El acceso efectivo concedido por un rol personalizado se calcula mediante la exclusión de las operaciones **NotActions** desde las operaciones Actions.
 
-Tenga en cuenta que si un usuario tiene asignado un rol que excluye una operación en **NotActions** y se le asigna un segundo rol que sí concede acceso a la misma operación, el usuario podrá realizar dicha operación. **NotActions** no es una regla de denegación, es simplemente una manera cómoda de crear un conjunto de operaciones permitidas cuando es necesario excluir operaciones específicas.
+> [AZURE.NOTE]Si un usuario tiene asignado un rol que excluye una operación en **NotActions** y se le asigna un segundo rol que sí concede acceso a la misma operación, el usuario podrá realizar dicha operación. **NotActions** no es una regla de denegación, es simplemente una manera cómoda de crear un conjunto de operaciones permitidas cuando es necesario excluir operaciones específicas.
 
 ### Ámbitos asignables
-La propiedad **AssignableScopes** del rol personalizado especifica los ámbitos (suscripciones, grupos de recursos o recursos) dentro de los que dicho rol personalizado está disponible para su asignación a usuarios, grupos y aplicaciones. Con el uso de **AssignableScopes** puede disponer del rol personalizado para su asignación solamente a las suscripciones o los grupos de recursos que lo requieran, sin necesidad de abarrotar la experiencia de usuario del resto de las suscripciones o grupos de recursos. **AssignableScopes** de un rol personalizado también controla quién puede ver, actualizar y eliminar el rol. A continuación se muestran algunos ámbitos asignables válidos:
+La propiedad **AssignableScopes** del rol personalizado especifica los ámbitos (suscripciones, grupos de recursos o recursos) dentro de los que dicho rol personalizado está disponible para su asignación a usuarios, grupos y aplicaciones. Con el uso de **AssignableScopes** puede disponer del rol personalizado para su asignación solamente a las suscripciones o los grupos de recursos que lo requieran, sin necesidad de abarrotar la experiencia de usuario del resto de las suscripciones o grupos de recursos.
+
+> [AZURE.NOTE]Debe usar al menos una suscripción, un grupo de recursos o un identificador de recurso.* La propiedad **AssignableScopes** de un rol personalizado también controlar quién puede ver, actualizar y eliminar el rol. A continuación se muestran algunos ámbitos asignables válidos:
 
 -	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”, “/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624”: permite la disponibilidad del rol para su asignación en dos suscripciones.
 -	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”: permite la disponibilidad del rol para su asignación en una sola suscripción.
@@ -191,4 +195,4 @@ La propiedad **AssignableScopes** del rol personalizado prescribe quién puede v
 
 **¿Quién puede ver los roles personalizados que están disponibles para su asignación en un ámbito?** Los usuarios que pueden realizar la operación `Microsoft.Authorization/roleDefinition/read` en un ámbito, pueden ver los roles RBAC que están disponibles para su asignación en ese ámbito. Todos los roles integrados de RBAC de Azure permiten ver los roles que están disponibles para la asignación.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

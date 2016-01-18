@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/04/2016"
 	ms.author="klam"/>
 
 #¿Qué son las aplicaciones lógicas?
@@ -24,21 +24,21 @@
 | [Documentación del conector de aplicaciones lógicas](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
 | [Foro de aplicaciones lógicas](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=azurelogicapps) |
 
-Servicio de aplicaciones de Azure cuenta con una administración PaaS (plataforma como servicio) completa para los desarrolladores que hace que sea más fácil crear aplicaciones web, móviles y de integración. Las aplicaciones lógicas forman parte de este conjunto y permiten a cualquier usuario técnico o el desarrollador automatizar la ejecución de procesos de negocio y flujo de trabajo a través de un diseñador visual fácil de usar.
+Servicio de aplicaciones de Azure cuenta con PaaS (plataforma como servicio) totalmente administrada para desarrolladores que facilita la creación de aplicaciones web, móviles y de integración. Aplicaciones lógicas forma parte de este conjunto y permite a cualquier usuario técnico o desarrollador automatizar el flujo de trabajo y la ejecución de procesos de negocio mediante un diseñador visual fácil de usar.
 
-Lo mejor de todo, las aplicaciones lógicas pueden combinarse con [conectores][connectors] de nuestro Marketplace para ayudar a resolver incluso escenarios de integración complicados de forma fácil.
+Y lo mejor de todo: Aplicaciones lógicas puede combinarse con [conectores][connectors] de nuestro Marketplace para ayudar a resolver incluso escenarios de integración complicados de forma fácil.
 
 ![Diseñador de aplicación de flujo](./media/app-service-logic-what-are-logic-apps/Designer.png)
 
-Si desea replicar automáticamente nuevos registros en la Base de datos de SQL y enviarlos correo a la recepción, o encontrar tweets negativos y enviarlos a un canal de inactividad
+Puede replicar automáticamente nuevos registros en la base de datos SQL y enviar por correo el escritorio. O bien, encontrar automáticamente tweets negativos y enviarlos a un canal de demora.
 
 ##¿Por qué aplicaciones lógicas?
 
-Las aplicaciones lógicas permiten a los desarrolladores diseñar flujos de trabajo que comienzan por desencadenar y luego ejecutar una serie de pasos, que invocan a una aplicación de API del Servicio de aplicaciones, al tiempo que se ocupan de forma segura de la autenticación y los procedimientos recomendados, como ejecución duradera.
+Aplicaciones lógicas permite a los desarrolladores diseñar flujos de trabajo que se inician a partir de un desencadenador y después ejecutan una serie de pasos. Cada paso invoca una aplicación de API del Servicio de aplicaciones mientras se ocupa de forma segura de la autenticación y los procedimientos recomendados, como punto de comprobación y ejecución duradera.
 
-Si desea automatizar cualquier proceso empresarial (por ejemplo, encontrar tweets negativos y publicar en el canal de inactividad interno, o replicar nuevos registros de clientes de SQL, como lleguen, en el sistema CRM), las aplicaciones lógicas realizan la integración de orígenes de datos dispares de la nube al entorno local de forma sencilla. Consulte nuestros [conectores][connectors] para obtener más ideas y [comenzar a][create] ahora para ver qué puede hacer.
+Si desea automatizar cualquier proceso empresarial (por ejemplo, encontrar tweets negativos y publicar en el canal de inactividad interno, o replicar nuevos registros de clientes de SQL, según llegan, en el sistema CRM), las aplicaciones lógicas realizan la integración de orígenes de datos dispares desde la nube al entorno local de forma sencilla. Consulte nuestros [conectores][connectors] para obtener más ideas y [comenzar a][create] ahora para ver qué puede hacer.
 
-Además, con nuestras aplicaciones de [API de BizTalk][biztalk], puede realizar la escalación a escenarios de integración maduros con la eficacia de un [motor de reglas][rules], la [administración de socios comerciales][tpm] y mucho más.
+Además, con nuestras aplicaciones de [API de BizTalk][biztalk], puede realizar el escalado a escenarios de integración maduros con la eficacia de un [motor de reglas][rules], la [administración de socios comerciales][tpm] y mucho más.
 
 - **Herramientas de diseño fáciles de usar**: las aplicaciones lógicas pueden diseñarse de principio a fin en el explorador. Inicio con un desencadenador: desde una simple programación hasta siempre vez que aparezcas un tweet acerca de su compañía. A continuación, se coordina cualquier número de acciones mediante la sofisticada galería de conectores.
 
@@ -58,7 +58,7 @@ Las siguientes son algunas de las principales partes que componen la experiencia
 - **Conectores**: las aplicaciones lógicas necesitan tener acceso a datos y servicios. Un conector es un tipo especial de aplicación de API. Se crea específicamente para ayudarle cuando se conecta y trabaja con datos. Vea la lista de conectores disponibles ahora en [Uso de conectores][connectors].
 - **Desencadenadores**: algunos conectores también pueden actuar como un desencadenador. Un desencadenador inicia una nueva instancia de un flujo de trabajo de acuerdo con un evento específico, como la llegada de un correo electrónico o un cambio en la cuenta de almacenamiento de Azure.
 -  **Acciones**: cada paso después de la llamada a la acción de un desencadenador en un flujo de trabajo. Cada acción normalmente se asigna a una operación en el conector o aplicaciones de API personalizadas.
-- **BizTalk**: para escenarios más avanzados de integración, Servicios de aplicaciones de Azure incluye capacidades de BizTalk. BizTalk es la plataforma de integración líder del sector de Microsoft. Las Aplicaciones de API de BizTalk permiten incluir fácilmente la validación, transformación, reglas y mucho más en sus flujos de trabajo de aplicaciones lógicas. Obtenga más información en [Qué son las Aplicaciones de API de BizTalk][biztalk].
+- **BizTalk**: para escenarios más avanzados de integración, Servicios de aplicaciones de Azure incluye capacidades de BizTalk. BizTalk es la plataforma de integración líder del sector de Microsoft. Las aplicaciones de API de BizTalk permiten incluir fácilmente la validación, transformación, reglas y mucho más en sus flujos de trabajo de Aplicaciones lógicas. Obtenga más información en [Qué son las Aplicaciones de API de BizTalk][biztalk].
 
 ## Introducción
 
@@ -75,4 +75,4 @@ Para obtener más información sobre la plataforma de Servicio de aplicaciones d
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

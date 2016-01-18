@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="12/28/2015"
    ms.author="andkjell"/>
 
 # Referencia técnica del conector de Lotus Domino
@@ -34,7 +34,7 @@ Desde una perspectiva de alto nivel, las siguientes características son compati
 
 | Característica | Soporte técnico |
 | --- | --- |
-| Origen de datos conectado | Servidor: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Cliente:<li>Lotus Notes 8.5.x</li><li>Lotus Notes 9.x</li> |
+| Origen de datos conectado | Servidor: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Cliente:<li>Lotus Notes 9.x</li> |
 | Escenarios | <li>Administración del ciclo de vida de objetos</li><li>Administración de grupos</li><li>Administración de contraseñas</li> |
 | Operaciones | <li>Importación completa y diferencial</li><li>Exportación</li><li>Establecimiento y cambio de contraseña para contraseñas HTTP</li> |
 | Esquema | <li>Persona: usuario móvil, contacto (personas sin certificado)</li><li>Grupo</li><li>Recurso: recurso, sala, reunión en línea</li><li>Base de datos de correo de entrada</li><li>Detección dinámica de atributos para objetos admitidos</li> |
@@ -246,7 +246,7 @@ Si se asigna un nuevo asistente llamado **David Alexander** a este objeto de per
 
 **Importación**
 
-La opción para la operación de exportación admite dos modos:
+La opción para la operación de importación admite dos modos:
 
 - Valor predeterminado
 - Multivalor en un solo valor
@@ -539,4 +539,4 @@ En Domino, existen varias maneras de extender el esquema para que aparezca como 
 
 -	Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

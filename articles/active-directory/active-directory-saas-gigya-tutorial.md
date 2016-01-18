@@ -2,7 +2,7 @@
     pageTitle="Tutorial: integración de Azure Active Directory con Gigya | Microsoft Azure" 
     description="Aprenda a usar Gigya con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/20/2015" 
-    ms.author="markvi" />
+    ms.date="01/05/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con Gigya
   
@@ -72,7 +72,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-gigya-tutorial/IC789528.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en Gigya?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en Gigya?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-gigya-tutorial/IC789529.png "Configurar inicio de sesión único")
 
@@ -105,7 +105,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
     6.  Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509**.
     7.  Haga clic en **Guardar configuración**.
 
-8.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+8.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-gigya-tutorial/IC789534.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -116,7 +116,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Gigya, deben aprov
 
 1.  Inicie sesión en el sitio de la compañía de **Gigya** como administrador.
 
-2.  Vaya a **Administrador > Administrar usuarios** y luego haga clic en **Invitar a usuarios**.
+2.  Vaya a **Admin > Manage Users** (Administrador > Administrar usuarios) y, a continuación, haga clic en **Invite Users** (Invitar a usuarios).
 
     ![Administrar usuarios](./media/active-directory-saas-gigya-tutorial/IC789535.png "Administrar usuarios")
 
@@ -143,10 +143,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-gigya-tutorial/IC789537.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-gigya-tutorial/IC767830.png "Sí")
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

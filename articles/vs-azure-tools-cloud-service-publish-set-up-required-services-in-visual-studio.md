@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Preparación para publicar o implementar una aplicación de Azure desde Visual Studio"
+   pageTitle="Preparación para publicar o implementar una aplicación de Azure desde Visual Studio | Microsoft Azure"
    description="Obtenga más información sobre los procedimientos para configurar los servicios de cuenta de almacenamiento y en la nube y establecer la configuración de la aplicación de Azure."
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/28/2015"
+   ms.date="01/05/2016"
    ms.author="tarcher" />
 
 # Preparación para publicar o implementar una aplicación de Azure desde Visual Studio
@@ -50,7 +50,7 @@ Para publicar un servicio en la nube en Azure, debe crear primero un servicio en
 
 ### Para crear un servicio en la nube mediante el Portal de administración de Azure
 
-1. Inicie sesión en el [Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkId=253103) en el sitio web de Microsoft.
+1. Inicie sesión en el [Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkId=253103) del sitio web de Microsoft.
 
 1. (opcional) Para mostrar una lista de servicios en la nube que ya creó, elija el vínculo Servicios en la nube situado a la izquierda de la página.
 
@@ -130,7 +130,7 @@ Debe configurar cualquier rol que tenga acceso a los servicios de almacenamiento
 
 1. Escriba el nombre de la cuenta de almacenamiento en **Nombre de cuenta**.
 
-    >[AZURE.NOTE]Inicie sesión en el Portal de administración y elija el botón **Almacenamiento**. El portal muestra una lista de cuentas de almacenamiento. Si elige una cuenta, se abre una página para ella. Puede copiar el nombre de la cuenta de almacenamiento que aparece en esta página. Si usa una versión anterior del Portal de administración, el nombre de la cuenta de almacenamiento aparece en la vista **Cuentas de almacenamiento** de dicho del Portal de administración. Para copiar este nombre, resáltelo en la ventana **Propiedades** de esta vista y presione las teclas CTRL+C. Para pegar el nombre en Visual Studio, elija el cuadro de texto **Nombre de cuenta** y presione las teclas CTRL+V.
+    >[AZURE.NOTE]Inicie sesión en el Portal de administración y elija el botón **Almacenamiento**. El portal muestra una lista de cuentas de almacenamiento. Si elige una cuenta, se abre una página para ella. Puede copiar el nombre de la cuenta de almacenamiento que aparece en esta página. Si usa una versión anterior del Portal de administración, el nombre de la cuenta de almacenamiento aparece en la vista **Cuentas de almacenamiento** del Portal de administración. Para copiar este nombre, resáltelo en la ventana **Propiedades** de esta vista y presione las teclas CTRL+C. Para pegar el nombre en Visual Studio, elija el cuadro de texto **Nombre de cuenta** y presione las teclas CTRL+V.
 
 1. En el cuadro **Clave de cuenta**, escriba la clave principal o cópiela del [Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkID=213885) y péguela. Para copiar esta clave del Portal de administración:
 
@@ -153,4 +153,4 @@ Debe configurar cualquier rol que tenga acceso a los servicios de almacenamiento
 
 Para obtener más información acerca de la publicación de aplicaciones en Azure desde Visual Studio, consulte [Publicar un servicio en la nube mediante Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

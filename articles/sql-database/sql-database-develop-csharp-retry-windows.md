@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Lógica de reintentos de C# para la conexión a la Base de datos de SQL | Microsoft Azure" 
-	description="La muestra de C# incluye lógica de reintentos para interactuar de manera fiable con la base de datos de SQL de Azure." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Lógica de reintentos de C# para la conexión a la Base de datos de SQL | Microsoft Azure"
+	description="La muestra de C# incluye lógica de reintentos para interactuar de manera fiable con la base de datos de SQL de Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/17/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/17/2015"
 	ms.author="genemi"/>
 
 
@@ -22,10 +22,7 @@
 
 
 
-> [AZURE.SELECTOR]
-- [PHP](sql-database-develop-php-retry-windows.md)
-- [C#](sql-database-develop-csharp-retry-windows.md)
-- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 
@@ -250,7 +247,7 @@ filetable_updates_2105058535    2105058535
 A continuación se muestra una forma práctica de probar la lógica de prueba:
 
 
-1. Agregue temporalmente **11001** a su colección de valores **SqlConnection.Number** que se considerarán como errores transitorios.
+1. Agregue temporalmente **11001** a la colección de valores **SqlConnection.Number** que se considerarán como errores transitorios.
 
 2. Vuelva a compilar el programa.
 
@@ -289,4 +286,4 @@ Ejecute el programa con el parámetro "test" y compruebe en primer lugar si se p
 
 - [Prueba de Base de datos SQL: Use C# para crear una Base de datos SQL con la biblioteca de Base de datos SQL para .NET](sql-database-get-started-csharp.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

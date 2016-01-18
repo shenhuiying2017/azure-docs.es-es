@@ -18,7 +18,7 @@
    	ms.author="nitinme"/>
 
 
-#Crear clústeres basados en Linux en HDInsight
+#Creación de clústeres de Hadoop basados en Linux en HDInsight
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -282,4 +282,4 @@ En este artículo, aprendió información básica acerca de cómo crear un clús
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Uso de Sqoop con HDInsight"
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

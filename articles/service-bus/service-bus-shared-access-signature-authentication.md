@@ -25,7 +25,7 @@ La compatibilidad con la autenticación SAS se incluye en el SDK de Azure 2.0 y 
 
 La autenticación SAS en el Bus de servicio implica la configuración de una clave criptográfica con derechos asociados en un recurso del Bus de servicio. Los clientes reclaman acceso a los recursos del Bus de servicio mediante la presentación de un token SAS. Este token consta del URI del recurso al que se accede y una caducidad firmada con la clave configurada.
 
-Puede configurar las reglas de autorización de firma de acceso compartido en las [retransmisiones](service-bus-fundamentals-hybrid-solutions.md/#relays), las [colas](service-bus-fundamentals-hybrid-solutions.md/#queues), los [temas](service-bus-fundamentals-hybrid-solutions.md/#topics) y los [Centros de eventos](https://azure.microsoft.com/documentation/services/event-hubs/) del Bus de servicio.
+Puede configurar las reglas de autorización de firma de acceso compartido en las [retransmisiones](service-bus-fundamentals-hybrid-solutions.md#relays), las [colas](service-bus-fundamentals-hybrid-solutions.md#queues), los [temas](service-bus-fundamentals-hybrid-solutions.md#topics) y los [Centros de eventos](https://azure.microsoft.com/documentation/services/event-hubs/) del Bus de servicio.
 
 La autenticación SAS usa los siguientes elementos:
 
@@ -143,7 +143,7 @@ https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespa
 
 ## Acceso a las reglas de autorización de acceso compartido en una entidad
 
-Puede acceder a un objeto [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) configurado en una cola del Bus de servicio o un tema mediante la colección [AuthorizationRules](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.authorizationrules.aspx) en los objetos [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx), [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) o [NotificationHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.notifications.notificationhubdescription.aspx) correspondientes.
+Puede acceder a un objeto [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) configurado en una cola del Bus de servicio o un tema mediante la colección [AuthorizationRules](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.authorizationrules.aspx) en los objetos [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx), [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) o [NotificationHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.notifications.notificationhubdescription.aspx) correspondiente.
 
 El código siguiente muestra cómo agregar reglas de autorización para una cola.
 
@@ -258,4 +258,4 @@ Para obtener más información sobre la autenticación del Bus de servicio, cons
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

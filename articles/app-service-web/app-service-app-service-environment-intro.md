@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015"
+	ms.date="01/05/2016"
 	ms.author="stefsch"/>
 
 # Introducción al entorno del Servicio de aplicaciones
@@ -74,7 +74,7 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 
 Para obtener información general sobre la arquitectura de red del entorno del Servicio de aplicaciones, consulte el artículo [Información general sobre la arquitectura de red de los entornos del Servicio de aplicaciones][NetworkArchitectureOverview].
 
-Para obtener información detallada sobre el uso de un entorno del Servicio de aplicaciones con ExpressRoute, consulte el siguiente artículo sobre [Entornos del Servicio de aplicaciones y ExpressRoute][NetworkConfigDetailsForExpressRoute].
+Para obtener información detallada sobre el uso de un entorno del Servicio de aplicaciones con ExpressRoute, consulte el siguiente artículo sobre [Detalles de configuración de red para entornos del Servicio de aplicaciones con ExpressRoute][NetworkConfigDetailsForExpressRoute].
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -104,4 +104,4 @@ Para obtener información detallada sobre el uso de un entorno del Servicio de a
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

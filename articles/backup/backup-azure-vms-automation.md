@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr";"trinadhk" />
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/06/2016" ms.author="aashishr";"trinadhk" />
 
 
 # Implementación y administración de copia de seguridad de VM de Azure mediante PowerShell
@@ -75,7 +75,7 @@ Las siguientes tareas de instalación y registro se pueden automatizar con Power
 Puede crear un nuevo almacén de copia de seguridad con el commandlet **New-AzureRMBackupVault**. El almacén de copia de seguridad es un recurso ARM, por lo que necesita colocarlo dentro de un grupo de recursos. En una consola de Azure PowerShell, ejecute los comandos siguientes:
 
 ```
-PS C:\> New-AzureRMResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> New-AzureRMResourceGroup –Name “test-rg” –Location “West US”
 PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
@@ -157,7 +157,7 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
 ```
 
-En lugar de sondear si finalizaron estos trabajos (lo que supone un código adicional innecesario), es más fácil usar el commandlet **Wait-AzureRMBackupJob**. Si se usa en un script, el commandlet pausará la ejecución hasta que el trabajo se complete o se alcance el valor de tiempo de espera especificado.
+En lugar de sondear si finalizaron estos trabajos (lo que supone un código adicional innecesario), es más fácil usar el commandlet **Wait-AzureRMBackupJob** . Si se usa en un script, el commandlet pausará la ejecución hasta que el trabajo se complete o se alcance el valor de tiempo de espera especificado.
 
 ```
 PS C:\> Wait-AzureRMBackupJob -Job $joblist[0] -Timeout 43200
@@ -325,6 +325,6 @@ for( $i = 1; $i -le $numberofdays; $i++ )
 $DAILYBACKUPSTATS | Out-GridView
 ```
 
-Si quiere agregar capacidades gráficas a esta salida del informe, obtenga información en el blog de TechNet sobre [gráficos con PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
+Si desea agregar capacidades gráficas a esta salida del informe, obtenga información en el blog de TechNet sobre [gráficos con PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->
