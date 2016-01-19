@@ -292,7 +292,7 @@ Dado que el método de ejemplo llama a un método asincrónico, debe ir precedid
 ## Escritura en un blob en anexos
 
 Un blob en anexos es un nuevo tipo de blob, que se introdujo con la versión 5.x de la biblioteca de cliente de almacenamiento de Azure para. NET. Un blob en anexos se optimiza para las operaciones de anexado, como el registro. Como un blob en bloques, un blob en anexos se compone también de bloques, pero en el caso del blob en anexos cuando se agrega un nuevo bloque, siempre se anexa al final del blob. No se puede actualizar o eliminar un bloque existente en un blob en anexos. Los identificadores de bloque para un blob en anexos no está expuestos como lo están en el caso de los blobs en bloques.
-
+ 
 Cada bloque en un blob en anexos puede tener un tamaño diferente, hasta un máximo de 4 MB y el blob puede incluir un máximo de 50.000 bloques. El tamaño máximo de un blob en anexos es, por tanto, ligeramente superior a 195 GB (4 MB X 50.000 bloques).
 
 El ejemplo siguiente crea un nuevo blob en anexos y le anexa algunos datos, para simular una operación de registro simple.
@@ -307,7 +307,7 @@ El ejemplo siguiente crea un nuevo blob en anexos y le anexa algunos datos, para
     //Get a reference to a container.
     CloudBlobContainer container = blobClient.GetContainerReference("my-append-blobs");
 
-    //Create the container if it does not already exist.
+    //Create the container if it does not already exist. 
     container.CreateIfNotExists();
 
     //Get a reference to an append blob.
@@ -323,7 +323,7 @@ El ejemplo siguiente crea un nuevo blob en anexos y le anexa algunos datos, para
     Random rnd = new Random();
     byte[] bytes = new byte[numBlocks];
     rnd.NextBytes(bytes);
-
+        
     //Simulate a logging operation by writing text data and byte data to the end of the append blob.
     for (int i = 0; i < numBlocks; i++)
     {

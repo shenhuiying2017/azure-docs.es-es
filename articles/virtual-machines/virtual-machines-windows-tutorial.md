@@ -27,7 +27,7 @@
 - [CLI](virtual-machines-linux-tutorial.md)
 
 Este tutorial muestra lo fácil que resulta crear una máquina virtual de Azure en unos minutos en el Portal de Azure. Usaremos una imagen de Windows Server 2012 R2 Datacenter como ejemplo para crear la máquina virtual, pero esa es solo una de las muchas imágenes que Azure ofrece. Las imágenes disponibles dependen de su suscripción. Por ejemplo, las imágenes de escritorio pueden estar disponibles para los suscriptores MSDN.
-
+<br>
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
 También puede crear máquinas virtuales con sus propias imágenes, con plantillas del Administrador de recursos o con herramientas de automatización. Para obtener información sobre los diferentes métodos, consulte [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md).
@@ -73,7 +73,7 @@ Después de seleccionar la imagen, puede usar los valores predeterminados de Azu
 
 	![Captura de pantalla que muestra los tamaños de máquinas virtuales de Azure que puede seleccionar](./media/virtual-machines-windows-tutorial/create_vm_size.PNG)
 
-	>[AZURE.NOTE]El almacenamiento Premium está disponible para las máquinas virtuales de la serie DS en determinadas regiones. El almacenamiento Premium es la mejor opción de almacenamiento para cargas de trabajo intensivas de datos como una base de datos. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal.md)
+	>[AZURE.NOTE] El almacenamiento Premium está disponible para las máquinas virtuales de la serie DS en determinadas regiones. El almacenamiento Premium es la mejor opción de almacenamiento para cargas de trabajo intensivas de datos como una base de datos. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal.md)
 
 3. Haga clic en **Configuración** para ver la configuración de red y de almacenamiento de la nueva máquina virtual. En la primera máquina virtual, por lo general podrá aceptar la configuración predeterminada. Si ha seleccionado un tamaño de máquina virtual que lo admita, puede probar Almacenamiento premium, para lo que debe seleccionar **Premium (SSD)** en **Tipo de disco**.
 
@@ -89,7 +89,7 @@ Después de seleccionar la imagen, puede usar los valores predeterminados de Azu
 
 Una vez creada la máquina virtual, podrá iniciar sesión en ella para administrar su configuración y las aplicaciones que va a ejecutar en ella.
 
->[AZURE.NOTE]Para obtener consejos acerca de los requisitos y la solución de problemas, vea [Conectar a una máquina virtual de Azure con RDP o SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
+>[AZURE.NOTE] Para obtener consejos acerca de los requisitos y la solución de problemas, vea [Conectar a una máquina virtual de Azure con RDP o SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
 1. Si aún no lo ha hecho, inicie sesión en el Portal de Azure.
 
@@ -99,7 +99,7 @@ Una vez creada la máquina virtual, podrá iniciar sesión en ella para administ
 
 	![Captura de pantalla que muestra dónde encontrar el botón Conectar en la hoja de la máquina virtual de Azure](./media/virtual-machines-windows-tutorial/connect_vm_portal.png)
 
-4. Haga clic en **Abrir** para usar el archivo de protocolo de escritorio remoto que se creó automáticamente para la máquina virtual de Windows Server.
+4. Haga clic en **Abrir** para usar el archivo de Protocolo de escritorio remoto que se creó automáticamente para la máquina virtual de Windows Server.
 
 5. Haga clic en **Conectar**.
 
@@ -107,7 +107,7 @@ Una vez creada la máquina virtual, podrá iniciar sesión en ella para administ
 
 7. Haga clic en **Sí** para comprobar la identidad de la máquina virtual.
 
-Ahora puede trabajar con la máquina virtual igual que hace con cualquier otro servidor.
+	Ahora puede trabajar con la máquina virtual igual que hace con cualquier otro servidor.
 
 ## Pasos siguientes
 

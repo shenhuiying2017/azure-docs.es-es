@@ -54,7 +54,12 @@ Para cargar datos en Almacenamiento de datos SQL, consulte la [información gene
 
 En la base de datos SQL y Almacenamiento de datos SQL, cada base de datos se asigna a un servidor y cada servidor se asigna a una ubicación geográfica. El servidor se llama a un servidor SQL lógico.
 
-> [AZURE.NOTE]<a name="note"></a>Un servidor SQL lógico: >> + proporciona una manera coherente de configurar varias bases de datos dentro de la misma ubicación geográfica. > + No es un hardware físico como sucede en un servidor local. Forma parte del software de servicio. Por eso lo llamamos un *servidor lógico*. > + Puede hospedar varias bases de datos sin que ello afecte a su rendimiento. > + Usa una *s* minúscula en el nombre. Un **s**ervidor SQL es un servidor lógico de Azure, mientras que SQL **S**server es un producto de base de datos local de Microsoft.
+> [AZURE.NOTE]<a name="note"></a>Un servidor SQL lógico: 
+  >
+  > + proporciona una manera coherente de configurar varias bases de datos dentro de la misma ubicación geográfica. 
+  > + No es un hardware físico como sucede en un servidor local. Forma parte del software de servicio. Por eso lo llamamos un *servidor lógico*. 
+  > + Puede hospedar varias bases de datos sin que ello afecte a su rendimiento. 
+  > + Usa una *s* minúscula en el nombre. Un **s**ervidor SQL es un servidor lógico de Azure, mientras que SQL **S**server es un producto de base de datos local de Microsoft.
 
 1. Haga clic en **Servidor** > **Crear un nuevo servidor**. No se aplica ningún cargo por el servidor. Si ya dispone de un servidor SQL lógico V12 que desee usar, elija el servidor existente y vaya al paso siguiente. 
 
@@ -69,7 +74,7 @@ En la base de datos SQL y Almacenamiento de datos SQL, cada base de datos se asi
 	- **Crear servidor V12**. SÍ, es la opción para Almacenamiento de datos SQL. 
 	- **Permitir que los servicios de Azure accedan al servidor**. Esto siempre está seleccionado para Almacenamiento de datos SQL
 
-    >[AZURE.NOTE]Asegúrese de almacenar el nombre del servidor, el nombre del administrador y la contraseña en algún lugar. Necesitará esta información para iniciar sesión en el servidor.
+    >[AZURE.NOTE] Asegúrese de almacenar el nombre del servidor, el nombre del administrador y la contraseña en algún lugar. Necesitará esta información para iniciar sesión en el servidor.
 
 1. Haga clic en **Aceptar** para guardar la configuración del servidor SQL lógico y volver a la hoja Almacenamiento de datos SQL.
 
@@ -85,7 +90,7 @@ Ahora que seleccionó el servidor SQL lógico, está listo para terminar de crea
     
     - **Rendimiento**: se recomienda empezar con 400 DWU. Puede mover el control deslizante hacia la izquierda o la derecha para ajustar el nivel de rendimiento de la base de datos, tanto ahora como después de crearla. 
 
-        > [AZURE.NOTE]El Almacenamiento de datos SQL mide el rendimiento en Unidades de almacenamiento de datos (DWU). A medida que aumentan las DWU, Almacenamiento de datos SQL aumenta los recursos informáticos disponibles para las operaciones de bases de datos. Cuando ejecute la carga de trabajo, podrá ver cómo se relacionan las DWU con el rendimiento de la carga de trabajo.
+        > [AZURE.NOTE] El Almacenamiento de datos SQL mide el rendimiento en Unidades de almacenamiento de datos (DWU). A medida que aumentan las DWU, Almacenamiento de datos SQL aumenta los recursos informáticos disponibles para las operaciones de bases de datos. Cuando ejecute la carga de trabajo, podrá ver cómo se relacionan las DWU con el rendimiento de la carga de trabajo.
         > 
         > Puede modificar de manera rápida y sencilla el nivel de rendimiento después de crear la base de datos. Por ejemplo, si no está usando la base de datos, mueva el control deslizante hacia la izquierda para reducir los costes. O bien, puede aumentar el rendimiento cuando sean necesarios más recursos. Para incurrir en costos 0, puede pausar la base de datos. Estas son las ventajas de escalabilidad que ofrece el almacenamiento de datos SQL.
 

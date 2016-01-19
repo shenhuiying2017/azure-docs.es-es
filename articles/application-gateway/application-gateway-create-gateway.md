@@ -27,7 +27,7 @@ Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7
 
 <BR>
 
-Este artículo le guiará por los pasos necesarios para crear, configurar, iniciar y eliminar una Puerta de enlace de aplicaciones.
+Este artículo le guiará por los pasos necesarios para crear, configurar, iniciar y eliminar una puerta de enlace de aplicaciones.
 
 
 ## Antes de empezar
@@ -98,7 +98,7 @@ Para validar que la puerta de enlace se creó, puede utilizar el cmdlet **Get-Az
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Puede elegir entre Pequeño, Mediano y Grande.
+>[AZURE.NOTE]  El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Puede elegir entre Pequeño, Mediano y Grande.
 
 
  *VirtualIPs* y *DnsName* se muestran en blanco porque todavía no se ha iniciado la puerta de enlace. Se crearán una vez que la puerta de enlace esté en estado de ejecución.
@@ -206,6 +206,9 @@ En el ejemplo siguiente se muestra cómo utilizar un archivo de configuración p
 	        </HttpLoadBalancingRule>
 	    </HttpLoadBalancingRules>
 	</ApplicationGatewayConfiguration>
+
+
+
 
 
 ### Paso 2
@@ -364,9 +367,9 @@ En el siguiente ejemplo se muestra una Puerta de enlace de aplicaciones activa y
 	DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 
 
-## Eliminación de una puerta de enlace de aplicaciones
+## Eliminación de una Puerta de enlace de aplicaciones
 
-Para eliminar una Puerta de enlace de aplicaciones:
+Para eliminar una puerta de enlace de aplicaciones:
 
 1. Utilice el cmdlet **Stop-AzureApplicationGateway** para detener la puerta de enlace.
 2. Utilice el cmdlet **Remove-AzureApplicationGateway** para quitar la puerta de enlace.

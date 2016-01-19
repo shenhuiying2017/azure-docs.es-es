@@ -24,7 +24,7 @@ Use este tutorial para empezar a trabajar con el Almacén de claves de Azure par
 
 *Tiempo estimado para completar el tutorial:** 20 minutos
 
->[AZURE.NOTE]Este tutorial no incluye instrucciones sobre cómo escribir la aplicación de Azure incluida en uno de los pasos, concretamente cómo autorizar a una aplicación para que use una clave o un secreto del Almacén de claves.
+>[AZURE.NOTE] Este tutorial no incluye instrucciones sobre cómo escribir la aplicación de Azure incluida en uno de los pasos, concretamente cómo autorizar a una aplicación para que use una clave o un secreto del Almacén de claves.
 >
 >Actualmente, no es posible configurar el Almacén de claves de Azure en el portal de Azure. En su lugar, siga estas instrucciones de Azure PowerShell. O bien, para obtener instrucciones de la interfaz de la línea de comandos entre plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli.md).
 
@@ -35,7 +35,7 @@ Para obtener información general sobre el Almacén de claves de Azure, consulte
 Para realizar este tutorial, necesitará lo siguiente:
 
 - Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para obtener una versión de [evaluación gratuita](../../../../pricing/free-trial).
-- Azure PowerShell, **versión mínima: 1.0**. Para instalar Azure PowerShell y asociarla con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). Si ya instaló Azure PowerShell y no sabe la versión, en la consola de Azure PowerShell, escriba `(Get-Module azure -ListAvailable).Version`. Si tiene Azure PowerShell versiones 0.9.1 a 0.9.8 instalado, también puede usar este tutorial con algunos cambios menores. Por ejemplo, debe usar el comando `Switch-AzureMode AzureResourceManager` y algunos de los comandos de Almacén de claves de Azure que cambiaron. Para obtener una lista de los cmdlets del Almacén de claves para las versiones 0.9.1 a 0.9.8, consulte [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx) (Cmdlets de Almacén de claves de Azure). 
+- Azure PowerShell, **versión mínima: 1.0**. Para instalar Azure PowerShell y asociarla con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). Si ya instaló Azure PowerShell y no sabe la versión, en la consola de Azure PowerShell, escriba `(Get-Module azure -ListAvailable).Version`. Si tiene Azure PowerShell versiones 0.9.1 a 0.9.8 instalado, también puede usar este tutorial con algunos cambios menores. Por ejemplo, debe usar el comando `Switch-AzureMode AzureResourceManager` y algunos de los comandos de Almacén de claves de Azure que cambiaron. Para obtener una lista de los cmdlets de Almacén de claves para las versiones 0.9.1 a 0.9.8, consulte [Cmdlets de Almacén de claves de Azure](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx). 
 - Una aplicación que se configurará para utilizar la clave o contraseña creada en este tutorial. Hay una aplicación de ejemplo disponible en el [Centro de descarga de Microsoft](http://www.microsoft.com/es-ES/download/details.aspx?id=45343). Para obtener instrucciones, consulte el archivo Léame adjunto.
 
 
@@ -111,7 +111,7 @@ A continuación, escriba lo siguiente para importar la clave desde el archivo .P
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-Ahora puede utilizar el URI para hacer referencia a esta clave que creó o cargó en el Almacén de claves de Azure. Use ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obtener siempre la versión actual y ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obtener esta versión específica.
+Ahora puede utilizar el URI para hacer referencia a esta clave que creó o cargó en el Almacén de claves de Azure. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obtener siempre la versión actual y **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obtener esta versión específica.
 
 Para mostrar el URI para esta clave, escriba:
 
@@ -125,7 +125,7 @@ A continuación, escriba lo siguiente:
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-Ahora puede hacer referencia a esta clave que agregó al Almacén de claves de Azure utilizando su URI. Use ****https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obtener siempre la versión actual y ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obtener esta versión específica.
+Ahora puede hacer referencia a esta clave que agregó al Almacén de claves de Azure utilizando su URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obtener siempre la versión actual y **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obtener esta versión específica.
 
 Para mostrar el URI para este secreto, escriba:
 
@@ -143,7 +143,7 @@ Ahora, el Almacén de claves y la clave o el secreto están listos para que los 
 Este paso lo haría normalmente un programador en un equipo independiente. No es específico del Almacén de claves de Azure, pero se incluye aquí a fin de que la información ofrecida sea lo más completa posible.
 
 
->[AZURE.IMPORTANT]Para finalizar el tutorial, la cuenta, el almacén y la aplicación que vaya a registrar en este paso deben estar en el mismo directorio de Azure.
+>[AZURE.IMPORTANT] Para finalizar el tutorial, la cuenta, el almacén y la aplicación que vaya a registrar en este paso deben estar en el mismo directorio de Azure.
 
 Las aplicaciones que utilizan un Almacén de claves deben autenticarse utilizando un token de Azure Active Directory. Para ello, el propietario de la aplicación debe registrarla primero en su Azure Active Directory. Al final del registro, el propietario de la aplicación obtiene los valores siguientes:
 
@@ -158,7 +158,7 @@ Para registrar la aplicación en Azure Active Directory:
 3. Haga clic en **Aplicaciones**. Si no se han agregado aplicaciones a su directorio, esta página muestra solo el vínculo **Agregar una aplicación**. Haga clic en el vínculo, o como alternativa, puede hacer clic en **AGREGAR** en la barra de comandos.
 4.	En el asistente **Agregar aplicación**, en la página **¿Qué desea hacer?**, haga clic en **Agregar una aplicación que mi organización está desarrollando**.
 5.	En la página **Proporcione información sobre su aplicación**, especifique un nombre para la aplicación y, a continuación, elija **APLICACIÓN WEB Y/O API WEB** (valor predeterminado). Haga clic en el icono **Siguiente**.
-6.	En la página **Propiedades de la aplicación**, especifique **URL de inicio de sesión** y **URI de Id. de aplicación ** para la aplicación web. Si la aplicación no tiene estos valores, puede inventárselos en este paso (por ejemplo, podría especificar http://test1.contoso.com para ambos). No importa si estos sitios existen; lo importante es que el URI del identificador de la aplicación de cada aplicación sea diferente en cada aplicación del directorio. El directorio utiliza esta cadena para identificar la aplicación.
+6.	En la página **Propiedades de la aplicación**, especifique **URL de inicio de sesión** y **URI de Id. de aplicación** para la aplicación web. Si la aplicación no tiene estos valores, puede inventárselos en este paso (por ejemplo, podría especificar http://test1.contoso.com para ambos). No importa si estos sitios existen; lo importante es que el URI del identificador de la aplicación de cada aplicación sea diferente en cada aplicación del directorio. El directorio utiliza esta cadena para identificar la aplicación.
 7.	Haga clic en el icono **Completar** para guardar los cambios en el Asistente.
 8.	En la página de **inicio rápido**, haga clic en **CONFIGURAR**.
 9.	Desplácese hasta la sección **Claves**, especifique la duración y, a continuación, haga clic en **Guardar**. La página se actualiza y muestra ahora un valor de clave. Debe configurar la aplicación con este valor de clave y el valor del **identificador del cliente**. (Las instrucciones para realizar esta configuración serán específicas para la aplicación).

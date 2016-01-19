@@ -30,7 +30,7 @@ Ahora que hemos determinado si se utiliza la autenticación multifactor local, v
 
 
 
-Hay dos maneras diferentes de descargar Servidor Azure Multi-Factor Authentication. Ambas se pueden hacer a través del Portal de Azure. La primera es administrando el proveedor de autenticación multifactor directamente. La segunda es mediante la configuración del servicio. La segunda opción requiere un Proveedor de Multi-Factor Authentication o una licencia de Azure MFA, Azure AD Premium o Enterprise Mobility Suite.
+Hay dos maneras diferentes de descargar Servidor Azure Multi-Factor Authentication. Ambas se pueden hacer a través del Portal de Azure. La primera es administrando el proveedor de autenticación multifactor directamente. La segunda es mediante la configuración del servicio. La segunda opción requiere un Proveedor de autenticación multifactor o una licencia de Azure MFA, Azure AD Premium o Enterprise Mobility Suite.
 
 
 ### Para descargar Servidor Azure Multi-Factor Authentication del Portal de Azure.
@@ -105,7 +105,8 @@ Subred IP|Máscara de red|Rango de direcciones IP
 1. Haga doble clic en el archivo ejecutable. Esto comenzará la instalación.
 2. En la pantalla Seleccionar carpeta de instalación, asegúrese de que la carpeta sea correcta y haga clic en Siguiente.
 3. Una vez completada la instalación, haga clic en Finalizar. Se inicia al asistente de configuración.
-4. En la pantalla de bienvenida del Asistente de configuración, coloque una marca de verificación en **Omitir el uso del Asistente para configuración de autenticación** y haga clic en **Siguiente**. Se cerrará al Asistente y se iniciará el servidor. ![Nube](./media/multi-factor-authentication-get-started-server/skip2.png)
+4. En la pantalla de bienvenida del Asistente de configuración, coloque una marca de verificación en **Omitir el uso del Asistente para configuración de autenticación** y haga clic en **Siguiente**.  Se cerrará al Asistente y se iniciará el servidor.
+![Nube](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. De vuelta en la página desde la que hemos descargado el servidor, haga clic en el botón **Generar credenciales de activación**. Copie esta información en Servidor Azure Multi-Factor Authentication en los cuadros correspondientes y haga clic en **Activar**.
 
