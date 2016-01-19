@@ -5,14 +5,14 @@
 	documentationCenter=".net"
 	authors="tamram"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="12/01/2015"
 	ms.author="tamram"/>
 
@@ -334,7 +334,7 @@ El ejemplo siguiente crea un nuevo blob en anexos y le anexa algunos datos, para
     //Read the append blob to the console window.
     Console.WriteLine(appendBlob.DownloadText());
 
-Consulte [Descripción de los blobs en bloques, en anexos y en páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx) para obtener más información acerca de las diferencias entre los tres tipos de blobs.
+Consulte [Descripción Blobs en bloques, en anexos y en páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx) para obtener más información acerca de las diferencias entre los tres tipos de blobs.
 
 ## Pasos siguientes
 
@@ -364,6 +364,5 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
- 
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

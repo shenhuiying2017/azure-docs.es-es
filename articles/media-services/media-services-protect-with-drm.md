@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="12/17/2015" 
+	ms.date="01/10/2016" 
 	ms.author="juliako"/>
 
 
@@ -34,7 +34,7 @@ A partir del SDK de Servicios multimedia para .NET versión 3.5.2, Servicios mul
 
 También puede usar los siguientes asociados de AMS para ayudarle a entregar licencias de Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). Para obtener más información, consulte: integración con [Axinom](media-services-axinom-integration.md) y [castLabs](media-services-castlabs-integration.md).
 
-Servicios multimedia admite varias formas de autorizar a los usuarios que realizan solicitudes de clave. La directiva de autorización de claves de acceso podría tener una o más restricciones de autorización: abrir o restricción de token. La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Servicios multimedia admite tokens en formato de [tokens web simples](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) y [tokens web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Para obtener más información, consulte Configuración de la directiva de autorización de la clave de contenido.
+Servicios multimedia admite varias formas de autorizar a los usuarios que realizan solicitudes de clave. La directiva de autorización de claves de acceso podría tener una o más restricciones de autorización: abrir o restricción de token. La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Servicios multimedia admite tokens en formato [Token de web simple](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) y en formato [Token de web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Para obtener más información, consulte Configuración de la directiva de autorización de la clave de contenido.
 
 Para aprovechar las ventajas del cifrado dinámico, debe disponer de un recurso que contenga un conjunto de archivos MP4 o archivos de origen Smooth Streaming, de varias velocidades de bits. También deberá configurar las directivas de entrega para el recurso (se describe más adelante en este tema). Luego, según el formato especificado en la URL de streaming, el servidor de streaming a petición se asegurará de que se reciba la secuencia en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en un solo formato de almacenamiento y Servicios multimedia compilará y proporcionará la respuesta adecuada en función de cada solicitud de un cliente.
 
@@ -89,11 +89,11 @@ Con el cifrado dinámico, todo lo que tiene que hacer es crear un recurso que co
 Para obtener instrucciones sobre cómo codificar, consulte [Codificación de un recurso mediante Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md).
 	
 
-##<a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el recurso codificado
+##<a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el activo codificado
 
 En Servicios multimedia, la clave de contenido contiene la clave con la que desea cifrar un recurso.
 
-Para obtener más información, consulte [Creación de una clave de contenido](media-services-dotnet-create-contentkey.md).
+Para obtener más información, consulte [Creación de la clave de contenido](media-services-dotnet-create-contentkey.md).
 
 
 ##<a id="configure_key_auth_policy"></a>Configuración de la directiva de autorización de claves de contenido
@@ -136,7 +136,7 @@ Obtenga un token de prueba basado en la restricción de token que se usó para l
 	Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 
 	
-Puede usar el [reproductor de AMS](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para probar la transmisión.
+Puede usar el [reproductor AMS](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para probar la secuencia.
 
 ##<a id="example"></a>Ejemplo
 
@@ -631,4 +631,4 @@ En el ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de S
 
 [Anuncio de los servicios de entrega de licencias de la vista previa pública de Google Widevine de Servicios multimedia de Azure](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

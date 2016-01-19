@@ -6,7 +6,7 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-    tags="Azure Classic Portal"/>
+    tags="Azure Portal"/>
 
 <tags
 	ms.service="search"
@@ -25,7 +25,7 @@
 - [REST API](search-import-data-rest-api.md)
 - [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
-El Portal de Azure clásico incluye un comando **Importar datos** en el panel de Búsqueda de Azure que lo guía por la ingesta de datos de Búsqueda de Azure. El comando se basa en la característica de indexadores integrados que rastrea un origen de datos existente, y crea y carga documentos basados en el conjunto de filas que se encuentra en el origen de datos.
+El Portal de Azure incluye un comando **Importar datos** en el panel de Búsqueda de Azure que lo guía por la ingesta de datos de Búsqueda de Azure. El comando se basa en la característica de indexadores integrados que rastrea un origen de datos existente, y crea y carga documentos basados en el conjunto de filas que se encuentra en el origen de datos.
 
 Con el Asistente, la importación de datos es una construcción con tres partes:
 
@@ -39,7 +39,7 @@ Solo se puede importar desde una única tabla, vista o estructura de datos equiv
 
 ##Configuración de la importación de datos
 
-1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
 2. Abra el panel del servicio Búsqueda de Azure. A continuación se presentan algunas formas de buscar el panel.
 	- En la barra de salto, haga clic en **Inicio**. La página principal dispone de iconos para cada servicio de su suscripción. Haga clic en el icono para abrir el panel de servicio.
@@ -74,4 +74,4 @@ La operación de importación de datos que acaba de completar ha creado un index
 
 En el panel de servicios, haga doble clic en el icono del indexador para mostrar una lista de todos los indexadores creados para su suscripción. Haga doble clic en uno de ellos para ejecutarlo, editarlo o eliminarlo.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

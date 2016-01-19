@@ -20,18 +20,14 @@
 # Creación de una máquina virtual que ejecuta Windows en el Portal de Azure#
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
-
-<br>
-
-
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
 Este tutorial muestra lo fácil que resulta crear una máquina virtual de Azure en unos minutos en el Portal de Azure. Usaremos una imagen de Windows Server 2012 R2 Datacenter como ejemplo para crear la máquina virtual, pero esa es solo una de las muchas imágenes que Azure ofrece. Las imágenes disponibles dependen de su suscripción. Por ejemplo, las imágenes de escritorio pueden estar disponibles para los suscriptores MSDN.
-
+<br>
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
 También puede crear máquinas virtuales con sus propias imágenes, con plantillas del Administrador de recursos o con herramientas de automatización. Para obtener información sobre los diferentes métodos, consulte [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md).
@@ -66,7 +62,7 @@ Después de seleccionar la imagen, puede usar los valores predeterminados de Azu
 
 2. Escriba el **nombre** que desee para la máquina virtual. El nombre no puede contener caracteres especiales.
 
-3. Escriba un **nombre de usuario** administrador y **contraseña** segura. La contraseña debe tener entre 8 y 123 caracteres y al menos tres de los siguientes valores: una minúscula, una mayúscula, un número y un carácter especial. **Necesitará el nombre de usuario y la contraseña para iniciar sesión en la máquina virtual**.
+3. Escriba un **nombre de usuario** administrador y una **contraseña** segura. La contraseña debe tener entre 8 y 123 caracteres y al menos tres de los siguientes valores: una minúscula, una mayúscula, un número y un carácter especial. **Necesitará el nombre de usuario y la contraseña para iniciar sesión en la máquina virtual.**
 
 4. Si tiene más de una suscripción, especifique una de ellas para la nueva máquina virtual, así como un nuevo **Grupo de recursos** o uno existente y la **Ubicación** de un centro de datos de Azure.
 
@@ -77,7 +73,7 @@ Después de seleccionar la imagen, puede usar los valores predeterminados de Azu
 
 	![Captura de pantalla que muestra los tamaños de máquinas virtuales de Azure que puede seleccionar](./media/virtual-machines-windows-tutorial/create_vm_size.PNG)
 
-	>[AZURE.NOTE]El almacenamiento Premium está disponible para las máquinas virtuales de la serie DS en determinadas regiones. El almacenamiento Premium es la mejor opción de almacenamiento para cargas de trabajo intensivas de datos como una base de datos. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal.md)
+	>[AZURE.NOTE] El almacenamiento Premium está disponible para las máquinas virtuales de la serie DS en determinadas regiones. El almacenamiento Premium es la mejor opción de almacenamiento para cargas de trabajo intensivas de datos como una base de datos. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal.md)
 
 3. Haga clic en **Configuración** para ver la configuración de red y de almacenamiento de la nueva máquina virtual. En la primera máquina virtual, por lo general podrá aceptar la configuración predeterminada. Si ha seleccionado un tamaño de máquina virtual que lo admita, puede probar Almacenamiento premium, para lo que debe seleccionar **Premium (SSD)** en **Tipo de disco**.
 
@@ -87,13 +83,13 @@ Después de seleccionar la imagen, puede usar los valores predeterminados de Azu
 
 	![Captura de pantalla que muestra el resumen de las opciones de configuración realizadas para la máquina virtual de Azure](./media/virtual-machines-windows-tutorial/create_vm_summary.PNG)
 
-8. Mientras Azure crea la máquina virtual, puede realizar un seguimiento del progreso en **Máquinas virtuales**, en el menú concentrador.
+8. Mientras Azure crea la máquina virtual, puede realizar un seguimiento del progreso en **Máquinas virtuales**, en el menú Concentrador.
 
 ## Iniciar sesión en la nueva máquina virtual
 
 Una vez creada la máquina virtual, podrá iniciar sesión en ella para administrar su configuración y las aplicaciones que va a ejecutar en ella.
 
->[AZURE.NOTE]Para obtener consejos acerca de los requisitos y la solución de problemas, vea [Conectar a una máquina virtual de Azure con RDP o SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
+>[AZURE.NOTE] Para obtener consejos acerca de los requisitos y la solución de problemas, vea [Conectar a una máquina virtual de Azure con RDP o SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
 1. Si aún no lo ha hecho, inicie sesión en el Portal de Azure.
 
@@ -103,7 +99,7 @@ Una vez creada la máquina virtual, podrá iniciar sesión en ella para administ
 
 	![Captura de pantalla que muestra dónde encontrar el botón Conectar en la hoja de la máquina virtual de Azure](./media/virtual-machines-windows-tutorial/connect_vm_portal.png)
 
-4. Haga clic en **Abrir** para usar el archivo de protocolo de escritorio remoto que se creó automáticamente para la máquina virtual de Windows Server.
+4. Haga clic en **Abrir** para usar el archivo de Protocolo de escritorio remoto que se creó automáticamente para la máquina virtual de Windows Server.
 
 5. Haga clic en **Conectar**.
 
@@ -111,11 +107,11 @@ Una vez creada la máquina virtual, podrá iniciar sesión en ella para administ
 
 7. Haga clic en **Sí** para comprobar la identidad de la máquina virtual.
 
-Ahora puede trabajar con la máquina virtual igual que hace con cualquier otro servidor.
+	Ahora puede trabajar con la máquina virtual igual que hace con cualquier otro servidor.
 
 ## Pasos siguientes
 
 * Use Azure PowerShell y la CLI de Azure para [buscar y seleccionar imágenes de máquina virtual](resource-groups-vm-searching.md).
-* Automatice la implementación y administración de máquinas virtuales y cargas de trabajo con el [Administrador de recursos de Azure](virtual-machines-how-to-automate-azure-resource-manager.md) y las [plantillas de Administrador de recursos de Azure](http://azure.microsoft.com/documentation/templates/).
+* Automatice la implementación y administración de máquinas virtuales y cargas de trabajo con las [plantillas de Administrador de recursos de Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

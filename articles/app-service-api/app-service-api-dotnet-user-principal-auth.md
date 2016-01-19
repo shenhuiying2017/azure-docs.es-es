@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/30/2015"
+	ms.date="01/08/2016"
 	ms.author="tdykstra"/>
 
 # Autenticación de usuario para aplicaciones de API en el Servicio de aplicaciones de Azure
@@ -28,7 +28,7 @@ En este tutorial se muestra cómo usar las características de autenticación y 
  
 ## Autenticación y autorización en el Servicio de aplicaciones
 
-Para ver una introducción sobre las características de autenticación y autorización usadas en este tutorial, vea el anterior tutorial de la serie, [Introducción a Aplicaciones de API y ASP.NET en el Servicio de aplicaciones de Azure](app-service-api-authentication.md).
+Para ver una introducción sobre las características de autenticación utilizadas en este tutorial, consulte el anterior tutorial de la serie, [Autenticación y autorización para Aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-authentication.md).
 
 ## Seguimiento de este tutorial
 
@@ -268,4 +268,4 @@ El front-end ahora puede llamar a la API en nombre de un usuario autenticado, pe
 
 En este tutorial se usó la autenticación y autorización de Servicio de aplicaciones para restringir el acceso a una aplicación de API para que solo los usuarios autenticados pueden llamarla. En el siguiente tutorial de la serie, aprenderá cómo [restringir el acceso a la aplicación de API en escenarios de servicio a servicio](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

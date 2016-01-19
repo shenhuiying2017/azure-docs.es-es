@@ -70,7 +70,7 @@ Esta sección le guía en la creación de un nuevo centro de notificaciones y la
 
 El centro de notificaciones está ahora configurado para funcionar con APNS y tiene las cadenas de conexión para registrar la aplicación y enviar notificaciones.
 
-##Conexión de la aplicación al centro de notificaciones
+##Conexión de la aplicación al Centro de notificaciones
 
 1. En XCode, cree un nuevo proyecto iOS y seleccione la plantilla **Single View Application** (Aplicación de vista sencilla).
 
@@ -80,7 +80,7 @@ El centro de notificaciones está ahora configurado para funcionar con APNS y ti
 
 	![][11]
 
-3. En **Targets** (Destinos), haga clic en el nombre de proyecto, luego haga clic en la pestaña **Build Settings** (Compilar configuración) y expanda **Code Signing Identity** (Identidad de firma de código); a continuación, en **Debug** (Depurar), establezca la identidad de firma de código. Cambie el valor de **Levels** (Niveles) de **Basic** (Básico) a **All** (Todos) y establezca **Provisioning Profile** (Perfil de aprovisionamiento) en el perfil de aprovisionamiento que creó anteriormente.
+3. En **Targets** (Destinos), haga clic en el nombre de proyecto, luego haga clic en la pestaña **Build Settings** (Compilar configuración) y expanda **Code Signing Identity** (Identidad de firma de código); a continuación, en **Debug** (Depurar), establezca la identidad de firma de código. Alterne los **niveles** entre **Basic** (Básico) hasta **All** (Todos) y establezca el **perfil de aprovisionamiento** en el perfil de aprovisionamiento que creó anteriormente.
 
 	Si no ve el nuevo perfil de aprovisionamiento que creó en Xcode, intente actualizar los perfiles de la identidad de firma. Haga clic en **Xcode** en la barra de menús, en **Preferences** (Preferencias), en la pestaña **Account** (Cuenta), en el botón **View Details** (Ver detalles), en la identidad de firma y, por último, en el botón Refresh (Actualizar) en la esquina inferior derecha.
 
@@ -104,9 +104,9 @@ El centro de notificaciones está ahora configurado para funcionar con APNS y ti
 
 6. Abra el archivo AppDelegate.h y agregue la siguiente directiva de importación:
 
-         #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
+         #import <WindowsAzureMessaging/WindowsAzureMessaging.h> 
 		 #import "HubInfo.h"
-
+		
 7. En el archivo AppDelegate.m, agregue el siguiente código al método `didFinishLaunchingWithOptions` en función de su versión de iOS. Este código registra el identificador de dispositivo en APNS:
 
 	Para iOS 8:
@@ -146,7 +146,7 @@ El centro de notificaciones está ahora configurado para funcionar con APNS y ti
 		}
 
 
-9. En el mismo archivo, agregue el siguiente método para mostrar **UIAlert** si la notificación se recibe mientras la aplicación está activa:
+9. En el mismo archivo, agregue el siguiente método para mostrar una **UIAlert** si la notificación se recibe mientras la aplicación está activa:
 
 
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
@@ -175,14 +175,14 @@ Si desea enviar notificaciones dentro de una aplicación. Esta sección proporci
 
 	- Una etiqueta sin texto de etiqueta. Se usará para notificar errores al enviar notificaciones. La propiedad **Lines** se debe establecer en **0** para que el tamaño se ajuste automáticamente a los márgenes derecho e izquierdo y a la parte superior de la vista.
 	- Un campo de texto con el texto de **Placeholder** (Marcador de posición) establecido en **Enter Notification Message** (Escribir mensaje de notificación). Restrinja el campo justo debajo de la etiqueta, tal como se muestra a continuación. Establezca el Controlador de vista como delegado de salida.
-	- Un botón llamado **Send Notification** (Enviar notificación) se restringió inmediatamente debajo del campo de texto y en el centro horizontal.
+	- Un botón llamado **Send Notification** (Enviar notificación) se restringió justo debajo del campo de texto y horizontalmente en el centro.
 
 	La vista debe tener el aspecto siguiente:
 
 	![][32]
 
 
-2. [Agregue salidas](https://developer.apple.com/library/ios/recipes/xcode_help-IB_connections/chapters/CreatingOutlet.html) para la etiqueta y el campo de texto conectados a la vista y actualice la definición de `interface` para que admita `UITextFieldDelegate` y `NSXMLParserDelegate`. Agregue las tres declaraciones de propiedades que se muestran a continuación para ayudar a admitir la llamada a la API de REST y el análisis de la respuesta.
+2. [Agregue salidas](https://developer.apple.com/library/ios/recipes/xcode_help-IB_connections/chapters/CreatingOutlet.html) para la etiqueta y el campo de texto conectados a la vista y actualice la definición `interface` para que admita `UITextFieldDelegate` y `NSXMLParserDelegate`. Agregue las tres declaraciones de propiedades que se muestran a continuación para ayudar a admitir la llamada a la API de REST y el análisis de la respuesta.
 
 	El archivo ViewController.h debe tener el aspecto siguiente:
 
@@ -212,7 +212,7 @@ Si desea enviar notificaciones dentro de una aplicación. Esta sección proporci
 		#import <CommonCrypto/CommonHMAC.h>
 		#import "HubInfo.h"
 
-5. En ViewController.m, agregue el siguiente código a la implementación de la interfaz. Este código analizará la cadena de conexión *DefaultFullSharedAccessSignature*. Como se mencionó en la [referencia de la API de REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), esta información analizada se usará para generar un token de SaS para el encabezado de solicitud **Authorization** (Autorización).
+5. En ViewController.m, agregue el siguiente código a la implementación de la interfaz. Este código analizará la cadena de conexión *DefaultFullSharedAccessSignature*. Como se mencionó en la [Referencia de la API de REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), esta información analizada se usará para generar un token SaS para el encabezado de la solicitud **Autorización**.
 
 		NSString *HubEndpoint;
 		NSString *HubSasKeyName;
@@ -275,7 +275,7 @@ Si desea enviar notificaciones dentro de una aplicación. Esta sección proporci
 
 
 
-7. En ViewController.m, agregue el código siguiente a la implementación de la interfaz para generar el token de autorización de SaS que se proporcionará en el encabezado **Authorization** (Autorización), como se mencionó en la [referencia de la API de REST](http://msdn.microsoft.com/library/azure/dn495627.aspx).
+7. En ViewController.m, agregue el código siguiente a la implementación de interfaz para generar el token de autorización SaS que se proporcionará en el encabezado **Authorization** (Autorización) tal como se mencionó en la [Referencia de la API de REST](http://msdn.microsoft.com/library/azure/dn495627.aspx).
 
 		-(NSString*) generateSasToken:(NSString*)uri
 		{
@@ -324,7 +324,7 @@ Si desea enviar notificaciones dentro de una aplicación. Esta sección proporci
 		}
 
 
-8. Ctrl + arrastrar desde el botón **Send Notification** (Enviar notificación) hasta ViewController.m para agregar una acción denominada **SendNotificationMessage** para **TouchDown**. Método de actualización con el código siguiente para enviar la notificación mediante la API de REST.
+8. CTRL + arrastrar desde el botón **Enviar notificación** a ViewController.m para agregar una acción denominada **SendNotificationMessage** para el evento **Touch Down**. Método de actualización con el código siguiente para enviar la notificación mediante la API de REST.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -436,17 +436,16 @@ Si desea enviar notificaciones dentro de una aplicación. Esta sección proporci
 11. Compile el proyecto y compruebe si hay errores.
 
 
-> [AZURE.NOTE]Si encuentra un error de compilación en Xcode7 sobre la compatibilidad de bitcode, debe cambiar "Configuración de compilación" -> "Habilitar Bitcode"(ENABLE\_BITCODE) en 'NO' en Xcode. El SDK de los Centros de notificaciones no es compatible con bitcode.
+> [AZURE.NOTE]Si encuentra un error de compilación en Xcode7 sobre la compatibilidad de bitcode, debe cambiar "Configuración de compilación" -> "Habilitar Bitcode"(ENABLE\_BITCODE) a 'NO' en Xcode. El SDK de los Centros de notificaciones no es compatible con bitcode.
 
 Puede buscar todas las cargas de notificaciones posibles en la guía [Local and Push Notification Programming Guide] de Apple.
-
 
 
 ##Prueba de la aplicación
 
 Para probar las notificaciones push en iOS, debe implementar la aplicación en un dispositivo. No puede enviar notificaciones push de Apple con el simulador de iOS.
 
-1. Ejecute la aplicación, compruebe que el registro se realiza correctamente y haga clic en **Aceptar**.
+1. Ejecute la aplicación y compruebe que el registro se realiza correctamente, luego presione **OK** (Aceptar).
 
 	![][33]
 
@@ -463,11 +462,11 @@ Si tiene algún problema o alguna recomendación que sirva para mejorar este tut
 
 ##Pasos siguientes
 
-En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iOS. Le recomendamos que siga el tutorial [Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET] como siguiente paso de aprendizaje. Ese tutorial le guiará en la creación de un back-end para enviar las notificaciones mediante etiquetas.
+En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iOS. Le recomendamos que siga el tutorial [Notificación a los usuarios con los Centros de notificaciones de Azure] como siguiente paso de aprendizaje. Ese tutorial le guiará en la creación de un back-end para enviar las notificaciones mediante etiquetas.
 
-Si desea segmentar los usuarios por grupos de interés, también puede consultar [Uso de los Centros de notificaciones para enviar noticias de última hora].
+Si desea segmentar sus usuarios por grupos de interés, puede leer también [Uso de Centros de notificaciones para enviar noticias de última hora].
 
-Para más información general sobre los Centros de notificaciones, consulte [Guía de los Centros de notificaciones].
+Para obtener más información general sobre los Centros de notificaciones, consulte [Introducción a los centros de notificaciones].
 
 
 
@@ -491,21 +490,21 @@ Para más información general sobre los Centros de notificaciones, consulte [Gu
 
 <!-- URLs. -->
 [SDK de iOS versión 1.2.4 para Servicios móviles]: http://aka.ms/kymw2g
-[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
+[SDK de iOS para Servicios móviles]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
 [Portal de Azure clásico]: https://manage.windowsazure.com/
-[Guía de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
+[Introducción a los centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-ios-send-breaking-news.md
+[Introducción a las notificaciones push en Servicios móviles]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Uso de Centros de notificaciones para enviar noticias de última hora]: notification-hubs-ios-send-breaking-news.md
 
-[Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[guía de programación de notificaciones push y locales]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

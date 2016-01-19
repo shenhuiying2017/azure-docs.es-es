@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/10/2015"
+	ms.date="01/08/2016"
 	ms.author="cabailey"/>
 
 # Introducción al Almacén de claves de Azure #
@@ -91,8 +91,8 @@ Por ejemplo, si utiliza el nombre del almacén de **ContosoKeyVault**, el nombre
 
 El resultado de este cmdlet muestra las propiedades del Almacén de claves que acaba de crear. Las dos propiedades más importantes son:
 
-- **Nombre del almacén**: en este ejemplo, el nombre es **ContosoKeyVault**. Utilizará este nombre para otros cmdlets del Almacén de claves.
-- **URI del almacén**: en este ejemplo, es https://contosokeyvault.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
+- **Nombre de almacén**: en este ejemplo, el nombre es **ContosoKeyVault**. Utilizará este nombre para otros cmdlets del Almacén de claves.
+- **Identificador URI de almacén**: en este ejemplo, es https://contosokeyvault.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
 
 Su cuenta de Azure ahora está autorizada para realizar operaciones en este Almacén de claves. Hasta el momento, nadie más lo está.
 
@@ -166,7 +166,7 @@ Para registrar la aplicación en Azure Active Directory:
 
 ## <a id="authorize"></a>Autorización de la aplicación para que use la clave o el secreto ##
 
-Para permitir que la aplicación acceda a la clave o el secreto en el almacén, use el cmdlet [Set-AzureKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx).
+Para permitir que la aplicación acceda a la clave o al secreto en el almacén, use el cmdlet [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx).
 
 Por ejemplo, si el nombre del almacén es **ContosoKeyVault** y la aplicación que desea autorizar tiene el identificador de cliente 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed y desea que la aplicación tenga autorización para descifrar y firmar con claves en el almacén, ejecute lo siguiente:
 
@@ -192,7 +192,7 @@ Cuando cree el almacén, agregue el parámetro **-SKU**:
 
 
 
-A este almacén, se pueden agregar claves protegidas mediante software (tal como se ha mostrado anteriormente) y claves protegidas con HSM. Para crear una clave protegida con HSM, establezca el parámetro **Destination** en 'HSM':
+A este almacén, se pueden agregar claves protegidas mediante software (tal como se ha mostrado anteriormente) y claves protegidas con HSM. Para crear una clave protegida con HSM, establezca el parámetro **-Destination** en 'HSM':
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 
@@ -209,7 +209,7 @@ Para obtener instrucciones detalladas sobre cómo generar el paquete BYOK, consu
 
 ## <a id="delete"></a>Eliminación del Almacén de claves junto con las claves y secretos asociados ##
 
-Si ya no necesita el almacén de claves ni la clave o el secreto que contiene, puede eliminar el almacén de claves usando el cmdlet [Remove-AzureKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx):
+Si ya no necesita el almacén de claves ni la clave o secreto que contiene, puede eliminarlo con el cmdlet [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx):
 
 	Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -233,9 +233,11 @@ Estos son otros comandos que pueden resultar útiles para administrar el Almacé
 
 Para obtener un tutorial de seguimiento que usa el Almacén de claves de Azure en una aplicación web, consulte [Uso del Almacén de claves de Azure desde una aplicación web](key-vault-use-from-web-application.md).
 
-Para obtener una lista de los cmdlets de Azure PowerShell 1.0 para Almacén de claves de Azure, consulte [Cmdlets de Almacén de claves de Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
+Para ver cómo se usa el almacén de claves, consulte [Azure Key Vault Logging](key-vault-logging.md) (Registro del Almacén de claves de Azure).
+
+Para obtener una lista de los cmdlets de Azure PowerShell 1.0 para Almacén de claves de Azure, consulte [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx) (Cmdlets de Almacén de claves de Azure).
  
 
 Para conocer las referencias de programación, consulte la [Guía del desarrollador del Almacén de claves de Azure](key-vault-developers-guide.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

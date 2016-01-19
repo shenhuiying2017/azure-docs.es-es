@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Creación de un Almacenamiento de datos SQL con TSQL | Microsoft Azure"
-	description="Aprenda a crear una base de datos de Almacenamiento de datos SQL de Azure con TSQL"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="Creación de un Almacenamiento de datos SQL con TSQL | Microsoft Azure"
+   description="Aprenda a crear una base de datos de Almacenamiento de datos SQL de Azure con TSQL"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 #Creación de Almacenamiento de datos SQL con TSQL 
 
@@ -43,15 +43,15 @@ Cuando se ejecutan las instrucciones TSQL anteriores, tenga en cuenta que los pa
 + 250 GB
 + 500 GB
 + 750 GB
-+ 1.024 GB
-+ 5.120 GB
-+ 10.240 GB
-+ 20.480 GB
-+ 30.720 GB
-+ 40.960 GB
-+ 51.200 GB
++ 1\.024 GB
++ 5\.120 GB
++ 10\.240 GB
++ 20\.480 GB
++ 30\.720 GB
++ 40\.960 GB
++ 51\.200 GB
 
-SERVICE_OBJECTIVE indica el número de DWU con la que se iniciará la instancia y aceptará los valores siguientes:
+SERVICE\_OBJECTIVE indica el número de DWU con la que se iniciará la instancia y aceptará los valores siguientes:
 
 + DW100
 + DW200
@@ -76,4 +76,4 @@ Después de que su Almacenamiento de datos SQL termine el aprovisionamiento, pue
 [cargar datos de ejemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [página de precios]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

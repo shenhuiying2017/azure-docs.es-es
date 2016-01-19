@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="01/11/2016"
 	ms.author="heidist"/>
 
 # Introducción a Búsqueda de Azure en NodeJS
@@ -22,9 +22,7 @@ Aprenda a crear una aplicación de búsqueda de NodeJS personalizada que utiliza
 
 Hemos utilizado [NodeJS](https://nodejs.org) y NPM, [Sublime Text 3](http://www.sublimetext.com/3) y Windows PowerShell en Windows 8.1 para desarrollar y probar este código.
 
-Para ejecutar este ejemplo, necesita un servicio Búsqueda de Azure, para el que puede registrarse en el [Portal de Azure clásico](https://portal.azure.com).
-
-> [AZURE.TIP]Descargue el código fuente de este tutorial en [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198).
+Para ejecutar este ejemplo, debe tener un servicio Búsqueda de Azure al que puede suscribirse en el [Portal de Azure](https://portal.azure.com). Consulte [Creación de un servicio Búsqueda de Azure en el Portal de Azure clásico](search-create-service-portal.md) para obtener instrucciones detalladas.
 
 ## Acerca de los datos
 
@@ -34,47 +32,20 @@ En esta aplicación, el programa **DataIndexer** compila y carga el índice usan
 
 > [AZURE.NOTE]Se aplicó un filtro a este conjunto de datos para no sobrepasar el límite de 10.000 documentos del nivel de precios gratuito. Si usa el nivel estándar, este límite no se aplica. Para obtener más información acerca de la capacidad de cada nivel de precios, consulte [Límites y restricciones](search-limits-quotas-capacity.md).
 
-## Creación del servicio
-
-1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com).
-
-2. En la barra de salto, haga clic en **Nuevo** > **Datos + Almacenamiento** > **Búsqueda**.
-
-     ![][1]
-
-3. Configure el nombre del servicio, el nivel de precios, el grupo de recursos, la suscripción y la ubicación. Estos valores son necesarios y no se puede cambiar una vez que se aprovisiona el servicio.
-
-     ![][2]
-
-	- **Nombre de servicio** debe ser único, en minúsculas, con un máximo de 15 caracteres y sin espacios. Este nombre se convierte en parte del extremo del servicio Búsqueda de Azure. Consulte [Reglas de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) para obtener más información acerca de las convenciones de nomenclatura.
-
-	- **Nivel de precios** determina la capacidad y la facturación. Los dos niveles proporcionan las mismas características, pero con niveles de recursos distintos.
-
-		- **Gratuito** se ejecuta en clústeres que se comparten con otros suscriptores. Ofrece suficiente capacidad para probar tutoriales y escribir código de prueba de concepto, pero no está destinado a aplicaciones de producción. Implementar un servicio gratuito suele llevar pocos minutos.
-		- **Estándar** se ejecuta en recursos dedicados y es altamente escalable. Inicialmente, se aprovisiona un servicio estándar con una réplica y una partición, pero se puede ajustar la capacidad una vez creado el servicio. Implementar un servicio estándar lleva más tiempo, normalmente unos quince minutos.
-
-	- Los **grupos de recursos** son contenedores para servicios y recursos que se usan para un objetivo común. Por ejemplo, si va a compilar una aplicación de búsqueda personalizada basada en Búsqueda de Azure, Sitios web Azure, almacenamiento de blobs de Azure, puede crear un grupo de recursos que mantenga estos servicios juntos en las páginas de administración del portal.
-
-	- **Suscripción** permite elegir entre varias suscripciones, si tiene más de una.
-
-	- **Ubicación** es la región del centro de datos. Actualmente, todos los recursos se deben ejecutar en el mismo centro de datos. No se admite la distribución de recursos entre varios centros de datos.
-
-4. Haga clic en **Crear** para realizar el aprovisionamiento del servicio.
-
-Preste atención a las notificaciones de la barra de salto. Cuando el servicio esté listo para su uso, aparecerá un aviso.
 
 <a id="sub-2"></a>
 ## Buscar el nombre del servicio y la clave de API del servicio Búsqueda de Azure
 
 Después de crear el servicio, vuelva al portal para obtener la dirección URL o la `api-key`. Las conexiones con el servicio de búsqueda requieren que tenga la URL y una `api-key` para autenticar la llamada.
 
-1. En la barra de salto, haga clic en **Inicio** y, a continuación, haga clic en el servicio de búsqueda para abrir el panel del servicio.
-
-2. En el panel del servicio verá mosaicos con información esencial, así como el icono de llave para tener acceso a las claves de administrador.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+2. En la barra de acceso rápido, haga clic en **Servicio de búsqueda** para enumerar todos los servicios Búsqueda de Azure aprovisionados para la suscripción.
+3. Seleccione el servicio que desea utilizar.
+4. En el panel del servicio verá mosaicos con información esencial, así como el icono de llave para tener acceso a las claves de administrador.
 
   	![][3]
 
-3. Copie la dirección URL del servicio, una clave de administración y una clave de consulta. Necesitará las tres más adelante para agregarlas al archivo config.js.
+5. Copie la dirección URL del servicio, una clave de administración y una clave de consulta. Necesitará las tres más adelante para agregarlas al archivo config.js.
 
 ## Descarga de los archivos de ejemplo
 
@@ -147,4 +118,4 @@ Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

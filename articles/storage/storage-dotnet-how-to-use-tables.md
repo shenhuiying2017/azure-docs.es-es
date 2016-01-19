@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Uso del almacenamiento de tablas de .NET | Microsoft Azure"
-	description="Aprenda a usar el almacenamiento de tablas de Microsoft Azure para crear y eliminar tablas e insertar y consultar entidades en una tabla."
+	description="Use el Almacenamiento de tablas para almacenar datos no estructurados, sin esquema. Almacenamiento de tablas es un almacén de claves/atributos NoSQL. La biblioteca cliente de Almacenamiento para .NET proporciona las API para crear y eliminar tablas, así como para insertar, actualizar, eliminar y consultar datos."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
 
 
@@ -440,4 +440,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de Ta
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

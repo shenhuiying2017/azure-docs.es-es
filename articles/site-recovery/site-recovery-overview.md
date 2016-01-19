@@ -34,8 +34,8 @@ Esta tabla resume los escenarios de replicación admitidos por Site Recovery.
 
 **REPLICATE** | **REPLICACIÓN DESDE** | **REPLICACIÓN EN** | **ARTÍCULO**
 ---|---|---|---
-Máquinas virtuales de VMware | Servidor VMware local | Almacenamiento de Azure | [Implementación](site-recovery-vmware-to-azure.md)
-Servidor físico de Windows/Linux | Servidor físico local | Almacenamiento de Azure | [Implementación](site-recovery-vmware-to-azure.md)
+Máquinas virtuales de VMware | Servidor VMware local | Almacenamiento de Azure | [Implementación](site-recovery-vmware-to-azure-classic.md)
+Servidor físico de Windows/Linux | Servidor físico local | Almacenamiento de Azure | [Implementación](site-recovery-vmware-to-azure-classic.md)
 Máquinas virtuales de Hyper-V | Servidor de host de Hyper-V local en la nube VMM | Almacenamiento de Azure | [Implementación](site-recovery-vmm-to-azure.md)
 Máquinas virtuales de Hyper-V | Sitio de Hyper-V local (uno o más servidores de host de Hyper-V) | Almacenamiento de Azure | [Implementación](site-recovery-hyper-v-site-to-azure.md)
 Máquinas virtuales de Hyper-V locales| Servidor de host de Hyper-V local en la nube VMM | Servidor de host de Hyper-V local en la nube VMM en el centro de datos secundario | [Implementación](site-recovery-vmm-to-vmm.md)
@@ -69,4 +69,4 @@ Obtenga más información en [¿Qué cargas de trabajo puede proteger Site Recov
 Una vez finalizada la esta descripción general, obtenga [más información](site-recovery-components.md) acerca de la arquitectura de Site Recovery.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

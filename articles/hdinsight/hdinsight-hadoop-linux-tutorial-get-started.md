@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="12/03/2015"
+   	ms.date="01/13/2016"
    	ms.author="nitinme"/>
 
 # Tutorial de Hadoop: Introducción al uso de Hadoop con Hive en HDInsight en Linux
@@ -42,7 +42,7 @@ Cuando aprovisiona un clúster, crea los recursos de proceso de Azure que contie
 Utilice los pasos siguientes para crear un clúster nuevo:
 
 1. Inicie sesión en el [Portal de Azure](https://ms.portal.azure.com/).
-2. Haga clic en **NUEVO**, en **Análisis de datos** y, luego, en **HDInsight**.
+2. Haga clic en **NUEVO**, en **Análisis de datos** y luego en **HDInsight**.
 
     ![Creación de un clúster en el Portal de Azure](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Creación de un clúster en el Portal de Azure")
 
@@ -74,13 +74,13 @@ Utilice los pasos siguientes para crear un clúster nuevo:
 
 	Actualmente puede seleccionar una cuenta de almacenamiento de Azure como origen de datos para un clúster de HDInsight. Use lo siguiente para comprender las entradas de la hoja **Origen de datos**.
 
-	- **Método de selección**: establézcalo en **De todas las suscripciones** para habilitar la exploración de cuentas de almacenamiento en todas sus suscripciones. Establézcalo en **Clave de acceso** si quiere especificar el **Nombre de almacenamiento** y la **Clave de acceso** de una cuenta de almacenamiento existente.
+	- **Método de selección**: establézcalo en **De todas las suscripciones** para habilitar la exploración de cuentas de almacenamiento en todas sus suscripciones. Establézcalo en **Clave de acceso** si desea especificar el **Nombre de almacenamiento** y la **Clave de acceso** de una cuenta de almacenamiento existente.
 
-	- **Seleccionar cuenta de almacenamiento o Crear nueva**: haga clic en **Seleccionar cuenta de almacenamiento** para buscar y seleccionar la cuenta de almacenamiento que quiere asociar al clúster. O bien, haga clic en **Crear nueva** para crear una cuenta de almacenamiento. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparecerá una marca de verificación verde.
+	- **Seleccionar cuenta de almacenamiento o Crear nueva**: haga clic en **Seleccionar cuenta de almacenamiento** para buscar y seleccionar una cuenta de almacenamiento existente que desee asociar con el clúster. O bien, haga clic en **Crear nueva** para crear una nueva cuenta de almacenamiento. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparecerá una marca de verificación verde.
 
 	- **Elegir contenedor predeterminado**: use esta opción para escribir el nombre del contenedor predeterminado que se usará para el clúster. Aunque se puede escribir cualquier nombre aquí, se recomienda usar el mismo nombre que el del clúster para que pueda reconocer fácilmente que el contenedor se usa para este clúster concreto.
 
-	- **Ubicación**: región geográfica en la que se encuentra la cuenta de almacenamiento o donde se creará.
+	- **Ubicación**: región geográfica en la que se encuentra o donde se creará la cuenta de almacenamiento.
 
 		> [AZURE.IMPORTANT]Seleccionar la ubicación del origen de datos predeterminado también establecerá la ubicación del clúster de HDInsight. El origen de datos del clúster y predeterminado deben encontrarse en la misma región.
 
@@ -94,15 +94,15 @@ Utilice los pasos siguientes para crear un clúster nuevo:
     >
     > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-	Haga clic en **Seleccionar** para guardar la configuración de precios de nodo.
+	Haga clic en **Seleccionar** para guardar la configuración de precios de nodos.
 
-9. En la hoja **Nuevo clúster de HDInsight**, asegúrese de que la opción **Anclar a Panel de inicio** está seleccionada y haga clic en **Crear**. Esto creará el clúster y agregará un icono para él en el panel de inicio de su Portal de Azure. El icono indicará que el clúster está aprovisionando y cambiará para mostrar el icono de HDInsight cuando se haya completado el proceso.
+9. En la hoja **Nuevo clúster de HDInsight**, asegúrese de que **Anclar a Panel de inicio** está seleccionado y haga clic en **Crear**. Esto creará el clúster y agregará un icono para él en el panel de inicio de su Portal de Azure. El icono indicará que el clúster está aprovisionando y cambiará para mostrar el icono de HDInsight cuando se haya completado el proceso.
 
 Durante el aprovisionamiento|Aprovisionamiento completado
 ------------------|---------------------
 	![Indicador de aprovisionamiento en el panel de inicio](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png)|![Icono de clúster aprovisionado](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png)
 
-> [AZURE.NOTE]El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada **Notificaciones** de la izquierda de la página para comprobar el proceso de aprovisionamiento.
+> [AZURE.NOTE]El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del panel de inicio o la entrada **Notificaciones** de la izquierda de la página para comprobar el proceso de aprovisionamiento.
 
 Una vez que termine el aprovisionamiento, haga clic en el icono del clúster desde el panel de inicio para iniciar la hoja del clúster.
 
@@ -112,15 +112,15 @@ Las vistas de Ambari proporcionan varias utilidades a través de una página web
 
 > [AZURE.NOTE]Ambari es una utilidad de administración y supervisión proporcionada con los clústeres de HDInsight basados en Linux. Ambari cuenta con muchas funcionalidades que no se tratan en este documento. Para más información, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md).
 
-Para ver las vistas de Ambari en el Portal de Azure, seleccione el clúster de HDInsight y, después, seleccione __Vistas Ambari__ en la sección __Vínculos rápidos__.
+Para mostrar las vistas de Ambari en el Portal de Azure, seleccione el clúster de HDInsight y, después, seleccione __Vistas de Ambari__ en la sección __Vínculos rápidos__.
 
 ![Sección Vínculos rápidos](./media/hdinsight-hadoop-linux-tutorial-get-started/quicklinks.png)
 
-También puede navegar directamente a Ambari yendo a https://CLUSTERNAME.azurehdinsight.net en un explorador web (donde __CLUSTERNAME__ es el nombre del clúster de HDInsight) y después seleccione el conjunto de cuadrados en el menú de página (junto al vínculo __Admin__ y el botón de la izquierda de la página) para mostrar las vistas disponibles. Seleccione la __vista de Hive__.
+También puede navegar directamente a Ambari yendo a https://CLUSTERNAME.azurehdinsight.net con un explorador web (donde __CLUSTERNAME__ es el nombre del clúster de HDInsight) y después seleccionando el conjunto de cuadrados en el menú de página (junto al vínculo y botón __Admin__ de la izquierda de la página) para mostrar las vistas disponibles. Seleccione la __Vista de Hive__.
 
 ![Selección de vistas de Ambari](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
 
-> [AZURE.NOTE]Al acceder a Ambari, se le pedirá autenticarse en el sitio. Escriba nombre de la cuenta del administrador (de manera predeterminada `admin`) y la contraseña que usó al crear el clúster.
+> [AZURE.NOTE]Al acceder a Ambari, se le pedirá autenticarse en el sitio. Escriba el nombre de la cuenta del administrador (de manera predeterminada `admin`) y la contraseña que usó al crear el clúster.
 
 Debería ver una página similar a la siguiente:
 
@@ -130,7 +130,7 @@ Debería ver una página similar a la siguiente:
 
 Use los pasos siguientes desde la vista de Hive para ejecutar una consulta de Hive en los datos que se incluyen con el clúster.
 
-1. En la sección __Editor de consultas__ de la página, pegue las instrucciones de HiveQL siguiente en la hoja de cálculo:
+1. En la sección __Editor de consultas__ de la página, pegue las siguientes instrucciones de HiveQL en la hoja de cálculo:
 
 		DROP TABLE log4jLogs;
 		CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -161,7 +161,7 @@ Use los pasos siguientes desde la vista de Hive para ejecutar una consulta de Hi
     
     > [AZURE.TIP]Tenga en cuenta el elemento desplegable __Guardar resultados__ en la esquina superior izquierda de la sección __Resultados del proceso de consulta__; úsela para descargar los resultados o guardarlos en el almacenamiento de HDInsight como un archivo CSV.
 
-3. Seleccione las primeras cuatro líneas de esta consulta y después elija __Ejecutar__. Observe que no hay ningún resultado cuando finaliza el trabajo. Esto es debido a que cuando se usa el botón __Ejecutar__ cuando se selecciona parte de la consulta, solo se ejecutarán las instrucciones seleccionadas. En este caso, la selección no incluyó la instrucción final que recupera filas de la tabla. Si selecciona solo esa línea y usa __Ejecutar__, debería ver los resultados esperados.
+3. Seleccione las primeras cuatro líneas de esta consulta y después elija __Ejecutar__. Observe que no hay ningún resultado cuando finaliza el trabajo. Esto es debido a que al usar el botón __Ejecutar__ cuando se selecciona parte de la consulta, solo se ejecutarán las instrucciones seleccionadas. En este caso, la selección no incluyó la instrucción final que recupera filas de la tabla. Si selecciona solo esa línea y usa __Ejecutar__, debería ver los resultados esperados.
 
 3. Use el botón __Nueva hoja de cálculo__ situado en la parte inferior del __Editor de consultas__ para crear una nueva hoja de cálculo. En la hoja de cálculo nueva, escriba las siguientes instrucciones de HiveQL:
 
@@ -174,21 +174,21 @@ Use los pasos siguientes desde la vista de Hive para ejecutar una consulta de Hi
 	- **STORED AS ORC**: almacena los datos en el formato Optimized Row Columnar (ORC). Se trata de un formato altamente optimizado y eficiente para almacenar datos de Hive.
 	- **INSERT OVERWRITE ... SELECT**: selecciona filas de la tabla **log4jLogs** que contienen [ERROR] y, a continuación, inserta los datos en la tabla **errorLogs**.
     
-    Utilice el botón __Ejecutar__ para ejecutar esta consulta. La pestaña __Resultados__ no contendrá ninguna información ya que no se devuelven filas por esta consulta, pero el estado debe aparecer como __CORRECTO__.
+    Use el botón __Ejecutar__ para ejecutar esta consulta. La pestaña __Resultados__ no contendrá ninguna información ya que no se devuelven filas por esta consulta, pero el estado debe aparecer como __CORRECTO__.
     
 4. A la derecha del Editor de consultas se muestra una fila de iconos. Seleccione el que se parece a una cadena.
 
     ![iconos](./media/hdinsight-hadoop-linux-tutorial-get-started/icons.png)
     
-    Se trata de la vista __Explicación visual__ de la consulta, que puede ser útil para comprender el flujo de consultas complejas. Puede ver un equivalente textual de esta vista mediante botón __Explicar__ en el Editor de consultas.
+    Se trata de la vista __Explicación visual__ de la consulta, que puede ser útil para comprender el flujo de las consultas complejas. Puede ver un equivalente textual de esta vista con el botón __Explicar__ en el Editor de consultas.
     
     ![Imagen de Explicación visual](./media/hdinsight-hadoop-linux-tutorial-get-started/visualexplain.png)
     
     Los demás iconos son los siguientes:
     
-        * Settings: The gear icon allows you to change Hive settings, such as setting `hive.execution.engine` or Tez parameters.
-        * Tez: Displays the Directed Acyclic Graph (DAG) that Tez used to perform the query. If you want to view the DAG for queries you've ran in the past, use the __Tez View__ instead.
-        * Notifications: Displays notifications, such as "Query has been submitted" or if an error occurs when running a query.
+	* Configuración: el icono de engranaje le permite cambiar la configuración de Hive, como la configuración `hive.execution.engine`o los parámetros de Tez.
+	* Tez: muestra el grafo acíclico dirigido (DAG) que usó Tez para ejecutar la consulta. Si desea ver el DAG para las consultas que se ejecutaron en el pasado, use la __Vista de Tez__ en su lugar.
+	* Notificaciones: muestra notificaciones, como “La consulta se ha enviado”, o si se produce un error al ejecutar una consulta.
 
 5. Seleccione el icono __SQL__ para cambiar de nuevo al Editor de consultas, cree una nueva hoja de cálculo y escriba la siguiente consulta:
 
@@ -229,7 +229,7 @@ Si desea información sobre cómo crear o administrar un clúster de HDInsight, 
 
 - Para más información sobre cómo administrar el clúster de HDInsight basado en Linux, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md).
 
-- Para más información sobre las opciones que puede seleccionar al crear un clúster de HDInsight, consulte [Crear clústeres basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+- Para obtener más información sobre las opciones que puede seleccionar al crear un clúster de HDInsight, consulte [Aprovisionamiento de HDInsight en Linux usando opciones personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
 
 - Si está familiarizado con Linux y Hadoop, pero quiere conocer información específica sobre Hadoop en HDInsight, consulte [Información sobre el uso de HDInsight en Linux](hdinsight-hadoop-linux-information.md). Esto ofrece información como:
 
@@ -260,4 +260,4 @@ Si desea información sobre cómo crear o administrar un clúster de HDInsight, 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

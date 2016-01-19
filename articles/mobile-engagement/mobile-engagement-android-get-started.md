@@ -2,7 +2,7 @@
 	pageTitle="Introducción a Azure Mobile Engagement"
 	description="Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones de inserción para aplicaciones Android."
 	services="mobile-engagement"
-	documentationCenter="mobile"
+	documentationCenter="android"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -149,7 +149,7 @@ Si desea tenerlo a mano, debe consultar el escenario "Informes básicos" en nues
 
 [AZURE.INCLUDE [Conectar la aplicación con la supervisión en tiempo real](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-##<a id="integrate-push"></a>Habilitación de las notificaciones push y la mensajería en aplicación
+##<a id="integrate-push"></a>Habilitar las notificaciones push y la mensajería en la aplicación
 
 Mobile Engagement permite interactuar y llegar por REACH a los usuarios mediante notificaciones de inserción y mensajería en la aplicación en el contexto de las campañas. Este módulo se denomina REACH en el portal de Mobile Engagement. En las secciones siguientes se instala la aplicación para recibirlos.
 
@@ -299,7 +299,7 @@ Ahora crearemos una campaña de notificación de inserción simple que enviará 
 
 	c. En **Tiempo de entrega**, seleccione *Cualquier momento* para permitir que la aplicación reciba una notificación, independientemente de si se ha iniciado o no.
 
-	d. En el texto de la notificación, escriba el **Título** que aparecerá en negrita en la inserción.
+	d. En el texto de la notificación, escriba el **título** que aparecerá en negrita en la inserción.
 
 	e. Luego, escriba el **Mensaje**.
 
@@ -340,4 +340,4 @@ Ahora crearemos una campaña de notificación de inserción simple que enviará 
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/21/2015"
+	ms.date="01/12/2016"
 	ms.author="stepsic"/>
 
 # Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS
@@ -26,7 +26,7 @@
 
 En este tema se muestra cómo, en solo unos minutos, puede comenzar a trabajar con las [aplicaciones lógicas de Servicios de aplicaciones](app-service-logic-what-are-logic-apps.md). Recorreremos un flujo de trabajo que permite entregar un conjunto de tweets en el que está interesado a una carpeta de Dropbox.
 
-Para usar este escenario necesitará:
+Para utilizar este escenario necesitará:
 
 - Una suscripción de Azure
 - Una cuenta de Twitter
@@ -188,4 +188,4 @@ En menos de 5 minutos ha sido capaz de configurar una aplicación lógica sencil
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Uso de las características de aplicaciones lógicas]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

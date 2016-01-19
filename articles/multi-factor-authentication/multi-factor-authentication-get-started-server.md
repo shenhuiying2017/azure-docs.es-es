@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/19/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Introducción a Servidor Azure Multi-Factor Authentication
@@ -23,15 +23,14 @@
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-Ahora que hemos determinado si se utiliza la autenticación multifactor local, pasamos al paso siguiente. Esta página trata de una nueva instalación del servidor y de su configuración con Active Directory local. Si ya tiene instalado el servidor Phonefactor y desea saber cómo hacerlo, consulte Actualización de Servidor Azure Multi-Factor o si desea obtener información acerca de cómo instalar solo el servicio web, consulte Implementación del servicio web para aplicaciones móviles del servidor Azure Multi-Factor Authentication.
-
+Ahora que hemos determinado si se utiliza la autenticación multifactor local, vamos al paso siguiente. Esta página trata de una nueva instalación del servidor y de su configuración con Active Directory local. Si ya tiene instalado el servidor Phonefactor y desea actualizarlo, consulte [Actualización de PhoneFactor Agent al Servidor Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-upgrade.md) o si desea obtener información acerca de cómo instalar solo el servicio web, consulte [Introducción al servicio web de aplicación móvil del servidor MFA](multi-factor-authentication-get-started-server-webservice.md).
 
 
 ## Descarga de Servidor Azure Multi-Factor Authentication
 
 
 
-Hay dos maneras diferentes de descargar Servidor Azure Multi-Factor Authentication. Ambas se pueden hacer a través del Portal de Azure. La primera es administrando el proveedor de autenticación multifactor directamente. La segunda es mediante la configuración del servicio. La segunda opción requiere un proveedor de autenticación multifactor o una licencia de Azure AD Premium.
+Hay dos maneras diferentes de descargar Servidor Azure Multi-Factor Authentication. Ambas se pueden hacer a través del Portal de Azure. La primera es administrando el proveedor de autenticación multifactor directamente. La segunda es mediante la configuración del servicio. La segunda opción requiere un Proveedor de autenticación multifactor o una licencia de Azure MFA, Azure AD Premium o Enterprise Mobility Suite.
 
 
 ### Para descargar Servidor Azure Multi-Factor Authentication del Portal de Azure.
@@ -55,7 +54,7 @@ Hay dos maneras diferentes de descargar Servidor Azure Multi-Factor Authenticati
 3. Haga doble clic en la instancia de Azure AD.
 4. En la parte superior, haga clic en **Configurar.** ![Descargar](./media/multi-factor-authentication-sdk/download2.png)
 5. En Multi-Factor Authentication, seleccione **Administrar configuración del servicio**.
-6. En la parte inferior de la página de configuración de servicios, haga clic en **Ir al portal**. ![Descargar](./media/multi-factor-authentication-sdk/download3.png)
+6. En la parte inferior de la página de configuración de servicios, haga clic en **Ir al portal**. ![Descargar](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 7. De este modo se abrirá una nueva página. Haga clic en **Descargas**.
 8. Encima de **Generar credenciales de activación**, haga clic en **Descargar**.
 9. Guarde el archivo descargado.
@@ -186,4 +185,4 @@ Método|Descripción
 [Sincronización con Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md)|Información sobre la instalación y configuración de la sincronización entre Active Directory y el servidor de MFA de Azure.
 [Implementación del servicio web móvil de la aplicación móvil del servidor de Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md)|Información sobre la instalación y configuración del servicio web del servidor de Azure MFA.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="11/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Creación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure
@@ -39,11 +39,11 @@ La aplicación completa escribe una cadena corta "hello world" en el explorador.
 
 Para ver tutoriales y código de ejemplo con aplicaciones más complejas de Node.js, o para ver otros temas sobre cómo usar Node.js en Azure, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/).
 
-> [AZURE.NOTE]Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a Visual Studio](/es-ES/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o bien [ suscribirse para obtener una prueba gratuita](/es-ES/pricing/free-trial/?WT.mc_id=A261C142F).
+> [AZURE.NOTE]Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a Visual Studio](/es-ES/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o bien [registrarse para obtener una evaluación gratuita](/es-ES/pricing/free-trial/?WT.mc_id=A261C142F).
 >
 > Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751). Ahí puede crear de forma inmediata una aplicación web de corta duración para iniciarse en Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
 
-##Creación de una aplicación web y habilitación de la publicación Git
+## Creación de una aplicación web y habilitación de la publicación Git
 
 Siga estos pasos para crear una aplicación web en el Servicio de aplicaciones de Azure y habilitar la publicación en Git.
 
@@ -67,13 +67,13 @@ Siga estos pasos para crear una aplicación web en el Servicio de aplicaciones d
 
 	Para obtener más información acerca de los grupos de recursos, consulte [Uso del Portal de Azure para administrar los recursos de Azure](../resource-group-portal.md).
 
-7. Seleccione un **plan de servicio de aplicaciones/ubicación** o cree uno nuevo.
+7. Seleccione un **Plan de servicio de aplicaciones/Ubicación** o cree uno nuevo.
 
 	Para obtener más información sobre los planes del Servicio de aplicaciones, consulte [Información general sobre los planes del Servicio de aplicaciones de Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 8. Haga clic en **Crear**.
    
-    ![][portal-quick-create2]
+	![][portal-quick-create2]
 
 	En poco tiempo, normalmente menos de un minuto, Azure termina de crear la nueva aplicación web.
 
@@ -96,7 +96,7 @@ Siga estos pasos para crear una aplicación web en el Servicio de aplicaciones d
 	a. En la hoja Aplicación web, haga clic en **Configuración > Credenciales de implementación**.
 
 	![][deployment-credentials]
-
+ 
 	b. Cree un nombre de usuario y una contraseña.
 	
 	![](./media/web-sites-nodejs-develop-deploy-mac/setdeploycreds.png)
@@ -107,7 +107,7 @@ Siga estos pasos para crear una aplicación web en el Servicio de aplicaciones d
 
 	![][git-url]
 
-##Compilación y comprobación de la aplicación localmente
+## Compilación y comprobación de la aplicación localmente
 
 En esta sección, creará un archivo **server.js** que contiene una versión ligeramente modificada del ejemplo 'Hello World' de [nodejs.org]. El código agrega process.env.PORT como el puerto que se escuchará al ejecutarlo en una aplicación web de Azure.
 
@@ -134,7 +134,7 @@ En esta sección, creará un archivo **server.js** que contiene una versión lig
 
     ![Un explorador muestra el mensaje "Hello World".][helloworld-localhost]
 
-##Publicación de la aplicación
+## Publicación de la aplicación
 
 1. Si aún no hizo, instale Git.
 
@@ -153,7 +153,6 @@ En esta sección, creará un archivo **server.js** que contiene una versión lig
 3. Agregue un Git remoto para insertar actualizaciones en la aplicación web de Azure que creó anteriormente con el siguiente comando:
 
 		git remote add azure [URL for remote repository]
-
 
 4. Inserte los cambios en Azure con el siguiente comando:
 
@@ -175,14 +174,13 @@ En esta sección, creará un archivo **server.js** que contiene una versión lig
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		 * [new branch]      master -> master
 
-
 5. Para ver la aplicación, haga clic en el botón **Examinar** situado en la parte **Aplicación web** del Portal de Azure.
 
 	![Botón Examinar](./media/web-sites-nodejs-develop-deploy-mac/browsebutton.png)
 
 	![Hello world en Azure](./media/web-sites-nodejs-develop-deploy-mac/helloworldazure.png)
 
-##Publicación de cambios de la aplicación
+## Publicación de cambios de la aplicación
 
 1. Abra el archivo **server.js** en un editor de texto y cambie "Hello World\\n" a "Hello Azure\\n". 
 
@@ -204,11 +202,11 @@ En esta sección, creará un archivo **server.js** que contiene una versión lig
 
 En la hoja **Aplicación web**, haga clic en **Configuración > Implementación continua** para ver el historial de implementaciones en la hoja **Implementaciones**. Si necesita revertir a una implementación anterior, selecciónela y, después, haga clic en **Implementar de nuevo** en la hoja **Detalles de la implementación**.
 
-##Pasos siguientes
+## Pasos siguientes
 
 Implementó una aplicación de Node.js en una aplicación web en el Servicio de aplicaciones de Azure. Para aprender cómo las Aplicaciones web del Servicio de aplicaciones ejecutan aplicaciones de Node.js, consulte [Aplicaciones web del Servicio de aplicaciones de Azure: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) y [Especificación de una versión de Node.js en una aplicación Azure](../nodejs-specify-node-version-azure-apps.md).
 
-Node.js proporciona un abundante ecosistema de módulos que puede utilizar con sus aplicaciones. Para obtener información sobre el funcionamiento de aplicaciones web con módulos, consulte [Uso de módulos Node.js con aplicaciones de Azure](../nodejs-use-node-modules-azure-apps.md).
+Node.js proporciona un abundante ecosistema de módulos que puede utilizar con sus aplicaciones. Para obtener información sobre el funcionamiento de Aplicaciones web con módulos, consulte [Uso de módulos Node.js con aplicaciones de Azure](../nodejs-use-node-modules-azure-apps.md).
 
 Si tiene problemas con la aplicación una vez implementada en Azure, consulte [Cómo depurar una aplicación web de Node.js en el Servicio de aplicaciones de Azure](web-sites-nodejs-debug.md) para obtener información acerca de cómo diagnosticar el problema.
 
@@ -218,21 +216,12 @@ Para más información sobre cómo desarrollar aplicaciones de Node.js en Azure,
 
 [helloworld-completed]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
 [helloworld-localhost]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png
-
 [portal-quick-create]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website.png
-
 [portal-quick-create2]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website2.png
-
-
 [setup-git-publishing]: ./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png
-
 [go-to-dashboard]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
-
 [deployment-part]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-part.png
-
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
-
-
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="twounder;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;barbkess;sonyama"/>
 
 # Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL
 
@@ -49,4 +49,4 @@ Ahora que tiene la versión más reciente de SSDT, está listo para [conectar](.
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->
