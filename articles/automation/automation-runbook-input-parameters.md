@@ -49,7 +49,7 @@ Una definición de parámetro en los Runbooks de flujo de trabajo de PowerShell 
      ) 
 ```
 
->[AZURE.NOTE]Al definir los parámetros, si no se especifica el atributo **Mandatory**, el parámetro se considera opcional de forma predeterminada. Además, si se establece un valor predeterminado para un parámetro en Runbooks de flujo de trabajo de PowerShell, PowerShell lo tratará como un parámetro opcional, independientemente del valor del atributo **Mandatory**.
+>[AZURE.NOTE] Al definir los parámetros, si no se especifica el atributo **Mandatory**, el parámetro se considera opcional de forma predeterminada. Además, si se establece un valor predeterminado para un parámetro en Runbooks de flujo de trabajo de PowerShell, PowerShell lo tratará como un parámetro opcional, independientemente del valor del atributo **Mandatory**.
 
 Por ejemplo, vamos a configurar los parámetros de entrada para un Runbook de flujo de trabajo de PowerShell que proporciona detalles sobre las máquinas virtuales de un servicio (una o todas las máquinas virtuales). Este Runbook tiene dos parámetros: el nombre de la máquina virtual y el nombre del servicio, tal y como se muestra en la captura de pantalla siguiente.
 
@@ -97,9 +97,17 @@ Puede usar la actividad [**Write-Output**](https://technet.microsoft.com/library
 
 4. Cree dos parámetros con las siguientes propiedades que la actividad **Get-AzureVM** usará:
 
-    * **Parameter1:** Name – VMName, Type – String, Mandatory – No
+    * **Parameter1:** 
+    Name – VMName,
+    Type – String,
+    Mandatory – No
 	
-    * **Parameter2:** Name – ServiceName, Type – String, Mandatory – No, Default Value – Custom, Valor predeterminado personalizado – <Nombre del servicio predeterminado que contiene las máquinas virtuales>
+    * **Parameter2:** 
+    Name – ServiceName,
+    Type – String,
+    Mandatory – No,
+    Default Value – Custom,
+    Valor predeterminado personalizado – \<Nombre del servicio predeterminado que contiene las máquinas virtuales>
 
 5. Una vez agregados los parámetros, haga clic en **Aceptar**. Ahora puede verlos en la hoja **Entrada y salida**. Haga clic en **Aceptar** de nuevo y después en **Guardar** y en **Publicar** para publicar el Runbook.
 
@@ -122,7 +130,7 @@ En la etiqueta debajo del cuadro de texto de entrada puede ver los atributos est
 ![Globo de ayuda](media/automation-runbook-input-parameters/automation_05_HelpBaloon.png)
 
 
->[AZURE.NOTE]Los parámetros de tipo String admiten valores de cadena **Empty**. Si escribe **[EmptyString]** en el cuadro de texto del parámetro de entrada pasará una cadena vacía al parámetro. Los parámetros de tipo String no permiten pasar valores **Null**. Si no pasa ningún valor al parámetro de tipo String, PowerShell lo interpretará como Null.
+>[AZURE.NOTE] Los parámetros de tipo String admiten valores de cadena **Empty**. Si escribe **[EmptyString]** en el cuadro de texto del parámetro de entrada pasará una cadena vacía al parámetro. Los parámetros de tipo String no permiten pasar valores **Null**. Si no pasa ningún valor al parámetro de tipo String, PowerShell lo interpretará como Null.
 
 * **Inicio de un Runbook publicado mediante cmdlets de PowerShell y asignación de parámetros**
 
@@ -130,7 +138,8 @@ En la etiqueta debajo del cuadro de texto de entrada puede ver los atributos est
 
     **Ejemplo:**
 
-      ``` $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
+      ```
+        $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
       ```
@@ -140,12 +149,13 @@ En la etiqueta debajo del cuadro de texto de entrada puede ver los atributos est
 
     **Ejemplo:**
 
-      ``` $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
+      ```
+        $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```
 
->[AZURE.NOTE]Cuando se inicia un Runbook con cmdlets de PowerShell, además de los parámetros de entrada que pasó, se crea un parámetro predeterminado, **MicrosoftApplicationManagementStartedBy**, con el valor **PowerShell**. Puede ver este parámetro en la hoja Detalles del trabajo.
+>[AZURE.NOTE] Cuando se inicia un Runbook con cmdlets de PowerShell, además de los parámetros de entrada que pasó, se crea un parámetro predeterminado, **MicrosoftApplicationManagementStartedBy**, con el valor **PowerShell**. Puede ver este parámetro en la hoja Detalles del trabajo.
 
 * **Inicio de un Runbook con el SDK y asignación de parámetros**
 
@@ -269,4 +279,3 @@ Cuando se ejecuta un Runbook mediante un Webhook, se envía un parámetro de ent
 - Para editar un Runbook gráfico, consulte [Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md)
 
 <!---HONumber=AcomDC_1223_2015-->
-
