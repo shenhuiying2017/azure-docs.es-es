@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/28/2015"
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Autenticación de entidad de servicio para Aplicaciones de API en el Servicio de aplicaciones de Azure
@@ -26,7 +26,7 @@ En este tutorial se muestra cómo usar las características de autenticación y 
 
 ## Autenticación y autorización en el Servicio de aplicaciones
 
-Para ver una introducción sobre las características de autenticación que se usan en este tutorial, consulte el tutorial anterior de la serie, [Autenticación y autorización para Aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-authentication.md).
+Para ver una introducción sobre las características de autenticación utilizadas en este tutorial, consulte el anterior tutorial de la serie, [Autenticación y autorización para Aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-authentication.md).
 
 ## Seguimiento de este tutorial
 
@@ -88,7 +88,7 @@ El objeto de cliente devuelto por `CompanyContactsAPIClientWithAuth()` en el có
 
 4. Inicie sesión en su cuenta de Azure si aún no lo hizo o actualice sus credenciales si expiraron.
 
-4. En el cuadro de diálogo **Servicio de aplicaciones**, elija la **Suscripción** de Azure que desee usar y haga clic en **Nuevo**.
+4. En el cuadro de diálogo **Servicio de aplicaciones**, elija la **Suscripción** de Azure que desee utilizar y haga clic en **Nuevo**.
 
 	![](./media/app-service-api-dotnet-service-principal-auth/clicknew.png)
 
@@ -249,7 +249,7 @@ El código de ContactsList.API que llama a CompanyContacts.API se convirtió en 
 
 	![](./media/app-service-api-dotnet-service-principal-auth/contactspagewithdavolio.png)
 
-Igual que en el tutorial anterior, también puede configurar los proyectos de Visual Studio con las direcciones URL de SSL de localhost y ejecutar la aplicación localmente. En ese caso, puede almacenar en el archivo Web.config la configuración que almacenó en Azure para que se ejecute en Azure (identificador del cliente, secreto del cliente, etc.). Sin embargo, tenga cuidado de no insertar en el repositorio para el control de código fuente un archivo Web.config que contenga información confidencial, como el secreto del cliente. Para más información, consulte el artículo [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+Igual que en el tutorial anterior, también puede configurar los proyectos de Visual Studio con las direcciones URL de SSL de localhost y ejecutar la aplicación localmente. En ese caso, puede almacenar en el archivo Web.config la configuración que almacenó en Azure para que se ejecute en Azure (identificador del cliente, secreto del cliente, etc.). Sin embargo, tenga cuidado de no insertar en el repositorio para el control de código fuente un archivo Web.config que contenga información confidencial, como el secreto del cliente. Si desea obtener más información, consulte el artículo [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) (Procedimientos recomendados para implementar contraseñas y otra información confidencial en ASP.NET y Servicio de aplicaciones de Azure).
 
 ## Protección de la aplicación de API contra el acceso desde el explorador
 
@@ -304,4 +304,4 @@ Este es el último tutorial de la serie de introducción a Aplicaciones de API. 
 	* [Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure](web-sites-custom-domain-name.md)
 	* [Habilitación de HTTPS en un sitio web de Azure](web-sites-configure-ssl-certificate.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

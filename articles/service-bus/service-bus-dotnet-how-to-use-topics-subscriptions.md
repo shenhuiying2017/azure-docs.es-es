@@ -50,7 +50,7 @@ El bus de servicio usa una cadena de conexión para almacenar extremos y credenc
 - Si usa Servicios en la nube de Azure, es aconsejable que almacene la cadena de conexión con el sistema de configuración de servicios de Azure (archivos *.csdef y *.cscfg).
 - Al usar Sitios web Azure o Máquinas virtuales de Azure, es recomendable que almacene su cadena de conexión con el sistema de configuración .NET (por ejemplo, el archivo Web.config).
 
-En ambos casos, puede recuperar la cadena de conexión usando el método `CloudConfigurationManager.GetSetting`, como se muestra más adelante en este artículo.
+En ambos casos, puede recuperar la cadena de conexión utilizando el método `CloudConfigurationManager.GetSetting`, como se muestra más adelante en este artículo.
 
 ### Configuración de la cadena de conexión si usa Servicios en la nube
 
@@ -188,7 +188,7 @@ namespaceManager.CreateSubscription("TestTopic",
    highMessagesFilter);
 ```
 
-Del mismo modo, en el ejemplo que aparece a continuación, se crea una suscripción llamada **LowMessages** con un [SqlFilter][] que solo selecciona los mensajes con una propiedad **MessageNumber** menor o igual a 3:
+Del mismo modo, el ejemplo siguiente crea una suscripción llamada **LowMessages** con [SqlFilter][] que solo selecciona los mensajes que tengan una propiedad **MessageNumber** cuyo valor sea menor o igual a 3:
 
 ```
 // Create a "LowMessages" filtered subscription.
@@ -200,7 +200,7 @@ namespaceManager.CreateSubscription("TestTopic",
    lowMessagesFilter);
 ```
 
-Cuando se envíe un mensaje a `TestTopic`, este se entregará siempre a los receptores suscritos a la suscripción de tema **AllMessages**, y se entregará de forma selectiva a los receptores suscritos a las suscripciones de tema **HighMessages** y **LowMessages** (según el contenido del mensaje).
+Cuando se envíe un mensaje a `TestTopic`, este se entregará siempre a los receptores suscritos al tema **AllMessages**, y se entregará de forma selectiva a los receptores suscritos a los temas **HighMessages** y **LowMessages** (según el contenido del mensaje).
 
 ## de mensajes a un tema
 
@@ -283,7 +283,7 @@ Client.OnMessage((message) =>
 }, options);
 ```
 
-Este ejemplo configura la devolución de llamada [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) usando un objeto [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) se establece en **false** para permitir controlar manualmente cuándo llamar a [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) en el mensaje recibido. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) se establece en un minuto, lo que hace que el cliente espere durante un minuto por un mensaje antes de que se agote el tiempo de espera de la llamada y el cliente realice una nueva llamada para comprobar los mensajes. Este valor de propiedad reduce el número de veces que el cliente hace llamadas facturables que no recuperan mensajes.
+Este ejemplo configura la devolución de llamada [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) usando un objeto [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) se establece en **false** para permitir controlar manualmente cuándo llamar a [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) en el mensaje recibido. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) se establece en un minuto, lo que hace que el cliente espere hasta un minuto antes de terminar la característica de renovación automática y de realizar una nueva llamada para comprobar los mensajes. Este valor de propiedad reduce el número de veces que el cliente hace llamadas facturables que no recuperan mensajes.
 
 ## Actuación ante errores de la aplicación y mensajes que no se pueden leer
 
@@ -314,7 +314,7 @@ Ahora que conoce los fundamentos de los temas y las suscripciones del bus de ser
 
 -   Consulte [Colas, temas y suscripciones][].
 -   Referencia de API para [Clase SqlFilter][].
--   Compile una aplicación que envíe y reciba mensajes desde una cola del Bus de servicio y hacia ella: [Tutorial de .NET de mensajería asincrónica del Bus de servicio][].
+-   Compilación de una aplicación que envíe y reciba mensajes desde una cola del Bus de servicio y hacia ella: [Tutorial de .NET de mensajería asincrónica de Bus de servicio][].
 -   Ejemplos de Bus de servicio: descárguelos desde [Ejemplos de Azure][] o consulte la [información general](service-bus-samples.md).
 
   [Portal de Azure clásico]: http://manage.windowsazure.com
@@ -325,7 +325,7 @@ Ahora que conoce los fundamentos de los temas y las suscripciones del bus de ser
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Clase SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Tutorial de .NET de mensajería asincrónica del Bus de servicio]: service-bus-brokered-tutorial-dotnet.md
+  [Tutorial de .NET de mensajería asincrónica de Bus de servicio]: service-bus-brokered-tutorial-dotnet.md
   [Ejemplos de Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

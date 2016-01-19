@@ -5,7 +5,7 @@
             documentationCenter=".net"
             authors="robinsh"
             manager="carmonm"
-            editor="" />
+            editor="tysonn" />
 
 <tags ms.service="storage"
       ms.workload="storage"
@@ -13,7 +13,7 @@
       ms.devlang="dotnet"
       ms.topic="hero-article"
       ms.date="12/17/2015"
-      ms.author="robinsh" />
+      ms.author="jutang" />
 
 # Uso del almacenamiento de archivos de Azure con Windows
 
@@ -64,7 +64,7 @@ El [Portal de Azure](portal.azure.com) proporciona una interfaz de usuario para 
 - Cargar y descargar archivos al recurso compartido de archivos y desde este.
 - Supervisar el uso real de cada recurso compartido de archivos.
 - Ajustar la cuota de tamaño del recurso compartido.
-- Obtener el comando `net use` que se usa para montar el recurso compartido de archivos desde un cliente Windows. 
+- Obtener el comando `net use` que se usa para montar el recurso compartido de archivos desde un cliente Windows.
 
 ## Uso de PowerShell para administrar un recurso compartido de archivos
 
@@ -96,7 +96,7 @@ A continuación, cree el nuevo recurso compartido, denominado `logs`.
 
 Ahora tiene un recurso compartido de archivos en Almacenamiento de archivos. A continuación, agregaremos un directorio y un archivo.
 
-> [AZURE.IMPORTANT]El nombre del recurso compartido de archivos debe estar en minúsculas. Para obtener todos los detalles sobre cómo asignar un nombre a recursos compartidos y archivos, consulte [Dar nombre y hacer referencia a recursos compartidos, directorios, archivos y metadatos](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+> [AZURE.IMPORTANT]El nombre del recurso compartido de archivos debe estar en minúsculas. Para obtener detalles completos sobre cómo asignar un nombre a recursos compartidos y archivos, consulte [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ### Creación de un directorio en el recurso compartido de archivos
 
@@ -129,15 +129,15 @@ A partir de la versión 0.9.7 de Azure PowerShell, puede copiar un archivo en ot
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 
-## Montaje del recurso compartido de archivos 
+## Montaje del recurso compartido de archivos
 
 Dada su compatibilidad con SMB 3.0, el almacenamiento de archivos admite el cifrado y los identificadores persistentes de los clientes SMB 3.0. La compatibilidad con el cifrado significa que los clientes SMB 3.0 pueden montar un recurso compartido de archivos desde cualquier lugar, incluyendo desde:
 
 - Una máquina virtual de Azure de la misma región (también compatible con SMB 2.1)
 - Una máquina virtual de Azure de otra región (solo SMB 3.0)
-- Una aplicación cliente local (solo SMB 3.0) 
+- Una aplicación cliente local (solo SMB 3.0)
 
-Cuando un cliente accede al almacenamiento de archivos, la versión SMB que se usa depende de la versión de SMB compatible con el sistema operativo. La tabla siguiente proporciona un resumen de la compatibilidad de los clientes de Windows. Para más información, consulte << Which version of the SMB protocol blog post>>.
+Cuando un cliente accede al almacenamiento de archivos, la versión SMB que se usa depende de la versión de SMB compatible con el sistema operativo. La tabla siguiente proporciona un resumen de la compatibilidad de los clientes de Windows. Para obtener más información, consulte << Which version of the SMB protocol blog post>>.
 
 | Cliente Windows | Versión de SMB que admite |
 |------------------------|----------------------|
@@ -170,14 +170,14 @@ Tenga en cuenta que las credenciales solo persisten en el contexto en el que se 
 
 Una vez que tenga una conexión remota con la máquina virtual, puede ejecutar el comando `net use` para montar el recurso compartido de archivos, para lo que usará la sintaxis siguiente. Reemplace `<storage-account-name>` por el nombre de su cuenta de almacenamiento y `<share-name>` por el nombre del recurso compartido de Almacenamiento de archivos:
 
-    net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs
 
 Dado que hizo persistir las credenciales de la cuenta de almacenamiento en el paso anterior, no necesita proporcionarlas con el comando `net use`. Si aún no hizo persistir las credenciales, inclúyalas como parámetro, que se pasará al comando `net use`, como se muestra en el siguiente ejemplo.
 
-    net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:<storage-account-name> <storage-account-key>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
@@ -186,18 +186,18 @@ Ahora puede trabajar con el recurso compartido de Almacenamiento de archivos des
 
 También puede montar el recurso compartido de archivos desde un rol que se ejecute en un servicio en la nube de Azure mediante una conexión remota con el rol.
 
-### Montaje del recurso compartido de archivos desde un cliente local con Windows 
+### Montaje del recurso compartido de archivos desde un cliente local con Windows
 
 Para montar el recurso compartido de archivos desde un cliente local, es preciso seguir estos pasos:
 
-- Instale una versión de Windows compatible con SMB 3.0. Windows aprovechará el cifrado SMB 3.0 para transferir datos de forma segura entre el cliente local y el recurso compartido de archivos de Azure en la nube. 
-- Abra el acceso a Internet para el puerto 445 (salida TCP) en la red local, ya que es necesario para el protocolo SMB. 
+- Instale una versión de Windows compatible con SMB 3.0. Windows aprovechará el cifrado SMB 3.0 para transferir datos de forma segura entre el cliente local y el recurso compartido de archivos de Azure en la nube.
+- Abra el acceso a Internet para el puerto 445 (salida TCP) en la red local, ya que es necesario para el protocolo SMB.
 
 > [AZURE.NOTE]Algunos proveedores de servicios de Internet pueden bloquear el puerto 445, por lo que es posible que deba ponerse en contacto con su proveedor de servicios.
 
 ## Desarrollo con almacenamiento de archivos
 
-Para trabajar mediante programación con el almacenamiento de archivos, puede usar las bibliotecas del cliente de almacenamiento para .NET y Java, o la API de REST de Almacenamiento de Azure. El ejemplo de esta sección muestra cómo trabajar con un recurso compartido de archivos mediante el uso de la [Biblioteca de cliente de almacenamiento de Azure para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409) desde una aplicación de consola simple que se ejecuta en el escritorio.
+Para trabajar mediante programación con el almacenamiento de archivos, puede usar las bibliotecas del cliente de almacenamiento para .NET y Java, o la API de REST de Almacenamiento de Azure. El ejemplo de esta sección muestra cómo trabajar con un recurso compartido de archivos mediante el uso de la [Biblioteca del cliente de Almacenamiento de Azure .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409) desde una aplicación de consola simple que se ejecuta en el escritorio.
 
 ### Creación de la aplicación de consola y obtención del ensamblado
 
@@ -239,7 +239,7 @@ Puede recuperar las credenciales guardadas desde el archivo app.config usando un
 El siguiente ejemplo muestra cómo recuperar las credenciales usando la clase `CloudConfigurationManager` y cómo encapsularlas con la clase `CloudStorageAccount`. Agregue el siguiente código al método `Main()` en program.cs.
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    	CloudConfigurationManager.GetSetting("StorageConnectionString")); 
+    	CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
 ### Obtener acceso al recurso compartido de archivos mediante programación
 
@@ -361,7 +361,7 @@ En el ejemplo siguiente se crea una directiva de acceso compartido en un recurso
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Para más información acerca de la creación y uso de firmas de acceso compartido, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) y [Firmas de acceso compartido, Parte 2: Creación y uso de una firma de acceso compartido con el servicio BLOB](storage-dotnet-shared-access-signature-part-2.md).
+Para obtener más información sobre la creación y uso de firmas de acceso compartido, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) y [Firmas de acceso compartido, Parte 2: Creación y uso de una firma de acceso compartido con el servicio BLOB](storage-dotnet-shared-access-signature-part-2.md).
 
 ### Copiar archivos
 
@@ -472,20 +472,20 @@ En el [Portal de Azure](portal.azure.com) es posible habilitar las métricas par
 
 ## Preguntas más frecuentes sobre el almacenamiento de archivos
 
-1. **¿Admite el almacenamiento de archivos la autenticación basada en Active Directory?** 
+1. **¿Admite el almacenamiento de archivos la autenticación basada en Active Directory?**
 
 	En la actualidad no se admite la autenticación basada en AD ni las ACL, pero se admitirá en un futuro cercano. Por ahora, las claves de las cuentas de Almacenamiento de Azure se usan para proporcionar autenticación al recurso compartido de archivos. La solución alternativa es usar las firmas de acceso compartido (SAS) a través de la API de REST o de las bibliotecas de cliente. Con SAS se pueden generar tokens con permisos específicos que son válidos durante un intervalo especificado. Por ejemplo, se puede generar un token con acceso de solo lectura a un archivo dado. Todos los usuarios que posean dicho token, mientras tenga validez, tendrán acceso de solo lectura al archivo.
 
 	SAS solo se admite a través de la API de REST o de las bibliotecas de cliente. Si el recurso compartido de archivos se monta a través del protocolo SMB, no se puede usar una SAS para delegar el acceso a su contenido.
 
 2. **¿Se pueden ver los recursos compartidos de archivos de Azure públicamente en Internet o solos se puede acceder a ellos desde Azure?**
- 
+
 	Mientras el puerto 445 (salida TCP) esté abierto y el cliente admita el protocolo SMB 3.0 (*p. ej.*, Windows 8 o Windows Server 2012), el recurso compartido de archivos estará disponible a través de Internet.
 
 3. **¿Cuenta el tráfico de red entre una máquina virtual de Azure y un número de recursos compartidos de archivos como ancho de banda externo que se carga a la suscripción?**
 
 	Si el recurso compartido de archivos y la máquina virtual se encuentran en distintas regiones, el tráfico entre ellos se cargará como ancho de banda externo.
- 
+
 4. **Si el tráfico de red se produce entre una máquina virtual y un recurso compartido de archivos de la misma región, ¿es gratuito?**
 
 	Sí. Es gratis si el tráfico se produce en la misma región.
@@ -497,7 +497,7 @@ En el [Portal de Azure](portal.azure.com) es posible habilitar las métricas par
 6. **¿Es un "testigo del recurso compartido de archivos" para un clúster de conmutación por error uno de los casos de uso del almacenamiento de archivos de Azure?**
 
 	En la actualidad no se admite.
- 
+
 7. **En la actualidad, el almacenamiento de archivos solo se replica a través de LRS o GRS, ¿es así?**
 
 	Está previsto que RA-GRS se admite, pero aún no se puede indicar ninguna fecha.
@@ -518,7 +518,7 @@ En el [Portal de Azure](portal.azure.com) es posible habilitar las métricas par
 
 	Si el recurso compartido de archivos se monta a través de SMB, no se tiene este nivel de control sobre los permisos. Sin embargo, se puede lograr. Para ello, es preciso crear una firma de acceso compartido (SAS) mediante la API de REST o las bibliotecas de cliente.
 
-12. **Mi rendimiento era lento al intentar descomprimir archivos en Almacenamiento de archivos. ¿qué debo hacer?**
+12. **Mi rendimiento era lento al intentar descomprimir archivos en el almacenamiento de archivos. ¿qué debo hacer?**
 
 	Para transferir una gran cantidad de archivos al almacenamiento de archivos es aconsejable usar AzCopy, Azure Powershell (Windows) o la CLI de Azure (Linux/Unix), ya que estas herramientas se optimizaron para la transferencia a través de red.
 
@@ -546,8 +546,8 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 ### Publicaciones de blog
 
 - [El almacenamiento de archivos de Azure ya está disponible de manera general](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Profundización en el almacenamiento de archivos de Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
+- [Profundización en el almacenamiento de archivos de Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409)
 - [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

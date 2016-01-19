@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Uso del almacenamiento de colas de .NET | Microsoft Azure"
-	description="Aprenda a usar el almacenamiento de colas de Microsoft Azure para crear y eliminar colas e insertar, inspeccionar, obtener y eliminar mensajes de cola."
+	description="Aprenda a usar el Almacenamiento en cola para crear y eliminar colas e insertar, inspeccionar, obtener y eliminar mensajes en cola."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="12/04/2015"
-	ms.author="robinsh"/>
+	ms.author="gusapost"/>
 
 # Uso del almacenamiento de colas de .NET
 
@@ -246,7 +246,7 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
     - [Referencia de API de REST](http://msdn.microsoft.com/library/azure/dd179355)
 - Aprenda a simplificar el código que escriba para trabajar con Almacenamiento de Azure mediante [SDK de WebJobs de Azure](../websites-dotnet-webjobs-sdk/).
 - Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
-    - Utilice [Almacenamiento de tablas](storage-dotnet-how-to-use-tables.md) para almacenar datos estructurados. 
+    - Utilice [Almacenamiento de tablas](storage-dotnet-how-to-use-tables.md) para almacenar datos estructurados.
     - Use [Almacenamiento de blobs](storage-dotnet-how-to-use-blobs.md) para almacenar datos no estructurados.
     - Utilice [Base de datos SQL](sql-database-dotnet-how-to-use.md) para almacenar datos relacionales.
 
@@ -259,6 +259,5 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
- 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/02/2015"
+   ms.date="01/08/2015"
    ms.author="cherylmc" />
 
 # Asociados de ExpressRoute y ubicaciones de emparejamiento
@@ -103,7 +103,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Proveedor de servicios** |**Microsoft Azure** | **Office 365** | **Ubicaciones** |
 |-----------------------|--------------------|----------------|---------------|
 | **China Telecom** | Compatible | No compatible | Beijing, Shanghai+|
-Para más información, consulte [ExpressRoute en China](http://www.windowsazure.cn/home/features/expressroute/).
+Para obtener más información, consulte [ExpressRoute en China](http://www.windowsazure.cn/home/features/expressroute/).
 
 ## Conectividad a través de proveedores de servicios no enumerados
 
@@ -133,10 +133,12 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 |---|---|
 |**[Nimbo](http://www.nimbo.com/)**|US||
 |**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|EMEA|
+|**[Project Leadership](http://www.projectleadership.net/azure)** | US |
+|**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | US |
 
 ## Pasos siguientes
 
 - Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 - Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

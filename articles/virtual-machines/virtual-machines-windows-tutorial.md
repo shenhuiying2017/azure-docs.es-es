@@ -20,15 +20,11 @@
 # Creación de una máquina virtual que ejecuta Windows en el Portal de Azure#
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
-
-<br>
-
-
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
 Este tutorial muestra lo fácil que resulta crear una máquina virtual de Azure en unos minutos en el Portal de Azure. Usaremos una imagen de Windows Server 2012 R2 Datacenter como ejemplo para crear la máquina virtual, pero esa es solo una de las muchas imágenes que Azure ofrece. Las imágenes disponibles dependen de su suscripción. Por ejemplo, las imágenes de escritorio pueden estar disponibles para los suscriptores MSDN.
 
@@ -66,7 +62,7 @@ Después de seleccionar la imagen, puede usar los valores predeterminados de Azu
 
 2. Escriba el **nombre** que desee para la máquina virtual. El nombre no puede contener caracteres especiales.
 
-3. Escriba un **nombre de usuario** administrador y **contraseña** segura. La contraseña debe tener entre 8 y 123 caracteres y al menos tres de los siguientes valores: una minúscula, una mayúscula, un número y un carácter especial. **Necesitará el nombre de usuario y la contraseña para iniciar sesión en la máquina virtual**.
+3. Escriba un **nombre de usuario** administrador y una **contraseña** segura. La contraseña debe tener entre 8 y 123 caracteres y al menos tres de los siguientes valores: una minúscula, una mayúscula, un número y un carácter especial. **Necesitará el nombre de usuario y la contraseña para iniciar sesión en la máquina virtual.**
 
 4. Si tiene más de una suscripción, especifique una de ellas para la nueva máquina virtual, así como un nuevo **Grupo de recursos** o uno existente y la **Ubicación** de un centro de datos de Azure.
 
@@ -87,7 +83,7 @@ Después de seleccionar la imagen, puede usar los valores predeterminados de Azu
 
 	![Captura de pantalla que muestra el resumen de las opciones de configuración realizadas para la máquina virtual de Azure](./media/virtual-machines-windows-tutorial/create_vm_summary.PNG)
 
-8. Mientras Azure crea la máquina virtual, puede realizar un seguimiento del progreso en **Máquinas virtuales**, en el menú concentrador.
+8. Mientras Azure crea la máquina virtual, puede realizar un seguimiento del progreso en **Máquinas virtuales**, en el menú Concentrador.
 
 ## Iniciar sesión en la nueva máquina virtual
 
@@ -116,6 +112,6 @@ Ahora puede trabajar con la máquina virtual igual que hace con cualquier otro s
 ## Pasos siguientes
 
 * Use Azure PowerShell y la CLI de Azure para [buscar y seleccionar imágenes de máquina virtual](resource-groups-vm-searching.md).
-* Automatice la implementación y administración de máquinas virtuales y cargas de trabajo con el [Administrador de recursos de Azure](virtual-machines-how-to-automate-azure-resource-manager.md) y las [plantillas de Administrador de recursos de Azure](http://azure.microsoft.com/documentation/templates/).
+* Automatice la implementación y administración de máquinas virtuales y cargas de trabajo con las [plantillas de Administrador de recursos de Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

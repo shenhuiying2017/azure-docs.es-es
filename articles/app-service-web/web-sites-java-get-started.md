@@ -5,14 +5,14 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Creación de una aplicación web de Java en el Servicio de aplicaciones de Azure
@@ -29,7 +29,7 @@ En este tutorial se muestra cómo crear una [aplicación web de Java en el Servi
 
 > [AZURE.NOTE]Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a Visual Studio][] o bien [registrarse para obtener una evaluación gratuita][].
 >
-> Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita de Servicio de aplicaciones][]. Ahí puede crear de forma inmediata una aplicación web de corta duración para iniciarse en Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
+> Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita del Servicio de aplicaciones][]. Ahí puede crear de forma inmediata una aplicación web de corta duración para iniciarse en Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
 
 ## Opciones de la aplicación Java
 
@@ -86,7 +86,7 @@ En esta sección se muestra cómo usar Azure Marketplace para crear una aplicaci
 
 	Para obtener más información acerca de los grupos de recursos, consulte [Uso del Portal de Azure para administrar los recursos de Azure](../resource-group-portal.md).
 
-9. Seleccione un **plan de servicio de aplicaciones/ubicación** o cree uno nuevo.
+9. Seleccione un **Plan de servicio de aplicaciones/Ubicación** o cree uno nuevo.
 
 	Para obtener más información sobre los planes del Servicio de aplicaciones, consulte [Información general sobre los planes del Servicio de aplicaciones de Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
@@ -130,7 +130,7 @@ En esta sección se muestra cómo crear una aplicación web y configurarla para 
 
 	Para obtener más información acerca de los grupos de recursos, consulte [Uso del Portal de Azure para administrar los recursos de Azure](../resource-group-portal.md).
 
-6. Seleccione un **plan de servicio de aplicaciones/ubicación** o cree uno nuevo.
+6. Seleccione un **Plan de servicio de aplicaciones/Ubicación** o cree uno nuevo.
 
 	Para obtener más información sobre los planes del Servicio de aplicaciones, consulte [Información general sobre los planes del Servicio de aplicaciones de Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
@@ -156,7 +156,7 @@ En esta sección se muestra cómo crear una aplicación web y configurarla para 
 
 13. Haga clic en **Guardar**.
 
-	En unos momentos, su aplicación web estarán basada en Java y estará configurada para usar el contenedor web seleccionado.
+	En unos momentos, su aplicación web estará basada en Java y estará configurada para usar el contenedor web seleccionado.
 
 14. Haga clic en **Aplicaciones web > {su nueva aplicación web}**.
 
@@ -174,6 +174,6 @@ Para obtener más información sobre el desarrollo de aplicaciones Java en Azure
 [activar los beneficios de suscripción a Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [registrarse para obtener una evaluación gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
 
-[prueba gratuita de Servicio de aplicaciones]: http://go.microsoft.com/fwlink/?LinkId=523751
+[prueba gratuita del Servicio de aplicaciones]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

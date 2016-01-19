@@ -10,7 +10,7 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="12/11/2015"
@@ -105,4 +105,4 @@ En el ejemplo siguiente se obtiene la lista de trabajos de una cuenta de Anális
 - [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-use-portal.md)
 - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

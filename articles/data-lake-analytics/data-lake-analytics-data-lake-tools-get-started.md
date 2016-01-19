@@ -10,7 +10,7 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="01/07/2015"
@@ -60,7 +60,7 @@ Se cargaron algunos datos en la sección **Requisitos previos**, anteriormente e
 
 Si desea usar sus propios datos, estos son los procedimientos para cargar los datos desde Data Lake Tools.
 
-**Para cargar el archivo a la cuenta de Azure Data Lake dependiente**
+**Para cargar archivos en la cuenta de Azure Data Lake dependiente**
 
 1. En el **Explorador de servidores**, expanda **Azure**, expanda **Análisis de Data Lake**, expanda su cuenta de Análisis de Data Lake y expanda **Cuentas de almacenamiento**. Verá la cuenta de Almacén de Data Lake predeterminada, las cuentas de Almacén de Data Lake vinculadas y las cuentas de almacenamiento de Azure vinculadas. La cuenta de Data Lake predeterminada tiene la etiqueta "Cuenta de almacenamiento predeterminada".
 2. Haga clic con el botón derecho en la cuenta de Almacén de Data Lake predeterminada y después haga clic en **Explorador**. Se abre el panel del explorador de Data Lake Tools for Visual Studio. En la izquierda muestra una vista de árbol y la vista de contenido está a la derecha.
@@ -69,11 +69,11 @@ Si desea usar sus propios datos, estos son los procedimientos para cargar los da
 
 	![proyecto U-SQL de Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
-**Para cargar el archivo a la cuenta de almacenamiento de blobs de Azure**
+**Para cargar archivos en una cuenta de Almacenamiento de blobs de Azure vinculada**
 
 1. En el **Explorador de servidores**, expanda **Azure**, expanda **Análisis de Data Lake**, expanda su cuenta de Análisis de Data Lake y expanda **Cuentas de almacenamiento**. Verá la cuenta de Almacén de Data Lake predeterminada, las cuentas de Almacén de Data Lake vinculadas y las cuentas de almacenamiento de Azure vinculadas. 
 2. Expanda la cuenta de almacenamiento de Azure.
-3. Haga clic con el botón derecho en el contenedor donde desea cargar los archivos y después haga clic en **Explorador**.
+3. Haga clic con el botón derecho en el contenedor donde desea cargar los archivos y después haga clic en **Explorador**. Si no tiene un contenedor, primero debe crearlo en el Portal de Azure, con Azure PowerShell o con otras herramientas.
 4. Vaya a la carpeta donde desea cargar los archivos. 
 5. Haga clic con el botón derecho en cualquier espacio en blanco y después haga clic en **Cargar**. 
 
@@ -88,8 +88,6 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
 
 	![Nuevo proyecto U-SQL en Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
-	>[AZURE.NOTE]Actualmente, las herramientas Data Lake Tools no admiten rutas de acceso de proyecto UNC en ejecución local.
-	
 3. Haga clic en **Aceptar**. Visual Studio crea una solución con un archivo **Script.usql**.
 4. Incluya el siguiente script en el archivo **Script.usql**:
 
@@ -134,7 +132,7 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
 
         Haga clic a la derecha de *; aparecerá subrayado azul bajo *. Mantenga el cursor del ratón sobre el subrayado azul y después haga clic en la flecha hacia abajo. ![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
-        Haga clic en **Expandir columnas** y la herramienta reemplazará * por los nombres de columna.
+        Haga clic en **Expand Columns (Expandir columnas)** y la herramienta reemplazará * por los nombres de columna.
     
 	- **Formato automático**
 	
@@ -163,12 +161,12 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
     Para obtener más información, consulte [Uso del catálogo de U-SQL](data-lake-analytics-use-u-sql-catalog.md).
 
 5. En el **Explorador de soluciones**, haga clic con el botón derecho en **Script.usql** y después haga clic en **Compilar script**. Compruebe el resultado en el panel Salida.
-6. En el **Explorador de soluciones**, haga clic con el botón derecho en **Script.usql** y después haga clic en **Enviar script**. Si lo desea, también puede hacer clic **Enviar** desde el panel de Script.usql. Consulte la captura de pantalla anterior. Haga clic en la flecha hacia abajo situada junto al botón Enviar para enviar mediante las opciones avanzadas:
+6. En el **Explorador de soluciones**, haga clic con el botón derecho en **Script.usql** y después haga clic en **Enviar script**. Si lo desea, también puede hacer clic **Enviar** en el panel de Script.usql. Consulte la captura de pantalla anterior. Haga clic en la flecha hacia abajo situada junto al botón Enviar para enviar mediante las opciones avanzadas:
 7. Especifique el **Nombre del trabajo**, compruebe la **Cuenta de Análisis** y haga clic en **Enviar**. Los resultados del envío y el vínculo del trabajo están disponibles en la ventana de resultados de Data Lake Tools for Visual Studio cuando se completa el envío.
 
 	![Enviar proyecto U-SQL de Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
 
-8. Puede hacer clic en el botón Actualizar para ver el estado más reciente del trabajo y actualizar la pantalla. Cuando el trabajo se completa correctamente, se muestra **Gráfico del trabajo**, **Operaciones de metadatos**, **Historial de estado**, **Diagnósticos**:
+8. Puede hacer clic en el botón Actualizar para ver el estado más reciente del trabajo y actualizar la pantalla. Cuando el trabajo se completa correctamente, se muestra **Job Graph (Gráfico del trabajo)**, **Meta Data Operations (Operaciones de metadatos)**, **State History (Historial de estado)**, **Diagnostics (Diagnósticos)**:
 
 	![Gráfico de rendimiento del trabajo de Análisis de Data Lake de U-SQL Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
@@ -198,9 +196,9 @@ La reproducción del trabajo permite ver el progreso de la ejecución del trabaj
 
 **Para ver el progreso de la ejecución del trabajo**
 
-1. Haga clic en **Cargar perfil** en la esquina superior derecha. Consulte la captura de pantalla anterior.
+1. Haga clic en **Load Profile (Cargar perfil)** en la esquina superior derecha. Consulte la captura de pantalla anterior.
 2. Haga clic en el botón Reproducir, en la esquina inferior izquierda, para revisar el progreso de la ejecución del trabajo. 
-3. Durante la reproducción, haga clic en **Pausa** para detenerla o arrastre directamente de la barra de progreso a posiciones específicas. 
+3. Durante la reproducción, haga clic en **Pausa** para detenerla o arrastre directamente la barra de progreso a posiciones específicas. 
 
 
 ###Mapa térmico 
@@ -357,4 +355,4 @@ El siguiente script de PowerShell prepara una cuenta de Análisis de Azure Data 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

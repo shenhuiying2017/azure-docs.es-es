@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015" 
+	ms.date="12/04/2015"
 	ms.author="robinsh"/>
 
 
@@ -27,7 +27,7 @@ Una cuenta de almacenamiento de Azure proporciona acceso a los servicios de Azur
 
 Existen dos tipos de cuentas de almacenamiento:
 
-- Una cuenta de almacenamiento estándar incluye el almacenamiento de blobs, tablas, colas y archivos. 
+- Una cuenta de almacenamiento estándar incluye el almacenamiento de blobs, tablas, colas y archivos.
 - Una cuenta de almacenamiento premium actualmente solo admite los discos de máquinas virtuales de Azure. Consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](storage-premium-storage-preview-portal.md) para obtener una introducción detallada del Almacenamiento premium.
 
 ## Facturación de la cuenta de almacenamiento
@@ -173,4 +173,4 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Eliminar** en 
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 - [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Creación de una máquina virtual que ejecuta Linux | Microsoft Azure"
-	description="Aprenda a crear una máquina virtual Linux de Azure o una máquina virtual Ubuntu de Azure mediante una imagen de Azure y la interfaz de línea de comandos de Azure."
-	keywords="máquina virtual con linux,máquina virtual linux,Linux de Azure,ubuntu de Azure" 
+	pageTitle="Creación de una máquina virtual con Linux | Microsoft Azure"
+	description="Aprenda a crear una máquina virtual con Linux o una máquina virtual con Ubuntu mediante una imagen de Azure y la interfaz de línea de comandos de Azure."
+	keywords="máquina virtual con linux,máquina virtual linux,máquina virtual con ubuntu" 
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -18,18 +18,16 @@
 	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
-# Creación de una máquina virtual que ejecuta Linux
+# Creación de una máquina virtual con Linux
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
-<br>
-
-Crear una máquina virtual de Azure (VM) que ejecuta Linux es fácil de hacer desde la línea de comandos o desde el portal. Este tutorial muestra cómo usar la interfaz de la línea de comandos (CLI) de Azure para Mac, Linux y Windows a fin de crear rápidamente una máquina virtual de servidor Ubuntu que se ejecuta en Azure, conectarse a ella mediante **ssh**, y crear y montar un disco nuevo. Este tema usa una máquina virtual de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](virtual-machines-linux-create-upload-vhd.md).
+Crear una máquina virtual con Linux es muy sencillo desde la línea de comandos o desde el Portal. Este tutorial muestra cómo usar la interfaz de la línea de comandos (CLI) de Azure para Mac, Linux y Windows a fin de crear rápidamente una máquina virtual de servidor Ubuntu que se ejecuta en Azure, conectarse a ella mediante **ssh**, y crear y montar un disco nuevo. Este tema usa una máquina virtual de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](virtual-machines-linux-create-upload-vhd.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
@@ -51,7 +49,7 @@ Mejor aún. [Inicie sesión con su identificador profesional o educativo](../xpl
 
 > [AZURE.NOTE]Si tiene un identificador profesional o educativo y sabe que no tiene habilitada la autenticación en dos fases, puede usar `azure login -u` junto con el identificador profesional o educativo para iniciar una sesión sin una sesión interactiva. Si no tiene un identificador profesional o educativo, puede [crear uno desde su cuenta personal de Microsoft](resource-group-create-work-id-from-personal.md).
 
-## Creación de la máquina virtual de Azure
+## Creación de la máquina virtual con Linux
 
 Escriba `azure group create <my-group-name> westus` reemplazando _&lt;mi-nombre-de-grupo&gt;_ por un nombre de grupo que es único (puede utilizar una región diferente si lo desea). Debe ver algo parecido a lo siguiente:
 
@@ -328,4 +326,4 @@ Para obtener más información sobre Linux en Azure, consulte:
 
 - [Extensión de máquina virtual Docker para Linux en Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

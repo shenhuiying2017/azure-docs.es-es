@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/08/2015"
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Creación de una aplicación de API ASP.NET en el Servicio de aplicaciones de Azure
@@ -46,7 +46,7 @@ Cuando las instrucciones indiquen que escriba un nombre para el proyecto, escrib
 
 La aplicación de API ya está lista para implementarse. Para ello, puede seguir el tutorial [Implementación de una aplicación de API](app-service-dotnet-deploy-api-app.md).
 
-Para información sobre cómo usar código de cliente generado automáticamente para llamar a aplicaciones de API, consulte [Consumo de una aplicación de API desde un cliente .NET](app-service-api-dotnet-consume.md).
+Para obtener información sobre cómo usar código de cliente generado automáticamente para llamar a aplicaciones de API, consulte [Consumo de una aplicación de API desde un cliente .NET](app-service-api-dotnet-consume.md).
 
 Para información sobre cómo personalizar los metadatos Swagger generados automáticamente para una aplicación de API, consulte [Personalización de definiciones de API generadas por Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md).
 
@@ -56,4 +56,4 @@ Para información sobre cómo autenticar a usuarios de aplicaciones de API, cons
 
 Para información sobre las características de las aplicaciones de API, consulte [¿Qué son las aplicaciones de API?](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

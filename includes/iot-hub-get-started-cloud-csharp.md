@@ -57,9 +57,9 @@ En esta sección, creará una aplicación de consola de Windows que crea una nue
 
 ## Recepción de mensajes de dispositivo a nube
 
-En esta sección, creará una aplicación de consola de Windows que lee los mensajes de dispositivo a nube del Centro de IoT. El Centro de IoT expone un punto de conexión compatible con [Centros de eventos ][lnk-event-hubs-overview] para poder leer los mensajes de dispositivo a nube. Para simplificar las cosas, este tutorial crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. En el tutorial [Procesamiento de mensajes de dispositivo a la nube][lnk-processd2c-tutorial] se muestra cómo procesar mensajes de dispositivo a nube y el tutorial [Introducción a los Centros de eventos][lnk-eventhubs-tutorial] ofrece más información sobre cómo procesar mensajes desde los Centros de eventos.
+En esta sección, creará una aplicación de consola de Windows que lee los mensajes de dispositivo a nube del Centro de IoT. El Centro de IoT expone un punto de conexión compatible con [Centros de eventos ][lnk-event-hubs-overview] para poder leer los mensajes de dispositivo a nube. Para simplificar las cosas, este tutorial crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. El [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-processd2c-tutorial] muestra cómo procesar mensajes de dispositivo a la nube a escala. El tutorial [Introducción a los Centros de eventos][lnk-eventhubs-tutorial] proporciona información adicional acerca de cómo procesar los mensajes desde los Centros de eventos y se puede aplicar a los puntos de conexión compatibles con Centro de eventos de Centro de IoT.
 
-1. En Visual Studio, agregue un nuevo proyecto de escritorio clásico de Windows de Visual C# a la solución actual con la plantilla de proyecto **Aplicación de consola**. Asigne al proyecto el nombre **ReadDeviceToCloudMessages**.
+1. En Visual Studio, agregue un nuevo proyecto de aplicación de escritorio clásico de Windows de Visual C# con la plantilla de proyecto **Aplicación de consola**. Asigne al proyecto el nombre **ReadDeviceToCloudMessages**.
 
     ![][10]
 
@@ -94,7 +94,7 @@ En esta sección, creará una aplicación de consola de Windows que lee los mens
             }
         }
 
-    Este método usa una instancia de **EventHubReceiver** para recibir mensajes de todas las particiones de recepción de dispositivo a nube del Centro de IoT. Observe cómo pasar un parámetro `DateTime.Now` al crear el objeto **EventHubReceiver** para que solo reciba los mensajes enviados después de iniciarse.
+    Este método usa una instancia de **EventHubReceiver** para recibir mensajes de todas las particiones de recepción de dispositivo a nube del Centro de IoT. Observe cómo pasar un parámetro `DateTime.Now` al crear el objeto **EventHubReceiver** para que solo reciba los mensajes enviados después de iniciarse. Esto es útil en un entorno de prueba, porque puede ver el conjunto actual de mensajes, pero en un entorno de producción el código debe asegurarse de que se procesan todos los mensajes. Consulte el [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-processd2c-tutorial] para obtener más información.
 
 7. Por último, agregue las líneas siguientes al método **Main**:
 
@@ -125,4 +125,4 @@ En esta sección, creará una aplicación de consola de Windows que lee los mens
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

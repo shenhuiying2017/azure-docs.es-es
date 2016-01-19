@@ -28,7 +28,7 @@ Puede crear rápidamente un índice en Búsqueda de Azure mediante la creación 
 
 Para completar esta tarea, asegúrese de disponer de un servicio de Búsqueda de Azure que esté listo para funcionar. Consulte [Crear un servicio de Búsqueda de Azure en el portal](search-create-service-portal.md) si necesita ayuda para configurarlo.
 
-1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
 2. Abra el panel del servicio Búsqueda de Azure. A continuación se presentan algunas formas de buscar el panel.
 	- En la barra de salto, haga clic en **Inicio**. La página principal dispone de iconos para cada servicio de su suscripción. Haga clic en el icono para abrir el panel de servicio.
@@ -105,4 +105,4 @@ Una vez que se encuentre cómodo con el índice básico, considere la posibilida
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

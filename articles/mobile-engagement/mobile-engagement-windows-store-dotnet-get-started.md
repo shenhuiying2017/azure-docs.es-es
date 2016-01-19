@@ -2,7 +2,7 @@
 	pageTitle="Introducción a Azure Mobile Engagement para aplicaciones universales de Windows"
 	description="Aprenda a usar Azure Mobile Engagement con análisis y notificaciones push para aplicaciones universales de Windows."
 	services="mobile-engagement"
-	documentationCenter="mobile"
+	documentationCenter="windows"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -67,7 +67,7 @@ Ahora ha creado un nuevo proyecto de aplicación universal de Windows en el que 
 
 	![][2]
 
-3. Copie la cadena de conexión que copió anteriormente para la aplicación Mobile Engagement y péguela en el archivo `Resources\EngagementConfiguration.xml`, entre las etiquetas `<connectionString>` y `</connectionString>`:
+3. Ahora, copie la cadena de conexión que copió anteriormente para la aplicación Mobile Engagement y péguela en el archivo `Resources\EngagementConfiguration.xml`, entre las etiquetas `<connectionString>` y `</connectionString>`:
 
 	![][3]
 
@@ -156,7 +156,7 @@ Ahora está todo listo para enviar un aviso. Ahora comprobaremos que ha llevado 
 
 ###Concesión de acceso a Mobile Engagement para enviar notificaciones
 
-1. Abra el [Centro de desarrollo de Windows] en el explorador web, inicie sesión y cree una cuenta, en caso de que sea necesario.
+1. Abra [Centro de desarrollo de Tienda Windows] en el explorador web, inicie sesión y cree una cuenta, si es necesario.
 2. Haga clic en **Panel** en la esquina superior derecha y, a continuación, haga clic en **Crear una nueva aplicación** en el menú del panel izquierdo. 
 
 	![][9]
@@ -181,7 +181,7 @@ Ahora está todo listo para enviar un aviso. Ahora comprobaremos que ha llevado 
 
 	![][6]
 
-8. Por último, asegúrese de que asoció la aplicación de Visual Studio a esta aplicación creada en la tienda de aplicaciones. Para ello, debe hacer clic en **Asociar aplicación con la Tienda** en Visual Studio.
+8. Por último, asegúrese de que asoció la aplicación de Visual Studio a esta aplicación creada en la tienda de aplicaciones. Debe hacer clic en **Asociar aplicación con la Tienda** de Visual Studio para ello.
 
 	![][7]
 
@@ -196,7 +196,7 @@ Si la aplicación se estaba ejecutando, verá entonces una notificación desde l
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
-[Centro de desarrollo de Windows]: https://dev.windows.com
+[Centro de desarrollo de Tienda Windows]: https://dev.windows.com
 [Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
@@ -213,4 +213,4 @@ Si la aplicación se estaba ejecutando, verá entonces una notificación desde l
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

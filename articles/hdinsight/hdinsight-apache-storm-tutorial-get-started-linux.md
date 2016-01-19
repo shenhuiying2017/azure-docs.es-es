@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/05/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 
@@ -148,25 +148,13 @@ Los ejemplos de [storm-starter](https://github.com/apache/storm/tree/master/exam
 
 La interfaz de usuario de Storm ofrece una interfaz web para trabajar con topologías en ejecución y se incluye en el clúster de HDInsight.
 
-> [AZURE.IMPORTANT]La interfaz de usuario de Storm no está disponible públicamente a través de Internet y se debe tener acceso a ella mediante un túnel de SSH en el nodo principal del clúster de HDInsight. Para obtener más información, consulte [Uso de la tunelación SSH para tener acceso a ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md)
+Siga estos pasos para supervisar la topología mediante la interfaz de usuario de Storm:
 
-Lleve a cabo los pasos siguientes para ver la interfaz de usuario de Storm:
+1. Abra un explorador web en https://CLUSTERNAME.azurehdinsight.net/stormui, donde __CLUSTERNAME__ es el nombre del clúster. Se abrirá la interfaz de usuario de Storm.
 
-1. Cuando haya creado un túnel SSH para el clúster, abra un explorador web en https://CLUSTERNAME.azurehdinsight.net, donde __CLUSTERNAME__ es el nombre del clúster. Esto abrirá la interfaz de usuario web de Ambari.
+	> [AZURE.NOTE]Si se le pide que ofrezca un nombre de usuario y una contraseña, escriba el administrador de clústeres (admin) y la contraseña que usó al crear el clúster.
 
-	> [AZURE.NOTE]Si se le pide que ofrezca un nombre de usuario y una contraseña, escriba el administrador de clústeres (admin) y la contraseña que usó al crear el clúster. Es posible que se le pida autenticarse dos veces, una vez por parte del explorador y una segunda vez mediante la interfaz de usuario web de Ambari; use las mismas credenciales para ambos.
-
-2. En la lista de servicios de la izquierda de la página, seleccione __Storm__. Después, seleccione __IU de Storm__ en __Vínculos rápidos__.
-
-    ![Entrada de la interfaz de usuario de Storm en vínculos rápidos](./media/hdinsight-apache-storm-tutorial-get-started-linux/ambari-storm.png)
-
-    Esta acción mostrará la página web de la interfaz de usuario de Storm:
-
-    ![la interfaz de usuario de storm](./media/hdinsight-apache-storm-tutorial-get-started-linux/stormui.png)
-	
-	> [AZURE.NOTE]Si recibe un error de que no se encuentra el servidor, es posible que no haya establecido un túnel SSH en el clúster. Consulte [Uso de la tunelación SSH para tener acceso a ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md) para obtener más información.
-
-4. En el **resumen de la topología**, seleccione la entrada **wordcount** de la columna **Nombre**. Se mostrará más información sobre la topología.
+2. En el **resumen de la topología**, seleccione la entrada **wordcount** de la columna **Nombre**. Se mostrará más información sobre la topología.
 
 	![Panel de Storm con la información de topología de WordCount de inicio de Starter.](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
 
@@ -192,7 +180,7 @@ Lleve a cabo los pasos siguientes para ver la interfaz de usuario de Storm:
 
 	* **Eliminar**: finaliza una topología de Storm tras el tiempo de espera especificado.
 
-5. En esta página, seleccione una entrada en la sección **Spouts** o **Bolts**. Se mostrará información sobre el componente seleccionado.
+3. En esta página, seleccione una entrada en la sección **Spouts** o **Bolts**. Se mostrará información sobre el componente seleccionado.
 
 	![Panel de Storm con información acerca de los componentes seleccionados.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
 
@@ -210,7 +198,7 @@ Lleve a cabo los pasos siguientes para ver la interfaz de usuario de Storm:
 
 	* **Errores**: errores que ha generado este componente.
 
-5. Al visualizar los detalles de un spout o bolt, seleccione una entrada de la columna **Puerto** en la sección **Ejecutores** para ver los detalles de una instancia específica del componente.
+4. Al visualizar los detalles de un spout o bolt, seleccione una entrada de la columna **Puerto** en la sección **Ejecutores** para ver los detalles de una instancia específica del componente.
 
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
@@ -245,4 +233,4 @@ En este tutorial de Apache Storm, usó el inicio de Storm para aprender a crear 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

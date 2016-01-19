@@ -13,12 +13,14 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="01/11/2016"
 	ms.author="heidist"/>
 
 # Introducción a Búsqueda de Azure en Java
 
 Aprenda a crear una aplicación de búsqueda de Java personalizada que utiliza Búsqueda de Azure para la experiencia de búsqueda. Este tutorial usa la [API de REST del servicio Búsqueda de Azure](https://msdn.microsoft.com/library/dn798935.aspx) para construir los objetos y las operaciones que se utilizan en este ejercicio.
+
+Para ejecutar este ejemplo, debe tener un servicio Búsqueda de Azure al que puede suscribirse en el [Portal de Azure](https://portal.azure.com). Consulte [Creación de un servicio Búsqueda de Azure en el Portal de Azure clásico](search-create-service-portal.md) para obtener instrucciones detalladas.
 
 Hemos usado el siguiente software para compilar y probar este ejemplo:
 
@@ -27,10 +29,6 @@ Hemos usado el siguiente software para compilar y probar este ejemplo:
 - [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 - [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
-
-Para ejecutar este ejemplo, necesita un servicio Búsqueda de Azure, para el que puede registrarse en el [Portal de Azure clásico](https://portal.azure.com).
-
-> [AZURE.TIP]Descargue el código fuente para este tutorial en [demostración de Búsqueda de Azure en Java](http://go.microsoft.com/fwlink/p/?LinkId=530197) en Github.
 
 ## Acerca de los datos
 
@@ -52,48 +50,19 @@ La lista siguiente describe los archivos que son relevantes para este ejemplo.
 - config.properties: establece la dirección URL del servicio de búsqueda y la clave de API
 - Pom.xml: una dependencia de Maven
 
-
-## Creación del servicio
-
-1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com).
-
-2. En la barra de salto, haga clic en **Nuevo** > **Datos + almacenamiento** > **Búsqueda**.
-
-     ![][1]
-
-3. Configure el nombre del servicio, el nivel de precios, el grupo de recursos, la suscripción y la ubicación. Estos valores son necesarios y no se puede cambiar una vez que se aprovisiona el servicio.
-
-     ![][2]
-
-	- **Nombre de servicio** debe ser único, en minúsculas, con un máximo de 15 caracteres y sin espacios. Este nombre se convierte en parte del extremo del servicio Búsqueda de Azure. Consulte [Reglas de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) para obtener más información acerca de las convenciones de nomenclatura.
-
-	- **Nivel de precios** determina la capacidad y la facturación. Los dos niveles proporcionan las mismas características, pero con niveles de recursos distintos.
-
-		- **Gratuito** se ejecuta en clústeres que se comparten con otros suscriptores. Ofrece suficiente capacidad para probar tutoriales y escribir código de prueba de concepto, pero no está destinado a aplicaciones de producción. Implementar un servicio gratuito suele llevar pocos minutos.
-		- **Estándar** se ejecuta en recursos dedicados y es altamente escalable. Inicialmente, se aprovisiona un servicio estándar con una réplica y una partición, pero se puede ajustar la capacidad una vez creado el servicio. Implementar un servicio estándar lleva más tiempo, normalmente unos quince minutos.
-
-	- Los **grupos de recursos** son contenedores para servicios y recursos que se usan para un objetivo común. Por ejemplo, si va a compilar una aplicación de búsqueda personalizada basada en Búsqueda de Azure, Sitios web Azure, almacenamiento de blobs de Azure, puede crear un grupo de recursos que mantenga estos servicios juntos en las páginas de administración del portal.
-
-	- **Suscripción** permite elegir entre varias suscripciones, si tiene más de una.
-
-	- **Ubicación** es la región del centro de datos. Actualmente, todos los recursos se deben ejecutar en el mismo centro de datos. No se admite la distribución de recursos entre varios centros de datos.
-
-4. Haga clic en **Crear** para realizar el aprovisionamiento del servicio.
-
-Preste atención a las notificaciones de la barra de salto. Cuando el servicio esté listo para su uso, aparecerá un aviso.
-
 <a id="sub-2"></a>
 ## Buscar el nombre del servicio y la clave de API del servicio Búsqueda de Azure
 
-Después de crear el servicio, puede volver al portal para obtener la dirección URL y la `api-key`. Las conexiones con el servicio de búsqueda requieren que tenga la URL y una `api-key` para autenticar la llamada.
+Todas las llamadas de API de REST en Búsqueda de Azure requieren que proporcione la dirección URL del servicio y una clave de API.
 
-1. En la barra de salto, haga clic en **Inicio** y, a continuación, haga clic en el servicio de búsqueda para abrir el panel del servicio.
-
-2. En el panel del servicio verá mosaicos con información esencial, así como el icono de llave para tener acceso a las claves de administrador.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+2. En la barra de acceso rápido, haga clic en **Servicio de búsqueda** para enumerar todos los servicios Búsqueda de Azure aprovisionados para la suscripción.
+3. Seleccione el servicio que desea utilizar.
+4. En el panel del servicio verá mosaicos con información esencial, así como el icono de llave para tener acceso a las claves de administrador.
 
   	![][3]
 
-3. Copie la dirección URL del servicio y una clave de administración. Las necesitará más adelante para agregarlas al archivo **config.properties**.
+5. Copie la dirección URL del servicio y una clave de administración. Las necesitará más adelante para agregarlas al archivo **config.properties**.
 
 ## Descarga de los archivos de ejemplo
 
@@ -123,7 +92,7 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 
 1. En **Project Explorer** (Explorador de proyectos), haga doble clic en **config.properties** para editar los valores de configuración que contienen el nombre del servidor y la clave de API.
 
-2. Consulte los pasos descritos anteriormente en este artículo, referentes a la obtención de la dirección URL del servicio y la clave de API en el [Portal de Azure clásico](https://portal.azure.com), para obtener los valores que debe introducir en **config.properties**.
+2. Consulte los pasos descritos anteriormente en este artículo, referentes a la obtención de la dirección URL del servicio y la clave de API en el [Portal de Azure](https://portal.azure.com), para obtener los valores que debe introducir en **config.properties**.
 
 3. En **config.properties**, reemplace "Api Key" con la clave de API del servicio. A continuación, utilice el nombre de servicio (el primer componente de la dirección URL http://servicename.search.windows.net) para reemplazar "service name" en el mismo archivo.
 
@@ -231,4 +200,4 @@ Si ya Tiene alguna experiencia con Búsqueda de Azure, puede utilizar este ejemp
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->
