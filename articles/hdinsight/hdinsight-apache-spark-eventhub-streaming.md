@@ -64,10 +64,12 @@ Así es como fluye la solución de streaming:
 4. Haga clic en el Centro de eventos que ha creado, en **Configurar** y, después, cree dos directivas de acceso para el Centro de eventos.
 
 	<table>
-<tr><th>Nombre</th><th>Permisos</th></tr>
-<tr><td>mysendpolicy</td><td>Los métodos Send</td></tr>
-<tr><td>myreceivepolicy</td><td>Escuchar</td></tr>
-</table>Después de crear los permisos, seleccione el icono **Guardar** en la parte inferior de la página. Así se crean las directivas de acceso compartido que se usarán para enviar (**mysendpolicy**) y escuchar (**myreceivepolicy**) a este Centro de eventos.
+	<tr><th>Nombre</th><th>Permisos</th></tr>
+	<tr><td>mysendpolicy</td><td>Los métodos Send</td></tr>
+	<tr><td>myreceivepolicy</td><td>Escuchar</td></tr>
+	</table>
+
+	Después de crear los permisos, seleccione el icono **Guardar** en la parte inferior de la página. Así se crean las directivas de acceso compartido que se usarán para enviar (**mysendpolicy**) y escuchar (**myreceivepolicy**) a este Centro de eventos.
 
 	![directivas](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Crear directivas de centro de eventos")
 
@@ -371,4 +373,3 @@ Debería ver una salida similar a la siguiente:
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
 <!---HONumber=AcomDC_0107_2016-->
-<!---Line 344, 350 and 356; localized strings-->
