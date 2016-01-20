@@ -31,7 +31,7 @@ Las canalizaciones, que son un grupo lógico de actividades, mueven y procesan l
 
 ## Diagrama de la arquitectura
 
-En el diagrama, se muestra 1) cómo Factoría de datos organiza el movimiento y el procesamiento de datos y 2) cómo Lote de Azure procesa los datos en paralelo. Descargue e imprima el diagrama para facilitar la referencia (279 × 432 mm o tamaño A3): [Microsoft Azure Batch and Azure Data Factory: Architecture for large-scale data processing](http://go.microsoft.com/fwlink/?LinkId=717686).
+En el diagrama, se muestra 1) cómo Factoría de datos organiza el movimiento y el procesamiento de datos y 2) cómo Lote de Azure procesa los datos en paralelo. Descargue e imprima el diagrama para facilitar la referencia (279 × 432 mm o tamaño A3): [Lote de Microsoft Azure y Factoría de datos de Azure: Arquitectura para procesamiento de datos a gran escala](http://go.microsoft.com/fwlink/?LinkId=717686).
 
 ![](./media/data-factory-data-processing-using-batch/image1.png)
 

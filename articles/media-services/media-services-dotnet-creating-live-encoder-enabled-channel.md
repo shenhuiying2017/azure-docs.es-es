@@ -24,11 +24,8 @@
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)  
 
-
-
-
 > [AZURE.NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+> Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
 
 ##Información general
 
@@ -41,7 +38,7 @@ Para obtener información más detallada sobre los canales habilitados para la c
 
 Los pasos siguientes describen las tareas para crear aplicaciones comunes de streaming en vivo.
 
->[AZURE.NOTE]Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Póngase en contacto con amslived en Microsoft punto com si necesita ejecutar un canal durante largos períodos de tiempo.
+>[AZURE.NOTE] Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Póngase en contacto con amslived en Microsoft punto com si necesita ejecutar un canal durante largos períodos de tiempo.
 
 1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
 
@@ -118,12 +115,18 @@ Obtenga y ejecute un ejemplo desde [aquí](http://azure.microsoft.com/documentat
 ##Conexión con Servicios multimedia
 Se recomienda usar un archivo app.config para almacenar la clave de cuenta y nombre de Servicios multimedia.
 
->[AZURE.NOTE]Para buscar los valores de nombre y clave, vaya al Portal de Azure clásico, seleccione la cuenta de Servicios multimedia y haga clic en el icono "ADMINISTRAR CLAVES" en la parte inferior de la ventana del portal. Al hacer clic en el icono junto a cada cuadro de texto, se copia el valor al Portapapeles del sistema.
+>[AZURE.NOTE] Para buscar los valores de nombre y clave, vaya al Portal de Azure clásico, seleccione la cuenta de Servicios multimedia y haga clic en el icono "ADMINISTRAR CLAVES" en la parte inferior de la ventana del portal. Al hacer clic en el icono junto a cada cuadro de texto, se copia el valor al Portapapeles del sistema.
 
 Agregue la sección appSettings al archivo app.config y establezca los valores de nombre y clave de la cuenta de Servicios multimedia.
 
 
-<?xml version="1.0"?> <configuration> <appSettings> <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" /> <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" /> </appSettings> </configuration>
+<?xml version="1.0"?>
+	<configuration>
+	  <appSettings>
+	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
+	      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
+	  </appSettings>
+	</configuration>
 	 
 	
 ##Ejemplo de código
