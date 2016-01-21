@@ -132,7 +132,12 @@ En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asign
 
 La tabla siguiente muestra los límites impuestos al direccionamiento IP en Azure por suscripción. Puede [ponerse en contacto con el soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar los límites predeterminados hasta alcanzar los límites máximos, según las necesidades empresariales.
 
-||Límite predeterminado|Límite máximo| |---|---|---| |Direcciones IP públicas (dinámicas)|5|póngase en contacto con el soporte técnico| |Direcciones IP públicas reservadas|20|póngase en contacto con el soporte técnico| |VIP pública por implementación (servicio en la nube)|5|póngase en contacto con el soporte técnico| |VIP privada (ILB) por implementación (servicio en la nube)|1|1|
+||Límite predeterminado|Límite máximo|
+|---|---|---|
+|Direcciones IP públicas (dinámicas)|5|póngase en contacto con el soporte técnico|
+|Direcciones IP públicas reservadas|20|póngase en contacto con el soporte técnico|
+|VIP pública por implementación (servicio en la nube)|5|póngase en contacto con el soporte técnico|
+|VIP privada (ILB) por implementación (servicio en la nube)|1|1|
 
 Asegúrese de leer el conjunto completo de [límites para redes](azure-subscription-service-limits.md#networking-limits) en Azure.
 
@@ -143,7 +148,16 @@ En la mayoría de los casos, las direcciones IP públicas son gratis. El uso de 
 ## Diferencias entre la implementación del Administración de recursos y la implementación clásica
 A continuación, se muestra una comparación de las características de direccionamiento IP en el modelo de implementación del Administrador de recursos y el modelo de implementación clásica.
 
-||Recurso|Clásica|Administrador de recursos| |---|---|---|---| |**Dirección IP pública**|Máquina virtual|Denominada ILPIP (solo dinámica)|Denominada IP pública (dinámica o estática)| |||Asignada a una máquina virtual IaaS o una instancia de rol PaaS|Asociada a la tarjeta NIC de la máquina virtual| ||Equilibrador de carga accesible desde Internet|Denominada VIP (dinámica) o IP reservada (estática)|Denominada IP pública (dinámica o estática)| |||Asignada a un servicio en la nube|Asociada a la configuración del front-end del equilibrador de carga| |||| |**Dirección IP privada**|Máquina virtual|Denominada DIP|Denominada dirección IP privada| |||Asignada a una máquina virtual IaaS o una instancia de rol PaaS|Asociada a la tarjeta NIC de la máquina virtual| ||Equilibrador de carga interno (ILB)|Asignada al ILB (dinámica o estática)|Asignada a la configuración del front-end del ILB (dinámica o estática)|
+||Recurso|Clásica|Administrador de recursos|
+|---|---|---|---|
+|**Dirección IP pública**|Máquina virtual|Denominada ILPIP (solo dinámica)|Denominada IP pública (dinámica o estática)|
+|||Asignada a una máquina virtual IaaS o una instancia de rol PaaS|Asociada a la tarjeta NIC de la máquina virtual|
+||Equilibrador de carga accesible desde Internet|Denominada VIP (dinámica) o IP reservada (estática)|Denominada IP pública (dinámica o estática)|
+|||Asignada a un servicio en la nube|Asociada a la configuración del front-end del equilibrador de carga|
+||||
+|**Dirección IP privada**|Máquina virtual|Denominada DIP|Denominada dirección IP privada|
+|||Asignada a una máquina virtual IaaS o una instancia de rol PaaS|Asociada a la tarjeta NIC de la máquina virtual|
+||Equilibrador de carga interno (ILB)|Asignada al ILB (dinámica o estática)|Asignada a la configuración del front-end del ILB (dinámica o estática)|
 
 ## Pasos siguientes
 - [Implementación de una máquina virtual con una IP pública estática](virtual-network-deploy-static-pip-classic-ps.md)
@@ -153,4 +167,4 @@ A continuación, se muestra una comparación de las características de direccio
 - [Creación de una puerta de enlace de aplicaciones con PowerShell](application-gateway-create-gateway.md)
 - [Creación de una puerta de enlace de aplicaciones interna con PowerShell](application-gateway-ilb.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!----HONumber=AcomDC_0107_2016-->
