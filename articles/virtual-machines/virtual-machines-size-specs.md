@@ -63,7 +63,12 @@ Creamos el concepto de unidad de proceso de Azure (ACU) para brindar una forma d
 |[Standard\_A0 (extra pequeño)](#standard-tier-a-series) |50 |
 |[Standard\_A1-4 (pequeño - grande)](#standard-tier-a-series) |100 |
 |[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-14v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
+|[A8-A11](#standard-tier-a-series) |225 *|
+|[D1-14](#standard-tier-d-series) |160 |
+|[D1-14v2](#standard-tier-dv2-series) |210 - 250 *|
+|[DS1-14](#standard-tier-ds-series) |160 |
+|[G1-5](#standard-tier-g-series) |180 - 240 *|
+|[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
 Las ACU marcadas con un asterisco * usan la tecnología Intel® Turbo para incrementar la frecuencia de CPU y brindar una mejora del rendimiento. El volumen de la mejora puede variar según el tamaño de la máquina virtual, la carga de trabajo y las otras cargas de trabajo que se ejecutan en el mismo host.

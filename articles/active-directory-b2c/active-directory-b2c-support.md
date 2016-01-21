@@ -30,6 +30,7 @@ Puede presentar solicitudes de soporte técnico para Azure Active Directory (AD)
 
     ![Soporte técnico - cambiar directorios](./media/active-directory-b2c-support/support-switch-dir.png)
 
+    
 3. Después de cambiar de directorio, haga clic en **Ayuda y soporte técnico**.
 
     ![Soporte técnico - soporte técnico](./media/active-directory-b2c-support/support-support.png)
