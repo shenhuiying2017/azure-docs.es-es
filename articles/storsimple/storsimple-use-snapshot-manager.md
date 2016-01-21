@@ -490,7 +490,8 @@ Las siguientes tablas muestran las combinaciones de teclas de método abreviado 
 | V | Abre el menú **Vista**. |
 | W | Abre una nueva consola de StorSimple Snapshot Manager centrada en el nodo **Grupos de volúmenes**.|
 | F | Actualiza la consola de Administrador de instantáneas StorSimple.|
-| L | Abre la página **Exportar lista**. | H | Abre la Ayuda en pantalla. |
+| L | Abre la página **Exportar lista**.
+| H | Abre la Ayuda en pantalla. |
  
 #### Teclas de método abreviado del nodo Catálogo de copia de seguridad
 
