@@ -74,8 +74,8 @@ Para habilitar el registro en su aplicación, deberá crear una directiva de reg
 4. El **Nombre** determina el nombre de la directiva de registro usado por su aplicación. Por ejemplo, escriba "SiUp".
 5. Haga clic en **Proveedores de identidades** y seleccione "Dirección de correo electrónico". También puede seleccionar proveedores de identidades sociales, si ya se han configurado. Haga clic en **OK**.
 
-> [AZURE.NOTE]
-> Para cuentas locales, las directivas de registro de Azure AD B2C usan contraseñas "Seguras" (se establecen en "No caduca nunca"). Consulte [Directiva de contraseñas de Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para obtener información sobre otros valores de configuración (que actualmente no se usan en Azure AD B2C).
+	> [AZURE.NOTE]
+	> Para cuentas locales, las directivas de registro de Azure AD B2C usan contraseñas "Seguras" (se establecen en "No caduca nunca"). Consulte [Directiva de contraseñas de Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para obtener información sobre otros valores de configuración (que actualmente no se usan en Azure AD B2C).
 
 6. Haga clic en **Atributos de registro**. Aquí elige atributos que quiere recopilar del consumidor durante el registro. Por ejemplo, seleccione "Ciudad o región", "Nombre para mostrar" y "Código postal". Haga clic en **OK**.
 7. Haga clic en **Notificaciones de aplicación**. Aquí puede elegir las notificaciones que quiere que se devuelvan en los tokens a su aplicación después de una experiencia de registro correcta. Por ejemplo, seleccione "Nombre para mostrar", "Proveedor de identidades", "Código Postal", "El usuario es nuevo" e "Id. de objeto del usuario".
@@ -121,4 +121,4 @@ Para habilitar la edición de perfiles en su aplicación, deberá crear una dire
     > [AZURE.NOTE]
     Se tarda hasta un minuto en que la creación de directivas y las actualizaciones surtan efecto.
 
-<!----HONumber=AcomDC_0107_2016-->
+<!-----HONumber=AcomDC_0107_2016-->
