@@ -47,7 +47,9 @@ Para migrar y publicar una aplicación web en Azure desde Visual Studio, siga es
 
   >[AZURE.IMPORTANT]Si tiene otros ensamblados o archivos que son necesarios para esta aplicación web, debe establecer manualmente las propiedades para estos archivos. Para obtener más información sobre cómo establecer estas propiedades, consulte la sección **Incluir archivos en el paquete de servicio** más adelante en este artículo.  
 
+
   >[AZURE.NOTE]Si ya existe un rol web para un proyecto web específico en un proyecto de Azure de la solución, no aparecerá **Convertir**, **Convertir en proyecto de servicio en la nube de Azure** en el menú contextual para este proyecto web.
+
 
   Si tiene varios proyectos web en la aplicación web y desea crear roles web para cada proyecto web, debe realizar los pasos de este procedimiento para cada proyecto web. Esto crea proyectos de Azure diferentes para cada rol web. Cada proyecto web puede publicarse por separado. O bien, puede agregar manualmente otro rol web a un proyecto de Azure existente en la aplicación web. Para ello, abra el menú contextual de la carpeta **Roles** del proyecto de Azure, elija **Agregar**, a continuación, **Proyecto de rol web en la solución**, elija el proyecto que desee agregar como rol web y, continuación, elija el botón **Aceptar**.
 

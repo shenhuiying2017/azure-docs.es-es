@@ -248,6 +248,3 @@ Descargue los paquetes Maven [Básico](http://www.nuget.org/packages/Microsoft.A
 Consulte la [documentación del Almacén de claves de Azure](../articles/key-vault-whatis.md)
 
 <!---HONumber=AcomDC_0107_2016-->
-
-
-
