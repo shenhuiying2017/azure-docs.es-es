@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/07/2016"
 	ms.author="davidmu"/>
 
 # Arquitectura de administrador de recursos de Azure
@@ -73,14 +73,6 @@ También puede ver la creación de componentes y relaciones de dependencia entre
 
 ## Pasos siguientes
 
-[Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y CLI de Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
+Obtenga información sobre los recursos que se pueden implementar con el modelo de implementación del Administrador de recursos consultando [Proceso, red y proveedores de almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md).
 
-[Implementación y administración de Máquinas virtuales de Azure mediante el Administrador de recursos de plantillas y PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-## Recursos adicionales
-
-[Proceso, red y proveedores de almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
-
-[Información general del Administrador de recursos de Azure](resource-group-overview.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

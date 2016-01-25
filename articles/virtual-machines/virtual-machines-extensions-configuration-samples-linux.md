@@ -20,8 +20,8 @@
 # Ejemplos de configuración de la extensión de máquina virtual Linux
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
-- [Azure CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
+- [PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
+- [CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
 
 <br>
 
@@ -31,9 +31,9 @@ Este artículo proporciona un ejemplo de configuración para configurar las exte
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
 
-Para más información sobre estas extensiones, haga clic aquí: [Información general de las extensiones de máquinas virtuales de Azure](virtual-machines-extensions-features.md).
+Para obtener más información sobre estas extensiones, haga clic aquí: [Información general de las extensiones de máquinas virtuales de Azure.](virtual-machines-extensions-features.md)
 
-Para más información sobre la creación de plantillas de extensión, haga clic aquí: [Creación de plantillas de extensión](virtual-machines-extensions-authoring-templates.md).
+Para obtener más información sobre la creación de plantillas de extensión, haga clic aquí: [Creación de plantillas de extensión.](virtual-machines-extensions-authoring-templates.md)
 
 En este artículo se indican los valores de configuración esperados para algunas de las extensiones de Linux.
 
@@ -197,4 +197,4 @@ Esta es una plantilla de máquina virtual completa para la creación de una VM d
 
 [Extensión del script personalizado en una máquina virtual de Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="01/13/2016"
 	ms.author="nitinme"/>
 
 
@@ -23,8 +23,6 @@
 Obtenga información sobre cómo crear un clúster Apache Spark en HDInsight y después usar cuadernos de [Jupyter](https://jupyter.org) para ejecutar consultas interactivas de Spark SQL en el clúster Spark.
 
    ![Introducción al uso de Apache Spark en HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Tutorial de introducción al uso de Apache Spark en HDInsight. Pasos que se muestran: crear una cuenta de almacenamiento; crear un clúster; ejecutar instrucciones Spark SQL")
-
->[AZURE.NOTE]Para una lista de los problemas conocidos y las limitaciones con la versión actual, vea [Problemas conocidos de Apache Spark en HDInsight de Azure (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 **Requisitos previos:**
 
@@ -235,6 +233,10 @@ En esta sección, utilice un cuaderno de Jupyter para ejecutar consultas Spark S
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
+### Problemas conocidos
+
+* [Problemas conocidos de Apache Spark en HDInsight de Azure (Linux)](hdinsight-apache-spark-known-issues.md)
+
 
 [hdinsight-versions]: ../hdinsight-component-versioning/
 [hdinsight-upload-data]: ../hdinsight-upload-data/
@@ -246,4 +248,4 @@ En esta sección, utilice un cuaderno de Jupyter para ejecutar consultas Spark S
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

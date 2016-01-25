@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="adhurwit"
    manager=""
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="storage"
@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="06/17/2015"
-   ms.author="adhurwit"/>
+   ms.date="01/06/2016"
+   ms.author="lakasa"/>
 
 # Cifrado y descifrado de blobs en Almacenamiento de Microsoft Azure con Almacén de claves de Azure
 
 ## Introducción
- 
+
 Este tutorial explica cómo hacer uso del cifrado de almacenamiento del lado cliente con Almacén de claves de Azure. Se explica cómo cifrar y descifrar un blob en una aplicación de consola con estas tecnologías.
 
 **Tiempo estimado para completar el tutorial:** 20 minutos
 
-Para obtener información general sobre el Almacén de claves de Azure, consulte [¿Qué es el Almacén de clave de Azure?](key-vault/key-vault-whatis.md)
+Para obtener información general sobre Almacén de claves de Azure, consulte [¿Qué es Almacén de clave de Azure?](key-vault/key-vault-whatis.md).
 
-Para obtener información general sobre el cifrado del lado cliente para Almacenamiento de Azure, consulte [Introducción al cifrado del lado cliente para Almacenamiento de Microsoft Azure](storage-client-side-encryption.md)
+Para obtener información general sobre el cifrado del lado cliente para Almacenamiento de Azure, consulte [Cifrado del lado de cliente y Almacén de claves de Azure para el Almacenamiento de Microsoft Azure](storage-client-side-encryption.md).
 
 
 ## Requisitos previos
@@ -35,7 +35,7 @@ Para realizar este tutorial, necesitará lo siguiente:
 
 - Una cuenta de almacenamiento de Azure.
 - Visual Studio 2013 o posterior.
-- Azure PowerShell 
+- Azure PowerShell
 
 
 ## Información general sobre el cifrado del lado cliente
@@ -69,13 +69,13 @@ En Visual Studio, cree una nueva aplicación de consola.
 
 Agregue los paquetes de NuGet necesarios en la Consola del Administrador de paquetes.
 
-	Install-Package WindowsAzure.Storage 
+	Install-Package WindowsAzure.Storage
 
 	// This is the latest stable release for ADAL.
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 
-	Install-Package Microsoft.Azure.KeyVault 
-	Install-Package Microsoft.Azure.KeyVault.Extensions 
+	Install-Package Microsoft.Azure.KeyVault
+	Install-Package Microsoft.Azure.KeyVault.Extensions
 
 
 Agregar AppSettings al archivo App.Config.
@@ -108,13 +108,13 @@ El siguiente método lo usan las clases de Almacén de claves que tienen que aut
 	{
 	    var authContext = new AuthenticationContext(authority);
 	    ClientCredential clientCred = new ClientCredential(
-	        ConfigurationManager.AppSettings["clientId"], 
+	        ConfigurationManager.AppSettings["clientId"],
 	        ConfigurationManager.AppSettings["clientSecret"]);
 		AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
-	
+
 	    if (result == null)
 	        throw new InvalidOperationException("Failed to obtain the JWT token");
-	
+
 	    return result.AccessToken;
 	}
 
@@ -148,14 +148,14 @@ En la función Main, agregue el código siguiente:
 ## Cifrado y carga de blob
 Agregue el código siguiente para cifrar un blob y cargarlo en la cuenta de almacenamiento de Azure. El método **ResolveKeyAsync** que se usa devuelve una IKey.
 
-	
+
 	// Retrieve the key that you created previously.
 	// The IKey that is returned here is an RsaKey.
 	// Remember that we used the names contosokeyvault and testrsakey1.
     var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
 
 
-	// Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy. 
+	// Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
 	BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
 	BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
 
@@ -202,9 +202,9 @@ La manera de usar un secreto con cifrado del lado cliente es mediante la clase S
 - La clave en una SymmetricKey debe estar codificada en Base64.
 - Un secreto de Almacén de clave que se use como una SymmetricKey tiene que tener un tipo de contenido de "application/octet-stream" en Almacén de claves.
 
-Este es un ejemplo en PowerShell de creación de un secreto en Almacén de claves que se puede usar como una SymmetricKey.
+Este es un ejemplo en PowerShell de creación de un secreto en Almacén de claves que se puede usar como una SymmetricKey. NOTA: El valor codificado, $key, es solo para fines de demostración. En su código, es recomendable generar esta clave.
 
-	// Here we are making a 128-bit key so we have 16 characters. 
+	// Here we are making a 128-bit key so we have 16 characters.
 	// 	The characters are in the ASCII range of UTF8 so they are
 	//	each 1 byte. 16 x 8 = 128.
 	$key = "qwertyuiopasdfgh"
@@ -218,7 +218,7 @@ Este es un ejemplo en PowerShell de creación de un secreto en Almacén de clave
 En la aplicación de consola, puede usar la misma llamada que antes para recuperar este secreto como una SymmetricKey.
 
 	SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
-    	"https://contosokeyvault.vault.azure.net/secrets/TestSecret2/", 
+    	"https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
         CancellationToken.None).GetAwaiter().GetResult();
 
 Eso es todo. ¡Disfrute!
@@ -235,4 +235,4 @@ Para obtener la información más reciente sobre Almacenamiento de Microsoft Azu
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

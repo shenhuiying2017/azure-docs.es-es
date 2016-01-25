@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="01/08/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -417,7 +417,7 @@ Estos atributos se reescriben desde Azure AD en Active Directory local cuando se
 
 | Nombre del atributo| Usuario| Contacto| Grupo| Comentario |
 | --- | :-: | :-: | :-: | --- |
-| msDS-ExternalDirectoryObject| X| | | Se deriva de cloudAnchor en Azure AD.|
+| msDS-ExternalDirectoryObjectID| X| | | Se deriva de cloudAnchor en Azure AD. Esto es nuevo en Exchange 2016.|
 | msExchArchiveStatus| X| | | Archivo en línea: permite a los clientes archivar el correo electrónico.|
 | msExchBlockedSendersHash| X| | | Filtrado: reescribe los datos de remitentes seguros y bloqueados en línea y el filtrado de local de los clientes.|
 | msExchSafeRecipientsHash| X| | | Filtrado: reescribe los datos de remitentes seguros y bloqueados en línea y el filtrado de local de los clientes.|
@@ -435,4 +435,4 @@ Obtenga más información sobre la configuración de la [Sincronización de Azur
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

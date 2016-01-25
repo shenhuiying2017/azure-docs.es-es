@@ -21,7 +21,7 @@ En este documento, se explica cómo configurar consultas elásticas para escenar
 
 ![Consultas entre particiones][1]
 
-La funcionalidad es una parte del [conjunto de características de bases de datos elásticas de Base de datos ](sql-database-elastic-scale.md) SQL de Azure.
+La funcionalidad es una parte del [conjunto de características de bases de datos elásticas de Base de datos ](sql-database-elastic-scale-introduction.md) SQL de Azure.
  
 ## Creación de objetos de base de datos
 
@@ -241,4 +241,4 @@ Use cadenas de conexión de SQL Server normales para conectar su aplicación, su
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

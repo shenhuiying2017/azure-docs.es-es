@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Implementación de una aplicación de API en el Servicio de aplicaciones de Azure 
@@ -32,7 +32,7 @@ El hecho de que las aplicaciones de API se basen en aplicaciones web también si
  
 ## <a id="provision"></a>Creación de la aplicación de API en Azure 
 
-En esta sección, use el asistente **Publicación web** de Visual Studio para crear una nueva aplicación de API en Azure. Cuando las instrucciones le indiquen que escriba un nombre para la aplicación de API, escriba *ContactsList*.
+En esta sección, use el asistente **Publicación web** de Visual Studio para crear una nueva aplicación de API en Azure. Cuando las instrucciones indican que escriba un nombre para la aplicación de API, escriba *ContactsList*.
 
 [AZURE.INCLUDE [app-service-api-pub-web-create](../../includes/app-service-api-pub-web-create.md)]
 
@@ -129,4 +129,4 @@ Las aplicaciones de API son aplicaciones web con características adicionales pa
 
 Para obtener información sobre las características de las aplicaciones de API, consulte [¿Qué son las aplicaciones de API?](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Conexión a Almacenamiento de datos SQL 
 Para conectarse a Almacenamiento de datos SQL, deberá pasar las credenciales de seguridad para realizar la autenticación. Después de establecer una conexión, también encontrará que determinados valores de conexión se configuran como parte del establecimiento de la sesión de la consulta.
@@ -158,4 +158,4 @@ Una vez conectado, puede empezar a diseñar las tablas. Consulte el artículo so
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

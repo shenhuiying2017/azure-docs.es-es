@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/11/2016"
 	ms.author="billmath"/>
 
 #Compatibilidad con varios dominios
@@ -26,7 +26,7 @@ Muchos de ustedes han preguntado cómo configurar varios dominios y subdominios 
 ## Varios dominios de nivel superior
 Se le guiará por la configuración de una organización de ejemplo, contoso.com, que quiere tener un dominio adicional denominado fabrikam.com.
 
-Supongamos que, en el sistema local, se ha configurado AD FS con fs.jenfield.com como nombre del servicio de federación.
+Supongamos que, en el sistema local, se ha configurado AD FS con fs.contoso100.com como nombre del servicio de federación.
 
 Al suscribirse a Office 365 o Azure AD por primera vez, se configura contoso.com como primer dominio de inicio de sesión. Se puede hacer a través de Azure AD Connect o Azure AD PowerShell mediante el uso de MsolFederatedDomain.
 
@@ -34,8 +34,8 @@ A continuación, analicemos los valores predeterminados de dos de las nuevas pro
 
 | Nombre de propiedad | Valor | Descripción|
 | ----- | ----- | -----|
-|IssuerURI | http://fs.jenfield.com/adfs/services/trust| Aunque parece una dirección URL, esta propiedad es simplemente un nombre para el sistema de autenticación local y, por tanto, no es necesario que la ruta de acceso se resuelva en nada. De forma predeterminada, Azure AD lo establece en el valor del identificador del servicio de federación en la configuración local de AD FS.
-|PassiveClientSignInUrl|https://fs.jenfield.com/adfs/ls/|This es la ubicación a la que se enviarán solicitudes de inicio de sesión pasivas y se resuelve en el sistema real de AD FS. En realidad hay varias propiedades "*Url", pero basta con echar un vistazo a un ejemplo para ver la diferencia entre esta propiedad y un URI como IssuerURI.
+|IssuerURI | http://fs.contoso100.com/adfs/services/trust| Aunque parece una dirección URL, esta propiedad es simplemente un nombre para el sistema de autenticación local y, por tanto, no es necesario que la ruta de acceso se resuelva en nada. De forma predeterminada, Azure AD lo establece en el valor del identificador del servicio de federación en la configuración local de AD FS.
+|PassiveClientSignInUrl|https://fs.contoso100.com/adfs/ls/|This es la ubicación a la que se enviarán solicitudes de inicio de sesión pasivas y se resuelve en el sistema real de AD FS. En realidad hay varias propiedades "*Url", pero basta con echar un vistazo a un ejemplo para ver la diferencia entre esta propiedad y un URI como IssuerURI.
 
 Ahora, imagine que se agrega el segundo dominio fabrikam.com. Una vez más, esto puede hacerse ejecutando el asistente de Azure AD Connect por segunda vez o a través de PowerShell.
 
@@ -51,9 +51,9 @@ se obtendrá la siguiente configuración en Azure AD:
 
 - DomainName: fabrikam.com
 - IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.jenfield.com/adfs/ls/ 
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
 
-Tenga en cuenta que, aunque IssuerURI se ha establecido en un valor basado en el dominio (siendo, por tanto, único), los valores de dirección URL del punto de conexión siguen configurados para apuntar al servicio de federación en fs.jenfield.com, del mismo modo que para el dominio contoso.com original. Por lo tanto, todos los dominios seguirán apuntando al mismo sistema de AD FS.
+Tenga en cuenta que, aunque IssuerURI se ha establecido en un valor basado en el dominio (siendo, por tanto, único), los valores de dirección URL del punto de conexión siguen configurados para apuntar al servicio de federación en fs.contoso100.com, del mismo modo que para el dominio contoso.com original. Por lo tanto, todos los dominios seguirán apuntando al mismo sistema de AD FS.
 
 SupportMultipleDomain también se asegura de que el sistema de AD FS incluya el valor Emisor correcto en los tokens emitidos para Azure AD. Para ello, toma la parte de dominio del UPN de los usuarios y la establece como dominio en IssuerURI, es decir, https://{upn suffix} / adfs/services/trust. Por lo tanto, durante la autenticación a Azure AD u Office 365, el elemento Emisor del token del usuario se usa para buscar el dominio en Azure AD. Si no se encuentra una coincidencia, se producirá un error en la autenticación.
 
@@ -75,10 +75,10 @@ Una vez hecho esto, tendremos la configuración de dos dominios en Azure AD:
 
 - DomainName: contoso.com
 - IssuerURI: http://contoso.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.jenfield.com/adfs/ls/ 
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
 - DomainName: fabrikam.com
 - IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.jenfield.com/adfs/ls/ 
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
 
 Ahora funcionará el inicio de sesión federado para los usuarios de los dominios contoso.com y fabrikam.com. Solo hay un problema: el inicio de sesión para los usuarios de subdominios.
 
@@ -91,4 +91,4 @@ Debe configurar la regla de notificaciones personalizada para eliminar cualquier
 
 Entonces, en resumen, puede tener varios dominios con nombres dispares, así como subdominios, todos ellos federados al mismo servidor de AD FS. A fin de establecer correctamente los valores Emisor para todos los usuarios, solo serán necesarios algunos pasos adicionales.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

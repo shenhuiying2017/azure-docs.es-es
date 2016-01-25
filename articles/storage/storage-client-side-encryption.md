@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Cifrado del lado de cliente con .NET para el Almacenamiento de Microsoft Azure | Microsoft Azure" 
-	description="La biblioteca de cliente de Almacenamiento de Azure para .NET ofrece compatibilidad para el cifrado de cliente e integración con el Almacén de claves de Azure para obtener una seguridad máxima para sus aplicaciones de Almacenamiento de Azure." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carolz" 
-	editor=""/>
+<properties
+	pageTitle="Cifrado del lado de cliente con .NET para el Almacenamiento de Microsoft Azure | Microsoft Azure"
+	description="La biblioteca de cliente de Almacenamiento de Azure para .NET ofrece compatibilidad para el cifrado de cliente e integración con el Almacén de claves de Azure para obtener una seguridad máxima para sus aplicaciones de Almacenamiento de Azure."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/05/2016" 
-	ms.author="tamram"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/05/2016"
+	ms.author="lakasa"/>
 
 
 # Cifrado del lado de cliente y Almacén de claves de Azure para el Almacenamiento de Microsoft Azure
@@ -244,9 +244,9 @@ Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da l
 
 ## Pasos siguientes
 
-Descargue el [paquete NuGet de la Biblioteca de cliente de Almacenamiento de Azure para .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) 
+Descargue el [paquete NuGet de la Biblioteca de cliente de Almacenamiento de Azure para .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0)
 Descargue el [código fuente de la Biblioteca de cliente de Almacenamiento de Azure para .NET](https://github.com/Azure/azure-storage-net) desde GitHub 
 Descargue los paquetes NuGet [Básico](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) y [Extensiones](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) del Almacén de claves de Azure 
 Consulte la [documentación del Almacén de claves de Azure](../articles/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

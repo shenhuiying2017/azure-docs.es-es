@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/02/2015"
+   ms.date="01/08/2016"
    ms.author="larryfr"/>
 
 #Ejecución de consultas de Hive con PowerShell
@@ -114,12 +114,14 @@ Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo 
     
 7. Cuando el trabajo se complete, debe devolver información de manera similar a la siguiente:
 
-		Display the standard output...
-		[ERROR]	3
+        Display the standard output...
+        2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
+        2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
+        2012-02-03      19:25:27        SampleClass4    [ERROR] incorrect       id
 
 4. Como se mencionó anteriormente **Invoke-Hive** puede utilizarse para ejecutar una consulta y esperar la respuesta. Utilice los comandos siguientes y reemplace **CLUSTERNAME** por el nombre del clúster:
 
-        Use-AzureRmHDInsightCluster -ClusterName $clusterName
+        Use-AzureRmHDInsightCluster -ClusterName $clusterName -HttpCredential $creds
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
         $resourceGroup = $clusterInfo.ResourceGroup
@@ -130,7 +132,7 @@ Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo 
             -ResourceGroupName $resourceGroup `
             | %{ $_.Key1 }
         Invoke-AzureRmHDInsightHiveJob `
-            -StatusFolder "wasb:///example/statusout" `
+            -StatusFolder "statusout" `
             -DefaultContainer $container `
             -DefaultStorageAccountName $storageAccountName `
             -DefaultStorageAccountKey $storageAccountKey `
@@ -184,4 +186,4 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

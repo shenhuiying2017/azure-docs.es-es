@@ -20,11 +20,11 @@
 # Creación de una máquina virtual con Linux en el Portal de Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
 <br>
 
@@ -65,7 +65,7 @@ Después de seleccionar la imagen, puede usar los valores predeterminados de Azu
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-1-thebasics.png)
 
-	> [AZURE.NOTE]Aquí, también puede elegir la autenticación de usuario/contraseña y escribir dicha información si no quiere proteger la sesión **ssh** con un intercambio de claves pública y privada.
+	> [AZURE.NOTE]También puede elegir la autenticación de usuario/contraseña aquí y escribir dicha información si no desea proteger su sesión **ssh** con un intercambio de claves público y privado.
 
 2. Haga clic en **Tamaño** y seleccione un tamaño de VM apropiado para sus necesidades. Cada tamaño especifica el número de núcleos de proceso, la memoria y otras características, como la compatibilidad con el Almacenamiento premium, lo que afectará al precio. Azure recomienda automáticamente determinados tamaños según la imagen que se elija. Cuando termine, haga clic en ![botón Seleccionar](media/virtual-machines-linux-tutorial-portal-rm/selectbutton-size.png).
 
@@ -138,4 +138,4 @@ Para obtener más información sobre Linux en Azure, consulte:
 
 - [Extensión de máquina virtual Docker para Linux en Azure](virtual-machines-docker-vm-extension.md)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

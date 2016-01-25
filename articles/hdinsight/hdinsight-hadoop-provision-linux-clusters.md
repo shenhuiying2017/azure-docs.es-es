@@ -24,7 +24,7 @@
 
 En este documento, obtendrá información sobre las diferentes maneras de crear un clúster de HDInsight basado en Linux en Azure, así como las configuraciones opcionales que se pueden usar con el clúster. HDInsight proporciona Apache Hadoop, Apache Storm y Apache HBase como servicios en la plataforma de nube de Azure.
 
-> [AZURE.NOTE] En este documento se proporcionan instrucciones sobre diferentes formas de crear un clúster. Si busca un enfoque rápido para crear un clúster, consulte [Introducción a HDInsight de Azure en Linux](../hdinsight-hadoop-linux-get-started.md).
+> [AZURE.NOTE]En este documento se proporcionan instrucciones sobre diferentes formas de crear un clúster. Si busca un enfoque rápido para crear un clúster, consulte [Introducción a HDInsight de Azure en Linux](../hdinsight-hadoop-linux-get-started.md).
 
 ## ¿Qué es un clúster de HDInsight?
 
@@ -184,22 +184,7 @@ Una [Red virtual de Azure](http://azure.microsoft.com/documentation/services/vir
     | -------------------------- | --------------------------- |
     | La configuración sitio a sitio permite conectar varios recursos de su centro de datos a la red virtual de Azure usando una VPN de hardware o el servicio de enrutamiento y acceso remoto.<br />![Diagrama de la configuración de sitio a sitio](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) | La configuración punto a sitio permite conectar un recurso específico a la red virtual de Azure usando una VPN de software.<br />![Diagrama de la configuración de punto a sitio](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
 
-Para obtener más información sobre las características, las ventajas y la funcionalidad de Red virtual, consulte [Información general sobre Red virtual de Azure](http://msdn.microsoft.com/library/azure/jj156007.aspx).
-
-> [AZURE.NOTE] Debe crear la red virtual de Azure antes de crear un clúster. Para obtener más información, consulte [Creación de una red virtual](virtual-networks-create-vnet.md).
->
-> HDInsight de Azure solo admite redes virtuales basadas en la ubicación y actualmente no funciona con redes virtuales basadas en grupos de afinidad. Utilice el cmdlet Get-AzureVNetConfig de Azure PowerShell para comprobar si una red virtual existente de Azure está basada en la ubicación. Si la red virtual no está basada en la ubicación, tiene las opciones siguientes:
->
-> - Exporte la configuración de la red virtual existente y luego cree una red virtual nueva. De manera predeterminada, las redes virtuales nuevas se basan en la ubicación.
-> - Migre a una red virtual basada en la ubicación. Vea [Migración de los servicios existentes a un ámbito regional](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
->
-> Se recomienda encarecidamente designar una única subred para un clúster.
->
-> Actualmente (8252015), solo puede crear un clúster con Linux en una red virtual de Azure.
->
-> No se puede usar v1 (clásica), red virtual de Azure con HDInsight basado en Linux. La Red virtual debe ser v2 (Administrador de recursos de Azure) para se muestre como opción durante el proceso de creación de un clúster de HDInsight en el Portal de vista previa de Azure o para que se pueda usar para crear un clúster en la CLI de Azure o Azure PowerShell.
->
-> Si tiene recursos en una red v1 y quiere que dichos recursos puedan tener acceso directamente a HDInsight a través de una red virtual, consulte [Conexión de redes virtuales clásicas con nuevas redes virtuales](../virtual-network/virtual-networks-arm-asm-s2s.md) para obtener información sobre cómo conectar una Red virtual v2 a una Red virtual v1. Cuando se establezca la conexión, puede crear el clúster de HDInsight en la Red virtual v2.
+Para obtener más información sobre el uso de HDInsight con una red virtual, como por ejemplo, los requisitos de configuración específicos de la red virtual, consulte [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) (Ampliar las capacidades de HDInsight con una red virtual de Azure).
 
 ### Tienda de metadatos
 
@@ -282,4 +267,4 @@ En este artículo, aprendió información básica acerca de cómo crear un clús
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Uso de Sqoop con HDInsight"
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

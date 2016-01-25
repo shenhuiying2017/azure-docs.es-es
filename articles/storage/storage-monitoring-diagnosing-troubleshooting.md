@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jasonnewyork"
 	manager="tadb"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/12/2016"
 	ms.author="jahogg"/>
 
 # Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure
@@ -26,7 +26,7 @@ Diagnosticar y solucionar problemas en una aplicación distribuida que está hos
 
 Para administrar correctamente esas aplicaciones, debe supervisarlas de forma proactiva y comprender cómo diagnosticar y solucionar problemas relacionados con todos sus aspectos y con las tecnologías de las que dependen. Como usuario de los servicios de Almacenamiento de Azure, debe supervisar continuamente los servicios de Almacenamiento que utiliza la aplicación para observar si se produce algún cambio inesperado en el comportamiento (por ejemplo, tiempos de respuesta más lentos de lo habitual), y usar el registro para recopilar datos más detallados y poder analizar los problemas en profundidad. Con la información de diagnóstico que obtenga de la supervisión y el registro, le será más fácil averiguar la causa raíz del problema que apareció en la aplicación. Entonces, podrá solucionar el problema y determinar los pasos más adecuados que puede tomar para remediarlo. Almacenamiento de Azure es uno de los servicios principales de Azure y constituye una parte importante de la mayoría de las soluciones que implementan los clientes en la infraestructura de Azure. Almacenamiento de Azure incluye funcionalidades que permiten simplificar la supervisión, el diagnóstico y la solución de problemas de almacenamiento de las aplicaciones basadas en la nube.
 
-Para obtener una guía práctica para la solución de problemas integral en aplicaciones de almacenamiento de Azure, consulte [Solución integral de problemas con los registros y métricas de Almacenamiento de Azure, AzCopy y el analizador de mensajes](../storage-e2e-troubleshooting/).
+Para obtener una guía práctica para la solución de problemas integral en aplicaciones de almacenamiento de Azure, consulte [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](../storage-e2e-troubleshooting/) (Solución de problemas integral con el analizador de mensajes, AzCopy y las métricas y el registro del almacenamiento de Azure).
 
 + [Introducción]
 	+ [Organización de la guía]
@@ -87,7 +87,7 @@ Esta guía está dirigida, principalmente, a los desarrolladores de servicios en
 
 ### <a name="how-this-guide-is-organized"></a>Organización de la guía
 
-La sección “[Supervisión del servicio de almacenamiento]” describe cómo supervisar el estado y el rendimiento de los servicios de Almacenamiento de Azure con las métricas de análisis de Almacenamiento de Azure (métricas de Almacenamiento).
+La sección "[Supervisión del servicio de almacenamiento]" describe cómo supervisar el estado y el rendimiento de los servicios de Almacenamiento de Azure con las métricas de análisis de Almacenamiento de Azure (métricas de Almacenamiento).
 
 La sección “[Diagnóstico de problemas de almacenamiento]” describe cómo diagnosticar problemas con el registro de análisis de Almacenamiento de Azure (registro de Almacenamiento). También explica cómo habilitar el registro del lado cliente con los recursos de una de las bibliotecas de cliente como, por ejemplo, la biblioteca de cliente de Almacenamiento para .NET o el SDK de Azure para Java.
 
@@ -95,7 +95,7 @@ La sección “[Traza de un extremo a otro]” describe cómo poner en correlaci
 
 La sección “[Guía de solución de problemas]” proporciona una guía de solución de problemas para algunos de los problemas habituales relacionados con el almacenamiento que puede encontrarse.
 
-Los “[Apéndices]” contienen información sobre el uso de otras herramientas, como Wireshark y Netmon para analizar datos de paquetes de red, Fiddler para analizar mensajes HTTP/HTTPS y el Analizador de mensajes de Microsoft para poner en correlación los datos de registro.
+Los "[Apéndices]" contienen información sobre el uso de otras herramientas, como Wireshark y Netmon para analizar datos de paquetes de red, Fiddler para analizar mensajes HTTP/HTTPS y el Analizador de mensajes de Microsoft para poner en correlación los datos de registro.
 
 
 ## <a name="monitoring-your-storage-service"></a>Supervisión del servicio de almacenamiento
@@ -207,7 +207,7 @@ Los siguientes recursos de MSDN resultan útiles para entender los códigos de e
 
 El SDK de Azure incluye un emulador de almacenamiento que puede ejecutar en una estación de trabajo de desarrollo. Este emulador simula la mayor parte del comportamiento de los servicios de almacenamiento de Azure y resulta útil durante el desarrollo y las pruebas. Le permite ejecutar aplicaciones que utilizan servicios de almacenamiento de Azure sin necesidad de una suscripción de Azure ni una cuenta de almacenamiento de Azure.
 
-La sección “[Guía de solución de problemas]” de esta guía describe varios problemas habituales que se producen con el emulador de almacenamiento.
+La sección "[Guía de solución de problemas]" de esta guía describe varios problemas habituales que se producen con el emulador de almacenamiento.
 
 ### <a name="storage-logging-tools"></a>Herramientas de registro de almacenamiento
 
@@ -221,9 +221,9 @@ La biblioteca de cliente de Almacenamiento para .NET le permite recopilar datos 
 
 Puede capturar el tráfico entre el cliente y el servidor para proporcionar información detallada sobre los datos que están intercambiando el cliente y el servidor y sobre las condiciones de la red subyacente. Algunas herramientas útiles de redes son:
 
-- Fiddler (<a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>) es un proxy de depuración web que le permite examinar los datos de los encabezados y las cargas de los mensajes de solicitud y respuesta HTTP y HTTPS. Para obtener más información, consulte "[Apéndice 1: Uso de Fiddler para capturar tráfico HTTP y HTTPS]".
+- Fiddler (<a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>) es un proxy de depuración web que le permite examinar los datos de encabezados y cargas de los mensajes de solicitud y respuesta HTTP y HTTPS. Para obtener más información, consulte "[Apéndice 1: Uso de Fiddler para capturar tráfico HTTP y HTTPS]".
 - El Monitor de red de Microsoft (Netmon) (<a href="http://www.microsoft.com/download/details.aspx?id=4865" target="_blank">http://www.microsoft.com/download/details.aspx?id=4865</a>) y Wireshark (<a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>) son analizadores de protocolos de red gratuitos que le permiten ver información detallada de los paquetes de una gran variedad de protocolos de red. Para obtener más información acerca de Wireshark, consulte "[Apéndice 2: Uso de Wireshark para capturar tráfico de red]".
-- El Analizador de mensajes de Microsoft es una herramienta de Microsoft que sustituye a Netmon y que, además de capturar los datos de los paquetes de red, lo ayuda a ver y analizar los datos de registro capturados con otras herramientas. Para obtener más información, consulte "[Apéndice 3: Uso del Analizador de mensajes de Microsoft para capturar tráfico de red]".
+- El Analizador de mensajes de Microsoft es una herramienta de Microsoft que sustituye a Netmon y que, además de capturar los datos de los paquetes de red, lo ayuda a ver y analizar los datos de registro capturados con otras herramientas. Para obtener más información, vea "[Apéndice 3: Uso del Analizador de mensajes de Microsoft para capturar tráfico de red]".
 - Si quiere realizar una prueba de conectividad básica para comprobar que el equipo cliente puede conectarse al servicio de almacenamiento de Azure a través de la red, no puede hacerlo con la herramienta de **ping** estándar que hay en el cliente. Sin embargo, puede usar la herramienta **tcping** para comprobar la conectividad. **Tcping** está disponible para descargar en <a href="http://www.elifulkerson.com/projects/tcping.php" target="_blank">http://www.elifulkerson.com/projects/tcping.php</a>.
 
 En muchos casos, los datos de registro de Almacenamiento y de la biblioteca de cliente de Almacenamiento bastarán para diagnosticar un problema, pero en algunos escenarios, puede que necesite información más detallada de la que pueden proporcionar estas herramientas de registro de red. Por ejemplo, si usa Fiddler para ver los mensajes HTTP y HTTPS, puede ver los datos de encabezados y cargas que se envían a los servicios de almacenamiento y desde ellos. Con esta información, puede examinar la manera en la que una aplicación cliente reintenta las operaciones de almacenamiento. Los analizadores de protocolos, como Wireshark, operan en el nivel de paquetes, por lo que le permiten ver datos de TCP. Con esta información, podría solucionar los problemas de conectividad y pérdida de paquetes. El Analizador de mensajes puede operar en los niveles HTTP y TCP.
@@ -359,13 +359,13 @@ La siguiente ilustración de la herramienta de supervisión del [Portal de Azure
 
 Tenga en cuenta que el servicio de almacenamiento solamente calcula la métrica **AverageE2ELatency** de las solicitudes que se llevan a cabo correctamente y, a diferencia de **AverageServerLatency**, incluye el tiempo que tarda el cliente en enviar los datos y recibir la confirmación del servicio de almacenamiento. Por lo tanto, una diferencia entre **AverageE2ELatency** y **AverageServerLatency** podría deberse a que la aplicación cliente responde con lentitud o al estado de la red.
 
-> [AZURE.NOTE]También puede ver el valor de **E2ELatency** y **ServerLatency** de cada operación de almacenamiento individual en los datos de registro del registro de Almacenamiento.
+> [AZURE.NOTE]También puede ver el valor de **E2ELatency** y **ServerLatency** de cada operación de almacenamiento individual en los datos de registro del registro de almacenamiento.
 
 #### Investigación de problemas de rendimiento del cliente
 
 Uno de los posibles motivos de que el cliente responda lentamente es que haya un número limitado de subprocesos o conexiones disponibles o por la lentitud de los recursos, como la CPU, la memoria o el ancho de banda de red. Tal vez pueda resolver el problema modificando el código de cliente para que sea más eficiente (por ejemplo, con llamadas asincrónicas al servicio de almacenamiento) o con una máquina virtual mayor (con más núcleos y más memoria).
 
-Para los servicios de tabla y cola, el algoritmo de Nagle también puede provocar un valor alto de **AverageE2ELatency** en comparación con el de **AverageServerLatency**: para obtener más información, consulte la entrada <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">El algoritmo de Nagle no responde bien a las solicitudes pequeñas</a> del blog del equipo de almacenamiento de Microsoft Azure. Puede deshabilitar el algoritmo Nagle en el código utilizando la clase **ServicePointManager** en el espacio de nombres **System.Net**. Esto debe hacerlo antes de realizar ninguna llamada a los servicios Tabla o Cola en la aplicación, dado que esto no afecta a las conexiones que ya están abiertas. El siguiente ejemplo proviene del método **Application\_Start** de un rol de trabajo.
+Para los servicios de tabla y cola, el algoritmo de Nagle también puede provocar un valor alto de **AverageE2ELatency** en comparación con el de **AverageServerLatency**: para obtener más información, consulte la entrada <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Nagle’s Algorithm is Not Friendly towards Small Requests (El algoritmo de Nagle no responde bien a las solicitudes pequeñas)</a> del blog del equipo de almacenamiento de Microsoft Azure. Puede deshabilitar el algoritmo Nagle en el código utilizando la clase **ServicePointManager** en el espacio de nombres **System.Net**. Esto debe hacerlo antes de realizar ninguna llamada a los servicios Tabla o Cola en la aplicación, dado que esto no afecta a las conexiones que ya están abiertas. El siguiente ejemplo proviene del método **Application\_Start** de un rol de trabajo.
 
     var storageAccount = CloudStorageAccount.Parse(connStr);
     ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
@@ -373,7 +373,7 @@ Para los servicios de tabla y cola, el algoritmo de Nagle también puede provoca
     ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
     queueServicePoint.UseNagleAlgorithm = false;
 
-Debe comprobar los registros del lado cliente para ver cuántas solicitudes está enviando la aplicación cliente y comprobar si hay cuellos de botella en el rendimiento general del cliente relacionados con .NET, como la CPU, la recolección de elementos no usados de .NET, el uso de redes o la memoria (como punto de partida para solucionar problemas de las aplicaciones cliente de .NET, consulte <a href="http://msdn.microsoft.com/library/7fe0dd2y(v=vs.110).aspx" target="_blank">Depurar, trazar y generar perfiles</a> en MSDN).
+Debe comprobar los registros del lado cliente para ver cuántas solicitudes está enviando la aplicación cliente y comprobar si hay cuellos de botella del rendimiento general relacionados con .NET en el cliente, como la CPU, la recolección de elementos no utilizados de .NET, el uso de red o la memoria (como punto de partida para solucionar problemas de las aplicaciones cliente de .NET, consulte <a href="http://msdn.microsoft.com/library/7fe0dd2y(v=vs.110).aspx" target="_blank">Depurar, trazar y generar perfiles</a> en MSDN).
 
 #### Investigación de problemas de latencia de red
 
@@ -424,7 +424,7 @@ Si observa un retraso entre el momento en el que una aplicación agrega un mensa
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>Las métricas muestran un aumento de PercentThrottlingError
 
-Los errores de limitación se producen cuando supera los objetivos de escalabilidad de un servicio de almacenamiento. El servicio de almacenamiento hace esto para asegurarse de que ningún cliente o inquilino pueda usar el servicio a expensas de otros. Para más información, consulte <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Objetivos de escalabilidad y rendimiento del almacenamiento de Azure</a> para ver detalles sobre los objetivos de escalabilidad de las cuentas de almacenamiento y los objetivos de rendimiento de las particiones que hay dentro de las cuentas de almacenamiento.
+Los errores de limitación se producen cuando supera los objetivos de escalabilidad de un servicio de almacenamiento. El servicio de almacenamiento hace esto para asegurarse de que ningún cliente o inquilino pueda usar el servicio a expensas de otros. Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Objetivos de escalabilidad y rendimiento del almacenamiento de Azure</a> para ver detalles sobre los objetivos de escalabilidad de las cuentas de almacenamiento y los objetivos de rendimiento de las particiones que hay dentro de las cuentas de almacenamiento.
 
 Si la métrica **PercentThrottlingError** muestra un aumento en el porcentaje de solicitudes que tienen errores de limitación, debe investigar uno de estos dos escenarios:
 
@@ -435,7 +435,7 @@ Los aumentos de **PercentThrottlingError** suelen ocurrir al mismo tiempo que lo
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Aumento transitorio en PercentThrottlingError
 
-Si observa picos en el valor de **PercentThrottlingError** que coinciden con los períodos de gran actividad de la aplicación, debe implementar una estrategia de interrupción exponencial (no lineal) de reintentos en el cliente: esto reducirá la carga inmediata de la partición y ayudará a la aplicación a suavizar los picos de tráfico. Para más información sobre cómo implementar directivas de reintentos con la biblioteca de cliente de almacenamiento, consulte <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Microsoft.WindowsAzure.Storage.RetryPolicies (Espacio de nombres)</a> en MSDN.
+Si observa picos en el valor de **PercentThrottlingError** que coinciden con los períodos de gran actividad de la aplicación, debe implementar una estrategia de interrupción exponencial (no lineal) de reintentos en el cliente: esto reducirá la carga inmediata de la partición y ayudará a la aplicación a suavizar los picos de tráfico. Para más información sobre cómo implementar directivas de reintentos con la biblioteca de cliente de Almacenamiento, consulte el tema sobre el espacio de nombres <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Microsoft.WindowsAzure.Storage.RetryPolicies</a> en MSDN.
 
 > [AZURE.NOTE]Puede que también observe picos en el valor de **PercentThrottlingError** que no coincidan con períodos de gran actividad de la aplicación: en ese caso, la causa más probable es que el servicio de almacenamiento desplace particiones para mejorar el equilibrio de carga.
 
@@ -490,7 +490,7 @@ En este escenario, debe investigar el motivo por el que el token de SAS expira a
 - ¿El parámetro de versión de la clave SAS (por ejemplo, **sv=2015-04-05**) coincide con la versión de la biblioteca de cliente de Almacenamiento que está utilizando? Recomendamos usar la última versión de la [biblioteca de cliente de Almacenamiento](https://www.nuget.org/packages/WindowsAzure.Storage/). Para obtener más información sobre el control de versiones de tokens de SAS y las dependencias de la versión de la biblioteca de cliente, consulte [Novedades de Almacenamiento de Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
 - Si vuelve a generar las claves de acceso de almacenamiento, esto puede invalidar todos los token de SAS existentes. Puede ser un problema si genera tokens de SAS con un tiempo de expiración duradero para que los copien en caché las aplicaciones cliente.
 
-Si utiliza la biblioteca de cliente de Almacenamiento para generar tokens de SAS, es fácil generar un token válido. Sin embargo, si usa la API de REST de Almacenamiento y construye manualmente los tokens de SAS, debe leer atentamente el tema <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">Delegar el acceso con una firma de acceso compartido</a> en MSDN.
+Si utiliza la biblioteca de cliente de Almacenamiento para generar tokens de SAS, es fácil generar un token válido. Sin embargo, si utiliza la API de REST de Almacenamiento y construye manualmente los tokens de SAS, debe leer atentamente el tema <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">Delegar el acceso con una firma de acceso compartido</a> en MSDN.
 
 ### <a name="the-client-is-receiving-404-messages"></a>El cliente recibe mensajes HTTP 404 (no encontrado)
 Si la aplicación cliente recibe un mensaje HTTP 404 (no encontrado) del servidor, esto significa que el objeto que estaba tratando de usar el cliente (por ejemplo, una entidad, una tabla, un BLOB, un contenedor o una cola) no existe en el servicio de almacenamiento. Hay varios motivos posibles, por ejemplo:
@@ -513,7 +513,7 @@ Id. de solicitud|Operación
 ---|---
 07b26a5d-...|Método **DeleteIfExists** para eliminar el contenedor de BLOB. Tenga en cuenta que esta operación incluye una solicitud **HEAD** para comprobar la existencia del contenedor.
 e2d06d78…|Método **CreateIfNotExists** para crear el contenedor de BLOB. Tenga en cuenta que esta operación incluye una solicitud **HEAD** que comprueba la existencia del contenedor. **HEAD** devuelve un mensaje 404 pero continúa.
-de8b1c3c-...|Método **UploadFromStream** para crear el BLOB. La solicitud **PUT** devuelve un error con un mensaje 404
+de8b1c3c-...|Método **UploadFromStream** para crear el blob. La solicitud **PUT** devuelve un error con un mensaje 404
 
 Entradas del registro:
 
@@ -664,7 +664,7 @@ El código de la aplicación cliente elimina y vuelve a crear inmediatamente un 
 
 La aplicación cliente debe usar nombres de contenedor únicos siempre que cree nuevos contenedores si el patrón eliminar / volver a crear es común.
 
-### <a name="metrics-show-low-percent-success"></a>Las métricas muestran un PercentSuccess bajo o las entradas de registro de análisis tienen operaciones con el estado de transacción ClientOtherErrors
+### <a name="metrics-show-low-percent-success"></a>Las métricas muestran un valor de PercentSuccess bajo o las entradas de registro de análisis tienen operaciones con el estado de transacción ClientOtherErrors
 
 La métrica **PercentSuccess** captura el porcentaje de operaciones que se realizaron correctamente de acuerdo con su código de estado HTTP. Las operaciones con códigos de estado 2XX se cuentan como correctas, mientras que las operaciones con códigos de estado en los intervalos 3XX, 4XX y 5XX se cuentan como incorrectas y disminuyen el valor de la métrica **PercentSucess**. En los archivos de registro de almacenamiento del servidor, estas operaciones se registran con el estado de transacción **ClientOtherErrors**.
 
@@ -735,9 +735,9 @@ Si las secciones de solución de problemas anteriores no contienen el problema q
 - Puede utilizar la información de las métricas para buscar en los datos de registro del lado servidor información más detallada sobre los errores que se producen. Con esta información, puede que le resulte más fácil solucionar el problema.
 - Si la información de los registros del lado servidor no basta para solucionar el problema correctamente, puede utilizar los registros del lado cliente de la biblioteca de cliente de Almacenamiento para investigar el comportamiento de la aplicación cliente, y herramientas como Fiddler, Wireshark o el Analizador de mensajes de Microsoft para investigar la red.
 
-Para más información sobre el uso de Fiddler, consulte "[Apéndice 1: Uso de Fiddler para capturar tráfico HTTP y HTTPS]".
+Para obtener más información acerca del uso de Fiddler, vea "[Apéndice 1: Uso de Fiddler para capturar tráfico HTTP y HTTPS]".
 
-Para más información sobre el uso de Wireshark, consulte "[Apéndice 2: Uso de Wireshark para capturar tráfico de red]".
+Para más información acerca del uso de Wireshark, consulte "[Apéndice 2: Uso de Wireshark para capturar tráfico de red]".
 
 Para más información sobre el uso del Analizador de mensajes de Microsoft, consulte "[Apéndice 3: Uso del Analizador de mensajes de Microsoft para capturar tráfico de red]".
 
@@ -764,7 +764,7 @@ Para limitar la cantidad de tráfico que captura Fiddler, puede utilizar filtros
 
 ### <a name="appendix-2"></a>Apéndice 2: Uso de Wireshark para capturar tráfico de red
 
-Wireshark es un analizador de protocolos de red que le permite ver información detallada sobre los paquetes de una gran variedad de protocolos de red. Puede descargar Wireshark desde <a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>.
+Wireshark es un analizador de protocolos de red que le permite ver información detallada sobre los paquetes de una gran variedad de protocolos de red. Puede descargar Wireshark de <a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>.
 
 En el siguiente procedimiento, se muestra cómo capturar información detallada sobre los paquetes del tráfico de la máquina local donde instaló Wireshark al servicio Tabla de la cuenta de almacenamiento de Azure.
 
@@ -787,7 +787,7 @@ Aparte de esto, puede optar por ver los datos de TCP como los ve el nivel de apl
 
 ![][8]
 
-> [AZURE.NOTE]Para más información sobre el uso de Wireshark, consulte la <a href="http://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Guía del usuario de Wireshark</a>.
+> [AZURE.NOTE]Para obtener más información sobre el uso de Wireshark, consulte la <a href="http://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Guía del usuario de Wireshark</a>.
 
 ### <a name="appendix-3"></a>Apéndice 3: Uso del Analizador de mensajes de Microsoft para capturar tráfico de red
 
@@ -819,7 +819,7 @@ Al crear la sesión de seguimiento en el Analizador de mensajes de Microsoft, pu
 
 ![][10]
 
-Para más información sobre el seguimiento del Nivel de vínculo local del Analizador de mensajes de Microsoft, consulte <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">Proveedor PEF-NDIS-PacketCapture</a> en TechNet.
+Para obtener más información sobre el seguimiento del Nivel de vínculo local del Analizador de mensajes de Microsoft, consulte <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">Proveedor PEF-NDIS-PacketCapture</a> en TechNet.
 
 ### <a name="appendix-4"></a>Apéndice 4: Uso de Excel para ver métricas y datos de registro
 
@@ -917,4 +917,4 @@ Cuando se escribió este documento, Application Insights se encontraba en una ve
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configuración de extremos en una máquina virtual en Azure"
+	pageTitle="Configurar puntos de conexión en una máquina virtual clásica | Microsoft Azure"
 	description="Aprenda a configurar puntos de conexión en el Portal de Azure clásico para permitir la comunicación con una máquina virtual en Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,29 +11,21 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="01/06/2016"
 	ms.author="cynthn"/>
 
-#Configuración de extremos en una máquina virtual
+# Configurar los puntos de conexión en una máquina virtual de Azure clásica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo del Administrador de recursos. Para una implementación del Administrador de recursos, consulte [Introducción a la configuración de un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure](../load-balancer/load-balancer-arm-powershell.md) y [Acerca de los grupos de seguridad de red](virtual-networks-nsg.md).
 
-Todas las máquinas virtuales que se crean en Azure pueden comunicarse automáticamente mediante un canal de red privada con otras máquinas virtuales del mismo servicio en la nube o de la misma red virtual. Sin embargo, los equipos en Internet o en otras redes virtuales necesitan extremos para dirigir el tráfico de red entrante a una máquina virtual.
+Todas las máquinas virtuales que se crean en Azure con el modelo de implementación clásico pueden comunicarse automáticamente a través de un canal de red privada con otras máquinas virtuales del mismo servicio en la nube o de la misma red virtual. Sin embargo, los equipos en Internet o en otras redes virtuales necesitan extremos para dirigir el tráfico de red entrante a una máquina virtual.
 
-Al crear una máquina virtual en el portal de Azure clásico, se crean automáticamente extremos para el escritorio remoto, para el acceso remoto a Windows PowerShell y Shell seguro (SSH). Puede configurar extremos adicionales al crear la máquina virtual o posteriormente, según sea necesario.
+Al crear una máquina virtual en el Portal de Azure clásico, los puntos de conexión comunes, como los de Escritorio remoto, Windows PowerShell Remoting y Shell seguro (SSH), se suelen crear automáticamente, según el sistema operativo que elija. Puede configurar extremos adicionales al crear la máquina virtual o posteriormente, según sea necesario.
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
-
-- [Información sobre los grupos de seguridad de red](virtual-networks-nsg.md)
-
-Tenga en cuenta que los grupos de seguridad de red controlan el acceso a la máquina virtual, pero no ofrecen funcionalidades de enrutamiento de puerto. Para realizar el enrutamiento de puerto, consulte el artículo siguiente:
-
-- [Introducción a la configuración de un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure](../load-balancer/load-balancer-arm-powershell.md)
-
-Cada extremo cuenta con un puerto público y uno privado:
+Cada punto de conexión cuenta con un *puerto público* y un *puerto privado*:
 
 - El puerto público que usa el equilibrador de carga de Azure para escuchar el tráfico que entra a la máquina virtual desde Internet.
 - La máquina virtual usa el puerto privado para escuchar el tráfico entrante, normalmente destinado a una aplicación o servicio que se ejecuta en la máquina virtual.
@@ -42,7 +34,7 @@ Se proporcionan los valores predeterminados para el protocolo IP y los puertos T
 
 Tras la creación de un extremo, puede utilizar una lista de control de acceso (ACL) para definir reglas que permitan o denieguen el tráfico entrante al puerto público del extremo, en función de su dirección IP de origen. Sin embargo, si la máquina virtual está en una red virtual de Azure, debería usar grupos de seguridad de red en su lugar. Para obtener más información, consulte [Información sobre los grupos de seguridad de red](virtual-networks-nsg.md).
 
-> [AZURE.NOTE]La configuración del firewall de las máquinas virtuales de Azure se realiza automáticamente para los puertos asociados a Escritorio remoto y shell seguro (SSH), y en la mayoría de los casos para la comunicación remota de Windows PowerShell. Para los puertos especificados para todos los demás extremos, no se realiza ninguna configuración automáticamente en el firewall de la máquina virtual. Cuando se crea un extremo para la máquina virtual, deberá asegurarse de que el firewall de la máquina virtual también permite el tráfico para el protocolo y el puerto privado correspondiente a la configuración del extremo.
+> [AZURE.NOTE] La configuración del firewall de las máquinas virtuales de Azure se realiza automáticamente para los puertos asociados a Escritorio remoto y shell seguro (SSH), y en la mayoría de los casos para la comunicación remota de Windows PowerShell. Para los puertos especificados para todos los demás extremos, no se realiza ninguna configuración automáticamente en el firewall de la máquina virtual. Cuando se crea un extremo para la máquina virtual, deberá asegurarse de que el firewall de la máquina virtual también permite el tráfico para el protocolo y el puerto privado correspondiente a la configuración del extremo.
 
 ##Creación de un extremo
 
@@ -68,13 +60,13 @@ El nuevo punto de conexión se mostrará en la página **Puntos de conexión**.
 
 ![Creación correcta del extremo](./media/virtual-machines-set-up-endpoints/endpointwindowsnew.png)
 
-Para usar un cmdlet de Azure PowerShell para configurar esta opción, consulte [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
+Para usar un cmdlet de Azure PowerShell para configurar esta opción, consulte [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx). Si usa la CLI de Azure en modo de Administración de servicio, use el comando **azure vm endpoint create**.
 
 ##Administración de la ACL en un extremo
 
 Para definir el conjunto de equipos que pueden enviar tráfico, la ACL en un extremo puede restringir el tráfico en función de la dirección IP de origen. Siga estos pasos para agregar, modificar o quitar una ACL en un extremo.
 
-> [AZURE.NOTE]Si el extremo forma parte de un conjunto con equilibrio de carga, los cambios que realice en la ACL en un extremo se aplican a todos los extremos del conjunto.
+> [AZURE.NOTE] Si el extremo forma parte de un conjunto con equilibrio de carga, los cambios que realice en la ACL en un extremo se aplican a todos los extremos del conjunto.
 
 Si la máquina virtual está en una red virtual de Azure, es recomendable usar grupos de seguridad de red en lugar de ACL. Para obtener más información, consulte [Información sobre los grupos de seguridad de red](virtual-networks-nsg.md).
 
@@ -94,10 +86,10 @@ Puede usar reglas para permitir solo el tráfico desde equipos específicos corr
 
 Las reglas se evalúan en orden, comenzando por la primera regla y terminando por la última. Esto significa que las reglas deben estar ordenadas de menos restrictivas a más restrictivas. Para obtener ejemplos y más información, consulte [¿Qué es una lista de control de acceso de red?](../virtual-network/virtual-networks-acl/)
 
-Para usar un cmdlet de Azure PowerShell para configurar esto, consulte [Administración de las listas de control de acceso (ACL) de los puntos de conexión mediante PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
+Para usar un cmdlet de Azure PowerShell para configurar esto, vea [Administración de las listas de control de acceso (ACL) de los puntos de conexión mediante PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
 ## Recursos adicionales
 
 [Equilibrio de carga para servicios de infraestructura de Azure](virtual-machines-load-balance.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

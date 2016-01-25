@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Tutorial: Integración de Azure Active Directory con Work.com
@@ -78,7 +78,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configuración](./media/active-directory-saas-work-com-tutorial/IC794108.png "Configuración")
 
-3.  En el panel de navegación izquierdo, en la sección **Administer** (Administrar), haga clic en **Domain Management** (Administración de dominios) para expandir la sección relacionada y, luego, haga clic en **My Domain** (Mi dominio) para abrir la página **My Domain** (Mi dominio).
+3.  En el panel de navegación izquierdo, en la sección **Administrar**, haga clic en **Administración de dominios** para expandir la sección relacionada y, luego, haga clic en la página **Mi dominio** para abrir la página **Mi dominio**.
 
     ![Mi dominio](./media/active-directory-saas-work-com-tutorial/IC767825.png "Mi dominio")
 
@@ -118,7 +118,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![SAML habilitado](./media/active-directory-saas-work-com-tutorial/IC781026.png "SAML habilitado")
 
-    1.  Seleccione **SAML Enabled** (SAML habilitado).
+    1.  Seleccione **SAML habilitado**.
     2.  Haga clic en **Nuevo**.
 
 14. En la sección **SAML Single Sign-On Settings** (Configuración del inicio de sesión único de SAML), siga estos pasos:
@@ -133,7 +133,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     3.  Para cargar el certificado descargado, haga clic en **Examinar** .
     4.  En el cuadro de texto **Id. de entidad**, escriba ****https://salesforce-work.com**.
 5.  Como **Tipo de identidad SAML**, seleccione **La aserción contiene el identificador de la federación del objeto de usuario**.
-    6.  Como **Ubicación de identidad SAML**, seleccione **La identidad está en el elemento NameIdentifier de la instrucción Subject**.
+    6.  Como **Ubicación de identidad de SAML**, seleccione **La identidad está en el elemento NameIdentifier de la instrucción de sujeto**.
     7.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Work.com**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión de proveedor de identidades**.
     8.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Work.com**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión de proveedor de identidades**.
     9.  Como **Vinculación de solicitud iniciada del proveedor de servicios**, seleccione **HTTP Post**.
@@ -143,7 +143,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Mi dominio](./media/active-directory-saas-work-com-tutorial/IC794115.png "Mi dominio")
 
-16. En la página **My Domain** (Mi dominio), en la sección **Login Page Branding** (Personalización de marca de la página de inicio de sesión), haga clic en **Edit** (Editar).
+16. En la página **Mi dominio**, en la sección **Personalización de marca de la página de inicio de sesión**, haga clic en **Editar**.
 
     ![Personalización de marca de la página de inicio de sesión](./media/active-directory-saas-work-com-tutorial/IC767826.png "Personalización de marca de la página de inicio de sesión")
 
@@ -167,11 +167,11 @@ Para que los usuarios de Azure Active Directory puedan iniciar sesión, deben ap
 
     ![Configuración](./media/active-directory-saas-work-com-tutorial/IC794108.png "Configuración")
 
-3.  Vaya a **Manage Users > Users** (Administrar usuarios > Usuarios).
+3.  Vaya a **Administrar usuarios > Usuarios**.
 
     ![Administrar usuarios](./media/active-directory-saas-work-com-tutorial/IC784369.png "Administrar usuarios")
 
-4.  Haga clic en **New User** (Nuevo usuario).
+4.  Haga clic en **Nuevo usuario**.
 
     ![Todos los usuarios](./media/active-directory-saas-work-com-tutorial/IC794117.png "Todos los usuarios")
 
@@ -199,7 +199,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Asignar usuarios](./media/active-directory-saas-work-com-tutorial/IC794119.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-work-com-tutorial/IC767830.png "Sí")
   
@@ -207,4 +207,4 @@ Ahora debería esperar 10 minutos y comprobar si la cuenta se ha sincronizado en
   
 Si quiere probar su configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

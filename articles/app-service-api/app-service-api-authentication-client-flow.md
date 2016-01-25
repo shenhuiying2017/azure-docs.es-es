@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Llamada a una aplicación de API de Azure desde un cliente de aplicación web autenticado por Azure Active Directory
@@ -77,7 +77,7 @@ En este tutorial, se supone que sabe cómo trabajar con proyectos web en Visual 
 
 	![](./media/app-service-api-authentication-client-flow/aadblade.png)
 
-	Además, la pestaña **Configurar** de la aplicación de AAD en el [Portal de Azure] tiene la dirección URL del id. de aplicación de la aplicación de API y la dirección URL de respuesta.
+	Además, la pestaña **Configurar** de la aplicación de AAD en el [Portal de Azure] tiene la dirección URL del id. de la aplicación de la aplicación de API y la dirección URL de respuesta.
 
 	![](./media/app-service-api-authentication-client-flow/aadconfig.png)
 
@@ -228,4 +228,4 @@ Aprendió a realizar la autenticación de flujo de cliente para aplicaciones de 
 [Portal de Azure]: https://manage.windowsazure.com/
 [Portal de vista previa de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

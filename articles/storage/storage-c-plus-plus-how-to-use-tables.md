@@ -4,8 +4,8 @@
     services="storage"
     documentationCenter=".net"
     authors="tamram"
-    manager="adinah"
-    editor=""/>
+    manager="carmonm"
+    editor="tysonn"/>
 
 <tags
     ms.service="storage"
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="01/05/2016"
-    ms.author="tamram"/>
+    ms.author="dineshm"/>
 
 # Uso de almacenamiento de tablas desde C++
 
@@ -414,4 +414,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
 -	[Referencia de la biblioteca de clientes de almacenamiento para C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentación de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

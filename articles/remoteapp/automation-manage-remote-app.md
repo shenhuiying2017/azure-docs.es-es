@@ -1,19 +1,19 @@
 <properties
 	pageTitle="Administración de Azure RemoteApp mediante Automatización de Azure | Microsoft Azure"
 	description="Obtenga información acerca de cómo puede usarse el servicio Automatización de Azure para administrar RemoteApp de Azure."
-	services="remoteapp, automation"
+	services="automation"
 	documentationCenter=""
 	authors="csand-msft"
 	manager="eamono"
 	editor=""/>
 
 <tags
-	ms.service="remoteapp"
+	ms.service="automation"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/07/2016"
 	ms.author="csand"/>
 
 
@@ -42,4 +42,4 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 
 * Consulte el [Tutorial de introducción](../automation-create-runbook-from-samples.md) de Automatización de Azure.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # Uso de Power BI con Almacenamiento de datos SQL
 De manera similar a lo que sucede con Base de datos SQL de Azure, Conexión directa de Almacenamiento de datos SQL permite que el usuario aproveche la aplicación lógica y eficaz junto con las funcionalidades analíticas de Power BI. Con Conexión directa, las consultas se envían de vuelta a la instancia de Almacenamiento de datos SQL de Azure en tiempo real mientras explora los datos. Esto, en combinación con la escala de Almacenamiento de datos SQL, permite que los usuarios creen, en minutos, informes dinámicos sobre terabytes de datos. Además, la introducción del botón Abrir en Power BI permite que los usuarios conecten directamente Power BI a su instancia de Almacenamiento de datos SQL sin recopilar información de otras partes de Azure.
@@ -63,4 +63,4 @@ Puede encontrar el nombre completo del servidor y el nombre de la base de datos 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

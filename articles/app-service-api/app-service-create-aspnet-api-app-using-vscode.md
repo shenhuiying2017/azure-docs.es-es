@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="01/08/2016" 
 	ms.author="erikre"/>
 
 # Creación de una aplicación de API ASP.NET 5 en Visual Studio Code
@@ -29,7 +29,7 @@ En este tutorial se explica cómo crear una aplicación de API ASP.NET 5 con [Vi
 ## Requisitos previos  
 
 * Instalar y configurar [Visual Studio Code](http://code.visualstudio.com/Docs/setup).
-* Instalar [Node.js](http://nodejs.org/download/).<br\>
+* Instalar [Node.js](http://nodejs.org/download/).<br> 
 	[Node](http://nodejs.org/) es una plataforma para crear aplicaciones de servidor rápidas y escalables mediante JavaScript. Node es el tiempo de ejecución (Node) y [npm](http://www.npmjs.com/) es el Administrador de paquetes para los módulos de Node. Utilizará npm para aplicar la técnica scaffolding a una aplicación de API ASP.NET 5 en este tutorial.
 
 ## Instalación de ASP.NET 5 y DNX
@@ -61,8 +61,8 @@ Este tutorial está diseñado para ayudarle a comenzar a crear aplicaciones con 
 4. Ahora que ya dispone de DNVM, necesitará utilizar este script para descargar DNX a fin de poder ejecutar las aplicaciones. Ejecute el siguiente comando desde la ventana Comandos:
 
 	<pre class="prettyprint">
-dnvm upgrade
-</pre>
+	dnvm upgrade
+	</pre>
 
 5. Verifique el DNVM y consulte el tiempo de ejecución activo; para ello, escriba lo siguiente en la ventana Comandos:
 
@@ -84,14 +84,14 @@ En esta sección se explica cómo aplicar la técnica scaffolding a una nueva ap
 2. En la ventana Comandos para instalar las herramientas de soporte y Yeoman, escriba lo siguiente:
 
 	<pre class="prettyprint">
-npm install -g yo grunt-cli generator-aspnet bower
-</pre>
+	npm install -g yo grunt-cli generator-aspnet bower
+	</pre>
 
 3. En la ventana Comandos para crear la carpeta del proyecto y aplicar la técnica scaffolding a la aplicación, escriba lo siguiente:
 
 	<pre class="prettyprint">
-yo aspnet
-</pre>
+	yo aspnet
+	</pre>
 
 4. Siga las instrucciones proporcionadas por el generador; para ello, desplácese y seleccione el tipo **aplicación Web API**.
 
@@ -189,7 +189,7 @@ Ahora modificará la aplicación **ContactsList**; para ello, agregará una clas
 Los metadatos que permiten la implementación de un proyecto de API ASP.NET como aplicación de API deben estar incluidos en un archivo *apiapp.json* en la raíz del proyecto.
 
 1. En VSCode, haga clic con el botón secundario en la carpeta *wwwroot* y, a continuación, seleccione la opción **Nuevo archivo**.
-2. Asigne al nuevo archivo el nombre *apiapp.json*.<br\>
+2. Asigne al nuevo archivo el nombre *apiapp.json*.<br>
 	 Asegúrese de que *apiapp.json* se encuentra en la carpeta *wwwroot*.
 3. Agregue lo siguiente al archivo *apiapp.json*:
 
@@ -407,8 +407,7 @@ En esta sección, se crea un repositorio Git local e inserta desde ese repositor
 
 	![Inicializar Git](./media/app-service-create-aspnet-api-app-using-vscode/19-initgit.png)
 
-5. 
-6. Agregue un mensaje de confirmación y seleccione la casilla **Confirmar todo**.
+5. Agregue un mensaje de confirmación y seleccione la casilla **Confirmar todo**.
 
 	![Confirmar todo de GIT](./media/app-service-create-aspnet-api-app-using-vscode/20-git-commit.png)
 
@@ -460,4 +459,4 @@ En el portal de vista previa de Azure, vaya a la hoja **HOST DE APLICACIÓN DE A
 En este tutorial a aprendido crear una aplicación de API en Visual Studio Code. Para obtener más información sobre Visual Studio Code, consulte [Visual Studio Code.](https://code.visualstudio.com/Docs/). Para obtener información sobre las aplicaciones de API, consulte [¿Qué son las Aplicaciones de API?](app-service-api-apps-why-best-platform.md)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

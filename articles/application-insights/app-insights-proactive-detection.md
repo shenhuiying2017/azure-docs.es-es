@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="01/08/2016" 
 	ms.author="awills"/>
 
 #  Application Insights: detección proactiva
@@ -22,9 +22,20 @@
 
 Application Insights realiza un análisis profundo de la telemetría de aplicación y puede advertirle de los posibles problemas de rendimiento. Probablemente esté leyendo esto porque ha recibido una de nuestras alertas por correo electrónico.
 
+
 ## ¿Qué es la detección proactiva?
 
-Detección proactiva usa el aprendizaje automático y algoritmos de minería de datos para detectar patrones anómalos que afectan al rendimiento de la aplicación. Detección proactiva analiza automáticamente la telemetría de rendimiento recopilada mediante Application Insights. Le envía un correo electrónico acerca de cualquier rendimiento anormal en la aplicación. No tiene que configurar ninguna regla de umbral. Las notificaciones de detección proactiva se integran con las capacidades de análisis de Application Insights, que permite una evaluación de prioridades y diagnóstico rápidos de los problemas.
+La detección proactiva detecta la anomalías de rendimiento de su aplicación analizando la telemetría que envía a Application Insights.
+
+En concreto, busca los problemas de rendimiento que solo afectan a algunos de sus usuarios o que solo afectan a sus usuarios en algunos casos.
+
+Por ejemplo, puede notificarle si las páginas de su aplicación se cargan mucho más lentamente en un tipo de explorador que en otros, o si las solicitudes se atienden de una forma más lenta desde un servidor determinado. También puede detectar problemas asociados con combinaciones de propiedades, como cargas lentas de página en un área geográfica en momentos determinados del día.
+
+Anomalías como estas son muy difíciles de detectar con tan solo inspeccionar los datos, pero son más comunes de lo que puede creer. A menudo, solo se muestran cuando se quejan los clientes. Para entonces, ya es demasiado tarde: los usuarios afectados ya se han pasado a sus competidores.
+
+En la actualidad, nuestros algoritmos examinan tiempos de carga de página, tiempos de respuesta de solicitud en el servidor y tiempos de respuesta de dependencia.
+
+No tiene que establecer ningún umbral o regla de configuración. El aprendizaje automático y los algoritmos de minería de datos se usan para detectar patrones anormales.
 
 La detección proactiva se encuentra en la vista preliminar y aún no está disponible para todos los usuarios de Application Insights. Si quiere probarla, póngase en contacto con AppInsightsML@microsoft.com y trabajamos con usted para configurarla.
 
@@ -112,6 +123,8 @@ Hay un sitio web completo de consejos sobre cómo mejorar las respuestas del ser
  * Haga clic en el vínculo para cancelar la suscripción de la alerta o el correo electrónico. 
  
     Actualmente se envían a los usuarios que tienen [acceso de escritura al recurso de Application Insights](app-insights-resources-roles-access-control.md).
+
+    También puede editar la lista de destinatarios en la hoja de detección proactiva.
 * *No me quiero ver inundado por estos mensajes.*
  * Se limitan a uno por día. No obtendrá repeticiones de ningún mensaje.
 * *Si no hago nada, ¿obtendré un aviso?*
@@ -128,4 +141,4 @@ Hay un sitio web completo de consejos sobre cómo mejorar las respuestas del ser
 * [Explorador de búsqueda](app-insights-diagnostic-search.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

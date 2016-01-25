@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="01/12/2016"
 	ms.author="cephalin"/>
 
 # Configuración de entornos de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure
@@ -45,7 +45,7 @@ Cada modo del plan del Servicio de aplicaciones admite un número distinto de es
 La aplicación web debe estar ejecutándose en el modo **Estándar** o **Premium** para que pueda habilitar varias ranuras de implementación.
 
 1. En el [Portal de Azure](https://portal.azure.com/), abra la hoja de la aplicación web.
-2. Haga clic en **Ranuras de implementación**. A continuación, en la hoja **Ranuras de implementación**, haga clic en **Agregar ranura**.
+2. Haga clic en **Configuración** y luego en **Espacios de implementación**. A continuación, en la hoja **Ranuras de implementación**, haga clic en **Agregar ranura**.
 
 	![Agregar una nueva ranura de implementación][QGAddNewDeploymentSlot]
 
@@ -130,7 +130,7 @@ Es fácil configurar el intercambio automático para un espacio. Siga estos paso
 <a name="Multi-Phase"></a>
 ## Uso del intercambio de varias fase para la aplicación web ##
 
-El intercambio de varias fase está disponible para simplificar la validación en el contexto de elementos de configuración diseñados para ajustarse a una ranura como cadenas de conexión. En estos casos puede ser útil aplicar tales elementos de configuración desde el destino de intercambio al origen de intercambio y validar antes de que el intercambio realmente surta efecto. Una vez que los elementos de configuración del destino de intercambio se aplican al origen de intercambio las acciones disponibles completan el intercambio o se revierten a la configuración original del origen de intercambio, lo que también tiene el efecto de cancelar el intercambio. En los cmdlets de Azure PowerShell se incluyen ejemplos para los cmdlets de Azure PowerShell disponibles para el intercambio de varias fases se incluyen para la sección de ranuras de implementación.
+El intercambio de varias fase está disponible para simplificar la validación en el contexto de elementos de configuración diseñados para ajustarse a una ranura como cadenas de conexión. En estos casos, puede ser de utilidad aplicar este tipo de elemento de configuración desde el destino de intercambio al origen de intercambio y validar antes de que el intercambio realmente surta efecto. Una vez que los elementos de configuración del destino de intercambio se aplican al origen de intercambio las acciones disponibles completan el intercambio o se revierten a la configuración original del origen de intercambio, lo que también tiene el efecto de cancelar el intercambio. En los cmdlets de Azure PowerShell se incluyen ejemplos para los cmdlets de Azure PowerShell disponibles para el intercambio de varias fases se incluyen para la sección de ranuras de implementación.
 
 <a name="Rollback"></a>
 ## Para revertir una aplicación de producción después de un intercambio ##
@@ -259,4 +259,4 @@ Para eliminar una ranura de implementación que ya no sea necesaria, utilice el 
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

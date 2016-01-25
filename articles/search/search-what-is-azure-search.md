@@ -11,17 +11,17 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="12/18/2015"
+	ms.date="01/12/2016"
 	ms.author="ashmaka"/>
 
 # ¿Qué es Búsqueda de Azure?
-Búsqueda de Azure es una solución de búsqueda como servicio en la nube que delega la administración de los servidores y la infraestructura a Microsoft, dejando así un servicio listo para utilizar que puede completar con sus propios datos, que será con los que se realice la búsqueda. Búsqueda de Azure le permite agregar fácilmente una sólida experiencia de búsqueda a sus aplicaciones utilizando una sencilla API de REST o SDK de .NET sin necesidad de administrar la infraestructura de búsqueda y convertirse en un experto en esta materia.
+Búsqueda de Azure es una solución de búsqueda como servicio en la nube que delega la administración de los servidores y la infraestructura a Microsoft, dejando así un servicio listo para usar que puede completar con sus propios datos y usar para buscar en la aplicación web o móvil. Búsqueda de Azure le permite agregar fácilmente una sólida experiencia de búsqueda a las aplicaciones usando una sencilla [API de REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) o [SDK de .NET](search-howto-dotnet-sdk.md) sin necesidad de administrar la infraestructura de búsqueda o convertirse en un experto en esta materia.
 
 ## Ofrezca a los usuarios una eficaz experiencia de búsqueda
 
-Se pueden formular **potentes consultas** utilizando operadores lógicos, expresiones de comparación etc. con [sintaxis de OData](https://msdn.microsoft.com/library/azure/dn798921.aspx) y [sintaxis de consulta simple](https://msdn.microsoft.com/library/azure/dn798920.aspx). Además, la [sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) (actualmente en vista previa) puede habilitar la búsqueda aproximada, la búsqueda de proximidad, la priorización de términos y las expresiones regulares. Búsqueda de Azure también admite analizadores léxicos personalizados para permitir que su aplicación administre consultas de búsqueda complejas mediante la coincidencia fonética y las expresiones regulares.
+Se pueden formular **consultas eficaces** con la [sintaxis de consulta simple](https://msdn.microsoft.com/library/azure/dn798920.aspx), que ofrece operadores lógicos, operadores de búsqueda de frase, operadores de sufijo y operadores de precedencia. Además, la [sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) (actualmente disponible en versión preliminar) puede habilitar búsquedas aproximadas, errores de ortografía, búsquedas de proximidad, priorización de términos y expresiones regulares. Búsqueda de Azure también admite analizadores léxicos personalizados para permitir que su aplicación administre consultas de búsqueda complejas mediante la coincidencia fonética y las expresiones regulares.
 
-Se incluye **compatibilidad** con [56 idiomas diferentes](https://msdn.microsoft.com/library/azure/dn879793.aspx). Haciendo uso de analizadores de Lucene y Microsoft (perfeccionados por años de procesamiento de lenguaje natural en Office y Bing), Búsqueda de Azure puede analizar texto mediante la separación de palabras, la normalización de texto, la lematización, etc. Esto permite al cuadro de búsqueda de la aplicación controlar de forma inteligente los errores ortográficos, los tiempos verbales, las formas irregulares, etc.
+Se incluye **compatibilidad** con [56 idiomas diferentes](https://msdn.microsoft.com/library/azure/dn879793.aspx). Al usar analizadores de Lucene y analizadores de Microsoft (refinados gracias a varios años de procesamiento de lenguaje natural en Office y Bing), Búsqueda de Azure puede analizar el texto en el cuadro de búsqueda de la aplicación para controlar de manera inteligente la lingüística específica del idioma, como por ejemplo, tiempos verbales, género, nombres plurales irregulares (por ejemplo, 'mouse' frente a 'ratones'), separación de palabras compuestas, separación de palabras (para idiomas sin espacios) y mucho más.
 
 Las **sugerencias de búsqueda** pueden habilitarse las barras de búsqueda de autocompletado y las consultas de escritura automática. [Se sugieren los documentos correspondientes en el índice](https://msdn.microsoft.com/library/azure/dn798936.aspx) a medida que los usuarios escriben entradas de búsqueda parciales.
 
@@ -29,9 +29,9 @@ Las **sugerencias de búsqueda** pueden habilitarse las barras de búsqueda de a
 
 **La navegación por facetas** se agrega fácilmente a la página de resultados de búsqueda con Búsqueda de Azure. Usando [simplemente un parámetro de consulta](https://msdn.microsoft.com/library/azure/dn798927.aspx), Búsqueda de Azure devolverá toda la información necesaria para construir una experiencia de búsqueda por facetas en la interfaz de usuario de la aplicación para permitir que los usuarios profundicen en los resultados de la búsqueda y los filtren (por ejemplo, filtrar elementos de un catálogo por rango de precios o marca).
 
-**El soporte** [geoespacial](https://msdn.microsoft.com/library/azure/dn798921.aspx) permite procesar, filtrar y mostrar de forma inteligente las ubicaciones geográficas. Búsqueda de Azure permite a los usuarios explorar datos basados en la proximidad de un resultado de búsqueda a una ubicación determinada o en una región geográfica específica.
+**El soporte** [geoespacial](search-create-geospatial.md) permite procesar, filtrar y mostrar de forma inteligente las ubicaciones geográficas. Búsqueda de Azure permite a los usuarios explorar datos basados en la proximidad de un resultado de búsqueda a una ubicación determinada o en una región geográfica específica.
 
-Los **filtros** pueden utilizarse para incorporar fácilmente una navegación por facetas (por ejemplo, el filtrado por categoría o precio), mejorar la formulación de consultas y filtrar según los criterios especificados por el usuario o el desarrollador.
+Los **filtros** se pueden usar para incorporar fácilmente una navegación por facetas en la interfaz de usuario de la aplicación, mejorar la formulación de consultas y filtrar según los criterios especificados por el usuario o el desarrollador. Cree filtros eficaces mediante la [sintaxis de OData](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
 ## Faculte a los desarrolladores con un servicio de fácil de usar
 
@@ -39,9 +39,9 @@ La **alta disponibilidad** garantiza una experiencia de servicio de búsqueda mu
 
 **Completamente administrada** como una solución de un extremo a otro, Búsqueda de Azure no requiere absolutamente ninguna administración de la infraestructura. El servicio se puede adaptar fácilmente a sus necesidades mediante el escalado en dos dimensiones para controlar más almacenamiento de documentos, mayores cargas de consultas o ambos.
 
-**La integración de datos** con [indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx) permite a Búsqueda de Azure rastrear automáticamente la Base de datos SQL de Azure o Azure DocumentDB para sincronizar el contenido del índice de la búsqueda con el almacén de datos principal.
+La **integración de datos** con [indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx) permite a Búsqueda de Azure rastrear automáticamente Base de datos SQL de Azure, Azure DocumentDB o [Almacenamiento de blobs de Azure](search-howto-indexing-azure-blob-storage.md) para sincronizar el contenido del índice de la búsqueda con el almacén de datos principal.
 
-La **averiguación de documento** está disponible para [leer e indexar los principales formatos de archivo](search-howto-indexing-azure-blob-storage.md), incluidos documentos de Microsoft Office, PDF y HTML.
+La **averiguación de documentos** está disponible (actualmente en versión preliminar) para [leer e indexar los principales formatos de archivo](search-howto-indexing-azure-blob-storage.md), por ejemplo, documentos de Microsoft Office, PDF y HTML.
 
 El **análisis de tráfico de búsqueda** se [recopila y analiza fácilmente](search-traffic-analytics.md) para conocer qué usuarios están escribiendo en el cuadro de búsqueda.
 
@@ -49,7 +49,7 @@ La **puntuación simple** es una ventaja clave de Búsqueda de Azure. Los [perfi
 
 La **clasificación** se ofrece para varios campos mediante el esquema de índice y luego se activa o se desactiva en el momento de consulta con un único parámetro de búsqueda.
 
-La **paginación** y limitación de los resultados de búsqueda se aplican fácilmente con el control adaptado que Búsqueda de Azure ofrece a través de los resultados de búsqueda.
+La **paginación** y limitación de los resultados de búsqueda se [aplican fácilmente con el control adaptado](search-pagination-page-layout.md) que Búsqueda de Azure ofrece a través de los resultados de búsqueda.
 
 El **explorador de Búsqueda** permite emitir consultas sobre todos los índices directamente desde el Portal de Azure de su cuenta para que pueda probar consultas y perfeccionar los perfiles de puntuación fácilmente.
 
@@ -82,4 +82,4 @@ Puede probar búsqueda de Azure hoy mismo. Si ya tiene una cuenta de Azure, pued
 
 Si no tiene una cuenta de Azure, puede probar una sesión gratuita de 60 minutos sin necesidad de registrarse. Vaya a [Try Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) y seleccione "Aplicación web". A continuación, seleccione la plantilla "ASP.NET + Azure Search" para empezar.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

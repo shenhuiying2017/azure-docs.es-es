@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2015"
+	ms.date="01/12/2016"
 	ms.author="markusvi"/>
 
 # Consideraciones de seguridad y privacidad de Cloud App Discovery
@@ -179,4 +179,4 @@ Con el fin de proteger los datos recopilados, de forma predeterminada, solo los 
 
 * [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

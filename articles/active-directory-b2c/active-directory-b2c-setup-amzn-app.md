@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/12/2016"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Proporcionar a los consumidores registro e inicio de sesión con cuentas de Amazon
@@ -34,17 +34,13 @@ Para usar Amazon como proveedor de identidades en Azure Active Directory (AD) B2
 
     ![Amazon - registro de aplicación](./media/active-directory-b2c-setup-amzn-app/amzn-register-app.png)
 
-5. En la sección **Web Settings** (Configuración web), copie los valores de **Client ID** (Id. de cliente) y **Client secret** (Secreto de cliente) (para ver este valor debe hacer clic en el botón **Show Secret** (Mostrar secreto). Necesitará ambos para configurar Amazon como proveedor de identidades de su inquilino. Haga clic en **Edit** (Editar) en la parte inferior de la sección.
+5. En la sección **Web Settings** (Configuración web), copie los valores de **Client ID** (Id. de cliente) y **Client secret** (Secreto de cliente) (para ver este valor debe hacer clic en el botón **Show Secret** (Mostrar secreto). Necesitará ambos para configurar Amazon como proveedor de identidades de su inquilino. Haga clic en **Edit** (Editar) en la parte inferior de la sección. Nota: el **secreto de cliente** es una credencial de seguridad importante.
 
-> [AZURE.NOTE]El **secreto de cliente** es una credencial de seguridad importante.
+    ![Amazon - secreto del cliente](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
 
-    ![Amazon - Client secret](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
+6. Escriba [https://login.microsoftonline.com](https://login.microsoftonline.com) en el campo **Orígenes de JavaScript permitidos** y `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` en el campo **Direcciones URL de retorno permitidas**, donde **{tenant}** se sustituirá por el nombre de su inquilino (por ejemplo, contoso.onmicrosoft.com). Haga clic en **Save**. Nota: el valor de **{tenant}** distingue mayúsculas de minúsculas.
 
-6. Escriba [https://login.microsoftonline.com](https://login.microsoftonline.com) en el campo **Allowed JavaScript origins** (Orígenes de JavaSscript permitidos) y `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` en el campo **Allowed Return URLs** (Direcciones URL de retorno permitidas), donde **{tenant}** se sustituirá por el nombre de su inquilino (por ejemplo, contoso.onmicrosoft.com). Haga clic en **Save**.
-
-> [AZURE.NOTE]El valor de **{tenant}** distingue mayúsculas de minúsculas.
-
-    ![Amazon - URLs](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
+    ![Amazon - URL](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
 
 ## Configuración de Amazon como proveedor de identidades del inquilino
 
@@ -56,4 +52,4 @@ Para usar Amazon como proveedor de identidades en Azure Active Directory (AD) B2
 6. Haga clic en **Configurar este proveedor de identidades** y escriba el **id. de cliente** y el **secreto de cliente** de la aplicación de Amazon que creó anteriormente.
 7. Haga clic en **Aceptar** y, luego, en **Crear** para guardar la configuración de Amazon.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

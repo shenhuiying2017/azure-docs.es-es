@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="01/11/2015"
 	ms.author="wesmc"/>
 
 # Sincronización de datos sin conexión en Aplicaciones móviles de Azure
@@ -36,10 +36,11 @@ La sincronización sin conexión tiene una serie de ventajas:
 
 Los siguientes tutoriales muestran cómo incorporar la sincronización sin conexión a los clientes móviles con Aplicaciones móviles de Azure:
 
+* [Android: habilitar la sincronización sin conexión]
 * [iOS: habilitar la sincronización sin conexión]			
 * [Xamarin iOS: habilitar la sincronización sin conexión]	
 * [Xamarin Android: habilitar la sincronización sin conexión]
-* [Windows 8.1: habilitar la sincronización sin conexión]	
+* [Windows 8.1: habilitar la sincronización sin conexión]
 
 ## ¿Qué es una tabla de sincronización?
 
@@ -121,9 +122,10 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 
 <!-- Links -->
 
+[Android: habilitar la sincronización sin conexión]: ../app-service-mobile-android-get-started-offline-data.md
 [iOS: habilitar la sincronización sin conexión]: ../app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: habilitar la sincronización sin conexión]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: habilitar la sincronización sin conexión]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: habilitar la sincronización sin conexión]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

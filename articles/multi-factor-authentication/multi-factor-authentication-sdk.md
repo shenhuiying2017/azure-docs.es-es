@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Creación de Multi-Factor Authentication en aplicaciones personalizadas (SDK)
@@ -33,7 +33,7 @@ Dado que las API no tienen acceso a los usuarios registrados en Azure Active Dir
 
 ## Descarga del SDK de Azure Multi-Factor Authenticationication 
 
-Hay dos maneras diferentes de descargar el SDK de Azure Multi-Factor Authentication. Ambas se pueden hacer a través del Portal de Azure. La primera es administrando el proveedor de autenticación multifactor directamente. La segunda es mediante la configuración del servicio. La segunda opción requiere un proveedor de autenticación multifactor o una licencia de Azure AD Premium.
+Hay dos maneras diferentes de descargar el SDK de Azure Multi-Factor Authentication. Ambas se pueden hacer a través del Portal de Azure. La primera es administrando el proveedor de autenticación multifactor directamente. La segunda es mediante la configuración del servicio. La segunda opción requiere un proveedor de autenticación multifactor o una licencia de Azure MFA, Azure AD Premium o Enterprise Mobility Suite.
 
 
 ### Para descargar el SDK de Azure Multi-Factor Authentication del Portal de Azure.
@@ -41,7 +41,7 @@ Hay dos maneras diferentes de descargar el SDK de Azure Multi-Factor Authenticat
 
 1. Inicie sesión en el Portal de Azure como administrador.
 2. En la parte izquierda, seleccione Active Directory.
-3. En la página Active Directory, en la parte superior, haga clic en **Proveedores de autenticación multifactor**.
+3. En la parte superior de la página Active Directory, haga clic en **Proveedores de autenticación multifactor**.
 4. Haga clic en **Administrar** en la parte inferior.
 5. De este modo se abrirá una nueva página. A la izquierda, en la parte inferior, haga clic en SDK.
 <center>![Download](./media/multi-factor-authentication-sdk/download.png)</center>
@@ -58,7 +58,7 @@ Hay dos maneras diferentes de descargar el SDK de Azure Multi-Factor Authenticat
 3. Haga doble clic en la instancia de Azure AD.
 4. En la parte superior, haga clic en **Configurar**.
 5. En Multi-Factor Authentication, seleccione **Administrar configuración del servicio** ![Descargar](./media/multi-factor-authentication-sdk/download2.png)
-6. En la página de configuración de servicios, en la parte inferior de la pantalla, haga clic en **Ir al portal**. ![Descargar](./media/multi-factor-authentication-sdk/download3.png)
+6. En la página de configuración de servicios, en la parte inferior de la pantalla, haga clic en **Ir al portal**. ![Descargar](./media/multi-factor-authentication-sdk/download3a.png)
 7. De este modo se abrirá una nueva página. A la izquierda, en la parte inferior, haga clic en SDK.
 8. Seleccione el idioma que desee y haga clic en uno de los vínculos de descarga asociados.
 9. Guarde el archivo descargado.
@@ -70,7 +70,7 @@ En el SDK encontrará los siguientes elementos:
 - **Archivos de origen** para la Multi-Factor Authentication
 - **Certificado de cliente** que se usa para comunicarse con el servicio Multi-Factor Authentication
 - **Clave privada** para el certificado
-- **Resultados de la llamada**. Una lista de códigos de resultado de la llamada. Para abrir este archivo, use una aplicación con formato de texto, como WordPad. Use los códigos de resultado de la llamada para probar y solucionar problemas de la implementación de Multi-Factor Authentication en su aplicación. No son códigos de estado de autenticación.
+- **Resultados de la llamada.** Una lista de códigos de resultado de la llamada. Para abrir este archivo, use una aplicación con formato de texto, como WordPad. Use los códigos de resultado de la llamada para probar y solucionar problemas de la implementación de Multi-Factor Authentication en su aplicación. No son códigos de estado de autenticación.
 - **Ejemplos.** Código de ejemplo para una implementación básica de funcionamiento de Multi-Factor Authentication.
 
 
@@ -191,4 +191,4 @@ En el siguiente código de servidor, Multi-Factor Authentication se configura y 
 	    }
 	}
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/19/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
@@ -52,7 +52,7 @@ En primer lugar, empezaremos con la creación de un proyecto Java.
     <body>
     <b><% out.println("Hello World!"); %></b>
     </body>
-```
+```.
 * Guarde el archivo index.jsp.
 
 ## Para implementar de forma rápida y sencilla la aplicación en Azure ##
@@ -194,4 +194,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 
-<!-----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Tutorial: Integración de Azure Active Directory con Zscaler
@@ -107,7 +107,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     1.  Seleccione **Autenticarse mediante el inicio de sesión único SAML**.
     2.  Haga clic en **Configurar parámetros de inicio de sesión único SAML**.
 
-9.  En la página de diálogo **Configurar parámetros de inicio de sesión único SAML**, lleve a cabo estos pasos y luego haga clic en el botón **Listo**.
+9.  En la página de diálogo **Configure SAML Single Sign-On Parameters** (Configurar parámetros de inicio de sesión único SAML), lleve a cabo estos pasos y luego haga clic en el botón **Done**.
 
     ![Carga del certificado](./media/active-directory-saas-zscaler-tutorial/IC769489.png "Carga del certificado")
 
@@ -167,11 +167,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Zscaler, deben apr
 
     ![Administración](./media/active-directory-saas-zscaler-tutorial/IC781035.png "Administración")
 
-3.  Haga clic en **Administración de usuarios**.
+3.  Haga clic en **User Management** (Administración de usuarios).
 
     ![Administración de usuarios](./media/active-directory-saas-zscaler-tutorial/IC781036.png "Administración de usuarios")
 
-4.  En la pestaña **Usuarios** haga clic en **Agregar**.
+4.  En la pestaña **Users** (Usuarios) haga clic en **Add** (Agregar).
 
     ![Agregar](./media/active-directory-saas-zscaler-tutorial/IC781037.png "Agregar")
 
@@ -202,4 +202,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

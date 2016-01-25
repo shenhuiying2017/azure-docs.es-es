@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Tutorial: Integración de Azure Active Directory con TimeOffManager
@@ -73,7 +73,7 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **TimeOffManager**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único **.
+1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **TimeOffManager**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-timeoffmanager-tutorial/IC795912.png "Configurar inicio de sesión único")
 
@@ -99,13 +99,13 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
 
     ![Configuración de inicio de sesión único](./media/active-directory-saas-timeoffmanager-tutorial/IC795917.png "Configuración de inicio de sesión único")
 
-7.  En la sección **Single Sign-on Settings** (Configuración del inicio de sesión único), siga estos pasos:
+7.  En la sección **Configuración del inicio de sesión único**, siga estos pasos:
 
     ![Configuración de inicio de sesión único](./media/active-directory-saas-timeoffmanager-tutorial/IC795918.png "Configuración de inicio de sesión único")
 
-    1.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
+    1.  Cree un archivo **codificado en Base 64** a partir del certificado descargado.  
 
-        >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     2.  Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y luego pegue todo el certificado en el cuadro de texto **Certificado X.509**.
     3.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en TimeOffManager**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor de IdP**.
@@ -159,10 +159,10 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Asignar usuarios](./media/active-directory-saas-timeoffmanager-tutorial/IC795922.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-timeoffmanager-tutorial/IC767830.png "Sí")
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

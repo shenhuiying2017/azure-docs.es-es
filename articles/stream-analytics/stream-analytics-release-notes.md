@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/10/2015" 
+	ms.date="01/13/2015" 
 	ms.author="jeffstok"/>
 
 #Notas de la versión de Análisis de transmisiones de Microsoft
@@ -25,7 +25,7 @@ Esta versión contiene la siguiente actualización.
 Título | Descripción
 ---|---
 Actualización de la versión de API de REST | La versión de la API de REST se actualizó a la 2015-10-01. Encontrará detalles sobre MSDN en [Referencia de la API de REST de la administración de Análisis de transmisiones](https://msdn.microsoft.com/library/azure/dn835031.aspx) e [Integración del aprendizaje automático en Análisis de transmisiones](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
-Integración de Aprendizaje automático de Azure | Esta versión incluye compatibilidad con funciones definidas por el usuario de Aprendizaje automático de Azure. Encontrará un tutorial [aquí](stream-analytics-machine-learning-tutorial.md) así como el anuncio de blog general [aquí](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
+Integración de Aprendizaje automático de Azure | Esta versión incluye compatibilidad con funciones definidas por el usuario de Aprendizaje automático de Azure. Encontrará un tutorial [aquí](stream-analytics-machine-learning-integration-tutorial.md) así como el anuncio de blog general [aquí](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
 
 ## Notas de la versión de Análisis de transmisiones del 12/11/2015 ##
 
@@ -33,7 +33,7 @@ Esta versión contiene la siguiente actualización.
 
 Título | Descripción
 ---|---
-Nuevo comportamiento de SELECT | SELECT en el Análisis de transmisiones se ha ampliado para permitir * como descriptor de acceso de propiedad de un registro anidado. Para más información, consulte [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Tipos de datos complejos").
+Nuevo comportamiento de SELECT | SELECT en el Análisis de transmisiones se ha ampliado para permitir * como descriptor de acceso de propiedad de un registro anidado. Para obtener más información, consulte [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Tipos de datos complejos").
 
 ## Notas de la versión de Análisis de transmisiones del 22/10/2015 ##
 
@@ -41,7 +41,7 @@ Esta versión contiene las siguientes actualizaciones.
 
 Título | Descripción
 ---|---
-Características del lenguaje de consulta adicionales | Análisis de transmisiones ha ampliado el lenguaje de consulta al incluir las siguientes características: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) y [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
+Características del lenguaje de consulta adicionales | Análisis de transmisiones ha ampliado el lenguaje de consulta mediante la inclusión de las siguientes características: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) y [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
 Se han quitado las limitaciones de agregados | En esta versión se quita la limitación de 15 agregados en una consulta. Actualmente no hay límites en el número de agregados por consulta.
 Se ha agregado la característica GROUP BY System.Timestamp | La función [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) ahora permite window\_type o [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
 Se ha agregado OFFSET para las ventanas de saltos de tamaño constante y las ventanas de salto | De forma predeterminada, las ventanas de [saltos de tamaño constante](https://msdn.microsoft.com/library/azure/dn835055.aspx) y de [salto](https://msdn.microsoft.com/library/azure/dn835041.aspx) se alinean con la hora cero (1/1/0001 12:00:00 A.M. UTC). El nuevo parámetro (opcional) 'offsetsize' permite especificar una diferencia (o alineación) personalizada.
@@ -73,7 +73,7 @@ Esta versión contiene las siguientes actualizaciones.
 
 Título|Descripción
 ---|---
-Función LAST agregada |La función [LAST](http://msdn.microsoft.com/library/mt421186.aspx) ahora está disponible en trabajos de Análisis de transmisiones, lo que le permite recuperar el evento más reciente de un streaming de eventos en un período de tiempo determinado.
+Función LAST agregada |La función [LAST](http://msdn.microsoft.com/library/mt421186.aspx) ahora está disponible en los trabajos de Análisis de transmisiones, lo que le permite recuperar el evento más reciente en una secuencia de eventos en un período de tiempo determinado.
 Nuevas funciones de matriz|Ahora están disponibles las funciones de matriz [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) y [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx).
 Nuevas funciones de registro|Ahora están disponibles las funciones de registro [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) y [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx).
 
@@ -84,8 +84,8 @@ Esta versión contiene las siguientes actualizaciones.
 Título|Descripción
 ---|---
 Identificador de organización de BI energía desacoplado del identificador de Azure|Esta característica habilita la [salida de Power BI](stream-analytics-power-bi-dashboard.md) para trabajos de ASA en cualquier tipo de cuenta de Azure (Live ID o id. de organización). Además, puede tener un identificador de organización para su cuenta de Azure y usar otros distinto para autorizar la salida de Power BI.
-Compatibilidad con la salida de Colas del Bus de servicio|Las salidas de [Colas del Bus de servicio](stream-analytics-connect-data-event-outputs.md#service-bus-queues) ahora están disponibles en trabajos de Análisis de transmisiones.
-Compatibilidad con la salida de Temas del Bus de servicio|Las salidas de [Temas del Bus de servicio](stream-analytics-connect-data-event-outputs.md#service-bus-topics) ahora están disponibles en trabajos de Análisis de transmisiones.
+Compatibilidad con la salida de Colas del Bus de servicio|Las salidas de [Colas del Bus de servicio](stream-analytics-connect-data-event-outputs.md#service-bus-queues) ahora están disponibles en los trabajos de Análisis de transmisiones.
+Compatibilidad con la salida de Temas del Bus de servicio|Las salidas de [Temas del Bus de servicio](stream-analytics-connect-data-event-outputs.md#service-bus-topics) ahora están disponibles en los trabajos de Análisis de transmisiones.
 
 ## Notas de la versión de Análisis de transmisiones del 09/07/2015 ##
 
@@ -133,4 +133,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

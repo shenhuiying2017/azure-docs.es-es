@@ -16,7 +16,12 @@
    ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
-# Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos desde Azure hasta VMware con Azure Site Recovery
+# Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos desde Azure hasta VMware con Azure Site Recovery (heredado)
+
+> [AZURE.SELECTOR]
+- [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
+- [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+
 
 ## Información general
 
@@ -36,14 +41,12 @@ Es preciso instalar un servidor local de vContinuum y apuntarlo hacia el servido
 
 1.  [Descargue vContinuum](http://go.microsoft.com/fwlink/?linkid=526305). 
 2.  Una vez que lo haya descargado, descargue la versión actualizada de [vContinuum](http://go.microsoft.com/fwlink/?LinkID=533813).
-3.  Ejecute el programa de instalación de la versión más reciente para instalar vContinuum. En la página **principal**, haga clic en **Siguiente**.
-	![](./media/site-recovery-failback-azure-to-vmware/image2.png)
+3.  Ejecute el programa de instalación de la versión más reciente para instalar vContinuum. En la página **principal**, haga clic en **Siguiente**.![](./media/site-recovery-failback-azure-to-vmware/image2.png)
 4.  En la primera página del asistente, especifique tanto la dirección IP como el puerto del servidor de CX. Seleccione **Use HTTPS** (Usar HTTPS).
 
 	![](./media/site-recovery-failback-azure-to-vmware/image3.png)
 
-5.  Busque la dirección IP del servidor de configuración en la pestaña **Panel** de la máquina virtual del servidor de configuración en Azure.
-	![](./media/site-recovery-failback-azure-to-vmware/image4.png)
+5.  Busque la dirección IP del servidor de configuración en la pestaña **Panel** de la máquina virtual del servidor de configuración en Azure. ![](./media/site-recovery-failback-azure-to-vmware/image4.png)
 
 6.  Busque el puerto público HTTPS en la pestaña **Puntos de conexión** de la máquina virtual del servidor de configuración en Azure.
 
@@ -57,8 +60,7 @@ Es preciso instalar un servidor local de vContinuum y apuntarlo hacia el servido
 
 	![](./media/site-recovery-failback-azure-to-vmware/image7.png)
 
-9. Una vez que se complete la instalación, puede iniciar vContinuum.
-	![](./media/site-recovery-failback-azure-to-vmware/image8.png)
+9. Una vez que se complete la instalación, puede iniciar vContinuum. ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
 
 
 ## Paso 2: Instalación de un servidor de procesos de Azure 
@@ -267,7 +269,6 @@ Cuando una máquina virtual se conmuta por error a Azure, agrega una unidad temp
 
 	![](./media/site-recovery-failback-azure-to-vmware/image22.png)
 
-
 	![](./media/site-recovery-failback-azure-to-vmware/image23.png)
 
 6. En el servidor de vCenter detenga la máquina virtual. También puede eliminar las máquinas virtuales locales.
@@ -329,7 +330,6 @@ Cuando una máquina virtual se conmuta por error a Azure, agrega una unidad temp
 
 5. Espere hasta que se complete la operación. Si el resultado es satisfactorio en todas las máquinas virtuales, puede especificar un nombre para el plan de protección. A continuación, haga clic en **Protect** (Proteger) para comenzar.
 
-
 	![](./media/site-recovery-failback-azure-to-vmware/image33.png)
 
 
@@ -350,8 +350,6 @@ Cuando una máquina virtual se conmuta por error a Azure, agrega una unidad temp
 Puede preparar un plan de conmutación por recuperación con vContinuum, de modo que pueda volver a realizarse la conmutación por recuperación de la aplicación en el sitio local en cualquier momento. Dichos planes de recuperación son muy similares a los planes de recuperación de Site Recovery.
 
 1.  Inicie vContinuum y seleccione **Manage plans** (Administrar planes) > **Recover** (Recuperar). Puede ver de la lista de todos los planes que se han utilizado para conmutar por error las máquinas virtuales. Puede usar los mismos para realizar la recuperación.
-
-2.  En las opciones secundarias, seleccione **Recover (Recuperar)**.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image37.png)
 
@@ -375,8 +373,6 @@ Puede preparar un plan de conmutación por recuperación con vContinuum, de modo
 10. Especifique un nombre de plan y seleccione **Recover later** (Recuperar más adelante). Se recomienda realizar la recuperación más adelante, ya que la protección inicial podría no estar completa.
 11. Haga clic en **Recover** (Recuperar) para guardar el plan o desencadenar la recuperación si ha seleccionado realizar la recuperación ahora, no más adelante. Puede comprobar el estado de recuperación para ver si el plan se ha guardado.
 
-11.  Puede ver el estado de recuperación para saber si el plan se ha guardado correctamente.
-
 	![](./media/site-recovery-failback-azure-to-vmware/image42.png)
 
 	![](./media/site-recovery-failback-azure-to-vmware/image43.png)
@@ -392,14 +388,9 @@ Antes de iniciar la recuperación desconecte las máquinas virtuales de Azure. E
 
 1.  Inicie el plan guardado. En vContinuum, seleccione **Monitor** (Supervisar) para supervisar los planes. Así se enumeran todos los planes que se han ejecutado.
 
-1.  En vContinuum, seleccione **supervisar** los planes.
-
-2.  El asistente enumerará los planes que se han ejecutado hasta ahora.
-
 	![](./media/site-recovery-failback-azure-to-vmware/image45.png)
 
 2.  Seleccione el plan en **Recovery** (Recuperación) y haga clic en **Start** (Iniciar). Puede supervisar la recuperación. Después de haber activado las máquinas virtuales puede conectarse a ellas en vCenter.
-
 
 	![](./media/site-recovery-failback-azure-to-vmware/image46.png)
 
@@ -415,8 +406,8 @@ Una vez que la conmutación por recuperación se haya completado, puede volver a
  
 ## Pasos siguientes
 
-[Más información](site-recovery-vmware-to-azure.md) acerca de la replicación de máquinas virtuales de VMware en Azure
+[Más información](site-recovery-vmware-to-azure-classic-legacy.md) acerca de la replicación de máquinas virtuales de VMware en Azure
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016--->

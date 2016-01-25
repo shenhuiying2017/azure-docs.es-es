@@ -4,7 +4,7 @@
 	documentationCenter="windows"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"
+	editor=""
 	services="mobile-services"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="01/09/2016"
 	ms.author="glenga"/>
 
 # Creación de una aplicación de marcador con el backend .NET de Servicios móviles de Azure
@@ -315,7 +315,7 @@ Después agregue el siguiente código a `PlayerRankController`:
 
 El método `PostPlayerScore` toma una instancia de `PlayerScore` como entrada. (El cliente enviará el elemento `PlayerScore` en una solicitud HTTP POST). El método hace lo siguiente:
 
-1.	Agrega un nuevo `PlayerRank` para el jugador, si no hay todavía ninguno en la base de datos.
+1.	Agrega un nuevo elemento `PlayerRank` para el reproductor, si no hay todavía ninguno en la base de datos.
 2.	Actualiza la puntuación del jugador.
 3.	Ejecuta una consulta SQL que actualiza por lotes todas las clasificaciones de los jugadores.
 
@@ -323,7 +323,7 @@ El atributo **[Route]** define una ruta personalizada para este método:
 
 	[Route("api/score")]
 
-También puede poner el método en un controlador aparte. No hay ninguna ventaja particular de cualquier de las maneras, solo depende de cómo desea organizar el código. Para obtener más información sobre el atributo **[Route]**, consulte [Enrutamiento de atributos en la API de la Web](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2).
+También puede poner el método en un controlador aparte. No hay ninguna ventaja particular de cualquier de las maneras, solo depende de cómo desea organizar el código. Para obtener más información sobre el atributo **[Route]**, consulte [Enrutamiento de atributos en Web AP](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2)I.
 
 ## Creación de una aplicación de la Tienda Windows
 
@@ -766,4 +766,4 @@ Ahora, cuando ejecuta la aplicación, se comunica con el servicio real.
 [Incorporación de notificaciones de inserción]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

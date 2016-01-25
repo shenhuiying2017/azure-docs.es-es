@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Descripción general de la configuración ";ReliableDictionaryActorStateProvider"; de Reliable Actors de Service Fabric de Azure | Microsoft Azure"
-   description="Obtenga información sobre cómo configurar los actores con estado de Service Fabric de Azure de tipo ";ReliableDictionaryActorStateProvider";"
+   pageTitle="Descripción general de la configuración ReliableDictionaryActorStateProvider de Reliable Actors de Azure Service Fabric | Microsoft Azure"
+   description="Obtenga información sobre cómo configurar los actores con estado de Azure Service Fabric del tipo ReliableDictionaryActorStateProvider."
    services="Service-Fabric"
    documentationCenter=".net"
    authors="sumukhs"
@@ -16,36 +16,39 @@
    ms.date="10/28/2015"
    ms.author="sumukhs"/>
 
-# Configuración de actores confiables: ReliableDictionaryActorStateProvider
-La configuración predeterminada de ReliableDictionaryActorStateProvider puede modificarse cambiando el archivo "settings.xml" generado en la raíz del paquete de Visual Studio en la carpeta "Config" del actor en cuestión especificado.
+# Configuración de Reliable Actors: ReliableDictionaryActorStateProvider
+Puede modificar configuración predeterminada de ReliableDictionaryActorStateProvider cambiando el archivo settings.xml que se genera en la raíz del paquete de Visual Studio en la carpeta Config del actor especificado.
 
-El tiempo de ejecución de Service-Fabric busca los nombres de sección predefinidos en el archivo de "settings.xml" y utiliza los valores de configuración mientras crea los componentes en tiempo de ejecución subyacentes.
+El tiempo de ejecución de Azure Service Fabric busca los nombres de sección predefinidos en el archivo settings.xml y usa los valores de configuración mientras crea los componentes en tiempo de ejecución subyacentes.
 
-> [AZURE.NOTE]**NO** elimine o modifique los nombres de sección de las siguientes configuraciones en el archivo de "settings.xml" que se genera en la solución de Visual Studio.
+>[AZURE.NOTE]**No** elimine o modifique los nombres de sección de las siguientes configuraciones en el archivo settings.xml que se genera en la solución de Visual Studio.
 
 ## Configuración de seguridad del replicador
-Las configuraciones de seguridad del replicador se utilizan para proteger el canal de comunicación que se usa durante la replicación. Esto significa que los servicios no podrán ver el tráfico de replicación del otro, con lo que se garantiza que los datos que se ofrecen también están seguros. De forma predeterminada, una sección de configuración de seguridad vacía no permite la seguridad de replicación.
+Las configuraciones de seguridad del replicador se utilizan para proteger el canal de comunicación que se usa durante la replicación. Esto significa que los servicios no ven el tráfico de replicación de unos y los otros, lo que garantiza que los datos de alta disponibilidad también están protegidos. De forma predeterminada, una sección de configuración de seguridad vacía impide la seguridad de replicación.
+
 ### Nombre de sección
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
-## Configuración de replicador
-Las configuraciones de replicador se usan para configurar el replicador que es responsable de hacer que el proveedor de estado del actor resulte altamente fiable mediante la replicación y la conservación del estado de forma local. La plantilla de Visual Studio genera la configuración predeterminada y debe ser suficiente. En esta sección se habla sobre las configuraciones adicionales que están disponibles para optimizar el replicador.
+## Configuración del replicador
+Las configuraciones del replicador se usan para configurar el replicador que es responsable de hacer que el proveedor de estado del actor resulte altamente confiable mediante la replicación y la conservación del estado de forma local. La configuración predeterminada es generada por la plantilla de Visual Studio y debe ser suficiente. En esta sección se habla sobre las configuraciones adicionales que están disponibles para optimizar el replicador.
+
 ### Nombre de sección
 &lt;ActorName&gt;ServiceReplicatorConfig
+
 ### Nombres de configuración
 
 |Nombre|Unidad|Valor predeterminado|Comentarios|
 |----|----|-------------|-------|
 |BatchAcknowledgementInterval|Segundos|0,05|Período de tiempo durante el que el replicador del secundario espera después de recibir una operación antes de enviar una confirmación al principal. El resto de confirmaciones que se enviarán para las operaciones que se procesan dentro de este intervalo se envían como una respuesta.||
-|ReplicatorEndpoint|N/D|N/D: RequiredParameter|Dirección IP y puerto que usará el replicador principal y secundario para comunicarse con otros replicadores del conjunto de réplicas. Esto debe hacer referencia a un extremo de recursos de TCP en el manifiesto del servicio. Consulte [Recursos del manifiesto del servicio](service-fabric-service-manifest-resources.md) para obtener más información sobre cómo definir recursos de extremo en el manifiesto del servicio. |
-|MaxReplicationMessageSize|Bytes|50 MB|Tamaño máximo de los datos de replicación que se puede transmitir en un único mensaje.|
-|MaxPrimaryReplicationQueueSize|Número de operaciones|8192|Número máximo de operaciones de la cola principal. Se libera una operación después de que el replicador principal reciba una confirmación de todos los replicadores secundarios. Este valor debe ser mayor que 64 y una potencia de 2.|
-|MaxSecondaryReplicationQueueSize|Número de operaciones|16384|Número máximo de operaciones de la cola secundaria. Se libera una operación después de que su estado esté altamente disponible a través de persistencia. Este valor debe ser mayor que 64 y una potencia de 2.|
+|ReplicatorEndpoint|N/D|Ningún valor predeterminado: parámetro obligatorio|Dirección IP y puerto que usará el replicador principal y secundario para comunicarse con otros replicadores del conjunto de réplicas. Esto debe hacer referencia a un punto de conexión de recursos de TCP en el manifiesto de servicio. Consulte [Service Manifest Resources](service-fabric-service-manifest-resources.md) (Recursos del manifiesto de servicio) para obtener más información sobre cómo definir recursos de punto de conexión en el manifiesto de servicio. |
+|MaxReplicationMessageSize|Bytes|50 MB|Tamaño máximo de los datos de replicación que se puede transmitir en un único mensaje.|
+|MaxPrimaryReplicationQueueSize|Número de operaciones|8192|Número máximo de operaciones de la cola principal. Una operación se libera después de que el replicador principal reciba una confirmación de todos los replicadores secundarios. Este valor debe ser mayor que 64 y una potencia de 2.|
+|MaxSecondaryReplicationQueueSize|Número de operaciones|16384|Número máximo de operaciones de la cola secundaria. Una operación se libera después de que su estado sea altamente disponible a través de la persistencia. Este valor debe ser mayor que 64 y una potencia de 2.|
 |CheckpointThresholdInMB|MB|200|Cantidad del espacio del archivo de registro después de que se compruebe el estado.|
-|MaxRecordSizeInKB|KB|1024|Tamaño de registro más grande que puede escribir el replicador en el registro. Este valor debe ser un múltiplo de 4 y superior a 16.|
-|OptimizeLogForLowerDiskUsage|boolean|true|Cuando es true, se configura el registro para que se cree el archivo de registro específico de la réplica mediante un archivo disperso de NTFS. Esto reduce el uso del espacio en disco real del archivo. Cuando es false, el archivo se crea con asignaciones fijas que ofrecen el mejor rendimiento de escritura.|
-|SharedLogId|guid|""|Especifica un guid único que debe usarse para identificar el archivo de registro compartido que se usa con esta réplica. Normalmente, los servicios no deberían usar esta opción; sin embargo, si se especifica SharedLogId, también debe especificarse SharedLogPath.|
-|SharedLogPath|Nombre de ruta completo|""|Especifica la ruta de acceso completa donde se creará el archivo de registro compartido para esta réplica. Normalmente, los servicios no deberían usar esta opción; sin embargo, si se especifica SharedLogPath, también debe especificarse SharedLogId.|
+|MaxRecordSizeInKB|KB|1024|Tamaño de registro de mayor tamaño que puede escribir el replicador en el registro. Este valor debe ser un múltiplo de 4 y superior a 16.|
+|OptimizeLogForLowerDiskUsage|Booleano|true|Cuando es true, el registro se configura de modo que el archivo de registro específico de la réplica se cree usando un archivo disperso de NTFS. Esto reduce el uso del espacio en disco real del archivo. Cuando es false, el archivo se crea con asignaciones fijas, que ofrecen el mejor rendimiento de escritura.|
+|SharedLogId|guid|""|Especifica un guid único que debe usarse para identificar el archivo de registro compartido que se usa con esta réplica. Normalmente, los servicios no deberían usar esta opción de configuración. Sin embargo, si se especifica SharedLogId, también se debe especificar SharedLogPath.|
+|SharedLogPath|Nombre de ruta de acceso completo|""|Especifica la ruta de acceso completa donde se creará el archivo de registro compartido para esta réplica. Normalmente, los servicios no deberían usar esta opción de configuración. Sin embargo, si se especifica SharedLogPath, también se debe especificar SharedLogId.|
 
 
 ## Archivo de configuración de muestra
@@ -71,14 +74,14 @@ Las configuraciones de replicador se usan para configurar el replicador que es r
 ```
 
 ## Comentarios
-BatchAcknowledgementInterval controla la latencia de replicación. Un valor de "0" ofrecerá la menor latencia posible, a costa del rendimiento (como deben enviarse y procesarse más mensajes de confirmación, cada uno con menos confirmaciones). Cuanto mayor sea el valor de BatchAcknowledgementInterval, mayor será el rendimiento general de la replicación a costa de una mayor latencia de la operación. Esto se traduce directamente en la latencia de transacciones confirmadas.
+El parámetro BatchAcknowledgementInterval controla la latencia de replicación. Un valor de "0" ofrecerá la menor latencia posible, a costa del rendimiento (como deben enviarse y procesarse más mensajes de confirmación, cada uno con menos confirmaciones). Cuanto mayor sea el valor de BatchAcknowledgementInterval, mayor será el rendimiento general de la replicación a costa de una mayor latencia de la operación. Esto se traduce directamente en la latencia de transacciones confirmadas.
 
-El valor de CheckpointThresholdInMB controla la cantidad de espacio en disco que el replicador puede usar para almacenar información de estado en el archivo de registro específico de la réplica. Aumentarlo a un valor mayor que el predeterminado podría dar lugar a tiempos de reconfiguración más rápidos cuando se agrega una nueva réplica al conjunto debido a la transferencia de estado parcial que tiene lugar debido a la disponibilidad de más historial de operaciones en el registro, a la vez que se aumenta potencialmente aumenta el tiempo de recuperación de una réplica después de un bloqueo.
+El valor del parámetro CheckpointThresholdInMB controla la cantidad de espacio en disco que el replicador puede usar para almacenar información de estado en el archivo de registro específico de la réplica. Aumentar este valor a un valor mayor que el valor predeterminado puede provocar tiempos de reconfiguración cuando se agrega una nueva réplica para el conjunto. Esto se debe a la transferencia de estado parcial que tiene lugar debido a la disponibilidad de mayor cantidad de historial de operaciones en el registro. Potencialmente, esto puede aumentar el tiempo de recuperación de una réplica después de un error.
 
-La configuración de OptimizeForLowerDiskUsage permite "sobreaprovisionar" espacio de archivo de registro para que las réplicas activas puedan almacenar información de estado adicional en sus archivos de registro mientras que réplicas inactivas usarían menos espacio en disco. Aunque esto permite hospedar más réplicas en un nodo que si hubiese falta de espacio en disco, al establecer OptimizeForLowerDiskUsage en false, la información de estado se escribe en los archivos de registro más rápidamente.
+Si establece OptimizeForLowerDiskUsage en true, el espacio de archivo de registro se sobreprovisionará para que las réplicas activas puedan almacenar más información de estado en sus archivos de registro, mientras que las réplicas inactivas usarán menos espacio en disco. Esto permite hospedar más réplicas en un nodo. Si establece OptimizeForLowerDiskUsage en false, la información de estado se escribe en los archivos de registro más rápidamente.
 
-El MaxRecordSizeInKB define el tamaño máximo de un registro que puede escribir el replicador en el archivo de registro. En casi todos los casos, el tamaño predeterminado del registro de 1024 KB es óptimo; sin embargo, si el servicio está causando que elementos de datos más grandes formen parte de la información de estado, es posible que se deba aumentar este valor. Hay pocas ventajas en cambiar MaxRecordSizeInKB para que tenga un tamaño inferior a 1024, ya que los registros más pequeños solamente usan el espacio necesario para el registro más pequeño. Se espera que deba cambiarse solamente en raras ocasiones.
+El parámetro MaxRecordSizeInKB define el tamaño máximo de un registro que el replicador puede escribir en el archivo de registro. En la mayoría de los casos, el tamaño predeterminado de 1024 KB del registro es óptimo. Sin embargo, si el servicio hace que elementos de datos de mayor tamaño formen parte de la información de estado, es posible que este valor se tenga que aumentar. Hay pocas ventajas en cambiar MaxRecordSizeInKB para que tenga un tamaño inferior a 1024, ya que los registros más pequeños solamente usan el espacio necesario para el registro más pequeño. Se espera que este valor solo tuviera que cambiarse en raras ocasiones.
 
-La configuración de SharedLogId y SharedLogPath siempre se usa conjuntamente y permite que un servicio utilice un registro compartido independiente del registro compartido predeterminado del nodo. Para obtener una mayor eficacia, todos los servicios posibles deben especificar el mismo registro compartido. Los archivos de registro compartido deben colocarse en discos que se usen únicamente para el archivo de registro compartido, para reducir la contención del movimiento de los cabezales. Se espera que deba cambiarse solamente en raras ocasiones.
+Los parámetros SharedLogId y SharedLogPath siempre se usan en conjunto para obligar a un servicio a usar un registro compartido independiente del registro compartido predeterminado del nodo. Para obtener una mayor eficacia, todos los servicios posibles deben especificar el mismo registro compartido. Para reducir la contención del movimiento de encabezados, los archivos de registro compartido deben colocarse en discos que se usen únicamente para el archivo de registro compartido Se espera que estos valores solo tuvieran que cambiarse en raras ocasiones.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

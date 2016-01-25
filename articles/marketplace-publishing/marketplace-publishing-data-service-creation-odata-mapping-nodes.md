@@ -8,12 +8,12 @@
    editor=""/>
 
    <tags
-      ms.service="marketplace-publishing"
+      ms.service="marketplace"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/30/2015"
+      ms.date="01/04/2016"
       ms.author="hascipio; avikova" />
 
 # Descripción del esquema de nodos para la asignación de un servicio web existente a OData mediante CSDL
@@ -162,9 +162,8 @@ Estos son los atributos que se han agregado a la especificación de CSDL:
 |----|----|
 | **d:Regex** *(opcional)* | Instrucción Regex que se usa para validar el valor de entrada del parámetro. Si el valor de entrada no coincide con la instrucción, el valor se rechaza. Esto permite especificar también un conjunto de valores posibles, por ejemplo, ^[0-9]+?$ para permitir solo números. **Ejemplo:** `<Parameter Name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="A name that cannot contain any spaces or non-alpha non-English characters" d:SampleValues="George|John|Thomas|James"/>` |
 | **d:Enum** *(opcional)* | Lista de valores válidos para el parámetro separada por barras verticales. Es preciso que el tipo de los valores coincida con el tipo definido del parámetro. Ejemplo: `english|metric|raw`. Enum se mostrará en la interfaz de usuario como una lista desplegable en que se pueden seleccionar parámetros (Explorador de servicios). **Ejemplo:** `<Parameter Name="Duration" Type="String" Mode="In" Nullable="true" d:Enum="1year|5years|10years"/>` |
-| **d.: Nullable** *(opcional)* | Permite definir si un parámetro puede ser nulo. El valor predeterminado es: true. Sin embargo, los parámetros que se exponen como parte de la ruta de acceso de la plantilla del identificador URI no pueden ser nulos. Cuando el atributo se establece en false para estos parámetros, se reemplaza la entrada del usuario. Permite definir si un parámetro puede ser nulo. El valor predeterminado es: true. Sin embargo, los parámetros que se exponen como parte de la ruta de acceso de la plantilla del identificador URI no pueden ser nulos. Cuando el atributo se establece en false para estos parámetros, se reemplaza la entrada del usuario. **Ejemplo:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
-| **d:SampleValue** *(opcional)* | Valor de ejemplo que se muestra en forma de nota al cliente en la interfaz de usuario. Se pueden agregar varios valores, pero deben separarse con una barra vertical, "|”. **Ejemplo:** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
-| **d:UriTemplate** | |
+| **d.: Nullable** *(opcional)* | Permite definir si un parámetro puede ser nulo. El valor predeterminado es: true. Sin embargo, los parámetros que se exponen como parte de la ruta de acceso de la plantilla del identificador URI no pueden ser nulos. Cuando el atributo se establece en false para estos parámetros, se reemplaza la entrada del usuario. **Ejemplo:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
+| **d:SampleValue** *(opcional)* | Valor de ejemplo que se muestra en forma de nota al cliente en la interfaz de usuario. Es posible agregar varios valores mediante una lista de canalización separado, es decir `a|b|c` **Ejemplo:** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
 
 ## Nodo EntityType
 
@@ -273,4 +272,4 @@ Aquí, la expresión XPath sería ./bar/baz0 para obtener el nodo baz0 del servi
 - Si está interesado en ver ejemplos, consulte el artículo [Examples of mapping an existing web service to OData through CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md), donde podrá ver ejemplos de código y comprender el contexto y la sintaxis del código.
 - Para volver a la ruta de acceso prescrita para publicar un servicio de datos en Azure Marketplace, consulte el artículo [Data Service Publishing Guide for the Azure Marketplace](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

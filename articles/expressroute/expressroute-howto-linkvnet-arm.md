@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/09/2015"
+   ms.date="01/07/2015"
    ms.author="ganesr" />
 
 # Vinculación de redes virtuales a circuitos ExpressRoute
@@ -23,7 +23,7 @@
 - [PowerShell - Resource Manager] (expressroute-howto-linkvnet-arm.md)
 - [Template - Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
 
-En este artículo se ofrece información general de cómo vincular redes virtuales a circuitos ExpressRoute. Las redes virtuales pueden estar en la misma suscripción o formar parte de otra suscripción. Este artículo se aplican a redes virtuales que usan el modelo de implementación clásico. Si desea vincular una red virtual que se implementó mediante el método de implementación del Administrador de recursos de Azure, puede hacerlo mediante una plantilla. Consulte la pestaña anterior para desplazarse hasta la plantilla.
+En este artículo se ofrece información general de cómo vincular redes virtuales a circuitos ExpressRoute. Las redes virtuales pueden estar en la misma suscripción o formar parte de otra suscripción. Este artículo se aplica a redes virtuales implementadas que usan el modelo de implementación del Administrador de recursos. Si quiere vincular una red virtual que se implementó usando el modelo de implementación clásica, vea [Link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md) (Vincular una red virtual a un circuito de ExpressRoute).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -137,4 +137,4 @@ Puede liberar una autorización eliminando la conexión que vincula el circuito 
 
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

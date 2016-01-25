@@ -156,7 +156,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 
 **Canalización con actividad de copia**
 
-La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **SqlSource** y el tipo **sink**, en **BlobSink**. La consulta SQL especificada para la propiedad **SqlReaderQuery** selecciona los datos de la última hora que se van a copiar.
+La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **SqlSource** y el tipo **sink**, en **BlobSink**. La consulta SQL especificada para la propiedad **SqlReaderQuery** selecciona los datos de la última hora que se van a copiar.
 
 
 	{  
@@ -482,6 +482,25 @@ Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas de
 | storedProcedureParameters | Parámetros del procedimiento almacenado. | Pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. | No | 
 | sqlWriterTableType | Nombre del tipo de tabla especificado por el usuario que se usará en el procedimiento almacenado anterior. La actividad de copia dispone que los datos que se mueven estén disponibles en una tabla temporal con este tipo de tabla. El código de procedimiento almacenado puede combinar los datos copiados con datos existentes. | Un nombre de tipo de tabla. | No |
 
+## Solución de problemas de conexión
+
+1. Configure su SQL Server para que acepte conexiones remotas. Inicie **SQL Server Management Studio**, haga clic con el botón derecho en **servidor** y haga clic en **Propiedades**. Seleccione **Conexiones** en la lista y compruebe **Permitir conexiones remotas con este servidor**.
+	
+	![Habilitar conexiones remotas](.\media\data-factory-sqlserver-connector\AllowRemoteConnections.png)
+
+	Vea [Establecer la opción de configuración del servidor Opciones de usuario](https://msdn.microsoft.com/library/ms191464.aspx) para pasos detallados. 
+2. Inicie el **Administrador de configuración de SQL Server**. Expanda **Configuración de red de SQL Server** para la instancia que quiere y seleccione **Protocolos para MSSQLSERVER**. Debería ver protocolos en el panel derecho. Para habilitar TCP/TP, haga clic con el botón derecho en **TCP/IP** y haga clic en **Habilitar**.
+
+	![Habilitar TCP/IP](.\media\data-factory-sqlserver-connector\EnableTCPProptocol.png)
+
+	Vea [Habilitar o deshabilitar un protocolo de red de servidor](https://msdn.microsoft.com/library/ms191294.aspx) para detalles y maneras alternativas de habilitar el protocolo TCP/IP. 
+3. En la misma ventana, haga doble clic en **TCP/IP** para iniciar la ventana **Propiedades de TCP/IP**.
+4. Cambie a la pestaña **Direcciones IP**. Desplácese hacia abajo para ver la sección **IPAll**. Anote el **Puerto TCP** (el valor predeterminado es **1433**).
+5. Cree una **regla del Firewall de Windows** en el equipo para permitir el tráfico entrante a través de este puerto.  
+6. **Comprobar conexión**: use SQL Server Management Studio desde una máquina diferente para conectarse a SQL Server con el nombre completo. Por ejemplo: <machine>.<domain>.corp.<company>.com,1433.
+
+	> [AZURE.IMPORTANT]Vea [Ports and Security Considerations](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) (Consideraciones de puertos y seguridad) para información detallada.
+
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
 
@@ -543,4 +562,4 @@ La asignación es igual que la asignación de tipo de datos de SQL Server para A
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

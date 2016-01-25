@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="barbkess;JRJ@BigBangData.co.uk;mausher;nicw"/>
+   ms.date="01/08/2016"
+   ms.author="mausher;barbkess;jrj;nicw;sonyama"/>
 
 # Información general sobre rendimiento y escala
 Al colocar el Almacenamiento de datos en la nube, ya no es necesario preocuparse por los problemas de hardware de bajo nivel. Lejos quedan los días en que había que investigar qué tipo de procesadores, qué cantidad de memoria o qué tipo de almacenamiento era necesario para obtener un rendimiento excelente en el almacenamiento de datos. En su lugar, Almacenamiento de datos SQL formula esta pregunta: ¿con qué rapidez se desean analizar los datos?
@@ -69,7 +69,7 @@ Consulte el artículo [Introducción al desarrollo][] para obtener orientación 
 [rendimiento y escala]: sql-data-warehouse-performance-scale.md
 [modelo de simultaneidad]: sql-data-warehouse-develop-concurrency.md
 [diseño de tablas]: sql-data-warehouse-develop-table-design.md
-[selección de una clave de distribución hash para una tabla]: sql-data-warehouse-develop-hash-distribution-key
+[selección de una clave de distribución hash para una tabla]: sql-data-warehouse-develop-hash-distribution-key.md
 [estadísticas para mejorar el rendimiento]: sql-data-warehouse-develop-statistics.md
 [Introducción al desarrollo]: sql-data-warehouse-overview-develop.md
 
@@ -77,4 +77,4 @@ Consulte el artículo [Introducción al desarrollo][] para obtener orientación 
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

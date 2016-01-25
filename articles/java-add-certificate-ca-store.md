@@ -5,7 +5,7 @@
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="multiple" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 # Incorporación de un certificado al almacén de certificados CA de Java
@@ -56,4 +56,4 @@ Para obtener más información sobre los certificados raíz que usa Azure, consu
 
 Para obtener más información sobre Java, consulte el [Centro para desarrolladores de Java](/develop/java/).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Crear una instantánea de un blob | Microsoft Azure"
-	description="Guía para crear instantáneas de blobs de almacenamiento de Azure"
+	pageTitle="Crear una instantánea de solo lectura de un blob | Microsoft Azure"
+	description="Aprenda a crear una instantánea de un blob para hacer una copia de seguridad de los datos de blob en un momento determinado. Comprenda cómo se facturan las instantáneas y cómo usarlas para minimizar las cargas de capacidad."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/01/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
 
 # Creación de una instantánea de un blob
@@ -125,4 +125,4 @@ En la situación 4, el blob de base se ha actualizado totalmente y no contiene n
 
 ![Recursos de almacenamiento de Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

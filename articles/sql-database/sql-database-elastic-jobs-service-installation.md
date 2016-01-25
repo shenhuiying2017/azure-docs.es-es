@@ -17,6 +17,7 @@
 	ms.author="ddove;sidneyh"/>
 
 # Información general sobre la instalación de Trabajos de base de datos elástica
+
 Los [**trabajos de base de datos elástica**](sql-database-elastic-jobs-overview.md) se pueden instalar a través de PowerShell o del Portal de Azure clásico. Obtendrá acceso para crear y administrar trabajos con la API de PowerShell si se instala el paquete de PowerShell. Además, en este momento, las API de PowerShell proporcionan mucha más funcionalidad que el portal en este momento.
 
 Si ya instaló los **trabajos de base de datos elástica** a través del Portal en un **grupo de bases de datos elásticas** existente, la última vista previa de Powershell incluye scripts para actualizar la instalación existente. Es muy recomendable actualizar la instalación a los componentes más recientes de los **trabajos de base de datos elástica** para aprovechar la nueva funcionalidad expuesta a través de las API de PowerShell.
@@ -33,7 +34,7 @@ Si ya instaló los **trabajos de base de datos elástica** a través del Portal 
 
 		PS C:\>.\nuget install Microsoft.Azure.SqlDatabase.Jobs -prerelease
 
-    Los archivos de los **trabajos de base de datos elástica** se ubican en el directorio local, en una carpeta con el nombre **Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x**, donde *x.x.xxxx.x* indica el número de versión. Los cmdlets de PowerShell (incluidos los archivos .DLL de cliente necesarios) se ubican en el subdirectorio **tools\\ElasticDatabaseJobs** y los scripts de PowerShell para instalar, actualizar y desinstalar también residen en el subdirectorio **tools**.
+    Los archivos de **Trabajos de base de datos elástica** se ubican en el directorio local, en una carpeta con el nombre **Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x**, donde *x.x.xxxx.x* indica el número de versión. Los cmdlets de PowerShell (incluidos los archivos .DLL de cliente necesarios) se ubican en el subdirectorio **tools\\ElasticDatabaseJobs** y los scripts de PowerShell para instalar, actualizar y desinstalar también residen en el subdirectorio **tools**.
 
 3. Navegue al subdirectorio tools de la carpeta Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x. Para ello, escriba cd tools, como en este ejemplo:
 
@@ -150,7 +151,7 @@ Para actualizar el tamaño de máquina virtual de una instalación, ejecute el s
 
 ## Instalación de componentes de Trabajos de base de datos elástica mediante el Portal
 
-Una vez creado el [grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md), puede instalar componentes de los **trabajos de base de datos elástica** para habilitar la ejecución de tareas administrativas en cada base de datos del grupo. A diferencia de lo que sucede cuando se usan las API de PowerShell de los **trabajos de base de datos elástica**, la interfaz del portal está actualmente restringida exclusivamente a la ejecución en un grupo existente.
+Una vez creado el [grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md), puede instalar componentes de los **trabajos de base de datos elástica** para habilitar la ejecución de tareas administrativas en cada base de datos del grupo. A diferencia de lo que sucede cuando se usan las API de PowerShell de **Trabajos de base de datos elástica**, la interfaz del portal está actualmente restringida exclusivamente a la ejecución en un grupo existente.
 
 
 **Tiempo estimado para completar el tutorial:** 10 minutos.
@@ -178,13 +179,13 @@ Si se requiere la desinstalación, elimine el grupo de recursos. Consulte [Desin
 
 ## Pasos siguientes
 
-Asegúrese de crear una credencial con los derechos adecuados para la ejecución de scripts en cada base de datos del grupo. Para obtener más información, consulte [Cómo agregar usuarios a un grupo de bases de datos elásticas](sql-database-elastic-jobs-add-logins-to-dbs.md). Consulte [Creación y administración de trabajos de base de datos elástica](sql-database-elastic-jobs-create-and-manage.md).
+La garantía de una credencial con los derechos adecuados para la ejecución del script se crea en cada base de datos del grupo. Para obtener más información, consulte [Protección de bases de datos SQL](sql-database-security.md). Consulte [Creación y administración de trabajos de base de datos elástica](sql-database-elastic-jobs-create-and-manage.md).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-service-installation/screen-1.png
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
-[4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
+[4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

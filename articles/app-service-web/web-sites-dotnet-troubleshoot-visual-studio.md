@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio
@@ -111,7 +111,7 @@ Con frecuencia, la manera más fácil de encontrar la causa de un error es habil
 
 	![Mensajes de error detallados](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-	(El error que aparece se generó al agregar la línea en rojo a *Views\\Home\\Index.cshtml*).
+	(El error que aparece se generó al agregar la línea en rojo a *Views\Home\Index.cshtml*).
 
 Editar el archivo Web.config es solo un ejemplo de las situaciones en las que la capacidad de leer y editar archivos en su aplicación web de Azure facilita la solución de problemas.
 
@@ -125,7 +125,7 @@ Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Int
 
 1. Abra el proyecto web que creó en [Introducción a Azure y ASP.NET][GetStarted].
 
-1. Abra *Controllers\\HomeController.cs*.
+1. Abra *Controllers\HomeController.cs*.
 
 2. Elimine el método `About()` e inserte el siguiente código en su lugar.
 
@@ -300,7 +300,7 @@ Para obtener información acerca de cómo crear registros de aplicaciones en Web
 
 ### Adición de instrucciones de seguimiento a la aplicación
 
-1. Abra *Controllers\\HomeController.cs* y reemplace el contenido del archivo por el siguiente código para agregar instrucciones `Trace` y una instrucción `using` para `System.Diagnostics`:
+1. Abra *Controllers\HomeController.cs* y reemplace el contenido del archivo por el siguiente código para agregar instrucciones `Trace` y una instrucción `using` para `System.Diagnostics`:
 
 		using System;
 		using System.Collections.Generic;
@@ -521,9 +521,9 @@ Todos los registros que se pueden supervisar en la ventana **Resultados** tambi�
 
 	![Archivo descargado](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-	* Los registros de seguimiento de aplicación están en archivos *.txt* en la carpeta *LogFiles\\Application*.
-	* Los registros de servidor web están en archivos *.log* en la carpeta *LogFiles\\http\\RawLogs*. Puede utilizar una herramienta como [Analizador del registro](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para ver y manipular estos archivos.
-	* Los registros de mensajes de error detallados están en los archivos *.html* de la carpeta *LogFiles\\DetailedErrors*.
+	* Los registros de seguimiento de aplicación están en archivos *.txt* en la carpeta *LogFiles\Application*.
+	* Los registros de servidor web están en archivos *.log* en la carpeta *LogFiles\http\RawLogs*. Puede utilizar una herramienta como [Analizador del registro](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para ver y manipular estos archivos.
+	* Los registros de mensajes de error detallados están en los archivos *.html* de la carpeta *LogFiles\DetailedErrors*.
 
 	(La carpeta de *implementaciones* es para archivos creados por la publicación del control del código fuente; no tiene ninguna relación con la publicación en Visual Studio. La carpeta *Git* es para seguimientos relacionados con la publicación de control de origen y el servicio de transmisión de archivos de registro).
 
@@ -644,7 +644,7 @@ Puede ver los registros de seguimiento de solicitudes en un explorador directame
 
 	![Nuevo nombre de usuario y contraseña de FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-	****Cuando inicie sesión, debe utilizar el nombre de usuario completo, con el nombre de la aplicación como prefijo. Por ejemplo, si escribe "myid" como nombre de usuario y el sitio es "myexample", inicie sesión como "myexample\\myid".
+	Cuando **inicie sesión**, debe utilizar el nombre de usuario completo, con el nombre de la aplicación como prefijo. Por ejemplo, si escribe "myid" como nombre de usuario y el sitio es "myexample", inicie sesión como "myexample\\myid".
 
 5. En una ventana nueva del explorador, vaya a la dirección URL que aparece en **Nombre de host de FTP** o **Nombre de host de FTPS** en la hoja **Aplicación web** de la aplicación web.
 
@@ -739,7 +739,7 @@ También antiguo, pero incluye cierta información adicional que el artículo de
 
 Para el registro de errores, una alternativa a escribir su propio código de seguimiento es utilizar un marco de registro de código abierto, como [ELMAH](http://nuget.org/packages/elmah/). Para obtener más información, consulte [Publicaciones de blog de Scott Hanselman sobre ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
-Además, tenga en cuenta que no tiene que utilizar el seguimiento de System.Diagnostics o ASP.NET si desea obtener registros de streaming de Azure. El servicio de registros de streaming de la aplicación web de Azure transmitirá todo archivo *.txt*, *.html* o *.log* que encuentre en la carpeta *LogFiles*. Por lo tanto, podría crear su propio sistema de registro que escriba en el sistema de archivos de la aplicación web y su archivo se transmitirá y descargará automáticamente. Todo lo que tiene que hacer es escribir código de aplicación que cree archivos en la carpeta *d:\\home\\logfiles*.
+Además, tenga en cuenta que no tiene que utilizar el seguimiento de System.Diagnostics o ASP.NET si desea obtener registros de streaming de Azure. El servicio de registros de streaming de la aplicación web de Azure transmitirá todo archivo *.txt*, *.html* o *.log* que encuentre en la carpeta *LogFiles*. Por lo tanto, podría crear su propio sistema de registro que escriba en el sistema de archivos de la aplicación web y su archivo se transmitirá y descargará automáticamente. Todo lo que tiene que hacer es escribir código de aplicación que cree archivos en la carpeta *d:\home\logfiles*.
 
 ### Análisis de registros de servidor web
 
@@ -767,4 +767,4 @@ Si desea depurar un servicio en la nube de Azure en lugar de una aplicación web
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

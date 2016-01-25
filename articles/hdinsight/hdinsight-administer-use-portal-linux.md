@@ -59,7 +59,7 @@ Puede aprovisionar clústeres de HDInsight desde el portal de Azure si sigue est
 
 4. Si tienes más de una suscripción, selecciona la entrada __Suscripción__ entrada para seleccionar la suscripción de Azure que se usará para el clúster.
 
-5. Para el __Grupo de recursos__, puedes seleccionar la entrada para ver una lista de grupos de recursos existentes y después seleccionar en el que quieras crear el clúster. También puedes seleccionar __Crear nuevo__ y escribir el nombre del nuevo grupo de recursos. Aparecerá una marca de verificación verde para indicar si el nuevo nombre de grupo está disponible.
+5. Para el __Grupo de recursos__, puedes seleccionar la entrada para ver una lista de grupos de recursos existentes y después seleccionar en el que quieras crear el clúster. También puede seleccionar __Crear nuevo__ y escribir el nombre del nuevo grupo de recursos. Aparecerá una marca de verificación verde para indicar si el nuevo nombre de grupo está disponible.
 
 	> [AZURE.NOTE]Esta entrada se establecerá de manera predeterminada en uno de sus grupos de recursos existentes, si hay alguno disponible.
 
@@ -79,22 +79,22 @@ Puede aprovisionar clústeres de HDInsight desde el portal de Azure si sigue est
 
 	![Hoja Origen de datos](./media/hdinsight-administer-use-portal-linux/datasource.png)
 
-	Actualmente puede seleccionar una cuenta de almacenamiento de Azure como origen de datos para un clúster de HDInsight. Use lo siguiente para comprender las entradas de la hoja __Origen de datos__.
+	Actualmente puede seleccionar una cuenta de almacenamiento de Azure como origen de datos para un clúster de HDInsight. Usa lo siguiente para comprender las entradas de la hoja de __Origen de datos__.
 
-	- __Método de selección__: establézcalo como __De todas las suscripciones__ para habilitar la exploración de cuentas de almacenamiento en sus suscripciones. Establézcalo como __Tecla de acceso__ si desea especificar el __Nombre de almacenamiento__ y la __Tecla de acceso__ de una cuenta de almacenamiento existente.
+	- __Método de selección__: establézcalo en __De todas las suscripciones__ para habilitar la exploración de cuentas de almacenamiento en sus suscripciones. Establézcalo como __Tecla de acceso__ si desea especificar el __Nombre de almacenamiento__ y la __Tecla de acceso__ de una cuenta de almacenamiento existente.
 
 	- __Crear nuevo__: use esta opción para crear una nueva cuenta de almacenamiento. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparecerá una marca de verificación verde.
 
 	- __Elegir contenedor predeterminado__: use esta opción para escribir el nombre del contenedor predeterminado que se usará para el clúster. Aunque se puede escribir cualquier nombre aquí, se recomienda usar el mismo nombre que el del clúster para que pueda reconocer fácilmente que el contenedor se usa para este clúster concreto.
 
-	- __Ubicación__: la región geográfica en la que se encuentra o donde se creará la cuenta de almacenamiento.
+	- __Ubicación__: la región geográfica en la que se encontrará o donde se creará la cuenta de almacenamiento.
 
 		> [AZURE.IMPORTANT]Al seleccionar la ubicación del origen de datos predeterminado también establecerá la ubicación del clúster de HDInsight. El origen de datos predeterminado y el clúster deben encontrarse en la misma región.
 
 	- __Seleccionar__: use esta opción para guardar la configuración del origen de datos.
 
 	
-8. Seleccione __Niveles de precios de nodo__ para mostrar información sobre los nodos que se crearán para este clúster. De forma predeterminada, el número de nodos de trabajo se establecerá en __4__.
+8. Seleccione __Planes de tarifa de nodo__ para mostrar información sobre los nodos que se crearán para este clúster. De forma predeterminada, el número de nodos de trabajo se establecerá en __4__.
 
 
 	El costo estimado del clúster se mostrará en la parte inferior de esta hoja.
@@ -109,15 +109,9 @@ Puede aprovisionar clústeres de HDInsight desde el portal de Azure si sigue est
 
 	* __Tiendas de metadatos externas__: permite seleccionar una Base de datos SQL, que se usará para almacenar la información de configuración de Oozie y Hive. Esto te permite volver a usar la configuración cuando se elimina y se vuelve a crear un clúster, en lugar de tener que volver a crear la configuración de Hive y Oozie cada vez.
 
-	* __Red virtual__: esto le permite colocar el clúster de HDInsight en la misma red virtual que otros recursos, como la base de datos SQL o una máquina virtual de Azure. Colocar los recursos en una red virtual les permite comunicarse directamente entre sí, omitiendo las puertas de enlace públicas que controlan el tráfico entrante desde Internet. Para obtener más información sobre cómo se beneficia HDInsight de las redes virtuales de Azure, vea [Extensión de las funcionalidades de HDInsight con red virtual de Azure](hdinsight-extend-hadoop-virtual-network.md).
-
-		> [AZURE.IMPORTANT]Tienes que crear la red virtual de Azure antes de crear el clúster de HDInsight, ya que no puedes crear una nueva red desde la configuración de HDInsight.
-		>
-		> En la actualidad (25 de agosto de 2015), hay una limitación que hace que en una red virtual de Azure solo pueda haber un único clúster de HDInsight basado en Linux.
-        >
-        > No se puede usar v1 (clásica), red virtual de Azure con HDInsight basado en Linux. La Red virtual debe ser v2 (Administrador de recursos de Azure) para que se muestre como opción durante el proceso de creación de un clúster de HDInsight en el Portal de Azure o para que se pueda usar para crear un clúster en la CLI de Azure o Azure PowerShell.
-        >
-        > Si tiene recursos en una red v1 y quiere que dichos recursos puedan tener acceso directamente a HDInsight a través de una red virtual, vea [Conexión de redes virtuales clásicas con nuevas redes virtuales](../virtual-network/virtual-networks-arm-asm-s2s.md) para información sobre cómo conectar una Red virtual v2 a una Red virtual v1. Una vez establecida la conexión, puede crear el clúster de HDInsight en la Red Virtual v2.
+	* __Red virtual__: esto te permite colocar el clúster de HDInsight en la misma red virtual que otros recursos, como la base de datos SQL o una máquina virtual de Azure. Colocar los recursos en una red virtual les permite comunicarse directamente entre sí, omitiendo las puertas de enlace públicas que controlan el tráfico entrante desde Internet.
+    
+        Para obtener información sobre el uso de HDInsight con una red virtual, como por ejemplo, los requisitos de configuración específicos de la red virtual, consulte [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) (Ampliar las capacidades de HDInsight con una red virtual de Azure).
 
 	* __Acciones de script__: permite especificar scripts de Bash que personalizan el clúster de HDInsight durante el aprovisionamiento. Por ejemplo, hay un [script que instala Hue](hdinsight-hadoop-hue-linux.md) (un cliente gráfico para trabajar con Hadoop). Para más información sobre las acciones de script, vea [Personalización de clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -127,13 +121,13 @@ Puede aprovisionar clústeres de HDInsight desde el portal de Azure si sigue est
 
 	![Hoja Configuración opcional](./media/hdinsight-administer-use-portal-linux/optionalconfiguration.png)
 
-10. Asegúrese de que la opción __Anclar a Panel de inicio__ está seleccionada y luego elija __Crear__. Esto creará el clúster y agregará un icono para él en el panel de inicio de su Portal de Azure. El icono indicará que el clúster está aprovisionando y cambiará para mostrar el icono de HDInsight cuando se haya completado el proceso.
+10. Asegúrese de que __Anclar a Panel de inicio__ está seleccionado y, después, seleccione __Crear__. Esto creará el clúster y agregará un icono para él en el panel de inicio de su Portal de Azure. El icono indicará que el clúster está aprovisionando y cambiará para mostrar el icono de HDInsight cuando se haya completado el proceso.
 
 	| Durante el aprovisionamiento | Aprovisionamiento completado |
 	| ------------------ | --------------------- |
 	| ![Indicador de aprovisionamiento en el panel de inicio](./media/hdinsight-administer-use-portal-linux/provisioning.png) | ![Icono de clúster aprovisionado](./media/hdinsight-administer-use-portal-linux/provisioned.png) |
 
-	> [AZURE.NOTE]El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada __Notificaciones__ de la izquierda de la página para comprobar el proceso de aprovisionamiento.
+	> [AZURE.NOTE]El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Usa el icono del Panel de inicio o la entrada __Notificaciones__ de la izquierda de la página para comprobar el proceso de aprovisionamiento.
 
 ## Administración de un clúster
 
@@ -147,7 +141,7 @@ Use la siguiente información para comprender los iconos de la parte superior de
 
 * __Panel__, __Panel de clúster__ y __Dirección URL__: todas son formas de acceder al panel del clúster, que es la web de Ambari para los clústeres basados en Linux.
 
-* __Shell seguro__: información necesaria para obtener acceso al clúster mediante SSH.
+* __Shell seguro__: información necesaria para acceder al clúster mediante SSH.
 
 * __Escalar clúster__: permite cambiar el número de nodos de trabajo para este clúster.
 
@@ -167,7 +161,7 @@ Use la siguiente información para comprender los iconos de la parte superior de
 
 ### <a name="scaling"></a>Escalado
 
-Para escalar un clúster mediante el portal, seleccione el clúster de HDInsight y elija __Escalar clúster__. Escriba el __Número de nodos de trabajo__ que quiere establecer para el clúster y luego haga clic en __Guardar__.
+Para escalar un clúster mediante el portal, seleccione el clúster de HDInsight y elija __Escalar clúster__. Escriba el __número de nodos de trabajo__ que quieres establecer para el clúster y después haz clic en __Guardar__.
 
 ![imagen de la interfaz de usuario de escalado](./media/hdinsight-administer-use-portal-linux/scaling.png)
 
@@ -175,11 +169,11 @@ Para más información sobre cómo ampliar las operaciones, vea [Información so
 
 ## Supervisión de un clúster
 
-En la sección __Uso__ de la hoja del clúster de HDInsight se muestra información sobre el número de núcleos disponibles con la suscripción para su uso con HDInsight, así como el número de núcleos asignados al clúster y cómo se asignan a los nodos de este clúster.
+La sección __Uso__ de la hoja del clúster de HDInsight muestra información sobre el número de núcleos disponibles con la suscripción para su uso con HDInsight, así como el número de núcleos asignados al clúster y cómo se asignan a los nodos de este clúster.
 
 ![Información de uso](./media/hdinsight-administer-use-portal-linux/usage.png)
 
-> [AZURE.IMPORTANT]Para supervisar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para más información sobre el uso de Ambari, vea [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md).
+> [AZURE.IMPORTANT]Para supervisar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para obtener más información sobre el uso de Ambari, consulte [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md)
 
 ## Pasos siguientes
 En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Portal de Azure y a abrir la herramienta de línea de comandos de Hadoop. Para obtener más información, consulte los artículos siguientes:
@@ -193,4 +187,4 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -67,7 +67,7 @@ Los artículos siguientes le ayudarán a empezar a usar bases de datos y trabajo
 | [Creación y administración de una base de datos SQL con la biblioteca de Base de datos SQL de Azure para .NET](sql-database-elastic-pool-powershell.md) | Creación y administración de grupos de bases de datos elásticas mediante C# |
 | [Información general de los trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md) | Información general acerca del servicio de trabajos elásticos, que permite ejecutar secuencias de comandos de T-SQL en todas las bases de datos elásticas de un grupo. |
 | [Instalación del componente de trabajo de la base de datos elástica](sql-database-elastic-jobs-service-installation.md) | Instalación del servicio de trabajo de base de datos elástica |
-| [Creación del usuario necesario para el servicio de trabajos elásticos](sql-database-elastic-jobs-add-logins-to-dbs.md) | Para ejecutar una secuencia de comandos de trabajo de la base de datos elástica, deberá agregar un usuario con los permisos adecuados para cada base de datos del grupo. |
+| [Protección de bases de datos SQL](sql-database-security.md) | Para ejecutar una secuencia de comandos de trabajo de la base de datos elástica, deberá agregar un usuario con los permisos adecuados para cada base de datos del grupo. |
 | [Desinstalación de los componentes de trabajo de la base de datos elástica](sql-database-elastic-jobs-uninstall.md) | Recuperación de errores al intentar instalar el servicio de trabajo de la base de datos elástica |
 
 
@@ -105,7 +105,7 @@ El límite de almacenamiento del grupo se determina mediante la cantidad de eDTU
 | dtu | **100**, 200, 400, 800, 1200 | **100**, 200, 400, 800, 1200 | **125**, 250, 500, 1000, 1500 |
 | databaseDtuMax | **5** | 10, 20, 50, **100** | **125**, 250, 500, 1000 |
 | databaseDtuMin | **0**, 5 | **0**, 10, 20, 50, 100 | **0**, 125, 250, 500, 1000 |
-| storageMB* | **10 000 MB**, 20 000 MB, 40 000 MB, 80 000 MB, 120 000 MB | **100 GB**, 200 GB, 400 GB, 800 GB, 1200 GB | **62,5 GB**, 125 GB, 250 GB, 500 GB, 750 GB |
+| storageMB* | **10 000 MB**, 20 000 MB, 40 000 MB, 80 000 MB, 120 000 MB | **100 GB**, 200 GB, 400 GB, 800 GB, 1200 GB | **62.5 GB**, 125 GB, 250 GB, 500 GB, 750 GB |
 | almacenamiento por DTU | 100 MB | 1 GB | 0,5 GB |
 | número máximo de bases de datos por grupo | 200 | 200 | 50 |
 
@@ -152,13 +152,13 @@ Hay varios comandos de API de REST y cmdlets de PowerShell que están disponible
 
 | [Cmdlets de PowerShell](https://msdn.microsoft.com/library/mt163521.aspx) | [Comandos de las API de REST](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
-| [New-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125987.aspx) | [Creación de un grupo de bases de datos elásticas](https://msdn.microsoft.com/library/mt163596.aspx) |
-| [Set-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125994.aspx) | [Establecer la configuración de rendimiento de un grupo de bases de datos elásticas](https://msdn.microsoft.com/library/mt163641.aspx) |
-| [Remove-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125830.aspx) | [Eliminar un grupo de bases de datos elásticas](https://msdn.microsoft.com/library/mt163672.aspx) |
-| [Get-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt126017.aspx) | [Obtiene los grupos de bases de datos elásticas y sus valores de propiedad](https://msdn.microsoft.com/es-ES/library/mt163646.aspx) |
-| [Get-AzureSqlElasticPoolActivity](https://msdn.microsoft.com/library/mt125837.aspx) | [Obtención del estado de las operaciones de grupos de bases de datos elásticas](https://msdn.microsoft.com/library/mt163669.aspx) |
-| [Get-AzureSqlElasticPoolDatabase](https://msdn.microsoft.com/library/mt125960.aspx) | [Obtención de bases de datos en un grupo de bases de datos elásticas](https://msdn.microsoft.com/library/mt163646.aspx) |
-| [Get-AzureSqlElasticPoolDatabaseActivity](https://msdn.microsoft.com/library/mt125973.aspx) | [Obtiene el estado de la introducción y extracción de bases de datos de un grupo](https://msdn.microsoft.com/library/mt163669.aspx) |
+| [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) | [Creación de un grupo de bases de datos elásticas](https://msdn.microsoft.com/library/mt163596.aspx) |
+| [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) | [Establecer la configuración de rendimiento de un grupo de bases de datos elásticas](https://msdn.microsoft.com/library/mt163641.aspx) |
+| [Remove-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619355.aspx) | [Eliminar un grupo de bases de datos elásticas](https://msdn.microsoft.com/library/mt163672.aspx) |
+| [Get-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603517.aspx) | [Obtiene los grupos de bases de datos elásticas y sus valores de propiedad](https://msdn.microsoft.com/library/mt163646.aspx) |
+| [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) | [Obtención del estado de las operaciones de grupos de bases de datos elásticas](https://msdn.microsoft.com/library/mt163669.aspx) |
+| [Get-AzureRmSqlElasticPoolDatabase](https://msdn.microsoft.com/library/azure/mt619484.aspx) | [Obtención de bases de datos en un grupo de bases de datos elásticas](https://msdn.microsoft.com/library/mt163646.aspx) |
+| [Get-AzureRmSqlElasticPoolDatabaseActivity]() | [Obtiene el estado de la introducción y extracción de bases de datos de un grupo](https://msdn.microsoft.com/library/mt163669.aspx) |
 
 ## Transact-SQL
 
@@ -210,4 +210,4 @@ El precio unitario de eDTU de un grupo elástico es mayor que el precio unitario
 | 40891 | EX_USER | El mínimo de DTU por base de datos (%d) no puede superar el máximo de DTU por base de datos (%d). | Mínimo de DTU por base de datos; máximo de DTU por base de datos. | Intentando establecer el mínimo de DTU por base de datos por encima del máximo de DTU por base de datos. | Asegúrese de que el mínimo de DTU por bases de datos no supera el máximo de DTU por base de datos. |
 | Por determinar | EX_USER | El tamaño de almacenamiento para una base de datos individual en un grupo elástico no puede superar el tamaño máximo permitido por el grupo elástico del nivel de servicio '%.*ls'. | nivel de servicio del grupo elástico | El tamaño máximo de la base de datos supera el tamaño máximo permitido por el nivel de servicio del grupo elástico. | Establezca el tamaño máximo de la base de datos dentro de los límites del tamaño máximo permitido por el nivel de servicio del grupo elástico. |
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

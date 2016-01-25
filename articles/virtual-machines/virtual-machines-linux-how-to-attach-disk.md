@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="01/07/2016"
 	ms.author="dkshir"/>
 
 # Acoplamiento de un disco de datos a una máquina virtual Linux
@@ -22,13 +22,15 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
 
-Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos casos, se trata realmente de archivos .vhd que residen en una cuenta de almacenamiento de Azure. También en ambos casos, una vez acoplado el disco, tendrá que inicializarlo para que esté listo para utilizarse. Este artículo se refiere a máquinas virtuales creadas con el modelo de implementación clásica.
+Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos casos, se trata realmente de archivos .vhd que residen en una cuenta de almacenamiento de Azure. También en ambos casos, una vez acoplado el disco, tendrá que inicializarlo para que esté listo para utilizarse.
 
 > [AZURE.NOTE]Es recomendable utilizar uno o varios discos independientes para almacenar los datos de una máquina virtual. Al crear una máquina virtual de Azure, esta cuenta con un disco para el sistema operativo y un disco temporal. **No utilice el disco temporal para almacenar datos.** Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure. El Agente de Linux de Azure normalmente administra el disco temporal, y este se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu). Por otro lado, el kernel de Linux podría denominar al disco de datos de forma similar a `/dev/sdc`, y los usuarios necesitarán crear particiones, dar formato y montar ese recurso. Consulte la [Guía de usuario del Agente de Linux de Azure][Agent] para obtener más información.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
 ## Inicialización de un nuevo disco de datos en Linux
+
+Puede usar las mismas instrucciones para inicializar varios discos de datos, usando el identificador de dispositivo adecuado, tal como se muestra a continuación.
 
 1. Conexión a una máquina virtual. Para obtener más información, vea [Inicio de sesión en una máquina virtual con Linux][Logon].
 
@@ -86,7 +88,7 @@ Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos cas
 
 	![Crear un dispositivo nuevo](./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png)
 
-5. Cuando se le pida, escriba **p** para que la partición sea la partición principal, escriba **1** para que sea la primera partición y luego escriba "enter" para aceptar el valor predeterminado para el cilindro.
+5. Cuando se le pida, escriba **p** para que la partición sea la partición principal, escriba **1** para que sea la primera partición y luego escriba "enter" para aceptar el valor predeterminado para el cilindro. En algunos sistemas, puede mostrar los valores predeterminados del primer sector y el último sector, en lugar del cilindro. Puede aceptar estos valores predeterminados.
 
 
 	![Crear partición](./media/virtual-machines-linux-how-to-attach-disk/DiskCylinder.png)
@@ -105,7 +107,7 @@ Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos cas
 
 	![Escribir los cambios del disco](./media/virtual-machines-linux-how-to-attach-disk/DiskWrite.png)
 
-8. Cree el sistema de archivos en la partición nueva. Como ejemplo, escriba el siguiente comando y, a continuación, especifique la contraseña de la cuenta:
+8. Cree el sistema de archivos en la partición nueva. Anexe el número de partición (1) al identificador del dispositivo. Por ejemplo, escriba el siguiente comando y luego especifique la contraseña de la cuenta:
 
 		# sudo mkfs -t ext4 /dev/sdc1
 
@@ -160,7 +162,9 @@ Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos cas
 
 	Si el comando `mount` genera un error, compruebe la sintaxis correcta del archivo /etc/fstab. Si se crean particiones o unidades de datos adicionales, tendrá que especificarlas también en /etc/fstab por separado.
 
-	Deberá establecer que se pueda grabar en la unidad mediante los siguientes comandos: # cd /datadrive # sudo chmod go+w /datadrive
+	Debe hacer que se pueda escribir en unidad mediante este comando:
+
+		# sudo chmod go+w /datadrive
 
 >[AZURE.NOTE]Posteriormente, la eliminación de un disco de datos sin editar fstab podría provocar un error en el inicio de la máquina virtual. Si ocurre habitualmente, la mayoría de distribuciones proporcionan las opciones de fstab `nofail` y/o `nobootwait` que permitirán que el sistema se inicie incluso si el disco no se monta al arrancar. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
 
@@ -175,4 +179,4 @@ Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos cas
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

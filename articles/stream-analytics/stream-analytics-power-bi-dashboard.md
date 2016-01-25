@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="01/11/2016" 
 	ms.author="jeffstok"/>
 	
 # Análisis de transmisiones de Azure y Power BI: panel de análisis en tiempo real para visibilidad de streaming de datos
@@ -25,15 +25,15 @@ Utilice [Microsoft Power BI](https://powerbi.com/) para crear rápidamente un pa
 
 En este artículo, aprenderá a crear sus propias herramientas de inteligencia empresarial personalizadas mediante Power BI como salida para los trabajos de Análisis de transmisiones de Azure y a utilizar un panel en tiempo real.
 
-> [AZURE.NOTE]La salida a Power BI es una característica de vista previa de Análisis de transmisiones de Azure. En este momento, la creación y configuración de salidas de Power BI no se admite en el Portal de vista previa de Azure.
+> [AZURE.NOTE] La salida a Power BI es una característica de vista previa de Análisis de transmisiones de Azure. En este momento, la creación y configuración de salidas de Power BI no se admite en el Portal de vista previa de Azure.
 
-## Requisitos previos ##
+## Requisitos previos
 
 * Cuenta de Microsoft Azure
 * Una entrada de la que el trabajo de Análisis de transmisiones pueda consumir datos de streaming. Análisis de transmisiones acepta entradas de Centros de eventos de Azure o de Almacenamiento de blobs de Azure.  
 * Cuenta profesional o educativa para Power BI
 
-## Creación de un trabajo de Análisis de transmisiones de Azure ##
+## Creación de un trabajo de Análisis de transmisiones de Azure
 
 En el [Portal de Azure](https://manage.windowsazure.com), haga clic en **Nuevo, Servicios de datos, Análisis de transmisiones, Creación rápida**.
 
@@ -49,7 +49,7 @@ Haga clic en **Análisis de transmisiones** en el panel izquierdo para ver una l
 
 > [AZURE.TIP]El nuevo trabajo aparecerá con el estado **No iniciado**. Tenga en cuenta que el botón **Iniciar** en la parte inferior de la página está deshabilitado. Este es el comportamiento esperado, ya que debe configurar la entrada, salida y consulta del trabajo, etc. antes de poder iniciar el trabajo.
 
-## Especificación de la entrada del trabajo ##
+## Especificación de la entrada del trabajo
 
 Para este tutorial, se supone que está usando el centro de eventos como una entrada con codificación UTF-8 y serialización JSON.
 
@@ -65,8 +65,8 @@ Para este tutorial, se supone que está usando el centro de eventos como una ent
 > [AZURE.NOTE]En este ejemplo se utiliza el número predeterminado de particiones, que es 16.
 
 * **Nombre del centro de eventos**: seleccione el nombre del centro de eventos de Azure que tiene.
-* **Nombre de la directiva de centro de eventos**: seleccione la directiva del centro de eventos para el centro de eventos que está usando. Asegúrese de que esta directiva tiene permisos de administración.
-*	**Grupo de consumidores del Centro de eventos** : puede especificar un grupo de consumidores que tiene en el Centro de eventos o dejarlo en blanco. Tenga en cuenta que cada grupo de consumidores de un centro de eventos solo puede tener 5 lectores a la vez. Por tanto, decida el grupo de consumidores adecuado para su trabajo según corresponda. Si deja el campo en blanco, usará el grupo de consumidores predeterminado.
+* **Nombre de directiva de centro de eventos**: seleccione la directiva del centro de eventos para el centro de eventos que está usando. Asegúrese de que esta directiva tiene permisos de administración.
+*	**Grupo de consumidores del centro de eventos** : puede especificar un grupo de consumidores que tiene en el centro de eventos o dejarlo en blanco. Tenga en cuenta que cada grupo de consumidores de un centro de eventos solo puede tener 5 lectores a la vez. Por tanto, decida el grupo de consumidores adecuado para su trabajo según corresponda. Si deja el campo en blanco, usará el grupo de consumidores predeterminado.
 
 *	Haga clic con el botón secundario.
 *	Especifique los siguientes valores:
@@ -74,7 +74,7 @@ Para este tutorial, se supone que está usando el centro de eventos como una ent
   *	**Codificación**: UTF8
 *	Haga clic en el botón de comprobación para agregar este origen y comprobar que Stream Analytics puede conectarse correctamente al centro de eventos.
 
-## Incorporación del resultado de Power BI ##
+## Incorporación del resultado de Power BI
 
 1.  Haga clic en **Salida** en la parte superior de la página y luego haga clic en **Agregar salida**. Verá que Power BI aparece como opción de salida.
 
@@ -106,7 +106,7 @@ Proporcione valores como sigue:
 >	[AZURE.WARNING] Tenga en cuenta asimismo que si Power BI ya cuenta con un conjunto de datos y una tabla con el mismo nombre que el proporcionado en este trabajo de Análisis de transmisiones, se sobrescribirán los datos existentes.
 
 
-## Escritura de una consulta ##
+## Escritura de una consulta
 
 Vaya a la pestaña **Consulta** de su trabajo. Escriba la consulta cuya salida desea tener en su Power BI. Por ejemplo, podría ser algo como la siguiente consulta SQL:
 
@@ -127,7 +127,7 @@ Vaya a la pestaña **Consulta** de su trabajo. Escriba la consulta cuya salida d
     
 Inicie su trabajo. Valide que el centro de eventos recibe eventos y la consulta genera los resultados esperados. Si la consulta da como resultado 0 filas, las tablas y conjunto de datos de Power BI no se creará automáticamente.
 
-## Creación del panel en Power BI ##
+## Creación del panel en Power BI
 
 Vaya a [Powerbi.com](https://powerbi.com) e inicie sesión con su cuenta profesional o educativa. Si la consulta del trabajo de Análisis de transmisiones genera resultados, verá que ya se ha creado el conjunto de datos:
 
@@ -163,14 +163,18 @@ Tenga en cuenta que este tutorial muestra cómo crear un tipo de gráfico para u
 
 Para obtener más información acerca de cómo configurar una salida de Power BI y para utilizar grupos de Power BI, revise la [sección Power BI](stream-analytics-define-outputs.md#power-bi) de [Descripción de salidas de Análisis de transmisiones](stream-analytics-define-outputs.md "Descripción de salidas de Análisis de transmisiones"). Otro recurso útil para obtener más información acerca de la creación de paneles con Power BI es [Vista previa de los paneles de Power BI](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
 
-## Limitaciones y prácticas recomendadas ##
+## Limitaciones y prácticas recomendadas
+
 Power BI emplea restricciones tanto de simultaneidad como de rendimiento, tal como se describe aquí: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Precios de Power BI")
 
-Gracias a ello Power BI se hace de forma natural con los casos en los que Análisis de transmisiones de Azure realiza una reducción considerable de la carga de datos. Se recomienda usar TumblingWindow o HoppingWindow para asegurarse de que la inserción de datos sea como máximo de 1 inserción/segundo, y de que la consulta entre dentro de los requisitos de rendimiento. Puede usar la siguiente ecuación para calcular el valor que se debe asignar a la ventana en segundos: ![ecuación 1](./media/stream-analytics-power-bi-dashboard/equation1.png).
-
-Por ejemplo: si tiene 1.000 dispositivos enviando datos cada segundo, está en la SKU Power BI Pro que admite 1.000.000 de filas/hora, y desea obtener la media de datos por dispositivo en Power BI, puede usar como mucho una inserción cada 4 segundos por dispositivo (como se muestra a continuación): 
+Gracias a ello Power BI se hace de forma natural con los casos en los que Análisis de transmisiones de Azure realiza una reducción considerable de la carga de datos. Se recomienda usar TumblingWindow o HoppingWindow para asegurarse de que la inserción de datos sea como máximo de 1 inserción/segundo, y de que la consulta entre dentro de los requisitos de rendimiento. Puede usar la siguiente ecuación para calcular el valor que se debe asignar a la ventana en segundos:
+  
+![ecuación 1](./media/stream-analytics-power-bi-dashboard/equation1.png)
+  
+Por ejemplo: si tiene 1.000 dispositivos enviando datos cada segundo, está en Power BI Pro SKU que admite 1.000.000 de filas/hora, y desea obtener la media de datos por dispositivo en Power BI, puede usar como mucho una inserción cada 4 segundos por dispositivo (como se muestra a continuación):
+  
 ![ecuación 2](./media/stream-analytics-power-bi-dashboard/equation2.png)
-
+  
 Lo que significa que se cambiaría la consulta original a:
 
     SELECT
@@ -186,6 +190,12 @@ Lo que significa que se cambiaría la consulta original a:
     	TUMBLINGWINDOW(ss,4),
     	dspl
 
+### Actualización de la vista de Power BI
+
+Una pregunta común es "¿por qué el panel no se actualiza automáticamente en Power BI?".
+
+Para lograr esto, en Power BI use las preguntas y respuestas y formule una pregunta como "valor máximo por valor temporal donde la marca de tiempo es hoy" y ancle ese icono al panel.
+
 ## Renovar la autorización
 
 Hay una limitación temporal en la que el token de autenticación debe actualizarse manualmente cada 90 días para todos los trabajos con salida de Power BI. También necesitará volver a autenticar la cuenta de Power BI si su contraseña ha cambiado desde que se creó o autenticó por última vez su trabajo. Un síntoma de este problema es la ausencia de salida de trabajos y un "error de autenticación de usuario" en los registros de operaciones:
@@ -196,10 +206,10 @@ Para resolver este problema, detenga su trabajo en ejecución y vaya a la salida
 
 ![graphic13][graphic13]
 
-## Obtener ayuda ##
+## Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
 
-## Pasos siguientes ##
+## Pasos siguientes
 
 - [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
 - [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
@@ -222,4 +232,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

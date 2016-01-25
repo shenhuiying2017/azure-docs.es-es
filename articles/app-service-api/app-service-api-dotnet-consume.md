@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Uso de una aplicación de API del Servicio de aplicaciones de Azure desde un cliente .NET 
@@ -207,4 +207,4 @@ Para obtener más ejemplos de código que llama a una aplicación de API de clie
 Para obtener información sobre cómo usar la autenticación en aplicaciones de API, consulte [Autenticación para aplicaciones de API y aplicaciones de móvil en el Servicio de aplicaciones de Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="01/08/2016"
 	ms.author="billmath;andkjell"/>
 
 # Instalación personalizada de Azure AD Connect
@@ -43,11 +43,11 @@ Al instalar los servicios de sincronización, puede dejar desactivada la secció
 ![Componentes necesarios](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png)
 
 
-Configuración opcional | Descripción
-------------- | ------------- |
-Nombre de SQL Server | Permite especificar el nombre de SQL Server y el nombre de la instancia. Elija esta opción si ya dispone de un servidor de base de datos que le gustaría utilizar.
-Cuenta de servicio | De forma predeterminada, Azure AD Connect creará una cuenta de servicio local para los servicios de sincronización que se van a utilizar. la contraseña se genera automáticamente y es desconocida para la persona que instala Azure AD Connect. Si utiliza un servidor SQL remoto, necesita una cuenta de servicio en el dominio y conocer la contraseña. En esos casos, especifique la cuenta de servicio para usar. Asegúrese de que el usuario que ejecuta la instalación es una SA en SQL, por lo que se puede crear un inicio de sesión para la cuenta de servicio. Consulte [Permisos y cuentas de Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
-Permisos | De forma predeterminada, Azure AD Connect creará cuatro grupos locales en el servidor cuando se instalen los servicios de sincronización. Estos grupos son: grupo Administradores, grupo Operadores, grupo Examinar y grupo Restablecimiento de contraseña. Si desea especificar sus propios grupos puede hacerlo aquí. Los grupos deben ser locales en el servidor y no se pueden encontrar en el dominio. |
+| Configuración opcional | Descripción |
+| ------------- | ------------- |
+| Usar un SQL Server existente | Permite especificar el nombre de SQL Server y el nombre de la instancia. Elija esta opción si ya dispone de un servidor de base de datos que le gustaría utilizar. Si SQL Server no tiene la exploración habilitada y debe especificar un número de puerto, en el cuadro **Nombre de instancia** escriba el nombre de la instancia seguido de un coma y un número de puerto. |
+| Usar una cuenta de servicio existente | De forma predeterminada, Azure AD Connect creará una cuenta de servicio local para los servicios de sincronización que se van a utilizar. la contraseña se genera automáticamente y es desconocida para la persona que instala Azure AD Connect. Si utiliza un servidor SQL remoto, necesita una cuenta de servicio en el dominio y conocer la contraseña. En esos casos, especifique la cuenta de servicio para usar. Asegúrese de que el usuario que ejecuta la instalación es una SA en SQL, por lo que se puede crear un inicio de sesión para la cuenta de servicio. Consulte [Permisos y cuentas de Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
+| Especificar grupos de sincronización personalizada | De forma predeterminada, Azure AD Connect creará cuatro grupos locales en el servidor cuando se instalen los servicios de sincronización. Estos grupos son: grupo Administradores, grupo Operadores, grupo Examinar y grupo Restablecimiento de contraseña. Si desea especificar sus propios grupos puede hacerlo aquí. Los grupos deben ser locales en el servidor y no se pueden encontrar en el dominio. |
 
 
 ## Inicio de sesión de usuario
@@ -103,11 +103,13 @@ Mi propio atributo|Esta opción le permite seleccionar su propio atributo. **Lim
 
 
 ### Filtrado de sincronización basado en grupos
-La característica de filtrado en grupos le permite ejecutar una pequeña prueba piloto en un pequeño subconjunto de objetos creado en Azure AD y Office 365. Para utilizar esta característica, cree un grupo en Active Directory y agregue los usuarios y grupos que se deben sincronizar con Azure AD como miembros directos. Posteriormente puede agregar y quitar usuarios a este grupo para mantener la lista de objetos que deban estar presentes en Azure AD. Para usar esta característica, en la ruta de acceso personalizada verá esta página:
+La característica de filtrado en grupos le permite ejecutar una pequeña prueba piloto en un pequeño subconjunto de objetos creado en Azure AD y Office 365. Para utilizar esta característica, cree un grupo en Active Directory y agregue los usuarios y grupos que se deben sincronizar con Azure AD como miembros directos. Posteriormente puede agregar y quitar usuarios a este grupo para mantener la lista de objetos que deban estar presentes en Azure AD. Todos los objetos que quiere sincronizar deben ser un miembro directo del grupo. Esto incluirá usuarios, grupos, contactos y equipos o dispositivos. No se resolverán la pertenencia a grupos anidados ; un miembro del grupo solo incluirá el propio grupo y no sus miembros.
 
-![Filtrado de sincronización](./media/active-directory-aadconnect-get-started-custom/filter2.png)
+Para usar esta característica, en la ruta de acceso personalizada verá esta página: ![Filtrado de sincronización](./media/active-directory-aadconnect-get-started-custom/filter2.png)
 
 >[AZURE.WARNING]Esta característica está diseñada solo para admitir una implementación piloto y no debe utilizarse en una implementación de producción real.
+
+En una implementación de producción completa va a ser difícil mantener un grupo único con todos los objetos para sincronizar. En su lugar, debería usar uno de los métodos de [Configurar filtrado](active-directory-aadconnectsync-configure-filtering.md).
 
 ### Características opcionales
 
@@ -123,7 +125,7 @@ Implementación híbrida de Exchange |La característica Implementación híbrid
 Aplicación Azure AD y filtro de atributos|Al habilitar la aplicación de Azure AD y el filtro de atributos, el conjunto de atributos sincronizados se puede adaptar a un conjunto específico de una página posterior del asistente. Esto abre dos páginas de configuración adicionales en el asistente.  
 Sincronización de contraseñas | Puede habilitar esta opción si seleccionó la federación como solución de inicio de sesión. A continuación, la sincronización de contraseñas se puede usar como opción de copia de seguridad. Para obtener más información, consulte [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md).
 Escritura diferida de contraseñas|Al habilitar la escritura diferida de contraseñas, los cambios de contraseña que se originan con Azure AD se volverán a escribir en su directorio local. Para obtener más información, consulte [Introducción a la administración de contraseñas](active-directory-passwords-getting-started.md).
-Escritura diferida de grupos |Si usa la función **Grupos en Office 365**, puede tener estos grupos en Active Directory local como un grupo de distribución. Esta opción sólo está disponible si dispone de Exchange en su Active Directory local. Para obtener más información, consulte [Escritura diferida de grupos](active-directory-aadconnect-feature-preview.md#group-writeback).
+Escritura diferida de grupos |Si utiliza la función **Grupos en Office 365**, puede tener estos grupos en Active Directory local como un grupo de distribución. Esta opción sólo está disponible si dispone de Exchange en su Active Directory local. Para obtener más información, consulte [Escritura diferida de grupos](active-directory-aadconnect-feature-preview.md#group-writeback).
 Escritura diferida de dispositivos | Permite realizar una escritura diferida de objetos de dispositivo en Azure AD para su Active Directory local para escenarios de acceso condicional. Para obtener más información, consulte [Habilitación de escritura diferida de dispositivos en Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md).
 Sincronización de atributos de las extensiones de directorios|Al habilitar la sincronización de atributos de las extensiones de directorios, los atributos adicionales especificados se sincronizarán con Azure AD. Para obtener más información, consulte [Extensiones de directorio](active-directory-aadconnect-feature-preview.md#directory-extensions).
 
@@ -248,4 +250,4 @@ Ahora que ha instalado Azure AD Connect, puede [comprobar la instalación y asig
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

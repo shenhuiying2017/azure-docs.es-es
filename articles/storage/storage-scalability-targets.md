@@ -1,12 +1,12 @@
-<properties 
+<properties
    pageTitle="Objetivos de escalabilidad y rendimiento del almacenamiento | Microsoft Azure"
    description="Obtenga información sobre los objetivos de escalabilidad y rendimiento para Almacenamiento de Azure, incluida la capacidad, la velocidad de solicitudes y el ancho de banda entrante y saliente para las cuentas de almacenamiento tanto estándar como premium. Comprenda los objetivos de rendimiento para las particiones en cada uno de los servicios de Almacenamiento de Azure."
    services="storage"
    documentationCenter="na"
    authors="robinsh"
    manager="carmonm"
-   editor="na" />
-<tags 
+   editor="tysonn" />
+<tags
    ms.service="storage"
    ms.devlang="na"
    ms.topic="article"
@@ -36,7 +36,7 @@ Si las necesidades de su aplicación superan los objetivos de escalabilidad de u
 
 [AZURE.INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
-## Objetivos de escalabilidad para discos de máquinas virtuales 
+## Objetivos de escalabilidad para discos de máquinas virtuales
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
@@ -85,4 +85,4 @@ Las particiones afectan al equilibrio de carga y la escalabilidad de cada uno de
 - [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](storage-performance-checklist.md)
 - [Almacenamiento de Microsoft Azure: un servicio de almacenamiento en nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

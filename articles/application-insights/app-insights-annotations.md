@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/12/2016"
     ms.author="awills"/>
 
 # Anotaciones de la versión de Application Insights
@@ -34,34 +34,43 @@ Para poder crear anotaciones de versión, debe instalar una de las muchas extens
 
 Esto solo lo tiene que hacer una vez en su cuenta de Visual Studio Team Services. Las anotaciones de versión se pueden configurar ahora para cualquier proyecto de su cuenta.
 
-
-
-## Agregar una tarea de anotación a la plantilla de versión
+## Obtener una clave de API de Application Insights
 
 Deberá hacer esto en cada plantilla de versión para la que desee crear anotaciones de versión.
 
-Abra (o cree) la plantilla de versión que administra sus implementaciones de Visual Studio Team Services.
-
-Agregue una tarea y seleccione la tarea de anotación de versión de Application Insights en el menú.
-
-![En la parte superior derecha de página web de Team Services, abra Marketplace. Busque e instale Anotaciones de Application Insights en su cuenta.](./media/app-insights-annotations/40.png)
-
-Para finalizar este paso, necesitará algunos detalles del recurso de Application Insights que usará para supervisar la aplicación.
-
-Mantenga abierta la ventana de Team Services mientras obtiene los detalles de Application Insights.
-
-## Copia de una clave de API de Application Insights
-
-En otra ventana del explorador:
 
 1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com) y abra el recurso de Application Insights que supervisa su aplicación. (O bien, [cree uno ahora](app-insights-overview.md), si aún no lo ha hecho).
-2. Abra la lista desplegable **Essentials** y copie el id. de suscripción, el grupo de recursos y el nombre del recurso en la tarea de anotación de versión. ![](./media/app-insights-annotations/50.png)
-2. Abra **Configuración**, **Claves de API** y cree una nueva clave. Cópiela. ![](./media/app-insights-annotations/30.png)
+2. Abra **Configuración**, **Acceso a la API** y realice una copia de **Id. de Application Insights**.
 
-Por último, haga clic en **Guardar** para guardar la definición de versión.
+    ![En portal.azure.com, abra el recurso de Application Insights y elija Configuración. Abra el Acceso a la API. Copie los archivos](./media/app-insights-annotations/20.png)
 
-## Marcadores de implementación
+2. En una ventana de explorador independiente, abra (o cree) la plantilla de versión que administra sus implementaciones de Visual Studio Team Services.
+
+    Agregue una tarea y seleccione la tarea de anotación de versión de Application Insights en el menú.
+
+    Pegue el **Id. de Application Insights** que copió de la hoja Acceso a la API.
+
+    ![En Visual Studio Team Services, abra Versión, seleccione una definición de versión y elija Editar. Haga clic en Agregar tarea y seleccione Anotación de versión de Application Insights. Pegue el Id. de Application Insights.](./media/app-insights-annotations/30.png)
+
+3. Establezca el campo **APIKey** en una variable `$(ApiKey)`.
+
+4. De nuevo en la hoja Acceso a la API, cree una nueva clave de API y realice una copia de ella.
+
+    ![En la hoja Acceso a la API de la ventana de Azure, haga clic en Crear clave de API. Proporcione un comentario, compruebe las anotaciones de escritura y haga clic en Generar clave. Copie la clave nueva.](./media/app-insights-annotations/40.png)
+
+4. Abra la pestaña Configuración de la plantilla de la versión.
+
+    Cree una definición de variable para `ApiKey`.
+
+    Pegue su clave de API a la definición de la variable de ApiKey.
+
+    ![En la ventana de Team Services, seleccione la pestaña Configuración y haga clic en Agregar variable. Establezca el nombre en ApiKey y en el Valor, pegue la clave que acaba de generar.](./media/app-insights-annotations/50.png)
+
+
+5. Por último, haga clic en **Guardar** para guardar la definición de versión.
+
+## Anotaciones de implementación
 
 Ahora, cuando se utilice la plantilla de versión para implementar una nueva versión, se enviará una anotación a Application Insights. Las anotaciones se mostrarán en los gráficos del Explorador de métricas.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

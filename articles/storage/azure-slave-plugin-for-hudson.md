@@ -1,20 +1,20 @@
 <properties
     pageTitle="Uso del complemento esclavo de Azure con Hudson Continuous Integration"
     description="Describe cómo usar el complemento esclavo de Azure con Hudson Continuous Integration."
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe" />
 
 <tags
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="v-dedomi"/>
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/11/2016"
+	ms.author="robmcm"/>
 
 #Uso del complemento esclavo de Azure con Hudson Continuous Integration
 
@@ -204,13 +204,4 @@ En esta sección, creará una tarea de Hudson que se ejecutará en un nodo subor
 
 Hudson creará luego un nodo subordinado con la plantilla que creó en la sección anterior y ejecutará el script especificado en el paso de compilación de esta tarea.
 
-
-
-
-
-
-  
-
-  
-
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

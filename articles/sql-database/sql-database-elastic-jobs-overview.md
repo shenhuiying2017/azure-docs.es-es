@@ -53,7 +53,7 @@ Para obtener instrucciones sobre la instalación, vaya a [Instalación de compon
 ## Información detallada sobre los trabajos de base de datos elástica 
 1.	Instale los componentes de **Trabajos de base de datos elástica**. Para obtener más información, vea [Instalación de Trabajos de base de datos elástica](sql-database-elastic-jobs-service-installation.md). En caso de error en la instalación, vea [Desinstalación](sql-database-elastic-jobs-uninstall.md).
 2.	Use las API de PowerShell para tener acceso a otra funcionalidad, por ejemplo, crear colecciones de bases de datos personalizadas, agregar programaciones o recopilar conjuntos de resultados. Use el Portal para instalar, crear y supervisar de manera sencilla los trabajos que se limiten a la ejecución de un **grupo de bases de datos elásticas**. 
-3.	Cree credenciales cifradas para la ejecución de trabajos y [agregue el usuario (o rol) a cada base de datos del grupo](sql-database-elastic-jobs-add-logins-to-dbs.md).
+3.	Cree credenciales cifradas para la ejecución de trabajos y [agregue el usuario (o rol) a cada base de datos del grupo](sql-database-security.md).
 4.	Cree un script de T-SQL idempotente que se pueda ejecutar en cada base de datos del grupo. 
 5.	Siga estos pasos para crear trabajos mediante el Portal de Azure: [Creación y administración de trabajos de base de datos elástica](sql-database-elastic-jobs-create-and-manage.md). 
 6.	O bien use scripts de PowerShell: [Creación y administración de trabajos de base de datos elástica de Base de datos SQL (vista previa)](sql-database-elastic-jobs-powershell.md).
@@ -116,7 +116,7 @@ Hay varios tipos de tareas de trabajo que efectúan la ejecución de trabajos:
 4.	Tras completar todas las tareas de trabajo, el controlador actualiza los trabajos con el estado completado. En cualquier momento durante la ejecución de trabajos, puede usarse la API de PowerShell para ver el estado actual de la ejecución de trabajos. Todas las horas que devuelven las API de PowerShell se representan en formato UTC. Si lo desea, se puede iniciar una solicitud de cancelación para detener un trabajo. 
 
 ## Pasos siguientes
-[Instale los componentes](sql-database-elastic-jobs-service-installation.md) y luego [cree y agregue un registro en cada base de datos del grupo](sql-database-elastic-jobs-add-logins-to-dbs.md). Para comprender mejor la administración y creación de trabajos, consulte [Creación y administración de trabajos de bases de datos elásticas](sql-database-elastic-jobs-create-and-manage.md).
+[Instale los componentes](sql-database-elastic-jobs-service-installation.md) y luego [cree y agregue un registro en cada base de datos del grupo](sql-database-security.md). Para comprender mejor la administración y creación de trabajos, consulte [Creación y administración de trabajos de bases de datos elásticas](sql-database-elastic-jobs-create-and-manage.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -124,4 +124,4 @@ Hay varios tipos de tareas de trabajo que efectúan la ejecución de trabajos:
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tomfitz"/>
 
 # Uso de Azure PowerShell con Administrador de recursos de Azure
@@ -158,7 +158,7 @@ Vamos a ejecutar el mismo comando para la base de datos:
     West Europe
     Brazil South
 
-Parece que estos recursos están disponibles en muchas regiones. En este tema, usaremos **Oeste de EE.UU.**, pero puede especificar cualquiera de las regiones admitidas.
+Parece que estos recursos están disponibles en muchas regiones. En este tema, usaremos **Oeste de EE. UU.**, pero puede especificar cualquiera de las regiones admitidas.
 
 ## Crear un grupo de recursos
 
@@ -302,6 +302,9 @@ Puede copiar la plantilla y guardarla localmente como un archivo .json. En este 
                 "name": "[variables('siteName')]",
                 "type": "Microsoft.Web/sites",
                 "location": "[resourceGroup().location]",
+                "tags": {
+                    "team": "webdev"
+                },
                 "dependsOn": [
                     "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
                 ],
@@ -382,9 +385,9 @@ Después de crear un grupo de recursos, puede usar los cmdlets del módulo Admin
 
 - Para obtener todos los grupos de recursos de la suscripción, use el cmdlet **Get-AzureRmResourceGroup**:
 
-		PS C:\>Get-AzureRmResourceGroup
+		PS C:\> Get-AzureRmResourceGroup
 
-		ResourceGroupName : TestRG
+		ResourceGroupName : TestRG1
 		Location          : westus
 		ProvisioningState : Succeeded
 		Tags              :
@@ -392,21 +395,38 @@ Después de crear un grupo de recursos, puede usar los cmdlets del módulo Admin
 		
 		...
 
+      Si desea obtener un grupo de recursos determinado, proporcione el parámetro **Name**.
+      
+          PS C:\> Get-AzureRmResourceGroup -Name TestRG1
+
 - Para obtener los recursos del grupo de recursos, use el cmdlet **Get-AzureRmResource** y su parámetro **ResourceGroupNameContains**. Sin parámetros, Find-AzureRmResource obtiene todos los recursos de la suscripción de Azure.
 
-		PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
+        PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
 		
-		Name              : exampleserver
-                ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
-                ResourceName      : exampleserver
-                ResourceType      : Microsoft.Sql/servers
-                Kind              : v12.0
-                ResourceGroupName : TestRG1
-                Location          : westus
-                SubscriptionId    : {guid}
+        Name              : exampleserver
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
+        ResourceName      : exampleserver
+        ResourceType      : Microsoft.Sql/servers
+        Kind              : v12.0
+        ResourceGroupName : TestRG1
+        Location          : westus
+        SubscriptionId    : {guid}
                 
-                ...
+        ...
 	        
+- En la plantilla anterior se incluye una etiqueta en un recurso. Puede usar etiquetas para organizar lógicamente los recursos de la suscripción. Use los comandos **Find-AzureRmResource** y **Find-AzureRmResourceGroup** para consultar los recursos por etiquetas.
+
+        PS C:\> Find-AzureRmResource -TagName team
+
+        Name              : ExampleSiteuxq53xiz5etmq
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Web/sites/ExampleSiteuxq53xiz5etmq
+        ResourceName      : ExampleSiteuxq53xiz5etmq
+        ResourceType      : Microsoft.Web/sites
+        ResourceGroupName : TestRG1
+        Location          : westus
+        SubscriptionId    : {guid}
+                
+      Hay mucho más que puede hacer con las etiquetas. Para obtener más información, vea [Uso de etiquetas para organizar los recursos de Azure](resource-group-using-tags.md).
 
 ## Incorporación a un grupo de recursos
 
@@ -437,8 +457,8 @@ Puede mover recursos existentes a un nuevo grupo de recursos. Para ver ejemplos,
 ## Pasos siguientes
 
 - Para más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md).
-- Para información sobre cómo implementar plantillas, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](./resource-group-template-deploy.md).
+- Para obtener información sobre cómo implementar plantillas, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](./resource-group-template-deploy.md).
 - Para ver un ejemplo detallado de cómo implementar un proyecto, consulte [Implementación predecible de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para información sobre la solución de problemas de una implementación que da error, consulte [Solución de problemas de implementaciones de grupos de recursos en Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

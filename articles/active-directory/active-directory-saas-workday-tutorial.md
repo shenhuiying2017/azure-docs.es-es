@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Tutorial: Integración de Azure Active Directory con Workday
@@ -79,7 +79,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     1.  En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan sus usuarios para iniciar sesión en Workday (por ejemplo, *https://impl.workday.com/\< inquilino>/login-saml2.htmld*).
     2.  En el cuadro de texto **Dirección URL de respuesta de Workday**, escriba la dirección URL de respuesta de Workday (por ejemplo, *https://impl.workday.com/\<inquilino>/login-saml.htmld*).
 
-        >[AZURE.NOTE]Su URL de respuesta debe tener un subdominio (por ejemplo, www, wd2, wd3, wd3-impl, wd5, wd5-impl). "**http://www.myworkday.com*" sí funciona pero **http://myworkday.com*" no.
+        >[AZURE.NOTE]Su URL de respuesta debe tener un subdominio (por ejemplo, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Usando algo como "**http://www.myworkday.com*" funciona pero no "**http://myworkday.com*".
  
 4.  En la página **Configuración de inicio de sesión único en Workday**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
 
@@ -197,10 +197,10 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Asignar usuarios](./media/active-directory-saas-workday-tutorial/IC782935.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-workday-tutorial/IC767830.png "Sí")
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

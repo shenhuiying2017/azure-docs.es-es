@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -382,4 +382,4 @@ Debe usar colas para que la arquitectura de la aplicación sea escalable. A cont
 En este artículo se analizaron algunas de las prácticas probadas más comunes para optimizar el rendimiento cuando se usa el Almacenamiento de Azure. Animamos a todos los desarrolladores de aplicaciones a que evalúen sus aplicaciones tomando como referencia todas las prácticas anteriores y que se planteen seguir las recomendaciones para obtener un magnífico rendimiento para aquellas aplicaciones que usan el Almacenamiento de Azure.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

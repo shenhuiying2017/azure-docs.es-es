@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/31/2015"
+   ms.date="01/08/2016"
    ms.author="v-sharos" />
 
 # Usar el servicio de Administrador de StorSimple para administrar contenedores de volúmenes de StorSimple
@@ -43,7 +43,7 @@ Los siguientes procedimientos explican cómo utilizar la página **Contenedores 
 
 ## Agregar un contenedor de volúmenes
 
-Realice los siguientes pasos para crear una contenedor de volúmenes.
+Realice los siguientes pasos para agregar un contenedor de volúmenes.
 
 [AZURE.INCLUDE [storsimple-add-volume-container](../../includes/storsimple-add-volume-container.md)]
 
@@ -66,4 +66,4 @@ Los contenedores de volúmenes contienen volúmenes. Solo se puede eliminar si p
 - Obtenga más información sobre la [administración de volúmenes de StorSimple](storsimple-manage-volumes.md). 
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

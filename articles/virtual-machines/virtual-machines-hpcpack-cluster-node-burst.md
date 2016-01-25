@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/08/2016"
  ms.author="danlep"/>
 
 # Agregar nodos de "ráfaga" a petición (instancias de rol de trabajo) como recursos de proceso a un clúster de HPC Pack en Azure
@@ -21,13 +21,13 @@ ms.service="virtual-machines"
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
 
-En este artículo se muestra cómo agregar nodos de "ráfaga" Azure (instancias de rol de trabajo que se ejecutan un servicio en la nube) a petición como recursos de proceso a un nodo principal de HPC Pack existente en Azure. Esto le permite escalar verticalmente la capacidad de proceso del clúster de HPC en Azure, sin mantener un conjunto de máquinas virtuales de nodos de ejecución preconfigurados.
+En este artículo se muestra cómo agregar nodos de "ráfaga" Azure (instancias de rol de trabajo que se ejecutan un servicio en la nube) a petición como recursos de proceso a un nodo principal de HPC Pack existente en Azure. De este modo, podrá escalar verticalmente la capacidad de proceso del clúster de HPC en Azure a petición, sin mantener un conjunto de máquinas virtuales de nodos de ejecución preconfiguradas.
 
 ![Nodos de ráfaga][burst]
 
->[AZURE.TIP]Si usa el [script de implementación de HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) para crear el clúster en Azure, puede incluir nodos de ráfaga de Azure en la implementación automatizada.
+>[AZURE.TIP]Si usa el [script de implementación de HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) para crear el clúster en Azure, puede incluir nodos de ráfaga de Azure en la implementación automatizada. Consulte los ejemplos del artículo correspondiente.
 
-Los pasos descritos en este artículo le ayudarán a agregar nodos de Azure rápidamente a una máquina virtual de nodo principal de HPC Pack basado en la nube para la implementación de una prueba o una prueba de concepto. El procedimiento es básicamente el mismo que el de "ráfaga en Azure" para agregar capacidad de proceso en la nube a un clúster de HPC Pack local. Si desea conseguir un tutorial, consulte [Configurar un clúster de proceso híbrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Para obtener instrucciones detalladas y reflexiones sobre implementaciones de producción, consulte [Ráfaga en Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
+Los pasos descritos en este artículo le ayudarán a agregar nodos de Azure rápidamente a una máquina virtual de nodo principal de HPC Pack basado en la nube para la implementación de una prueba o una prueba de concepto. El procedimiento es básicamente el mismo que el de "ráfaga en Azure" para agregar capacidad de proceso en la nube a un clúster de HPC Pack local. Si desea conseguir un tutorial, consulte [Configurar un clúster de proceso híbrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Para obtener instrucciones detalladas y consideraciones acerca de las implementaciones de producción, consulte [Ráfaga en Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
 Si quiere usar el tamaño de instancia de proceso intensivo A8 o A9, consulte [Sobre las instancias de proceso intensivo A8, A9, A10 y A11](virtual-machines-a8-a9-a10-a11-specs.md).
 
@@ -83,9 +83,9 @@ Si tiene problemas al implementar nodos de Azure, consulte [Solución de problem
 
 ## Pasos siguientes
 
-* Si busca una manera de aumentar o reducir automáticamente los recursos informáticos de Azure según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Aumento y reducción de recursos de proceso de Azure en un clúster de HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
+* Si busca una manera de aumentar o reducir automáticamente los recursos informáticos de Azure según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Escalar automáticamente los recursos de proceso de Azure hacia arriba y abajo en un clúster de HPC Pack según la carga de trabajo del clúster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

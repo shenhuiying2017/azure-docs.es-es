@@ -1,10 +1,12 @@
-1. In the portal, go to **New**, then **Browse**. Select **Virtual network gateways** from the list.
-2. Click **Add**.
-3. Name your gateway. This is not the same as naming a gateway subnet. This is the name of the gateway object. 
-4. In **Virtual network**, select the VNet that you want to connect to this gateway.
-5. In the settings for the VNet, for the **Public IP address** value, create a name your public IP address. Note that this is not asking for an IP address. The IP address will be assigned dynamically. Rather, this is the name of the IP address object that the address will be assigned to. 
-6. For **VPN type**, the choices are policy-based and route-based. Be sure to select the VPN gateway type that is both supported by the configuration scenario, and, if required for your configuration, supported by the VPN gateway device you plan to use.
-7. For **Resource Group**, choose **select existing** and choose the resource group that your VNet resides in, unless your configuration requires a different choice.
-8. For **Location**, make sure it's showing the location that both your Resource Group and VNet exist in.
-9. Click **Create**. You'll see the *Deploying Virtual network gateway* tile on the dashboard. Creating a gateway takes some time. There is a lot going on in the background. Plan for 15 minutes or more. You may need to refresh your portal page in order to see the completed status.
-10. After the gateway is created, you can view the IP address that has been assigned to it by looking at the Virtual Network in the portal. The gateway will appear as a connected device. You can view the name and the IP address assigned to the gateway.
+1. En el portal, vaya a **Nuevo** y seleccione **Examinar**. Seleccione **Puertas de enlace de red virtual** de la lista.
+2. Haga clic en **Agregar**.
+3. Asigne un nombre a la puerta de enlace. Esta acción no es igual a la de asignación de un nombre a una subred de puerta de enlace. Este es el nombre del objeto de puerta de enlace. 
+4. En **Red virtual**, seleccione la red virtual que desea conectar a esta puerta de enlace.
+5. En la configuración de la red virtual, para el valor **Dirección IP pública**, cree un nombre de la dirección IP pública. Tenga en cuenta que esto no pide una dirección IP. La dirección IP se asignará dinámicamente. En cambio, este es el nombre del objeto de dirección IP a la que se asignará la dirección. 
+6. Para **Tipo VPN**, las opciones se basan en directivas y se basan en rutas. Asegúrese de seleccionar el tipo de puerta de enlace de VPN que sea compatible con el escenario de configuración y, si fuera necesario para la configuración, compatible con el dispositivo de puerta de enlace de VPN que va a usar.
+7. Para **Grupo de recursos**, elija **Seleccionar existente** y elija el grupo de recursos en el que reside la red virtual, a menos que la configuración requiera una selección diferente.
+8. Para **Ubicación**, asegúrese de que muestra la ubicación del grupo de recursos y la red virtual.
+9. Haga clic en **Crear**. Verá el icono *Implementación de la puerta de enlace de red virtual* en el panel. La creación de una puerta de enlace tarda algo de tiempo. Hay muchos procesos que se ejecutan en segundo plano. Puede esperar que tarde 15 minutos o más. Es posible que tenga que actualizar la página de portal para ver el estado completado.
+10. Una vez creada la puerta de enlace, puede ver la dirección IP que se le ha asignado consultando la red virtual en el portal. La puerta de enlace aparecerá como un dispositivo conectado. Puede ver el nombre y la dirección IP asignada a la puerta de enlace.
+
+<!---HONumber=AcomDC_0114_2016-->

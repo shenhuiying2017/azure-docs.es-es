@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/08/2016"
  ms.author="danlep"/>
 
 # Administrar el número y la disponibilidad de los nodos de ejecución en un clúster de HPC Pack en Azure
@@ -34,11 +34,11 @@ Si ha creado un clúster de HPC Pack en las máquinas virtuales de Azure, puede 
     * **Importar el archivo de configuración de publicación de Azure**. Para ello, ejecute los siguientes cmdlets de Azure PowerShell en el nodo principal:
 
     ```
-    Get-AzurePublishSettingsFile 
-         
+    Get-AzurePublishSettingsFile
+
     Import-AzurePublishSettingsFile –PublishSettingsFile <publish settings file>
     ```
-    
+
     * **Configure el certificado de administración de Azure en el nodo principal**. Si tiene el archivo .cer, impórtelo en el almacén CurrentUser\\My certificate y luego ejecute el siguiente cmdlet de Azure PowerShell para su entorno de Azure (AzureCloud o AzureChinaCloud):
 
     ```
@@ -74,13 +74,13 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
 * **DomainUserName**: nombre de usuario de dominio, que se usará para unir las nuevas máquinas virtuales al dominio.
 
-* **DomainUserPassword***: contraseña del usuario de dominio.
+* **DomainUserPassword**: contraseña del usuario de dominio.
 
-* **NodeNameSeries** (opcional) el patrón de nomenclatura 0 para nodos de ejecución. El formato debe ser &lt;*Nombre\_Raíz*&gt;&lt;*Número\_Inicio*&gt;%. Por ejemplo, MyCN%10% se refiere a una serie de nombres de nodos de ejecución a partir de MyCN11. Si no se especifica, el script usa la serie de nomenclatura de nodos configurados clúster de HPC.
+* **NodeNameSeries** (opcional): modelo de nomenclatura para los nodos de ejecución. El formato debe ser & lt;*Nombre\_raíz*& gt; & lt;*Número\_inicio*& gt; %. Por ejemplo, MyCN%10% se refiere a una serie de nombres de nodos de ejecución a partir de MyCN11. Si no se especifica, el script usa la serie de nomenclatura de nodos configurados clúster de HPC.
 
 ### Ejemplo
 
-En el ejemplo siguiente se agregan 20 máquinas virtuales grandes de nodos de ejecución de gran tamaño en el hpcservice1 del servicio en la nube, según la hpccnimage1 de imagen de máquina virtual.
+En el ejemplo siguiente se agregan 20 máquinas virtuales grandes de nodos de ejecución de gran tamaño en el servicio en la nube *hpcservice1*, según la imagen de máquina virtual *hpccnimage1*.
 
 ```
 Add-HPCIaaSNode.ps1 –ServiceName hpcservice1 –ImageName hpccniamge1
@@ -103,11 +103,11 @@ Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonP
 
 ### Parámetros
 
- * **Name**: nombres de los nodos de clúster que se van a quitar. Se admite caracteres comodín. El nombre del conjunto de parámetros es Name. No se pueden especificar los dos parámetros, **Name** y **Node**.
+* **Name**: nombres de los nodos de clúster que se van a quitar. Se admite caracteres comodín. El nombre del conjunto de parámetros es Name. No se pueden especificar los parámetros **Name** y **Node**.
 
-* **Node***: objeto HpcNode para los nodos que se van quitar, que se puede obtener a través del cmdlet de HPC PowerShell [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). El nombre del conjunto de parámetro es Node. No se pueden especificar los dos parámetros, **Name** y **Node**.
+* **Node**: objeto HpcNode para los nodos que se van quitar, que se puede obtener a través del cmdlet de HPC PowerShell [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). El nombre del conjunto de parámetro es Node. No se pueden especificar los dos parámetros, **Name** y **Node**.
 
-* **DeleteVHD** (opcional): configuración para eliminar los discos asociados en las máquinas virtuales que se quitan.
+* **DeleteVHD** (opcional): configuración para eliminar los discos asociados para las máquinas virtuales que se quitan.
 
 * **Force** (opcional): configuración para forzar nodos HPC sin conexión antes de quitarlos.
 
@@ -117,7 +117,7 @@ Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonP
 
 ### Ejemplo
 
-En el ejemplo siguiente se fuerzan nodos sin conexión con nombres que comienzan por *HPCNode-CN-* y luego se quitan los nodos y sus discos asociados.
+En el ejemplo siguiente se fuerzan nodos sin conexión con nombres que comienzan por *HPCNode-CN -* y luego quita los nodos y sus discos asociados.
 
 ```
 Remove-HPCIaaSNode.ps1 –Name HPCNodeCN-* –DeleteVHD -Force
@@ -165,7 +165,7 @@ Stop-HPCIaaSNode.ps1 -Node <Object> [-Force] [<CommonParameters>]
 
 * **Name**: nombres de los nodos de clúster que se van a detener. Se admite caracteres comodín. El nombre del conjunto de parámetros es Name. No se pueden especificar los dos parámetros, **Name** y **Node**.
 
-* **Node**: objeto HpcNode para los nodos que se van a detener, que se puede obtener mediante el cmdlet de HPC PowerShell Get-HpcNode. El nombre del conjunto de parámetro es Node. No se pueden especificar los dos parámetros, **Name** y **Node**.
+* **Node**: objeto HpcNode para los nodos que se van a detener, que se puede obtener mediante el cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx) de HPC PowerShell. El nombre del conjunto de parámetro es Node. No se pueden especificar los dos parámetros, **Name** y **Node**.
 
 * **Force** (opcional): configuración para forzar los nodos HPC sin conexión antes de detenerlos.
 
@@ -177,6 +177,6 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 ## Pasos siguientes
 
-* Si busca una manera de aumentar o reducir automáticamente los recursos informáticos de Azure según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Aumento y reducción de recursos de proceso de Azure en un clúster de HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
+* Si busca una manera de aumentar o reducir automáticamente los nodos de clúster según la carga de trabajo actual de los trabajos y las tareas en el clúster, consulte [Escalar automáticamente los recursos de proceso de Azure hacia arriba y abajo en un clúster de HPC Pack según la carga de trabajo del clúster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

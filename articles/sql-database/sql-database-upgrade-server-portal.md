@@ -111,10 +111,11 @@ Siga las instrucciones del artículo [Crear un grupo de bases de datos elástica
 
 ## Supervisión de las bases de datos después de actualizar a la Base de datos SQL V12
 
-
+>[AZURE.IMPORTANT]Actualice a la última versión de SQL Server Management Studio (SSMS) para aprovechar las nuevas capacidades de v12. [Descargue SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+	
 Después de la actualización, es recomendable que supervise la base de datos de forma activa para asegurarse de que todas las aplicaciones se están ejecutando correctamente y que tienen el rendimiento adecuado; de esta manera, podrá optimizar el uso según sea necesario.
 
-Además de supervisar las bases de datos individuales, también puede supervisar los grupos de bases de datos elásticas [mediante el portal](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool) o mediante [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools)
+Además de supervisar las bases de datos individuales, también puede supervisar los grupos de bases de datos elásticas [mediante el portal](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool) o mediante [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
 
 
 **Datos de consumo de recursos**: para las bases de datos de niveles Básico, Estándar y Premium, tiene disponibles datos de consumo de recursos a través de una vista de administración dinámica (DMV) denominada [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) en la base de datos del usuario. Esta vista de administración dinámica proporciona información de consumo de recursos casi en tiempo real a intervalos de 15 segundos para la hora de funcionamiento anterior. El consumo de porcentaje de DTU para un intervalo se calcula como el consumo de porcentaje máximo de las dimensiones de CPU, E/S y de registro. Esta es una consulta para calcular el consumo medio de porcentaje de DTU durante la última hora:
@@ -130,7 +131,7 @@ Además de supervisar las bases de datos individuales, también puede supervisar
 
 Información de supervisión adicional:
 
-- [Guía de rendimiento de la Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn369873.aspx).
+- [Guía de rendimiento de Base de datos SQL de Azure para bases de datos individuales](http://msdn.microsoft.com/library/azure/dn369873.aspx).
 - [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database=elastic-pool-guidance.md).
 - [Supervisión de Base de datos SQL de Azure con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md)
 
@@ -168,4 +169,4 @@ Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje d
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

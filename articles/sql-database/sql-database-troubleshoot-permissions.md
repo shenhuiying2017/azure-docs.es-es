@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="01/11/2016"
 	ms.author="v-shysun"/>
 
 #Solucionar comunes problemas de acceso y de permisos de bases de datos SQL de Azure
 Use este tema para pasos rápidos, para conceder y quitar el acceso a una Base de datos SQL de Azure. Para información más completa, vea:
 
 - [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md)
-- [Protección de bases de datos SQL](sql-database-security)
+- [Protección de bases de datos SQL](sql-database-security.md)
 - [Centro de seguridad para el Motor de base de datos de SQL Server y Base de datos SQL Azure](https://msdn.microsoft.com/library/bb510589)
 
 ##Para cambiar la contraseña administrativa para un servidor lógico
@@ -37,4 +37,4 @@ Use este tema para pasos rápidos, para conceder y quitar el acceso a una Base d
 ## Para crear inicios de sesión adicionales para usuarios con privilegios elevados en la base de datos maestra virtual
 -Use la instrucción [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) y vea la sección Administración de inicios de sesión de [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md) para más información.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

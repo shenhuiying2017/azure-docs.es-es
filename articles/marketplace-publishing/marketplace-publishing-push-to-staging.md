@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="12/08/2015"
    ms.author="hascipio"/>
 
 # Finalización de la creación de ofertas con contenido de marketing
@@ -40,7 +40,7 @@ En la pestaña **Vínculos** de la barra izquierda, incluya vínculos con inform
 ![dibujo](media/marketplace-publishing-push-to-staging/pubportal-02.png)
 
 ### Imágenes de ejemplo (opcional)
-> [AZURE.NOTE]La inclusión de una imagen de ejemplo es un paso opcional. Puede completar el resto del contenido de marketing para cumplir los requisitos para la inserción en ensayo.
+> [AZURE.NOTE] La inclusión de una imagen de ejemplo es un paso opcional. Puede completar el resto del contenido de marketing para cumplir los requisitos para la inserción en ensayo.
 
 En la pestaña **Imágenes de ejemplo** del menú izquierdo, cargue una nueva imagen haciendo clic en **Cargar una nueva imagen**. Si tiene una imagen existente y desea reemplazarla, haga clic en **Reemplazar imagen**.
 
@@ -52,7 +52,7 @@ En la pestaña **Imágenes de ejemplo** del menú izquierdo, cargue una nueva im
 ### Información legal
 En la pestaña **Legal**, proporcione un vínculo a sus directivas o términos de uso. Escriba o pegue los términos en el cuadro grande **Términos de uso**.
 
-> [AZURE.IMPORTANT]Todos los campos deben tener entradas, incluidas las imágenes, para poder pasar a la etapa de ensayo.
+> [AZURE.IMPORTANT] Todos los campos deben tener entradas, incluidas las imágenes, para poder pasar a la etapa de ensayo.
 
 
 ## Paso 2: Establecimiento de precios
@@ -67,7 +67,7 @@ En la pestaña **Legal**, proporcione un vínculo a sus directivas o términos d
 
 **Modelos de precios disponibles por tipo de oferta**
 
-> [AZURE.IMPORTANT]La disponibilidad de ciertos modelos de precios varía según el tipo de la oferta. Consulte la siguiente tabla.
+> [AZURE.IMPORTANT] La disponibilidad de ciertos modelos de precios varía según el tipo de la oferta. Consulte la siguiente tabla.
 
 | | Solo base | Solo consumo | Base y consumo |
 |---|---|---|---|
@@ -75,20 +75,20 @@ En la pestaña **Legal**, proporcione un vínculo a sus directivas o términos d
 | Servicio de desarrolladores | Sí | Sí | Sí |
 | Servicio de datos | Sí | No | No |
 
-### 2\.1. Establecimiento de los precios de máquina virtual
-> [AZURE.NOTE]BYOL solo es compatible con máquinas virtuales.
+### 2.1. Establecimiento de los precios de máquina virtual
+> [AZURE.NOTE] BYOL solo es compatible con máquinas virtuales.
 
 1.	En la pestaña **Precios**, verá todos los mercados admitidos. Seleccione el que corresponda para mostrar los campos de precios.
 2.	El vínculo proporcionado en el portal de publicación mostrará información de precios para ayudarle a determinar los precios de las SKU.
 3.	Si la SKU es BYOL, active la casilla para disponibilidad de SKU con licencia externa (BYOL).
 4.	Si la SKU es cada hora, escriba los precios del software. Las SKU sin precios no estarán disponibles para su compra o uso.
 
-  >[AZURE.NOTE]Si tiene SKU tanto con licencia BYOL como con base horaria, asegúrese de que ambos requisitos se incluyen: casilla BYOL y valores de precio para cada hora.
+  >[AZURE.NOTE] Si tiene SKU tanto con licencia BYOL como con base horaria, asegúrese de que ambos requisitos se incluyen: casilla BYOL y valores de precio para cada hora.
 
 5.	Se abrirá un asistente para precios. Sígalo hasta completar sus precios, incluidos los precios en otros países si opta por permitir compras desde fuera del mercado especificado.
 6.	Algunos países son países de envío ISV. Para vender en un país de envío ISV, debe poder cobrar y recaudar impuestos por sus SKU, así como calcular y pagar impuestos al gobierno del país. Microsoft no puede proporcionar asesoramiento legal ni fiscal. Vea la sección "Países a los que se vende de la oferta" en la Introducción de este documento para obtener más información sobre los países a los que se vende.
 
-### 2\.2. Establecimiento de precios de servicio de desarrolladores
+### 2.2. Establecer precios de servicio para desarrolladores
 Los planes pueden ser cualquier combinación de base y consumo, donde base es precio mensual y superávit es el precio de pago por uso. (Vea a continuación para obtener más información).
 
 **Ejemplo:** oferta de servicio de desarrolladores de Contoso
@@ -101,7 +101,7 @@ Los planes pueden ser cualquier combinación de base y consumo, donde base es pr
 |Bronze Plus| Período de pago (también conocido como caducidad de la evaluación gratuita): 10 $/mes + 0,05 $/meter01.|La funcionalidad básica y una cuota de 10 000 de la característica X. Cuando se consume la cuota de la característica X, el cliente puede pagar por uso a través de meter01.|Puede migrar a los planes Silver Plus y Gold.|
 |Silver|$ 0,15/meter01|El cliente puede pagar por uso a través de meter01, que es para la característica X.|Puede migrar a los planes Bronze y Gold.|
 |Silver Plus|20 $/mes + 0,15 $/meter01 + 0,01 dólares/meter02|La funcionalidad básica y una cuota de 10.000 de la característica X y de 100 de la característica Y. Cuando se consume la cuota de la característica X, el cliente puede pagar por uso a través de meter01. Cuando se consume la cuota de la característica Y, el cliente puede pagar por uso a través de meter02.|Puede migrar a los planes Bronze Plus y Gold.|
-|Gold|1\.000 $/mes|Cuota de 10.000 de la característica X, 1.000 de la característica Y e ilimitada de la característica Z.|Puede migrar a todos los planes excepto el Gratis.|
+|Gold|1.000 $/mes|Cuota de 10.000 de la característica X, 1.000 de la característica Y e ilimitada de la característica Z.|Puede migrar a todos los planes excepto el Gratis.|
 
 ## Paso 3: Especificación de información de soporte técnico
 Parte de esta información se habrá cumplimentado durante el paso de certificación. Puede agregar o editar información mediante los pasos siguientes. Los detalles de contacto solo se usan para comunicaciones internas entre asociados y Microsoft. La dirección URL de soporte técnico estará disponible para los usuarios finales.
@@ -146,7 +146,7 @@ Ahora que el contenido de Marketplace está cargado, avanzamos a la prueba de la
 
 || Imagen de máquina virtual | Servicio de desarrolladores | Servicio de datos | Plantilla de solución |
 |---|---|---|---|---|
-| **Paso 3. Inserción de la oferta en ensayo** | [Prueba de la oferta de máquina virtual en ensayo](marketplace-publishing-vm-image-test-in-staging.md) | Prueba de la oferta de servicio de desarrolladores en ensayo | [Prueba de la oferta de servicio de datos en ensayo](marketplace-publishing-data-service-test-in-staging.md) | [Prueba de la plantilla de solución en ensayo](marketplace-publishing-solution-template-test-in-staging.md) |
+| **Paso 3. Inserción de la oferta en ensayo** | [Prueba de la oferta de máquina virtual en ensayo](marketplace-publishing-vm-image-test-in-staging.md) | [Prueba de la oferta de servicio de desarrolladores en ensayo](marketplace-publishing-dev-service-test-in-staging.md) | [Prueba de la oferta de servicio de datos en ensayo](marketplace-publishing-data-service-test-in-staging.md) | [Prueba de la plantilla de solución en ensayo](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Consulte también
 - [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -160,4 +160,4 @@ Ahora que el contenido de Marketplace está cargado, avanzamos a la prueba de la
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

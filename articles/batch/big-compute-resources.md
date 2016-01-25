@@ -94,13 +94,11 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-siz
 
 ## Proyectos de arquitectura
 
-* En el archivo .pdf [Large-Scale Computing - Financial Services](http://go.microsoft.com/fwlink/?LinkId=536378) se muestra cómo aplicar y organizar los análisis de datos y los cálculos a gran escala en la nube para administración de riesgos, generación de informes y simulaciones.
+* Lote de Microsoft Azure y Factoría de datos de Azure: la arquitectura para procesamiento de datos a gran escala ([PDF](http://go.microsoft.com/fwlink/?linkid=717686) y [artículo](../data-factory/data-factory-data-processing-using-batch.md)) muestra cómo la Factoría de datos organiza el procesamiento y el movimiento de los datos y cómo Lote de Azure procesa los datos en paralelo.
 
 ## Ejemplos y demos
 
 * [Ejemplos de código de Azure Batch](https://github.com/Azure/azure-batch-samples)
-
-* [Ejemplo de combinación de aplicaciones de Batch](https://github.com/Azure/azure-batch-apps-blender) y [entrada de blog](http://azure.microsoft.com/blog/2015/01/26/blender-on-azure-batch/)
 
 ## Servicios de Azure relacionados
 
@@ -123,4 +121,4 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-siz
 * Para los anuncios más recientes, vea el [blog del equipo de Microsoft HPC y Batch](http://blogs.technet.com/b/windowshpc/) y el [blog de Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Vea también [Novedades de Batch](http://azure.microsoft.com/updates/?service=batch) o suscríbase a la [fuente RSS](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

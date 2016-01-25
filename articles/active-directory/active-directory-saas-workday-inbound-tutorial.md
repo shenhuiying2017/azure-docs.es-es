@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 
@@ -88,7 +88,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 
 
-2. Para completar la tarea **Crear usuario del sistema de integración**, especifique el nombre de usuario y la contraseña del nuevo usuario del sistema de integración. Deje la opción Require New Password at Next Sign In (Solicitar una nueva contraseña en el siguiente inicio de sesión) sin activar, ya que este usuario iniciará sesión mediante programación. <br> Deje Minutos de tiempo de espera de la sesión en 0 (su valor predeterminado), con el fin de evitar que las sesiones del usuario agoten el tiempo de espera de manera prematura. <br><br> ![Crear usuario de sistema de integración](./media/active-directory-saas-workday-inbound-tutorial/IC750980.png "Crear usuario de sistema de integración")
+2. Para completar la tarea **Create Integration System User** (Crear usuario del sistema de integración), especifique el nombre de usuario y la contraseña del nuevo usuario del sistema de integración. Deje la opción Require New Password at Next Sign In (Solicitar una nueva contraseña en el siguiente inicio de sesión) sin activar, ya que este usuario iniciará sesión mediante programación. <br> Deje Minutos de tiempo de espera de la sesión en 0 (su valor predeterminado), con el fin de evitar que las sesiones del usuario agoten el tiempo de espera de manera prematura. <br><br> ![Crear usuario de sistema de integración](./media/active-directory-saas-workday-inbound-tutorial/IC750980.png "Crear usuario de sistema de integración")
  
 
 
@@ -136,7 +136,7 @@ En este paso, se conceden al nuevo grupo de seguridad permisos para las operacio
  
    
 
-1. Escriba directivas de seguridad de dominio en el cuadro de búsqueda y luego haga clic en el vínculo Domain Security Policies for Functional Area (Directivas de seguridad de dominio para área funcional). <br><br> ![Directivas de seguridad de dominio](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Directivas de seguridad de dominio")  
+1. Escriba domain security policies (directivas de seguridad de dominio) en el cuadro de búsqueda y luego haga clic en el vínculo Domain Security Policies for Functional Area (Directivas de seguridad de dominio para área funcional). <br><br> ![Directivas de seguridad de dominio](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Directivas de seguridad de dominio")  
  
 
 2. Busque el sistema y seleccione el área funcional **Sistema**. Haga clic en **Aceptar**. <br><br> ![Directivas de seguridad de dominio](./media/active-directory-saas-workday-inbound-tutorial/IC750987.png "Directivas de seguridad de dominio")
@@ -145,7 +145,7 @@ En este paso, se conceden al nuevo grupo de seguridad permisos para las operacio
 3. En la lista de directivas de seguridad del área funcional Sistema, expanda Administración de seguridad y seleccione la directiva de seguridad de dominio, Aprovisionamiento de cuentas externas. <br><br> ![Directivas de seguridad de dominio](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "Directivas de seguridad de dominio")
 
 
-4. Haga clic en **Editar permisos** y luego, en la página de diálogo **Editar permisos**, agregue el nuevo grupo de seguridad a la lista de grupos de seguridad con permisos de integración de **Get** y **Put**. <br><br> ![Editar permisos](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "Editar permisos")
+4. Haga clic en **Edit Permissions** (Editar permisos) y luego, en la página de diálogo **Editar permisos**, agregue el nuevo grupo de seguridad a la lista de grupos de seguridad con permisos de integración de **Get** y **Put**. <br><br> ![Editar permisos](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "Editar permisos")
 
  
 
@@ -224,4 +224,4 @@ Ahora puede ir a la sección **Usuarios** y comprobar si se importó el usuario 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

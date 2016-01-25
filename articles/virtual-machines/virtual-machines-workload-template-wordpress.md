@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/07/2016"
 	ms.author="davidmu"/>
 
 # Implementar un servidor de WordPress en Ubuntu con una plantilla de Administrador de recursos de Azure
@@ -38,7 +38,7 @@ Para implementar esta carga de trabajo mediante una plantilla del Administrador 
 3.	Si es necesario, haga clic en **Suscripción** y seleccione la suscripción de Azure correcta.
 4.	Haga clic en **Grupo de recursos** y seleccione un grupo de recursos existente. Como alternativa, haga clic en **O crear nuevo** para crear uno nuevo para esta carga de trabajo.
 5.	Si es necesario, haga clic en **Ubicación del grupo de recursos** y seleccione la ubicación correcta de Azure.
-6.	Si es necesario, haga clic en **Condiciones legales** para revisar los términos y el contrato para usar la plantilla.
+6.	Si es necesario, haga clic en **Condiciones legales** para revisar las condiciones y el contrato para usar la plantilla.
 7.	Haga clic en **Crear**.
 
 Dependiendo de la plantilla, es posible que Azure tarde algún tiempo en generar la carga de trabajo. Cuando haya terminado, tendrá un nuevo servidor de WordPress ejecutándose en Ubuntu en el grupo de recursos nuevo o existente.
@@ -47,7 +47,7 @@ Dependiendo de la plantilla, es posible que Azure tarde algún tiempo en generar
 
 [AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
-Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y una ubicación de centro de datos de Azure en el siguiente conjunto de comandos. Quite todo el contenido entre comillas, incluidos los caracteres < and >.
+Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y una ubicación de centro de datos de Azure en el siguiente conjunto de comandos. Elimine todo el contenido dentro de las comillas, incluidos los caracteres < and >.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
@@ -92,18 +92,4 @@ Al ejecutar el comando **azure group deployment create**, se le solicitará que 
 
 Una vez completada la ejecución de la plantilla, ahora dispondrá del servidor WordPress ejecutándose en Ubuntu en su nuevo grupo de recursos.
 
-## Recursos adicionales
-
-[Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-[Proceso, red y proveedores de almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
-
-[Información general del Administrador de recursos de Azure](../resource-group-overview.md)
-
-[Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y CLI de Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-[Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

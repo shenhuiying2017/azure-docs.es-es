@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/06/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 # Información sobre el uso de HDInsight en Linux
@@ -196,16 +196,7 @@ Los diferentes tipos de clúster se ven afectados por la escala de esta manera:
 
 	* __Interfaz de usuario de Storm__: siga estos pasos para reequilibrar una topología mediante la interfaz de usuario de Storm.
 
-		1. [Crear un túnel SSH hasta el clúster y abrir la interfaz de usuario web de Ambari](hdinsight-linux-ambari-ssh-tunnel.md).
-
-		2. En la lista de servicios que aparece a la izquierda de la página, seleccione __Storm__. Después, seleccione __IU de Storm__ en __Vínculos rápidos__.
-
-
-			![Entrada de la interfaz de usuario de Storm en vínculos rápidos](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
-
-			Esta acción mostrará la página web de la interfaz de usuario de Storm:
-
-			![la interfaz de usuario de storm](./media/hdinsight-hadoop-linux-information/storm-ui.png)
+		1. Abra \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__ en el explorador web, donde CLUSTERNAME es el nombre del clúster de Storm. Si se le solicite, escriba el nombre de administrador (admin) del clúster de HDInsight y la contraseña que especificó al crear el clúster.
 
 		3. Selecciona la topología que quieres equilibrar y después selecciona el botón __Reequilibrar__. Especifica el retraso antes de realizar la operación de reequilibrio.
 
@@ -256,4 +247,4 @@ Si el clúster le proporciona una versión de un componente como un archivo jar 
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

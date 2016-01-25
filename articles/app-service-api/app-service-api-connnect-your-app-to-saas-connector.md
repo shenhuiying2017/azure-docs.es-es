@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Implementación y configuración de una aplicación de API de conector SaaS en el Servicio de aplicaciones de Azure
@@ -181,7 +181,7 @@ La solicitud HTTP Post a la puerta de enlace debe incluir el token de autenticac
 
 	![Enviar para solicitar dirección URL de consentimiento](./media/app-service-api-connnect-your-app-to-saas-connector/sendforconsent.png)
 
-	La respuesta incluye una dirección URL que se debe usar para iniciar el proceso de inicio de sesión del usuario con Dropbox. (Si obtiene una respuesta de error que indica que no se admite el método Get aunque se tenga la lista desplegable de método establecida en **Post**, asegúrese de que la dirección URL de la puerta de enlace es HTTPS y no HTTP.)
+	La respuesta incluye una dirección URL que se debe usar para iniciar el proceso de inicio de sesión del usuario con Dropbox. (Si obtiene una respuesta de error que indica que no se admite el método Get aunque se tenga la lista desplegable de método establecida en **Post**, asegúrese de que la dirección URL de la puerta de enlace es HTTPS y no HTTP).
 
 	![Dirección URL de consentimiento](./media/app-service-api-connnect-your-app-to-saas-connector/getconsenturl.png)
 
@@ -239,4 +239,4 @@ Hemos visto cómo instalar, configurar y probar un conector SaaS. Para obtener m
 [portal de Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

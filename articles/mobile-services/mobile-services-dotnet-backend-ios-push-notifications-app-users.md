@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="01/12/2016"
 	ms.author="krisragh"/>
 
 # Envío de notificaciones de inserción a usuarios autenticados
@@ -53,4 +53,4 @@ En este tutorial, se requiere que los usuarios se autentiquen primero, registrar
 [Introducción a las notificaciones de inserción]: mobile-services-dotnet-backend-ios-get-started-push.md
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Tutorial: Integración de Azure Active Directory con Zscaler Two
@@ -95,18 +95,18 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Administración](./media/active-directory-saas-zscaler-two-tutorial/IC800206.png "Administración")
 
-7.  En **Administrar administradores y roles** haga clic en **Administrar usuarios y autenticación**.
+7.  En **Manage Administrators & Roles** (Administrar administradores y roles) haga clic en **Manage Users & Authentication** (Administrar usuarios y autenticación).
 
     ![Administrar usuarios y autenticación](./media/active-directory-saas-zscaler-two-tutorial/IC800207.png "Administrar usuarios y autenticación")
 
-8.  En la sección **Elegir opciones de autenticación para su organización**, lleve a cabo los pasos siguientes:
+8.  En la sección **Choose Authentication Options for your Organization** (Elegir opciones de autenticación para su organización), lleve a cabo los pasos siguientes:
 
     ![Autenticación](./media/active-directory-saas-zscaler-two-tutorial/IC800208.png "Autenticación")
 
-    1.  Seleccione **Autenticarse mediante el inicio de sesión único SAML**.
-    2.  Haga clic en **Configurar parámetros de inicio de sesión único SAML**.
+    1.  Seleccione **Authenticate using SAML Single Sign-On** (Autenticarse mediante el inicio de sesión único SAML).
+    2.  Haga clic en **Configure SAML Single Sign-On Parameters** (Configurar parámetros de inicio de sesión único SAML).
 
-9.  En la página de diálogo **Configurar parámetros de inicio de sesión único SAML**, lleve a cabo estos pasos y luego haga clic en el botón **Listo**.
+9.  En la página de diálogo **Configure SAML Single Sign-On Parameters** (Configurar parámetros de inicio de sesión único SAML), lleve a cabo estos pasos y luego haga clic en el botón **Done**.
 
     ![Inicio de sesión único](./media/active-directory-saas-zscaler-two-tutorial/IC800209.png "Inicio de sesión único")
 
@@ -166,11 +166,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en ZScaler Two, deben
 
     ![Administración](./media/active-directory-saas-zscaler-two-tutorial/IC781035.png "Administración")
 
-3.  Haga clic en **Administración de usuarios**.
+3.  Haga clic en **User Management** (Administración de usuarios).
 
     ![Agregar](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "Agregar")
 
-4.  En la pestaña **Usuarios** haga clic en **Agregar**.
+4.  En la pestaña **Users** (Usuarios) haga clic en **Add** (Agregar).
 
     ![Agregar](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "Agregar")
 
@@ -195,10 +195,10 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Asignar usuarios](./media/active-directory-saas-zscaler-two-tutorial/IC800212.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, luego, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-zscaler-two-tutorial/IC767830.png "Sí")
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

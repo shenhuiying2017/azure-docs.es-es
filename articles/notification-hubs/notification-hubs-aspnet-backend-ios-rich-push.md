@@ -96,7 +96,7 @@ En un alto nivel:
             }
         }
 
-> [AZURE.NOTE](optional) Consulte [Cómo incrustar y tener acceso a los recursos mediante el uso de Visual C#](http://support.microsoft.com/kb/319292) para obtener más información sobre cómo agregar y obtener recursos del proyecto.
+	>[AZURE.NOTE](optional) Consulte [Cómo incrustar y tener acceso a los recursos mediante el uso de Visual C#](http://support.microsoft.com/kb/319292) para obtener más información sobre cómo agregar y obtener recursos del proyecto.
 
 7. En **NotificationsController.cs**, redefina **NotificationsController** con los siguientes fragmentos de código. Esto envía un identificador de notificación enriquecida silencioso inicial y permite la recuperación de imagen en el cliente:
 
@@ -381,4 +381,4 @@ Ahora que ha modificado el back-end de la aplicación para enviar solo el *id* d
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

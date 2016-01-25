@@ -10,7 +10,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Tutorial: Integración de Azure Active Directory con ScreenSteps
@@ -93,7 +93,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Autenticación remota](./media/active-directory-saas-screensteps-tutorial/IC778524.png "Autenticación remota")
 
-8.  Haga clic en **Crear punto de conexión de autenticación**.
+8.  Haga clic en **Crear extremo de autenticación**.
 
     ![Autenticación remota](./media/active-directory-saas-screensteps-tutorial/IC778525.png "Autenticación remota")
 
@@ -161,10 +161,10 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Asignar usuarios](./media/active-directory-saas-screensteps-tutorial/IC773094.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, luego, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Asignar usuarios](./media/active-directory-saas-screensteps-tutorial/IC778548.png "Asignar usuarios")
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="09/18/2015"
+	ms.topic="article"
+	ms.date="01/08/2016"
 	ms.author="cabailey"/>
 #Generación y transferencia de claves protegidas con HSM para el Almacén de claves de Azure
 
@@ -194,10 +194,10 @@ Para validar el paquete descargado:
 			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
 
 	>[AZURE.TIP]El software de Thales incluye Python en %NFAST\_HOME%\\python\\bin
-	
-2.	Si ve lo siguiente, significa que el resultado de la validación ha sido satisfactorio: **Result: SUCCESS**
 
-Este script valida la cadena del firmante hasta la clave raíz de Thales. El hash de esta clave raíz está insertado en el script y su valor debe ser **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Este valor también se puede confirmar por separado. Para ello, debe visitar el [sitio web de Thales](http://www.thalesesec.com/).
+2.	Confirme que ve lo siguiente, que indica que el resultado de la validación ha sido satisfactorio: **Result: SUCCESS**
+
+Este script valida la cadena del firmante hasta la clave raíz de Thales. El hash de esta clave raíz está insertado en el script y su valor debe ser **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Este valor también se puede confirmar por separado. Para ello, es preciso visitar el [sitio web de Thales](http://www.thalesesec.com/).
 
 Ya está listo para crear una nueva clave.
 
@@ -295,13 +295,13 @@ Cuando ejecute este comando, siga estas instrucciones:
 
 - Reemplace *contosokey* por el identificador que usó para generar la clave en el **Paso 3.3: Creación de una nueva clave** del paso [Generación de la clave](#step-3-generate-your-key).
 
-- Reemplace *SubscriptionID* por el identificador de la suscripción de Azure que contiene el almacén de claves. Este valor lo recuperó anteriormente, en el **Paso 1.2: Obtención del Id. de suscripción de Azure** del paso [Preparación de la estación de trabajo conectada a Internet](#step-1-prepare-your-internet-connected-workstation).
+- Reemplace *SubscriptionID*por el Id. de la suscripción de Azure que contiene el almacén de claves. Este valor lo recuperó anteriormente, en el **Paso 1.2: obtención del Id. de suscripción de Azure** en el paso [Preparación de la estación de trabajo conectada a Internet](#step-1-prepare-your-internet-connected-workstation).
 
 - Reemplace *ContosoFirstHSMKey* por una etiqueta que se usará para el nombre del archivo de salida.
 
 Cuando la operación se complete correctamente, se mostrará **Result: SUCCESS** y habrá un nuevo archivo en la carpeta actual que tendrá el siguiente nombre: TransferPackage-*ContosoFirstHSMkey*.byok.
 
-###Paso 4.4: copiar del paquete de transferencia de claves a la estación de trabajo conectada a Internet 
+###Paso 4.4: copiar del paquete de transferencia de claves a la estación de trabajo conectada a Internet
 
 Utilice una unidad USB u otro dispositivo de almacenamiento portátil para copiar el archivo de salida del paso anterior (KeyTransferPackage-ContosoFirstHSMkey.byok) a la estación de trabajo conectada a Internet.
 
@@ -317,4 +317,4 @@ Si la carga se realiza correctamente, verá que se muestran las propiedades de l
 
 Ahora puede usar esta clave protegida con HSM en el almacén de claves. Para obtener más información, consulte la sección **Si desea usar un módulo de seguridad de hardware (HSM)** del tutorial[ Introducción al Almacén de claves de Azure](key-vault-get-started.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

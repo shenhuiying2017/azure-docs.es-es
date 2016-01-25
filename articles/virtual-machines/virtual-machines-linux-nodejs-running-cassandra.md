@@ -6,9 +6,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
-
 
 # Ejecución de Cassandra con Linux en Azure y acceso desde Node.js 
 
@@ -32,7 +31,6 @@ Las redes de Microsoft Azure permiten la implementación de clústeres privados 
 - Cada nodo de Cassandra necesita una dirección IP interna fija
 
 Cassandra puede implementarse en una sola región de Azure o para varias regiones, según la naturaleza distribuida de la carga de trabajo. El modelo de implementación de varias regiones puede aprovecharse para dar servicio a los usuarios finales más cercanos a una geografía determinada a través de la misma infraestructura de Cassandra. La replicación de nodos integrada de Cassandra se encarga de la sincronización de escrituras de varios maestros procedentes de varios centros de datos y presenta una vista coherente de los datos a las aplicaciones. La implementación de varias regiones también puede ayudar a mitigar el riesgo de las interrupciones de servicio de Azure más amplias. La coherencia ajustable de Cassandra y la topología de la replicación le ayudará a satisfacer distintas necesidades RPO de aplicaciones.
-
 
 ### Implementación de una sola región
 Se iniciará con una implementación de una sola región y recopilará lo aprendido en la creación de un modelo de varias regiones. La red virtual de Azure se utilizará para crear subredes aisladas, de modo que se pueden cumplir los requisitos de seguridad de red mencionados anteriormente. El proceso descrito en la creación de la implementación de región única usa Ubuntu 14.04 LTS y Cassandra 2.08; sin embargo, el proceso puede adoptar fácilmente las otras variantes de Linux. Estas son algunas de las características sistémicas de la implementación de una sola región.
@@ -64,7 +62,7 @@ Configuración de clúster de Cassandra de una sola región:
 | Nivel de coherencia (escritura) | QUORUM[(RF/2) +1) = 2] Se redondea a la baja el resultado de la fórmula | Escribe como máximo 2 réplicas antes de enviar la respuesta al llamador; la 3.ª réplica se escribe de forma coherente finalmente. |
 | Nivel de coherencia (lectura) | QUORUM[(RF/2) +1= 2] Se redondea a la baja el resultado de la fórmula | Lee 2 réplicas antes de enviar la respuesta al llamador. |
 | Estrategia de replicación | NetworkTopologyStrategy vea la [replicación de datos](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) en la documentación de Cassandra para obtener más información | Comprende la topología de implementación y sitúa las réplicas en los nodos para que todas las réplicas no terminen en el mismo bastidor. |
-| Snitch | GossipingPropertyFileSnitch vea [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) en la documentación de Cassandra para obtener más información | NetworkTopologyStrategy usa un concepto de snitch para entender la topología. GossipingPropertyFileSnitch proporciona un mejor control en la asignación de cada nodo al centro de datos y al bastidor. El clúster utiliza gossip para propagar esta información. Esto es mucho más sencillo en la configuración de IP dinámica en relación con PropertyFileSnitch |
+| Snitch | GossipingPropertyFileSnitch. Vea [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) en la documentación de Cassandra para obtener más información | NetworkTopologyStrategy usa un concepto de snitch para entender la topología. GossipingPropertyFileSnitch proporciona un mejor control en la asignación de cada nodo al centro de datos y al bastidor. El clúster utiliza gossip para propagar esta información. Esto es mucho más sencillo en la configuración de IP dinámica en relación con PropertyFileSnitch |
 
 
 **Consideraciones de Azure para el clúster de Cassandra:** La funcionalidad de las máquinas virtuales de Microsoft Azure usa el almacenamiento de blobs de Azure para la persistencia de disco; Almacenamiento de Azure guarda tres réplicas de cada disco para una gran durabilidad. Esto significa que cada fila de datos que se inserta en una tabla de Cassandra ya está almacenada en tres réplicas y, por tanto, la consistencia de los datos ya está controlada incluso si el Factor de replicación (RF) es 1. El principal problema con el Factor de replicación 1 es que la aplicación experimentará un tiempo de inactividad, incluso si se produce un error en un único nodo de Cassandra. Sin embargo, si un nodo está inactivo para los problemas (por ejemplo, errores de hardware y de software del sistema) reconocidos por el controlador de tejido de Azure, se proporcionará un nuevo nodo en su lugar utilizando las mismas unidades de almacenamiento. El aprovisionamiento de un nuevo nodo para reemplazar el antiguo puede tardar unos minutos. De forma similar para las actividades de mantenimiento planeado, como los cambios en el SO invitado, Cassandra actualiza y la aplicación cambia. El controlador de tejido de Azure realiza actualizaciones sucesivas en los nodos del clúster. Las actualizaciones sucesivas también pueden hacer que haya varios nodos inactivos a la vez y, por tanto, el clúster puede experimentar breves períodos de inactividad para algunas particiones. Sin embargo, los datos no se perderán debido a la redundancia integrada de Almacenamiento de Azure.
@@ -100,7 +98,7 @@ Las implementaciones distribuidas deben tener en cuenta el impacto de la topolog
 | Nivel de coherencia (escritura) | LOCAL\_QUORUM [(sum(RF)/2) +1) = 4] Se redondea a la baja el resultado de la fórmula | Se escribirán 2 nodos en el primer centro de datos de forma sincrónica; los 2 nodos adicionales necesarios para el quórum se escribirán de forma asincrónica en el segundo centro de datos. |
 | Nivel de coherencia (lectura) | LOCAL\_QUORUM ((RF/2) + 1) = 2Se redondea a la baja el resultado de la fórmula | Las solicitudes de lectura se atienden desde solo una región; 2 nodos se leen antes de enviar la respuesta al cliente. |
 | Estrategia de replicación | NetworkTopologyStrategy vea la [replicación de datos](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) en la documentación de Cassandra para obtener más información | Comprende la topología de implementación y sitúa las réplicas en los nodos para que todas las réplicas no terminen en el mismo bastidor. |
-| Snitch | GossipingPropertyFileSnitch vea [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) en la documentación de Cassandra para obtener más información | NetworkTopologyStrategy usa un concepto de snitch para entender la topología. GossipingPropertyFileSnitch proporciona un mejor control en la asignación de cada nodo al centro de datos y al bastidor. El clúster utiliza gossip para propagar esta información. Esto es mucho más sencillo en la configuración de IP dinámica en relación con PropertyFileSnitch | 
+| Snitch | GossipingPropertyFileSnitch. Vea [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) en la documentación de Cassandra para obtener más información | NetworkTopologyStrategy usa un concepto de snitch para entender la topología. GossipingPropertyFileSnitch proporciona un mejor control en la asignación de cada nodo al centro de datos y al bastidor. El clúster utiliza gossip para propagar esta información. Esto es mucho más sencillo en la configuración de IP dinámica en relación con PropertyFileSnitch | 
  
 
 ##LA CONFIGURACIÓN DE SOFTWARE
@@ -342,7 +340,7 @@ La creación de la lista anterior de máquinas virtuales requiere el siguiente p
 
 Puede ejecutar el proceso anterior mediante el Portal de Azure clásico. Use una máquina de Windows (use una máquina virtual en Azure si no tiene acceso a un equipo de Windows) y use el siguiente script de PowerShell para aprovisionar automáticamente las ocho máquinas virtuales.
 
-**List1: Script de PowerShell para el aprovisionamiento de máquinas virtuales**
+**Lista 1: script de PowerShell para el aprovisionamiento de máquinas virtuales**
 		
 		#Tested with Azure Powershell - November 2014	
 		#This powershell script deployes a number of VMs from an existing image inside an Azure region
@@ -499,6 +497,7 @@ Desde el Portal de Azure clásico, seleccione cada red virtual, haga clic en "Co
 
 ###Paso 4: Creación de puertas de enlace en VNET1 y VNET2
 En el panel de las dos redes virtuales, haga clic en Crear puerta de enlace, lo que desencadenará el proceso de aprovisionamiento de puerta de enlace VPN. Después de unos minutos, el panel de cada red virtual debe mostrar la dirección de puerta de enlace real.
+
 ###Paso 5: Actualización de redes "Local" con las direcciones correspondientes de "Puerta de enlace"###
 Edite las redes locales para reemplazar la dirección IP de puerta de enlace de marcador de posición por la dirección IP real de las puertas de enlace que acaba de aprovisionar. Utilice la asignación siguiente:
 
@@ -511,10 +510,10 @@ Edite las redes locales para reemplazar la dirección IP de puerta de enlace de 
 ###Paso 6: Actualización de la clave compartida
 Use el siguiente script de Powershell para actualizar la clave IPSec de cada puerta de enlace VPN [utilice la clave segura para ambas puertas de enlace]: Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
-###Paso 6: Establecimiento de la conexión de red virtual a la red virtual
+###Paso 7: Establecimiento de la conexión de red virtual a la red virtual
 Desde el Portal de Azure clásico, use el menú "Panel" de ambas redes virtuales para establecer conexiones de puerta de enlace a puerta de enlace. Utilice los elementos de menú "Conectar" en la barra de herramientas inferior. Después de unos minutos, el panel debe mostrar gráficamente los detalles de conexión.
 
-###Paso 7: Creación de las máquinas virtuales en la región #2 
+###Paso 8: Creación de las máquinas virtuales en la región 2 
 Cree la imagen de Ubuntu, como se describe en la implementación de la región #1, siguiendo los mismos pasos, o bien copie el archivo de imagen VHD en la cuenta de almacenamiento de Azure ubicada en la región #2 y cree la imagen. Utilice esta imagen y cree la siguiente lista de máquinas virtuales en un nuevo servicio de nube hk-c-svc-east-us:
 
 
@@ -532,16 +531,19 @@ Cree la imagen de Ubuntu, como se describe en la implementación de la región #
 
 
 Siga las mismas instrucciones de la región #1, pero use el espacio de direcciones 10.2.xxx.xxx.
-###Paso 8: Configuración de Cassandra en cada máquina virtual
+
+###Paso 9: Configuración de Cassandra en cada máquina virtual
 Inicie sesión en la máquina virtual y realice lo siguiente:
 
 1. Edite $CASS\_HOME/conf/cassandra-rackdc.properties para especificar las propiedades del bastidor y del centro de datos con el formato: dc =EASTUS rack =rack1
 2. Edite cassandra.yaml para configurar los nodos de valores de inicialización: Valores de inicialización: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
-###Paso 9: Inicio de Cassandra
+
+###Paso 10: Inicio de Cassandra
 Inicie sesión en cada máquina virtual e inicie Cassandra en segundo plano, ejecutando el comando siguiente: $CASS\_HOME/bin/cassandra
 
 ## Probar el clúster de varias regiones
 Ya ha implementado Cassandra en 16 nodos, con 8 nodos en cada región de Azure. Estos nodos están en el mismo clúster con el nombre común del clúster y la configuración de nodo de valor de inicialización. Utilice el siguiente proceso para probar el clúster:
+
 ###Paso 1: Obtención de la dirección IP de equilibrador de carga interno para ambas regiones mediante PowerShell
 - Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
 - Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
@@ -690,6 +692,4 @@ Microsoft Azure es una plataforma flexible que permite la ejecución de Microsof
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

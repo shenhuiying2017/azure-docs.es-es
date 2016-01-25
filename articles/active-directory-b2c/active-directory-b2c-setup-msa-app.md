@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/12/2016"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Proporcionar a registro e inicio de sesión a los consumidores con cuentas Microsoft
@@ -41,11 +41,9 @@ Para usar una cuenta Microsoft como proveedor de identidades en Azure Active Dir
 
     ![MSA - URL de redireccionamiento](./media/active-directory-b2c-setup-msa-app/msa-redirect-url.png)
 
-6. En el panel de navegación izquierdo, haga clic en **Configuración de API**. Copie los valores **Id. de cliente** y **Secreto del cliente**. Necesitará ambos para configurar una cuenta Microsoft como proveedor de identidades de su inquilino.
+6. En el panel de navegación izquierdo, haga clic en **Configuración de API**. Copie los valores **Id. de cliente** y **Secreto del cliente**. Necesitará ambos para configurar una cuenta Microsoft como proveedor de identidades de su inquilino. Nota: el **secreto de cliente** es una credencial de seguridad importante.
 
-> [AZURE.NOTE]El **secreto de cliente** es una credencial de seguridad importante.
-
-    ![MSA - Client secret](./media/active-directory-b2c-setup-msa-app/msa-client-secret.png)
+    ![MSA - secreto de cliente](./media/active-directory-b2c-setup-msa-app/msa-client-secret.png)
 
 ## Configuración de una cuenta Microsoft como proveedor de identidades de su inquilino
 
@@ -57,4 +55,4 @@ Para usar una cuenta Microsoft como proveedor de identidades en Azure Active Dir
 6. Haga clic en **Configurar este proveedor de identidades** y proporcione los valores de **Id. de cliente** y **Secreto de cliente** de la aplicación de cuenta Microsoft que creó anteriormente.
 7. Haga clic en **Aceptar** y en **Crear** para guardar la configuración de la cuenta Microsoft.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

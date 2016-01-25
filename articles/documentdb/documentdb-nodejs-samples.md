@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/06/2016" 
+	ms.date="01/08/2016" 
 	ms.author="mimig"/>
 
 
@@ -22,6 +22,7 @@
 > [AZURE.SELECTOR]
 - [.NET Samples](documentdb-dotnet-samples.md)
 - [Node.js Samples](documentdb-nodejs-samples.md)
+- [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
 En el repositorio de GitHub [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) se incluyen soluciones de ejemplo que realizan operaciones CRUD y otras operaciones comunes en los recursos de DocumentDB. Este artículo ofrece:
 
@@ -30,7 +31,7 @@ En el repositorio de GitHub [azure-documentdb-nodejs](https://github.com/Azure/a
 
 **Requisitos previos**
 
-1. Necesita una cuenta de Azure para usar estos ejemplos:
+1. Para usar estos ejemplos, necesita una cuenta de Azure:
     - Puede [abrir una cuenta de Azure de manera gratuita](https://azure.microsoft.com/pricing/free-trial/) - Obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este, podrá mantener la cuenta y usar servicios gratuitos de Azure, como Sitios web. Nunca se la hará ningún cargo en la tarjeta de crédito, a menos que cambie explícitamente la configuración y pida que se le realice algún cargo.
    - Puede [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): su suscripción a Visual Studio le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
 2. También necesita el [SDK de Node.js](documentdb-sdk-node.md). 
@@ -105,4 +106,4 @@ Tarea | Referencia de API
 
 Para obtener más información acerca de la programación de servidor, consulte [Programación en el servidor de DocumentDB: procedimientos almacenados, desencadenadores de base de datos y UDF](documentdb-programming.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

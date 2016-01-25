@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="01/08/2016"
 	ms.author="larryfr"/>
 
 #Disponibilidad y fiabilidad de clústeres de Hadoop en HDInsight
@@ -136,7 +136,7 @@ En la interfaz de usuario web de Ambari, seleccione el servicio cuyos registros 
 
 ## Configuración del tamaño del nodo principal ##
 
-El tamaño del nodo principal solo se puede seleccionar durante la creación del clúster. El tamaño predeterminado para los nodos principales es **A3**, que proporciona 4 núcleos, 7 gigabytes de memoria y 285 gigabytes de almacenamiento local. Puede encontrar una lista de los diferentes tamaños de máquina virtual disponibles para HDInsight, incluido el núcleo, la memoria y el almacenamiento local para cada uno, en la [página de precios de HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
+El tamaño del nodo principal solo se puede seleccionar durante la creación del clúster. Puede encontrar una lista de los diferentes tamaños de máquina virtual disponibles para HDInsight, incluido el núcleo, la memoria y el almacenamiento local para cada uno, en la [página de precios de HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
 
 Al crear un nuevo clúster, puede especificar el tamaño de los nodos. A continuación se ofrece información sobre cómo especificar el tamaño mediante el [Portal de Azure][preview-portal], [Azure PowerShell][azure-powershell] y la [CLI de Azure][azure-cli]\:
 
@@ -166,4 +166,4 @@ En este documento ha aprendido cómo proporciona HDInsight de Azure alta disponi
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

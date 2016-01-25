@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Solución integral de problemas gracias a las Métricas de almacenamiento y registro de Azure, a AzCopy y al Analizador de mensajes | Microsoft Azure" 
-	description="Tutorial en el que se explica cómo solucionar problemas totalmente por medio del análisis de Almacenamiento de Azure, AzCopy y el analizador de mensajes de Microsoft." 
-	services="storage" 
-	documentationCenter="dotnet" 
-	authors="tamram" 
-	manager="adinah"/>
+<properties
+	pageTitle="Solución integral de problemas gracias a las Métricas de almacenamiento y registro de Azure, a AzCopy y al Analizador de mensajes | Microsoft Azure"
+	description="Tutorial en el que se explica cómo solucionar problemas totalmente por medio del análisis de Almacenamiento de Azure, AzCopy y el analizador de mensajes de Microsoft."
+	services="storage"
+	documentationCenter="dotnet"
+	authors="tamram"
+	manager="carmonm"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/01/2015"
 	ms.author="tamram"/>
 
 # Solución integral de problemas con los registros y métricas de Almacenamiento de Azure, AzCopy y el analizador de mensajes 
@@ -364,7 +364,5 @@ Para más información sobre los escenarios de solución integral de problemas e
 - [Supervisión de una cuenta de almacenamiento](storage-monitor-storage-account.md)
 - [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 - [Guía de funcionamiento del analizador de mensajes de Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
- 
- 
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Interfaz de la línea de comandos de Azure (CLI) y aplicaciones de API
@@ -22,7 +22,7 @@ En este artículo se muestra cómo crear, administrar y eliminar aplicaciones de
 
 ## Requisitos previos
 
-En este artículo se supone que ha instalado la CLI de Azure y que sabe cómo realizar tareas básicas. Para ver una introducción a la CLI, consulte [Instalación y configuración de la interfaz de la línea de comandos (CLI) de Azure](../xplat-cli-install.md).
+En este artículo se supone que ha instalado la CLI de Azure y que sabe cómo realizar tareas básicas. Para ver una introducción a la API, consulte [Instalación y configuración de la interfaz de la CLI de Azure](../xplat-cli-install.md).
 
 > [AZURE.NOTE]Las instrucciones para [conectarse a una suscripción de Azure](../xplat-cli-connect.md)ofrecen dos alternativas: iniciar sesión con una cuenta de trabajo o educativas y descargar un archivo *.publishsettings*. Para aplicaciones de API, no funcionará el método de autenticación de archivos *.publishsettings*. Esto se debe a que tiene que usar el modo de Administración de recursos (presentado en la siguiente sección) para trabajar con aplicaciones de API y el método de autenticación de archivos *.publishsettings* no funciona con el Administrador de recursos.
 
@@ -288,4 +288,4 @@ Para obtener más información sobre cómo usar las utilidades de la línea de c
 * [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

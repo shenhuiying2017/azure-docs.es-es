@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Administración de estadísticas en el Almacenamiento de datos SQL
  El Almacenamiento de datos SQL utiliza las estadísticas para evaluar el coste de diferentes formas para realizar una consulta distribuida. Cuando las estadísticas son precisas, el optimizador de consultas puede generar planes de consulta de alta calidad que mejoran el rendimiento de las consultas.
@@ -459,4 +459,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

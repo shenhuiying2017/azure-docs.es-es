@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="ms-prkhad"
     manager=""
-    editor=""/>
+    editor="tysonn"/>
 
 <tags
     ms.service="storage"
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="12/04/2015"
-    ms.author="robinsh"/>
+    ms.author="prkhad"/>
 
 # Almacenamiento premium de Azure: diseño de alto rendimiento
 
@@ -174,7 +174,7 @@ Las máquinas virtuales a gran escala están disponibles en distintos tamaños c
 
 | Tamaño de VM | Núcleos de CPU | Memoria | Tamaños de disco de VM | Discos de datos máx. | Tamaño de memoria caché | E/S | Límites de E/S de la memoria caché de ancho de banda |
 |---|---|---|---|---|---|---|---|
-| Standard\_DS14 | 16 | 112 GB | SO = 1023 GB <br> SSD Local = 224 GB | 32 | 576 GB | 50\.000 E/S por segundo <br> 512 MB por segundo | 4\.000 IOPS y 33 MB por segundo |
+| Standard\_DS14 | 16 | 112 GB | OS = 1.023 GB <br> SSD Local = 224 GB | 32 | 576 GB | 50\.000 E/S por segundo <br> 512 MB por segundo | 4\.000 IOPS y 33 MB por segundo |
 | Standard\_GS5 | 32 | 448 GB | SO = 1023 GB <br> SSD Local = 896 GB | 64 | 4224 GB | 80\.000 E/S por segundo <br> 2000 MB por segundo | 5\.000 IOPS y 50 MB por segundo |
 
 Para una lista completa de todos los tamaños de máquinas virtuales de Azure disponibles, vea [Tamaños de máquinas virtuales de Azure](virtual-machines-size-specs.md). Elija un tamaño de máquina virtual que puede cumplir y escale a los requisitos de rendimiento de las aplicaciones que desee. Además, tenga en cuenta que debe seguir consideraciones importantes al elegir los tamaños de las máquinas virtuales.
@@ -216,7 +216,7 @@ El número de discos que elija depende del tamaño de disco elegido. Puede usar 
 
 Por ejemplo, si un requisito de la aplicación es un máximo de 250 MB/s de rendimiento y usa una máquina virtual DS4 con un solo disco P30. La máquina virtual DS4 puede proporcionar un máximo rendimiento de 256 MB/s. Sin embargo, un único disco P30 tiene un límite de rendimiento de 200 MB/s. Por lo tanto, la aplicación se restringe a 200 MB/s debido al límite del disco. Para superar este límite, aprovisione más de un disco de datos a la máquina virtual.
 
->**Nota:** las lecturas atendidas por la caché no se incluyen en la E/S por segundo y el rendimiento del disco, por lo que no están sujetas a los límites del disco. La caché tiene su límite de IOPS y rendimiento independiente de la máquina virtual.
+>**Nota:** Las lecturas atendidas por la caché no se incluyen en la IOPS y el rendimiento del disco, por lo que no están sujetas a los límites del disco. La caché tiene su límite de IOPS y rendimiento independiente de la máquina virtual.
 >
 >Por ejemplo, inicialmente sus lecturas y escrituras son 60MB/s y 40MB/s respectivamente. Con el tiempo, la memoria caché se prepara y atiende cada vez más y más lecturas de la memoria caché. Entonces, puede obtener un mayor rendimiento de escritura desde el disco.
 
@@ -244,7 +244,7 @@ A continuación se muestra la configuración de caché de disco recomendada para
 | ReadOnly | Configure la caché de host como ReadOnly para discos de solo lectura y lectura y escritura. |
 | ReadWrite | Configure la caché de host como ReadWrite solo si la aplicación maneja correctamente la escritura de datos en caché a discos persistentes cuando es necesario. |
 
-*ReadOnly* Mediante la configuración del almacenamiento en caché ReadOnly en discos de datos de Almacenamiento premium, puede lograr una baja latencia de lectura y obtener una E/S por segundo de lectura y un rendimiento de la aplicación muy altos. Esto se debe a dos razones:
+*ReadOnly* Mediante la configuración del almacenamiento en caché ReadOnly en discos de datos de Almacenamiento premium, puede lograr una baja latencia de lectura y obtener una IOPS de lectura y un rendimiento de la aplicación muy altos. Esto se debe a dos razones:
 
 1.  Las lecturas realizadas desde la memoria caché, que se encuentra en la memoria de la máquina virtual y el SSD local, son mucho más rápidas que las lecturas desde el disco de datos, que se encuentra en el almacenamiento de blobs de Azure.  
 2.  Almacenamiento premium no cuenta las lecturas que se atienden desde la caché para la IOPS y el rendimiento del disco. Por lo tanto, la aplicación es capaz de lograr una IOPS y un rendimiento totales mayores.
@@ -271,7 +271,7 @@ Por ejemplo, si una solicitud de E/S generada por la aplicación es mayor que el
 
 Según el tipo de carga de trabajo que se ejecute la aplicación, elija un tamaño de franja adecuado. Para solicitudes de E/S pequeñas aleatorias, use un tamaño de franja más pequeño. Por otra parte, para solicitudes de E/S secuenciales grandes, use un tamaño de franja mayor. Descubra las recomendaciones de tamaño de franja para la aplicación que se ejecutará en Almacenamiento premium. Para SQL Server, configure el tamaño de franja de 64 KB para cargas de trabajo OLTP y 256 KB para cargas de trabajo de almacenamiento de datos. Vea [Procedimientos recomendados para SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-performance-best-practices.md#disks-and-performance-considerations) para más información.
 
->**Nota:** puede seccionar conjuntamente un máximo de 32 discos de almacenamiento premium en una serie de máquinas virtuales DS y 64 discos de almacenamiento premium en una serie de máquinas virtuales GS.
+>**Nota:** Puede seccionar conjuntamente un máximo de 32 discos de almacenamiento premium en una serie de máquinas virtuales DS y 64 discos de almacenamiento premium en una serie de máquinas virtuales GS.
 
 ## Multithreading  
 Azure ha diseñado la plataforma Almacenamiento premium para ser enormemente paralela. Por lo tanto, una aplicación multiproceso logra un rendimiento mucho mayor que una aplicación uniproceso. Una aplicación multiproceso divide sus tareas en varios subprocesos y aumenta la eficacia de su ejecución mediante el uso de los recursos de la máquina virtual y el disco al máximo.
@@ -328,7 +328,7 @@ Descargue la herramienta Iometer en la máquina virtual desde este vínculo: [de
 
 *Especificaciones de acceso* Las especificaciones: solicitud de tamaño de E/S, porcentaje de lectura/escritura y porcentaje de aleatorio o secuencial, se configuran mediante la pestaña “Access Specifications” (Especificaciones de Access) en Iometer. Cree una especificación de acceso para cada uno de los escenarios descritos a continuación. Cree las especificaciones de acceso y "Guarde" con un nombre como – RandomWrites\_8K, RandomReads\_8K. Seleccione la especificación correspondiente al ejecutar el escenario de prueba.
 
-A continuación se muestra un ejemplo de especificaciones de acceso para el escenario de E/S por segundo de escritura máxima: ![](media/storage-premium-storage-performance/image8.png)
+A continuación se muestra un ejemplo de especificaciones de acceso para el escenario de IOPS de escritura máxima: ![](media/storage-premium-storage-performance/image8.png)
 
 *Especificaciones de prueba de IOPS máxima* Para demostrar el número máximo de E/S por segundo, use el tamaño de solicitud más pequeño. Use el tamaño de solicitud de 8K y cree especificaciones de lecturas y escrituras aleatorias.
 
@@ -422,7 +422,7 @@ directory=/mnt/nocache
 Tenga en cuenta los siguientes aspectos clave que están en consonancia con las instrucciones de diseño que se tratan en secciones anteriores. Estas especificaciones son esenciales para obtener la IOPS máxima: - Una profundidad de la cola alta: 256. -Un tamaño de bloque pequeño: 8 KB. -Varios subprocesos que realizan escrituras aleatorias.
 
 Ejecute el siguiente comando para ejecutar la prueba FIO durante 30 segundos:
-				
+
 	sudo fio --runtime 30 fiowrite.ini
 
 Mientras se ejecuta la prueba, podrá ver el número de IOPS de escritura que envían la máquina virtual y los discos premium. Como se muestra en el ejemplo siguiente, la máquina virtual DS14 está ofreciendo su límite máximo de IOPS de escritura: 50.000 IOPS. ![](media/storage-premium-storage-performance/image11.png)
@@ -526,8 +526,8 @@ Más información sobre Almacenamiento premium de Azure:
 
 Para los usuarios de SQL Server, lea artículos sobre procedimientos recomendados para SQL Server:
 
-- [Procedimientos recomendados de rendimiento para SQL Server en 
-- máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx) 
+- [Procedimientos recomendados de rendimiento para SQL Server en
+- máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx)
 - [Almacenamiento premium de Azure proporciona el máximo rendimiento para SQL Server en una máquina virtual de Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

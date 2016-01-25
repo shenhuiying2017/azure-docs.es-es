@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="jrowlandjones"
    manager="barbkess"
-   editor="jrowlandjones"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL
 Para proporcionar rendimiento predecible a escala, Almacenamiento de datos SQL implementa mecanismos para administrar la simultaneidad de cargas de trabajo y la asignación de recursos computacionales.
@@ -452,4 +452,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

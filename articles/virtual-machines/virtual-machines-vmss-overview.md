@@ -21,7 +21,7 @@
 
 Los conjuntos de escala de máquinas virtuales son un recurso de Proceso de Azure que se puede usar para implementar y administrar un conjunto de máquinas virtuales idénticas. Con todas las máquinas virtuales configuradas de la misma manera, los conjuntos de escala de máquinas virtuales están diseñados para admitir el escalado automático verdadero (no es necesario aprovisionar las máquinas virtuales antes) y, por tanto, facilitan la creación de servicios a gran escala cuyo objetivo son las cargas de trabajo en contenedor, de macroproceso y macrodatos.
 
-[AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-include.md)]
+[AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-ps-include.md)]
 
 Para las aplicaciones que necesiten escalar y reducir horizontalmente los recursos de proceso, las operaciones de escala se equilibran implícitamente en dominios de actualización y de error. Para una introducción a los conjuntos de escala de máquinas virtuales, consulte el reciente [anuncio en el blog de Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview).
 
@@ -67,7 +67,7 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 
 	IP pública->Puerto 50000 -> vmss\_0->Puerto 22 IP pública->Puerto 50001 -> vmss\_1->Puerto 22 IP pública->Puerto 50002-> vmss\_2->Puerto 22
 
-	Aquí hay un ejemplo de creación de un conjunto de escala de máquinas virtuales que usa reglas NAT para permitir la conexión SSH a cada máquina virtual de un conjunto de escala mediante una sola dirección IP pública: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat).
+	Aquí hay un ejemplo de creación de un conjunto de escalado de máquinas virtuales que usa reglas NAT para permitir la conexión SSH a cada máquina virtual de un conjunto de escalado mediante una sola dirección IP pública: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat).
 
 	Este es un ejemplo que hace lo mismo con RDP y Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat).
 
@@ -89,10 +89,10 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 
 - Durante la vista previa pública, no cree más de 500 máquinas virtuales en varios conjuntos de escalado de máquinas virtuales a la vez.
 - No planee más de 40 máquinas virtuales por cuenta de almacenamiento.
-- Distancie las primeras letras de los nombres de las cuentas de almacenamiento lo más posible. Las plantillas de conjuntos de escala de máquinas virtuales de ejemplo en la página de [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/) muestran cómo hacerlo.
+- Distancie las primeras letras de los nombres de las cuentas de almacenamiento lo más posible. Las plantillas de conjunto de escalado de máquinas virtuales de ejemplo en la página de [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/) muestran cómo hacerlo.
 - Si usa máquinas virtuales personalizadas, no planee más de 40 máquinas virtuales por conjunto de escalado de máquinas virtuales en una única cuenta de almacenamiento. Necesitará copiar antes la imagen en la cuenta de almacenamiento para poder comenzar la implementación del conjunto de escalado de máquinas virtuales. Consulte las preguntas más frecuentes para más información.
 - No planee más de 2048 máquinas virtuales por red virtual. Este límite aumentará en el futuro.
-- El número de máquinas virtuales que se pueden crear está limitado por la cuota de núcleos de proceso en cualquier región. Puede que necesite ponerse en contacto con soporte al cliente para aumentar el límite de cuota de proceso incluso si ya tiene un límite alto de núcleos para su uso con los servicios en la nube o IaaS v1. Para consultar la cuota, puede ejecutar el siguiente comando en la CLI de Azure: _azure vm list-usage_, y el siguiente comando de PowerShell: _Get-AzureRmVMUsage_ (si usa una versión de PowerShell anterior a 1.0, use _Get-AzureVMUsage_).
+- El número de máquinas virtuales que se pueden crear está limitado por la cuota de núcleos de proceso en cualquier región. Puede que necesite ponerse en contacto con el servicio de soporte al cliente para aumentar el límite de cuota de proceso incluso si ya tiene un límite alto de núcleos para su uso con los servicios en la nube o IaaS v1. Para consultar la cuota, puede ejecutar el siguiente comando en la CLI de Azure: _azure vm list-usage_, y el siguiente comando de PowerShell: _Get-AzureRmVMUsage_ (si usa una versión de PowerShell anterior a 1.0, use _Get-AzureVMUsage_).
 
 ## Preguntas más frecuentes sobre los conjuntos de escala de máquinas virtuales
 
@@ -153,4 +153,4 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 
 **R.** Sí. Un conjunto de escala es de forma implícita un conjunto de disponibilidad con tres dominios de error y cinco dominios de actualización. No es necesario configurar nada en virtualMachineProfile. En futuras versiones, es probable que los conjuntos de escala abarquen varios inquilinos pero, por ahora, un conjunto de escala es un único conjunto de disponibilidad.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

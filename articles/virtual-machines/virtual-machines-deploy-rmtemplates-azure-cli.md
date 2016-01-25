@@ -20,12 +20,8 @@
 # Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y CLI de Azure
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-- [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-<br>
-
-
+- [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+- [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 En este artículo se muestra cómo usar las plantillas del Administrador de recursos de Azure y la línea de comandos (CLI) de Azure para realizar tareas comunes de implementación y administración de máquinas virtuales de Azure. Para obtener más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](http://azure.microsoft.com/documentation/templates/) y [Marcos de aplicaciones mediante el uso de plantillas](virtual-machines-app-frameworks.md).
 
@@ -104,7 +100,7 @@ Después puede administrar el ciclo de vida general de los recursos del grupo me
 - Auditar operaciones.
 - Etiquetar recursos con metadatos adicionales para un mejor seguimiento.
 
-Puede aprender mucho más sobre los grupos de recursos de Azure y su utilidad en [Información general del Administrador de recursos de Azure](../resource-group-overview.md). Si le interesa la creación de plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
+Puede aprender mucho más sobre los grupos de recursos de Azure y su utilidad en [Información general del Administrador de recursos de Azure](../resource-group-overview.md). Si está interesado en la creación de plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
 ## <a id="quick-create-a-vm-in-azure"></a>Tarea: Creación rápida de una máquina virtual en Azure
 
@@ -1189,7 +1185,7 @@ Recuerde que puede volver a implementar un grupo de recursos, pero si ya termin�
 
 ## <a id="show-the-log-for-a-resource-group-deployment"></a>Tarea: Visualización del registro para una implementación de grupo de recursos
 
-Es común al crear o usar plantillas. La llamada para mostrar los registros de implementación de un grupo es `azure group log show <groupname>`, que muestra gran cantidad de información útil para entender por qué ocurrió algo o por qué no fue así. (Para obtener más información sobre cómo solucionar problemas con las implementaciones, así como otra información sobre problemas, consulte [Solución de problemas de implementaciones de grupo de recursos en Azure](resource-group-deploy-debug.md)).
+Es común al crear o usar plantillas. La llamada para mostrar los registros de implementación de un grupo es `azure group log show <groupname>`, que muestra gran cantidad de información útil para entender por qué ocurrió algo o por qué no fue así. (Para obtener más información sobre cómo solucionar problemas de las implementaciones, así como otra información acerca de problemas, consulte [Solución de problemas de implementaciones de grupo de recursos en Azure](resource-group-deploy-debug.md)).
 
 Por ejemplo, para solucionar errores específicos, puede usar herramientas como **jq** para realizar consultas algo más precisas, como qué errores individuales se deben corregir. El siguiente ejemplo usa **jq** para analizar un registro de implementación para **lbgroup**, en busca de errores.
 
@@ -1272,7 +1268,7 @@ Y, después, buscar myVM1:
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Tarea: Inicio de sesión en una máquina virtual Linux
 
-Normalmente los equipos Linux están conectados a través de SSH. Para obtener más información, consulte [Usar SSH con Linux en Azure](virtual-machines-linux-use-ssh-key.md).
+Normalmente los equipos Linux están conectados a través de SSH. Para obtener más información, consulte [Uso de SSH con Linux en Azure](virtual-machines-linux-use-ssh-key.md).
 
 ## <a id="stop-a-virtual-machine"></a>Tarea: Detención de una máquina virtual
 
@@ -1305,8 +1301,8 @@ A continuación, deberá montar el disco, como haría normalmente en Linux (o en
 
 ## Pasos siguientes
 
-Para ver más ejemplos de uso de la CLI de Azure con el modo **arm**, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](xplat-cli-azure-resource-manager.md). Para obtener más información sobre los recursos de Azure y sus conceptos, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
+Para consultar más ejemplos de uso de la CLI de Azure con el modo **arm**, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](xplat-cli-azure-resource-manager.md). Para obtener más información acerca de los recursos de Azure y sus conceptos, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
 
 Para obtener más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](http://azure.microsoft.com/documentation/templates/) y [Marcos de aplicaciones mediante el uso de plantillas](virtual-machines-app-frameworks.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

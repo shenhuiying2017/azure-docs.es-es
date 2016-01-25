@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/23/2015"
+   ms.date="01/12/2015"
    ms.author="telmos" />
 
 # Direcciones IP en Azure
@@ -23,7 +23,7 @@ Las direcciones IP públicas se usan para la comunicación con Internet, incluid
 
 Las direcciones IP privadas se usa para la comunicación dentro de una red virtual (VNet) de Azure y en la red local cuando se usa una puerta de enlace de VPN o un circuito ExpressRoute para ampliar la red a Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [modelo de implementación clásica](virtual-network-ip-addresses-overview-classic.md).
 
 Si está familiarizado con el modelo de implementación clásica, revise las [diferencias en el direccionamiento IP entre la implementación clásica y el Administrador de recursos](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
 
@@ -152,12 +152,8 @@ En resumen, la siguiente estructura de precios se aplica a los recursos de direc
 	- El uso se calcula según la cantidad total de direcciones IP públicas estáticas en la suscripción.
 
 ## Pasos siguientes
-- [Implementación de una máquina virtual con una IP pública estática](virtual-network-deploy-static-pip-arm-template.md)
-- [Introducción a la creación de un equilibrador de carga orientado a Internet con la CLI de Azure](load-balancer-get-started-internet-arm-cli.md#create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool)
-- [Creación, inicio o eliminación de una Puerta de enlace de aplicaciones con el Administrador de recursos de Azure](application-gateway-create-gateway-arm.md#create-public-ip-address-for-front-end-configuration)
-- [Crear una red virtual con una conexión VPN de sitio a sitio mediante PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md#4-request-a-public-ip-address-for-the-gateway)
-- [Establecimiento de una dirección IP privada estática en el Portal de vista previa](virtual-networks-static-private-ip-arm-pportal.md)
-- [Introducción a la creación de un equilibrador de carga interno mediante PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-front-end-ip-pool-and-backend-address-pool)
-- [Creación, inicio o eliminación de una Puerta de enlace de aplicaciones con el Administrador de recursos de Azure](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
+- [Implemente una máquina virtual con una dirección IP pública estática](virtual-network-deploy-static-pip-arm-portal.md) mediante el portal de Azure.
+- Aprenda a [implementar una máquina virtual con una dirección IP pública estática mediante una plantilla](virtual-network-deploy-static-pip-arm-template.md).
+- [Implemente una máquina virtual con una dirección IP privada estática](virtual-networks-static-private-ip-arm-pportal.md) mediante el portal de Azure.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

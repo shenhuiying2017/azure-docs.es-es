@@ -1,6 +1,6 @@
 <properties
    pageTitle="Guía para crear un Servicio de datos en Marketplace | Microsoft Azure"
-   description="Se ofrecen instrucciones detalladas sobre cómo crear, certificar e implementar un servicio de datos para la venta en Azure Marketplace."
+   description="Instrucciones detalladas para crear, certificar e implementar un servicio de datos para la venta en Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -8,12 +8,12 @@
    editor=""/>
 
    <tags
-      ms.service="marketplace-publishing"
+      ms.service="marketplace"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/24/2015"
+      ms.date="01/04/2016"
       ms.author="hascipio; avikova" />
 
 # Ejemplos de asignación de un servicio web existente a OData a través de CSDL
@@ -155,4 +155,4 @@ Use la paginación RESTful de implementación a través de sus datos con GET. La
 - Si está interesado en aprender y comprender los nodos específicos y sus parámetros, lea este artículo sobre [Nodos de asignación de OData de Servicio de datos](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) para ver definiciones y explicaciones, ejemplos y contexto de caso de uso.
 - Para volver a la ruta de acceso recomendada para publicar un servicio de datos en Azure Marketplace, lea el artículo [Guía de publicación de servicios de datos](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

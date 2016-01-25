@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.date="01/12/2016"
 	ms.author="juliako"/>
 
 #Información general y escenarios comunes de Servicios multimedia de Azure
@@ -29,7 +29,7 @@ Puede elegir entre transmisión del contenido en directo o entrega a petición. 
 Para compilar soluciones de Servicios multimedia, puede usar:
 
 - [API de REST de Servicios multimedia](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- Uno de los SDK de cliente disponibles: [SDK de Servicios multimedia de Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services), [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java), [Servicios multimedia de Azure para Node.js](https://github.com/fritzy/node-azure-media), [SDK de PHP de Azure](https://github.com/Azure/azure-sdk-for-php)
+- Uno de los SDK de cliente disponibles: [SDK de Servicios multimedia de Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services), [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java), [Servicios multimedia de Azure para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js), [SDK de PHP de Azure](https://github.com/Azure/azure-sdk-for-php)
 - Herramientas existentes: [Portal de Azure clásico](http://manage.windowsazure.com/) o [Explorador de servicios multimedia de Azure](https://github.com/Azure/Azure-Media-Services-Explorer).
 
 
@@ -171,7 +171,7 @@ El diagrama siguiente muestra las partes principales de la plataforma AMS que in
 
 ![Flujo de trabajo activo][live-overview1]
 
-Para obtener más información, consulte [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
+Para obtener más información, vea [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ###Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
@@ -231,4 +231,4 @@ El [Soporte técnico de Azure](http://azure.microsoft.com/support/options/) prop
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

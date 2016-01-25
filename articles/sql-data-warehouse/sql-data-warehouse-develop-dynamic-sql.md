@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # SQL dinámico en Almacenamiento de datos SQL
 Al desarrollar código de aplicación para Almacenamiento de datos SQL, puede que necesite usar SQL dinámico con el fin de proporcionar soluciones flexibles, genéricas y modulares. Almacenamiento de datos SQL no admite por el momento tipos de datos blob. Esto puede limitar el tamaño de las cadenas ya que los tipos de blob incluyen tipos varchar (max) y nvarchar (max). Si ha utilizado estos tipos en el código de aplicación al crear cadenas muy grandes, será necesario que divida el código en fragmentos y utilice en su lugar la instrucción EXEC.
@@ -46,4 +46,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

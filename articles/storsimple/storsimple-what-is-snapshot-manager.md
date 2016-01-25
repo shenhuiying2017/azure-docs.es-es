@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="01/07/2016"
    ms.author="v-sharos" />
 
 # ¿Qué es Administrador de instantáneas StorSimple?
@@ -25,7 +25,11 @@ Esta información general presenta el Administrador de instantáneas StorSimple,
 
 Para obtener información general de todo el sistema de Microsoft Azure StorSimple, incluido el dispositivo de StorSimple, el servicio StorSimple Manager, el Administrador de instantáneas StorSimple y el Adaptador de StorSimple para SharePoint, consulte [Serie StorSimple 8000: una solución híbrida de almacenamiento en la nube](storsimple-overview.md).
  
->[AZURE.NOTE]No puede utilizar StorSimple Snapshot Manager para administrar las matrices virtuales de Microsoft Azure StorSimple (también conocidas como dispositivos virtuales locales de StorSimple).
+>[AZURE.NOTE]
+>
+>- No puede utilizar StorSimple Snapshot Manager para administrar las matrices virtuales de Microsoft Azure StorSimple (también conocidas como dispositivos virtuales locales de StorSimple).
+>
+>- Si tiene previsto instalar la actualización 2 de StorSimple en el dispositivo de StorSimple, asegúrese de descargar la última versión de StorSimple Snapshot Manager e instalarlo **antes de instalar la actualización 2 de StorSimple**. La última versión de StorSimple Snapshot Manager es compatible con versiones anteriores y funciona con todas las versiones publicadas de Microsoft Azure StorSimple. Si usa la versión anterior de StorSimple Snapshot Manager, debe actualizarlo (no es necesario desinstalar la versión anterior antes de instalar la nueva versión).
 
 ## Arquitectura y propósito de Administrador de instantáneas StorSimple
 
@@ -42,7 +46,7 @@ Las copias de seguridad de Administrador de instantáneas StorSimple adoptan la 
 
 ![Arquitectura de Administrador de instantáneas StorSimple](./media/storsimple-what-is-snapshot-manager/HCS_SSM_Overview.png)
 
-**Ilustración 1: Arquitectura de Administrador de instantáneas StorSimple**
+**Arquitectura de Administrador de instantáneas StorSimple**
 
 ## Compatibilidad con varios tipos de volumen
 
@@ -103,7 +107,7 @@ Vea la ilustración siguiente.
 
 ![Proceso VSS](./media/storsimple-what-is-snapshot-manager/HCS_SSM_VSS_process.png)
 
-**Ilustración 2: Proceso del Servicio de instantáneas de volumen de Windows**
+**Proceso del Servicio de instantáneas de volumen de Windows**
 
 ## Tipos de copia de seguridad y directivas de copia de seguridad
 
@@ -152,4 +156,4 @@ Para obtener información acerca de la supervisión de trabajos de copia de segu
 
 - Descargue el [Administrador de instantáneas StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->
