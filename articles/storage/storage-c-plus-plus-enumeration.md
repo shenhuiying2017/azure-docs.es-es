@@ -1,19 +1,19 @@
-<properties 
-    pageTitle="Enumeración de recursos de almacenamiento de Azure con la biblioteca de cliente de Almacenamiento de Microsoft Azure para C++ | Microsoft Azure" 
-    description="Obtenga información acerca de cómo usar las API de enumeración en la biblioteca de cliente de Almacenamiento de Microsoft Azure para C++ para enumerar los contenedores, blobs, colas, tablas y entidades." 
-    documentationCenter=".net" 
+<properties
+    pageTitle="Enumeración de recursos de almacenamiento de Azure con la biblioteca de cliente de Almacenamiento de Microsoft Azure para C++ | Microsoft Azure"
+    description="Obtenga información acerca de cómo usar las API de enumeración en la biblioteca de cliente de Almacenamiento de Microsoft Azure para C++ para enumerar los contenedores, blobs, colas, tablas y entidades."
+    documentationCenter=".net"
     services="storage"
-    authors="tamram" 
-    manager="carolz" 
-    editor=""/>
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="01/05/2016" 
-    ms.author="zhimingyuan;tamram"/>
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/05/2016"
+    ms.author="dineshm"/>
 
 # Lista los recursos de almacenamiento de Azure en C++
 
@@ -54,7 +54,7 @@ Por lo tanto, no resulta práctico enumerar todos los objetos en una sola respue
 
 La respuesta para una operación de enumeración segmentada incluye:
 
--	<i>\_segment</i>, que contiene el conjunto de resultados devueltos para una única llamada a la API de enumeración. 
+-	<i>\_segment</i>, que contiene el conjunto de resultados devueltos para una única llamada a la API de enumeración.
 -	*continuation\_token*, que se pasa a la siguiente llamada con el fin de obtener la siguiente página de resultados. Cuando no hay más resultados para devolver, el token de continuación es nulo.
 
 Por ejemplo, es posible que una llamada típica para enumerar todos los blobs de un contenedor tenga un aspecto similar al siguiente fragmento de código. El código está disponible en nuestros [ejemplos](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
@@ -75,15 +75,15 @@ Por ejemplo, es posible que una llamada típica para enumerar todos los blobs de
 	        process_diretory(it->as_directory());
 	    }
 	}
-	
+
 	    token = segment.continuation_token();
 	}
 	while (!token.empty());
 
 Tenga en cuenta que el número de resultados devueltos en una página puede controlarse mediante el parámetro *max\_results* en la sobrecarga de cada API, por ejemplo:
-	
-	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, 
-		blob_listing_details::values includes, int max_results, const continuation_token& token, 
+
+	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing,
+		blob_listing_details::values includes, int max_results, const continuation_token& token,
 		const blob_request_options& options, operation_context context)
 
 Si no se especifica el parámetro *max\_results*, se devolverá el valor máximo predeterminado de hasta 5.000 resultados en una sola página.
@@ -124,7 +124,7 @@ Deberá modificar el código para usar las API de enumeración segmentada:
 	    {
 	        process_entity(*it);
 	    }
-	
+
 	    token = segment.continuation_token();
 	} while (!token.empty());
 
@@ -184,4 +184,4 @@ Para obtener más información sobre el almacenamiento de Azure y la biblioteca 
 -	[Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Documentación de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -21,7 +21,7 @@ La clase [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.az
 
 Los mapas de particiones global y local realizan un seguimiento de la asignación de cada base de datos en un entorno con particiones. En ocasiones, se produce una interrupción entre los mapas de particiones global y local. En ese caso, use la clase RecoveryManager para detectar y reparar la interrupción.
 
-La clase RecoveryManager forma parte de la [biblioteca de cliente de Base de datos elástica](sql-database-elastic-database-client-library).
+La clase RecoveryManager forma parte de la [biblioteca de cliente de Base de datos elástica](sql-database-elastic-database-client-library.md).
 
 
 ![Mapa de particiones][1]
@@ -157,4 +157,4 @@ Este ejemplo realiza los pasos siguientes: 1. Quita las particiones del mapa de 
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

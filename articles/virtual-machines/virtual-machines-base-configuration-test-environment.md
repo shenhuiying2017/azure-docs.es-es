@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/12/2016"
 	ms.author="josephd"/>
 
 # Entorno de prueba de la configuración básica
@@ -51,9 +51,9 @@ Hay cuatro fases de configuración de la subred de la red corporativa del entorn
 3.	Configuración de APP1.
 4.	Configuración de CLIENT1.
 
-Si no dispone de ninguna cuenta de Azure, puede registrarse para obtener una prueba gratuita en [Prueba gratuita de un mes](http://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si no dispone de ninguna cuenta de Azure, puede registrarse para obtener una prueba gratuita en [Prueba gratuita de un mes](http://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a las plataformas de MSDN, consulte [Crédito mensual de Azure para suscriptores de Plataformas de MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/).
 
-> [AZURE.NOTE]Las máquinas virtuales en Azure suponen en un costo económico constante cuando se están ejecutando. Este costo se factura en su prueba gratuita, la suscripción de MSDN o la suscripción de pago. Para obtener más información acerca de los costos de ejecutar máquinas virtuales de Azure, consulte [Detalles de precios de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/) y [Calculadora de precios de Azure](http://azure.microsoft.com/pricing/calculator/). Para reducir los costos, consulte [Reducción del costo de las máquinas virtuales del entorno de prueba en Azure](#costs).
+> [AZURE.NOTE]Las máquinas virtuales en Azure suponen en un costo económico constante cuando se están ejecutando. Este costo se factura en la evaluación gratuita, la suscripción a las plataformas de MSDN o la suscripción de pago. Para obtener más información acerca de los costos de ejecutar máquinas virtuales de Azure, consulte [Detalles de precios de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/) y [Calculadora de precios de Azure](http://azure.microsoft.com/pricing/calculator/). Para reducir los costos, consulte [Reducción del costo de las máquinas virtuales del entorno de prueba en Azure](#costs).
 
 ## Fase 1: creación de la red virtual
 
@@ -250,15 +250,11 @@ Se trata de la configuración final.
 
 ![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png)
 
-La configuración básica de Azure ahora está lista para entornos de desarrollo y prueba de aplicaciones o para entornos de prueba adicionales, como el [entorno de nube híbrida simulado](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+La configuración base de Azure ya está lista para entornos de pruebas y desarrollo de aplicaciones o para entornos de prueba adicionales.
 
-## Recursos adicionales
+## Paso siguiente
 
-[Laboratorio de pruebas de Azure](http://social.technet.microsoft.com/wiki/contents/articles/24092.azure-test-lab.aspx)
-
-[Entornos de prueba de nube híbrida](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Entorno de prueba de la configuración básica con el Administrador de recursos de Azure](virtual-machines-base-configuration-test-environment-resource-manager.md)
+- Configure el [entorno de nube híbrida simulada](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) para probar las configuraciones híbridas.
 
 ## <a id="costs"></a>Reducción del costo de las máquinas virtuales del entorno de prueba en Azure
 
@@ -288,4 +284,4 @@ Para iniciar las máquinas virtuales en orden con Azure PowerShell, escriba el n
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

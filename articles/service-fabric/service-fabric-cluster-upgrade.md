@@ -1,6 +1,6 @@
 <properties
    pageTitle="Actualización de un clúster de Service Fabric | Microsoft Azure"
-   description="Actualice él código de Fabric y/o la configuración que ejecuta un clúster de Service Fabric, incluidos la actualización de certificados, la incorporación de puertos de aplicación, las revisiones del sistema operativo, etc. ¿Qué se puede esperar cuando se realizan actualizaciones?"
+   description="Actualice el código de Service Fabric o la configuración que ejecuta un clúster de Service Fabric, incluida la actualización de los certificados, la incorporación de puertos de aplicación, las revisiones del sistema operativo, etc. ¿Qué se puede esperar cuando se realizan actualizaciones?"
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -16,94 +16,104 @@
    ms.date="11/23/2015"
    ms.author="chackdan"/>
 
-# Descripción de un clúster de Service Fabric
+# Actualización de un clúster de Service Fabric
 
-Un clúster de Service Fabric es un recurso del que es propietario, pero que Microsoft administra parcialmente. En este artículo se describe lo que se administra automáticamente y lo que puede configurar usted mismo.
+Un clúster de Azure Service Fabric es un recurso de su propiedad pero que es parcialmente administrado por Microsoft. En este artículo se describe lo que se administra automáticamente y lo que puede configurar usted mismo.
 
 ## Configuración de clústeres que se administran automáticamente
 
-Microsoft mantiene el código de Fabric y la configuración que se ejecuta en un clúster; realizamos actualizaciones automáticas supervisadas en el software según sea necesario. Estas actualizaciones podrían ser de código, configuración o ambos. Para asegurarse de que la aplicación no sufre ningún impacto o solo un impacto mínimo debido a estas actualizaciones, las actualizaciones se realizan en tres fases.
+Microsoft mantiene el código de tejido y la configuración que se ejecuta en un clúster. Realizamos actualizaciones supervisadas automáticas del software según se necesitan. Estas actualizaciones podrían ser de código, de configuración o ambas. Para asegurarse de que la aplicación no sufre ningún impacto o solo un impacto mínimo debido a estas actualizaciones, se realizan en las tres fases siguientes.
 
 ### Fase 1: La actualización se realiza con todas las directivas de mantenimiento de clústeres
 
-Durante esta fase, las actualizaciones se realizan en un dominio de actualización cada vez y las aplicaciones que se ejecutaban en el clúster continúan ejecutándose sin tiempo de inactividad. Las directivas de mantenimiento del clúster (una combinación del estado del nodo y el estado de todas las aplicaciones que se ejecutan en el clúster) se cumplen mientras dura la actualización.
+Durante esta fase, las actualizaciones se realizan en un dominio de actualización cada vez, y las aplicaciones que se ejecutaban en el clúster continúan ejecutándose sin tiempo de inactividad. Las directivas de mantenimiento del clúster (una combinación del estado del nodo y el estado de todas las aplicaciones que se ejecutan en el clúster) se cumplen mientras dura la actualización.
 
-Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte, se envía un correo electrónico al propietario de la suscripción que indica que tuvimos que revertir una actualización de clúster, con acciones correctoras si existen y que ejecutaremos la fase 2 en n días. n es una variable. Intentamos ejecutar la misma actualización varias veces más para descartar las actualizaciones que dieron error debido a motivos mínimos y después de los n días desde la fecha en la que se envió el correo electrónico, procedemos a la fase 2.
+Si no se cumplen las directivas de mantenimiento del clúster, se revierte la actualización y se envía un correo electrónico al propietario de la suscripción. El correo electrónico contiene la siguiente información:
 
-Si se cumplen las directivas de mantenimiento del clúster, la actualización se considera correcta y se marca como completada. Esto puede ocurrir durante la ejecución inicial de las actualizaciones o cualquiera de las posteriores en esta fase. No hay ningún correo electrónico de confirmación de una ejecución correcta. (Esto es para evitar enviar demasiados mensajes de correo electrónico, recibir un correo electrónico debe considerarse una excepción a la normalidad. Sin embargo, esperamos que la mayoría de las actualizaciones del clúster funcionen sin afectar a la disponibilidad de las aplicaciones).
+- Notificación de que tuvimos que revertir una actualización de clúster.
+- Acciones correctoras sugeridas, si hay alguna.
+- El número de días (n) hasta que ejecutemos la fase 2.
 
-Para obtener más información sobre cómo establecer las directivas de mantenimiento personalizadas para el clúster, consulte [Actualización del clúster y los parámetros de mantenimiento](service-fabric-cluster-health-parameters.md).
+Vamos a intentar ejecutar la misma actualización unas cuantas veces más por si se produjeron errores en las actualizaciones por razones de infraestructura. Después de n días desde la fecha en que se envió el correo electrónico, continuamos con la fase 2.
+
+Si se cumplen las directivas de mantenimiento del clúster, la actualización se considera correcta y se marca como completada. Esto puede ocurrir durante la ejecución inicial de la actualización o cualquiera de las ejecuciones posteriores de la actualización en esta fase. No hay ningún correo electrónico de confirmación de una ejecución correcta. Esto es para evitar enviar demasiados mensajes de correo electrónico, recibir un correo electrónico debe considerarse una excepción a la normalidad. Esperamos que la mayoría de las actualizaciones de clúster funcionen sin afectar a la disponibilidad de las aplicaciones.
+
+Para más información sobre cómo establecer las directivas de mantenimiento personalizadas para el clúster, consulte [Actualización del clúster y los parámetros de mantenimiento](service-fabric-cluster-health-parameters.md).
 
 ### Fase 2: La actualización se realiza solo con las directivas de mantenimiento predeterminada
 
-Las directivas de mantenimiento se establecen de forma que el número de aplicaciones que tenían un correcto al principio de la actualización siguen siendo el mismo durante el proceso de actualización. Al igual que en la fase 1, durante esta fase, las actualizaciones se realizan en un dominio de actualización cada vez y las aplicaciones que se ejecutaban en el clúster continúan ejecutándose sin tiempo de inactividad. Las directivas de mantenimiento del clúster (una combinación del estado del nodo y el estado de todas las aplicaciones que se ejecutan en el clúster) se cumplen mientras dura la actualización.
+Las directivas de mantenimiento se establecen de forma que el número de aplicaciones que tenían un estado correcto al principio de la actualización siga siendo el mismo durante el proceso de actualización. Durante la fase 2, igual que en la fase 1, las actualizaciones se realizan en un dominio de actualización cada vez y las aplicaciones que se ejecutaban en el clúster continúan ejecutándose sin tiempo de inactividad. Las directivas de mantenimiento del clúster (una combinación del estado del nodo y el estado de todas las aplicaciones que se ejecutan en el clúster) se cumplen mientras dura la actualización.
 
-Si no se cumplen las directivas de mantenimiento del clúster en vigor, la actualización se revierte, se envía un correo electrónico al propietario de la suscripción que indica que tuvimos que revertir una actualización de clúster, con acciones correctoras si existen y que ejecutaremos la fase 3 en n días. n es una variable.
+Si no se cumplen las directivas de mantenimiento del clúster vigentes, se revierte la actualización y se envía un correo electrónico al propietario de la suscripción. El correo electrónico contiene la siguiente información:
 
-Intentamos ejecutar la misma actualización unas cuantas veces más para descartar las actualizaciones que dieron error debido a motivos mínimos. Se envía un recordatorio por correo electrónico un par de días antes de llegar a n días. Después de los n días desde la fecha en que se envió el correo electrónico, continuamos con la fase 3. Es necesario tomarse en serio los correos electrónicos que le enviamos en la fase 2 y realizar acciones de corrección.
+- Notificación de que tuvimos que revertir una actualización de clúster.
+- Acciones correctoras sugeridas, si hay alguna.
+- El número de días (n) hasta que ejecutemos la fase 3.
 
-Si se cumplen las directivas de mantenimiento del clúster, la actualización se considera correcta y se marca como completada. Esto puede ocurrir durante la ejecución inicial de las actualizaciones o cualquiera de las posteriores en esta fase. No hay ningún correo electrónico de confirmación de una ejecución correcta.
+Vamos a intentar ejecutar la misma actualización unas cuantas veces más por si se produjeron errores en las actualizaciones por razones de infraestructura. Se envía un recordatorio por correo electrónico un par de días antes de llegar a n días. Después de los n días desde la fecha en que se envió el correo electrónico, continuamos con la fase 3. Es necesario tomarse en serio los correos electrónicos que le enviamos en la fase 2 y realizar acciones de corrección.
+
+Si se cumplen las directivas de mantenimiento del clúster, la actualización se considera correcta y se marca como completada. Esto puede ocurrir durante la ejecución inicial de la actualización o cualquiera de las ejecuciones posteriores de la actualización en esta fase. No hay ningún correo electrónico de confirmación de una ejecución correcta.
 
 ### Fase 3: La actualización se realiza con directivas de mantenimiento agresivas
 
-Estas directivas de mantenimiento están orientadas a la finalización de la actualización en lugar de al mantenimiento de las aplicaciones. Muy pocas actualizaciones del clúster terminarán en esta fase. Si el clúster termina en esta fase, es probable que la aplicación no tenga el mantenimiento adecuado o pierda disponibilidad.
+Estas directivas de mantenimiento están orientadas a la finalización de la actualización en lugar de al mantenimiento de las aplicaciones. Muy pocas actualizaciones del clúster terminarán en esta fase. Si el clúster llega a esta fase, es probable que la aplicación no tenga el mantenimiento adecuado o pierda disponibilidad.
 
 Igual que las otras dos fases, las actualizaciones de la fase 3 se realizan en un dominio de actualización cada vez.
 
-Si las directivas de mantenimiento del clúster en vigor no se cumplen, la actualización se revierte, intentamos ejecutar la misma actualización varias veces más para descartar las actualizaciones que dieron error debido a motivos mínimos y después de anclar el clúster, de forma que ya no recibirá soporte técnico ni actualizaciones.
+Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte. Vamos a intentar ejecutar la misma actualización unas cuantas veces más por si se produjeron errores en las actualizaciones por razones de infraestructura. Después, el clúster se ancla y ya no recibirán soporte técnico ni actualizaciones.
 
-Se enviará un correo electrónico al propietario de la suscripción con esta información y las acciones correctoras. No esperamos que ningún clúster llegue a un estado en el que falle la fase 3.
+Se enviará un correo electrónico con esta información al propietario de la suscripción, junto con las acciones correctoras. No esperamos que los clústeres entren en un estado en el que la fase 3 produzca errores.
 
-Si se cumplen las directivas de mantenimiento del clúster, la actualización se considera correcta y se marca como completada. Esto puede ocurrir durante la ejecución inicial de las actualizaciones o cualquiera de las posteriores en esta fase. No hay ningún correo electrónico de confirmación de una ejecución correcta.
+Si se cumplen las directivas de mantenimiento del clúster, la actualización se considera correcta y se marca como completada. Esto puede ocurrir durante la ejecución inicial de la actualización o cualquiera de las ejecuciones posteriores de la actualización en esta fase. No hay ningún correo electrónico de confirmación de una ejecución correcta.
 
-## Configuración del clúster controlada por el usuario
+## Opciones de configuración de clúster controladas por el usuario
 
 A continuación se muestran las configuraciones que puede cambiar en un clúster activo.
 
 ### Certificados
 
-Puede actualizar los certificados principales o secundarios fácilmente desde el portal o mediante un comando PUT en el recurso servicefabric.cluster.
+Puede actualizar los certificados principales o secundarios fácilmente desde el portal (se muestra a continuación) o mediante un comando PUT en el recurso servicefabric.cluster.
 
-![CertificateUpgrade][CertificateUpgrade]
+![Captura de pantalla que muestra las huellas digitales del certificado en el Portal de Azure.][CertificateUpgrade]
 
-**Nota** Antes de identificar los certificados que quiere usar con los recursos del clúster, tiene que haber completado los pasos siguientes, de lo contrario no se usará el nuevo certificado. (1) cargue el nuevo certificado en el almacén de claves: consulte [Seguridad de Service Fabric](service-fabric-cluster-security.md) para obtener instrucciones y empiece en el paso 2 del documento. (2) actualice todas las máquinas virtuales que componen el clúster para que el certificado se implemente en ellas. Consulte [esta entrada de blog](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx) sobre cómo hacerlo.
+>[AZURE.NOTE]Antes de identificar el certificado que quiere usar con los recursos del clúster, tiene que haber completado los pasos siguientes; de lo contrario no se usará el nuevo certificado: 1. Cargar el nuevo certificado en el almacén de claves. Consulte [Seguridad de Service Fabric](service-fabric-cluster-security.md) para obtener instrucciones. Empiece en el paso 2 del documento. 2. Actualizar todas las máquinas virtuales que componen el clúster para que el certificado se implemente en ellas. Para ello, consulte el [Blog del equipo de Almacén de claves de Azure](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
-### Puertos de la aplicación
+### Puertos de aplicación
 
-Para hacerlo, cambie las propiedades del recurso de equilibrador de carga asociadas al tipo de nodo. Puede usar el portal o ARM con PowerShell directamente.
+Puede cambiar los puertos de aplicación cambiando las propiedades del recurso Equilibrador de carga asociado al tipo de nodo. Puede usar el portal o directamente el Administrador de recursos de PowerShell.
 
-Para abrir un nuevo puerto en todas las máquinas virtuales en un tipo de nodo, debe hacer lo siguiente:
+Para abrir un nuevo puerto en todas las máquinas virtuales en un tipo de nodo, haga lo siguiente:
 
-1. **Agregue un sondeo nuevo al equilibrador de carga adecuado**
+1. Agregue un sondeo nuevo al equilibrador de carga adecuado.
 
-    Si ha implementado el clúster con el portal, el equilibrador de carga se denomina "loadBalancer-0", "loadBalancer-1" y así sucesivamente, uno para cada tipo de nodo. Dado que los nombres de equilibrador de carga solo son únicos en un grupo de recursos, es mejor buscarlos en un determinado grupo.
+    Si implementó el clúster mediante el portal, los equilibradores de carga se llamarán "loadBalancer-0", "loadBalancer-1" y así sucesivamente, uno para cada tipo de nodo. Como los nombres de equilibrador de carga son únicos solo en un grupo de recursos, es mejor buscarlos en un determinado grupo.
 
-    ![AddingProbes][AddingProbes]
+    ![Captura de pantalla que muestra cómo agregar un sondeo a un equilibrador de carga en el portal.][AddingProbes]
 
-
-2. **Agregue una nueva regla al equilibrador de carga**
+2. Agregue una nueva regla al equilibrador de carga.
 
     Agregue una nueva regla al mismo equilibrador de carga mediante el sondeo que creó en el paso anterior.
 
-    ![AddingLBRules][AddingLBRules]
+    ![Captura de pantalla que muestra cómo agregar una nueva regla a un equilibrador de carga en el portal.][AddingLBRules]
 
 
 ### Propiedades de colocación
 
-  Para cada uno de los tipos de nodos, puede agregar las propiedades de colocación personalizadas que desee usar en sus aplicaciones. NodeType es una propiedad predeterminada que se puede usar sin agregarla explícitamente.
+Para cada uno de los tipos de nodo, puede agregar las propiedades de colocación personalizadas que desee usar en sus aplicaciones. NodeType es una propiedad predeterminada que se puede usar sin agregarla explícitamente.
 
-  >[AZURE.NOTE]Para más información sobre el uso de la propiedad placement, consulte [la documentación de restricciones de ubicación](service-fabric-placement-constraint.md).
+>[AZURE.NOTE]Para más información sobre el uso de las propiedades de colocación, consulte [Overview of placement constraints](service-fabric-placement-constraint.md) (Descripción general de las restricciones de colocación).
 
 ### Métricas de capacidad
 
-Para cada uno de los tipos de nodo puede agregar las métricas de capacidad personalizadas que desee usar en las aplicaciones para la carga de informes. Para más información sobre el uso de métricas de capacidad en informes de carga, consulte [información general de informes de carga dinámicos](service-fabric-resource-balancer-dynamic-load-reporting.md).
+Para cada uno de los tipos de nodo, puede agregar las métricas de capacidad personalizadas que desee usar en las aplicaciones para la carga de informes. Para más información sobre el uso de métricas de capacidad para la carga de informes, consulte [Overview of dynamic load reporting](service-fabric-resource-balancer-dynamic-load-reporting.md) (Descripción general de los informes de carga dinámica).
 
-### Aplicación de revisiones del sistema operativo a las máquinas virtuales que componen el clúster
-Se trata de una característica que estará disponible pronto. En la actualidad, es responsabilidad suya revisar sus máquinas virtuales; debe hacerlo una máquina virtual cada vez, para que no haya más de una máquina virtual inactiva a la vez.
+### Revisiones de sistema operativo en las máquinas virtuales que componen el clúster
 
-### Actualización del sistema operativo a uno nuevo en las máquinas virtuales que componen el clúster
-Si debe actualizar la imagen de sistema operativo que usa, debe hacerlo una máquina virtual cada vez y esta actualización es responsabilidad suya. Actualmente no está automatizado.
+Aunque esto será una característica automatizada, actualmente la revisión de las máquinas virtuales es responsabilidad suya. Debe hacer esto en una máquina virtual cada vez para no inactivar más de una al mismo tiempo.
 
+### Actualizaciones del sistema operativo en las máquinas virtuales que componen el clúster
+
+Si debe actualizar la imagen de sistema operativo en las máquinas virtuales del clúster, debe hacerlo en una máquina virtual cada vez y esta actualización es responsabilidad suya. Actualmente no está automatizado.
 
 ## Pasos siguientes
 
@@ -115,4 +125,4 @@ Si debe actualizar la imagen de sistema operativo que usa, debe hacerlo una máq
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

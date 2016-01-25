@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 # Uso del almacenamiento de blobs de Java
 
@@ -268,4 +268,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [API de REST de almacenamiento de Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

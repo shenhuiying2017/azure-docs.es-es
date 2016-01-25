@@ -5,7 +5,7 @@
     documentationCenter="na"
     authors="ms-prkhad"
     manager=""
-    editor=""/>
+    editor="tysonn"/>
 
 <tags
     ms.service="storage"
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="12/04/2015"
-    ms.author="robinsh"/>
+    ms.author="prkhad"/>
 
 
 # Migrar a Almacenamiento premium de Azure
@@ -170,7 +170,7 @@ Si va a migrar un disco duro virtual desde un almacenamiento en la nube que no e
 
 	![][2]
 
-2. Descargue el archivo VHD desde el depósito de S3. Seleccione el archivo VHD y, a continuación, **Acciones** > **Descargar**.
+2. Descargue el archivo VHD desde el depósito de S3. Seleccione el archivo VHD y después **Acciones** > **Descargar**.
 
 	![][3]|
 
@@ -180,7 +180,7 @@ Si va a migrar un disco duro virtual desde un entorno local, necesitará la ruta
 
 ### Copiar un disco duro virtual con AzCopy
 
-Con AzCopy, puede cargar el disco duro virtual fácilmente a través de Internet. Dependiendo del tamaño de los discos duros virtuales, esto puede tardar tiempo. Recuerde comprobar los límites de entrada/salida de la cuenta de almacenamiento cuando use esta opción. Consulte [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](storage-scalability-targets.md) para obtener información detallada.
+Con AzCopy, puede cargar el disco duro virtual fácilmente a través de Internet. Dependiendo del tamaño de los discos duros virtuales, esto puede tardar tiempo. Recuerde comprobar los límites de entrada/salida de la cuenta de almacenamiento cuando use esta opción. Vea [Objetivos de escalabilidad y rendimiento del almacenamiento en Azure](storage-scalability-targets.md) para obtener detalles.
 
 1. Descargue e instale AzCopy desde aquí: [versión más reciente de AzCopy](http://aka.ms/downloadazcopy)
 2. Abra PowerShell de Azure y vaya a la carpeta donde AzCopy está instalado.
@@ -190,7 +190,7 @@ Con AzCopy, puede cargar el disco duro virtual fácilmente a través de Internet
 
 	Estas son las descripciones de los parámetros utilizados en el comando AzCopy:
 
- - **/Source: *&lt;source&gt;:*** ubicación de la carpeta o dirección URL del contenedor de almacenamiento que contiene el disco duro virtual (VHD).
+ - **/Source: *&lt;source&gt;:*** ubicación de la carpeta o dirección URL del contenedor de almacenamiento que contiene el disco duro virtual.
  - **/SourceKey: *&lt;source-account-key&gt;:*** clave de cuenta de almacenamiento de la cuenta de almacenamiento de origen.
  - **/Dest: *&lt;destination&gt;:*** dirección URL del contenedor de almacenamiento donde se va a copiar el disco duro virtual.
  - **/DestKey: *&lt;dest-account-key&gt;:*** clave de cuenta de almacenamiento de la cuenta de almacenamiento de destino.
@@ -677,4 +677,4 @@ Vea también los siguientes recursos para obtener más información sobre Almace
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

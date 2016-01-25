@@ -61,7 +61,7 @@ Enhorabuena; ha creado y ejecutado su primera aplicación particionada utilizand
 ### Otras operaciones de escalado elástico
 
 1. **División de una partición existente**: la capacidad de dividir particiones se proporciona a través de la **herramienta de división y combinación**. Puede encontrar más información sobre esta herramienta aquí: [Información general sobre la herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md).
-2. **Combinación de particiones existentes**: las combinaciones de particiones también se realizan mediante la **herramienta de división y combinación**. Para obtener más información, consulte: [Información general sobre la herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge).   
+2. **Combinación de particiones existentes**: las combinaciones de particiones también se realizan mediante la **herramienta de división y combinación**. Para obtener más información, consulte: [Información general sobre la herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 
 ## Coste
@@ -77,9 +77,9 @@ Para obtener más información sobre las herramientas de base de datos elástica
 
 * [Mapa de documentación de herramientas de base de datos elástica](sql-database-elastic-scale-documentation-map.md) 
 -    Ejemplos de código: 
-    -    [Elastic DB with Azure SQL - Getting Started](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE) (Bases de datos elásticas con SQL de Azure - Introducción)
-    -    [Elastic DB with Azure SQL - Integrating with Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE) (Bases de datos elásticas con SQL de Azure - Integración con Entity Framework)
-    -    [Shard Elasticity on Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe) (Elasticidad de particiones en el Centro de scripts)
+    -    [Elastic DB with Azure SQL - Getting Started (Bases de datos elásticas con SQL de Azure - Introducción)](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
+    -    [Elastic DB with Azure SQL - Integrating with Entity Framework (Bases de datos elásticas con SQL de Azure - Integración con Entity Framework)](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
+    -    [Shard Elasticity on Script Center (Elasticidad de particiones en el Centro de scripts)](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 -    Blog: [Elastic Scale Announcement](http://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/) (Anuncio de Escalado elástico)
 -    Canal 9: [vídeo Elastic Scale Overview](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale) (Información general de Escalado elástico)
 -    Foro de discusión: [Foro de Base de datos SQL de Azure](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
@@ -98,4 +98,4 @@ Para obtener más información sobre las herramientas de base de datos elástica
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

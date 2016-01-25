@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Uso del almacenamiento de blobs de Node.js | Microsoft Azure"
-	description="Aprenda a utilizar el servicio BLOB de Azure para cargar, descargar, incluir en un listado y eliminar contenido de blobs. Los ejemplos están escritos en Node.js."
+	description="Aprenda a usar Almacenamiento de blobs para cargar, descargar, enumerar y eliminar contenido de blobs. Los ejemplos están escritos en Node.js."
 	services="storage"
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="12/01/2015"
-	ms.author="robmcm"/>
+	ms.author="micurd"/>
 
 
 
@@ -24,7 +24,7 @@
 
 ## Información general
 
-Este artículo muestra cómo realizar algunas tareas comunes a través del servicio BLOB de Azure. Los ejemplos están escritos con la API de Node.js. Los escenarios descritos incluyen cómo cargar, enumerar, descargar y eliminar blobs.
+En este artículo se muestra cómo realizar algunas tareas comunes con Almacenamiento de blobs. Los ejemplos están escritos con la API de Node.js. Los escenarios descritos incluyen cómo cargar, enumerar, descargar y eliminar blobs.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -40,7 +40,7 @@ Para usar el almacenamiento de Azure necesitará el SDK de almacenamiento de Azu
 
 ### Uso del Administrador de paquetes para Node (NPM) para obtener el paquete
 
-1.  Use una interfaz de línea de comandos como **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) para ir a la carpeta donde creó la aplicación de ejemplo.
+1.  Utilice una interfaz de línea de comandos como **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) para ir a la carpeta donde ha creado la aplicación de ejemplo.
 
 2.  Escriba **npm install azure-storage** en la ventana de comandos. La salida del comando es similar al ejemplo de código siguiente.
 
@@ -99,7 +99,7 @@ De forma predeterminada, los nuevos contenedores son privados, así que no se pu
 
 * **contenedor**: permite el acceso de lectura anónimo al contenido del blob y los metadatos, incluidos los del contenedor.
 
-En el ejemplo de código siguiente se muestra cómo configurar el nivel de acceso en **blob**:
+En el ejemplo de código siguiente se demuestra cómo configurar el nivel de acceso en **blob**:
 
     blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
       if(!error){
@@ -146,7 +146,7 @@ Para cargar datos en un blob en bloque, use lo siguiente:
 
 * **createBlockBlobFromStream**: crea un nuevo blob en bloques y carga el contenido de una secuencia.
 
-* **createBlockBlobFromStream**: crea un nuevo blob en bloques y carga el contenido de una cadena.
+* **createBlockBlobFromText**: crea un nuevo blob en bloques y carga el contenido de una cadena.
 
 * **createWriteStreamToBlockBlob**: proporciona una secuencia de escritura a un blob en bloques.
 
@@ -170,7 +170,7 @@ Para cargar datos en un blob en página, use lo siguiente:
 
 * **createPageBlobFromStream**: crea un nuevo blob en páginas y carga el contenido de una secuencia.
 
-* **createWriteStreamToExistingPageBlob**: proporciona una secuencia de escritura a un blob en páginas existente.
+* **createWriteStreamToExistingPageBlob**: proporciona una secuencia de escritura a un blob en páginas existente
 
 * **createWriteStreamToNewPageBlob**: crea un nuevo blob y luego proporciona una secuencia para escribir en él.
 
@@ -234,7 +234,7 @@ Finalmente, para eliminar un blob, llame a **deleteBlob**. En el ejemplo de cód
 
 Para permitir el acceso simultáneo a un blob desde varios clientes o varias instancias de proceso, puede usar etiquetas **ETag** o **concesiones**.
 
-* **Etag**: proporciona una manera de detectar si otro proceso ha modificado el blob o el contenedor.
+* **Etag**: proporciona una manera de detectar que otro proceso ha modificado el blob o el contenedor
 
 * **Concesión**: proporciona una manera de obtener acceso exclusivo y renovable de escritura o eliminación a un blob durante un período de tiempo
 
@@ -362,11 +362,11 @@ Para obtener más información, consulte los siguientes recursos:
 
 -   [Referencia del SDK de almacenamiento de Azure para la API de nodo][]
 -   [Blog del equipo de almacenamiento de Azure][]
--   Repositorio del [SDK del Almacenamiento de Azure para Node][] en GitHub
+-   Repositorio del [SDK de almacenamiento de Azure para Node.js][] en GitHub
 -   [Centro para desarrolladores de Node.js](/develop/nodejs/)
 -   [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 
-[SDK del Almacenamiento de Azure para Node]: https://github.com/Azure/azure-storage-node
+[SDK de almacenamiento de Azure para Node.js]: https://github.com/Azure/azure-storage-node
 [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
 [Aplicación web de Node.js con Almacenamiento]: ../storage-nodejs-use-table-storage-web-site.md
@@ -377,4 +377,4 @@ Para obtener más información, consulte los siguientes recursos:
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Referencia del SDK de almacenamiento de Azure para la API de nodo]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/28/2015"
+   ms.date="01/08/2016"
    ms.author="andkjell;billmath"/>
 
 # Requisitos previos de Azure AD Connect
@@ -37,10 +37,10 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesitará.
 - El servidor de Azure AD Connect debe tener instalado [.NET Framework 4.5.1](#component-prerequisites) o versiones posteriores y [Microsoft PowerShell 3.0](#component-prerequisites) o versiones posteriores.
 - Si se implementa Servicios de federación de Active Directory, los servidores en los que se instale AD FS o el Proxy de aplicación web deben ser Windows Server 2012 R2 o versiones posteriores. [Administración remota de Windows](#windows-remote-management) debe estar habilitada en estos servidores para la instalación remota.
 - Si se implementa Servicios de federación de Active Directory, necesita [Certificados SSL](#ssl-certificate-requirements).
-- Azure AD Connect requiere una base de datos de SQL Server para almacenar datos de identidad. De forma predeterminada se instala SQL Server 2012 Express LocalDB (una versión ligera de SQL Server Express) y se crea la cuenta de servicio para el servicio en el equipo local. SQL Server Express tiene un límite de tamaño de 10 GB que le permite administrar aproximadamente 100 000 objetos. Si tiene que administrar un volumen superior de objetos de directorio, es necesario que el asistente para la instalación apunte a otra instalación de SQL Server. Azure AD Connect admite todas las versiones de Microsoft SQL Server de SQL Server 2008 (con Service Pack 4) a SQL Server 2014.
+- Azure AD Connect requiere una base de datos de SQL Server para almacenar datos de identidad. De forma predeterminada se instala SQL Server 2012 Express LocalDB (una versión ligera de SQL Server Express) y se crea la cuenta de servicio para el servicio en el equipo local. SQL Server Express tiene un límite de tamaño de 10 GB que le permite administrar aproximadamente 100 000 objetos. Si tiene que administrar un volumen superior de objetos de directorio, es necesario que el asistente para la instalación apunte a otra instalación de SQL Server. Azure AD Connect admite todas las versiones de Microsoft SQL Server de SQL Server 2008 (con Service Pack 4) a SQL Server 2014. **No se admite** Base de datos SQL de Microsoft Azure como una base de datos.
 
 ### Cuentas
-- Una cuenta de administrador global de Azure AD para el directorio de Azure AD con el que desea realizar la integración.
+- Una cuenta de administrador global de Azure AD para el directorio de Azure AD con el que desea realizar la integración. Debe ser una **cuenta profesional o educativa** y no puede ser una **cuenta Microsoft**.
 - Una cuenta de administrador de empresa para su Active Directory local si usa la configuración rápida o actualiza desde DirSync.
 - [Cuentas es Active Directory](active-directory-aadconnect-accounts-permissions.md) si usa la ruta de acceso de instalación de la configuración personalizada.
 
@@ -157,4 +157,4 @@ Los requisitos mínimos para equipos que ejecutan AD FS o servidores de aplicaci
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

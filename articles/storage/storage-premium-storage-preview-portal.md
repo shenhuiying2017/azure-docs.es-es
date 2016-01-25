@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/04/2015"
-	ms.author="robinsh;selcint"/>
+	ms.author="robinsh;prkhad"/>
 
 
 # Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure
@@ -72,7 +72,7 @@ Para aprovechar las ventajas de Almacenamiento premium, cree primero una cuenta 
 - Asegúrese de que hay suficiente ancho de banda disponible en la máquina virtual para dirigir el tráfico de disco. Por ejemplo, una máquina virtual STANDARD\_DS1 tiene un ancho de banda dedicado de 32 MB por segundo disponible para el tráfico de disco de Almacenamiento premium. Esto significa que un disco de Almacenamiento premium P10 conectado a esta máquina virtual solo puede tener hasta 32 MB por segundo, pero no hasta los 100 MB por segundo que puede proporcionar el disco P10. De forma similar, una máquina virtual STANDARD\_DS13 puede llegar hasta 256 MB por segundo en todos los discos. Actualmente, la máquina virtual más grande de la serie DS es STANDARD\_DS14 y puede proporcionar hasta 512 MB por segundo en todos los discos. La VM más grande de la serie GS es STANDARD\_GS5 y puede proporcionar hasta 2000 MB por segundo en todos los discos.
 
 	Tenga en cuenta que estos límites son para el tráfico de disco por sí solo, sin incluir los aciertos de caché y el tráfico de red. Hay un ancho de banda independiente disponible para el tráfico de red de máquina virtual, que es diferente del ancho de banda dedicado para discos de Almacenamiento premium.
-	
+
 	Para la última información sobre el número máximo de E/S por segundo y el rendimiento (ancho de banda) de las máquinas virtuales de las series DS y GS, vea [Tamaños de máquinas virtuales y servicios en la nube de Azure](../virtual-machines/virtual-machines-size-specs.md). Para información acerca de los discos del Almacenamiento premium y sus E/S por segundo y límites de rendimiento, vea la tabla que encontrará en la sección [Objetivos de escalabilidad y rendimiento al usar el Almacenamiento premium](#scalability-and-performance-targets-whes-ESing-premium-storage) de este artículo.
 
 > [AZURE.NOTE]Los aciertos de caché no están limitados por las E/S o rendimiento asignados del disco. Es decir, cuando se utiliza un disco de datos con la configuración de caché de solo lectura en una VM de la serie DS o GS, las lecturas que se atienden desde la memoria caché no están sujetas a los límites de disco de Almacenamiento premium. Por lo tanto, podría obtener un rendimiento muy alto desde un disco si la carga de trabajo es fundamentalmente de lectura. Tenga en cuenta que la caché depende de límites de E/S por segundo o de rendimiento independientes a nivel de la máquina virtual en función del tamaño de dicha máquina. Las máquinas virtuales de la serie DS tienen aproximadamente 4000 E/S por segundo y 33 MB/seg. por núcleo de caché y E/S de SSD locales.
@@ -205,64 +205,7 @@ Consulte a continuación instrucciones importantes para configurar las máquinas
 - Para discos de Almacenamiento premium con caché de configuración "ReadWrite", deben habilitarse las barreras para la durabilidad de las escrituras.
 - Para que las etiquetas de volumen persistan después de reiniciar la VM, debe actualizar/etc/fstab con las referencias UUID a los discos. Consulte también [Acoplamiento de un disco de datos a una máquina virtual de Linux](../virtual-machines/virtual-machines-linux-how-to-attach-disk).
 
-Las siguientes son las distribuciones de Linux que se validan con Almacenamiento premium. Se recomienda actualizar las máquinas virtuales al menos a una de estas versiones (o posteriores) para mejorar el rendimiento y la estabilidad con Almacenamiento premium. Además, algunas de las versiones requieren el LIS más reciente (Linux Integration Services v4.0 para Microsoft Azure). Siga el vínculo proporcionado para su descarga e instalación. Seguiremos agregando más imágenes a la lista según vayamos completando validaciones adicionales. Tenga en cuenta que nuestras validaciones demostraron que el rendimiento varía para estas imágenes y también depende de las características de carga de trabajo y la configuración de las imágenes. Se optimizan diferentes imágenes para distintos tipos de cargas de trabajo. 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> 
-<tbody> 
-<tr> 
-	<td><strong>Distribución</strong></td> 
-	<td><strong>Versión</strong></td> 
-	<td><strong>Kernel admitido</strong></td> 
-	<td><strong>Imagen admitida</strong></td> 
-</tr> 
-<tr> 
-	<td rowspan="4"><strong>Ubuntu</strong></td> 
-	<td>12.04</td> 
-	<td>3.2.0-75.110</td> 
-	<td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-es-es-30GB</td> 
-</tr>
-<tr> 
-	<td>14.04</td> 
-	<td>3.13.0-44.73</td> 
-	<td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-es-es-30GB</td> 
-</tr> 
-<tr> 
-	<td>14.10</td> 
-	<td>3.16.0-29.39</td> 
-	<td>Ubuntu-14\_10-amd64-server-20150202-es-es-30GB</td> 
-</tr> 
-<tr> 
-	<td>15.04</td> 
-	<td>3.19.0-15</td> 
-	<td>Ubuntu-15\_04-amd64-server-20150422-es-es-30GB</td> 
-</tr> 
-<tr> 
-	<td><strong>SUSE</strong></td> 
-	<td>SLES 12</td> 
-	<td>3.12.36-38.1</td> 
-	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> 
-</tr> 
-<tr> 
-	<td><strong>CoreOS</strong></td> 
-	<td>584.0.0</td> 
-	<td>3.18.4</td> 
-	<td>CoreOS 584.0.0</td> 
-</tr> 
-<tr> 
-	<td rowspan="2"><strong>CentOS</strong></td> 
-	<td>6.5, 6.6, 7.0</td> 
-	<td></td> 
-	<td>
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 requerido</a>
-	</td> 
-</tr> 
-<tr>
-	<td>7.1</td>
-	<td>3.10.0-229.1.2.el7</td>
-	<td>
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 4.0 recomendado</a> <br/> 
-		*Vea la nota a continuación 
-	</td> 
-</tr>
+Las siguientes son las distribuciones de Linux que se validan con Almacenamiento premium. Se recomienda actualizar las máquinas virtuales al menos a una de estas versiones (o posteriores) para mejorar el rendimiento y la estabilidad con Almacenamiento premium. Además, algunas de las versiones requieren el LIS más reciente (Linux Integration Services v4.0 para Microsoft Azure). Siga el vínculo proporcionado para su descarga e instalación. Seguiremos agregando más imágenes a la lista según vayamos completando validaciones adicionales. Tenga en cuenta que nuestras validaciones demostraron que el rendimiento varía para estas imágenes y también depende de las características de carga de trabajo y la configuración de las imágenes. Se optimizan diferentes imágenes para distintos tipos de cargas de trabajo. <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>Distribución</strong></td> <td><strong>Versión</strong></td> <td><strong>Kernel admitido</strong></td> <td><strong>Imagen admitida</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-es-ES-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-es-ES-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-es-ES-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-es-ES-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 6.7, 7.0</td> <td></td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 requerido </a> </br> *Vea la nota a continuación </td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 recomendado </a> <br/> *Vea la nota a continuación </td> </tr>
 
 <tr>
 	<td rowspan="2"><strong>Oracle</strong></td>
@@ -275,8 +218,7 @@ Las siguientes son las distribuciones de Linux que se validan con Almacenamiento
 	<td></td>
 	<td>Póngase en contacto con soporte técnico para obtener más información</td>
 </tr>
-</tbody> 
-</table>
+</tbody> </table>
 
 
 ### Controladores de LIS para CentOS Openlogic
@@ -393,6 +335,5 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 - [Documentación de almacenamiento](http://azure.microsoft.com/documentation/services/storage/)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
- 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

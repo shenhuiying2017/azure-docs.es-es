@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="01/08/2016"
 	ms.author="tomfitz"/>
 
 #Creación de roles de trabajo y web de PHP
@@ -196,7 +196,7 @@ Para detener los emuladores, ejecute este comando:
 
 ## Publicación de la aplicación
 
-Para publicar la aplicación, primero tiene que importar la configuración de la publicación con el cmdlet **Import-PublishSettingsFile**. Después, puede publicar la aplicación con el cmdlet [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx). Para obtener información sobre cómo iniciar sesión, consulte [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md).
+Para publicar la aplicación, primero tiene que importar la configuración de la publicación con el cmdlet [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx). Después, puede publicar la aplicación con el cmdlet [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx). Para obtener información sobre cómo iniciar sesión, consulte [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md).
 
 ## Pasos siguientes
 
@@ -211,4 +211,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [sqlsrv drivers]: http://php.net/sqlsrv
 [instalador sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

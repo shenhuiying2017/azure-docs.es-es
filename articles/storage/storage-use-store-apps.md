@@ -1,18 +1,19 @@
 <properties
 	pageTitle="Uso de Almacenamiento de Azure en las aplicaciones de la Tienda Windows | Microsoft Azure"
-	description="Aprenda a utilizar blobs, colas y tablas de Azure para almacenar datos para una aplicación de la Tienda Windows."
+	description="Obtenga información acerca de cómo crear una aplicación de la Tienda Windows que usa Almacenamiento de blobs, Almacenamiento de colas, Almacenamiento de tablas o Almacenamiento de archivos de Azure."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah" />
+	manager="carmonm" />
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
+	
 # Uso de Almacenamiento de Azure en las aplicaciones de la Tienda Windows
 
 ## Información general
@@ -86,4 +87,4 @@ También puede agregar una referencia a Microsoft.WindowsAzure.Storage.Table.dll
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

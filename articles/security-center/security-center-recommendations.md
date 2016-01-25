@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/10/2015"
+   ms.date="01/05/2016"
    ms.author="terrylan"/>
 
 # Administración de recomendaciones de seguridad en el Centro de seguridad de Azure
@@ -61,16 +61,16 @@ Las recomendaciones aparecen en un formato de tabla, donde cada línea represent
   - **Abierta**: no solucionada aún
   - **En curso**: la recomendación se aplica actualmente a esos recursos; no se requiere ninguna acción de su parte.
   - **Resuelta**: la recomendación ya se completó (cuando el estado es Resuelta, el color de la línea aparece atenuado).
-- **GRAVEDAD**: describe la gravedad de esa recomendación determinada:
+- **GRAVEDAD**: Describe la gravedad de esa recomendación determinada:
   - **Alta**: existe una vulnerabilidad en un recurso importante (aplicación, VM, grupo de seguridad de red) y requiere atención.
-  - **Media**: se requieren pasos adicionales o no críticos para completar un proceso o eliminar una vulnerabilidad.
+  - **Media**: Se requieren pasos adicionales o no críticos para completar un proceso o eliminar una vulnerabilidad.
   - **Baja**: se trata de una vulnerabilidad que se debe abordar, pero no requiere una atención inmediata. (De manera predeterminada, no se muestran las recomendaciones bajas pero, si opta por verlas, puede filtrar según Recomendaciones bajas).
 
 Utilice la siguiente tabla como referencia para comprender las recomendaciones disponibles y lo que hará cada una de ellas si las aplica:
 
 | Recomendación | Descripción |
 |----- |-----|
-| Habilitar la colección de datos para suscripciones/máquinas virtuales | Recomienda activar la colección de datos en la directiva de seguridad para las VM seleccionadas. |
+| Habilitar la colección de datos para suscripciones/máquinas virtuales | Se recomienda activar la recopilación de datos en la directiva de seguridad para cada una de las suscripciones o para máquinas virtuales seleccionadas. |
 | Resolver el error de coincidencia de reglas de línea base | Recomienda alinear las configuraciones del SO con las líneas base recomendadas; por ejemplo, no permitir guardar las contraseñas. |
 | Aplicar actualizaciones del sistema | Recomienda implementar las actualizaciones del sistema faltantes a las VM (solo VM de Windows). |
 | Configurar ACL para puntos de conexión | Recomienda configurar una lista de control de acceso para restringir el acceso entrante a las VM (solo VM clásicas). |
@@ -82,7 +82,7 @@ Utilice la siguiente tabla como referencia para comprender las recomendaciones d
 | Habilitar Auditoría SQL de servidor | Recomienda habilitar Auditoría para servidores SQL Server de Azure (solo el servicio SQL de Azure, sin incluir la instancia SQL que se ejecuta en sus máquinas virtuales). |
 | Habilitar Auditoría SQL de base de datos | Recomienda habilitar Auditoría para bases de datos SQL de Azure (solo el servicio SQL de Azure, sin incluir la instancia SQL que se ejecuta en sus máquinas virtuales). |
 | Habilitar Cifrado de datos transparente en bases de datos SQL | Recomienda habilitar el cifrado de bases de datos SQL (solo el servicio SQL de Azure). |
-| Implementar el Agente de VM | Permite ver las VM que requieren el Agente de VM. El Agente de VM debe estar instalado en las VM para aprovisionar Detección de revisiones, Detección de línea base y Antimalware. El Agente de VM está instalado de manera predeterminada en las VM implementadas desde Azure Marketplace. El artículo [Agente de VM y extensiones, parte 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) proporciona información sobre cómo instalar el Agente de VM. |
+| Implementar el Agente de VM | Permite ver las VM que requieren el Agente de VM. El Agente de VM debe estar instalado en las VM para aprovisionar Detección de revisiones, Detección de línea base y Antimalware. El Agente de VM está instalado de manera predeterminada en las VM implementadas desde Azure Marketplace. El artículo [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) (Agente de VM y extensiones, parte 2) proporciona información sobre cómo instalar el Agente de VM. |
 
 ### Aplicación de las recomendaciones
 Después de revisar todas las recomendaciones, podrá decidir cuáles debe aplicar primero. Se recomienda usar la clasificación de gravedad como el parámetro principal para evaluar las recomendaciones que se deben aplicar primero. Con la recomendación antimalware, veamos un ejemplo sobre cómo aplicar una recomendación:
@@ -118,10 +118,10 @@ Los registros de ese WAF ahora están totalmente integrados. El Centro de seguri
 ## Pasos siguientes
 En este documento, pudo conocer las recomendaciones de seguridad del Centro de seguridad de Azure. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
 
-- [Configuración de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md): obtenga información acerca de cómo configurar las directivas de seguridad
+- [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md): Obtenga información sobre cómo configurar las directivas de seguridad.
 - [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md): obtenga información acerca de cómo supervisar el estado de los recursos de Azure
-- [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): obtenga información acerca de cómo administrar y responder a alertas de seguridad
-- [Preguntas más frecuentes acerca del Centro de seguridad de Azure](security-center-faq.md): busque preguntas frecuentes acerca de cómo usar el servicio
+- [Administración de alertas de seguridad y respuesta a estas en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): Obtenga información sobre cómo administrar alertas de seguridad y responder a estas.
+- [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): Encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): Encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
 <!--Image references-->
@@ -135,4 +135,4 @@ En este documento, pudo conocer las recomendaciones de seguridad del Centro de s
 [9]: ./media/security-center-recommendations/finalize-waf.png
 [10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/05/2016"
+   ms.date="01/13/2016"
    ms.author="jgao"/>
 
 # Creación de clústeres de Hadoop basados en Windows en HDInsight con el SDK de .NET
@@ -104,24 +104,7 @@ La aplicación requiere un grupo de recursos de Azure y la cuenta de almacenamie
                     System.Console.ReadLine();
                     
 				}
-				private static void CreateCluster()
-				{
-					var parameters = new ClusterCreateParameters
-					{
-						ClusterSizeInNodes = NewClusterNumNodes,
-						UserName = NewClusterUsername,
-						Password = NewClusterPassword,
-						Location = NewClusterLocation,
-						DefaultStorageAccountName = ExistingStorageName,
-						DefaultStorageAccountKey = ExistingStorageKey,
-						DefaultStorageContainer = ExistingBlobContainer,
-						ClusterType = NewClusterType,
-						OSType = NewClusterOsType
-					};
-		
-					_hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
-				}
-		
+
 				public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
 				{
 					var authFactory = new AuthenticationFactory();
@@ -237,4 +220,4 @@ Se puede usar el siguiente script de Azure PowerShell para crear los componentes
     Write-host "Default Storage Account Key: $defaultStorageAccountKey"
     Write-host "Default Blob Container Name: $defaultBlobContainerName"
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

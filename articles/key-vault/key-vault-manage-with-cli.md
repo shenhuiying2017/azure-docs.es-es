@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/08/2016"
 	ms.author="bruceper"/>
 
 # Administración del Almacén de claves mediante CLI #
@@ -54,7 +54,7 @@ Si duda de qué parámetros necesita un comando, consulte la ayuda usando --help
 
 También puede leer los tutoriales siguientes para familiarizarse con el Administrador de recursos de Azure en la interfaz de la línea de comandos entre plataformas de Azure:
 
-- [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](xplat-cli-install.md).
+- [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure.](xplat-cli-install.md)
 - [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure](xplat-cli-azure-resource-manager.md)
 
 
@@ -256,4 +256,4 @@ Ejemplo de cómo quitar un secreto específico:
 
 Para conocer las referencias de programación, consulte la [Guía del desarrollador del Almacén de claves de Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

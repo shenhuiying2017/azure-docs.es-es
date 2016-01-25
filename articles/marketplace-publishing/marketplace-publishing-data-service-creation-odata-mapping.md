@@ -8,12 +8,12 @@
    editor=""/>
 
    <tags
-      ms.service="marketplace-publishing"
+      ms.service="marketplace"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="12/06/2015"
+      ms.date="01/04/2016"
       ms.author="hascipio; avikova" />
 
 # Asignación de un servicio web existente a OData a través de CSDL
@@ -72,12 +72,9 @@ Permitir definir funciones (SPROC) y entidades expuestas a través de una base d
 > [AZURE.TIP]Haga clic en el menú desplegable **Otras versiones** y seleccione una versión si no ve el artículo.
 
 ### EDM: modelo de datos de entrada
-- Información general: [OverviewLink](http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx)
-[OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
-- Vista previa: [PreviewLink](http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx)
-[PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
-- Tipos de datos: [DataTypesLink](http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx)
-[DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
+- Información general: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink] [OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
+- Vista previa: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink] [PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
+- Tipos de datos: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink] [DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
 El siguiente diagrama el flujo detallado de izquierda a derecha desde donde el cliente ingresa la instrucción OData (llamada al servicio web del proveedor de contenido) para recuperar los resultados/datos:
 
@@ -299,6 +296,6 @@ Se conecta a un servicio que expone una vista o una tabla de base de datos como 
 ## Otras referencias
 - Si está interesado en conocer los nodos específicos y sus parámetros, consulte el artículo [Understanding the nodes schema for mapping an existing web service to OData through CSDL](marketplace-publishing-data-service-creation-odata-mapping-nodes.md), donde encontrará definiciones y explicaciones, ejemplos y contexto de caso de uso.
 - Si está interesado en revisar ejemplos, consulte el artículo [Examples of mapping an existing web service to OData through CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md), donde encontrará ejemplos de código y una explicación del contexto y la sintaxis del código.
-- Para volver a la ruta de acceso preestablecida para publicar un servicio de datos en Azure Marketplace, consulte el artículo [Data Service Publishing Guide for the Azure Marketplace](marketplace-publishing-data-service-creation.md).
+- Para volver a la ruta de acceso prescrita para publicar un servicio de datos en Azure Marketplace, consulte el artículo [Data Service Publishing Guide for the Azure Marketplace](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0114_2016-->

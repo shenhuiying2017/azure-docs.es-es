@@ -20,13 +20,13 @@
 # Ejemplos de configuración de la extensión de máquina virtual de Windows de Azure.
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
-- [Azure CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
+- [PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
+- [CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
 
 <br>
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
 
 
@@ -316,4 +316,4 @@ Este es un ejemplo de una plantilla de máquina virtual completa con la extensi�
 
 [Extensión de script personalizada en una máquina virtual de Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

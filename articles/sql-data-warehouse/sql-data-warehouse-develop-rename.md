@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Cambio de nombre en el Almacenamiento de datos SQL
 Aunque SQL Server permite cambiar el nombre de base de datos mediante el procedimiento almacenado ```sp_renamedb```, el Almacenamiento de datos SQL usa la sintaxis DDL para lograr el mismo objetivo. El comando DDL es ```RENAME OBJECT```.
@@ -53,4 +53,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Article references-->
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

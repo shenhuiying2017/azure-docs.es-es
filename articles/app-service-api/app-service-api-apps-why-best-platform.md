@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Información general sobre Aplicaciones de API
@@ -45,7 +45,7 @@ Además, las características que ofrecen las Aplicaciones de API, las Aplicacio
 ## <a id="concepts"></a> Conceptos de Aplicaciones de API
 
 - **Swagger**: un marco para la documentación y la detección de una API de RESTful, que se usa de forma predeterminada en las aplicaciones de API. Para obtener más información, consulte [http://swagger.io/](http://swagger.io/).
-- **Uso compartido de recursos entre orígenes (CORS)**: un mecanismo que permite a JavaScript ejecutarse en un explorador para realizar llamadas a una API hospedada en un dominio diferente a aquel en el que se cargó la página web. Para más información, vea [Consumo de una aplicación de API desde JavaScript con CORS](app-service-api-cors-consume-javascript.md). 
+- **Uso compartido de recursos entre orígenes (CORS)**: un mecanismo que permite a JavaScript ejecutarse en un explorador para realizar llamadas a una API hospedada en un dominio diferente a aquel en el que se cargó la página web. Para más información, consulte [Consumo de una aplicación de API desde JavaScript con CORS](app-service-api-cors-consume-javascript.md). 
 - **Desencadenador**: una API de REST que las [aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md) pueden llamar para iniciar un proceso de flujo de trabajo cuando se cumple una determinada condición. Por ejemplo, una aplicación de API puede proporcionar un método al que la aplicación lógica llame periódicamente para buscar una frase determinada en una fuente de Twitter. Para obtener más información, consulte [Desencadenadores de aplicación de API](app-service-api-dotnet-triggers.md).
 - **Acción**: una API de REST a la que las [aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md) pueden llamar para procesar datos después de que un desencadenador haya iniciado un flujo de trabajo. Por ejemplo, una aplicación de API puede proporcionar un método al que la aplicación lógica llame para responder a un tweet encontrado por el desencadenador de Twitter. Las acciones son métodos de API expuestos por una definición de la API de Swagger.
 
@@ -57,4 +57,4 @@ Para ver una lista de problemas conocidos con aplicaciones de API, vea [la entra
 
 Para obtener más información acerca de la plataforma de Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

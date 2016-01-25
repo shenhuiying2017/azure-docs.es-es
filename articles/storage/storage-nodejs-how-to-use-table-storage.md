@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="12/01/2015"
-	ms.author="robmcm"/>
+	ms.author="micurd"/>
 
 
 # Uso del almacenamiento de tablas de Azure en Node.js
@@ -79,7 +79,7 @@ El código siguiente crea un objeto **TableService** que usa para crear una tabl
 
     var tableSvc = azure.createTableService();
 
-La llamada a **createTableIfNotExists** creará una nueva tabla con el nombre especificado, si es que no existe. El ejemplo siguiente crea una tabla llamada "mytable", si es que no existe todavía:
+La llamada a **createTableIfNotExists** creará una nueva tabla con el nombre especificado si no existe ya. El ejemplo siguiente crea una tabla llamada "mytable", si es que no existe todavía:
 
     tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 		if(!error){
@@ -231,7 +231,7 @@ Las operaciones agregadas a un lote se pueden inspeccionar mirando la propiedad 
 
 * **hasOperations**: devuelve true si el lote contiene operaciones
 
-* **removeOperations**: quita una operación
+* **removeOperations**: quita una operación.
 
 * **size**: devuelve el número de operaciones del lote
 
@@ -253,7 +253,7 @@ Para consultar una tabla, use el objeto **TableQuery** para compilar una expresi
 
 * **select**: son los campos que va a devolver la consulta
 
-* **where**: es la cláusula where
+* **where**: la cláusula where.
 
 	* **and**: es una condición where `and`
 
@@ -276,7 +276,7 @@ Dado que **select** no se usa, se devolverán todos los campos. Para realizar la
 	  }
 	});
 
-Si la operación se realiza correctamente, `result.entries` contendrá una matriz de entidades que coinciden con la consulta. Si la consulta no puede devolver todas las entidades, `result.continuationToken` el valor será no *nulo* y se puede usar como el tercer parámetro de **queryEntities** para recuperar más resultados. Para la consulta inicial, use *null* para el tercer parámetro.
+Si la operación se realiza correctamente, `result.entries` contendrá una matriz de entidades que coinciden con la consulta. Si la consulta no puede devolver todas las entidades, `result.continuationToken` será non-*null* y se puede usar como el tercer parámetro de **queryEntities** para recuperar más resultados. Para la consulta inicial, use *null* para el tercer parámetro.
 
 ### Consulta de un subconjunto de propiedades de las entidades
 
@@ -371,7 +371,7 @@ En el siguiente ejemplo se genera una nueva directiva de acceso compartido que p
 
 Tenga en cuenta que también se debe proporcionar la información del host, puesto que es necesaria cuando el titular de la SAS intenta acceder a la tabla.
 
-La aplicación cliente usa entonces la SAS con **TableServiceWithSAS** para realizar operaciones contra la tabla. En el siguiente ejemplo se realiza la conexión a la tabla y se realiza una consulta.
+La aplicación cliente usa entonces la SAS con **TableServiceWithSAS** para realizar operaciones en la tabla. En el siguiente ejemplo se realiza la conexión a la tabla y se realiza una consulta.
 
 	var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
 	var query = azure.TableQuery()
@@ -410,7 +410,7 @@ Una ACL se implementa mediante el uso de un conjunto de directivas de acceso, co
 	  }
 	];
 
-En el siguiente ejemplo se obtiene la ACL actual para la tabla **hometasks** y, a continuación, se agregan las nuevas directivas mediante **setTableAcl**. Este enfoque permite lo siguiente:
+En el siguiente ejemplo se obtiene la ACL actual para **hometasks** y luego se agregan las nuevas directivas mediante **setTableAcl**. Este enfoque permite lo siguiente:
 
 	tableSvc.getTableAcl('hometasks', function(error, result, response) {
       if(!error){
@@ -433,10 +433,10 @@ Después de establecer una ACL, puede crear luego una SAS basada en el Id. de un
 Para obtener más información, consulte los siguientes recursos:
 
 -   [Blog del equipo de almacenamiento de Azure][]
--   Repositorio del [SDK de almacenamiento de Azure para Node][] en GitHub
+-   Repositorio del [SDK de almacenamiento de Azure para Node.js][] en GitHub
 -   [Centro para desarrolladores de Node.js](/develop/nodejs/)
 
-  [SDK de almacenamiento de Azure para Node]: https://github.com/Azure/azure-storage-node
+  [SDK de almacenamiento de Azure para Node.js]: https://github.com/Azure/azure-storage-node
   [OData.org]: http://www.odata.org/
   [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
   [Azure Portal]: portal.azure.com
@@ -448,4 +448,4 @@ Para obtener más información, consulte los siguientes recursos:
   [Aplicación web Node.js con Almacenamiento]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

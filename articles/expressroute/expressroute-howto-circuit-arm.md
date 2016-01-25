@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/04/2015"
+   ms.date="01/12/2016"
    ms.author="cherylmc"/>
 
 # Creación y modificación de un circuito ExpressRoute mediante el Administrador de recursos de Azure y PowerShell
@@ -63,7 +63,7 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 
 	Antes de crear un circuito ExpressRoute, necesitará una lista de proveedores de conectividad, ubicaciones admitidas y opciones de ancho de banda. El cmdlet de PowerShell *Get-AzureRmExpressRouteServiceProvider* devuelve esta información, que más tarde se usará en otros pasos.
 
-		PS C:\> Get-AzureRmExpressRouteServiceProvider
+		Get-AzureRmExpressRouteServiceProvider
 
 	Compruebe si aparece su proveedor de conectividad. Tome nota de la siguiente información, la necesitará para crear los circuitos.
 	
@@ -93,13 +93,13 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 
 	La respuesta contendrá la clave del servicio. Puede obtener una descripción detallada de todos los parámetros ejecutando lo siguiente:
 
-		get-help New-AzureRmExpressRouteCircuit -detailed 
+		Get-Help New-AzureRmExpressRouteCircuit -detailed 
 
 4. **Obtenga una lista de todos los circuitos ExpressRoute.**
 
 	Puede ejecutar el comando *Get-AzureRmExpressRouteCircuit* para obtener una lista de todos los circuitos ExpressRoute que haya creado.
 
-		#Getting service key
+		
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 	La respuesta tendrá un aspecto similar al siguiente ejemplo:
@@ -159,7 +159,7 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 
 	Puede obtener una descripción detallada de todos los parámetros ejecutando lo siguiente:
 
-		get-help Get-AzureRmExpressRouteCircuit -detailed 
+		Get-Help Get-AzureRmExpressRouteCircuit -detailed 
 
 5. **Envíe la clave de servicio a su proveedor de conectividad para su aprovisionamiento.**
 
@@ -215,17 +215,22 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 
 6. **Cree la configuración de enrutamiento.**
 	
-	Consulte la página [Configuración de enrutamiento de circuitos ExpressRoute (crear y modificar emparejamientos de circuito)](expressroute-howto-routing-arm.md) para obtener instrucciones paso a paso.
+	Consulte [Crear y modificar el enrutamiento de un circuito de ExpressRoute](expressroute-howto-routing-arm.md) para instrucciones paso a paso.
 
-7. **Vincule una red virtual a un circuito ExpressRoute.**
+>[AZURE.IMPORTANT]Estas instrucciones se aplican solo a circuitos creados con proveedores de servicios que ofrece servicios de conectividad de capa 2. Si usa un proveedor de servicios que ofrece servicios administrados de nivel 3 (normalmente IPVPN, como MPLS), el mismo proveedor de conectividad configurará y administrará el enrutamiento. En estos casos no podrá crear ni administrar las configuraciones entre pares.
 
-	A continuación, vincule una red virtual al circuito ExpressRoute. Puede usar [esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) cuando trabaje con el modo de implementación del Administrador de recursos de Azure. Actualmente estamos trabajando en los pasos de PowerShell.
+
+7. **Vincule una red virtual a un circuito ExpressRoute.** 
+
+	A continuación, vincule una red virtual al circuito ExpressRoute. Consulte [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-arm.md) para instrucciones paso a paso.
 
 ##  Obtención del estado de un circuito ExpressRoute
 
 Puede recuperar esta información en cualquier momento con el cmdlet *Get-AzureRmExpressRouteCircuit*. Si se realiza la llamada sin parámetros, se obtendrá una lista de todos los circuitos.
 
 		Get-AzureRmExpressRouteCircuit
+
+La respuesta será similar al siguiente ejemplo:
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -253,7 +258,8 @@ Se puede obtener información sobre un circuito ExpressRoute específico si se p
 
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-	The response will be something similar to the example below:
+
+La respuesta tendrá un aspecto similar al siguiente ejemplo:
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -279,7 +285,7 @@ Se puede obtener información sobre un circuito ExpressRoute específico si se p
 
 Puede obtener una descripción detallada de todos los parámetros ejecutando lo siguiente:
 
-		get-help get-azurededicatedcircuit -detailed 
+		Get-Help Get-azurededicatedcircuit -detailed 
 
 ## Modificación de un circuito ExpressRoute
 
@@ -357,4 +363,4 @@ Si el proveedor de servicios ha desaprovisionado el circuito (el estado de aprov
 
 - [Configuración del enrutamiento](expressroute-howto-routing-arm.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

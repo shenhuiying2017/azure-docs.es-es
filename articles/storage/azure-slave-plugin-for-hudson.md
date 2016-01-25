@@ -1,22 +1,22 @@
 <properties
     pageTitle="Uso del complemento esclavo de Azure con Hudson Continuous Integration"
     description="Describe cómo usar el complemento esclavo de Azure con Hudson Continuous Integration."
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe" />
 
 <tags
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="v-dedomi"/>
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/11/2016"
+	ms.author="robmcm"/>
 
-#Uso del complemento esclavo de Azure con Hudson Continuous Integration
+# Uso del complemento esclavo de Azure con Hudson Continuous Integration
 
 El complemento esclavo de Azure para Hudson le permite aprovisionar los nodos subordinados en Azure cuando se ejecutan compilaciones distribuidas.
 
@@ -27,7 +27,7 @@ El complemento esclavo de Azure para Hudson le permite aprovisionar los nodos su
 4. Haga clic en **Search** (Buscar) y escriba **Azure** para limitar la lista de complementos relevantes.
 
 	Si opta por desplazarse por la lista de complementos disponibles, encontrará el complemento secundario de Azure en la sección **Cluster Management and Distributed Build** (Administración de clústeres y compilación distribuida) de la pestaña **Others** (Otros).
-	 
+
 5. Active la casilla **Azure Slave Plugin** (Complemento esclavo de Azure).
 6. Haga clic en **Instalar**.
 7. Reinicie Hudson.
@@ -81,7 +81,7 @@ Una vez que tiene el perfil de suscripción, siga estos pasos para configurar el
 5. Copie el certificado de administración y el id. de suscripción del perfil de suscripción y péguelos en los campos correspondientes.
 
 	Al copiar el certificado de administración y el id. de suscripción, **no** incluya las comillas que delimitan los valores.
-	
+
 6. Haga clic en **Verify configuration** (Comprobar configuración).
 7. Cuando se compruebe que la configuración es correcta, haga clic en **Save** (Guardar).
 
@@ -100,7 +100,7 @@ Una plantilla de máquina virtual define los parámetros que usará el complemen
 
 5. Especifique un nombre de servicio en la nube en el campo **Name** (Nombre). Si el nombre que especifique se refiere a un servicio en la nube existente, la máquina virtual se aprovisionará en dicho servicio. De lo contrario, Azure creará uno nuevo.
 6. En el campo **Description** (Descripción), escriba el texto que describe la plantilla que está creando. Esta información es solo para fines documentales y no se usa en el aprovisionamiento de una máquina virtual.
-7. En el campo **Labels** (Etiquetas), escriba **linux**. Esta etiqueta se usa para identificar la plantilla que está creando y posteriormente para hacer referencia a la plantilla al crear un trabajo de Hudson. 
+7. En el campo **Labels** (Etiquetas), escriba **linux**. Esta etiqueta se usa para identificar la plantilla que está creando y posteriormente para hacer referencia a la plantilla al crear un trabajo de Hudson.
 8. Seleccione una región donde se creará la máquina virtual.
 9. Seleccione el tamaño adecuado de la máquina.
 10. Especifique una cuenta de almacenamiento donde se creará la máquina virtual. Asegúrese de que se encuentra en la misma región que el servicio en la nube que se va a usar. Si desea crear nuevo almacenamiento, puede dejar este campo en blanco.
@@ -118,11 +118,11 @@ Una plantilla de máquina virtual define los parámetros que usará el complemen
 	Si desea seleccionar de una lista de familias de imagen, escriba el primer carácter (distingue mayúsculas de minúsculas) del nombre de familia de imagen. Por ejemplo, al escribir **U** aparecerá una lista de familias de Ubuntu Server. Una vez que seleccione de la lista, Jenkins usará la versión más reciente de esa imagen de sistema de esa familia al aprovisionar la máquina virtual.
 
 	![lista de familias de SO](./media/azure-slave-plugin-for-hudson/hudson-oslist.png)
-	
+
 	Si tiene una imagen personalizada que desea usar en su lugar, escriba su nombre. Los nombres de imagen personalizada no se muestran en una lista, por lo que debe asegurarse de escribir el nombre correctamente.
 
 	Para este tutorial, escriba **U** para mostrar una lista de imágenes de Ubuntu y seleccione **Ubuntu Server 14.04 LTS**.
- 
+
 14. Para **Launch method** (Método de inicio), seleccione **SSH**.
 15. Copie el siguiente script y péguelo en el campo **Init script** (Script de inicialización).
 
@@ -152,7 +152,7 @@ Una plantilla de máquina virtual define los parámetros que usará el complemen
 		sudo apt-get install -y ant
 
 	El **script de inicialización** se ejecutará después de crearse la máquina virtual. En este ejemplo, el script instala Java, git y ant.
-	
+
 16. En los campos **Username** (Nombre de usuario) y **Password** (Contraseña), escriba los valores preferidos para la cuenta de administrador que se creará en la máquina virtual.
 17. Haga clic en **Verify Template** (Comprobar plantilla) para comprobar si los parámetros especificados son válidos.
 18. Haga clic en **Save** (Guardar).
@@ -162,12 +162,12 @@ Una plantilla de máquina virtual define los parámetros que usará el complemen
 
 En esta sección, creará una tarea de Hudson que se ejecutará en un nodo subordinado en Azure.
 
-1. En el panel de Hudson, haga clic en **New Job** (Nuevo trabajo). 
+1. En el panel de Hudson, haga clic en **New Job** (Nuevo trabajo).
 2. Escriba un nombre para el trabajo que se va a crear.
 3. Para el tipo de trabajo, seleccione **Build a free-style software job** (Crear un trabajo de software de estilo libre).
 4. Haga clic en **OK** (Aceptar).
 5. En la página de configuración del trabajo, seleccione **Restrict where this project can be run** (Restringir dónde se puede ejecutar este proyecto).
-6. Seleccione **Node and label menu** (Menú de nodo y etiqueta) y seleccione **linux** (esta etiqueta se especificó al crear la plantilla de máquina virtual en la sección anterior). 
+6. Seleccione **Node and label menu** (Menú de nodo y etiqueta) y seleccione **linux** (esta etiqueta se especificó al crear la plantilla de máquina virtual en la sección anterior).
 
 7. En la sección **Build** (Compilar), haga clic en **Add build step** (Agregar paso de compilación) y seleccione **Execute shell** (Ejecutar shell).
 8. Edite el siguiente script; para ello, sustituya **(el nombre de la cuenta de github)**, **(el nombre del proyecto)** y **(el directorio del proyecto)** por los valores adecuados y pegue el script editado en el área de texto que aparece.
@@ -188,7 +188,7 @@ En esta sección, creará una tarea de Hudson que se ejecutará en un nodo subor
   			git clone https://github.com/(your github account name)/(your project name).git
 
 		fi
-		
+
 		# change directory to project
 
 		cd $currentDir/(your project directory)
@@ -198,19 +198,10 @@ En esta sección, creará una tarea de Hudson que se ejecutará en un nodo subor
 		#Execute build task
 
 		ant
-		
+
 9. Haga clic en **Save** (Guardar).
-10. En el panel de Hudson, busque el trabajo que acaba de crear y haga clic en icono **Schedule a build** (Programar una compilación). 
+10. En el panel de Hudson, busque el trabajo que acaba de crear y haga clic en icono **Schedule a build** (Programar una compilación).
 
 Hudson creará luego un nodo subordinado con la plantilla que creó en la sección anterior y ejecutará el script especificado en el paso de compilación de esta tarea.
 
-
-
-
-
-
-  
-
-  
-
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

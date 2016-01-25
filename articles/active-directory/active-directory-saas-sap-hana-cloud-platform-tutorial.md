@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Tutorial: Integración de Azure Active Directory con SAP HANA Cloud Platform
@@ -70,7 +70,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **SAP HANA Cloud Platform**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **SAP HANA Cloud Platform**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único **.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configurar inicio de sesión único")
 
@@ -128,7 +128,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Administración de confianza](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793932.png "Administración de confianza")
 
-    >[AZURE.NOTE]Después de cargar el archivo de metadatos, los valores de **Single Sign-on URL** (Dirección URL de inicio de sesión único), **Single Logout URL** (Dirección URL de cierre de sesión único) y **Signing Certificate** (Certificado de firma) se rellenan automáticamente.
+    >[AZURE.NOTE]Después de cargar el archivo de metadatos, los valores de **Dirección URL de inicio de sesión único**, **Dirección URL de cierre de sesión único** y **Certificado de firma** se rellenan automáticamente.
 
 11. Haga clic en la pestaña **Attributes** (Atributos).
 
@@ -171,7 +171,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en SAP HANA Cloud Pla
     ![Autorizaciones](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790805.png "Autorizaciones")
 
     1.  Haga clic en **Authorization** (Autorización).
-    2.  Haga clic en la pestaña **Users** (Usuarios).
+    2.  Haga clic en la pestaña **Usuarios**.
     3.  En el cuadro de texto **User** (Usuario), escriba la dirección de correo electrónico del usuario.
     4.  Haga clic en **Assign** (Asignar) para asignar el usuario a un rol.
     5.  Haga clic en **Guardar**.
@@ -188,10 +188,10 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Asignar usuarios](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790806.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC767830.png "Sí")
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

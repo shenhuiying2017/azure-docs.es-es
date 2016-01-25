@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="01/12/2016"
 	ms.author="krisragh"/>
 
 
@@ -30,7 +30,7 @@ En este tema se muestra cómo agregar notificaciones push al [proyecto de inicio
 
 [AZURE.INCLUDE [Habilitación de notificaciones de inserción de Apple](../../includes/enable-apple-push-notifications.md)]
 
-## <a id="configure"></a>Configuración de Azure para enviar notificaciones de inserción
+## <a id="configure"></a>Configuración de Azure para enviar notificaciones push
 
 [AZURE.INCLUDE [Configuración de notificaciones push en Servicios móviles de Azure](../../includes/mobile-services-apns-configure-push.md)]
 
@@ -132,4 +132,4 @@ En este tema se muestra cómo agregar notificaciones push al [proyecto de inicio
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

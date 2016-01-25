@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Uso del almacenamiento de tablas de Java | Microsoft Azure" 
-	description="Aprenda a usar el servicio de almacenamiento de tablas en Azure. Los ejemplos de código están escritos en código Java." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="Uso del almacenamiento de tablas de Java | Microsoft Azure"
+	description="Aprenda a usar el servicio de almacenamiento de tablas en Azure. Los ejemplos de código están escritos en código Java."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 
 # Uso del almacenamiento de tablas de Java
@@ -51,15 +51,15 @@ Agregue las siguientes instrucciones de importación en la parte superior del ar
 Un cliente de almacenamiento de Azure utiliza una cadena de conexión de almacenamiento para almacenar extremos y credenciales con el fin de obtener acceso a los servicios de administración de datos. Al ejecutarse en una aplicación cliente, debe proporcionar la cadena de conexión de almacenamiento en el siguiente formato, usando el nombre de su cuenta de almacenamiento y la clave de acceso principal de la cuenta de almacenamiento que se muestra en el [Portal de Azure](portal.azure.com) para los valores *AccountName* y *AccountKey*. En este ejemplo se muestra cómo puede declarar un campo estático para mantener la cadena de conexión:
 
     // Define the connection-string with your values.
-    public static final String storageConnectionString = 
-        "DefaultEndpointsProtocol=http;" + 
-        "AccountName=your_storage_account;" + 
+    public static final String storageConnectionString =
+        "DefaultEndpointsProtocol=http;" +
+        "AccountName=your_storage_account;" +
         "AccountKey=your_storage_account_key";
 
-En una aplicación que se esté ejecutando en un rol de Microsoft Azure, esta cadena se puede almacenar en el archivo de configuración del servicio, *ServiceConfiguration.cscfg*, y se puede obtener acceso a él con una llamada al método **RoleEnvironment.getConfigurationSettings**. A continuación se muestra un ejemplo de cómo obtener la cadena de conexión desde un elemento de **configuración** denominado *StorageConnectionString* en el archivo de configuración del servicio:
+En una aplicación que se esté ejecutando en un rol de Microsoft Azure, esta cadena se puede almacenar en el archivo de configuración de servicio, *ServiceConfiguration.cscfg*, y se puede obtener acceso a él con una llamada al método **RoleEnvironment.getConfigurationSettings**. A continuación se muestra un ejemplo de cómo obtener la cadena de conexión desde un elemento de **configuración** denominado *StorageConnectionString* en el archivo de configuración del servicio:
 
     // Retrieve storage account from connection-string.
-    String storageConnectionString = 
+    String storageConnectionString =
         RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 
 En los ejemplos siguientes se supone que ha usado uno de estos dos métodos para obtener la cadena de conexión de almacenamiento.
@@ -116,7 +116,7 @@ Para obtener una lista de las tablas, llame al método **CloudTableClient.listTa
 
 ## Cómo agregar una entidad a una tabla
 
-Las entidades se asignan a objetos de Java utilizando una clase personalizada que implementa **TableEntity**. Para mayor comodidad, la clase **TableServiceEntity** implementa **TableEntity** y usa la reflexión para asignar propiedades a los métodos de captador y establecedor con nombre para las propiedades. Para agregar una entidad a una tabla, cree primero una clase que defina las propiedades de la entidad. El código siguiente define una clase de entidad que utiliza el nombre de pila del cliente como clave de fila y el apellido como clave de partición. En conjunto, la clave de partición y la clave de fila de una entidad la identifican inequívocamente en la tabla. Puede realizarse una consulta en las entidades con la misma clave de partición de manera más rápida que en aquellas que tienen claves de partición distintas.
+Las entidades se asignan a objetos de Java utilizando una clase personalizada que implementa **TableEntity**. Para mayor comodidad, la clase **TableServiceEntity** implementa **TableEntity** y usa la reflexión para asignar propiedades a los métodos de captador y establecedor indicados para las propiedades. Para agregar una entidad a una tabla, cree primero una clase que defina las propiedades de la entidad. El código siguiente define una clase de entidad que utiliza el nombre de pila del cliente como clave de fila y el apellido como clave de partición. En conjunto, la clave de partición y la clave de fila de una entidad la identifican inequívocamente en la tabla. Puede realizarse una consulta en las entidades con la misma clave de partición de manera más rápida que en aquellas que tienen claves de partición distintas.
 
     public class CustomerEntity extends TableServiceEntity {
         public CustomerEntity(String lastName, String firstName) {
@@ -128,25 +128,25 @@ Las entidades se asignan a objetos de Java utilizando una clase personalizada qu
 
         String email;
         String phoneNumber;
-        
+
         public String getEmail() {
             return this.email;
         }
-        
+
         public void setEmail(String email) {
             this.email = email;
         }
-        
+
         public String getPhoneNumber() {
             return this.phoneNumber;
         }
-        
+
         public void setPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
         }
     }
 
-Las operaciones de tabla que afectan a las entidades requieren un objeto **TableOperation**. Este objeto define la operación que va a realizarse en una entidad, que puede ejecutarse con un objeto **CloudTable**. El código siguiente crea una instancia nueva de la clase **CustomerEntity** con algunos datos de los clientes que se van a almacenar. El código siguiente llama a **TableOperation.insertOrReplace** para crear un objeto **TableOperation** a fin de insertar una entidad en una tabla y asocia el objeto **CustomerEntity** a ella. Por último, el código llama al método **execute** en **CloudTable**, especificando la tabla "people" y el nuevo objeto **TableOperation**, que posteriormente envía una solicitud al servicio de almacenamiento para insertar la nueva entidad de cliente en la tabla "people" o sustituir la entidad si ya existe.
+Las operaciones de tabla que afectan a las entidades requieren un objeto **TableOperation**. Este objeto define la operación que va a realizarse en una entidad, que puede ejecutarse con un objeto **CloudTable**. El código siguiente crea una instancia nueva de la clase **CustomerEntity** con algunos datos de clientes que se van a almacenar. El código siguiente llama a **TableOperation.insertOrReplace** para crear un objeto **TableOperation** a fin de insertar una entidad en una tabla y asocia el objeto **CustomerEntity** a ella. Por último, el código llama al método **execute** en **CloudTable**, especificando la tabla "people" y el nuevo objeto **TableOperation**, que posteriormente envía una solicitud al servicio de almacenamiento para insertar la nueva entidad de cliente en la tabla "people" o sustituir la entidad si ya existe.
 
     try
     {
@@ -156,15 +156,15 @@ Las operaciones de tabla que afectan a las entidades requieren un objeto **Table
 
     	// Create the table client.
     	CloudTableClient tableClient = storageAccount.createCloudTableClient();
-			
+
     	// Create a cloud table object for the table.
     	CloudTable cloudTable = tableClient.getTableReference("people");
-			
+
     	// Create a new customer entity.
     	CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
     	customer1.setEmail("Walter@contoso.com");
     	customer1.setPhoneNumber("425-555-0101");
-			
+
     	// Create an operation to add the new customer to the people table.
     	TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
 
@@ -247,13 +247,13 @@ Para consultar una tabla a fin de obtener las entidades de una partición, use u
 
     	// Create the table client.
     	CloudTableClient tableClient = storageAccount.createCloudTableClient();
-			
+
 	   // Create a cloud table object for the table.
 	   CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Create a filter condition where the partition key is "Smith".
     	String partitionFilter = TableQuery.generateFilterCondition(
-	       PARTITION_KEY, 
+	       PARTITION_KEY,
 	       QueryComparisons.EQUAL,
 	       "Smith");
 
@@ -265,7 +265,7 @@ Para consultar una tabla a fin de obtener las entidades de una partición, use u
         // Loop through the results, displaying information about the entity.
         for (CustomerEntity entity : cloudTable.execute(partitionQuery)) {
             System.out.println(entity.getPartitionKey() +
-                " " + entity.getRowKey() + 
+                " " + entity.getRowKey() +
                 "\t" + entity.getEmail() +
                 "\t" + entity.getPhoneNumber());
 	   }
@@ -286,7 +286,7 @@ Si no quiere consultar todas las entidades de una partición, puede especificar 
     	final String PARTITION_KEY = "PartitionKey";
     	final String ROW_KEY = "RowKey";
     	final String TIMESTAMP = "Timestamp";
-			
+
     	// Retrieve storage account from connection-string.
     	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
@@ -299,18 +299,18 @@ Si no quiere consultar todas las entidades de una partición, puede especificar 
 
     	// Create a filter condition where the partition key is "Smith".
     	String partitionFilter = TableQuery.generateFilterCondition(
-	       PARTITION_KEY, 
+	       PARTITION_KEY,
 	       QueryComparisons.EQUAL,
 	       "Smith");
 
     	// Create a filter condition where the row key is less than the letter "E".
     	String rowFilter = TableQuery.generateFilterCondition(
-	       ROW_KEY, 
+	       ROW_KEY,
 	       QueryComparisons.LESS_THAN,
 	       "E");
 
     	// Combine the two conditions into a filter expression.
-    	String combinedFilter = TableQuery.combineFilters(partitionFilter, 
+    	String combinedFilter = TableQuery.combineFilters(partitionFilter,
 	        Operators.AND, rowFilter);
 
     	// Specify a range query, using "Smith" as the partition key,
@@ -350,13 +350,13 @@ Puede enviar una consulta para recuperar una sola entidad concreta. El código s
     	CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Retrieve the entity with partition key of "Smith" and row key of "Jeff"
-    	TableOperation retrieveSmithJeff = 
+    	TableOperation retrieveSmithJeff =
 	       TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
 	   // Submit the operation to the table service and get the specific entity.
 	   CustomerEntity specificEntity =
     		cloudTable.execute(retrieveSmithJeff).getResultAsType();
-			
+
     	// Output the entity.
     	if (specificEntity != null)
     	{
@@ -389,7 +389,7 @@ Para modificar una entidad, recupérela del servicio Tabla, realice los cambios 
     	CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Retrieve the entity with partition key of "Smith" and row key of "Jeff".
-    	TableOperation retrieveSmithJeff = 
+    	TableOperation retrieveSmithJeff =
 	       TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
     	// Submit the operation to the table service and get the specific entity.
@@ -428,7 +428,7 @@ Una consulta de tabla puede recuperar solo algunas propiedades de una entidad. E
     	CloudTable cloudTable = tableClient.getTableReference("people");
 
     	// Define a projection query that retrieves only the Email property
-    	TableQuery<CustomerEntity> projectionQuery = 
+    	TableQuery<CustomerEntity> projectionQuery =
 	       TableQuery.from(CustomerEntity.class)
 	       .select(new String[] {"Email"});
 
@@ -441,7 +441,7 @@ Una consulta de tabla puede recuperar solo algunas propiedades de una entidad. E
         };
 
         // Loop through the results, displaying the Email values.
-        for (String projectedString : 
+        for (String projectedString :
             cloudTable.execute(projectionQuery, emailResolver)) {
                 System.out.println(projectedString);
         }
@@ -487,7 +487,7 @@ En ocasiones, es posible que desee agregar una entidad a una tabla sin saber si 
 
 ## Cómo eliminar una entidad
 
-Puede eliminar fácilmente una entidad después de que la haya recuperado. Cuando se recupere la entidad, llame a **TableOperation.delete** con la entidad que desea eliminar. A continuación, llame a **execute** en el objeto **CloudTable**. El código siguiente recupera y elimina una entidad de cliente.
+Puede eliminar fácilmente una entidad después de que la haya recuperado. Cuando se recupere la entidad, llame a **TableOperation.delete** con la entidad que se eliminará. A continuación, llame a **execute** en el objeto **CloudTable**. El código siguiente recupera y elimina una entidad de cliente.
 
     try
     {
@@ -563,6 +563,5 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [entrada de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 [publicación de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

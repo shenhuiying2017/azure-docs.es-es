@@ -72,7 +72,7 @@ Para ver y administrar las claves de acceso, haga clic en el icono de llave.
 
 * Puede ejecutar varias cargas de trabajo de Lote en una sola cuenta de Lote, o bien distribuir las cargas de trabajo entre cuentas de Lote situadas en diferentes regiones de Azure.
 
-* Si va a ejecutar varias cargas de trabajo de Lote a gran escala, tenga en cuenta que se aplican algunas [cuotas y límites de servicio de Lote](batch-quota-limit.md) a la suscripción de Azure y a cada cuenta de Lote. Las cuotas actuales de una cuenta de Lote aparecen en el Portal de vista previa en las propiedades de la cuenta.
+* Si va a ejecutar varias cargas de trabajo de Lote a gran escala, tenga en cuenta que se aplican algunas [cuotas y límites de servicio de Lote](batch-quota-limit.md) a la suscripción de Azure y a cada cuenta de Lote. Las cuotas actuales de una cuenta de Lote aparecen en el portal de vista previa en las propiedades de la cuenta.
 
 ## Pasos siguientes
 
@@ -84,4 +84,4 @@ Para ver y administrar las claves de acceso, haga clic en el icono de llave.
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

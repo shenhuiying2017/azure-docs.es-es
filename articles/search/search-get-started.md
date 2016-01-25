@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="12/18/2015" 
+	ms.date="01/11/2016" 
 	ms.author="heidist"/>
 
 # Introducción a Búsqueda de Azure
@@ -29,85 +29,30 @@ Un enfoque alternativo para los desarrolladores de .NET es usar el SDK de .NET d
 > [AZURE.NOTE]Para completar este tutorial necesita una [suscripción de Azure](../includes/free-trial-note.md). Si no está listo para registrarse para obtener una suscripción de prueba, puede omitir este tutorial y optar por [probar el Servicio de aplicaciones de Azure](https://tryappservice.azure.com/). Esta opción alternativa ofrece el servicio Búsqueda de Azure con una aplicación web de ASP.NET de forma gratuita (una hora por sesión); no es necesaria ninguna suscripción.
  
 <a id="sub-1"></a>
-## Comienzo con el servicio gratuito
+## Creación de un servicio de Búsqueda de Azure
 
 Como administrador, puede agregar un servicio de búsqueda a una suscripción existente sin coste alguno al seleccionar el servicio compartido o a un precio reducido cuando se opta por los recursos dedicados.
 
-Los suscriptores obtienen acceso gratuito automáticamente a un servicio de búsqueda compartido multiempresa que puede usar para fines de aprendizaje, pruebas de prueba de concepto o pequeños proyectos de búsqueda de desarrollo. Regístrese para usar la versión gratuita con los siguientes pasos.
+Los suscriptores obtienen acceso gratuito automáticamente a un servicio de búsqueda compartido multiempresa que puede usar para fines de aprendizaje, pruebas de prueba de concepto o pequeños proyectos de búsqueda de desarrollo.
 
-1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com) con su suscripción actual. Tenga en cuenta que esta URL lo lleva al portal. Es indispensable el uso del portal. 
+Inicie sesión en el [Portal de Azure](https://portal.azure.com) con su suscripción actual. Para obtener instrucciones paso a paso, consulte [Creación de un servicio Búsqueda de Azure en el Portal de Azure clásico](search-create-service-portal.md).
 
-2. Haga clic en **Nuevo** en la parte superior de la página.
- 
-  	![][6]
+## Obtener la dirección URL del servicio y una clave de API
 
-3. Haga clic en **Datos + almacenamiento** | **Búsqueda**.
+Después de crear el servicio, puede volver a las opciones de configuración para obtener la dirección URL y las claves de API. Las conexiones con el servicio de búsqueda requieren que tenga la URL y una clave de API para autenticar la llamada. A continuación se presenta como buscar estos valores rápidamente:
 
-	- Escriba un nombre de servicio en minúscula para usarlo en la URL de servicio, evite espacios y respete el límite de cadena de 15 caracteres.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+2. En la barra de acceso rápido, haga clic en **Servicio de búsqueda** para enumerar todos los servicios Búsqueda de Azure aprovisionados para la suscripción.
+3. Seleccione el servicio que desea usar.
+4.	En el panel de servicio, verá iconos para **PROPIEDADES** y **CLAVES**, e información de uso donde se muestra el uso de recursos de un vistazo. 
 
-	- Haga clic en la flecha **Nivel de precios** para seleccionar una opción de precios. Seleccione **GRATIS** y, luego, haga clic en **SELECCIONAR** en la parte inferior de la página. La versión gratuita ofrece capacidad suficiente para probar tutoriales y crear un código de prueba de concepto, pero no está destinada a las aplicaciones de producción.
-
-	- Haga clic en la flecha en **Grupo de recursos** para elegir un grupo existente o crear uno nuevo. Los grupos de recursos son contenedores para servicios y recursos que se usan para un objetivo en común. Por ejemplo, si va a compilar una aplicación de búsqueda personalizada basada en Búsqueda de Azure, Sitios web Azure, almacenamiento de blobs de Azure, puede crear un grupo de recursos que mantenga estos servicios juntos en las páginas de administración del portal.
-
-	- Haga clic en la flecha en **Suscripción** si tiene varias suscripciones y quiere usar una suscripción diferente para este servicio de búsqueda.
-
-	- Haga clic en la flecha en **Ubicación** para seleccionar una región del centro de datos. En esta vista previa, puede seleccionar entre Oeste de EE. UU., Este de EE. UU., Europa del Norte y Sudeste asiático. Posteriormente, cuando otras regiones estén conectadas, seleccione una región para el servicio que va a crear. La distribución de recursos en varios centros de datos no será una configuración compatible para una vista previa pública.
-
-4. Haga clic en **CREAR** para realizar el aprovisionamiento del servicio. Tenga en cuenta que **CREAR** se habilita solo después de llenar todos los valores requeridos.
-
-El servicio se crea en unos pocos minutos. Puede volver a los ajustes de configuración para obtener la URL o las claves de API. Las conexiones con el servicio de búsqueda requieren que tenga la URL y una clave de API para autenticar la llamada. A continuación se presenta como buscar estos valores rápidamente:
-
-14. Vaya a **Inicio** para abrir el panel. Haga clic en el servicio de búsqueda para abrir el panel del servicio. 
-
-  	![][13]
-
-15.	En el panel de servicio, verá iconos para **PROPIEDADES** y **CLAVES**, e información de uso donde se muestra el uso de recursos de un vistazo.
-
-Continúe hasta [Prueba de operaciones del servicio](#sub-3) para obtener instrucciones sobre cómo conectarse al servicio usando estos valores.
-
-<a id="sub-2"></a>
-## Actualización a una búsqueda estándar
-
-La búsqueda estándar obtiene recursos dedicados en un centro de datos de Azure que solo usted puede usar. Las cargas de trabajo de búsqueda requieren réplicas de almacenamiento y servicio. Al registrarse para una búsqueda estándar, puede optimizar la configuración del servicio para usar más de cualquier recurso que sea el más importante para su escenario.
-
-Tener recursos dedicados le proporcionará una mayor escalación y un mejor rendimiento, pero no características adicionales. La búsqueda compartida y estándar ofrecen las mismas características.
-
-Para usar la búsqueda estándar, cree un nuevo servicio de búsqueda seleccionando el nivel de precios estándar. Tenga en cuenta que la actualización no es una actualización local de la versión gratuita. Cambiar al modo estándar, con su potencial de escalación, requiere un servicio nuevo. Tendrá que volver a cargar los índices y documentos usados por su aplicación de búsqueda.
-
-La configuración de recursos dedicados puede tardar unos minutos (15 minutos o más).
-
-**Paso 1: Creación de un servicio nuevo con un nivel de precios estándar**
-
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com) con su suscripción actual. 
-
-2. Haga clic en **Nuevo** en la parte inferior de la página.
-
-4. En la Galería, haga clic en **Datos + almacenamiento** | **Búsqueda**.
-
-7. Rellene los valores de configuración del servicio y, a continuación, haga clic en **CREAR**.
-
-8. Haga clic en **Nivel de precios** para seleccionar una opción de precios. Seleccione **ESTÁNDAR** y, luego, haga clic en **SELECCIONAR** en la parte inferior de la página.
-
-**Paso 2: Ajuste de las unidades de búsqueda basadas en requisitos de escala**
-
-La búsqueda estándar comienza con una réplica y una partición, pero se puede volver a escalar fácilmente a niveles de recursos más altos.
-
-1.	Después de que se haya creado el servicio, vuelva al panel del servicio, haga clic en el icono **Escala**.
-
-2.	Use los controles deslizantes para agregar réplicas, particiones o ambos.
-
-Las réplicas y las particiones adicionales se cobran en unidades de búsqueda. El total de unidades de búsqueda necesario para admitir una configuración de recursos en particular se muestra en la página, a medida que agrega recursos.
-
-Puede consultar [Detalles de precios](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obtener la información de facturación por unidad. Consulte [Límites y restricciones](search-limits-quotas-capacity.md) para obtener ayuda para decidir cómo configurar las combinaciones de partición y de réplica.
-
- ![][15]
 
 <a id="sub-3"></a>
 ## Prueba de operaciones del servicio
 
-La confirmación de que su servicio está operativo y que puede obtenerse acceso a él desde una aplicación cliente es el paso final en la configuración de la búsqueda. Este procedimiento usa Fiddler, disponible como una [descarga gratuita en Telerik](http://www.telerik.com/fiddler), para emitir solicitudes HTTP y ver respuestas. Al usar Fiddler, puede probar la API inmediatamente, sin tener que crear ningún código.
+Como paso de validación, compruebe si el servicio funciona y es accesible desde una aplicación cliente. Este procedimiento usa Fiddler, disponible como una [descarga gratuita en Telerik](http://www.telerik.com/fiddler), para emitir solicitudes HTTP y ver respuestas. Al usar Fiddler, puede probar la API inmediatamente, sin tener que crear ningún código.
 
-El siguiente procedimiento funciona para la búsqueda compartida y estándar. En los siguientes pasos, podrá crear un índice, cargar documentos, consultar el índice y, a continuación, consultar el sistema en busca de información de servicio.
+En los siguientes pasos, podrá crear un índice, cargar documentos, consultar el índice y, a continuación, consultar el sistema en busca de información de servicio.
 
 ### Creación de un índice
 
@@ -378,4 +323,4 @@ Si necesita un actualizador sobre dónde buscar las páginas de configuración, 
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

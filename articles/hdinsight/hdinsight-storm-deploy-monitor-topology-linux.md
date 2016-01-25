@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/16/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 # Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux
@@ -94,23 +94,10 @@ El reequilibrio de una topología permite que el sistema revise el paralelismo d
 
 ##Supervisar y administrar mediante la interfaz de usuario de Storm
 
-La interfaz de usuario de Storm ofrece una interfaz web para trabajar con topologías en ejecución y se incluye en el clúster de HDInsight.
+La interfaz de usuario de Storm ofrece una interfaz web para trabajar con topologías en ejecución y se incluye en el clúster de HDInsight. Para ver la interfaz de usuario de Storm, use un explorador web para abrir \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__, donde __CLUSTERNAME__ es el nombre del clúster.
 
-> [AZURE.IMPORTANT]La interfaz de usuario de Storm no está disponible públicamente a través de Internet y se debe tener acceso a ella mediante un túnel de SSH en el nodo principal del clúster de HDInsight. Para obtener información sobre la creación y el uso de un túnel SSH, vea [Uso de la tunelización SSH para tener acceso a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
+> [AZURE.NOTE]Si se le pide que ofrezca un nombre de usuario y una contraseña, escriba el administrador de clústeres (admin) y la contraseña que usó al crear el clúster.
 
-Lleve a cabo los pasos siguientes para ver la interfaz de usuario de Storm:
-
-1. Abra un explorador web en Web de Ambari para el clúster de HDInsight. La dirección URL Web de Ambari es https://CLUSTERNAME.azurehdinsight.net, donde __CLUSTERNAME__ es el nombre del clúster.
-
-2. En la lista de servicios de la izquierda de la página, selecciona __Storm__. Después, selecciona __Interfaz de usuario de Storm__ de __Vínculos rápidos__.
-
-    ![Entrada de la interfaz de usuario de Storm en vínculos rápidos](./media/hdinsight-storm-deploy-monitor-topology-linux/ambari-storm.png)
-
-    Esta acción mostrará la página web de la interfaz de usuario de Storm:
-
-    ![la interfaz de usuario de storm](./media/hdinsight-storm-deploy-monitor-topology-linux/storm-ui.png)
-
-> [AZURE.NOTE]Al trabajar con la interfaz de usuario de Storm, puede que observe que algunas versiones de Internet Explorer no actualicen correctamente la interfaz de usuario después de que haberla visitado por primera vez. Por ejemplo, puede que no se muestren las topologías nuevas que haya enviado o puede que se muestre una topología como activa, aunque anteriormente la desactivase. Microsoft conoce este problema y está trabajando para conseguir una solución.
 
 ### Página principal
 
@@ -168,4 +155,4 @@ Ahora que aprendió a implementar y supervisar topologías mediante el panel de 
 
 Para obtener una lista con más topologías de ejemplo, consulte [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

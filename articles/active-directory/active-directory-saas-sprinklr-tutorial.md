@@ -11,13 +11,12 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Tutorial: integración de Azure Active Directory con Sprinklr
   
-El objetivo de este tutorial es mostrar la integración de Azure y Sprinklr.  
-En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y Sprinklr. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Un inquilino de Sprinklr
@@ -67,9 +66,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Sprinklr con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
-Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64.  
-Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Sprinklr con su cuenta de Azure AD usando el protocolo SAML basado en la federación. Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
@@ -103,12 +100,12 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
 
     ![Inicios de sesión únicos](./media/active-directory-saas-sprinklr-tutorial/IC782909.png "Inicios de sesión únicos")
 
-9.  Siga estos pasos en la página **Single Sign on** (Inicio de sesión único):
+9.  Siga estos pasos en la página **Inicio de sesión único**:
 
     ![Inicios de sesión únicos](./media/active-directory-saas-sprinklr-tutorial/IC782910.png "Inicios de sesión únicos")
 
     1.  En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración (por ejemplo, *WAADSSOTest*).
-    2.  Seleccione **Enabled** (Habilitado).
+    2.  Seleccione **Habilitado**.
     3.  Seleccione **Use new SSO Certificate** (Usar el nuevo certificado de SSO).
     4.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
 
@@ -124,14 +121,13 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
 
         ![SAML](./media/active-directory-saas-sprinklr-tutorial/IC782911.png "SAML")
 
-10. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+10. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-sprinklr-tutorial/IC782912.png "Configurar inicio de sesión único")
 
 ##Configuración del aprovisionamiento de usuario
   
-Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse para acceso dentro de la aplicación Syncplicity.  
-En esta sección se describe cómo crear cuentas de usuario de AAD en Sprinklr.
+Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse para acceso dentro de la aplicación Syncplicity. En esta sección se describe cómo crear cuentas de usuario de AAD en Sprinklr.
 
 ###Para aprovisionar cuentas de usuario a Sprinklr, realice los siguientes pasos:
 
@@ -145,7 +141,7 @@ En esta sección se describe cómo crear cuentas de usuario de AAD en Sprinklr.
 
     ![Settings](./media/active-directory-saas-sprinklr-tutorial/IC782914.png "Settings")
 
-4.  Haga clic en **Add User** (Agregar usuario).
+4.  Haga clic en **Agregar usuario**.
 
     ![Settings](./media/active-directory-saas-sprinklr-tutorial/IC782915.png "Settings")
 
@@ -182,10 +178,10 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Asignar usuarios](./media/active-directory-saas-sprinklr-tutorial/IC782918.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-sprinklr-tutorial/IC767830.png "Sí")
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

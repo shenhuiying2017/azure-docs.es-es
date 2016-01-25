@@ -8,12 +8,12 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/03/2015"
+   ms.date="01/04/2016"
    ms.author="hascipio; avikova" />
 
 # Probar su oferta de Servicio de datos en Ensayo
@@ -86,4 +86,4 @@ Si está satisfecho y listo para publicar su oferta, lea la documentación [Soli
 ## Otras referencias
 - [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

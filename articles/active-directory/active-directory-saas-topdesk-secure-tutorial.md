@@ -10,7 +10,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Tutorial: integración de Azure Active Directory con TOPdesk - Secure
@@ -75,11 +75,11 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Settings](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "Settings")
 
-3.  Haga clic en **Configuración de inicio de sesión**.
+3.  Haga clic en **Login Settings** (Configuración de inicio de sesión).
 
     ![Configuración de inicio de sesión](./media/active-directory-saas-topdesk-secure-tutorial/IC790599.png "Configuración de inicio de sesión")
 
-4.  Expanda el menú **Configuración de inicio de sesión** y luego haga clic en **General**.
+4.  Expanda el menú **Login Settings** (Configuración de inicio de sesión) y luego haga clic en **General**.
 
     ![General](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "General")
 
@@ -87,7 +87,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configuración técnica](./media/active-directory-saas-topdesk-secure-tutorial/IC790855.png "Configuración técnica")
 
-    1.  Haga clic en **Descargar** para descargar el archivo de metadatos público y luego guárdelo localmente en el equipo.
+    1.  Haga clic en **Download** (Descargar) para descargar el archivo de metadatos público y luego guárdelo localmente en el equipo.
     2.  Abra el archivo de metadatos y luego busque el nodo **AssertionConsumerService**. ![Servicio del consumidor de aserción](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "Servicio del consumidor de aserción")
     3.  Copie el valor **AssertionConsumerService**.  
 
@@ -128,30 +128,30 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Settings](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "Settings")
 
-13. Haga clic en **Configuración de inicio de sesión**.
+13. Haga clic en **Login Settings** (Configuración de inicio de sesión).
 
     ![Configuración de inicio de sesión](./media/active-directory-saas-topdesk-secure-tutorial/IC790599.png "Configuración de inicio de sesión")
 
-14. Expanda el menú **Configuración de inicio de sesión** y luego haga clic en **General**.
+14. Expanda el menú **Login Settings** (Configuración de inicio de sesión) y luego haga clic en **General**.
 
     ![General](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "General")
 
-15. En la sección **Pública**, haga clic en **Agregar**.
+15. En la sección **Public** (Público), haga clic en **Add** (Agregar).
 
     ![Agregar](./media/active-directory-saas-topdesk-secure-tutorial/IC790607.png "Agregar")
 
-16. En la página de diálogo del **Asistente de configuración de SAML**, realice los siguientes pasos:
+16. En la página de diálogo del **SAML configuration assistant** (Asistente de configuración de SAML), realice los siguientes pasos:
 
     ![Asistente de configuración de SAML](./media/active-directory-saas-topdesk-secure-tutorial/IC790608.png "Asistente de configuración de SAML")
 
-    1.  Para cargar el archivo de metadatos descargado en **Metadatos de federación**, haga clic en **Examinar**.
-    2.  Para cargar el archivo del certificado, en **Certificado (RSA)**, haga clic en**Examinar**.
-    3.  Para cargar el archivo de logotipo que obtuvo del equipo de soporte técnico de TOPdesk, en el **icono del logotipo**, haga clic en **Examinar**.
-    4.  En el cuadro de texto **Atributo de nombre de usuario**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-5.  En el cuadro de texto **Nombre para mostrar**, escriba un nombre para su configuración.
+    1.  Para cargar el archivo de metadatos descargado en **Federation Metadata** (Metadatos de federación), haga clic en **Browse** (Examinar).
+    2.  Para cargar el archivo del certificado, en **Certificate (RSA)** (Certificado [RSA]), haga clic en **Browse** (Examinar).
+    3.  Para cargar el archivo de logotipo que obtuvo del equipo de soporte técnico de TOPdesk, en el **icono del logotipo**, haga clic en **Browse** (Examinar).
+    4.  En el cuadro de texto **User name attribute** (Atributo de nombre de usuario), escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+5.  En el cuadro de texto **Display name** (Nombre para mostrar), escriba un nombre para su configuración.
     6.  Haga clic en **Guardar**.
 
-17. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+17. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-topdesk-secure-tutorial/IC790609.png "Configurar inicio de sesión único")
 
@@ -191,10 +191,10 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Asignar usuarios](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "Sí")
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="01/14/2015"
    ms.author="andkjell"/>
 
 # Referencia técnica del conector de LDAP genérico
@@ -49,13 +49,13 @@ Directorios compatibles con la importación diferencial y la administración de 
 
 - Microsoft Active Directory Lightweight Directory Services (AD LDS)
     - Es compatible con todas las operaciones de la importación diferencial
-    - Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
+    - Es compatible con la operación Establecer contraseña
 - Catálogo global de Microsoft Active Directory (AD GC)
     - Es compatible con todas las operaciones de la importación diferencial
-    - Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
+    - Es compatible con la operación Establecer contraseña
 - 389 Directory Server
     - Es compatible con todas las operaciones de la importación diferencial
-    - Es compatible con la operación Establecer contraseña
+    - Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
 - Apache Directory Server
     - No es compatible con la importación diferencial ya que este directorio no tiene un registro de cambios persistente
     - Es compatible con la operación Establecer contraseña
@@ -71,10 +71,10 @@ Directorios compatibles con la importación diferencial y la administración de 
     - Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
 - Open DJ
     - Es compatible con todas las operaciones de la importación diferencial
-    - Es compatible con la operación Establecer contraseña
+    - Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
 - Open DS
     - Es compatible con todas las operaciones de la importación diferencial
-    - Es compatible con la operación Establecer contraseña
+    - Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
 - Open LDAP (openldap.org)
     - Es compatible con todas las operaciones de la importación diferencial
     - Es compatible con la operación Establecer contraseña
@@ -211,13 +211,13 @@ La siguiente es una lista de los nombres distintivos del registro de cambios pre
 | Apache Directory Server | No disponible. |
 | Directory 389 | Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog** |
 | IBM Tivoli DS | Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog** |
-| Isode Directory | Registro de cambios. Valor predeterminado que se utiliza: **cn=ChangeLog**
+| Isode Directory | Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog**
 | Novell / NetIQ eDirectory | No disponible. Marca de tiempo. El conector utilizará la última fecha y hora de actualización para obtener los registros agregados y actualizados. |
-| Open DJ/DS | Registro de cambios. Valor predeterminado que se utiliza: **cn=Changelog** |
+| Open DJ/DS | Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog** |
 | Open LDAP | Registro de accesos. Valor predeterminado que se utiliza: **cn=accesslog** |
 | Oracle DSEE | Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog** |
 | RadiantOne VDS | Directorio virtual. Depende del directorio conectado a VDS. |
-| Sun One Directory Server | Registro de cambios. Valor predeterminado que se utiliza: **cn=Changelog** |
+| Sun One Directory Server | Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog** |
 
 El atributo de contraseña es el nombre de atributo que debe usar el conector para establecer la contraseña en las operaciones de cambio de contraseña y establecimiento de contraseña. De forma predeterminada se utiliza **userPassword** pero puede cambiarse si es necesario para un sistema LDAP en particular.
 
@@ -279,4 +279,4 @@ Para directorios con un registro de cambios diferencial basado en fecha y hora, 
 
 -	Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

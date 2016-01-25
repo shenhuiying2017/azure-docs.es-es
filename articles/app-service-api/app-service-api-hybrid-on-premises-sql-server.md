@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Conexión a un servidor SQL local desde una aplicación de API en el Servicio de aplicaciones de Azure mediante Conexiones híbridas
@@ -118,7 +118,7 @@ Para habilitar TCP/IP, usará el Administrador de configuración de SQL Server, 
 
 	![Conectar al servidor](./media/app-service-api-hybrid-on-premises-sql-server/connect-to-server.png)
 	
-	Si el cuadro de diálogo **Conectar al servidor** no se abre automáticamente, vaya al **Explorador de objetos** en el panel izquierdo, haga clic en **Conectar** y después haga clic en **Motor de la base de datos**.
+	Si el cuadro de diálogo **Conectar al servidor** no se abre automáticamente, vaya al **Explorador de objetos** en el panel izquierdo, haga clic en **Conectar** y luego haga clic en **Motor de la base de datos**.
 	
 2. Para crear una nueva base de datos usando SQL Server Management Studio, haga clic con el botón derecho en **Base de datos** en el Explorador de objetos y, a continuación, haga clic en **Nueva base de datos**.
 	
@@ -142,7 +142,7 @@ Para habilitar TCP/IP, usará el Administrador de configuración de SQL Server, 
 
 	![Columnas de tabla nueva](./media/app-service-api-hybrid-on-premises-sql-server/table-def.png)
 
-4. Presione **&lt;Ctrl>S** para guardar la definición de la nueva tabla. Se le pedirá que escriba un nombre de tabla. Escriba `Speakers` y presione **Aceptar**.
+4. Presione **&lt;Ctrl>S** para guardar la definición de la nueva tabla. Se le pedirá que escriba un nombre de tabla. Escriba `Speakers`y presione **Aceptar**.
 
 	![Guardar nueva tabla](./media/app-service-api-hybrid-on-premises-sql-server/save-new-table.png)
 
@@ -176,7 +176,7 @@ En esta sección se ofrece información detallada sobre cómo crear la aplicaci�
 
 	![](./media/app-service-api-hybrid-on-premises-sql-server/new-model-class.png)
 
-6. Reemplace todo el contenido del archivo `Speaker.cs` por el código siguiente.
+6. Sustituya todo el contenido del archivo `Speaker.cs` por el código siguiente.
 
 		namespace SpeakersList.Models
 		{
@@ -357,7 +357,7 @@ En la ventana **Actividad del Servicio de aplicaciones de Azure** se muestra el 
 
 1. En el explorador, vaya al [Portal de vista previa de Azure](https://portal.azure.com). 
 
-2. Haga clic en la opción **Examinar todo** de la izquierda.
+2. Haga clic en la opción **Examinar todo** a la izquierda.
 
 3. En la hoja **Examinar**, seleccione **Aplicaciones de API**.
 
@@ -367,7 +367,7 @@ En la ventana **Actividad del Servicio de aplicaciones de Azure** se muestra el 
  
 	![Hoja Aplicación de API](./media/app-service-api-hybrid-on-premises-sql-server/api-app-blade-api-app-host.png)
 
-6. Cuando aparezca la hoja **Host de aplicaciones API**, desplácese hacia abajo hasta la sección **Redes** y haga clic en **Conexiones híbridas**.
+6. Cuando se abra la hoja **Host de aplicaciones API**, desplácese hacia abajo hasta la sección **Redes** y haga clic en **Conexiones híbridas**.
 	
 	![Hybrid connections](./media/app-service-api-hybrid-on-premises-sql-server/api-app-host-blade-hybrid-connections.png)
 	
@@ -383,7 +383,7 @@ En la ventana **Actividad del Servicio de aplicaciones de Azure** se muestra el 
 		
 9. Haga clic en **Aceptar** dos veces.
 
-	Al finalizar el proceso, el área **Notificaciones** mostrará una notificación de **CORRECTO** intermitente de color verde y la hoja **Conexión híbrida** mostrará la conexión híbrida nueva con el estado **No conectado**.
+	Al finalizar el proceso, el área **Notificaciones** mostrará una notificación de **ÉXITO** parpadeante de color verde y la hoja **Conexión híbrida** mostrará la conexión híbrida nueva con el estado **No conectado**.
 	
 	![Conexión híbrida creada](./media/app-service-api-hybrid-on-premises-sql-server/hybrid-not-connected-yet.png)
 	
@@ -432,4 +432,4 @@ Ahora que la infraestructura de la conexión híbrida se ha completado, es el mo
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

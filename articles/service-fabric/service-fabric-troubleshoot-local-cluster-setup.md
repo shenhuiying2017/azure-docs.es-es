@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/13/2015"
+   ms.date="01/08/2016"
    ms.author="seanmck"/>
 
 # Solución de problemas de instalación del clúster de desarrollo local
 
-Si surge un problema al interactuar con el clúster de desarrollo local, revise las siguientes sugerencias para obtener posibles soluciones.
+Si surge un problema al interactuar con el clúster de desarrollo local de Azure Service Fabric, revise las siguientes sugerencias para obtener posibles soluciones.
 
 ## Errores de instalación de clúster
 
@@ -37,15 +37,25 @@ Mientras se ejecuta el script DevClusterSetup, verá un error similar al siguien
 
 #### Solución
 
-Cierre la ventana de PowerShell actual e inicie una nueva ventana de PowerShell como administrador. Ahora podrá ejecutar correctamente el script.
+Cierre la ventana de PowerShell actual y abra una nueva ventana de PowerShell como administrador. Ahora podrá ejecutar correctamente el script.
 
 ## Errores de conexión del clúster
+
+### Los cmdlets de PowerShell de Service Fabric no se reconocen en Azure PowerShell
+
+#### Problema
+
+Si intenta ejecutar cualquiera de los cmdlets de PowerShell de Service Fabric, como por ejemplo `Connect-ServiceFabricCluster` en una ventana de Azure PowerShell, se produce un error que indica que no se reconoce el cmdlet. Esto se debe a que Azure PowerShell usa la versión de 32 bits de Windows PowerShell (incluso en las versiones de 64 bits del sistema operativo), mientras que los cmdlets de Service Fabric solo funcionan en entornos de 64 bits.
+
+#### Solución
+
+Ejecute siempre los cmdlets de Service Fabric directamente desde Windows PowerShell.
 
 ### Excepción de inicialización de tipo
 
 #### Problema
 
-Al conectarse al clúster en PowerShell o en el Explorador de Service Fabric, verá un TypeInitializationException para System.Fabric.Common.AppTrace.
+Cuando se conecta al clúster en PowerShell, aparece el error TypeInitializationException para System.Fabric.Common.AppTrace.
 
 #### Solución
 
@@ -66,13 +76,13 @@ Se produce un error en una llamada a Connect-ServiceFabricCluster con un error s
 
 #### Solución
 
-Cierre la ventana de PowerShell actual e inicie una nueva ventana de PowerShell como administrador. Ahora podrá conectarse correctamente.
+Cierre la ventana de PowerShell actual y abra una nueva ventana de PowerShell como administrador. Ahora podrá conectarse correctamente.
 
-### FabricConnectionDeniedException
+### Excepción de conexión de tejido denegada
 
 #### Problema
 
-Cuando se depura desde Visual Studio, obtiene una excepción FabricConnectionDeniedException.
+Cuando se depura desde Visual Studio, se obtiene un error FabricConnectionDeniedException.
 
 #### Solución
 
@@ -86,4 +96,4 @@ Asegúrese de que no tenga ningún proyecto de servicio establecido como proyect
 - [Comprensión y solución de problemas de clústeres con informes de mantenimiento del sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

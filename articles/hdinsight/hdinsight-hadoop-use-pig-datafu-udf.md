@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="11/06/2015"
+ms.date="01/08/2016"
 ms.author="larryfr"/>
 
 #Uso de DataFu con Pig en HDInsight
@@ -24,7 +24,7 @@ DataFu es un conjunto de bibliotecas de código abierto para su uso con Hadoop. 
 
 * Una suscripción de Azure.
 
-* Un clúster de HDInsight de Azure (basado en Linux o Windows)
+* Clúster de HDInsight de Azure (basado en Linux o Windows)
 
 * Cierta familiaridad básica con el [uso de Pig en HDInsight](hdinsight-use-pig.md)
 
@@ -107,4 +107,4 @@ Para obtener más información sobre DataFu o Pig, consulte los documentos sigui
 
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

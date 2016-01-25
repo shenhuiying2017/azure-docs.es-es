@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Tablas temporales en el Almacenamiento de datos SQL
 Las tablas temporales existen a nivel de sesión en el Almacenamiento de datos SQL. Se definen como tablas temporales locales y, a diferencia de las tablas de SQL Server, se puede tener acceso a ellas desde cualquier lugar dentro de la sesión.
@@ -147,4 +147,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

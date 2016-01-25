@@ -13,12 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="12/18/2015"
+   ms.date="01/08/2016"
    ms.author="maroche"/>
 
 # Novedades en el Catálogo de datos de Azure
 
 De forma periódica se publican actualizaciones al **Catálogo de datos de Azure**. No todas las versiones incluirán nuevas características de cara al usuario, algunas se centran en la funcionalidad del servicio back-end. En esta página se resaltan las nuevas funcionalidades de cara al usuario que se han agregado al servicio **Catálogo de datos de Azure** .
+
+## Novedades de la versión correspondiente a la semana del 8 de enero de 2016
+
+A partir de la semana del 8 de enero de 2016, se agregaron las siguientes funcionalidades al Catálogo de datos de Azure:
+
+- La capacidad de anclar y desanclar activos de datos en el portal **Catálogo de datos de Azure**. Los usuarios pueden elegir anclar activos de datos para que sea más sencillo volver a detectarlos y usarlos.
+- Una página principal recientemente rediseñada en el portal **Catálogo de datos de Azure**. La nueva página principal incluye información sobre la actividad de usuarios actual, incluidos activos publicados recientemente, activos anclados y búsquedas guardadas, así como información sobre la actividad en el catálogo en su totalidad.
+- Soporte técnico para la configuración de usuario persistente en el portal del **Catálogo de datos de Azure**. La configuración de la experiencia de usuario (incluidos la vista de cuadrícula o de icono, el número de resultados por página y el resultado de referencias activado o desactivado) se conserva entre sesiones de usuario.
+- El **Catálogo de datos de Azure** está ahora disponible en dos nuevas regiones de Azure. Los clientes pueden aprovisionar el **Catálogo de datos de Azure** en las regiones de Europa del Norte y Sudeste Asiático, además del Este de EE. UU., Oeste de EE. UU., Europa occidental y Este de Australia. Para obtener más información, vea [Regiones de Azure](https://azure.microsoft.com/regions/).
 
 ## Novedades de la versión correspondiente a la semana del 18 de diciembre de 2015
 
@@ -62,7 +71,7 @@ Desde la semana del 6 de noviembre de 2015 se agregaron las siguientes funcional
 
 - Compatibilidad con la vista preliminar de orígenes de datos de Teradata. Al registrar las vistas y tablas de Teradata, los usuarios pueden elegir incluir registros de instantánea con los metadatos extraídos del origen de datos.
 - Compatibilidad con "Abrir en Excel" para orígenes de datos de Almacenamiento de datos SQL de Azure.
-- Compatibilidad con definir y modificar esquemas de nivel de columna para los activos de datos registrados manualmente. Después de crear manualmente un activo de datos mediante el portal del **Catálogo de datos de Azure**, los usuarios pueden agregar definiciones de columna en las propiedades del activo de datos.
+- Compatibilidad con definir y modificar esquemas de nivel de columna para los activos de datos registrados manualmente. Después de crear manualmente un recurso de datos mediante el portal del **Catálogo de datos de Azure**, los usuarios pueden agregar definiciones de columna en las propiedades del activo de datos.
 - Compatibilidad con consultas "has" al buscar en el **Catálogo de datos de Azure** para habilitar la detección de activos de datos registrados que poseen metadatos específicos. La sintaxis de consulta del **Catálogo de datos de Azure** ahora incluye:
 
 | Sintaxis de consulta | Propósito |
@@ -103,7 +112,7 @@ A partir de la semana del 9 de octubre de 2015, se agregaron las siguientes func
 
 ## Novedades de la versión correspondiente a la semana del 2 de octubre de 2015
 
-A partir de la semana del 2 de octubre de 2015, se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
+Desde la semana del 2 de octubre de 2015, se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
 
 - Compatibilidad con el registro manual de tipos de orígenes de datos conocidos. Los usuarios pueden escribir manualmente información del origen de datos mediante el portal del **Catálogo de datos de Azure** para todos los tipos de orígenes de datos admitidos por el **Catálogo de datos de Azure**.
 - Compatibilidad con la autorización de grupos de seguridad de Azure Active Directory. Los administradores del catálogo pueden permitir el acceso al catálogo a los grupos de seguridad y a las cuentas de usuario, lo que facilita la administración del acceso al **Catálogo de datos de Azure**.
@@ -120,17 +129,17 @@ A partir de la semana del 25 de septiembre de 2015, se agregaron las siguientes 
 
 ## Novedades de la versión correspondiente a la semana del 18 de septiembre de 2015
 
-A partir de la semana del 18 de septiembre de 2015, se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
+Desde la semana del 18 de septiembre de 2015, se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
 
-- Una nueva experiencia de detección de orígenes de datos "introductoria" en el portal del **Catálogo de datos de Azure**. Cuando los usuarios entran en la página de "detección" del portal del **Catálogo de datos de Azure** sin escribir un término de búsqueda, se muestra información general del contenido del catálogo, incluidas las etiquetas que se usan con más frecuencia, así como los expertos, los tipos de orígenes de datos y los tipos de objeto.
-- Compatibilidad para el registro y la detección de objetos y bases de datos de Almacenamiento de datos SQL de Azure. Para obtener más información sobre el Almacenamiento de datos SQL de Azure, consulte [Almacenamiento de datos SQL](http://azure.microsoft.com/services/sql-data-warehouse/).
+- Una nueva experiencia de detección de orígenes de datos "introductoria" en el portal del **Catálogo de datos de Azure**. Cuando los usuarios entran en la página "detectar" del portal del **Catálogo de datos de Azure** sin escribir un término de búsqueda, se muestra información general del contenido del catálogo, incluidas las etiquetas que se usan con más frecuencia, así como los expertos, los tipos de orígenes de datos y los tipos de objeto.
+- Compatibilidad para el registro y la detección de objetos y bases de datos de Almacenamiento de datos SQL de Azure. Para obtener información adicional sobre el Almacenamiento de datos SQL de Azure, consulte [Almacenamiento de datos SQL](http://azure.microsoft.com/services/sql-data-warehouse/).
 - Compatibilidad para el registro y la detección de modelos de SQL Server Analysis Services y servidores de SQL Server Reporting Services como contenedores. Al registrar objetos SSAS y SSRS, el **Catálogo de datos de Azure** crea una entrada para el modelo SSAS y el servidor SSRS, así como para los informes y otros objetos. Los contenedores se pueden detectar y anotar mediante el portal del **Catálogo de datos de Azure**. Los usuarios también pueden buscar y filtrar el contenido de un modelo o servidor además de buscar y filtrar el contenido del catálogo.
 
 > [AZURE.NOTE]Los objetos SSAS y SSRS que se han registrado antes de la versión del 18 de septiembre se deben volver a registrar mediante la herramienta de registro de orígenes de datos antes de que la entrada del modelo o servidor se agregue al catálogo. Registrar de nuevo un origen de datos no afecta a las anotaciones agregadas por los usuarios en el portal del **Catálogo de datos de Azure**.
 
 ## Novedades de la versión correspondiente a la semana del 11 de septiembre de 2015
 
-A partir de la semana del 11 de septiembre de 2015, se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
+A partir de la semana del 11 de septiembre de 2015, se han agregado las siguientes funcionalidades al **Catálogo de datos de Azure**:
 
 - Compatibilidad con el registro y la detección de objetos de SQL Server Analysis Services mediante HTTP o HTTPS. Ahora los usuarios pueden conectarse a servidores SSAS mediante una dirección URL (como, por ejemplo, https://servername/olap/msmdpump.dll) en lugar de un nombre de servidor y pueden usar la autenticación básica y las conexiones anónimas además de la autenticación de Windows. Para obtener más información sobre las conexiones HTTP/HTTPS a SSAS, consulte [Configurar el acceso HTTP a Analysis Services en Internet Information Services (IIS) 8.0](https://msdn.microsoft.com/library/gg492140.aspx).
 - Compatibilidad con orígenes de datos de Hive en HDInsight. Los usuarios ahora pueden registrarse y detectar tablas de Hive de Apache Hive de Hadoop en orígenes de datos de HDInsight. Para obtener más información sobre Hive en HDInsight, consulte el [centro de documentación de HDInsight](../hdinsight-use-hive/).
@@ -150,7 +159,7 @@ A partir de la semana del 4 de septiembre de 2015, se agregaron las siguientes f
 
 ## Novedades de la versión correspondiente a la semana del 28 de agosto de 2015
 
-A partir de la semana del 28 de agosto de 2015, se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
+A partir de la semana del 28 de agosto de 2015, se han agregado las siguientes funcionalidades al **Catálogo de datos de Azure**:
 
 - Compatibilidad con la generación de perfiles de datos de orígenes de datos de SQL Server y Oracle. Al registrar vistas y tablas de SQL Server y Oracle, los usuarios puede elegir incluir información de perfil de datos para los objetos que se están registrando. El perfil de datos incluye las estadísticas de nivel de objeto y de nivel de columna.
 - Compatibilidad con orígenes de datos de Hadoop HDFS. Los usuarios pueden registrarse ahora y detectar directorios y archivos HDFS.
@@ -162,7 +171,7 @@ A partir de la semana del 21 de agosto de 2015, se agregaron las siguientes func
 - Soporte técnico para proporcionar información de solicitud de acceso a orígenes de datos registrados. Para cualquier recurso de datos registrado, los usuarios pueden ahora proporcionar instrucciones para solicitar el acceso, incluidos los vínculos de correo electrónico o direcciones URL, para integrar fácilmente herramientas y procesos existentes.
 - Información sobre herramientas para las etiquetas y expertos, para que resulte más fácil de descubrir qué usuarios han proporcionado los metadatos de los activos de datos registrados.
 - Hemos agregado un nuevo botón de "Usuario" y un menú a la barra de navegación superior. Este menú permite al usuario ver la cuenta usada para iniciar sesión en el **Catálogo de datos de Azure** y cerrar la sesión si así lo desea. Este menú también muestra el nombre del catálogo, lo que resulta útil para los desarrolladores que usan la API de REST del **Catálogo de datos de Azure**.
-- Solo en la edición estándar: cuando se agregan propietarios a los activos de datos, el **Catálogo de datos de Azure** admite ahora tanto cuentas de usuario como grupos de seguridad como propietarios. Para agregar un grupo de seguridad como propietario de los activos de datos seleccionados, puede especificar el nombre para mostrar del grupo o la dirección de correo electrónico UPN del grupo, si tiene alguna.
+- Solo en la edición estándar: al agregar propietarios a los activos de datos, el **Catálogo de datos de Azure** ahora admite tanto cuentas de usuario como grupos de seguridad como propietarios. Para agregar un grupo de seguridad como propietario de los activos de datos seleccionados, puede especificar el nombre para mostrar del grupo o la dirección de correo electrónico UPN del grupo, si tiene alguna.
 - Compatibilidad con orígenes de datos de almacenamiento de blobs de Azure. Los usuarios pueden registrarse ahora y detectar el almacenamiento de blobs de Azure y los directorios.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

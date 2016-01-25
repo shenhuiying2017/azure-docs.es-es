@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Configurar una cadena de conexión a Almacenamiento de Azure | Microsoft Azure" 
-	description="Obtenga información acerca de cómo configurar una cadena de conexión para una cuenta de Almacenamiento de Azure Una cadena de conexión incluye la información necesaria para autenticar el acceso mediante programación a los recursos en una cuenta de almacenamiento. La cadena de conexión puede encapsular su clave de acceso de cuenta para una cuenta de la que es propietario, o puede incluir una firma de acceso compartido para tener acceso a los recursos en una cuenta sin la clave de acceso." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor="cgronlun"/>
+	pageTitle="Configurar una cadena de conexión a Almacenamiento de Azure | Microsoft Azure"
+	description="Obtenga información acerca de cómo configurar una cadena de conexión para una cuenta de Almacenamiento de Azure Una cadena de conexión incluye la información necesaria para autenticar el acceso mediante programación a los recursos en una cuenta de almacenamiento. La cadena de conexión puede encapsular su clave de acceso de cuenta para una cuenta de la que es propietario, o puede incluir una firma de acceso compartido para tener acceso a los recursos en una cuenta sin la clave de acceso."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/05/2016" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/05/2016"
 	ms.author="tamram"/>
 
 # Configuración de las cadenas de conexión de Almacenamiento de Azure
@@ -52,13 +52,13 @@ Para crear una cadena de conexión para su cuenta de Almacenamiento de Azure, us
     DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey
 
 Por ejemplo, la cadena de conexión tendrá un aspecto similar a la siguiente cadena de conexión de ejemplo:
- 
+
 	DefaultEndpointsProtocol=https;
 	AccountName=storagesample;
 	AccountKey=<account-key>
 
 > [AZURE.NOTE]Almacenamiento de Azure admite HTTP y HTTPS en una cadena de conexión; sin embargo, se recomienda encarecidamente utilizar HTTPS.
-    
+
 ## Creación de una cadena de conexión para un extremo de almacenamiento explícito
 
 Puede especificar de manera explícita los extremos del servicio en la cadena de conexión si:
@@ -79,10 +79,10 @@ Debe especificar al menos un extremo de servicio, pero no es necesario que los e
 
 Cuando especifica de manera explícita los extremos de servicio de la cadena de conexión, tiene dos opciones para especificar `credentials` en la cadena anterior:
 
-- Puede especificar el nombre y la clave de cuenta: `AccountName=myAccountName;AccountKey=myAccountKey` 
+- Puede especificar el nombre y la clave de cuenta: `AccountName=myAccountName;AccountKey=myAccountKey`
 - Puede especificar una firma de acceso compartido: `SharedAccessSignature=base64Signature`
 
-### Especificación de un extremo de blob con un nombre de dominio personalizado 
+### Especificación de un extremo de blob con un nombre de dominio personalizado
 
 Si ha registrado un nombre de dominio personalizado para usarlo con el servicio Blob, puede interesarle configurar explícitamente el extremo el blob en la cadena de conexión. El valor final que aparece en la cadena de conexión se utiliza para construir los URI de solicitud para el servicio Blob e indica el formato de los URI que se devuelven para el código.
 
@@ -91,10 +91,10 @@ Por ejemplo, una cadena de conexión para un extremo de blob en un dominio perso
 	DefaultEndpointsProtocol=https;
 	BlobEndpoint=www.mydomain.com;
 	AccountName=storagesample;
-	AccountKey=<account-key> 
+	AccountKey=<account-key>
 
 
-### Especificación de un extremo de blob con una firma de acceso compartido 
+### Especificación de un extremo de blob con una firma de acceso compartido
 
 Puede crear una cadena de conexión con extremos explícitos para permitir el acceso a recursos de almacenamiento a través de una firma de acceso compartida. En este caso, puede especificar una firma de acceso compartido como parte de la cadena de conexión, en lugar de las credenciales del nombre y clave de la cuenta. El token de firma de acceso compartido encapsula la información sobre el recurso al que se va a tener acceso, el período de tiempo durante el cual estará disponible y los permisos que se van a conceder. Para obtener más información acerca de las firmas de acceso compartido, consulte [Delegación del acceso con una firma de acceso compartido](https://msdn.microsoft.com/library/ee395415.aspx).
 
@@ -119,7 +119,4 @@ Por ejemplo, la cadena de conexión debe tener un aspecto similar a la siguiente
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
 
-
- 
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

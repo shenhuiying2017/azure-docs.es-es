@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Análisis de almacenamiento | Microsoft Azure"
-	description="Administración de la simultaneidad para los servicios BLOB, Cola, Tabla y Archivo"
+	pageTitle="Usar el análisis de almacenamiento para recopilar datos de registros y métricas | Microsoft Azure"
+	description="El análisis de almacenamiento permite realizar un seguimiento de los datos de métricas para todos los servicios de almacenamiento y recopilar registros de Almacenamiento de blobs, Almacenamiento de colas y Almacenamiento de tablas."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
 
 # Análisis de almacenamiento
@@ -206,4 +206,4 @@ Al examinar los datos de análisis de almacenamiento, puede usar las tablas del 
 - [Esquema de las tablas de métricas del análisis de almacenamiento](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Operaciones y mensajes de estado registrados por el análisis de almacenamiento](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

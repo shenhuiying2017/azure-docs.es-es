@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/03/2015"
+   ms.date="01/11/2016"
    ms.author="chackdan"/>
 
 # Escalado o reducción vertical de un clúster de Service Fabric agregando o quitando máquinas virtuales (VM) de él.
@@ -25,51 +25,96 @@ Puede escalar o reducir verticalmente clústeres de Service Fabric para satisfac
 
 ## Escalado manual de un clúster de Service Fabric
 
-### Elección del tipo de nodo que se escalará
+Si el clúster tiene varios tipos de nodo, tendrá que agregar o quitar máquinas virtuales de determinados tipos de nodo. En la misma implementación puede agregar máquinas virtuales a un tipo de un nodo y quitarlas de otro.
 
-Si el clúster tiene varios tipos de nodo, ahora deberá agregar o quitar máquinas virtuales de determinados tipos de nodo.
+### Actualización de un clúster que había implementado mediante el portal
 
-1. Inicie sesión en el Portal de Azure [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
+Se trata de un proceso complejo, por lo que hemos cargado un módulo de PowerShell en un repositorio Git para que se encargue de ello.
 
-2. Navegue a los clústeres de Service Fabric ![BrowseServiceFabricClusterResource][BrowseServiceFabricClusterResource].
+**Paso 1**: Copie esa carpeta en la máquina desde este [repositorio Git](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers).
 
-3. Seleccione el clúster que quiere escalar o reducir verticalmente.
+**Paso 2**: Asegúrese de que Azure SDK 1.0+ está instalado en su equipo.
 
-4. Navegue hasta la hoja de configuración del panel del clúster. Si no ve la hoja de configuración, haga clic en Toda la configuración en la parte esencial del panel del clúster.
+**Paso 3**: Abra una ventana de PowerShell e importe el certificado ServiceFabricRPHelpers.psm
 
-5. Haga clic en NodeTypes, que abrirán la hoja de lista NodeTypes.
+```
+Remove-Module ServiceFabricRPHelpers
+```
 
-7. Haga clic en el tipo de nodo que quiere escalar o reducir verticalmente, y que luego abrirá la hoja de detalles del tipo de nodo.
+Importe el módulo de PowerShell que acaba de copiar. Simplemente, puede copiar el siguiente cmd y cambiar la ruta de acceso a .psm1 para que sea la de su equipo.
 
-### Escalado vertical agregando nodos
+```
+Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
+```
 
-Ajuste el número de máquinas virtuales hasta el que quiera y guárdelo. Los nodos o las máquinas virtuales se agregarán ahora una vez que se complete la implementación.
+ **Paso 4**: Inicie sesión en su cuenta de Azure
 
-### Reducción vertical eliminando nodos
+```
+Login-AzureRmAccount
+```
 
-La eliminación de nodos es un proceso de dos pasos:
+Ejecute el comando Invoke-ServiceFabricRPClusterScaleUpgrade, asegúrese de que el nombre del grupo de recursos y la suscripción son correctos.
 
-1. Ajuste el número de máquinas virtuales quiera y guárdelo. El punto de conexión inferior del control deslizante indica el requisito mínimos de la máquina virtual de ese NodeType.
+```
+Invoke-ServiceFabricRPClusterScaleUpgrade -ResourceGroupName <string> -SubscriptionId <string>
+```
 
-  >[AZURE.NOTE]Debe mantener un mínimo de 5 máquinas virtuales para el tipo de nodo principal.
+Este es un ejemplo ya modificado del mismo comando PS
 
-	Once that deployment is complete, you will get notified of the VM names that can now be deleted. You now need to navigate to the VM resource and delete it.
+```
+Invoke-ServiceFabricRPClusterScaleUpgrade -ResourceGroupName chackod02 -SubscriptionId 18ad2z84-84fa-4798-ad71-e70c07af879f
+```
 
-2. Vuelva al panel del clúster y haga clic en el grupo de recursos. Abrirá la hoja del grupo de recursos.
+  **Paso 5**: El comando recuperará ahora la información de clúster y le guiará a través de todos los tipos de nodo, indicándole primero el número actual de máquinas virtuales/nodos para ese tipo de nodo y, a continuación, pidiéndole que proporcione la información sobre el nuevo número de máquinas virtuales/nodos que debe haber.
 
-3. Busque en Resumen o abra la lista de recursos haciendo clic en "...".
+ **Para escalar verticalmente este tipo de nodo**, especifique un número mayor al recuento actual de máquinas virtuales.
 
-4. Haga clic en el nombre de la máquina virtual que el sistema había indicado que se puede eliminar.
+**Para reducir verticalmente este tipo de nodo**, especifique un número menor al recuento actual de máquinas virtuales.
 
-5. Haga clic en el icono Eliminar para eliminar la máquina virtual.
+Estos mensaje irán enlazando para todos los tipos de nodo. Si el clúster tiene solo un tipo de nodo, se le pedirán datos solo una vez.
+ 
+  **Paso 6**: Si va a agregar nuevas máquinas virtuales, ahora le aparecerá un mensaje para que proporcione el identificador de usuario de escritorio remoto y la contraseña para las máquinas virtuales que vaya a agregar.
+ 
+**Paso 7**: En la ventana de resultados, irá viendo mensajes que le informan del progreso de la implementación. Una vez completada la implementación, el clúster debe tener el número de nodos que especificó en el Paso 5.
+
+
+![ScaleupDownPSOut][ScaleupDownPSOut]
+
+
+**Paso 8**: Si se trataba de una solicitud de reducción vertical, le queda un paso más, el de la eliminación de las máquinas virtuales. El script desactiva todas las máquinas virtuales para las que solicitó la retirada, es decir, en estos nodos/máquinas virtuales no existen réplicas de aplicación o sistema. Así que ahora es seguro eliminar esas máquinas virtuales.
+
+**NOTA**: Aunque el clúster SF ya no usa los nodos desactivados, debe eliminar las máquinas virtuales desactivadas para que no se las cobremos.
+
+[Paso 8.1](http://aka.ms/servicefabricportal): Inicie sesión en el Portal de Azure **http://aka.ms/servicefabricportal**.
+
+**Paso 8.2**: Busque el recurso de clúster en el que estaba realizando la reducción vertical y haga clic en "Todas las configuraciones" en el elemento web Essentials.
+
+**Paso 8.3**: Haga clic en Tipos de nodo, verá una lista de nodos que están desactivados. En esta imagen, chackodnt15, chackodnt24, chackodnt25 y chackodnt26 son las máquinas virtuales que hay que eliminar.
+
+![DeactivatedNodeList][DeactivatedNodeList]
+
+**Paso 8.4**: Elimine esas máquinas virtuales a través de PS o del Portal. Una vez que se eliminan, ahora ha terminado con la reducción vertical del clúster.
+
+```
+Remove-AzureRmResource -ResourceName <Deactivated Node name without the understore> -ResourceType Microsoft.Compute/virtualMachines -ResourceGroupName <Resource Group name> -ApiVersion <Api version>
+```
+Este es un ejemplo ya modificado de ese comando
+
+```
+Remove-AzureRmResource -ResourceName chackodnt26 -ResourceType Microsoft.Compute/virtualMachines -ResourceGroupName chackod02 -ApiVersion 2015-05-01-preview
+```
+
+### Actualización de un clúster que había implementado mediante la CLI o ARM con PowerShell
+
+Si implementó el clúster mediante una plantilla ARM inicialmente, tiene que modificar el número de las máquinas virtuales para un tipo de nodo determinado y todos los recursos que admiten la máquina virtual. El número mínimo de máquinas virtuales que se permite para el tipo de nodo principal es 5 (excepto para los clústeres de prueba), para los clústeres de prueba el mínimo es 3.
+
+Una vez que tenga la nueva plantilla, puede implementarla a través de ARM con el mismo grupo de recursos que el clúster que va a actualizar.
+
 
 ## Escalado manual del clúster de Service Fabric
 
 En este momento, los clústeres de Service Fabric no admiten el escalado automático. En un futuro cercano, los clústeres se integrarán en conjuntos de escala de máquina virtual (VMSS) y en ese momento el escalado automático será posible y se comportará de manera similar al comportamiento de escala automática disponible en los Servicios en la nube.
 
-## Escalado mediante PowerShell/CLI
-
-En este artículo se trata el escalado de clústeres mediante el portal. Sin embargo, puede realizar las mismas acciones desde la línea de comandos con comandos ARM en el recurso de clúster. La respuesta GET de ClusterResource ofrecerá la lista de nodos que se han deshabilitado.
 
 ## Pasos siguientes
 
@@ -78,6 +123,7 @@ En este artículo se trata el escalado de clústeres mediante el portal. Sin emb
 
 
 <!--Image references-->
-[BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
+[ScaleupDownPSOut]: ./media/service-fabric-cluster-scale-up-down/ScaleupDownPSOut.png
+[DeactivatedNodeList]: ./media/service-fabric-cluster-scale-up-down/DeactivatedNodeList.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

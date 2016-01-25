@@ -1,3 +1,5 @@
-The Virtual Machine Scale Sets API version is 2015-06-15 and is a preview release for evaluation and testing purposes. It is recommended that for the preview release, you register with the feature before using VM Scale Sets. You do this by running the following command:
+La versión de LA API de conjuntos de escala de máquina virtual es 2015-06-15 y es una versión preliminar diseñada para fines de prueba y evaluación. Es recomendable que para la versión preliminar, se registre con la característica antes de usar conjuntos de escala de la máquina virtual. Para ello, ejecute el siguiente comando:
 
     azure feature register Microsoft.Compute vmssApiPreviewV2Access
+
+<!---HONumber=AcomDC_0114_2016-->

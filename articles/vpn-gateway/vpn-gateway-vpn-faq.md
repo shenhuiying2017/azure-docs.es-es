@@ -84,8 +84,6 @@ Otras soluciones VPN de software deben funcionar con nuestra puerta de enlace si
 
 ## Conexiones de punto a sitio
 
-Actualmente, las conexiones de punto a sitio solo están disponibles para el modelo de implementación clásica (también conocido como administración de servicios). Estamos trabajando en una solución de punto a sitio para el modelo de implementación del Administrador de recursos de Azure. Cuando esté disponible, esta página se actualizará.
-
 ### ¿Qué sistemas operativos puedo usar para las conexiones de punto a sitio?
 
 Se admiten los siguientes sistemas operativos:
@@ -269,4 +267,4 @@ Puede ver más información sobre las puertas de enlace de VPN en la [Página de
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

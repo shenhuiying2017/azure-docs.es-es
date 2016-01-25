@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Uso del almacenamiento de blobs de Ruby | Microsoft Azure"
-	description="Aprenda a utilizar el servicio BLOB de Azure para cargar, descargar, incluir en un listado y eliminar contenido de blobs. Los ejemplos están escritos en Ruby."
+	description="Aprenda a usar Almacenamiento de blobs para cargar, descargar, enumerar y eliminar contenido de blobs. Los ejemplos están escritos en Ruby."
 	services="storage"
 	documentationCenter="ruby"
 	authors="tfitzmac"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -23,7 +23,7 @@
 
 ## Información general
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio BLOB de Azure. Los ejemplos están escritos usando la API Ruby. Entre los escenarios descritos se incluyen **cargar, enumerar, descargar** y **eliminar** blobs.
+En esta guía se muestra cómo realizar algunas tareas comunes con Almacenamiento de blobs. Los ejemplos están escritos usando la API Ruby. Entre los escenarios descritos se incluyen **cargar, enumerar, descargar** y **eliminar** blobs.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -146,4 +146,4 @@ Para obtener información acerca de tareas de almacenamiento más complejas, sig
 - Repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 - [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

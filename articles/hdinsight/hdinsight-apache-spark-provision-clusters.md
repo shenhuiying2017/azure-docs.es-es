@@ -32,7 +32,7 @@ Antes de comenzar con las instrucciones de este artículo, debe tener una suscri
 
 ##<a id="configuration"></a>¿Cuáles son las diferentes opciones de configuración?
 
-###Almacenamiento adicional
+### Almacenamiento adicional
 
 Durante la configuración, debe especificar una cuenta de almacenamiento de blobs de Azure y un contenedor predeterminado. El clúster usa este contenedor como ubicación de almacenamiento predeterminada. Si lo desea, puede especificar una cuenta de almacenamiento de Azure adicional que también se asociará con el clúster.
 
@@ -40,7 +40,7 @@ Durante la configuración, debe especificar una cuenta de almacenamiento de blob
 
 Para obtener más información sobre el uso de almacenes de blobs secundarios, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](hdinsight-use-blob-storage.md).
 
-###Tienda de metadatos
+### Tienda de metadatos
 
 Spark permite definir esquemas y tablas de Hive con datos sin procesar. Puede guardar estos esquemas y metadatos de las tablas en las tiendas de metadatos externas. El uso de la tienda de metadatos lo ayuda a conservar sus metadatos de Hive, por lo que no es necesario volver a crear tablas de Hive al crear un nuevo clúster. De forma predeterminada, Hive utiliza una base de datos integrada para almacenar esta información. La base de datos incrustada no puede conservar los metadatos cuando se elimina el clúster.
 
@@ -51,7 +51,7 @@ Para obtener instrucciones sobre cómo crear una Base de datos SQL en Azure, vea
 Puede instalar componentes adicionales o personalizar la configuración del clúster mediante el uso de scripts durante la creación. Tales scripts se invocan mediante la opción de **Acción de script**, una opción de configuración que se puede usar a partir de los cmdlets de Windows PowerShell de HDInsight, en el Portal de Azure o el SDK de .NET para HDInsight. Para obtener más información, consulte [Personalizar el clúster de HDInsight mediante la acción de script][hdinsight-customize-cluster].
 
 
-###Redes virtuales
+### Redes virtuales
 
 [Red virtual de Azure](http://azure.microsoft.com/documentation/services/virtual-network/) permite crear una red segura y persistente que contenga los recursos que necesita para la solución. Una red virtual permite hacer lo siguiente:
 
@@ -69,15 +69,9 @@ Puede instalar componentes adicionales o personalizar la configuración del clú
 
 	![Diagrama de la configuración de punto a sitio](./media/hdinsight-apache-spark-provision-clusters/hdinsight-vnet-point-to-site.png)
 
-Para obtener más información sobre las características, las ventajas y la funcionalidad de Red virtual, consulte [Información general sobre Red virtual de Azure](../virtual-network/virtual-networks-overview.md).
+Para obtener información sobre el uso de HDInsight con una red virtual, como por ejemplo, los requisitos de configuración específicos de la red virtual, consulte [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) (Ampliar las capacidades de HDInsight con una red virtual de Azure).
 
-> [AZURE.NOTE]Debe crear la red virtual de Azure antes de crear un clúster. Para obtener más información, vea [Creación de una red virtual](virtual-networks-create-vnet.md).
->
-> Azure HDInsight solo admite redes virtuales basadas en la ubicación y actualmente no funciona con redes virtuales basadas en grupos de afinidad.
->
-> Se recomienda encarecidamente designar una única subred para un clúster.
-
-##<a id="portal"></a> Uso del portal de vista previa de Azure
+##<a id="portal"></a> Uso del Portal de vista previa de Azure
 
 Los clústeres Spark en HDInsight usan un contenedor de almacenamiento de blobs de Azure como sistema de archivos predeterminado. Es preciso tener una cuenta de almacenamiento de Azure ubicada en el mismo centro de datos antes de crear un clúster de HDInsight. Para obtener más información, consulte [Uso de Almacenamiento de blobs de Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obtener información acerca de la creación de una cuenta de almacenamiento de Azure, consulte [Creación de una cuenta de almacenamiento][azure-create-storageaccount].
 
@@ -108,13 +102,13 @@ Los clústeres Spark en HDInsight usan un contenedor de almacenamiento de blobs 
 
 	Actualmente puede seleccionar una cuenta de almacenamiento de Azure como origen de datos para un clúster de HDInsight. Use lo siguiente para comprender las entradas de la hoja **Origen de datos**.
 
-	- **Método de selección**: establézcalo en **De todas las suscripciones** para habilitar la exploración de cuentas de almacenamiento en todas sus suscripciones. Establézcalo en **Clave de acceso** si quiere especificar el **Nombre de almacenamiento** y la **Clave de acceso** de una cuenta de almacenamiento existente.
+	- **Método de selección**: establézcalo en **De todas las suscripciones** para habilitar la exploración de cuentas de almacenamiento en todas sus suscripciones. Establézcalo en **Clave de acceso** si desea especificar el **Nombre de almacenamiento** y la **Clave de acceso** de una cuenta de almacenamiento existente.
 
-	- **Seleccionar cuenta de almacenamiento o Crear nueva**: haga clic en **Seleccionar cuenta de almacenamiento** para buscar y seleccionar una cuenta de almacenamiento existente que desee asociar con el clúster. O bien, haga clic en **Crear nueva** para crear una cuenta de almacenamiento. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparecerá una marca de verificación verde.
+	- **Seleccionar cuenta de almacenamiento o Crear nueva**: haga clic en **Seleccionar cuenta de almacenamiento** para buscar y seleccionar una cuenta de almacenamiento existente que desee asociar con el clúster. O bien, haga clic en **Crear nueva** para crear una nueva cuenta de almacenamiento. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparecerá una marca de verificación verde.
 
 	- **Elegir contenedor predeterminado**: use esta opción para escribir el nombre del contenedor predeterminado que se usará para el clúster. Aunque se puede escribir cualquier nombre aquí, se recomienda usar el mismo nombre que el del clúster para que pueda reconocer fácilmente que el contenedor se usa para este clúster concreto.
 
-	- **Ubicación**: región geográfica en la que se encuentra la cuenta de almacenamiento o donde se creará.
+	- **Ubicación**: región geográfica en la que se encuentra o donde se creará la cuenta de almacenamiento.
 
 		> [AZURE.IMPORTANT]Seleccionar la ubicación del origen de datos predeterminado también establecerá la ubicación del clúster de HDInsight. El origen de datos del clúster y predeterminado deben encontrarse en la misma región.
 
@@ -126,11 +120,11 @@ Los clústeres Spark en HDInsight usan un contenedor de almacenamiento de blobs 
 
 	Haga clic en **Seleccionar** para guardar la configuración de precios de nodo.
 
-9. Haga clic en **Configuración opcional** para seleccionar la versión del clúster y configurar otros valores de configuración opcionales, por ejemplo, unirse a una **Red virtual**, configurar una **Tienda de metadatos externos** para almacenar datos de Hive y Oozie, usar acciones de script a fin de personalizar un clúster para instalar componentes personalizados o usar cuentas de almacenamiento adicionales con el clúster.
+9. Haga clic en **Configuración opcional** para seleccionar la versión del clúster y configurar otros valores opcionales, como unirse a una **Red virtual**, configurar una **tienda de metadatos externos** para almacenar datos de Hive y Oozie, usar acciones de script para personalizar un clúster para instalar componentes personalizados o usar cuentas de almacenamiento adicionales con el clúster.
 
-	* Haga clic en la lista desplegable **Versión de HDInsight** y seleccione la versión que quiera usar para el clúster. Para obtener más información, vea [Versiones de clústeres de HDInsight](hdinsight-component-versioning.md).
+	* Haga clic en la lista desplegable **Versión de HDInsight** y seleccione la versión que quiera usar para el clúster. Para obtener más información, consulte [Versiones del clúster de HDInsight](hdinsight-component-versioning.md).
 
-	* Haga clic en **Red virtual** para proporcionar detalles de configuración para configurar el clúster como parte de una red virtual. En la hoja **Red virtual**, haga clic en **Red virtual** y luego haga clic en una red que quiera usar. De forma similar, seleccione una **subred** para la red y luego haga clic en **Seleccionar** para guardar la configuración de red virtual.
+	* Haga clic en **Red virtual** para proporcionar detalles de configuración para configurar el clúster como parte de una red virtual. En la hoja **Red virtual**, haga clic en **Red virtual** y luego haga clic en una red que quiera usar. De forma similar, seleccione una **subred** para la red y, a continuación, haga clic en **Seleccionar** para guardar la configuración de red virtual.
 
 		![Hoja de red virtual](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.6.png "Especifique detalles de red virtual")
 
@@ -138,7 +132,7 @@ Los clústeres Spark en HDInsight usan un contenedor de almacenamiento de blobs 
 
 		![Hoja de tiendas de metadatos personalizados](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.7.png "Especificar tiendas de metadatos externas")
 
-		En **Usar una Base de datos SQL existente para metadatos de Hive**, haga clic en **Sí**, seleccione una base de datos SQL y luego escriba el nombre de usuario y la contraseña para la base de datos. Repita estos pasos si quiere **Usar una Base de datos SQL existente para los metadatos de Oozie**. Haga clic en **Seleccionar** hasta volver a la hoja **Configuración opcional**.
+		En **Usar una Base de datos SQL existente para metadatos de Hive**, haga clic en **Sí**, seleccione una base de datos SQL y luego escriba el nombre de usuario y la contraseña para la base de datos. Repita estos pasos si desea **Usar una Base de datos SQL existente para los metadatos de Oozie**. Haga clic en **Seleccionar** hasta volver a la hoja **Configuración opcional**.
 
 		>[AZURE.NOTE]La base de datos SQL de Azure usada para la tienda de metadatos debe permitir la conectividad con otros servicios de Azure, incluido HDInsight de Azure. En el panel de la base de datos SQL de Azure, en el lado derecho, haga clic en el nombre de servidor. Este es el servidor en el que se ejecuta la instancia de base de datos SQL. Cuando se encuentre en la vista de servidor, haga clic en **Configurar** y luego, en **Servicios de Azure**, haga clic en **Sí** y en **Guardar**.
 
@@ -148,13 +142,13 @@ Los clústeres Spark en HDInsight usan un contenedor de almacenamiento de blobs 
 
 		Haga clic en **Seleccionar** para guardar los cambios en la configuración de la acción de script.
 
-	* Haga clic en **Claves de almacenamiento de Azure** a fin de especificar cuentas de almacenamiento adicionales para asociar al clúster. En la hoja **Claves de almacenamiento de Azure**, haga clic en **Agregar una clave de almacenamiento** y luego seleccione una cuenta de almacenamiento existente o cree una nueva cuenta.
+	* Haga clic en **Claves de almacenamiento de Azure** para especificar cuentas de almacenamiento adicionales para asociar con el clúster. En la hoja **Claves de almacenamiento de Azure**, haga clic en **Agregar una clave de almacenamiento** y luego seleccione una cuenta de almacenamiento existente o cree una nueva cuenta.
 
 		![Hoja de almacenamiento adicional](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.9.png "Especificar cuentas de almacenamiento adicionales")
 
 		Haga clic en **Seleccionar** hasta volver a la hoja **Nuevo clúster de HDInsight**.
 
-10. En la hoja **Nuevo clúster de HDInsight**, asegúrese de que la opción **Anclar a Panel de inicio** está seleccionada y haga clic en **Crear**. Esto creará el clúster y agregará un icono para él en el panel de inicio de su Portal de Azure. El icono indicará que el clúster se está creando y, cuando se haya completado el proceso, cambiará para mostrar el icono de HDInsight.
+10. En la hoja **Nuevo clúster de HDInsight**, asegúrese de que **Anclar a Panel de inicio** está seleccionado y, a continuación, haga clic en **Crear**. Esto creará el clúster y agregará un icono para él en el panel de inicio de su Portal de Azure. El icono indicará que el clúster se está creando y, cuando se haya completado el proceso, cambiará para mostrar el icono de HDInsight.
 
 	| Al crear | Creación finalizada |
 	| ------------------ | --------------------- |
@@ -168,19 +162,19 @@ Los clústeres Spark en HDInsight usan un contenedor de almacenamiento de blobs 
 
 	Use la siguiente información para comprender los iconos de la parte superior de esta hoja y de las secciones **Conceptos básicos** y **Vínculos rápidos**:
 
-	* **Configuración** y **Toda la configuración**: muestra la hoja **Configuración** del clúster, que permite acceder a información de configuración detallada para el clúster.
+	* **Configuración** y **Toda la configuración**: muestra la hoja **Configuración** del clúster, que permite obtener acceso a información de configuración detallada para el clúster.
 
 	* **Panel** y **URL**: se trata de formas de acceder al panel del clúster, que es un portal web que ejecuta trabajos en el clúster.
 
 	* **Escritorio remoto**: permite habilitar o deshabilitar Escritorio remoto en los nodos de clúster.
 
-	* **Escalar clúster**: permite cambiar el número de nodos de trabajo para este clúster.
+	* **Escalar clúster**: Permite cambiar el número de nodos de trabajo para este clúster.
 
 	* **Eliminar**: elimina el clúster de HDInsight.
 
 	* **Inicio rápido** (![icono de nube y rayo = inicio rápido](./media/hdinsight-apache-spark-provision-clusters/quickstart.png)): muestra información que le ayudará a empezar a usar HDInsight.
 
-	* **Usuarios** (![icono de usuarios](./media/hdinsight-apache-spark-provision-clusters/users.png)): permite establecer permisos de _administración del portal_ de este clúster para otros usuarios de su suscripción de Azure.
+	* **Usuarios** (![icono de usuarios](./media/hdinsight-apache-spark-provision-clusters/users.png)): permite establecer permisos para la _administración del portal_ de este clúster para otros usuarios de la suscripción de Azure.
 
 		> [AZURE.IMPORTANT]Esto _solo_ afecta al acceso y los permisos para este clúster en el Portal de vista previa de Azure, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
 
@@ -189,7 +183,7 @@ Los clústeres Spark en HDInsight usan un contenedor de almacenamiento de blobs 
 	* **Panel de clúster**: inicia la hoja Panel de clúster desde la que puede iniciar el panel de clúster propio o iniciar cuadernos de Zeppelin y Jupyter.
 
 
-##<a id="powershell"></a> Uso de Azure PowerShell
+##<a id="powershell"></a>Uso de Azure PowerShell
 
 Vea [Creación de clústeres de HDInsight](hdinsight-provision-clusters.md#create-using-azure-powershell).
 
@@ -248,4 +242,4 @@ Especifique el tipo de clúster Spark:
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Uso de Sqoop con HDInsight"
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

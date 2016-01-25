@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Tutorial: Integración de Azure Active Directory con Panorama9
@@ -80,7 +80,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-panorama9-tutorial/IC790021.png "Configurar dirección URL de la aplicación")
 
-4.  En la página **Configurar inicio de sesión único en Panorama9**, para descargar el certificado, haga clic en **Descargar certificado** y luego guárdelo en el equipo.
+4.  En la página **Configurar inicio de sesión único en Panorama9**, para descargar el certificado, haga clic en **Descargar certificado** y, a continuación, guárdelo en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-panorama9-tutorial/IC790022.png "Configurar inicio de sesión único")
 
@@ -105,7 +105,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     3.  Haga clic en **Guardar**.
 
-9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-panorama9-tutorial/IC790026.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -143,10 +143,10 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Asignar usuarios](./media/active-directory-saas-panorama9-tutorial/IC790029.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-panorama9-tutorial/IC767830.png "Sí")
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

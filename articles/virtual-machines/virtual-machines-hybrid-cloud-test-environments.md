@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="09/16/2015"
+	ms.date="01/12/2016"
 	ms.author="josephd"/>
 
 # Entornos de prueba de nube híbrida de Azure
@@ -49,14 +49,8 @@ El [servidor de sincronización de directorios de Office 365 en un entorno de pr
 Para aquellas organizaciones y usuarios sin acceso fácil a una conexión directa a Internet y a la dirección IP pública, el [entorno de prueba de nube híbrida simulada](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) refuerza la red local simplificada en una red virtual de Azure independiente y después conecta las dos redes virtuales con una conexión VPN de red virtual a red virtual.
 
 
-## Recursos adicionales
+## Paso siguiente
 
-[Granjas de servidores de SharePoint hospedadas en Servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
+- Obtenga información sobre las [directrices de implementación](virtual-machines-infrastructure-services-implementation-guidelines.md) para diseñar una implementación personalizada de desarrollo, prueba o producción en los servicios de infraestructura de Azure.
 
-[Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-LOB-application.md)
-
-[Implementación de la sincronización de directorios de Office 365 (DirSync) en Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
-
-[Instrucciones de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

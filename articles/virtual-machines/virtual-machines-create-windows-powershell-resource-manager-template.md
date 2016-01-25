@@ -14,17 +14,17 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/07/2016"
 	ms.author="davidmu"/>
 
 # Creación de una máquina virtual Windows con una plantilla del Administrador de recursos
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
 <br>
 
@@ -285,18 +285,8 @@ Verá algo parecido a lo siguiente:
 
 Ahora dispone de una nueva máquina virtual Windows denominada MyWindowsVM en el nuevo grupo de recursos.
 
-## Recursos adicionales
+## Pasos siguientes
 
-[Proveedores de proceso, red y almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
+Aprenda a administrar la máquina virtual que acaba de crear. Para ello, consulte [Administración de máquinas virtuales con el Administrador de recursos de Azure y con PowerShell](virtual-machines-deploy-rmtemplates-powershell.md).
 
-[Información general del Administrador de recursos de Azure](resource-group-overview.md)
-
-[Creación de una máquina virtual Windows con el Administrador de recursos de Azure y PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
-
-[Crear máquinas virtuales de Windows con PowerShell y el modelo de implementación clásica](virtual-machines-ps-create-preconfigure-windows-vms.md)
-
-[Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

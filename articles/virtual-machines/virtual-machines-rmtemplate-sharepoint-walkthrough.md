@@ -3,7 +3,7 @@
 	description="Siga los pasos de la estructura de la plantilla del Administrador de recursos de Azure para la granja de servidores SharePoint de tres servidores."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="davidmu1"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
-	ms.author="josephd"/>
+	ms.author="davidmu"/>
 
 # Plantilla del Administrador de recursos de la granja de SharePoint de tres servidores
 
@@ -366,14 +366,8 @@ Su propia plantilla JSON para construir una infraestructura de múltiples capas 
 1.	Cree los elementos comunes (cuenta de almacenamiento, red virtual), específicos del nivel (conjuntos de disponibilidad) y específicos de la máquina virtual (direcciones IP públicas, conjuntos de disponibilidad, interfaces de red, instancias de equilibrador de carga) de la infraestructura de Azure necesarios para su implementación.
 2.	Para cada capa de la aplicación (por ejemplo, autenticación, base de datos, web), cree y configure los servidores de esa capa mediante los elementos comunes (cuenta de almacenamiento, red virtual), específicos de la capa (conjuntos de disponibilidad) y específicos de la máquina virtual (direcciones IP públicas, conjuntos de disponibilidad, interfaces de red e instancias de equilibrador de carga).
 
-Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
+## Paso siguiente
 
-## Recursos adicionales
+- Obtenga información sobre el [lenguaje de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md) y cree una propia.
 
-[Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md) [Información general del Administrador de recursos de Azure](../resource-group-overview.md)
-
-[Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md)
-
-[Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

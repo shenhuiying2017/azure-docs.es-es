@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 
@@ -500,9 +500,7 @@ En este paso, descargará un archivo que contiene información acerca de su susc
 
 	Este comando inicia un explorador y se desplaza a la página de descarga. Si se le solicita, inicie sesión con la cuenta asociada a su suscripción de Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->
-
-	La descarga del archivo se inicia automáticamente; si esto no ocurre, puede hacer clic en el vínculo al comienzo de la página para descargar el archivo manualmente. Guarde el archivo y anote la ruta de acceso del archivo.
+	<!-- ![The download page][download-publishing-settings] -->La descarga del archivo se inicia automáticamente; si esto no ocurre, puede hacer clic en el vínculo al comienzo de la página para descargar el archivo manualmente. Guarde el archivo y anote la ruta de acceso del archivo.
 
 2. Escriba el siguiente comando para importar la configuración.
 
@@ -642,4 +640,4 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

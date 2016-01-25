@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/07/2016"
 	ms.author="curtand"/>
 
 
@@ -45,7 +45,7 @@ En la tabla siguiente se describe la configuración de políticas de contraseña
 | Expiración de las contraseñas | <ul><li>Valor predeterminado: **false** (indica la expiración de la contraseña está habilitado) </li><li>El valor se puede configurar para cuentas de usuario individuales mediante el cmdlet Set-MsolUser. </li></ul> |
 | Historial de contraseñas | No se puede utilizar nuevamente la última contraseña. |
 | Duración del historial de contraseñas | Siempre |
-| Bloqueo de cuenta | <ul><li>Después de 10 intentos de inicio de sesión incorrectos (contraseña equivocada), el usuario deberá resolver un cuadro de diálogo CAPTCHA como parte del inicio de sesión.</li><li>Tras otros 10 intentos de inicio de sesión incorrectos (contraseña equivocada) y la correcta resolución del cuadro de diálogo CAPTCHA, el usuario se bloqueará durante un período de tiempo. Más contraseñas incorrectas provocará un aumento exponencial en el período de tiempo de bloqueo.</li></ul> |
+| Bloqueo de cuenta | Después de 10 intentos de inicio de sesión incorrectos (contraseña incorrecta), el usuario se bloqueará durante un minuto. Más intentos de inicio de sesión incorrectos bloquearán el usuario para mayores duraciones. |
 
 
 ## Pasos siguientes
@@ -60,4 +60,4 @@ En la tabla siguiente se describe la configuración de políticas de contraseña
 * [Solución de problemas de administración de contraseñas](active-directory-passwords-troubleshoot.md)
 * [Más información](active-directory-passwords-learn-more.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="micurd" 
 	manager="jahogg" 
-	editor="cgronlun"/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="storage" 
@@ -28,7 +28,7 @@ La vista previa de la biblioteca de movimiento de datos de Almacenamiento de Mic
 
 ## Descarga e instalación de AzCopy
 
-1. Descargue la [última versión de AzCopy](http://aka.ms/downloadazcopy).
+1. Descargue la [versión más reciente de AzCopy](http://aka.ms/downloadazcopy).
 2. Ejecución de la instalación. De forma predeterminada, AzCopy se instala en `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy\AzCopy.exe` (en una máquina que ejecuta Windows de 64 bits) o en `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy\AzCopy.exe` (en una máquina que ejecuta Windows de 32 bits). Sin embargo, puede cambiar la ruta de acceso de instalación desde el asistente para la instalación.
 3. Si lo desea, puede agregar la ubicación de instalación de AzCopy a la ruta de acceso del sistema.
 
@@ -982,4 +982,4 @@ Para obtener más información acerca de Almacenamiento de Azure y AzCopy, consu
 - [AzCopy: Uso de copia de blobs entre cuentas](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Carga y descarga de archivos para blobs de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

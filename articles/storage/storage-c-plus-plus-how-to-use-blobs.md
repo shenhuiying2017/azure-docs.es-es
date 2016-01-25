@@ -1,20 +1,20 @@
-<properties 
-    pageTitle="Cómo usar el almacenamiento de blobs (C++) | Microsoft Azure" 
-    description="Obtenga información sobre cómo usar el servicio de almacenamiento de blobs de Azure. Los ejemplos están escritos en C++." 
-    services="storage" 
-    documentationCenter=".net" 
-    authors="tamram" 
-    manager="adinah" 
-    editor=""/>
+<properties
+    pageTitle="Cómo usar el almacenamiento de blobs (C++) | Microsoft Azure"
+    description="Obtenga información sobre cómo usar el servicio de almacenamiento de blobs de Azure. Los ejemplos están escritos en C++."
+    services="storage"
+    documentationCenter=".net"
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
 
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="01/05/2016" 
-    ms.author="tamram"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/05/2016"
+    ms.author="dineshm"/>
 
 # Cómo usar el almacenamiento de blobs de C++  
 
@@ -78,7 +78,7 @@ A continuación, obtenga una referencia a una clase **cloud\_blob\_client**, ya 
 
 En este ejemplo se muestra cómo crear un contenedor si todavía no existe:
 
-	try 
+	try
 	{
 		// Retrieve storage account from connection string.
 		azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -189,7 +189,7 @@ Para descargar blobs, primero recupere una referencia de blob y, a continuación
 
 	std::ofstream outfile("DownloadBlobFile.txt", std::ofstream::binary);
 	std::vector<unsigned char>& data = buffer.collection();
-		
+
 	outfile.write((char *)&data[0], buffer.size());
 	outfile.close();  
 
@@ -238,8 +238,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 -	[Documentación de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
 - [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 
-
-
- 
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

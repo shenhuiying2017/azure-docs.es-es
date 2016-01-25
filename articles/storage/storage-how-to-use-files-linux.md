@@ -5,7 +5,7 @@
         documentationCenter="na"
         authors="jasontang501"
         manager="jahogg"
-        editor="" />
+        editor="tysonn" />
 
 <tags ms.service="storage"
       ms.workload="storage"
@@ -13,10 +13,10 @@
       ms.devlang="na"
       ms.topic="article"
       ms.date="12/17/2015"
-      ms.author="jutang;tamram" />
+      ms.author="jutang" />
 
 
-# Uso de Almacenamiento de archivos de Azure con Linux 
+# Uso de Almacenamiento de archivos de Azure con Linux
 
 ## Información general
 
@@ -24,7 +24,7 @@ El almacenamiento de archivos de Azure ofrece recursos compartidos de archivos e
 
 Puede crear recursos compartidos de archivos de Azure mediante el [Portal de Azure](portal.azure.com), los cmdlets de PowerShell de Almacenamiento de Azure, las bibliotecas de cliente de Almacenamiento de Azure o la API de REST de Almacenamiento de Azure. Además, dado que los recursos compartidos de archivos son recursos compartidos de SMB, puede tener acceso a ellos a través de las API del sistema de archivos estándar.
 
-El almacenamiento de archivos se basa en la misma tecnología que el almacenamiento de blobs, tablas y en cola, por lo que el almacenamiento de archivos ofrece la disponibilidad, durabilidad, escalabilidad y redundancia geográfica que están integradas en la plataforma de Almacenamiento de Azure. Para más información sobre los límites y objetivos de rendimiento del almacenamiento de archivos, vea [Objetivos de escalabilidad y rendimiento del Almacenamiento de Azure](storage-scalability-targets.md).
+El almacenamiento de archivos se basa en la misma tecnología que el almacenamiento de blobs, tablas y en cola, por lo que el almacenamiento de archivos ofrece la disponibilidad, durabilidad, escalabilidad y redundancia geográfica que están integradas en la plataforma de Almacenamiento de Azure. Para más información sobre los límites y objetivos de rendimiento de Almacenamiento de archivos, vea [Objetivos de escalabilidad y rendimiento del Almacenamiento de Azure](storage-scalability-targets.md).
 
 El almacenamiento de archivos ya está disponible y es compatible con SMB 2.1 y SMB 3.0. Para más detalles sobre el almacenamiento de archivos, vea la [API de REST del servicio de archivos](https://msdn.microsoft.com/library/azure/dn167006.aspx).
 
@@ -40,10 +40,10 @@ Este es un vídeo que muestra cómo crear y usar recursos compartidos de archivo
 
 Al crear una máquina virtual de Linux en Azure, puede especificar una imagen de Linux que admita SMB 2.1 o superior de la Galería de imágenes de Azure. A continuación se muestra una lista de imágenes de Linux recomendadas:
 
-- Ubuntu Server 14.04	
-- Ubuntu Server 15.04	
-- CentOS 7.1	
-- Open SUSE 13.2	
+- Ubuntu Server 14.04
+- Ubuntu Server 15.04
+- CentOS 7.1
+- Open SUSE 13.2
 - SUSE Linux Enterprise Server 12
 - SUSE Linux Enterprise Server 12 (Premium Image)
 
@@ -60,7 +60,7 @@ A continuación, tiene que crear un punto de montaje (mkdir mymountpoint) y lueg
 También puede agregar configuraciones en su /etc/fstab para montar el recurso compartido.
 
 Tenga en cuenta que aquí 0777 representa un código de permisos de directorio o archivo que concede permisos de ejecución/lectura/escritura a todos los usuarios. Puede reemplazarlo con otro código de permiso de archivos siguiendo el documento de permisos de archivos de Linux.
- 
+
 Asimismo, para mantener un recurso compartido de archivos montado tras reiniciar el equipo, puede agregar una configuración como la que se muestra a continuación en etc/fstab:
 
     //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
@@ -98,9 +98,9 @@ El [Portal de Azure](portal.azure.com) ofrece una interfaz de usuario para admin
 - Cargar y descargar archivos al recurso compartido de archivos y desde este.
 - Supervisar el uso real de cada recurso compartido de archivos.
 - Ajustar la cuota de tamaño del recurso compartido de archivos.
-- Copie el comando `net use` para usarlo para montar el recurso compartido de archivos desde un cliente Windows. 
+- Copie el comando `net use` para usarlo para montar el recurso compartido de archivos desde un cliente Windows.
 
-También puede usar la interfaz de la línea de comandos multiplataforma de Azure (CLI de Azure) desde Linux para administrar el recurso compartido de archivos. La CLI de Azure proporciona un conjunto de comandos de código abierto multiplataforma para trabajar con Almacenamiento de Azure, incluido el almacenamiento de archivos. Proporciona muchas de las funcionalidades que se encuentran en el Portal de Azure, así como la funcionalidad de acceso a datos enriquecidos. Para ejemplos, vea [Uso de la CLI de Azure con Almacenamiento de Azure](storage-azure-cli.md).
+También puede usar la interfaz de la línea de comandos multiplataforma de Azure (CLI de Azure) desde Linux para administrar el recurso compartido de archivos. La CLI de Azure proporciona un conjunto de comandos de código abierto multiplataforma para trabajar con Almacenamiento de Azure, incluido el almacenamiento de archivos. Proporciona muchas de las funcionalidades que se encuentran en el Portal de Azure, así como la funcionalidad de acceso a datos enriquecidos. Para obtener ejemplos, consulte [Uso de la CLI de Azure con Almacenamiento de Azure](storage-azure-cli.md).
 
 ## Desarrollo con almacenamiento de archivos ##
 
@@ -136,8 +136,8 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 ### Publicaciones de blog
 
 - [El almacenamiento de archivos de Azure ya está disponible de manera general](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Profundización en el almacenamiento de archivos de Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
+- [Profundización en el almacenamiento de archivos de Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409)
 - [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="01/12/2016"
 	ms.author="krisragh;donnam"/>
 
 # Introducción a la sincronización de datos sin conexión en Servicios móviles
@@ -118,7 +118,7 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
       * MS\_TableOperations: para el seguimiento de elementos que se sincronizarán con el servidor
       * MS\_TableOperationErrors: para realizar el seguimiento de los errores que se producen durante la sincronización sin conexión
       * MS\_TableConfig: para realizar el seguimiento de la hora de la última actualización de la última operación de sincronización para todas las operaciones de extracción
-      * TodoItem: para almacenar elementos de lista de tareas. Las columnas de sistema**ms\_createdAt**, **ms\_updatedAt** y **ms\_version** son propiedades del sistema opcionales.
+      * TodoItem: para almacenar elementos de lista de tareas. Las columnas de sistema **ms\_createdAt**, **ms\_updatedAt** y **ms\_version** son propiedades del sistema opcionales.
 
 >[AZURE.NOTE]El SDK de Servicios móviles reserva los nombres de columna que empiezan por "**`ms_`**". No use este prefijo en elementos distintos de las columnas del sistema. De lo contrario, se modificarán los nombres de columna cuando se use el servicio remoto.
 
@@ -275,4 +275,4 @@ Para sincronizar el almacén local con el servidor, ha usado `MSSyncTable.pullWi
 
 [Tutorial de introducción a Servicios móviles]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

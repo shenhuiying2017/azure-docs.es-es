@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Diseño de tablas en el Almacenamiento de datos SQL #
 El Almacenamiento de datos SQL es un sistema de base de datos distribuidas de procesamiento masivo en paralelo (MPP). Almacena datos en diferentes ubicaciones conocidas como **distribuciones**. Cada **distribución** es como un depósito; almacenar un único subconjunto de datos en el almacenamiento de datos. Al distribuir los datos y la capacidad de procesamiento entre varios nodos, el Almacenamiento de datos SQL puede ofrecer una gran escalabilidad, mucha más que un único sistema.
@@ -306,4 +306,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

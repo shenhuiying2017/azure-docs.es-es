@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Tutorial: integración de Azure Directory con TOPdesk - Public
@@ -84,7 +84,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![General](./media/active-directory-saas-topdesk-public-tutorial/IC790600.png "General")
 
-5.  En la sección **Public** (Público) de la sección de configuración **SAML login** (Inicio de sesión SAML), realice los pasos siguientes:
+5.  En la sección **Público** de la sección de configuración **Inicio de sesión SAML**, realice los pasos siguientes:
 
     ![Configuración técnica](./media/active-directory-saas-topdesk-public-tutorial/IC790601.png "Configuración técnica")
 
@@ -108,9 +108,9 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "Configurar dirección URL de la aplicación")
 
-    1.  En el cuadro de texto **URL de inicio de sesión de TOPdesk - Public**, escriba la dirección URL usada por los usuarios para iniciar sesión en su aplicación TOPdesk - Public (por ejemplo, "*https://qssolutions.topdesk.net*").
-    2.  En el cuadro de texto**URL de respuesta de TOPdesk – Public**, pegue la **URL de AssertionConsumerService de TOPdesk - Public**(por ejemplo, "*https://qssolutions.topdesk.net/tas/public/login/saml*")
-    3.  Haga clic en **Siguiente**.
+    1.  En el cuadro de texto **URL de inicio de sesión de TOPdesk - Public**, escriba la dirección URL usada por los usuarios para iniciar sesión en su aplicación TOPdesk - Public (por ejemplo, "**https://qssolutions.topdesk.net*")).
+2.  En el cuadro de texto**URL de respuesta de TOPdesk – Public**, pegue la **URL de AssertionConsumerService de TOPdesk - Public** (por ejemplo, "**https://qssolutions.topdesk.net/tas/public/login/saml*").
+3.  Haga clic en **Siguiente**.
 
 10. En la página **Configuración de inicio de sesión único en TOPdesk - Public**, para descargar su archivo de metadatos, haga clic en **Descargar metadatos** y luego guarde el archivo localmente en el equipo.
 
@@ -152,7 +152,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 5.  En el cuadro de texto **Display name** (Nombre para mostrar), escriba un nombre para su configuración.
     6.  Haga clic en **Guardar**.
 
-17. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+17. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-topdesk-public-tutorial/IC790627.png "Configurar inicio de sesión único")
 
@@ -191,10 +191,10 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Asignar usuarios](./media/active-directory-saas-topdesk-public-tutorial/IC790630.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-topdesk-public-tutorial/IC767830.png "Sí")
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

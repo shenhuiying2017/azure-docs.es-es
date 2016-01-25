@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="12/08/2015"
    ms.author="hascipio"/>
 
 # Finalización de la creación de ofertas con contenido de marketing
@@ -88,7 +88,7 @@ En la pestaña **Legal**, proporcione un vínculo a sus directivas o términos d
 5.	Se abrirá un asistente para precios. Sígalo hasta completar sus precios, incluidos los precios en otros países si opta por permitir compras desde fuera del mercado especificado.
 6.	Algunos países son países de envío ISV. Para vender en un país de envío ISV, debe poder cobrar y recaudar impuestos por sus SKU, así como calcular y pagar impuestos al gobierno del país. Microsoft no puede proporcionar asesoramiento legal ni fiscal. Vea la sección "Países a los que se vende de la oferta" en la Introducción de este documento para obtener más información sobre los países a los que se vende.
 
-### 2\.2. Establecimiento de precios de servicio de desarrolladores
+### 2\.2. Establecer precios de servicio para desarrolladores
 Los planes pueden ser cualquier combinación de base y consumo, donde base es precio mensual y superávit es el precio de pago por uso. (Vea a continuación para obtener más información).
 
 **Ejemplo:** oferta de servicio de desarrolladores de Contoso
@@ -144,9 +144,7 @@ A continuación se muestra una vista detallada de cómo se utiliza la informaci�
 ## Pasos siguientes
 Ahora que el contenido de Marketplace está cargado, avanzamos a la prueba de la oferta en ensayo. Sin embargo, debe seleccionar el tipo de la oferta adecuado en la lista siguiente, ya que los pasos varían según el tipo de oferta.
 
-|| Imagen de máquina virtual | Servicio de desarrolladores | Servicio de datos | Plantilla de solución |
-|---|---|---|---|---|
-| **Paso 3. Inserción de la oferta en ensayo** | [Prueba de la oferta de máquina virtual en ensayo](marketplace-publishing-vm-image-test-in-staging.md) | Prueba de la oferta de servicio de desarrolladores en ensayo | [Prueba de la oferta de servicio de datos en ensayo](marketplace-publishing-data-service-test-in-staging.md) | [Prueba de la plantilla de solución en ensayo](marketplace-publishing-solution-template-test-in-staging.md) |
+|| Imagen de máquina virtual | Servicio de desarrolladores | Servicio de datos | Plantilla de solución | |---|---|---|---|---| | **Paso 3. Inserción de la oferta en ensayo** | [Prueba de la oferta de máquina virtual en ensayo](marketplace-publishing-vm-image-test-in-staging.md) | [Prueba de la oferta de servicio de desarrolladores en ensayo](marketplace-publishing-dev-service-test-in-staging.md) | [Prueba de la oferta de servicio de datos en ensayo](marketplace-publishing-data-service-test-in-staging.md) | [Prueba de la plantilla de solución en ensayo](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Consulte también
 - [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -160,4 +158,4 @@ Ahora que el contenido de Marketplace está cargado, avanzamos a la prueba de la
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

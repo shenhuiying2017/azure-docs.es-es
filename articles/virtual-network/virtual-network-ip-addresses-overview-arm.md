@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/23/2015"
+   ms.date="01/12/2015"
    ms.author="telmos" />
 
 # Direcciones IP en Azure
@@ -128,12 +128,7 @@ En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asign
 
 La tabla siguiente muestra los límites impuestos al direccionamiento IP en Azure por región, por suscripción. Puede [ponerse en contacto con el soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar los límites predeterminados hasta alcanzar los límites máximos, según las necesidades empresariales.
 
-||Límite predeterminado|Límite máximo|
-|---|---|---|
-|Direcciones IP públicas (dinámicas)|60|póngase en contacto con el soporte técnico|
-|Direcciones IP públicas (estáticas)|20|póngase en contacto con el soporte técnico|
-|Direcciones IP front-end públicas por equilibrador de carga|5|póngase en contacto con el soporte técnico|
-|Direcciones IP front-end privadas por equilibrador de carga|1|póngase en contacto con el soporte técnico|
+||Límite predeterminado|Límite máximo| |---|---|---| |Direcciones IP públicas (dinámicas)|60|póngase en contacto con el soporte técnico| |Direcciones IP públicas (estáticas)|20|póngase en contacto con el soporte técnico| |Direcciones IP front-end públicas por equilibrador de carga|5|póngase en contacto con el soporte técnico| |Direcciones IP front-end privadas por equilibrador de carga|1|póngase en contacto con el soporte técnico|
 
 Asegúrese de leer el conjunto completo de [límites para redes](azure-subscription-service-limits.md#networking-limits) en Azure.
 
@@ -152,12 +147,8 @@ En resumen, la siguiente estructura de precios se aplica a los recursos de direc
 	- El uso se calcula según la cantidad total de direcciones IP públicas estáticas en la suscripción.
 
 ## Pasos siguientes
-- [Implementación de una máquina virtual con una IP pública estática](virtual-network-deploy-static-pip-arm-template.md)
-- [Introducción a la creación de un equilibrador de carga orientado a Internet con la CLI de Azure](load-balancer-get-started-internet-arm-cli.md#create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool)
-- [Creación, inicio o eliminación de una Puerta de enlace de aplicaciones con el Administrador de recursos de Azure](application-gateway-create-gateway-arm.md#create-public-ip-address-for-front-end-configuration)
-- [Crear una red virtual con una conexión VPN de sitio a sitio mediante PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md#4-request-a-public-ip-address-for-the-gateway)
-- [Establecimiento de una dirección IP privada estática en el Portal de vista previa](virtual-networks-static-private-ip-arm-pportal.md)
-- [Introducción a la creación de un equilibrador de carga interno mediante PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-front-end-ip-pool-and-backend-address-pool)
-- [Creación, inicio o eliminación de una Puerta de enlace de aplicaciones con el Administrador de recursos de Azure](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
+- [Implemente una máquina virtual con una dirección IP pública estática](virtual-network-deploy-static-pip-arm-portal.md) mediante el portal de Azure.
+- Aprenda a [implementar una máquina virtual con una dirección IP pública estática mediante una plantilla](virtual-network-deploy-static-pip-arm-template.md).
+- [Implemente una máquina virtual con una dirección IP privada estática](virtual-networks-static-private-ip-arm-pportal.md) mediante el portal de Azure.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

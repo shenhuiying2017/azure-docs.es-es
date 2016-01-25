@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2015"    
+	ms.date="01/10/2015"    
 	ms.author="juliako"/>
 
 
@@ -29,7 +29,7 @@ Se muestran los valores preestablecidos personalizados que realizan las siguient
 - [Recorte de un vídeo](media-services-custom-mes-presets-with-dotnet.md#trim_video)
 - [Creación de una superposición](media-services-custom-mes-presets-with-dotnet.md#overlay)
 - [Inserción de una pista de audio silenciosa cuando la entrada no tiene audio](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
-
+- [Deshabilitar el entrelazado automático](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 
 ##<a id="encoding_with_dotnet"></a>Codificación con el SDK de .NET de Servicios multimedia
 
@@ -216,7 +216,7 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 
 ##<a id="thumbnails"></a>Generación de miniaturas
 
-En esta sección se muestra cómo personalizar un valor preestablecido que genera vistas en miniatura. El valor preestablecido que se define a continuación contiene información sobre cómo se quiere codificar el archivo, así como la información necesaria para generar miniaturas. Puede utilizar cualquiera de los valores preestablecidos MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y agregar el código que genera miniaturas.
+En esta sección se muestra cómo personalizar un valor preestablecido que genera vistas en miniatura. El valor preestablecido que se define a continuación contiene información sobre cómo se quiere codificar el archivo, así como la información necesaria para generar miniaturas. Puede usar cualquiera de los valores preestablecidos MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y agregar el código que genera miniaturas.
 
 Para obtener información sobre el esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) tema.
 
@@ -420,14 +420,20 @@ Se aplican las siguientes consideraciones:
 
 ##<a id="trim_video"></a>Recorte de un vídeo
 
-En esta sección se habla sobre cómo modificar los valores preestablecidos del codificador para recortar el vídeo de entrada donde la entrada es un archivo denominado intermedio o a petición. El codificador también puede usarse para recortar un activo que se captura o se archiva desde una secuencia en directo: los detalles para ello están disponibles en [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+En esta sección se habla sobre cómo modificar los valores preestablecidos del codificador para recortar el vídeo de entrada donde la entrada es un archivo denominado intermedio o a petición. El codificador también puede usarse para recortar un activo que se captura o se archiva desde una transmisión en directo: los detalles para ello están disponibles en [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Para recortar los vídeos, puede utilizar cualquiera de los valores preestablecidos MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y modificar el elemento **Sources** (tal y como se muestra a continuación).
+Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y modificar el elemento **Sources** (tal y como se muestra a continuación). Tenga en cuenta que el elemento **Sources** debe colocarse en la parte superior del esquema.
 
 ###<a id="json"></a>Valor preestablecido JSON
 	
 	{
 	  "Version": 1.0,
+	  "Sources": [
+	    {
+	      "StartTime": "00:00:04",
+	      "Duration": "00:00:16"
+	    }
+	  ],
 	  "Codecs": [
 	    {
 	      "KeyFrameInterval": "00:00:02",
@@ -535,24 +541,136 @@ Para recortar los vídeos, puede utilizar cualquiera de los valores preestableci
 	        "Type": "MP4Format"
 	      }
 	    }
-	  ],
-	  "Sources": [
-	    {
-	      "StartTime": "00:00:04",
-	      "Duration": "00:00:16"
-	    }
 	  ]
 	} 
 
+###Valor preestablecido XML
+	
+Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y modificar el elemento **Sources** (tal y como se muestra a continuación).
 
+	<?xml version="1.0" encoding="utf-16"?>
+	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+	  <Sources>
+	    <Source StartTime="PT4S" Duration="PT14S"/>
+	  </Sources>
+	  <Encoding>
+	    <H264Video>
+	      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+	      <H264Layers>
+	        <H264Layer>
+	          <Bitrate>3400</Bitrate>
+	          <Width>1280</Width>
+	          <Height>720</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>3400</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>2250</Bitrate>
+	          <Width>960</Width>
+	          <Height>540</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>2250</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>1500</Bitrate>
+	          <Width>960</Width>
+	          <Height>540</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>1500</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>1000</Bitrate>
+	          <Width>640</Width>
+	          <Height>360</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>1000</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>650</Bitrate>
+	          <Width>640</Width>
+	          <Height>360</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>650</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>400</Bitrate>
+	          <Width>320</Width>
+	          <Height>180</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>400</MaxBitrate>
+	        </H264Layer>
+	      </H264Layers>
+	      <Chapters />
+	    </H264Video>
+	    <AACAudio>
+	      <Profile>AACLC</Profile>
+	      <Channels>2</Channels>
+	      <SamplingRate>48000</SamplingRate>
+	      <Bitrate>128</Bitrate>
+	    </AACAudio>
+	  </Encoding>
+	  <Outputs>
+	    <Output FileName="{Basename}_{Width}x{Height}_{VideoBitrate}.mp4">
+	      <MP4Format />
+	    </Output>
+	  </Outputs>
+	</Preset>
 
 ##<a id="overlay"></a>Creación de una superposición
 
-Media Encoder Estándar permite superponer una imagen (por ejemplo, jpg o gif) en un vídeo existente. El valor preestablecido que se definen a continuación es un ejemplo básico de superposición de vídeo.
+Media Encoder Estándar permite superponer una imagen en un vídeo existente. Actualmente, se admiten los siguientes formatos: png, jpg, gif y bmp. El valor preestablecido que se definen a continuación es un ejemplo básico de superposición de vídeo.
 
 >[AZURE.NOTE]Actualmente, no se admite el ajuste de opacidad de superposición.
 
-Además de definir un archivo de valores preestablecidos, también tiene que permitir que Servicios multimedia sepa qué activo contiene una imagen de superposición y qué recurso contiene el vídeo de origen en el que desea superponer la imagen. Vea el ejemplo de .NET del método **EncodeWithOverlay** definido anteriormente.
+Además de definir un archivo de valores preestablecidos, también tiene que permitir que Servicios multimedia sepa qué activo contiene una imagen de superposición y qué recurso contiene el vídeo de origen en el que desea superponer la imagen. Consulte el ejemplo de .NET del método **EncodeWithOverlay** definido anteriormente.
 
 ###Valor preestablecido JSON
 	
@@ -703,7 +821,7 @@ De forma predeterminada, si envía una entrada al codificador que solo contenga 
 
 Para forzar al codificador a producir un activo que contiene una pista de audio silenciosa cuando la entrada no tiene audio, especifique el valor de "InsertSilenceIfNoAudio".
 
-Puede usar cualquiera de los valores preestablecidos MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y realizar la siguiente modificación.
+Puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y realizar la siguiente modificación:
 
 ###Valor preestablecido JSON
 
@@ -723,6 +841,39 @@ Puede usar cualquiera de los valores preestablecidos MES que se documentan [aqu�
       <Bitrate>96</Bitrate>
     </AACAudio>
 
+##<a id="deinterlacing"></a>Deshabilitar el entrelazado automático
+
+Los clientes no tienen que hacer nada si prefieren que el enlazado del contenido entrelazado se anule automáticamente. Cuando la anulación de entrelazado automática está activada (valor predeterminado), el MES realiza la detección automática de fotogramas entrelazados y solo se anula el entrelazado de los fotogramas marcados como entrelazados.
+
+Puede desactivar la anulación de entrelazado automática. Esta opción nos e recomienda.
+
+###Valor preestablecido JSON
+	
+	"Sources": [
+	{
+	 "Filters": {
+	    "Deinterlace": {
+	      "Mode": "Off"
+	    }
+	  },
+	}
+	]
+
+###Valor preestablecido XML
+	
+	<Sources>
+	<Source>
+	  <Filters>
+	    <Deinterlace>
+	      <Mode>Off</Mode>
+	    </Deinterlace>
+	  </Filters>
+	</Source>
+	</Sources>
+
+
+
+
 ##Rutas de aprendizaje de Servicios multimedia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -735,4 +886,4 @@ Puede usar cualquiera de los valores preestablecidos MES que se documentan [aqu�
 
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

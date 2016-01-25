@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio
@@ -569,8 +569,7 @@ Las cuentas de almacenamiento ofrecen más almacenamiento y retención más prol
 
 1. En la ventana **Aplicación web de Azure** de Visual Studio, haga clic en la pestaña **Registros** y a continuación, haga clic en **Configurar registro en el Portal de administración**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
-	![registro](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![registro](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	Esto abre la pestaña **Configurar** en el portal clásico de su aplicación web.
 
@@ -767,4 +766,4 @@ Si desea depurar un servicio en la nube de Azure en lugar de una aplicación web
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

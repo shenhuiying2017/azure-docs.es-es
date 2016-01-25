@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="01/10/2016" 
 	ms.author="genemi"/>
 
 
@@ -51,7 +51,7 @@ Esta sección proporciona vínculos a temas de ejemplo de código para programas
 | Lenguaje | Breve ejemplo | Ejemplo de reintento | Relacional al objeto |
 | :-- | :-- | :-- | :-- |
 | Node.js | [Tedious](sql-database-develop-nodejs-simple-linux.md) | . | . |
-| Python | [FreeTDS, pymssql](sql-database-develop-python-simple-unbutu-linux.md) | . | . |
+| Python | [FreeTDS, pymssql](sql-database-develop-python-simple-ubuntu-linux.md) | . | . |
 | Ruby | [FreeTDS, TinyTDS](sql-database-develop-ruby-simple-linux.md) | . | . |
 
 
@@ -94,4 +94,4 @@ Esta sección proporciona vínculos a temas de ejemplo de código para programas
 - [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md)
 - [Entity Framework 6 aquí, EF 7 en GitHub](http://entityframework.codeplex.com/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0114_2016-->

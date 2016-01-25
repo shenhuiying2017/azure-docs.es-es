@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # ¿Qué es el SDK de Azure para .NET?
@@ -186,4 +186,4 @@ Para obtener el código fuente del SDK de Azure para .NET, incluidas las bibliot
 
 Para obtener documentación de referencia de las bibliotecas de cliente de Azure, consulte la [referencia de Azure .NET](/documentation/api/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

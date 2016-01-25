@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Informes en Azure Multi-Factor Authentication
 
-Azure Multi-Factor Authentication proporciona varios tipos de informes que usted o su organización pueden usar. Puede tener acceso a estos informes a través del Portal de administración de Multi-Factor Authentication. La siguiente es una lista de los informes disponibles.
+Azure Multi-Factor Authentication proporciona varios tipos de informes que usted o su organización pueden usar. Estos informes son accesibles a través del Portal de administración de Multi-Factor Authentication, lo que requiere disponer de un proveedor de Azure Multi-Factor Authentication o una licencia de Azure Multi-Factor Authentication, Azure AD Premium o Enterprise Mobility Suite. La siguiente es una lista de los informes disponibles.
 
 Acceda a los informes a través del Portal de administración de Azure
 
@@ -33,14 +33,13 @@ En cola|Enumera los informes en cola para su procesamiento y su estado. Cuando e
 
 ## Para ver los informes
 
-1. Inicie sesión en [http://azure.microsoft.com](http://azure.microsoft.com)
-2. En la parte izquierda, seleccione Active Directory.
-3. En la parte superior, seleccione los proveedores de Multi-Factor Authentication. Aparecerá una lista de los proveedores de Multi-Factor Authentication.
-4. Si tiene más de un proveedor de Multi-Factor Authentication, seleccione aquel en el que desea ver el informe de la alerta de fraude y haga clic en Administrar en la parte inferior de la página. Si sólo tiene uno, haga clic en Administrar. Se abrirá el Portal de administración de Azure Multi-Factor Authentication.
-5. En el Portal de administración de Azure Multi-Factor Authentication, a la izquierda encontrará la lista Ver un informe Desde aquí puede seleccionar los informes que se han descrito anteriormente.
+1.	Inicie sesión en http://azure.microsoft.com.
+2.	En la parte izquierda, seleccione Active Directory.
+3.	Seleccione una de las siguientes opciones:
+	- **Opción 1**: haga clic en la pestaña Proveedores de autenticación multifactor. Seleccione el proveedor de autenticación multifactor y haga clic en el botón Administrar de la parte inferior.
+	- **Opción 2**: seleccione el directorio y haga clic en la pestaña Configurar. En la sección de autenticación multifactor, seleccione Administrar configuración del servicio. En la parte inferior de la página Configuración del servicio MFA, haga clic en el vínculo Ir al portal.
+4.	En el Portal de administración de Azure Multi-Factor Authentication, verá la vista de una sección del informe en el panel izquierdo. Desde aquí puede seleccionar los informes que se han descrito anteriormente.
 
-
- 
 <center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
 
@@ -50,4 +49,4 @@ En cola|Enumera los informes en cola para su procesamiento y su estado. Cuando e
 * [Azure Multi-Factor Authenticaton en MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Compatibilidad con Uso compartido de recursos entre orígenes (CORS) | Microsoft Azure" 
-	description="Aprenda a habilitar la compatibilidad con CORS para los servicios de almacenamiento de Microsoft Azure." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carolz" 
-	editor=""/>
+<properties
+	pageTitle="Compatibilidad con Uso compartido de recursos entre orígenes (CORS) | Microsoft Azure"
+	description="Aprenda a habilitar la compatibilidad con CORS para los servicios de almacenamiento de Microsoft Azure."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
-	ms.author="tamram;andtyler"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="01/07/2016"
+	ms.author="tamram"/>
 
 # Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los Servicios de almacenamiento de Azure
 
-A partir de la versión 2013-08-15, los servicios de almacenamiento de Azure admiten Uso compartido de recursos entre orígenes (CORS) para los servicios Blob, Tabla y Cola. CORS es una característica de HTTP que permite que una aplicación web que se ejecuta en un dominio tenga acceso a recursos de otro dominio. Los exploradores web implementan una restricción de seguridad denominada [directiva del mismo origen](http://www.w3.org/Security/wiki/Same_Origin_Policy) que impide que una página web llame a las API de otro dominio diferente; CORS proporciona una forma segura de permitir que un dominio (el dominio de origen) llame a las API de otro dominio. Consulte la [especificación CORS](http://www.w3.org/TR/cors/) para obtener más detalles sobre CORS.
+A partir de la versión 2013-08-15, los servicios de almacenamiento de Azure admiten Uso compartido de recursos entre orígenes (CORS) para los servicios de blob, tablas, colas y archivos. CORS es una característica de HTTP que permite que una aplicación web que se ejecuta en un dominio tenga acceso a recursos de otro dominio. Los exploradores web implementan una restricción de seguridad denominada [directiva del mismo origen](http://www.w3.org/Security/wiki/Same_Origin_Policy) que impide que una página web llame a las API de otro dominio diferente; CORS proporciona una forma segura de permitir que un dominio (el dominio de origen) llame a las API de otro dominio. Consulte la [especificación CORS](http://www.w3.org/TR/cors/) para obtener más detalles sobre CORS.
 
 Puede establecer reglas de CORS individualmente para cada uno de los servicios de almacenamiento mediante una llamada a [Definición de las propiedades del servicio Blob](https://msdn.microsoft.com/library/hh452235.aspx), [Definición de las propiedades del servicio Cola](https://msdn.microsoft.com/library/hh452232.aspx) y [Definición de las propiedades del servicio Tabla](https://msdn.microsoft.com/library/hh452240.aspx). Una vez establecidas las reglas de CORS para el servicio, se evaluará una solicitud autenticada correctamente realizada en el servicio desde un dominio diferente para determinar si se permite según las reglas que ha especificado.
 
@@ -194,6 +194,5 @@ Las solicitudes preparatorias erróneas no se cargan en cuenta.
 [Definición de las propiedades del servicio Tabla](https://msdn.microsoft.com/library/hh452240.aspx)
 
 [Especificación de uso compartido de recursos entre orígenes de W3C](http://www.w3.org/TR/cors/)
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

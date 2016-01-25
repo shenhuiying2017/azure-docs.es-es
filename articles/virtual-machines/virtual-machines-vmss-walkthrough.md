@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Escalado automático de conjuntos de escalado de máquinas virtuales | Microsoft Azure"
-	description="Empiece a crear y administrar sus primeros conjuntos de escalado de máquinas virtuales de Azure"
+	description="Empezar a crear y administrar los primeros conjuntos de escala de máquinas virtuales de Azure con Azure PowerShell"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -14,41 +14,47 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="01/05/2016"
 	ms.author="davidmu"/>
 
 # Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-create-windows-powershell-service-manager.md).
+> [AZURE.SELECTOR]
+- [Azure CLI](virtual-machines-vmss-walkthrough-cli.md)
+- [Azure PowerShell](virtual-machines-vmss-walkthrough.md)
+
+<br>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
 Los conjuntos de escala de máquinas virtuales facilitan la implementación y administración de máquinas virtuales idénticas como un conjunto. Los conjuntos de escala proporcionan una capa de proceso altamente escalable y personalizable para aplicaciones de gran escala y admiten imágenes de la plataforma Windows, imágenes de la plataforma Linux, imágenes personalizadas y extensiones. Para más información acerca de los conjuntos de escala, consulte [Conjuntos de escala de máquinas virtuales](virtual-machines-vmss-overview.md).
 
 Este tutorial muestra cómo crear un conjunto de escala de máquinas virtuales de Windows y cómo escalar automáticamente los equipos en el conjunto. Esto se hace creando una plantilla del Administrador de recursos de Azure e implementándola con Azure PowerShell. Para más información sobre las plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-La plantilla que cree en este tutorial será similar a cualquier plantilla que pueda encontrarse en la galería de plantillas. Para más información, consulte [Implementación de un conjunto simple de escala de máquinas virtuales con máquinas virtuales de Windows y un Jumpbox](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview).
+La plantilla que cree en este tutorial será similar a cualquier plantilla que pueda encontrarse en la galería de plantillas. Para más información, consulte [Implementación de un conjunto simple de escala de máquinas virtuales con máquinas virtuales de Windows y un Jumpbox](https://azure.microsoft.com/documentation/templates/201-vmss-windows-jumpbox/).
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-include.md)]
+[AZURE.INCLUDE [virtual-machines-vmss-preview-ps](../../includes/virtual-machines-vmss-preview-ps-include.md)]
 
 ## Paso 1: Creación de un grupo de recursos y una cuenta de almacenamiento
 
-1.	**Inicie sesión en Microsoft Azure**. Abra la ventana de Microsoft Azure PowerShell y ejecute **Login-AzureRmAccount**.
+1. **Inicie sesión en Microsoft Azure**. Abra la ventana de Microsoft Azure PowerShell y ejecute **Login-AzureRmAccount**.
 
-2.	**Cree un grupo de recursos**: todos los recursos deben implementarse en un grupo de recursos. Para este tutorial, nombre el grupo de recursos como **vmss-test1**. Consulte [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
+2. **Cree un grupo de recursos**: todos los recursos deben implementarse en un grupo de recursos. Para este tutorial, asigne el nombre **vmss-vmsstestrg1** al grupo de recursos. Consulte [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
 
-3.	**Implemente una cuenta de almacenamiento en el nuevo grupo de recursos**: este tutorial usa varias cuentas de almacenamiento para facilitar el conjunto de escala de máquinas virtuales. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) para crear una cuenta de almacenamiento denominada **vmssstore1**. Mantenga la ventana de Azure PowerShell abierta para llevar a cabo pasos explicados más adelante en este tutorial.
+3. **Implemente una cuenta de almacenamiento en el nuevo grupo de recursos**: este tutorial usa varias cuentas de almacenamiento para facilitar el conjunto de escala de máquinas virtuales. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) para crear una cuenta de almacenamiento denominada **vmsstestsa**. Mantenga la ventana de Azure PowerShell abierta para llevar a cabo pasos explicados más adelante en este tutorial.
 
 ## Paso 2: Creación de la plantilla
 Las plantillas del Administrador de recursos de Azure le permiten implementar y administrar los distintos recursos de Azure en conjunto mediante una descripción de JSON de los recursos y los parámetros de implementación asociados.
 
-1.	En el editor de texto que prefiera, cree el archivo C:\\VMSSTemplate.json y agregue la estructura inicial de JSON para admitir la plantilla.
+1. En el editor de texto que prefiera, cree el archivo C:\\VMSSTemplate.json y agregue la estructura inicial de JSON para admitir la plantilla.
 
 	```
-{
+	{
 		"$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json",
-   "contentVersion": "1.0.0.0",
- "parameters": {
+		"contentVersion": "1.0.0.0",
+		"parameters": {
 		}
 		"variables": {
 		}
@@ -57,7 +63,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 	}
 	```
 
-2.	Los parámetros no siempre son necesarios, pero facilitan la administración de la plantilla. Proporcionan una manera de especificar valores para la plantilla, describen el tipo del valor, el valor predeterminado, en caso de ser necesario, y, posiblemente, los valores permitidos del parámetro.
+2. Los parámetros no siempre son necesarios, pero facilitan la administración de la plantilla. Proporcionan una manera de especificar valores para la plantilla, describen el tipo del valor, el valor predeterminado, en caso de ser necesario, y, posiblemente, los valores permitidos del parámetro.
 
 	Agregue estos parámetros en el elemento primario de los parámetros que agregó a la plantilla:
 
@@ -65,35 +71,31 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 	- Un nombre para la cuenta de almacenamiento donde se almacena la plantilla.
 	- El número de instancias de máquinas virtuales para crear inicialmente en el conjunto de escala.
 	- El nombre y la contraseña de la cuenta de administrador en las máquinas virtuales.
-	- Un prefijo para los nombres de las cuentas de almacenamiento que usan las máquinas virtuales en el conjunto de escala.
+	- Un prefijo para los recursos que se crean en el grupo de recursos.
 
 
 	```
 	"vmName": {
 		"type": "string"
-      },
+	},
 	"vmSSName": {
 		"type": "string"
-    },
-    "instanceCount": {
+	},
+	"instanceCount": {
 		"type": "string"
-      },
-    "adminUsername": {
+	},
+	"adminUsername": {
 		"type": "string"
-    },
-    "adminPassword": {
+	},
+	"adminPassword": {
 		"type": "securestring"
 	},
-	"storageAccountName": {
+	"resourcePrefix": {
 		"type": "string"
-	},
-	"vmssStoragePrefix": {
-		"type": "string"
-      }
+	}
 	```
 
-
-3.	Pueden usarse variables en una plantilla para especificar los valores que pueden cambiar con frecuencia o los valores que se deben crear a partir de una combinación de valores de parámetro.
+3. Pueden usarse variables en una plantilla para especificar los valores que pueden cambiar con frecuencia o los valores que se deben crear a partir de una combinación de valores de parámetro.
 
 	Agregue estas variables en el elemento primario de las variables que agregó a la plantilla:
 
@@ -106,15 +108,16 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 	- Configuración de la extensión de diagnósticos que se instala en las máquinas virtuales. Para más información sobre la extensión de diagnósticos, consulte [Crear una máquina virtual de Windows con supervisión y diagnóstico mediante la plantilla del Administrador de recursos de Azure](virtual-machines-extensions-diagnostics-windows-template.md)
 
 	```
+	"apiVersion": "2015-06-15"
 	"dnsName1": "[concat(parameters('resourcePrefix'),'dn1')] ",
 	"dnsName2": "[concat(parameters('resourcePrefix'),'dn2')] ",
 	"vmSize": "Standard_A0",
 	"imagePublisher": "MicrosoftWindowsServer",
 	"imageOffer": "WindowsServer",
 	"imageVersion": "2012-R2-Datacenter",
-    "addressPrefix": "10.0.0.0/16",
+	"addressPrefix": "10.0.0.0/16",
 	"subnetName": "Subnet",
-    "subnetPrefix": "10.0.0.0/24",
+	"subnetPrefix": "10.0.0.0/24",
 	"publicIP1": "[concat(parameters('resourcePrefix'),'ip1')]",
 	"publicIP2": "[concat(parameters('resourcePrefix'),'ip2')]",
 	"loadBalancerName": "[concat(parameters('resourcePrefix'),'lb1')]",
@@ -128,8 +131,8 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 	"nicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName2'))]",
 	"frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
 	"storageAccountType": "Standard_LRS",
-	"storageAccountPrefix": [ "a", "g", "m", "s", "y" ],
-	"diagnosticsStorageAccountName": "[concat('a', parameters('vmssStorageSuffix'))]",
+	"storageAccountSuffix": [ "a", "g", "m", "s", "y" ],
+	"diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
 	"accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/','Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
 	"wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB="4096" xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/> <WindowsEventLog scheduledTransferPeriod="PT1M" > <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="Security!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="System!*[System[(Level = 1 or Level = 2)]]" /></WindowsEventLog>",
 	"wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\% Processor Time" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU utilization" locale="es-ES"/></PerformanceCounterConfiguration>",
@@ -138,7 +141,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 	"wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
 	```
 
-4.	En este tutorial, implemente los recursos y las extensiones siguientes:
+4. En este tutorial, implemente los recursos y las extensiones siguientes:
 
  - Microsoft.Storage/storageAccounts
  - Microsoft.Network/virtualNetworks
@@ -155,52 +158,52 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 	Agregue el recurso de la cuenta de almacenamiento en el elemento primario de recursos que agregó a la plantilla. Esta plantilla utiliza un bucle para crear las 5 cuentas de almacenamiento recomendadas donde se almacenan los discos del sistema operativo y los datos de diagnóstico. Este conjunto de cuentas puede admitir hasta 100 máquinas virtuales en un conjunto de escala, lo cual es el máximo actual. Cada cuenta de almacenamiento se denomina con un indicador de letra, que se definió en las variables, y se combina con el sufijo que proporcionó en los parámetros de la plantilla.
 
 	```
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-		"name": "[concat(variables('storagePrefix')[copyIndex()], parameters('vmssStorageSuffix'))]",
+	{
+		"type": "Microsoft.Storage/storageAccounts",
+		"name": "[concat(variables('resourcePrefix'), parameters('storageAccountSuffix')[copyIndex()])]",
 		"apiVersion": "2015-05-01-preview",
-      "copy": {
-        "name": "storageLoop",
-        "count": 5
-      },
+		"copy": {
+			"name": "storageLoop",
+			"count": 5
+		},
 		"location": "[resourceGroup().location]",
-      "properties": {
-        "accountType": "[variables('storageAccountType')]"
-      }
-    },
+		"properties": {
+			"accountType": "[variables('storageAccountType')]"
+		}
+	},
 	```
 
-5.	Agregue el recurso de red virtual. Consulte [Proveedor de recursos de red](../virtual-network/resource-groups-networking.md) para más información.
-
-	```
-    {
-		"apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/virtualNetworks",
-      "name": "[variables('virtualNetworkName')]",
-		"location": "[resourceGroup().location]",
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "[variables('addressPrefix')]"
-          ]
-        },
-        "subnets": [
-          {
-            "name": "[variables('subnetName')]",
-            "properties": {
-              "addressPrefix": "[variables('subnetPrefix')]"
-            }
-          }
-        ]
-      }
-    },
-	```
-
-6.	Agregue los recursos de dirección IP públicos que usan la interfaz de red y el equilibrador de carga.
+5. Agregue el recurso de red virtual. Consulte [Proveedor de recursos de red](../virtual-network/resource-groups-networking.md) para más información.
 
 	```
 	{
-		"apiVersion": "2015-06-15",
+		"apiVersion": "[variables('apiVersion')]",
+		"type": "Microsoft.Network/virtualNetworks",
+		"name": "[variables('virtualNetworkName')]",
+		"location": "[resourceGroup().location]",
+		"properties": {
+			"addressSpace": {
+				"addressPrefixes": [
+					"[variables('addressPrefix')]"
+				]
+			},
+			"subnets": [
+				{
+					"name": "[variables('subnetName')]",
+					"properties": {
+						"addressPrefix": "[variables('subnetPrefix')]"
+					}
+				}
+			]
+		}
+	},
+	```
+
+6. Agregue los recursos de dirección IP públicos que usan la interfaz de red y el equilibrador de carga.
+
+	```
+	{
+		"apiVersion": "[variables('apiVersion')]",
 		"type": "Microsoft.Network/publicIPAddresses",
 		"name": "[variables('publicIP1')]",
 		"location": "[resourceGroup().location]",
@@ -212,7 +215,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 		}
 	},
 	{
-		"apiVersion": "2015-06-15",
+		"apiVersion": "[variables('apiVersion')]",
 		"type": "Microsoft.Network/publicIPAddresses",
 		"name": "[variables('publicIP2')]",
 		"location": "[resourceGroup().location]",
@@ -225,11 +228,11 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 	},
 	```
 
-7.	Agregue el recurso de equilibrador de carga que usa el conjunto de escala. Para más información, consulte [Compatibilidad del Administrador de recursos de Azure con el equilibrador de carga](../load-balancer/oad-balancer-arm.md)
+7. Agregue el recurso de equilibrador de carga que usa el conjunto de escala. Para más información, consulte [Compatibilidad del Administrador de recursos de Azure con el equilibrador de carga](../load-balancer/load-balancer-arm.md)
 
 	```
-    {
-		"apiVersion": "2015-06-15",
+	{
+		"apiVersion": "[variables('apiVersion')]",
 		"name": "[variables('loadBalancerName')]",
 		"type": "Microsoft.Network/loadBalancers",
 		"location": "[resourceGroup().location]",
@@ -270,7 +273,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 	},
 	```
 
-8.	Agregue el recurso de interfaz de red que utiliza la máquina virtual de jumpbox.
+8. Agregue el recurso de interfaz de red que utiliza la máquina virtual de jumpbox. Dado que las máquinas en un conjunto de escala de máquinas virtuales no son accesibles directamente mediante una dirección IP pública, se crea una máquina virtual de jumpbox en la misma red virtual como conjunto de escala y se usa para tener acceso remoto a las máquinas en el conjunto.
 
 
 	```
@@ -303,7 +306,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 	```
 
 
-9.	Agregue el recurso de máquina virtual en la misma red que el conjunto de escala. Dado que las máquinas en un conjunto de escala de máquinas virtuales no son accesibles directamente mediante una dirección IP pública, se crea una máquina virtual de jumpbox en la misma red virtual como conjunto de escala y se usa para tener acceso remoto a las máquinas en el conjunto.
+9. Agregue la máquina virtual en la misma red que el conjunto de escala.
 
 	```
 	{
@@ -331,9 +334,9 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 					"version": "latest"
 				},
 				"osDisk": {
-					"name": "davidmuos1",
+					"name": "osdisk1",
 					"vhd": {
-						"uri":  "[concat('https://',parameters('storageAccountName'),'.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'os1.vhd')]"
+						"uri":  "[concat('https://',parameters('resourcePrefix'),'saa.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'osdisk1.vhd')]"
 					},
 					"caching": "ReadWrite",
 					"createOption": "FromImage"        
@@ -350,7 +353,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 	},
 	```
 
-10.	Agregue el recurso de conjunto de escala de máquinas virtuales y especifique la extensión de diagnósticos que está instalada en todas las máquinas virtuales del conjunto de escala. Muchos de los valores para este recurso son similares al recurso de máquina virtual. Estas son la diferencias principales:
+10.	Agregue el conjunto de escala de máquinas virtuales y especifique la extensión de diagnósticos que está instalada en todas las máquinas virtuales del conjunto de escala. Muchos de los valores para este recurso son similares al recurso de máquina virtual. Estas son la diferencias principales:
 
 	- **capacity**: especifica cuántas máquinas virtuales se deben inicializar en el conjunto de escala. Puede establecer este valor si especifica un valor para el parámetro instanceCount.
 
@@ -361,64 +364,60 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 	```
 	{
 		"type": "Microsoft.Compute/virtualMachineScaleSets",
-		"apiVersion": "2015-06-15",
+		"apiVersion": "[variables('apiVersion')]",
 		"name": "[parameters('vmSSName')]",
 		"location": "[resourceGroup().location]",
 		"dependsOn": [
-			"[concat('Microsoft.Storage/storageAccounts/a', parameters('vmssStorageSuffix'))]",
-			"[concat('Microsoft.Storage/storageAccounts/g', parameters('vmssStorageSuffix'))]",
-			"[concat('Microsoft.Storage/storageAccounts/m', parameters('vmssStorageSuffix'))]",
-			"[concat('Microsoft.Storage/storageAccounts/s', parameters('vmssStorageSuffix'))]",
-			"[concat('Microsoft.Storage/storageAccounts/y', parameters('vmssStorageSuffix'))]",
+			"storageLoop",
 			"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
 			"[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
-      ],
-      "sku": {
-        "name": "[variables('vmSize')]",
-        "tier": "Standard",
-        "capacity": "[parameters('instanceCount')]"
-      },
-      "properties": {
-         "upgradePolicy": {
-         "mode": "Manual"
-        },
-        "virtualMachineProfile": {
-          "storageProfile": {
-            "osDisk": {
-              "vhdContainers": [
-							"[concat('https://a', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
-							"[concat('https://g', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
-							"[concat('https://m', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
-							"[concat('https://s', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
-							"[concat('https://y', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]"
-              ],
+		],
+		"sku": {
+			"name": "[variables('vmSize')]",
+			"tier": "Standard",
+			"capacity": "[parameters('instanceCount')]"
+		},
+		"properties": {
+			"upgradePolicy": {
+				"mode": "Manual"
+			},
+			"virtualMachineProfile": {
+				"storageProfile": {
+					"osDisk": {
+						"vhdContainers": [
+							"[concat('https://', parameters('resourcePrefix'), 'saa.blob.core.windows.net/vmss')]",
+							"[concat('https://', parameters('resourcePrefix'), 'sag.blob.core.windows.net/vmss')]",
+							"[concat('https://', parameters('resourcePrefix'), 'sam.blob.core.windows.net/vmss')]",
+							"[concat('https://', parameters('resourcePrefix'), 'sas.blob.core.windows.net/vmss')]",
+							"[concat('https://', parameters('resourcePrefix'), 'say.blob.core.windows.net/vmss')]"
+						],
 						"name": "vmssosdisk",
-              "caching": "ReadOnly",
-              "createOption": "FromImage"
-            },
+						"caching": "ReadOnly",
+						"createOption": "FromImage"
+					},
 					"imageReference": {
 						"publisher": "[variables('imagePublisher')]",
 						"offer": "[variables('imageOffer')]",
 						"sku": "[variables('imageVersion')]",
 						"version": "latest"
 					}
-          },
-          "osProfile": {
-            "computerNamePrefix": "[parameters('vmSSName')]",
-            "adminUsername": "[parameters('adminUsername')]",
-            "adminPassword": "[parameters('adminPassword')]"
-          },
-          "networkProfile": {
-            "networkInterfaceConfigurations": [
-              {
+				},
+				"osProfile": {
+					"computerNamePrefix": "[parameters('vmSSName')]",
+					"adminUsername": "[parameters('adminUsername')]",
+					"adminPassword": "[parameters('adminPassword')]"
+				},
+				"networkProfile": {
+					"networkInterfaceConfigurations": [
+						{
 							"name": "[variables('nicName2')]",
-                "properties": {
-                  "primary": "true",
-                  "ipConfigurations": [
-                    {
+							"properties": {
+								"primary": "true",
+								"ipConfigurations": [
+									{
 										"name": "ip1",
-                      "properties": {
-                        "subnet": {
+										"properties": {
+											"subnet": {
 												"id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/',variables('subnetName'))]"
 											},
 											"loadBalancerBackendAddressPools": [
@@ -432,11 +431,11 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 												}
 											]
 										}
-                        }
+									}
 								]
-                      }
-                    }
-                  ]
+							}
+						}
+					]
 				},
 				"extensionProfile": {
 					"extensions": [
@@ -453,15 +452,15 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 								},
 								"protectedSettings": {
 									"storageAccountName": "[variables('diagnosticsStorageAccountName')]",
-									"storageAccountKey": "[listkeys(variables('accountid'), '2015-05-01-preview').key1]",
+									"storageAccountKey": "[listkeys(variables('accountid'), variables('apiVersion')).key1]",
 									"storageAccountEndPoint": "https://core.windows.net"
 								}
-                }
-              }
-            ]
+							}
+						}
+					]
 				}
 			}
-          }
+		}
 	},
 	```
 
@@ -536,7 +535,7 @@ La plantilla se puede cargar desde la ventana de Microsoft Azure PowerShell siem
 
 1.	En la ventana de Microsoft Azure PowerShell, puede establecer una variable que especifique el nombre de la cuenta de almacenamiento que implementó en el paso 1.
 
-		$StorageAccountName = "vmssstore1"
+		$StorageAccountName = "vmstestsa"
 
 2.	Establezca una variable que especifique la clave principal de la cuenta de almacenamiento.
 
@@ -563,47 +562,46 @@ La plantilla se puede cargar desde la ventana de Microsoft Azure PowerShell siem
 
 Ahora que ha creado la plantilla, puede empezar a implementar los recursos. Use este comando para iniciar el proceso:
 
-		New-AzureRmResourceGroupDeployment -Name "vmss-testdeployment1" -ResourceGroupName "vmss-test1" -TemplateUri "https://vmssstore1.blob.core.windows.net/templates/VMSSTemplate.json"
+		New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
 
 Cuando presione Entrar, se le pedirá que proporcione valores para las variables que asignó. Proporcione estos valores:
 
-	vmName: vmssvm1
+	vmName: vmsstestvm1
 	vmSSName: vmsstest1
 	instanceCount: 5
 	adminUserName: vmadmin1
-	adminPassword: vmadminpass1
-	storageAccountName: vmssstore1
+	adminPassword: VMpass1
 	resourcePrefix: vmsstest
 
 Para que todos los recursos se implementen correctamente se tardará unos 15 minutos.
 
 >[AZURE.NOTE]También puede hacer uso de la capacidad del portal para implementar los recursos. Para ello, use este vínculo: https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
 
-## Paso 4: Supervisión de recursos
+## Paso 5: Supervisión de recursos
 
 Puede obtener información acerca de los conjuntos de escala de máquinas virtuales mediante estos métodos:
 
  - El portal de Azure: actualmente puede obtener una cantidad limitada de información mediante el portal.
  - El [explorador de recursos de Azure](https://resources.azure.com/): esta es la mejor herramienta para explorar el estado actual del conjunto de escala. Siga esta ruta de acceso y debería ver la vista de instancia del conjunto de escala que creó:
 
-		subscriptions > {your subscription} > resourceGroups > vmss-test1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
+		subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
  - Azure PowerShell: use este comando para más información:
 
-		Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmss-test1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
+		Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
 
  - Conéctese a la máquina virtual de jumpbox igual que lo haría con cualquier otra máquina y, a continuación, podrá obtener acceso remoto a las máquinas virtuales del conjunto de escala para supervisar los procesos individuales.
 
 >[AZURE.NOTE]Una API de REST completa para más información acerca de los conjuntos de escala se puede encontrar en [Conjuntos de escala de máquinas virtuales](https://msdn.microsoft.com/library/mt589023.aspx)
 
-## Paso 5: Eliminación de recursos
+## Paso 6: Eliminación de recursos
 
 Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveniente eliminar los recursos que ya no sean necesarios. No es necesario eliminar por separado cada recurso de un grupo de recursos. Puede eliminar el grupo de recursos y se eliminarán automáticamente todos sus recursos.
 
-	Remove-AzureRmResourceGroup -Name vmss-test1
+	Remove-AzureRmResourceGroup -Name vmsstestrg1
 
 Si desea mantener el grupo de recursos, puede eliminar solo el conjunto de escala.
 
-	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmss-test1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
+	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmsstestrg1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

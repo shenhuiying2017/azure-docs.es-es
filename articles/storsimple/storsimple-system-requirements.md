@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/18/2015"
+   ms.date="01/08/2016"
    ms.author="alkohli"/>
 
 # Software de StorSimple, alta disponibilidad y requisitos de red
@@ -108,17 +108,12 @@ Update 2 tiene varias mejoras relacionadas con las redes y las métricas de enru
 		
 	| Interfaz de red | Habilitada para la nube | Deshabilitada para la nube con puerta de enlace |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - El orden en que el tráfico de nube se enrutará a través de las interfaces de red es:
 	 
-	*Data 0 > Data 1 > Date 2 > Data 4 > Data 5*
+	*Data 0 > Data 1 > Date 2 > Data 3 > Data 4 > Data 5*
 
 	Esto también puede explicarse mediante el ejemplo siguiente.
 
@@ -255,10 +250,10 @@ Revise cuidadosamente estos procedimientos recomendados para garantizar la alta 
 
 ## Pasos siguientes
 
-- [Obtenga más información sobre de los límites del sistema StorSimple](storsimple-limits.md).
+- [Obtenga más información acerca de los límites de StorSimple](storsimple-limits.md).
 - [Obtenga más información sobre cómo implementar la solución StorSimple](storsimple-deployment-walkthrough.md).
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

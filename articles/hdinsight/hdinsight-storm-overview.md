@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/06/2015"
+   ms.date="01/08/2016"
    ms.author="larryfr"/>
 
 #Introducción a Apache Storm en HDInsight: análisis en tiempo real de Hadoop
@@ -31,7 +31,7 @@ Apache Storm en HDInsight es un clúster administrado integrado en el entorno de
 
 * Actúa como un servicio administrado con un SLA de 99,9 % de tiempo de actividad.
 
-* Use el lenguaje que prefiera, ya que ofrece compatibilidad con los componentes de Storm escritos en **Java**, **C#**, y **Python**.
+* Use el lenguaje que prefiera, ya que ofrece compatibilidad con los componentes de Storm escritos en **Java**, **C#** y **Python**.
 
 	* Admite una variedad de lenguajes de programación: lea datos con Java y procéselos con C#.
 	
@@ -219,4 +219,4 @@ Obtenga más información sobre las soluciones de análisis en tiempo real con A
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0114_2016-->

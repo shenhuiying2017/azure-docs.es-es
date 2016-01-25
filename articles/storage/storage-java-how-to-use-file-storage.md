@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Uso del almacenamiento de archivos de Java | Microsoft Azure" 
-	description="Aprenda a utilizar el servicio de archivos de Azure para cargar, descargar, incluir en un listado y eliminar archivos. Ejemplos escritos en Java." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="Uso del almacenamiento de archivos de Java | Microsoft Azure"
+	description="Aprenda a utilizar el servicio de archivos de Azure para cargar, descargar, incluir en un listado y eliminar archivos. Ejemplos escritos en Java."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe" />
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="01/05/2016" 
-	ms.author="v-dedomi"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/11/2016"
+	ms.author="jutang"/>
 
 # Uso del almacenamiento de archivos de Java
 
@@ -45,9 +45,9 @@ Para utilizar las API de almacenamiento de Azure, agregue la siguiente instrucci
 Para usar el almacenamiento de archivos, necesita conectarse con la cuenta de almacenamiento de Azure. El primer paso sería configurar una cadena de conexión que se utilizará para establecer la conexión con su cuenta de almacenamiento. Definamos una variable estática para hacerlo.
 
 	// Configure the connection-string with your values
-	public static final String storageConnectionString = 
-	    "DefaultEndpointsProtocol=http;" + 
-	    "AccountName=your_storage_account_name;" + 
+	public static final String storageConnectionString =
+	    "DefaultEndpointsProtocol=http;" +
+	    "AccountName=your_storage_account_name;" +
 	    "AccountKey=your_storage_account_key";
 
 > [AZURE.NOTE]Reemplace your\_storage\_account\_name y your\_storage\_account\_key por los valores reales de la cuenta de almacenamiento.
@@ -75,7 +75,7 @@ Todos los archivos y directorios del almacenamiento de archivos residen en un co
 Con el cliente de almacenamiento de archivos, puede obtener una referencia a un recurso compartido.
 
 	// Get a reference to the file share
-	CloudFileShare share = fileClient.getShareReference("sampleshare"); 
+	CloudFileShare share = fileClient.getShareReference("sampleshare");
 
 Para crear el recurso compartido, utilice el método **createIfNotExists** del objeto CloudFileShare.
 
@@ -109,9 +109,9 @@ También puede organizar el almacenamiento colocando archivos dentro de los subd
 	//Get a reference to the root directory for the share.
 	CloudFileDirectory rootDir = share.getRootDirectoryReference();
 
-	//Get a reference to the sampledir directory 
+	//Get a reference to the sampledir directory
 	CloudFileDirectory sampleDir = rootDir.getDirectoryReference("sampledir");
-			    
+
 	if (sampleDir.createIfNotExists()) {
 		System.out.println("sampledir created");
 	} else {
@@ -124,7 +124,7 @@ Obtener una lista de archivos y directorios dentro de un recurso compartido se r
 
 	//Get a reference to the root directory for the share.
 	CloudFileDirectory rootDir = share.getRootDirectoryReference();
-		   
+
 	for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 		System.out.println(fileItem.getUri());
 	}
@@ -136,10 +136,10 @@ Una de las operaciones más frecuentes que se llevará a cabo en el almacenamien
 
 	//Get a reference to the root directory for the share.
 	CloudFileDirectory rootDir = share.getRootDirectoryReference();
-	
+
 	//Get a reference to the directory that contains the file
 	CloudFileDirectory sampleDir = rootDir.getDirectoryReference("sampledir");
-			    
+
 	//Get a reference to the file you want to download
 	CloudFile file = sampleDir.getFileReference("SampleFile.txt");
 
@@ -156,7 +156,7 @@ Otra operación de almacenamiento de archivo común es la eliminación de archiv
 
 	// Get a reference to the directory where the file to be deleted is in
 	CloudFileDirectory containerDir = rootDir.getDirectoryReference("sampledir");
-	
+
 	String filename = "SampleFile.txt"
 	CloudFile file;
 
@@ -174,7 +174,7 @@ Eliminar un directorio es una tarea bastante sencilla, aunque se debe tener en c
 	CloudFileDirectory rootDir = share.getRootDirectoryReference();
 
 	// Get a reference to the directory you want to delete
-	CloudFileDirectory containerDir = rootDir.getDirectoryReference("sampledir");	
+	CloudFileDirectory containerDir = rootDir.getDirectoryReference("sampledir");
 
 	// Delete the directory
 	if ( containerDir.deleteIfExists() ) {
@@ -196,10 +196,10 @@ Para eliminar un recurso compartido es necesario efectuar una llamada al método
 
 	   // Get a reference to the file share
 	   CloudFileShare share = fileClient.getShareReference("sampleshare");
-	   
+
 	   if (share.deleteIfExists()) {
 		   System.out.println("sampleshare deleted");
-	   } 
+	   }
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
@@ -221,6 +221,5 @@ Si desea obtener más información acerca de otras API de almacenamiento de Azur
 [Referencia del SDK de cliente de almacenamiento de Azure]: http://dl.windowsazure.com/storage/javadoc/
 [API de REST de almacenamiento de Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
- 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

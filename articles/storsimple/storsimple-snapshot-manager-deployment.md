@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/07/2016"
    ms.author="v-sharos" />
 
 # Implementar el complemento MMC del Administrador de instantáneas StorSimple
@@ -23,11 +23,15 @@ Administrador de instantáneas StorSimple es un complemento de Microsoft Managem
 
 En este tutorial se describen los requisitos de configuración, así como los procedimientos para instalar, quitar y actualizar Administrador de instantáneas StorSimple.
 
+>[AZURE.NOTE]
+>
+>- No puede utilizar StorSimple Snapshot Manager para administrar las matrices virtuales de Microsoft Azure StorSimple (también conocidas como dispositivos virtuales locales de StorSimple).
+>
+>- Si tiene previsto instalar la actualización 2 de StorSimple en el dispositivo de StorSimple, asegúrese de descargar la última versión de StorSimple Snapshot Manager e instalarlo **antes de instalar la actualización 2 de StorSimple**. La última versión de StorSimple Snapshot Manager es compatible con versiones anteriores y funciona con todas las versiones publicadas de Microsoft Azure StorSimple. Si usa la versión anterior de StorSimple Snapshot Manager, debe actualizarlo (no es necesario desinstalar la versión anterior antes de instalar la nueva versión).
+
 ## Instalación de Administrador de instantáneas StorSimple
 
-Administrador de instantáneas StorSimple puede instalarse en equipos que ejecutan el sistema operativo Windows Server® 2008 R2 SP1, Windows Server 2012 o Windows Server 2012 R2 .
-
->[AZURE.NOTE]En servidores que ejecutan Windows 2008 R2, también debe instalar Windows Server 2008 SP1 y Windows Management Framework 3.0.
+StorSimple Snapshot Manager puede instalarse en equipos que ejecutan el sistema operativo Windows Server 2008 R2 SP1, Windows Server 2012 o Windows Server 2012 R2 En servidores que ejecutan Windows 2008 R2, también debe instalar Windows Server 2008 SP1 y Windows Management Framework 3.0.
 
 Antes de instalar o actualizar el complemento Administrador de instantáneas StorSimple de Microsoft Management Console (MMC), asegúrese de que el servidor host y el dispositivo Microsoft Azure StorSimple están configurados correctamente.
 
@@ -47,7 +51,7 @@ Los pasos siguientes proporcionan una descripción general de las tareas de conf
     - Windows Server 2012
     - Windows Server 2012 R2
  
-    >[AZURE.NOTE]Para un dispositivo StorSimple virtual, el host debe ser una máquina virtual de Microsoft Azure.
+    Para un dispositivo StorSimple virtual, el host debe ser una máquina virtual de Microsoft Azure.
 
 3. Asegúrese de que se cumplen todos los requisitos de configuración de Microsoft Azure StorSimple. Para obtener más información, vaya a [Requisitos previos de implementación](storsimple-deployment-walkthrough.md#deployment-prerequisites).
 
@@ -255,4 +259,4 @@ Para reinstalar Administrador de instantáneas StorSimple, siga los pasos descri
 
 - Para obtener más información acerca de Snapshot Manager de StorSimple, vaya a [Use Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/20/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
@@ -386,7 +386,7 @@ Desde este cuadro de diálogo se puede habilitar la descarga de SSL, lo que perm
 
 [Kit de herramientas de Azure para Eclipse][]
 
-[Instalación del kit de herramientas de Azure para Eclipse][]
+[Instalación del Kit de herramientas de Azure para Eclipse][]
 
 [Creación de una aplicación Hola a todos para Azure en Eclipse][]
 
@@ -394,7 +394,7 @@ Desde este cuadro de diálogo se puede habilitar la descarga de SSL, lo que perm
 
 [Lista de cuentas de almacenamiento de Azure][]
 
-Para más información sobre el uso de Azure con Java, consulte el [Centro para desarrolladores de Java de Azure][].
+Para obtener más información sobre el uso de Azure con Java, consulte el [Centro para desarrolladores de Java de Azure][].
 
 <!-- URL List -->
 
@@ -410,7 +410,7 @@ Para más información sobre el uso de Azure con Java, consulte el [Centro para 
 [Deploying Large Deployments]: http://go.microsoft.com/fwlink/?LinkID=699536
 [Uso de almacenamiento en caché colocado]: http://go.microsoft.com/fwlink/?LinkID=699542
 [Uso de la descarga de SSL]: http://go.microsoft.com/fwlink/?LinkID=699545
-[Instalación del kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Instalación del Kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Enable Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699548
 [SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549
 [Descarga de SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
@@ -440,4 +440,4 @@ Para más información sobre el uso de Azure con Java, consulte el [Centro para 
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

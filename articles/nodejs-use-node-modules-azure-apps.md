@@ -1,6 +1,6 @@
 <properties pageTitle="Trabajo con módulos Node.js" description="Aprenda a trabajar con módulos de Node.js al usar Sitios web Azure o Servicios en la nube." services="" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="11/20/2015" ms.author="robmcm"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/09/2016" ms.author="robmcm"/>
 
 
 
@@ -78,4 +78,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Node
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Scripts de implementación de sitios web personalizados con Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

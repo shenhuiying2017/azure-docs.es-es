@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/12/2016"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Proporcionar a los consumidores registro e inicio de sesión con cuentas de Google+
@@ -48,17 +48,13 @@ Para usar Google+ como proveedor de identidades en Azure Active Directory (AD) B
 
     ![G+ - pantalla de consentimiento de OAuth](./media/active-directory-b2c-setup-goog-app/google-web-app.png)
 
-8. En **Name**(Nombre), proporcione un nombre para la aplicación, escriba [https://login.microsoftonline.com](https://login.microsoftonline.com) en el campo **Authorized JavaScript origins** (Orígenes de JavaScript autorizados) y `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` en el campo **Authorized redirect URIs** (URI de redirección autorizados), donde **{tenant}** se sustituirá por el nombre del inquilino (por ejemplo, contosob2c.onmicrosoft.com). Haga clic en **Crear**.
+8. En **Name**(Nombre), proporcione un nombre para la aplicación, escriba [https://login.microsoftonline.com](https://login.microsoftonline.com) en el campo **Authorized JavaScript origins** (Orígenes de JavaScript autorizados) y `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` en el campo **Authorized redirect URIs** (URI de redirección autorizados), donde **{tenant}** se sustituirá por el nombre del inquilino (por ejemplo, contosob2c.onmicrosoft.com). Haga clic en **Crear**. Nota: el valor de **{tenant}** distingue mayúsculas de minúsculas.
 
-> [AZURE.NOTE]El valor de **{tenant}** distingue mayúsculas de minúsculas.
+    ![G+ - crear id. de cliente](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
 
-    ![G+ - Create client ID](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
+9. Copie los valores **Id. de cliente** y **Secreto del cliente**. Necesitará ambos para configurar Google+ como proveedor de identidades de su inquilino. Nota: el **secreto de cliente** es una credencial de seguridad importante.
 
-9. Copie los valores **Id. de cliente** y **Secreto del cliente**. Necesitará ambos para configurar Google+ como proveedor de identidades de su inquilino.
-
-> [AZURE.NOTE]El **secreto de cliente** es una credencial de seguridad importante.
-
-    ![G+ - Client secret](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
+    ![G+ - secreto de cliente](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
 
 ## Configuración de Google+ como proveedor de identidades del inquilino
 
@@ -70,4 +66,4 @@ Para usar Google+ como proveedor de identidades en Azure Active Directory (AD) B
 6. Haga clic en **Configurar este proveedor de identidades** y escriba el **id. de cliente** y el **secreto de cliente** de la aplicación de Google+ que creó anteriormente.
 7. Haga clic en **Aceptar** y, luego, en **Crear** para guardar la configuración de Google+.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

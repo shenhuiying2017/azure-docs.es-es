@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="big-compute"
-   ms.date="09/29/2015"
+   ms.date="01/08/2016"
    ms.author="danlep"/>
 
 # Creación de un clúster de informática de alto rendimiento (HPC) en máquinas virtuales de Azure con el script de implementación de HPC Pack IaaS
@@ -36,10 +36,10 @@ Para obtener información general acerca de cómo diseñar un clúster de HPC Pa
 * **Suscripción de Azure**: puede usar una suscripción en el servicio Azure Global o Azure China. Los límites de su suscripción afectarán al número y al tipo de nodos de clúster que puede implementar. Para obtener información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 
 
-* **Equipo cliente Windows con Azure PowerShell 0.8.7 o posterior instalado y configurado**: consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md). El script se ejecuta en Administración de servicios de Azure.
+* **Equipo cliente Windows con Azure PowerShell 0.8.7 o posterior instalado y configurado**: consulte [Instalar y configurar Azure PowerShell](../powershell-install-configure.md). El script se ejecuta en Administración de servicios de Azure.
 
 
-* **Script de implementación de HPC Pack IaaS**: descargue y desempaquete la versión más reciente del script en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Puede comprobar la versión del script ejecutando `New-HPCIaaSCluster.ps1 –Version`. Este artículo se basa en la versión 4.4.0 del script.
+* **Script de implementación de IaaS de HPC Pac **: descargue y desempaquete la versión más reciente del script desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Compruebe la versión del script ejecutando `New-HPCIaaSCluster.ps1 –Version`. Este artículo se basa en la versión 4.4.0 del script.
 
 * **Archivo de configuración del script**: necesitará crear un archivo XML que el script usará para configurar el clúster de HPC. Para obtener información y ejemplos, consulte las secciones correspondientes más adelante en este artículo.
 
@@ -75,7 +75,7 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 
 ### Ejemplo
 
-En el ejemplo siguiente se crea un nuevo clúster de HPC Pack mediante el archivo de configuración MyConfigFile.xml y se especifican las credenciales administrativas para instalar el clúster.
+En el ejemplo siguiente se crea un nuevo clúster de HPC Pack mediante el archivo de configuración *MyConfigFile.xml* y se especifican las credenciales administrativas para instalar el clúster.
 
 ```
 New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
@@ -83,10 +83,9 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
 ### Consideraciones adicionales
 
-* El script usa la imagen de máquina virtual de HPC Pack en Azure Marketplace para crear el nodo principal del clúster. La imagen actual se basa en Windows Server 2012 R2 Datacenter con HPC Pack 2012 R2 Update 3 instalado.
+* El script usa la imagen de máquina virtual de HPC Pack en Azure Marketplace para crear el nodo principal del clúster. La última imagen se basa en Windows Server 2012 R2 Datacenter con HPC Pack 2012 R2 Update 3 instalado.
 
 * El script puede, opcionalmente, habilitar el envío de trabajos mediante el portal web de HPC Pack o la API de REST de HPC Pack.
-
 
 * El script puede, opcionalmente, ejecutar scripts personalizados de configuración previa y posterior en el nodo principal si desea instalar software adicional o configurar otras opciones.
 
@@ -99,7 +98,7 @@ El archivo de configuración para el script de implementación es un archivo XML
 
 ### Ejemplo 1
 
-El archivo de configuración siguiente implementa un clúster de HPC Pack en un bosque de dominio existente. El clúster tiene un nodo principal con bases de datos locales y 12 nodos de proceso con la extensión de máquina virtual BGInfo aplicada. La instalación automática de actualizaciones de Windows está deshabilitada para todas las máquinas virtuales en el bosque de dominio. Todos los servicios en la nube se crean directamente en la ubicación de Este de Asia. Los nodos de proceso se crean en tres servicios en la nube y tres cuentas de almacenamiento (es decir, MyHPCCN-0001 en MyHPCCN-0005 en MyHPCCNService01 y mycnstorage01; MyHPCCN-0006 en MyHPCCN0010 en MyHPCCNService02 y mycnstorage02; y MyHPCCN-0011 en MyHPCCN-0012 en MyHPCCNService03 y mycnstorage03). Los nodos de proceso se crean a partir de una imagen privada existente capturada desde un nodo de proceso. El servicio de crecimiento y reducción automático está habilitado con intervalos de crecimiento y reducción predeterminados.
+El archivo de configuración siguiente implementa un clúster de HPC Pack en un bosque de dominio existente. El clúster tiene un nodo principal con bases de datos locales y 12 nodos de proceso con la extensión de máquina virtual BGInfo aplicada. La instalación automática de actualizaciones de Windows está deshabilitada para todas las máquinas virtuales en el bosque de dominio. Todos los servicios en la nube se crean directamente en la ubicación de Este de Asia. Los nodos de proceso se crean en tres servicios en la nube y tres cuentas de almacenamiento (es decir, _MyHPCCN-0001_ a _MyHPCCN-0005_ en _MyHPCCNService01_ y _mycnstorage01_; _MyHPCCN-0006_ a _MyHPCCN0010_ en _MyHPCCNService02_ y _mycnstorage02_; y _MyHPCCN-0011_ a _MyHPCCN-0012_ en _MyHPCCNService03_ y _mycnstorage03_). Los nodos de proceso se crean a partir de una imagen privada existente capturada desde un nodo de proceso. El servicio de crecimiento y reducción automático está habilitado con intervalos de crecimiento y reducción predeterminados.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -163,7 +162,7 @@ El archivo de configuración siguiente implementa un clúster de HPC Pack en un 
 
 ### Ejemplo 2
 
-El archivo de configuración siguiente implementa un clúster de HPC Pack en un bosque de dominio existente. El clúster contiene un nodo principal, un servidor de bases de datos con un disco de datos de 500 GB, dos nodos de agente que ejecutan el sistema operativo Windows Server 2012 R2 y cinco nodos de proceso que ejecutan el sistema operativo Windows Server 2012 R2. El servicio en la nube MyHPCCNService se crea en el grupo de afinidad MyIBAffinityGroup y todos los demás servicios en la nube se crean en el grupo de afinidad MyAffinityGroup. La API de REST del Programador de trabajos de HPC y el portal web de HPC están habilitados en el nodo principal.
+El archivo de configuración siguiente implementa un clúster de HPC Pack en un bosque de dominio existente. El clúster contiene un nodo principal, un servidor de bases de datos con un disco de datos de 500 GB, dos nodos de agente que ejecutan el sistema operativo Windows Server 2012 R2 y cinco nodos de proceso que ejecutan el sistema operativo Windows Server 2012 R2. El servicio en la nube MyHPCCNService se crea en el grupo de afinidad *MyIBAffinityGroup* y todos los demás servicios en la nube se crean en el grupo de afinidad *MyAffinityGroup*. La API de REST del Programador de trabajos de HPC y el portal web de HPC están habilitados en el nodo principal.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -217,7 +216,7 @@ El archivo de configuración siguiente implementa un clúster de HPC Pack en un 
 
 ### Ejemplo 3
 
-El archivo de configuración siguiente crea un nuevo bosque de dominio e implementa un clúster de HPC Pack que tiene un nodo principal con bases de datos locales y 20 nodos de proceso de Linux. Todos los servicios en la nube se crean directamente en la ubicación de Este de Asia. Los nodos de proceso de Linux se crean en cuatro servicios en la nube y cuatro cuentas de almacenamiento (es decir, MyLnxCN-0001 en MyHPCCN-0005 en MyLnxCNService01 y mylnxstorage01, MyLnxCN-0006 en MyLnxCN-0010 en MyLnxCNService02 y mylnxstorage02, MyLnxCN-0011 en MyLnxCN-0015 en MyLnxCNService03 y mylnxstorage03 y MyLnxCN-0016 en MyLnxCN-0020 en MyLnxCNService04 y mylnxstorage04). Los nodos de proceso se crean a partir de una imagen de Linux de CentOS OpenLogic versión 7.0.
+El archivo de configuración siguiente crea un nuevo bosque de dominio e implementa un clúster de HPC Pack que tiene un nodo principal con bases de datos locales y 20 nodos de proceso de Linux. Todos los servicios en la nube se crean directamente en la ubicación de Este de Asia. Los nodos de proceso de Linux se crean en cuatro servicios en la nube y cuatro cuentas de almacenamiento (es decir, _MyLnxCN-0001_ a _MyLnxCN-0005_ en _MyLnxCNService01_ y _mylnxstorage01_, _MyLnxCN-0006_ a _MyLnxCN-0010_ en _MyLnxCNService02_ i _mylnxstorage02_, _MyLnxCN-0011_ a _MyLnxCN-0015_ en _MyLnxCNService03_ y _mylnxstorage03_ y _MyLnxCN-0016_ a _MyLnxCN-0020_ en _MyLnxCNService04_ y _mylnxstorage04_). Los nodos de proceso se crean a partir de una imagen de Linux de CentOS OpenLogic versión 7.0.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -305,7 +304,7 @@ El archivo de configuración siguiente implementa un clúster de HPC Pack que ti
 
 ### Ejemplo 5
 
-El archivo de configuración siguiente implementa un clúster de HPC Pack en un bosque de dominio existente. El clúster tiene un nodo principal con bases de datos locales y se crean dos plantillas de nodo de Azure y tres nodos de Azure de tamaño medio para la plantilla de nodo de Azure AzureTemplate1. Se ejecutará un archivo de script en el nodo principal después de configurar este nodo.
+El archivo de configuración siguiente implementa un clúster de HPC Pack en un bosque de dominio existente. El clúster tiene un nodo principal con bases de datos locales y se crean dos plantillas de nodo de Azure y tres nodos de Azure de tamaño medio para la plantilla de nodo _AzureTemplate1_ de Azure. Se ejecutará un archivo de script en el nodo principal después de configurar este nodo.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -392,4 +391,4 @@ El archivo de configuración siguiente implementa un clúster de HPC Pack en un 
 
 * Pruebe las herramientas de HPC Pack para iniciar, detener, agregar y quitar nodos de proceso de un clúster creado. Consulte [Administración de nodos de ejecución en un clúster de HPC Pack en Azure](virtual-machines-hpcpack-cluster-node-manage.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="mausher;nicw;barbkess;JRJ@BigBangData.co.uk;"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;nicw;barbkess;jrj;sonyama;"/>
 
 # Herramientas de administración para Almacenamiento de datos SQL
 En este tema se examinan y comparan distintas herramientas y opciones para administrar Almacenamiento de datos SQL, con objeto de que se elija la herramienta adecuada para cada necesidad específica. Elegir la herramienta adecuada depende del número de bases de datos que administre, la tarea y la frecuencia con la que se realiza una tarea.
@@ -48,4 +48,4 @@ Para comenzar a usar estas herramientas, vaya al tema [conexión][].
 <!--Other web references-->
 [Portal de Azure clásico]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

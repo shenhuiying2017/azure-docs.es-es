@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Webhooks de Automatización de Azure "
+   pageTitle="Webhooks de Automatización de Azure | Microsoft Azure"
    description="Un webhook que permite a un cliente iniciar un runbook en Automatización de Azure desde una llamada HTTP. Este artículo describe cómo crear un webhook y cómo llamar a uno para que inicie un runbook."
    services="automation"
    documentationCenter=""
@@ -107,7 +107,7 @@ El cliente recibirá uno de los siguientes códigos de retorno de la solicitud P
 |:---|:----|:---|
 | 202 | Accepted | La solicitud se aceptó y el runbook se puso en cola correctamente. |
 | 400 | Bad Request | No se aceptó la solicitud por uno de los siguientes motivos. <ul> <li>El webhook ha caducado.</li> <li>El webhook está deshabilitado.</li> <li>El token en la dirección URL no es válido.</li> </ul>|
-| 404 | No encontrado | No se aceptó la solicitud por uno de los siguientes motivos. <ul> <li>No se encontró el webhook.</li> <li>No se encontró el runbook.</li> <li>No se encontró la cuenta.</li> </ul> |
+| 404 | No encontrado | No se aceptó la solicitud por uno de los siguientes motivos. <ul><li>No se encontró el webhook.</li> <li>No se encontró el runbook.</li> <li>No se encontró la cuenta.</li> </ul> |
 | 500 | Internal Server Error | La dirección URL es válida, pero se produjo un error. Vuelva a enviar la solicitud. |
 
 Asumiendo que la solicitud sea correcta, la respuesta del webhook contendrá el Id. de trabajo en formato JSON como se muestra a continuación. Contendrá un solo Id. de trabajo, pero el formato JSON permite realizar potenciales mejoras en el futuro.
@@ -125,8 +125,10 @@ El runbook espera una lista de máquinas virtuales con formato JSON en el cuerpo
 	$uri = "https://s1events.azure-automation.net/webhooks?token=8ud0dSrSo%2fvHWpYbklW%3c8s0GrOKJZ9Nr7zqcS%2bIQr4c%3d"
 	$headers = @{"From"="user@contoso.com";"Date"="05/28/2015 15:47:00"}
     
-    $vms  = @([pscustomobject]@{Name="vm01";ServiceName="vm01"})
-    $vms += @([pscustomobject]@{Name="vm02";ServiceName="vm02"})
+    $vms  = @(
+    			@{ Name="vm01";ServiceName="vm01"},
+    			@{ Name="vm02";ServiceName="vm02"}
+    		)
 	$body = ConvertTo-Json -InputObject $vms 
 
 	$response = Invoke-RestMethod -Method Post -Uri $uri -Headers $headers -Body $body
@@ -186,7 +188,7 @@ El siguiente runbook de muestra acepta la solicitud del ejemplo anterior e inici
 
 ## Iniciar runbooks en respuesta a alertas de Azure
 
-Los runbooks con Webhook se pueden usar para reaccionar frente a [alertas de Azure](Azure-portal/insights-receive-alert-notifications.md). Los recursos de Azure se pueden supervisar recopilando estadísticas como rendimiento, disponibilidad y uso con la ayuda de las alertas de Azure. Puede recibir una alerta basada en los eventos o las métricas de supervisión para los recursos de Azure. Actualmente, las cuentas de automatización solo admiten métricas. Cuando el valor de una métrica especificada supera el umbral asignado o si se desencadena el evento configurado, se envía una notificación a la administración de servicios o a los coadministradores para resolver la alerta; para más información sobre eventos y métricas, vea [Alertas de Azure](Azure-portal/insights-receive-alert-notifications.md).
+Los runbooks con Webhook se pueden usar para reaccionar frente a [alertas de Azure](Azure-portal/insights-receive-alert-notifications.md). Los recursos de Azure se pueden supervisar recopilando estadísticas como rendimiento, disponibilidad y uso con la ayuda de las alertas de Azure. Puede recibir una alerta basada en los eventos o las métricas de supervisión para los recursos de Azure. Actualmente, las cuentas de automatización solo admiten métricas. Cuando el valor de una métrica especificada supera el umbral asignado o si se desencadena el evento configurado, se envía una notificación a la administración de servicios o a los coadministradores para resolver la alerta; para obtener más información sobre eventos y métricas, consulte [Alertas de Azure](Azure-portal/insights-receive-alert-notifications.md).
 
 Además de usar alertas de Azure como sistema de notificación, también puede iniciar runbooks en respuesta a alertas. La automatización de Azure ofrece la capacidad de ejecutar runbooks habilitados con webhooks con alertas de Azure. Cuando una métrica supera el valor de umbral configurado, la regla de alerta se activa y desencadena el webhook de automatización que a su vez ejecuta el runbook.
 
@@ -266,10 +268,10 @@ El siguiente runbook de ejemplo se desencadena cuando se activa la regla de aler
 
  
 
-## Artículos relacionados
+## Pasos siguientes
 
-- [Inicio de un runbook](automation-starting-a-runbook.md)
-- [Visualización del estado de un trabajo de runbook](automation-viewing-the-status-of-a-runbook-job.md)
+- Para más información sobre diferentes maneras de iniciar un runbook, vea [Iniciar un runbook](automation-starting-a-runbook.md).
+- Para información sobre cómo ver el estado de un trabajo de runbook, consulte [Ejecución de un runbook en Automatización de Azure](automation-runbook-execution.md).
 - [Usar la automatización de Azure para realizar acciones en las alertas de Azure](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

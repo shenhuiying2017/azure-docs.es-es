@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Protección de una aplicación de API: agregar la autenticación de Azure Active Directory o de un proveedor social
@@ -269,10 +269,10 @@ En esta sección, se cambiar el código de la aplicación de API de ContactsList
 
 ## Pasos siguientes
 
-Ha visto cómo proteger una aplicación de API de Azure al requerir Azure Active Directory o la autenticación de proveedor social. Para obtener más información, vea [Autenticación para aplicaciones de API y aplicaciones de móvil](../app-service/app-service-authentication-overview.md).
+Ha visto cómo proteger una aplicación de API de Azure al requerir Azure Active Directory o la autenticación de proveedor social. Para obtener más información, vea [Autenticación para aplicaciones de API y aplicaciones móviles](../app-service/app-service-authentication-overview.md).
 
 [portal de Azure]: https://manage.windowsazure.com/
 [Portal de vista previa de Azure]: https://portal.azure.com/
 [Portal del vista previa de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

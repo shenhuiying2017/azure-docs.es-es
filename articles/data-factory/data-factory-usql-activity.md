@@ -125,6 +125,7 @@ degreeOfParallelism | Número máximo de nodos que se usará de forma simultáne
 prioridad | Determina qué trabajos de todos los están en cola deben seleccionarse para ejecutarse primero. Cuanto menor sea el número, mayor será la prioridad. | No 
 parameters | Parámetros del script SQL U | No 
 
+Vea [SearchLogProcessing.txt Script Definition](#script-definition) (Definición del script de SearchLogProcessing.txt) para la definición del script.
 
 ### Conjuntos de datos de entrada y salida de ejemplo
 
@@ -187,4 +188,35 @@ Aquí está la definición del servicio vinculado de Almacén de Azure Data Lake
 
 Vea [Movimiento de datos a y desde el Almacén de Azure Data Lake](data-factory-azure-datalake-connector.md) para obtener descripciones de las propiedades JSON del servicio vinculado de Almacén de Azure Data Lake y de los fragmentos de código JSON del conjunto de datos.
 
-<!---HONumber=Nov15_HO2-->
+### Definición del script
+
+	@searchlog =
+	    EXTRACT UserId          int,
+	            Start           DateTime,
+	            Region          string,
+	            Query           string,
+	            Duration        int?,
+	            Urls            string,
+	            ClickedUrls     string
+	    FROM @in
+	    USING Extractors.Tsv(nullEscape:"#NULL#");
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @searchlog
+	WHERE Region == "en-gb";
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @rs1
+	    WHERE Start <= DateTime.Parse("2012/02/19");
+	
+	OUTPUT @rs1   
+	    TO @out
+	      USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
+
+ADF pasa dinámicamente los valores de los parámetros **@in** y **@out** en el script de U-SQL anterior con la sección 'parameters'. Vea la sección 'parameters' anterior en la definición de la canalización.
+
+Puede especificar otro degreeOfParallelism de viz. de propiedades, prioridad, etc., también en su definición de la canalización para los trabajos que se ejecutan en el servicio Análisis de Azure Data Lake.
+
+<!---HONumber=AcomDC_0114_2016-->

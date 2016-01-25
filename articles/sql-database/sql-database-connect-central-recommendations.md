@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="01/07/2016" 
 	ms.author="genemi"/>
 
 
@@ -32,7 +32,7 @@ Este tema es un buen lugar para empezar a trabajar con conectividad de cliente a
 - [Instrucciones para conectar con Base de datos SQL de Azure mediante programación](http://msdn.microsoft.com/library/azure/ee336282.aspx) - Se incluye lo siguiente:
  - [Puertos y firewalls](sql-database-configure-firewall-settings.md)
  - Cadenas de conexión
-- [Administración de recursos de la Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn338083.aspx): en esta exposición se incluye lo siguiente:
+- [Administración de recursos de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn338083.aspx) - Se incluye lo siguiente:
  - Regulador de recursos
  - Cumplimiento de límites
  - Limitaciones
@@ -128,7 +128,9 @@ Se recomienda un retraso de 5 segundos antes del primer reintento. Si se vuelve 
 Una explicación del *período de bloqueo* para clientes que usan ADO.NET está disponible en [Grupos de conexión de SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 
-Para obtener ejemplos de código que ilustren la lógica de reintento, consulte: - [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
+Para obtener ejemplos de código que ilustran la lógica de reintento, consulte:
+
+- [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
 
 
 ### Números de error para errores transitorios
@@ -138,11 +140,17 @@ Cuando se produce cualquier error en Base de datos SQL, se inicia una [SqlExcept
 
 
 - [Mensajes de error para los programas de cliente de base de datos SQL](sql-database-develop-error-messages.md#bkmk_connection_errors)
- - La sección **Errores transitorios, errores de pérdida de conexión** es una lista de los errores transitorios que garantizan un reintento automático.
+ - Su sección **Errores transitorios, los errores de pérdida de conexión** es una lista de los errores transitorios que garantizan un reintento automático.
  - Por ejemplo, inténtelo de nuevo si se produce el número de error 40613, que indica algo similar a<br/>*La base de datos "mydatabase" del servidor "theserver" no está actualmente disponible.*
 
 
-Para obtener más información, consulte: - [Desarrollo de Base de datos SQL de Azure: temas de procedimientos](http://msdn.microsoft.com/library/azure/ee621787.aspx) - [Solución de problemas de conexión con Base de datos SQL de Azure](http://support.microsoft.com/kb/2980233/)
+Para obtener más información, consulte:
+
+- [Desarrollo de base de datos SQL de Azure: temas de procedimientos](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+
+<!--  (per Penny Lee, 2016/01/07.  MightyPen==GeneMi)
+- [Troubleshoot connection problems to Azure SQL Database](http://support.microsoft.com/kb/2980233/)
+-->
 
 
 <a id="e-technologies" name="e-technologies"></a>
@@ -165,8 +173,8 @@ Se proporcionan varios ejemplos de código para clientes que se ejecutan en Wind
 - [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md)
 
 
-**Bibliotecas de controlador:** para obtener información sobre las bibliotecas de controlador de conexión, incluidas las versiones recomendadas, consulte:
+**Bibliotecas de controlador:** para obtener información acerca de las bibliotecas de controlador de conexión, incluidas las versiones recomendadas, consulte:
 
 - [Bibliotecas de conexiones para la base de datos SQL y SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

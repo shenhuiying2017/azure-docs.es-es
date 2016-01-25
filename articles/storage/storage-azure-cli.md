@@ -1,19 +1,19 @@
 <properties
     pageTitle="Uso de la CLI de Azure con Almacenamiento de Azure | Microsoft Azure"
-    description="Aprenda a usar la interfaz de línea de comandos (CLI de Azure) de Azure con Almacenamiento de Azure para crear y administrar cuentas de almacenamiento y trabajar con archivos y blobs de Azure."
+    description="Aprenda a usar la interfaz de línea de comandos (CLI de Azure) de Azure con Almacenamiento de Azure para crear y administrar cuentas de almacenamiento y trabajar con archivos y blobs de Azure. La CLI de Azure es una herramienta multiplataforma"
     services="storage"
     documentationCenter="na"
     authors="tamram"
-    manager="jdial"/>
+    manager="carmonm"/>
 
 <tags
     ms.service="storage"
     ms.workload="storage"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article" 
+    ms.topic="article"
     ms.date="01/05/2016"
-    ms.author="chungli;jiyang;yaxia;tamram"/>
+    ms.author="micurd"/>
 
 # Uso de la CLI de Azure con Almacenamiento de Azure
 
@@ -206,7 +206,7 @@ Tenga en cuenta que el nombre de directorio es opcional en la operación de enum
 A partir de la versión 0.9.8 de la CLI de Azure, puede copiar un archivo en otro, un archivo en un blob o un blob en un archivo. A continuación mostramos cómo realizar estas operaciones de copia mediante comandos de CLI. Para copiar un archivo en el nuevo directorio:
 
 	azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare --dest-path destdir/hellocopy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
-	
+
 Para copiar un blob en un directorio de archivos:
 
 	azure storage file copy start --source-container srcctn --source-blob hello2.txt --dest-share hello --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
@@ -220,6 +220,5 @@ A continuación encontrará algunos artículos relacionados y recursos para obte
 
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
- 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

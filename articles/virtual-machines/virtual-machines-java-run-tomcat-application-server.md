@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"
+	editor=""
     tags="azure-service-management" />
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Ejecución de un servidor de aplicaciones Java en una máquina virtual creada con el modelo de implementación clásico
@@ -79,7 +79,7 @@ En este tutorial, se instalará Tomcat.
 1. Cuando haya iniciado sesión en la máquina virtual, abra una sesión del explorador en [Apache Tomcat](http://tomcat.apache.org/download-70.cgi).
 2. Haga doble clic en el vínculo del **instalador del servicio de Windows de 32 bits y 64 bits**. Mediante esta técnica, Tomcat se instalará como servicio de Windows.
 3. Cuando se le pida, elija ejecutar el instalador.
-4. En el asistente para la **instalación de Apache Tomcat**, siga las indicaciones para instalar Tomcat. En este tutorial, es adecuado aceptar los valores predeterminados. Cuando llegue al cuadro de diálogo **Completing the Apache Tomcat Setup Wizard ** (Finalización del asistente para la instalación de Apache Tomcat), si lo desea, puede activar **Run Apache Tomcat** (Ejecutar Apache Tomcat) para iniciar Tomcat ahora. Haga clic en **Finalizar** para finalizar el proceso de instalación de Tomcat.
+4. En el asistente para la **instalación de Apache Tomcat**, siga las indicaciones para instalar Tomcat. En este tutorial, es adecuado aceptar los valores predeterminados. Cuando llegue al cuadro de diálogo **Completing the Apache Tomcat Setup Wizard (Finalización del asistente para la instalación de Apache Tomcat)**, si lo desea, puede activar **Run Apache Tomcat (Ejecutar Apache Tomcat)** para iniciar Tomcat ahora. Haga clic en **Finalizar** para finalizar el proceso de instalación de Tomcat.
 
 ## Para iniciar Tomcat
 Si no ha elegido ejecutar Tomcat en el cuadro de diálogo **Completing the Apache Tomcat Setup Wizard** (Finalización del asistente para la instalación de Apache Tomcat), inícielo; para ello, abra un símbolo del sistema en la máquina virtual y ejecute **net start Tomcat7**.
@@ -94,7 +94,7 @@ Para ver que Tomcat se ejecuta desde máquinas externas, deberá crear un extrem
 3. Haga clic en el nombre de la máquina virtual que ejecuta el servidor de aplicaciones Java.
 4. Haga clic en **Extremos**.
 5. Haga clic en **Agregar**.
-6. En el cuadro de diálogo **Agregar extremo**, asegúrese de que la casilla **Agregar extremo independiente** está activada y después haga clic en **Siguiente**.
+6. En el cuadro de diálogo **Agregar extremo**, asegúrese de que la casilla **Agregar extremo independiente** está seleccionada y después haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Detalles del nuevo extremo**:
     1. Especifique un nombre para el extremo; por ejemplo, **HttpIn**.
     2. Especifique **TCP** para el protocolo.
@@ -146,4 +146,4 @@ Para obtener más información sobre otros servicios (como Almacenamiento de Azu
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

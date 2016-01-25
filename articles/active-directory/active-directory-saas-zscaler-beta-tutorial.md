@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
+    ms.date="01/12/2016" 
     ms.author="markvi" />
 
 #Tutorial: Integración de Azure Active Directory con Zscaler Beta
@@ -122,7 +122,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     1.  Haga clic en **Guardar**.
     2.  Haga clic en **Activar ahora**.
 
-11. En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en ZScaler Beta**, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completar**.
+11. En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en ZScaler Beta**, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-zscaler-beta-tutorial/IC800229.png "Configurar inicio de sesión único")
 
@@ -162,7 +162,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en ZScaler Beta, debe
 
 1.  Inicie sesión en su inquilino de **Zscaler**.
 
-2.  Haga clic en **Administration** (Administración).
+2.  Haga clic en **Administración**.
 
     ![Administración](./media/active-directory-saas-zscaler-beta-tutorial/IC781035.png "Administración")
 
@@ -178,7 +178,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en ZScaler Beta, debe
 
     ![Agregar usuario](./media/active-directory-saas-zscaler-beta-tutorial/IC781038.png "Agregar usuario")
 
-    1.  Escriba valores en los campos **UserID** (Id. de usuario), el **User Display Name** (Nombre para mostrar del usuario), **Password** (Contraseña), **Confirm Password** (Confirmar contraseña) y luego seleccione **Groups** (Grupos) y **Department** (Departamento) de una cuenta de AAD válida que quiera aprovisionar.
+    1.  Escriba el **Id. de usuario**, el **Nombre para mostrar del usuario**, la **Contraseña**, **Confirmar contraseña** y luego seleccione **Grupos** y el **Departamento** de una cuenta de AAD válida que quiera aprovisionar.
     2.  Haga clic en **Guardar**.
 
 >[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ZScaler Beta ofrecida por ZScaler Beta para aprovisionar cuentas de usuario de AAD.
@@ -195,10 +195,10 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Asignar usuarios](./media/active-directory-saas-zscaler-beta-tutorial/IC800230.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-zscaler-beta-tutorial/IC767830.png "Sí")
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0114_2016-->

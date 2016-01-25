@@ -24,7 +24,7 @@ En este artículo se describe cómo empezar a usar el almacenamiento Tabla de Az
 
 El servicio de almacenamiento de tabla de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales.
 
-La operación **Agregar servicios conectados** instala los paquetes de NuGet adecuados para tener acceso al almacenamiento de Azure en el proyecto y agrega la cadena de conexión de la cuenta de almacenamiento a los archivos de configuración del proyecto.
+La operación **Agregar servicios conectados** instala los paquetes de NuGet adecuados para tener acceso a almacenamiento de Azure en su proyecto y agrega la cadena de conexión para la cuenta de almacenamiento para los archivos de configuración del proyecto.
 
 Para más información general sobre el uso del almacenamiento en tablas de Azure, vea [Cómo usar el almacenamiento en tablas de .NET](storage-dotnet-how-to-use-tables.md).
 
@@ -150,9 +150,6 @@ Para consultar una tabla a fin de obtener todas las entidades de una partición,
         }
     } while (token != null);
 
-    return View();
-
-
 ## Obtención de una sola entidad
 Puede escribir una consulta para obtener una sola entidad concreta. El código siguiente utiliza un objeto **TableOperation** para especificar el cliente llamado "Ben Smith". Este método devuelve solo una entidad, en lugar de una colección, y el valor devuelto en **TableResult.Result** es un objeto **CustomerEntity**. La forma más rápida de recuperar una sola entidad del servicio **Tabla** es especificar claves tanto de partición como de fila en las consultas.
 
@@ -202,4 +199,4 @@ Puede eliminar fácilmente una entidad después de haberla encontrado. El códig
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

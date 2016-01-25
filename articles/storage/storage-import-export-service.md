@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Uso de la importación y exportación para transferir datos al almacenamiento en blobs | Microsoft Azure" 
-	description="Aprenda a crear trabajos de importación y exportación en el Portal de Azure clásico para transferir datos al almacenamiento de blobs." 
-	authors="robinsh" 
-	manager="carmonm" 
-	editor="" 
-	services="storage" 
+<properties
+	pageTitle="Uso de la importación y exportación para transferir datos al almacenamiento en blobs | Microsoft Azure"
+	description="Aprenda a crear trabajos de importación y exportación en el Portal de Azure clásico para transferir datos al almacenamiento de blobs."
+	authors="robinsh"
+	manager="carmonm"
+	editor="tysonn"
+	services="storage"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/22/2015" 
-	ms.author="robinsh"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/22/2015"
+	ms.author="renash"/>
 
 
 # Uso del servicio de importación y exportación de Microsoft Azure para transferir datos al almacenamiento en blobs
@@ -52,11 +52,11 @@ Cuando cree un trabajo de importación o de exportación, deberá tener también
 1.	**Suscripción y cuentas de almacenamiento:** tiene que disponer de una suscripción de Azure existente y una o varias cuentas de almacenamiento para utilizar el servicio de importación y exportación. Puede utilizar cada trabajo para transferir datos desde o hacia una sola cuenta de almacenamiento. Dicho de otra forma, un trabajo no puede expandirse por varias cuentas de almacenamiento. Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-create-storage-account.md).
 2.	**Discos duros:** el servicio de importación y exportación solo admite unidades de disco duro internas SATA II/III de 3,5 pulgadas. Las unidades de disco duro hasta 6TB son compatibles. Para los trabajos de importación, solo se procesará el primer volumen de datos de la unidad. El volumen de datos debe tener formato NTFS. Es posible conectar un disco SATA II/III externo a la mayoría de los equipos con un adaptador USB SATA II/III externo.
 3.	**Cifrado BitLocker:** todos los datos almacenados en unidades de disco duro deben estar cifrados mediante BitLocker con claves de cifrado protegidas mediante contraseñas numéricas.
-4.	**Destinos de almacenamiento de blobs:** los datos pueden cargarse o descargarse de blobs en bloques y blobs de página. 
+4.	**Destinos de almacenamiento de blobs:** los datos pueden cargarse o descargarse de blobs en bloques y blobs de página.
 5.	**Número de trabajos:** un cliente puede tener hasta 20 trabajos activos por cuenta de almacenamiento.
 6.	**Tamaño máximo de un trabajo:** el tamaño de un trabajo lo determina la capacidad de los discos duros utilizados y la cantidad máxima de datos que se pueden almacenar en una cuenta de almacenamiento. Cada trabajo puede incluir hasta 10 discos duros.
 
-  >[AZURE.IMPORTANT]No se admiten unidades de disco duro externas que incorporen un adaptador USB integrado en este servicio. No prepare una unidad de disco duro externa. El disco que se encuentra dentro de la carcasa externa tampoco no se puede usar para importar datos. Use una unidad de disco duro **interna** SATA II/III de 3,5". Si no puede conectar el disco SATA directamente a la máquina, use un adaptador SATA a USB externo. Consulte la lista de adaptadores recomendados en la sección de preguntas más frecuentes.
+  >[AZURE.IMPORTANT]No se admiten unidades de disco duro externas que incorporen un adaptador USB integrado en este servicio. No prepare una unidad de disco duro externa. El disco que se encuentra dentro de la carcasa externa tampoco no se puede usar para importar datos. Use una unidad de disco duro **interna** SATA II/III de 3,5 pulgadas. Si no puede conectar el disco SATA directamente a la máquina, use un adaptador SATA a USB externo. Consulte la lista de adaptadores recomendados en la sección de preguntas más frecuentes.
 
 ## Crear un trabajo de importación en el Portal clásico##
 
@@ -65,21 +65,21 @@ Cree un trabajo de importación para notificar al servicio de importación y exp
 ### Preparación de las unidades
 
 Antes de crear un trabajo de importación, prepare sus unidades con la herramienta de importación y exportación de Microsoft Azure. Para obtener más información acerca del uso de la herramienta de importación y exportación de Microsoft Azure, consulte [Referencia de la herramienta de importación y exportación de Azure](http://go.microsoft.com/fwlink/?LinkId=329032). Puede descargar la [herramienta de importación y exportación de Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) como paquete independiente.
-  
+
 Para preparar sus unidades, siga los tres pasos siguientes:
 
 1.	Determine los datos que desea importar y el número de unidades que necesitará.
-2.	Identifique los blobs de destino de sus datos en el servicio BLOB de Azure.
+2.	Identifique los blobs de destino para los datos en Almacenamiento de blobs.
 3.	Utilice la herramienta de importación y exportación de Microsoft Azure para copiar sus datos a uno o varios discos duros.
 
 La herramienta de importación y exportación de Microsoft Azure genera un archivo de *diario de unidad* para cada unidad que se haya preparado. El archivo de diario de la unidad se almacena en su equipo local, no en la unidad en sí. Cargará el archivo de diario cuando haya creado el trabajo de importación. Un archivo de diario de unidad incluye el identificador de la unidad y la clave de BitLocker, así como otras informaciones acerca de la unidad.
 
 ### Creación del trabajo de importación
 
-1.	Una vez preparada la unidad, diríjase a su cuenta de almacenamiento en el Portal clásico y visualice el Panel. En **vista rápida**, haga clic en **Crear un trabajo de importación**. 
- 
+1.	Una vez preparada la unidad, diríjase a su cuenta de almacenamiento en el Portal clásico y visualice el Panel. En **vista rápida**, haga clic en **Crear un trabajo de importación**.
+
 2.	En el paso 1 del asistente, indique que ha preparado su unidad y que tiene el archivo de diario de la unidad disponible.
- 
+
 3.	En el paso 2, proporcione la información de contacto de la persona responsable de este trabajo de importación. Si desea guardar datos de registro detallados del trabajo de importación, active la opción **Guardar el registro detallado en mi contenedor de blobs 'waimportexport'**.
 
 4.	En el paso 3, cargue los archivos de diario de unidad que haya obtenido durante el paso de preparación de la unidad. Tendrá que cargar un archivo por cada unidad que haya preparado.
@@ -97,7 +97,7 @@ La herramienta de importación y exportación de Microsoft Azure genera un archi
 	Si todavía no tiene un número de seguimiento, elija **Facilitaré mi información de envío para este trabajo de importación cuando haya enviado mi paquete** y, a continuación, finalice el proceso de importación.
 
 7. Para escribir el número de seguimiento después de haber enviado el paquete, vuelva a la página **Importación/Exportación** de su cuenta de almacenamiento en el Portal clásico, seleccione el trabajo en la lista y elija **Información de envío**. Navegue por el asistente y escriba el número de seguimiento en el paso 2.
-	
+
 	Si el número de seguimiento no se actualiza dentro del plazo de 2 semanas desde la creación del trabajo, este expirará.
 
 	Si el estado se encuentra en estado de creación, envío o transferencia, también puede actualizar el número de cuenta del transportista en el paso 2 del asistente. Una vez que el trabajo se encuentre en estado de empaquetado, no podrá actualizar el número de cuenta del transportista de ese trabajo.
@@ -141,7 +141,7 @@ Cree un trabajo de exportación para notificar al servicio de importación y exp
 	Si todavía no tiene un número de seguimiento, elija **Proporcionaré la información de envío de este trabajo de exportación cuando haya enviado el paquete** y, a continuación, finalice el proceso de exportación.
 
 6. Para escribir el número de seguimiento después de haber enviado el paquete, vuelva a la página **Importación/Exportación** de su cuenta de almacenamiento en el Portal clásico, seleccione el trabajo en la lista y elija **Información de envío**. Navegue por el asistente y escriba el número de seguimiento en el paso 2.
-	
+
 	Si el número de seguimiento no se actualiza dentro del plazo de 2 semanas desde la creación del trabajo, este expirará.
 
 	Si el estado se encuentra en estado de creación, envío o transferencia, también puede actualizar el número de cuenta del transportista en el paso 2 del asistente. Una vez que el trabajo se encuentre en estado de empaquetado, no podrá actualizar el número de cuenta del transportista de ese trabajo.
@@ -180,13 +180,13 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 **¿Cuánto dura el proceso de importación o exportación de datos?**
 
 - Durará el tiempo necesario para enviar los discos y varias horas por cada TB de datos que se desee copiar.
- 
+
 **¿Qué tipos de interfaz son compatibles?**
 
 - El servicio de importación y exportación admite unidades de disco duro (HDD) internas SATA II/III de 3,5 pulgadas. Puede utilizar los siguientes adaptadores de USB a SATA para transferir los datos de los dispositivos antes del envío:
 	- Anker 68UPSATAA-02BU
 	- Anker 68UPSHHDS-BU
-	- Startech SATADOCK22UE 
+	- Startech SATADOCK22UE
 
 > [AZURE.NOTE]Si su convertidor no aparece en la lista anterior, puede probar a ejecutar la herramienta de importación y exportación de Microsoft Azure para preparar la unidad y comprobar si funciona antes de adquirir un convertidor compatible.
 
@@ -221,7 +221,7 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 **¿Aplica formatos en destino a las unidades antes de devolverlas?**
 
 - No. Todas las unidades deben estar preparadas para BitLocker.
- 
+
 **¿Es necesario realizar alguna preparación en el disco al crear un trabajo de exportación?** - No, pero se recomiendan algunas comprobaciones previas. Compruebe el número de discos necesarios mediante el comando [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) de la herramienta de importación y exportación de Azure. Esto le ayuda a obtener una vista previa del uso del disco para los blobs que ha seleccionado, en función del tamaño de las unidades que se va a usar. Compruebe también que puede leer o escribir en el disco duro que se va a enviar para el trabajo de exportación.
 
 ### Envío
@@ -243,10 +243,10 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 **¿Desde y hasta dónde puedo enviar mis datos?**
 
 - El servicio Importación/Exportación admite la importación a cuentas de almacenamiento y la exportación desde las mismas en las regiones siguientes:
-	- Este de EE. UU. 
-	- Oeste de EE. UU. 
-	- Centro-Norte de EE. UU 
-	- Centro-Sur de EE. UU 
+	- Este de EE. UU.
+	- Oeste de EE. UU.
+	- Centro-Norte de EE. UU
+	- Centro-Sur de EE. UU
 	- Europa del Norte
 	- Europa occidental
 	- Asia oriental
@@ -274,6 +274,5 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 [import-job-03]: ./media/storage-import-export-service-classic-portal/import-job-03.png
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
- 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->

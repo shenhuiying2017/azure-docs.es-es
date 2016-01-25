@@ -70,11 +70,11 @@ Al igual que con las credenciales de administración, no use valores que tengan 
 ## Consulte también
 [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md)
 
-[Cómo agregar usuarios a un grupo de bases de datos elásticas](sql-database-elastic-jobs-add-logins-to-dbs.md)
+[Protección de bases de datos SQL](sql-database-security.md)
 
 [Introducción a Trabajos de base de datos elástica](sql-database-elastic-jobs-getting-started.md)
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -212,7 +212,7 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
 						return null;
 					}
 		
-					return string.Join("&define=", defines.Select(x => x.Key + "%3D" + x.Value).ToArray());
+					return "&define=" + string.Join("&define=", defines.Select(x => x.Key + "%3D" + x.Value).ToArray());
 				}
 				private static string ConvertArgsToString(List<string> args)
 				{
@@ -236,7 +236,7 @@ Mediante el uso de las herramientas de HDInsight para Visual Studio, puede ejecu
 En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight. Para obtener más información, consulte los artículos siguientes:
 
 * [Introducción a HDInsight de Azure][hdinsight-get-started]
-* Consulte [Creación de clústeres de Hadoop en HDInsight][hdinsight-provision].
+* [Consulte Creación de clústeres de Hadoop en HDInsight.][hdinsight-provision]
 * [Administración de HDInsight mediante PowerShell][hdinsight-admin-powershell]
 * [Documentación de referencia de los cmdlets de HDInsight][hdinsight-powershell-reference]
 * [Uso de Hive con HDInsight][hdinsight-use-hive]
@@ -266,4 +266,4 @@ En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

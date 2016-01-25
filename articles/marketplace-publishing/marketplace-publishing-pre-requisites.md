@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="12/06/2015"
+  ms.date="12/08/2015"
   ms.author="hascipio; v-divte"/>
 
 # Requisitos previos generales para crear una oferta para Azure Marketplace
@@ -45,9 +45,9 @@ Seguidamente, se indican los requisitos previos técnicos para cada tipo de ofer
 
 | Imagen de máquina virtual | Servicio de desarrolladores | Servicio de datos | Plantilla de solución |
 |-----|-----|-----|-----|
-| [Requisitos previos técnicos de máquina virtual](marketplace-publishing-vm-image-creation-prerequisites.md) | Requisitos previos técnicos del servicio de desarrolladores | [Requisitos previos técnicos del servicio de datos](marketplace-publishing-data-service-creation-prerequisites.md) | [Requisitos previos técnicos de la plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md) |
+| [Requisitos previos técnicos de máquina virtual](marketplace-publishing-vm-image-creation-prerequisites.md) | [Requisitos previos técnicos del servicio de desarrolladores](marketplace-publishing-dev-service-creation-prerequisites.md) | [Requisitos previos técnicos del servicio de datos](marketplace-publishing-data-service-creation-prerequisites.md) | [Requisitos previos técnicos de la plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md) |
 
 ## Consulte también
 - [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

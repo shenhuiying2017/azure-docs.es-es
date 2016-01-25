@@ -1,6 +1,6 @@
 
 
-<properties 
+<properties
    pageTitle="Información general sobre la supervisión de estado para la puerta de enlace de aplicaciones de Azure | Microsoft Azure"
    description="Aprenda sobre las funciones de supervisión de la puerta de enlace de aplicaciones de Azure"
    services="application-gateway"
@@ -19,12 +19,12 @@
    ms.date="12/17/2015"
    ms.author="joaoma" />
 
-# Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones 
+# Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones
 
 
 La puerta de enlace de aplicaciones de Azure supervisa de forma predeterminada el estado de todos los recursos de su grupo de back-end y elimina automáticamente del grupo los recursos que se considera que están en mal estado. Además, continúa supervisando las instancias en mal estado y las agrega de nuevo al grupo de back-end en buen estado, una vez que están disponibles y responden a los sondeos de estado.
 
-Aparte de la supervisión del sondeo de estado, también puede personalizar el sondeo de estado para adaptarlo a las necesidades de su aplicación. En este artículo trataremos ambos sondeos de estado: el personalizado y el predeterminado.
+Aparte del uso de la supervisión del sondeo de estado, también puede personalizar el sondeo de estado para adaptarlo a las necesidades de su aplicación. En este artículo trataremos ambos sondeos de estado: el personalizado y el predeterminado.
 
 ## Sondeo de estado predeterminado
 
@@ -38,33 +38,33 @@ El sondeo predeterminado solo examina http://127.0.0.1:<port> para determinar el
 
 ### Configuración de sondeo de estado predeterminado
 
-|Propiedades de sondeo | Valor | Descripción|
+|Propiedad de sondeo | Valor | Descripción|
 |---|---|---|
 | Dirección URL de sondeo| http://127.0.0.1/ | Ruta de acceso URL |
-| Intervalo | 30 | intervalo de sondeo en segundos |
-| Tiempo de espera | 30 | tiempo de espera de sondeo en segundos |
-| Umbral incorrecto | 3 | Número de reintentos de sondeo. El servidor back-end se marca como inactivo después de que el número de errores de sondeo consecutivos alcanza un umbral de estado incorrecto. |
+| Intervalo | 30 | Intervalo de sondeo en segundos |
+| Tiempo de espera | 30 | Tiempo de espera del sondeo en segundos |
+| Umbral incorrecto | 3 | Número de reintentos de sondeo. El servidor back-end se marca como inactivo después de que el número de errores de sondeo consecutivos alcanza el umbral incorrecto. |
 
 
-## Sondeo de estado personalizado 
+## Sondeo de estado personalizado
 
 Los sondeos personalizados permiten un control más específico sobre la supervisión de estado. Cuando se usan sondeos personalizados, puede configurar el intervalo de sondeo, la dirección URL y la ruta de acceso a la comprobación y cuántas respuestas erróneas se aceptan antes de marcar la instancia del grupo de back-end como en mal estado.
 
 
 ### Configuración de sondeo de estado personalizado
 
-|Propiedades de sondeo| Descripción|
+|Propiedad de sondeo| Descripción|
 |---|---|
-| Nombre | Nombre del sondeo. Este nombre se utiliza para hacer referencia al sondeo en la configuración de HTTP de back-end. |
-| Protocolo | Protocolo utilizado para enviar el sondeo. HTTP es el único protocolo válido |
+| Nombre | Nombre del sondeo. Este nombre se usa para hacer referencia al sondeo en la configuración de HTTP de back-end. |
+| Protocolo | Protocolo usado para enviar el sondeo. HTTP es el único protocolo válido. |
 | Host | Nombre de host para enviar el sondeo. |
 | Ruta de acceso | Ruta de acceso relativa del sondeo. La ruta de acceso válida se inicia desde '/'. El sondeo se envía a <protocol>://<host>:<port><path> |
-| Intervalo | Intervalo de sondeo en segundos. Es el intervalo de tiempo entre dos sondeos consecutivos.| 
-| Tiempo de espera | Tiempo de espera del sondeo en segundos. El sondeo se marca como error si no se recibe na respuesta válida dentro de este período de tiempo de espera. |
-| Umbral incorrecto | Número de reintentos de sondeo. El servidor back-end se marca como inactivo después de que el número de errores de sondeo consecutivos alcanza un umbral de estado incorrecto. |
+| Intervalo | Intervalo de sondeo en segundos. Es el intervalo de tiempo entre dos sondeos consecutivos.|
+| Tiempo de espera | Tiempo de espera del sondeo en segundos. El sondeo se marca como error si no se recibe una respuesta válida dentro de este período de tiempo de espera. |
+| Umbral incorrecto | Número de reintentos de sondeo. El servidor back-end se marca como inactivo después de que el número de errores de sondeo consecutivos alcanza el umbral incorrecto. |
 
 ## Pasos siguientes
 
 Como ya ha aprendido sobre la supervisión de estado de la puerta de enlace de aplicaciones, puede configurar un [sondeo de estado personalizado](application-gateway-create-probe-ps.md) para el Administrador de recursos de Azure o un [sondeo de estado personalizado](application-gateway-create-probe-classic-ps.md) para el modelo de implementación clásica de Azure.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->
