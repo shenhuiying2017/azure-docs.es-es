@@ -93,7 +93,7 @@ Un proyecto de prueba de carga se compone de uno o varios de los escenarios desc
 
 4. En la sección **Parámetros de ejecución**, especifique la duración de la prueba de carga.
 
-    >[AZURE.NOTE]La opción **Iteraciones de prueba** está disponible solo al ejecutar pruebas de carga localmente mediante Visual Studio.
+    >[AZURE.NOTE] La opción **Iteraciones de prueba** está disponible solo al ejecutar pruebas de carga localmente mediante Visual Studio.
 
 5. En la sección **Ubicación** de **Parámetros de ejecución**, especifique la ubicación donde se generan las solicitudes de prueba de carga. El asistente puede solicitarle que inicie sesión en su cuenta de Team Services. Inicie sesión y elija una ubicación geográfica. Cuando haya terminado, elija el botón **Finalizar**.
 

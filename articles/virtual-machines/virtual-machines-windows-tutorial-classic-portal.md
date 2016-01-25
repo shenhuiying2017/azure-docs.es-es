@@ -45,7 +45,7 @@ Se trata del tutorial en formato de vídeo.
 
 En esta sección se muestra cómo utilizar la opción **De la galería** del portal clásico de Azure para crear una máquina virtual. Esta opción proporciona más opciones de configuración que **Creación rápida**. Por ejemplo, si desea conectar una máquina virtual a una red virtual, necesitará usar la opción **De la galería**.
 
-> [AZURE.NOTE]Asimismo, también puede probar el Portal de Azure, mucho más completo y personalizable, para crear una máquina virtual, usar características mejoradas de supervisión y diagnóstico, usar el almacenamiento Premium y mucho más. Las opciones disponibles para configurar máquinas virtuales en los dos portales se solapan considerablemente, pero no son idénticas. Por ejemplo, use el Portal de Azure para configurar una máquina virtual con almacenamiento Premium.
+> [AZURE.NOTE] Asimismo, también puede probar el Portal de Azure, mucho más completo y personalizable, para crear una máquina virtual, usar características mejoradas de supervisión y diagnóstico, usar el almacenamiento Premium y mucho más. Las opciones disponibles para configurar máquinas virtuales en los dos portales se solapan considerablemente, pero no son idénticas. Por ejemplo, use el Portal de Azure para configurar una máquina virtual con almacenamiento Premium.
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 

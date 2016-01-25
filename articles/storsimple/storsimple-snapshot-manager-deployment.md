@@ -31,7 +31,7 @@ En este tutorial se describen los requisitos de configuración, así como los pr
 
 ## Instalación de Administrador de instantáneas StorSimple
 
-StorSimple Snapshot Manager puede instalarse en equipos que ejecutan el sistema operativo Windows Server 2008 R2 SP1, Windows Server 2012 o Windows Server 2012 R2 En servidores que ejecutan Windows 2008 R2, también debe instalar Windows Server 2008 SP1 y Windows Management Framework 3.0.
+Administrador de instantáneas StorSimple puede instalarse en equipos que ejecutan el sistema operativo Windows Server 2008 R2 SP1, Windows Server 2012 o Windows Server 2012 R2 En servidores que ejecutan Windows 2008 R2, también debe instalar Windows Server 2008 SP1 y Windows Management Framework 3.0.
 
 Antes de instalar o actualizar el complemento Administrador de instantáneas StorSimple de Microsoft Management Console (MMC), asegúrese de que el servidor host y el dispositivo Microsoft Azure StorSimple están configurados correctamente.
 
@@ -39,7 +39,9 @@ Antes de instalar o actualizar el complemento Administrador de instantáneas Sto
 
 Los pasos siguientes proporcionan una descripción general de las tareas de configuración que debe completar antes de instalar Administrador de instantáneas de StorSimple. Para completar la configuración de Microsoft Azure StorSimple y la información de configuración, incluidos los requisitos del sistema y obtener instrucciones detalladas, consulte [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT]Antes de comenzar, revise la [lista de comprobación de la configuración de implementación](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) y los [requisitos previos de implementación](storsimple-deployment-walkthrough.md#deployment-prerequisites) en [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).<br>
+>[AZURE.IMPORTANT] Antes de comenzar, revise la [lista de comprobación de la configuración de implementación](storsimple-deployment-walkthrough.md#deployment-configuration-checklist)
+> y los [requisitos previos de implementación](storsimple-deployment-walkthrough.md#deployment-prerequisites) en [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+<br>
  
 ### Antes de instalar Administrador de instantáneas StorSimple
 
@@ -131,7 +133,7 @@ Siga estos pasos para conectar Administrador de instantáneas StorSimple a un di
 
     ![Configuración de un dispositivo](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png)
 
-3. En el cuadro de lista **Dispositivo**, seleccione la dirección IP del dispositivo de Microsoft Azure StorSimple o el dispositivo virtual. En la casilla **Contraseña**, escriba la contraseña de StorSimple Snapshot Manager que creó para el dispositivo en el Portal de Azure clásico. Haga clic en **Aceptar**.
+3. En el cuadro de lista **Dispositivo**, seleccione la dirección IP del dispositivo de Microsoft Azure StorSimple o el dispositivo virtual. En la casilla **Contraseña**, escriba la contraseña de Administrador de instantáneas StorSimple que creó para el dispositivo en el Portal de Azure clásico. Haga clic en **Aceptar**.
 
 4. Administrador de instantáneas StorSimple busca el dispositivo que ha identificado. Si el dispositivo está disponible, Administrador de instantáneas StorSimple agrega una conexión. También puede [comprobar la conexión al dispositivo](#to-verify-the-connection) para confirmar que la conexión se agregó correctamente.
 
@@ -205,7 +207,7 @@ Use los pasos siguientes para crear y guardar una copia de la base de datos de A
 
         ![Stop the StorSimple Manager service](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 
-2. Vaya a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
+2. Vaya a C:\ProgramData\Microsoft\StorSimple\BACatalog.
 
     >[AZURE.NOTE]ProgramData es una carpeta oculta.
 
@@ -237,7 +239,7 @@ Para reinstalar Administrador de instantáneas StorSimple, siga los pasos descri
 
     4. En el panel derecho, en **Servicio de administración de Microsoft StorSimple**, haga clic en **Detener el servicio**.
 
-2. Vaya a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
+2. Vaya a C:\ProgramData\Microsoft\StorSimple\BACatalog.
 
      >[AZURE.NOTE]ProgramData es una carpeta oculta.
 

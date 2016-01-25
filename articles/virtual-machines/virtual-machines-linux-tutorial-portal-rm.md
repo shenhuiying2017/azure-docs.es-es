@@ -35,6 +35,8 @@ Es fácil crear una máquina virtual (VM) de Azure que ejecute Linux. En este tu
 
 > [AZURE.NOTE]En este tutorial se crea una máquina virtual de Azure que se administra mediante la API del grupo de recursos de Azure. Para más información, vea [Información general del grupo de recursos de Azure](resource-group-overview.md).
 
+<br>
+
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## Selección de la imagen

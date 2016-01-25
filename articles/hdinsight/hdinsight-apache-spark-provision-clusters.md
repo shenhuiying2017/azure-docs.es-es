@@ -19,7 +19,7 @@
 
 # Creación de clústeres Apache Spark en HDInsight mediante opciones personalizadas (Windows)
 
-> [AZURE.NOTE]HDInsight ofrece ahora clústeres Spark en Linux. Para obtener información sobre cómo crear un clúster Spark en HDInsight Linux de manera personalizada, vea [Crear clústeres basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+> [AZURE.NOTE] HDInsight ofrece ahora clústeres Spark en Linux. Para obtener información sobre cómo crear un clúster Spark en HDInsight Linux de manera personalizada, vea [Crear clústeres basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 Para la mayoría de los escenarios, puede crear un clúster Spark mediante el método de creación rápida como se describe en [Introducción a Apache Spark en HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md). En determinados escenarios, debería crear un clúster personalizado. Por ejemplo, si desea conectar un almacén de metadatos externo para mantener la persistencia de los metadatos de Hive más allá de la duración de un clúster o si desea usar más almacenamiento con el clúster.
 
@@ -154,7 +154,7 @@ Los clústeres Spark en HDInsight usan un contenedor de almacenamiento de blobs 
 	| ------------------ | --------------------- |
 	| ![Indicador de creación en el Panel de inicio](./media/hdinsight-apache-spark-provision-clusters/provisioning.png) | ![Icono de clúster creado](./media/hdinsight-apache-spark-provision-clusters/provisioned.png) |
 
-	> [AZURE.NOTE]El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada **Notificaciones** de la izquierda de la página para comprobar el proceso de creación.
+	> [AZURE.NOTE] El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada **Notificaciones** de la izquierda de la página para comprobar el proceso de creación.
 
 11. Cuando termine la creación, haga clic en el icono del clúster desde el panel de inicio para iniciar la hoja del clúster. La hoja de clúster proporciona información esencial sobre el clúster, como el nombre, el grupo de recursos al que pertenece, la ubicación, el sistema operativo, la dirección URL para el panel del clúster, etc.
 

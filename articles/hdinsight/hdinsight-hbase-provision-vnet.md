@@ -78,7 +78,7 @@ Antes de aprovisionar un clúster de HBase, debe tener una red virtual de Azure.
 2. Haga clic en **NUEVO**, en **Red** y luego en **Red virtual**.
 3. En **Seleccionar un modelo de implementación**, seleccione **Clásico** si va a usar un clúster de HDInsight basado en Windows, seleccione **Administrador de recursos** si va a usar un clúster de HDInsight basado en Linux. Por último, haga clic en **Crear**.
 
-    > [AZURE.NOTE]Los clústeres basados en Windows requieren una red virtual v1 (clásica), mientras que los clústeres basados en Linux requieren una red virtual v2 (Administrador de recursos de Azure). Si no dispone del tipo correcto de red, no se podrá usar cuando cree el clúster.
+    > [AZURE.NOTE] Los clústeres basados en Windows requieren una red virtual v1 (clásica), mientras que los clústeres basados en Linux requieren una red virtual v2 (Administrador de recursos de Azure). Si no dispone del tipo correcto de red, no se podrá usar cuando cree el clúster.
     >
     > Si dispone de recursos en una red virtual que no se puede usar por el clúster que planea crear, puede crear una nueva red virtual que se pueda usar por el clúster y conectarla a la red virtual incompatible. Luego puede crear el clúster en la versión de la red que requiere y podrá tener acceso a los recursos de la otra red puesto que los dos están combinadas. Para más información sobre cómo conectar redes virtuales clásicas y nuevas, vea [Conexión de redes virtuales clásicas a redes virtuales nuevas](../virtual-network/virtual-networks-arm-asm-s2s.md).
     
@@ -87,13 +87,13 @@ Antes de aprovisionar un clúster de HBase, debe tener una red virtual de Azure.
 	- **Nombre**: el nombre de la red virtual.
 	- **Espacio de direcciones**: elija un espacio de direcciones para la red virtual que sea lo bastante grande para proporcionar direcciones para todos los nodos del clúster. De lo contrario, se producirá un error en el aprovisionamiento. Para recorrer este tutorial, puede usar los valores predeterminados. Haga clic en **Aceptar** para guardar los cambios.
     
-        > [AZURE.NOTE]Si va a usar esta red virtual con varios clústeres de HDInsight, se recomienda designar una subred única para cada clúster.
+        > [AZURE.NOTE] Si va a usar esta red virtual con varios clústeres de HDInsight, se recomienda designar una subred única para cada clúster.
          
 	- **Grupo de recursos**: seleccione el grupo de recursos que creó anteriormente en el tutorial.
 	- **Suscripción**: seleccione la suscripción de Azure que quiera usar para esta red virtual.
 	- **Ubicación**: la ubicación debe ser la misma que el clúster de HBase que va a crear
     
-        > [AZURE.NOTE]HDInsight de Azure solo admite redes virtuales basadas en la ubicación. Actualmente, no funciona con redes virtuales basadas en grupos de afinidad.
+        > [AZURE.NOTE] HDInsight de Azure solo admite redes virtuales basadas en la ubicación. Actualmente, no funciona con redes virtuales basadas en grupos de afinidad.
         
     Para obtener información sobre el uso de HDInsight con una red virtual, como por ejemplo, los requisitos de configuración específicos de la red virtual, consulte [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) (Ampliar las capacidades de HDInsight con una red virtual de Azure).
 
@@ -156,7 +156,7 @@ Para comenzar a trabajar con el nuevo clúster de HBase, utilice los procedimien
 
 			curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-		En los datos de notación de objetos JavaScript (JSON) devueltos, busque la entrada "host\_name". Esta entrada contendrá el nombre de dominio completo (FQDN) de los nodos del clúster. Por ejemplo:
+		En los datos de notación de objetos JavaScript (JSON) devueltos, busque la entrada "host_name". Esta entrada contendrá el nombre de dominio completo (FQDN) de los nodos del clúster. Por ejemplo:
 
 			...
 			"host_name": "wordkernode0.<clustername>.b1.cloudapp.net

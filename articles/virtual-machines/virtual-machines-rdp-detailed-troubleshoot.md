@@ -23,7 +23,7 @@
 
 Este artículo ofrece pasos detallados de solución de problemas para diagnosticar y corregir errores complejos de Escritorio remoto en máquinas virtuales de Azure basadas en Windows.
 
-> [AZURE.IMPORTANT]Para eliminar los errores más comunes de Escritorio remoto, asegúrese de leer [el artículo acerca de la solución de problemas básicos de Escritorio remoto](virtual-machines-troubleshoot-remote-desktop-connections.md) antes de continuar.
+> [AZURE.IMPORTANT] Para eliminar los errores más comunes de Escritorio remoto, asegúrese de leer [el artículo acerca de la solución de problemas básicos de Escritorio remoto](virtual-machines-troubleshoot-remote-desktop-connections.md) antes de continuar.
 
 Si obtiene un mensaje de error de Escritorio remoto que no se parece a ninguno de los mensajes de error específicos que se tratan en el artículo [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](virtual-machines-troubleshoot-remote-desktop-connections.md), puede seguir estos pasos e intentar averiguar por qué el cliente de Escritorio remoto (o [RDP](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol)) no se puede conectar al servicio RDP en la máquina virtual de Azure.
 
@@ -100,7 +100,7 @@ Para las máquinas virtuales creadas mediante el modelo clásico de implementaci
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_3.png)
 
-> [AZURE.NOTE]Para las máquinas virtuales creadas en el Administrador de recursos, vaya a [Causa 4: grupos de seguridad de red](#nsgs).
+> [AZURE.NOTE] Para las máquinas virtuales creadas en el Administrador de recursos, vaya a [Causa 4: grupos de seguridad de red](#nsgs).
 
 Si no tiene otra máquina virtual en el mismo servicio en la nube o la misma red virtual, puede crear una nueva siguiendo los pasos descritos en [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](virtual-machines-windows-tutorial.md). Una vez completada la prueba, elimine la máquina virtual adicional.
 

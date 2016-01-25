@@ -23,7 +23,7 @@ Las direcciones IP públicas se usan para la comunicación con Internet, incluid
 
 Las direcciones IP privadas se usa para la comunicación dentro de una red virtual (VNet) de Azure y en la red local cuando se usa una puerta de enlace de VPN o un circuito ExpressRoute para ampliar la red a Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [modelo de implementación clásica](virtual-network-ip-addresses-overview-classic.md).
 
 Si está familiarizado con el modelo de implementación clásica, revise las [diferencias en el direccionamiento IP entre la implementación clásica y el Administrador de recursos](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
 
@@ -128,7 +128,12 @@ En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asign
 
 La tabla siguiente muestra los límites impuestos al direccionamiento IP en Azure por región, por suscripción. Puede [ponerse en contacto con el soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar los límites predeterminados hasta alcanzar los límites máximos, según las necesidades empresariales.
 
-||Límite predeterminado|Límite máximo| |---|---|---| |Direcciones IP públicas (dinámicas)|60|póngase en contacto con el soporte técnico| |Direcciones IP públicas (estáticas)|20|póngase en contacto con el soporte técnico| |Direcciones IP front-end públicas por equilibrador de carga|5|póngase en contacto con el soporte técnico| |Direcciones IP front-end privadas por equilibrador de carga|1|póngase en contacto con el soporte técnico|
+||Límite predeterminado|Límite máximo|
+|---|---|---|
+|Direcciones IP públicas (dinámicas)|60|póngase en contacto con el soporte técnico|
+|Direcciones IP públicas (estáticas)|20|póngase en contacto con el soporte técnico|
+|Direcciones IP front-end públicas por equilibrador de carga|5|póngase en contacto con el soporte técnico|
+|Direcciones IP front-end privadas por equilibrador de carga|1|póngase en contacto con el soporte técnico|
 
 Asegúrese de leer el conjunto completo de [límites para redes](azure-subscription-service-limits.md#networking-limits) en Azure.
 

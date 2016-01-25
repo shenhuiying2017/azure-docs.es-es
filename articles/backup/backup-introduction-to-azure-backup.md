@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/08/2016"
-	ms.author="trinadhk;jimpark"/>
+	ms.author="trinadhk"; "jimpark"/>
 
 # ¿Qué es la Copia de seguridad de Azure?
 Copia de seguridad de Azure es el servicio usado para hacer copias de seguridad y restauraciones de los datos en la nube de Microsoft. Reemplaza su solución de copia de seguridad local o remota existente por una solución confiable, segura y rentable basada en la nube. También protege los recursos que se ejecutan en la nube. Copia de seguridad de Azure proporciona servicios de recuperación basados en una infraestructura de clase mundial escalable, duradera y de alta disponibilidad.
@@ -82,12 +82,12 @@ El almacén de Copia de seguridad de Azure es el destino de almacenamiento prefe
 #### Copia de seguridad incremental
 Independiente del almacenamiento de destino (disco, cinta o almacén de copia de seguridad), cada componente admite copias de seguridad incrementales. Esto garantiza que las copias de seguridad son eficientes desde el punto de vista del almacenamiento y el tiempo, ya que toman solo los cambios incrementales desde la última copia de seguridad y los transfieren al almacenamiento de destino. Además, las copias de seguridad se comprimen para reducir la superficie de almacenamiento.
 
->[AZURE.NOTE]El componente que no realiza compresión es la extensión de VM. Todos los datos de copia de seguridad se copian desde la cuenta de almacenamiento del cliente en el almacén de copia de seguridad en la misma región sin comprimir. Aunque esto aumenta el almacenamiento consumido un poco, el almacenamiento de los datos sin compresión permite tiempos de restauración más rápidos.
+>[AZURE.NOTE] El componente que no realiza compresión es la extensión de VM. Todos los datos de copia de seguridad se copian desde la cuenta de almacenamiento del cliente en el almacén de copia de seguridad en la misma región sin comprimir. Aunque esto aumenta el almacenamiento consumido un poco, el almacenamiento de los datos sin compresión permite tiempos de restauración más rápidos.
 
 #### Desduplicación
 La desduplicación es compatible para SCDPM y el Servidor de Copia de seguridad de Azure cuando se [implementa en una máquina virtual de Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). La desduplicación se realiza en el ámbito de host aprovechando la característica de desduplicación de Windows Server (en los VHD conectados como almacenamiento de copia de seguridad a la máquina virtual).
 
->[AZURE.WARNING]¡La desduplicación no está disponible en Azure para ninguno de los componentes de Copia de seguridad de Azure! Cuando SCDPM y el Servidor de Copia de seguridad de Azure se implementan en Azure, los discos de almacenamiento conectados a la VM no se pueden desduplicar.
+>[AZURE.WARNING] ¡La desduplicación no está disponible en Azure para ninguno de los componentes de Copia de seguridad de Azure! Cuando SCDPM y el Servidor de Copia de seguridad de Azure se implementan en Azure, los discos de almacenamiento conectados a la VM no se pueden desduplicar.
 
 ### Seguridad
 
@@ -98,7 +98,7 @@ La desduplicación es compatible para SCDPM y el Servidor de Copia de seguridad 
 
 Todo el tráfico de copia de seguridad desde los servidores hacia el almacén de Copia de seguridad de Azure se cifra mediante AES256 y los datos se envían a través de un vínculo HTTPS seguro. Los datos de copia de seguridad también se almacenan en el almacén de copia de seguridad en su forma cifrada. Solo el cliente tiene la frase de contraseña para desbloquear estos datos (Microsoft no puede descifrar los datos de copia de seguridad en ningún momento).
 
->[AZURE.WARNING]La clave usada para cifrar los datos de copia de seguridad solo está presente con el cliente. Microsoft no mantiene una copia en Azure y no tiene acceso a la clave. Si la clave se pierde, Microsoft no puede recuperar los datos de copia de seguridad.
+>[AZURE.WARNING] La clave usada para cifrar los datos de copia de seguridad solo está presente con el cliente. Microsoft no mantiene una copia en Azure y no tiene acceso a la clave. Si la clave se pierde, Microsoft no puede recuperar los datos de copia de seguridad.
 
 Para copia de seguridad de VM de Azure, debe configurar explícitamente el cifrado *dentro* de la máquina virtual. Use BitLocker en máquinas virtuales Windows y dm-crypt en máquinas virtuales Linux. Copia de seguridad de Azure no cifra automáticamente los datos de copia de seguridad que vienen a través de esta ruta.
 

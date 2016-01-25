@@ -121,7 +121,7 @@ Tenga en cuenta que la definición de compilación que se crea a partir de estas
     5.	Elija **Proceso** > **Máquina virtual** > **Desde la galería**.
     6.	Elija la imagen **Visual Studio Enterprise 2015 con Azure SDK 2.7 en Windows Server 2012 R2**.
 
-        >[AZURE.NOTE]El SDK de Azure no es un componente obligatorio, pero no hay ninguna imagen disponible que solo tenga instalado Visual Studio 2015.
+        >[AZURE.NOTE] El SDK de Azure no es un componente obligatorio, pero no hay ninguna imagen disponible que solo tenga instalado Visual Studio 2015.
 
     7.	Siga las instrucciones que aparecen en el cuadro de diálogo para crear la máquina virtual. (Se recomienda elegir una máquina virtual de la serie D para conseguir un mejor rendimiento del disco y la CPU).
 
@@ -164,11 +164,11 @@ Para instalar Azure PowerShell, siga los pasos que se describen en la sección a
 2. Haga clic con el botón derecho en el nodo `HKEY_Users\.Default\Environment` y seleccione **Nuevo > Valor de cadena expandible**.
 3. Escriba `PSModulePath` para el nombre y `%PROGRAMFILES%\WindowsPowerShell\Modules` para el valor.
 
->[AZURE.NOTE]Haga esto *antes* de iniciar el agente de compilación; de lo contrario no se seleccionará la nueva variable de entorno.
+>[AZURE.NOTE] Haga esto *antes* de iniciar el agente de compilación; de lo contrario no se seleccionará la nueva variable de entorno.
 
-### Importación del certificado de automatización
+### Importación del certificado de Automatización
 
-1. Importe el certificado en la máquina de compilación. Para ello, siga estos pasos:
+1.	Importe el certificado en la máquina de compilación. Para ello, siga estos pasos:
     1. Copie el archivo PFX creado mediante el script CreateAndUpload Certificate.ps1 en la máquina de compilación.
     2. Abra una cuenta de administrador de PowerShell y emita los siguientes comandos, con la contraseña que pasó anteriormente a GenerateCertificate.ps1:
 
@@ -203,7 +203,7 @@ Para instalar Azure PowerShell, siga los pasos que se describen en la sección a
     1.	Copie agent.zip en la máquina de compilación que creó anteriormente.
     1.	Descomprima agent.zip en `C:\agent` (o en cualquier ubicación con una ruta corta) en la máquina de compilación.
 
-        >[AZURE.NOTE]Si tiene pensado crear servicios web de ASP.NET 5, se recomienda elegir el nombre más corto posible para esta carpeta a fin de evitar que aparezcan errores **PathTooLongExceptions** durante la implementación.
+        >[AZURE.NOTE] Si tiene pensado crear servicios web de ASP.NET 5, se recomienda elegir el nombre más corto posible para esta carpeta a fin de evitar que aparezcan errores **PathTooLongExceptions** durante la implementación.
 
 2.	Desde un símbolo del sistema de administrador de PowerShell, ejecute `C:\agent\ConfigureAgent.ps1`. El script le pide que especifique los parámetros siguientes:
 

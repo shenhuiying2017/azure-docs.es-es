@@ -28,7 +28,7 @@
 
 El uso de plantillas de Azure PowerShell y del Administrador de recursos te proporciona mucha eficacia y flexibilidad al administrar los recursos de Microsoft Azure. Puedes usar las tareas de este artículo para administrar los recursos de máquinas virtuales.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
 
 Estas tareas solo usan PowerShell:
 

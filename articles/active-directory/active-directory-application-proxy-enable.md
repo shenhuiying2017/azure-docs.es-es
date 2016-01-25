@@ -25,7 +25,7 @@ El proxy de la aplicación funciona mediante la instalación de un pequeño serv
 
 Este artículo le guía a través de la habilitación del proxy de la aplicación de Microsoft Azure AD para el directorio en la nube en Azure AD, la instalación del conector del proxy de la aplicación en la red privada y el registro del conector con su suscripción de inquilino de Microsoft Azure AD.
 
-## Requisitos previos del proxy de la aplicación
+##Requisitos previos del proxy de la aplicación
 Antes de poder habilitar y usar los servicios del proxy de la aplicación, debe tener lo siguiente:
 
 - Una [suscripción de nivel Básico o Premium](active-directory-editions.md) de Microsoft Azure AD y un directorio de Azure AD del cual es usted administrador global.
@@ -46,7 +46,7 @@ Número de puerto | Descripción
 Si el firewall fuerza el tráfico según los usuarios que se originan, abra estos puertos para el tráfico procedente de los servicios de Windows que se ejecutan como un servicio de red. Además, asegúrese de habilitar el puerto 8080 para NT Authority\\System.
 
 
-## Paso 1: Habilitar el proxy de la aplicación en Azure AD
+##Paso 1: Habilitar el proxy de la aplicación en Azure AD
 1. Inicie sesión como administrador en el Portal de Azure clásico.
 2. Vaya a Active Directory y seleccione el directorio en el que desea habilitar el proxy de la aplicación.
 3. Haga clic en **Configurar**, desplácese hasta el proxy de la aplicación y cambie Habilitar servicios de proxy de la aplicación para este directorio a **Habilitado**.
@@ -55,15 +55,15 @@ Si el firewall fuerza el tráfico según los usuarios que se originan, abra esto
 
 4. Haga clic en **Descargar ahora** en la parte inferior de la pantalla. Esto le llevará a la página de descarga. Lea y acepte los términos de licencia y haga clic en **Descargar** para guardar el archivo de Windows Installer (.exe) para el conector del proxy de la aplicación.
 
-## Paso 2: Instalar y registrar el conector
+##Paso 2: Instalar y registrar el conector
 1. Ejecute `AADApplicationProxyConnectorInstaller.exe` en el servidor que ha preparado (vea arriba Requisitos previos del proxy de la aplicación).
 2. Siga las instrucciones del asistente para instalar.
 3. Durante la instalación se le pedirá que registre el conector con el proxy de la aplicación de su inquilino de Azure AD.
 
-  - Proporcione sus credenciales de administrador global de Azure AD. Su inquilino de administrador global puede ser diferente de sus credenciales de Microsoft Azure.
-  - Asegúrese de que el administrador que registra el conector está en el mismo directorio en que ha habilitado el servicio de proxy de la aplicación; por ejemplo, si el dominio del inquilino es contoso.com, el administrador debe ser admin@contoso.com o cualquier otro alias en ese dominio.
-  - Si la configuración de seguridad mejorada de Internet Explorer está **Activada** en el servidor donde va a instalar el conector de Azure AD, podría bloquearse la pantalla de registro. Si esto ocurre, siga las instrucciones del mensaje de error para permitir el acceso. Asegúrese de que Internet Explorer Enhanced Security está desactivado.
-  - Si el registro del conector no funciona, vea [Troubleshoot Application Proxy](active-directory-application-proxy-troubleshoot.md) (Solucionar problemas de Proxy de la aplicación).  
+<p>- Proporcione sus credenciales de administrador global de Azure AD. Su inquilino de administrador global puede ser diferente de sus credenciales de Microsoft Azure.
+<p>- Asegúrese de que el administrador que registra el conector está en el mismo directorio en que ha habilitado el servicio de proxy de la aplicación; por ejemplo, si el dominio del inquilino es contoso.com, el administrador debe ser admin@contoso.com o cualquier otro alias en ese dominio.
+<p>- Si la configuración de seguridad mejorada de Internet Explorer está **Activada** en el servidor donde va a instalar el conector de Azure AD, podría bloquearse la pantalla de registro. Si esto ocurre, siga las instrucciones del mensaje de error para permitir el acceso. Asegúrese de que Internet Explorer Enhanced Security está desactivado.
+<p>- Si el registro del conector no funciona, vea [Solución de problemas del proxy de la aplicación](active-directory-application-proxy-troubleshoot.md) (Solucionar problemas de Proxy de la aplicación).  
 
 4. Cuando finalice la instalación, se agregan dos nuevos servicios a su servidor, como se muestra a continuación. Se trata del servicio del conector, que permite la conectividad, y un servicio de actualización automatizada, que comprueba periódicamente las nuevas versiones del conector y actualiza el conector según sea necesario. Haga clic en **Finalizar** en la ventana de instalación para completar la instalación.
 

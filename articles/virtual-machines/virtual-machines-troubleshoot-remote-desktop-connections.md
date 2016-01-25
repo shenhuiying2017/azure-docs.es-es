@@ -48,7 +48,7 @@ Estos pasos pueden resolver la mayoría los errores de conexión de Escritorio r
 
 - Compruebe el estado de los recursos de máquina virtual para ver si hay algún problema en la plataforma.<br> Haga clic en Examinar > Máquinas virtuales (clásico) > su máquina virtual Windows > Configuración > **Comprobar estado**.
 
-### Máquinas virtuales creadas mediante el modelo de implementación del Administrador de recursos
+## Máquinas virtuales creadas mediante el modelo de implementación del Administrador de recursos
 
 Estos pasos pueden resolver la mayoría los errores de conexión de Escritorio remoto en las máquinas virtuales de Azure creadas mediante el modelo de implementación del Administrador de recursos. Después de cada paso, pruebe a conectarse a la máquina virtual.
 
@@ -121,7 +121,7 @@ La parte de la dirección de este archivo RDP tiene el nombre de dominio complet
 
 Causa: el VM de destino no encuentra la autoridad de seguridad en la parte del nombre de usuario de las credenciales.
 
-Si el nombre de usuario tiene la forma *autoridadDeSeguridad*\*nombreDeUsuario* (ejemplo: CORP\\User1), la parte *autoridadDeSeguridad* es el nombre del equipo de la máquina virtual (para la autoridad de seguridad local) o un nombre de dominio de Active Directory.
+Si el nombre de usuario tiene la forma *autoridadDeSeguridad\nombreDeUsuario* (ejemplo: CORP\\User1), la parte *autoridadDeSeguridad* es el nombre del equipo de la máquina virtual (para la autoridad de seguridad local) o un nombre de dominio de Active Directory.
 
 Posibles soluciones:
 
@@ -136,8 +136,8 @@ Causa: la VM de destino no pudo validar el nombre de la cuenta y la contraseña.
 
 Un equipo con Windows puede validar las credenciales de una cuenta local o de una cuenta de dominio.
 
-- Para las cuentas locales, use la sintaxis *nombreDeEquipo*\*nombreDeUsuario* (ejemplo: SQL1\\Admin4798).
-- Para las cuentas de dominio, use la sintaxis *nombreDeDominio*\*nombreDeUsuario* (ejemplo: CONTOSO\\johndoe).
+- Para las cuentas locales, use la sintaxis *nombreDeEquipo\nombreDeUsuario* (ejemplo: SQL1\\Admin4798).
+- Para las cuentas de dominio, use la sintaxis *nombreDeDominio\nombreDeUsuario* (ejemplo: CONTOSO\\johndoe).
 
 Si promovió su máquina virtual a un controlador de dominio de un nuevo bosque de Active Directory, la cuenta de administrador local con la que inició sesión, también se convierte en una cuenta equivalente con la misma contraseña en el nuevo bosque y dominio. A continuación, se elimina la cuenta local. Por ejemplo, si inició sesión con la cuenta local DC1\\DCAdmin y promovió la máquina virtual como controlador de dominio en un bosque nuevo para el dominio corp.contoso.com, la cuenta local DC1\\DCAdmin se elimina y se crea una nueva cuenta de dominio CORP\\DCAdmin con la misma contraseña.
 

@@ -37,8 +37,8 @@ El cifrado mediante la técnica de sobres funciona de la siguiente manera:
 
 1. La biblioteca de cliente de almacenamiento de Azure genera una clave de cifrado de contenido (CEK), que es una clave simétrica de un solo uso.
 2. Los datos de usuario se cifran mediante esta CEK.
-3. Se encapsula la CEK (cifrada) con la clave de cifrado de clave (KEK). La KEK se identifica mediante un identificador de clave y puede ser un par de clave asimétrico o una clave simétrica que puede administrarse de forma local o guardarse en Almacén de claves de Azure.
-
+3. Se encapsula la CEK (cifrada) con la clave de cifrado de clave (KEK). La KEK se identifica mediante un identificador de clave y puede ser un par de clave asimétrico o una clave simétrica que puede administrarse de forma local o guardarse en Almacén de claves de Azure. 
+	
 	La propia biblioteca de cliente de almacenamiento no tiene nunca acceso a la KEK. La biblioteca invoca el algoritmo de encapsulado de clave proporcionado por Almacén de claves. Los usuarios pueden elegir utilizar proveedores personalizados para el ajuste y desajuste clave si lo desean.
 
 4. A continuación, se cargan los datos cifrados en el servicio Almacenamiento de Azure. La clave encapsulada y algunos metadatos adicionales de cifrado se almacenan como metadatos (en un blob) o se interpolan con los datos cifrados (cola de mensajes y las entidades de tabla).
@@ -95,7 +95,7 @@ El cifrado de datos de tabla funciona de la siguiente forma:
 
 Tenga en cuenta que solo se pueden cifrar las propiedades de cadena. Si hay que cifrar otros tipos de propiedades, habrá que convertirlas en cadenas. Las cadenas cifradas se almacenan en el servicio como propiedades binarias y se convierten de nuevo en cadenas después del descifrado.
 
-Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que se van a cifrar. Para ello, pueden especificar un atributo [EncryptProperty] (para las entidades POCO que se derivan de TableEntity) o una resolución de cifrado en las opciones de solicitud. Una resolución de cifrado es un delegado que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
+Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que se van a cifrar. Para ello, pueden especificar un atributo [EncryptProperty] \(para las entidades POCO que se derivan de TableEntity) o una resolución de cifrado en las opciones de solicitud. Una resolución de cifrado es un delegado que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
 
 ### Operaciones por lotes
 
@@ -160,16 +160,16 @@ Cree un objeto **BlobEncryptionPolicy** y configúrelo en las opciones de solici
 
 	// Create the IKey used for encryption.
  	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-
+  
  	// Create the encryption policy to be used for upload and download.
  	BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
-
+  
  	// Set the encryption policy on the request options.
  	BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
-
+  
  	// Upload the encrypted contents to the blob.
  	blob.UploadFromStream(stream, size, null, options, null);
-
+  
  	// Download and decrypt the encrypted contents from the blob.
  	MemoryStream outputStream = new MemoryStream();
  	blob.DownloadToStream(outputStream, null, options, null);
@@ -181,14 +181,14 @@ Cree un objeto **QueueEncryptionPolicy** y configúrelo en las opciones de solic
 
 	// Create the IKey used for encryption.
  	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-
+  
  	// Create the encryption policy to be used for upload and download.
  	QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
-
+  
  	// Add message
  	QueueRequestOptions options = new QueueRequestOptions() { EncryptionPolicy = policy };
  	queue.AddMessage(message, null, null, options, null);
-
+  
  	// Retrieve message
  	CloudQueueMessage retrMessage = queue.GetMessage(null, options, null);
 
@@ -201,12 +201,12 @@ Además de crear una directiva de cifrado y configurarla en las opciones de soli
 
 	// Create the IKey used for encryption.
  	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-
+  
  	// Create the encryption policy to be used for upload and download.
  	TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
-
- 	TableRequestOptions options = new TableRequestOptions()
- 	{
+  
+ 	TableRequestOptions options = new TableRequestOptions() 
+ 	{ 
     	EncryptionResolver = (pk, rk, propName) =>
      	{
         	if (propName == "foo")
@@ -217,17 +217,17 @@ Además de crear una directiva de cifrado y configurarla en las opciones de soli
      	},
      	EncryptionPolicy = policy
  	};
-
+  
  	// Insert Entity
  	currentTable.Execute(TableOperation.Insert(ent), options, null);
-
+  
  	// Retrieve Entity
  	// No need to specify an encryption resolver for retrieve
- 	TableRequestOptions retrieveOptions = new TableRequestOptions()
+ 	TableRequestOptions retrieveOptions = new TableRequestOptions() 
  	{
     	EncryptionPolicy = policy
  	};
-
+  
  	TableOperation operation = TableOperation.Retrieve(ent.PartitionKey, ent.RowKey);
  	TableResult result = currentTable.Execute(operation, retrieveOptions, null);
 
@@ -244,6 +244,9 @@ Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da l
 
 ## Pasos siguientes
 
-Descargue el [paquete NuGet de la Biblioteca de cliente de Almacenamiento de Azure para .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) Descargue el [código fuente de la Biblioteca de cliente de Almacenamiento de Azure para .NET](https://github.com/Azure/azure-storage-net) desde GitHub Descargue los paquetes NuGet [Básico](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) y [Extensiones](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) del Almacén de claves de Azure Consulte la [documentación del Almacén de claves de Azure](../articles/key-vault-whatis.md)
+Descargue el [paquete NuGet de la Biblioteca de cliente de Almacenamiento de Azure para .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0)
+Descargue el [código fuente de la Biblioteca de cliente de Almacenamiento de Azure para .NET](https://github.com/Azure/azure-storage-net) desde GitHub 
+Descargue los paquetes NuGet [Básico](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) y [Extensiones](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) del Almacén de claves de Azure 
+Consulte la [documentación del Almacén de claves de Azure](../articles/key-vault-whatis.md)
 
 <!---HONumber=AcomDC_0114_2016-->

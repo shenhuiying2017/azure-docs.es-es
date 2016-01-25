@@ -16,7 +16,8 @@
 
 #Tutorial: integración de Azure Active Directory con Sprinklr
   
-El objetivo de este tutorial es mostrar la integración de Azure y Sprinklr. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y Sprinklr.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Un inquilino de Sprinklr
@@ -66,7 +67,9 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Sprinklr con su cuenta de Azure AD usando el protocolo SAML basado en la federación. Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Sprinklr con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
+Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64.  
+Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
@@ -115,8 +118,8 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     6.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Sprinklr**, copie el valor de **Id. de proveedor de identidades** y péguelo en el cuadro de texto **Id. de entidad**.
     7.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Sprinklr**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión del proveedor de identidades**.
     8.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Sprinklr**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre del proveedor de identidades**.
-    9.  Como **Tipo de Id. de usuario de SAML**, seleccione **La aserción contiene el nombre de usuario de sprinklr.com del usuario**.
-    10. Para **Ubicación de Id. de usuario de SAML**, seleccione **El Id. de usuario está en el elemento NameIdentifier de la instrucción Subject**.
+    9.  Como **Tipo de id. de usuario de SAML**, seleccione **La aserción contiene el nombre de usuario de sprinklr.com del usuario**.
+    10. Para **Ubicación de id. de usuario de SAML**, seleccione **El id. de usuario está en el elemento NameIdentifier de la instrucción Subject**.
     11. Cierre **Guardar**.
 
         ![SAML](./media/active-directory-saas-sprinklr-tutorial/IC782911.png "SAML")
@@ -127,7 +130,8 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ##Configuración del aprovisionamiento de usuario
   
-Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse para acceso dentro de la aplicación Syncplicity. En esta sección se describe cómo crear cuentas de usuario de AAD en Sprinklr.
+Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse para acceso dentro de la aplicación Syncplicity.  
+En esta sección se describe cómo crear cuentas de usuario de AAD en Sprinklr.
 
 ###Para aprovisionar cuentas de usuario a Sprinklr, realice los siguientes pasos:
 
@@ -164,7 +168,7 @@ Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse para a
     1.  En la lista **Global**, seleccione**ALL\_Permissions** (Todos los permisos).
     2.  Haga clic en **Update** (Actualizar).
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Sprinklr ofrecida por Sprinklr para aprovisionar cuentas de usuario de Azure AD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Sprinklr ofrecida por Sprinklr para aprovisionar cuentas de usuario de Azure AD.
 
 ##Asignación de usuarios
   

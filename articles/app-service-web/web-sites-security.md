@@ -113,7 +113,7 @@ Para obtener más información acerca de FTPS, consulte [File Transfer Protocol]
 
 Para obtener más información sobre la seguridad en la plataforma de Azure, aprender cómo notificar un **abuso o incidente de seguridad** o informar a Microsoft de que va a realizar una **prueba de penetración** en su sitio, consulte la sección de seguridad del [Centro de confianza de Microsoft Azure](http://azure.microsoft.com/support/trust-center/security/).
 
-Para más información sobre los archivos **web.config** o **applicationhost.config** en aplicaciones del Servicio de aplicaciones, consulte [More to explore: configuration options unlocked in Windows Azure Web Sites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/) (Más para explorar: opciones de configuración desbloqueadas en Sitios web de Microsoft de Azure).
+Para más información sobre los archivos **web.config** o **applicationhost.config** en aplicaciones del Servicio de aplicaciones, consulte [More to explore: configuration options unlocked in Microsoft Azure Web Sites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/) (Más para explorar: opciones de configuración desbloqueadas en Sitios web de Microsoft de Azure).
 
 Para más datos sobre la información de registro para aplicaciones del Servicio de aplicaciones, que puede resultar útil para detectar de ataques, consulte [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-enable-diagnostic-log.md).
 
@@ -123,4 +123,4 @@ Para más datos sobre la información de registro para aplicaciones del Servicio
 
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0114_2016--->

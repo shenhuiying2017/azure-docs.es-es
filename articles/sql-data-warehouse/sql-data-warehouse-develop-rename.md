@@ -27,6 +27,7 @@ Actualmente, solo puede cambiarse el nombre de tablas. La sintaxis para cambiar 
 RENAME OBJECT Customer TO NewCustomer;
 ```
 
+
 Al cambiar el nombre de una tabla, se actualizan todos los objetos y las propiedades asociados a la tabla para hacer referencia al nuevo nombre de la tabla. Por ejemplo, se actualizan las definiciones, los índices, las restricciones y los permisos de la tabla. Las vistas no se actualizan.
 
 ## Cambio de nombre de una tabla externa

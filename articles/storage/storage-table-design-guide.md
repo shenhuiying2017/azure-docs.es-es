@@ -301,7 +301,7 @@ Los siguientes patrones de la sección [Patrones de diseño de tabla](#table-des
      
 La biblioteca de clientes de almacenamiento de Azure de .net admite el cifrado de propiedades de entidades de cadena en operaciones de insertar y reemplazar. Las cadenas cifradas se almacenan en el servicio como propiedades binarias y se convierten de nuevo en cadenas después del descifrado.
 
-Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que se van a cifrar. Para ello, pueden especificar un atributo [EncryptProperty] (para las entidades POCO que se derivan de TableEntity) o una resolución de cifrado en las opciones de solicitud. Una resolución de cifrado es un delegado que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
+Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que se van a cifrar. Para ello, pueden especificar un atributo [EncryptProperty] \(para las entidades POCO que se derivan de TableEntity) o una resolución de cifrado en las opciones de solicitud. Una resolución de cifrado es un delegado que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
 
 Tenga en cuenta que actualmente no se admite la combinación. Puesto que un subconjunto de propiedades puede haberse cifrado previamente con una clave distinta, si simplemente se combinan las nuevas propiedades y se actualizan los metadatos, se producirá una pérdida de datos. Para realizar una combinación es necesario realizar llamadas de servicio adicionales para leer la entidad existente desde el servicio. También puede usar una nueva clave por propiedad. Ninguno de estos procedimientos es adecuado por motivos de rendimiento.
 
@@ -594,7 +594,7 @@ Para habilitar la búsqueda por apellido con la estructura de entidad mostrada a
 -	Cree entidades de índice en la misma partición que las entidades employee.  
 -	Cree entidades de índice en una tabla o una partición independiente.  
 
-<u>Opción n.º 1: Usar el almacenamiento de blobs</u>
+<u>Opción n.º 1: usar el almacenamiento de blobs</u>
 
 Para la primera opción, cree un blob para cada apellido único y, en cada almacén de blobs, una lista de valores **PartitionKey** (departamento) y **RowKey** (identificador de empleado) para los empleados que tienen ese apellido. Al agregar o eliminar a un empleado debe asegurarse de que el contenido del blob relevante es coherente con las entidades employee.
 
