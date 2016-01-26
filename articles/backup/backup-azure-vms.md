@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/17/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+	ms.date="01/19/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Copia de seguridad de máquinas virtuales de Azure
@@ -38,13 +38,13 @@ El proceso de detección debe ser siempre el primer paso para asegurarse de que 
 
 2. Seleccione **Máquina virtual de Azure** en el menú desplegable.
 
-    ![seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
+    ![Seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
 
 3. Haga clic en **DETECTAR** en la parte inferior de la página. ![Botón Detectar](./media/backup-azure-vms/discover-button-only.png)
 
     El proceso de detección puede tardar unos minutos mientras se tabulan las máquinas virtuales. Hay una notificación en la parte inferior de la pantalla que informa de que el proceso se está ejecutando.
 
-    ![detectar máquinas virtuales](./media/backup-azure-vms/discovering-vms.png)
+    ![Detectar máquinas virtuales](./media/backup-azure-vms/discovering-vms.png)
 
     La notificación cambia cuando el proceso se completa.
 
@@ -57,7 +57,7 @@ Se registra una máquina virtual de Azure para asociarla con el servicio Copia d
 
 2. Seleccione **Máquina virtual de Azure** en el menú desplegable.
 
-    ![seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
+    ![Seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
 
 3. Haga clic en **REGISTRAR** en la parte inferior de la página. ![Botón Registrar](./media/backup-azure-vms/register-button-only.png)
 
@@ -69,7 +69,7 @@ Se registra una máquina virtual de Azure para asociarla con el servicio Copia d
 
 5. Haga clic en **Ver trabajo** en la notificación para ir a la página **Trabajos**.
 
-    ![registrar trabajo](./media/backup-azure-vms/register-create-job.png)
+    ![Registrar trabajo](./media/backup-azure-vms/register-create-job.png)
 
     La máquina virtual también aparece en la lista de elementos registrados junto con el estado de la operación de registro.
 
@@ -139,7 +139,7 @@ Para desencadenar la copia de seguridad inicial inmediatamente después de confi
 
 2. Haga clic en la pestaña **Trabajos** para ver la lista de los trabajos.
 
-![Copia de seguridad en curso](./media/backup-azure-vms/protect-inprogress.png)
+    ![Copia de seguridad en curso](./media/backup-azure-vms/protect-inprogress.png)
 
 >[AZURE.NOTE]Como parte de la operación de copia de seguridad, el servicio Copia de seguridad de Azure emite un comando a la extensión de copia de seguridad en cada máquina virtual para vaciar toda la escritura y tomar una instantánea coherente.
 
@@ -147,8 +147,8 @@ Una vez completada la copia de seguridad inicial, el estado de la máquina virtu
 
 ![Se realiza una copia de seguridad de la máquina virtual con punto de recuperación](./media/backup-azure-vms/protect-backedupvm.png)
 
-### Visualización de los detalles y el estado de la copia de seguridad
-Una vez protegidas, el recuento de máquinas virtuales también aumenta en el resumen de la página **Panel**. Además, la página **Panel** muestra el número de trabajos de las últimas 24 horas que se realizaron correctamente, que produjeron un error y que siguen en curso. Al hacer clic en una categoría, esta se desglosará en la página **Trabajos**.
+## Visualización de los detalles y el estado de la copia de seguridad
+Una vez protegidas, el recuento de máquinas virtuales también aumenta en el resumen de la página **Panel**. La página **Panel** también muestra el número de trabajos de las últimas 24 horas que se realizaron *correctamente*, los que *causaron un error* y los que siguen *en curso*. Al hacer clic en una categoría, podrá examinarla en la página **Trabajos**.
 
 ![Estado de la copia de seguridad en la página Panel](./media/backup-azure-vms/dashboard-protectedvms.png)
 
@@ -162,4 +162,4 @@ Si se encuentra con problemas mientras realiza la copia de seguridad de la máqu
 - [Administración y supervisión de las máquinas virtuales](backup-azure-manage-vms.md)
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Requisitos de QoS ExpressRoute
@@ -50,4 +50,4 @@ En la tabla siguiente se proporciona una lista de marcados de DSCP usados por Sk
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

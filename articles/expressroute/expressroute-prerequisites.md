@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -39,8 +39,7 @@ Consulte la sección de modelos de conectividad para obtener detalles sobre los 
 
 ## Requisitos de redundancia para la conectividad
 
-No hay ningún requisito de redundancia sobre la conectividad física entre la infraestructura de cliente y la infraestructura del proveedor de servicio. Microsoft requiere redundancia en el nivel 3.
-Microsoft requiere la configuración del enrutamiento redundante entre el borde de Microsoft y la red del cliente a través del proveedor de servicio para cada uno de los emparejamientos que se van a habilitar. Si las sesiones de enrutamiento no se configuran de forma redundante, el contrato de nivel de servicio de disponibilidad de servicio se anulará.
+No hay ningún requisito de redundancia sobre la conectividad física entre la infraestructura de cliente y la infraestructura del proveedor de servicio. Microsoft requiere redundancia en el nivel 3. Microsoft requiere la configuración del enrutamiento redundante entre el borde de Microsoft y la red del cliente a través del proveedor de servicio para cada uno de los emparejamientos que se van a habilitar. Si las sesiones de enrutamiento no se configuran de forma redundante, el contrato de nivel de servicio de disponibilidad de servicio se anulará.
 
 ## Consideraciones sobre las direcciones IP y el enrutamiento
 
@@ -72,4 +71,4 @@ Revise los siguientes recursos para obtener más información acerca de los requ
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

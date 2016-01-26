@@ -42,7 +42,7 @@ Acceso remoto como VPN, RDG| |* |
 
 ## Dónde se encuentran los usuarios
 
-A continuación, dependiendo de dónde se encuentran los usuarios, podemos determinar la solución correcta a utilizar, la autenticación multifactor en la nube o local con el Servidor MFA.
+A continuación, dependiendo de dónde se encuentren los usuarios, podemos determinar la solución correcta a utilizar, la autenticación multifactor en la nube o local con el Servidor MFA.
 
 
 
@@ -81,4 +81,4 @@ Ahora que hemos determinado cuál vamos a usar: la autenticación multifactor de
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0121_2016-->

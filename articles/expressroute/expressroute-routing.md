@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -70,7 +70,6 @@ Asegúrese de que la dirección IP y el número AS se registran en uno de los re
 - [RIPE NCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
-- [LEVEL3](http://rr.Level3.net/)
 
 
 ## Cambio de ruta dinámica
@@ -174,4 +173,4 @@ Microsoft no admite los valores de las comunidades de BGP que defina. Se requier
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

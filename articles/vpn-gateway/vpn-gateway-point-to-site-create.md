@@ -21,11 +21,11 @@
 
 > [AZURE.SELECTOR]
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [PowerShell - Classic](vpn-gateway-point-to-site-create.md)
+- [Portal - Classic](vpn-gateway-point-to-site-create.md)
 
 Una configuración punto a sitio permite crear una conexión segura a la red virtual desde un equipo cliente, de forma individual. Se establece una conexión VPN al iniciar la conexión desde el equipo cliente. Esta es una solución excelente cuando desea conectarse a la red virtual desde una ubicación remota, como desde una casa o una conferencia, o si solo tiene unos pocos clientes que necesitan conectarse a una red virtual. Las conexiones punto a sitio no requieren un dispositivo VPN o una dirección IP pública para que funcione. Para más información acerca de las conexiones punto a sitio, consulte [Acerca de la conectividad segura entre locales de redes virtuales](vpn-gateway-vpn-faq.md#point-to-site-connections) y [Acerca de la conectividad segura entre locales de redes virtuales](vpn-gateway-cross-premises-options.md).
 
-En este artículo se hace referencia a las conexiones de Puerta de enlace de VPN de punto a sitio a una red virtual que se crean usando el **modo de implementación clásica** (Administración de servicios). Si desea configurar una conexión punto a sitio para una máquina virtual creada mediante el Administrador de recursos, consulte [este artículo](vpn-gateway-howto-point-to-site-rm-ps.md).
+En este artículo se hace referencia a las conexiones de Puerta de enlace de VPN de punto a sitio a una red virtual que se crean usando el **modo de implementación clásica** (Administración de servicios). Si desea configurar una conexión punto a sitio para una red virtual creada mediante el Administrador de recursos, consulte [Configuración de una conexión punto a sitio a una red virtual mediante PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md).
 
 [AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -54,10 +54,10 @@ Paso 2: Crear una puerta de enlace de enrutamiento dinámico
 1. En la página **Servidores DNS y conectividad VPN**, escriba la información siguiente y, a continuación, haga clic en la flecha siguiente situada en la parte inferior derecha.
 	- **Servidores DNS**: escriba el nombre del servidor DNS y la dirección IP o seleccione un servidor DNS previamente registrado del menú contextual. Este valor no crea un servidor DNS; permite especificar los servidores DNS que desea usar para la resolución de nombres para esta red virtual. Si desea usar el servicio de resolución de nombres predeterminado de Azure, deje esta sección en blanco.
 	- **Configurar VPN de punto a sitio**: Active la casilla.
-1. En la página **Conectividad de punto a sitio**, especifique el intervalo de direcciones IP desde la que los clientes de VPN recibirán una dirección IP cuando se conecten. Existen varias reglas con respecto a los intervalos de direcciones que se pueden especificar. Es muy importante asegurarse de que el intervalo que especifique no se superponga a ninguno de los intervalos que se encuentra en la red local.
+1. En la página **Conectividad de punto a sitio**, especifique el intervalo de direcciones IP desde la que los clientes de VPN recibirán una dirección IP cuando se conecten. Existen varias reglas con respecto a los intervalos de direcciones que puede especificar. Es muy importante asegurarse de que el intervalo que especifique no se superponga a ninguno de los intervalos que se encuentra en la red local.
 1. Especifique la siguiente información y, a continuación, haga clic en la flecha siguiente.
  - **Espacio de direcciones**: Incluidas Dirección IP inicial y CIDR (recuento de direcciones).
- - **Agregar espacio de direcciones**: Solo se agrega si es necesario para el diseño de la red.
+ - **Agregar espacio de direcciones**: agrega el espacio de direcciones solo si es necesario para el diseño de la red.
 1. En la página **Espacios de direcciones de la red virtual**, especifique el intervalo de direcciones que desea usar para la red virtual. Estas son las direcciones IP dinámicas (DIPS) que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual. Es especialmente importante seleccionar un intervalo que no se superponga a ninguno de los intervalos usados para la red local. Necesitará coordinarse con el administrador de red, quien es posible que necesite definir un intervalo de direcciones IP desde el espacio de direcciones de red local para el uso en la red virtual.
 1. Escriba la información siguiente y, a continuación, haga clic en la marca de verificación para comenzar a crear la red virtual.
  - **Espacio de direcciones**: Agregue el intervalo de direcciones IP interno que desea usar para esta red virtual, incluida la dirección IP inicial y el recuento. Es importante seleccionar un intervalo que no se superponga a ninguno de los intervalos usados para la red local. Necesitará coordinarse con el administrador de red, quien es posible que necesite definir un intervalo de direcciones IP desde el espacio de direcciones de red local para el uso en la red virtual.
@@ -74,7 +74,7 @@ El tipo de puerta de enlace debe configurarse como dinámica. Las puertas de enl
 
 ## Sección 2: Generar y cargar certificados
 
-Los certificados se usan para autenticar a los clientes VPN para VPN de punto a sitio. Anteriormente, era necesario para generar su propio certificado autofirmado. Ahora, puede usar los certificados que se generaron mediante una solución empresarial. Puede cargar hasta 20 certificados raíz en Azure.
+Los certificados se usan para autenticar a los clientes VPN para VPN de punto a sitio. Puede usar los certificados generados por una solución de certificado de empresa, así como los certificados autofirmados. Puede cargar hasta 20 certificados raíz en Azure.
 
 Si desea usar un certificado autofirmado, los pasos siguientes le guiarán a través del proceso. Si planea usar una solución de certificados de empresa, los pasos dentro de cada sección serán diferentes, pero todavía será necesario hacer lo siguiente:
 
@@ -90,7 +90,7 @@ Paso 4: Exportar e instalar el certificado de cliente
 
 ### Identificar o generar un certificado raíz
 
-Si no usa una solución de certificados de empresa, deberá generar un certificado raíz autofirmado. Los pasos siguientes funcionan en Windows 8. Estamos en proceso de actualizarlos con nuevos pasos para Windows 10.
+Si no usa una solución de certificados de empresa, deberá generar un certificado raíz autofirmado. Los pasos descritos en esta sección se escribieron para Windows 8. Para conocer los pasos específicos para Windows 10, consulte el artículo [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) (Trabajo con certificados raíz autofirmados para configuraciones punto a sitio).
 
 Una forma de crear un certificado X.509 es mediante la herramienta de creación de certificados (makecert.exe). Para usar makecert, descargue e instale [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), que es gratis.
 
@@ -112,7 +112,7 @@ Deberá cargar el archivo .cer correspondiente para cada certificado de raíz en
 
 ### Generación de un certificado de cliente
 
-Los pasos siguientes sirven para generar un certificado de cliente desde el certificado raíz autofirmado. Si usa una solución de certificados de empresa, siga las instrucciones para la solución que está usando.
+Los pasos siguientes sirven para generar un certificado de cliente desde el certificado raíz autofirmado. Los pasos descritos en esta sección se escribieron para Windows 8. Para conocer los pasos específicos para Windows 10, consulte el artículo [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) (Trabajo con certificados raíz autofirmados para configuraciones punto a sitio). Si usa una solución de certificados de empresa, siga las instrucciones para la solución que está usando.
 
 1. En el mismo equipo que usó para crear el certificado raíz autofirmado, abra una ventana del símbolo del sistema de Visual Studio como administrador.
 2. Cambie el directorio a la ubicación donde desea guardar el archivo de certificado de cliente. *RootCertificateName* hace referencia al certificado raíz autofirmado que ha generado. Si ejecuta el ejemplo siguiente (cambiando el NombreCertificadoRaíz por el nombre de su certificado raíz), el resultado será un certificado de cliente denominado "NombreCertificadoCliente" en el almacén de certificados personales.
@@ -165,7 +165,7 @@ Se admiten los siguientes sistemas operativos de cliente:
 
 1. Copie el archivo de configuración localmente en el equipo que desea conectar a la red virtual y haga doble clic en el archivo .exe. Una vez instalado el paquete, puede iniciar la conexión VPN. Tenga en cuenta que el paquete de configuración no está firmado por Microsoft. Puede que desee firmar el paquete mediante el servicio de firma de su organización, o bien firmarlo usted mismo con [SignTool](http://go.microsoft.com/fwlink/p/?LinkId=699327). Se puede utilizar el paquete sin firmar. Sin embargo, si el paquete no está firmado, aparecerá una advertencia cuando se instala el paquete.
 2. En el equipo cliente, navegue a las conexiones VPN y busque la conexión VPN que acaba de crear. Tendrá el mismo nombre que su red virtual. Haga clic en **Conectar**.
-3. Aparece un mensaje emergente que se usa para crear un certificado autofirmado para el extremo de la puerta de enlace. Haga clic en **Continuar** para usar privilegios elevados.
+3. Aparece un mensaje emergente que se usa para crear un certificado autofirmado para el punto de conexión de la puerta de enlace. Haga clic en **Continuar** para usar privilegios elevados.
 4. En la página de estado **Conexión**, haga clic en **Conectar** para iniciar la conexión.
 5. Si ve una pantalla para **Seleccionar certificado**, compruebe que el certificado de cliente que se muestra es el que desea utilizar para conectarse. Si no es así, use la flecha de la lista desplegable para seleccionar el certificado correcto y, a continuación, haga clic en **Aceptar**.
 6. Ahora está conectado a la red virtual y tiene acceso total a todos los servicios y máquinas virtuales hospedados en la red virtual.
@@ -196,4 +196,4 @@ Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una m
 
 Si desea obtener más información acerca de las redes virtuales, consulte la página [Virtual Network documentation](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->
