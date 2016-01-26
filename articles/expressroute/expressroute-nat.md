@@ -25,7 +25,7 @@ Revise la página [Circuitos y dominios de enrutamiento ExpressRoute](expressrou
 
 La ruta de acceso de emparejamiento público de Azure le permite conectarse a todos los servicios hospedados en Azure a través de sus direcciones IP públicas. Puede tratarse de todos los servicios que se enumeran en [P+F de ExpressRoute](expressroute-faqs.md) y los servicios hospedados por ISV en Microsoft Azure. La conectividad con servicios de Microsoft Azure en el emparejamiento público siempre se inicia desde la red a la red de Microsoft. Al tráfico destinado a Microsoft Azure en el emparejamiento público se le debe aplicar SNAT a direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft. La ilustración siguiente proporciona una imagen de alto nivel de cómo NAT podría configurarse para satisfacer el requisito anterior.
 
-![](./media/expressroute-nat/expressroute-nat-azure-public.png)
+![](./media/expressroute-nat/expressroute-nat-azure-public.png) 
 
 ### Anuncios de ruta y grupo de direcciones IP NAT
 
@@ -39,7 +39,7 @@ No hay restricciones en la longitud del prefijo de la dirección IP NAT anunciad
 
 El emparejamiento de Microsoft le permite conectarse a Servicios en la nube de Microsoft que no se admiten a través de la ruta de acceso de emparejamiento público de Azure. La lista de servicios incluye servicios de Office 365, como Exchange Online, SharePoint Online, Skype Empresarial y CRM Online. Microsoft espera poder admitir conectividad bidireccional en el emparejamiento de Microsoft. Al tráfico destinado a los Servicios en la nube de Microsoft se le debe aplicar SNAT a direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft. Al tráfico destinado a la red desde los Servicios en la nube de Microsoft se le debe aplicar SNAT antes de que entre en la red. La ilustración siguiente proporciona una imagen de alto nivel de cómo NAT se debe configurar para el emparejamiento de Microsoft.
  
-![](./media/expressroute-nat/expressroute-nat-microsoft.png)
+![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
 
 #### Tráfico procedente de la red destinado a Microsoft

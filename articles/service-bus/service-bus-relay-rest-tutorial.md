@@ -570,7 +570,7 @@ namespace Microsoft.ServiceBus.Samples
 
 Después de compilar la solución, haga lo siguiente para ejecutar la aplicación:
 
-1. Desde un símbolo del sistema, ejecute el servicio (ImageListener\\bin\\Debug\\ImageListener.exe).
+1. Desde un símbolo del sistema, ejecute el servicio (ImageListener\bin\Debug\ImageListener.exe).
 
 2. Copie y pegue la dirección desde el símbolo del sistema en un explorador para ver la imagen.
 

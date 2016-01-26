@@ -40,7 +40,8 @@ El proceso de detección debe ser siempre el primer paso para asegurarse de que 
 
     ![Seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Haga clic en **DETECTAR** en la parte inferior de la página. ![Botón Detectar](./media/backup-azure-vms/discover-button-only.png)
+3. Haga clic en **DETECTAR** en la parte inferior de la página.
+    ![Botón Detectar](./media/backup-azure-vms/discover-button-only.png)
 
     El proceso de detección puede tardar unos minutos mientras se tabulan las máquinas virtuales. Hay una notificación en la parte inferior de la pantalla que informa de que el proceso se está ejecutando.
 
@@ -59,11 +60,12 @@ Se registra una máquina virtual de Azure para asociarla con el servicio Copia d
 
     ![Seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Haga clic en **REGISTRAR** en la parte inferior de la página. ![Botón Registrar](./media/backup-azure-vms/register-button-only.png)
+3. Haga clic en **REGISTRAR** en la parte inferior de la página. 
+    ![Botón Registrar](./media/backup-azure-vms/register-button-only.png)
 
 4. En el menú contextual **Elementos registrados**, seleccione las máquinas virtuales que desea registrar. Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguirlas.
 
-    >[AZURE.TIP]Se pueden registrar varias máquinas virtuales al mismo tiempo.
+    >[AZURE.TIP] Se pueden registrar varias máquinas virtuales al mismo tiempo.
 
     Se crea un trabajo para cada máquina virtual que ha seleccionado.
 
@@ -95,7 +97,7 @@ Los almacenes de Copia de seguridad de Azure creados después de mayo de 2015 in
 
     Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguir las máquinas virtuales.
 
-    >[AZURE.TIP]Puede proteger varias máquinas virtuales al mismo tiempo.
+    >[AZURE.TIP] Puede proteger varias máquinas virtuales al mismo tiempo.
 
     ![Configuración de protección a escala](./media/backup-azure-vms/protect-at-scale.png)
 
@@ -105,7 +107,7 @@ Los almacenes de Copia de seguridad de Azure creados después de mayo de 2015 in
 
     ![Protección mediante nueva directiva](./media/backup-azure-vms/policy-schedule.png)
 
-    >[AZURE.NOTE]Una directiva de copia de seguridad incluye un esquema de retención de las copias de seguridad programadas. Si selecciona una directiva de copia de seguridad existente, no podrá modificar las opciones de retención en el paso siguiente.
+    >[AZURE.NOTE] Una directiva de copia de seguridad incluye un esquema de retención de las copias de seguridad programadas. Si selecciona una directiva de copia de seguridad existente, no podrá modificar las opciones de retención en el paso siguiente.
 
 5. Elija un **intervalo de retención** para asociarlo a las copias de seguridad.
 
@@ -141,7 +143,7 @@ Para desencadenar la copia de seguridad inicial inmediatamente después de confi
 
     ![Copia de seguridad en curso](./media/backup-azure-vms/protect-inprogress.png)
 
->[AZURE.NOTE]Como parte de la operación de copia de seguridad, el servicio Copia de seguridad de Azure emite un comando a la extensión de copia de seguridad en cada máquina virtual para vaciar toda la escritura y tomar una instantánea coherente.
+>[AZURE.NOTE] Como parte de la operación de copia de seguridad, el servicio Copia de seguridad de Azure emite un comando a la extensión de copia de seguridad en cada máquina virtual para vaciar toda la escritura y tomar una instantánea coherente.
 
 Una vez completada la copia de seguridad inicial, el estado de la máquina virtual en la pestaña **Elementos protegidos** se mostrará como *Protegido*.
 

@@ -27,7 +27,7 @@ Una configuración punto a sitio permite crear una conexión segura a la red vir
 
 En este artículo se hace referencia a las conexiones de Puerta de enlace de VPN de punto a sitio a una red virtual que se crean usando el **modo de implementación clásica** (Administración de servicios). Si desea configurar una conexión punto a sitio para una red virtual creada mediante el Administrador de recursos, consulte [Configuración de una conexión punto a sitio a una red virtual mediante PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md).
 
-[AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 
 ## Acerca de la creación de una conexión de punto a sitio
