@@ -82,7 +82,8 @@ Si desea implementar la asignación de redes, necesitará lo siguiente:
 
 
 2. Expanda
-3. *Servicios de datos*, luego *Servicios de recuperación* y haga clic en *Almacén de Site Recovery*.*
+3. *Servicios de datos*, luego *Servicios de recuperación* y haga clic en *Almacén de Site Recovery*.
+*
 3. Haga clic en *Crear nuevo* y, a continuación, en *Creación rápida*.
 
 
@@ -123,15 +124,26 @@ Generación de una clave de registro en el almacén. Después de descargar el pr
 	![Microsoft Updates](./media/site-recovery-vmm-to-azure/VMMASRInstallMUScreen.png)
 
 
-1.  La ubicación de instalación está establecida en **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Haga clic en el botón Instalar para iniciar la instalación del proveedor. ![InstallLocation](./media/site-recovery-vmm-to-azure/VMMASRInstallLocationScreen.png)
+1.  La ubicación de instalación está establecida en **<SystemDrive>\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin**. Haga clic en el botón Instalar para iniciar la instalación del proveedor. 
+	![InstallLocation](./media/site-recovery-vmm-to-azure/VMMASRInstallLocationScreen.png)
 
 
 
-1. Una vez instalado el proveedor, haga clic en el botón “Registrar” para registrar el servidor en el almacén. ![InstallComplete](./media/site-recovery-vmm-to-azure/VMMASRInstallComplete.png)
+1. Una vez instalado el proveedor, haga clic en el botón "Registrar" para registrar el servidor en el almacén. 
+	![InstallComplete](./media/site-recovery-vmm-to-azure/VMMASRInstallComplete.png)
 
 5. En **Conexión a Internet**, especifique cómo se conecta a Internet el proveedor que se ejecuta en el servidor VMM. Seleccione *Utilizar la configuración proxy del sistema predeterminado* para usar la configuración predeterminada de conexión a Internet establecida en el servidor.
 
-	![Configuración de Internet](./media/site-recovery-vmm-to-azure/VMMASRRegisterProxyDetailsScreen.png) - Si desea usar un proxy personalizado, debe configurarlo antes de instalar el proveedor. Al configurar las opciones del proxy personalizado, se ejecuta una prueba para comprobar la conexión del proxy. - Si usa un proxy personalizado o el proxy predeterminado requiere autenticación, tendrá que especificar los detalles del proxy, incluida la dirección y el puerto del mismo. - Debe poder obtener acceso a las siguientes direcciones URL desde los hosts de Hyper-v y del servidor VMM: - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Admita las direcciones IP descritas en [Intervalos de direcciones IP de los centros de datos de Azure](http://go.microsoft.com/fwlink/?LinkId=511094) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
+	![Configuración de Internet](./media/site-recovery-vmm-to-azure/VMMASRRegisterProxyDetailsScreen.png) 
+	- Si desea usar un proxy personalizado, debe configurarlo antes de instalar el proveedor. Al configurar las opciones del proxy personalizado, se ejecuta una prueba para comprobar la conexión del proxy. 
+	- (Si usa un proxy personalizado o el proxy predeterminado requiere autenticación, tendrá que especificar los detalles del proxy, incluida la dirección y el puerto del mismo). 
+	- Debe poder obtener acceso a las siguientes direcciones URL desde los hosts de Hyper-v y del servidor VMM: 
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
+	- Permita las direcciones IP descritas en [Intervalos de direcciones IP del centro de datos de Azure](http://go.microsoft.com/fwlink/?LinkId=511094) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
 
 	- Si utiliza un proxy personalizado, se creará una cuenta de ejecución de VMM (DRAProxyAccount) mediante el uso automático de las credenciales de proxy especificadas. Configure el servidor proxy para que esta cuenta pueda autenticarse correctamente. La configuración de la cuenta de ejecución de VMM puede modificarse en la consola VMM. Para ello, abra el área de trabajo Configuración, expanda Seguridad, haga clic en Cuentas de ejecución y, a continuación, modifique la contraseña de DRAProxyAccount. Deberá reiniciar el servicio VMM para que esta configuración surta efecto.
 
@@ -147,7 +159,8 @@ Generación de una clave de registro en el almacén. Después de descargar el pr
 
 8. En **Nombre del servidor**, especifique un nombre descriptivo para identificar el servidor VMM en el almacén. En una configuración de clúster, especifique el nombre del rol de clúster VMM.
 
-8. En la sincronización de **Metadatos de la nube inicial** seleccione si desea sincronizar los metadatos de todas las nubes en el servidor VMM con el almacén. Esta acción solo se debe ejecutar una vez en cada servidor. Si no desea sincronizar todas las nubes, puede dejar este valor sin marcar y sincronizar cada nube individualmente en las propiedades de la nube de la consola VMM. ![Registro de servidor](./media/site-recovery-vmm-to-azure/VMMASRRegisterFriendlyName.png)
+8. En la sincronización de **Metadatos de la nube inicial** seleccione si desea sincronizar los metadatos de todas las nubes en el servidor VMM con el almacén. Esta acción solo se debe ejecutar una vez en cada servidor. Si no desea sincronizar todas las nubes, puede dejar este valor sin marcar y sincronizar cada nube individualmente en las propiedades de la nube de la consola VMM. 
+	![Registro de servidor](./media/site-recovery-vmm-to-azure/VMMASRRegisterFriendlyName.png)
 
 
 8. Haga clic en *Next* para finalizar el proceso. Después del registro, la Recuperación del sitio de Azure recupera los metadatos del servidor VMM. El servidor se muestra en la pestaña *Servidores VMM* de la página **Servidores** del almacén.
@@ -166,7 +179,7 @@ Generación de una clave de registro en el almacén. Después de descargar el pr
 1. Ejecute el comando siguiente para registrar el proveedor:
 
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
 
   
 #### Lista de parámetros de instalación de la línea de comandos
@@ -201,6 +214,13 @@ Instale el agente de los Servicios de recuperación de Azure en cada servidor ho
 	![Prerequisites Recovery Services Agent](./media/site-recovery-vmm-to-azure/ASRE2AVMM_AgentPrereqs.png)
 
 4. En la página **Configuración de la instalación**, especifique dónde desea instalar el agente y seleccione la ubicación de la caché en la que se instalarán los metadatos de copia de seguridad. Luego haga clic en <b>Instalar</b>.
+5. Una vez completada la instalación, haga clic en el botón **Cerrar** para completar la instalación.
+	
+	![Registro del agente MARS](./media/site-recovery-vmm-to-azure/MarsAgentRegister.png)
+
+>[AZURE.NOTE]Puede instalar el agente Servicios de recuperación de Microsoft Azure desde la línea de comandos mediante el comando siguiente.
+>
+	marsagentinstaller.exe /q /nu
 
 ## Paso 6: Configuración de la protección de la nube
 
@@ -223,7 +243,7 @@ Una vez registrado el servidor de VMM, puede configurar los valores de protecci�
 
 Tras guardar la configuración, se creará un trabajo que se podrá supervisar en la pestaña <b>Trabajos</b>. Todos los servidores host de Hyper-V de la nube de origen VMM se configurarán para la replicación.
 
-Tras guardar, puede modificar la configuración de la nube en la pestaña <b>Configurar</b>. Para modificar la ubicación de destino o la cuenta de almacenamiento de destino, deberá eliminar la configuración de la nube y luego volver a configurar la nube. Tenga en cuenta que si cambia la cuenta de almacenamiento, el cambio solo se aplicará a las máquinas virtuales que tengan la protección habilitada después de que la cuenta de almacenamiento se ha modificado. Las máquinas virtuales existentes no se migran a la nueva cuenta de almacenamiento.</p>
+Tras guardar, puede modificar la configuración de la nube en la pestaña <b>Configurar</b>. Para modificar la ubicación de destino o la cuenta de almacenamiento de destino, deberá eliminar la configuración de la nube y luego volver a configurar la nube. Tenga en cuenta que si cambia la cuenta de almacenamiento, el cambio solo se aplicará a las máquinas virtuales que tengan la protección habilitada después de que la cuenta de almacenamiento se ha modificado. Las máquinas virtuales existentes no se migrarán a la nueva cuenta de almacenamiento.</p>
 
 ## Paso 7: Configuración de la asignación de red
 Antes de comenzar la asignación de red, compruebe que las máquinas virtuales en el servidor de VMM de origen están conectadas a una red de VM. Además, cree una o varias redes virtuales de Azure. Tenga en cuenta que pueden asignarse varias redes de VM a una sola red de Azure.
@@ -246,7 +266,7 @@ Tenga en cuenta que si la red de destino tiene varias subredes y una de estas su
 Una vez que los servidores, las nubes y las redes se configuran correctamente, puede habilitar la protección para las máquinas virtuales en la nube. Tenga en cuenta lo siguiente:
 
 - Las máquinas virtuales de deben cumplir los requisitos de Azure. Consúltelos en <a href="http://go.microsoft.com/fwlink/?LinkId=402602">Requisitos previos y compatibilidad</a> en la Guía de planeación.
-- Para habilitar la protección del sistema operativo y el disco del sistema operativo, deben establecerse las propiedades de la máquina virtual. Al crear una máquina virtual en VMM con una plantilla de máquina virtual puede establecer la propiedad. También puede establecer estas propiedades para las máquinas virtuales existentes en las pestañas **General** y **Configuración de hardware** de las propiedades de la máquina virtual. Si no ve estas propiedades en VMM, podrá configurarlas en el portal de Azure Site Recovery.
+- Para habilitar la protección del sistema operativo y el disco del sistema operativo, deben establecerse las propiedades de la máquina virtual. Al crear una máquina virtual en VMM con una plantilla de máquina virtual puede establecer la propiedad. También puede establecer estas propiedades para máquinas virtuales existentes en las pestañas **General** y **Configuración del hardware** de las propiedades de la máquina virtual. Si no ve estas propiedades en VMM, podrá configurarlas en el portal de Azure Site Recovery.
 
 ![Create virtual machine](./media/site-recovery-vmm-to-azure/ASRE2AVMM_EnableNew.png)
 
@@ -358,6 +378,7 @@ Para ejecutar un conmutación por error de prueba, realice lo siguiente:
 <LI>Para planear e implementar Azure Site Recovery en un entorno completo de producción, consulte la <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Guía de planeación de Azure Site Recovery</a> y la <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Guía de implementación de Azure Site Recovery</a>.</LI>
 
 
-<LI>Si tiene preguntas, visite el <a href="http://go.microsoft.com/fwlink/?LinkId=313628">foro de Servicios de recuperación de Azure</a>.</LI> </UL>
+<LI>Si tiene preguntas, visite el <a href="http://go.microsoft.com/fwlink/?LinkId=313628">foro de Servicios de recuperación de Azure</a>.</LI> 
+</UL>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0121_2016-->

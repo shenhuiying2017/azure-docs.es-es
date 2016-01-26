@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/02/2015" 
+	ms.date="01/20/2016" 
 	ms.author="casoper"/>
 
 
@@ -35,7 +35,7 @@ Entre las ventajas de utilizar la red CDN para almacenar en memoria caché los d
 
 	Un perfil de red de entrega de contenido es una colección de puntos de conexión de red de entrega de contenido. Cada perfil contiene uno o más de estos puntos de conexión. Después de crear un perfil de red de entrega de contenido, puede crear un nuevo punto de conexión de red de entrega de contenido con el origen que ha elegido.
 	
-	>[AZURE.NOTE]Una sola suscripción de Azure está limitada a cuatro perfiles de red de entrega de contenido. Cada perfil de red de entrega de contenido está limitado a cuatro puntos de conexión de red de entrega de contenido.
+	>[AZURE.NOTE]De manera predeterminada, una sola suscripción de Azure está limitada a cuatro perfiles de red CDN. Cada perfil de red CDN está limitado a diez puntos de conexión de red CDN.
 	>
 	> Los precios de red de entrega de contenido se aplican en el nivel de perfil de red de entrega de contenido. Si quiere utilizar una combinación de características de red de entrega de contenido estándar y premium, necesitará varios perfiles de red de entrega de contenido.
 	
@@ -147,4 +147,4 @@ La red CDN de Microsoft Azure puede administrarse mediante programación con la 
 - [Depuración de un punto de conexión de red de entrega de contenido de Azure](cdn-purge-endpoint.md)
 - [La API de REST del proveedor de recursos de red CDN](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

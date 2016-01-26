@@ -49,7 +49,7 @@ En este tutorial, realizará los siguientes pasos:
 3.	Crear la **canalización**. Una canalización puede tener una o varias actividades como la actividad de copia para copiar datos desde un origen a un destino o la actividad de Hive de HDInsight para transformar los datos de entrada con el script de Hive para generar datos de salida. Este ejemplo usa la actividad de Hive de HDInsight que ejecuta un script de Hive. El script crea primero una tabla externa que hace referencia a los datos de blog sin procesar almacenados en Almacenamiento de blobs de Azure y, después, divide los datos sin procesar por año y mes.
 
 La primera canalización, denominada **MyFirstPipeline**, usa una actividad de Hive para transformar y analizar un blog que va a cargar en la carpeta **inputdata** en el contenedor **adfgetstarted** (adfgetstarted/inputdata) en Almacenamiento de blobs de Azure.
-
+ 
 ![Vista de diagrama](./media/data-factory-build-your-first-pipeline/diagram-view.png)
 
 
@@ -65,7 +65,7 @@ Cuando la canalización procesa el archivo mediante la actividad de Hive de HDIn
 	adfgetstarted/partitioneddata/year=2014/month=2/000000_0
 	adfgetstarted/partitioneddata/year=2014/month=3/000000_0
 
-De las líneas de ejemplo mostradas anteriormente, la primera de ellas (con 2014-01-01) se escribirá en el archivo 000000\_0 en la carpeta month=1. De igual manera, la segunda se escribirá en el archivo de la carpeta month=2 y la tercera se escribirá en el archivo de la carpeta month=3.
+De las líneas de ejemplo mostradas anteriormente, la primera de ellas (con 2014-01-01) se escribirá en el archivo 000000_0 en la carpeta month=1. De igual manera, la segunda se escribirá en el archivo de la carpeta month=2 y la tercera se escribirá en el archivo de la carpeta month=3.
 
 ## Carga de archivos en Almacenamiento de Azure para el tutorial
 Antes de comenzar el tutorial, tendrá que preparar el almacenamiento de Azure con los archivos necesarios para el tutorial.
@@ -77,7 +77,7 @@ En esta sección, hará lo siguiente:
 
 ### Creación del archivo de script HQL 
 
-1. Inicie el **Bloc de notas** y pegue el siguiente script HQL. Estos scripts de Hive crean dos tablas externas: **WebLogsRaw** y **WebLogsPartitioned**. Haga clic en **Archivo** en el menú y seleccione **Guardar como**. Cambie a la carpeta **C:\\adfgetstarted** en el disco duro. Seleccione **Todos los archivos (*.*)** en el campo **Guardar como tipo**. Escriba **partitionweblogs.hql** en **Nombre de archivo**. Confirme que el campo **Codificación** en la parte inferior del cuadro de diálogo está establecido en **ANSI**. Si no es así, establézcalo en **ANSI**.  
+1. Inicie el **Bloc de notas** y pegue el siguiente script HQL. Estos scripts de Hive crean dos tablas externas: **WebLogsRaw** y **WebLogsPartitioned**. Haga clic en **Archivo** en el menú y seleccione **Guardar como**. Cambie a la carpeta **C:\adfgetstarted** en el disco duro. Seleccione **Todos los archivos (*.*)** en el campo **Guardar como tipo**. Escriba **partitionweblogs.hql** en **Nombre de archivo**. Confirme que el campo **Codificación** en la parte inferior del cuadro de diálogo está establecido en **ANSI**. Si no es así, establézcalo en **ANSI**.  
 	
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
@@ -188,7 +188,7 @@ Mediante el Bloc de notas, cree un archivo denominado **input.log** en **c:\adfg
 Puede usar cualquier herramienta de su elección (por ejemplo: el Explorador de Almacenamiento de Azure, CloudXPlorer de ClumsyLeaf Software) para realizar esta tarea. Esta sección proporciona instrucciones sobre cómo usar la herramienta AzCopy.
 	 
 2. Para preparar el almacenamiento de Azure para el tutorial:
-	1. Descargue la [versión más reciente de [AzCopy](http://aka.ms/downloadazcopypr)](http://aka.ms/downloadazcopy) o la [versión preliminar más reciente](http://aka.ms/downloadazcopypr). Consulte el artículo [Cómo usar AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
+	1. Descargue la [versión más reciente de [AzCopy](http://aka.ms/downloadazcopypr)](http://aka.ms/downloadazcopy) o la **versión más reciente de vista previa**. Consulte el artículo [Uso de AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
 	2. Después de instalar AzCopy, puede agregarlo a la ruta de acceso del sistema ejecutando el comando siguiente en un símbolo del sistema. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
@@ -209,7 +209,7 @@ Puede usar cualquier herramienta de su elección (por ejemplo: el Explorador de 
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. Repita los dos pasos anteriores para cargar el archivo partitionweblogs.hql en la carpeta script del contenedor adfgetstarted. Este es el comando: 
+	1. Ejecute el comando siguiente para cargar el archivo **partitionweblogs.hql** en la carpeta **script** del contenedor **adfgetstarted**. Este es el comando: 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
@@ -222,4 +222,4 @@ Ahora ya está listo para comenzar el tutorial. Haga clic en una de las pestaña
 - Visual Studio
 - Plantillas del Administrador de recursos de Azure 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

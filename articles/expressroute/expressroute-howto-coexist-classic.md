@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/02/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Configuración de conexiones de ExpressRoute y VPN de sitio a sitio para que coexistan para una red virtual
@@ -164,7 +164,7 @@ Este procedimiento le guiará a través de la creación de una red virtual y cre
 		OperationStatus      : Succeeded
 
 
-8. Configure el dispositivo VPN local para que se conecte a la nueva puerta de enlace. Al configurar el dispositivo VPN, use la información que recuperó en el paso 6. Para más información sobre la configuración del dispositivo VPN, consulte [Acerca de los dispositivos VPN para conexiones de red virtual de sitio a sitio](http://go.microsoft.com/fwlink/p/?linkid=615099).
+8. Configure el dispositivo VPN local para que se conecte a la nueva puerta de enlace. Al configurar el dispositivo VPN, use la información que recuperó en el paso 6. Para obtener más información sobre la configuración del dispositivo VPN, vea [Configuración de dispositivos VPN](http://go.microsoft.com/fwlink/p/?linkid=615099).
 
 9. Vincule la puerta de enlace de VPN de sitio a sitio en Azure a la puerta de enlace local.
 
@@ -189,7 +189,7 @@ Si tiene una red virtual conectada a través de una conexión VPN de sitio a sit
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
 
-3. Edite el esquema del archivo de configuración de red para que la subred de puerta de enlace sea /27 o un prefijo más corto (como /26 o /25). Consulte el ejemplo siguiente. Para más información sobre cómo trabajar con el archivo de configuración de red, consulte [Configuración de una red virtual con un archivo de configuración de red](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Para más información sobre el esquema de configuración, consulte [Esquema de configuración de la red virtual de Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+3. Edite el esquema del archivo de configuración de red para que la subred de puerta de enlace sea /27 o un prefijo más corto (como /26 o /25). Consulte el ejemplo siguiente. Para obtener más información sobre cómo trabajar con el archivo de configuración de red, consulte [Configuración de una red virtual con un archivo de configuración de red](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Para más información sobre el esquema de configuración, consulte [Esquema de configuración de la red virtual de Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
@@ -211,4 +211,4 @@ Si tiene una red virtual conectada a través de una conexión VPN de sitio a sit
 
 Para más información sobre ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

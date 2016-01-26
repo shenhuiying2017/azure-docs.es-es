@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="01/20/2016"
    ms.author="sstein"/>
 
 # Prueba de Base de datos SQL: Use C&#x23; para crear una Base de datos SQL con la biblioteca de Base de datos SQL para .NET 
@@ -83,13 +83,13 @@ Para crear una nueva aplicación y registrarla en el directorio activo correcto,
 
     ![Agregue la aplicación C# de SQL.][6]
 
-5. Seleccione **Agregar una aplicación que mi organización está desarrollando**.
+5. Seleccione **Agregar una aplicación que está siendo desarrollada por mi organización**.
 
 5. Asigne un **NOMBRE** a la aplicación y seleccione **APLICACIÓN DE CLIENTE NATIVO**.
 
     ![Proporcione información sobre la aplicación C# de SQL.][7]
 
-6. Indique un **URI DE REDIRECCIÓN**. No tiene que ser un extremo real, simplemente un URI válido.
+6. Proporcione un **URI DE REDIRECCIÓN**. No tiene que ser un extremo real, simplemente un URI válido.
 
     ![Agregue una dirección URL de redireccionamiento a la aplicación C# de SQL.][8]
 
@@ -101,7 +101,7 @@ Para crear una nueva aplicación y registrarla en el directorio activo correcto,
 1. En la parte inferior de la página, haga clic en **Agregar aplicación**.
 1. Seleccione **Aplicaciones de Microsoft**.
 1. Seleccione **API de administración de servicios de Azure** y, después, complete el asistente.
-2. Con la API seleccionada, debe conceder los permisos específicos necesarios para tener acceso a esta API seleccionando **Acceder a la administración del servicio de Azure (vista previa)**.
+2. Con la API seleccionada, deberá conceder los permisos específicos necesarios para obtener acceso a esta API, seleccionando **Acceder a la administración del servicio de Azure (vista previa)**.
 
     ![Establezca permisos.][2]
 
@@ -414,8 +414,7 @@ El siguiente comando de C# creará una nueva Base de datos SQL básica si no hay
 ## Pasos siguientes
 Ahora que probó la Base de datos SQL y configuró una base de datos con C#, está listo para los artículos siguientes:
 
-- [Conexión y consultas a Base de datos SQL con C#](sql-database-connect-query.md)
-- [Conexión con SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Conexión a la Base de datos SQL con SQL Server Management Studio y realización de una consulta de T-SQL de ejemplo](sql-database-connect-query-ssms.md)
 
 ## Recursos adicionales
 
@@ -436,4 +435,4 @@ Ahora que probó la Base de datos SQL y configuró una base de datos con C#, est
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

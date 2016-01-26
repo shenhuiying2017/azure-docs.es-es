@@ -27,7 +27,7 @@ El primer paso es crear un espacio de nombres de servicio y obtener una clave de
 
 ### Para crear un espacio de nombres de servicio y obtener una clave SAS
 
-1. Para crear un espacio de nombres en el [Portal de Azure clásico][], siga los pasos descritos en [Creación o modificación de un espacio de nombres de servicio de Bus de servicio](https://msdn.microsoft.com/library/hh690931.aspx).
+1. Para crear un espacio de nombres de servicio, visite el [Portal de Azure clásico][]. Haga clic en **Bus de servicio** en el lado izquierdo y después en **Crear**. Escriba un nombre para el espacio de nombres y haga clic en la marca de verificación.
 
 2. En la ventana principal del Portal, haga clic en el nombre del espacio de nombres de servicio que creó en el paso anterior.
 
@@ -51,7 +51,7 @@ La diferencia principal entre un contrato básico del Bus de servicio y un contr
 
 4. Agregue una referencia a **System.ServiceModel.dll** al proyecto:
 
-	a. En el Explorador de soluciones, haga clic con el botón derecho en la carpeta **Referencias** bajo la carpeta del proyecto y, a continuación, haga clic en **Agregar referencia**.
+	a. En el Explorador de soluciones, haga clic en la carpeta **Referencias** bajo la carpeta del proyecto y, a continuación, haga clic en **Agregar referencia**.
 
 	b. Haga clic en la pestaña **.NET** del cuadro de diálogo **Agregar referencia** y desplácese hacia abajo hasta que vea **System.ServiceModel**. Selecciónelo y haga clic en **Aceptar**.
 
@@ -76,7 +76,7 @@ La diferencia principal entre un contrato básico del Bus de servicio y un contr
 		...
 	```
 
-8. Directamente después de la declaración del espacio de nombres, defina una nueva interfaz denominada **IImageContract** y aplique el atributo **ServiceContractAttribute** a la interfaz con un valor de `http://samples.microsoft.com/ServiceModel/Relay/`. El valor del espacio de nombres difiere del espacio de nombres que utiliza en todo el ámbito de su código. El valor del espacio de nombres se utiliza como identificador único para este contrato, y debe tener información de la versión. Para obtener más información, consulte [Control de versiones del servicio](http://go.microsoft.com/fwlink/?LinkID=180498). La especificación del espacio de nombres impide explícitamente que el valor del espacio de nombres predeterminado se agregue al nombre del contrato.
+8. Directamente después de la declaración del espacio de nombres, defina una nueva interfaz denominada **IImageContract** y aplique el atributo **ServiceContractAttribute** a la interfaz con un valor de `http://samples.microsoft.com/ServiceModel/Relay/`. El valor del espacio de nombres difiere del espacio de nombres que utiliza en todo el ámbito de su código. El valor del espacio de nombres se utiliza como identificador único para este contrato, y debe tener información de la versión. Para más información, consulte [Control de versiones del servicio](http://go.microsoft.com/fwlink/?LinkID=180498). La especificación del espacio de nombres impide explícitamente que el valor del espacio de nombres predeterminado se agregue al nombre del contrato.
 
 	```
 	[ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
@@ -176,7 +176,7 @@ Al igual que con los pasos anteriores, hay muy pocas diferencias entre implement
 	```
 	Al igual que otras implementaciones de interfaz, puede implementar la definición en un archivo diferente. Sin embargo, para este tutorial, la implementación aparece en el mismo archivo que la definición de interfaz y el método `Main()`.
 
-2. Aplique el atributo [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) a la clase **IImageService** para indicar que la clase es una implementación de un contrato de WCF.
+2. Aplique el atributo [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) a la clase **IImageService** para indicar que la clase es una implementación de un contrato de WCF:
 
 	```
 	[ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
@@ -189,7 +189,7 @@ Al igual que con los pasos anteriores, hay muy pocas diferencias entre implement
 
 3. Agregue una imagen .jpg al proyecto.
 
-	Se trata de una imagen que el servicio muestra en el explorador de recepción. Haga clic con el botón derecho en el proyecto y, después, haga clic en **Agregar**. A continuación, haga clic en **Elemento existente**. Use el cuadro de diálogo **Agregar elemento existente** para buscar un .jpg adecuado y, después, haga clic en **Agregar**.
+	Se trata de una imagen que el servicio muestra en el explorador de recepción. Haga clic con el botón derecho en el proyecto y, después, haga clic en **Agregar**. A continuación, haga clic en **Elemento existente**. Utilice el cuadro de diálogo **Agregar elemento existente** para buscar un .jpg adecuado y, a continuación, haga clic en **Agregar**.
 
 	Al agregar el archivo, asegúrese de que está seleccionada la opción **Todos los archivos** en la lista desplegable situada junto al campo **Nombre de archivo:**. En el resto de este tutorial se supone que el nombre de la imagen es "image.jpg". Si tiene un archivo diferente, debe cambiar el nombre de la imagen o cambiar su código para compensar.
 
@@ -298,7 +298,7 @@ Al igual que con los pasos anteriores, hay muy pocas diferencias entre implement
 	</services>
 	```
 
-	Este paso configura un servicio que usa el valor predeterminado definido anteriormente **webHttpRelayBinding**. También usa el valor predeterminado **sbTokenProvider**, que se define en el paso siguiente.
+	Este paso configura un servicio que utiliza el valor predeterminado definido anteriormente **webHttpRelayBinding**. También usa el valor predeterminado **sbTokenProvider**, que se define en el paso siguiente.
 
 6. Después del elemento `<services>`, cree un elemento `<behaviors>` con el contenido siguiente, reemplazando "SAS\_KEY" por la clave de *Firma de acceso compartido* (SAS) que obtuvo en el [Portal de Azure clásico][] en el paso 1.
 
@@ -570,7 +570,7 @@ namespace Microsoft.ServiceBus.Samples
 
 Después de compilar la solución, haga lo siguiente para ejecutar la aplicación:
 
-1. Desde un símbolo del sistema, ejecute el servicio (ImageListener\\bin\\Debug\\ImageListener.exe).
+1. Desde un símbolo del sistema, ejecute el servicio (ImageListener\bin\Debug\ImageListener.exe).
 
 2. Copie y pegue la dirección desde el símbolo del sistema en un explorador para ver la imagen.
 
@@ -584,4 +584,4 @@ Ahora que ha creado una aplicación que utiliza el servicio de Retransmisión de
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

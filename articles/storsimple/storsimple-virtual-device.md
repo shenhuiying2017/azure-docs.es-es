@@ -71,7 +71,7 @@ Las siguientes secciones le ayudará a prepararse para usar el dispositivo virtu
 
 Antes de aprovisionar el dispositivo virtual, deberá realizar los siguientes preparativos en el entorno de Azure:
 
-- Para el dispositivo virtual, [configure una red virtual en Azure](virtual-networks-create-vnet.md).
+- Para el dispositivo virtual, [configure una red virtual en Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
 - Puede usar el servidor DNS predeterminado proporcionado por Azure en lugar de especificar su propio nombre del servidor DNS. Si el nombre del servidor DNS no es válido, se producirá un error en la creación del dispositivo virtual.
 - Punto a sitio y sitio a sitio son opcionales, pero no obligatorios. Si lo desea, puede configurar estas opciones para escenarios más avanzados.
 
@@ -134,8 +134,7 @@ Realice los pasos siguientes para crear el dispositivo virtual de StorSimple.
 
 	4. **Cuenta de almacenamiento para crear un dispositivo virtual**: la cuenta de almacenamiento que se usará para almacenar la imagen del dispositivo virtual durante el aprovisionamiento. Esta cuenta de almacenamiento debe estar en la misma región que el dispositivo virtual y la red virtual. No debe utilizarse para el almacenamiento de datos por el dispositivo físico o el dispositivo virtual. De forma predeterminada, para ello se creará una nueva cuenta de almacenamiento. Sin embargo, si sabe que ya tiene una cuenta de almacenamiento que es adecuada para este uso, puede seleccionarla en la lista.
 
-4. Haga clic en la marca de verificación para indicar que sabe que los datos almacenados en el dispositivo virtual estarán hospedados en un centro de datos de Microsoft. Ahora se creará un dispositivo virtual. La creación de un dispositivo virtual puede demorar entre 45 minutos y 1 hora. 
-	![Fase de creación de dispositivo virtual de StorSimple](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
+4. Haga clic en la marca de verificación para indicar que sabe que los datos almacenados en el dispositivo virtual estarán hospedados en un centro de datos de Microsoft. Ahora se creará un dispositivo virtual. La creación de un dispositivo virtual puede demorar entre 45 minutos y 1 hora. ![Fase de creación de dispositivo virtual de StorSimple](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
 
 Cuando se utiliza solo un dispositivo físico, la clave de cifrado se mantiene con el dispositivo; por lo tanto, Microsoft no podrá descifrarla. Cuando se utiliza un dispositivo virtual, la clave de cifrado y la clave de descifrado se almacenan en Microsoft Azure. Para obtener más información, consulte [Consideraciones de seguridad para utilizar un dispositivo virtual](#security-considerations-for-using-a-virtual-device).
 
@@ -369,7 +368,7 @@ Para ver un vídeo que describe cómo se puede restaurar un dispositivo físico 
 
 Si ha configurado y usado previamente un dispositivo virtual de StorSimple, pero ahora desea detener la acumulación de cargos para su uso por el proceso, puede apagar el dispositivo virtual. Apagar el dispositivo virtual no elimina su sistema operativo ni los discos de datos del almacenamiento. Detiene el cargo acumulado en su suscripción, pero seguirán los cargos de almacenamiento del sistema operativo y los discos de datos.
 
-Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en la página de dispositivos del servicio StorSimple Manager. Puede desactivarlo o eliminarlo como un dispositivo si desea eliminar las copias de seguridad creadas por el dispositivo virtual. Para obtener más información, vea [Desactivación de un dispositivo](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
+Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en la página **Dispositivos** del servicio StorSimple Manager. Puede desactivarlo o eliminarlo como un dispositivo si desea eliminar las copias de seguridad creadas por el dispositivo virtual. Para más información, consulte [Desactivación y eliminación de un dispositivo de StorSimple](storsimple-deactivate-and-delete-device.md).
 
 ### Para apagar el dispositivo virtual de StorSimple
 
@@ -383,13 +382,13 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
 
 1. Inicie sesión en el portal clásico de Azure.
 
-- Haga clic en **Máquinas virtuales** y, a continuación, seleccione el dispositivo virtual.
+2. Haga clic en **Máquinas virtuales** y, a continuación, seleccione el dispositivo virtual.
 
-- Haga clic en **Eliminar** y elija eliminar todos los discos de la máquina virtual.
+3. Haga clic en **Eliminar** y elija eliminar todos los discos de la máquina virtual.
 
 
 ## Pasos siguientes
 
 Para administrar el dispositivo virtual, vea la lista detallada de flujos de trabajo en [Administración del dispositivo StorSimple mediante el servicio StorSimple Manager](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

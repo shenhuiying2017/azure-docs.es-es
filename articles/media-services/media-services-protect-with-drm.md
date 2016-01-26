@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="01/10/2016" 
+	ms.date="01/20/2016" 
 	ms.author="juliako"/>
 
 
@@ -627,8 +627,10 @@ En el ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de S
 
 ##Consulte también
 
+[CENC with Multi-DRM and Access Control](media-services-cenc-with-multidrm-access-control.md) (CENC con DRM múltiple y Control de acceso)
+
 [Configuración del empaquetado Widevine con AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
 [Anuncio de los servicios de entrega de licencias de la vista previa pública de Google Widevine de Servicios multimedia de Azure](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

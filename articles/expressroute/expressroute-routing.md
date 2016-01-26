@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -48,8 +48,8 @@ a.b.c.d/29 se divide en a.b.c.d/30 y a.b.c.d+4/30 y se pasa a Microsoft a travé
 
 Considere el caso en que selecciona 192.168.100.128/29 para configurar el emparejamiento privado. 192.168.100.128/29 incluye direcciones desde 192.168.100.128 hasta 192.168.100.135, entre los que:
 
-- 192\.168.100.128/30 se asignará a link1, donde el proveedor usa 192.168.100.129 y Microsoft usa 192.168.100.130.
-- 192\.168.100.132/30 se asignará a link2, donde el proveedor usa 192.168.100.133 y Microsoft usa 192.168.100.134.
+- 192.168.100.128/30 se asignará a link1, donde el proveedor usa 192.168.100.129 y Microsoft usa 192.168.100.130.
+- 192.168.100.132/30 se asignará a link2, donde el proveedor usa 192.168.100.133 y Microsoft usa 192.168.100.134.
 
 ### Direcciones IP para configuración de pares públicos de Azure y de Microsoft
 
@@ -70,7 +70,6 @@ Asegúrese de que la dirección IP y el número AS se registran en uno de los re
 - [RIPE NCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
-- [LEVEL3](http://rr.Level3.net/)
 
 
 ## Cambio de ruta dinámica
@@ -174,4 +173,4 @@ Microsoft no admite los valores de las comunidades de BGP que defina. Se requier
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

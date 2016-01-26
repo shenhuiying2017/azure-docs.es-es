@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/22/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
 # Información general del Administrador de recursos de Azure
@@ -67,7 +67,7 @@ Para implementar y administrar la infraestructura, debe conocer los detalles ace
 
 Con Administrador de recursos, puede crear una plantilla sencilla (en formato JSON) que define la implementación y configuración de la aplicación. Esta plantilla se conoce como plantilla de Administrador de recursos y proporciona una manera declarativa de definir la implementación. El uso de una plantilla permite implementar la aplicación repetidamente a lo largo del ciclo de vida de esta y tener la seguridad de que los recursos se implementan de forma coherente.
 
-Dentro de la plantilla puede definir la infraestructura de la aplicación, cómo configurar dicha infraestructura y cómo publicar el código de aplicación en ella. No necesita preocuparse por el orden de implementación porque Administrador de recursos de Azure analiza las dependencias para asegurarse de que los recursos se crean en el orden correcto. Para más información, consulte [Definición de dependencias en plantillas del Administrador de recursos de Azure](resource-group-define-dependencies.md).
+Dentro de la plantilla puede definir la infraestructura de la aplicación, cómo configurar dicha infraestructura y cómo publicar el código de aplicación en ella. No necesita preocuparse por el orden de implementación porque Administrador de recursos de Azure analiza las dependencias para asegurarse de que los recursos se crean en el orden correcto. Para obtener más información, consulte [Definición de dependencias en plantillas del Administrador de recursos de Azure](resource-group-define-dependencies.md).
 
 No es necesario definir toda la infraestructura en una sola plantilla. A menudo, tiene sentido dividir los requisitos de implementación en un conjunto de plantillas seleccionadas, específicas para un propósito. Puede fácilmente volver a usar estas plantillas para distintas soluciones. Para implementar una solución determinada, cree una plantilla maestra que vincule todas las plantillas necesarias. Para más información, consulte [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
 
@@ -85,17 +85,17 @@ Para obtener más información sobre la creación de plantillas, consulte [Crear
 
 Para más información acerca del uso de una plantilla para la implementación, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-Para instrucciones sobre cómo estructurar las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
+Para obtener instrucciones sobre cómo estructurar las plantillas, consulte [Procedimientos recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
 
-Para ver instrucciones sobre cómo implementar la solución en diferentes entornos, consulte [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments-preview-portal.md).
 
 ## Etiquetas
 
-Administrador de recursos proporciona una característica de etiquetado que permite clasificar los recursos de acuerdo con los requisitos de administración o facturación. Es recomendable usar etiquetas cuando se tiene un conjunto complejo de grupos de recursos y de recursos, y se necesitan visualizar estos activos de la manera más conveniente. Por ejemplo, puede etiquetar recursos que cumplen una función similar en la organización o que pertenecen al mismo departamento.
+Administrador de recursos proporciona una característica de etiquetado que permite clasificar los recursos de acuerdo con los requisitos de administración o facturación. Es recomendable usar etiquetas cuando se tiene un conjunto complejo de grupos de recursos y de recursos, y se necesitan visualizar estos activos de la manera más conveniente. Por ejemplo, puede etiquetar recursos que cumplen una función similar en la organización o que pertenecen al mismo departamento. Sin etiquetas, los usuarios de su organización pueden crear varios recursos que son muy difíciles de identificar y administrar. Por ejemplo, puede que desee eliminar todos los recursos de un proyecto concreto, pero si no se han etiquetado esos recursos en el proyecto, tendrá que buscarlos manualmente. El etiquetado puede ser un aspecto importante para reducir costos innecesarios en su suscripción.
 
 Los recursos no tienen que residir en el mismo grupo de recursos para compartir una etiqueta. Puede crear su propia taxonomía de etiquetas para asegurarse de que todos los usuarios de la organización utilizan etiquetas comunes y no aplican accidentalmente etiquetas ligeramente diferentes (por ejemplo, "dept" en lugar de "departamento").
 
-Para obtener más información sobre las etiquetas, consulte [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md).
+Para obtener más información sobre las etiquetas, consulte [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md). Puede crear una [directiva personalizada](#manage-resources-with-customized-policies) que requiera agregar etiquetas a los recursos durante la implementación.
 
 ## Control de acceso
 
@@ -105,13 +105,13 @@ Administrador de recursos registra automáticamente las acciones del usuario par
 
 Para más información sobre el control de acceso basado en roles, consulte [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md). El tema [RBAC: Roles integrados](./active-directory/role-based-access-built-in-roles.md) contiene una lista de roles integrados y acciones permitidas. Los roles integrados incluyen roles generales como propietario, lector y colaborador, así como roles específicos del servicio como colaborador de la máquina virtual, colaborador de la red virtual y administrador de seguridad SQL (por nombrar solo algunos de los roles disponibles).
 
-También puede bloquear explícitamente recursos críticos para impedir que los usuarios los eliminen o modifiquen. Para más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
+También puede bloquear explícitamente recursos críticos para impedir que los usuarios los eliminen o modifiquen. Para obtener más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 
 Para conocer las prácticas recomendadas, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
 
 ## Administración de recursos con directivas personalizadas
 
-El Administrador de recursos permite crear directivas personalizadas para administrar los recursos. Los tipos de directivas que cree pueden incluir escenarios tan diversos como aplicar una convención de nomenclatura de recursos, limitar qué regiones pueden hospedar un tipo de recurso o necesitar un valor de etiqueta en recursos para organizar la facturación por departamentos. Para más información, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
+El Administrador de recursos permite crear directivas personalizadas para administrar los recursos. Los tipos de directivas que cree pueden incluir escenarios tan diversos como aplicar una convención de nomenclatura de recursos, limitar qué tipos e instancias de recursos se pueden implementar, limitar qué regiones pueden hospedar un tipo de recurso o necesitar un valor de etiqueta en recursos para organizar la facturación por departamentos. Puede crear directivas para ayudar a reducir costos y mantener la coherencia en la suscripción. Para obtener más información, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 
 ## Capa de administración coherente
 
@@ -129,13 +129,13 @@ El Administrador de recursos de Azure admite el uso compartido de recursos entre
 
 ## Pasos siguientes
 
-- Para información sobre cómo crear plantillas, consulte [Creación de plantillas](./resource-group-authoring-templates.md).
-- Para implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
-- Para comprender las funciones que puede usar en una plantilla, consulte [Expresiones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md)
-- Para ver instrucciones sobre cómo diseñar las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
+- Para obtener información sobre cómo crear plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md).
+- Para implementar la plantilla que creó, consulte [Implementación de plantillas](resource-group-template-deploy.md)
+- Para comprender las funciones que puede usar en una plantilla, consulte [Funciones de plantillas](./resource-group-template-functions.md)
+- Para obtener instrucciones sobre cómo diseñar las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
 
 La siguiente es una demostración de esta introducción.
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

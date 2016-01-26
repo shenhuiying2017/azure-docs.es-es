@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/17/2015"
+	ms.date="01/18/2016"
 	ms.author="juliako"/>
 
 
@@ -108,7 +108,7 @@ Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
 3. Para especificar el número de unidades de streaming, haga clic en la pestaña ESCALA y luego desplace el control deslizante de **capacidad reservada**.
 
-![Página de escala](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
+	![Página de escala](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
 
 4. Presione **GUARDAR** para guardar los cambios.
 
@@ -152,13 +152,13 @@ La asignación de cualquier nueva unidad puede tardar unos 20 minutos en finaliz
 		using Microsoft.WindowsAzure.MediaServices.Client;
 		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
 
-6. Cree una carpeta nueva en el directorio de proyectos y copie el archivo .mp4 o .wmv que desea codificar y transmítalo o descárguelo progresivamente. En este ejemplo, se usa la ruta de acceso "C:\\VideoFiles".
+6. Cree una carpeta nueva en el directorio de proyectos y copie el archivo .mp4 o .wmv que desea codificar y transmítalo o descárguelo progresivamente. En este ejemplo, se usa la ruta de acceso "C:\VideoFiles".
 
 ##Conexión a la cuenta de Servicios multimedia
 
 Cuando se usa Servicios multimedia con .NET, debe usar la clase **CloudMediaContext** para la mayoría de las tareas de programación de Servicios multimedia: conexión a la cuenta de Servicios multimedia; creación, actualización, acceso y eliminación de los siguientes objetos: activos, archivos de activos, trabajos, directivas de acceso, localizadores, etc.
 
-Sobrescriba la clase de programa predeterminada con el código siguiente. El código muestra cómo leer los valores de conexión del archivo App.config y cómo crear el objeto **CloudMediaContext** para conectarse a Servicios multimedia. Para más información sobre cómo conectarse a Servicios multimedia, consulte [Conexión con la cuenta de Servicios multimedia con el SDK de Servicios multimedia para .NET.](http://msdn.microsoft.com/library/azure/jj129571.aspx).
+Sobrescriba la clase de programa predeterminada con el código siguiente. El código muestra cómo leer los valores de conexión del archivo App.config y cómo crear el objeto **CloudMediaContext** para conectarse a Servicios multimedia. Para obtener más información sobre cómo conectarse a Servicios multimedia, consulte [Conexión a Servicios multimedia con el SDK de Servicios multimedia para .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 La función **Main** llama a métodos que se definirán más adelante en esta sección.
 
@@ -213,12 +213,12 @@ La función **Main** llama a métodos que se definirán más adelante en esta se
 
 En Servicios multimedia, cargará (o introducirá) los archivos digitales en un recurso. La entidad **Activo** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos). Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. Los archivos del recurso se denominan **archivos de recursos**.
 
-El método **UploadFile** que se define a continuación llama a **CreateFromFile** (que se define en las extensiones del SDK para .NET). **CreateFromFile** crea un activo en el que se carga el archivo de origen especificado.
+El método **UploadFile** definido a continuación llama a **CreateFromFile** (definido en las extensiones del SDK para .NET). **CreateFromFile** crea un nuevo recurso en el que se carga el archivo de origen especificado.
 
-El método **CreateFromFile** toma **AssetCreationOptions**, que permite especificar una de las siguientes opciones de creación de activos:
+El método **CreateFromFile** toma **AssetCreationOptions**, que permite especificar una de las siguientes opciones de creación de recursos:
 
 - **Ninguno**: no se utiliza cifrado. Este es el valor predeterminado. Tenga en cuenta que al usar esta opción el contenido no está protegido en tránsito o en reposo en el almacenamiento. Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción.
-- **StorageEncrypted**: use esta opción para cifrar localmente el contenido no cifrado mediante el cifrado Estándar de cifrado avanzado (AES) de 256 bits y luego cargarlo al Almacenamiento de Azure donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
+- **StorageEncrypted**: use esta opción para cifrar el contenido no cifrado de manera local mediante el cifrado Estándar de cifrado avanzado (AES) de 256 bits y luego cargarlo en el almacenamiento de Azure donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
 - **CommonEncryptionProtected**: use esta opción si va a cargar contenido que ya se cifró y protegió con cifrado común o DRM de PlayReady (por ejemplo, Smooth Streaming protegido con DRM de PlayReady).
 - **EnvelopeEncryptionProtected**: use esta opción si va a cargar HLS cifrado con AES. Tenga en cuenta que los archivos deben haberse codificado y cifrado con Transform Manager.
 
@@ -452,4 +452,4 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->
