@@ -299,7 +299,7 @@ El estilo de [grupo de listas vinculadas][] de Bootstrap permite hacer clic en t
 
 ![][AllSpeakersFixedDesktop]
 
-Aunque la vista de explorador móvil ha mejorado, es difícil desplazarse por la larga lista de oradores. Bootstrap no proporciona una funcionalidad de filtro de búsqueda de forma predeterminada, pero puede agregarla con unas pocas líneas de código. En primer lugar, agregará un cuadro de búsqueda a la vista y luego lo enlazará con el código JavaScript para la función de filtro. En *Views\\Home\\AllSpeakers.cshtml*, agregue una etiqueta <form> justo después de la etiqueta <h2>, como se muestra a continuación:
+Aunque la vista de explorador móvil ha mejorado, es difícil desplazarse por la larga lista de oradores. Bootstrap no proporciona una funcionalidad de filtro de búsqueda de forma predeterminada, pero puede agregarla con unas pocas líneas de código. En primer lugar, agregará un cuadro de búsqueda a la vista y luego lo enlazará con el código JavaScript para la función de filtro. En *Views\\Home\\AllSpeakers.cshtml*, agregue una etiqueta <form\> justo después de la etiqueta \<h2\>, como se muestra a continuación:
 
     @model IEnumerable<string>
 
@@ -653,4 +653,4 @@ En este tutorial se ha mostrado cómo usar ASP.NET MVC 5 para desarrollar aplica
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!-----------HONumber=AcomDC_0114_2016-->
+<!------------HONumber=AcomDC_0114_2016---->
