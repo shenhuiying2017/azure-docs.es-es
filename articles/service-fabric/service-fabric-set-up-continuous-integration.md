@@ -196,7 +196,7 @@ Para instalar Azure PowerShell, siga los pasos que se describen en la sección a
 ### Registro del agente de compilación
 
 1.	Descargue agent.zip. Para ello, siga estos pasos:
-    1.	Inicie sesión en el proyecto del equipo de trabajo, por ejemplo, ****https://[your-Team-Services-account-name].visualstudio.com**.
+    1.	Inicie sesión en el proyecto del equipo de trabajo, por ejemplo, **https://[your-Team-Services-account-name].visualstudio.com**.
 1.	Elija el icono de "engranaje" en la esquina superior derecha de la pantalla.
     1.	En el Panel de control, elija la pestaña **Grupos de agentes**.
     1.	Elija **Descargar agente** para descargar el archivo agent.zip.
@@ -348,4 +348,4 @@ Para obtener más información sobre la integración continua con las aplicacion
 - [Implementación de un agente de compilación](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
 - [Creación y configuración de una definición de compilación](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
