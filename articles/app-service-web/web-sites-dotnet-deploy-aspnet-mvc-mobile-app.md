@@ -19,27 +19,38 @@
 
 # Implementar una aplicación web móvil de ASP.NET MVC 5 en el servicio de aplicaciones de Azure
 
-Este tutorial le enseñará los conceptos básicos para crear una aplicación web ASP.NET MVC 5 adecuada para móviles y e implementarla en Microsoft Azure. Para este tutorial, debe disponer de [Visual Studio Express 2013 para Web][Visual Studio Express 2013] o la edición profesional de Visual Studio si ya dispone de él.
+Este tutorial le enseñará los conceptos básicos para crear una aplicación web ASP.NET MVC 5
+adecuada para móviles y e implementarla en Microsoft Azure. Para este tutorial, debe disponer de 
+[Visual Studio Express 2013 para Web][Visual Studio Express 2013]
+o la edición profesional de Visual Studio si ya dispone de él.
 Puede usar [Visual Studio 2015], pero las capturas de pantalla serán distintas y deberá utilizar las plantillas de ASP.NET 4.x.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## Lo que creará
 
-Para este tutorial, agregará características móviles a la aplicación simple de lista de conferencias que se proporciona en el [proyecto inicial][StarterProject]. En la captura siguiente se muestran las sesiones ASP.NET en la aplicación completada, tal como se muestra en el emulador de explorador en las herramientas de desarrollador de Internet Explorer 11 F12.
+Para este tutorial, agregará características móviles a la aplicación simple
+de lista de
+conferencias que se proporciona en el [proyecto inicial][StarterProject]. En la captura siguiente se muestran las sesiones ASP.NET en la aplicación completada, 
+tal como se muestra en el emulador de explorador en las herramientas de 
+desarrollador de Internet Explorer 11 F12.
 
 ![][FixedSessionsByTag]
 
-Puede usar las herramientas de desarrollador de Internet Explorer 11 F12 y la [herramienta Fiddler][Fiddler] para ayudarle a depurar su aplicación.
+Puede usar las herramientas de desarrollador de Internet Explorer 11 F12 y la [herramienta 
+Fiddler][Fiddler] para ayudarle a depurar su aplicación.
 
 ## Habilidades que aprenderá
 
 Aprenderá lo siguiente:
 
 -	Cómo usar Visual Studio 2013 para publicar la aplicación web directamente en una aplicación web en el servicio de aplicaciones de Azure.
--   Cómo las plantillas de ASP.NET MVC 5 usan el marco CSS Bootstrap para mejorar la visualización en dispositivos móviles.
--   Creación de vistas específicos de móviles para dirigirse a exploradores móviles específicos, tales como iPhone y Android
--   Creación de vistas de respuesta (vistas que responden a exploradores distintos entre varios dispositivos)
+-   Cómo las plantillas de ASP.NET MVC 5 usan el marco CSS Bootstrap para
+    mejorar la visualización en dispositivos móviles.
+-   Creación de vistas específicos de móviles para dirigirse a
+    exploradores móviles específicos, tales como iPhone y Android
+-   Creación de vistas de respuesta (vistas que responden a
+    exploradores distintos entre varios dispositivos)
 
 ## Configuración del entorno de desarrollo
 
@@ -50,7 +61,8 @@ Configure el entorno de desarrollo mediante la instalación del SDK de Azure par
 
 También necesitará un emulador de explorador móvil. Funcionará cualquiera de las siguientes opciones:
 
--   Emulador de explorador en las herramientas para desarrolladores de [Internet Explorer 11 F12][EmulatorIE11] (se usan en todas las capturas de pantalla de explorador). Cuenta con los calores predefinidos de cadena de agente de usuario para Windows Phone 8, Windows Phone 7 y Apple iPad.
+-   Emulador de explorador en las herramientas para desarrolladores de [Internet Explorer 11 F12][EmulatorIE11] (se usan en todas las capturas
+    de pantalla de explorador). Cuenta con los calores predefinidos de cadena de agente de usuario para Windows Phone 8, Windows Phone 7 y Apple iPad.
 -	Emulador de explorador en [Google Chrome DevTools][EmulatorChrome]. Contiene valores predefinidos para varios dispositivos Android, así como Apple iPhone, Apple iPad y Amazon Kindle Fire. También emula eventos táctiles.
 -   [Emulador de Opera Mobile][EmulatorOpera]
 
@@ -65,9 +77,11 @@ Para este tema hay disponibles proyectos de Visual Studio con código fuente en 
 
 2. 	Luego, en el Explorador de Windows, haga clic con el botón derecho en el archivo ZIP descargado y seleccione *Propiedades*.
 
-3. 	En el cuadro de diálogo **Propiedades**, seleccione el botón **Desbloquear**. (El desbloqueo evita recibir una advertencia de seguridad que se produce al intentar usar un archivo *.zip* que ha descargado de la web).
+3. 	En el cuadro de diálogo **Propiedades**, seleccione
+el botón **Desbloquear**. (El desbloqueo evita recibir una advertencia de seguridad que se produce al intentar usar un archivo *.zip* que ha descargado de la web).
 
-4.	Haga clic con el botón derecho en el archivo ZIP y seleccione **Extraer todo** para descomprimir el archivo.
+4.	Haga clic con el botón derecho en el archivo ZIP y seleccione **Extraer todo** para 
+descomprimir el archivo.
 
 5. 	En Visual Studio, abra el archivo *C#\\Mvc5Mobile.sln*.
 
@@ -107,13 +121,21 @@ Para este tema hay disponibles proyectos de Visual Studio con código fuente en 
 
 	Una vez que Visual Studio termine de publicar el proyecto inicial en la aplicación web de Azure, se abrirá el explorador de escritorio para mostrar la aplicación web activa.
 
-14.	Inicie su emulador de explorador móvil, copie la dirección URL de la aplicación de conferencia (*<prefix>**.azurewebsites.net) en el emulador y luego haga clic en el botón superior derecho y seleccione **Explorar por etiqueta**. Si usa Internet Explorer 11 como explorador predeterminado, solo tiene que escribir `F12`, luego `Ctrl+8`, y luego cambiar el perfil de explorador a **Windows Phone**. La imagen de abajo muestra la vista *AllTags* en el modo vertical (a partir de la selección de **Explorar por etiqueta**).
+14.	Inicie su emulador de explorador móvil, copie la dirección URL de 
+la aplicación de conferencia (*<prefix>*.azurewebsites.net) en el emulador y luego haga clic en
+el botón superior derecho y seleccione **Explorar por etiqueta**. Si usa Internet
+Explorer 11 como explorador predeterminado, solo tiene que escribir `F12`, luego
+`Ctrl+8`, y luego cambiar el perfil de explorador a **Windows Phone**. La
+imagen de abajo muestra la vista *AllTags* en el modo vertical (a partir de la selección 
+de **Explorar por etiqueta**).
 
 	![][AllTags]
 
 >[AZURE.TIP] Si bien puede depurar la aplicación MVC 5 en Visual Studio, puede volver a publicar su aplicación web en Azure para comprobar la aplicación web activa directamente desde el explorador móvil o desde un emulador de explorador.
 
-La pantalla es muy fácil de leer en un dispositivo móvil. Además, ya puedever algunos de los efectos visuales que aplica el marco Bootstrap CSS. Haga clic en el vínculo **ASP.NET**.
+La pantalla es muy fácil de leer en un dispositivo móvil. Además,
+ya puedever algunos de los efectos visuales que aplica el marco Bootstrap CSS.
+Haga clic en el vínculo **ASP.NET**.
 
 ![][SessionsByTagASP.NET]
 
@@ -121,9 +143,15 @@ La vista de etiquetas ASP.NET se ajusta en zoom a la pantalla, que Bootstrap hac
 
 ##<a name="bkmk_bootstrap"></a> Marco Bootstrap CSS
 
-La plantilla MVC 5 ahora cuenta con compatibilidad con Bootstrap integrada. Ya ha visto cómo mejora inmediatamente las distintas vistas en su aplicación. Por ejemplo, la barra de navegación de la parte superior se contrae automáticamente cuando el ancho del explorador es menor. En el explorador de escritorio,intente cambiar el tamaño de la ventana del explorador para ver cómo la barra de navegación cambia su aspecto. Este es el diseño web de respuesta integrado en Bootstrap.
+La plantilla MVC 5 ahora cuenta con compatibilidad con Bootstrap
+integrada. Ya ha visto cómo mejora inmediatamente las distintas vistas en su
+aplicación. Por ejemplo, la barra de navegación de la parte superior se contrae automáticamente cuando el ancho del explorador
+es menor. En el explorador de escritorio,intente cambiar el tamaño de la ventana del explorador para ver cómo la barra de navegación
+cambia su aspecto. Este es el diseño web de respuesta integrado en Bootstrap.
 
-Para ver el aspecto de la aplicación web sin Bootstrap, abra *App_Start\BundleConfig.cs* y convierta en comentario las líneas que contienen *bootstrap.js* y *bootstrap.css*. En el código siguiente se muestran las dos últimas instrucciones del método `RegisterBundles` después del cambio:
+Para ver el aspecto de la aplicación web sin Bootstrap, abra
+*App_Start\BundleConfig.cs* y convierta en comentario las líneas que contienen *bootstrap.js* y *bootstrap.css*. En el código siguiente se muestran las 
+dos últimas instrucciones del método `RegisterBundles` después del cambio:
 
      bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
               //"~/Scripts/bootstrap.js",
@@ -164,7 +192,7 @@ En cada `Html.ActionLink` llamada de de la barra de navegación, que "Explorar p
         <li>@Html.ActionLink("Tag", "AllTags", "Home")</li>
     </ul>
 
-Copie el archivo *Views\Home\AllTags.cshtml* en *Views\Home\AllTags.Mobile.cshtml*. Abra el archivo nuevo y cambie el elemento `<h2>` de "Tags" a "Tags (M)":
+Copie el archivo *Views\Home\AllTags.cshtml* en *Views\Home\AllTags.Mobile.cshtml*. Abra el archivo nuevo y cambie el elemento `<h2>` , de "Tags" a "Tags (M)":
 
     <h2>Tags (M)</h2>
 
@@ -202,7 +230,7 @@ Como alternativa, puede agregar manualmente la siguiente línea a la sección `u
 
 Guarde los cambios. Copie el archivo *Views\Shared_Layout.Mobile.cshtml* a *Views\Shared_Layout.iPhone.cshtml*. Abra el nuevo archivo y cambie el título de `MVC5 Application (Mobile)` a `MVC5 Application (iPhone)`.
 
-Copie el archivo *Views\Home\AllTags.Mobile.cshtml* a *Views\Home\AllTags.iPhone.cshtml*. En el archivo nuevo, cambie el elemento `<h2>` de "Tags (M)" a "Tags (iPhone)".
+Copie el archivo *Views\Home\AllTags.Mobile.cshtml* a *Views\Home\AllTags.iPhone.cshtml*. En el archivo nuevo, cambie el elemento `<h2>` , de "Tags (M)" a "Tags (iPhone)".
 
 Ejecute la aplicación. Ejecute el emulador de explorador móvil, asegúrese de que su agente de usuario esté establecido en "iPhone" y diríjase a la vista *AllTags*. Si usa el emulador en las herramientas para desarrollador de Internet Explorer 11 F12,configure la emulación según se indica a continuación:
 
@@ -271,7 +299,7 @@ El estilo de [grupo de listas vinculadas][] de Bootstrap permite hacer clic en t
 
 ![][AllSpeakersFixedDesktop]
 
-Aunque la vista de explorador móvil ha mejorado, es difícil desplazarse por la larga lista de oradores. Bootstrap no proporciona una funcionalidad de filtro de búsqueda de forma predeterminada, pero puede agregarla con unas pocas líneas de código. En primer lugar, agregará un cuadro de búsqueda a la vista y luego lo enlazará con el código JavaScript para la función de filtro. En *Views\\Home\\AllSpeakers.cshtml*, agregue una etiqueta <form> justo después de la etiqueta <h2>, como se muestra a continuación:
+Aunque la vista de explorador móvil ha mejorado, es difícil desplazarse por la larga lista de oradores. Bootstrap no proporciona una funcionalidad de filtro de búsqueda de forma predeterminada, pero puede agregarla con unas pocas líneas de código. En primer lugar, agregará un cuadro de búsqueda a la vista y luego lo enlazará con el código JavaScript para la función de filtro. En *Views\\Home\\AllSpeakers.cshtml*, agregue una etiqueta <form\> justo después de la etiqueta \<h2\>, como se muestra a continuación:
 
     @model IEnumerable<string>
 
@@ -625,4 +653,4 @@ En este tutorial se ha mostrado cómo usar ASP.NET MVC 5 para desarrollar aplica
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!------------HONumber=AcomDC_0114_2016---->
