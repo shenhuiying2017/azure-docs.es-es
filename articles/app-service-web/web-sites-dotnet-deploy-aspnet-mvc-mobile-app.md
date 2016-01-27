@@ -107,7 +107,7 @@ Para este tema hay disponibles proyectos de Visual Studio con código fuente en 
 
 	Una vez que Visual Studio termine de publicar el proyecto inicial en la aplicación web de Azure, se abrirá el explorador de escritorio para mostrar la aplicación web activa.
 
-14.	Inicie su emulador de explorador móvil, copie la dirección URL de la aplicación de conferencia (*<prefix>**.azurewebsites.net) en el emulador y luego haga clic en el botón superior derecho y seleccione **Explorar por etiqueta**. Si usa Internet Explorer 11 como explorador predeterminado, solo tiene que escribir `F12`, luego `Ctrl+8`, y luego cambiar el perfil de explorador a **Windows Phone**. La imagen de abajo muestra la vista *AllTags* en el modo vertical (a partir de la selección de **Explorar por etiqueta**).
+14.	Inicie su emulador de explorador móvil, copie la dirección URL de la aplicación de conferencia (*<prefix>*.azurewebsites.net) en el emulador y luego haga clic en el botón superior derecho y seleccione **Explorar por etiqueta**. Si usa Internet Explorer 11 como explorador predeterminado, solo tiene que escribir `F12`, luego `Ctrl+8`, y luego cambiar el perfil de explorador a **Windows Phone**. La imagen de abajo muestra la vista *AllTags* en el modo vertical (a partir de la selección de **Explorar por etiqueta**).
 
 	![][AllTags]
 
@@ -625,4 +625,4 @@ En este tutorial se ha mostrado cómo usar ASP.NET MVC 5 para desarrollar aplica
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!-----HONumber=AcomDC_0114_2016-->
+<!------HONumber=AcomDC_0114_2016-->
