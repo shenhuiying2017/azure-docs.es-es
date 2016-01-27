@@ -164,7 +164,7 @@ En cada `Html.ActionLink` llamada de de la barra de navegación, que "Explorar p
         <li>@Html.ActionLink("Tag", "AllTags", "Home")</li>
     </ul>
 
-Copie el archivo *Views\Home\AllTags.cshtml* en *Views\Home\AllTags.Mobile.cshtml*. Abra el archivo nuevo y cambie el elemento `<h2>` de "Tags" a "Tags (M)":
+Copie el archivo *Views\Home\AllTags.cshtml* en *Views\Home\AllTags.Mobile.cshtml*. Abra el archivo nuevo y cambie el elemento `<h2>`, de "Tags" a "Tags (M)":
 
     <h2>Tags (M)</h2>
 
@@ -202,7 +202,7 @@ Como alternativa, puede agregar manualmente la siguiente línea a la sección `u
 
 Guarde los cambios. Copie el archivo *Views\Shared_Layout.Mobile.cshtml* a *Views\Shared_Layout.iPhone.cshtml*. Abra el nuevo archivo y cambie el título de `MVC5 Application (Mobile)` a `MVC5 Application (iPhone)`.
 
-Copie el archivo *Views\Home\AllTags.Mobile.cshtml* a *Views\Home\AllTags.iPhone.cshtml*. En el archivo nuevo, cambie el elemento `<h2>` de "Tags (M)" a "Tags (iPhone)".
+Copie el archivo *Views\Home\AllTags.Mobile.cshtml* a *Views\Home\AllTags.iPhone.cshtml*. En el archivo nuevo, cambie el elemento `<h2>`, de "Tags (M)" a "Tags (iPhone)".
 
 Ejecute la aplicación. Ejecute el emulador de explorador móvil, asegúrese de que su agente de usuario esté establecido en "iPhone" y diríjase a la vista *AllTags*. Si usa el emulador en las herramientas para desarrollador de Internet Explorer 11 F12,configure la emulación según se indica a continuación:
 
@@ -625,4 +625,4 @@ En este tutorial se ha mostrado cómo usar ASP.NET MVC 5 para desarrollar aplica
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!----HONumber=AcomDC_0114_2016-->
+<!-----HONumber=AcomDC_0114_2016-->
