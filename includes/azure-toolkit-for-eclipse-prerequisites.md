@@ -12,6 +12,8 @@ El kit de herramientas de Azure para Eclipse requiere los siguientes componentes
 
 >[AZURE.NOTE]Encontrará más información en la página [Kit de herramientas de Azure para Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) en el Marketplace de Eclipse.
 
+<br>
+
 > [AZURE.IMPORTANT]Si usa el Kit de herramientas de Azure para Eclipse en Windows, el kit de herramientas requiere la instalación de Azure SDK 2.7 o versiones posteriores. Tiene dos opciones para instalar el SDK de Azure:
 > 
 > * Puede descargar e instalar el SDK de Azure mediante el [Instalador de plataforma web (WebPI)][].
@@ -19,4 +21,4 @@ El kit de herramientas de Azure para Eclipse requiere los siguientes componentes
 > 
 > Tenga en cuenta que el SDK de Azure solo es necesario en Windows.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
