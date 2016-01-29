@@ -85,7 +85,7 @@ Para configurar el inicio de sesión único, debe ponerse en contacto con el equ
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Configurar dirección URL de la aplicación")
 
-    1.  En el cuadro de texto **URL de inicio de sesión de SuccessFactors**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de SuccessFactors (por ejemplo, "*https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
+    1.  En el cuadro de texto **URL de inicio de sesión de SuccessFactors**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de SuccessFactors (por ejemplo, "*https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*")).
     2.  En el cuadro de texto **Dirección URL de respuesta de SuccessFactors**, escriba **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
         >[AZURE.NOTE]Este valor solo es un marcador de posición temporal.  
