@@ -98,4 +98,4 @@ Una vez completada la configuración, el nombre de dominio personalizado aparece
 En este punto, debería poder escribir el nombre de dominio personalizado en el explorador y ver que le lleva sin problemas a la aplicación web.
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0114_2016--->
