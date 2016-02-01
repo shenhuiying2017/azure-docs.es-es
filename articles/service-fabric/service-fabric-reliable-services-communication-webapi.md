@@ -210,7 +210,7 @@ Dado que el código de aplicación de la API web se hospeda en su propio proceso
 
 En este artículo, usaremos Katana como el host OWIN para la aplicación API web. Katana es una implementación de host OWIN de código abierto.
 
-> [AZURE.NOTE]Para obtener más información sobre Katana, vaya a la [sitio de Katana](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). Para obtener una introducción rápida sobre cómo usar Katana para el autohospedaje de la API web, consulte [Use OWIN to Self-Host ASP.NET Web API 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api) (Uso de OWIN para autohospedaje de la API web de ASP.NET 2).
+> [AZURE.NOTE] Para obtener más información sobre Katana, vaya a la [sitio de Katana](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). Para obtener una introducción rápida sobre cómo usar Katana para el autohospedaje de la API web, consulte [Use OWIN to Self-Host ASP.NET Web API 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api) (Uso de OWIN para autohospedaje de la API web de ASP.NET 2).
 
 
 ## Configurar el servidor web
@@ -539,7 +539,7 @@ Ahora que ha colocado todas las piezas en su lugar, el proyecto debe presentar e
 Si no lo ha hecho, [configure el entorno de desarrollo](service-fabric-get-started.md).
 
 
-Ahora puede compilar e implementar su servicio. Presione **F5** en Visual Studio para compilar e implementar la aplicación. En la ventana de eventos de diagnósticos, debe aparecer un mensaje que indica que el servidor web se ha abierto en http://localhost:80/webapp/api.
+Ahora puede compilar e implementar su servicio. Presione **F5** en Visual Studio para compilar e implementar la aplicación. En la ventana de eventos de diagnósticos, debe aparecer un mensaje que indica que el servidor web se ha abierto en **http://localhost:80/webapp/api**.
 
 
 ![Ventana Eventos de diagnóstico de Visual Studio](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)

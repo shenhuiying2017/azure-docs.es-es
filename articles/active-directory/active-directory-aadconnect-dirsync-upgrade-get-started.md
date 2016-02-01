@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure AD Connect: Actualización desde la Herramienta de sincronización de Microsoft Azure AD (DirSync) | Microsoft Azure"
-   description="Aprenda a actualizar desde DirSync a Azure AD Connect. En este artículo se describen los pasos para actualizar la Herramienta de sincronización de Microsoft Azure AD actual (DirSync) a Azure AD Connect."
+   pageTitle="Azure AD Connect: Actualización desde la Herramienta de sincronización de Windows Azure AD (DirSync) | Microsoft Azure"
+   description="Aprenda a actualizar desde DirSync a Azure AD Connect. En este artículo se describen los pasos para actualizar la Herramienta de sincronización de Windows Azure AD actual (DirSync) a Azure AD Connect."
    services="active-directory"
    documentationCenter=""
    authors="andkjell"

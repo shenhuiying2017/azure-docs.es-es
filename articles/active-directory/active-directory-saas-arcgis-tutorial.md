@@ -76,7 +76,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/IC784739.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de ArcGIS**, escriba la dirección URL que usan los usuarios para iniciar sesión con el patrón "**https://company.maps.arcgis.com*" y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de ArcGIS**, escriba la dirección URL que usan los usuarios para iniciar sesión con el patrón "*https://company.maps.arcgis.com*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-arcgis-tutorial/IC784740.png "Configurar dirección URL de la aplicación")
 
@@ -86,7 +86,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 5.  En otra ventana del explorador web, inicie sesión en como administrador en el sitio de la compañía de ArcGIS.
 
-6.  Haga clic en **Edit Settings** (Editar configuración).
+6.  Haga clic en **Editar configuración**.
 
     ![Editar configuración](./media/active-directory-saas-arcgis-tutorial/IC784742.png "Editar configuración")
 
@@ -96,15 +96,15 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 8.  En **Inicios de sesión de la empresa**, haga clic en **Establecer proveedor de identidades**.
 
-    ![Enterprise Logins (Inicios de sesión de la empresa)](./media/active-directory-saas-arcgis-tutorial/IC784744.png "Enterprise Logins (Inicios de sesión de la empresa)")
+    ![Inicios de sesión de la empresa](./media/active-directory-saas-arcgis-tutorial/IC784744.png "Inicios de sesión de la empresa")
 
 9.  En la sección **Configurar proveedor de identidades**, realice los pasos siguientes:
 
-    ![Set Identity Provider (Establecer proveedor de identidades)](./media/active-directory-saas-arcgis-tutorial/IC784745.png "Set Identity Provider (Establecer proveedor de identidades)")
+    ![Establecer proveedor de identidades](./media/active-directory-saas-arcgis-tutorial/IC784745.png "Establecer proveedor de identidades")
 
-    1.  En el cuadro de texto Name (Nombre), escriba el nombre de su organización.
-    2.  En **Metadata for the Enterprise Identity Provider will be supplied using** (Los metadatos para el proveedor de identidades de la empresa se proporcionarán con), seleccione **A File** (Un archivo).
-    3.  Haga clic en **Choose file** (Elegir archivo) para cargar el archivo de metadatos descargado.
+    1.  En el cuadro de texto **Nombre**, escriba el nombre de su organización.
+    2.  En **Los metadatos para el proveedor de identidades de la empresa se proporcionarán con**, seleccione **Un archivo**.
+    3.  Haga clic en **Elegir archivo** para cargar el archivo de metadatos descargado.
     4.  Haga clic en **Establecer proveedor de identidades**.
 
 10. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
@@ -112,7 +112,8 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
 
-Para permitir que los usuarios de Azure AD inicien sesión en ArcGIS, tienen que aprovisionarse en ArcGIS. En el caso de ArcGIS, el aprovisionamiento es una tarea manual.
+Para permitir que los usuarios de Azure AD inicien sesión en ArcGIS, tienen que aprovisionarse en ArcGIS.  
+En el caso de ArcGIS, el aprovisionamiento es una tarea manual.
 
 ###Siga estos pasos para configurar el aprovisionamiento de usuario:
 
@@ -120,7 +121,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en ArcGIS, tienen que
 
 2.  Haga clic en **Invitar a miembros**.
 
-    ![Invite Members (Invitar a miembros)](./media/active-directory-saas-arcgis-tutorial/IC784747.png "Invite Members (Invitar a miembros)")
+    ![Invitar a miembros](./media/active-directory-saas-arcgis-tutorial/IC784747.png "Invitar a miembros")
 
 3.  Seleccione **Agregar miembros automáticamente sin enviar un correo electrónico** y luego haga clic en **Siguiente**.
 
@@ -137,7 +138,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en ArcGIS, tienen que
 
     ![Agregar miembro](./media/active-directory-saas-arcgis-tutorial/IC784750.png "Agregar miembro")
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ArcGIS ofrecida por ArcGIS para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ArcGIS ofrecida por ArcGIS para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
 

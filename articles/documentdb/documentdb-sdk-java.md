@@ -26,7 +26,13 @@
 
 ##SDK para Java de DocumentDB
 
-<table> <tr><td>**Descargar**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr> <tr><td>** Contribuciones**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr> <tr><td>**Documentación**</td><td>[Documentación de referencia del SDK para Java](http://azure.github.io/azure-documentdb-java/)</td></tr> <tr><td>**Introducción**</td><td>[Introducción al SDK para Java](documentdb-java-application.md)</td></tr> <tr><td>**Runtime admitido actualmente**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr> </table></br>
+<table>
+<tr><td>**Descargar**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
+<tr><td>**Contribuciones**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
+<tr><td>**Documentación**</td><td>[Documentación de referencia del SDK para Java](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**Introducción**</td><td>[Introducción al SDK para Java](documentdb-java-application.md)</td></tr>
+<tr><td>**Runtime admitido actualmente**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+</table></br>
 
 ## Notas de la versión
 
@@ -67,7 +73,20 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.5.1](#1.5.1) | 31 de diciembre de 2015 |--- | [1\.5.0](#1.5.0) | 04 de diciembre de 2015 |--- | [1\.4.0](#1.4.0) | 05 de octubre de 2015 |--- | [1\.3.0](#1.3.0) | 05 de octubre de 2015 |--- | [1\.2.0](#1.2.0) | 05 de agosto de 2015 |--- | [1\.1.0](#1.1.0) | 09 de julio de 2015 |--- | [1\.0.1](#1.0.1) | 12 de mayo de 2015 |--- | [1\.0.0](#1.0.0) | 07 de abril de 2015 |--- | versión preliminar 0.9.5 | 09 de marzo de 2015 | 29 de febrero de 2016 | versión preliminar 0.9.4 | 17 de febrero de 2015 | 29 de febrero de 2016 | versión preliminar 0.9.3 | 13 de enero de 2015 | 29 de febrero de 2016 | versión preliminar 0.9.2 | 19 de diciembre de 2014 | 29 de febrero de 2016 | versión preliminar 0.9.1 | 19 de diciembre de 2014 | 29 de febrero de 2016 | versión preliminar 0.9.0 | 10 de diciembre de 2014 | 29 de febrero de 2016
+| [1\.5.1](#1.5.1) | 31 de diciembre de 2015 |--- 
+| [1\.5.0](#1.5.0) | 04 de diciembre de 2015 |--- 
+| [1\.4.0](#1.4.0) | 05 de octubre de 2015 |--- 
+| [1\.3.0](#1.3.0) | 05 de octubre de 2015 |--- 
+| [1\.2.0](#1.2.0) | 05 de agosto de 2015 |--- 
+| [1\.1.0](#1.1.0) | 09 de julio de 2015 |--- 
+| [1\.0.1](#1.0.1) | 12 de mayo de 2015 |--- 
+| [1\.0.0](#1.0.0) | 07 de abril de 2015 |--- 
+| versión preliminar 0.9.5 | 09 de marzo de 2015 | 29 de febrero de 2016 
+| versión preliminar 0.9.4 | 17 de febrero de 2015 | 29 de febrero de 2016 
+| versión preliminar 0.9.3 | 13 de enero de 2015 | 29 de febrero de 2016 
+| versión preliminar 0.9.2 | 19 de diciembre de 2014 | 29 de febrero de 2016 
+| versión preliminar 0.9.1 | 19 de diciembre de 2014 | 29 de febrero de 2016 
+| versión preliminar 0.9.0 | 10 de diciembre de 2014 | 29 de febrero de 2016
 
 ## P+F
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]

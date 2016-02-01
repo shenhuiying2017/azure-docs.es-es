@@ -76,7 +76,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de BlueJeans**, escriba su dirección URL con el siguiente patrón "**https://company.BlueJeans.com*" y, a continuación, haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de BlueJeans**, escriba su dirección URL con el siguiente patrón "**https://company.BlueJeans.com**" y, a continuación, haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "Configurar dirección URL de la aplicación")
 
@@ -86,7 +86,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 5.  En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de **BlueJeans**.
 
-6.  Vaya a **ADMIN > Group Settings > Security** (ADMINISTRADOR > Configuración de grupo > Seguridad).
+6.  Vaya a **ADMINISTRADOR > Configuración de grupo > Seguridad**.
 
     ![Administrador](./media/active-directory-saas-bluejeans-tutorial/IC785868.png "Administrador")
 
@@ -94,8 +94,8 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Inicio de sesión único SAML](./media/active-directory-saas-bluejeans-tutorial/IC785869.png "Inicio de sesión único SAML")
 
-    1.  Seleccione **SAML Single Sign On** (Inicio de sesión único de SAML).
-    2.  Seleccione **Enable automatic provisioning** (Habilitar aprovisionamiento automático).
+    1.  Seleccione **Inicio de sesión único de SAML**.
+    2.  Seleccione **Habilitar aprovisionamiento automático**.
 
 8.  Continúe con los siguiente pasos:
 
@@ -110,8 +110,8 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Guardar cambios](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Guardar cambios")
 
-    1.  En el cuadro de texto **Identificador de usuario**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-2.  En el cuadro de texto **Correo electrónico**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    1.  En el cuadro de texto **Identificador de usuario**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    2.  En el cuadro de texto **Correo electrónico**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
 3.  Haga clic en **Guardar cambios**.
 
 10. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
@@ -125,18 +125,18 @@ Para permitir que los usuarios de Azure AD inicien sesión en BlueJeans, tienen 
 
 1.  Inicie sesión como administrador en el sitio de la compañía de **BlueJeans**.
 
-2.  Vaya a **ADMIN > Manage Users > Add User** (ADMINISTRADOR > Administrar usuarios > Agregar usuario).
+2.  Vaya a **ADMINISTRADOR > Administrar usuarios > Agregar usuario**.
 
     ![Administrador](./media/active-directory-saas-bluejeans-tutorial/IC785877.png "Administrador")
 
-    >[AZURE.IMPORTANT]La pestaña **Add User** (Agregar usuario) está disponible solo si en la pestaña **Security** (Seguridad), la opción **Enable automatic provisioning** (Habilitar aprovisionamiento automático) está desactivada.
+    >[AZURE.IMPORTANT]La pestaña **Agregar usuario** está disponible solo si en la pestaña **Seguridad**, la opción **Habilitar aprovisionamiento automático** está desactivada.
 
-3.  En la sección **Add User** (Agregar usuario), realice estos pasos:
+3.  En la sección **Agregar usuario**, realice estos pasos:
 
     ![Agregar usuario](./media/active-directory-saas-bluejeans-tutorial/IC785886.png "Agregar usuario")
 
-    1.  Escriba los datos de una cuenta de AAD válida que desee aprovisionar en los cuadros de texto correspondientes: **BlueJeans Username** (Nombre de usuario de BlueJeans), **Email address** (Dirección de correo electrónico), **BlueJeans Meeting ID** (Id. de reunión de BlueJeans), **Moderator Passcode** (Código de acceso de moderador), **Full Name** (Nombre completo) y **Company** (Empresa).
-    2.  Haga clic en **Add User** (Agregar usuario).
+    1.  Escriba los datos de una cuenta de AAD válida que desee aprovisionar en los cuadros de texto correspondientes: **Nombre de usuario de BlueJeans**, **Dirección de correo electrónico**, **Id. de reunión de BlueJeans**, **Código de acceso de moderador**, **Nombre completo** y **Empresa**.
+    2.  Haga clic en **Agregar usuario**.
 
 >[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de BlueJeans que proporcione BlueJeans para aprovisionar cuentas de usuario de AAD.
 

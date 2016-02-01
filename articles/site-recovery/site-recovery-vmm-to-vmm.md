@@ -253,7 +253,7 @@ Una vez que los servidores, las nubes y las redes se configuran correctamente, p
 
 	![Virtual machine protection job](./media/site-recovery-vmm-to-vmm/vm-jobs.png)
 	
->[AZURE.NOTE]También puede habilitar la protección de las máquinas virtuales en la consola VMM. Haga clic en **Habilitar protección** en la barra de herramientas de la pestaña **Azure Site Recovery** en las propiedades de la máquina virtual.
+>[AZURE.NOTE] También puede habilitar la protección de las máquinas virtuales en la consola VMM. Haga clic en **Habilitar protección** en la barra de herramientas de la pestaña **Azure Site Recovery** en las propiedades de la máquina virtual.
 
 ### Incorporación de máquinas virtuales existentes
 

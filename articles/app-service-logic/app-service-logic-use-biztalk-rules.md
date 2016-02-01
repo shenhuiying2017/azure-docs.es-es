@@ -46,17 +46,23 @@ _IF_ _condition_ _THEN_ _action_
 
 Considere el siguiente ejemplo:
 
-*IF el importe es menor o igual que los fondos disponibles* *THEN realizar transacción e imprimir recibo*
+*IF el importe es menor o igual que los fondos disponibles*  
+*THEN realizar transacción e imprimir recibo*
 
-Esta regla determina si una transacción se realizará aplicando la lógica de negocios, como una comparación de dos valores monetarios, en forma de un importe de transacción y los fondos disponibles. Puede usar la regla de negocios para crear, modificar e implementar reglas de negocios. Como alternativa, puede realizar las tareas anteriores mediante programación.
+Esta regla determina si una transacción se realizará aplicando la lógica de negocios, como una comparación de dos valores monetarios, en forma de un importe de transacción y los fondos disponibles. 
+Puede usar la regla de negocios para crear, modificar e implementar reglas de negocios. Como alternativa, puede realizar las tareas anteriores mediante programación.
 
 ###Condiciones
 
-Una condición es una expresión verdadera o falsa (Booleana) que consta de uno o varios predicados. En nuestro ejemplo, el predicado menos o igual que se aplica al importe y los fondos disponibles. Esta condición siempre se evaluará como verdadera o falsa. Los predicados se pueden combinar con los operadores lógicos AND, OR y NOT para formar una expresión lógica que puede ser bastante larga, pero que siempre se evaluará como verdadera o falsa.
+Una condición es una expresión verdadera o falsa (Booleana) que consta de uno o varios predicados.
+En nuestro ejemplo, el predicado menos o igual que se aplica al importe y los fondos disponibles. 
+Esta condición siempre se evaluará como verdadera o falsa. Los predicados se pueden combinar con los operadores lógicos AND, OR y NOT para formar una expresión lógica que puede ser bastante larga, pero que siempre se evaluará como verdadera o falsa.
 
 ###Acciones
 
-Las acciones son las consecuencias funcionales de la evaluación de las condiciones. Si se cumple una condición de regla, se inician las acciones correspondientes. En nuestro ejemplo, "realizar transacción" e "imprimir recibo" son acciones que se llevan a cabo cuando, y solo cuando, la condición (en este caso, "IF el importe es menor o igual que los fondos disponibles") es verdadera. Las acciones se representan en el marco de las reglas de negocios mediante la realización de operaciones Set en documentos XML.
+Las acciones son las consecuencias funcionales de la evaluación de las condiciones. Si se cumple una condición de regla, se inician las acciones correspondientes. 
+En nuestro ejemplo, "realizar transacción" e "imprimir recibo" son acciones que se llevan a cabo cuando, y solo cuando, la condición (en este caso, "IF el importe es menor o igual que los fondos disponibles") es verdadera. 
+Las acciones se representan en el marco de las reglas de negocios mediante la realización de operaciones Set en documentos XML.
 
 ##Directiva
 
@@ -74,7 +80,8 @@ Vamos a examinar un escenario de ejemplo y recorrerlo mientras redactamos la ló
 
 ![Texto alternativo][1]
 
-En un escenario de reclamaciones de seguros realmente sencillo, el demandante envía su reclamación (mediante cualquier cliente como un sitio web, una aplicación de teléfono, etc.). Esta solicitud de reclamación se envía a la unidad de procesamiento de reclamaciones de la compañía y, en función del resultado del procesamiento, la reclamación se puede aprobar, rechazar o enviar para seguir procesándola manualmente. La unidad de procesamiento de reclamaciones de nuestro escenario sería la que incluiría la lógica de negocios del sistema. Si examinamos más detenidamente esta unidad, podemos ver lo siguiente:
+En un escenario de reclamaciones de seguros realmente sencillo, el demandante envía su reclamación (mediante cualquier cliente como un sitio web, una aplicación de teléfono, etc.). Esta solicitud de reclamación se envía a la unidad de procesamiento de reclamaciones de la compañía y, en función del resultado del procesamiento, la reclamación se puede aprobar, rechazar o enviar para seguir procesándola manualmente. 
+La unidad de procesamiento de reclamaciones de nuestro escenario sería la que incluiría la lógica de negocios del sistema. Si examinamos más detenidamente esta unidad, podemos ver lo siguiente:
 
 ![Texto alternativo][2]
 
@@ -105,40 +112,81 @@ Tras crear una aplicación de API de reglas de BizTalk, el siguiente paso sería
 
    ![Texto alternativo][4]
 
-2\. Seleccione "Definiciones de vocabulario". Se mostrará la pantalla de creación de vocabulario. 3. Seleccione "Agregar" para comenzar a agregar nuevas definiciones de vocabulario. Actualmente se admiten dos tipos de definiciones de vocabulario: literal y XML.
+2.Seleccione "Definiciones de vocabulario". Se mostrará la pantalla de creación de vocabulario. 3. Seleccione "Agregar" para comenzar a agregar nuevas definiciones de vocabulario. 
+Actualmente se admiten dos tipos de definiciones de vocabulario: literal y XML.
 
 ##Definición literal
 1.	Después de hacer clic en “Agregar”, se abre una nueva hoja para “Agregar definición”. Escriba los siguientes valores:
   1.	Nombre: solo se esperan caracteres alfanuméricos sin caracteres especiales. Aparte, debe ser único en su lista de definiciones de vocabulario existente.
   2.	Descripción: es un campo opcional.
   3.	Tipo de definición: se admiten dos tipos. En este ejemplo, elija Literal
-  4.	Tipo de entrada: aquí los usuarios pueden seleccionar el tipo de datos de la definición. Actualmente se admiten cuatro tipos: Cadena: estos valores deben escribirse entre comillas dobles ("cadena de ejemplo") ii. Booleano: puede tener el valor verdadero o falso iii. Número: puede ser cualquier número decimal iv. DateTime: esto significa que la definición es de tipo fecha. Los datos se deben escribir con el formato: mm/dd/aaaa hh:mm:ss AM\\PM  
+  4.	Tipo de entrada: aquí los usuarios pueden seleccionar el tipo de datos de la definición. Actualmente se admiten cuatro tipos: 
+    i. Cadena: estos valores deben escribirse entre comillas dobles ("cadena de ejemplo")  
+    ii. Booleano: puede tener el valor verdadero o falso  
+    iii. Número: puede ser cualquier número decimal  
+    iv. DateTime: esto significa que la definición es de tipo fecha. Los datos se deben escribir con el formato: mm/dd/aaaa hh:mm:ss AM\PM  
   5. Entrada: aquí se escribe el valor de su definición. Los valores aquí especificados deben ajustarse al tipo de dato elegido. Puede escribir un solo valor, un conjunto de valores separados por coma o un intervalo de valores mediante la palabra clave *to* (a). Por ejemplo, puede escribir un valor único 1; un conjunto 1, 2, 3; o un intervalo de 1 a 5. Tenga en cuenta que el intervalo solo se permite para números.
   6. Seleccione *Aceptar*.
 
 ![Texto alternativo][5]
 ##Definición de XML
-Si el tipo de vocabulario elegido es XML, será necesario especificar las siguientes entradas a. Esquema: al hacer clic aquí se abrirá una nueva hoja que permite al usuario elegir en una lista de esquemas ya cargados o bien cargar uno nuevo. b. XPATH: esta entrada solo se desbloquea después de elegir un esquema en el paso anterior. Al hacer clic aquí se mostrará el esquema que se ha seleccionado y permite al usuario seleccionar el nodo para el que es necesario crear una definición de vocabulario. c. FACT: esta entrada identifica el objeto de datos que se pasaría al motor de reglas para su procesamiento. Se trata de una propiedad avanzada y, de forma predeterminada, se establece en el elemento primario de la XPATH seleccionada. FACT se vuelve especialmente importante en escenario de encadenamiento y recopilación.
+Si el tipo de vocabulario elegido es XML, será necesario especificar las siguientes entradas  
+  a.	Esquema: al hacer clic aquí se abrirá una nueva hoja que permite al usuario elegir en una lista de esquemas ya cargados o bien cargar uno nuevo.  
+  b.	XPATH: esta entrada solo se desbloquea después de elegir un esquema en el paso anterior. Al hacer clic aquí se mostrará el esquema que se ha seleccionado y permite al usuario seleccionar el nodo para el que es necesario crear una definición de vocabulario.  
+  c.	FACT: esta entrada identifica el objeto de datos que se pasaría al motor de reglas para su procesamiento. Se trata de una propiedad avanzada y, de forma predeterminada, se establece en el elemento primario de la XPATH seleccionada. FACT se vuelve especialmente importante en escenario de encadenamiento y recopilación. 
 
 ![Texto alternativo][6]
 
 ### Agregar en masa
-Los pasos anteriores han capturado la experiencia para crear definiciones de vocabulario. Una vez creadas, aparecen en forma de lista. No existen requisitos para poder generar varias definiciones a partir del mismo esquema en lugar de repetir los pasos anteriores cada vez. Aquí es donde la funcionalidad para agregar en masa se vuelve muy útil. Al seleccionar "Agregar en masa" irá a parar a una nueva hoja. El primer paso consiste en seleccionar el esquema para el que se van a crear varias definiciones. Al hacer clic en este, se muestra una nueva hoja que le permite elegir de una lista de esquemas ya cargados o cargar uno nuevo. Ahora se desbloquea la propiedad XPATHS. Al hacer clic en ella, se abre el Visor de esquemas donde se pueden seleccionar varios nodos. Los nombres de las múltiples definiciones creadas adoptarán de forma predeterminada el nombre del nodo seleccionado. Estas se pueden modificar siempre tras la creación.
+Los pasos anteriores han capturado la experiencia para crear definiciones de vocabulario. Una vez creadas, aparecen en forma de lista. No existen requisitos para poder generar varias definiciones a partir del mismo esquema en lugar de repetir los pasos anteriores cada vez. Aquí es donde la funcionalidad para agregar en masa se vuelve muy útil. 
+Al seleccionar "Agregar en masa" irá a parar a una nueva hoja. El primer paso consiste en seleccionar el esquema para el que se van a crear varias definiciones. Al hacer clic en este, se muestra una nueva hoja que le permite elegir de una lista de esquemas ya cargados o cargar uno nuevo. 
+Ahora se desbloquea la propiedad XPATHS. Al hacer clic en ella, se abre el Visor de esquemas donde se pueden seleccionar varios nodos. 
+Los nombres de las múltiples definiciones creadas adoptarán de forma predeterminada el nombre del nodo seleccionado. Estas se pueden modificar siempre tras la creación.
 
 ![Texto alternativo][7]
 
 ##Creación de directivas
-Una vez que el desarrollador ha creado los vocabularios necesarios, lo normal es que el analista de negocios sea el que cree las directivas de negocios a través del portal de Azure. 1. En la aplicación de reglas creada, hay un modo Directiva en el que al hacer clic el usuario va a la página de creación de directivas. 2. Esta página mostrará la lista de directivas que tiene esta aplicación de reglas en particular. El analista puede agregar una nueva directiva con solo escribir un nombre y pulsar la tecla de tabulación dos veces. Pueden residir varias directivas en una sola aplicación de API de reglas. 3. Al seleccionar la directiva creada, el usuario va a la página de detalles de la directiva donde puede ver las reglas que contiene. ![Texto alternativo][8] 4. Seleccione "Agregar" para agregar una nueva regla. Esta acción le llevará a una nueva hoja.
+Una vez que el desarrollador ha creado los vocabularios necesarios, lo normal es que el analista de negocios sea el que cree las directivas de negocios a través del portal de Azure.  
+	1.	En la aplicación de reglas creada, hay un modo Directiva en el que al hacer clic el usuario va a la página de creación de directivas.  
+ 	2. Esta página mostrará la lista de directivas que tiene esta aplicación de reglas en particular. El analista puede agregar una nueva directiva con solo escribir un nombre y pulsar la tecla de tabulación dos veces. Pueden residir varias directivas en una sola aplicación de API de reglas. 
+        3. Al seleccionar la directiva creada, el usuario va a la página de detalles de la directiva donde puede ver las reglas que contiene. 
+	![Texto alternativo][8] 
+	4. Seleccione "Agregar" para agregar una nueva regla. Esta acción le llevará a una nueva hoja.
 
 ##Creación de reglas
-Una regla es una colección de declaraciones de condición y acción. Las acciones se ejecutan si la condición se evalúa como verdadera. En la hoja Crear regla, proporcione un nombre único a la regla (para esa directiva) y una descripción (opcional). El cuadro Condición (IF) se puede usar para crear declaraciones condicionales complejas. A continuación se indican las palabras clave admitidas: 1. And: operador condicional 2. Or: operador condicional 3. does\_not\_exist 4. exists 5. false 6. is\_equal\_to 7. is\_greater\_than 8. is\_greater\_than\_equal\_to 9. is\_in 10. is\_less\_than 11. is\_less\_than\_equal\_to 12. is\_not\_in 13. is\_not\_equal\_to 14. mod 15. true
+Una regla es una colección de declaraciones de condición y acción. Las acciones se ejecutan si la condición se evalúa como verdadera. En la hoja Crear regla, proporcione un nombre único a la regla (para esa directiva) y una descripción (opcional). El cuadro Condición (IF) se puede usar para crear declaraciones condicionales complejas. A continuación se indican las palabras clave admitidas: 
+1. 	And: operador condicional  
+2. 	Or: operador condicional  
+3. 	does_not_exist  
+4. 	exists  
+5. 	false  
+6. 	is_equal_to  
+7. 	is_greater_than  
+8. 	is_greater_than_equal_to  
+9. 	is_in  
+10. is_less_than  
+11. is_less_than_equal_to  
+12. is_not_in  
+13. is_not_equal_to  
+14. mod  
+15. true 
 
-El cuadro Acción (Then) puede contener varias declaraciones, una por línea, para crear acciones que se van a ejecutar. Las palabras clave admitidas son las siguientes: 1. equals 2. false 3. true 4. halt 5. mod 6. null 7. update
+El cuadro Acción (Then) puede contener varias declaraciones, una por línea, para crear acciones que se van a ejecutar. Las palabras clave admitidas son las siguientes:  
+1.	equals  
+2.	false  
+3.	true  
+4.	halt  
+5.	mod  
+6.	null  
+7.	update  
 
-Los cuadros de condición y acción proporcionan Intellisense para ayudar al autor a crear una regla rápidamente. Esta función se puede activar bien pulsando Ctrl + espacio o con solo comenzar a escribir. Las palabras clave que coinciden con los caracteres escritos se filtrarán y mostrarán automáticamente. La ventana de Intellisense mostrará todas las palabras clave y definiciones de vocabulario. ![Texto alternativo][9]
+Los cuadros de condición y acción proporcionan Intellisense para ayudar al autor a crear una regla rápidamente. Esta función se puede activar bien pulsando Ctrl + espacio o con solo comenzar a escribir. Las palabras clave que coinciden con los caracteres escritos se filtrarán y mostrarán automáticamente. La ventana de Intellisense mostrará todas las palabras clave y definiciones de vocabulario. 
+![Texto alternativo][9]
 
 ##Encadenamiento progresivo explícito
-Las reglas de BizTalk admiten encadenamiento progresivo explícito, de modo que si los usuarios desean volver a evaluar reglas en respuesta a determinadas acciones, pueden hacerlo mediante el uso de determinadas palabras clave. Las palabras clave admitidas son las siguientes: 1. update <vocabulary definition>: esta palabra clave vuelve a evaluar todas las reglas que usan la definición de vocabulario especificada en su condición. 2. Halt: esta palabra clave detiene todas las ejecuciones de reglas
+Las reglas de BizTalk admiten encadenamiento progresivo explícito, de modo que si los usuarios desean volver a evaluar reglas en respuesta a determinadas acciones, pueden hacerlo mediante el uso de determinadas palabras clave. Las palabras clave admitidas son las siguientes: 
+   1.	update <vocabulary definition>: esta palabra clave vuelve a evaluar todas las reglas que usan la definición de vocabulario especificada en su condición.  
+   2.	Halt: esta palabra clave detiene todas las ejecuciones de reglas
 
 ##Habilitación/deshabilitación de reglas
 Cada regla de la directiva se puede habilitar o deshabilitar. De forma predeterminada, todas las reglas están habilitadas. Las reglas deshabilitadas no se ejecutarán durante la ejecución de la directiva. Se pueden habilitar o deshabilitar reglas directamente desde la hoja de reglas, los comandos están disponibles en la barra de comandos de la parte superior de la hoja; o desde la directiva, el menú contextual (clic con el botón derecho en una regla) tiene la opción para habilitar o deshabilitar.

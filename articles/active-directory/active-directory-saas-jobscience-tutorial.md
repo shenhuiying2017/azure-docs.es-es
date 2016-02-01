@@ -64,13 +64,15 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo habilitar la autenticación de usuarios en Jobscience con su cuenta de Azure AD mediante federación basada en el protocolo SAML. La configuración de un inicio de sesión único para Jobscience requiere la recuperación de un valor de huella digital de un certificado. Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+El objetivo de esta sección es describir cómo habilitar la autenticación de usuarios en Jobscience con su cuenta de Azure AD mediante federación basada en el protocolo SAML.  
+La configuración de un inicio de sesión único para Jobscience requiere la recuperación de un valor de huella digital de un certificado.  
+Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
 1.  Inicie sesión como administrador en el sitio de la compañía de Jobscience.
 
-2.  Acceda a **Setup** (Configuración).
+2.  Acceda a **Configuración**.
 
     ![Configuración](./media/active-directory-saas-jobscience-tutorial/IC784358.png "Configuración")
 
@@ -100,7 +102,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-jobscience-tutorial/IC784363.png "Configurar inicio de sesión único")
 
-10. En el sitio de la compañía de Jobscience, haga clic en **Security Controls** (Controles de seguridad) y, a continuación, haga clic en **Single Sign-On Settings** (Configuración de inicio de sesión único).
+10. En el sitio de la compañía de Jobscience, haga clic en **Controles de seguridad** y, a continuación, haga clic en **Configuración de inicio de sesión único**.
 
     ![Controles de seguridad](./media/active-directory-saas-jobscience-tutorial/IC784364.png "Controles de seguridad")
 
@@ -111,11 +113,11 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
     1.  Seleccione **SAML habilitado**.
     2.  Haga clic en **Nuevo**.
 
-12. En el cuadro de diálogo **SAML Single Sign-On Setting Edit** (Edición de la configuración de inicio de sesión único de SAML), realice los pasos siguientes:
+12. En el cuadro de diálogo **Edición de la configuración de inicio de sesión único de SAML**, realice los pasos siguientes:
 
     ![Configuración de inicio de sesión único SAML](./media/active-directory-saas-jobscience-tutorial/IC784365.png "Configuración de inicio de sesión único SAML")
 
-    1.  En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración.
+    1.  En el cuadro de texto **Nombre**, escriba el nombre de la configuración.
     2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Jobscience**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor**.
     3.  En el cuadro de texto **Id. de entidad**, escriba ****https://salesforce-jobscience.com**.
 4.  Haga clic en **Examinar** para cargar el certificado de Azure AD.
@@ -125,7 +127,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
     8.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Jobscience**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión del proveedor de identidades**.
     9.  Haga clic en **Guardar**.
 
-13. En el panel de navegación izquierdo, en la sección **Administer** (Administrar), haga clic en **Domain Management** (Administración de dominios) para expandir la sección relacionada y, luego, haga clic en **My Domain** (Mi dominio) para abrir la página **My Domain** (Mi dominio).
+13. En el panel de navegación izquierdo, en la sección **Administrar** , haga clic en **Administración de dominios** para expandir la sección relacionada y, luego, haga clic en **Mi dominio** para abrir la página **Mi dominio**.
 
     ![Mi dominio](./media/active-directory-saas-jobscience-tutorial/IC767825.png "Mi dominio")
 
@@ -133,7 +135,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
     ![Personalización de marca de la página de inicio de sesión](./media/active-directory-saas-jobscience-tutorial/IC767826.png "Personalización de marca de la página de inicio de sesión")
 
-15. En la página **Login Page Branding** (Personalización de marca de la página de inicio de sesión), en la sección **Authentication Service** (Servicio de autenticación), se muestra el nombre de su **SAML SSO Settings** (Configuración de SSO de SAML). Selecciónelo y luego haga clic en **Save** (Guardar).
+15. En la página **Personalización de marca de la página de inicio de sesión**, en la sección **Servicio de autenticación**, se muestra el nombre de su **Configuración de SSO de SAML**. Selecciónelo y luego haga clic en **Guardar**.
 
     ![Personalización de marca de la página de inicio de sesión](./media/active-directory-saas-jobscience-tutorial/IC784366.png "Personalización de marca de la página de inicio de sesión")
 
@@ -145,7 +147,7 @@ Para obtener la dirección URL de inicio de sesión único iniciado por el prove
 
 ![Controles de seguridad](./media/active-directory-saas-jobscience-tutorial/IC784368.png "Controles de seguridad")
   
-Haga clic en el perfil SSO creado en el paso anterior. Esta página muestra la dirección URL de inicio de sesión único de su empresa (por ejemplo, **https://companyname.my.salesforce.com?so=companyid*)).
+Haga clic en el perfil SSO creado en el paso anterior. Esta página muestra la dirección URL de inicio de sesión único de su empresa (por ejemplo, **https://companyname.my.salesforce.com?so=companyid*).
 ##Configuración del aprovisionamiento de usuario
   
 Para permitir que los usuarios de Azure AD inicien sesión en Jobscience, deben aprovisionarse en Jobscience. En el caso de Jobscience, el aprovisionamiento es una tarea manual.
