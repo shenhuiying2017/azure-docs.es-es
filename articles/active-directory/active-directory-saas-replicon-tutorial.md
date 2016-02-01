@@ -81,7 +81,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-replicon-tutorial/IC777803.png "Configurar dirección URL de la aplicación")
 
     1.  En el cuadro de texto **URL de inicio de sesión de Replicon**, escriba la dirección URL de inquilino de Replicon (por ejemplo, *https://na2.replicon.com/company/saml2/sp-sso/post*).
-    2.  En el cuadro de texto **URL de respuesta de Replicon**, escriba su dirección URL de **AssertionConsumerService** de Replicon (por ejemplo, **https://global.replicon.com/!/saml2/company/sso/post*).
+    2.  En el cuadro de texto **URL de respuesta de Replicon**, escriba su dirección URL de **AssertionConsumerService** de Replicon (por ejemplo, *https://global.replicon.com/!/saml2/company/sso/post*).
 
         >[AZURE.NOTE]Puede obtener la dirección URL de los metadatos de Replicon en: **https://global.replicon.com/!/saml2/\<SuClaveCompañía>**.
 
