@@ -1,7 +1,7 @@
 
 <properties
    pageTitle="Patrón de composición de servicio con estado | Microsoft Azure"
-   description="Patrón de diseño de Reliable Actors de Service Fabric que usa actores con estado para mantener el estado entre llamadas de servicio, así como almacenar en la memoria caché los resultados de servicio anteriores."
+   description="Patrón de diseño de Reliable Actors de Service Fabric que usa actores con estado para mantener el estado entre llamadas de servicio y para almacenar en la memoria caché los resultados de servicio anteriores."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,68 +17,72 @@
    ms.date="08/05/2015"
    ms.author="vturecek"/>
 
-# Patrón de diseño de Actores confiables: composición de servicio con estado
+# Patrón de diseño de Reliable Actors: composición de servicio con estado
 
-Los desarrolladores se pasaron la última década y media en crear servicios sin estado de N capas en la empresa. Crearon servicios sobre bases de datos, servicios de orden superior sobre otros servicios y motores de orquestación y software intermedio orientado a mensajes para coordinar esos servicios. A medida que evolucionaron las cargas de trabajo de los usuarios, ya fuera solicitando más interactividad o escalado, la arquitectura orientada a servicios sin estado empezó a mostrar sus puntos débiles.
+Los desarrolladores se pasaron la última década y media en crear servicios sin estado de N capas en la empresa. Crearon servicios sobre bases de datos. Crearon servicios de orden superior sobre otros servicios. Y luego crearon motores de orquestación y software intermedio orientado a mensajes para coordinar esos servicios. A medida que evolucionaron las cargas de trabajo de los usuarios, para satisfacer demandas de mayor interactividad o escalado, la arquitectura orientada a servicios (SOA) sin estado empezó a mostrar sus puntos débiles.
 
-## El método antiguo: servicios de SOA
+## El método anterior: servicios de SOA
 
-Aunque los servicios de SOA se escalaban horizontalmente sin problemas gracias a su naturaleza sin estado, creaban un cuello de botella en la capa de almacenamiento: simultaneidad y rendimiento. El acceso al almacenamiento se hizo cada vez más costoso. Como una práctica común, la mayoría de desarrolladores introdujo el almacenamiento en memoria caché a su solución para reducir la demanda de almacenamiento, pero esa solución también tenía inconvenientes: otra capa que administrar, acceso simultáneo a la memoria caché, limitaciones y cambios semánticos y, finalmente, la coherencia. Como se describió anteriormente en el patrón de memoria caché inteligente, el modelo de actor virtual ofrece una solución perfecta para esto.
+Aunque los servicios de SOA se escalaban horizontalmente sin problemas gracias a su naturaleza sin estado, creaban un cuello de botella en la capa de almacenamiento: simultaneidad y rendimiento. Por esto resultaba cada vez más caro acceder al almacenamiento. Como una práctica común, la mayoría de los desarrolladores introdujeron el almacenamiento en caché en su solución para reducir la demanda de almacenamiento. Sin embargo, esta solución tenía sus inconvenientes. Requería otra capa para administrar, acceso simultáneo a la memoria caché, limitaciones semánticas y cambios y coherencia. Como se describió [en el patrón de memoria caché inteligente](service-fabric-reliable-actors-pattern-smart-cache.md), el modelo de actor virtual ofrece una solución perfecta para estos problemas. Algunos desarrolladores intentan resolver los problemas de SOA mediante la replicación de la capa de almacenamiento. Este enfoque no se escala bien, aunque alcanza rápidamente los límites del Protocolo de alerta común.
 
-Algunos desarrolladores intentaron resolver el problema mediante la replicación de su capa de almacenamiento. Sin embargo, este enfoque no escalaba bien y se topaba rápidamente con límites de CAP. El segundo problema ha evolucionado en torno a los requerimientos cambiantes; tanto los usuarios finales como las empresas necesitan servicios interactivos: respuestas a las solicitudes en milisegundos, en lugar de segundos, como norma. Para responder, los desarrolladores comenzaron a crear servicios de fachada encima de otros servicios, en algunos casos decenas de servicios para crear servicios centrados en el usuario. Sin embargo, la creación de varios servicios de bajada pronto mostró problemas de latencia.
+El segundo problema ha evolucionado en torno a requisitos cambiantes. Los usuarios y las empresas exigen servicios interactivos que puedan responder a las solicitudes en milisegundos, en lugar de en segundos, como es la norma. Para satisfacer esta demanda, los desarrolladores empezaron a crear servicios de fachada sobre otros servicios. En algunos casos, se han incorporado decenas de servicios de fachada para crear servicios orientados al usuario. Pero la adición de varios servicios de bajada crea rápidamente problemas de latencia.
 
-Una vez más, los desarrolladores recurrieron a las memorias caché y los almacenes de objeto en memoria, en algunos casos con implementaciones diferentes para cumplir los requisitos de rendimiento. Empezaron a crear de procesos de trabajo de back-end para crear la memoria caché periódicamente y así minimizar la costosa población de memoria caché a petición. Por último, empezaron a deconstruir sus cargas de trabajo para aislar las operaciones asincrónicas de las sincrónicas para tener más espacio para que las operaciones interactivas reaccionaran a los cambios de estado, lo que es especialmente difícil en SOA.
+Los desarrolladores también han recurrido a memorias caché y a almacenes de objetos en memoria. En algunos casos, estos han utilizado diferentes implementaciones para satisfacer los requisitos de rendimiento. En este enfoque, los desarrolladores normalmente crean procesos de trabajo back-end para generar la caché periódicamente. Esto minimiza la población de caché costosa a petición. A continuación, deconstruyen sus cargas de trabajo para aislar las operaciones asincrónicas de las sincrónicas. Esto consigue más espacio para que las operaciones interactivas reaccionen a los cambios de estado, algo que es especialmente difícil en SOA.
 
-Introdujeron más capas, como las colas y los trabajadores, que agregaron más complejidad a sus soluciones. Básicamente, los desarrolladores empezaron a buscar soluciones para crear "servicios con estado", es decir, colocar el "estado" junto al "comportamiento de servicio" para abordar las experiencias interactivas centradas en el usuario. Y aquí es donde entra actores de Service Fabric de Azure como una capa de composición de servicio, no como un sustituto de estos servicios.
+A menudo también presentan más capas, como las colas y los trabajadores. Pueden agregar más complejidad a sus soluciones.
 
-En el diagrama siguiente se muestra esto:
+Básicamente, los desarrolladores han empezado a buscar soluciones para crear "servicios con estado" que colocan el "estado" junto al "comportamiento de servicio" para abordar las experiencias interactivas centradas en el usuario. Aquí es donde se introduce el modelo de Reliable Actors de Azure Service Fabric como una capa de composición de servicio, no como una sustitución de estos servicios.
 
-![][1]
+En el diagrama siguiente se muestra este caso:
 
-## Mejor solución con actores
+![Reliable Actors, composición de servicio y persistencia de estado][1]
 
-En el caso de la composición de servicios, los actores pueden ser con o sin estado.
+## Implementación de soluciones mejoradas con actores
 
-* Los actores sin estado se puede usar como servidores proxy para los servicios subyacentes. Estos actores se pueden escalar dinámicamente en el clúster de Service Fabric de Azure y pueden almacenar en memoria caché cierta información relacionada con el servicio, por ejemplo, su extremo cuando se detecta.
+Para la composición de servicios, los actores pueden ser con o sin estado.
+
+* Los actores sin estado se pueden usar como servidores proxy para los servicios subyacentes. Estos actores se pueden escalar dinámicamente en el clúster de Service Fabric y pueden almacenar en memoria caché cierta información relacionada con el servicio. Por ejemplo, su punto de conexión cuando se detecta.
 * El actor con estado puede mantener el estado entre llamadas de servicio, así como almacenar en memoria caché los resultados de servicio anteriores. El estado puede ser persistente o temporal.
 
-Este patrón también es aplicable en muchos escenarios; en la mayoría de casos, los actores deben realizar llamadas externas para invocar una operación en un servicio determinado. Se ilustrará con un ejemplo de uso de aplicaciones modernas de comercio electrónico. Estas aplicaciones se basan en servicios que ofrecen diversas funcionalidades, como la administración de perfiles de usuario, recomendaciones, administración de la cesta de la compra, administración de la lista de deseos, compras y muchos más.
+Este patrón es aplicable en muchos escenarios. En la mayoría de los casos, un actor necesita realizar una llamada externa para invocar una operación en un servicio concreto. Vamos a ilustrar esto con la utilización de un ejemplo de una aplicación moderna de comercio electrónico. Estas aplicaciones se basan en servicios que ofrecen diversas funcionalidades, como la administración de perfiles de usuario, recomendaciones, administración de la cesta de la compra, administración de la lista de deseos y compras.
 
-La mayoría de desarrolladores quiere adoptar un enfoque centrado en el usuario para su arquitectura, muy similar a los que desarrollan experiencias sociales, dado que las experiencias de comercio electrónico principalmente giran en torno a los usuarios y los productos. Normalmente, esto se consigue enviando una fachada de servicios, probablemente compatibles con la memoria caché por motivos de rendimiento.
+La mayoría de los desarrolladores de comercio electrónico intentan adoptar un enfoque centrado en el usuario para su arquitectura, que sea similar al desarrollo de experiencias sociales. Esto es porque las experiencias de comercio electrónico también giran principalmente alrededor de los usuarios y los productos. Las soluciones de desarrolladores normalmente se consiguen con el envío de una fachada de servicios que, por motivos de rendimiento, probablemente son compatibles con una caché.
 
-Ahora hablemos sobre un enfoque basado en actor. Un actor de usuario puede representar tanto el comportamiento del usuario (exploración del catálogo, preferencia por un producto, la incorporación de un elemento a la cesta de la compra, la recomendación de un producto a un amigo), como el estado compuesto (su perfil, los elementos de la cesta, la lista de elementos recomendados por sus amigos, su historial de compras, la ubicación geográfica actual, etc.).
+Compare esto con un enfoque basado en actores. Un actor de usuario puede representar el comportamiento del usuario (como explorar el catálogo, indicar preferencias por un producto, agregar un artículo a la cesta de la compra o recomendar un producto a un amigo). Pero también puede representar el estado compuesto del usuario, como el perfil del usuario, los artículos de la cesta de la compra, los artículos recomendados por amigos, el historial de compra del usuario y la geolocalización actual del usuario.
 
-## Uso de actores con estado
+## Rellenar el estado mediante actores con estado
 
-En primer lugar, echemos un vistazo a un ejemplo donde el actor de usuario necesita rellenar su estado a partir de varios servicios. No vamos a ofrecer un ejemplo de código para este, porque todo lo que se ha indicado para el modelo de memoria caché inteligente también es aplicable aquí. Se puede activar el actor de usuario en el momento de inicio de sesión y rellenarlo con suficientes datos de servicios de back-end. Por supuesto, como hemos visto en muchas ocasiones anteriormente en este artículo, el estado completo y parcial puede rellenarse previamente a petición, en un temporizador o una mezcla de ambos y almacenarse en memoria caché en el actor. En este ejemplo, el perfil y lista de deseos se muestran a continuación:
+En primer lugar, echemos un vistazo a un ejemplo donde un actor de usuario necesita rellenar su estado a partir de varios servicios. No vamos a ofrecer un ejemplo de código para este, porque todo lo que se ha indicado [para el modelo de memoria caché inteligente](service-fabric-reliable-actors-pattern-smart-cache.md) también es aplicable aquí. Un actor de usuario se puede activar en el inicio de sesión y se rellena con suficientes datos de servicios back-end. El estado completo y parcial también se puede rellenar previamente a petición, en un temporizador o con ambos métodos, y esto se puede almacenar en caché en el actor. En este ejemplo, los servicios **Perfil** y **Lista de deseos** se ilustran a continuación:
 
-![][2]
+![Servicios de perfil y lista de deseos][2]
 
-Por ejemplo podemos rellenar previamente el estado de usuario frecuente y conseguir que esté listo cuando inicie sesión o rellenarlo en el momento de inicio de sesión para los usuarios que visitan el servicio cada mes. Hemos visto estos patrones en la sección de la memoria caché inteligente.
+Los desarrolladores pueden rellenar previamente el estado de los usuarios frecuentes para que esté listo cuando inician sesión. Los desarrolladores también pueden rellenar el estado en el momento del inicio de sesión para los usuarios que visitan el servicio cada mes. También puede ver estos patrones en la sección de la memoria caché inteligente.
 
-Cuando el usuario 23 inicia sesión, si aún no está activado, el actor de usuario (23) se activa y recupera la información de perfil del usuario pertinente y la lista de deseos de los servicios back-end. El actor de usuario probablemente almacenará en memoria caché la información de las llamadas posteriores. Y si, por ejemplo, es necesario agregar un elemento a la lista de deseos, se puede realizar escritura por detrás o escritura a través como se explicó anteriormente. En segundo lugar, echemos un vistazo a un ejemplo donde el usuario hace clic en el botón "me gusta" de un producto. Esta acción puede requerir varias invocaciones a varios servicios, como se muestra a continuación: enviar un "me gusta" al servicio de catálogo, desencadenar el siguiente conjunto de recomendaciones y quizás publicar una actualización en una red social.
+Cuando el usuario 23 (como se muestra en la imagen anterior) inicia sesión, el actor de usuario (23) se activa, en caso de que aún no se haya activado. El actor de usuario luego captura la información de perfil de usuario pertinente y la lista de deseos de servicios back-end. El actor de usuario probablemente también almacenará en memoria caché la información de las llamadas posteriores. Si, por ejemplo, se necesita agregar un artículo a la lista de deseos, esto se puede conseguir con la escritura a través o por detrás, como ya se ha indicado.
+
+Vamos a analizar un ejemplo en el que un usuario hace clic en el botón **Me gusta** para indicar que le gusta un producto. Esta acción puede requerir varias invocaciones de muchos servicios. Estas acciones pueden incluir enviar un "Me gusta" al servicio del catálogo, desencadenar el siguiente conjunto de recomendaciones y publicar una actualización en una red social.
 
 Esto se ilustra a continuación:
 
-![][3]
+![Servicios para indicar que un producto gusta, lista de deseos, perfil y catálogo][3]
 
-## Cómo pueden ayudar la composición de los actores y la comunicación asincrónica
-De hecho, los actores de Service Fabric de Azure destacan cuando se quieren componer operaciones de estilo de solicitud y respuesta junto con operaciones asincrónicas. Por ejemplo, aunque "Me gusta el producto" coloca inmediatamente el elemento en cuestión en lista de deseos del usuario, su publicación en las redes sociales y el desencadenamiento del siguiente conjunto de recomendaciones pueden ser operaciones asincrónicas mediante los búferes y temporizadores.
+## Uso de actores en composiciones y comunicaciones asincrónicas
+El modelo de programación de Reliable Actors de Service Fabric destaca cuando un desarrollador desea componer operaciones del estilo solicitud/respuesta junto con operaciones asincrónicas. Por ejemplo, aunque cuando un usuario indica que le gusta un producto, este último pasa inmediatamente a la lista de deseos, su publicación en las redes sociales y el desencadenamiento del siguiente conjunto de operaciones de recomendaciones pueden realizarse de manera asincrónica con la utilización de búferes y temporizadores.
 
-Otro beneficio principal del uso de un actor de usuario con servicios es que los actores ofrecen un lugar lógico para el estado almacenado en memoria caché y, lo más importante, reacciona ante los cambios en su estado de forma asincrónica. Se trata de un escenario especialmente complicado con servicios sin estado. Por ejemplo, un usuario lleva a cabo una serie de acciones, quizá parte del "viaje de un usuario". Estos eventos se pueden capturar en tiempo real en el actor y se puede ensamblar un flujo, que se puede consultar en tiempo de evento o de forma asincrónica en un temporizador para cambiar el comportamiento del actor.
+Otra ventaja clave que ofrece utilizar un actor de usuario para los servicios es que el actor ofrece una ubicación natural para el estado almacenado en memoria caché. Lo más importante, el actor también responde a los cambios de su estado de forma asincrónica. Se trata de un escenario especialmente complicado con servicios sin estado. Por ejemplo, un usuario puede realizar una serie de acciones como parte de un “viaje de usuario”, y estos eventos pueden capturarse en tiempo real en el actor. Luego se puede ensamblar una secuencia que se puede consultar en el momento del evento o de manera asincrónica en un temporizador para cambiar el comportamiento del actor.
 
-En ese momento, los puristas de SOA sin duda se habrán dado cuenta de que no son servicios en el sentido de actores como extremos expuestos en un protocolo independiente del lenguaje. Actores de Service Fabric de Azure no es un componente de interoperabilidad ni una plataforma para la interoperación del servicio. Sin embargo, realmente no hay nada que impida pensar en términos de la granularidad de los servicios de tipo SOA al modelar los actores o en la separación del modelado de los aspectos de la misma manera. Estos servicios se conocen como "microservicios." Del mismo modo, no hay absolutamente nada que impida colocar un extremo REST o un extremo SOAP como una capa de interoperabilidad delante de actores de Service Fabric de Azure.
+En ese momento, los puristas de SOA sin duda se habrán dado cuenta de que no son servicios en el sentido de actores como puntos de conexión expuestos en un protocolo independiente del lenguaje. El modelo de Reliable Actors de Service Fabric no es un componente de interoperabilidad ni una plataforma para la interoperación del servicio. Sin embargo, no hay nada que impida pensar en términos de la granularidad de los servicios de tipo SOA cuando modelan los actores o en la separación de los aspectos de la misma manera. Estos servicios se conocen como microservicios. Tampoco hay nada que impida que los desarrolladores coloquen un punto de conexión REST o SOAP como una capa de interoperación delante de Reliable Actors de Service Fabric.
 
-La composición del servicio con estado también se aplica a los flujos de trabajo y no solo a los escenarios transaccionales, como el comercio electrónico. Service Fabric de Azure está diseñado como un motor de flujo de trabajo y orquestación para que se pueda usar para modelar flujos de trabajo que impliquen interacciones de servicio y mantener el estado de esas interacciones.
+Además, la composición del servicio con estado también se aplica a los flujos de trabajo y no solo a los escenarios transaccionales, como el comercio electrónico. Service Fabric está diseñado como un motor de flujo de trabajo u orquestación. Se puede usar para modelar flujos de trabajo que conllevan interacciones de servicio y mantienen el estado de estas interacciones.
 
-Se aprecian inconvenientes del "servicio sin estado" en la creación de servicios escalables para ofrecer experiencias dinámicas. Actores de Service Fabric de Azure, principalmente al reunir estado y comportamiento, ayuda a que los desarrolladores creen experiencias interactivas y escalables sobre sus inversiones existentes.
+Puede observar los inconvenientes del "servicio sin estado" en la creación de servicios escalables para ofrecer experiencias dinámicas. Al combinar el estado y el comportamiento, el modelo de programación de Reliable Actors de Service Fabric ayuda a los desarrolladores a crear experiencias escalables e interactivas sobre sus inversiones existentes.
 
 
 ## Pasos siguientes
 
 [Patrón: memoria caché inteligente](service-fabric-reliable-actors-pattern-smart-cache.md)
 
-[Patrón: gráficos y redes distribuidas](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
+[Patrón: gráficos y redes distribuidos](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
 [Patrón: gobernanza de recursos](service-fabric-reliable-actors-pattern-resource-governance.md)
 
@@ -88,7 +92,7 @@ Se aprecian inconvenientes del "servicio sin estado" en la creación de servicio
 
 [Algunos antipatrones](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introducción a los actores de Service Fabric](service-fabric-reliable-actors-introduction.md)
+[Introducción a Actores confiables de Service Fabric.](service-fabric-reliable-actors-introduction.md)
 
 
 <!--Image references-->
@@ -96,4 +100,4 @@ Se aprecian inconvenientes del "servicio sin estado" en la creación de servicio
 [2]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-3.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

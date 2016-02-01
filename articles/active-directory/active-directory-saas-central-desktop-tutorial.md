@@ -2,7 +2,7 @@
     pageTitle="Tutorial: integración de Azure Active Directory con Central Desktop | Microsoft Azure" 
     description="Aprenda cómo usar Central Desktop con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con Central Desktop
 
@@ -62,9 +62,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
     ![Central Desktop](./media/active-directory-saas-central-desktop-tutorial/IC769560.png "Central Desktop")
 ##Configuración del inicio de sesión único
 
-El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en Central Desktop con su cuenta de Azure AD mediante federación basada en el protocolo SAML.  
-Como parte de este procedimiento, se requiere cargar un certificado codificado en base 64 en el inquilino de Central Desktop.  
-Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en Central Desktop con su cuenta de Azure AD mediante federación basada en el protocolo SAML. Como parte de este procedimiento, se requiere cargar un certificado codificado en base 64 en el inquilino de Central Desktop. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 
 
@@ -80,8 +78,8 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
 
 3.  En la página **Configurar dirección URL de la aplicación**, realice los pasos siguientes y luego haga clic en **Siguiente**:
 
-    -   En el cuadro de texto **URL de inicio de sesión de Central Desktop**, escriba la dirección URL de su inquilino de Central Desktop (p. ej.: *http://contoso.centraldesktop.com*).
-    -   En el cuadro de texto de la dirección URL de respuesta de Central Desktop, escriba la URL de AssertionConsumerService de Central Desktop (p. ej.:https://contoso.centraldesktop.com/saml2-assertion.php).
+    -   En el cuadro de texto **URL de inicio de sesión de Central Desktop**, escriba la dirección URL de su inquilino de Central Desktop (p. ej.: **http://contoso.centraldesktop.com*).
+-   En el cuadro de texto de la dirección URL de respuesta de Central Desktop, escriba la URL de AssertionConsumerService de Central Desktop (p. ej.:https://contoso.centraldesktop.com/saml2-assertion.php)).
 
     >[AZURE.NOTE]Puede obtener el valor de los metadatos de Central Desktop (p. ej.: **http://contoso.centraldesktop.com*).
 
@@ -101,7 +99,7 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
 
     ![Configuración de inicio de sesión único](./media/active-directory-saas-central-desktop-tutorial/IC769564.png "Configuración de inicio de sesión único")
 
-    1.  Seleccione **Habilitar inicio de sesión único de SAML v2**.
+    1.  Seleccione **Enable SAML v2 Single Sign On** (Habilitar inicio de sesión único de SAML).
     2.  En el Portal de Azure AD, en la página **Configurar inicio de sesión único en Central Desktop**, copie el valor de **Dirección URL de emisor** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión único**.
     3.  En el Portal de Azure AD, en la página **Configurar inicio de sesión único en Central Desktop**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión SSO**.
     4.  En el Portal de Azure AD, en la página **Configurar inicio de sesión único en Central Desktop**, copie el valor de **Dirección URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión SSO**.
@@ -112,7 +110,7 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
 
     1.  Seleccione **Certificado**.
     2.  En la lista **Certificado SSO**, seleccione **RSH SHA256**.
-    3.  Cree un archivo de texto a partir del certificado descargado, copie el contenido del archivo de texto y luego péguelo en el campo **Certificado SSO**.  
+    3.  Cree un archivo de texto a partir del certificado descargado, copie el contenido del archivo de texto y, a continuación, péguelo en el campo **SSO Certificate** (certificado SSO).  
 
         >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
@@ -120,7 +118,7 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
 
 9.  Haga clic en **Actualizar**.
 
-10. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+10. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-central-desktop-tutorial/IC769566.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -161,10 +159,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-central-desktop-tutorial/IC769567.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-central-desktop-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

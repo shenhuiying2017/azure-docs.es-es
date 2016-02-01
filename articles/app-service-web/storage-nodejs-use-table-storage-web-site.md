@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Aplicación web Node.js utilizando el servicio Tabla de Azure"
-	description="Un tutorial que le enseña a usar el servicio Tabla de Azure para almacenar datos desde una aplicación Node hospedada en Aplicaciones web del Servicio de aplicaciones de Azure."
+	description="Este tutorial le enseña a usar el servicio Tabla de Azure para almacenar datos desde una aplicación Node.js hospedada en Aplicaciones web del Servicio de aplicaciones de Azure."
 	tags="azure-portal"
 	services="app-service\web, storage"
 	documentationCenter="nodejs"
@@ -14,10 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="01/20/2016"
 	ms.author="robmcm"/>
-
-
 
 # Aplicación web Node.js utilizando el servicio Tabla de Azure
 
@@ -41,7 +39,6 @@ Esta es la aplicación completada:
 
 >[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-
 ## Requisitos previos
 
 Antes de seguir las instrucciones del presente artículo, asegúrese de tener instalados los siguientes elementos:
@@ -49,7 +46,6 @@ Antes de seguir las instrucciones del presente artículo, asegúrese de tener in
 * [node] versión 0.10.24 o superior
 
 * [Git]
-
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -293,7 +289,7 @@ Un *controlador* administra las solicitudes HTTP y procesa la respuesta HTML.
 		  },
 
 		  addTask: function(req,res) {
-		    var self = this
+		    var self = this;
 		    var item = req.body.item;
 		    self.task.addItem(item, function itemAdded(error) {
 		      if(error) {
@@ -500,8 +496,7 @@ En este paso, descargará un archivo que contiene información acerca de su susc
 
 	Este comando inicia un explorador y se desplaza a la página de descarga. Si se le solicita, inicie sesión con la cuenta asociada a su suscripción de Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->
-	La descarga del archivo se inicia automáticamente; si esto no ocurre, puede hacer clic en el vínculo al comienzo de la página para descargar el archivo manualmente. Guarde el archivo y anote la ruta de acceso del archivo.
+	<!-- ![The download page][download-publishing-settings] -->La descarga del archivo se inicia automáticamente; si esto no ocurre, puede hacer clic en el vínculo al comienzo de la página para descargar el archivo manualmente. Guarde el archivo y anote la ruta de acceso del archivo.
 
 2. Escriba el siguiente comando para importar la configuración.
 
@@ -599,13 +594,14 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 [CLI de Azure]
 
 ## Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+
+<!-- URLs -->
 
 [Compilación e implementación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure]: web-sites-nodejs-develop-deploy-mac.md
 [Desarrollo e implementación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure]: web-sites-nodejs-develop-deploy-mac.md
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [Azure Developer Center]: /develop/nodejs/
-
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com
@@ -624,6 +620,9 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 
 [Azure Portal]: https://portal.azure.com
 
+[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
+ 
+<!-- Image References -->
 
 [node-table-finished]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
 [node-table-list-items]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
@@ -632,13 +631,9 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 [portal-storage-account]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
 [portal-quick-create-storage]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
 [portal-storage-access-keys]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png
-
 [go-to-dashboard]: ./media/storage-nodejs-use-table-storage-web-site/go_to_dashboard.png
 [web-configure]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
- 
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

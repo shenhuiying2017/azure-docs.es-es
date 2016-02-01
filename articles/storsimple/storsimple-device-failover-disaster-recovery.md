@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/14/2015"
+   ms.date="01/20/2016"
    ms.author="alkohli" />
 
 # Conmutación por error y recuperación ante desastres para el dispositivo StorSimple
@@ -77,9 +77,13 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo físico de desti
 
 	1. En la lista de contenedores de volúmenes, seleccione los contenedores de volúmenes que desea que conmuten por error.
 
-		>[AZURE.NOTE]**Solo se muestran los contenedores de volúmenes con volúmenes desconectados e instantáneas de nube asociadas.** 1. En **Elegir un dispositivo de destino** para los volúmenes de los contenedores seleccionados, elija un dispositivo de destino en la lista desplegable de dispositivos disponibles. En la lista desplegable solo se muestran los dispositivos con capacidad disponible. 1. Por último, revise toda la configuración de conmutación por error en **Confirmar conmutación por error**. Haga clic en el icono de marca de verificación ![Icono de marca de verificación](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+		>[AZURE.NOTE]**Solo se muestran los contenedores de volúmenes con volúmenes desconectados e instantáneas de nube asociadas.**
 
-1. Una vez completada la conmutación por error, vaya a la página **Dispositivos**.
+	1. En **Elegir un dispositivo de destino** para los volúmenes de los contenedores seleccionados, elija un dispositivo de destino en la lista desplegable de dispositivos disponibles. En la lista desplegable solo se muestran los dispositivos con capacidad disponible.
+
+	1. Por último, revise toda la configuración de conmutación por error en **Confirmar conmutación por error**. Haga clic en el icono de marca de verificación ![Icono de marca de verificación](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+
+1. Se crea un trabajo de conmutación por error que puede supervisarse mediante la página **Trabajos**. Si el contenedor de volúmenes que conmutó por error tiene volúmenes locales, verá los trabajos de restauración individuales de cada volumen local (no de volúmenes en niveles) en el contenedor. Es posible que esos trabajos de restauración tarden bastante tiempo en completarse. Asimismo, es probable que el trabajo de conmutación por error se complete antes. Tenga en cuenta que estos volúmenes solo tendrán garantías locales después de que los trabajos de restauración se completen. Una vez completada la conmutación por error, vaya a la página **Dispositivos**.
 
 	1. Seleccione el dispositivo que se usó como dispositivo de destino para el proceso de conmutación por error.
 
@@ -153,12 +157,9 @@ Si hay dispositivos StorSimple que se registraron justo antes de que ocurra un d
 
 ## Pasos siguientes
 
-Después de realizar la conmutación por error, puede que deba:
+- Después de haber realizado una conmutación por error, puede que necesite [desactivar o eliminar el dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 
-- [Desactivar el dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
-- [Eliminar el dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device)
-
-Para obtener información sobre cómo usar el servicio del administrador de StorSimple, vaya a [Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Para obtener información sobre cómo usar el servicio del administrador de StorSimple, vaya a [Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_1217_2015--->
+<!---HONumber=AcomDC_0121_2016-->

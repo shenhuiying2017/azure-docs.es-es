@@ -1,6 +1,6 @@
 <properties
-   pageTitle="API de JavaScript"
-   description="API de JavaScript"
+   pageTitle="Uso de la aplicación de API de JavaScript en una aplicación lógica | Microsoft Azure"
+   description="Conector o aplicación de API de JavaScript"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="stepsic-microsoft-com"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/29/2015"
+   ms.date="01/19/2016"
    ms.author="stepsic"/>
 
 #Aplicación de API de JavaScript
@@ -24,7 +24,7 @@ El escenario clave para esta aplicación de API es cuando se desea que el ciclo 
 
 Por otro lado, si desea un fragmento de código reutilizable que tenga un ciclo de vida independiente de la aplicación lógica, debe usar la aplicación de API de WebJobs para crear expresiones de código simples y llamarlas desde la aplicación lógica.
 
-Por último, si desea incluir paquetes adicionales, también necesitará usar la aplicación de API de WebJobs, ya que no puede agregar bibliotecas mediante la aplicación de API de JavaScript.
+Por último, si desea incluir paquetes adicionales, también necesita usar la aplicación de API de WebJobs, ya que no puede agregar bibliotecas mediante la aplicación de API de JavaScript.
 
 Utilice la [aplicación de API de C#](app-service-logic-cs-api.md) si prefiere escribir las expresiones en C#.
 
@@ -33,11 +33,11 @@ Para usar la aplicación de API de JavaScript, deberá crear primero una instanc
 
 ##Uso de la aplicación de API de JavaScript en la superficie del diseñador de aplicaciones lógicas
 ###Desencadenador
-Puede crear un desencadenador que el servicio de la aplicación lógica sondeará (en el intervalo que defina), y si devuelve cualquier contenido, la aplicación lógica se ejecutará. De lo contrario, esperará hasta que el siguiente intervalo de sondeo vuelva a comprobarse.
+Puede crear un desencadenador que el servicio de Aplicaciones lógicas sondee (en el intervalo que defina) y, si devuelve cualquier otro contenido, la aplicación lógica se ejecuta. De lo contrario, espera hasta el siguiente intervalo de sondeo para volver a comprobarlo.
 
-Las entradas para el desencadenador son: - **Expresión de JavaScript**: una expresión que se evaluará. Se invocará dentro de una función y debe volver a ejecutarse `false` cuando no desee que la aplicación lógica se ejecute, y puede devolver algo más cuando desee que se ejecute la aplicación lógica. Podrá usar el contenido de la respuesta en las acciones de la aplicación lógica. -**Objeto de contexto**: un objeto opcional que se puede pasar al desencadenador. Puede definir tantas propiedades como desee, pero la entidad de nivel superior debe ser un objeto, por ejemplo, `{ "bar" : 0}`.
+Las entradas para el desencadenador son: - **Expresión de JavaScript**: una expresión que se evalúa. Se invoca dentro de una función y debe devolver `false` cuando no desee que se ejecute la aplicación lógica; puede devolver algo diferente cuando sí desee que se ejecute. Puede usar el contenido de la respuesta en las acciones de la aplicación lógica. - **Objeto de contexto**: un objeto opcional que se puede pasar al desencadenador. Puede definir tantas propiedades como desee, pero la entidad de nivel superior debe ser un objeto, por ejemplo, `{ "bar" : 0}`.
 
-Por ejemplo, podría disponer de un desencadenador simple que ejecute solo la aplicación lógica entre :15 y :30 de la hora:
+Por ejemplo, podría disponer de un desencadenador simple que solo ejecute la aplicación lógica entre los 15 y los 30 minutos de cada hora:
 
 ```
 var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
@@ -47,7 +47,7 @@ var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 
 Del mismo modo, puede proporcionar la acción que desea ejecutar.
 
-Las entradas para la acción son: - **Expresión de JavaScript**: una expresión que se evaluará. Debe incluir la instrucción de `return` para obtener cualquier contenido. -**Objetos de contexto**: un objeto opcional que se puede pasar al desencadenador. Puede definir tantas propiedades como desee, pero la entidad de nivel superior debe ser un objeto, por ejemplo, `{ "bar" : 0}`.
+Las entradas para la acción son: - **Expresión de JavaScript**: una expresión que se evalúa. Debe incluir la instrucción de `return` para obtener cualquier contenido. -**Objetos de contexto**: un objeto opcional que se puede pasar al desencadenador. Puede definir tantas propiedades como desee, pero la entidad de nivel superior debe ser un objeto, por ejemplo, `{ "bar" : 0}`.
 
 Por ejemplo, imagine que utiliza el desencadenador de Office 365 **Nuevo correo electrónico**. Que devuelve el siguiente objeto: ```
 {
@@ -91,4 +91,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

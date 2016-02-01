@@ -1,9 +1,9 @@
 <properties
    pageTitle="Visualización del clúster mediante el Explorador de Service Fabric | Microsoft Azure"
-   description="El Explorador de Service Fabric es una útil herramienta de GUI para inspeccionar y administrar aplicaciones y nodos en la nube en un clúster de Service Fabric de Microsoft Azure."
+   description="El Explorador de Service Fabric es una herramienta basada en web para inspeccionar y administrar aplicaciones y nodos en la nube en un clúster de Service Fabric de Microsoft Azure."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="seanmck"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/30/2015"
-   ms.author="jesseb"/>
+   ms.date="01/13/2016"
+   ms.author="seanmck"/>
 
 # Visualización del clúster mediante el Explorador de Service Fabric
 
@@ -56,7 +56,7 @@ En cada nivel del árbol, el panel principal muestra la información pertinente 
 
 En la vista de nodos se muestra el diseño físico del clúster. Para un nodo determinado, puede comprobar qué aplicaciones tienen el código implementado en ese nodo. Más específicamente, puede ver qué réplicas están en ejecución.
 
-## Acciones mediante el Explorador de Service Fabric
+## Acciones
 
 El explorador de Service Fabric ofrece una forma rápida de invocar acciones en nodos, aplicaciones y servicios dentro del clúster.
 
@@ -64,9 +64,22 @@ Por ejemplo, para eliminar una instancia de la aplicación, solo hay que elegir 
 
 ![Eliminación de una aplicación en el explorador de Service Fabric][sfx-delete-application]
 
+En la tabla siguiente se enumeran las acciones disponibles para cada entidad:
+
+| **Entidad** | **Acción** | **Descripción** |
+| ------ | ------ | ----------- |
+| Tipo de aplicación | Tipo de anulación de aprovisionamiento | Quita el paquete de aplicación del almacén de imágenes del clúster. Requiere que todas las aplicaciones de ese tipo se quiten en primer lugar. |
+| Application | Eliminar aplicación | Elimine la aplicación, incluidos todos sus servicios y su estado (si hubiera). |
+| Servicio | Eliminar servicio | Elimine el servicio y su estado (si hubiera). |
+| Nodo | Activar | Active el nodo. |
+|| Desactivar (pausa) | Pause el nodo en su estado actual. Los servicios seguirán ejecutándose, pero Service Fabric no introducirá ni sacará nada proactivamente, a menos que se requiera para prevenir una interrupción o una incoherencia de datos. Esta acción se utiliza normalmente para habilitar los servicios de depuración en un nodo específico para asegurarse de que no se mueven durante la inspección. |
+|| Desactivar (reiniciar) | Saque todos los servicios de la memoria de un nodo y cierre los servicios persistentes de forma segura. Suele usarse cuando es necesario reiniciar los procesos de host o el equipo. |
+|| Desactivar (quitar datos) | Cierre todos los servicios que se ejecutan en el nodo después de la creación de suficientes réplicas de reserva con seguridad. Se utiliza normalmente cuando un nodo (o al menos su almacenamiento) se está sacando permanentemente de circulación. |
+|| Quitar el estado del nodo | Quite información de las réplicas de un nodo del clúster. Se utiliza normalmente cuando un nodo con error ya se considera irrecuperable. |
+
 Como muchas acciones son destructivas, le pediremos que confirme su intención antes de que finalice la acción.
 
->[AZURE.NOTE]Todas las acciones que pueden realizarse a través del Explorador de Service Fabric también pueden realizarse a través de PowerShell o una API de REST, para habilitar la automatización.
+>[AZURE.TIP]Todas las acciones que pueden realizarse a través del Explorador de Service Fabric también pueden realizarse a través de PowerShell o una API de REST, para habilitar la automatización.
 
 
 
@@ -101,4 +114,4 @@ Si intenta conectarse al Explorador de Service Fabric en un clúster seguro, el 
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

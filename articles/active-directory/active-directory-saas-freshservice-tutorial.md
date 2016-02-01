@@ -2,7 +2,7 @@
     pageTitle="Tutorial: integración de Azure Active Directory con FreshService | Microsoft Azure" 
     description="Aprenda a usar FreshService con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con FreshService
   
@@ -129,7 +129,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en FreshService, debe
 
     ![Nuevos solicitantes](./media/active-directory-saas-freshservice-tutorial/IC790819.png "Nuevos solicitantes")
 
-5.  En la sección **Nuevo solicitante**, lleve a cabo estos pasos:
+5.  En la sección **New Requester** (Nuevo solicitante), lleve a cabo estos pasos:
 
     ![Nuevo solicitante](./media/active-directory-saas-freshservice-tutorial/IC790820.png "Nuevo solicitante")
 
@@ -158,4 +158,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

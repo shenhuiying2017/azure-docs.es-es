@@ -18,21 +18,21 @@
 
 # Solucionar problemas de actualizaciones de aplicaciones
 
-En este artículo se tratan algunos de los problemas comunes de actualización de una aplicación de Service Fabric y cómo resolverlos.
+En este artículo se tratan algunos de los problemas comunes de actualización de una aplicación de Azure Service Fabric y cómo resolverlos.
 
 ## Solucionar problemas de una actualización de aplicación con error
 
 Cuando se produce un error en una actualización, la salida del comando **Get-ServiceFabricApplicationUpgrade** incluirá información adicional para depurar el error. Esta información se puede usar para:
 
-1. Identificar el tipo de error
-2. Identificar el motivo del error
-3. Aislar los componentes con error para una investigación más detallada
+1. Identificar el tipo de error.
+2. Identificar el motivo del error.
+3. Aislar los componentes con error para una investigación más detallada.
 
-Esta información estará disponible tan pronto como Service Fabric detecte el error independientemente de si **FailureAction** va a revertir o suspender la actualización.
+Esta información estará disponible tan pronto como Service Fabric encuentre el error, independientemente de que **FailureAction** vaya a revertir o suspender la actualización.
 
 ### Identificar el tipo de error
 
-En la salida de **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc** identifica la marca de tiempo (en UTC) en la que se detectó un error de actualización por Service Fabric y se desencadenó **FailureAction**. **FailureReason** identifica una de las tres posibles causas de alto nivel del error:
+En la salida de **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc** identifica la marca de tiempo (en UTC) en la que Service Fabric encontró un error de actualización y se desencadenó **FailureAction**. **FailureReason** identifica una de las tres posibles causas de alto nivel del error:
 
 1. UpgradeDomainTimeout: indica que un determinado dominio de actualización tardó demasiado tiempo en completarse y **UpgradeDomainTimeout** expiró.
 2. OverallUpgradeTimeout: indica que la actualización general tardó demasiado tiempo en completarse y **UpgradeTimeout** expiró.
@@ -78,15 +78,17 @@ ForceRestart                   : False
 UpgradeReplicaSetCheckTimeout  : 00:00:00
 ~~~
 
-En este ejemplo, podemos ver que la actualización generó un error en el dominio de actualización*MYUD1* y que se bloquearon dos particiones (*744c8d9f-1d26-417e-a60e-cd48f5c098f0* y *4b43f4d8-b26b-424e-9307-7a7a62e79750*), por lo que no pudieron colocar las réplicas principales (*WaitForPrimaryPlacement*) en los nodos de destino *Nodo1* y *Nodo4*. El comando **Get-ServiceFabricNode** se puede usar para comprobar que estos dos nodos están en el dominio de actualización *MYUD1*. La fase *UpgradePhase* indica *PostUpgradeSafetyCheck*, lo que significa que estas comprobaciones de seguridad se producen después de que todos los nodos del dominio de actualización hayan finalizado la actualización. Toda esta información combinada señala a un posible problema con la nueva versión del código de la aplicación. Los problemas más habituales son errores de servicio en la apertura o promoción a rutas de acceso de código principal.
+En este ejemplo, podemos ver que la actualización generó un error en el dominio de actualización *MYUD1* y que se bloquearon dos particiones (*744c8d9f-1d26-417e-a60e-cd48f5c098f0* y *4b43f4d8-b26b-424e-9307-7a7a62e79750*), por lo que no pudieron colocar las réplicas principales (*WaitForPrimaryPlacement*) en los nodos de destino *Nodo1* y *Nodo4*.
 
-Una *UpgradePhase* de *PreUpgradeSafetyCheck* indica que se produjeron problemas al preparar el dominio de actualización antes de realizar realmente la actualización. Los problemas más habituales en este caso son errores de servicio en el cierre o disminución de nivel de las rutas de acceso de código principales.
+El comando **Get-ServiceFabricNode** se puede usar para comprobar que estos dos nodos están en el dominio de actualización *MYUD1*. La fase *UpgradePhase* indica *PostUpgradeSafetyCheck*, lo que significa que estas comprobaciones de seguridad se producen después de que todos los nodos del dominio de actualización hayan finalizado la actualización. Toda esta información señala a un posible error con la nueva versión del código de la aplicación. Los problemas más habituales son errores de servicio en la apertura o promoción a rutas de acceso de código principal.
+
+Una fase *UpgradePhase* de *PreUpgradeSafetyCheck* indica que se produjeron errores al preparar el dominio de actualización antes de realizar realmente la actualización. Los problemas más habituales en este caso son errores de servicio en el cierre o disminución de nivel de las rutas de acceso de código principales.
 
 El **UpgradeState** actual es *RollingBackCompleted*, de modo que la actualización original debe haberse realizado con una **FailureAction** de reversión, que revierte automáticamente la actualización tras el error. Si la actualización original se había realizado con una **FailureAction** manual, la actualización estaría entonces en un estado suspendido en su lugar para permitir una depuración en directo de la aplicación.
 
 ### Investigar errores de comprobación de estado
 
-Los errores de comprobación de estado pueden desencadenarse mediante una variedad de problemas adicionales que se pueden producir después de que todos los nodos de un dominio de actualización terminen la actualización, pasando todas las comprobaciones de seguridad. La salida siguiente es típica de un error de actualización debido a las comprobaciones de estado con error. El campo **UnhealthyEvaluations** captura una instantánea de todas las comprobaciones de estado con error en el momento del error de actualización según la [Directiva de mantenimiento](service-fabric-health-introduction.md) especificada por el usuario.
+Los errores de comprobación de estado pueden desencadenarse a raíz de una variedad de problemas adicionales que se pueden producir después de que todos los nodos de un dominio de actualización terminen la actualización y tras pasar todas las comprobaciones de seguridad. La salida siguiente es típica de un error de actualización debido a las comprobaciones de estado con error. El campo **UnhealthyEvaluations** captura una instantánea de todas las comprobaciones de estado con error en el momento del error de actualización según la [Directiva de mantenimiento](service-fabric-health-introduction.md) especificada por el usuario.
 
 ~~~
 PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
@@ -140,9 +142,9 @@ MaxPercentUnhealthyDeployedApplications :
 ServiceTypeHealthPolicyMap              :
 ~~~
 
-La investigación de los errores de comprobación de estado requiere la comprensión del modelo de estado de Service Fabric, pero incluso sin una comprensión profunda, podemos ver que los dos servicios son incorrectos: *fabric:/DemoApp/Svc3* y *fabric:/DemoApp/Svc2* junto con los informes de mantenimiento de error ("InjectedFault" en este caso). En este ejemplo, 2 de cada 4 servicios son incorrectos, están por debajo del objetivo predeterminado de 0 % incorrecto (*MaxPercentUnhealthyServices*).
+Para investigar errores de comprobación de estado, es necesario conocer el modelo de mantenimiento de Service Fabric, pero incluso sin una comprensión profunda, podemos ver que los dos servicios son incorrectos: *fabric:/DemoApp/Svc3* y *fabric:/DemoApp/Svc2*, junto con los informes de mantenimiento de error ("InjectedFault" en este caso). En este ejemplo, dos de cada cuatro servicios son incorrectos, una relación que están por debajo del objetivo predeterminado de 0 % incorrecto (*MaxPercentUnhealthyServices*).
 
-La actualización se suspendió tras el error especificando una **FailureAction** de manual al iniciar la actualización, por lo que podemos investigar el sistema activo en el estado de error si se desea antes de llevar a cabo cualquier acción adicional.
+La actualización se suspendió tras el error especificando una **FailureAction** de manual al iniciar la actualización, por lo que podemos investigar el sistema activo en el estado de error, si se desea, antes de llevar a cabo cualquier acción adicional.
 
 ### Recuperarse de una actualización suspendida
 
@@ -154,7 +156,7 @@ Con una **FailureAction** de reversión, no se necesita ninguna recuperación pu
 
 El comando **Start-ServiceFabricApplicationRollback** puede usarse en cualquier momento para empezar a revertir la aplicación. Cuando el comando se devuelve correctamente, la solicitud de reversión se ha registrado en el sistema y se iniciará en breve.
 
-El comando **Resume-ServiceFabricApplicationUpgrade** se puede usar para continuar con el resto de la actualización manualmente, un dominio de actualización cada vez. En este modo, el sistema solo realizará comprobaciones de seguridad; no se realizarán más comprobaciones de estado. Este comando solo se puede usar cuando *UpgradeState* muestra *RollingForwardPending*, lo que significa que el dominio de actualización actual ha finalizado la actualización, pero que el siguiente dominio de actualización no se ha iniciado todavía (está pendiente).
+El comando **Resume-ServiceFabricApplicationUpgrade** se puede usar para continuar con el resto de la actualización manualmente, un dominio de actualización cada vez. En este modo, el sistema solo realizará comprobaciones de seguridad. No se realizarán más comprobaciones de estado. Este comando solo se puede usar cuando *UpgradeState* muestra *RollingForwardPending*, lo que significa que el dominio de actualización actual ha finalizado la actualización, pero que el siguiente dominio de actualización no se ha iniciado todavía (está pendiente).
 
 El comando **Update-ServiceFabricApplicationUpgrade** se puede usar para reanudar la actualización supervisada mientras se llevan a cabo las comprobaciones tanto de seguridad como de estado.
 
@@ -180,7 +182,7 @@ ServiceTypeHealthPolicyMap              :
 PS D:\temp>
 ~~~
 
-La actualización continuará desde el dominio de actualización donde se suspendió la última vez y usará los mismos parámetros de actualización y directivas de mantenimiento que antes. En caso necesario, cualquiera de los parámetros de actualización y las directivas de mantenimiento que se muestran en la salida anterior puede cambiarse en el mismo comando al reanudar la actualización. En este ejemplo, la actualización se reanudó en el modo de supervisión dejando a todos los demás parámetros sin cambios y usando por tanto los mismos parámetros y directivas de mantenimiento que antes.
+La actualización continuará desde el dominio de actualización donde se suspendió la última vez y usará los mismos parámetros de actualización y directivas de mantenimiento que antes. En caso necesario, cualquiera de los parámetros de actualización y las directivas de mantenimiento que se muestran en la salida anterior puede cambiarse en el mismo comando cuando la actualización se reanuda. En este ejemplo, la actualización se reanudó en el modo de supervisión dejando a todos los demás parámetros sin cambios y usando los mismos parámetros y directivas de mantenimiento que antes.
 
 ## Más información de solución de problemas
 
@@ -188,43 +190,42 @@ La actualización continuará desde el dominio de actualización donde se suspen
 
 Causa posible 1:
 
-Service Fabric convierte todos los porcentajes en números reales de entidades (por ejemplo, réplicas, particiones y servicios) para la evaluación de estado y siempre se redondea al número más cercano de las entidades completas. Por ejemplo, si el _MaxPercentUnhealthyReplicasPerPartition_ máximo es 21 % y hay 5 réplicas, Service Fabric permitirá hasta 2 réplicas (es decir, `Math.Ceiling (5*0.21)`) en mal estado al evaluar el estado de las particiones. Las directivas de mantenimiento deben establecerse como corresponda para representarlo.
+Service Fabric convierte todos los porcentajes en números reales de entidades (por ejemplo, réplicas, particiones y servicios) para la evaluación de estado y siempre se redondea al número más cercano de las entidades completas. Por ejemplo, si el máximo de _MaxPercentUnhealthyReplicasPerPartition_ es 21 % y hay cinco réplicas, Service Fabric permitirá hasta dos réplicas (es decir, `Math.Ceiling (5*0.21)`) incorrectas al evaluar el estado de las particiones. Las directivas de mantenimiento deben establecerse como corresponda para representarlo.
 
 Causa posible 2:
 
-Las directivas de mantenimiento se especifican en términos de porcentajes de servicios totales e instancias de servicio no específicas. Por ejemplo, antes de una actualización, supongamos que una aplicación tiene cuatro instancias de servicio A, B, C y D, donde el servicio D es incorrecto, pero sin ningún impacto importante en la aplicación. Deseamos omitir el servicio D incorrecto conocido durante la actualización y establecer el parámetro *MaxPercentUnhealthyServices* para que sea el 25 % suponiendo que solo A, B y C deben estar en buen estado. Sin embargo, durante la actualización, D puede convertirse en correcto mientras C pasa a ser incorrecto. La actualización todavía se completaría correctamente en este caso puesto que solo el 25 % de los servicios son incorrectos, lo que podría provocar errores inesperados debido a que C es inesperadamente incorrecto en lugar de D. En esta situación, D se debe modelar como un tipo de servicio diferente de A, B y C. Puesto que las directivas de mantenimiento se pueden especificar por tipo por servicio, esto permitiría la aplicación de diferentes umbrales de porcentaje incorrectos a servicios diferentes en función de sus roles en la aplicación.
+Las directivas de mantenimiento se especifican en términos de porcentajes de servicios totales e instancias de servicio no específicas. Por ejemplo, antes de una actualización, supongamos que una aplicación tiene cuatro instancias de servicio A, B, C y D, donde el servicio D es incorrecto, pero sin ningún impacto importante en la aplicación. Deseamos omitir el servicio D incorrecto conocido durante la actualización y establecer el parámetro *MaxPercentUnhealthyServices* para que sea el 25 % suponiendo que solo A, B y C deben ser correctos.
 
-### No he especificado una directiva de mantenimiento para la actualización de la aplicación, pero la actualización continúa generando error para algunos tiempos de espera que nunca he especificado
+Sin embargo, durante la actualización, D puede convertirse en correcto mientras C pasa a ser incorrecto. La actualización todavía se completaría correctamente en este caso, puesto que solo el 25 % de los servicios son incorrectos, lo que podría provocar errores inesperados debido a que C es inesperadamente incorrecto en lugar de D. En esta situación, D se debe modelar como un tipo de servicio diferente de A, B y C. Puesto que las directivas de mantenimiento se pueden especificar por tipo por servicio, esto permitiría la aplicación de diferentes umbrales de porcentaje incorrectos a servicios diferentes en función de sus roles en la aplicación.
 
-Cuando no se proporcionan las directivas de mantenimiento a la solicitud de actualización, se toman del *ApplicationManifest.xml* de la versión actual de la aplicación (por ejemplo, si se actualiza la aplicación X de v1 a v2, se usan directivas de mantenimiento de aplicaciones especificadas para la aplicación X en v1). Si se debe usar una directiva de mantenimiento diferente para la actualización, la directiva necesita especificarse como parte de la llamada API de actualización de la aplicación. Tenga en cuenta que las directivas que se especifican como parte de la llamada API solo se aplican durante la actualización. Cuando se completa la actualización, se usan las directivas especificadas en *ApplicationManifest.xml*.
+### No he especificado una directiva de mantenimiento para la actualización de la aplicación, pero la actualización continúa generando errores para algunos tiempos de expiración que nunca he especificado
 
-### Tiempos de espera especificados incorrectos.
+Si las directivas de mantenimiento no se proporcionan para la solicitud de actualización, se obtienen del archivo *ApplicationManifest.xml* de la versión actual de la aplicación. Por ejemplo, si va a actualizar la aplicación X de v1 a v2, se utilizan las directivas de mantenimiento de la aplicación especificadas para la aplicación X en v1. Si se debe usar una directiva de mantenimiento diferente para la actualización, la directiva necesita especificarse como parte de la llamada API de actualización de la aplicación. Tenga en cuenta que las directivas que se especifican como parte de la llamada API solo se aplican durante la actualización. Cuando se completa la actualización, se usan las directivas especificadas en el archivo *ApplicationManifest.xml*.
 
-Los usuarios pueden preguntarse sobre lo que ocurre si los tiempos de espera se establecen de forma incoherente, por ejemplo, teniendo un *UpgradeTimeout* menor que el *UpgradeDomainTimeout*. La respuesta es que se devuelve un error. Otros casos donde esto puede ocurrir es si *UpgradeDomainTimeout* es menor que la suma de *HealthCheckWaitDuration* y *HealthCheckRetryTimeout*, o si *UpgradeDomainTimeout* es menor que la suma de *HealthCheckWaitDuration* y *HealthCheckStableDuration*.
+### Se especifican los tiempos de expiración incorrectos
+
+Los usuarios pueden preguntarse sobre lo que ocurre si los tiempos de expiración se establecen de forma incoherente, por ejemplo, si *UpgradeTimeout* es menor que *UpgradeDomainTimeout*. La respuesta es que se devuelve un error. Otros casos donde esto puede ocurrir es si *UpgradeDomainTimeout* es menor que la suma de *HealthCheckWaitDuration* y *HealthCheckRetryTimeout*, o si *UpgradeDomainTimeout* es menor que la suma de *HealthCheckWaitDuration* y *HealthCheckStableDuration*.
 
 ### Mis actualizaciones están tardando mucho tiempo
 
-El tiempo necesario para que se complete una actualización depende de los diversos tiempos de espera y comprobaciones de estado especificados, que a su vez dependen del tiempo que la aplicación tarda en actualizarse (incluidas las acciones de copiar el paquete, implementar y estabilizar). Ser demasiado agresivo con los tiempos de espera puede implicar más actualizaciones con errores; así pues, se recomienda empezar de manera conservadora con tiempos de espera más prolongados.
+El tiempo necesario para que se complete una actualización depende de los diversos tiempos de expiración y comprobaciones de estado especificados, que a su vez dependen del tiempo que la aplicación tarda en actualizarse (incluidas las acciones de copiar el paquete, implementar y estabilizar). Ser demasiado agresivo con los tiempos de expiración puede dar lugar a que se realicen más actualizaciones con errores; por ello, recomendamos empezar de manera conservadora con tiempos de expiración más prolongados.
 
-Un repaso rápido sobre la interacción de los tiempos de espera con los tiempos de actualización:
+A continuación ofrecemos un repaso rápido sobre la interacción de los tiempos de expiración con los tiempos de actualización:
 
-La actualización de un dominio de actualización no se puede completar con mayor rapidez que *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
+Las actualizaciones de un dominio de actualización no se pueden completar con mayor rapidez que *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
 
 No se puede producir un error de actualización con mayor rapidez que *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
 
-El tiempo de actualización de un dominio de actualización está limitado por *UpgradeDomainTimeout*. Si tanto *HealthCheckRetryTimeout* como *HealthCheckStableDuration* son distintos de cero y el estado de la aplicación continúa pasando de atrás para adelante, la actualización finalizará el tiempo de espera en *UpgradeDomainTimeout*. *UpgradeDomainTimeout* comienza la cuenta atrás cuando comienza la actualización para el dominio de actualización actual.
+El tiempo de actualización de un dominio de actualización está limitado por *UpgradeDomainTimeout*. Si *HealthCheckRetryTimeout* y *HealthCheckStableDuration* son distintos de cero y el estado de la aplicación continúa pasando de atrás para adelante, la actualización agotará el tiempo de expiración en *UpgradeDomainTimeout*. *UpgradeDomainTimeout* comienza la cuenta atrás cuando comienza la actualización para el dominio de actualización actual.
 
 ## Pasos siguientes
 
 [Actualización de la aplicación de Service Fabric con Visual Studio](service-fabric-application-upgrade.md)
-
-[Actualización de aplicaciones de Service Fabric con PowerShell](service-fabric-application-upgrade-powershell.md)
 
 [Parámetros de actualización](service-fabric-application-upgrade-parameters.md)
 
 [Actualización manual y actualización con un paquete de diferencias](service-fabric-application-upgrade-advanced.md)
 
 [Serialización de datos](service-fabric-application-upgrade-data-serialization.md)
- 
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0121_2016-->

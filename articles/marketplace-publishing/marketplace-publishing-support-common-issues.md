@@ -14,7 +14,7 @@
       ms.tgt_pltfrm="na"
       ms.workload="na"
       ms.date="12/06/2015"
-      ms.author="v-jeana; hascipio"/>
+      ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # Solución de problemas comunes de publicador de Azure Marketplace
 En este artículo se explica cómo resolver u obtener soporte técnico para algunos escenarios comunes de Marketplace.
@@ -63,9 +63,9 @@ En algunas circunstancias, puede que necesite validar los detalles de suscripci�
 
 ## ¿Cómo puedo actualizar mi perfil de publicador?
 
-Si quiere actualizar su perfil de publicador, puede hacerlo a través del Centro de desarrolladores de Microsoft:
+Si quiere actualizar su perfil de publicador, puede hacerlo a través del Centro de desarrollo de Microsoft:
 
-**1. Inicie sesión en el Centro de desarrolladores de Microsoft**.
+**1. Inicie sesión en el Centro de desarrollo de Windows**.
 
 - Abra una nueva sesión de exploración de incógnito en Chrome o de InPrivate en Internet Explorer para asegurarse de que no tiene una sesión iniciada en una cuenta personal.
 - Vaya a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
@@ -82,7 +82,7 @@ Si quiere actualizar su perfil de publicador, puede hacerlo a través del Centro
 
 ![protectacct][6]
 
-**4. Navegue a Detalles de la cuenta y Detalles de la compañía**.
+**4. Vaya a Detalles de la cuenta e Información de contacto**.
 
 ![acctdetails][7]
 
@@ -120,4 +120,4 @@ Para los problemas siguientes, cree una solicitud de soporte técnico en [http:/
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

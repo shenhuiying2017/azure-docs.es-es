@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con ArcGIS | Microsoft Azure" 
     description="Aprenda a usar ArcGIS con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con ArcGIS
 
@@ -86,7 +86,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 5.  En otra ventana del explorador web, inicie sesión en como administrador en el sitio de la compañía de ArcGIS.
 
-6.  Haga clic en **Editar configuración**.
+6.  Haga clic en **Edit Settings** (Editar configuración).
 
     ![Editar configuración](./media/active-directory-saas-arcgis-tutorial/IC784742.png "Editar configuración")
 
@@ -103,8 +103,8 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     ![Set Identity Provider (Establecer proveedor de identidades)](./media/active-directory-saas-arcgis-tutorial/IC784745.png "Set Identity Provider (Establecer proveedor de identidades)")
 
     1.  En el cuadro de texto Name (Nombre), escriba el nombre de su organización.
-    2.  En **Los metadatos para el proveedor de identidades de la empresa se proporcionarán con**, seleccione **Un archivo**.
-    3.  Haga clic en **Elegir archivo** para cargar el archivo de metadatos descargado.
+    2.  En **Metadata for the Enterprise Identity Provider will be supplied using** (Los metadatos para el proveedor de identidades de la empresa se proporcionarán con), seleccione **A File** (Un archivo).
+    3.  Haga clic en **Choose file** (Elegir archivo) para cargar el archivo de metadatos descargado.
     4.  Haga clic en **Establecer proveedor de identidades**.
 
 10. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
@@ -151,10 +151,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-arcgis-tutorial/IC784751.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, luego, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-arcgis-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

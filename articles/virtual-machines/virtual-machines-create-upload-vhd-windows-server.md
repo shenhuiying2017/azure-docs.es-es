@@ -36,11 +36,11 @@ En este artículo se supone que ya dispones de:
 
 3. **Un sistema operativo Windows compatible almacenado en un archivo .vhd y conectado a una máquina virtual** - Existen varias herramientas para crear archivos .vhd. Por ejemplo, puedes usar Hyper-V para crear una máquina virtual e instalar el sistema operativo. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx). Para obtener más información sobre los sistemas operativos, consulte [Soporte de software del servidor de Microsoft para máquinas virtuales de Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=393550).
 
-> [AZURE.IMPORTANT]El formato VHDX no se admite en Microsoft Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el [cmdlet Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx). Para obtener más información, consulte esta [publicación de blog](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
+> [AZURE.IMPORTANT]El formato VHDX no se admite en Microsoft Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el [cmdlet Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx). Para obtener más información, consulta esta [publicación de blog](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
 
 ## Paso 1: Preparar el VHD 
 
-Antes de cargar el VHD en Azure, tiene que generalizarse mediante la herramienta Sysprep. Esto prepara el VHD para usarlo como una imagen. Para obtener más información acerca de Sysprep, consulte [Uso de Sysprep: introducción](http://technet.microsoft.com/library/bb457073.aspx).
+Antes de cargar el VHD en Azure, tiene que generalizarse mediante la herramienta Sysprep. Esto prepara el VHD para usarlo como una imagen. Para obtener más información sobre Sysprep, consulta [Uso de Sysprep: Introducción](http://technet.microsoft.com/library/bb457073.aspx).
 
 Desde la máquina virtual en la que se instaló el sistema operativo, realice el procedimiento siguiente:
 
@@ -54,7 +54,7 @@ Desde la máquina virtual en la que se instaló el sistema operativo, realice el
 
 	![Iniciar Sysprep](./media/virtual-machines-create-upload-vhd-windows-server/sysprepgeneral.png)
 
-4.  En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE) del sistema** y asegúrate de que la casilla **Generalizar** está seleccionada.
+4.  En la **Herramienta de preparación del sistema**, selecciona **Iniciar la Configuración rápida (OOBE) del sistema** y asegúrate de que la casilla **Generalizar** está seleccionada.
 
 5.  En **Opciones de apagado**, seleccione **Apagar**.
 
@@ -98,7 +98,7 @@ Necesitas una cuenta de almacenamiento de Azure para tener un sitio para cargar 
 
 	![Nombre del contenedor](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_containervalues.png)
 
-	> [AZURE.NOTE]De manera predeterminada, el contenedor es privado y solo puede acceder a él el propietario de la cuenta. Para permitir el acceso de lectura público a los blobs del contenedor, pero no a las propiedades y metadatos del contenedor, use la opción **Blob público**. Para permitir el acceso de lectura público completo para el contenedor y los blobs, use la opción **Contenedor público**.
+	> [AZURE.NOTE]De manera predeterminada, el contenedor es privado y solo puede acceder a él el propietario de la cuenta. Para permitir el acceso de lectura público a los blobs del contenedor, pero no a las propiedades y metadatos del contenedor, use la opción **Blob público**. Para permitir el acceso de lectura público completo para el contenedor y los blobs, utilice la opción **Contenedor público**.
 
 ### Opción 2: obtener la información de la cuenta de almacenamiento
 
@@ -170,7 +170,7 @@ Para obtener más información acerca del cmdlet Add-AzureVhd, consulte [Add-Azu
 
 	![PowerShell Add-AzureVHD](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image.png)
 
-4. En la ventana **Crear una imagen desde un VHD**:
+4. En la ventana **Crear una imagen desde un disco duro virtual**:
 
 	- Especifica el **nombre**.
 
@@ -180,7 +180,7 @@ Para obtener más información acerca del cmdlet Add-AzureVhd, consulte [Add-Azu
 
     ![Seleccionar VHD](./media/virtual-machines-create-upload-vhd-windows-server/Select_VHD.png)
 
-5.	En la ventana **Crear una imagen desde un VHD**, en **Familia del sistema operativo**, selecciona tu sistema operativo. Activa la casilla **He ejecutado Sysprep en la máquina virtual asociada a este disco duro virtual** para comprobar que generalizaste el sistema operativo y después haz clic en **Aceptar**.
+5.	En la ventana **Crear una imagen desde un VHD**, en **Familia del sistema operativo**, selecciona tu sistema operativo. Active la casilla **He ejecutado Sysprep en la máquina virtual asociada a este disco duro virtual** para comprobar que generalizó el sistema operativo y después haga clic en **Aceptar**.
 
     ![Agregar imagen](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png)
 
@@ -188,7 +188,7 @@ Para obtener más información acerca del cmdlet Add-AzureVhd, consulte [Add-Azu
 
 	![imagen personalizada](./media/virtual-machines-create-upload-vhd-windows-server/vm_custom_image.png)
 
-	Esta nueva imagen ahora está disponible en **Mis imágenes** al crear una máquina virtual. Para obtener instrucciones, consulta [Creación de una máquina virtual personalizada que ejecute Windows](virtual-machines-windows-create-custom.md).
+	Esta nueva imagen ahora está disponible en **Mis imágenes** al crear una máquina virtual. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada](virtual-machines-create-custom.md).
 
 	![Creación de una máquina virtual a partir de una imagen personalizada](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
@@ -203,4 +203,4 @@ Después de crear una máquina virtual, intente crear una máquina virtual de SQ
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

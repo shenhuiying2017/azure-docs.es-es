@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure AD con BlueJeans | Microsoft Azure" 
     description="Aprenda cómo usar BlueJeans con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure AD con BlueJeans
 
@@ -90,7 +90,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Administrador](./media/active-directory-saas-bluejeans-tutorial/IC785868.png "Administrador")
 
-7.  En la sección **Security** (Seguridad), lleve a cabo estos pasos:
+7.  En la sección **Seguridad**, realice estos pasos:
 
     ![Inicio de sesión único SAML](./media/active-directory-saas-bluejeans-tutorial/IC785869.png "Inicio de sesión único SAML")
 
@@ -101,8 +101,8 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Ruta de acceso del certificado](./media/active-directory-saas-bluejeans-tutorial/IC785870.png "Ruta de acceso del certificado")
 
-    1.  Haga clic en **Choose File** (Elegir archivo) y cargue el certificado descargado.
-    2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en BlueJeans**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
+    1.  Haga clic en **Elegir archivo** y cargue el certificado descargado.
+    2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en BlueJeans**, copie el valor de **Dirección URL del inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
     3.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en BlueJeans**, copie el valor de **Cambiar dirección URL de contraseña** y péguelo en el cuadro de texto **Dirección URL de cambio de contraseña**.
     4.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en BlueJeans**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
 
@@ -114,7 +114,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 2.  En el cuadro de texto **Correo electrónico**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
 3.  Haga clic en **Guardar cambios**.
 
-10. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+10. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-bluejeans-tutorial/IC785876.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -152,10 +152,10 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
     ![Asignar usuarios](./media/active-directory-saas-bluejeans-tutorial/IC785887.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-bluejeans-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

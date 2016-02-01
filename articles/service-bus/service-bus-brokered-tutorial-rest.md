@@ -25,7 +25,7 @@ El primer paso es crear un espacio de nombres de servicio y obtener una clave de
 
 ### Creación de un espacio de nombres y obtención de una clave secreta compartida
 
-1. Para obtener información sobre cómo crear un espacio de nombres de servicio, consulte el tema [Procedimiento: Crear o modificar un espacio de nombres de servicio de Service Bus](https://msdn.microsoft.com/library/azure/hh690931.aspx) en la sección [Administración de espacios de nombres del Bus de servicio](https://msdn.microsoft.com/library/azure/hh690928.aspx).
+1. Para crear un espacio de nombres de servicio, visite el [Portal de Azure clásico][]. Haga clic en **Bus de servicio** en el lado izquierdo y después en **Crear**. Escriba un nombre para el espacio de nombres y luego haga clic en la marca de verificación.
 
 1. En la ventana principal del [Portal de Azure clásico][], haga clic en el nombre del espacio de nombres que creó en el paso anterior.
 
@@ -180,7 +180,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
 El siguiente paso es escribir un método que use el comando PUT de HTTP de estilo REST para crear una cola.
 
-Pegue el código siguiente directamente después del código de `GetSASToken()` que agregó en el paso anterior:
+Pegue el código siguiente directamente después del código `GetSASToken()` que agregó en el paso anterior:
 
 ```
 // Uses HTTP PUT to create the queue
@@ -628,9 +628,9 @@ namespace Microsoft.ServiceBus.Samples
 Para obtener más información, consulte los artículos siguientes:
 
 - [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
-- [Elementos fundamentales del Bus de servicio](fundamentals-service-bus-hybrid-solutions.md)
+- [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
 - [Tutorial de REST de Bus de servicio](service-bus-relay-rest-tutorial.md)
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

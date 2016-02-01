@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="01/15/2016" 
 	ms.author="awills"/>
 
 # Application Insights en servicios, aplicaciones y roles de trabajo de escritorio de Windows
@@ -37,18 +37,18 @@ Puede elegir qué recopiladores de datos estándar desea usar (por ejemplo, para
 
     (Su elección del tipo de aplicación establece el contenido de la hoja de información general así como de las propiedades disponibles en el [explorador de métricas][metrics]).
 
-2.  Realice una copia de la clave de instrumentación.
+2.  Realice una copia de la clave de instrumentación. Busque la clave en la lista desplegable Essentials del recurso que acaba de crear.
 
-    ![Haga clic en Propiedades, seleccione la clave y presione ctrl + C.](./media/app-insights-windows-desktop/02-props.png)
+    ![Haga clic en Essentials, seleccione la clave y presione Ctrl + C.](./media/app-insights-windows-desktop/02-props.png)
 
 ## <a name="sdk"></a>Instalación del SDK en la aplicación
 
 
 1. En Visual Studio, edite los paquetes de NuGet de su proyecto de aplicación de escritorio.
 
-    ![Haga clic con el botón secundario en el proyecto y seleccione Administrar paquetes de Nuget.](./media/app-insights-windows-desktop/03-nuget.png)
+    ![Haga clic con el botón derecho en el proyecto y seleccione Administrar paquetes de Nuget.](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. Instale el paquete Application Insights Windows Server: Microsoft.ApplicationInsights.WindowsServer
+2. Instale el paquete Application Insights Windows Server: Microsoft.ApplicationInsights.WindowsServer.
 
     ![Busque "Application Insights"](./media/app-insights-windows-desktop/04-ai-nuget.png)
 
@@ -62,7 +62,7 @@ Puede elegir qué recopiladores de datos estándar desea usar (por ejemplo, para
 
     * Si solo instaló el paquete de la API principal Microsoft.ApplicationInsights, debe establecer la clave en código, por ejemplo en main(): 
 
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *su clave* `";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "` **su clave** `";`
 
     Si instaló uno de los otros paquetes, puede establecer la clave mediante código o establecerla en ApplicationInsights.config:
  
@@ -117,7 +117,7 @@ Utilice cualquiera de las [API de Application Insights][api] para enviar telemet
 
 * `TrackPageView(pageName)` al cambiar formularios, páginas o pestañas
 * `TrackEvent(eventName)` para otras acciones de usuario
-* `TrackMetric(name, value)` en una tarea en segundo plano para enviar informes periódicos de métricas no asociados a eventos específicos
+* `TrackMetric(name, value)` en una tarea en segundo plano para enviar informes periódicos de métricas no asociados a eventos específicos.
 * `TrackTrace(logEvent)` para [registro de diagnósticos][diagnostic]
 * `TrackException(exception)` en cláusulas catch
 * `Flush()` para asegurarse de que toda la telemetría se envía antes de cerrar la aplicación. Úselo solo si está usando simplemente la API principal (Microsoft.ApplicationInsights). Los SDK web implementan este comportamiento automáticamente. (Si la aplicación se ejecuta en contextos donde Internet no está siempre disponible, consulte también [Canal de persistencia](#persistence-channel).)
@@ -299,4 +299,4 @@ El código del canal de persistencia se encuentra en [github](https://github.com
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

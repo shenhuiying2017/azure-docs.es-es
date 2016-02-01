@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial: Integración de Análisis de transmisiones de Azure y Aprendizaje automático de Azure | Microsoft Azure" 
+	pageTitle="Tutorial: análisis de opiniones mediante Análisis de transmisiones de Azure y Aprendizaje automático de Azure | Microsoft Azure" 
 	description="Cómo aprovechar las funciones definidas por el usuario y Aprendizaje automático en los trabajos de Análisis de transmisiones"
 	keywords=""
 	documentationCenter=""
@@ -19,7 +19,7 @@
 	ms.author="jeffstok"
 />
 
-# Tutorial: Introducción a la integración de Análisis de transmisiones y Aprendizaje automático #
+# Tutorial: realizar análisis de opiniones mediante Análisis de transmisiones y Aprendizaje automático #
 
 Este tutorial está pensado para ayudarle a configurar rápidamente un trabajo sencillo de Análisis de transmisiones con la integración de Aprendizaje automático. Aprovecharemos un modelo de Aprendizaje automático de análisis de opinión de la galería de Cortana Analytics para analizar datos de texto de transmisión y determinar la puntuación de opinión en tiempo real. Es un tutorial excelente para entender escenarios como el análisis de opinión en tiempo real al transmitir datos de Twitter, análisis del registro de chats de clientes con el personal de soporte técnico, comentarios en foros, blogs y vídeos y muchos otros escenarios de puntuación predictiva en tiempo real.
   
@@ -150,4 +150,4 @@ También se pueden observar las métricas relacionadas con funciones de Aprendiz
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - vista de monitor de aprendizaje automático](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

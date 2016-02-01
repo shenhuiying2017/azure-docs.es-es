@@ -23,7 +23,7 @@
 
 Azure Site Recovery contribuye a su estrategia de continuidad de negocio y recuperación ante desastres (BCDR) mediante la organización de la replicación, la conmutación por error y la recuperación de máquinas virtuales en varios escenarios de implementación. Para obtener una lista completa de los escenarios de implementación, consulte [Información general sobre Azure Site Recovery](site-recovery-overview.md)
 
-En este artículo se describe cómo usar Site Recovery para migrar máquinas virtuales de IaaS de Azure de una región de Azure a otra. Los artículos usan la mayoría de los pasos descritos en [Configuración de la protección entre las máquinas virtuales de VMware locales o servidores físicos y Azure](site-recovery-vmware-to-azure.md). Le sugerimos que lea ese artículo para obtener instrucciones detalladas acerca de cada paso de la implementación.
+En este artículo se describe cómo usar Site Recovery para migrar máquinas virtuales de IaaS de Azure de una región de Azure a otra. Los artículos usan la mayoría de los pasos descritos en [Configuración de la protección entre las máquinas virtuales de VMware locales o servidores físicos y Azure](site-recovery-vmware-to-azure-classic-legacy.md). Le sugerimos que lea ese artículo para obtener instrucciones detalladas acerca de cada paso de la implementación.
 
 ## Primeros pasos
 
@@ -34,15 +34,15 @@ Esto es lo necesita antes de empezar:
 - **Servidor de procesos**: máquina virtual que ejecuta Windows Server 2012 R2. Las máquinas virtuales protegidas envían datos de replicación a este servidor.
 - **Máquinas virtuales IaaS**: las máquinas virtuales que desea migrar.
 
-- Obtenga más información acerca de estos componentes en [¿Qué es necesario?](site-recovery-vmware-to-azure.md#what-do-i-need)
-- También debe leer las instrucciones de [planificación de capacidad](site-recovery-vmware-to-azure.md#capacity-planning) y asegurarse de cumplir todos los [requisitos previos de implementación](site-recovery-vmware-to-azure.md#before-you-start) establecidos antes de empezar.
+- Obtenga más información acerca de estos componentes en [¿Qué es necesario?](site-recovery-vmware-to-azure-classic-legacy.md#what-do-i-need)
+- También debe leer las instrucciones de [planificación de capacidad](site-recovery-vmware-to-azure-classic-legacy.md#capacity-planning) y asegurarse de cumplir todos los [requisitos previos de implementación](site-recovery-vmware-to-azure-classic-legacy.md#before-you-start) establecidos antes de empezar.
 
 ## Pasos de implementación
 
-1. [Creación de un almacén](site-recovery-vmware-to-azure.md/#step-1-create-a-vault)
-2. [Implementación de un servidor de configuración](site-recovery-vmware-to-azure.md#step-2-deploy-a-configuration-server) como una máquina virtual de Azure.
-3. [Implementación del servidor de destino principal](site-recovery-vmware-to-azure.md#step-2-deploy-a-configuration-server) como una máquina virtual de Azure.
-4. [Implementación de un servidor de procesos](site-recovery-vmware-to-azure.md#step-4-deploy-the-on-premises-process-server). Observe lo siguiente:
+1. [Creación de un almacén](site-recovery-vmware-to-azure-classic-legacy.md#step-1-create-a-vault)
+2. [Implementación de un servidor de configuración](site-recovery-vmware-to-azure-classic-legacy.md#step-2-deploy-a-configuration-server) como una máquina virtual de Azure.
+3. [Implementación del servidor de destino principal](site-recovery-vmware-to-azure-classic-legacy.md#step-2-deploy-a-configuration-server) como una máquina virtual de Azure.
+4. [Implementación de un servidor de procesos](site-recovery-vmware-to-azure.md-classic-legacy#step-4-deploy-the-on-premises-process-server). Observe lo siguiente:
 
 	- Debe implementar el servidor de procesos en la misma red o subred virtual que las máquinas virtuales de IaaS que desea migrar. ![Máquinas virtuales de IaaS](./media/site-recovery-migrate-azure-to-azure/ASR_MigrateAzure1.png)
 
@@ -53,10 +53,10 @@ Esto es lo necesita antes de empezar:
 	
 		![servidor de proceso](./media/site-recovery-migrate-azure-to-azure/ASR_MigrateAzure2.png)
 
-5. [Instale las actualizaciones más recientes](site-recovery-vmware-to-azure.md#step-5-install-latest-updates). Asegúrese de que los servidores de todos los componentes que haya instalado estén actualizados.
-6. [Cree un grupo de protección](site-recovery-vmware-to-azure.md#step-7-create-a-protection-group). Para poder empezar a proteger las máquinas virtuales migradas mediante Site Recovery, es necesario configurar un grupo de protección. Especifique la configuración de replicación de un grupo y se podrá aplicar a todas las máquinas que agregue a ese grupo. 
-7. [Configure máquinas virtuales](site-recovery-vmware-to-azure.md#step-8-set-up-machines-you-want-to-protect). Necesitará obtener el servicio de Movilidad instalado en cada máquina virtual (de forma automática o manual).
-8. [Paso 8: Habilitación de la protección para las máquinas virtuales](site-recovery-vmware-to-azure.md#step-9-enable-protection). Habilite la protección para máquinas virtuales agregándolas a un grupo de protección. Observe lo siguiente:
+5. [Instale las actualizaciones más recientes](site-recovery-vmware-to-azure-classic-legacy.md#step-5-install-latest-updates). Asegúrese de que los servidores de todos los componentes que haya instalado estén actualizados.
+6. [Cree un grupo de protección](site-recovery-vmware-to-azure-classic-legacy.md#step-7-create-a-protection-group). Para poder empezar a proteger las máquinas virtuales migradas mediante Site Recovery, es necesario configurar un grupo de protección. Especifique la configuración de replicación de un grupo y se podrá aplicar a todas las máquinas que agregue a ese grupo. 
+7. [Configure máquinas virtuales](site-recovery-vmware-to-azure-classic-legacy.md#step-8-set-up-machines-you-want-to-protect). Necesitará obtener el servicio de Movilidad instalado en cada máquina virtual (de forma automática o manual).
+8. [Paso 8: Habilitación de la protección para las máquinas virtuales](site-recovery-vmware-to-azure-classic-legacy.md#step-9-enable-protection). Habilite la protección para máquinas virtuales agregándolas a un grupo de protección. Observe lo siguiente:
 
 	- Puede detectar las máquinas virtuales de IaaS que desea migrar a Azure usando la dirección IP privada de las máquinas virtuales. Busque esta dirección en el panel de la máquina virtual de Azure.
 	-  En la pestaña del grupo de protección que ha creado, haga clic en Agregar máquinas > Máquinas físicas. ![Detección de EC2](./media/site-recovery-migrate-azure-to-azure/ASR_MigrateAzure3.png)
@@ -69,4 +69,4 @@ Esto es lo necesita antes de empezar:
 
 Publique comentarios o preguntas en el [foro de Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

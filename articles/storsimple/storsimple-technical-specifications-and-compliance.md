@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
  <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/27/2015"
+   ms.date="01/20/2016"
    ms.author="alkohli" />
 
 # Especificaciones técnicas y cumplimiento normativo para el dispositivo StorSimple
@@ -51,9 +51,9 @@ En la siguiente tabla se enumeran los datos de consumo de energía típicos (pue
  ---------- | -------- | -------- | -------- | -------- | -------- | -------- 
  Ventiladores lentos, unidades inactivas | 1,45 A |0,31 kW | 1057,76 BTU/h | 3,19 A | 0,34 kW | 1160,13 BTU/h 
  Ventiladores lentos, unidades accediendo | 1,54 A | 0,33 kW | 1126,01 BTU/h | 3,27 A | 0,36 kW | 1228,37 BTU/h 
- Ventiladores rápidos,unidades inactivas, dos fuentes de alimentación activas | 2,14 A | 0,49 kW | 1671,95 BTU/h | 4,99 A | 0,54 kW | 1842,56 BTU/h 
+ Ventiladores rápidos, unidades inactivas, dos fuentes de alimentación activas | 2,14 A | 0,49 kW | 1671,95 BTU/h | 4,99 A | 0,54 kW | 1842,56 BTU/h 
  Ventiladores rápidos, unidades inactivas, una fuente de alimentación activa y una inactiva | 2,05 A | 0,48 kW | 1637,83 BTU/h | 4,58 A | 0,50 kW | 1706,07 BTU/h 
- Ventiladores rápidos, unidades accediendo, dos fuentes de alimentación activas | 2,26 A | 0,51 kW | 1740,19 BTU/h | 4, 95 A | 0,54 kW | 1842,56 BTU/h 
+ Ventiladores rápidos, unidades accediendo, dos fuentes de alimentación activas | 2,26 A | 0,51 kW | 1740,19 BTU/h | 4,95 A | 0,54 kW | 1842,56 BTU/h 
  Ventiladores rápidos, unidades accediendo, una fuente de alimentación activa y una inactiva | 2,14 A |0,49 kW | 1671,95 BTU/h | 4,81 A | 0,53 kW | 1808,44 BTU/h 
 
 ## Especificaciones de la unidad de disco  
@@ -170,6 +170,6 @@ Para las interfaces de red de 10 GbE, DATA 2 y DATA 3, consulte la [lista de cab
 
 ## Pasos siguientes
 
-Para obtener más información sobre las especificaciones del dispositivo StorSimple, descargue las [Especificaciones de la serie 8000 de StorSimple](http://storsimple.seagate.com/Specifications-8000).
+Ya está listo para implementar un dispositivo StorSimple en su centro de datos. Para obtener más información, consulte [Implementar un dispositivo local](storsimple-deployment-walkthrough-u2.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -47,7 +47,6 @@ En función de la versión que se está ejecutando en el dispositivo, puede dete
 ## Preparación de las actualizaciones
 Deberá realizar los siguientes pasos antes de buscar y aplicar la actualización:
 
-
 1. Tome una instantánea de la nube de los datos del dispositivo.
 
 2. Las direcciones IP fijas del controlador son enrutables y se pueden conectar a Internet. Estas direcciones IP fijas se usarán para atender las actualizaciones en el dispositivo. Para comprobarlo, ejecute el siguiente cmdlet en cada controlador de la interfaz de Windows PowerShell del dispositivo:
@@ -152,4 +151,4 @@ Si ha comprobado que existe conectividad y sigue apareciendo este problema, pón
 
 Obtenga más información sobre el [lanzamiento de la actualización 1.2](storsimple-update1-release-notes.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

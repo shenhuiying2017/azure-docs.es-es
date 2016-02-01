@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Dropbox para Empresas | Microsoft Azure" 
     description="Aprenda a usar DropBox para Empresas con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Dropbox para Empresas
   
@@ -107,7 +107,7 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
      5\.2. En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en DropBox para Empresas**, copie el valor de **Dirección URL de la página de inicio de sesión** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
 
 
-     5\.3. Cree un archivo **codificado en base 64** a partir del certificado descargado.[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+     5\.3. Cree un archivo **codificado en Base 64** a partir del certificado descargado. >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 
      5\.4. Haga clic en **Elegir certificado** y vaya a su **archivo de certificado codificado en Base 64**.
@@ -131,7 +131,7 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 1. En el Portal de administración de Azure, en la página de integración de aplicaciones de **DropBox para Empresas**, haga clic en **Configurar aprovisionamiento de usuarios** para abrir el cuadro de diálogo **Configurar aprovisionamiento de usuarios**.
 
-2. En la página Habilitar aprovisionamiento de usuarios en DropBox para Empresas, haga clic en Habilitar aprovisionamiento de usuarios para abrir el cuadro de diálogo Sign in to DropBox to link with Azure AD (Inicio de sesión en DropBox para vincular con Azure AD). <br><br> ![Aprovisionamiento de usuarios](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769517.png "Aprovisionamiento de usuarios")
+2. En la página Habilitar aprovisionamiento de usuarios en Dropbox para Empresas, haga clic en Habilitar aprovisionamiento de usuarios para abrir el cuadro de diálogo Sign in to Dropbox to link with Azure AD. <br><br> ![Aprovisionamiento de usuarios](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769517.png "Aprovisionamiento de usuarios")
 
 3. En el cuadro de diálogo **Sign in to DropBox to link with Azure AD** (Inicio de sesión en DropBox para vincular con Azure AD), inicie sesión en su inquilino de DropBox para Empresas. <br><br> ![Aprovisionamiento de usuarios](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769518.png "Aprovisionamiento de usuarios")
 
@@ -158,7 +158,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769521.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-dropboxforbusiness-tutorial/IC767830.png "Sí")
   
@@ -186,4 +186,4 @@ Si desea probar la configuración de inicio de sesión único, abra el Panel de 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

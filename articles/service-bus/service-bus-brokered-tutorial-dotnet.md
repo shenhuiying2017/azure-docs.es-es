@@ -31,13 +31,13 @@ Los siguientes son algunos pasos administrativos y requisitos previos que deben 
 
 ### Creación de un espacio de nombres de servicio y obtención de una clave de SAS
 
-1. Para crear un espacio de nombres de servicio, siga los pasos descritos en [Creación o modificación de un espacio de nombres de servicio del Bus de servicio](https://msdn.microsoft.com/library/azure/hh690931.aspx).
+1. Para crear un espacio de nombres de servicio, visite el [Portal de Azure clásico][]. Haga clic en **Bus de servicio** en el lado izquierdo y después en **Crear**. Escriba un nombre para el espacio de nombres y luego haga clic en la marca de verificación.
 
 1. En la ventana principal del [Portal de Azure clásico][], haga clic en el nombre del espacio de nombres que creó en el paso anterior.
 
 1. Haga clic en **Configurar**.
 
-1. En la sección **Generador de firmas de acceso compartido**, anote la clave principal asociada a la directiva **RootManagerSharedAccessKey** o cópielo en el Portapapeles. Este valor se usará más adelante en este tutorial.
+1. En la sección **Generador de firmas de acceso compartido**, anote la clave principal asociada a la directiva **RootManagerSharedAccessKey** o copíelo en el Portapapeles. Este valor se usará más adelante en este tutorial.
 
 El siguiente paso es crear un proyecto de Visual Studio y escribir dos funciones auxiliares que cargan una lista delimitada por comas de mensajes en un objeto [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET [List](https://msdn.microsoft.com/library/6sh2ey19.aspx) fuertemente tipado.
 
@@ -642,7 +642,7 @@ En Visual Studio, desde el menú **Compilación**, haga clic en **Generar soluci
 
 ## Pasos siguientes
 
-Este tutorial ha mostrado cómo crear una aplicación cliente del Bus de servicio y un servicio mediante las capacidades de mensajería asíncrona del Bus de servicio. Para obtener un tutorial similar que use la [mensajería retransmitida](service-bus-messaging-overview.md/#Relayed-messaging) del Bus de servicio, consulte el [tutorial de mensajería retransmitida del Bus de servicio](service-bus-relay-tutorial.md).
+Este tutorial ha mostrado cómo crear una aplicación cliente del Bus de servicio y un servicio mediante las capacidades de mensajería asíncrona del Bus de servicio. Para obtener un tutorial similar que use la [mensajería retransmitida](service-bus-messaging-overview.md#Relayed-messaging) del Bus de servicio, consulte el [tutorial de mensajería retransmitida del Bus de servicio](service-bus-relay-tutorial.md).
 
 Para obtener más información sobre el [Bus de servicio](https://azure.microsoft.com/services/service-bus/), vea los temas siguientes:
 
@@ -652,4 +652,4 @@ Para obtener más información sobre el [Bus de servicio](https://azure.microsof
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

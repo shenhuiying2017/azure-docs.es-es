@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/02/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos"/>
 
 # Uso del servicio StorSimple Manager para modificar la configuración del dispositivo StorSimple
@@ -129,4 +129,4 @@ Realice los pasos siguientes para intercambiar o volver a asignar las VIP para c
 - Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
      
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

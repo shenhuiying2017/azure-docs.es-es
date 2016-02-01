@@ -44,6 +44,9 @@ En este artículo se supone que ya ha instalado un sistema operativo Oracle Linu
 
 - El tamaño de todos los archivos VHD debe ser múltiplo de 1 MB.
 
+- Asegúrese de que el `Addons`repositorio está habilitado. Edite el archivo `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) o `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux) y cambie la línea `enabled=0` a `enabled=1` en **[ol6\_addons]** o **[ol7\_addons]** en este archivo.
+
+
 ##Oracle Linux 6.4+
 Debe completar los pasos de configuración específicos del sistema operativo para que la máquina virtual se ejecute en Azure.
 
@@ -222,4 +225,4 @@ Preparar una máquina virtual de Oracle Linux 7 para Azure es muy similar al pro
 
 15.  Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

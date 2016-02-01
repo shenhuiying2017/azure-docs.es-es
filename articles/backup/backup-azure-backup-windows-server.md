@@ -3,12 +3,19 @@
    description="Copia de seguridad de un Windows Server o un Cliente de Windows en Azure con este procedimiento simple. Puede hacer una copia de seguridad de los archivos y las carpetas de Windows en la nube en unos pocos pasos sencillos."
    services="backup"
    documentationCenter=""
-   authors="aashishr"
+   authors="Jim-Parker"
    manager="jwhit"
    editor=""
    keywords="copia de seguridad de Windows Server;realizar copia de seguridad de Windows Server"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="01/19/2016"
+	 ms.author="jimpark;"/>
 
 # Cómo realizar copias de seguridad de archivos y carpetas de Windows Server o del Cliente de Windows en Azure.
 Resulta sencillo realizar una copia de carpetas y archivos de Windows en Azure con este procedimiento simple. Si aún no lo ha hecho, antes de continuar complete los [requisitos previos](backup-configure-vault.md#before-you-start) con el objeto de preparar el entorno para la copia de seguridad de su máquina Windows antes de continuar.
@@ -45,4 +52,4 @@ Resulta sencillo realizar una copia de carpetas y archivos de Windows en Azure c
 - [Restauración de Windows Server o el cliente de Windows desde Azure](backup-azure-restore-windows-server.md)
 - [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

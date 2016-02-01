@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/05/2016"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # Implementar el dispositivo StorSimple local (Actualización 1)
@@ -284,9 +284,9 @@ Para instrucciones de instalación de MPIO para un dispositivo StorSimple conect
 
 ## Pasos siguientes
 
-Configure un [dispositivo virtual](storsimple-virtual-device.md).
+- Configure un [dispositivo virtual](storsimple-virtual-device.md).
 
-Use el [servicio de Administrador de StorSimple](storsimple-manager-service-administration.md) para administrar el dispositivo StorSimple.
+- Use el [servicio de Administrador de StorSimple](storsimple-manager-service-administration.md) para administrar el dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

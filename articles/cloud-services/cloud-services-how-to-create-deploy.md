@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # Creación e implementación de un servicio en la nube
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 - [Azure portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 
 El Portal de Azure clásico le ofrece dos formas de crear e implementar un servicio en la nube: **Creación rápida** y **Creación personalizada**.
 
@@ -40,7 +40,7 @@ se necesitan tres componentes para implementar una aplicación como servicio en 
 
 - **Paquete de servicio** El paquete de servicio (.cspkg) contiene el código y las configuraciones de la aplicación y el archivo de definición de servicio.
   
-Puede obtener más información acerca de éstas y cómo crear un paquete [aquí](cloud-services-model-and-package.md).
+Puede obtener más información acerca de estas y cómo crear un paquete [aquí](cloud-services-model-and-package.md).
 
 ## Preparación de la aplicación
 Antes de implementar un servicio en la nube, debe crear el paquete de servicio en la nube (.cspkg) desde su código de aplicación y un archivo de configuración de servicio en la nube (.cscfg). El SDK de Azure proporciona herramientas para preparar estos archivos de implementación necesarios. Puede instalar el SDK desde la página [Descargas de Azure](http://azure.microsoft.com/downloads/), en el idioma en que prefiera implementar su código de aplicación.
@@ -146,8 +146,8 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 ## Pasos siguientes
 
 * [Configuración general de su servicio en la nube](cloud-services-how-to-configure.md).
-* [Configuración de un nombre de dominio personalizado](cloud-services-custom-domain-name.md)
+* Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name.md).
 * [Administración de su servicio en la nube](cloud-services-how-to-manage.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

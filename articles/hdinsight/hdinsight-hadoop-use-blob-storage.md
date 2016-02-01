@@ -106,7 +106,7 @@ Si ha [instalado y configurado la CLI Azure](../xplat-cli-install.md), se puede 
 
 	azure storage account create <storageaccountname> --type LRS
 
-> [AZURE.NOTE]El parámetro `--type` indica cómo se replicará la cuenta de almacenamiento. Para obtener más información, vea [Replicación de almacenamiento de Azure](../storage-redundancy.md). No utilice ZRS, ya que no es compatible con el blob en páginas, el archivo, la tabla o la cola.
+> [AZURE.NOTE]El parámetro `--type` indica cómo se replicará la cuenta de almacenamiento. Para obtener más información, vea [Replicación de almacenamiento de Azure](../storage/storage-redundancy.md). No utilice ZRS, ya que no es compatible con el blob en páginas, el archivo, la tabla o la cola.
 
 Se le pedirá que especifique la región geográfica en la que se encontrará la cuenta de almacenamiento. Debe crear la cuenta de almacenamiento en la misma región en la que planea crear el clúster de HDInsight.
 
@@ -282,7 +282,9 @@ Para más información, consulte:
 * [Carga de datos en HDInsight][hdinsight-upload-data]
 * [Uso de Hive con HDInsight][hdinsight-use-hive]
 * [Uso de Pig con HDInsight][hdinsight-use-pig]
+* [Utilización de firmas de acceso compartido de Almacenamiento de Azure para restringir el acceso a datos con HDInsight][hdinsight-use-sas]
 
+[hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
 [powershell-install]: ../install-configure-powershell.md
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
@@ -297,4 +299,4 @@ Para más información, consulte:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

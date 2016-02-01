@@ -16,24 +16,24 @@
    ms.date="11/14/2015"
    ms.author="vturecek"/>
 
-# Patrón de diseño de Actores confiables: cálculo distribuido
-Esto lo debemos en parte a un cliente de la vida real que realizó un cálculo financiero en Actores confiables de Service Fabric en un período increíblemente corto, una simulación de Monte Carlo que garantiza la exactitud de cálculos de riesgos.
+# Patrón de diseño de Reliable Actors: cálculo distribuido
+Esto lo debemos en parte a un cliente de la vida real que creó un cálculo financiero en Reliable Actors de Azure Service Fabric en un período increíblemente corto. Fue una simulación de Monte Carlo para calcular los riesgos.
 
-En un principio, especialmente para aquellos que no tienen un conocimiento específico del dominio, el tratamiento que Service Fabric de Azure hace de este tipo de carga de trabajo, en lugar de otros enfoques que pueden ser más tradicionales como asignación y reducción o MPI, puede no resultar obvio.
+Si no tiene un conocimiento específico de dominios, las ventajas de utilizar Service Fabric para controlar este tipo de carga de trabajo en lugar de un enfoque más tradicional (como MapReduce o la interfaz de paso de mensajes) pueden no ser tan evidentes.
 
-Pero resulta que Service Fabric de Azure es un buena opción para la mensajería asincrónica paralela, el estado distribuido fácilmente administrable y el cálculo en paralelo, tal y como se muestra en el diagrama siguiente:
+No obstante, Service Fabric es un buena opción para la mensajería asincrónica paralela, el estado distribuido fácilmente administrable y el cálculo en paralelo, tal y como se muestra en el diagrama siguiente:
 
-![][1]
+![Mensajería asincrónica paralela, estado distribuido y cálculo en paralelo de Service Fabric][1]
 
-En el ejemplo siguiente, calculamos simplemente pi mediante una simulación de Monte Carlo. Tenemos los siguientes actores:
+En el ejemplo siguiente, calculamos simplemente pi mediante una simulación de Monte Carlo. Utilizamos los siguientes actores:
 
-* Processor, responsable de calcular pi con actores PoolTask.
+* Un procesador responsable de calcular pi mediante el uso de actores de tareas agrupados
 
-* PoolTask, responsable de la simulación de Monte Carlo que envía los resultados a Aggregator.
+* Una tarea agrupada responsable de la simulación de Monte Carlo que envía los resultados a un agregador
 
-* Aggregator, responsable de acumular los resultados y enviarlos a Finaliser.
+* Un agregador responsable de acumular los resultados y enviarlos a un finalizador
 
-* Finaliser, responsable de calcular el resultado final e imprimirlo en pantalla.
+* Un finalizador responsable de calcular el resultado final e imprimirlo en pantalla
 
 ## Ejemplo de código de cálculo distribuido: simulación de Monte Carlo
 
@@ -91,9 +91,11 @@ public class PooledTask : StatelessActor, IPooledTask
 }
 ```
 
-Una manera común de acumular los resultados en Service Fabric de Azure es usar temporizadores. Se usan actores sin estado por dos motivos principales: el tiempo de ejecución decidirá cuántos elementos Aggregator se necesitan de forma dinámica y, por tanto, ofrece escalado según sea necesario; y creará instancias de estos actores "localmente", es decir, en el mismo silo del actor que realiza la llamada, con lo que se reducen los saltos de red. Este es el aspecto de Aggregator y Finaliser:
+Una manera común de acumular los resultados en Service Fabric es usar temporizadores. Se usan actores sin estado por dos motivos principales: el tiempo de ejecución decidirá cuántos agregadores se necesitan de forma dinámica y, por tanto, ofrece escalado según sea necesario; y creará instancias de estos actores "localmente". En otras palabras, esto ocurrirá en el mismo silo del actor que realiza la llamada, con lo que se reducen los saltos de red.
 
-## Ejemplo de código de cálculo distribuido: aggregator
+Este es el aspecto del agregador y el finalizador:
+
+## Ejemplo de código de cálculo distribuido: agregador
 
 ```csharp
 public interface IAggregator : IActor
@@ -183,14 +185,14 @@ public class Finaliser : StatefulActor<FinalizerState>, IFinaliser
 }
 ```
 
-En este punto, debe quedar claro cómo se podría mejorar potencialmente el ejemplo de tabla de líderes con un elemento Aggregator para el escalado y el rendimiento.
+En este punto, debe quedar claro cómo se podría mejorar el ejemplo de marcador con un agregador para el escalado y el rendimiento.
 
-No estamos de ninguna manera afirmando que Service Fabric de Azure sea un sustituto directo de otros marcos de cálculo distribuido de datos de gran tamaño o cálculos de alto rendimiento. Simplemente, hay algunas cosas que están construidas para controlarse mejor que otras. Sin embargo, es posible modelar flujos de trabajo y cálculos paralelos distribuidos en Service Fabric de Azure, mientras se siguen obteniendo las ventajas de simplicidad que ofrece.
+No estamos de ninguna manera afirmando que Service Fabric sea un sustituto directo de otros marcos de cálculo distribuido de macrodatos o cálculos de alto rendimiento. Está pensado para controlar unas cosas mejor que otras. Sin embargo, es posible modelar flujos de trabajo y cálculos paralelos distribuidos en Service Fabric, mientras se siguen obteniendo las ventajas de simplicidad que ofrece.
 
 ## Pasos siguientes
 [Patrón: memoria caché inteligente](service-fabric-reliable-actors-pattern-smart-cache.md)
 
-[Patrón: gráficos y redes distribuidas](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
+[Patrón: gráficos y redes distribuidos](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
 [Patrón: gobernanza de recursos](service-fabric-reliable-actors-pattern-resource-governance.md)
 
@@ -200,10 +202,10 @@ No estamos de ninguna manera afirmando que Service Fabric de Azure sea un sustit
 
 [Algunos antipatrones](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introducción a los actores de Service Fabric](service-fabric-reliable-actors-introduction.md)
+[Introducción a Actores confiables de Service Fabric.](service-fabric-reliable-actors-introduction.md)
 
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Introducción a los actores confiables | Microsoft Azure"
+   pageTitle="Introducción a Reliable Actors | Microsoft Azure"
    description="Este tutorial le guiará a través de los pasos para crear, depurar e implementar un servicio HelloWorld canónico con los actores confiables de Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -17,44 +17,44 @@
    ms.author="vturecek"/>
 
 # Actores confiables: el escenario de tutorial de HelloWorld canónico
-En este artículo se explican los conceptos básicos de los actores confiables de Service Fabric, además de ofrecer orientación sobre cómo completar los pasos para crear, depurar e implementar una aplicación HelloWorld sencilla en Visual Studio.
+En este artículo se explican los conceptos básicos de Reliable Actors de Azure Service Fabric, además de ofrecer orientación sobre cómo completar los pasos para crear, depurar e implementar una aplicación HelloWorld sencilla en Visual Studio.
 
 ## Instalación y configuración
-Antes de comenzar, asegúrese de que tiene la configuración del entorno de desarrollo de Service Fabric en el equipo. Encontrará instrucciones detalladas sobre cómo configurar el entorno de desarrollo [aquí](service-fabric-get-started.md).
+Antes de comenzar, asegúrese de que el entorno de desarrollo de Service Fabric está configurado en el equipo. Para ello, vea instrucciones detalladas sobre [cómo configurar el entorno de desarrollo](service-fabric-get-started.md).
 
 ## Conceptos básicos
-Para empezar a trabajar con actores confiables, solo es necesario comprender cuatro conceptos básicos:
+Para empezar a trabajar con Reliable Actors, solo es necesario comprender cuatro conceptos básicos:
 
-* **Servicio de actor**. Los actores confiables se empaquetan en los servicios que se pueden implementar en la infraestructura de Service Fabric. Un servicio puede hospedar uno o varios actores. Se profundizará en los detalles sobre las ventajas y desventajas de un actor frente a varios por servicio más adelante. Por ahora supongamos que debemos implementar solo un actor.
-* **Interfaz de actor**. La interfaz de actor se usar para definir la interfaz pública de un actor. En la terminología del modelo actor, se define el tipo de mensajes que el actor es capaz de entender y procesar. Otros actores o aplicaciones de cliente usan la interfaz de actor para "enviar" (asincrónicamente) mensajes al actor. Los actores confiables pueden implementar varias interfaces; como se verá, un actor HelloWorld puede implementar la interfaz IHelloWorld, pero también una interfaz ILogging que define diferentes mensajes y funcionalidades.
-* **Registro de actor**. En el servicio de actor, el tipo de actor debe registrarse para que Service Fabric sea consciente del nuevo tipo y puede usarlo para crear nuevos actores.
+* **Servicio de actor**. Reliable Actors se empaquetan en servicios que se pueden implementar en la infraestructura de Service Fabric. Un servicio puede hospedar uno o varios actores. A continuación, se profundizará en los detalles sobre las ventajas y desventajas de un actor frente a varios por servicio. Por ahora supongamos que debemos implementar solo un actor.
+* **Interfaz de actor**. La interfaz de actor se usa para definir la interfaz pública de un actor. En la terminología del modelo de Reliable Actors, la interfaz de actor define los tipos de mensajes que el actor puede entender y procesar. Otros actores y aplicaciones de cliente usan la interfaz de actor para "enviar" (asincrónicamente) mensajes al actor. Reliable Actors pueden implementar varias interfaces. Como se verá, un actor HelloWorld puede implementar la interfaz IHelloWorld, pero también una interfaz ILogging que define diferentes mensajes o funcionalidades.
+* **Registro de actor**. En el servicio Reliable Actors, el tipo de actor debe registrarse. De este modo, Service Fabric es consciente del nuevo tipo y puede utilizarlo para crear nuevos actores.
 * **Clase ActorProxy**. La clase ActorProxy se usa para enlazar a un actor e invocar los métodos expuestos a través de sus interfaces. La clase ActorProxy ofrece dos funciones importantes:
-	* Resolución de nombres: es capaz de ubicar el actor en el clúster (encontrar el nodo en que se hospeda el clúster).
-	* Control de errores: puede volver a intentar las invocaciones de métodos y volver a determinar la ubicación del actor, por ejemplo, tras un error que requiere que el actor se reubique en otro nodo del clúster.
+	* Resuelve nombres. Es capaz de ubicar el actor en el clúster (encontrar el nodo en que se hospeda el clúster).
+	* Controla errores. Puede reintentar las invocaciones de métodos y volver a determinar la ubicación del actor, por ejemplo, tras un error que requiere que el actor se reubique en otro nodo del clúster.
 
 ## Creación de un proyecto en Visual Studio
-Después de instalar las herramientas de Service Fabric para Visual Studio, puede crear un nuevo tipo de proyecto. Los nuevos tipos de proyecto están en la categoría "Nube" del cuadro de diálogo Nuevo proyecto
+Después de instalar las herramientas de Service Fabric para Visual Studio, puede crear tipos de proyecto nuevos. Los nuevos tipos de proyecto están en la categoría **Nube** del cuadro de diálogo **Nuevo proyecto**.
 
 
-![Herramientas de Service Fabric para VS: nuevo proyecto][1]
+![Herramientas de Service Fabric para Visual Studio: nuevo proyecto][1]
 
 En el siguiente cuadro de diálogo puede elegir el tipo de proyecto que desea crear.
 
 ![Plantillas de proyecto de Service Fabric][5]
 
-Para el proyecto HelloWorld, se usará el servicio de actor de Service Fabric.
+Para el proyecto HelloWorld, se usará el servicio Reliable Actors de Service Fabric.
 
-Una vez creada la solución, verá la siguiente estructura:
+Después de haber creado la solución, debe ver la estructura siguiente:
 
 ![Estructura de proyecto de Service Fabric][2]
 
 ## Bloques de creación básicos de actores de confianza
 
-Una solución típica de actores confiables se compone de tres proyectos:
+Una solución típica de Reliable Actors se compone de tres proyectos:
 
-* El proyecto de aplicación (HelloWorldApplication). Este es el proyecto que empaqueta todos los servicios juntos para la implementación. Contiene los scripts de PowerShell y ApplicationManifest.xml para administrar la aplicación.
+* **El proyecto de aplicación (HelloWorldApplication)**. Este es el proyecto que empaqueta todos los servicios juntos para la implementación. Contiene los scripts de PowerShell y **ApplicationManifest.xml** para administrar la aplicación.
 
-* El proyecto de interfaz (HelloWorld.Interfaces). Este es el proyecto que contiene la definición de la interfaz del actor. En el proyecto de interfaces puede definir las interfaces que usarán los actores de la solución.
+* **El proyecto de interfaz (HelloWorld.Interfaces)**. Este es el proyecto que contiene la definición de la interfaz del actor. En el proyecto HelloWorld.Interfaces puede definir las interfaces que usarán los actores de la solución.
 
 ```csharp
 
@@ -71,7 +71,7 @@ namespace MyActor.Interfaces
 
 ```
 
-* El proyecto de servicio (HelloWorld). Este es el proyecto que se usa para definir el servicio de Service Fabric que hospedará al actor. Contiene código reutilizable que no deben editarse en la mayoría de casos (ServiceHost.cs) y la implementación del actor. La implementación del actor implica implementar una clase que derive de un tipo base (Actor) e implemente las interfaces definidas en el proyecto .Interfaces.
+* **El proyecto de servicio (HelloWorld)**. Este es el proyecto que se usa para definir el servicio de Service Fabric que hospedará al actor. Contiene código reutilizable que no debe editarse en la mayoría de casos (ServiceHost.cs), así como la implementación del actor. La implementación del actor conlleva implementar una clase que deriva de un tipo base (Actor). También implementa las interfaces que se definen en el proyecto HelloWorld.Interfaces.
 
 ```csharp
 
@@ -93,7 +93,7 @@ namespace MyActor
 
 ```
 
-El proyecto de servicio de actor contiene el código para crear un servicio de Service Fabric, en la definición del servicio, los tipos de actor se registran para que se puedan usar para crear una instancia nuevos actores.
+El proyecto del servicio Reliable Actors contiene el código para crear un servicio de Service Fabric. En la definición de servicio, se registran el tipo de actor o los tipos, por lo que pueden usarse para crear una instancia de nuevos actores.
 
 ```csharp
 
@@ -139,9 +139,11 @@ fabricRuntime.RegisterActor<MyActor>();
 
 ## Depuración
 
-Las herramientas de Service Fabric para Visual Studio admiten la depuración en el equipo local. Puede iniciar una sesión de depuración presionando F5. Visual Studio genera (si es necesario) paquetes, implementa la aplicación en el clúster de Service Fabric local y asocia al depurador. La experiencia es similar a la depuración de una aplicación ASP.NET. Durante el proceso de implementación, puede ver el progreso en la Ventana de salida
+Las herramientas de Service Fabric para Visual Studio admiten la depuración en el equipo local. Puede iniciar una sesión de depuración presionando la tecla F5. Visual Studio compila (si es necesario) paquetes. También implementa la aplicación en el clúster de Service Fabric local y asocia el depurador. La experiencia es similar a la depuración de una aplicación ASP.NET.
 
-![Ventana de salida de depuración de Service Fabric][3]
+Durante el proceso de implementación, puede ver el progreso en la ventana **Resultados**.
+
+![Ventana de resultados de depuración de Service Fabric][3]
 
 
 ## Pasos siguientes
@@ -158,4 +160,4 @@ Las herramientas de Service Fabric para Visual Studio admiten la depuración en 
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

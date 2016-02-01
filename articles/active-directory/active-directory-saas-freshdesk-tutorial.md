@@ -2,7 +2,7 @@
     pageTitle="Tutorial: integración de Azure Active Directory con Freshdesk | Microsoft Azure" 
     description="Aprenda a usar Freshdesk con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con Freshdesk
   
@@ -86,7 +86,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
 5.  En otra ventana del explorador web, inicie sesión en el sitio de la compañía de Freshdesk como administrador.
 
-6.  En el menú de la parte superior, haga clic en **Administrador**.
+6.  En el menú de la parte superior, haga clic en **Admin** (Administrador).
 
     ![Administrador](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Administrador")
 
@@ -99,7 +99,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
     ![Inicio de sesión único](./media/active-directory-saas-freshdesk-tutorial/IC776770.png "Inicio de sesión único")
 
     1.  En **Inicio de sesión único (SSO)**, seleccione**Activado**.
-    2.  Seleccione **Inicio de sesión único de SAML**.
+    2.  Seleccione **SAML SSO** (SSO de SAML).
     3.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Freshdesk**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión de SAML**.
     4.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Freshdesk**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
     5.  Copie el valor de **Huella digital** del certificado exportado y luego péguelo en el cuadro de texto **Huella digital de certificado de seguridad**.  
@@ -108,7 +108,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     6.  Haga clic en **Guardar**.
 
-9.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-freshdesk-tutorial/IC776771.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -136,7 +136,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Freshdesk, deben a
     ![Información de agente](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Información de agente")
 
     1.  En el cuadro de texto **Nombre completo**, escriba el nombre de la cuenta de Azure AD que quiera aprovisionar.
-    2.  En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de la cuenta de Azure AD que quiera aprovisionar.
+    2.  En el cuadro de texto **Email** (Correo electrónico), escriba la dirección de correo electrónico de la cuenta de Azure AD que quiera aprovisionar.
     3.  En el cuadro de texto **Título**, escriba el título de la cuenta de Azure AD que quiera aprovisionar.
     4.  Seleccione **Rol de agentes** y luego haga clic en **Asignar**.
     5.  Haga clic en **Guardar**.
@@ -157,10 +157,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-freshdesk-tutorial/IC776776.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-freshdesk-tutorial/IC767830.png "Sí")
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

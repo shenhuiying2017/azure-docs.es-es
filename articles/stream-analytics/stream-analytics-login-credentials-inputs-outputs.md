@@ -17,7 +17,7 @@
 	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-#Giro de credenciales de inicio de sesión
+#Giro de las credenciales de inicio de sesión para entradas y salidas de los trabajos de Análisis de transmisiones
 
 ##Descripción breve
 En la actualidad, Análisis de transmisiones de Azure no permite reemplazar las credenciales en una entrada/salida mientras se ejecuta el trabajo.
@@ -194,4 +194,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

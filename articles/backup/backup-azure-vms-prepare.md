@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+	ms.date="01/19/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Preparación del entorno de copia de seguridad de máquinas virtuales de Azure
 Antes de realizar la copia de seguridad de una máquina virtual (VM) de Azure, debe completar estos requisitos previos para preparar el entorno. Si ya lo hizo, puede comenzar a [crear la copia de seguridad de las máquinas virtuales](backup-azure-vms.md). Si no es así, siga estos pasos para asegurarse de que el entorno esté listo.
@@ -178,7 +178,7 @@ Si se ejecuta la máquina virtual, se instala la extensión de copia de segurida
 - No se admite la restauración y copia de seguridad entre regiones.
 - Se admite la copia de seguridad de máquinas virtuales mediante el uso del servicio Copia de seguridad de Azure en todas las regiones públicas de Azure (consulte la [lista de comprobación](http://azure.microsoft.com/regions/#services) de las regiones compatibles). Si la región que está buscando no es compatible actualmente, no aparecerá en la lista desplegable durante la creación del almacén.
 - La copia de seguridad de máquinas virtuales con el servicio Copia de seguridad de Azure solo se admite en determinadas versiones de sistemas operativos:
-  - **Linux**: Consulte [la lista de distribuciones aprobadas por Azure](../virtual-machines-linux-endorsed-distributions.md). Otras distribuciones con la iniciativa "traiga su propio Linux" también deberían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual.
+  - **Linux**: Consulte [la lista de distribuciones aprobadas por Azure](../virtual-machines/virtual-machines-linux-endorsed-distributions.md). Otras distribuciones con la iniciativa "traiga su propio Linux" también deberían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual.
   - **Windows Server**: no se admiten las versiones anteriores a Windows Server 2008 R2.
 - La restauración de una máquina virtual de controlador de dominio que forma parte de una configuración de varios controladores de dominio solo se admite a través de PowerShell. Más información sobre cómo [restaurar un controlador de dominio de varios controladores de dominio](backup-azure-restore-vms.md#restoring-domain-controller-vms)
 - Solo se admite la restauración de las máquinas virtuales que tienen las siguientes configuraciones especiales de red a través de PowerShell. Las máquinas virtuales que se crean con el flujo de trabajo de restauración en la interfaz de usuario no tendrán estas configuraciones de red cuando se complete la operación de restauración. Si desea obtener más información, consulte [Restauración de máquinas virtuales con configuraciones de red especiales](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
@@ -195,4 +195,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 - [Copia de seguridad de máquinas virtuales](backup-azure-vms.md)
 - [Administración de copias de seguridad de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

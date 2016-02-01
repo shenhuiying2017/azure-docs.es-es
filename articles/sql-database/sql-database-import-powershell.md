@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Importar un archivo BACPAC para crear una base de datos SQL de Azure mediante PowerShell" 
+    pageTitle="Importar un archivo BACPAC para crear una base de datos SQL de Azure mediante PowerShell | Microsoft Azure" 
     description="Importar un archivo BACPAC para crear una base de datos SQL de Azure mediante PowerShell" 
     services="sql-database" 
     documentationCenter="" 
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/17/2015"
+    ms.date="01/20/2016"
     ms.author="sstein"/>
 
 # Importar un archivo BACPAC para crear una base de datos SQL de Azure mediante PowerShell
@@ -60,7 +60,7 @@ Para seleccionar la suscripción, necesita su id. de suscripción. Puede copiar 
 
 	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-Después de ejecutar correctamente **Select-AzureSubscription** volverá al símbolo del sistema de PowerShell. Si tiene más de una suscripción, puede ejecutar **Get-AzureSubscription** y comprobar que la suscripción que ha seleccionado muestra el elemento **IsCurrent: True**.
+Después de ejecutar correctamente **Select-AzureSubscription** volverá al símbolo del sistema de PowerShell. Si tiene más de una suscripción, puede ejecutar **Get-AzureSubscription** y comprobar que la suscripción que ha seleccionado muestra **IsCurrent: True**.
 
 
 ## Configurar las variables para su entorno
@@ -142,7 +142,7 @@ Al ejecutar este comando se le solicitará una contraseña. Escriba el inicio de
 
 ## Pasos siguientes
 
-- [Conexión con SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Conexión a la Base de datos SQL con SQL Server Management Studio y realización de una consulta de T-SQL de ejemplo](sql-database-connect-query-ssms.md)
 
 
 
@@ -153,4 +153,4 @@ Al ejecutar este comando se le solicitará una contraseña. Escriba el inicio de
 - [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
 - [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Mimecast Personal Portal | Microsoft Azure" 
     description="Aprenda a usar Mimecast Personal Portal con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Mimecast Personal Portal
   
@@ -82,7 +82,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794996.png "Configurar dirección URL de la aplicación")
 
-4.  En la página **Configurar inicio de sesión único en Mimecast Personal Portal**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado localmente en el equipo.
+4.  En la página **Configurar inicio de sesión único en Mimecast Personal Portal**, para descargar el certificado, haga clic en **Descargar certificado** y, a continuación, guarde el archivo de certificado localmente en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794997.png "Configurar inicio de sesión único")
 
@@ -92,15 +92,15 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
     ![Aplicaciones](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794998.png "Aplicaciones")
 
-7.  Haga clic en **Perfiles de autenticación**.
+7.  Haga clic en **Authentication Profiles** (Perfiles de autenticación).
 
     ![Perfiles de autenticación](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794999.png "Perfiles de autenticación")
 
-8.  Haga clic en **Nuevo perfil de autenticación**.
+8.  Haga clic en **New Authentication Profile** (Nuevo perfil de autenticación).
 
     ![Nuevo perfil de autenticación](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795000.png "Nuevo perfil de autenticación")
 
-9.  En la sección **Perfil de autenticación**, realice estos pasos:
+9.  En la sección **Authentication Profile** (Perfil de autenticación), realice estos pasos:
 
     ![Perfil de autenticación](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795001.png "Perfil de autenticación")
 
@@ -117,7 +117,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
         >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-    8.  Abra el certificado codificado en base 64 en el Bloc de notas, quite la primera línea (“*--*”) y la última línea (“*--*”), copie el resto del contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado de proveedor de identidades (metadatos)**.
+    8.  Abra el certificado codificado en base 64 en el Bloc de notas, quite la primera línea (“*--*”) y la última línea (“*--*”), copie el resto del contenido en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado de proveedor de identidades (metadatos)**.
     9.  Seleccione **Permitir inicio de sesión único**.
     10. Haga clic en **Guardar**.
 
@@ -138,11 +138,11 @@ Deberá registrar un dominio para poder crear los usuarios.
 
     ![Directorios](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795003.png "Directorios")
 
-3.  Haga clic en **Registrar nuevo dominio**.
+3.  Haga clic en **Register New Domain** (Registrar nuevo dominio).
 
     ![Registrar nuevo dominio](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795004.png "Registrar nuevo dominio")
 
-4.  Una vez creado el nuevo dominio, haga clic en **Nueva dirección**.
+4.  Una vez creado el nuevo dominio, haga clic en **New Address** (Nueva dirección).
 
     ![Nueva dirección](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795005.png "Nueva dirección")
 
@@ -150,7 +150,7 @@ Deberá registrar un dominio para poder crear los usuarios.
 
     ![Save](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795006.png "Save")
 
-    1.  Escriba los datos de una cuenta de AAD válida que desee aprovisionar en los cuadros de texto correspondientes: **Dirección de correo electrónico**, **Nombre global**, **Contraseña** y **Confirmar contraseña**.
+    1.  Escriba los datos de una cuenta de AAD válida que desee aprovisionar en los cuadros de texto correspondientes: **Email Address** (Dirección de correo electrónico), **Global Name** (Nombre global), **Password** (Contraseña) y **Confirm Password** (Confirmar contraseña).
     2.  Haga clic en **Guardar**.
 
 >[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Mimecast Personal Portal ofrecida por Mimecast Personal Portal para aprovisionar cuentas de usuario de AAD.
@@ -173,4 +173,4 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

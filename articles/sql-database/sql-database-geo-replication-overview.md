@@ -31,15 +31,13 @@ Algunos otros escenarios donde se puede usar Replicación geográfica activa son
 - **Migración de base de datos**: puede usar Replicación geográfica activa para migrar una base de datos de un servidor a otro en línea con un tiempo de inactividad mínimo.
 - **Actualizaciones de aplicaciones**: puede usar la base de datos secundaria en línea como opción de conmutación por recuperación.
 
-Para lograr una verdadera continuidad empresarial, agregar redundancia entre centros de datos al almacenamiento relacional es solo parte de la solución. Para recuperar una aplicación (un servicio) de un extremo a otro tras un error desastroso, es necesario recuperar todos los componentes que constituyen el servicio y cualquier servicio dependiente. Algunos ejemplos de estos componentes son el software cliente (por ejemplo, un explorador con JavaScript personalizado), los front-end web, el almacenamiento y DNS. Es fundamental que todos los componentes sean resistentes a los mismos errores y que estén disponibles en el plazo del objetivo de tiempo de recuperación (RTO) de la aplicación. Por lo tanto, debe identificar todos los servicios dependientes y comprender las garantías y capacidades que ofrecen. A continuación, debe seguir los pasos adecuados para asegurarse de que el servicio funcione durante la conmutación por error de los servicios de los que depende. Para obtener más información sobre el diseño de soluciones para la recuperación ante desastres, consulte [Diseño de aplicaciones de nube para la continuidad de negocio mediante replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recover.md).
+Para lograr una verdadera continuidad empresarial, agregar redundancia entre centros de datos al almacenamiento relacional es solo parte de la solución. Para recuperar una aplicación (un servicio) de un extremo a otro tras un error desastroso, es necesario recuperar todos los componentes que constituyen el servicio y cualquier servicio dependiente. Algunos ejemplos de estos componentes son el software cliente (por ejemplo, un explorador con JavaScript personalizado), los front-end web, el almacenamiento y DNS. Es fundamental que todos los componentes sean resistentes a los mismos errores y que estén disponibles en el plazo del objetivo de tiempo de recuperación (RTO) de la aplicación. Por lo tanto, debe identificar todos los servicios dependientes y comprender las garantías y capacidades que ofrecen. A continuación, debe seguir los pasos adecuados para asegurarse de que el servicio funcione durante la conmutación por error de los servicios de los que depende. Para obtener más información sobre el diseño de soluciones para la recuperación ante desastres, consulte [Diseño de aplicaciones de nube para la continuidad de negocio mediante replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-## Capacidades de Replicación geográfica activa
-La característica Replicación geográfica activa ofrece las capacidades esenciales siguientes:
+## Funcionalidad de replicación geográfica activa
+La característica Replicación geográfica activa ofrece la funcionalidad esencial siguiente:
 
 - **Replicación asincrónica automática**: después de la propagación de una base de datos secundaria en línea, las actualizaciones en la base de datos principal se copian de forma asincrónica a la base de datos secundaria en línea automáticamente. Esto significa que las transacciones se confirman en la base de datos principal antes de que se copien a la base de datos secundaria en línea. Sin embargo, después de la propagación, la base de datos secundaria en línea guarda coherencia transaccional en cualquier momento dado.
-
 	>[AZURE.NOTE]La replicación asincrónica permite la latencia que tipifica a las redes de área extensa mediante las que los centros de datos remotos están conectados.
-
 
 - **Varias bases de datos secundarias en línea**: dos o más bases de datos secundarias en línea aumentan la redundancia y la protección de la base de datos principal y la aplicación. Si existen varias bases de datos secundarias en línea, la aplicación seguirá estando protegida incluso si se produce un error en una de ellas. Si solo hay una base de datos secundaria en línea y se produce un error, la aplicación está expuesta a un mayor riesgo hasta que se crea una nueva base de datos secundaria en línea.
 
@@ -79,4 +77,4 @@ Para obtener más información acerca de cómo finalizar una relación de copia 
 ## Pasos siguientes
 Para obtener más información sobre Replicación geográfica activa y otras características de continuidad empresarial de Base de datos SQL, consulte [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md).
 
-<!--------HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

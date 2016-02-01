@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="10/14/2015"
+   ms.date="01/13/2016"
    ms.author="cawa"/>
 
 # Uso de Visual Studio para crear un contenedor de servicios en la nube
@@ -33,4 +33,4 @@ Para ver el **Explorador de servidores** en Visual Studio, en la barra de menús
 Ahora que tiene un contenedor de servicios en la nube, puede [crear e implementar](cloud-services-how-to-create-deploy.md) un servicio en la nube.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2015"
+	ms.date="01/19/2016"
 	ms.author="jhubbard"/>
 
 
@@ -22,7 +22,7 @@ En este tutorial aprenderá los fundamentos del uso de SQL Data Sync de Azure me
 
 En este tutorial se presupone una experiencia previa mínima en SQL Server y Base de datos SQL de Azure. En este tutorial, creará un grupo de sincronización híbrido (sesiones de SQL Server y Base de datos SQL) completamente configurado y sincronizado en función de cómo lo programe.
 
-> [AZURE.NOTE]La documentación técnica completa para Azure SQL Data Sync, que anteriormente se encontraba en MSDN, es ahora un archivo .pdf que puede descargar [aquí](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
+> [AZURE.NOTE]La documentación técnica completa para Azure SQL Data Sync, que anteriormente se encontraba en MSDN, está disponible como .pdf. Descárguela [aquí](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 ## Paso 1: Conexión a la Base de datos SQL de Azure
 
@@ -202,4 +202,4 @@ Para obtener más información acerca de Base de datos SQL y SQL Data Sync, cons
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

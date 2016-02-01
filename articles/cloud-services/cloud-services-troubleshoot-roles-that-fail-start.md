@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Solución de problemas de roles que se inician| Microsoft Azure"
    description="A continuación, se indican algunas causas habituales de por qué un rol de servicio en la nube no se inicia. También se proporcionan soluciones a estos problemas."
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="10/14/2015"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # Pasos comunes para solucionar problemas de roles de servicio en la nube que no se inician
@@ -165,4 +165,6 @@ Cuando haya comprobado que todos los errores se han corregido, el servicio se pu
 
 Vea más [artículos de solución de problemas](..\?tag=top-support-issue&service=cloud-services) para servicios en la nube.
 
-<!---HONumber=AcomDC_1203_2015-->
+Para más información acerca de cómo solucionar el problema de los roles de servicio en la nube mediante el uso de datos de diagnóstico de equipos de PaaS de Azure, consulte la [serie de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+
+<!---HONumber=AcomDC_0121_2016-->

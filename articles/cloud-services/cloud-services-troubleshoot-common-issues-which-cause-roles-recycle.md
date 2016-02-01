@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Causas comunes del reciclado de roles del servicio en la nube | Microsoft Azure"
    description="Un rol del servicio en la nube que se recicla repentinamente puede causar un considerable tiempo de inactividad. Presentamos algunos de los problemas comunes que pueden provocar el reciclaje de roles, lo que le ayudará a mejorar el tiempo de inactividad."
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="10/14/2015"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # Problemas comunes que causan el reciclaje de los roles
@@ -36,7 +36,7 @@ Antes de compilar y empaquetar la aplicación, compruebe lo siguiente:
 - Si usa Visual studio, asegúrese de que la propiedad **Copy Local** se establece en **True** para cada ensamblado del proyecto que no forme parte de Azure SDK o de .NET Framework.
 
 - Asegúrese de que el archivo **web.config** no hace referencia a ningún ensamblado sin usar en el elemento **compilation**.
- 
+
 - El elemento **Build Action** de cada archivo .cshtml se establece en **Content**. Esto garantiza que los archivos aparezcan correctamente en el paquete y permite que otros archivos referenciados aparezcan en el paquete.
 
 
@@ -66,8 +66,8 @@ Si la aplicación usa Diagnósticos de Azure, el archivo de configuración de se
 Para asegurarse de que el valor de `DiagnosticsConnectionString` sea correcto antes de implementar el paquete de aplicación en Azure, compruebe lo siguiente:
 
 - El valor de `DiagnosticsConnectionString` apunta a una cuenta de almacenamiento válida de Azure. De forma predeterminada, este valor apunta a la cuenta de almacenamiento emulado, por lo que debe cambiar explícitamente esta configuración antes de implementar el paquete de aplicación. Si no cambia este valor, se produce una excepción cuando la instancia de rol intenta iniciar al monitor de diagnóstico. Esto puede hacer que la instancia de rol se recicle indefinidamente.
-  
-- La cadena de conexión se especifica en el [formato](storage-configure-connection-string.md) siguiente (el protocolo que se especifique debe ser HTTPS). Reemplace *MyAccountName* por el nombre de su cuenta de almacenamiento y *MyAccountKey* por la clave de acceso de su cuenta:
+
+- La cadena de conexión se especifica en el [formato](../storage/storage-configure-connection-string.md) siguiente (el protocolo que se especifique debe ser HTTPS). Reemplace *MyAccountName* por el nombre de su cuenta de almacenamiento y *MyAccountKey* por la clave de acceso de su cuenta:
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
@@ -85,6 +85,8 @@ Para ejecutar un rol web con SSL, debe asegurarse de que el certificado de admin
 
 Vea más [artículos de solución de problemas](..\?tag=top-support-issue&service=cloud-services) para servicios en la nube.
 
+Consulte más escenarios de reciclaje de roles en la [series de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+
 
 
 
@@ -93,4 +95,4 @@ Vea más [artículos de solución de problemas](..\?tag=top-support-issue&servic
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

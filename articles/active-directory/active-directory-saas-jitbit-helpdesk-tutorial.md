@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Jitbit Helpdesk | Microsoft Azure" 
     description="Aprenda a usar Jitbit Helpdesk con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Jitbit Helpdesk
   
@@ -82,7 +82,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777528.png "Configurar dirección URL de la aplicación")
 
-4.  En la página **Configurar inicio de sesión único en Jitbit Helpdesk**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado localmente como **c:\\Jitbit Helpdesk.cer**.
+4.  En la página **Configurar inicio de sesión único en Jitbit Helpdesk**, para descargar el certificado, haga clic en **Descargar certificado** y, a continuación, guarde el archivo de certificado localmente como **c:\\Jitbit Helpdesk.cer**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777680.png "Configurar inicio de sesión único")
 
@@ -109,7 +109,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
     4.  Abra el certificado codificado en base 64, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509**.
     5.  Haga clic en **Guardar cambios**.
 
-9.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777684.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -132,7 +132,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Jitbit Helpdesk, d
 
     ![Agregar usuario](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777685.png "Agregar usuario")
 
-5.  En la sección Crear, escriba los datos de la cuenta de Azure AD que desee aprovisionar en los cuadros de texto siguientes: **Nombre de usuario**, **Correo electrónico**, **Nombre**, **Apellido**.
+5.  En la sección Crear, escriba los datos de la cuenta de Azure AD que desee aprovisionar en los cuadros de texto siguientes: **Nombre de usuario**, **Correo electrónico**, **Nombre**, **Apellido**
 
     ![Crear](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777686.png "Crear")
 
@@ -152,10 +152,10 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
     ![Asignar usuarios](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777687.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC767830.png "Sí")
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

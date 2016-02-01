@@ -24,6 +24,8 @@
 
 Puede usar la [API de REST del proveedor de recursos del Centro de IoT][lnk-rest-api] para crear y administrar los centros de IoT de Azure mediante programación. En este tutorial se muestra cómo usar la API de REST del proveedor de recursos para crear un centro de IoT desde un programa de C#.
 
+> [AZURE.NOTE]Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../resource-manager-deployment-model.md). Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos.
+
 Para completar este tutorial, necesitará lo siguiente:
 
 - Microsoft Visual Studio 2015.
@@ -192,4 +194,4 @@ Ahora puede completar la aplicación llamando a los métodos **CreateIoTHub** y 
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

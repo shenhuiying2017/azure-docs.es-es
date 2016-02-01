@@ -71,7 +71,7 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 - Secuencias comprimidas: no compatibles, se omiten
 - Secuencias dispersas: no compatibles, se omiten
 
-**P13. ¿Cuál es el requisito de tamaño mínimo para la carpeta de caché?** <br/> R13. El tamaño de la carpeta de caché se determina por la cantidad de datos de la que se realiza la copia de seguridad. En general, debe esperar que 10-15% del espacio necesario para el almacenamiento de datos se asigne a la carpeta de caché.
+**P13. ¿Cuál es el requisito de tamaño mínimo para la carpeta de caché?** <br/> R13. El tamaño de la carpeta de caché se determina por la cantidad de datos de la que se realiza la copia de seguridad. En general, debe esperar que 5 % del espacio necesario para el almacenamiento de datos se asigne a la carpeta de caché.
 
 **P14. ¿Cómo puedo aislar datos específicos del servidor para que no los recuperen otros servidores de mi organización?**<br/> R14. Los servidores que se registran con el mismo almacén podrán recuperar los datos de copia de seguridad desde otros servidores que usan la misma frase de contraseña. Si tiene servidores de los que desea asegurarse de que la recuperación solo se realiza en servidores específicos de su organización, debe usar una frase de contraseña independiente designada para esos servidores. Por ejemplo, los servidores de recursos humanos podrían usar una frase de contraseña de cifrado, los servidores de contabilidad, otra y los servidores de almacenamiento, otra distinta.
 
@@ -138,7 +138,7 @@ El tamaño de origen de datos se mide según se menciona a continuación
 **P11. ¿Por qué la cantidad de datos transferida en la copia de seguridad es distinta a la cantidad de datos de los que realizo la copia de seguridad?**<br/> R11. Todos los datos de los que se realiza una copia de seguridad se comprimen y se cifran antes de ser transferidos. Puede esperar unas ventajas de compresión de entre el 30 y el 40 % en función del tipo de datos de los cuales se realiza la copia de seguridad.
 
 ## Recuperación
-**P1. ¿Cuántas recuperaciones puedo realizar en los datos que tienen copia de seguridad en Azure?**<br/> R1. No hay ningún límite en cuanto al número de recuperaciones de la Copia de seguridad de Azure.
+**P1. ¿Cuántas recuperaciones puedo realizar en los datos cuya copia de seguridad se crea en Azure?**<br/> R1. No hay ningún límite en cuanto al número de recuperaciones de la Copia de seguridad de Azure.
 
 **P2. ¿Tengo que pagar por el tráfico de salida desde el centro de datos de Azure durante las recuperaciones?**<br/> R2. No. Sus recuperaciones son gratuitas y no se cobra por el tráfico de salida.
 
@@ -166,8 +166,8 @@ El tamaño de origen de datos se mide según se menciona a continuación
 
 	| Ruta de acceso del Registro | Clave del Registro | Valor |
 	| ------ | ------- | ------ |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config` | ScratchLocation | <i>Nueva ubicación de la carpeta de la memoria caché</i> |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Nueva ubicación de la carpeta de la memoria caché</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>Nueva ubicación de la carpeta de la memoria caché</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Nueva ubicación de la carpeta de la memoria caché</i> |
 
 
 + Para iniciar OBEngine, ejecute el siguiente comando en un símbolo del sistema con privilegios elevados:
@@ -176,4 +176,4 @@ El tamaño de origen de datos se mide según se menciona a continuación
 
 Una vez que las copias de seguridad se realizan correctamente con la nueva ubicación de caché, puede quitar la carpeta de la memoria caché original.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

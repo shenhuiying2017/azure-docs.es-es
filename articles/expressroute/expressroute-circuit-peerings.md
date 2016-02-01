@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Circuitos ExpressRoute y dominios de enrutamiento
@@ -33,7 +33,7 @@ Cada circuito tiene un ancho de banda fijo (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbp
 
 ### Cuotas, límites y limitaciones
 
-Se aplican límites y cuotas predeterminados para cada circuito ExpressRoute. Para obtener la información más actualizada sobre las cuotas, consulte [Suscripción de Azure y límites, cuotas y restricciones de servicio](../articles/azure-subscription-service-limits.md).
+Se aplican límites y cuotas predeterminados para cada circuito ExpressRoute. Para obtener la información más actualizada sobre las cuotas, consulte [Suscripción de Azure y límites, cuotas y restricciones de servicio](../../includes/expressroute-limits.md).
 
 ## Dominios de enrutamiento de ExpressRoute
 
@@ -47,7 +47,7 @@ Un circuito ExpressRoute tiene asociados varios dominios de enrutamiento: públi
 
 Los servicios de proceso de Azure, concretamente las máquinas virtuales (IaaS) y los servicios en la nube (PaaS), que se implementan en una red virtual, pueden estar conectados mediante el dominio de emparejamiento privado. El dominio de emparejamiento privado se considera una extensión confiable de la red principal en Microsoft Azure. Puede configurar una conectividad bidireccional entre la red principal y las redes virtuales de Azure (VNet). De esta forma podrá conectarse a máquinas virtuales y servicios en la nube directamente en sus direcciones IP privadas.
 
-Puede conectar más de una red virtual al dominio de emparejamiento privado. Revise la [página de P+G](expressroute-faqs.md) para obtener información sobre los límites y las limitaciones. Para obtener información actualizada sobre los límites, visite la página [Suscripción de Azure y límites, cuotas y restricciones de servicio](../articles/azure-subscription-service-limits.md). Consulte la página [Enrutamiento](expressroute-routing.md) para obtener información detallada sobre la configuración de enrutamiento.
+Puede conectar más de una red virtual al dominio de emparejamiento privado. Revise la [página de P+G](expressroute-faqs.md) para obtener información sobre los límites y las limitaciones. Para obtener información actualizada sobre los límites, visite la página [Suscripción de Azure y límites, cuotas y restricciones de servicio](../../includes/expressroute-limits.md). Consulte la página [Enrutamiento](expressroute-routing.md) para obtener información detallada sobre la configuración de enrutamiento.
 
 ### Emparejamiento público
 
@@ -71,11 +71,11 @@ La tabla siguiente comparan los tres dominios de enrutamiento.
 
 ||**Emparejamiento privado**|**Emparejamiento público**|**Emparejamiento de Microsoft**|
 |---|---|---|---|
-|**N.º máx. de prefijos compatibles por emparejamiento**|4000 de manera predeterminada, 10 000 con ExpressRoute Premium|200 |200|
-|**Intervalos de direcciones IP compatibles**|Direcciones IPv4 públicas suyas o del proveedor de conectividad|Direcciones IPv4 públicas suyas o del proveedor de conectividad|
-|**Requisitos de número de AS**|Números de AS privados y públicos. El cliente debe poseer un número de AS público. | Números de AS privados y públicos. El cliente debe poseer un número de AS público. | Solo números de AS públicos. El número de AS debe validarse con los registros de enrutamiento para validar la propiedad.|
-|**Direcciones IP de la interfaz de enrutamiento**|RFC1918 y direcciones IP públicas|Direcciones IP públicas registradas para los clientes en registros de enrutamiento.| Direcciones IP públicas registradas para los clientes en registros de enrutamiento.|
-|**Compatibilidad con hash MD5**| Sí|Sí|Sí|
+|**Número máximo de prefijos admitidos por emparejamiento**|4000 de forma predeterminada, 10.000 con ExpressRoute Premium|200|200|
+|**Intervalos de direcciones IP admitidas**|Cualquier dirección IPv4 válida de la WAN.|Direcciones IPv4 públicas propiedad suya o de su proveedor de conectividad.|Direcciones IPv4 públicas propiedad suya o de su proveedor de conectividad.|
+|**Requisitos del número de sistema autónomo (AS)**|Números de sistema autónomo (AS) públicos y privados El cliente debe se propietario del número de sistema autónomo (AS) público. | Números de sistema autónomo (AS) públicos y privados El cliente debe se propietario del número de sistema autónomo (AS) público.| Solo números de sistema autónomo (AS) públicos. El número de sistema autónomo (AS) debe validarse con los registros de enrutamiento para validar la propiedad.|
+|**Direcciones IP de la interfaz de enrutamiento**|Direcciones IP públicas y de RFC1918|Direcciones IP públicas registradas para los clientes en los registros de enrutamiento.| Direcciones IP públicas registradas para los clientes en los registros de enrutamiento.|
+|**Compatibilidad con Hash MD5**| Sí|Sí|Sí|
 
 Puede elegir habilitar uno o varios de los dominios de enrutamiento como parte de su circuito ExpressRoute. Puede elegir colocar todos los dominios de enrutamiento en la misma VPN si quiere combinarlos en un único dominio de enrutamiento. También puede colocarlos en diferentes dominios de enrutamiento, como en el diagrama. La configuración recomendada es que el emparejamiento privado esté conectado directamente a la red principal y que los vínculos de emparejamiento público y de Microsoft estén conectados a la red perimetral.
  
@@ -90,4 +90,4 @@ Si decide tener las tres sesiones de emparejamiento, necesita tres pares de sesi
 	- [Configuración del enrutamiento (emparejamientos de circuitos)](expressroute-howto-routing-classic.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -20,7 +20,19 @@
 # Preparación de una máquina virtual basada en Red Hat para Azure
 En este artículo, aprenderá a preparar una máquina Virtual de Red Hat Enterprise Linux (RHEL) para usarla en Azure. Las versiones de RHEL tratadas en este artículo son 6.7, 7.1 y 7.2, y los hipervisores para la preparación citados en este artículo son Hyper-V, KVM y VMWare. Para más información sobre los requisitos para poder participar en el programa de acceso a la nube de Red Hat, vea el [sitio web de acceso a la nube de Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) y [Ejecución de RHEL en Azure](https://access.redhat.com/articles/1989673).
 
+[Preparar una máquina virtual RHEL 6.7 desde el Administrador de Hyper-V](#rhel67hyperv)
 
+[Preparar una máquina virtual RHEL 7.1/7.2 desde el Administrador de Hyper-V](#rhel7xhyperv)
+
+[Preparar una máquina virtual RHEL 6.7 desde KVM](#rhel67kvm)
+
+[Preparar una máquina virtual RHEL 7.1/7.2 desde KVM](#rhel7xkvm)
+
+[Preparar una máquina virtual RHEL 6.7 desde VMWare](#rhel67vmware)
+
+[Preparar una máquina virtual RHEL 7.1/7.2 desde VMWare](#rhel7xvmware)
+
+[Preparar una máquina virtual RHEL 7.1/7.2 desde un archivo kickstart](#rhel7xkickstart)
 
 
 ##Preparación de una imagen desde el Administrador de Hyper-V 
@@ -39,8 +51,8 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
 
 - Al utilizar img qemu para convertir las imágenes de disco al formato VHD, tenga en cuenta que hay un problema conocido en las versiones de img qemu > = 2.2.1 que da como resultado un VHD con formato incorrecto. El problema se corregirá en una próxima versión de qemu-img. Por ahora es recomendable usar qemu-img versión 2.2.0 o inferior.
 
+### <a id="rhel67hyperv"> </a>Preparar una máquina virtual RHEL 6.7 desde el Administrador de Hyper-V###
 
-###RHEL 6.7
 
 1.	En el Administrador de Hyper-V, seleccione la máquina virtual.
 
@@ -112,7 +124,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
         # sudo yum install WALinuxAgent
         # sudo chkconfig waagent on
 
-    **Tenga en cuenta** que al instalar el paquete WALinuxAgent se eliminarán los paquetes NetworkManager y NetworkManager-gnome, si es que aún no se han eliminado tal como se indica en el paso 2.
+    **Tenga en cuenta** que al instalar el paquete WALinuxAgent se eliminarán los paquetes NetworkManager y NetworkManager-gnome, si es que aún no se han eliminado como se indica en el paso 2.
 
 13.	No cree un espacio de intercambio en el disco del sistema operativo. El agente Linux de Azure puede configurar automáticamente un espacio de intercambio usando el disco de recursos local que se expone en la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
@@ -134,7 +146,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
 
 16.	Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
-###RHEL 7.1/7.2
+### <a id="rhel7xhyperv"> </a>Preparar una máquina virtual RHEL 7.1/7.2 desde el Administrador de Hyper-V###
 
 1.  En el Administrador de Hyper-V, seleccione la máquina virtual.
 
@@ -214,7 +226,9 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
 
 
 ##Preparación de una imagen desde KVM 
-###RHEL 6.7
+
+### <a id="rhel67kvm"> </a>Preparar una máquina virtual RHEL 6.7 desde KVM###
+
 
 1.	Descargue la imagen KVM de RHEL 6.7 desde el sitio web de Red Hat.
 
@@ -303,7 +317,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
         # yum install WALinuxAgent
         # chkconfig waagent on
 
-14.	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (vea el paso anterior), modifique apropiadamente los parámetros siguientes en **/etc/waagent.conf**:
+14.	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en **/etc/waagent.conf**:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -335,7 +349,8 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
          # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
 
-###RHEL 7.1/7.2
+### <a id="rhel7xkvm"> </a>Preparar una máquina virtual RHEL 7.1/7.2 desde KVM###
+
 
 1.	Descargue la imagen de KVM de RHEL 7.1 (o 7.2) en el sitio web de Red Hat; usaremos RHEL 7.1 como ejemplo aquí.
 
@@ -437,7 +452,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
 
         # systemctl enable waagent.service
 
-15.	No cree espacio de intercambio en el disco del SO. El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (vea el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
+15.	No cree espacio de intercambio en el disco del SO. El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique los parámetros siguientes en `/etc/waagent.conf` de la forma adecuada:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -479,7 +494,7 @@ En esta sección, se supone que ya instaló en un disco duro virtual (VHD) una i
 
 ##Preparación de una imagen desde VMWare
 ###Requisitos previos
-En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. Para más información sobre cómo instalar un sistema operativo en VMWare, vea la [guía de instalación de sistema operativo invitado de VMWare](http://partnerweb.vmware.com/GOSIG/home.html).
+En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. Para obtener más información acerca de cómo instalar un sistema operativo en VMWare, consulte la [guía de instalación de sistema operativo invitado de VMWare](http://partnerweb.vmware.com/GOSIG/home.html).
  
 - Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas. LVM o RAID se pueden utilizar en discos de datos si así se prefiere.
 
@@ -487,7 +502,10 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
 
 - Al crear el disco duro virtual, seleccione **Almacenar disco virtual como un solo archivo**.
 
-###RHEL 6.7
+
+
+### <a id="rhel67vmware"> </a>Preparar una máquina virtual RHEL 6.7 desde VMWare###
+
 1.	Desinstale NetworkManager ejecutando el comando siguiente:
 
          # sudo rpm -e --nodeps NetworkManager
@@ -499,7 +517,7 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-3.	Cree un archivo denominado **ifcfg-eth0** en el directorio /etc/sysconfig/network-scripts/ que contenga el texto siguiente:
+3.	Cree un archivo llamado **ifcfg-eth0** en el directorio /etc/sysconfig/network-scripts/ que contenga el texto siguiente:
 
         DEVICE=eth0
         ONBOOT=yes
@@ -523,7 +541,7 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7.	El paquete WALinuxAgent `WALinuxAgent-<version>` se insertó en el repositorio Fedora EPEL 6. Habilite el repositorio epel ejecutando el comando siguiente:
+7.	El paquete WALinuxAgent `WALinuxAgent-<version>` se insertó en el repositorio Fedora EPEL 6: Habilite el repositorio epel ejecutando el comando siguiente:
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -588,7 +606,8 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
 
         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
-###RHEL 7.1/7.2
+
+### <a id="rhel7xvmware"> </a>Preparar una máquina virtual RHEL 7.1/7.2 desde VMWare###
 
 1.	Cree un archivo llamado **network** en el directorio /etc/sysconfig/ que contenga el texto siguiente:
 
@@ -692,7 +711,10 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
 
 
 ##Preparación de una imagen ISO con el archivo Kickstart automáticamente
-###RHEL 7.1/7.2
+
+
+### <a id="rhel7xkickstart"> </a>Preparar una máquina virtual RHEL 7.1/7.2 desde un archivo kickstart###
+
 
 1.	Cree el archivo Kickstart con el siguiente contenido y guárdelo. Para más información sobre la instalación Kickstart, consulte la [guía de instalación Kickstart](https://access.redhat.com/documentation/es-ES/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
@@ -808,7 +830,7 @@ En esta sección se supone que ya instaló una máquina virtual RHEL en VMWare. 
 
 2.	Coloque el archivo Kickstart en un lugar accesible desde el sistema de la instalación.
  
-3.	En el Administrador de Hyper-V, cree una nueva máquina virtual. En la página **Conectar disco duro virtual**, seleccione **Exponer un disco duro virtual más adelante** y complete el Asistente para crear nueva máquina virtual.
+3.	En el Administrador de Hyper-V, cree una nueva máquina virtual. En la página **Conectar disco duro virtual**, seleccione **Exponer un disco duro virtual más adelante** y complete el Asistente para crear una máquina virtual.
 
 4.	Abra la configuración de máquina virtual:
 
@@ -842,6 +864,8 @@ El problema es intermitente pero se produce más a menudo durante las operacione
 
 
 ## Pasos siguientes
-Ya está listo para usar su archivo .vhd de Red Hat Enterprise Linux para crear nuevas máquinas virtuales de Azure. Para más información sobre los hipervisores certificados para ejecutar Red Hat Enterprise Linux, visite el [sitio web de Red Hat](https://access.redhat.com/certified-hypervisors).
+Ya está listo para usar su archivo .vhd de Red Hat Enterprise Linux para crear nuevas máquinas virtuales de Azure. Si es la primera vez que usa Azure y carga el archivo .vhd en Azure, puede seguir los pasos 2 y 3 de [esta guía](virtual-machines-linux-create-upload-vhd.md).
+ 
+Para más información sobre los hipervisores certificados para ejecutar Red Hat Enterprise Linux, visite el [sitio web de Red Hat](https://access.redhat.com/certified-hypervisors).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

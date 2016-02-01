@@ -475,7 +475,7 @@ La actividad de Hive toma las dos entradas y genera un segmento de salida cada d
 	          },
 	          {
 	            "name": "AzureBlobInputWeekly",
-	            "startTime": "Date.AddDays(SliceStart,  -7 - Date.DayOfWeek(SliceStart))",
+	            "startTime": "Date.AddDays(SliceStart, - Date.DayOfWeek(SliceStart))",
 	            "endTime": "Date.AddDays(SliceEnd,  -Date.DayOfWeek(SliceEnd))"  
 	          }
 	        ],
@@ -520,7 +520,7 @@ Nombre de la variable | Descripción | Ámbito del objeto | Ámbito JSON y casos
 ------------- | ----------- | ------------ | ------------------------
 WindowStart | Inicio del intervalo de tiempo para la ventana de ejecución de la actividad actual | activity | <ol><li>Especifique las consultas de selección de datos. Consulte los artículos de conector indicados en el artículo [Actividades del movimiento de datos](data-factory-data-movement-activities.md).</li><li>Pase los parámetros al script de Hive (ejemplo mostrado anteriormente).</li>
 WindowEnd | Final del intervalo de tiempo para la ventana de ejecución de actividad actual | activity | Igual que el anterior.
-SliceStart | Inicio del intervalo de tiempo para el segmento de datos que se está generando | actividad<br/>conjunto de datos | <ol><li>Especifique las rutas de acceso de la carpeta dinámica y los nombres de archivo mientras se trabaja con el [blob de Azure](data-factory-azure-blob-connector.md) y con los [conjuntos de datos del sistema de archivos](data-factory-onprem-file-system-connector.md).</li><li>Especifique las dependencias de entrada con las funciones de Factoría de datos en la colección de entradas de la actividad.</li></ol>
+SliceStart | Inicio del intervalo de tiempo para el segmento de datos que se está generando | activity<br/>dataset | <ol><li>Especifique las rutas de acceso de la carpeta dinámica y los nombres de archivo mientras se trabaja con el [blob de Azure](data-factory-azure-blob-connector.md) y con los [conjuntos de datos del sistema de archivos](data-factory-onprem-file-system-connector.md).</li><li>Especifique las dependencias de entrada con las funciones de Factoría de datos en la colección de entradas de la actividad.</li></ol>
 SliceEnd | Fin del intervalo de tiempo para el segmento de datos que se está generando | actividad<br/>conjunto de datos | Igual que el anterior. 
 
 > [AZURE.NOTE]Actualmente Factoría de datos requiere que el programa especificado en la actividad coincida exactamente con el programa especificado en la disponibilidad del conjunto de datos de salida. Esto significa que WindowStart, WindowEnd, SliceStart y SliceEnd siempre se asignan al mismo período de tiempo y un segmento de salida única.
@@ -678,4 +678,4 @@ De forma similar a los conjuntos de datos que produce Factoría de datos, los se
 
   
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

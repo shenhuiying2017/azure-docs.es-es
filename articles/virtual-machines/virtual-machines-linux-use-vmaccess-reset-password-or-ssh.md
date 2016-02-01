@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Restablecimiento de la contraseña de VM Linux desde la CLI de Azure | Microsoft Azure"
-	description="Cómo usar la extensión VMAccess desde el Portal de Azure clásico o la CLI para restablecer las contraseñas de máquina virtual de Linux y claves SSH, configuraciones SSH y eliminar cuentas de usuarios."
+	pageTitle="Restablecer contraseñas de la VM de Linux y agregar usuarios desde la CLI de Azure | Microsoft Azure"
+	description="Cómo usar la extensión VMAccess desde el Portal de Azure o la CLI para restablecer las contraseñas de VM de Linux y claves SSH, configuraciones SSH, agregar o eliminar cuentas de usuario y comprobar la coherencia de los discos."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="12/15/2015"
 	ms.author="cynthn"/>
 
-# Restablecimiento de una contraseña o de SSH para máquinas virtuales de Linux #
+# Cómo restablecer el acceso y administrar usuarios y discos de comprobación con la extensión VMAccess de Azure para Linux#
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
 
-Si no puede conectarse a una máquina virtual Linux porque olvidó la contraseña, la clave de Shell seguro (SSH) es incorrecta o hay un problema con la configuración de SSH, use el Portal de Azure o la extensión VMAccessForLinux para restablecer la contraseña o la clave SSH, o para corregir la configuración de SSH. Tenga en cuenta que este artículo se aplica a las máquinas virtuales creadas con el modelo de implementación **clásico**.
+Si no puede conectarse a una máquina virtual Linux porque olvidó la contraseña, la clave de Shell seguro (SSH) es incorrecta o hay un problema con la configuración de SSH, use el Portal de Azure o la extensión VMAccessForLinux con la CLI de Azure para restablecer la contraseña o la clave SSH, corregir la configuración de SSH y comprobar la coherencia de los discos.
 
 ## Portal de Azure
 
@@ -61,6 +61,8 @@ Con la CLI de Azure, puede realizar las tareas siguientes:
 + [Restablecer la configuración de SSH](#sshconfigresetcli)
 + [Eliminar un usuario](#deletecli)
 + [Mostrar el estado de la extensión VMAccess](#statuscli)
++ [Comprobar la coherencia de los discos agregados](#checkdisk)
++ [Reparar los discos agregados a la VM de Linux](#repairdisk)
 
 ### <a name="pwresetcli"></a>Restablecimiento de la contraseña
 
@@ -149,6 +151,34 @@ Para mostrar el estado de la extensión VMAccess, ejecute este comando.
 
 	azure vm extension get
 
+### <a name='checkdisk'<</a>Comprobar la coherencia de los discos agregados
+
+Para ejecutar fsck en todos los discos de la máquina virtual de Linux, debe hacer lo siguiente:
+
+Paso 1: creación de un archivo llamado PublicConf.json con este contenido. Comprobar disco toma un valor booleano para comprobar los discos conectados a la máquina virtual o no.
+
+    {   
+    "check_disk": "true"
+    }
+
+Paso 2: ejecute este comando, que sustituye los valores de marcador de posición.
+
+   la extensión de vm de Azure establece vm-name VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
+
+### <a name='repairdisk'></a>Reparar los discos agregados a la máquina virtual de Linux
+
+Para reparar discos que no se están montando o que tienen errores de configuración de montaje, use la extensión VMAccess para restablecer la configuración de montaje en la máquina virtual de Linux.
+
+Paso 1: creación de un archivo llamado PublicConf.json con este contenido.
+
+    {
+    "repair_disk":"true",
+    "disk_name":"yourdisk"
+    }
+
+Paso 2: ejecute este comando, que sustituye los valores de marcador de posición.
+
+    azure vm extension set vm-name VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
 
 ## Uso de Azure PowerShell
 
@@ -179,6 +209,8 @@ A continuación, puede realizar las tareas siguientes:
 + [Restablecer la configuración de SSH](#config)
 + [Eliminar un usuario](#delete)
 + [Mostrar el estado de la extensión VMAccess](#status)
++ [Comprobar la coherencia de los discos agregados](#checkdisk)
++ [Reparar los discos agregados a la VM de Linux](#repairdisk)
 
 ### <a name="password"></a>Restablecimiento de la contraseña
 
@@ -252,6 +284,25 @@ Para mostrar el estado de la extensión VMAccess, ejecute este comando.
 
 	$vm.GuestAgentStatus
 
+### <a name="checkdisk"<</a>Comprobar la coherencia de los discos agregados
+
+Para comprobar la coherencia de los discos con la utilidad fsck, ejecute estos comandos.
+
+	$PublicConfig = "{"check_disk": "true"}"
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version = "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PublicConfiguration $PublicConfig | Update-AzureVM
+
+### <a name="checkdisk"<</a>Reparar los discos agregados a la VM de Linux
+
+Para reparar discos con la utilidad fsck, ejecute estos comandos.
+
+	$PublicConfig = "{"repair_disk": "true", "disk_name": "my_disk"}"
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version = "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PublicConfiguration $PublicConfig | Update-AzureVM
 
 ## Recursos adicionales
 
@@ -266,4 +317,4 @@ Para mostrar el estado de la extensión VMAccess, ejecute este comando.
 [Características y extensiones de máquina virtual de Azure]: virtual-machines-extensions-features.md
 [Conexión a una máquina virtual de Azure con RDP o SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

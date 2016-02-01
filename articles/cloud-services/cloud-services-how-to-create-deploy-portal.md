@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # Creación e implementación de un servicio en la nube
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 - [Azure portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
 
 El Portal de Azure le ofrece dos formas de crear e implementar un servicio en la nube: *Creación rápida* y *Creación personalizada*.
 
@@ -74,10 +74,10 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 3. En la parte inferior de la página de información que se muestra, haga clic en **Crear**.
 4. En la nueva hoja **Servicio en la nube**, escriba un valor para **Nombre DNS**
 5. Cree un nuevo **Grupo de recursos** o seleccione uno existente.
-6. Seleccione una **Ubicación**.
+6. Seleccione una **ubicación**.
 7. Seleccione **Paquete** y, en la hoja **Cargar un paquete**, rellene los campos obligatorios.  
 
-     Si alguno de los roles contiene una sola instancia, asegúrese de que la casilla **Implementar aunque uno o varios roles contengan una sola instancia** esté activada.
+     Si cualquiera de los roles contiene una sola instancia, asegúrese de que la casilla **Implementar aunque uno o varios roles contengan una sola instancia** esté seleccionada.
 
 8. Asegúrese de que la opción **Iniciar implementación** esté seleccionada.
 9. Haga clic en **Aceptar**.
@@ -88,7 +88,7 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 
 Si el paquete de implementación se [configuró para usar certificados](cloud-services-configure-ssl-certificate-portal.md#modify), puede cargar el certificado ahora.
 
-1. Seleccione **Certificados** y, en la hoja **Agregar certificados**, seleccione el archivo .pfx del certificado SSL y proporcione un valor de **Contraseña** para el certificado,
+1. Seleccione **Certificados** y, en la hoja **Agregar certificados**, seleccione el archivo .pfx del certificado SSL y proporcione la **contraseña** del certificado,
 2. Haga clic en **Adjuntar certificado** y luego en **Aceptar** en la hoja **Agregar certificados**.
 3. Haga clic en **Crear** en la hoja **Servicio en la nube**. Cuando la implementación haya llegado al estado **Listo**, puede continuar con los pasos siguientes.
 
@@ -111,8 +111,8 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 ## Pasos siguientes
 
 * [Configuración general de su servicio en la nube](cloud-services-how-to-configure-portal.md).
-* [Configuración de un nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md)
+* Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

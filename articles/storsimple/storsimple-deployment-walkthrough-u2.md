@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # Implementar el dispositivo StorSimple local (Actualización 2)
@@ -239,9 +239,9 @@ Siga estos pasos en el Portal de administración para crear una copia de segurid
 
 ## Pasos siguientes
 
-Configure un [dispositivo virtual](storsimple-virtual-device.md).
+- Configure un [dispositivo virtual](storsimple-virtual-device.md).
 
-Use el [servicio de Administrador de StorSimple](storsimple-manager-service-administration.md) para administrar el dispositivo StorSimple.
+- Use el [servicio de Administrador de StorSimple](storsimple-manager-service-administration.md) para administrar el dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

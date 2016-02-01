@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configuración de SSL para un servicio en la nube | Microsoft Azure" 
-	description="Aprenda a especificar un extremo HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación." 
+	pageTitle="Configuración de SSL en un servicio en la nube (clásico) | Microsoft Azure" 
+	description="Aprenda a especificar un punto de conexión HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación." 
 	services="cloud-services" 
 	documentationCenter=".net" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,12 +22,12 @@
 # Configuración de SSL para una aplicación en Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 - [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 
-El cifrado de Capa de sockets seguros (SSL) es el método más usado para proteger los datos que se envían por Internet. Esta tarea común analiza cómo especificar un extremo HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación.
+El cifrado de Capa de sockets seguros (SSL) es el método más usado para proteger los datos que se envían por Internet. Esta tarea común analiza cómo especificar un punto de conexión HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación.
 
-> [AZURE.NOTE]Los procedimientos de esta tarea se aplican a Servicios en la nube de Azure. Para los sitios web, consulte [Configuración de un certificado SSL para un sitio web de Azure](../web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE]Los procedimientos de esta tarea se aplican a Servicios en la nube de Azure; para Servicios de aplicaciones consulte [esto](../app-service-web/web-sites-configure-ssl-certificate.md).
 
 Esta tarea usa una implementación de producción; al final de este tema se proporciona información sobre el uso de una implementación de ensayo.
 
@@ -53,7 +53,7 @@ A continuación, debe incluir información sobre el certificado en su definició
 
 ## Paso 2: modificar la definición del servicio y los archivos de configuración
 
-Su aplicación debe estar configurada para usar el certificado y se debe agregar un extremo HTTPS. Como resultado, se deben actualizar la definición de servicio y los archivos de configuración del servicio.
+Su aplicación debe estar configurada para usar el certificado y se debe agregar un punto de conexión HTTPS. Como resultado, se deben actualizar la definición de servicio y los archivos de configuración del servicio.
 
 1.  En su entorno de desarrollo, abra el archivo de definición de servicio (CSDEF), agregue una sección **Certificates** dentro de la sección **WebRole** e incluya la siguiente información sobre el certificado:
 
@@ -67,7 +67,7 @@ Su aplicación debe estar configurada para usar el certificado y se debe agregar
         ...
         </WebRole>
 
-    La sección **Certificates** define el nombre de nuestro certificado, su ubicación y el nombre de la tienda donde se encuentra. Hemos decidido guardar el certificado en la CA (entidad de certificación), pero puede elegir otras opciones también. Consulte [Asociación de un certificado con un servicio][] para obtener más información.
+    La sección **Certificates** define el nombre de nuestro certificado, su ubicación y el nombre de la tienda donde se encuentra.
 
 2.  En el archivo de definición de servicio, agregue un elemento **InputEndpoint** en la sección **Endpoints** para habilitar HTTPS:
 
@@ -80,7 +80,7 @@ Su aplicación debe estar configurada para usar el certificado y se debe agregar
         ...
         </WebRole>
 
-3.  En el archivo de definición de servicio, agregue un elemento **Binding** en la sección **Sites**. Esto agrega un enlace de HTTPS para asignar el extremo a su sitio:
+3.  En el archivo de definición de servicio, agregue un elemento **Binding** en la sección **Sites**. Esto agrega un enlace de HTTPS para asignar el punto de conexión a su sitio:
 
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
@@ -114,7 +114,7 @@ Ahora que se actualizaron los archivos de definición del servicio y configuraci
 
 ## Paso 3: Cargar un certificado
 
-Su paquete de implementación se actualizó para usar el certificado y se agregó un extremo HTTPS. Ahora podrá cargar el paquete y el certificado en Azure con el Portal de Azure clásico.
+Su paquete de implementación se actualizó para usar el certificado y se agregó un punto de conexión HTTPS. Ahora podrá cargar el paquete y el certificado en Azure con el Portal de Azure clásico.
 
 1. Inicie sesión en el [Portal de Azure clásico][]. 
 2. Haga clic en **Servicios en la nube** en el panel de navegación izquierdo.
@@ -139,7 +139,7 @@ Ahora que su implementación está funcionando en Azure, puede conectarse a ella
 
 2.  En el explorador web, modifique el vínculo para usar **https** en lugar de **http** y, a continuación, visite la página.
 
-    **Nota:** si va a usar un certificado autofirmado, cuando vaya a un extremo HTTPS que está asociado al certificado autofirmado, aparecerá un error de certificado en el explorador. El uso de un certificado firmado por una entidad de certificación de confianza elimina el problema; mientras tanto, puede ignorar el error. (Otra opción es agregar el certificado autofirmado a la tienda de certificados de la entidad de certificación de confianza para el usuario).
+    **Nota:** si va a usar un certificado autofirmado, cuando vaya a un punto de conexión HTTPS que está asociado al certificado autofirmado, aparecerá un error de certificado en el explorador. El uso de un certificado firmado por una entidad de certificación de confianza elimina el problema; mientras tanto, puede ignorar el error. (Otra opción es agregar el certificado autofirmado a la tienda de certificados de la entidad de certificación de confianza para el usuario).
 
     ![Ejemplo de sitio web con SSL][3]
 
@@ -160,4 +160,4 @@ Si desea usar SSL para una implementación de ensayo en vez de una implementaci�
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

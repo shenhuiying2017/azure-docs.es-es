@@ -17,7 +17,7 @@
 
 # Tutorial sobre la mensajería retransmitida del Bus de servicio
 
-En este tutorial se describe cómo crear un servicio y una aplicación cliente de Bus de servicio sencillos mediante las funciones de retransmisión del Bus de servicio. Para consultar un tutorial correspondiente en el que se describe cómo crear una aplicación que use las capacidades de mensajería asincrónicas o "de intermediación" del Bus de servicio, consulte el [Tutorial de .NET de mensajería asíncrona del Bus de servicio](https://msdn.microsoft.com/library/hh367512.aspx). Para ver un tutorial similar que usa la [mensajería asíncrona](service-bus-messaging-overview.md/#Brokered-messaging) del Bus de servicio, consulte el [Tutorial de .NET de mensajería asíncrona del Bus de servicio](https://msdn.microsoft.com/library/hh367512.aspx).
+En este tutorial se describe cómo crear un servicio y una aplicación cliente de Bus de servicio sencillos mediante las funciones de retransmisión del Bus de servicio. Para ver un tutorial correspondiente que usa la [mensajería asíncrónica](service-bus-messaging-overview.md#Brokered-messaging) del Bus de servicio, consulte el [Tutorial de .NET de mensajería asíncrona del Bus de servicio](service-bus-brokered-tutorial-dotnet.md).
 
 Al trabajar con este tutorial adquirirá unos conocimientos sobre los pasos necesarios para crear una aplicación cliente y de servicio de Bus de servicio. Como sus homólogos WCF, un servicio es una construcción que expone uno o varios extremos, cada uno de los cuales expone una o varias operaciones de servicio. El extremo de un servicio especifica una dirección donde se puede encontrar el servicio, un enlace que contiene la información que un cliente debe comunicar al servicio y un contrato que define la funcionalidad que ofrece el servicio a sus clientes. La diferencia principal entre un servicio WCF y uno de Bus de servicio es que el extremo se expone en la nube en lugar de localmente en su equipo.
 
@@ -31,15 +31,15 @@ En todos los temas de esta sección se presupone que usa Visual Studio como ento
 
 El primer paso es crear un espacio de nombres del servicio de Bus de servicio y obtener una clave de firma de acceso compartido (SAS). Un espacio de nombres de servicio ofrece un límite de aplicación para cada aplicación que se expone a través del Bus de servicio. La combinación del espacio de nombres de servicio y la clave de SAS proporciona una credencial para que el Bus de servicio autentique el acceso a una aplicación.
 
-Para crear un espacio de nombres, siga los pasos que se indican en [Procedimiento: Crear o modificar un espacio de nombres de servicio de Service Bus](https://msdn.microsoft.com/library/hh690931.aspx).
+1. Para crear un espacio de nombres de servicio, visite el [Portal de Azure clásico][]. Haga clic en **Bus de servicio** en el lado izquierdo y después en **Crear**. Escriba un nombre para el espacio de nombres y luego haga clic en la marca de verificación.
 
->[AZURE.NOTE]No es necesario utilizar el mismo espacio de nombres para las aplicaciones cliente y servicio.
+	>[AZURE.NOTE]No es necesario utilizar el mismo espacio de nombres para las aplicaciones cliente y servicio.
 
 1. En la ventana principal del [Portal de Azure clásico][], haga clic en el nombre del espacio de nombres de servicio que creó en el paso anterior.
 
 2. Haga clic en **Configurar** para ver las directivas de acceso compartido predeterminadas del espacio de nombres del servicio.
 
-3. Tome nota de la clave principal para la directiva **RootManageSharedAccessKey**, o cópiela en el Portapapeles. Usará este valor más adelante en el tutorial.
+3. Anote la clave principal de la directiva **RootManageSharedAccessKey** o cópiela en el Portapapeles. Usará este valor más adelante en el tutorial.
 
 ## Definir un contrato de servicio de WCF basado en REST para usarlo con el Bus de servicio
 
@@ -49,7 +49,7 @@ El contrato de servicio especifica las operaciones (la terminología del servici
 
 1. Abra Visual Studio como administrador, para lo que debe hacer clic con el botón secundario en el programa del menú **Inicio** y, después, haga clic en **Ejecutar como administrador**.
 
-1. Cree un nuevo proyecto de aplicación de consola. Haga clic en el menú **Archivo** y seleccione **Nuevo**; a continuación, haga clic en **Proyecto**. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C#** (si **Visual C#** no aparece, mire en **Otros lenguajes**). Haga clic en la plantilla **Aplicación de consola** y asígnele el nombre **EchoService**. Use la **Ubicación** predeterminada. Haga clic en **Aceptar** para crear el proyecto.
+1. Cree un nuevo proyecto de aplicación de consola. Haga clic en el menú **Archivo** y seleccione **Nuevo**; a continuación, haga clic en **Proyecto**. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C#** (si **Visual C#** no aparece, mire en **Otros lenguajes**). Haga clic en la plantilla **Aplicación de consola** y asígnele el nombre **EchoService**. Use el valor predeterminado de **Ubicación**. Haga clic en **Aceptar** para crear el proyecto.
 
 1. Agregue una referencia a `System.ServiceModel.dll` en el proyecto: en el Explorador de soluciones, haga clic en la carpeta **Referencias** dentro de la carpeta del proyecto y luego haga clic en **Agregar referencia**. Seleccione la pestaña **.NET** del cuadro de diálogo **Agregar referencia** y desplácese hacia abajo hasta que vea **System.ServiceModel**. Selecciónelo y luego haga clic en **Guardar**.
 
@@ -833,7 +833,7 @@ Asegúrese de que el servicio está en ejecución antes de iniciar el cliente.
 
 ## Pasos siguientes
 
-En este tutorial se ha mostrado cómo crear un servicio y una aplicación cliente del Bus de servicio sencillos mediante las funciones de retransmisión del Bus de servicio. Para ver un tutorial similar que usa la [mensajería asíncrona](service-bus-messaging-overview.md/#Brokered-messaging) del Bus de servicio, consulte el [Tutorial de .NET de mensajería asíncrona del Bus de servicio](https://msdn.microsoft.com/library/hh367512.aspx).
+En este tutorial se ha mostrado cómo crear un servicio y una aplicación cliente del Bus de servicio sencillos mediante las funciones de retransmisión del Bus de servicio. Para ver un tutorial similar que usa la [mensajería asíncrona](service-bus-messaging-overview.md#Brokered-messaging) del Bus de servicio, consulte el [Tutorial de .NET de mensajería asíncrona del Bus de servicio](service-bus-brokered-tutorial-dotnet.md).
 
 Para obtener más información sobre el Bus de servicio, consulte los temas siguientes:
 
@@ -843,4 +843,4 @@ Para obtener más información sobre el Bus de servicio, consulte los temas sigu
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

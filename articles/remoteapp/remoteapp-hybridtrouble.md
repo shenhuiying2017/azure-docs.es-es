@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/04/2015"
+    ms.date="01/13/2016"
     ms.author="elizapo" />
 
 
@@ -29,12 +29,7 @@ Si tiene problemas al crear la colección, o si la colección no funciona del mo
 ## La imagen no es válida ##
 Si ve un mensaje como "GoldImageInvalid" cuando esté esperando a que Azure aprovisione la colección, la imagen de plantilla no cumple [los requisitos definidos para la imagen](remoteapp-imagereqs.md). Por lo tanto, consulte los [requisitos](remoteapp-imagereqs.md), corrija la imagen y pruebe a crear la colección de nuevo.
 
-## ¿La red virtual utiliza tunelización forzada? ##
-Actualmente RemoteApp no admite el uso de redes virtuales en las que esté habilitada la tunelización forzada. Si necesita esta función, póngase en contacto con el [equipo de RemoteApp](mailto:remoteappforum@microsoft.com) para solicitar soporte técnico.
 
-Una vez aprobada la solicitud, asegúrese de que estén abiertos los puertos siguientes en la subred que eligió para Azure RemoteApp y las máquinas virtuales de la subred. Las máquinas virtuales de las subredes también deben poder obtener acceso a las direcciones URL que se mencionan en la sección acerca de los grupos de seguridad de red.
-
-Salientes - TCP: 443, TCP: 10101-10175
 
 ## ¿La red virtual tiene grupos de seguridad de red definidos? ##
 Si ha definido grupos de seguridad de red en la subred que utiliza para la colección, asegúrese de que se puede acceder a las direcciones URL siguientes desde la subred:
@@ -84,4 +79,4 @@ Asegúrese de que los detalles de dominio proporcionados son válidos y de que s
 
 El nombre de dominio que creó o agregó debe ser un nombre de dominio interno (no un nombre de dominio de Azure AD) y debe utilizar el formato DNS que se puede resolver (contoso.local). Por ejemplo, si tiene un nombre interno de Active Directory (contoso.local) y un UPN de Active Directory (contoso.com), debe utilizar el nombre interno al crear la colección.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

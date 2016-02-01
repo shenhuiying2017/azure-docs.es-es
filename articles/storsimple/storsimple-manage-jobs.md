@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # Usar el servicio de Administrador de StorSimple para ver y administrar trabajos de StorSimple
@@ -41,7 +41,7 @@ A continuación, los trabajos filtrados se tabulan en función de los siguientes
 
 - **Estado**: en ejecución, programado, con error, completado, cancelándose o cancelado.
 
-- **Entidad**: los trabajos se pueden asociar a un volumen, una directiva de copia de seguridad o un dispositivo. Un trabajo de clonación se asocia a un volumen, mientras que un trabajo de copia de seguridad programado está asociado a una directiva de copia de seguridad. Se crea un trabajo de dispositivo como resultado de una recuperación ante desastres (DR) o una operación de restauración.
+- **Entidad**: los trabajos se pueden asociados a un volumen, una directiva de copia de seguridad o un dispositivo. Un trabajo de clonación se asocia a un volumen, mientras que un trabajo de copia de seguridad programado está asociado a una directiva de copia de seguridad. Se crea un trabajo de dispositivo como resultado de una recuperación ante desastres (DR) o una operación de restauración.
 
 - **Dispositivo**: el nombre del dispositivo en el que se inició el trabajo.
 
@@ -93,4 +93,4 @@ Ahora se cancelará este trabajo.
 
 - Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

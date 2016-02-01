@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="01/19/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migración del esquema a Almacenamiento de datos SQL#
@@ -31,7 +31,7 @@ Almacenamiento de datos SQL no usa ni admite estas características:
 - Columnas calculadas
 - Columnas dispersas
 - Tipos definidos por el usuario
-- Vistas indizadas
+- Vistas indexadas
 - Identidades
 - Secuencias
 - Desencadenadores
@@ -115,7 +115,7 @@ En lugar de:
 - **table**, convierta en tablas temporales
 - **timestamp**, vuelva a procesar el código para que use datetime2 y la función `CURRENT_TIMESTAMP`. Tenga en cuenta que no puede tener current\_timestamp como restricción DEFAULT y el valor no se actualizará automáticamente. Si tiene que migrar valores rowversion de una columna con tipo timestamp, use binary(8) o varbinary(8) para valores de versión de fila NOT NULL o NULL.
 - **varchar (max)**, use varchar(8000) o más pequeño para un mejor rendimiento
-- **uniqueidentifier**, use varbinary(8)
+- **uniqueidentifier**, use varbinary(16) o varchar(36) según el formato de entrada (binario o caracteres) de sus valores. Si el formato de entrada se basa en caracteres es posible realizar una optimización. Mediante la conversión de caracteres a formato binario, puede reducir el almacenamiento en columnas en más del 50 %. En tablas muy grandes, esta optimización puede ser beneficiosa.
 - **tipos definidos por el usuario**, vuelva a convertirlos a sus tipos nativos siempre que sea posible
 - **xml**, use un varchar(8000) o más pequeño para un mejor rendimiento. Dividir en columnas si es necesario
 
@@ -145,4 +145,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

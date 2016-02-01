@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Canvas LMS | Microsoft Azure" 
     description="Aprenda cómo usar Canvas LMS con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con Canvas LMS
 
@@ -125,7 +125,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Canvas, tienen que
 
     ![Lienzo](./media/active-directory-saas-canvas-lms-tutorial/IC775990.png "Lienzo")
 
-3.  Haga clic en **Users** (Usuarios).
+3.  Haga clic en **Usuarios**.
 
     ![Usuarios](./media/active-directory-saas-canvas-lms-tutorial/IC775995.png "Usuarios")
 
@@ -157,10 +157,10 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
     ![Asignación de usuarios](./media/active-directory-saas-canvas-lms-tutorial/IC775998.png "Asignación de usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-canvas-lms-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

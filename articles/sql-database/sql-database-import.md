@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Importar un archivo BACPAC para crear una base de datos SQL de Azure"
+	pageTitle="Importar un archivo BACPAC para crear una base de datos SQL de Azure | Microsoft Azure"
 	description="Crear una base de datos SQL de Azure importando un archivo BACPAC ya existente."
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/17/2015"
+	ms.date="01/20/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -95,7 +95,7 @@ Al hacer clic en **Crear** se envía una solicitud de importación de base de da
 
 ## Pasos siguientes
 
-- [Conexión con SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Conexión a la Base de datos SQL con SQL Server Management Studio y realización de una consulta de T-SQL de ejemplo](sql-database-connect-query-ssms.md)
 
 
 
@@ -112,4 +112,4 @@ Al hacer clic en **Crear** se envía una solicitud de importación de base de da
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

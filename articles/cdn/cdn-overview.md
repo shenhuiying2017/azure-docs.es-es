@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="01/20/2016" 
 	ms.author="casoper"/>
 
 # Información general de la red de entrega de contenido (CDN) de Azure
@@ -33,7 +33,7 @@ Entre las ventajas de utilizar la red CDN para almacenar en memoria caché los d
 
 >[AZURE.IMPORTANT]Cuando crea o habilita un punto de conexión de red CDN, su propagación por todo el mundo puede tardar hasta 90 minutos.
  
-Cuando una solicitud para un objeto se realiza primero a la red CDN, el objeto se recupera directamente desde la ubicación de origen del origen del objeto. Este origen puede ser una cuenta de almacenamiento de Azure, una aplicación web, un servicio de nube o cualquier origen personalizado que acepte solicitudes web públicas. Cuando una solicitud se realiza usando la sintaxis de red CDN, dicha solicitud se redirecciona al extremo de red CDN más cercano a la ubicación desde la que la solicitud se realizó para proporcionar acceso al objeto. Si el objeto no se encuentra en ese extremo, se recupera del servicio y se almacena en caché en el extremo, donde se mantiene una configuración de tiempo de vida (TTL) para el objeto almacenado en caché.
+Cuando una solicitud para un objeto se realiza primero a la red CDN, el objeto se recupera directamente desde la ubicación de origen del origen del objeto. Este origen puede ser una cuenta de almacenamiento de Azure, una aplicación web, un servicio de nube o cualquier origen personalizado que acepte solicitudes web públicas. Cuando una solicitud se realiza usando la sintaxis de red CDN, dicha solicitud se redirecciona al punto de conexión de red CDN más cercano a la ubicación desde la que la solicitud se realizó para proporcionar acceso al objeto. Si el objeto no se encuentra en ese punto de conexión, se recupera del servicio y se almacena en caché en el punto de conexión, donde se mantiene una configuración de tiempo de vida (TTL) para el objeto almacenado en caché.
 
 ## Características estándar
 
@@ -49,6 +49,7 @@ El nivel de red CDN estándar incluye las siguientes funciones:
 - Equilibrio de carga
 - Protección DDOS
 - [Purga rápida](cdn-purge-endpoint.md)
+- [Carga previa de activos](cdn-preload-endpoint.md)
 - [Administración mediante API de REST](https://msdn.microsoft.com/library/mt634456.aspx)
 
 
@@ -58,6 +59,6 @@ El nivel premium de la red de entrega de contenido incluye todas las caracterís
 
 - [Motor de entrega de contenido personalizable, basado en reglas](cdn-rules-engine.md)
 - [Informes de HTTP avanzados](cdn-advanced-http-reports.md)
-- [Estadísticas en tiempo real](cdn-read-time-stats.md)
+- [Estadísticas en tiempo real](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

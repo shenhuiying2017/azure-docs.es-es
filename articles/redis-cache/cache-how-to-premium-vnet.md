@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="01/19/2016" 
 	ms.author="sdanie"/>
 
 # Cómo configurar la compatibilidad de red virtual para una Caché en Redis de Azure Premium
@@ -57,7 +57,7 @@ El campo **Dirección IP estática** es opcional. Si no se especifica aquí, se 
 
 Cuando se cree la memoria caché, se puede tener acceso a ella únicamente por los clientes dentro de la misma red virtual.
 
->[AZURE.IMPORTANT]Para obtener acceso a su instancia de Caché en Redis de Azure al usar una red virtual, pase la dirección IP estática de la memoria caché de la red virtual como el primer parámetro y pase un parámetro `sslhost` con el punto de conexión de la memoria caché. En el ejemplo siguiente, la dirección IP estática es `10.10.1.5` y el punto de conexión de la memoria caché es `contoso5.redis.cache.windows.net`.
+>[AZURE.IMPORTANT]Para obtener acceso a su instancia de caché en Redis de Azure al usar una red virtual, pase la dirección IP estática de la memoria caché de la red virtual como el primer parámetro y pase un parámetro `sslhost` con el punto de conexión de la memoria caché. En el ejemplo siguiente, la dirección IP estática es `10.10.1.5` y el punto de conexión de la memoria caché es `contoso5.redis.cache.windows.net`.
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
@@ -78,15 +78,23 @@ La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre
 
 ## ¿Cuáles son algunos de los problemas comunes de configuración incorrecta con Caché en Redis de Azure y las redes virtuales?
 
-En la lista siguiente se incluyen algunos errores de configuración comunes que pueden impedir que Caché en Redis de Azure funcione correctamente.
+Cuando la Caché en Redis de Azure se hospeda en una red virtual, se usan los puertos de la tabla siguiente. Si estos puertos están bloqueados, puede que la memoria caché no funcione correctamente. Tener bloqueados uno o varios de estos puertos es el problema más común de una configuración incorrecta cuando se utiliza la Caché en Redis de Azure en una red virtual.
 
--	Falta de acceso a DNS. Las instancias de Caché en Redis de Azure de una red virtual requieren acceso a DNS para elementos del sistema de supervisión y tiempo de ejecución de la memoria caché. Si la instancia de la memoria caché no tiene acceso a DNS, no funcionará la supervisión y la memoria caché no se ejecutará correctamente.
--	Puertos TCP bloqueados que los clientes usan para conectarse a Redis, es decir, 6379 o 6380.
--	Tráfico HTTPS saliente bloqueado o interceptado desde la red virtual. Caché en Redis de Azure usa el tráfico HTTPS saliente para servicios de Azure, especialmente el almacenamiento.
--	Máquinas virtuales de instancia de rol de Redis bloqueadas frente a la comunicación entre sí dentro de la red virtual. Se debe permitir a las instancias de rol de Redis comunicarse entre sí mediante TCP en cualquiera de los puertos usados, lo cual puede estar sujeto a cambios, pero como mínimo se puede suponer que son todos los puertos usados en el archivo CSDEF de Redis.
--	El equilibrador de carga de Azure bloqueado frente a la conexión a las máquinas virtuales de Redis en el puerto TCP/HTTP 16001. Caché en Redis de Azure depende del sondeo de equilibrador de carga de Azure predeterminado para determinar qué instancias de rol están activas. El sondeo del equilibrador de carga predeterminado funciona de sondeo de equilibrador al hacer ping en el agente de invitado de Azure en el puerto 16001. Solo las instancias de rol que responden al ping se colocarán en rotación para recibir el tráfico reenviado por el ILB. Cuando no haya ninguna instancia en rotación porque los pings generen error al estar los puertos bloqueados, el ILB no aceptará conexiones TCP entrantes.
--	Tráfico web de la aplicación de cliente bloqueada usado para la validación de clave pública de SSL. Los clientes de Redis (dentro de la red virtual) deben poder hacer el tráfico HTTP a la Internet pública para descargar certificados de entidades de certificados y listas de revocación de certificados para realizar la validación de certificados SSL al usar el puerto 6380 para conectarse a Redis y realizar la autenticación del servidor SSL.
--	Equilibrador de carga de Azure bloqueado de la conexión a máquinas virtuales de Redis en un clúster mediante TCP en el puerto 1300x (13000, 13001, etc.) o 1500x (15000, 15001, etc.). Las redes virtuales se configuran en el archivo csdef con un sondeo del equilibrador de carga para abrir estos puertos. El equilibrador de carga de Azure debe permitirse por NSG, los NSG predeterminados hacen esto mediante la etiqueta AZURE\_LOADBALANCER. El equilibrador de carga de Azure tiene una sola dirección IP estática de 168.63.126.16. Para más información, vea [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md).
+| Puertos | Dirección | Protocolo de transporte | Propósito | Dirección IP remota |
+|-------------|------------------|--------------------|-----------------------------------------------------------------------------------|-------------------------------------|
+| 80, 443 | Salida | TCP | Dependencias de Redis en Almacenamiento de Azure/PKI (Internet) | * |
+| 53 | Salida | TCP/UDP | Dependencias de Redis en DNS (Internet y red virtual) | * |
+| 6379, 6380 | Entrada | TCP | Comunicación del cliente con Redis, equilibrio de carga de Azure | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
+| 8443 | Entrante o saliente | TCP | Detalles de implementación para Redis | VIRTUAL\_NETWORK |
+| 8500 | Entrada | TCP/UDP | Equilibrio de carga de Azure | AZURE\_LOADBALANCER |
+| 10221-10231 | Entrante o saliente | TCP | Detalle de implementación para Redis (puede restringir el punto de conexión remoto a VIRTUAL\_NETWORK) | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
+| 13000-13999 | Entrada | TCP | Comunicación del cliente con clústeres de Redis, Equilibrio de carga de Azure | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
+| 15000-15999 | Entrada | TCP | Comunicación del cliente con clústeres de Redis, Equilibrio de carga de Azure | VIRTUAL\_NETWORK, AZURE\_LOADBALANCER |
+| 16001 | Entrada | TCP/UDP | Equilibrio de carga de Azure | AZURE\_LOADBALANCER |
+| 20226 | Entrante + saliente | TCP | Detalle de implementación de clústeres de Redis | VIRTUAL\_NETWORK |
+
+
+
 
 ## ¿Puedo usar las redes virtuales con una memoria caché básica o estándar?
 
@@ -117,4 +125,4 @@ Obtenga información acerca de cómo usar más características de la memoria ca
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

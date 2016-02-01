@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # Administrar controladores de su dispositivo StorSimple
 
 ## Información general
 
-En este tutorial se describen las distintas operaciones que pueden llevarse a cabo en los controladores de su dispositivo StorSimple. Los controladores de su dispositivo StorSimple son controladores redundantes (del mismo nivel) en una configuración activo-pasivo. En un momento dado, solo un controlador está activo y procesa todas las operaciones de disco y red. El otro controlador está en el modo pasivo. Si se produce un error en el controlador activo, el segundo controlador se activa automáticamente.
+En este tutorial se describen las distintas operaciones que pueden llevarse a cabo en los controladores de su dispositivo StorSimple. Los controladores de su dispositivo StorSimple son controladores redundantes (del mismo nivel) en una configuración activo-pasivo. En un momento dado, solo un controlador está activo y es el que procesa todas las operaciones de disco y red. El otro controlador está en el modo pasivo. Si se produce un error en el controlador activo, el segundo controlador se activa automáticamente.
 
 Este tutorial incluye instrucciones paso a paso para administrar los controladores del dispositivo mediante:
 
@@ -87,7 +87,7 @@ El controlador se reiniciará o apagará. En la siguiente tabla se resumen los d
 |Número de selección|Si decide|Sucederá esto|
 |---|---|---|
 |1\.|Reiniciar el controlador pasivo.|Se creará un trabajo para reiniciar el controlador y se le notificará una vez que el mismo se haya creado correctamente. Se iniciará el reinicio del controlador. Puede supervisar el proceso de reinicio si accede a **Servicio > Panel > Ver registros de operaciones** y filtra los datos según los parámetros específicos de su servicio.|
-|2\.|Reiniciar el controlador activo.|Verá la siguiente advertencia: "Si reinicia el controlador activo, el dispositivo conmutará por error al controlador pasivo. ¿Desea continuar?" </br>Si decide continuar con esta operación, los pasos siguientes serán idénticos a los usados para reiniciar el controlador pasivo (consulte la selección 1).|
+|2\.|Reiniciar el controlador activo.|Verá la siguiente advertencia: "Si reinicia el controlador activo, el dispositivo conmutará por error al controlador pasivo. ¿Desea continuar?" </br>Si decide continuar con esta operación, los pasos siguientes serán idénticos a los utilizados para reiniciar el controlador pasivo (consulte selección 1).|
 |3\.|Apagar el controlador pasivo.|Verá el siguiente mensaje: "Una vez apagado, deberá presionar el botón de encendido en el controlador para activarlo. ¿Está seguro de que desea apagar este controlador?" </br>Si decide continuar con esta operación, los pasos siguientes serán idénticos a los usados para reiniciar el controlador pasivo (consulte selección 1).|
 |4\.|Apagar el controlador activo.|Verá el siguiente mensaje: "Una vez apagado, deberá presionar el botón de encendido en el controlador para activarlo. ¿Está seguro de que desea apagar este controlador?" </br>Si decide continuar con esta operación, los pasos siguientes serán idénticos a los usados para reiniciar el controlador pasivo (consulte selección 1).|
 
@@ -121,7 +121,7 @@ Lleve a cabo los siguientes pasos para apagar o reiniciar un solo controlador de
 
 En esta sección se explica cómo apagar un dispositivo StorSimple en ejecución o con errores desde un equipo remoto. Un dispositivo se apaga después de apagar sus dos controladores. El dispositivo se apaga cuando se lo va a trasladar físicamente o cuando se lo va a dejar fuera de servicio.
 
-> [AZURE.IMPORTANT]Antes de apagar el dispositivo, compruebe el estado de los componentes del dispositivo. Vaya a **Dispositivos > Mantenimiento > Estado del hardware** y compruebe que el estado de los LED de todos los componentes esté en verde. Solo los dispositivos correctos tendrán un estado verde. Si el dispositivo se apaga para sustituir un componente que no funciona correctamente, verá un estado de error (rojo) o de degradado (amarillo) para los componentes correspondientes.
+> [AZURE.IMPORTANT]Antes de apagar el dispositivo, compruebe el estado de los componentes del dispositivo. Vaya a **Dispositivos > Mantenimiento > Estado del hardware** y compruebe que el estado de los LED de todos los componentes sea verde. Solo los dispositivos correctos tendrán un estado verde. Si el dispositivo se apaga para sustituir un componente que no funciona correctamente, verá un estado de error (rojo) o de degradado (amarillo) para los componentes correspondientes.
 
 #### Para apagar un dispositivo StorSimple
 
@@ -191,7 +191,7 @@ En esta sección, hemos resumido algunas de las preguntas más frecuentes sobre 
 
 - **Reiniciar el controlador activo**: se le notificará que continuar con la operación provocará una interrupción temporal del servicio y se le solicitará confirmación.
 
-- **Apagar un controlador activo**: se le notificará que continuar con la operación dará como resultado un tiempo de inactividad y que debe presionar el botón de encendido en uno o ambos controladores para activar el dispositivo. Se le pedirá confirmación.
+- **Apagar un controlador active**: se le notificará que continuar con la operación dará como resultado un tiempo de inactividad y que debe presionar el botón de encendido en uno o ambos controladores para activar el dispositivo. Se le pedirá confirmación.
 
 **P.** ¿Cuándo se produciría un error en el reinicio o el apagado del controlador?
 
@@ -217,8 +217,8 @@ En esta sección, hemos resumido algunas de las preguntas más frecuentes sobre 
 
 ## Pasos siguientes
 
-- Si tiene algún problema con los controladores de su dispositivo StorSimple que no pueda resolver mediante el uso de los procedimientos descritos en este tutorial,[póngase en contacto con el servicio técnico de Microsoft](storsimple-contact-microsoft-support.md).
+- Si tiene algún problema con los controladores de su dispositivo StorSimple que no pueda resolver mediante el uso de los procedimientos descritos en este tutorial, [póngase en contacto con el servicio técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
 - Para obtener información sobre el uso del servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

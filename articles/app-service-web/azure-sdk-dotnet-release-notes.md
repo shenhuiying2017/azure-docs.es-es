@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="01/19/2016" 
 	ms.author="juliako"/>
 
 
@@ -70,4 +70,4 @@ Este tema contiene vínculos a las notas de la versión de SDK de Azure para .NE
 [Notas de la versión del SDK de Azure en MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

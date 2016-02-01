@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="01/14/2016"
 	ms.author="markvi"/>
 
 
@@ -35,4 +35,4 @@ Hasta hace poco, solo era posible registrarse para obtener una suscripción a Mi
 * [¿Qué es Azure AD?](active-directory-whatis.md)
 * [Uso de la infraestructura de identidad local en la nube](active-directory-aadconnect.md)
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->
