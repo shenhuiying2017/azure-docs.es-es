@@ -36,12 +36,12 @@ Revise la información contenida en las notas de la versión antes de implementa
 
 La actualización 2 presenta las siguientes características nuevas.
 
-- **Volúmenes anclados localmente** : en las versiones anteriores de la serie StorSimple 8000, los bloques de datos se almacenan en capas en la nube en función de su uso. No había ninguna forma de garantizar que los bloques permanecerían en el equipo local. En la actualización 2, cuando se crea un volumen, puede designar un volumen como anclado localmente, y los datos principales de dicho volumen no se almacenarán en capas en la nube. Las instantáneas de los volúmenes anclados localmente aún se copiarán en la nube para las copias de seguridad, a fin de que la nube pueda utilizarse a efectos de movilidad de datos y de recuperación ante desastres. Además, puede cambiar el tipo de volumen (es decir, convertir los volúmenes en capas en volúmenes anclados localmente, y viceversa). 
+- **Volúmenes anclados localmente**: en las versiones anteriores de la serie StorSimple 8000, los bloques de datos se almacenan en capas en la nube en función de su uso. No había ninguna forma de garantizar que los bloques permanecerían en el equipo local. En la actualización 2, cuando se crea un volumen, puede designar un volumen como anclado localmente, y los datos principales de dicho volumen no se almacenarán en capas en la nube. Las instantáneas de los volúmenes anclados localmente aún se copiarán en la nube para las copias de seguridad, a fin de que la nube pueda utilizarse a efectos de movilidad de datos y de recuperación ante desastres. Además, puede cambiar el tipo de volumen (es decir, convertir los volúmenes en capas en volúmenes anclados localmente, y viceversa). 
 
 - **Mejoras del dispositivo virtual de StorSimple**: anteriormente, la serie StorSimple 8000 colocaba el dispositivo virtual como una solución de desarrollo y pruebas o de recuperación ante desastres. Solo había un modelo de dispositivo virtual (modelo 1100). La actualización 2 presenta dos modelos de dispositivo virtual:
 
      - 8010 (anteriormente denominado 1100): sin cambios; tiene una capacidad de 30 TB y usa el almacenamiento estándar de Azure.
-     - 8020 : tiene una capacidad de 64 TB y usa el almacenamiento premium de Azure para mejorar el rendimiento.
+     - 8020: tiene una capacidad de 64 TB y usa el almacenamiento premium de Azure para mejorar el rendimiento.
 
     Hay un solo VHD para ambos modelos de dispositivo virtual (8010/8020). Cuando se inicia por primera vez el dispositivo virtual, detecta los parámetros de la plataforma y se aplica a la versión correcta del modelo.
 
@@ -68,7 +68,7 @@ En las tablas siguientes se ofrece un resumen de los problemas corregidos en la 
 | Nº | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 |-----|---------|-------|--------------------------------|--------------------------------|
 | 1 | Interfaces de red | Después de actualizar a la actualización 1, el servicio del administrador de StorSimple informó que se habían producido errores en los puertos Data2 y Data3 de un controlador. Ahora se ha corregido. | Sí | No |
-| 2 | Actualizaciones | Después de actualizar a la actualización 1, se generaron alertas audibles en el Portal de Azure en varios dispositivos. Ahora se ha corregido. | Sí | No |
+| 2 | Actualizaciones | Una vez realizada la actualización 1, se generaron alertas audibles en el Portal de Azure clásico en varios dispositivos. Ahora se ha corregido. | Sí | No |
 | 3 | Autenticación de Openstack | Al utilizar Openstack como proveedor de servicios en la nube, podría recibir un error que indica que la cadena de autenticación de la nube es demasiado larga. Esto se ha solucionado. | Sí | No |
 
 
@@ -113,4 +113,4 @@ Esta versión actualiza el controlador y el firmware del disco en el dispositivo
 
 No se puede aplicar esta actualización al dispositivo virtual. Deben crearse nuevos dispositivos virtuales.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="01/15/2016" 
 	ms.author="awills"/>
 
 #  Application Insights: detección proactiva
@@ -37,12 +37,12 @@ En la actualidad, nuestros algoritmos examinan tiempos de carga de página, tiem
 
 No tiene que establecer ningún umbral o regla de configuración. El aprendizaje automático y los algoritmos de minería de datos se usan para detectar patrones anormales.
 
-La detección proactiva se encuentra en la vista preliminar y aún no está disponible para todos los usuarios de Application Insights. Si quiere probarla, póngase en contacto con AppInsightsML@microsoft.com y trabajamos con usted para configurarla.
+Estamos muy interesados en recibir sus comentarios. Háganos saber cómo lo ayuda, cómo podemos mejorar la detección proactiva y qué otras funcionalidades le gustaría que agregáramos. Puede proporcionarnos sus comentarios mediante Enviar una sonrisa o una desaprobación en el portal o escríbanos un correo electrónico a AppInsightsML@microsoft.com.
 
 ## Acerca de las alertas proactivas
 
 * *¿Por qué he recibido este correo electrónico?*
- * Detección proactiva analizó la telemetría que su aplicación envió a Application Insights y detectó un problema de rendimiento en su aplicación.
+ * Detección proactiva analizó la telemetría que su aplicación envió a Application Insights y detectó un problema de rendimiento en su aplicación. 
 * *¿La notificación significa que tengo definitivamente un problema?*
  * No. Simplemente es una sugerencia sobre algo que puede que desee examinar con más detenimiento. 
 * *¿Cuál debo hacer?*
@@ -56,7 +56,7 @@ La detección proactiva se encuentra en la vista preliminar y aún no está disp
 * *¿Qué tipos de anomalías se detectan?*
  * Patrones que llevarían mucho tiempo de comprobar por usted mismo. Por ejemplo, un bajo rendimiento en una combinación específica de ubicación, hora del día y plataforma.
 * *¿Analiza todos los datos recopilados por Application Insights?*
- * No en este momento. Actualmente, analizamos el tiempo de respuesta de la solicitud y el tiempo de carga de la página. Próximamente estará disponible el análisis de métricas adicionales. 
+ * No en este momento. Actualmente, analizamos el tiempo de respuesta de la solicitud, el tiempo de respuesta de dependencia y el tiempo de carga de la página. Próximamente estará disponible el análisis de métricas adicionales. 
 * *¿Puedo crear mis propias reglas de detección de anomalías?*
  * Todavía no. Pero puede:
  * [Configurar alertas](app-insights-alerts.md) que le indiquen cuándo una métrica cruza un umbral.
@@ -124,13 +124,13 @@ Hay un sitio web completo de consejos sobre cómo mejorar las respuestas del ser
  
     Actualmente se envían a los usuarios que tienen [acceso de escritura al recurso de Application Insights](app-insights-resources-roles-access-control.md).
 
-    También puede editar la lista de destinatarios en la hoja de detección proactiva.
+    También puede editar la configuración de la lista de destinatarios en la hoja Detección proactiva.
 * *No me quiero ver inundado por estos mensajes.*
- * Se limitan a uno por día. No obtendrá repeticiones de ningún mensaje.
+ * Solo se envía uno al día con el problema más relevante que aún no hayamos notificado. No obtendrá repeticiones de ningún mensaje.
 * *Si no hago nada, ¿obtendré un aviso?*
- * No, obtendrá un mensaje sobre cada problema solo una vez.
+ * No, obtendrá un mensaje sobre cada problema solo una vez. 
 * *Perdí el mensaje de correo electrónico. ¿Dónde puedo encontrar las notificaciones en el portal?*
- * En la información general de Application Insights de su aplicación, haga clic en el icono **Detección proactiva**. 
+ * En la información general de Application Insights de su aplicación, haga clic en el icono **Detección proactiva**. Allí encontrará todas las notificaciones de los 7 últimos días.
 
 
 ## Artículos relacionados
@@ -141,4 +141,4 @@ Hay un sitio web completo de consejos sobre cómo mejorar las respuestas del ser
 * [Explorador de búsqueda](app-insights-diagnostic-search.md)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -38,6 +38,8 @@ El monitor de dependencia listo para su uso sin configuraciones adicionales actu
  * DocumentDb, tabla, almacenamiento de blobs y cola de Azure
 * Java
  * Llamadas a una base de datos a través de un controlador [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), por ejemplo, MySQL, SQL Server, PostgreSQL o SQLite.
+* Páginas web
+ * Llamadas AJAX
 
 De nuevo, puede escribir sus propias llamadas de SDK para supervisar otras dependencias.
 
@@ -129,4 +131,4 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="01/20/2016"
    ms.author="jonor;sivae"/>
 
 # Ejemplo 3: Creación de una red perimetral para proteger las redes con un firewall, enrutamiento definido por el usuario y grupo de seguridad de red
@@ -941,4 +941,4 @@ Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red p
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

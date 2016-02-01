@@ -76,12 +76,20 @@ Para obtener más información sobre las características, las ventajas y la fun
 
     Si va a usar HDInsight en una red virtual que bloquea el tráfico de Internet, puede hacer lo siguiente:
 
-    1.	Crear una nueva subred dentro de la red virtual. Esta subred la usará HDInsight.
-
-    2.	Definir una tabla de enrutamiento y crear una ruta definida por el usuario (UDR) para la subred que permita la conectividad de Internet entrante y saliente. Para ello, puede usar rutas *. Esto permitirá la conectividad de Internet solo para los recursos situados en la subred. Para obtener más información sobre cómo trabajar con UDR, consulte https://azure.microsoft.com/es-ES/documentation/articles/virtual-networks-udr-overview/ y https://azure.microsoft.com/es-ES/documentation/articles/virtual-networks-udr-how-to/.
+    1. Crear una nueva subred dentro de la red virtual. De forma predeterminada, la nueva subred podrá comunicarse con Internet. Esto permite que HDInsight esté instalado en esta subred. Puesto que la nueva subred está en la misma red virtual que las subredes seguras, también puede comunicarse con los recursos instalados allí.
     
-    3.	Al crear el clúster de HDInsight, seleccione la subred que creó en el paso 1. De este modo, el clúster se implementará en la subred que tiene acceso a Internet.
+    2. Puede confirmar que no hay ninguna tabla de grupo de seguridad de red o ruta específica asociada a la subred mediante las siguientes instrucciones de PowerShell. Reemplace __VIRTUALNETWORKNAME__ con el nombre de la red virtual, reemplace __GROUPNAME__ con el nombre del grupo de recursos que contiene la red virtual y reemplace __SUBNET__ con el nombre de la subred.
+        
+            $vnet = Get-AzureRmVirtualNetwork -Name VIRTUALNETWORKNAME -ResourceGroupName GROUPNAME
+            $vnet.Subnets | Where-Object Name -eq "SUBNET"
+            
+        En los resultados, tenga en cuenta que tanto __NetworkSecurityGroup__ como __RouteTable__ son `null`.
+    
+    2. Cree el clúster de HDInsight. Al configurar las opciones de red virtual para el clúster, seleccione la subred que creó en el paso 1.
 
+    > [AZURE.NOTE]Con los pasos anteriores se supone que no ha restringido las comunicaciones con direcciones IP _ dentro del intervalo de direcciones IP de la red virtual_. Si lo ha hecho, debe modificar estas restricciones para permitir la comunicación con la nueva subred.
+
+    Para más información sobre los grupos de seguridad de red, consulte [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md) Para más información sobre cómo controlar el enrutamiento en una Red virtual de Azure, consulte [Rutas definidas por el usuario y reenvío IP](../virtual-network/virtual-networks-udr-overview.md).
 
 Para obtener más información sobre el aprovisionamiento de un clúster de HDInsight en una red virtual, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md).
 
@@ -191,4 +199,4 @@ Los siguientes ejemplos demuestran cómo usar HDInsight con Red virtual de Azure
 
 Para obtener más información acerca de Redes virtuales de Azure, consulte la [Información general sobre Red virtual de Azure](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

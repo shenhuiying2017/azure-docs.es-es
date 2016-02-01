@@ -79,10 +79,7 @@
 
      `Get-HcsSystem`
 
-    Debe ver las siguientes versiones:
-    - HcsSoftwareVersion: 6.3.9600.17491
-    - CisAgentVersion: 1.0.9037.0
-    - MdsAgentVersion: 26.0.4696.1433
+    Debe ver las siguientes versiones: - HcsSoftwareVersion: 6.3.9600.17491 - CisAgentVersion: 1.0.9037.0 - MdsAgentVersion: 26.0.4696.1433
  
 9. Ejecute el siguiente cmdlet para confirmar que la actualización de firmware se aplicó correctamente:
 
@@ -110,19 +107,17 @@
 
 	<br/>![Registrar el dispositivo 5 de StorSimple](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
 
-14. El último paso del Asistente para instalación registra el dispositivo con el servicio de Administrador de StorSimple. Para ello, necesitará la clave de registro del servicio que obtuvo en [Paso 2: Obtener la clave de registro del servicio](storsimple-get-service-registration-key-gov.md). Después de proporcionar la clave de registro, puede que tenga que esperar entre 2 y 3 minutos hasta que el dispositivo se registre.
+14. El último paso del Asistente para instalación registra el dispositivo con el servicio de Administrador de StorSimple. Para ello, necesitará la clave de registro del servicio que obtuvo en [Paso 2: Obtener la clave de registro del servicio](#step-2-get-the-service-registration-key). Después de proporcionar la clave de registro, puede que tenga que esperar entre 2 y 3 minutos hasta que el dispositivo se registre.
 
       >[AZURE.NOTE]También puede presionar Ctrl+C en cualquier momento para salir del Asistente para instalación. Si ha especificado toda la configuración de red (dirección IP para Data 0, máscara de subred y puerta de enlace), se conservarán las entradas.
 
 	![Progreso de registro de StorSimple](./media/storsimple-configure-and-register-device-gov/HCS_RegistrationProgress-gov-include.png)
 
-15. Una vez registrado el dispositivo, aparecerá una clave de cifrado de datos de servicio. Copie esta clave y guárdela en un lugar seguro. **Esta clave se solicitará junto con la clave de registro de servicio para registrar dispositivos adicionales con el servicio de Administrador de StorSimple.** Consulte [Seguridad de StorSimple](../articles/storsimple/storsimple-security.md) para obtener más información sobre esta clave.
+15. Una vez registrado el dispositivo, aparecerá una clave de cifrado de datos de servicio. Copie esta clave y guárdela en un lugar seguro. **Esta clave se solicitará junto con la clave de registro de servicio para registrar dispositivos adicionales con el servicio de Administrador de StorSimple.** Consulte [Seguridad de StorSimple](storsimple-security.md) para obtener más información sobre esta clave.
 	
 	![Registrar el dispositivo 7 de StorSimple](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)
 
-      >[AZURE.IMPORTANT]Para copiar el texto de la ventana de la consola serie, simplemente seleccione el texto. Luego, podrá pegarlo en el Portapapeles o en cualquier editor de texto.
-      > 
-      > No use Ctrl + C para copiar la clave de cifrado de datos de servicio. Si usa Ctrl+C, saldrá del Asistente para instalación. Como resultado, no se cambiará la contraseña del administrador del dispositivo y el dispositivo volverá a usar la contraseña predeterminada.
+      >[AZURE.IMPORTANT]Para copiar el texto de la ventana de la consola serie, simplemente seleccione el texto. Luego, podrá pegarlo en el Portapapeles o en cualquier editor de texto. >> No use Ctrl + C para copiar la clave de cifrado de datos de servicio. Si usa Ctrl+C, saldrá del Asistente para instalación. Como resultado, no se cambiará la contraseña del administrador del dispositivo y el dispositivo volverá a usar la contraseña predeterminada.
 
 16. Salga de la consola serie.
 
@@ -140,4 +135,4 @@
      
         
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -517,8 +517,6 @@ Las directivas de reintento se establecen mediante programación y se pueden est
 
 	namespaceManager.Settings.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 	                                                             maxBackoff: TimeSpan.FromSeconds(30),
-	                                                             deltaBackoff: TimeSpan.FromSeconds(2),
-	                                                             terminationTimeBuffer: TimeSpan.FromSeconds(5),
 	                                                             maxRetryCount: 3);
 
 Tenga en cuenta que este código usa parámetros con nombre para obtener una mayor claridad. También puede omitir los nombres porque ninguno de los parámetros es opcional.
@@ -530,8 +528,6 @@ Para establecer la directiva de reintentos predeterminada para todos los cliente
 
 	messagingFactory.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 	                                                    maxBackoff: TimeSpan.FromSeconds(30),
-	                                                    deltaBackoff: TimeSpan.FromSeconds(2),
-	                                                    terminationTimeBuffer: TimeSpan.FromSeconds(5),
 	                                                    maxRetryCount: 3);
 
 Para establecer la directiva de reintentos para un cliente de mensajería o para invalidar su directiva predeterminada, establezca su propiedad **RetryPolicy** mediante una instancia de la clase de directiva requerida:
@@ -539,8 +535,6 @@ Para establecer la directiva de reintentos para un cliente de mensajería o para
 ```csharp
 client.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 	                                        maxBackoff: TimeSpan.FromSeconds(30),
-	                                        deltaBackoff: TimeSpan.FromSeconds(2),
-	                                        terminationTimeBuffer: TimeSpan.FromSeconds(5),
 	                                        maxRetryCount: 3);
 ```
 
@@ -619,8 +613,6 @@ namespace RetryCodeSamples
 		            new RetryExponential(
 		                minBackoff: TimeSpan.FromSeconds(0),
 		                maxBackoff: TimeSpan.FromSeconds(30),
-		                deltaBackoff: TimeSpan.FromSeconds(1.75),
-		                terminationTimeBuffer: TimeSpan.FromSeconds(4),
 		                maxRetryCount: 3);
 
 		        // Policies cannot be specified on a per-operation basis.
@@ -644,8 +636,6 @@ namespace RetryCodeSamples
 		            new RetryExponential(
 		                minBackoff: TimeSpan.FromSeconds(1),
 		                maxBackoff: TimeSpan.FromSeconds(30),
-		                deltaBackoff: TimeSpan.FromSeconds(2),
-		                terminationTimeBuffer: TimeSpan.FromSeconds(5),
 		                maxRetryCount: 3);
 
 
@@ -664,8 +654,6 @@ namespace RetryCodeSamples
 		            new RetryExponential(
 		                minBackoff: TimeSpan.FromSeconds(0.1),
 		                maxBackoff: TimeSpan.FromSeconds(30),
-		                deltaBackoff: TimeSpan.FromSeconds(2),
-		                terminationTimeBuffer: TimeSpan.FromSeconds(5),
 		                maxRetryCount: 3);
 
 
@@ -955,13 +943,11 @@ Considere la posibilidad de comenzar con la configuración siguiente para volver
 En el ejemplo de código siguiente se muestra cómo puede usar el bloque de aplicaciones de manejo de errores transitorios (Topaz) para definir una estrategia de detección de errores transitorios personalizada apropiada para su uso con el cliente ADAL. El código crea una nueva instancia **RetryPolicy** basada en una estrategia de detección personalizada de tipo **AdalDetectionStrategy**, tal como se define en la lista de código siguiente. Las estrategias de detección personalizadas para Topaz implementan la interfaz **ITransientErrorDetectionStrategy** y devuelven el valor true si debe realizarse un reintento, o **false** si el error parece no transitorio y no se debe intentar un reintento.
 
 	using System;
-	using System.Collections.Generic;
 	using System.Linq;
 	using System.Net;
-	using System.Text;
 	using System.Threading.Tasks;
+	using Microsoft.Practices.TransientFaultHandling;
 	using Microsoft.IdentityModel.Clients.ActiveDirectory;
-	using Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling;
 
 	namespace RetryCodeSamples
 	{
@@ -1121,4 +1107,4 @@ El bloque de aplicaciones de control de errores transitorios tiene las siguiente
 | **Lineal (intervalo fijo)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 segundo<br />true | Número de reintentos.<br />Intervalo entre reintentos.<br />Si el primer reintento se realizará inmediatamente. |
 Para obtener ejemplos del uso del bloque de aplicaciones de control de errores transitorios, consulte las secciones de ejemplos mostradas anteriormente en esta guía para la Base de datos SQL de Azure mediante ADO.NET y Azure Active Directory.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

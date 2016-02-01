@@ -55,6 +55,7 @@ Para ver la configuración de Diagnósticos en la plantilla del Administrador de
 Además, antes de llamar a este comando de implementación, es posible que tenga que llevar a cabo alguna tarea de configuración, como agregar su cuenta de Azure (`Add-AzureAccount`), elegir una suscripción (`Select-AzureSubscription`), cambiar al modo del Administrador de recursos (`Switch-AzureMode AzureResourceManager`) y crear el grupo de recursos si aún no lo hizo (`New-AzureResourceGroup`).
 
 ```powershell
+
 New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
@@ -62,7 +63,9 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
 Si tiene un clúster existente que no tiene Diagnósticos implementado, puede agregarlo siguiendo estos pasos. Cree dos archivos WadConfigUpdate.json y WadConfigUpdateParams.json con el siguiente JSON.
 
 ##### WadConfigUpdate.json
+
 ```json
+
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -141,7 +144,10 @@ Si tiene un clúster existente que no tiene Diagnósticos implementado, puede ag
 ```
 
 ##### WadConfigUpdateParams.json
-Reemplace vmNamePrefix con el prefijo que eligió para los nombres de máquina virtual al crear el clúster. A continuación, modifique vmStorageAccountName para que sea la cuenta de almacenamiento en la que desea cargar los registros de las máquinas virtuales. ```json
+Reemplace vmNamePrefix con el prefijo que eligió para los nombres de máquina virtual al crear el clúster. A continuación, modifique vmStorageAccountName para que sea la cuenta de almacenamiento en la que desea cargar los registros de las máquinas virtuales.
+
+```json
+
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
@@ -161,7 +167,10 @@ Reemplace vmNamePrefix con el prefijo que eligió para los nombres de máquina v
 
 Después de crear los archivos JSON como se describió anteriormente, cámbielos por los específicos de su entorno. A continuación, llame al comando siguiente, pasando el nombre del grupo de recursos para el clúster de Service Fabric. Una vez que se ejecuta este comando correctamente, se implementará Diagnósticos en todas las máquinas virtuales y se iniciará la carga de los registros desde el clúster a las tablas de la cuenta de Almacenamiento de Azure especificada.
 
-Además, antes de llamar a este comando de implementación, es posible que tenga que llevar a cabo alguna tarea de configuración, como agregar su cuenta de Azure (`Add-AzureAccount`), elegir la suscripción correcta (`Select-AzureSubscription`) y cambiar al modo del Administrador de recursos (`Switch-AzureMode AzureResourceManager`). ```powershell
+Además, antes de llamar a este comando de implementación, es posible que tenga que llevar a cabo alguna tarea de configuración, como agregar su cuenta de Azure (`Add-AzureAccount`), elegir la suscripción correcta (`Select-AzureSubscription`) y cambiar al modo del Administrador de recursos (`Switch-AzureMode AzureResourceManager`).
+
+```ps
+
 New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToWADConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
@@ -174,7 +183,12 @@ Para ver los pasos para crear un área de trabajo de Visión operativa, consulte
 [Incorporación a Visión operativa](https://technet.microsoft.com/library/mt484118.aspx)
 
 ### Configuración de un área de trabajo de Visión operativa para mostrar los registros de clúster
-Una vez creada el área de trabajo de Visión operativa como se describió antes, el siguiente paso consiste en configurar el área de trabajo para que extraiga los registros de las tablas de Almacenamiento de Azure donde la extensión de Diagnósticos los carga desde el clúster. Actualmente, esta configuración no se puede realizar a través del portal de Visión operativa y solo es posible realizarla con comandos de Powershell. Ejecute el siguiente script de PowerShell: ```powershell <# Este script configurará un área de trabajo de Operations Management Suite (es decir, el área de trabajo de Visión operativa) para que lea Diagnósticos desde una cuenta de Almacenamiento de Azure.
+Una vez creada el área de trabajo de Visión operativa como se describió antes, el siguiente paso consiste en configurar el área de trabajo para que extraiga los registros de las tablas de Almacenamiento de Azure donde la extensión de Diagnósticos los carga desde el clúster. Actualmente, esta configuración no se puede realizar a través del portal de Visión operativa y solo es posible realizarla con comandos de Powershell. Ejecute el siguiente script de PowerShell:
+
+```powershell
+
+    <#
+    This script will configure an Operations Management Suite workspace (aka Operational Insights workspace) to read Diagnostics from an Azure Storage account.
 
     It will enable all supported data types (currently Windows Event Logs, Syslog, Service Fabric Events, ETW Events and IIS Logs).
 
@@ -183,7 +197,7 @@ Una vez creada el área de trabajo de Visión operativa como se describió antes
     If you have more than one OMS workspace you will be prompted for the workspace to configure.
 
     If you have more than one storage account you will be prompted for which storage account to configure.
-#>
+    #>
 
 Add-AzureAccount
 
@@ -241,17 +255,38 @@ function Select-StorageAccount {
     return $storage
 }
 
-$workspace = Select-Workspace $storageAccount = Select-StorageAccount
+$workspace = Select-Workspace
+$storageAccount = Select-StorageAccount
 
 $insightsName = $storageAccount.Name + $workspace.Name
 
 $existingConfig = ""
 
-try { $existingConfig = Get-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -ErrorAction Stop } catch [Hyak.Common.CloudException] { # HTTP Not Found is returned if the storage insight doesn't exist }
+try
+{
+    $existingConfig = Get-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -ErrorAction Stop
+}
+catch [Hyak.Common.CloudException]
+{
+    # HTTP Not Found is returned if the storage insight doesn't exist
+}
 
-if ($existingConfig) { Set-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -Tables $validTables -Containers $validContainers
+if ($existingConfig) {
+    Set-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -Tables $validTables -Containers $validContainers
 
-} else { if ($storageAccount.ResourceType -eq "Microsoft.ClassicStorage/storageAccounts") { Switch-AzureMode -Name AzureServiceManagement $key = (Get-AzureStorageKey -StorageAccountName $storageAccount.Name).Primary Switch-AzureMode -Name AzureResourceManager } else { $key = (Get-AzureStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.Name).Key1 } New-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -StorageAccountResourceId $storageAccount.ResourceId -StorageAccountKey $key -Tables $validTables -Containers $validContainers } ``` Una vez configurada el área de trabajo de Visión operativa para que lea las tablas de Azure en su cuenta de almacenamiento, debería iniciar sesión en el Portal de Azure e ir a la pestaña **Almacenamiento** para el recurso de Visión operativa. Debería tener un aspecto similar al siguiente: ![Configuración de almacenamiento de Visión operativa en el Portal de Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
+} else {
+    if ($storageAccount.ResourceType -eq "Microsoft.ClassicStorage/storageAccounts") {
+        Switch-AzureMode -Name AzureServiceManagement
+        $key = (Get-AzureStorageKey -StorageAccountName $storageAccount.Name).Primary
+        Switch-AzureMode -Name AzureResourceManager
+    } else {
+        $key = (Get-AzureStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.Name).Key1
+    }
+    New-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -StorageAccountResourceId $storageAccount.ResourceId -StorageAccountKey $key -Tables $validTables -Containers $validContainers
+}
+```
+
+Una vez haya configurado el área de trabajo de Visión operativa para leer desde las tablas de Azure en su cuenta de almacenamiento, inicie sesión en el portal y vaya a la pestaña **almacenamiento** del recurso de Visión operativa. Debería tener un aspecto similar al siguiente: ![Configuración de almacenamiento de Visión operativa en el Portal de Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
 
 ### Búsqueda y visualización de registros en Visión operativa
 Después de configurar el área de trabajo de Visión operativa para que lea los registros desde la cuenta de almacenamiento especificada, pueden pasar unos 10 minutos hasta que los registros aparezcan en la interfaz de usuario de Visión operativa. Para asegurarse de que haya nuevos registros generados, es conveniente implementar una aplicación de Service Fabric en el clúster ya que esto generará eventos operativos desde la plataforma Service Fabric.
@@ -290,4 +325,4 @@ Tendrá que actualizar la sección EtwEventSourceProviderConfiguration en WadCon
 ## Pasos siguientes
 Revise los eventos de diagnóstico emitidos para [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) y [Reliable Services](service-fabric-reliable-services-diagnostics.md) para comprender más a fondo qué eventos debería examinar durante la solución de problemas.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="01/15/2016" 
 	ms.author="nitinme"/>
 
 
 # Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight (Linux)
 
 Obtenga información sobre cómo instalar los cuadernos de Zeppelin en clústeres Spark y cómo usar los cuadernos de Zeppelin.
+
+> [AZURE.IMPORTANT]Cuaderno de Zeppelin Notebook para un clúster de HDInsight Spark es una oferta solo para mostrar cómo usar Zeppelin en un entorno de Azure HDInsight Spark. Si desea utilizar cuadernos para trabajar con HDInsight Spark, se recomienda utilizar cuadernos de Jupyter Notebook. Los cuadernos de Jupyter Notebook también proporcionan diferentes opciones de kernel, como Scala, y se seguirán mejorando sus características. Para obtener instrucciones acerca de cómo usar cuadernos de Jupyter Notebook con HDInsight Spark, consulte [Ejecución de consultas Spark SQL mediante un cuaderno de Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter).
 
 **Requisitos previos:**
 
@@ -328,4 +330,4 @@ Después de haber configurado la tunelización SSH, puede usar los pasos siguien
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

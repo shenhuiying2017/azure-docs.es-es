@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Aha! | Microsoft Azure" 
     description="Aprenda a usar Aha! con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Aha!
 
@@ -106,12 +106,12 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Inicio de sesión único](./media/active-directory-saas-aha-tutorial/IC798954.png "Inicio de sesión único")
 
-    1.  En el cuadro de texto **Nombre**, escriba el nombre de la configuración.
+    1.  En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración.
     2.  Para **Configurar mediante**, seleccione **Archivo de metadatos**.
     3.  Para cargar el archivo de metadatos descargado, haga clic en **Examinar**.
     4.  Haga clic en **Actualizar**.
 
-11. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+11. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-aha-tutorial/IC798955.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -140,4 +140,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

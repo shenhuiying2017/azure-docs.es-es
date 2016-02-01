@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Bamboo HR | Microsoft Azure" 
     description="Aprenda cómo usar Bamboo HR con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Bamboo HR
 
@@ -102,14 +102,14 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
     ![Inicio de sesión único SAML](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "Inicio de sesión único SAML")
 
     1.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en BambooHR**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **URL de inicio de sesión único**.
-2.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
+    2.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
 
-        >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
     3.  Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado X.509**.
     4.  Haga clic en **Guardar**.
 
-8.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+8.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-bamboo-hr-tutorial/IC796693.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -121,7 +121,7 @@ En el caso de BambooHR, el aprovisionamiento es una tarea manual.
 
 1.  Inicie sesión en su sitio de **BambooHR** como administrador.
 
-2.  En la barra de herramientas de la parte superior, haga clic en el icono de **Configuración**.
+2.  En la barra de herramientas de la parte superior, haga clic en el icono de **configuración**.
 
     ![Configuración](./media/active-directory-saas-bamboo-hr-tutorial/IC796694.png "Configuración")
 
@@ -133,7 +133,7 @@ En el caso de BambooHR, el aprovisionamiento es una tarea manual.
 
 6.  Haga clic en **Guardar**.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de BambooHR para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de BambooHR para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
 
@@ -143,14 +143,14 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
 1.  En el Portal de Azure AD, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones de **BambooHR ** haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **BambooHR** haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-bamboo-hr-tutorial/IC796695.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, luego, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-bamboo-hr-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

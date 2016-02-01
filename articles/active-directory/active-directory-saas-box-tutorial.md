@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Box | Microsoft Azure" 
     description="Aprenda a usar Box con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 
 
@@ -129,7 +129,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 2. En la página de integración de aplicaciones de **Box **, haga clic en **Asignar usuarios**. <br><br> ![Asignar usuarios](./media/active-directory-saas-box-tutorial/IC769552.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, luego, en **Sí** para confirmar la asignación. <br><br> ![Sí](./media/active-directory-saas-box-tutorial/IC767830.png "Sí")
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación. <br><br> ![Sí](./media/active-directory-saas-box-tutorial/IC767830.png "Sí")
   
 
 Ahora debería esperar 10 minutos y comprobar si la cuenta se ha sincronizado en Box.
@@ -153,4 +153,4 @@ En su inquilino de Box, los usuarios sincronizados se muestran en **Usuarios adm
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

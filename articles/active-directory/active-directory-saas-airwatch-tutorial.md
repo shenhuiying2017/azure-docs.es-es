@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con AirWatch | Microsoft Azure" 
     description="Aprenda a usar AirWatch con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con AirWatch
 
@@ -127,15 +127,15 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Atributo](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Atributo")
 
-    1.  En el cuadro de texto **Object Identifier** (Identificador de objeto), escriba ****http://schemas.microsoft.com/identity/claims/objectidentifier**.
-    2.  En el cuadro de texto **Username** (Nombre de usuario), escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    3.  En el cuadro de texto **Display Name** (Nombre para mostrar), escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    4.  En el cuadro de texto **First Name** (Nombre), escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    5.  En el cuadro de texto **Last Name** (Apellido), escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-    6.  En el cuadro de texto **Correo electrónico**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    1.  En el cuadro de texto **Object Identifier** (Identificador de objeto), escriba **http://schemas.microsoft.com/identity/claims/objectidentifier**.
+    2.  En el cuadro de texto **Username** (Nombre de usuario), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    3.  En el cuadro de texto **Display Name** (Nombre para mostrar), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    4.  En el cuadro de texto **First Name** (Nombre), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    5.  En el cuadro de texto **Last Name** (Apellido), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    6.  En el cuadro de texto **Correo electrónico**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
     7.  Haga clic en **Guardar**.
 
-14. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+14. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-airwatch-tutorial/IC791928.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -158,7 +158,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en AirWatch, tienen q
 
     ![Agregar usuario](./media/active-directory-saas-airwatch-tutorial/IC791931.png "Agregar usuario")
 
-    1.  Especifique valores en los campos **Username** (Nombre de usuario), **Password** (Contraseña), **Confirm Password** (Confirmar contraseña), **First Name** (Nombre), **Last Name** (Apellido), **Email Address** (Correo electrónico) de una cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
+    1.  Especifique **Username** (Nombre de usuario), **Password** (Contraseña), **Confirm Password** (Confirmar contraseña), **First Name** (Nombre), **Last Name** (Apellido), **Email Address** (Correo electrónico) de una cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
     2.  Haga clic en **Guardar**.
 
 >[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de AirWatch ofrecida por AirWatch para aprovisionar cuentas de usuario de AAD.
@@ -175,10 +175,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-airwatch-tutorial/IC791932.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-airwatch-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

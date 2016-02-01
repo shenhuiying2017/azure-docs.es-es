@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="01/19/2016" 
 	ms.author="spelluru"/>
 
 # Ejecución del script de U-SQL en Análisis de Azure Data Lake desde Factoría de datos de Azure 
@@ -56,7 +56,45 @@ subscriptionId | Identificador de suscripción de Azure. | No (si no se especifi
 resourceGroupName | Nombre del grupo de recursos de Azure. | No (si no se especifica, se usa el grupo de recursos de la factoría de datos).
 sessionId | Identificador de sesión de la sesión de autorización de OAuth. Cada identificador de sesión es único y solo puede usarse una vez. Esto se genera automáticamente en el Editor de Factoría de datos. | Sí
 
-   
+El código de autorización que se generó al hacer clic en el botón **Autorizar** expira poco tiempo después. Consulte la tabla siguiente para conocer el momento en que expiran los distintos tipos de cuentas de usuario. Puede ver el siguiente mensaje de error cuando el **token de autenticación expira**: Error de operación de credencial: invalid\_grant - AADSTS70002: error al validar las credenciales. AADSTS70008: la concesión de acceso proporcionada expiró o se revocó. Id. de seguimiento: d18629e8-af88-43c5-88e3-d8419eb1fca1 Id. de correlación: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Marca de tiempo: 2015-12-15 21:09:31Z
+
+ 
+| Tipo de usuario | Expira después de |
+| :-------- | :----------- | 
+| No es usuario de AAD (@hotmail.com, @live.com, etc.) | 12 horas |
+| El usuario de AAD y el origen basado en OAuth están en un [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que no es el de la Factoría de datos del usuario. | 12 horas |
+| El usuario de AAD y el origen basado en OAuth están en el mismo inquilino que la Factoría de datos del usuario. | <p> El máximo es 90 días si el usuario ejecuta segmentos según su origen del servicio vinculado basado en OAuth al menos una vez cada 14 días. </p><p>Durante los 90 días esperados, si el usuario no ha ejecutado ningún segmento basado en dicho origen en 14 días, las credenciales expirarían inmediatamente 14 días después de su último segmento.</p> | 
+
+Para evitar o resolver este error, será preciso que vuelva a dar la autorización con el botón **Autorizar** cuando el **token expire** y vuelva a implementar el servicio vinculado. También puede generar valores para las propiedades **sessionId** y **authorization** mediante programación, para lo que usará el código de la sección siguiente.
+
+  
+### Para generar los valores de sessionId y authorization mediante programación 
+
+    if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
+        linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+    {
+        AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
+
+        WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
+        string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+
+        AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
+        if (azureDataLakeStoreProperties != null)
+        {
+            azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeStoreProperties.Authorization = authorization;
+        }
+
+        AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
+        if (azureDataLakeAnalyticsProperties != null)
+        {
+            azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeAnalyticsProperties.Authorization = authorization;
+        }
+    }
+
+Para más información sobre las clases de Factoría de datos que se usan en el código, consulte los temas [clase AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService clase](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [AuthorizationSessionGetResponse clase](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
+ 
  
 ## Actividad U-SQL de Análisis de Data Lake 
 
@@ -125,7 +163,7 @@ degreeOfParallelism | Número máximo de nodos que se usará de forma simultáne
 prioridad | Determina qué trabajos de todos los están en cola deben seleccionarse para ejecutarse primero. Cuanto menor sea el número, mayor será la prioridad. | No 
 parameters | Parámetros del script SQL U | No 
 
-Vea [SearchLogProcessing.txt Script Definition](#script-definition) (Definición del script de SearchLogProcessing.txt) para la definición del script.
+Para ver la definición del script, consulte la [definición del script SearchLogProcessing.txt](#script-definition).
 
 ### Conjuntos de datos de entrada y salida de ejemplo
 
@@ -215,8 +253,8 @@ Vea [Movimiento de datos a y desde el Almacén de Azure Data Lake](data-factory-
 	    TO @out
 	      USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 
-ADF pasa dinámicamente los valores de los parámetros **@in** y **@out** en el script de U-SQL anterior con la sección 'parameters'. Vea la sección 'parameters' anterior en la definición de la canalización.
+ADF pasa dinámicamente los valores de los parámetros **@in** y **@out** en el script de U-SQL, para lo que usa la sección 'parameters'. Vea la sección 'parameters' anterior en la definición de la canalización.
 
 Puede especificar otro degreeOfParallelism de viz. de propiedades, prioridad, etc., también en su definición de la canalización para los trabajos que se ejecutan en el servicio Análisis de Azure Data Lake.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

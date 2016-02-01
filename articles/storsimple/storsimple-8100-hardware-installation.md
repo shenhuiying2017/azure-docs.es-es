@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100.
@@ -225,7 +225,7 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
      2,3 | Interfaces de red de 10 GbE
      6 | Puertos serie
 
-2. Consulte el siguiente diagrama de cableado de red. (La configuración de red mínima se muestra mediante líneas azules continuas. La configuración adicional requerida para alta disponibilidad y rendimiento se muestra mediante líneas de puntos.
+2. Consulte el siguiente diagrama de cableado de red. (La configuración de red mínima se muestra mediante líneas azules continuas. La configuración adicional requerida para alta disponibilidad y rendimiento se muestra mediante líneas de puntos. 
 
 		
     ![Colocación del cable de red del dispositivo 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
@@ -259,9 +259,9 @@ Tenga en cuenta lo siguiente para alta disponibilidad y rendimiento:
 
 - Cuando sea posible, conecte las interfaces de red desde cada controlador a dos conmutadores diferentes para garantizar la disponibilidad frente al error de un conmutador. En la ilustración se muestran las dos interfaces de red de 10 GbE, DATA 2 y DATA 3, desde cada controlador conectado a dos conmutadores distintos.
 
-Para obtener más información, consulte las **interfaces de red** en los [Requisitos de alta disponibilidad para el dispositivo StorSimple](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md).
+Para obtener más información, consulte las **interfaces de red** en los [Requisitos de alta disponibilidad para el dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
->[AZURE.NOTE]Si usa transceptores SFP+ con las interfaces de red de 10 GbE, use los adaptadores QSFP-SFP+ que se ofrecen. Más información sobre [Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+>[AZURE.NOTE] Si usa SFP y los transceptores con las interfaces de red de 10 GbE, use los adaptadores QSFP-SFP proporcionados. Puede encontrar más información en [Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
     
 
    
@@ -279,16 +279,16 @@ Realice los pasos siguientes para pasar el cable del puerto serie.
 
 4. Instale los controladores de serie a USB (incluidos con el dispositivo) en el equipo.
 
-5. Configure la conexión serie del modo indicado a continuación: 115,200 baudios, 8 bits de datos, 1 bit de parada, sin paridad y el control del flujo establecido en Ninguno.
+5. Configure la conexión serie del modo indicado a continuación: 115.200 baudios, 8 bits de datos, 1 bit de parada, sin paridad y el control del flujo establecido en Ninguno.
 
 6. Presione INTRO en la consola para comprobar que la conexión funciona. Debería aparecer un menú de consola serie.
 
->[AZURE.NOTE]**Administración de Lights-Out**: cuando el dispositivo está instalado en un centro de datos remoto o en una sala de equipos con acceso limitado, asegúrese de que las conexiones serie a ambos controladores estén siempre conectadas a un conmutador de consola serie o un equipo similar. Esto permite el control remoto de fuera de banda y las operaciones de soporte si hay interrupciones de red o errores inesperados.
+>[AZURE.NOTE] **Administración de Lights-Out**: cuando el dispositivo está instalado en un centro de datos remoto o en una sala de equipos con acceso limitado, asegúrese de que las conexiones serie a ambos controladores estén siempre conectadas a un conmutador de consola serie o un equipo similar. Esto permite el control remoto de fuera de banda y las operaciones de soporte si hay interrupciones de red o errores inesperados.
 
 Ahora su dispositivo dispondrá de los cables de alimentación, de acceso a la red y de conectividad serie. El siguiente paso es configurar el software e implementar el dispositivo.
 
 ## Pasos siguientes
 
-Obtenga información sobre cómo [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+Obtenga información sobre cómo [implementar y configurar el dispositivo local StorSimple](storsimple-deployment-walkthrough.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

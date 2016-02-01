@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="01/16/2016" 
 	ms.author="nitinme"/>
 
 
-# Envío remoto de trabajos de Spark mediante la utilización de Livy con clústeres Spark en HDInsight (Linux)
+# Envío de trabajos de Spark de manera remota mediante Livy con clústeres de Spark en HDInsight (Linux)
 
-Un clúster Apache Spark en HDInight de Azure incluye Livy, una interfaz REST para enviar trabajos de forma remota a un clúster Spark desde cualquier ubicación. Para obtener documentación detallada, vea [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
+Un clúster Apache Spark en HDInsight de Azure incluye Livy, una interfaz REST para enviar trabajos de forma remota a un clúster Spark desde cualquier ubicación. Para obtener documentación detallada, vea [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
 Puede usar Livy para ejecutar shells de Spark interactivos o enviar trabajos por lotes que se ejecutarán en Spark. Este artículo trata acerca de cómo utilizar Livy para enviar trabajos por lotes. La sintaxis siguiente utiliza Curl para realizar llamadas REST al punto de conexión de Livy.
 
@@ -41,7 +41,7 @@ Antes de enviar un trabajo por lotes, debe cargar el archivo jar de aplicación 
 
 * Si el archivo jar se encuentra en el almacenamiento de clúster (WASB)
 
-		curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mystorageaccount@mycontainer.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches"
+		curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
 * Si desea pasar el nombre del archivo jar y el nombre de clase como parte de un archivo de entrada (en este ejemplo, input.txt)
 		
@@ -163,9 +163,9 @@ Lleve a cabo los siguiente pasos.
 
 ### Escenarios
 
-* [Spark con BI: realización de análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark with BI: Realizar el análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con Aprendizaje automático: uso de Spark en HDInsight para analizar la temperatura de edificios con los de datos del sistema de acondicionamiento de aire](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Creación de aplicaciones de Aprendizaje automático con Apache Spark en HDInsight de Azure](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -181,10 +181,10 @@ Lleve a cabo los siguiente pasos.
 
 * [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Kernels disponibles para el cuaderno de Jupyter en el clúster Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
 ### Administración de recursos
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

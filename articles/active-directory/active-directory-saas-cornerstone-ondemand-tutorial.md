@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Cornerstone OnDemand | Microsoft Azure" 
     description="Aprenda cómo usar Cornerstone OnDemand con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Cornerstone OnDemand
 
@@ -92,7 +92,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     >[AZURE.NOTE]El inicio de sesión único debe configurarlo el equipo de soporte técnico Cornerstone OnDemand. Cuando se haya completado la configuración, recibirá una notificación del equipo de soporte técnico.
 
-6.  Seleccione la confirmación de la configuración de inicio de sesión único y luego haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+6.  Seleccione la confirmación de la configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781600.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -117,10 +117,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC775564.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, luego, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Asignar usuarios](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781601.png "Asignar usuarios")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

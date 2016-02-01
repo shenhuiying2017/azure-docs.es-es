@@ -16,14 +16,16 @@
    ms.date="09/29/2015"
    ms.author="claudioc"/>
 
-# Patrón de diseño de Actores confiables: redes y gráficos distribuidos
-Actores confiables de Service Fabric es una solución natural para las complejas soluciones de modelado que implican relaciones y el modelado de dichas relaciones como objetos.
+# Patrón de diseño de Reliable Actors: redes y gráficos distribuidos
+El modelo de programación de Reliable Actors de Azure Service Fabric es una solución natural para las complejas soluciones de modelado que implican relaciones y el modelado de dichas relaciones como objetos.
 
-![][1]
+![Modelado de Reliable Actors de Azure Service Fabric][1]
 
-Como se muestra en el diagrama, es sencillo modelar un usuario como una instancia de actor (nodo en la red). Por ejemplo, la "Fuente de amigos" (que a veces se denomina el problema de los "seguidores") permite a los usuarios ver las actualizaciones de estado de los usuarios con los que están conectados, similar al funcionamiento de Facebook y Twitter. El modelo de actor ofrece flexibilidad para enfocar el problema de materialización. Es posible rellenar la Fuente de amigos en tiempo de evento, actualizando la Fuente de amigos de todos mis amigos en el momento en que se publica una actualización, como se muestra a continuación:
+Como se muestra en el diagrama anterior, es sencillo modelar un usuario como una instancia de actor (nodo en la red). Por ejemplo, la "Fuente de amigos" (que a veces se denomina el problema de los "seguidores") permite a los usuarios ver las actualizaciones de estado de los usuarios con los que están conectados, similar al funcionamiento de Facebook y Twitter.
 
-![][2]
+El modelo de Reliable Actors proporciona un enfoque flexible en relación con el problema de la materialización. Es posible rellenar la Fuente de amigos en tiempo de evento, actualizando la Fuente de amigos de todos mis amigos en el momento en que se publica una actualización, como se muestra a continuación:
+
+![El modelo de Reliable Actors y la cumplimentación de la Fuente de amigos][2]
 
 
 ## Ejemplo de código de memoria caché inteligente: Fuente de amigos de una red social (tiempo de evento)
@@ -122,9 +124,13 @@ public class SocialPerson : StatefulActor<SocialPersonState>, ISocialPerson
 }
 ```
 
-También es posible modelar los actores para efectuar una distribución ramificada y compilar la Fuente de amigos en el temporizador de la consulta, es decir, cuando el usuario pide su Fuente de amigos. Otro método que se puede usar es materializar la Fuente de amigos en un temporizador, por ejemplo, cada 5 minutos. O bien, se puede optimizar el modelo y combinar el procesamiento del tiempo del evento y del tiempo de la consulta con un modelo basado en temporizadores, según los hábitos del usuario, como la frecuencia con que inicia sesión o publica una actualización. Cuando se modela un actor en una red social, se deben considerar también los "superusuarios" con millones de seguidores. Los desarrolladores deben modelar el estado y el comportamiento de estos usuarios de forma diferente para satisfacer la demanda. De forma similar, si se quiere modelar una actividad que conecte a muchos actores de usuario a un actor de actividad único (concentrador y radio), también se puede conseguir. Los escenarios de chat de grupo o de hospedaje de juego son dos ejemplos. Consideremos el ejemplo del chat de grupo; un conjunto de participantes crea un actor de chat de grupo que puede distribuir mensajes de un participante al grupo como en el ejemplo siguiente:
+También es posible modelar los actores para efectuar una distribución ramificada y compilar la Fuente de amigos en el temporizador de la consulta, cuando el usuario pide su Fuente de amigos. También puede materializar la Fuente de amigos en un temporizador (por ejemplo, cada cinco minutos). O puede optimizar el modelo y combinar el procesamiento del tiempo del evento y del tiempo de la consulta con un modelo basado en temporizadores, que depende de los hábitos del usuario, como la frecuencia con que inicia sesión o publica una actualización.
 
-## Ejemplo de código de memoria caché inteligente: GroupChat
+Cuando se modela un actor en una red social, se deben considerar también los "superusuarios", que son los usuarios que tienen millones de seguidores. Los desarrolladores deben modelar el estado y el comportamiento de estos usuarios de forma diferente para satisfacer una demanda mayor.
+
+De forma similar, si se quiere modelar una actividad que conecte a muchos actores de usuario a un actor de actividad único (concentrador y radio), también se puede hacer. El chat de grupo y el hospedaje de juegos son dos ejemplos. Consideremos el ejemplo del chat de grupo. Un conjunto de participantes crea un actor de chat de grupo que puede distribuir mensajes de un participante al grupo. Esto se puede observar en el ejemplo siguiente:
+
+## Ejemplo de código de memoria caché inteligente: chat de grupo
 
 ```csharp
 public interface IGroupChat : IActor
@@ -202,7 +208,7 @@ public Task PublishMessageAsync(long participantId, string message)
 }
 ```
 
-Lo que realmente hace es aprovechar la capacidad de los actores confiables para permitir que cualquier actor se dirija a otro actor del clúster mediante su identificador y se comunique con él sin tener que preocuparse de la ubicación, el direccionamiento, el almacenamiento en memoria caché, la mensajería, la serialización o el enrutamiento.
+Este enfoque aprovecha la capacidad del modelo de Reliable Actors para permitir que cualquier actor se dirija a cualquier otro actor del clúster en función del identificador. Pueden comunicarse sin tener que preocuparse de la colocación, el direccionamiento, el almacenamiento en caché, la mensajería, la serialización o el enrutamiento.
 
 ## Pasos siguientes
 [Patrón: memoria caché inteligente](service-fabric-reliable-actors-pattern-smart-cache.md)
@@ -224,4 +230,4 @@ Lo que realmente hace es aprovechar la capacidad de los actores confiables para 
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

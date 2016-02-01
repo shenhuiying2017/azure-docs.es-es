@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Benefitsolver | Microsoft Azure"
     description="Aprenda cómo usar Benefitsolver con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Benefitsolver
 
@@ -146,4 +146,4 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

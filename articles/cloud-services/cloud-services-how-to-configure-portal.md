@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # Configuración de servicios en la nube
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-configure.md)
 - [Azure portal](cloud-services-how-to-configure-portal.md)
+- [Azure classic portal](cloud-services-how-to-configure.md)
 
 Puede configurar la mayoría de los ajustes más usados para un servicio en la nube en el Portal de Azure. O bien, si desea actualizar los archivos de configuración directamente, descargue un archivo de configuración de servicio para actualizar y, a continuación, cargue el archivo actualizado y actualice el servicio en la nube con los cambios en la configuración. De cualquier manera, las actualizaciones de la configuración se realizan en todas las instancias de rol.
 
@@ -94,4 +94,4 @@ El acceso remoto no se puede configurar mediante el **Portal de Azure**, solo pu
 * [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

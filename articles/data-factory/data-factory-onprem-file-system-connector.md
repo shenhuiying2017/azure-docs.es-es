@@ -43,7 +43,7 @@ El ejemplo siguiente muestra:
 
 En el siguiente ejemplo se copian los datos que pertenecen a una serie temporal del sistema de archivos local a un blob de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
-Como primer paso, configure la puerta de enlace de administración de datos según las instrucciones del artículo sobre cómo [Movimiento de datos entre origenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md).
+Como primer paso, configure la puerta de enlace de administración de datos según las instrucciones del artículo sobre cómo [mover datos entre las ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Servicio vinculado del servidor de archivos local:**
 
@@ -489,7 +489,7 @@ fileFilter | Especifique el filtro que se va a usar para seleccionar un subconju
 
 Como ya se ha indicado, con partitionedBy se puede especificar un folderPath dinámico, un nombre de archivo para datos de series temporales. Esto se puede hacer con las macros de Factoría de datos y las variables de sistema SliceStart y SliceEnd, que indican el periodo de tiempo lógico de un segmento de datos especificado.
 
-Vea los artículos [Creación de conjuntos de datos](data-factory-create-datasets.md), [Programación y ejecución con Factoría de datos](data-factory-scheduling-and-execution.md), y [Creación de canalizaciones](data-factory-create-pipelines.md) para conocer más detalles sobre los conjuntos de datos de series temporales, la programación y los segmentos.
+Consulte los artículos [Creación de conjuntos de datos](data-factory-create-datasets.md), [Programación y ejecución con Factoría de datos](data-factory-scheduling-and-execution.md), y [Creación de canalizaciones](data-factory-create-pipelines.md) para conocer más detalles sobre los conjuntos de datos de series temporales, la programación y los segmentos.
 
 #### Muestra 1:
 
@@ -575,7 +575,7 @@ Para usar el formato Avro en una tabla de Hive posterior, consulte [Tutorial de 
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Define el comportamiento de copia cuando el origen es BlobSource o FileSystem. | <p>Hay tres valores posibles para la propiedad copyBehavior. </p><ul><li>**PreserveHierarchy:** conserva la jerarquía de archivos en la carpeta de destino, es decir, la ruta de acceso relativa del archivo de origen a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino a la carpeta de destino.</li><li>**FlattenHierarchy:** todos los archivos de la carpeta de origen estarán en el primer nivel de la carpeta de destino. Los archivos de destino tendrán un nombre generado automáticamente.</li><li>**MergeFiles:** combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre de archivo/blob, el nombre de archivo combinado sería el nombre especificado; de lo contrario, sería el nombre de archivo generado automáticamente.</li></ul> | No |
+| copyBehavior | Define el comportamiento de copia cuando el origen es BlobSource o FileSystem. | <p>Hay tres valores posibles para la propiedad copyBehavior. </p><ul><li>**PreserveHierarchy:** conserva la jerarquía de archivos en la carpeta de destino, es decir, la ruta de acceso relativa del archivo de origen a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino a la carpeta de destino.</li><li>**FlattenHierarchy:** todos los archivos de la carpeta de origen estarán en el primer nivel de la carpeta de destino. Los archivos de destino tendrán un nombre generado automáticamente. </li></ul> | No |
 
 ### Ejemplos de recursive y copyBehavior
 En esta sección se describe el comportamiento resultante de la operación de copia para diferentes combinaciones de valores recursive y copyBehavior.
@@ -603,4 +603,4 @@ false | mergeFiles | <p>Para una carpeta de origen Folder1 con la siguiente estr
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

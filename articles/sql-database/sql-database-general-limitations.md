@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/16/2015"
+   ms.date="01/15/2016"
    ms.author="jroth" />
 
 # Instrucciones y limitaciones generales de Base de datos SQL de Azure
@@ -32,12 +32,6 @@ En este tema se describen las instrucciones y las limitaciones generales de Base
 ## Trabajos/Agente SQL Server
 
 Base de datos SQL de Microsoft Azure no admite trabajos o Agente SQL Server. Sin embargo, puede ejecutar el Agente SQL Server en su SQL Server local y conectarse a la Base de datos SQL de Microsoft Azure.
-
-## Transacciones
-
-La Base de datos SQL de Azure no admite transacciones distribuidas, que son transacciones que afectan a varios recursos. Para obtener más información, vea [Transacciones distribuidas (ADO.NET)](https://msdn.microsoft.com/library/ms254973.aspx). Base de datos SQL puede no conservar los valores de marca de tiempo no confirmados de la base de datos actual (DBTS) entre las conmutaciones por error.
-
-> [AZURE.NOTE]En algunas situaciones, una transacción se puede promover automáticamente a una transacción distribuida. Para obtener más información, vea [Integración de System.Transactions con SQL Server](https://msdn.microsoft.com/library/ms172070.aspx).
 
 ## Compatibilidad con la intercalación de SQL Server
 
@@ -65,8 +59,8 @@ Además, los nombres de inicio de sesión y el usuario no pueden contener el car
 
 - Para obtener directrices relacionadas con la seguridad, consulte [Instrucciones y limitaciones de seguridad de la Base de datos SQL de Azure](sql-database-security-guidelines.md).
 
-- Otro asunto relacionado hace referencia a la compatibilidad de Base de datos SQL de Azure con las versiones locales de SQL Server, como SQL Server 2014. La última versión V12 de Base de datos SQL de Azure ha conseguido muchas mejoras en este sentido. Para obtener más detalles, consulte [Novedades de la Base de datos SQL V12](sql-database-v12-whats-new.md).
+- Otro asunto relacionado hace referencia a la compatibilidad de Base de datos SQL de Azure con las versiones locales de SQL Server, como SQL Server 2014. La última versión V12 de Base de datos SQL de Azure ha conseguido muchas mejoras en este sentido. Para obtener más detalles, consulte [Novedades de Base de datos SQL V12](sql-database-v12-whats-new.md).
 
-- Para obtener información sobre la disponibilidad de los controladores y la compatibilidad con la Base de datos SQL, consulte [Bibliotecas de conexiones para la Base de datos SQL y SQL Server](sql-database-libraries.md).
+- Para obtener información sobre la disponibilidad de controladores y la compatibilidad con Base de datos SQL, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

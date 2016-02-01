@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure AD con BlueJeans | Microsoft Azure" 
     description="Aprenda cómo usar BlueJeans con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure AD con BlueJeans
 
@@ -76,7 +76,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de BlueJeans**, escriba su dirección URL con el siguiente patrón "**https://company.BlueJeans.com*" y, a continuación, haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de BlueJeans**, escriba su dirección URL con el siguiente patrón "**https://company.BlueJeans.com**" y, a continuación, haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "Configurar dirección URL de la aplicación")
 
@@ -86,23 +86,23 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 5.  En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de **BlueJeans**.
 
-6.  Vaya a **ADMIN > Group Settings > Security** (ADMINISTRADOR > Configuración de grupo > Seguridad).
+6.  Vaya a **ADMINISTRADOR > Configuración de grupo > Seguridad**.
 
     ![Administrador](./media/active-directory-saas-bluejeans-tutorial/IC785868.png "Administrador")
 
-7.  En la sección **Security** (Seguridad), lleve a cabo estos pasos:
+7.  En la sección **Seguridad**, realice estos pasos:
 
     ![Inicio de sesión único SAML](./media/active-directory-saas-bluejeans-tutorial/IC785869.png "Inicio de sesión único SAML")
 
-    1.  Seleccione **SAML Single Sign On** (Inicio de sesión único de SAML).
-    2.  Seleccione **Enable automatic provisioning** (Habilitar aprovisionamiento automático).
+    1.  Seleccione **Inicio de sesión único de SAML**.
+    2.  Seleccione **Habilitar aprovisionamiento automático**.
 
 8.  Continúe con los siguiente pasos:
 
     ![Ruta de acceso del certificado](./media/active-directory-saas-bluejeans-tutorial/IC785870.png "Ruta de acceso del certificado")
 
-    1.  Haga clic en **Choose File** (Elegir archivo) y cargue el certificado descargado.
-    2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en BlueJeans**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
+    1.  Haga clic en **Elegir archivo** y cargue el certificado descargado.
+    2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en BlueJeans**, copie el valor de **Dirección URL del inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
     3.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en BlueJeans**, copie el valor de **Cambiar dirección URL de contraseña** y péguelo en el cuadro de texto **Dirección URL de cambio de contraseña**.
     4.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en BlueJeans**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
 
@@ -110,11 +110,11 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Guardar cambios](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Guardar cambios")
 
-    1.  En el cuadro de texto **Identificador de usuario**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-2.  En el cuadro de texto **Correo electrónico**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    1.  En el cuadro de texto **Identificador de usuario**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    2.  En el cuadro de texto **Correo electrónico**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
 3.  Haga clic en **Guardar cambios**.
 
-10. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+10. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-bluejeans-tutorial/IC785876.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -125,18 +125,18 @@ Para permitir que los usuarios de Azure AD inicien sesión en BlueJeans, tienen 
 
 1.  Inicie sesión como administrador en el sitio de la compañía de **BlueJeans**.
 
-2.  Vaya a **ADMIN > Manage Users > Add User** (ADMINISTRADOR > Administrar usuarios > Agregar usuario).
+2.  Vaya a **ADMINISTRADOR > Administrar usuarios > Agregar usuario**.
 
     ![Administrador](./media/active-directory-saas-bluejeans-tutorial/IC785877.png "Administrador")
 
-    >[AZURE.IMPORTANT]La pestaña **Add User** (Agregar usuario) está disponible solo si en la pestaña **Security** (Seguridad), la opción **Enable automatic provisioning** (Habilitar aprovisionamiento automático) está desactivada.
+    >[AZURE.IMPORTANT]La pestaña **Agregar usuario** está disponible solo si en la pestaña **Seguridad**, la opción **Habilitar aprovisionamiento automático** está desactivada.
 
-3.  En la sección **Add User** (Agregar usuario), realice estos pasos:
+3.  En la sección **Agregar usuario**, realice estos pasos:
 
     ![Agregar usuario](./media/active-directory-saas-bluejeans-tutorial/IC785886.png "Agregar usuario")
 
-    1.  Escriba los datos de una cuenta de AAD válida que desee aprovisionar en los cuadros de texto correspondientes: **BlueJeans Username** (Nombre de usuario de BlueJeans), **Email address** (Dirección de correo electrónico), **BlueJeans Meeting ID** (Id. de reunión de BlueJeans), **Moderator Passcode** (Código de acceso de moderador), **Full Name** (Nombre completo) y **Company** (Empresa).
-    2.  Haga clic en **Add User** (Agregar usuario).
+    1.  Escriba los datos de una cuenta de AAD válida que desee aprovisionar en los cuadros de texto correspondientes: **Nombre de usuario de BlueJeans**, **Dirección de correo electrónico**, **Id. de reunión de BlueJeans**, **Código de acceso de moderador**, **Nombre completo** y **Empresa**.
+    2.  Haga clic en **Agregar usuario**.
 
 >[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de BlueJeans que proporcione BlueJeans para aprovisionar cuentas de usuario de AAD.
 
@@ -152,10 +152,10 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
     ![Asignar usuarios](./media/active-directory-saas-bluejeans-tutorial/IC785887.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-bluejeans-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

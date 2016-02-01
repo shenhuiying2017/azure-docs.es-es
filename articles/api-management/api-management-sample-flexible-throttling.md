@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/16/2015"
+	ms.date="01/15/2016"
 	ms.author="v-darmi"/>
 
 
@@ -68,4 +68,9 @@ Administración de API de Azure ofrece limitación de velocidad y de cuota para 
 ## Pasos siguientes
 Háganos sus comentarios en la conversación Disqus sobre este tema. Sería estupendo conocer otros posibles valores de clave que hayan sido una elección lógica en sus escenarios.
 
-<!---HONumber=AcomDC_1217_2015-->
+## Ver un vídeo de información general de estas directivas
+Para más información sobre las directivas [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) y [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) que se describen en este artículo, vea el siguiente vídeo.
+
+> [AZURE.VIDEO advanced-request-throttling-with-azure-api-management]
+
+<!---HONumber=AcomDC_0121_2016-->

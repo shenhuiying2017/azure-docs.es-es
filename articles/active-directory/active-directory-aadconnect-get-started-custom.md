@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/11/2016"
 	ms.author="billmath;andkjell"/>
 
 # Instalación personalizada de Azure AD Connect
@@ -70,6 +70,7 @@ En la pantalla Conectarse a Azure AD, especifique una cuenta de administrador gl
 
 ![Inicio de sesión de usuario](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
+Si recibe un error y tiene problemas de conectividad, consulte [Solución de problemas de conectividad con Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md).
 
 ## Páginas bajo la sección Sincronización
 
@@ -121,11 +122,11 @@ Esta pantalla le permite seleccionar las características opcionales para situac
 
 Características opcionales | Descripción
 -------------------    | ------------- |
-Implementación híbrida de Exchange |La característica Implementación híbrida de Exchange permite la coexistencia de buzones de Exchange tanto en ámbito local como en Azure mediante la sincronización de un conjunto específico de [atributos](active-directory-aadconnectsync-attributes-synchronzied.md#exchange-hybrid-writeback) de Azure AD en el directorio local.
+Implementación híbrida de Exchange |La característica Implementación híbrida de Exchange permite la coexistencia de buzones de Exchange tanto en ámbito local como en Azure mediante la sincronización de un conjunto específico de [atributos](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) de Azure AD en el directorio local.
 Aplicación Azure AD y filtro de atributos|Al habilitar la aplicación de Azure AD y el filtro de atributos, el conjunto de atributos sincronizados se puede adaptar a un conjunto específico de una página posterior del asistente. Esto abre dos páginas de configuración adicionales en el asistente.  
 Sincronización de contraseñas | Puede habilitar esta opción si seleccionó la federación como solución de inicio de sesión. A continuación, la sincronización de contraseñas se puede usar como opción de copia de seguridad. Para obtener más información, consulte [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md).
 Escritura diferida de contraseñas|Al habilitar la escritura diferida de contraseñas, los cambios de contraseña que se originan con Azure AD se volverán a escribir en su directorio local. Para obtener más información, consulte [Introducción a la administración de contraseñas](active-directory-passwords-getting-started.md).
-Escritura diferida de grupos |Si utiliza la función **Grupos en Office 365**, puede tener estos grupos en Active Directory local como un grupo de distribución. Esta opción sólo está disponible si dispone de Exchange en su Active Directory local. Para obtener más información, consulte [Escritura diferida de grupos](active-directory-aadconnect-feature-preview.md#group-writeback).
+Escritura diferida de grupos |Si utiliza la función **Grupos en Office 365**, puede tener estos grupos en Active Directory local como un grupo de distribución. Esta opción solo está disponible si dispone de Exchange en su Active Directory local. Para obtener más información, consulte [Escritura diferida de grupos](active-directory-aadconnect-feature-preview.md#group-writeback).
 Escritura diferida de dispositivos | Permite realizar una escritura diferida de objetos de dispositivo en Azure AD para su Active Directory local para escenarios de acceso condicional. Para obtener más información, consulte [Habilitación de escritura diferida de dispositivos en Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md).
 Sincronización de atributos de las extensiones de directorios|Al habilitar la sincronización de atributos de las extensiones de directorios, los atributos adicionales especificados se sincronizarán con Azure AD. Para obtener más información, consulte [Extensiones de directorio](active-directory-aadconnect-feature-preview.md#directory-extensions).
 
@@ -250,4 +251,4 @@ Ahora que ha instalado Azure AD Connect, puede [comprobar la instalación y asig
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

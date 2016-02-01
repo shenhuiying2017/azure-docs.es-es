@@ -262,9 +262,9 @@ Tenga en cuenta lo siguiente para alta disponibilidad y rendimiento:
 
 - Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan 10 GbE) en cada controlador. 
 
-- Cuando sea posible, conecte las interfaces de red desde cada controlador a dos conmutadores diferentes para garantizar la disponibilidad frente al error de un conmutador. En la ilustración se muestran las dos interfaces de red de 10 GbE, DATA 2 y DATA 3, desde cada controlador conectado a dos conmutadores distintos. Para obtener más información, consulte las **interfaces de red** en los [Requisitos de alta disponibilidad para el dispositivo StorSimple](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md).
+- Cuando sea posible, conecte las interfaces de red desde cada controlador a dos conmutadores diferentes para garantizar la disponibilidad frente al error de un conmutador. En la ilustración se muestran las dos interfaces de red de 10 GbE, DATA 2 y DATA 3, desde cada controlador conectado a dos conmutadores distintos. Para obtener más información, consulte las **interfaces de red** en los [Requisitos de alta disponibilidad para el dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
->[AZURE.NOTE]Si usa transceptores SFP+ con las interfaces de red de 10 GbE, use los adaptadores QSFP-SFP+ que se ofrecen. Puede encontrar más información en [Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
+>[AZURE.NOTE] Si usa transceptores SFP+ con las interfaces de red de 10 GbE, use los adaptadores QSFP-SFP+ que se ofrecen. Puede encontrar más información en [Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
 ### Cableado del puerto serie
 
@@ -289,13 +289,13 @@ Realice los pasos siguientes para pasar el cable del puerto serie.
 
 6. Presione INTRO en la consola para comprobar que la conexión funciona. Debería aparecer un menú de consola serie.
 
-> [AZURE.NOTE]**Administración de Lights-Out**: cuando el dispositivo está instalado en un centro de datos remoto o en una sala de equipos con acceso limitado, asegúrese de que las conexiones serie a ambos controladores estén siempre conectadas a un conmutador de consola serie o un equipo similar. Esto permite el control remoto de fuera de banda y las operaciones de soporte si hay interrupciones de red o errores inesperados.
+> [AZURE.NOTE] **Administración de Lights-Out**: cuando el dispositivo está instalado en un centro de datos remoto o en una sala de equipos con acceso limitado, asegúrese de que las conexiones serie a ambos controladores estén siempre conectadas a un conmutador de consola serie o un equipo similar. Esto permite el control remoto de fuera de banda y las operaciones de soporte si hay interrupciones de red o errores inesperados.
 
 Ha completado el cableado de alimentación, acceso a la red y conexión en serie del dispositivo. El siguiente paso es configurar el software en el dispositivo.
 
 ## Pasos siguientes
 
-Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md)
+Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

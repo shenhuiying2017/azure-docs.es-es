@@ -17,9 +17,7 @@ ms.author="eugenesh" />
 
 # Indexación de documentos en Almacenamiento de blobs de Azure con Búsqueda de Azure
 
-Ya hace algún tiempo que los clientes de Búsqueda de Azure están indexando "automágicamente" algunos orígenes de datos populares usando indexadores para [Base de datos SQL de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) y [Azure DocumentDB](../documentdb/documentdb-search-indexer.md).
-
-Ahora agregamos compatibilidad para la indexación de los documentos guardados en Almacenamiento de blobs de Azure. Muchos clientes nos han solicitado que simplifiquemos la indexación de los documentos almacenados en blobs, como los archivos PDF, documentos de Office o páginas HTML. Hasta ahora, era necesario escribir código personalizado para realizar la extracción de texto y agregar los documentos a un índice de Búsqueda de Azure.
+En este artículo se explica cómo usar Búsqueda de Azure para indexar documentos (como archivos PDF o de Office) almacenados en el Almacenamiento de blobs de Azure. El nuevo indexador de blob de Búsqueda de Azure agiliza y facilita este proceso.
 
 > [AZURE.IMPORTANT]Actualmente, la versión de esta funcionalidad es una versión preliminar. Está disponible solo en la API de REST con la versión **2015-02-28-Preview**. Por favor, recuerde que las versiones preliminares de las API están pensadas para realizar pruebas y evaluar, y no deben usarse en entornos de producción.
 
@@ -203,9 +201,10 @@ Puede agregar propiedades de metadatos a un blob para controlar algunos aspectos
 Nombre de propiedad | Valor de la propiedad | Explicación
 --------------|----------------|------------
 AzureSearch\_Skip | "true" | Da instrucciones al indexador del blob de omitir completamente el blob; no se intentará la extracción ni de metadatos ni de contenido. Esto es útil cuando desea omitir determinados tipos de contenido, o cuando un blob en particular falla varias veces e interrumpe el proceso de indexación.
+AzureSearch\_SkipContent | "true" | Indica al indexador de blobs que solo indexe los metadatos y omita la extracción de contenido del blob. Esto es útil si el contenido del blob no es interesante, pero desea indexar los metadatos adjuntos al blob.
 
 ## Ayúdenos a mejorar Búsqueda de Azure
 
 Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

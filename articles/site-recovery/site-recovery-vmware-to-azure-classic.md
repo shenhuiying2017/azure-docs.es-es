@@ -214,7 +214,7 @@ Configure una red de Azure para que las máquinas virtuales de Azure se conecten
 1. En el Portal de Azure > **Crear red virtual**, especifique el nombre de la red, el intervalo de direcciones IP y el nombre de la subred.
 2. Deberá agregar VPN/ExpressRoute a la red si necesita realizar conmutación por recuperación. Puede agregar VPN/ExpressRoute a la red incluso después de la conmutación por error. 
 
-[Obtenga más información](virtual-networks-overview.md) sobre las redes de Azure.
+[Obtenga más información](../virtual-network/virtual-networks-overview.md) sobre las redes de Azure.
 
 ## Paso 3: Instalación de los componentes de VMware
 
@@ -249,11 +249,11 @@ Si desea replicar máquinas virtuales de VMware, instale los siguientes componen
 
 5. En **Configuración de Internet**, especifique cómo el proveedor que se instalará en el servidor se conectará con Azure Site Recovery a través de Internet.
 
-- Si desea que el proveedor se conecte directamente, seleccione **Conectarse directamente sin proxy**.
-- Si desea conectarse con el proxy configurado actualmente en el servidor, seleccione **Conectarse con la configuración de proxy existente**.
-- Si el proxy existente requiere autenticación o si desea utilizar un proxy personalizado para la conexión del proveedor, seleccione **Conectarse con una configuración de proxy personalizado**.
-- Si utiliza un proxy personalizado, deberá especificar la dirección, el puerto y las credenciales.
-- Si utiliza un proxy, debe poder tener acceso a las siguientes direcciones URL:
+	- Si desea que el proveedor se conecte directamente, seleccione **Conectarse directamente sin proxy**.
+	- Si desea conectarse con el proxy configurado actualmente en el servidor, seleccione **Conectarse con la configuración de proxy existente**.
+	- Si el proxy existente requiere autenticación o si desea utilizar un proxy personalizado para la conexión del proveedor, seleccione **Conectarse con una configuración de proxy personalizado**.
+	- Si utiliza un proxy personalizado, deberá especificar la dirección, el puerto y las credenciales.
+	- Si utiliza un proxy, debe poder tener acceso a las siguientes direcciones URL:
 
 
 	![Firewall](./media/site-recovery-vmware-to-azure-classic/combined-wiz3.png)
@@ -295,6 +295,13 @@ Si desea replicar máquinas virtuales de VMware, instale los siguientes componen
 13.  En **Resumen**, revise la información.
 
 	![Resumen](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
+14. Una vez completada la instalación, inicie una aplicación denominada "Shell de servicios de recuperación de Microsoft Azure" en el menú Inicio de Windows. En la ventana de comandos que se abre, ejecute el siguiente conjunto de comandos para definir la configuración del servidor proxy.
+
+		PS C:\Windows\System32> $pwd = ConvertTo-SecureString -String ProxyUserPassword
+		PS C:\Windows\System32> Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\username -ProxyPassword $pwd
+		PS C:\Windows\System32> net stop obengine.exe
+	 
+
 
 ### Ejecución de la configuración desde la línea de comandos
 
@@ -369,7 +376,7 @@ Un grupo de protección contiene máquinas virtuales o servidores físicos que c
 
 	![Crear un grupo de protección](./media/site-recovery-vmware-to-azure-classic/protection-groups1.png)
 
-2. En la página **Especificar la configuración del grupo de protección**, especifique un nombre para el grupo y en **Desde**, seleccione el servidor de configuración en el que desea crear el grupo. **Destino** es Azure.
+2. En la página **Especificar la configuración del grupo de protección**, especifique un nombre para el grupo y en **Desde**, seleccione el servidor de configuración en el que quiere crear el grupo. **Destino** es Azure.
 
 	![Configuración del grupo de protección](./media/site-recovery-vmware-to-azure-classic/protection-groups2.png)
 
@@ -378,7 +385,7 @@ Un grupo de protección contiene máquinas virtuales o servidores físicos que c
 	![Replicación del grupo de protección](./media/site-recovery-vmware-to-azure-classic/protection-groups3.png)
 
 	- **Coherencia de múltiples máquinas virtuales**: si lo activa, se crean puntos de recuperación coherentes con las aplicaciones compartidas en los equipos del grupo de protección. Esta configuración es muy importante cuando todos los equipos del grupo de protección ejecutan la misma carga de trabajo. Se recuperarán todos los equipos en el mismo punto de datos. Esto está disponible ya sea que replique máquinas virtuales de VMware o servidores físicos de Windows o Linux.
-	- **Umbral de RPO**: Define el RPO. Se generan alertas cuando la replicación de protección de datos continua supera el valor del umbral de RPO configurado.
+	- **Umbral de RPO**: define el RPO. Se generan alertas cuando la replicación de protección de datos continua supera el valor del umbral de RPO configurado.
 	- **Retención de punto de recuperación**: especifica el período de retención. Los equipos protegidos se pueden recuperar en cualquier punto dentro de este período.
 	- **Frecuencia de la instantánea de coherencia de la aplicación**: especifica la frecuencia con la que se crearán los puntos de recuperación que contengan las instantáneas coherentes con la aplicación.
 
@@ -406,7 +413,7 @@ A continuación, le mostramos cómo preparar las máquinas Windows para que el s
 
 	>[AZURE.NOTE]Si no utiliza una cuenta de dominio, deberá deshabilitar el control de acceso de usuario remoto en la máquina virtual. Para ello, en HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System del registro, agregue la entrada LocalAccountTokenFilterPolicy DWORD con un valor de 1. Para agregar la entrada de registro desde un comando abierto de la CLI o mediante PowerShell, escriba **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
 
-2.  En Firewall de Windows de la máquina que desea proteger, seleccione **Permitir una aplicación o una característica a través de Firewall** y habilite **Compartir archivos e impresoras** y el**Instrumental de administración de Windows**. Para los equipos que pertenecen a un dominio puede configurar la directiva de firewall con un GPO.
+2.  En Firewall de Windows de la máquina que quiere proteger, seleccione **Permitir una aplicación o una característica a través de Firewall** y habilite **Compartir archivos e impresoras** y el **Instrumental de administración de Windows**. Para los equipos que pertenecen a un dominio puede configurar la directiva de firewall con un GPO.
 
 	![Configuración de firewall](./media/site-recovery-vmware-to-azure-classic/mobility1.png)
 
@@ -419,7 +426,7 @@ A continuación, le mostramos cómo preparar las máquinas Windows para que el s
 
 #### Preparación para la inserción automática en los servidores Linux
 
-1.	Asegúrese de que la máquina de Linux que desea proteger es compatible, tal como se describe en [Requisitos previos locales](#on-premises-prerequisites). Asegúrese de que hay conectividad entre la máquina que desea proteger y el servidor de administración que ejecuta el servidor de procesos. 
+1.	Asegúrese de que la máquina de Linux que quiere proteger es compatible, tal como se describe en [Requisitos previos locales](#on-premises-prerequisites). Asegúrese de que hay conectividad entre la máquina que desea proteger y el servidor de administración que ejecuta el servidor de procesos. 
 
 2.	Cree una cuenta que el servidor de procesos pueda utilizar para tener acceso a la máquina. La cuenta debe ser un usuario raíz en el servidor Linux de origen. Tenga en cuenta que estas credenciales solo se utilizan para la instalación de inserción del servicio de movilidad.
 
@@ -442,7 +449,7 @@ A continuación, le mostramos cómo preparar las máquinas Windows para que el s
 
 ### Instalación manual de Mobility Service
 
-Puede descargar los instaladores necesarios desde xxx.
+Los instaladores están disponibles en C:\\Program Files (x86)\\Microsoft Azure Site Recovery\\home\\svsystems\\pushinstallsvc\\repository.
 
 Sistema operativo de origen | Archivo de instalación del servicio de movilidad
 --- | ---
@@ -517,7 +524,7 @@ Para habilitar la protección, agregue máquinas virtuales y servidores físicos
 
 - Las máquinas virtuales de VMware se detectan cada 15 minutos y podrían demorar más de 15 minutos en aparecer en el portal de Site Recovery después de su detección.
 - Los cambios de entorno en la máquina virtual (como la instalación de herramientas de VMware) también pueden demorar más de 15 minutos en actualizarse en Site Recovery.
-- Puede consultar la hora de la detección más reciente de máquinas virtuales de VMware en el campo **Último contacto a las** para el servidor vCenter/host ESXi en la pestaña **Servidores de configuración**.
+- Puede consultar la hora de la detección más reciente de VM de VMware en el campo **Último contacto a las** para el servidor vCenter/host ESXi en la pestaña **Servidores de configuración**.
 - Si tiene un grupo de protección ya creado y agrega un servidor vCenter o un host ESXi después de eso, podría demorar más de 15 minutos en que el portal de Azure Site Recovery se actualice y en que las máquinas virtuales aparezcan en el cuadro de diálogo **Agregar máquinas a un grupo de protección**.
 - Si desea continuar inmediatamente con la incorporación de equipos al grupo de protección, sin esperar la detección programada, resalte el servidor de configuración (no haga clic en él) y haga clic en el botón **Actualizar**.
 
@@ -568,15 +575,15 @@ Además, el estado de la protección se puede supervisar en **Elementos protegid
 
 3. Puede modificar estos ajustes:
 
-	-  **Nombre de la máquina virtual de Azure**: Nombre que tendrá la máquina en Azure después de la conmutación por error. El nombre debe cumplir con los requisitos de Azure.
-	-  **Tamaño de la máquina virtual de Azure**: La cantidad de adaptadores de red la determina el tamaño que especifique para la máquina virtual de destino. [Obtenga más información](virtual-machines-size-specs.md/#size-tables) sobre los tamaños y los adaptadores. Observe lo siguiente:
+	-  **Nombre de la VM de Azure**: Nombre que tendrá la máquina en Azure después de la conmutación por error. El nombre debe cumplir con los requisitos de Azure.
+	-  **Tamaño de la VM de Azure**: La cantidad de adaptadores de red la determina el tamaño que especifique para la máquina virtual de destino. [Obtenga más información](virtual-machines-size-specs.md/#size-tables) sobre los tamaños y los adaptadores. Observe lo siguiente:
 		- Cuando modifique el tamaño de una máquina virtual y guarde la configuración, la cantidad de adaptadores de red cambiará la próxima vez que abra la pestaña **Configurar**. El número de adaptadores de red de máquinas virtuales de destino es el mínimo número de adaptadores de red en la máquina virtual de origen y el número máximo de adaptadores de red compatible con el tamaño de la máquina virtual elegida. 
 			- Si el número de adaptadores de red en el equipo de origen es menor o igual al número de adaptadores permitido para el tamaño de la máquina de destino, el destino tendrá el mismo número de adaptadores que el origen.
 			- Si el número de adaptadores para la máquina virtual de origen supera el número permitido para el tamaño de destino, entonces se utilizará el tamaño máximo de destino.
 			- Por ejemplo, si una máquina de origen tiene dos adaptadores de red y el tamaño de la máquina de destino es compatible con cuatro, el equipo de destino tendrá dos adaptadores. Si el equipo de origen tiene dos adaptadores pero el tamaño de destino compatible solo admite uno, el equipo de destino tendrá solo un adaptador.
 		- Si la máquina virtual tiene varios adaptadores de red, todos ellos deben conectarse a la misma red de Azure. 
-	- **Red de Azure**: Debe especificar una red de Azure a la que se conectarán las máquinas virtuales de Azure después de la conmutación por error. Si no especifica ninguna, las máquinas virtuales de Azure no se conectarán a ninguna red. Además, deberá especificar una red de Azure si desea realizar conmutación por recuperación desde Azure al sitio local. La conmutación por recuperación requiere una conexión VPN entre una red de Azure y una red local.	
-	- **Dirección IP/subred de Azure**: Para cada adaptador de red, seleccione la subred a la que se debe conectar la máquina virtual de Azure. Observe lo siguiente:
+	- **Red de Azure**: debe especificar una red de Azure a la que se conectarán las VM de Azure después de la conmutación por error. Si no especifica ninguna, las máquinas virtuales de Azure no se conectarán a ninguna red. Además, deberá especificar una red de Azure si desea realizar conmutación por recuperación desde Azure al sitio local. La conmutación por recuperación requiere una conexión VPN entre una red de Azure y una red local.	
+	- **Dirección IP/subred de Azure**: para cada adaptador de red, seleccione la subred a la que se debe conectar la VM de Azure. Observe lo siguiente:
 		- Si el adaptador de red de la máquina de origen está configurado para utilizar una dirección IP estática, puede especificar una dirección IP estática para la máquina virtual de Azure. Si no proporciona una dirección IP estática, se asignará cualquier dirección IP que se encuentre disponible. Si se especifica la dirección IP de destino, pero ya la usa otra máquina virtual en Azure, la conmutación por error presentará errores. Si el adaptador de red de la máquina de origen está configurado para utilizar DHCP, esta será la configuración para Azure.
 
 ## Paso 12: Creación de un plan de recuperación y ejecución de una conmutación por error
@@ -615,15 +622,15 @@ Antes de ejecutar una conmutación por error, tenga en cuenta que:
 
 Ejecute una conmutación por error de prueba para simular los procesos de conmutación por error y recuperación en una red aislada que no afecte a su entorno de producción y la replicación normal continúa siendo normal. La conmutación por error de prueba se inicia en el origen y puede ejecutarla de dos maneras:
 
-- **Sin especificar una red de Azure**: Si ejecuta una conmutación por error de prueba sin una red, la prueba simplemente comprobará que las máquinas virtuales se inician y aparecen correctamente en Azure. Las máquinas virtuales no se conectarán a una red de Azure después de la conmutación por error.
-- **Especificar una red de Azure**: Este tipo de conmutación por error comprueba que todo el entorno de replicación aparece según lo esperado y que las máquinas virtuales de Azure se conectan a la red especificada. 
+- **Sin especificar una red de Azure**: si ejecuta una conmutación por error de prueba sin una red, la prueba simplemente comprobará que las máquinas virtuales se inician y aparecen correctamente en Azure. Las máquinas virtuales no se conectarán a una red de Azure después de la conmutación por error.
+- **Especificar una red de Azure**: este tipo de conmutación por error comprueba que todo el entorno de replicación aparece según lo esperado y que las máquinas virtuales de Azure están conectadas a la red especificada. 
 
 
 1. En la página **Planes de recuperación**, seleccione el plan y haga clic en **Conmutación por error de prueba**.
 
 	![Agregar máquinas virtuales](./media/site-recovery-vmware-to-azure-classic/test-failover1.png)
 
-2. En **Confirmar conmutación por error de prueba**, seleccione **Ninguna** para indicar que no desea utilizar una red de Azure para la conmutación por error de prueba, o bien seleccione la red a la que las máquinas virtuales de prueba se conectarán después de la conmutación por error. Haga clic en la marca de verificación para iniciar la conmutación por error.
+2. En **Confirmar conmutación por error de prueba**, seleccione **Ninguna** para indicar que no desea utilizar una red de Azure para la conmutación por error de prueba, o bien seleccione la red a la que las VM de prueba se conectarán después de la conmutación por error. Haga clic en la marca de verificación para iniciar la conmutación por error.
 
 	![Agregar máquinas virtuales](./media/site-recovery-vmware-to-azure-classic/test-failover2.png)
 
@@ -691,7 +698,7 @@ Para configurar un servidor de procesos adicional, siga estos pasos:
 
 	![Agregar servidores de procesos](./media/site-recovery-vmware-to-azure-classic/add-ps1.png)
 
-3. Complete el asistente tal y como hiciera cuando [configuró](#step-5:-install-the-management-server) el primer servidor de administración.
+3. Complete el asistente tal y como lo hizo al [configurar](#step-5:-install-the-management-server) el primer servidor de administración.
 4. En **Detalles del servidor de configuración**, especifique la dirección IP del servidor de administración original donde instaló el servidor de configuración y la frase de contraseña. En el servidor de administración original, ejecute **<SiteRecoveryInstallationFolder>\\home\\sysystems\\bin\\genpassphrase.exe –n** para obtener la frase de contraseña.
 
 	![Agregar servidores de procesos](./media/site-recovery-vmware-to-azure-classic/add-ps2.png)
@@ -715,13 +722,13 @@ Para configurar un servidor de procesos adicional, siga estos pasos:
 
 ## Permisos de VMware para el acceso a vCenter
 
-El servidor de procesos puede detectar automáticamente las máquinas virtuales en un servidor vCenter. Para ejecutar la detección automática, deberá definir un rol (Azure\_Site\_Recovery) en el nivel de vCenter para permitir que Site Recovery tenga acceso al servidor vCenter. Tenga en cuenta que si solo debe migrar máquinas de VMware a Azure y no necesita realizar la conmutación por recuperación desde Azure, basta con que defina un rol de solo lectura. Configure los permisos tal como se describe en el [Paso 6: Configuración de las credenciales para el servidor vCenter](#step-6:-set-up-credentials-for-the-vcenter-server). Los permisos de rol se resumen en la siguiente tabla.
+El servidor de procesos puede detectar automáticamente las máquinas virtuales en un servidor vCenter. Para ejecutar la detección automática, deberá definir un rol (Azure\_Site\_Recovery) en el nivel de vCenter para permitir que Site Recovery tenga acceso al servidor vCenter. Tenga en cuenta que si solo debe migrar máquinas de VMware a Azure y no necesita realizar la conmutación por recuperación desde Azure, basta con que defina un rol de solo lectura. Configure los permisos tal y como se describe en el [Paso 6: configuración de las credenciales para el servidor vCenter](#step-6:-set-up-credentials-for-the-vcenter-server). Los permisos de rol se resumen en la siguiente tabla.
 
 **Rol** | **Detalles** | **Permisos**
 --- | --- | ---
 Rol Azure\_Site\_Recovery | Detección de máquinas virtuales de VMware |Asigne estos privilegios para el servidor vCenter:<br/><br/>Almacén de datos-> Asignar espacio, Examinar almacén de datos, Operaciones de archivo de bajo nivel, Quitar archivo, Actualizar archivos de máquina virtual<br/><br/>Red-> Asignación de red<br/><br/>Recurso -> Asignar máquina virtual a un grupo de recursos, Migrar máquina virtual apagada, Migrar máquina virtual encendida<br/><br/>Tareas -> Crear tarea, actualizar tarea<br/><br/>Máquina virtual -> Configuración<br/><br/>Máquina virtual -> Interactuar -> Responder pregunta, Conexión de dispositivo, Configurar soporte físico de CD, Configurar soporte físico de disquete, Apagar, Encender, Instalación de herramientas de VMware<br/><br/>Máquina virtual -> Inventario -> Crear, Registrar, Anular registro<br/><br/>Máquina virtual -> Aprovisionamiento -> Permitir descarga de máquina virtual, Permitir carga de archivos de máquina virtual<br/><br/>Máquina virtual -> Instantáneas -> Quitar instantáneas
-Rol de usuario de vCenter | Detección/conmutación por error de VMware sin apagar la máquina virtual de origen | Asigne estos privilegios para el servidor vCenter:<br/><br/>Objeto Centro de datos –> Propagar a objeto secundario, rol= solo lectura <br/><br/>El usuario se asigna en el nivel de centro de datos y, por lo tanto, tiene acceso a todos los objetos en el centro de datos. Si desea restringir el acceso, asigne el rol **Sin acceso** con **Propagar a objeto** secundario a los objetos secundarios (hosts ESX, almacenes de datos, máquinas virtuales y redes). 
-Rol de usuario de vCenter | Conmutación por error y conmutación por recuperación | Asigne estos privilegios para el servidor vCenter:<br/><br/>Objeto Centro de datos– Propagar a objeto secundario, rol=Azure\_Site\_Recovery<br/><br/>El usuario se asigna en el nivel de centro de datos y, por lo tanto, tiene acceso a todos los objetos en el centro de datos. Si desea restringir el acceso, asigne el rol **Sin acceso** con **Propagar a objeto secundario** al objeto secundario (hosts ESX, almacenes de datos, máquinas virtuales y redes). 
+Rol de usuario de vCenter | Detección/conmutación por error de VMware sin apagar la máquina virtual de origen | Asigne estos privilegios para el servidor vCenter:<br/><br/>Objeto Centro de datos –> Propagar a objeto secundario, rol= solo lectura <br/><br/>El usuario se asigna en el nivel de centro de datos y, por lo tanto, tiene acceso a todos los objetos en el centro de datos. Si desea restringir el acceso, asigne el rol **Sin acceso** con **Propagar a objeto** secundario a los objetos secundarios (hosts ESX, almacenes de datos, VM y redes). 
+Rol de usuario de vCenter | Conmutación por error y conmutación por recuperación | Asigne estos privilegios para el servidor vCenter:<br/><br/>Objeto Centro de datos– Propagar a objeto secundario, rol=Azure\_Site\_Recovery<br/><br/>El usuario se asigna en el nivel de centro de datos y, por lo tanto, tiene acceso a todos los objetos en el centro de datos. Si quiere restringir el acceso, asigne el rol **Sin acceso** con **Propagar a objeto secundario** al objeto secundario (hosts ESX, almacenes de datos, VM y redes). 
 
 
 
@@ -741,4 +748,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Obtenga más información sobre la conmutación por recuperación](site-recovery-failback-azure-to-vmware-classic.md) para que las máquinas a las que se realizó conmutación por error y que se ejecutan en Azure vuelvan al entorno local.
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

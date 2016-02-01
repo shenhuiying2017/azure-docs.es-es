@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="01/19/2016"
 	ms.author="ddove; sidneyh"/>
 
 # Creación y administración de trabajos elásticos de Base de datos SQL (vista previa)
@@ -115,4 +115,4 @@ Si se produce un error en un trabajo, puede encontrar un registro de su ejecuci�
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

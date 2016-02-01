@@ -17,7 +17,7 @@
 	ms.date="01/11/2016" 
 	ms.author="jeffstok"/>
 	
-# Análisis de transmisiones de Azure y Power BI: panel de análisis en tiempo real para visibilidad de streaming de datos
+#  Análisis de transmisiones y Power BI: panel de análisis en tiempo real de flujo de datos
 
 Análisis de transmisiones de Azure permite aprovechar una de las principales herramientas de inteligencia empresarial, Microsoft Power BI. Aprenda a usar Análisis de transmisiones de Azure para analizar grandes volúmenes de datos de streaming y obtener información detallada en un panel de análisis Power BI en tiempo real.
 
@@ -196,7 +196,7 @@ Una pregunta común es "¿por qué el panel no se actualiza automáticamente en 
 
 Para lograr esto, en Power BI use las preguntas y respuestas y formule una pregunta como "valor máximo por valor temporal donde la marca de tiempo es hoy" y ancle ese icono al panel.
 
-## Renovar la autorización
+### Renovar la autorización
 
 Hay una limitación temporal en la que el token de autenticación debe actualizarse manualmente cada 90 días para todos los trabajos con salida de Power BI. También necesitará volver a autenticar la cuenta de Power BI si su contraseña ha cambiado desde que se creó o autenticó por última vez su trabajo. Un síntoma de este problema es la ausencia de salida de trabajos y un "error de autenticación de usuario" en los registros de operaciones:
 
@@ -232,4 +232,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

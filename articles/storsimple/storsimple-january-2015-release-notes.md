@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos" />
 
 
@@ -60,7 +60,7 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 |6|	Cuentas de almacenamiento|El uso del servicio de almacenamiento para eliminar la cuenta de almacenamiento es un escenario no admitido. Esto provocará una situación en la que no se pueden recuperar los datos de usuario.|| Sí |	Sí
 |7|Conmutación por error del dispositivo|	No se admiten varias conmutaciones por error de un contenedor de volúmenes del mismo dispositivo de origen a diferentes dispositivos de destino.|	La conmutación por error de un único dispositivo inactivo a varios dispositivos hará que los contenedores de volúmenes del primer dispositivo conmutado por error pierdan la propiedad de los datos. Después de este tipo de conmutación por error, estos contenedores de volúmenes aparecerán o se comportarán de forma diferente cuando se visualicen en el Portal de Azure clásico.|Sí|No
 |8|	Instalación|Durante la instalación del adaptador de StorSimple para SharePoint, deberá proporcionar una dirección IP de dispositivo para que la instalación finalice correctamente.||Sí|No
-|9|	Proxy web|Si la configuración de proxy web tiene HTTPS como protocolo especificado, la comunicación de dispositivo a servicio se verá afectada y el dispositivo se desconectará. También se generarán paquetes de compatibilidad en el proceso, que consumen muchos recursos en el dispositivo.|Asegúrese de que la dirección URL del proxy web tiene HTTP como protocolo especificado. Obtenga más información sobre cómo [Configurar el proxy web para el dispositivo](storsimple-configure-web-proxy.md).|Sí |No
+|9|	Proxy web|Si la configuración de proxy web tiene HTTPS como protocolo especificado, la comunicación de dispositivo a servicio se verá afectada y el dispositivo se desconectará. También se generarán paquetes de compatibilidad en el proceso, que consumen muchos recursos en el dispositivo.|Asegúrese de que la dirección URL del proxy web tiene HTTP como protocolo especificado. Obtenga más información sobre cómo [Configurar el proxy web del dispositivo](storsimple-configure-web-proxy.md).|Sí |No
 |10|Proxy web|	Si configura y habilita el proxy web en un dispositivo registrado, será necesario reiniciar el controlador activo en el dispositivo.||	Sí |No
 |11|Latencia alta de la nube y alta carga de trabajo de E/S|Cuando el dispositivo StorSimple encuentra una combinación de latencias muy altas de la nube (del orden de segundos) y alta carga de trabajo de E/S, los volúmenes del dispositivo pasan a un estado degradado y las operaciones de E/S pueden fallar con el error «el dispositivo no está listo».|Necesitará reiniciar los controladores de dispositivo de forma manual o realizar una conmutación por error del dispositivo para recuperarse de esta situación.|Sí|No
 
@@ -78,4 +78,4 @@ Esta versión contiene una imagen actualizada para el dispositivo virtual. Todos
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

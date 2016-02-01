@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Ejemplos de configuración de enrutadores para configurar y administrar NAT
@@ -319,4 +319,4 @@ Consulte ejemplos en la página [Ejemplos de configuración de enrutamiento ](ex
 
 Consulte [P+F de ExpressRoute](expressroute-faqs.md) para obtener más detalles.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

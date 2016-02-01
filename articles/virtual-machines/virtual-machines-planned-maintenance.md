@@ -3,7 +3,7 @@
 	description="Entienda qué es el mantenimiento planeado de Azure y cómo afecta a sus máquinas virtuales que se ejecutan en Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="kenazk"
+	authors="drewm"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="kenazk"/>
+	ms.date="01/05/2016"
+	ms.author="drewm"/>
 
 
 # Planeación del mantenimiento de máquinas virtuales de Azure
@@ -72,6 +72,11 @@ Después de restaurar una máquina virtual, aquí se muestra un ejemplo de lo qu
 <!--Image reference-->
 ![][image2]
 
+Use el visor para determinar qué máquinas virtuales están configuradas en una configuración de instancias múltiples mediante el portal de Azure, Azure PowerShell o la CLI de Azure. Por ejemplo, para determinar qué máquinas virtuales hay en una configuración de instancias múltiples, puede examinar la lista de máquinas virtuales con la columna del conjunto de disponibilidad agregada al cuadro de diálogo de exploración de las máquinas virtuales. En el siguiente ejemplo, las máquinas virtuales Example-VM1 y Example-VM2 están en una configuración de instancias múltiples:
+
+<!--Image reference-->
+![][image4]
+
 ## Actualizaciones de una configuración de una sola instancia
 
 Una vez completadas las actualizaciones de instancias múltiples, Azure realizará la actualización de las máquinas virtuales de una sola instancia. Esta actualización también provoca el reinicio de las máquinas virtuales que no se ejecutan en conjuntos de disponibilidad.
@@ -114,10 +119,11 @@ Por ejemplo, durante un mantenimiento planeado, Azure no implementará ninguna a
 [image1]: ./media/virtual-machines-planned-maintenance/vmplanned1.png
 [image2]: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png
 [image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
+[image4]: ./media/virtual-machines-planned-maintenance/AvailabilitySetExample.png
 
 
 <!--Link references-->
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

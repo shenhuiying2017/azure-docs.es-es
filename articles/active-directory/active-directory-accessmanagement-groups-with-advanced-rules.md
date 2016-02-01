@@ -153,7 +153,12 @@ Ahora puede rellenar los miembros de un grupo en función del atributo de admini
 Para configurar un grupo como un grupo de “Administrador”
 --------------------------------------------------------------------------------
 1. En el Portal de administrador, haga clic en la pestaña **Configurar** y luego seleccione **REGLA AVANZADA**.
-2. Escriba la regla con la siguiente sintaxis: Direct Reports for *Direct Reports for {Identificador de usuario del administrador}*
+2. Escriba la regla con la siguiente sintaxis: Direct Reports for *Direct Reports for {Identificador de usuario del administrador}*. Un ejemplo de una regla válida para Direct Reports es 
+
+Direct Reports for 62e19b97-8b3d-4d4a-a106-4ce66896a863”
+
+donde "62e19b97-8b3d-4d4a-a106-4ce66896a863" es el identificador de objeto del administrador. El identificador de objeto puede encontrarse en el Portal de administración de AAD en la pestaña Perfil de la página del usuario que es el administrador.
+
 3. Al guardar esta regla, todos los usuarios que la cumplen se unirán como miembros del grupo. Tenga en cuenta que pueden pasar unos cuando minutos hasta que empiece a llenarse el grupo.
 
 
@@ -168,4 +173,4 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 1/14/2016 -->
 
 >[AZURE.NOTE]Al realizar cambios en la configuración de RBS del adaptador de StorSimple para SharePoint, es necesario haber iniciado sesión con una cuenta de usuario que pertenezca al grupo Admins. del dominio. Además, debe tener acceso a la página de configuración desde un explorador que se ejecuta en el mismo host que la Administración central.
 
@@ -104,4 +104,4 @@
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

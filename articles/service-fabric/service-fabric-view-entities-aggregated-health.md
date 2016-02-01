@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/23/2015"
+   ms.date="01/20/2015"
    ms.author="oanapl"/>
 
 # Vista de los informes de estado de Service Fabric
@@ -839,4 +839,4 @@ Siempre que haya un problema con el clúster o una aplicación, consulte el mant
 
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

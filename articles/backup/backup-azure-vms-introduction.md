@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+	ms.date="01/19/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure
 En este artículo se examinan los principales aspectos que se deben tener en cuenta al planear la infraestructura de copia de seguridad de máquinas virtuales. Si ha [preparado el entorno](backup-azure-vms-prepare.md), este es el paso siguiente antes de comenzar a realizar la [copia de seguridad de las máquinas virtuales](backup-azure-vms.md). Si necesita más información sobre máquinas virtuales de Azure, vea la [Documentación sobre máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -120,4 +120,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Solución de problemas de copia de seguridad de máquinas virtuales](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

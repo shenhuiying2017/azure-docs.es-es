@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con AnswerHub | Microsoft Azure" 
     description="Aprenda a usar AnswerHub con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con AnswerHub
 
@@ -64,7 +64,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
     ![AnswerHub](./media/active-directory-saas-answerhub-tutorial/IC785167.png "AnswerHub")
 ##Configuración del inicio de sesión único
 
-El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en AnswerHub con su cuenta de Azure AD mediante federación basada en el protocolo SAML. Como parte de este procedimiento, se requiere crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en AnswerHub con su cuenta de Azure AD mediante federación basada en el protocolo SAML. Como parte de este procedimiento, se requiere crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
@@ -90,7 +90,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 7.  Haga clic en la pestaña **Usuario y grupo**.
 
-8.  En el panel de navegación izquierdo, en la sección **Configuración social**, haga clic en **Configuración de SAML**.
+8.  En el panel de navegación izquierdo, en la sección **Social Settings** (Configuración social), haga clic en **SAML Setup** (Configuración de SAML).
 
 9.  Haga clic en la pestaña **Configuración de IDP**.
 
@@ -151,10 +151,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-answerhub-tutorial/IC785176.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-answerhub-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

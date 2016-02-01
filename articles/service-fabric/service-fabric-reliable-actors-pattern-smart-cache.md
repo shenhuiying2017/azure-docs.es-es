@@ -16,20 +16,24 @@
    ms.date="11/13/2015"
    ms.author="vturecek"/>
 
-# Patrón de diseño de Actores confiables: memoria caché inteligente
+# Patrón de diseño de Reliable Actors: memoria caché inteligente
 
-La combinación de una capa web, una capa de almacenamiento en memoria caché, una capa de almacenamiento y, ocasionalmente, una capa de trabajador son prácticamente las partes estándares de las aplicaciones actuales. La capa de almacenamiento en memoria caché normalmente es esencial para el rendimiento y puede, de hecho, constar de varias capas ella misma. Muchas de las memorias caché son pares de clave y valor simples, mientras que otros sistemas como [Redis](http://redis.io), que se usan como memorias caché, ofrecen una semántica más enriquecida. Aun así, cualquier capa de almacenamiento en memoria caché especial tendrá una semántica limitada y, lo que es más importante, es otra capa más que se debe administrar. ¿Y si en su lugar los objetos solo mantuvieran el estado en variables locales y a esos objetos se les pudiera hacer una instantánea o se pudieran almacenar de forma persistente en un almacén duradero automáticamente? Además, las colecciones enriquecidas, como las listas, los conjuntos ordenados, las colas y cualquier otro tipo personalizado para este tema se modelan simplemente como métodos y variables de miembro.
+La combinación de una capa web, una capa de almacenamiento en memoria caché, una capa de almacenamiento y, ocasionalmente, una capa de trabajo constituyen las partes estándares de las aplicaciones actuales. La capa de almacenamiento en memoria caché normalmente es esencial para el rendimiento y puede constar de varias capas. Muchas memorias caché son pares clave-valor simples. Otros sistemas, como [Redis](http://redis.io), se utilizan como memorias caché, pero también ofrecen semánticas más enriquecidas. No obstante, cualquier capa de almacenamiento en caché especial tendrá semánticas limitadas. Es más importante aún contar con otra capa para administrar.
 
-![][1]
+En su lugar, los objetos pueden mantener el estado en variables locales y a esos objetos se les puede hacer una instantánea o se pueden almacenar de forma persistente en un almacén duradero automáticamente. Además, las colecciones enriquecidas, como las listas, los conjuntos ordenados y otros tipos personalizados, se pueden modelar simplemente como métodos y variables de miembro.
 
-## El ejemplo de la tabla de líderes
+![Actores y almacenamiento en caché][1]
 
-Considere el ejemplo de la tabla de líderes: un objeto Leaderboard debe mantener una lista ordenada de los jugadores y sus puntuaciones, de modo que se puedan realizar consultas. Por ejemplo, para obtener los "100 mejores jugadores" o para buscar la posición de un jugador en el panel de líderes relativa a +-N jugadores por encima y por debajo. Una solución típica con herramientas tradicionales requeriría una operación "GET" en el objeto Leaderboard (colección que admite la inserción de una nueva tupla<Player  Points> llamada Score), su ordenación y finalmente una operación "PUT" en la memoria caché. Probablemente, se bloquearía el objeto Leaderboard con LOCK (GETLOCK, PUTLOCK) para mantener la coherencia. Consideremos una solución basada en actores donde estado y comportamiento estén juntos. Hay dos opciones:
+## Exploración del ejemplo de marcador
 
-* implementar la colección Leaderboard como parte del actor;
-* o usar el actor como una interfaz para la colección que se pueda mantener en una variable miembro. En primer lugar, echemos un vistazo al aspecto que puede tener una interfaz:
+Echemos un vistazo a los marcadores como ejemplo. Un objeto de marcador debe mantener una lista ordenada de los jugadores y sus puntuaciones, de modo que se puedan realizar consultas en la lista. Una consulta puede encontrar los 100 jugadores principales. También puede buscar la posición de un jugador en el marcado en relación con un número específico de jugadores por encima y por debajo de dicho jugador. Una solución tradicional requeriría obtener el objeto de marcador (una colección que permite insertar una tupla nueva `<Player, Points>` llamada **Score**) con la utilización de GET, ordenarlo y, por último, volver a colocarlo en la caché con PUT. Probablemente bloquearía el objeto de marcador (GETLOCK, PUTLOCK) para mantener la coherencia. Consideremos una solución basada en actores donde el estado y el comportamiento estén juntos. Hay dos opciones:
 
-## Ejemplo de código de memoria caché inteligente: interfaz de la tabla de líderes
+* Implementar la colección de marcador como parte del actor.
+* Usar el actor como una interfaz para la colección que se pueda mantener en una variable miembro.
+
+El ejemplo de código siguiente muestra cuál podría ser el aspecto de la interfaz.
+
+### Ejemplo de código de memoria caché inteligente: interfaz del marcador
 
 ```
 public interface ILeaderboard : IActor
@@ -46,9 +50,9 @@ public interface ILeaderboard : IActor
 
 ```
 
-A continuación, implemente esta interfaz y use la segunda opción y encapsule el comportamiento de la colección en el actor:
+A continuación, puede implementar esta interfaz con la utilización de la segunda opción y encapsular el comportamiento de la colección en el actor:
 
-## Ejemplo de código de memoria caché inteligente: actor de la tabla de líderes
+### Ejemplo de código de memoria caché inteligente: actor del marcador
 
 ```
 public class Leaderboard : StatefulActor<LeaderboardCollection>, ILeaderboard
@@ -75,9 +79,9 @@ public class Leaderboard : StatefulActor<LeaderboardCollection>, ILeaderboard
 
 ```
 
-El miembro de estado de la clase ofrece el estado del actor y en el ejemplo de código anterior también facilita métodos para leer y escribir datos.
+El miembro de estado de la clase proporciona el estado del actor. En el código de ejemplo anterior, también proporciona métodos para leer y escribir datos.
 
-## Ejemplo de código de memoria caché inteligente: LeaderboardCollection
+### Ejemplo de código de memoria caché inteligente: LeaderboardCollection
 
 ```
 [DataContract]
@@ -105,9 +109,9 @@ public class LeaderboardCollection
 
 ```
 
-No hay envíos de datos ni bloqueos, simplemente la manipulación de objetos remotos en un tiempo de ejecución distribuido, el servicio a varios clientes como si fueran objetos individuales en una sola aplicación que dan servicio a un solo cliente. Este es el cliente de ejemplo:
+No existen bloqueos ni envío de datos en este enfoque. Solo manipula objetos remotos en un tiempo de ejecución distribuido, tratando a varios clientes como si fueran objetos individuales en una sola aplicación que da servicio a un solo cliente. El siguiente ejemplo de código se centra en el cliente de ejemplo.
 
-## Ejemplo de código de memoria caché inteligente: llamada al actor de la tabla de líderes
+### Ejemplo de código de memoria caché inteligente: llamada al actor del marcador
 
 ```
 // Get reference to Leaderboard
@@ -132,9 +136,11 @@ Player = 2 Points = 100
 ```
 
 ## Escalado de la arquitectura
-Puede parecer que el ejemplo anterior podría crear un cuello de botella en la instancia de la tabla de líderes. ¿Qué sucede si, por ejemplo, está previsto admitir cientos de miles de jugadores? Una forma de abordarlo podría ser introducir agregadores sin estado que actuasen como un búfer: mantener las puntuaciones parciales (llamémoslas subtotales) y, después, enviarlas periódicamente el actor de la tabla de líderes, que puede mantener la tabla de líderes final. Trataremos esta técnica de "agregación" con más detalle más adelante. Además, no es necesario tener en cuenta exclusiones mutuas, semáforos u otras estructuras de simultaneidad que tradicionalmente requerían los programas con un comportamiento de simultaneidad correcto. A continuación, otro ejemplo de memoria caché que muestra que la semántica enriquecida que se puede implementar con actores. Esta vez, se implementa la lógica de la cola de prioridad (cuanto menor es el número, mayor es la prioridad) como parte de la implementación del actor. La interfaz de IJobQueue es similar a lo siguiente:
+Puede parecer que el ejemplo anterior podría crear un cuello de botella en la instancia del marcador. Por ejemplo, ¿qué ocurre si piensa admitir miles de jugadores? Una forma de abordarlo sería introducir agregadores sin estado que actúan como búferes. Estos agregadores contendrían puntuaciones parciales (subtotales) y, después, las enviarían periódicamente al actor de marcador, que mantendría el marcador final. Trataremos esta técnica con más detalle más adelante. Además, no es necesario tener en cuenta exclusiones mutuas, semáforos u otras estructuras de simultaneidad que tradicionalmente requerían los programas simultáneos que se comportan correctamente.
 
-## Ejemplo de código de memoria caché inteligente: interfaz de la cola de elementos Job
+A continuación, otro ejemplo de memoria caché que muestra la semántica enriquecida que se puede implementar con actores. Esta vez, se implementa la lógica de una cola de prioridad (cuanto menor es el número, mayor es la prioridad) como parte de la implementación del actor. En el siguiente ejemplo de código se ilustra la interfaz de **IJobQueue**.
+
+### Ejemplo de código de memoria caché inteligente: interfaz de la cola de elementos Job
 
 ```
 public interface IJobQueue : IActor
@@ -146,9 +152,9 @@ public interface IJobQueue : IActor
 }
 ```
 
-También se debe definir el elemento Job:
+También se debe definir el elemento **Job**:
 
-## Ejemplo de código de memoria caché inteligente: Job
+### Ejemplo de código de memoria caché inteligente: Job
 
 ```
 public class Job : IComparable<Job>
@@ -168,9 +174,9 @@ public class Job : IComparable<Job>
 }
 ```
 
-Finalmente, se implementa la interfaz IJobQueue en el actor. Tenga en cuenta que se omiten los detalles de implementación de la cola de prioridad para mayor claridad. Una implementación de ejemplo puede encontrarse en los ejemplos que la acompañan.
+Finalmente, se implementa la interfaz IJobQueue en el actor. Tenga en cuenta que se omiten los detalles de implementación de la cola de prioridad para mayor claridad. Se ilustra la implementación en los ejemplos adjuntos.
 
-## Ejemplo de código de memoria caché inteligente: cola de elementos Job
+### Ejemplo de código de la memoria caché inteligente: cola de elementos Job
 
 ```
 public class JobQueue : StatefulActor<List<Jobs>>, IJobQueue
@@ -233,16 +239,20 @@ Job = 6 Priority = 0.962653734238191
 Job = 1 Priority = 0.97444181375878
 ```
 
-## Los actores ofrecen flexibilidad
-En los ejemplos anteriores, tabla de líderes y JobQueue, se usaron dos técnicas distintas:
+## Uso de actores para ofrecer flexibilidad
+En los ejemplos del marcador y la cola de elementos Job anteriores, hemos usado dos técnicas diferentes:
 
-* En el ejemplo de tabla de líderes se encapsuló un objeto Leaderboard como una variable de miembro privado en el actor y simplemente se ofreció una interfaz a este objeto (tanto a sus funcionalidades como a su estado).
+* En el ejemplo de marcador, se encapsula un objeto de marcador como una variable de miembro privado en el actor. A continuación, simplemente proporcionamos una interfaz para este objeto, tanto para su estado como para su funcionalidad.
 
-* Por otro lado, en el ejemplo de JobQueue, se implementó el actor como una cola de prioridad en sí mismo en lugar de hacer referencia a otro objeto definido en otra parte.
+* En el ejemplo de la cola de elementos Job, se implementó el actor como una cola de prioridad, en lugar de hacer referencia a otro objeto definido en otra parte.
 
-Los actores ofrecen flexibilidad para que el desarrollador defina estructuras de objetos enriquecidos como parte de los actores o gráficos de objetos de referencia fuera de los actores. En términos de la memoria caché, los actores pueden realizar escritura por detrás o escritura a través, o bien se pueden usar distintas técnicas con una granularidad de variables de miembro. En otras palabras, existe un control total sobre lo que se debe conservar y cuándo se debe conservar. No es necesario conservar el estado transitorio o el estado que se puede crear a partir del estado guardado. ¿Qué tal si ahora se rellenan las memorias caché de estos actores? Hay varias formas de hacerlo. Los actores ofrecen métodos virtuales llamados OnActivateAsync() y OnDeactivateAsync() para informar de cuándo se activa y desactiva una instancia del actor. Tenga en cuenta que el actor se activa a petición cuando se le envía la primera solicitud. Se puede usar OnActivateAsync() para rellenar el estado a petición como en la lectura a través, quizás desde un almacén estable externo. O se puede rellenar el estado en un temporizador, como un actor de tasa de cambio que ofrece la función de conversión según los tipos de divisa más recientes. Este actor puede rellenar periódicamente su estado desde un servicio externo, por ejemplo cada 5 segundos, y usarlo para la función de conversión. Observe el ejemplo siguiente:
+Los actores ofrecen flexibilidad para que el desarrollador defina estructuras de objetos enriquecidos como parte de los actores o gráficos de objetos de referencia fuera de los actores. En términos de la memoria caché, los actores pueden realizar escritura por detrás o escritura a través, o bien se pueden usar distintas técnicas con una granularidad de variables de miembro. Puede controlar totalmente qué se debe conservar y cuándo. No es necesario conservar el estado transitorio o el estado que se puede crear a partir del estado guardado.
 
-## Ejemplo de código de memoria caché inteligente: conversor de tasas
+¿Cómo se rellenan las memorias caché de estos actores? Hay varias formas de hacerlo. Los actores ofrecen los métodos virtuales **OnActivateAsync()** y **OnDeactivateAsync()** para informar de cuándo se activa y desactiva una instancia del actor. Tenga en cuenta que el actor se activa a petición cuando se le envía la primera solicitud.
+
+Se puede usar OnActivateAsync() para rellenar el estado a petición como en la lectura a través, como desde un almacén estable externo. Se puede rellenar el estado en un temporizador, como un actor de tasa de cambio que ofrece la función de conversión según los tipos de divisa más recientes. Este actor puede rellenar periódicamente su estado desde un servicio externo (por ejemplo, cada 5 segundos) y usarlo para la función de conversión. En el ejemplo de código siguiente se muestra cómo se puede hacer esto.
+
+### Ejemplo de código de memoria caché inteligente: convertidor de índice
 
 ```
 ...
@@ -271,19 +281,19 @@ public Task RefreshRates()
 
 ```
 
-Principalmente, la memoria caché inteligente ofrece:
+Básicamente, el enfoque de memoria caché inteligente ofrece:
 
 * Alto rendimiento y baja latencia por parte de las solicitudes de servicio de la memoria.
 * Enrutamiento de instancia única y serialización de subproceso único de las solicitudes a un elemento sin contención en un almacén persistente.
-* Operaciones semánticas, por ejemplo, poner en la cola (elemento de Job).
-* Escritura a través o escritura por detrás fáciles de implementar.
-* Expulsión automática de los elementos LRU (usados menos recientemente) (administración de recursos).
+* Operaciones semánticas, por ejemplo, **poner en cola (elemento de Job)**.
+* Escritura a través y escritura por detrás fáciles de implementar.
+* Expulsión automática de los elementos menos usados recientemente (LRU) (administración de recursos).
 * Elasticidad y confiabilidad automáticas.
 
 
 ## Pasos siguientes
 
-[Patrón: gráficos y redes distribuidas](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
+[Patrón: gráficos y redes distribuidos](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
 [Patrón: gobernanza de recursos](service-fabric-reliable-actors-pattern-resource-governance.md)
 
@@ -295,10 +305,10 @@ Principalmente, la memoria caché inteligente ofrece:
 
 [Algunos antipatrones](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introducción a los actores de Service Fabric](service-fabric-reliable-actors-introduction.md)
+[Introducción a Actores confiables de Service Fabric.](service-fabric-reliable-actors-introduction.md)
 
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

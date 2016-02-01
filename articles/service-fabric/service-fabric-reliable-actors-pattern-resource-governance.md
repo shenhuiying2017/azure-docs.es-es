@@ -16,25 +16,29 @@
    ms.date="11/13/2015"
    ms.author="vturecek"/>
 
-# Patrón de diseño de Actores confiables: gobernanza de recursos
+# Patrón de diseño de Reliable Actors: gobernanza de recursos
 
-Este patrón y los escenarios relacionados son fácilmente reconocibles para los desarrolladores (empresariales o de otro tipo) que tienen limitaciones de recursos locales o en la nube, que no puede escalar inmediatamente o que quieren incorporar aplicaciones de gran escala y datos en la nube.
+Este patrón y los escenarios relacionados son fácilmente reconocibles para los desarrolladores (empresariales o de otro tipo) que tienen limitaciones de recursos locales o en la nube, que no pueden escalar inmediatamente. También son familiares para los desarrolladores que desean distribuir aplicaciones a gran escala y datos en la nube.
 
-En el ámbito empresarial, estos recursos limitados, como las bases de datos, se ejecutan en hardware con escalado vertical. Cualquier persona con una experiencia empresarial sabe que esta es una situación común en ámbitos locales. Incluso en la escala de nube, se produce esta situación cuando un servicio en la nube intenta exceder el límite de 64.000 conexiones TCP entre una tupla de dirección y puerto o al intentar conectarse a una base de datos basada en la nube que limita el número de conexiones simultáneas.
+En el ámbito empresarial, estos recursos limitados, como las bases de datos, se ejecutan en hardware con escalado vertical. Cualquier persona con una amplia experiencia empresarial sabe que esta es una situación común en ámbitos locales. Incluso a escala de la nube, los desarrolladores observan que esta situación ocurre cuando un servicio en la nube intenta exceder el límite de conexiones de 64 000 TCP entre una tupla de dirección y puerto. Esto también ocurre al intentar conectarse a una base de datos basada en la nube que limita el número de conexiones simultáneas.
 
-Antes, esto se solía resolver con una limitación a través de software intermedio basado en mensajes o mediante mecanismos de agrupación personalizada y de fachada. Son difíciles de conseguir correctamente, especialmente cuando es necesario escalar la capa intermedia y mantener los recuentos de conexiones correctos. Es simplemente frágil y complejo.
+Antes, esto se solía resolver con una limitación a través de software intermedio basado en mensajes o mediante mecanismos de agrupación personalizada y de fachada. Son difíciles de conseguir correctamente, especialmente cuando es necesario escalar la capa intermedia y mantener los recuentos de conexiones correctos. Es una solución frágil y compleja.
 
-De hecho, como sucede con en el patrón de memoria caché inteligente, este patrón se extiende en varios escenarios y clientes que ya tienen sistemas funcionales con recursos restringidos. Se están creando sistemas en los que no solo es necesario escalar de forma horizontal los servicios, sino también su estado en memoria así como el estado persistente en un almacenamiento estable.
+Como sucede con en el patrón de memoria caché inteligente, este patrón se extiende en varios escenarios y clientes que ya tienen sistemas funcionales con recursos restringidos. En los sistemas no solo es necesario escalar horizontalmente los servicios, sino también su estado en memoria, así como el estado persistente en un almacenamiento estable.
 
 En el diagrama siguiente se muestra este escenario:
 
-![][1]
+![Actores sin estado, creación de particiones y recursos restringidos][1]
 
 ## Escenarios de modelado de memoria caché con actores
 
-Esencialmente, se modela el acceso a los recursos como un actor o varios actores que actúan como servidores proxy (por ejemplo, de conexión) en un recurso o grupo de recursos. Entonces, puede administrar directamente el recurso a través de actores individuales o usar un actor de coordinación que administre los actores del recurso. Para que sea más concreto, nos referiremos a la necesidad habitual de tener que trabajar con una capa de almacenamiento particionada (también conocida como "sharded") por motivos de rendimiento y escalabilidad. La primera opción es bastante básica: se puede usar una función estática para asignar y resolver los actores en los recursos descendentes. Esta función puede devolver, por ejemplo, una cadena de conexión con una entrada dada. Se puede decidir por completo cómo implementar esa función. Por supuesto, este enfoque conlleva sus propios inconvenientes, como la afinidad estática, que hace que volver a realizar una partición de los recursos o la reasignación de un actor a recursos sea muy difícil. Este es un ejemplo muy sencillo: se llevará a cabo aritmética de módulo para determinar el nombre de base de datos mediante el userId y se usará la región para identificar el servidor de base de datos.
+Puede modelar el acceso a los recursos con la utilización de un actor o de varios actores que actúan como servidores proxy en un recurso o grupo de recursos (por ejemplo, de conexión). Puede administrar directamente el recurso a través de actores individuales o usar un actor de coordinación que administre los actores del recurso.
 
-## Ejemplo de código de gobernanza de recursos: resolución estática
+Para que este concepto sea más concreto, nos referiremos a la necesidad habitual de tener que trabajar con una capa de almacenamiento particionada (o compartida) por motivos de rendimiento y escalabilidad. La primera opción es bastante básica. Puede usar una función estática para asignar y resolver los actores en los recursos de bajada. Esta función puede devolver, por ejemplo, una cadena de conexión con una entrada dada. El usuario es quien decide cómo implementar la función. Pero este enfoque conlleva sus propios inconvenientes, como la afinidad estática, que dificulta la acción de volver a particionar los recursos o la reasignación de actores a los recursos.
+
+A continuación se muestra un ejemplo sencillo. Se llevará a cabo la aritmética de módulo para determinar el nombre de base de datos mediante el **userId** y se usará la **región** para identificar el servidor de base de datos.
+
+### Ejemplo de código de gobernanza de recursos: resolución estática
 
 ```csharp
 private static string _connectionString = "none";
@@ -50,13 +54,17 @@ private static string ResolveConnectionString(long userId, int region)
 }
 ```
 
-Sencilla, pero no es muy flexible. Ahora, veamos un enfoque más avanzado y útil. En primer lugar, se modela la afinidad entre los recursos físicos y los actores. Esto se realiza a través de un actor denominado Resolver que entiende la asignación entre usuarios, particiones lógicas y recursos físicos. Resolver mantiene sus datos en estado persistente, aunque se almacenan en memoria caché para una búsqueda fácil. Como se vio en el ejemplo anterior de tipo de cambio en el modelo de memoria caché inteligente, Resolver puede capturar la información más reciente de forma proactiva mediante un temporizador. Cuando el actor user resuelve el recurso que necesita usar, lo almacena en la memoria caché en una variable local variable denominada \_resolution y lo usa durante su duración. Se eligió una resolución basada en búsqueda (que se muestra a continuación), en lugar de un hash simple o un hash de intervalo, por la flexibilidad que ofrece en operaciones como la reducción o el escalado horizontales, o el movimiento de un usuario de un recurso a otro.
+Es sencillo, pero no muy flexible. Ahora, veamos un enfoque más avanzado y útil.
 
-![][2]
+En primer lugar, se modela la afinidad entre los recursos físicos y los actores. Esto se realiza a través de un actor conocido como **solucionador**. Entiende la asignación entre usuarios, particiones lógicas y recursos físicos. El solucionador mantiene sus datos en un almacén persistente, pero se almacenan en caché para poder buscarlos con facilidad. Como se vio en [el ejemplo anterior de tipo de cambio en el modelo de memoria caché inteligente](service-fabric-reliable-actors-pattern-smart-cache.md), el solucionador puede capturar la información más reciente de forma proactiva mediante un temporizador. Cuando el actor user resuelve el recurso que necesita usar, lo almacena en la memoria caché en una variable local denominada **\_resolution** y lo usa durante su vigencia.
 
-En la ilustración anterior, el actor B23 primero resuelve su recurso (también conocido como resolución) DB1 y se almacena en memoria caché. Las operaciones posteriores ahora pueden usar la resolución almacenada en memoria caché para obtener acceso al recurso restringido. Dado que los actores admiten ejecución de subproceso único, los desarrolladores ya no necesitan preocuparse por el acceso simultáneo a los recursos. Los actores User y Resolver tienen este aspecto:
+Se eligió una resolución basada en búsqueda (que se muestra a continuación), en lugar de un hash simple o un hash de intervalo, por la flexibilidad que ofrece en operaciones. Esto puede incluir el escalado horizontal y vertical, así como la transferencia de un usuario de un recurso a otro.
 
-## Ejemplo de código de gobernanza de recursos: Resolver
+![Una solución de resolución de búsqueda][2]
+
+En la ilustración anterior, se puede observar que el actor B23 primero resuelve su recurso (resolución) **DB1** y se almacena en memoria caché. Las operaciones posteriores ahora pueden usar la resolución almacenada en memoria caché para obtener acceso al recurso restringido. Dado que los actores admiten ejecución de subproceso único, los desarrolladores ya no necesitan preocuparse por el acceso simultáneo a los recursos. Consulte el ejemplo de código siguiente para ver el usuario y los actores de resolución.
+
+### Ejemplo de código de gobernanza de recursos: solucionador
 
 ```csharp
 public interface IUser : IActor
@@ -99,7 +107,7 @@ public class User : StatefulActor<UserState>, IUser
 }
 ```
 
-Gobierno de recursos: ejemplo de Resolver
+#### Gobernanza de recursos: ejemplo de solucionador
 
 ```csharp
 public interface IResolver : IActor
@@ -141,15 +149,17 @@ public class Resolver : StatefulActor<ResolverState>, IResolver
 }
 ```
 
-## Acceso a los recursos con capacidad finita
+## Acceso a recursos con capacidad limitada
 
-Ahora se analizará otro ejemplo: acceso exclusivo a recursos valiosos como bases de datos, cuentas de almacenamiento y sistemas de archivos con capacidad de rendimiento finita. Nuestro escenario es el siguiente: se quieren procesar eventos mediante un actor llamado EventProcessor, que es responsable de procesar y conservar el evento, en este caso a un archivo .CSV por motivos de simplicidad. Aunque se puede seguir el enfoque de particionamiento mencionado anteriormente para escalar horizontalmente los recursos, aún hay que ocuparse los problemas de simultaneidad. Por ese motivo se eligió un ejemplo basado en archivos para ilustrar este punto concreto: la escritura en un único archivo de varios actores provocará problemas de simultaneidad. Para resolver el problema, se introduce otro actor denominado EventWriter que tiene una propiedad exclusiva de los recursos restringidos. El escenario se ilustra a continuación:
+Ahora se analizará otro ejemplo: acceso exclusivo a recursos valiosos como bases de datos, cuentas de almacenamiento y sistemas de archivos con capacidad de rendimiento limitada. En este escenario, deseamos procesar eventos mediante un actor llamado EventProcessor. Este actor es responsable de procesar y conservar el evento, en este caso en un archivo .csv por motivos de simplicidad. Se puede seguir el enfoque de particionamiento mencionado anteriormente para escalar horizontalmente los recursos, pero aún hay que ocuparse de los problemas de simultaneidad. Se eligió un ejemplo basado en archivos para ilustrar este punto concreto, porque la escritura en un único archivo de varios actores provocará problemas de simultaneidad. Para resolver el problema, se introduce otro actor denominado EventWriter que tiene una propiedad exclusiva de los recursos restringidos. El escenario se ilustra a continuación:
 
-![][3]
+![Escritura y procesamiento de eventos con EventWriter y EventProcessor][3]
 
-Se marcan los actores EventProcessor como "trabajadores sin estado", lo que permite que el tiempo de ejecución los escale en el clúster según sea necesario. Por lo tanto, no se usaron identificadores en la ilustración anterior para estos actores. En otras palabras, los actores sin estado son un grupo de trabajadores que mantiene el tiempo de ejecución. En el código de ejemplo siguiente, el actor EventProcessor hace dos cosas: primero decide qué EventWriter (y por tanto, el recurso) usará e invoca el actor seleccionado para escribir el evento procesado. Por motivos de simplicidad, se elige el tipo Event como identificador del actor EventWriter. En otras palabras, habrá uno y solo un elemento EventWriter para este tipo Event que ofrece un subproceso único y acceso exclusivo al recurso.
+Se marcan los actores EventProcessor como trabajadores sin estado, lo que permite que el tiempo de ejecución los escale en el clúster según sea necesario. Tenga en cuenta que no se usaron identificadores en la ilustración anterior para estos actores. Los actores sin estado son un grupo de trabajadores que mantiene el tiempo de ejecución.
 
-## Ejemplo de código de gobernanza de recursos: procesador de eventos
+En el código de ejemplo siguiente, el actor EventProcessor hace dos cosas. En primer lugar, decide qué EventWriter (y, por tanto, el recurso) utilizar y luego invoca el actor seleccionado para escribir el evento procesado. Por motivos de simplicidad, elegimos el tipo de evento como el identificador del actor EventWriter. Por tanto, solo hay un EventWriter para este tipo de evento, y ofrece un acceso exclusivo y de uniproceso al recurso.
+
+### Ejemplo de código de gobernanza de recursos: EventProcessor
 
 ```csharp
 public interface IEventProcessor : IActor
@@ -176,8 +186,9 @@ public class EventProcessor : StatelessActor, IEventProcessor
 }
 ```
 
-Ahora, echemos un vistazo al actor EventWriter. Realmente no hace mucho, aparte de controlar el acceso exclusivo al recurso restringido, en este caso el archivo, y escribir los eventos en él.
-## Ejemplo de código de gobernanza de recursos: escritor de eventos
+Ahora, echemos un vistazo al actor EventWriter. Controla el acceso exclusivo al recurso restringido, en este caso el archivo, y escribir los eventos en él, pero no hace mucho más.
+
+### Ejemplo de código de gobernanza de recursos: EventWriter
 
 ```csharp
 public interface IEventWriter : IActor
@@ -220,8 +231,9 @@ public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
  }
 ```
 
-Al disponer de un único actor responsable del recurso, es posible agregar funciones como el almacenamiento en búfer. Se pueden almacenar en búfer los eventos de entrada y escribir dichos eventos periódicamente mediante un temporizador o cuando el búfer esté lleno. Este es un ejemplo basado en un temporizador simple:
-## Ejemplo de código de gobernanza de recursos: escritor de eventos con búfer
+Al usar un único actor responsable del recurso, es posible agregar funciones como el almacenamiento en búfer. Se pueden almacenar en búfer los eventos de entrada y escribir dichos eventos periódicamente mediante un temporizador o cuando el búfer esté lleno. El ejemplo de código siguiente proporciona un ejemplo sencillo basado en temporizador.
+
+### Ejemplo de código de gobernanza de recursos: EventWriter con búfer
 
 ```csharp
 [DataMember]
@@ -282,9 +294,9 @@ public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
 }
 ```
 
-Aunque el código anterior funciona bien, los clientes no sabrán si su evento llegó al almacén subyacente. Para permitir el almacenamiento en búfer y que los clientes sepan lo que pasa con su solicitud, presentamos el siguiente enfoque para permitir que los clientes esperen hasta que su evento se escriba en el archivo .CSV:
+El código anterior funciona bien, pero los clientes no sabrán si su evento llegó al almacén subyacente. Para permitir el almacenamiento en búfer y que los clientes obtengan información sobre lo que sucede con su solicitud, el siguiente enfoque permite que los clientes esperen hasta que su evento se escriba en el archivo .csv.
 
-## Ejemplo de código de gobernanza de recursos: procesamiento por lotes asincrónico
+### Ejemplo de código de gobernanza de recursos: procesamiento por lotes asincrónico
 
 ```csharp
 public class AsyncBatchExecutor
@@ -323,9 +335,11 @@ public class AsyncBatchExecutor
 }
 ```
 
-Esta clase se usará para crear y mantener una lista de tareas incompletas (para bloquear clientes) y completarlas en una sola operación cuando se escriban los eventos almacenados en el búfer en el almacenamiento. En la clase EventWriter, es necesario hacer tres cosas: marcar la clase del actor como reentrante, devolver el resultado de SubmitNext() y vaciar el temporizador. El código modificado es el siguiente:
+Esta clase se utilizará para crear y mantener una lista de tareas incompletas (para bloquear clientes). Se completarán de una vez después de haber escrito en el almacenamiento los eventos del búfer.
 
-## Ejemplo de código de gobernanza de recursos: almacenamiento en búfer con procesamiento por lotes asincrónico
+En la clase EventWriter, es necesario hacer tres cosas: marcar la clase del actor como reentrante, devolver el resultado de **SubmitNext()** y vaciar el temporizador. Vea el siguiente código modificado.
+
+### Ejemplo de código de gobernanza de recursos: almacenamiento en búfer con procesamiento por lotes asincrónico
 
 ```csharp
 public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
@@ -387,24 +401,24 @@ public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
 }
 ```
 
-¿Parece sencillo? En realidad, lo es. Pero la facilidad se contrapone a la eficacia de la empresa. Con esta arquitectura, se obtiene:
+La facilidad de este enfoque se contrapone a la eficacia de la empresa. Mediante el uso de esta arquitectura, obtendrá:
 
 * Un direccionamiento de recursos independiente de la ubicación.
 * Un tamaño de grupo ajustable, en función simplemente del número de actores que intervienen en nombre de un recurso.
 * Uso del grupo coordinado en el lado cliente (como se muestra) o en el lado servidor (imagine un actor único delante de los grupos de la imagen).
 * Adición de grupo escalable (simplemente agregar actores que representen el nuevo recurso).
-* El actor (tal y como se demostró antes) puede almacenar en memoria caché los resultados del recurso de back-end a petición o almacenarlos previamente en memoria caché con un temporizador para reducir la necesidad de usar el recurso de back-end.
+* Actores que pueden almacenar en caché los resultados de los recursos back-end a petición o en caché previa utilizando un temporizador, como se ha mostrado anteriormente. Esto reduce la necesidad de seleccionar recursos back-end.
 * Envío asincrónico eficaz.
-* Un entorno de codificación que le resultará familiar a cualquier programador, no solo a los especialistas de software intermedio.
+* Un entorno de codificación que resultará familiar a cualquier desarrollador, no solo a los especialistas de software intermedio.
 
-Este patrón es muy habitual en escenarios en los que los desarrolladores tienen recursos restringidos en los que deben desarrollar o deben crear grandes sistemas de escalado horizontal.
+Este patrón es habitual en escenarios en los que los desarrolladores tienen recursos restringidos en los que deben desarrollar. También es común cuando los desarrolladores crean grandes sistemas de escalado horizontal.
 
 
 ## Pasos siguientes
 
 [Patrón: memoria caché inteligente](service-fabric-reliable-actors-pattern-smart-cache.md)
 
-[Patrón: gráficos y redes distribuidas](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
+[Patrón: gráficos y redes distribuidos](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
 [Patrón: composición del servicio con estado](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
@@ -414,11 +428,11 @@ Este patrón es muy habitual en escenarios en los que los desarrolladores tienen
 
 [Algunos antipatrones](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introducción a los actores de Service Fabric](service-fabric-reliable-actors-introduction.md)
+[Introducción a Actores confiables de Service Fabric.](service-fabric-reliable-actors-introduction.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

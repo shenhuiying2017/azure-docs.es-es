@@ -16,7 +16,7 @@
 	ms.date="01/13/2015" 
 	ms.author="jeffstok"/>
 
-#Notas de la versión de Análisis de transmisiones de Microsoft
+#Notas de la versión de Análisis de transmisiones
 
 ## Notas de la versión de Análisis de transmisiones del 12/10/2015 ##
 
@@ -133,4 +133,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,12 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="01/19/2016" 
 	ms.author="spelluru"/>
 
 # Actividad de procedimiento almacenado de SQL Server
 
-Puede usar la actividad de procedimiento almacenado de SQL Server en una [canalización](data-factory-create-pipelines.md) de Factoría de datos para invocar un procedimiento almacenado en una **Base de datos SQL de Azure** o en un **Almacenamiento de datos SQL de Azure**. Este artículo se basa en el artículo [actividades de transformación de datos](data-factory-data-transformation-activities.md), que presenta una descripción general de la transformación de datos y las actividades de transformación admitidas.
+Puede usar la actividad de procedimiento almacenado de SQL Server en una [canalización](data-factory-create-pipelines.md) de Factoría de datos para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos.
+
+
+- Base de datos SQL de Azure 
+- Almacenamiento de datos SQL de Azure  
+- Base de datos de SQL Server en la empresa o en una máquina virtual de Azure. Data Management Gateway se debe instalar en la misma máquina que hospeda la base de datos o en una máquina independiente, con el fin de evitar la competencia por los recursos con la base de datos. Data Management Gateway es un software que conecta orígenes de datos locales u orígenes de datos hospedados en máquinas virtuales de Azure con servicios en la nube de forma segura y administrada. Consulte el artículo [Mover datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener más información acerca de Data Management Gateway. 
+
+Este artículo se basa en el artículo [actividades de transformación de datos](data-factory-data-transformation-activities.md), que presenta una descripción general de la transformación de datos y las actividades de transformación admitidas.
 
 ## Sintaxis
 	{
@@ -198,4 +205,4 @@ Para ello, pase el parámetro Escenario y el valor de la actividad de procedimie
 		}
 	}
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

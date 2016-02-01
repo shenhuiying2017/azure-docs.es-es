@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/11/2016"
+   ms.date="01/19/2016"
    ms.author="cherylmc" />
 
 # Configuración de una conexión punto a sitio a una red virtual mediante PowerShell
 
 > [AZURE.SELECTOR]
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [PowerShell - Classic](vpn-gateway-point-to-site-create.md)
+- [Portal - Classic](vpn-gateway-point-to-site-create.md)
 
 Una configuración punto a sitio permite crear una conexión segura a la red virtual desde un equipo cliente, de forma individual. Se establece una conexión VPN al iniciar la conexión desde el equipo cliente. La conexión punto a sitio es una solución excelente cuando desea conectarse a la red virtual desde una ubicación remota, como desde una casa o una conferencia, o si solo tiene unos pocos clientes que necesitan conectarse a una red virtual. Las conexiones punto a sitio no requieren un dispositivo VPN o una dirección IP pública para que funcionen. Para obtener más información acerca de las conexiones punto a sitio, consulte [Preguntas frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) y [Acerca de las conexiones entre locales](vpn-gateway-cross-premises-options.md).
 
-Este artículo se aplica a las redes virtuales y a las puertas de enlace de VPN creadas con el modelo de implementación del **Administrador de recursos de Azure**. Si desea configurar una conexión punto a sitio para una red virtual que se creó con Administración de servicios (también conocido como el modelo de implementación clásica), consulte [este artículo](vpn-gateway-point-to-site-create.md).
+Este artículo se aplica a las redes virtuales y a las puertas de enlace de VPN creadas con el modelo de implementación del **Administrador de recursos de Azure**. Si desea configurar una conexión punto a sitio para una red virtual que se creó con Administración de servicios (también conocido como el modelo de implementación clásica), consulte [Configuración de una conexión VPN de punto a sitio a una red virtual](vpn-gateway-point-to-site-create.md).
 
 [AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -34,18 +34,18 @@ En este escenario, creará una red virtual con una conexión punto a sitio. Una 
 
 Utilizaremos los siguientes valores para esta configuración:
 
-- Nombre = **TestVNet**, con los espacios de direcciones 192.168.0.0/16 y 10.254.0.0/16. Tenga en cuenta que puede utilizar más de un espacio de direcciones para una red virtual.
-- Nombre de subred = **FrontEnd**, con 192.168.1.0/24
-- Nombre de subred = **BackEnd**, con 10.254.1.0/24
-- Nombre de subred = **GatewaySubnet**, con 192.168.200.0/24. El nombre de subred *GatewaySubnet* es obligatorio para que funcione la puerta de enlace. 
-- Grupo de direcciones de clientes de VPN: 172.16.201.0/24. Los clientes de VPN que se conectan a la red virtual con esta conexión punto a sitio recibirán una dirección IP de este grupo.
-- Suscripción = Si tiene más de una suscripción, compruebe que tiene la correcta.
-- Grupo de recursos = **TestRG**
-- Ubicación = **Este de EE. UU.**
-- Servidor DNS = Dirección IP del servidor DNS que desea utilizar para la resolución de nombres.
-- Nombre de GW = **GW**
-- Nombre de dirección IP pública = **GWIP**
-- VpnType = **RouteBased**
+- Nombre: **TestVNet**, con los espacios de direcciones **192.168.0.0/16** y **10.254.0.0/16**. Tenga en cuenta que puede utilizar más de un espacio de direcciones para una red virtual.
+- Nombre de subred: **FrontEnd**, con **192.168.1.0/24**
+- Nombre de subred: **BackEnd**, con **10.254.1.0/24**
+- Nombre de subred: **GatewaySubnet**, con **192.168.200.0/24**. El nombre de subred *GatewaySubnet* es obligatorio para que funcione la puerta de enlace. 
+- Grupo de direcciones de clientes de VPN: **172.16.201.0/24**. Los clientes de VPN que se conectan a la red virtual con esta conexión punto a sitio recibirán una dirección IP de este grupo.
+- Suscripción: si tiene más de una suscripción, compruebe que tiene la correcta.
+- Grupo de recursos: **TestRG**
+- Ubicación: **Este de EE. UU.**
+- Servidor DNS: **Dirección IP** del servidor DNS que desea usar para la resolución de nombres.
+- Nombre de GW: **GW**
+- Nombre de dirección IP pública: **GWIP**
+- VpnType: **RouteBased**
 
 
 ## Antes de comenzar
@@ -58,7 +58,7 @@ Compruebe que tiene una suscripción a Azure y que instaló los cmdlets de Azure
 
 ## Configurar una conexión punto a sitio para Azure
 
-1. En la consola de PowerShell, inicie sesión en su cuenta de Azure. El cmdlet le pedirá las credenciales de inicio de sesión para la cuenta de Azure. Después de iniciar la sesión, se descarga la configuración de la cuenta a fin de que esté disponible para Azure PowerShell.
+1. En la consola de PowerShell, inicie sesión en su cuenta de Azure. El cmdlet le pedirá las credenciales de inicio de sesión para la cuenta de Azure. Después de iniciar la sesión, se descarga la configuración de la cuenta a fin de ponerla a disposición para Azure PowerShell.
 
 		Login-AzureRmAccount 
 
@@ -106,7 +106,7 @@ Compruebe que tiene una suscripción a Azure y que instaló los cmdlets de Azure
 
 8. Especifique las variables de la red virtual que acaba de crear.
 
-		$vnet   = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
+		$vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
 
 9. Solicite una dirección IP pública asignada de forma dinámica. Esta dirección IP es necesaria para que la puerta de enlace funciona correctamente. Más adelante, conectará la puerta de enlace con la configuración de dirección IP de puerta de enlace.
@@ -114,7 +114,7 @@ Compruebe que tiene una suscripción a Azure y que instaló los cmdlets de Azure
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 		
-10. Cargue un archivo .cer de certificado raíz a Azure. Puede utilizar un certificado raíz desde el entorno de certificados empresarial o puede usar un certificado raíz autofirmado. Puede cargar hasta 20 certificados raíz. Si desea obtener instrucciones sobre cómo crear un certificado raíz autofirmado con *makecert*, consulte la sección que aparece al final de este artículo. Tenga en cuenta que el archivo .cer no puede contener la clave privada del certificado raíz.
+10. Cargue un archivo .cer de certificado raíz a Azure. Puede utilizar un certificado raíz desde el entorno de certificados empresarial o puede usar un certificado raíz autofirmado. Puede cargar hasta 20 certificados raíz. Para obtener instrucciones para crear un certificado raíz autofirmado mediante *makecert*, consulte [Trabajar con certificados raíz autofirmados para las configuraciones de punto a sitio](vpn-gateway-certificates-point-to-site.md). Tenga en cuenta que el archivo .cer no puede contener la clave privada del certificado raíz.
 	
 	A continuación, podemos ver un ejemplo de cómo se ve. La parte difícil de cargar los datos del certificado público es que debe copiar y pegar toda la cadena, sin espacios. De lo contrario, la carga no funcionará. En este paso, deberá utilizar su propio archivo .cer de certificado. No intente copiar y pegar el ejemplo que aparece a continuación.
 
@@ -137,9 +137,9 @@ Cada cliente que se conecta a Azure con la conexión punto a sitio debe cumplir 
 
     	"https://mdsbrketwprodsn1prod.blob.core.windows.net/cmakexe/4a431aa7-b5c2-45d9-97a0-859940069d3f/amd64/4a431aa7-b5c2-45d9-97a0-859940069d3f.exe?sv=2014-02-14&sr=b&sig=jSNCNQ9aUKkCiEokdo%2BqvfjAfyhSXGnRG0vYAv4efg0%3D&st=2016-01-08T07%3A10%3A08Z&se=2016-01-08T08%3A10%3A08Z&sp=r&fileExtension=.exe"
 	
-2. Genere e instale los certificados de cliente (*.pfx) que se creen a partir del certificado raíz en los equipos cliente. Puede utilizar cualquier método de instalación que le resulte cómodo. Si utiliza un certificado raíz autofirmado y no sabe cómo hacerlo, puede consultar las instrucciones que aparecen al final de este artículo.
+2. Genere e instale los certificados de cliente (*.pfx) que se creen a partir del certificado raíz en los equipos cliente. Puede utilizar cualquier método de instalación que le resulte cómodo. Si está usando un certificado raíz autofirmado y no está familiarizado con cómo hacerlo, puede consultar [Trabajar con certificados raíz autofirmados para las configuraciones de punto a sitio](vpn-gateway-certificates-point-to-site.md).
 
-3. Para conectarse a su red virtual, en el equipo cliente, navegue a las conexiones VPN y ubique la conexión VPN que acaba de crear. Tendrá el mismo nombre que su red virtual. Haga clic en **Conectar**. Es posible que aparezca un mensaje emergente que haga referencia al uso del certificado. Si esto ocurre, haga clic en **Continuar** para utilizar privilegios elevados.
+3. Para conectarse a su red virtual, en el equipo cliente, navegue a las conexiones VPN y ubique la conexión VPN que acaba de crear. Tendrá el mismo nombre que su red virtual. Haga clic en **Conectar**. Es posible que aparezca un mensaje emergente que haga referencia al uso del certificado. Si esto ocurre, haga clic en **Continuar** para usar privilegios elevados.
 
 4. En la página de estado **Conexión**, haga clic en **Conectar** para iniciar la conexión. Si ve una pantalla para **Seleccionar certificado**, compruebe que el certificado de cliente que se muestra es el que desea utilizar para conectarse. Si no es así, use la flecha de la lista desplegable para seleccionar el certificado correcto y, a continuación, haga clic en **Aceptar**.
 
@@ -162,60 +162,73 @@ Cada cliente que se conecta a Azure con la conexión punto a sitio debe cumplir 
 			Default Gateway.................:
 			NetBIOS over Tcpip..............: Enabled
 
-## Para crear un certificado raíz autofirmado con makecert
+## Agregar o quitar un certificado raíz
 
-Makecert es una forma de crear un certificado raíz autofirmado. Los pasos siguientes le guiarán a través del procedimiento.
+Los certificados se usan para autenticar a los clientes VPN para VPN de punto a sitio. Los siguientes pasos le enseñarán a agregar y quitar certificados raíz.
 
-1. En un equipo con Windows 10, descargue e instale el SDK de Windows 10 desde [este vínculo](https://dev.windows.com/es-ES/downloads/windows-10-sdk).
+### Agregar un certificado raíz
 
-2. Después de la instalación, la utilidad makecert.exe se encuentra en: C:\\Program Files (x86)\\Windows Kits\\10\\bin<arch>.
-		
-	Ejemplo:
-	
-		C:\Program Files (x86)\Windows Kits\10\bin\x64\makecert.exe
+Puede agregar hasta 20 certificados raíz a Azure. Siga los siguientes pasos para agregar un certificado raíz.
 
-3. A continuación, cree e instale un certificado raíz en el almacén de certificados personal de su equipo. En el ejemplo que aparece a continuación, se crea un archivo *.cer* correspondiente que cargará más adelante. Ejecute como administrador el siguiente comando, donde *RootCertificateName* es el nombre que desea utilizar para el certificado.
+1. Crear y preparar el nuevo certificado raíz para su carga.
 
-	Nota: Si ejecuta el ejemplo siguiente sin realizar ningún cambio, el resultado será un certificado raíz y el archivo *RootCertificateName.cer* correspondiente. Puede encontrar el archivo .cer en el directorio desde donde ejecutó el comando. El certificado estará en sus Certificados, en Usuario actual\\Personal\\Certificados.
+		$P2SRootCertName2 = "ARMP2SRootCert2.cer"
+		$MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
 
-    	makecert -sky exchange -r -n "CN=RootCertificateName" -pe -a sha1 -len 2048 -ss My "RootCertificateName.cer"
+2. Cargar el nuevo certificado raíz. Tenga en cuenta que sólo puede agregar un certificado raíz a la vez.
 
-	>[AZURE.NOTE]Puesto que ha creado un certificado raíz desde el que se generarán los certificados de cliente, puede que desee exportar este certificado junto con su clave privada y guardarlo en una ubicación segura donde se pueda recuperar.
+		Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayname $GWName -ResourceGroupName $RG -PublicCertData $MyP2SCertPubKeyBase64_2
 
-## Para generar un certificado de cliente desde un certificado raíz autofirmado
+3. Puede comprobar que el nuevo certificado se agregó correctamente mediante el siguiente cmdlet.
 
-Los pasos que aparecen a continuación le ayudarán a generar un certificado de cliente desde un certificado raíz autofirmado y, luego, exportar e instalar el certificado de cliente.
+		Get-AzureRmVpnClientRootCertificate -ResourceGroupName $RG -VirtualNetworkGatewayName $GWName
 
-### Generación de un certificado de cliente
+### Quitar un certificado raíz
 
-Los pasos siguientes le guiarán por una forma de generar un certificado de cliente desde un certificado raíz autofirmado. Puede generar varios certificados de cliente desde el mismo certificado raíz. Luego, cada certificado de cliente se puede exportar e instalar en el equipo cliente.
+Puede quitar un certificado raíz de Azure. Al quitar un certificado raíz, los certificados de cliente que se generaron a partir del certificado raíz no podrán conectarse a Azure a través de punto a sitio hasta que instalen un certificado de cliente que se genere a partir de un certificado raíz que sea válido en Azure.
 
-1. En el mismo equipo que usó para crear el certificado raíz autofirmado, abra un símbolo del sistema como administrador.
-2. Cambie el directorio a la ubicación donde desea guardar el archivo de certificado de cliente. *RootCertificateName* hace referencia al certificado raíz autofirmado que ha generado. Si ejecuta el ejemplo siguiente (cambiando el NombreCertificadoRaíz por el nombre de su certificado raíz), el resultado será un certificado de cliente denominado "NombreCertificadoCliente" en el almacén de certificados personales.
-3. Escriba el siguiente comando:
+1. Quitar un certificado raíz.
 
-    	makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "RootCertificateName" -is my -a sha1
+		Remove-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -PublicCertData "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
 
-4. Todos los certificados se almacenan en su almacén de certificados, en Usuario actual\\Personal\\Certificados, de su equipo. Puede generar tantos certificados de cliente como sean necesarios según este procedimiento.
+ 
+2. Use el siguiente cmdlet para comprobar que el certificado se quitó correctamente.
 
-### Exportar e instalar un certificado de cliente
+		Get-AzureRmVpnClientRootCertificate -ResourceGroupName $RG -VirtualNetworkGatewayName $GWName
 
-Es un paso obligatorio la instalación de un certificado de cliente en cada equipo que desee conectar a la red virtual. Los pasos siguientes le guiarán por la instalación manual del certificado de cliente.
+## Administrar la lista de certificados de cliente revocados
 
-1. Para exportar un certificado de cliente, utilice *certmgr.msc*. Haga clic con el botón derecho en el certificado de cliente que desee exportar, haga clic en **Todas las tareas** y, a continuación, en **Exportar**. Se abrirá el asistente para la exportación de certificados.
-2. En el asistente, haga clic en **Siguiente**, seleccione **Sí, exportar la clave privada** y, luego, haga clic en **Siguiente**.
-3. En la página **Formato de archivo de exportación**, puede dejar seleccionados los valores predeterminados. A continuación, haga clic en **Siguiente**.  
-4. En la página **Seguridad**, debe proteger la clave privada. Si decide usar una contraseña, asegúrese de anotarla o de recordar la contraseña que estableció para este certificado. Luego, haga clic en **Siguiente**.
-5. En **Archivo que se va a exportar**, **vaya** a la ubicación a la que desea exportar el certificado. En **Nombre de archivo**, asígnele un nombre al archivo de certificado. A continuación, haga clic en **Siguiente**.
-6. Haga clic en **Finalizar** para exportar el certificado.	
-3. Ubique el archivo *.pfx* y cópielo en el equipo cliente. En el equipo cliente, haga doble clic en el archivo *.pfx* para instalarlo. Deje la **Ubicación del almacén** como **Usuario actual** y, luego, haga clic en **Siguiente**.
-4. En la página **Archivo** que se va a importar, no haga ningún cambio. Haga clic en **Siguiente**.
-5. En la página **Protección de clave privada**, ingrese la contraseña del certificado, si usó una, o compruebe que la entidad de seguridad que instala el certificado es correcta y, luego, haga clic en **Siguiente**.
-6. En la página **Almacén de certificados**, deje la ubicación predeterminada y, a continuación, haga clic en **Siguiente**.
-7. Haga clic en **Finalizar** En la **Advertencia de seguridad** para la instalación de certificados, haga clic en **Sí**. El certificado se importó correctamente.
+Puede revocar certificados de cliente. La lista de revocación de certificados permite denegar de forma selectiva la conectividad de punto a sitio basada en certificados de cliente individuales. Mientras que al quitar un certificado raíz de Azure, se revocará el acceso para todos los certificados de cliente generados y firmados por el certificado raíz revocado, al revocar un certificado de cliente podrá quitar el acceso a un certificado determinado. Lo más habitual es usar el certificado raíz para administrar el acceso a nivel de equipo u organización, mientras que los certificados de cliente revocados se usan para un control de acceso específico para usuarios individuales.
+
+### Revocar un certificado de cliente
+
+1. Obtener la huella digital del certificado de cliente que se va a revocar.
+
+		$RevokedClientCert1 = "ClientCert1"
+		$RevokedThumbprint1 = "‎ef2af033d0686820f5a3c74804d167b88b69982f"
+
+2. Agregar la huella digital a la lista de huellas digitales revocadas.
+
+		Add-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
+
+3. Compruebe que la huella digital se agregó a la lista de revocación de certificados. Debe agregar una huella digital cada vez.
+
+		Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
+
+### Restablecer un certificado de cliente
+
+Puede restablecer un certificado de cliente quitando la huella digital de la lista de certificados de cliente revocados.
+
+1.  Quite la huella digital de la lista de huellas digitales de certificados de cliente revocados.
+
+		Remove-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
+
+2. Compruebe si la huella digital se quita de la lista revocada.
+
+		Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
 
 ## Pasos siguientes
 
 Puede agregar una máquina virtual a la red virtual. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-tutorial.md) para ver los pasos.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

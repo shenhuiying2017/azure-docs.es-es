@@ -1,39 +1,33 @@
-<properties 
-    pageTitle="Procesamiento de datos a gran escala mediante Factoría de datos de Azure y Lote de Azure" 
-    description="Describe cómo procesar grandes cantidades de datos en una canalización de Factoría de datos de Azure mediante la funcionalidad de procesamiento paralelo de Lote de Azure." 
-    services="data-factory" 
-    documentationCenter="" 
-    authors="spelluru" 
-    manager="jhubbard" 
+<properties
+    pageTitle="Orquestación de HPC y de datos mediante Lote y Factoría de datos de Azure"
+    description="Describe cómo procesar grandes cantidades de datos en una canalización de Factoría de datos de Azure mediante la funcionalidad de procesamiento paralelo de Lote de Azure."
+    services="data-factory"
+    documentationCenter=""
+    authors="spelluru"
+    manager="jhubbard"
     editor="monicar"/>
 
-<tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="12/16/2015" 
+<tags
+    ms.service="data-factory"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/20/2016"
     ms.author="spelluru"/>
-# Procesamiento de datos a gran escala mediante Factoría de datos de Azure y Lote de Azure
+# Orquestación de HPC y de datos mediante Lote y Factoría de datos de Azure
 
-Esta sencilla solución de arquitectura muestra cómo mover y procesar conjuntos de datos a gran escala de forma eficaz en la nube mediante **Factoría de datos** de **Microsoft Azure** y **Lote de** **Azure**. Esta arquitectura es relevante para muchos escenarios que requieren el procesamiento de datos a gran escala. Esto incluye los informes y el modelado de riesgos en las organizaciones de servicios financieros, el procesamiento y la representación de imágenes, o el análisis genómico.
+Informática de alto rendimiento (HPC) ha sido el dominio de los centros de datos locales: un superequipo que trabaja en los datos, pero que está limitado por el número de máquinas físicas disponibles. El servicio Lote de Azure revoluciona este concepto, ya que proporciona HPC como servicio. Puede configurar tantas máquinas como sea necesario. Lote también controla la programación y coordinación del trabajo, lo que le permite concentrarse en los algoritmos que se van a ejecutar. Factoría de datos de Azure es un complemento perfecto para Lote, ya que simplifica la orquestación del movimiento de datos. Con Factoría de datos, puede especificar movimientos regulares de datos para ETL, procesar los datos y luego mover los resultados a un almacenamiento permanente. Por ejemplo, los datos que se recopilan de los sensores se mueven (mediante la Factoría de datos) a una ubicación temporal en la que Lote (bajo el control de la Factoría de datos) procesa los datos y genera un nuevo conjunto de resultados. Después, Factoría de datos mueve los resultados a un repositorio final. Con estos dos servicios funcionando en conjunto, puede usar HPC eficazmente para procesar grandes cantidades de datos según una programación regular.
 
-Los arquitectos y los responsables de la toma de decisiones sobre TI obtendrán una visión general con el diagrama y los pasos básicos. Los desarrolladores pueden usar el código como punto de partida para su propia implementación. Este artículo contiene toda la solución.
+Aquí ofrecemos un ejemplo de solución de un extremo a otro que mueve y procesa conjuntos de datos a gran escala automáticamente. La arquitectura es relevante para muchos escenarios, como el modelado de riesgo por parte de servicios financieros, el procesamiento y representación de imágenes, y el análisis genómico. Los arquitectos y los responsables de la toma de decisiones sobre TI obtendrán una visión general con el diagrama y los pasos básicos. Los desarrolladores pueden usar el código como punto de partida para su propia implementación. Este artículo contiene toda la solución.
 
-## Factoría de datos y Lote
-
-**Factoría de datos de Azure** es un servicio de integración de datos basado en la nube. Organiza y automatiza el movimiento de datos sin procesar y los transforma en información lista para usarse. Lea [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md) e [Introducción a la Factoría de datos de Azure](data-factory-build-your-first-pipeline.md) para ponerse al tanto sobre este servicio.
-
-Las canalizaciones, que son un grupo lógico de actividades, mueven y procesan los datos. Factoría de datos admite actividades integradas como **Actividad de copia** y **Actividad de Hive de HDInsight**. Consulte [Actividades de movimiento de datos](data-factory-data-movement-activities.md) y [Transformar y analizar mediante la Factoría de datos de Azure](data-factory-data-transformation-activities.md) para obtener una lista completa. También puede crear una **actividad personalizada** basada su propia lógica de procesamiento, como se mostrará en la solución.
-
-**Lote de Azure** lo ayuda a ejecutar aplicaciones de informática de alto rendimiento (HPC) y paralelas a gran escala de manera eficaz en la nube. Se trata de un servicio de plataforma que programa el trabajo de proceso intensivo para que se ejecute en una colección administrada de máquinas virtuales (nodos de proceso) y que puede escalar los recursos de proceso para satisfacer las necesidades del trabajo. Consulte [Conceptos básicos sobre Lote de Azure](../batch/batch-technical-overview.md) e [Información general de las características de Lote de Azure](../batch/batch-api-basics.md) para más información.
+Consulte la documentación de [Lote de Azure](../batch/batch-api-basics.md) y [Factoría de datos](data-factory-introduction.md) si no está familiarizado con dichos servicios antes de seguir con la solución de ejemplo.
 
 ## Diagrama de la arquitectura
 
-En el diagrama, se muestra 1) cómo Factoría de datos organiza el movimiento y el procesamiento de datos y 2) cómo Lote de Azure procesa los datos en paralelo. Descargue e imprima el diagrama para facilitar la referencia (279 × 432 mm o tamaño A3): [Lote de Microsoft Azure y Factoría de datos de Azure: Arquitectura para procesamiento de datos a gran escala](http://go.microsoft.com/fwlink/?LinkId=717686).
+En el diagrama, se muestra 1) cómo Factoría de datos organiza el movimiento y el procesamiento de datos y 2) cómo Lote de Azure procesa los datos en paralelo. Descargue e imprima el diagrama para facilitar su consulta (11 x 17 pulgadas o tamaño A3): [Orquestación de HPC y de datos mediante Lote y Factoría de datos de Azure](http://go.microsoft.com/fwlink/?LinkId=717686).
 
-![](./media/data-factory-data-processing-using-batch/image1.png)
+![HPC como diagrama de servicio](./media/data-factory-data-processing-using-batch/image1.png)
 
 Estos son los pasos básicos del proceso. La solución incluye código y explicaciones para compilar la solución completa.
 
@@ -70,17 +64,17 @@ La solución cuenta el número de apariciones de un término de búsqueda ("Micr
 4.  Cree un **grupo de Lote de Azure** con al menos 2 nodos de proceso.
 
 	 Puede descargar el código fuente para la [herramienta Explorador de Lote de Azure](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer), compilarla y usarla para crear el grupo (**muy recomendado para esta solución de ejemplo**) o puede usar [biblioteca de Lote de Azure para .NET](../batch/batch-dotnet-get-started.md) para crear el grupo. Consulte el [tutorial de ejemplo del Explorador de Lote de Azure](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx) para obtener instrucciones paso a paso para usar el Explorador de Lote de Azure. También puede usar el cmdlet [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) para crear un grupo de Lote de Azure.
-	
+
 	 Use el Explorador de Lote para crear el grupo con la siguiente configuración:
 
 	-   Especifique un identificador para el grupo (**Identificador del grupo**). Anote el **identificador del grupo**; lo necesitará al crear la solución de Factoría de datos.
-	
+
 	-   Especifique **Windows Server 2012 R2** en la configuración **Familia del sistema operativo**.
-	
+
 	-   Especifique **2** como valor en la configuración **Máximo de tareas por nodo de proceso**.
-	
+
 	-   Especifique **2** como valor en la configuración **Número de destino dedicado**.
-	
+
 	 ![](./media/data-factory-data-processing-using-batch/image2.png)
 
 5.  [Explorador de almacenamiento de Azure 6 (herramienta)](https://azurestorageexplorer.codeplex.com/) o [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (de ClumsyLeaf Software). Estas herramientas de GUI sirven para inspeccionar y modificar los datos en sus proyectos de Almacenamiento de Azure, incluidos los registros de las aplicaciones hospedadas en la nube.
@@ -92,7 +86,7 @@ La solución cuenta el número de apariciones de un término de búsqueda ("Micr
  		![](./media/data-factory-data-processing-using-batch/image3.png)
 
 		 **Inputfolder** y **outputfolder** son carpetas de nivel superior en **mycontainer**, e **inputfolder** tiene subcarpetas con marcas de fecha y hora (AAAA-MM-DD-HH).
-		
+
 		 Si usa el **Explorador de almacenamiento de Azure**, en el paso siguiente, tendrá que cargar archivos con los nombres: inputfolder/2015-11-16-00/file.txt, inputfolder/2015-11-16-01/file.txt y así sucesivamente. Se crearán automáticamente las carpetas.
 
 	3.  Cree un archivo de texto **file.txt** en el equipo con contenido que incluya la palabra clave **Microsoft**. Por ejemplo: "test custom activity Microsoft test custom activity Microsoft".
@@ -150,10 +144,10 @@ La actividad personalizada de Factoría de datos es el núcleo de esta solución
 Para crear una actividad personalizada de .NET que se pueda usar en una canalización de Factoría de datos de Azure, deberá crear un proyecto de **biblioteca de clases .NET** con una clase que implemente la interfaz **IDotNetActivity**. Esta interfaz tiene un solo método, **Execute**. Esta es la firma de dicho método:
 
 	public IDictionary<string, string> Execute(
-	            IEnumerable<LinkedService> linkedServices, 
-	            IEnumerable<Dataset> datasets, 
-	            Activity activity, 
-	            IActivityLogger logger)        
+	            IEnumerable<LinkedService> linkedServices,
+	            IEnumerable<Dataset> datasets,
+	            Activity activity,
+	            IActivityLogger logger)
 
 El método tiene algunos componentes clave que debe conocer.
 
@@ -169,7 +163,7 @@ El método tiene algunos componentes clave que debe conocer.
 
 -   El método devuelve un diccionario que se puede usar para encadenar actividades personalizadas. Esta característica no se usará en esta solución de ejemplo.
 
-### Procedimiento: Creación de la actividad personalizada 
+### Procedimiento: Creación de la actividad personalizada
 
 1.  Cree un proyecto de biblioteca de clases .NET en Visual Studio.
 
@@ -203,10 +197,10 @@ El método tiene algunos componentes clave que debe conocer.
 		using System.Globalization;
 		using System.Diagnostics;
 		using System.Linq;
-		
+
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.Azure.Management.DataFactories.Runtime;
-		
+
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 
@@ -221,7 +215,7 @@ El método tiene algunos componentes clave que debe conocer.
 8.  Implemente (agregue) el método **Execute** de la interfaz **IDotNetActivity** en la clase **MyDotNetActivity** y copie el siguiente código de ejemplo en el método. Consulte la sección [Método Execute](#execute-method) para obtener una explicación de la lógica usada en este método.
 
 		/// <summary>
-        /// Execute method is the only method of IDotNetActivity interface you must implement. 
+        /// Execute method is the only method of IDotNetActivity interface you must implement.
         /// In this sample, the method invokes the Calculate method to perform the core logic.  
 		/// </summary>
         public IDictionary<string, string> Execute(
@@ -244,8 +238,8 @@ El método tiene algunos componentes clave que debe conocer.
             foreach (LinkedService ls in linkedServices)
                 logger.Write("linkedService.Name {0}", ls.Name);
 
-            // using First method instead of Single since we are using the same 
-            // Azure Storage linked service for input and output. 
+            // using First method instead of Single since we are using the same
+            // Azure Storage linked service for input and output.
             inputLinkedService = linkedServices.First(
                 linkedService =>
                 linkedService.Name ==
@@ -271,12 +265,12 @@ El método tiene algunos componentes clave que debe conocer.
                                          continuationToken,
                                          null,
                                          null);
-                
-                // Calculate method returns the number of occurrences of 
+
+                // Calculate method returns the number of occurrences of
                 // the search term (“Microsoft”) in each blob associated
-        		// with the data slice. 
-        		// 
-        	    // definition of the method is shown in the next step. 
+        		// with the data slice.
+        		//
+        	    // definition of the method is shown in the next step.
                 output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
 
             } while (continuationToken != null);
@@ -292,7 +286,7 @@ El método tiene algunos componentes clave que debe conocer.
 
             // create a storage object for the output blob.
             CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
-            // write the name of the file. 
+            // write the name of the file.
             Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 
             logger.Write("output blob URI: {0}", outputBlobUri.ToString());
@@ -309,7 +303,7 @@ El método tiene algunos componentes clave que debe conocer.
 9.  Agregue los siguientes métodos auxiliares a la clase. Estos métodos se invocan desde el método **Execute**. Y lo que es más importante, el método **Calculate** aísla el código que procesa una iteración de cada blob.
 
         /// <summary>
-        /// Gets the folderPath value from the input/output dataset.   
+        /// Gets the folderPath value from the input/output dataset.
 		/// </summary>
 		private static string GetFolderPath(Dataset dataArtifact)
 		{
@@ -317,41 +311,41 @@ El método tiene algunos componentes clave que debe conocer.
 		    {
 		        return null;
 		    }
-		
+
 		    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 		    if (blobDataset == null)
 		    {
 		        return null;
 		    }
-		
+
 		    return blobDataset.FolderPath;
 		}
-		
+
 		/// <summary>
-		/// Gets the fileName value from the input/output dataset.   
+		/// Gets the fileName value from the input/output dataset.
 		/// </summary>
-		
+
 		private static string GetFileName(Dataset dataArtifact)
 		{
 		    if (dataArtifact == null || dataArtifact.Properties == null)
 		    {
 		        return null;
 		    }
-		
+
 		    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 		    if (blobDataset == null)
 		    {
 		        return null;
 		    }
-		
+
 		    return blobDataset.FileName;
 		}
-		
+
 		/// <summary>
-		/// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file, 
-		/// and prepares the output text that will be written to the output blob. 
+		/// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file,
+		/// and prepares the output text that will be written to the output blob.
 		/// </summary>
-		
+
 		public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
 		{
 		    string output = string.Empty;
@@ -407,7 +401,7 @@ En esta sección se proporcionan más detalles y notas sobre el código del mét
 		// Initialize the continuation token.
 		BlobContinuationToken continuationToken = null;
 		do
-		{   
+		{
 		// Get the list of input blobs from the input storage client object.
 		BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
 		    					true,
@@ -418,7 +412,7 @@ En esta sección se proporcionan más detalles y notas sobre el código del mét
 		                                  null);
 		// Return a string derived from parsing each blob.
 		    output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
-		
+
 		} while (continuationToken != null);
 
 	Para más información, consulte la documentación del método [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx).
@@ -433,29 +427,29 @@ En esta sección se proporcionan más detalles y notas sobre el código del mét
 
 		// Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
 		Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-		
+
 		// Convert to blob location object.
 		outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
 
 4.	El código también llama a un método auxiliar, **GetFolderPath**, para recuperar la ruta de acceso de la carpeta (el nombre del contenedor de almacenamiento).
 
 		folderPath = GetFolderPath(outputDataset);
-		
+
 	El método **GetFolderPath** convierte el objeto DataSet en una clase AzureBlobDataSet, que tiene una propiedad denominada FolderPath.
 
 		AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-		
+
 		return blobDataset.FolderPath;
 
 5.	El código llama al método **GetFileName** para recuperar el nombre de archivo (nombre del blob). El código es similar al código anterior para obtener la ruta de acceso de la carpeta.
 
 		AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-		
+
 		return blobDataset.FileName;
 
 6.	El nombre del archivo se escribe mediante la creación de un nuevo objeto URI. El constructor URI usa la propiedad **BlobEndpoint** para devolver el nombre del contenedor. Tanto la ruta de la carpeta como el nombre de archivo se agregan al construir el identificador URI del blob de salida.
 
-		// Write the name of the file. 
+		// Write the name of the file.
 		Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 
 7.	Se ha escrito el nombre del archivo y ahora puede escribir la cadena de salida desde el método **Calculate** en un blob nuevo:
@@ -630,15 +624,15 @@ En este paso, creará conjuntos de datos que representen los datos de entrada y 
 		        "external": true,
 		        "policy": {}
 		    }
-		} 
+		}
 
-	
+
 	 En este tutorial, creará posteriormente una canalización cuya hora de inicio es: 2015-11-hora 16T00:00:00Z y cuya hora de finalización es: 2015-11-16T05:00:00Z. Está programada para generar datos **cada hora**, por lo que habrá 5 segmentos de entrada y salida (entre **00**:00:00 -> **05**:00:00).
-	
+
 	 Los valores de **frequency** e **interval** del conjunto de datos de entrada se establecen en **Hour** y **1** respectivamente, lo que significa que el segmento de entrada está disponible cada hora.
-	
+
 	 Estas son las horas de inicio de cada segmento, que se representa mediante la variable de sistema **SliceStart** en el fragmento de código JSON anterior.
-	
+
 	| **Segmento** | **Hora de inicio** |
 	|-----------|-------------------------|
 	| 1 | 2015-11-16T**00**:00:00 |
@@ -646,9 +640,9 @@ En este paso, creará conjuntos de datos que representen los datos de entrada y 
 	| 3 | 2015-11-16T**02**:00:00 |
 	| 4 | 2015-11-16T**03**:00:00 |
 	| 5 | 2015-11-16T**04**:00:00 |
-	
+
 	 La propiedad **folderPath** se calcula usando la parte de año, mes, día y hora de la hora de inicio del segmento (**SliceStart**). Por lo tanto, aquí se muestra cómo se asigna una carpeta de entrada a un segmento.
-	
+
 	| **Segmento** | **Hora de inicio** | **Carpeta de entrada** |
 	|-----------|-------------------------|-------------------|
 	| 1 | 2015-11-16T**00**:00:00 | 2015-11-16-**00** |
@@ -704,7 +698,7 @@ En este paso, creará otro conjunto de datos de tipo AzureBlob para representar 
 	| 3 | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
 	| 4 | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
 	| 5 | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
-	
+
 	 Recuerde que todos los archivos de una carpeta de entrada (por ejemplo, 2015-11-16-00) forman parte de un segmento con la hora de inicio 2015-11-16-00. Cuando se procesa este segmento, la actividad personalizada examinan todos los archivos y produce una línea en el archivo de salida con el número de apariciones del término de búsqueda ("Microsoft"). Si hay tres archivos en la carpeta 2015-11-16-00, habrá tres líneas en el archivo de salida 2015-11-16-00.txt.
 
 3.  Haga clic en **Implementar** en la barra de herramientas para crear e implementar **OutputDataset**.
@@ -927,7 +921,7 @@ Después de procesar datos, puede consumirlos con herramientas en línea como **
 
 -   [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
-    -   [Conceptos básicos sobre Lote de Azure](../batch/batch-technical-overview.md)
+    -   [Datos básicos de Lote de Batch](../batch/batch-technical-overview.md)
 
     -   [Información general de las características de Lote de Azure](../batch/batch-api-basics.md)
 
@@ -935,4 +929,4 @@ Después de procesar datos, puede consumirlos con herramientas en línea como **
 
     -   [Introducción a la biblioteca de Lote de Azure para .NET](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

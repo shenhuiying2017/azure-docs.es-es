@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Brightspace by Desire2Learn | Microsoft Azure" 
     description="Aprenda cómo usar Brightspace by Desire2Learn con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Brightspace by Desire2Learn
 
@@ -83,7 +83,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     1.  En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que los usuarios utilizan para iniciar sesión en la aplicación **Brightspace by Desire2Learn** (p. ej.: **https://partnershowcase.desire2learn.com/Shibboleth.sso/Login?entityID=https://sts.windows-ppe.net/5caf9349-fd93-4a74-b064-0070f65bfb49/&target=https%3A%2F%2Fpartnershowcase.desire2learn.com%2Fd2l%2FshibbolethSSO%2Faspinfo.asp*)
 2.  Haga clic en **Siguiente**.
 
-4.  En la página **Configurar inicio de sesión único en Brightspace by Desire2Learn**, para descargar los metadatos, haga clic en **Descargar metadatos** y luego guarde los metadatos en el equipo.
+4.  En la página **Configurar inicio de sesión único en Brightspace by Desire2Learn**, para descargar los metadatos, haga clic en **Descargar metadatos** y, a continuación, guarde los metadatos en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798962.png "Configurar inicio de sesión único")
 
@@ -118,4 +118,4 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

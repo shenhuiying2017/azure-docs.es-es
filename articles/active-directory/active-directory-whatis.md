@@ -1,20 +1,20 @@
 <properties
-                pageTitle="¿Qué es Azure Active Directory?"
-                description="Usar Azure Active Directory para ampliar sus identidades locales existentes en la nube o desarrollar aplicaciones integradas de Azure AD."
-                services="active-directory"
-                documentationCenter=""
-                authors="markusvi"
-                manager="stevenpo"
-                editor=""/>
+    pageTitle="¿Qué es Azure Active Directory?"
+    description="Usar Azure Active Directory para ampliar sus identidades locales existentes en la nube o desarrollar aplicaciones integradas de Azure AD."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-                ms.service="active-directory"
-                ms.workload="identity"
-                ms.tgt_pltfrm="na"
-                ms.devlang="na"
-                ms.topic="article"
-                ms.date="10/30/2015"
-                ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/14/2016"
+    ms.author="markusvi"/>
 
 
 # ¿Qué es Azure Active Directory?
@@ -104,4 +104,4 @@ Tenemos una gran cantidad de excelentes recursos en línea para ayudarle a apren
 
 - [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0121_2016-->

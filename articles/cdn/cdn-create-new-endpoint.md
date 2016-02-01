@@ -12,20 +12,20 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="12/02/2015" 
+	 ms.date="01/20/2016" 
 	 ms.author="casoper"/>
 
 
 
 #Habilitar la Red de entrega de contenido (CDN) para Azure  
 
-CDN puede habilitarse para el origen mediante el Portal de administración de Azure. Se admiten varios tipos de orígenes de Azure integrados, incluidas aplicaciones web, el almacenamiento de blobs y Servicios en la nube. También puede habilitar la red CDN para el extremo de streaming de Servicios multimedia de Azure. Si el origen no es uno de estos servicios de Azure, o se hospeda en otra parte fuera de Azure, también puede crear un origen personalizado. Una vez que haya habilitado un extremo de red CDN para su origen, todos los objetos disponibles de forma pública se pueden almacenar en la memoria caché perimetral de la red CDN.
+CDN puede habilitarse para el origen mediante el Portal de administración de Azure. Se admiten varios tipos de orígenes de Azure integrados, incluidas aplicaciones web, el almacenamiento de blobs y Servicios en la nube. También puede habilitar la red CDN para el punto de conexión de streaming de Servicios multimedia de Azure. Si el origen no es uno de estos servicios de Azure, o se hospeda en otra parte fuera de Azure, también puede crear un origen personalizado. Una vez que haya habilitado un punto de conexión de red CDN para su origen, todos los objetos disponibles de forma pública se pueden almacenar en la memoria caché perimetral de la red CDN.
 
 ## Crear un nuevo perfil de CDN
 
 Un perfil de red de entrega de contenido es una colección de puntos de conexión de red de entrega de contenido. Cada perfil contiene uno o más de estos puntos de conexión de CDN. Puede que quiera usar varios perfiles para organizar sus puntos de conexión de la red CDN por dominio de Internet, aplicación web o cualquier otro criterio.
 
-> [AZURE.NOTE]Una sola suscripción de Azure está limitada a cuatro perfiles de red de entrega de contenido. Cada perfil de red de entrega de contenido está limitado a cuatro puntos de conexión de red de entrega de contenido.
+> [AZURE.NOTE]De manera predeterminada, una sola suscripción de Azure está limitada a cuatro perfiles de red CDN. Cada perfil de red CDN está limitado a diez puntos de conexión de red CDN.
 >
 > Los precios de red de entrega de contenido se aplican en el nivel de perfil de red de entrega de contenido. Si quiere utilizar una combinación de características de red de entrega de contenido estándar y premium, necesitará varios perfiles de red de entrega de contenido.
 
@@ -52,21 +52,21 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 
 ## Crear un nuevo punto de conexión de CDN
 
-**Para crear un nuevo extremo de una red CDN para una cuenta de almacenamiento**
+**Para crear un nuevo punto de conexión de una red CDN para una cuenta de almacenamiento**
 
-1. En el [Portal de administración de Azure](https://portal.azure.com), vaya a su perfil de red de entrega de contenido. Puede haberlo anclado al panel en el paso anterior. Si no, para encontrarlo, haga clic en **Examinar**, en **Perfiles CDN** y luego haga clic en el perfil al que planea agregar el punto de conexión.
+1. En el [Portal de administración de Azure](https://portal.azure.com), vaya a su perfil de CDN. Puede haberlo anclado al panel en el paso anterior. Si no lo hace, para encontrarlo, haga clic en **Examinar**, en **Perfiles de CDN** y luego haga clic en el perfil al que planea agregar el punto de conexión.
 
     Aparece la hoja del perfil de CDN.
     
     ![Perfil de CDN][cdn-profile-settings]
     
-2. Haga clic en el botón **Agregar extremo**.
+2. Haga clic en el botón **Agregar punto de conexión**.
 
     ![Botón Agregar punto de conexión][cdn-new-endpoint-button]
 
-    Aparecerá la hoja **Agregar un extremo**.
+    Aparecerá la hoja **Agregar un punto de conexión**.
     
-    ![Hoja Agregar extremo][cdn-add-endpoint]
+    ![Hoja Agregar punto de conexión][cdn-add-endpoint]
 
 3. Escriba un **Nombre** para este punto de conexión de red de entrega de contenido. Este nombre se usará para obtener acceso a sus recursos almacenados en caché en el dominio `<EndpointName>.azureedge.net`.
 
@@ -78,7 +78,7 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 
 6. En el cuadro de texto **Ruta de acceso de origen**, escriba la ruta de acceso a los recursos que quiera almacenar en caché o déjela en blanco para permitir almacenar en caché cualquier recurso en el dominio especificado en el paso 5.
 
-7. En el **Encabezado del host de origen**, escriba el encabezado de host que quiera que la red de entrega de contenido envíe con cada solicitud o deje el valor predeterminado.
+7. En el **Encabezado del host de origen**, escriba el encabezado de host que quiera que la red CDN envíe con cada solicitud o deje el valor predeterminado.
 
 8. Para **Protocolo** y **Puerto de origen**, especifique los protocolos y los puertos que se usan para tener acceso a sus recursos en el origen. Sus clientes seguirán usando estos mismos protocolos y puertos cuando tienen acceso a recursos de la red CDN. Se debe seleccionar al menos un protocolo (HTTP o HTTPS).
 
@@ -86,7 +86,7 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 
 10. Una vez creado el punto de conexión, aparecerá en la lista de puntos de conexión del perfil. La visualización de la lista muestra la URL que se debe utilizar para tener acceso al contenido en caché, así como al dominio de origen.
 
-    ![Extremo de CDN][cdn-endpoint-success]
+    ![Punto de conexión de CDN][cdn-endpoint-success]
 
     > [AZURE.NOTE]El punto de conexión no estará disponible inmediatamente para su uso. Se pueden tardar hasta 90 minutos en que el registro se propague a través de la red CDN. Es posible que los usuarios que intenten usar el nombre de dominio de la red CDN de forma inmediata reciban el código de estado 404 hasta que el contenido esté disponible a través de la red CDN.
 
@@ -101,4 +101,4 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

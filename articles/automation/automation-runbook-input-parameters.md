@@ -105,7 +105,7 @@ Puede usar la actividad [**Write-Output**](https://technet.microsoft.com/library
 
     * **Parámetro 2:** 
     Nombre--VMNameServiceName, 
-    Tipo--String, 
+    Tipo--String,
     Obligatorio--No, 
     Valor predeterminado--Personalizado, 
     Valor predeterminado personalizado--<Nombre del servicio predeterminado que contiene las máquinas virtuales>
@@ -122,7 +122,7 @@ Se puede iniciar un Runbook de muchas maneras: mediante la interfaz de usuario d
 
 - **Inicio de un Runbook publicado mediante el Portal de Azure y asignación de parámetros**
 
-Cuando se [inicia el Runbook](automation-starting-a-runbook#starting-a-runbook-with-the-azure-portal.md), se abre la hoja **Iniciar runbook** y puede configurar los valores para los parámetros que acaba de crear.
+Cuando se [inicia el Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), se abre la hoja **Iniciar runbook** y puede configurar los valores para los parámetros que acaba de crear.
 
 ![Empezar a usar el portal](media/automation-runbook-input-parameters/automation_04_StartRunbookUsingPortal.png)
 
@@ -156,7 +156,7 @@ En la etiqueta bajo el cuadro de entrada, puede ver los atributos que se han def
         Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```
 
->[AZURE.NOTE] Cuando se inicia un Runbook mediante cmdlets de PowerShell, se crea un parámetro predeterminado, **MicrosoftApplicationManagementStartedBy**, con el valor **PowerShell**. Puede ver este parámetro en la hoja **Detalles del trabajo**.
+>[AZURE.NOTE]Cuando se inicia un Runbook mediante cmdlets de PowerShell, se crea un parámetro predeterminado, **MicrosoftApplicationManagementStartedBy**, con el valor **PowerShell**. Puede ver este parámetro en la hoja **Detalles del trabajo**.
 
 - **Inicio de un Runbook con un SDK y asignación de parámetros**
 
@@ -228,8 +228,8 @@ En el identificador URI de solicitud, reemplace los siguientes parámetros:
 
 Para pasar parámetros al trabajo de Runbook, use el cuerpo de la solicitud. Admite las dos propiedades siguientes proporcionadas en formato JSON:
 
-* **Nombre del Runbook**: obligatorio. Nombre del Runbook para que se inicie el trabajo.  
-* **Parámetros del Runbook**: opcionales. Diccionario de la lista de parámetros en formato (nombre, valor), donde el nombre debe ser de tipo String y el valor puede ser cualquier valor JSON válido. 
+* **Nombre del Runbook**: obligatoria. El nombre del Runbook para que se inicie el trabajo.  
+* **Parámetros del Runbook**: opcional. Diccionario de la lista de parámetros en formato (nombre, valor), donde el nombre debe ser de tipo String y el valor puede ser cualquier valor JSON válido.
 
 Si desea iniciar el Runbook **Get-AzureVMTextual** creado antes con **VMName** y **ServiceName** como parámetros, use el siguiente formato JSON para el cuerpo de la solicitud.
 
@@ -279,4 +279,4 @@ Cuando se ejecuta un Runbook mediante un Webhook, se envía un parámetro de ent
 - Para editar un Runbook de texto, consulte [Edición de Runbooks de texto en Automatización de Azure](automation-edit-textual-runbook.md).
 - Para editar un Runbook gráfico, consulte [Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

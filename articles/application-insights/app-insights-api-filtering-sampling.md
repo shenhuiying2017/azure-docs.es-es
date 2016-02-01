@@ -82,7 +82,7 @@ Para filtrar la telemetría, escriba un procesador de telemetría y regístrelo 
 
 > [AZURE.WARNING]El filtrado de la telemetría enviada desde el SDK usando procesadores puede sesgar las estadísticas que se ven en el portal, y dificultar el seguimiento de elementos relacionados.
 > 
-> En su lugar, considere usar el [muestreo](#sampling).
+> En su lugar, puede efectuar un [muestreo](#sampling).
 
 ### Crear un procesador de telemetría
 
@@ -161,7 +161,7 @@ Puede pasar valores de cadena desde el archivo .config proporcionando propiedade
 
 ```C#
 
-    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
 
     // If you have more processors:
@@ -404,4 +404,4 @@ Puede agregar tantos inicializadores como desee.
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

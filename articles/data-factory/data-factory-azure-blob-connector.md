@@ -314,7 +314,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 
 **Canalización con actividad de copia:**
 
-La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **SqlSource** y el tipo **sink**, en **BlobSink**. La consulta SQL especificada para la propiedad **SqlReaderQuery** selecciona los datos de la última hora que se van a copiar.
+La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **SqlSource** y el tipo **sink**, en **BlobSink**. La consulta SQL especificada para la propiedad **SqlReaderQuery** selecciona los datos de la última hora que se van a copiar.
 
 
 	{  
@@ -383,7 +383,7 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
 | fileName | <p>Nombre del blob. fileName es opcional. </p><p>Si especifica fileName, la actividad (incluida la copia) funciona en el blob específico.</p><p>Cuando no se especifica fileName, la copia incluirá todos los blobs de folderPath para el conjunto de datos de entrada.</p><p>Cuando no se especifica fileName para un conjunto de datos de salida, el nombre del archivo generado tendrá el formato siguiente: Data.<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
 | partitionedBy | partitionedBy es una propiedad opcional. Puede usarla para especificar un folderPath dinámico y un nombre de archivo para datos de series temporales. Por ejemplo, se puede parametrizar folderPath por cada hora de datos. Consulte la sección [Aprovechamiento de la propiedad partitionedBy](#Leveraging-partitionedBy-property) a continuación para obtener información detallada y ejemplos. | No
 | formato | Se admiten dos tipos de formatos: **TextFormat** y **AvroFormat**. Deberá establecer la propiedad type en format en cualquiera de estos valores. Cuando el formato es TextFormat, puede especificar propiedades opcionales adicionales para format. Consulte la sección [Especificación de TextFormat](#specifying-textformat) a continuación para obtener más detalles. | No
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: GZip y Deflate y BZip2 y los niveles admitidos son: óptimo y más rápido. Vea la sección [Compatibilidad de compresión](#compression-support) para obtener más detalles. | No |
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: GZip y Deflate y BZip2 y los niveles admitidos son: óptimo y más rápido. Vea la sección [Compatibilidad de compresión](#compression-support) para más detalles. | No |
 
 ### Uso de la propiedad partitionedBy
 Tal como se mencionó anteriormente, puede especificar un folderPath dinámico y un nombre de archivo para los datos de series temporales con la sección **partitionedBy**, macros de la Factoría de datos y las variables del sistema: SliceStart y SliceEnd, que indican las horas de inicio y de finalización de un segmento de datos especificado.
@@ -422,11 +422,11 @@ Si se establece el formato en **TextFormat**, puede especificar las siguientes p
 
 | Propiedad | Descripción | Obligatorio |
 | -------- | ----------- | -------- |
-| columnDelimiter | Los caracteres que se usan como separador de columna en un archivo. Esta etiqueta es opcional. El valor predeterminado es coma (,). | No |
-| rowDelimiter | Los caracteres que se usan como separador sin formato en un archivo. Esta etiqueta es opcional. El valor predeterminado es cualquiera de los siguientes: ["\\r\\n", "\\r", "\\n"]. | No |
+| columnDelimiter | El carácter que se usa como separador de columnas en un archivo. Actualmente solo se permite un carácter. Esta etiqueta es opcional. El valor predeterminado es coma (,). | No |
+| rowDelimiter | El carácter que se usa como separador de filas en un archivo. Actualmente solo se permite un carácter. Esta etiqueta es opcional. El valor predeterminado es cualquiera de los siguientes: ["\\r\\n", "\\r", "\\n"]. | No |
 | escapeChar | <p>El carácter especial que se usa para anular el delimitador de columna que se muestra en el contenido. Esta etiqueta es opcional. No hay ningún valor predeterminado. No debe especificar más de un carácter para esta propiedad.</p><p>Por ejemplo, si tiene la coma (,) como delimitador de columna, pero desea usar el carácter de coma en el texto (por ejemplo: "Hello, world"), puede definir '$' como carácter de escape y usar la cadena "Hello$, world" en el origen.</p><p>Tenga en cuenta que no se pueden especificar escapeChar y quoteChar a la vez para una tabla.</p> | No | 
 | quoteChar | <p>El carácter especial se usa para poner entre comillas el valor de la cadena. Los delimitadores de columna y fila entre comillas se tratarán como parte del valor de la cadena. Esta etiqueta es opcional. No hay ningún valor predeterminado. No debe especificar más de un carácter para esta propiedad.</p><p>Por ejemplo, si tiene la coma (,) como delimitador de columna, pero desea usar el carácter de coma en el texto (por ejemplo: <Hello  world>), puede definir ‘"’ como comillas y usar la cadena <"Hello, world"> en el origen. Esta propiedad es aplicable a las tablas de entrada y de salida.</p><p>Tenga en cuenta que no se pueden especificar escapeChar y quoteChar a la vez para una tabla.</p> | No |
-| nullValue | <p>Los caracteres que se usan para representar un valor nulo en el contenido del archivo de blob. Esta etiqueta es opcional. El valor predeterminado es “\\N”.</p><p>Por ejemplo, basándose en el ejemplo anterior , “NaN” en el blob se traducirá como valor nulo al copiar en, p. ej., SQL Server.</p> | No |
+| nullValue | <p>Los caracteres que se usan para representar un valor nulo en el contenido del archivo de blob. Esta etiqueta es opcional. El valor predeterminado es “\\N”.</p><p>Por ejemplo, basándose en el ejemplo anterior , "NaN" en el blob se traducirá como valor nulo al copiar en, por ejemplo, SQL Server.</p> | No |
 | encodingName | Especifique el nombre de codificación. Para obtener la lista de nombres de codificación válidos, vea: Propiedad [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por ejemplo: windows-1250 o shift\_jis. El valor predeterminado es: UTF-8. | No | 
 
 #### Muestras
@@ -505,4 +505,4 @@ false | mergeFiles | <p>Para una carpeta de origen Folder1 con la siguiente estr
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

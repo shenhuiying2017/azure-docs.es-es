@@ -165,7 +165,7 @@ En este paso, use el Portal de Azure para crear una instancia de Factoría de da
 	> 
 	> Si está usando Chrome, vaya a la [tienda web de Chrome](https://chrome.google.com/webstore/), busque con la palabra clave "ClickOnce", elija una de las extensiones de ClickOnce e instálela.
 	>  
-	> Debe hacer lo mismo para Firefox (complemento de instalación). Por ejemplo, puede instalar una desde [aquí](https://addons.mozilla.org/firefox/addon/fxclickonce/).
+	> Debe hacer lo mismo para Firefox (complemento de instalación). Haga clic en el botón **Menú Abrir** de la barra de herramientas (**tres líneas horizontales** en la esquina superior derecha), haga clic en **Complementos**, busque la palabra clave "ClickOnce", elija una de las extensiones de ClickOnce e instálela.
 
 	![Puerta de enlace: hoja Configurar](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
@@ -643,4 +643,4 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 5.	La puerta de enlace descifra las credenciales con el mismo certificado y, a continuación, se conecta al almacén de datos local con el tipo de autenticación adecuado.
 6.	La puerta de enlace copia datos desde el almacén local a un almacenamiento en la nube o desde un almacenamiento en la nube a un almacén de datos local según cómo esté configurada la actividad de copia en la canalización de datos. Nota: Para este paso, la puerta de enlace se comunica directamente con el servicio de almacenamiento basado en la nube (Blob de Azure, SQL de Azure, etc.) a través del canal seguro (HTTPS).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

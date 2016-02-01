@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/19/2016"
 	ms.author="cabailey"/>
 #Generación y transferencia de claves protegidas con HSM para el Almacén de claves de Azure
 
@@ -23,6 +23,8 @@ Para obtener una mayor seguridad, cuando utilice el Almacén de claves de Azure,
 
 La información de este tema le ayudará a planear, generar y, a continuación, transferir sus propias claves protegidas por HSM para utilizarlas con el Almacén de claves de Azure.
 
+Esta funcionalidad no está disponible para Azure China.
+
 >[AZURE.NOTE]Para obtener más información sobre el Almacén de claves de Azure, consulte [¿Qué es el Almacén de claves de Azure?](key-vault-whatis.md)
 >
 >Para ver tutorial introductorio, que incluye la creación de un almacén de claves para claves protegidas con HSM, consulte [Introducción al Almacén de claves de Azure](key-vault-get-started.md).
@@ -31,7 +33,7 @@ Obtenga más información acerca de cómo generar y transferir una clave protegi
 
 - Genere la clave desde una estación de trabajo sin conexión, lo que reduce la superficie de ataque.
 
-- La clave se cifra con una clave de intercambio de claves (KEK), que permanece cifrada hasta que se transfiere a los HSM del Almacén de claves de Azure. Sólo la versión cifrada de la clave deja la estación de trabajo original.
+- La clave se cifra con una clave de intercambio de claves (KEK), que permanece cifrada hasta que se transfiere a los HSM del Almacén de claves de Azure. Solo la versión cifrada de la clave deja la estación de trabajo original.
 
 - El conjunto de herramientas establece las propiedades en su clave de inquilino que enlaza la clave con el espacio de seguridad del Almacén de claves de Azure. Por consiguiente, después de que los HSM del Almacén de claves de Azure reciban y descifren la clave, dichos HSM son los únicos los que puedan usarla. La clave no se puede exportar. Este enlace lo exigen los HSM de Thales.
 
@@ -58,8 +60,8 @@ En la tabla siguiente puede ver una lista de los requisitos previos del método 
 
 |Requisito|Más información|
 |---|---|
-|Una suscripción a Azure|Para crear un Almacén de claves de Azure, se necesita una suscripción a Azure: [Regístrese para obtener la versión de prueba gratuita](http://azure.microsoft.com/pricing/free-trial/)|
-|Un Almacén de claves de Azure que admita HSM|Para obtener más información sobre los niveles de servicio y las capacidades del Almacén de claves de Azure, consulte el sitio web [Precios de Almacén de claves](http://azure.microsoft.com/pricing/details/key-vault/).|
+|Una suscripción a Azure|Para crear un Almacén de claves de Azure, se necesita una suscripción a Azure: [Regístrese para obtener la versión de prueba gratuita](../../../../pricing/free-trial)|
+|Un Almacén de claves de Azure que admita HSM|Para obtener más información sobre los niveles de servicio y las capacidades del Almacén de claves de Azure, consulte el sitio web [Precios de Almacén de claves](../../../../pricing/details/key-vault/).|
 |HSM de Thales, tarjetas inteligentes y software compatible|Debe tener acceso al módulo de seguridad de hardware de Thales y al conocimiento operacional básico de los HSM de Thales. Para ver la lista de modelos compatibles o comprar un HSM, consulte [Módulo de seguridad de hardware de Thales](https://www.thales-esecurity.com/msrms/buy).|
 |El siguiente hardware y software:<ol><li>Una estación de trabajo x64 sin conexión con un sistema operativo Windows 7, como mínimo, y el software Thales nShield, como mínimo la versión 11.50.<br/><br/>Si la estación de trabajo utiliza Windows 7, debe [instalar Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Una estación de trabajo conectada a Internet y con un sistema operativo Windows 7, como mínimo.</li><li>Una unidad USB u otro dispositivo de almacenamiento portátil que tenga al menos 16 MB de espacio disponible.</li></ol>|Por seguridad, se recomienda que la primera estación de trabajo no esté conectada a una red. Sin embargo, esto no es de obligado cumplimiento.<br/><br/>Tenga en cuenta que en las instrucciones que se indican a continuación, a esta estación de trabajo se la conoce como la estación de trabajo desconectada.</p></blockquote><br/>Además, si la clave de inquilino es para una red de producción, se recomienda usar una segunda estación de trabajo independiente para descargar el conjunto de herramientas y cargar la clave de inquilino. Sin embargo, para la prueba puede usar la misma estación de trabajo que la primera.<br/><br/>Tenga en cuenta que en las siguientes instrucciones a la segunda estación de trabajo se la conoce como la estación de trabajo conectada a Internet.</p></blockquote><br/>|
 
@@ -97,9 +99,9 @@ No cierre la ventana de Azure PowerShell.
 
 ###Paso 1.3: descarga del conjunto de herramientas BYOK para el Almacén de claves de Azure
 
-Vaya al Centro de descarga de Microsoft y [descargue el conjunto de herramientas de BYOK para el Almacén de claves de Azure](http://www.microsoft.com/download/details.aspx?id=45345) de su región:
+Vaya al Centro de descarga de Microsoft y [descargue el conjunto de herramientas de BYOK para el Almacén de claves de Azure](http://www.microsoft.com/download/details.aspx?id=45345) de su región geográfica o instancia de Azure:
 
-|Region|Nombre del paquete|Hash del paquete SHA-256|
+|Región geográfica o instancia de Azure|Nombre del paquete|Hash del paquete SHA-256|
 |---|---|---|
 |Norteamérica|KeyVault-BYOK-Tools-UnitedStates.zip|D9FDA9F5A34E1388CD6C9138E5B75B7051FB7D6B11F087AFE0553DC85CCF0E36|
 |Europa|KeyVault-BYOK-Tools-Europe.zip|881DCA798305B8408C06BAE7B3EFBC1E9EA6113A8D6EC443464F3744896F32C3|
@@ -107,6 +109,7 @@ Vaya al Centro de descarga de Microsoft y [descargue el conjunto de herramientas
 |América Latina|KeyVault-BYOK-Tools-LatinAmerica.zip|B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48|
 |Japón|KeyVault-BYOK-Tools-Japan.zip|DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113|
 |Australia|KeyVault-BYOK-Tools-Australia.zip|8EBC69E58E809A67C036B50BB4F1130411AD87A7464E0D61A9E993C797915967|
+|[Azure Government](../../../../features/gov/)|KeyVault-BYOK-Tools-USGovCloud.zip|4DE9B33990099E4197ED67D786316F628E5218FC1EB0C24DCAD8A1851FD345B8|
 
 Para validar la integridad del conjunto de herramientas BYOK que descargó, use el cmdlet [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) en la sesión de Azure PowerShell.
 
@@ -173,7 +176,7 @@ Este paso es opcional, pero se recomienda realizarlo para poder validar estos el
 
 Para validar el paquete descargado:
 
-1.	Ejecute el script verifykeypackage.py, para lo que, en función de su región, debe escribir lo siguiente:
+1.	Ejecute el script verifykeypackage.py, para lo que, en función de su región geográfica o instancia de Azure, debe escribir lo siguiente:
 	- Norteamérica:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
@@ -192,6 +195,9 @@ Para validar el paquete descargado:
 	- Para Australia:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
+	- Para [Azure Government](../../../../features/gov/), que usa la instancia del gobierno de Estados Unidos de Azure:
+
+			python verifykeypackage.py -k BYOK-KEK-pkg-USGOV-1 -w BYOK-SecurityWorld-pkg-USGOV-1
 
 	>[AZURE.TIP]El software de Thales incluye Python en %NFAST\_HOME%\\python\\bin
 
@@ -229,7 +235,7 @@ En este paso, realice los siguientes procedimientos en la estación de trabajo d
 
 ###Paso 4.1: creación de una copia de la clave con menos permisos
 
-Para reducir los permisos en una clave, desde un símbolo del sistema, ejecute uno de los siguientes comandos, en función de su región:
+Para reducir los permisos en su clave, desde un símbolo del sistema, ejecute uno de los siguientes comandos, en función de su región geográfica o instancia de Azure:
 
 - Norteamérica:
 
@@ -249,6 +255,9 @@ Para reducir los permisos en una clave, desde un símbolo del sistema, ejecute u
 - Para Australia:
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1
+- Para [Azure Government](../../../../features/gov/), que usa la instancia del gobierno de Estados Unidos de Azure:
+
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1
 
 Cuando ejecute este comando, reemplace *contosokey* por el valor que especificó en el **Paso 3.3: Creación de una nueva clave** del paso [Generación de la clave](#step-3-generate-your-key).
 
@@ -270,7 +279,7 @@ Cuando ejecute estos comandos, reemplace contosokey por el mismo valor que espec
 
 ###Paso 4.3: cifrado de la clave mediante la clave de intercambio de claves de Microsoft
 
-Ejecute uno de los comandos siguientes, en función de su región:
+Ejecute uno de los comandos siguientes, dependiendo de su región geográfica o la instancia de Azure:
 
 - Norteamérica:
 
@@ -290,6 +299,9 @@ Ejecute uno de los comandos siguientes, en función de su región:
 - Para Australia:
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+- Para [Azure Government](../../../../features/gov/), que usa la instancia del gobierno de Estados Unidos de Azure:
+
+		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 Cuando ejecute este comando, siga estas instrucciones:
 
@@ -313,8 +325,9 @@ En este paso final, en la estación de trabajo conectada a Internet, use el cmdl
 
 Si la carga se realiza correctamente, verá que se muestran las propiedades de la clave que acaba de agregar.
 
+
 ##Pasos siguientes
 
 Ahora puede usar esta clave protegida con HSM en el almacén de claves. Para obtener más información, consulte la sección **Si desea usar un módulo de seguridad de hardware (HSM)** del tutorial[ Introducción al Almacén de claves de Azure](key-vault-get-started.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Expresiones de la plantilla del Administrador de recursos | Microsoft Azure"
+   pageTitle="Funciones de la plantilla del Administrador de recursos | Microsoft Azure"
    description="Describe las funciones que se van a usar en una plantilla del Administrador de recursos de Azure para recuperar valores, trabajar con cadenas y valores numéricos y recuperar información de implementación."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/31/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
-# Expresiones de la plantilla del Administrador de recursos de Azure
+# Funciones de la plantilla del Administrador de recursos de Azure
 
-En este tema se describen todas las expresiones que puede usar en una plantilla del Administrador de recursos de Azure.
+Este tema describe todas las funciones que puede utilizar en una plantilla del Administrador de recursos de Azure.
 
-Las expresiones de plantilla y sus parámetros no distinguen mayúsculas de minúsculas. Por ejemplo, el Administrador de recursos resuelve **variables('var1')** y **VARIABLES('VAR1')** de la misma manera. Cuando se evalúa, a menos que la expresión modifique expresamente las mayúsculas (como toUpper o toLower), la expresión conservará el caso. Es posible que determinados tipos de recursos tengan requisitos de mayúsculas independientemente de cómo se evalúen las expresiones.
+Las funciones de plantilla y sus parámetros no distinguen mayúsculas de minúsculas. Por ejemplo, el Administrador de recursos resuelve **variables('var1')** y **VARIABLES('VAR1')** de la misma manera. Cuando se evalúa, a menos que la función modifique expresamente las mayúsculas (como toUpper o toLower), la función conservará el caso. Es posible que determinados tipos de recursos tengan requisitos de mayúsculas independientemente de cómo se evalúen las funciones.
 
-## Expresiones numéricas
+## Funciones numéricas
 
-El Administrador de recursos ofrece las siguientes expresiones para trabajar con números enteros:
+El Administrador de recursos ofrece las siguientes funciones para trabajar con números enteros:
 
 - [agregar](#add)
 - [copyIndex](#copyindex)
@@ -56,7 +56,7 @@ Devuelve la suma de los dos enteros especificados.
 
 Devuelve el índice actual de un bucle de iteración.
 
-Esta expresión siempre se usa con un objeto de **copia**. Para ejemplos de cómo usar **copyIndex**, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
+Esta función siempre se usa con un objeto **copy**. Para ejemplos de cómo usar **copyIndex**, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 
 
 <a id="div" />
@@ -157,9 +157,9 @@ Devuelve la resta de los dos enteros especificados.
 | operand2 | Sí | Número que se va a restar.
 
 
-## Expresiones de cadena
+## Funciones de cadena
 
-El Administrador de recursos ofrece las siguientes expresiones para trabajar con cadenas:
+El Administrador de recursos ofrece las siguientes funciones para trabajar con cadenas:
 
 - [base64](#base64)
 - [concat](#concat)
@@ -199,16 +199,31 @@ En el ejemplo siguiente se muestra cómo utilizar la función de base64.
 
 **concat (arg1, arg2, arg3, ...)**
 
-Combina varios valores de cadena y devuelve el valor de cadena resultante. Esta función puede tomar cualquier número de argumentos.
+Combina varios valores y devuelve el resultado concatenado. Esta función puede tomar cualquier número de argumentos y puede aceptar cadenas o matrices para los parámetros.
 
-En el ejemplo siguiente se muestra cómo combinar varios valores para devolver un valor.
+En el ejemplo siguiente se muestra cómo combinar varios valores de cadena para devolver un valor concatenado.
 
     "outputs": {
         "siteUri": {
           "type": "string",
-          "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
+          "value": "[concat('http://', reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
         }
     }
+
+En el ejemplo siguiente se muestra cómo combinar dos matrices.
+
+    "parameters": {
+        "firstarray": {
+            type: "array"
+        }
+        "secondarray": {
+            type: "array"
+        }
+     },
+     "variables": {
+         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
+     }
+        
 
 <a id="padleft" />
 ### padLeft
@@ -430,17 +445,25 @@ En el ejemplo siguiente se muestra cómo construir un vínculo a una plantilla a
 
     "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 
+## Funciones de matriz
 
+El Administrador de recursos ofrece varias funciones para trabajar con valores de matriz:
 
-## Expresiones de valor de implementación
+Para combinar varias matrices en una sola, use [concat](#concat).
 
-El Administrador de recursos ofrece las siguientes expresiones para obtener valores de las secciones de la plantilla y valores relacionados con la implementación:
+Para obtener el número de elementos de una matriz, use [length](#length).
+
+Para dividir un valor de cadena en una matriz de valores de cadena, use [split](#split).
+
+## Funciones con valores de implementación
+
+El Administrador de recursos ofrece las siguientes funciones para obtener valores de las secciones de la plantilla y valores relacionados con la implementación:
 
 - [deployment](#deployment)
 - [parameters](#parameters)
 - [variables](#variables)
 
-Para valores de recursos, grupos de recursos o suscripciones, vea [Expresiones de recursos](#resource-expressions).
+Para obtener valores de recursos, grupos de recursos o suscripciones, consulte [Funciones de recursos](#resource-functions).
 
 <a id="deployment" />
 ### deployment
@@ -449,7 +472,7 @@ Para valores de recursos, grupos de recursos o suscripciones, vea [Expresiones d
 
 Devuelve información sobre la operación de implementación actual.
 
-Esta expresión devuelve el objeto pasado durante la implementación. Las propiedades del objeto devuelto variarán en función de si el objeto de implementación se ha pasado como un vínculo o como un objeto en línea. Cuando se pasa el objeto de implementación en línea, como cuando se usa el parámetro **-TemplateFile** en Azure PowerShell para orientarlo a un archivo local, el objeto devuelto tiene el formato siguiente:
+Esta función devuelve el objeto pasado durante la implementación. Las propiedades del objeto devuelto variarán en función de si el objeto de implementación se ha pasado como un vínculo o como un objeto en línea. Cuando se pasa el objeto de implementación en línea, como cuando se usa el parámetro **-TemplateFile** en Azure PowerShell para orientarlo a un archivo local, el objeto devuelto tiene el formato siguiente:
 
     {
         "name": "",
@@ -528,9 +551,9 @@ Devuelve el valor de variable. El nombre de la variable especificada debe defini
 
 
 
-## Expresiones de recurso
+## Funciones de recursos
 
-El Administrador de recursos ofrece las siguientes expresiones para obtener valores de recursos:
+El Administrador de recursos ofrece las siguientes funciones para obtener valores de recursos:
 
 - [listkeys](#listkeys)
 - [providers](#providers)
@@ -539,7 +562,7 @@ El Administrador de recursos ofrece las siguientes expresiones para obtener valo
 - [resourceId](#resourceid)
 - [suscripción](#subscription)
 
-Para obtener valores de parámetros, variables o la implementación actual, vea [Expresiones de valor de implementación](#deployment-value-expressions).
+Para obtener valores de parámetros, variables o la implementación actual, consulte [Funciones de valor de implementación](#deployment-value-functions).
 
 <a id="listkeys" />
 ### listKeys
@@ -605,7 +628,7 @@ Permite que una expresión derive su valor del estado de tiempo de ejecución de
 
 La función **reference** deriva su valor desde un estado de tiempo de ejecución y, por tanto, no se puede utilizar en la sección de variables. Se puede utilizar en la sección de salidas de una plantilla.
 
-Mediante el uso de la expresión de referencia, se declara implícitamente que un recurso depende de otro recurso si el recurso al que se hace referencia se aprovisiona en la misma plantilla. No tiene que usar también la propiedad **dependsOn**. La expresión no se evalúa hasta que el recurso al que se hace referencia complete la implementación.
+Mediante el uso de la función de referencia, se declara implícitamente que un recurso depende de otro recurso si el recurso al que se hace referencia se aprovisiona en la misma plantilla. No tiene que usar también la propiedad **dependsOn**. La función no se evalúa hasta que el recurso al que se hace referencia complete la implementación.
 
 En el ejemplo siguiente se hace referencia a una cuenta de almacenamiento que se implementa en la misma plantilla.
 
@@ -634,7 +657,7 @@ Puede recuperar un valor concreto del objeto devuelto, como el URI del punto de 
 		}
 	}
 
-Si ahora quiere especificar directamente la versión de la API en su plantilla, puede usar la expresión **proveedores** y recuperar uno de los valores, como la versión más reciente, como se muestra a continuación.
+Si ahora quiere especificar directamente la versión de la API en su plantilla, puede usar la función [providers](#providers) y recuperar uno de los valores, como la versión más reciente, como se muestra a continuación.
 
     "outputs": {
 		"BlobUri": {
@@ -767,6 +790,6 @@ En el ejemplo siguiente se muestra la función de suscripción a la que se llama
 - Para obtener una descripción de las secciones de una plantilla del Administrador de recursos de Azure, vea [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para combinar varias plantillas, vea [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
 - Para iterar una cantidad de veces determinada al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
-- Para saber cómo implementar la plantilla que creó, vea [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
+- Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

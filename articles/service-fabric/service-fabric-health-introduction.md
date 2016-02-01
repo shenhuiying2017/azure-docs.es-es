@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/23/2015"
+   ms.date="01/20/2015"
    ms.author="oanapl"/>
 
 # Introducción a la supervisión del mantenimiento de Service Fabric
@@ -334,4 +334,4 @@ El modelo de mantenimiento se usa mucho para la supervisión y el diagnóstico, 
 
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

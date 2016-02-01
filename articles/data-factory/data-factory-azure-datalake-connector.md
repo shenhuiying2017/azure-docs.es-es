@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="01/19/2016"
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde el almacén de Azure Data Lake mediante la Factoría de datos de Azure
-En este artículo se describe cómo puede usar la actividad de copia en una factoría de datos de Azure para mover datos al almacén de Azure Data Lake desde otro almacén de datos y viceversa. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
+En este artículo se describe cómo puede usar la actividad de copia en una Factoría de datos de Azure para mover datos al Almacén de Azure Data Lake desde otro almacén de datos, y viceversa. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
 > [AZURE.NOTE]Antes de crear una canalización con una actividad de copia para mover datos hacia y desde un almacén de Azure Data Lake, debe crear una cuenta de almacén de Azure Data Lake. Para obtener más información sobre el almacén de Azure Data Lake, consulte [Introducción al almacén de Azure Data Lake](../data-lake-store/data-lake-store-get-started-portal.md).
 >  
@@ -69,9 +69,13 @@ El procedimiento siguiente proporciona los pasos para crear un servicio vinculad
 3. Haga clic en el botón **Autorizar** de la barra de comandos. Aparecerá una ventana emergente.
 
 	![Botón Autorizar](./media/data-factory-azure-data-lake-connector/authorize-button.png)
+
 4. Use las credenciales para iniciar sesión; debería asignarse un valor a la propiedad **authorization** de JSON.
 5. (Opcional) Especifique valores para los parámetros opcionales, como **accountName**, **subscriptionID** y **resourceGroupName**, del código JSON o bien elimine esas propiedades de dicho código.
 6. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
+
+> [AZURE.IMPORTANT]El código de autorización que se generó al hacer clic en el botón **Autorizar** expira poco tiempo después. Necesitará **volver a dar la autorización** con el botón **Autorizar** cuando el **token expire** y volver a implementar el servicio vinculado. Para más información, consulte [Propiedades del servicio vinculado de Almacén de Azure Data Lake](#azure-data-lake-store-linked-service-properties).
+
 
 
 **Conjunto de datos de entrada de blob de Azure:**
@@ -404,6 +408,44 @@ Puede vincular una cuenta de Almacenamiento de Azure a una Factoría de datos de
 | subscriptionId | Identificador de la suscripción de Azure. | No (si no se especifica, se usa la suscripción de la factoría de datos). |
 | resourceGroupName | Nombre del grupo de recursos de Azure. | No (si no se especifica, se usa el grupo de recursos de la factoría de datos). |
 
+El código de autorización que se generó al hacer clic en el botón **Autorizar** expira poco tiempo después. Consulte la tabla siguiente para conocer el momento en que expiran los distintos tipos de cuentas de usuario. Puede ver el siguiente mensaje de error cuando el **token de autenticación expira**: "Error de operación de credencial: invalid\_grant - AADSTS70002: error al validar las credenciales. AADSTS70008: la concesión de acceso proporcionada expiró o se revocó. Id. de seguimiento: d18629e8-af88-43c5-88e3-d8419eb1fca1 Id. de correlación: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Marca de tiempo: 2015-12-15 21-09-31Z".
+
+
+| Tipo de usuario | Expira después de |
+| :-------- | :----------- | 
+| No es usuario de AAD (@hotmail.com, @live.com, etc.) | 12 horas |
+| El usuario de AAD y el origen basado en OAuth están en un [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que no es el de la Factoría de datos del usuario. | 12 horas |
+| El usuario de AAD y el origen basado en OAuth están en el mismo inquilino que la Factoría de datos del usuario. | <p> El máximo es 90 días si el usuario ejecuta segmentos según su origen del servicio vinculado basado en OAuth al menos una vez cada 14 días. </p><p>Durante los 90 días esperados, si el usuario no ha ejecutado ningún segmento basado en dicho origen en 14 días, las credenciales expirarían inmediatamente 14 días después de su último segmento.</p> |
+
+Para evitar o resolver este error, será preciso que vuelva a dar la autorización con el botón **Autorizar** cuando el **token expire** y vuelva a implementar el servicio vinculado. También puede generar valores para las propiedades **sessionId** y **authorization** mediante programación, para lo que usará el código de la sección siguiente.
+
+### Para generar los valores de sessionId y authorization mediante programación 
+
+    if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
+        linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+    {
+        AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
+
+        WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
+        string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+
+        AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
+        if (azureDataLakeStoreProperties != null)
+        {
+            azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeStoreProperties.Authorization = authorization;
+        }
+
+        AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
+        if (azureDataLakeAnalyticsProperties != null)
+        {
+            azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeAnalyticsProperties.Authorization = authorization;
+        }
+    }
+
+Para más información sobre las clases de Factoría de datos que se usan en el código, consulte los temas [clase AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService clase](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [AuthorizationSessionGetResponse clase](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
+ 
 
 ## Propiedades de tipo del conjunto de datos de Azure Data Lake
 
@@ -417,7 +459,7 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
 | fileName | <p>Nombre del archivo en el almacén de Azure Data Lake. La propiedad fileName es opcional. </p><p>Si especifica fileName, la actividad (incluida la copia) funciona en el archivo específico.</p><p>Cuando no se especifica fileName, la copia incluirá todos los archivos de folderPath para el conjunto de datos de entrada.</p><p>Cuando no se especifica fileName para un conjunto de datos de salida, el nombre del archivo generado tendrá el formato siguiente: Data.<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p>. | No |
 | partitionedBy | partitionedBy es una propiedad opcional. Puede usarla para especificar un folderPath dinámico y un nombre de archivo para datos de series temporales. Por ejemplo, se puede parametrizar folderPath por cada hora de datos. Consulte la sección Uso de la propiedad partitionedBy a continuación para obtener información detallada y ejemplos. | No |
 | formato | Se admiten dos tipos de formatos: **TextFormat** y **AvroFormat**. Deberá establecer la propiedad type en format en cualquiera de estos valores. Cuando el formato es TextFormat, puede especificar propiedades opcionales adicionales para format. Consulte la sección [Especificación de TextFormat](#specifying-textformat) a continuación para obtener más detalles. | No |
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: GZip y Deflate y BZip2 y los niveles admitidos son: óptimo y más rápido. Consulte la sección [Compatibilidad con la compresión](#compression-support) para obtener más detalles. | No |
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: GZip y Deflate y BZip2 y los niveles admitidos son: óptimo y más rápido. Vea la sección [Compatibilidad de compresión](#compression-support) para más detalles. | No |
 
 ### Uso de la propiedad partitionedBy
 Tal como se mencionó anteriormente, puede especificar un valor folderPath dinámico y un nombre de archivo para los datos de series temporales con la sección **partitionedBy**, macros de la Factoría de datos y las variables del sistema: SliceStart y SliceEnd, que indican las horas de inicio y de finalización de un segmento de datos especificado.
@@ -450,16 +492,16 @@ En el ejemplo anterior, year, month, day y time de SliceStart se extraen en vari
 
 ### Especificación de TextFormat
 
-Si se establece el formato en **TextFormat**, puede especificar las siguientes propiedades **opcionales** en la sección **Format**.
+Si se establece el formato en **TextFormat**, puede especificar las siguientes propiedades **opcionales** en la sección **format**.
 
 | Propiedad | Descripción | Obligatorio |
 | -------- | ----------- | -------- |
-| columnDelimiter | Los caracteres que se usan como separador de columna en un archivo. Esta etiqueta es opcional. El valor predeterminado es coma (,). | No |
-| rowDelimiter | Los caracteres que se usan como separador sin formato en un archivo. Esta etiqueta es opcional. El valor predeterminado es cualquiera de los siguientes: ["\\r\\n", "\\r", "\\n"]. | No |
+| columnDelimiter | El carácter que se usa como separador de columnas en un archivo. Actualmente solo se permite un carácter. Esta etiqueta es opcional. El valor predeterminado es coma (,). | No |
+| rowDelimiter | El carácter que se usa como separador de filas en un archivo. Actualmente solo se permite un carácter. Esta etiqueta es opcional. El valor predeterminado es cualquiera de los siguientes: ["\\r\\n", "\\r", "\\n"]. | No |
 | escapeChar | <p>El carácter especial que se usa para anular el delimitador de columna que se muestra en el contenido. Esta etiqueta es opcional. No hay ningún valor predeterminado. No debe especificar más de un carácter para esta propiedad.</p><p>Por ejemplo, si tiene la coma (,) como delimitador de columna, pero desea usar el carácter de coma en el texto (por ejemplo: "Hello, world"), puede definir '$' como carácter de escape y usar la cadena "Hello$, world" en el origen.</p><p>Tenga en cuenta que no se pueden especificar escapeChar y quoteChar a la vez para una tabla.</p> | No | 
 | quoteChar | <p>El carácter especial se usa para poner entre comillas el valor de la cadena. Los delimitadores de columna y fila entre comillas se tratarán como parte del valor de la cadena. Esta etiqueta es opcional. No hay ningún valor predeterminado. No debe especificar más de un carácter para esta propiedad.</p><p>Por ejemplo, si tiene la coma (,) como delimitador de columna, pero desea usar el carácter de coma en el texto (por ejemplo: <Hello  world>), puede definir ‘"’ como comillas y usar la cadena <"Hello, world"> en el origen. Esta propiedad es aplicable a las tablas de entrada y de salida.</p><p>Tenga en cuenta que no se pueden especificar escapeChar y quoteChar a la vez para una tabla.</p> | No |
 | nullValue | <p>Los caracteres que se usan para representar un valor nulo en el contenido del archivo de blob. Esta etiqueta es opcional. El valor predeterminado es “\\N”.</p><p>Por ejemplo, basándose en el ejemplo anterior , "NaN" en el blob se traducirá como valor nulo al copiar en, por ejemplo, SQL Server.</p> | No |
-| encodingName | Especifique el nombre de codificación. Para obtener la lista de nombres de codificación válidos, consulte: Propiedad [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por ejemplo: windows-1250 o shift\_jis. El valor predeterminado es: UTF-8. | No | 
+| encodingName | Especifique el nombre de codificación. Para obtener la lista de nombres de codificación válidos, vea: Propiedad [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por ejemplo: windows-1250 o shift\_jis. El valor predeterminado es: UTF-8. | No | 
 
 #### Muestras
 En el ejemplo siguiente se muestran algunas de las propiedades de formato de TextFormat.
@@ -553,7 +595,7 @@ Por otro lado, las propiedades disponibles en la sección typeProperties de la a
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Especifica el comportamiento de copia. | <p>**PreserveHierarchy:** conserva la jerarquía de archivos en la carpeta de destino, es decir, la ruta de acceso relativa del archivo de origen a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino a la carpeta de destino.</p><p>**FlattenHierarchy:** todos los archivos de la carpeta de origen estarán en el primer nivel de la carpeta de destino. Los archivos de destino tendrán un nombre generado automáticamente.</p><p>**MergeFiles:** (esta funcionalidad estará disponible próximamente) combina todos los archivos de la carpeta de origen a un archivo. Si se especifica el nombre de archivo/blob, el nombre de archivo combinado sería el nombre especificado; de lo contrario, sería el nombre de archivo generado automáticamente.</p> | No |
+| copyBehavior | Especifica el comportamiento de copia. | <p>**PreserveHierarchy:** conserva la jerarquía de archivos en la carpeta de destino, es decir, la ruta de acceso relativa del archivo de origen a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino a la carpeta de destino.</p><p>**FlattenHierarchy:** todos los archivos de la carpeta de origen estarán en el primer nivel de la carpeta de destino. Los archivos de destino tendrán un nombre generado automáticamente.</p><p>**MergeFiles:** combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre de archivo/blob, el nombre de archivo combinado sería el nombre especificado; de lo contrario, sería el nombre de archivo generado automáticamente.</p> | No |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -562,4 +604,4 @@ Por otro lado, las propiedades disponibles en la sección typeProperties de la a
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

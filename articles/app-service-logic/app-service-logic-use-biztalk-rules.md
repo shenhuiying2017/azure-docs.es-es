@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reglas de BizTalk"
-   description="En este tema se describen las características de las reglas de BizTalk y se proporcionan instrucciones sobre su uso"
+   pageTitle="Información y creación de una aplicación de API de reglas de BizTalk en la aplicación lógica | Microsoft Azure"
+   description="En este tema se describen las características del conector de reglas de BizTalk y se proporcionan instrucciones sobre su uso"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/28/2015"
+   ms.date="01/19/2016"
    ms.author="andalmia"/>
 
 #Reglas de BizTalk
@@ -112,18 +112,19 @@ Tras crear una aplicación de API de reglas de BizTalk, el siguiente paso sería
 
    ![Texto alternativo][4]
 
-2.A continuación, haga clic en "Definiciones de vocabulario". Se mostrará la pantalla para la creación de vocabulario. Haga clic en “Agregar” para comenzar a agregar nuevas definiciones de vocabulario. 
+2.Seleccione "Definiciones de vocabulario". Se mostrará la pantalla de creación de vocabulario. 3. Seleccione "Agregar" para comenzar a agregar nuevas definiciones de vocabulario. 
+Actualmente se admiten dos tipos de definiciones de vocabulario: literal y XML.
 
 ##Definición literal
 1.	Después de hacer clic en “Agregar”, se abre una nueva hoja para “Agregar definición”. Escriba los siguientes valores:
   1.	Nombre: solo se esperan caracteres alfanuméricos sin caracteres especiales. Aparte, debe ser único en su lista de definiciones de vocabulario existente.
   2.	Descripción: es un campo opcional.
   3.	Tipo de definición: se admiten dos tipos. En este ejemplo, elija Literal
-  4.	Tipo de entrada: aquí los usuarios pueden seleccionar el tipo de dato de la definición. Actualmente se pueden seleccionar cuatro tipos: 
+  4.	Tipo de entrada: aquí los usuarios pueden seleccionar el tipo de datos de la definición. Actualmente se admiten cuatro tipos: 
     i. Cadena: estos valores deben escribirse entre comillas dobles ("cadena de ejemplo")  
     ii. Booleano: puede tener el valor verdadero o falso  
     iii. Número: puede ser cualquier número decimal  
-    iv. DateTime: esto significa que la definición es de tipo fecha. Los datos se deben escribir con el formato: mm/dd/yyyy hh:mm:ss AM\PM  
+    iv. DateTime: esto significa que la definición es de tipo fecha. Los datos se deben escribir con el formato: mm/dd/aaaa hh:mm:ss AM\PM  
   5. Entrada: aquí se escribe el valor de su definición. Los valores aquí especificados deben ajustarse al tipo de dato elegido. Puede escribir un solo valor, un conjunto de valores separados por coma o un intervalo de valores mediante la palabra clave *to* (a). Por ejemplo, puede escribir un valor único 1; un conjunto 1, 2, 3; o un intervalo de 1 a 5. Tenga en cuenta que el intervalo solo se permite para números.
   6. Seleccione *Aceptar*.
 
@@ -137,23 +138,23 @@ Si el tipo de vocabulario elegido es XML, será necesario especificar las siguie
 ![Texto alternativo][6]
 
 ### Agregar en masa
-Los pasos anteriores han capturado la experiencia para crear definiciones de vocabulario. Una vez creadas, aparecen en forma de lista. No existen requisitos para poder generar varias definiciones a partir del mismo esquema en lugar de repetir los pasos anteriores cada vez. Aquí es donde la capacidad para agregar en masa se vuelve muy útil. 
-Al hacer clic en “Agregar en masa” se mostrará una nueva hoja. El primer paso consiste en seleccionar el esquema para el que se van a crear varias definiciones. Al hacer clic en este, se muestra una nueva hoja que permite al usuario elegir de una lista de esquemas ya cargados o cargar uno nuevo.
- Ahora se desbloquea la propiedad XPATHS. Al hacer clic en ella, se abre el Visor de esquemas donde se pueden seleccionar varios nodos.
- Los nombres de las múltiples definiciones creadas adoptarán de forma predeterminada el nombre del nodo seleccionado. Estas se pueden modificar siempre tras la creación.
+Los pasos anteriores han capturado la experiencia para crear definiciones de vocabulario. Una vez creadas, aparecen en forma de lista. No existen requisitos para poder generar varias definiciones a partir del mismo esquema en lugar de repetir los pasos anteriores cada vez. Aquí es donde la funcionalidad para agregar en masa se vuelve muy útil. 
+Al seleccionar "Agregar en masa" irá a parar a una nueva hoja. El primer paso consiste en seleccionar el esquema para el que se van a crear varias definiciones. Al hacer clic en este, se muestra una nueva hoja que le permite elegir de una lista de esquemas ya cargados o cargar uno nuevo. 
+Ahora se desbloquea la propiedad XPATHS. Al hacer clic en ella, se abre el Visor de esquemas donde se pueden seleccionar varios nodos. 
+Los nombres de las múltiples definiciones creadas adoptarán de forma predeterminada el nombre del nodo seleccionado. Estas se pueden modificar siempre tras la creación.
 
 ![Texto alternativo][7]
 
 ##Creación de directivas
 Una vez que el desarrollador ha creado los vocabularios necesarios, lo normal es que el analista de negocios sea el que cree las directivas de negocios a través del portal de Azure.  
 	1.	En la aplicación de reglas creada, hay un modo Directiva en el que al hacer clic el usuario va a la página de creación de directivas.  
-	2.	Esta página mostrará la lista de directivas que tiene esta aplicación de reglas en particular. El usuario puede agregar una nueva directiva con solo escribir un nombre y pulsar la tecla de tabulación. Pueden residir varias directivas en una sola aplicación de API de reglas.  
-	3.	Al hacer clic en la directiva creada, el usuario va a la página de detalles de la directiva donde puede ver las reglas que contiene.  
+ 	2. Esta página mostrará la lista de directivas que tiene esta aplicación de reglas en particular. El analista puede agregar una nueva directiva con solo escribir un nombre y pulsar la tecla de tabulación dos veces. Pueden residir varias directivas en una sola aplicación de API de reglas. 
+        3. Al seleccionar la directiva creada, el usuario va a la página de detalles de la directiva donde puede ver las reglas que contiene. 
 	![Texto alternativo][8] 
-	4.	Haga clic en “Agregar nuevo” para agregar una nueva regla. Esta acción le llevará a una nueva hoja.
+	4. Seleccione "Agregar" para agregar una nueva regla. Esta acción le llevará a una nueva hoja.
 
 ##Creación de reglas
-Una regla es una colección de declaraciones de condición y acción. Las acciones se ejecutan si la condición se evalúa como verdadera. En la hoja Crear regla, proporcione un nombre único a la regla (para esa directiva) y una descripción (opcional). El cuadro Condición se puede usar para crear declaraciones condicionales complejas. A continuación se indican las palabras clave admitidas:  
+Una regla es una colección de declaraciones de condición y acción. Las acciones se ejecutan si la condición se evalúa como verdadera. En la hoja Crear regla, proporcione un nombre único a la regla (para esa directiva) y una descripción (opcional). El cuadro Condición (IF) se puede usar para crear declaraciones condicionales complejas. A continuación se indican las palabras clave admitidas: 
 1. 	And: operador condicional  
 2. 	Or: operador condicional  
 3. 	does_not_exist  
@@ -179,11 +180,11 @@ El cuadro Acción (Then) puede contener varias declaraciones, una por línea, pa
 6.	null  
 7.	update  
 
-Los cuadros de condición y acción proporcionan Intellisense para ayudar al usuario a crear una regla rápidamente. Esta función se puede activar bien pulsando Ctrl + espacio o con solo comenzar a escribir. Las palabras clave que coinciden con los caracteres escritos se filtrarán y mostrarán automáticamente. La ventana de Intellisense mostrará todas las palabras clave y definiciones de vocabulario. 
+Los cuadros de condición y acción proporcionan Intellisense para ayudar al autor a crear una regla rápidamente. Esta función se puede activar bien pulsando Ctrl + espacio o con solo comenzar a escribir. Las palabras clave que coinciden con los caracteres escritos se filtrarán y mostrarán automáticamente. La ventana de Intellisense mostrará todas las palabras clave y definiciones de vocabulario. 
 ![Texto alternativo][9]
 
 ##Encadenamiento progresivo explícito
-Las reglas de BizTalk admiten el encadenamiento progresivo explícito. Eso significa que si los usuarios desean volver a evaluar reglas en respuesta a determinadas acciones, pueden hacerlo mediante el uso de determinadas palabras clave. Las palabras clave admitidas son las siguientes: 
+Las reglas de BizTalk admiten encadenamiento progresivo explícito, de modo que si los usuarios desean volver a evaluar reglas en respuesta a determinadas acciones, pueden hacerlo mediante el uso de determinadas palabras clave. Las palabras clave admitidas son las siguientes: 
    1.	update <vocabulary definition>: esta palabra clave vuelve a evaluar todas las reglas que usan la definición de vocabulario especificada en su condición.  
    2.	Halt: esta palabra clave detiene todas las ejecuciones de reglas
 
@@ -231,7 +232,7 @@ A continuación se muestra un ejemplo de cómo se puede usar esta API en C#
             // Invoking API "Execute" on policy "InsruranceClaimPolicy" and getting response JSON object. The url can be gotten from the API Definition Lens
             var postReponse = httpClient.PostAsync("api/Policies/InsuranceClaimPolicy?comp=Execute", httpContent).Result;
 
-Tenga en cuenta que la aplicación de API de reglas anterior tiene su configuración de seguridad establecida en "Anon pública". Esto se puede establecer desde dentro de la API de App con - Toda la configuración -> Configuración de la aplicación -> Nivel de acceso.
+Tenga en cuenta que la aplicación de API de reglas anterior tiene su configuración de seguridad establecida en "Anon pública". Esto se puede establecer desde dentro de la aplicación de API con Toda la configuración -> Configuración de la aplicación -> Nivel de acceso.
 
 ![Texto alternativo][11]
 
@@ -251,4 +252,4 @@ Una de las principales ventajas del uso de reglas de negocios es que los cambios
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

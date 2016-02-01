@@ -50,7 +50,7 @@ Para habilitar la aplicación para obtener tokens, primero deberá registrarla e
     -	El **nombre** de la aplicación servirá de descripción de la aplicación para los usuarios finales.
     -	El **URI de redirección** es una combinación de esquema y cadena que utilizará Azure AD para devolver las respuestas de los tokens. Escriba un valor de marcador de posición por ahora, por ejemplo, `http://DirectorySearcher`. Reemplazaremos este valor más adelante.
 -	Una vez que haya completado el registro, AAD asignará a su aplicación un identificador de cliente único. Necesitará este valor en las secciones siguientes, de modo que cópielo desde la pestaña **Configurar**.
-- También en la pestaña **Configurar**, busque la sección "Permisos para otras aplicaciones". Para la aplicación "Azure Active Directory", agregue el permiso de **acceso al directorio de la organización** en **Permisos delegados**. Esto permitirá a su aplicación consultar la API Graph para los usuarios.
+- También en la pestaña **Configurar**, busque la sección "Permisos para otras aplicaciones". Para la aplicación "Azure Active Directory", agregue el permiso **Acceso al directorio de la organización** en **Permisos delegados**. Esto permitirá a su aplicación consultar la API Graph para los usuarios.
 
 ## *2. Instalación y configuración de ADAL*
 Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el código relacionado con la identidad. Para que ADAL pueda comunicarse con Azure AD, tiene que proporcionarle información sobre el registro de la aplicación. Comience agregando ADAL al proyecto de DirectorySearcher con la consola del Administrador de paquetes.
@@ -67,6 +67,7 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
 ```
+- Compile la solución y asegúrese de que se restauran todas las referencias de paquete. Si faltan paquetes, abra el Administrador de paquetes de Nuget y restaure los paquetes.
 - Ejecute la aplicación y copie aparte el valor de `redirectUri` cuando se alcance el punto de interrupción. Debe tener un aspecto similar al siguiente.
 
 ```
@@ -85,8 +86,7 @@ public MainPage()
 {
     ...
 
-    // ADAL for Windows Phone 8.1 builds AuthenticationContext instances through a factory
-    authContext = AuthenticationContext.CreateAsync(authority).GetResults();
+    authContext = new AuthenticationContext(authority);
 }
 ```
 
@@ -147,4 +147,4 @@ Como referencia, se proporciona el ejemplo finalizado (sin sus valores de config
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

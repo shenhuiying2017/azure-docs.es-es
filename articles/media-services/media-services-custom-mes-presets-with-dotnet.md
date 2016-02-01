@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/10/2015"    
+	ms.date="01/14/2016"    
 	ms.author="juliako"/>
 
 
@@ -218,6 +218,9 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 
 En esta sección se muestra cómo personalizar un valor preestablecido que genera vistas en miniatura. El valor preestablecido que se define a continuación contiene información sobre cómo se quiere codificar el archivo, así como la información necesaria para generar miniaturas. Puede usar cualquiera de los valores preestablecidos MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y agregar el código que genera miniaturas.
 
+>[AZURE.NOTE]La configuración de **SceneChangeDetection** en el siguiente valor preestablecido solo puede establecerse en true si va a codificar en vídeo de una única velocidad de bits. Si va a codificar en vídeo de varias velocidades de bits y establece **SceneChangeDetection** en true, el codificador devolverá un error.
+
+
 Para obtener información sobre el esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) tema.
 
 Asegúrese de revisar la sección [Consideraciones](media-services-custom-mes-presets-with-dotnet.md#considerations).
@@ -230,7 +233,7 @@ Asegúrese de revisar la sección [Consideraciones](media-services-custom-mes-pr
 	  "Codecs": [
 	    {
 	      "KeyFrameInterval": "00:00:02",
-		  "SceneChangeDetection": "true",
+	      "SceneChangeDetection": "true",
 	      "H264Layers": [
 	        {
 	          "Profile": "Auto",
@@ -420,7 +423,7 @@ Se aplican las siguientes consideraciones:
 
 ##<a id="trim_video"></a>Recorte de un vídeo
 
-En esta sección se habla sobre cómo modificar los valores preestablecidos del codificador para recortar el vídeo de entrada donde la entrada es un archivo denominado intermedio o a petición. El codificador también puede usarse para recortar un activo que se captura o se archiva desde una transmisión en directo: los detalles para ello están disponibles en [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+En esta sección se habla sobre cómo modificar los valores preestablecidos del codificador para recortar el vídeo de entrada donde la entrada es un archivo denominado intermedio o a petición. El codificador también puede usarse para recortar un activo que se captura o se archiva desde una transmisión en directo; los detalles para ello están disponibles en [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
 Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y modificar el elemento **Sources** (tal y como se muestra a continuación). Tenga en cuenta que el elemento **Sources** debe colocarse en la parte superior del esquema.
 
@@ -841,7 +844,7 @@ Puede usar cualquiera de los valores preestablecidos de MES que se documentan [a
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-##<a id="deinterlacing"></a>Deshabilitar el entrelazado automático
+##<a id="deinterlacing"></a>Deshabilitación del entrelazado automático
 
 Los clientes no tienen que hacer nada si prefieren que el enlazado del contenido entrelazado se anule automáticamente. Cuando la anulación de entrelazado automática está activada (valor predeterminado), el MES realiza la detección automática de fotogramas entrelazados y solo se anula el entrelazado de los fotogramas marcados como entrelazados.
 
@@ -886,4 +889,4 @@ Puede desactivar la anulación de entrelazado automática. Esta opción nos e re
 
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

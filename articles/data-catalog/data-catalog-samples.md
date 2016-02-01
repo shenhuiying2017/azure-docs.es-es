@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="12/02/2015"
+   ms.date="01/20/2015"
    ms.author="derrickv"/>
 
 
@@ -26,8 +26,12 @@ Estas son las muestras de GitHub:
 
   Un ejemplo que muestra cómo autenticarse con Azure AD para registrar, buscar y eliminar un activo de datos mediante la API de REST del Catálogo de datos.
 
-- [Catálogo de datos de Azure: registro y anotación en masa](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/)
+- [Bulk register and annotate](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) (Registro y anotación en masa)
 
   Un ejemplo que muestra cómo registrar activos de datos en masa desde un libro de Excel mediante la API de REST del Catálogo de datos y Open XML.
 
-<!---HONumber=AcomDC_1203_2015-->
+- [Import/Export tool](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/) (Herramienta de importación y exportación)
+
+  Un ejemplo que muestra cómo utilizar la API de REST del Catálogo de datos para capturar activos desde el Catálogo de datos de Azure y serializarlos en un archivo. También muestra cómo tomar un conjunto de activos serializados como json e insertarlos en el catálogo. Admite la exportación de un subconjunto del catálogo mediante una consulta de búsqueda.
+
+<!---HONumber=AcomDC_0121_2016-->

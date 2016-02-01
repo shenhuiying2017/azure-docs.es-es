@@ -61,7 +61,9 @@ Vamos a describir un escenario de ejemplo: el administrador de Azure RemoteApp q
 	1. Elija **Bloquear acceso cuando no está en el trabajo** para evitar completamente que los usuarios accedan a Azure RemoteApp fuera del entorno de red que especifique.
 	2. Haga clic en la opción siguiente para definir los intervalos de las direcciones IP que constituyen su "red de confianza". Se rechazarán las direcciones fuera de este intervalo.
 
-5.	Pruebe la configuración mediante el inicio del cliente de Azure RemoteApp desde una dirección IP fuera del intervalo especificado. Después de haber iniciado sesión con sus credenciales de Azure AD, verá un mensaje similar al siguiente: ![Acceso denegado a Azure RemoteApp](./media/remoteapp-secureaccess/ra-accessdenied.png)
+5.	Pruebe la configuración mediante el inicio del cliente de Azure RemoteApp desde una dirección IP fuera del intervalo especificado. Después de haber iniciado sesión con sus credenciales de Azure AD, verá un mensaje similar al siguiente:
+
+![Acceso denegado a Azure RemoteApp](./media/remoteapp-secureaccess/ra-accessdenied.png)
  
 
 ### Futuras características del acceso condicional 
@@ -72,7 +74,7 @@ Una excelente característica para usar con el acceso condicional es la funciona
 
 Por ejemplo, puede ver los nombres de los usuarios que tienen acceso a Azure RemoteApp, cuántas veces accedieron y cuándo.
 
-1.	En el Portal de Azure, haga clic en **Active Directory** y, después, haga clic en el directorio.
+1.	En el Portal de Azure, haga clic en **Active Directory** y después haga clic en el directorio.
 
 2.	Haga clic en la pestaña **Informes**.
 
@@ -98,7 +100,7 @@ Azure RemoteApp admite dos tipos de implementaciones de colección, donde puede 
 
 -	No unida al dominio: las aplicaciones tendrán una "línea de visión" de los otros recursos en la red virtual. Por ejemplo, esta implementación puede usarse para conectar aplicaciones a una base de datos SQL que utiliza autenticación de SQL (las aplicaciones se autentican al usuario directamente en la base de datos).
 
--	Unida al dominio: las máquinas virtuales que usa Azure RemoteApp se unen a un controlador de dominio en la red virtual. Esto es útil cuando las aplicaciones deben autenticarse en un controlador de dominio de Windows con el fin de obtener acceso a un recurso de back-end. ![Colección unida a dominio de Azure RemoteApp](./media/remoteapp-secureaccess/ra-domainjoined.png)
+-	Unida al dominio: las máquinas virtuales que usa Azure RemoteApp se unen a un controlador de dominio en la red virtual. Esto es útil cuando las aplicaciones deben autenticarse en un controlador de dominio de Windows para acceder a un recurso de back-end. ![Colección unida a dominio de Azure RemoteApp](./media/remoteapp-secureaccess/ra-domainjoined.png)
  
 ### Cómo crear una conexión segura entre Azure y mi entorno local
 Hay varias opciones de configuración para la conexión de los entornos de Azure y local. Aquí encontrará una buena descripción general de las opciones.
@@ -108,4 +110,4 @@ Con Azure RemoteApp debe configurar primero su red virtual y, después, utilizar
 ## La solución completa
 El diagrama siguiente muestra la solución completa donde hemos creado un canal de acceso seguro del usuario final, a través de Azure RemoteApp (ARA), al recurso de back-end. ![Azure RemoteApp seguro](./media/remoteapp-secureaccess/ra-secureoverview.png) En la fase 1, hemos seleccionado a los usuarios y hemos creado reglas de acceso que rigen cómo se puede acceder a ARA. En el ejemplo siguiente solo se permite el acceso a los usuarios que trabajan en la red corporativa. Los usuarios no conformes no podrá acceder de ninguna manera al entorno de ARA. En la "fase 2" se ha expuesto el recurso de back-end solo a través de la configuración de red virtual o VPN que se controla. Azure RemoteApp se ha colocado en la misma red virtual. El resultado final es que solo se puede acceder al recurso a través del entorno de ARA.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="01/20/2016" 
 	ms.author="mimig"/>
 
 
@@ -106,4 +106,4 @@ Tarea | Referencia de API
 
 Para obtener más información acerca de la programación de servidor, consulte [Programación en el servidor de DocumentDB: procedimientos almacenados, desencadenadores de base de datos y UDF](documentdb-programming.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

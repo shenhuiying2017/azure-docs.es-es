@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="01/19/2016" 
 	ms.author="ryancraw"/>
 
 # SDK de DocumentDB
@@ -35,6 +35,9 @@
 </table></br>
 
 ## Notas de la versión
+
+### <a name="1.5.1"/>[1\.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
+- Se ha corregido un error en HashPartitionResolver para generar valores hash en little endian que sean consistentes con otros SDK.
 
 ### <a name="1.5.0"/>[1\.5.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.0)
 - Se han agregado solucionadores de particiones de hash e intervalo para ayudar con el particionamiento de las aplicaciones entre varias particiones.
@@ -70,19 +73,20 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.5.0](#1.5.0) | 04 de diciembre de 2015 |---
-| [1\.4.0](#1.4.0) | 05 de octubre de 2015 |---
-| [1\.3.0](#1.3.0) | 05 de octubre de 2015 |---
-| [1\.2.0](#1.2.0) | 05 de agosto de 2015 |---
-| [1\.1.0](#1.1.0) | 09 de julio de 2015 |---
-| [1\.0.1](#1.0.1) | 12 de mayo de 2015 |---
-| [1\.0.0](#1.0.0) | 07 de abril de 2015 |---
-| 0.9.5-prelease | 09 de marzo de 2015 | 29 de febrero de 2016
-| 0.9.4-prelease | 17 de febrero de 2015 | 29 de febrero de 2016
-| 0.9.3-prelease | 13 de enero de 2015 | 29 de febrero de 2016
-| 0.9.2-prelease | 19 de diciembre de 2014 | 29 de febrero de 2016
-| 0.9.1-prelease | 19 de diciembre de 2014 | 29 de febrero de 2016
-| 0.9.0-prelease | 10 de diciembre de 2014 | 29 de febrero de 2016
+| [1\.5.1](#1.5.1) | 31 de diciembre de 2015 |--- 
+| [1\.5.0](#1.5.0) | 04 de diciembre de 2015 |--- 
+| [1\.4.0](#1.4.0) | 05 de octubre de 2015 |--- 
+| [1\.3.0](#1.3.0) | 05 de octubre de 2015 |--- 
+| [1\.2.0](#1.2.0) | 05 de agosto de 2015 |--- 
+| [1\.1.0](#1.1.0) | 09 de julio de 2015 |--- 
+| [1\.0.1](#1.0.1) | 12 de mayo de 2015 |--- 
+| [1\.0.0](#1.0.0) | 07 de abril de 2015 |--- 
+| versión preliminar 0.9.5 | 09 de marzo de 2015 | 29 de febrero de 2016 
+| versión preliminar 0.9.4 | 17 de febrero de 2015 | 29 de febrero de 2016 
+| versión preliminar 0.9.3 | 13 de enero de 2015 | 29 de febrero de 2016 
+| versión preliminar 0.9.2 | 19 de diciembre de 2014 | 29 de febrero de 2016 
+| versión preliminar 0.9.1 | 19 de diciembre de 2014 | 29 de febrero de 2016 
+| versión preliminar 0.9.0 | 10 de diciembre de 2014 | 29 de febrero de 2016
 
 ## P+F
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -91,4 +95,4 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 Para más información sobre DocumentDB, consulte la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

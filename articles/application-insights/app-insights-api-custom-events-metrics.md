@@ -479,7 +479,7 @@ Si le resulta más cómodo, puede recopilar los parámetros de un evento en un o
 
     telemetry.TrackEvent(event);
 
-
+> [AZURE.WARNING]No vuelva a usar la misma instancia de elemento de telemetría (`event` en este ejemplo) para llamar a Track*() varias veces. Esto puede hacer que se envíe la telemetría con una configuración incorrecta.
 
 #### <a name="timed"></a> Eventos de temporización
 
@@ -736,4 +736,4 @@ Hay algunos límites en el número de métricas y eventos por aplicación (es de
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0121_2016-->

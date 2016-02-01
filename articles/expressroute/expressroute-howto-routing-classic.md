@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Creación y modificación del enrutamiento de un circuito ExpressRoute mediante PowerShell
@@ -316,6 +316,6 @@ A continuación, [Vinculación de una red virtual a un circuito ExpressRoute](ex
 
 
 -  Para obtener más información sobre los flujos de trabajo, consulte [Flujos de trabajo de ExpressRoute](expressroute-workflows.md).
--  Para obtener más información sobre el emparejamiento de circuitos, consulte [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md)
+-  Para más información sobre el emparejamiento de circuitos, vea [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

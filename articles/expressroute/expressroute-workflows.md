@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="01/21/2016"
    ms.author="cherylmc"/>
 
 # Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute
@@ -39,7 +39,7 @@ Tanto la ilustración como los pasos correspondientes siguientes muestran las ta
 
 	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
 
-5. Vinculación de redes virtuales a circuitos de ExpressRoute: puede vincular redes virtuales a un circuito ExpressRoute. Siga las instrucciones [para vincular redes virtuales](expressroute-howto-linkvnets-classic.md) al circuito. Dichas redes virtuales pueden estar en la misma suscripción de Azure que el circuito ExpressRoute, o bien pueden estar en una suscripción diferente.
+5. Vinculación de redes virtuales a circuitos de ExpressRoute: puede vincular redes virtuales a un circuito ExpressRoute. Siga las instrucciones [para vincular redes virtuales](expressroute-howto-linkvnet-arm.md) al circuito. Dichas redes virtuales pueden estar en la misma suscripción de Azure que el circuito ExpressRoute, o bien pueden estar en una suscripción diferente.
 
 
 ## Estados de aprovisionamiento de circuitos de ExpressRoute
@@ -117,8 +117,8 @@ Si el estado de los prefijos públicos anunciados se establece en el estado de *
 
 - Configure su conexión ExpressRoute.
 
-	- [Creación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
-	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
-	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
+	- [Creación de un circuito ExpressRoute](expressroute-howto-circuit-arm.md)
+	- [Configuración del enrutamiento](expressroute-howto-routing-arm.md)
+	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

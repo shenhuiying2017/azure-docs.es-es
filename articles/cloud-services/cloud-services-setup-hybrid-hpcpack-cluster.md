@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configurar un clúster de proceso híbrido con Microsoft HPC Pack"
+	pageTitle="Configurar un clúster HPC híbrido con Microsoft HPC Pack | Microsoft Azure"
 	description="Obtenga información acerca de cómo usar Microsoft HPC Pack y Azure para configurar un pequeño clúster híbrido de informática de alto rendimiento (HPC)"
 	services="cloud-services"
 	documentationCenter=""
@@ -14,28 +14,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/29/2015"
+	ms.date="01/13/2016"
 	ms.author="danlep"/>
 
 
-# Configurar un clúster de proceso híbrido con Microsoft HPC Pack
+# Configurar un clúster de proceso híbrido con Microsoft HPC Pack e instancias de Azure bajo petición
 Este tutorial le indica cómo usar Microsoft HPC Pack 2012 R2 y Azure para configurar un pequeño clúster híbrido de informática de alto rendimiento (HPC). El clúster constará de un nodo principal local (un equipo con el sistema operativo Windows Server y HPC Pack) y otros nodos de ejecución que implemente localmente como instancias de rol de trabajo en un servicio en la nube de Azure. A continuación, podrá ejecutar trabajos informáticos en el clúster híbrido.
 
 ![Clúster híbrido de HPC][Overview]
 
 Este tutorial muestra un enfoque, en ocasiones denominado clúster "ráfaga en la nube", para usar recursos informáticos escalables y bajo demanda en Azure a fin de ejecutar aplicaciones informáticas que consumen numerosos recursos.
 
-En este tutorial se supone que no cuenta con experiencia previa con los clústeres informáticos o con HPC Pack. Únicamente está destinado a ayudarle a implementar un clúster de proceso híbrido rápidamente con fines de demostración. Para obtener más información, así como pasos para implementar un clúster híbrido HPC Pack a mayor escala en un entorno de producción, consulte la [información detallada](http://go.microsoft.com/fwlink/p/?LinkID=200493). Si desea configurar un clúster de HPC Pack completamente en Azure, consulte [Opciones de clúster de HPC con Microsoft HPC Pack en Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
+En este tutorial se supone que no cuenta con experiencia previa con los clústeres informáticos o con HPC Pack. Únicamente está destinado a ayudarle a implementar un clúster de proceso híbrido rápidamente con fines de demostración. Para obtener más información, así como pasos para implementar un clúster híbrido HPC Pack a mayor escala en un entorno de producción, consulte la [información detallada](http://go.microsoft.com/fwlink/p/?LinkID=200493). Para otros escenarios de HPC Pack, incluida la implementación automatizada de clústeres en máquinas virtuales de Azure, consulte [Opciones de clúster HPC con Microsoft HPC Pack en Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
 
 >[AZURE.NOTE]Azure ofrece una [serie de tamaños](../virtual-machines/virtual-machines-size-specs.md) para los recursos informáticos, adecuados para las diferentes cargas de trabajo. Por ejemplo, las instancias A8 y A9 combinan alto rendimiento y acceso a baja latencia, aunque se necesita una red de aplicaciones de alto rendimiento para determinadas aplicaciones de HPC. Consulte [Sobre las instancias informáticas intensivas A8, A9, A10 y A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).
 
 ## Requisitos previos
 
->[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Crear una cuenta de Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/).
+* **Suscripción a Azure:** si no tiene ninguna cuenta, puede crear una cuenta gratuita de evaluación en un par de minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-Además, necesitará satisfacer los siguientes requisitos previos para este tutorial:
-
-* Un equipo local que ejecute una edición de Windows Server 2012 R2 o Windows Server 2012. Este equipo será el nodo principal del clúster de HPC. Si todavía no tiene Windows Server, puede descargar e instalar una [versión de evaluación](http://technet.microsoft.com/evalcenter/dn205286.aspx).
+* **Un equipo local que ejecute Windows Server 2012 R2 o Windows Server 2012**. Este equipo será el nodo principal del clúster de HPC. Si todavía no tiene Windows Server, puede descargar e instalar una [versión de evaluación](http://technet.microsoft.com/evalcenter/dn205286.aspx).
 
 	* El equipo debe estar unido a un dominio de Active Directory.
 
@@ -45,11 +43,11 @@ Además, necesitará satisfacer los siguientes requisitos previos para este tuto
 
 	* Compruebe que estén instaladas las actualizaciones importantes y esenciales.
 
-* Archivos de instalación para HPC Pack 2012 R2, disponibles de forma gratuita. [Descargue](http://go.microsoft.com/fwlink/p/?linkid=328024) la versión más reciente y copie los archivos en el equipo del nodo principal o en una ubicación de red. Elija los archivos de instalación que tengan el mismo idioma que su instalación de Windows Server.
+* **HPC Pack 2012 R2** - [Descargue](http://go.microsoft.com/fwlink/p/?linkid=328024) el paquete de instalación completo de la última versión gratis y copie los archivos en el equipo del nodo principal o en una ubicación de red. Elija los archivos de instalación que tengan el mismo idioma que su instalación de Windows Server.
 
-* Una cuenta de dominio con permisos de administrador local en el nodo principal.
+* **Cuenta de dominio**: esta cuenta se debe configurar con permisos de administrador local en el nodo principal para instalar HPC Pack.
 
-* Conectividad TCP en el puerto 443 desde el nodo principal a Azure.
+* **Conectividad TCP en el puerto 443** desde el nodo principal a Azure.
 
 ## Instalación de HPC Pack en el nodo principal
 
@@ -81,7 +79,7 @@ En primer lugar, debe instalar Microsoft HPC Pack en un equipo local con un Wind
 
 	![Instalación][install_hpc6]
 
-9. Cuando finalice la instalación, desactive **Iniciar Administrador de clústeres de HPC** y, a continuación, haga clic en **Finalizar**. (Más adelante iniciará el administrador de clústeres de HPC para completar la configuración del nodo principal).
+9. Cuando finalice la instalación, desactive **Iniciar Administrador de clústeres de HPC** y, a continuación, haga clic en **Finalizar**. (Se iniciará el Administrador de clústeres HPC en un paso posterior).
 
 	![Finalización][install_hpc7]
 
@@ -94,9 +92,9 @@ Use el [Portal de Azure clásico](https://manage.windowsazure.com) para realizar
 
 - Creación de una cuenta de almacenamiento de Azure
 
-	>[AZURE.NOTE]Anote también el Id. de la suscripción de Azure, ya que lo necesitará más adelante. Podrá encontrarlo en la información de la <a href="[https://account.windowsazure.com/Subscriptions">cuenta de Azure</a>.
+	>[AZURE.NOTE]Anote también el Id. de la suscripción de Azure, ya que lo necesitará más adelante. Podrá encontrarlo en la [información de la cuenta](https://account.windowsazure.com/Subscriptions)</a> de Azure.
 
-### <a>Carga del certificado de administración predeterminado</a>
+### Cargar el certificado de administración predeterminado
 HPC Pack instala un certificado autofirmado en el nodo principal, llamado Default Microsoft HPC Azure Management, que podrá cargar como certificado de administración de Azure. Este certificado se proporciona con fines de prueba e implementaciones de prueba de concepto.
 
 1. En el equipo del nodo principal, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
@@ -113,11 +111,11 @@ HPC Pack instala un certificado autofirmado en el nodo principal, llamado Defaul
 
 Aparecerá **Administración de HPC de Azure predeterminado** en la lista de certificados de administración.
 
-### <a>Creación de un servicio en la nube de Azure</a>
+### Crear un servicio en la nube de Azure
 
 >[AZURE.NOTE]Para conseguir un mejor rendimiento, cree el servicio en la nube y la cuenta de almacenamiento en la misma región geográfica.
 
-1. En la barra de comandos del Portal de administración, haga clic en **Nuevo**.
+1. En la barra de comandos del portal clásico, haga clic en **Nuevo**.
 
 2. Haga clic en **Proceso**, en **Servicio en la nube** y, a continuación, **en Creación rápida**.
 
@@ -125,9 +123,9 @@ Aparecerá **Administración de HPC de Azure predeterminado** en la lista de cer
 
 	![Creación de un servicio][createservice1]
 
-### <a>Creación de una cuenta de Almacenamiento de Azure</a>
+### Creación de una cuenta de almacenamiento de Azure
 
-1. En la barra de comandos del Portal de administración, haga clic en **Nuevo**.
+1. En la barra de comandos del portal clásico, haga clic en **Nuevo**.
 
 2. Haga clic en **Servicios de datos**, en **Almacenamiento** y, a continuación, en **Creación rápida**.
 
@@ -167,7 +165,7 @@ Para usar el administrador de clústeres de HPC para implementar nodos de Azure 
 
 	![Nomenclatura de nodos][config_hpc8]
 
-	>[AZURE.NOTE]La serie de nomenclatura solo genera nombres para nodos de ejecución unidos a un dominio. Los nodos de Azure reciben un nombre de forma automática.
+	>[AZURE.NOTE]La serie de nomenclatura solo genera nombres para nodos de ejecución unidos a un dominio. Los nodos de trabajo de Azure reciben un nombre de forma automática.
 
 9. En la **lista de tareas pendientes de implementación**, haga clic en **Crear una plantilla de nodo**. Usará una plantilla de nodo para agregar nodos de Azure al clúster.
 
@@ -179,7 +177,7 @@ Para usar el administrador de clústeres de HPC para implementar nodos de Azure 
 
 	b. Haga clic en **Siguiente** para aceptar el nombre de plantilla predeterminado.
 
-	c. En la página **Proporcionar información de suscripción**, introduzca su Id. de suscripción de Azure (disponible en la <a href="[https://account.windowsazure.com/Subscriptions">información de cuenta de Azure</a>). A continuación, en **Certificado de administración**, haga clic en **Examinar** y seleccione **Administración de HPC de Azure predeterminado.** A continuación, haga clic en **Siguiente**.
+	c. En la página **Proporcionar información de suscripción**, especifique su identificador de suscripción de Azure (disponible en la información de cuenta de Azure). A continuación, en **Certificado de administración**, haga clic en **Examinar** y seleccione **Administración de HPC de Azure predeterminado.** A continuación, haga clic en **Siguiente**.
 
 	![Plantilla de nodo][config_hpc12]
 
@@ -209,7 +207,7 @@ En este tutorial, agregará dos nodos pequeños.
 
 	![Especificar los nodos][add_node2]
 
-	Para obtener más información acerca de los tamaños disponibles de las máquinas virtuales, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+	Para más información acerca de los tamaños disponibles, consulte [Tamaños de los servicios en la nube](../cloud-services/cloud-services-sizes-specs.md).
 
 4. En la página **Finalización del asistente para agregar nodos**, haga clic en **Finalizar**.
 
@@ -220,7 +218,7 @@ En este tutorial, agregará dos nodos pequeños.
 ## Inicio de los nodos de Azure
 Cuando quiera usar los recursos del clúster de Azure, use el administrador de clústeres de HPC para iniciar (aprovisionar) los nodos de Azure y conectarlos a la red.
 
-1.	En el administrador de clústeres de HPC, en **Administrador de nodos**, haga clic en uno o en ambos nodos y, a continuación, en el panel **Acciones**, haga clic en **Inicio**.
+1.	En el Administrador de clústeres de HPC, en **Administrador de nodos**, (llamado **Administrador de recursos** en algunas versiones de HPC Pack), haga clic en uno o en ambos nodos y, a continuación, en el panel **Acciones**, haga clic en **Inicio**.
 
 	![Iniciar los nodos][add_node4]
 
@@ -228,26 +226,27 @@ Cuando quiera usar los recursos del clúster de Azure, use el administrador de c
 
 	![Iniciar los nodos][add_node5]
 
-	Los nodos pasan al estado **Aprovisionamiento**. Puede ver el registro de aprovisionamiento para realizar el seguimiento del progreso de aprovisionamiento.
+	Los nodos pasan al estado **Aprovisionamiento**. Consulte el registro de aprovisionamiento para realizar el seguimiento del progreso de aprovisionamiento.
 
 	![Aprovisionar nodos][add_node6]
 
 3. Después de unos minutos, los nodos de Azure terminan de aprovisionarse y pasan al estado **Sin conexión**. Las instancias de rol se ejecutan en este estado, pero no aceptan los trabajos de clúster.
 
-4. Para confirmar que las instancias de rol se estén ejecutando, en el [portal](https://manage.windowsazure.com), haga clic en **Servicios en la nube**, después en el nombre de su servicio en la nube y, a continuación, en **Instancias**.
+4. Para confirmar que las instancias de rol se estén ejecutando, en el [portal clásico](https://manage.windowsazure.com), haga clic en **Servicios en la nube**, después en el nombre de su servicio en la nube y, a continuación, en **Instancias**.
 
 	![Instancias en ejecución][view_instances1]
 
 	Verá que hay dos instancias de rol de trabajo ejecutándose en el servicio. HPC Pack también implementa automáticamente dos instancias **HpcProxy** (tamaño medio) para controlar la comunicación entre el nodo principal y Azure.
 
-5. Para conectar los nodos de Azure y que ejecuten los trabajos de clúster, seleccione los nodos, haga clic con el botón secundario y, a continuación, haga clic en **Poner en línea**.
+5. Para conectar los nodos de Azure y que ejecuten los trabajos de clúster, seleccione los nodos, haga clic con el botón derecho y, a continuación, haga clic en **Poner en línea**.
 
 	![Nodos desconectados][add_node7]
 
 	El administrador de clústeres de HPC indica que los nodos están en estado **En línea**.
 
 ## Ejecución de un comando en el clúster
-Puede usar el comando **clusrun** de HPC Pack para ejecutar un comando o una aplicación en uno o varios nodos del clúster. Por ejemplo, use **clusrun** para obtener la configuración IP de los nodos de Azure.
+
+Para comprobar la instalación, use el comando **clusrun** de HPC Pack para ejecutar un comando o una aplicación en uno o varios nodos del clúster. Por ejemplo, use **clusrun** para obtener la configuración IP de los nodos de Azure.
 
 1. En el nodo principal, abra un símbolo del sistema.
 
@@ -261,7 +260,7 @@ Puede usar el comando **clusrun** de HPC Pack para ejecutar un comando o una apl
 
 ## Ejecución de un trabajo de prueba
 
-Puede enviar un trabajo de prueba que se ejecute en el clúster híbrido. Este ejemplo es un sencillo trabajo de "barrido paramétrico" (un tipo de computación intrínsecamente paralelo) que ejecuta subtareas que se agregan un entero a sí mismas usando el comando **set /a**. Todos los nodos del clúster contribuyen a finalizar las subtareas para enteros del 1 al 100.
+Ahora, envíe un trabajo de prueba que se ejecute en el clúster híbrido. Este ejemplo es un sencillo trabajo de "barrido paramétrico" (un tipo de computación intrínsecamente paralelo) que ejecuta subtareas que se agregan un entero a sí mismas usando el comando **set /a**. Todos los nodos del clúster contribuyen a finalizar las subtareas para enteros del 1 al 100.
 
 1. En el administrador de clústeres de HPC, en **Administración de trabajos**, en el panel **Acciones**, haga clic en **Nuevo trabajo de barrido paramétrico**.
 
@@ -283,7 +282,7 @@ Puede enviar un trabajo de prueba que se ejecute en el clúster híbrido. Este e
 
 ## Detención de los nodos de Azure
 
-Después de probar el clúster, puede usar el administrador de clústeres de HPC para detener los nodos de Azure e impedir que se produzcan cargas innecesarias en la cuenta. De este modo se detiene el servicio en la nube y se eliminan las instancias de rol de Azure.
+Después de probar el clúster, detenga los nodos de Azure e impida que se produzcan cargas innecesarias en la cuenta. De este modo se detiene el servicio en la nube y se eliminan las instancias de rol de Azure.
 
 1. En el administrador de clústeres de HPC, en **Administración de nodos**, seleccione ambos nodos de Azure. A continuación, en el panel **Acciones**, haga clic en **Detener**.
 
@@ -305,10 +304,11 @@ Después de probar el clúster, puede usar el administrador de clústeres de HPC
 
 ## Recursos relacionados
 
-* [HPC Pack 2012 R2 y HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697)
-* [Irrupción en Azure con Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)
+* [HPC Pack 2012 R2 y HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697
+
+* [Irrumpir en instancias de rol de trabajo de Azure con HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)
 * [Opciones de clúster de HPC con Microsoft HPC Pack en Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
-* [Big Compute en Azure: recursos técnicos para Batch e informática de alto rendimiento (HPC)](big-compute-resources.md)
+* [Big Compute en Azure: recursos técnicos para Batch e informática de alto rendimiento (HPC)](../batch/big-compute-resources.md)
 
 
 [Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
@@ -348,4 +348,4 @@ Después de probar el clúster, puede usar el administrador de clústeres de HPC
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

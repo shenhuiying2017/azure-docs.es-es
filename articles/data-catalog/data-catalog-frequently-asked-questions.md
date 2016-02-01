@@ -54,32 +54,7 @@ La edición estándar del **Catálogo de datos de Azure** admite hasta 100 000 
 
 ## P: ¿Cuáles son los tipos de recursos y orígenes de datos admitidos?
 
-Durante la vista previa, **Catálogo de datos de Azure** admite actualmente bases de datos relacionales de SQL Server (incluida Base de datos SQL de Azure) y bases de datos de SQL Server Analysis Services (multidimensionales y tabulares), así como SQL Server Reporting Services (sólo en modo nativo) y Base de datos de Oracle.
-
-Durante la vista previa, el **Catálogo de datos de Azure** admite los siguientes tipos de recursos:
-
-- Tabla de SQL Server
-- Vista de SQL Server
-- Dimensión SQL Server Analysis Services
-- Medida SQL Server Analysis Services
-- KPI de SQL Server Analysis Services
-- Tabla de SQL Server Analysis Services
-- Informe de SQL Server Reporting Services  
-- Tabla de base de datos de Oracle
-- Vista de la Base de datos de Oracle
-- Blob de almacenamiento de Azure
-- Directorio de almacenamiento de Azure
-- Archivo HDFS
-- Directorio HDFS
-- Tabla de Teradata
-- Vista de Teradata
-
-Además de los activos enumerados anteriormente, el **Catálogo de datos de Azure** admite la detección de los contenedores de activos de datos siguientes:
-
-- Base de datos de SQL Server
-- Base de datos de Oracle
-- Clúster de HDFS
-- Base de datos de Teradata
+Para ver la lista de orígenes de datos admitidos actualmente, consulte [DSR del Catálogo de datos](data-catalog-dsr.md).
 
 
 ## P: ¿Cómo puedo solicitar soporte técnico para otro origen de datos?
@@ -105,11 +80,11 @@ Las propiedades específicas variarán en función del origen de datos pero, en 
 - Tipos de datos de columna o atributo
 - Descripción de la columna o atributo
 
-> [AZURE.IMPORTANT]Al registrar activos de datos con el **Catálogo de datos de Azure**, los datos no se mueven ni se copian a la nube. Registrar recursos desde un origen de datos copiará los metadatos de los recursos en Azure, pero los datos permanecerán en la ubicación del origen de datos existente. La única excepción a esta regla es si un usuario elige cargar registros de vista previa o un perfil de datos al registrar los recursos. Cuando se incluya una vista previa, se copiarán hasta 20 registros de cada activo y se almacenarán como instantánea en el **Catálogo de datos de Azure**. Cuando se incluye un perfil de datos, se calculará la información agregada (como el tamaño de las tablas, los valores null de porcentaje por columna y los valores mínimos, máximos y promedios para las columnas) y se incluirá en los metadatos almacenados en el catálogo.
+> [AZURE.IMPORTANT]Al registrar recursos de datos con **Catálogo de datos de Azure** no se mueven ni copian los datos a la nube. Registrar recursos desde un origen de datos copiará los metadatos de los recursos en Azure, pero los datos permanecerán en la ubicación del origen de datos existente. La única excepción a esta regla es si un usuario elige cargar registros de vista previa o un perfil de datos al registrar los recursos. Cuando se incluya una vista previa, se copiarán hasta 20 registros de cada activo y se almacenarán como instantánea en el **Catálogo de datos de Azure**. Cuando se incluye un perfil de datos, se calculará la información agregada (como el tamaño de las tablas, los valores null de porcentaje por columna y los valores mínimos, máximos y promedios para las columnas) y se incluirá en los metadatos almacenados en el catálogo.
 
 <br/>
 
-> [AZURE.NOTE]Para los orígenes de datos como SQL Server Analysis Services, que tienen una propiedad **Description** de primera clase, la aplicación de publicación del **Catálogo de datos de Azure** extraerá el valor de la propiedad. Para las bases de datos relacionales de SQL Server, que no disponen de una propiedad **Description** de primera clase, la aplicación de publicación del **Catálogo de datos de Azure** extraerá el valor de la propiedad extendida ms\_description para los objetos y las columnas. Para obtener más información, vea en TechNet [Usar propiedades extendidas en objetos de base de datos](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> [AZURE.NOTE]Para los orígenes de datos como SQL Server Analysis Services que tienen una propiedad **Description** de primera clase, la aplicación de publicación del **Catálogo de datos de Azure** extraerá el valor de la propiedad. Para las bases de datos relacionales de SQL Server, que no disponen de una propiedad **Description** de primera clase, la aplicación de publicación del **Catálogo de datos de Azure** extraerá el valor de la propiedad extendida ms\_description para los objetos y las columnas. Para obtener más información, vea en TechNet [Usar propiedades extendidas en objetos de base de datos](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 
 ## P: ¿Cuánto tiempo se debe esperar a que aparezcan los recursos recién registrados en el Catálogo de datos de Azure?
 
@@ -117,9 +92,9 @@ Después de registrar activos con el **Catálogo de datos de Azure**, es posible
 
 ## P: ¿Cómo se anotan y enriquecen los metadatos de mis recursos de datos registrados?
 
-La forma más sencilla de proporcionar metadatos para los activos registrados es seleccionar el activo en el portal del **Catálogo de datos de Azure** y, después, especificar los valores de metadatos en el panel de propiedades o el panel de esquema del objeto seleccionado.
+La manera más sencilla de proporcionar metadatos para recursos registrados consiste en seleccionar el recurso en el portal del **Catálogo de datos de Azure** y, a continuación, especificar los valores de metadatos en el panel de propiedades o el panel de esquema del objeto seleccionado.
 
-También puede proporcionar algunos metadatos, como etiquetas y expertos durante el proceso de registro. Los valores proporcionados en el servicio de publicación del **Catálogo de datos de Azure** se aplicarán a todos los activos que se estén registrando en ese momento. Para ver los objetos registrados recientemente en el portal y poder efectuar anotaciones adicionales, seleccione el botón **Ver portal** en la última pantalla de la aplicación de publicación del **Catálogo de datos de Azure**.
+También puede proporcionar algunos metadatos, como etiquetas y expertos durante el proceso de registro. Los valores proporcionados en el servicio de publicación del **Catálogo de datos de Azure** se aplicarán a todos los activos que se estén registrando en ese momento. Para ver los objetos registrados recientemente en el portal para efectuar anotaciones adicionales, seleccione el botón **Ver portal** en la pantalla final de la aplicación de publicación **Catálogo de datos de Azure**.
 
 ## P: ¿Cómo elimino mis objetos de datos registrados?
 
@@ -154,7 +129,7 @@ El **Catálogo de datos de Azure** es un servicio en la nube que puede funcionar
 
 ##P: ¿Podemos extraer más metadatos o más ricos de los orígenes de datos que registramos?
 
-Estamos trabajando activamente para ampliar las capacidades del **Catálogo de datos de Azure**. Si hay metadatos adicionales que desea que se extraigan del origen de datos durante el registro, sugiéralo (o vote por ello si ya se ha planteado) en el [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). En el futuro permitiremos a terceros agregar nuevos tipos de orígenes de datos a través de una API de extensibilidad.
+Estamos trabajando activamente para ampliar las capacidades del **Catálogo de datos de Azure**. Si durante el registro hay metadatos adicionales que desea extraer del origen de datos, sugiéralo (o vote por ello si ya se ha planteado) en el [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). En el futuro permitiremos a terceros agregar nuevos tipos de orígenes de datos a través de una API de extensibilidad.
 
 ## P: ¿Cómo se restringe la visibilidad de los recursos de datos registrados para que solo determinadas personas puedan detectarlos?
 
@@ -172,4 +147,4 @@ Si tiene problemas o necesita ayuda con la vista previa del **Catálogo de datos
 
 Diríjase al [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Las preguntas formuladas ahí tendrán respuesta aquí.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="01/21/2016" 
 	ms.author="billmath"/>
 
 # Configuración de Azure Multi-Factor Authentication
@@ -151,7 +151,7 @@ Antes de comenzar tenga en cuenta lo siguiente:
 
 ## Almacenamiento en caché en Azure Multi-Factor Authentication
 
-El almacenamiento en caché permite establecer un período de tiempo específico para que los intentos de autenticación siguientes se realicen correctamente de forma automática. Se utiliza principalmente cuando sistemas locales, como VPN, envían varias solicitudes de comprobación mientras la primera solicitud aún está en curso. Esto permite que las solicitudes subsiguientes se realicen correctamente de forma automática después de que el usuario lleva a cabo correctamente la comprobación en curso. Tenga en cuenta que el almacenamiento en caché no está concebido para usarse en los inicios de sesión.
+El almacenamiento en caché permite establecer un período de tiempo específico para que los intentos de autenticación siguientes se realicen correctamente de forma automática. Se utiliza principalmente cuando sistemas locales, como VPN, envían varias solicitudes de comprobación mientras la primera solicitud aún está en curso. Esto permite que las solicitudes subsiguientes se realicen correctamente de forma automática después de que el usuario lleva a cabo correctamente la comprobación en curso. Tenga en cuenta que el almacenamiento en caché no está concebido para usarse en los inicios de sesión en Azure AD.
 
 
 ### Para configurar el almacenamiento en caché en Azure Multi-Factor Authentication
@@ -351,4 +351,4 @@ Para asegurarse de que se protegen las cuentas de usuario, debe restaurar Multi-
 <li>En la página Configuración del servicio, en administrar la configuración de dispositivo de usuario, seleccione o anule la selección de la opción para **permitir a los usuarios suspender la autenticación multifactor haciendo que se recuerde el dispositivo **.</li>
 ![Suspender dispositivos](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Establezca el número de días que desea permitir la suspensión. El valor predeterminado es 14 días.</li> <li>Haga clic en Guardar.</li> <li>Haga clic en Cerrar.</li>
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0121_2016-->

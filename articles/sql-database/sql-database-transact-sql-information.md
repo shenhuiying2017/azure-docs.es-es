@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Diferencias de Transact-SQL de Base de datos SQL de Azure
@@ -52,13 +52,12 @@ Base de datos SQL V12 es compatible con algunos pero no todos los argumentos que
 ## Características no compatibles con Base de datos SQL
 
 - Intercalación de objetos del sistema
-- Conexión relacionada: instrucciones de extremo, ORIGINAL\_DB\_NAME. Autenticación de Windows no está disponible para inicios de sesión o usuarios de bases de datos independientes.
+- Conexión relacionada: instrucciones de punto de conexión, ORIGINAL\_DB\_NAME. Autenticación de Windows no está disponible para inicios de sesión o usuarios de bases de datos independientes.
 - Consultas entre bases de datos, encadenamiento de propiedad entre bases de datos, ajuste TRUSTWORTHY
 - Recopilador de datos
 - Diagramas de base de datos
 - Correo electrónico de base de datos
 - DATABASEPROPERTY (usar en su lugar DATABASEPROPERTYEX)
-- Transacciones distribuidas
 - Inicios de sesión EXECUTE AS
 - Cifrado: Administración extensible de claves
 - Eventos: eventos, las notificaciones de eventos, notificaciones de consulta
@@ -107,4 +106,4 @@ La referencia de Transact-SQL incluye temas relacionados con las versiones de SQ
 
 En algunos casos, la línea general de un tema se puede utilizar en un producto, pero existen diferencias poco significativas entre los productos. Las diferencias se indican en los puntos medios del tema según corresponda.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->

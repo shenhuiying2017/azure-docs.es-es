@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Citrix ShareFile | Microsoft Azure" 
     description="Aprenda cómo usar Citrix ShareFile con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración con Azure Active Directory con Citrix ShareFile
 
@@ -76,7 +76,7 @@ El objetivo de esta sección es describir cómo se habilita a los usuarios para 
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-citrix-sharefile-tutorial/IC773624.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Citrix ShareFile**, escriba su dirección URL con el siguiente patrón `https://<tenant-name>.shareFile.com` y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Citrix ShareFile**, escriba su dirección URL con el siguiente patrón `https://<tenant-name>.shareFile.com` y, a continuación, haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-citrix-sharefile-tutorial/IC773625.png "Configurar dirección URL de la aplicación")
 
@@ -123,7 +123,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Citrix ShareFile, 
 
     ![Información básica](./media/active-directory-saas-citrix-sharefile-tutorial/IC799951.png "Información básica")
 
-4.  Haga clic en **Agregar usuario**.
+4.  Haga clic en **Add User** (Agregar usuario).
 
     >[AZURE.NOTE]El titular de la cuenta de AAD recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active.
 
@@ -141,10 +141,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-citrix-sharefile-tutorial/IC773631.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-citrix-sharefile-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

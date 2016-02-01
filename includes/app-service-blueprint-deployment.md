@@ -1,8 +1,10 @@
-* [Deploying an app to Azure App Service](../app-service-web/web-sites-deploy.md)
-* [Configuring source control and continuous integration](../app-service-web/web-sites-publish-source-control.md)
-* [Staging deployments with deployment slots](../app-service-web/web-sites-staged-publishing.md)
-* [Publishing and Role Based Access Control (RBAC)](https://azure.microsoft.com/blog/rbac-and-azure-websites-publishing/)
+* [Implementar una aplicación en el Servicio de aplicaciones de Azure](../app-service-web/web-sites-deploy.md)
+* [Configuración del control de código fuente y la integración continua](../app-service-web/web-sites-publish-source-control.md)
+* [Almacenamiento provisional de implementaciones mediante ranuras de implementación](../app-service-web/web-sites-staged-publishing.md)
+* [Publicación y control de acceso basado en rol (RBAC)](https://azure.microsoft.com/blog/rbac-and-azure-websites-publishing/)
 
-## Videos
+## Vídeos
 
-* [Automating the deployment workflow for release management](/documentation/videos/azurecon-2015-manage-code-changes-to-web-apps-using-the-devops-features-of-azure-app-service-and-visual-studio-release-management/)
+* [Automatizar el flujo de trabajo de la implementación para la administración de versiones](/documentation/videos/azurecon-2015-manage-code-changes-to-web-apps-using-the-devops-features-of-azure-app-service-and-visual-studio-release-management/)
+
+<!---HONumber=AcomDC_0121_2016-->

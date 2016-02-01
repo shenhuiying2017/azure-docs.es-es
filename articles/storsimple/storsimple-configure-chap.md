@@ -188,7 +188,8 @@ Puede verificar que CHAP esté en uso mediante los siguientes pasos.
 
 ## Pasos siguientes
 
-- Obtenga más información sobre la [seguridad de StorSimple](storsimple-security.md).
+- Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-security.md).
+
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

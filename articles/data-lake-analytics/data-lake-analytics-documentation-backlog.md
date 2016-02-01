@@ -34,11 +34,12 @@ U-SQL | Optimización del rendimiento | 2 | Pending | [@MikeRys](https://github.
 U-SQL | Guía del programador | 2 | Pending | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Introducción a U-SQL desde un origen T-SQL | 1 | Pending | [@edmacauley](https://github.com/edmacauley) | [@MikeRys](https://github.com/mikerys)
 U-SQL | Introducción a U-SQL desde un origen Hive | 1 | Pending | [@mumian](https://github.com/mumian)| [@MikeRys](https://github.com/mikerys)
-U-SQL | Diagramas gramaticales de ferrocarril | 1 | en curso, con [esto](http://bottlecaps.de/rr/ui) | [@mwinkle](https://github.com/mwinkle) | [@mwinkle](https://github.com/mwinkle)
+U-SQL | Diagramas gramaticales de ferrocarril | 1 | en curso, mediante [esto](http://bottlecaps.de/rr/ui) | [@mwinkle](https://github.com/mwinkle) | [@mwinkle](https://github.com/mwinkle)
 Servicio | Protección de trabajos, datos y tablas en Análisis de Data Lake |1| En curso | [@mumian](https://github.com/mumian) | [@MikeRys](https://github.com/mikerys)
 Servicio | Movimiento de la salida del trabajo a Almacenamiento de datos SQL mediante Factoría de datos |1 | En curso | [@mumian](https://github.com/mumian) | 
 Herramientas | Uso de herramientas de diagnóstico | 1 | Pending | [@mumian](https://github.com/mumian) | 
 U-SQL | Explicación de técnicas para realizar combinaciones JOIN basadas en intervalo | 1 | Pending | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
+U-SQL | Opciones de autenticación de ADLS | 1 | Pending | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 
 
 
@@ -56,4 +57,4 @@ Existen varias formas de proporcionar comentarios en el trabajo pendiente:
 * Enviar una solicitud de incorporación de cambios en este documento al [repositorio de contenido de Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Enviar un correo electrónico a [adlafeedback en microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

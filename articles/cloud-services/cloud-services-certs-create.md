@@ -13,25 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 # Introducción a los certificados para los servicios en la nube de Azure
-Los certificados se usan en Azure para servicios en la nube ([certificados de servicio](#what-are-service-certificates)) y para autenticar con la API de administración ([certificados de administración](#what-are-management-certificates)). Este tema ofrece información general de ambos tipos de certificado, cómo [crearlos](#create) y cómo [implementarlos](#deploy) en Azure.
+Los certificados se usan en Azure para los servicios en la nube ([certificados de servicio](#what-are-service-certificates)) y para realizar la autenticación con la API de administración ([certificados de administración](#what-are-management-certificates) cuando se usa el Portal de Azure clásico, no ARM). En este tema se proporciona información general de ambos tipos de certificado, cómo [crearlos](#create) y cómo [implementarlos](#deploy) en Azure.
 
 Los certificados usados en Azure son certificados x.509 v3 y pueden estar firmados por otro certificado de confianza o estar autofirmados. Un certificado autofirmado está firmado por su propio creador y, por ello, no es de confianza de forma predeterminada. La mayoría de los exploradores pueden pasar por alto esto. Solo usted debe usar los certificados autofirmados cuando desarrolle y pruebe sus servicios en la nube.
 
 Los certificados utilizados por Azure pueden contener una clave privada o pública. Los certificados tienen una huella digital que proporciona un medio para identificarlos de forma inequívoca. Esta huella digital se utiliza en el [archivo de configuración](cloud-services-configure-ssl-certificate.md) de Azure para identificar qué certificado debe usar un servicio en la nube.
 
 ## ¿Qué son los certificados de servicio?
-Los certificados de servicio están vinculados a los servicios en la nube y posibilitan la comunicación segura hacia y desde el servicio. Por ejemplo, si implementó un rol web, desearía proporcionar un certificado que pueda autenticar un extremo HTTPS expuesto. Los certificados de servicio, definidos en la definición de servicio, se implementan automáticamente en la máquina virtual que está ejecutando una instancia del rol.
+Los certificados de servicio están vinculados a los servicios en la nube y posibilitan la comunicación segura hacia y desde el servicio. Por ejemplo, si implementó un rol web, desearía proporcionar un certificado que pueda autenticar un punto de conexión HTTPS expuesto. Los certificados de servicio, definidos en la definición de servicio, se implementan automáticamente en la máquina virtual que está ejecutando una instancia del rol.
 
 Puede cargar certificados de servicio en el Portal de Azure clásico mediante el Portal de Azure clásico o mediante la API de administración de servicios. Los certificados de servicio se asocian a un servicio en la nube específico y se asignan a una implementación en el archivo de definición de servicio.
 
 Los certificados de servicio se pueden administrar independientemente de los servicios y pueden ser administrados por distintas personas. Por ejemplo, un desarrollador puede cargar un paquete de servicio que hace referencia a un certificado que un administrador de TI ha cargado previamente en Azure. Un administrador de TI puede administrar y renovar el certificado cambiando la configuración del servicio sin necesidad de cargar un nuevo paquete de servicio. Esto es posible porque el nombre lógico del certificado y su nombre y ubicación del almacén se especifican en el archivo de definición de servicio, mientras que la huella digital del certificado se especifica en el archivo de configuración de servicio. Para actualizar el certificado, solo es necesario cargar un nuevo certificado y cambiar el valor de huella digital en el archivo de configuración de servicio.
 
 ## ¿Qué son los certificados de administración?
-Los certificados de administración le permiten autenticar con la API de administración de servicio proporcionada por Azure. Muchos programas y herramientas (como Visual Studio o el SDK de Azure) utilizarán estos certificados para automatizar la configuración y la implementación de varios servicios de Azure. Estos no están relacionados realmente con servicios en la nube.
+Los certificados de administración permiten realizar autenticación con la API de administración de servicios proporcionada por Azure clásico. Muchos programas y herramientas (como Visual Studio o el SDK de Azure) utilizarán estos certificados para automatizar la configuración y la implementación de varios servicios de Azure. Estos no están relacionados realmente con servicios en la nube.
 
 >[AZURE.WARNING]Por lo tanto, tenga cuidado. Estos tipos de certificados permiten a quien se autentica con ellos administrar la suscripción a la que están asociados.
 
@@ -80,4 +80,4 @@ Cargue un [certificado de API de administración](../azure-api-management-certs.
 
 >[AZURE.NOTE]El Portal de Azure no usa certificados de administración para tener acceso a la API, sino cuentas de usuario.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/08/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Creación y modificación de un circuito ExpressRoute mediante PowerShell
@@ -162,7 +162,7 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 		
 		Status                           : Enabled
 
-	*ServiceProviderProvisioningState* proporciona información sobre el estado actual de aprovisionamiento en el lado del proveedor de servicios y el estado proporciona el estado en el lado de Microsoft. Un circuito ExpressRoute tiene que estar en el siguiente estado para poder usarlo.
+	*ServiceProviderProvisioningState* proporciona información sobre el estado actual de aprovisionamiento en la parte del proveedor del servicios y el estado proporciona el estado en Microsoft. Un circuito ExpressRoute tiene que estar en el siguiente estado para poder usarlo.
 
 		ServiceProviderProvisioningState : Provisioned
 		
@@ -178,7 +178,7 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 
 5. **Compruebe periódicamente el estado y la condición de la clave del circuito.**
 
-	Esto le permitirá saber cuándo ha habilitado el circuito el proveedor. Una vez configurado el circuito, el parámetro *ServiceProviderProvisioningState* aparecerá como *Provisioned*, tal como se muestra en el ejemplo siguiente.
+	Esto le permitirá saber cuándo ha habilitado el circuito el proveedor. Después de configurar el circuito, el parámetro *ServiceProviderProvisioningState* aparecerá como *Provisioned* (aprovisionado), tal como se muestra en el ejemplo siguiente.
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -193,7 +193,7 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 
 6. **Cree la configuración de enrutamiento.**
 	
-	Consulte la página [Configuración de enrutamiento de circuitos ExpressRoute (creación y modificación de emparejamientos de circuito)](expressroute-howto-routing-classic.md) para instrucciones paso a paso.
+	Consulte la página [Configuración de enrutamiento de circuitos ExpressRoute (crear y modificar emparejamientos de circuito)](expressroute-howto-routing-classic.md) para obtener instrucciones paso a paso.
 
 7. **Vincule una red virtual a un circuito ExpressRoute.**
 
@@ -328,4 +328,4 @@ Si el proveedor de servicios ha desaprovisionado el circuito (el estado de aprov
 
 - [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0121_2016-->

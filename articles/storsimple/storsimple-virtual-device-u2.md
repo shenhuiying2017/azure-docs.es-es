@@ -25,7 +25,6 @@
 ##Información general
 El dispositivo virtual de StorSimple es una capacidad adicional que se incluye con la solución de Microsoft Azure StorSimple. El dispositivo virtual de StorSimple se ejecuta en una máquina virtual en una red virtual de Microsoft Azure y se puede usar para realizar copias de seguridad y clonar los datos de los hosts.
 
- 
 
 #### Comparación del modelo de dispositivo virtual
 
@@ -80,7 +79,7 @@ Las siguientes secciones explican los requisitos previos de configuración para 
 
 Antes de aprovisionar el dispositivo virtual, deberá realizar los siguientes preparativos en el entorno de Azure:
 
-- Para el dispositivo virtual, [configure una red virtual en Azure](../virtual-network/virtual-networks-create-vnet.md). Si usa Almacenamiento premium, tiene que crear una red virtual en una región de Azure que admita dicho almacenamiento. Para obtener más información consulte [Regiones de Azure](https://azure.microsoft.com/regions/#services).
+- Para el dispositivo virtual, [configure una red virtual en Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Si usa Almacenamiento premium, tiene que crear una red virtual en una región de Azure que admita dicho almacenamiento. Para obtener más información consulte [Regiones de Azure](https://azure.microsoft.com/regions/#services).
 - Puede usar el servidor DNS predeterminado proporcionado por Azure en lugar de especificar su propio nombre del servidor DNS. Si el nombre del servidor DNS no es válido o si el servidor DNS no es capaz de resolver las direcciones IP correctamente, no se podrá crear el dispositivo virtual.
 - Punto a sitio y sitio a sitio son opcionales, pero no obligatorios. Si lo desea, puede configurar estas opciones para escenarios más avanzados. 
 - Puede crear [Máquinas virtuales de Azure](../virtual-machines/virtual-machines-about.md) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo virtual. Estos servidores deben cumplir los siguientes requisitos: 							
@@ -104,7 +103,7 @@ Realice las siguientes actualizaciones en su servicio StorSimple de Azure antes 
 
 Asegúrese de que tiene la siguiente información antes de empezar:
 
-- Su cuenta del Portal de Azure con credenciales de acceso.
+- Cuenta del Portal de Azure clásico con credenciales de acceso.
 
 - Una copia de la clave de cifrado de datos del servicio del dispositivo físico.
 
@@ -166,9 +165,9 @@ Realice los pasos siguientes para configurar la administración remota para el d
 
 ### Paso 2: Obtención de acceso remoto al dispositivo virtual
 
-Una vez habilitada la administración remota en la página de configuración del dispositivo StorSimple, puede usar la comunicación remota de Windows PowerShell para conectarse al dispositivo virtual desde otra máquina virtual dentro de la misma red virtual; por ejemplo, puede conectarse desde la máquina virtual del host que ha configurado y utilizado para conectarse a iSCSI. En la mayoría de las implementaciones, ya habrá abierto un extremo público para tener acceso a su máquina virtual host que se puede utilizar para tener acceso al dispositivo virtual.
+Una vez habilitada la administración remota en la página de configuración del dispositivo StorSimple, puede usar la comunicación remota de Windows PowerShell para conectarse al dispositivo virtual desde otra máquina virtual dentro de la misma red virtual; por ejemplo, puede conectarse desde la máquina virtual del host que ha configurado y utilizado para conectarse a iSCSI. En la mayoría de las implementaciones, ya habrá abierto un punto de conexión público para tener acceso a su máquina virtual host que se puede utilizar para tener acceso al dispositivo virtual.
 
->[AZURE.WARNING] **Para mayor seguridad, se recomienda utilizar HTTPS al conectarse a los extremos y, a continuación, eliminar los extremos después de haber completado la sesión remota de PowerShell.**
+>[AZURE.WARNING]**Para mayor seguridad, se recomienda utilizar HTTPS al conectarse a los puntos de conexión y, a continuación, eliminar los extremos después de haber completado la sesión remota de PowerShell.**
 
 Debe seguir los procedimientos que aparecen en [Conectarse de forma remota al dispositivo StorSimple](storsimple-remote-connect.md) para establecer la comunicación remota para el dispositivo virtual.
 
@@ -176,11 +175,11 @@ Debe seguir los procedimientos que aparecen en [Conectarse de forma remota al di
 
 También puede realizar una conexión directa con el dispositivo virtual. Si desea conectarse directamente al dispositivo virtual desde otro equipo fuera de la red virtual o fuera del entorno de Microsoft Azure, tendrá que crear puntos de conexión adicionales, como se describe en el procedimiento siguiente.
 
-Realice los pasos siguientes para crear un extremo público en el dispositivo virtual.
+Realice los pasos siguientes para crear un punto de conexión público en el dispositivo virtual.
 
 [AZURE.INCLUDE [Crear puntos de conexión públicos en un dispositivo virtual](../../includes/storsimple-create-public-endpoints-virtual-device.md)]
 
-Se recomienda conectarse desde otra máquina virtual dentro de la misma red virtual, ya que esta práctica minimiza el número de extremos públicos de la red virtual. Cuando utiliza este método, simplemente conéctese a la máquina virtual mediante una sesión de escritorio remoto y, a continuación, configure esa máquina virtual para su uso como haría con cualquier otro cliente de Windows en una red local. No es necesario anexar el número de puerto público porque ya se conocerá el puerto.
+Se recomienda conectarse desde otra máquina virtual dentro de la misma red virtual, ya que esta práctica minimiza el número de puntos de conexión públicos de la red virtual. Cuando utiliza este método, simplemente conéctese a la máquina virtual mediante una sesión de escritorio remoto y, a continuación, configure esa máquina virtual para su uso como haría con cualquier otro cliente de Windows en una red local. No es necesario anexar el número de puerto público porque ya se conocerá el puerto.
 
 ## Trabajo con el dispositivo virtual de StorSimple
 
@@ -192,7 +191,7 @@ Las secciones siguientes describen algunas de las diferencias que surgen al trab
 
 Dado que es un dispositivo solo de software, el mantenimiento del dispositivo virtual es mínimo en comparación con el mantenimiento del dispositivo físico. Tiene las siguientes opciones:
 
-- **Actualizaciones de software**: puede ver la fecha en que se actualizó por última vez el software, junto con cualquier actualización de los mensajes de estado. Puede utilizar el botón **Buscar actualizaciones** en la parte inferior de la página para realizar una búsqueda manual si desea comprobar si hay nuevas actualizaciones. Si hay actualizaciones disponibles, haga clic en **Instalar actualizaciones** para instalar. Puesto que solo hay una única interfaz en el dispositivo virtual, significa que habrá una pequeña interrupción del servicio cuando se apliquen las actualizaciones. El dispositivo virtual se apagará automáticamente y se reiniciará (si es necesario) para aplicar las actualizaciones que se han publicado. Para obtener un procedimiento paso a paso, vaya a [Actualización del dispositivo de la serie StorSimple 8000](storsimple-update-device.md#install-regular-updates-via-the-management-portal).
+- **Actualizaciones de software**: puede ver la fecha en que se actualizó por última vez el software, junto con cualquier actualización de los mensajes de estado. Puede utilizar el botón **Buscar actualizaciones** en la parte inferior de la página para realizar una búsqueda manual si desea comprobar si hay nuevas actualizaciones. Si hay actualizaciones disponibles, haga clic en **Instalar actualizaciones** para instalar. Puesto que solo hay una única interfaz en el dispositivo virtual, significa que habrá una pequeña interrupción del servicio cuando se apliquen las actualizaciones. El dispositivo virtual se apagará automáticamente y se reiniciará (si es necesario) para aplicar las actualizaciones que se han publicado. Para obtener un procedimiento paso a paso, vaya a [Actualización del dispositivo de la serie StorSimple 8000](storsimple-update-device.md#install-regular-updates-via-the-azure-classic-portal).
 - **Paquete de soporte**: puede crear y cargar un paquete de soporte para ayudar al Soporte de Microsoft a solucionar problemas con el dispositivo virtual. Para obtener un procedimiento paso a paso, vaya a [Crear y administrar paquetes de soporte técnico de StorSimple](storsimple-create-manage-support-package.md).
 
 ### Cuentas de almacenamiento para un dispositivo virtual
@@ -215,7 +214,7 @@ Desactivar un dispositivo virtual genera las siguientes acciones:
 
 - Se conservan las instantáneas de nube creadas para el dispositivo virtual.
 
-Para obtener un procedimiento paso a paso, vaya a [Desactivación y eliminación de un dispositivo de StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
+Para obtener un procedimiento paso a paso, consulte [Desactivar y eliminar el dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 
 Tan pronto como se muestre el dispositivo como desactivado en la página de servicio del Administrador de StorSimple, puede eliminar el dispositivo virtual de la lista en la página **Dispositivos**.
 
@@ -248,7 +247,7 @@ Para obtener un procedimiento paso a paso, vaya a [Conmutación por error y recu
 
 Si ha configurado y usado previamente un dispositivo virtual de StorSimple, pero ahora desea detener la acumulación de cargos para su uso por el proceso, puede apagar el dispositivo virtual. Apagar el dispositivo virtual no elimina su sistema operativo ni los discos de datos del almacenamiento. Detiene el cargo acumulado en su suscripción, pero seguirán los cargos de almacenamiento del sistema operativo y los discos de datos.
 
-Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en la página de dispositivos del servicio StorSimple Manager. Puede desactivar o eliminar el dispositivo si desea eliminar las copias de seguridad creadas por el dispositivo virtual. Para obtener más información, consulte [Desactivación y eliminación de un dispositivo de StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
+Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en la página de dispositivos del servicio StorSimple Manager. Puede desactivar o eliminar el dispositivo si desea eliminar las copias de seguridad creadas por el dispositivo virtual. Para más información, consulte [Desactivar y eliminar un dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 
 [AZURE.INCLUDE [Apagado de un dispositivo virtual](../../includes/storsimple-shutdown-virtual-device.md)]
 
@@ -260,5 +259,4 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
  
 - Obtenga información sobre cómo [Restaurar un volumen de StorSimple de un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0107_2016-->
-
+<!---HONumber=AcomDC_0121_2016-->

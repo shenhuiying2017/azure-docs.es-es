@@ -3,6 +3,7 @@
    description="La colaboración B2B de Azure Active Directory posibilita las relaciones entre empresas al permitir que compañías asociadas accedan de forma selectiva a las aplicaciones corporativas."
    services="active-directory"
    authors="viv-liu"
+   documentationCenter="na" 
    manager="cliffdi"
    editor=""
    tags=""/>
@@ -79,4 +80,4 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 - [Cambios de atributo de objeto de usuario externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limitaciones de la vista previa actual](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

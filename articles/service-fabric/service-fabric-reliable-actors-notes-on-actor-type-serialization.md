@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Notas de Actores confiables de Service Fabric sobre la serialización del tipo de actor"
-   description="Examina los requisitos básicos para la definición de clases serializables que se pueden usar para definir interfaces y estados de Actores confiable de Service Fabric"
+   pageTitle="Notas de Reliable Actors sobre la serialización del tipo de actor | Microsoft Azure"
+   description="Examina los requisitos básicos para la definición de clases serializables que se pueden usar para definir interfaces y estados de Reliable Actors de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -18,11 +18,11 @@
 
 # Notas sobre la serialización del tipo de Actores confiables de Service Fabric
 
-Hay algunos aspectos importantes que deben tenerse en cuenta al definir las interfaces y los estados del actor: los tipos deben ser serializable de contratos de datos. Puede encontrar más información sobre los contratos de datos en [MSDN](https://msdn.microsoft.com/library/ms731923.aspx).
+Debe tener en cuenta algunos aspectos importante cuando defina un estado y las interfaces del actor. Los tipos deben ser serializables de contratos de datos. Puede encontrar más información sobre los contratos de datos [en MSDN](https://msdn.microsoft.com/library/ms731923.aspx).
 
-## Tipos usados en las interfaces de actor
+## Tipos de interfaz de actor
 
-Los argumentos de todos los métodos y el tipo de resultado de la tarea que devuelve cada método definido en la [interfaz de actor](service-fabric-reliable-actors-introduction.md#actors) debe ser serializable de contratos de datos. Esto también se aplica a los argumentos de los métodos definidos en [interfaces de eventos de actor](service-fabric-reliable-actors-events.md#actor-events). (Los métodos de interfaz de eventos de actor siempre devuelven void). Por ejemplo, si la interfaz `IVoiceMail` define un método como:
+Los argumentos de todos los métodos y el tipo de resultado de la tarea que devuelve cada método definido en la [interfaz de actor](service-fabric-reliable-actors-introduction.md#actors) deben ser serializables de contratos de datos. Esto también se aplica a los argumentos de los métodos definidos en [interfaces de eventos de actor](service-fabric-reliable-actors-events.md#actor-events). (Los métodos de interfaz de eventos de actor siempre devuelven void). Por ejemplo, si la interfaz `IVoiceMail` define un método como:
 
 ```csharp
 
@@ -49,9 +49,9 @@ public class Voicemail
 
 ```
 
-## Clase de estado Actor
+## Clase de estado de actor
 
-El estado de actor debe ser serializable de contratos de datos. Por ejemplo, si hay una definición de clase Actor como la siguiente:
+El estado de actor debe ser serializable de contratos de datos. Por ejemplo, una definición de clase de actor puede tener un aspecto como este:
 
 ```csharp
 
@@ -61,7 +61,7 @@ public class VoiceMailActor : StatefulActor<VoicemailBox>, IVoiceMail
 
 ```
 
-La clase de estado se definirá con la clase y sus miembros anotados con los atributos DataContract y DataMember, respectivamente.
+La clase de estado se definirá con la clase, y sus miembros se anotarán con los atributos **DataContract** y **DataMember**, respectivamente.
 
 ```csharp
 
@@ -82,4 +82,4 @@ public class VoicemailBox
 
 ```
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0121_2016-->

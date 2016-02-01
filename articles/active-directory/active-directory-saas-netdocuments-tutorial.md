@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con NetDocuments | Microsoft Azure" 
     description="Aprenda cómo usar NetDocuments con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con NetDocuments
   
@@ -82,8 +82,8 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-netdocuments-tutorial/IC795045.png "Configurar dirección URL de la aplicación")
 
-    1.  En el cuadro de texto **Dirección URL de inicio de sesión**, escriba su dirección URL que usan los usuarios para iniciar sesión en la aplicación NetDocuments (por ejemplo, "**https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
-2.  En el cuadro de texto **URL de respuesta de NetDocuments**, escriba el mismo valor que ha escrito en el cuadro de texto **URL de inicio de sesión**.  
+    1.  En el cuadro de texto **Dirección URL de inicio de sesión**, escriba su dirección URL que usan los usuarios para iniciar sesión en la aplicación NetDocuments (por ejemplo, "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
+    2.  En el cuadro de texto **URL de respuesta de NetDocuments**, escriba el mismo valor que ha escrito en el cuadro de texto **URL de inicio de sesión**.  
 
         >[AZURE.NOTE]Puede encontrar el valor correcto al final del cuadro de diálogo **Identidad federada** (consulte la captura de pantalla para el paso 9).
 
@@ -152,10 +152,10 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Asignar usuarios](./media/active-directory-saas-netdocuments-tutorial/IC795054.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-netdocuments-tutorial/IC767830.png "Sí")
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

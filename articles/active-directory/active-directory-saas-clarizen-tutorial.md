@@ -2,7 +2,7 @@
     pageTitle="Tutorial: integración de Azure Active Directory con Clarizen | Microsoft Azure" 
     description="Aprenda a usar Clarizen con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con Clarizen
 
@@ -90,17 +90,17 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     ![Configuración global](./media/active-directory-saas-clarizen-tutorial/IC786906.png "Configuración global")
 
-7.  En el cuadro de diálogo **Autenticación federada**, realice los pasos siguientes:
+7.  En el cuadro de diálogo **Federated Authentication** (Autenticación federada), realice los pasos siguientes:
 
     ![Autenticación federada](./media/active-directory-saas-clarizen-tutorial/IC785892.png "Autenticación federada")
 
     1.  Para cargar el certificado descargado, haga clic en **Cargar**.
     2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Clarizen**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **URL de inicio de sesión**.
-    3.  En el Portal de Azure, en la página de diálogo **Configurar cierre de sesión único en Clarizen**, copie el valor de **Dirección URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **URL de cierre de sesión**.
+    3.  En el Portal de Azure, en la página de diálogo **Configurar cierre de sesión único en Clarizen**, copie el valor de **Dirección URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **Sign-out URL** (URL de cierre de sesión).
     4.  Seleccione**Usar POST**.
     5.  Haga clic en **Guardar**.
 
-8.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+8.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-clarizen-tutorial/IC784688.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -124,7 +124,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Clarizen, deben ap
     ![Invitar a contactos](./media/active-directory-saas-clarizen-tutorial/IC784691.png "Invitar a contactos")
 
     1.  En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de la cuenta válida de Azure Active Directory que quiera aprovisionar.
-    2.  Haga clic en **Invitar**.
+    2.  Haga clic en **Invite** (Invitar).
 
     >[AZURE.NOTE]El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active.
 
@@ -146,4 +146,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

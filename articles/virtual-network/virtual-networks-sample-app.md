@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="01/20/2016"
    ms.author="jonor"/>
 
 # Aplicación de ejemplo para su uso con entornos de límite de seguridad
@@ -188,4 +188,4 @@ No hay ningún script incluido en esta aplicación de ejemplo para configurar el
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0121_2016-->

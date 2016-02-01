@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="01/15/2016" 
 	ms.author="awills"/>
 
 # Administración de precios y cuotas para Application Insights
@@ -67,7 +67,7 @@ En cualquier momento, puede cambiar a la evaluación gratuita de Premium de 30 d
 * También puede inspeccionar puntos de datos individuales en el origen durante la depuración:
  * Si ejecuta su aplicación en el modo de depuración en Visual Studio, los puntos de datos se registran en la ventana de salida. 
  * Para ver los puntos de datos de cliente, abra panel de depuración del explorador (normalmente F12) y abra la ficha Red.
-
+* La velocidad de datos se reduce (de forma predeterminada) mediante el [muestreo adaptable](app-insights-sampling). Esto significa que, a medida que aumente el uso de su aplicación, la velocidad de telemetría no incrementará tanto como cabría esperar.
 
 ### Superávit
 
@@ -85,6 +85,8 @@ El gráfico de la parte inferior de la hoja de precios muestra el volumen del pu
 ![En la parte inferior de la hoja de precios.](./media/app-insights-pricing/03-allocation.png)
 
 Haga clic en el gráfico para obtener más detalles, o arrastre el puntero por él y haga clic en (+) para ver el detalle de un intervalo de tiempo.
+
+El gráfico muestra el volumen de datos que llega al servicio Application Insights, después del [muestreo](app-insights-sampling).
 
 
 ## Velocidad de datos
@@ -114,7 +116,7 @@ Si se produce la limitación, verá una notificación de advertencia que indica 
 
 *¿Cómo puedo reducir la cantidad de datos que envía mi aplicación?*
 
-* Use el [Muestreo](app-insights-sampling.md). Esta tecnología reduce la velocidad de los datos sin sesgar las métricas y sin interrumpir la capacidad de navegar entre los elementos relacionados en la búsqueda. Desde ASP.NET SDK 2.0.0-beta3, el muestreo adaptable está habilitado de forma predeterminada.
+* Use [Muestreo](app-insights-sampling.md). Esta tecnología reduce la velocidad de los datos sin sesgar las métricas y sin interrumpir la capacidad de navegar entre los elementos relacionados en la búsqueda. El muestreo adaptable está habilitado de forma predeterminada a partir de la versión 2.0.0-beta3 del SDK de Application Insights para ASP.NET.
 * [Desactive los colectores de telemetría](app-insights-configuration-with-applicationinsights-config.md) que no necesite.
 
 
@@ -123,7 +125,7 @@ Si se produce la limitación, verá una notificación de advertencia que indica 
 Si alcanza los valores de limitación, puede hacer alguna de estas cosas:
 
 * Use el [Muestreo](app-insights-sampling.md). Esta tecnología reduce la velocidad de los datos sin sesgar las métricas y sin interrumpir la capacidad de navegar entre los elementos relacionados en la búsqueda.
-* Desactive los módulos de recopilación que no necesite; para ello, [edite ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Por ejemplo, podría decidir que los contadores de rendimiento o datos de dependencia no son esenciales.
+* Desactivar los módulos de recopilación que no necesite; para ello, [edite ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Por ejemplo, podría decidir que los contadores de rendimiento o datos de dependencia no son esenciales.
 * Métricas agregadas previamente. Si ha colocado llamadas a TrackMetric en su aplicación, puede reducir el tráfico mediante la sobrecarga que acepta el cálculo de la media y la desviación estándar de un lote de medidas. O bien, puede usar un [paquete de agregación previa](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
 
 
@@ -164,4 +166,4 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0121_2016-->

@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Jobscience | Microsoft Azure" 
     description="Aprenda a usar Jobscience con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/22/2015" 
-    ms.author="markvi" />
+    ms.date="01/14/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Jobscience
   
@@ -72,11 +72,11 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
 
 1.  Inicie sesión como administrador en el sitio de la compañía de Jobscience.
 
-2.  Acceda a **Setup** (Configuración).
+2.  Acceda a **Configuración**.
 
     ![Configuración](./media/active-directory-saas-jobscience-tutorial/IC784358.png "Configuración")
 
-3.  En el panel de navegación izquierdo, en la sección **Administer** (Administrar), haga clic en **Domain Management** (Administración de dominios) para expandir la sección relacionada y, luego, haga clic en **My Domain** (Mi dominio) para abrir la página **My Domain** (Mi dominio).
+3.  En el panel de navegación izquierdo, en la sección **Administrar**, haga clic en **Administración de dominios** para expandir la sección relacionada y, luego, haga clic en la página **Mi dominio** para abrir la página **Mi dominio**.
 
     ![Mi dominio](./media/active-directory-saas-jobscience-tutorial/IC767825.png "Mi dominio")
 
@@ -102,22 +102,22 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-jobscience-tutorial/IC784363.png "Configurar inicio de sesión único")
 
-10. En el sitio de la compañía de Jobscience, haga clic en **Security Controls** (Controles de seguridad) y, a continuación, haga clic en **Single Sign-On Settings** (Configuración de inicio de sesión único).
+10. En el sitio de la compañía de Jobscience, haga clic en **Controles de seguridad** y, a continuación, haga clic en **Configuración de inicio de sesión único**.
 
     ![Controles de seguridad](./media/active-directory-saas-jobscience-tutorial/IC784364.png "Controles de seguridad")
 
-11. En la sección **Single Sign-on Settings** (Configuración del inicio de sesión único), siga estos pasos:
+11. En la sección **Configuración del inicio de sesión único**, siga estos pasos:
 
     ![Configuración de inicio de sesión único](./media/active-directory-saas-jobscience-tutorial/IC781026.png "Configuración de inicio de sesión único")
 
-    1.  Seleccione **SAML Enabled** (SAML habilitado).
+    1.  Seleccione **SAML habilitado**.
     2.  Haga clic en **Nuevo**.
 
-12. En el cuadro de diálogo **SAML Single Sign-On Setting Edit** (Edición de la configuración de inicio de sesión único de SAML), realice los pasos siguientes:
+12. En el cuadro de diálogo **Edición de la configuración de inicio de sesión único de SAML**, realice los pasos siguientes:
 
     ![Configuración de inicio de sesión único SAML](./media/active-directory-saas-jobscience-tutorial/IC784365.png "Configuración de inicio de sesión único SAML")
 
-    1.  En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración.
+    1.  En el cuadro de texto **Nombre**, escriba el nombre de la configuración.
     2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Jobscience**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor**.
     3.  En el cuadro de texto **Id. de entidad**, escriba ****https://salesforce-jobscience.com**.
 4.  Haga clic en **Examinar** para cargar el certificado de Azure AD.
@@ -127,15 +127,15 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
     8.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Jobscience**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión del proveedor de identidades**.
     9.  Haga clic en **Guardar**.
 
-13. En el panel de navegación izquierdo, en la sección **Administer** (Administrar), haga clic en **Domain Management** (Administración de dominios) para expandir la sección relacionada y, luego, haga clic en **My Domain** (Mi dominio) para abrir la página **My Domain** (Mi dominio).
+13. En el panel de navegación izquierdo, en la sección **Administrar** , haga clic en **Administración de dominios** para expandir la sección relacionada y, luego, haga clic en **Mi dominio** para abrir la página **Mi dominio**.
 
     ![Mi dominio](./media/active-directory-saas-jobscience-tutorial/IC767825.png "Mi dominio")
 
-14. En la página **My Domain** (Mi dominio), en la sección **Login Page Branding** (Personalización de marca de la página de inicio de sesión), haga clic en **Edit** (Editar).
+14. En la página **Mi dominio**, en la sección **Personalización de marca de la página de inicio de sesión**, haga clic en **Editar**.
 
     ![Personalización de marca de la página de inicio de sesión](./media/active-directory-saas-jobscience-tutorial/IC767826.png "Personalización de marca de la página de inicio de sesión")
 
-15. En la página **Login Page Branding** (Personalización de marca de la página de inicio de sesión), en la sección **Authentication Service** (Servicio de autenticación), se muestra el nombre de su **SAML SSO Settings** (Configuración de SSO de SAML). Selecciónelo y luego haga clic en **Save** (Guardar).
+15. En la página **Personalización de marca de la página de inicio de sesión**, en la sección **Servicio de autenticación**, se muestra el nombre de su **Configuración de SSO de SAML**. Selecciónelo y luego haga clic en **Guardar**.
 
     ![Personalización de marca de la página de inicio de sesión](./media/active-directory-saas-jobscience-tutorial/IC784366.png "Personalización de marca de la página de inicio de sesión")
 
@@ -147,7 +147,7 @@ Para obtener la dirección URL de inicio de sesión único iniciado por el prove
 
 ![Controles de seguridad](./media/active-directory-saas-jobscience-tutorial/IC784368.png "Controles de seguridad")
   
-Haga clic en el perfil SSO creado en el paso anterior. Esta página muestra la dirección URL de inicio de sesión único de su empresa (por ejemplo, **https://companyname.my.salesforce.com?so=companyid*)).
+Haga clic en el perfil SSO creado en el paso anterior. Esta página muestra la dirección URL de inicio de sesión único de su empresa (por ejemplo, **https://companyname.my.salesforce.com?so=companyid*).
 ##Configuración del aprovisionamiento de usuario
   
 Para permitir que los usuarios de Azure AD inicien sesión en Jobscience, deben aprovisionarse en Jobscience. En el caso de Jobscience, el aprovisionamiento es una tarea manual.
@@ -160,15 +160,15 @@ Para permitir que los usuarios de Azure AD inicien sesión en Jobscience, deben 
 
     ![Configuración](./media/active-directory-saas-jobscience-tutorial/IC784358.png "Configuración")
 
-3.  Vaya a **Manage Users > Users** (Administrar usuarios > Usuarios).
+3.  Vaya a **Administrar usuarios > Usuarios**.
 
     ![Usuarios](./media/active-directory-saas-jobscience-tutorial/IC784369.png "Usuarios")
 
-4.  Haga clic en **New User** (Nuevo usuario).
+4.  Haga clic en **Nuevo usuario**.
 
     ![Todos los usuarios](./media/active-directory-saas-jobscience-tutorial/IC784370.png "Todos los usuarios")
 
-5.  En el cuadro de diálogo **Edit User** (Editar usuario), realice los siguientes pasos:
+5.  En el cuadro de diálogo **Editar usuario**, realice los siguientes pasos:
 
     ![Edición de usuarios](./media/active-directory-saas-jobscience-tutorial/IC784371.png "Edición de usuarios")
 
@@ -191,10 +191,10 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
     ![Asignar usuarios](./media/active-directory-saas-jobscience-tutorial/IC784372.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-jobscience-tutorial/IC767830.png "Sí")
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0121_2016-->

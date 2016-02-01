@@ -20,6 +20,20 @@
 
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
 
+## SO invitado de enero
+
+| Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-001 | [3124903] | Actualización de seguridad acumulativa para Internet Explorer | 4\.28, 3.35, 2.47 | 12 de enero de 2015 |
+| MS16-003 | [3125540] | Actualización de seguridad acumulativa para JScript y VBScript | 2\.47 | 12 de enero de 2015 |
+| MS16-005 | [3124584] | Actualización de seguridad de los controladores del modo kernel de Windows para tratar la ejecución remota de código | 4\.28, 3.35, 2.47 | 12 de enero de 2015 |
+| MS16-007 | [3124901] | Actualización de seguridad de Microsoft Windows para tratar la ejecución remota de código | 4\.28, 3.35, 2.47 | 12 de enero de 2015 |
+| MS16-008 | [3124605] | Actualización de seguridad del kernel para tratar la elevación de privilegios | 4\.28, 3.35, 2.47 | 12 de enero de 2015 |
+| Revisión de documento informativo sobre seguridad de Microsoft | [2755801] | Actualización para vulnerabilidades en Adobe Flash Player en Internet Explorer (KB paquete: por determinar) - Marcador de posición de documento informativo | 4\.28, 3.35 | 12 de enero de 2015 |
+| Documento informativo sobre seguridad de Microsoft | [3109853] | Actualización para mejorar la interoperabilidad de TLS | 4\.28, 3.35 | 12 de enero de 2015 |
+| Documento informativo sobre seguridad de Microsoft | [3123479] | Degradación del algoritmo hash SHA-1 para el Programa de certificados raíz de Microsoft | 4\.28, 3.35, 2.47 | 12 de enero de 2015 |
+| Documento informativo sobre seguridad de Microsoft | [2736233] | Actualizaciones para bits de cierre de ActiveX | 4\.28, 3.35, 2.47 | 12 de enero de 2015 |
+
 ## SO invitado de diciembre
 
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
@@ -211,6 +225,15 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [2999802][2999802] | Se imprimen líneas sólidas en lugar de líneas de puntos en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 | N/D | [2896881][2896881] | Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 
+[3124903]: http://support.microsoft.com/kb/3124903
+[3125540]: http://support.microsoft.com/kb/3125540
+[3124584]: http://support.microsoft.com/kb/3124584
+[3124901]: http://support.microsoft.com/kb/3124901
+[3124605]: http://support.microsoft.com/kb/3124605
+[2755801]: http://support.microsoft.com/kb/2755399
+[3109853]: http://support.microsoft.com/kb/3109853
+[3123479]: http://support.microsoft.com/kb/3123479
+[2736233]: http://support.microsoft.com/kb/2736233
 
 [3116180]: http://support.microsoft.com/kb/3116180
 [3116178]: http://support.microsoft.com/kb/3116178
@@ -354,4 +377,4 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0121_2016-->
