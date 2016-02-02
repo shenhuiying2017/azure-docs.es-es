@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="11/30/2015"
+	ms.date="01/27/2016"
 	ms.author="jgao"/>
 
 # Introducción al uso de herramientas de Hadoop en Visual Studio para HDInsight para ejecutar una consulta de Hive
@@ -38,7 +38,7 @@ Para completar este tutorial y utilizar las herramientas de Hadoop en Visual Stu
 		- Visual Studio 2013 Comunidad/Professional/Premium/Ultimate con [actualización 4](https://www.microsoft.com/download/details.aspx?id=44921)
 		- Visual Studio 2015 (Community/Enterprise)
 
-	>[AZURE.NOTE]Actualmente, las herramientas de HDInsight para Visual Studio solo se incluyen en la versión en inglés.
+	>[AZURE.NOTE] Actualmente, las herramientas de HDInsight para Visual Studio solo se incluyen en la versión en inglés.
 
 
 ## Instalación de las herramientas de Hadoop para Visual Studio
@@ -55,9 +55,7 @@ Las herramientas de HDInsight para Visual Studio y el controlador ODBC de Micros
 ## Conexión a suscripciones de Azure
 Las herramientas de HDInsight para Visual Studio permiten conectarse a los clústeres de HDInsight, realizar algunas operaciones básicas de administración y ejecutar consultas de Hive.
 
->[AZURE.NOTE]Para obtener información sobre la conexión al emulador de HDInsight, consulte [Introducción al emulador de HDInsight](../hdinsight-get-started-emulator.md/#vstools).
-
->[AZURE.NOTE]Para obtener información acerca de cómo conectarse a un clúster de Hadoop genérico (vista previa), consulte [Escritura y envío de consultas de Hive usando Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
+>[AZURE.NOTE] Para obtener información acerca de cómo conectarse a un clúster de Hadoop genérico (vista previa), consulte [Escritura y envío de consultas de Hive usando Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
 
 
 **Para conectarse a su suscripción de Azure, siga estos pasos:**
@@ -140,12 +138,12 @@ Existen dos formas de crear y ejecutar consultas de Hive:
 
 	![Herramientas de Hadoop: herramientas de Visual Studio en HDInsight IntelliSense][14]
 
-	> [AZURE.NOTE]Solo se sugerirán los metadatos de los clústeres que están seleccionado en la barra de herramientas de HDInsight.
+	> [AZURE.NOTE] Solo se sugerirán los metadatos de los clústeres que están seleccionado en la barra de herramientas de HDInsight.
 4. (Opcional) Haga clic en **Validar script** para comprobar los errores de sintaxis del script.
 
 	![Herramientas de Hadoop: herramientas de HDInsight para la validación local de Visual Studio.][10]
 
-4. Haga clic en **Enviar** o en **Enviar (avanzado)**. Con la opción de envío avanzado, configurará los valores de **Nombre del trabajo**, **Argumentos**, **Configuraciones adicionales** y **Directorio de estados** del script:
+4. Haga clic en **Enviar** o en **Enviar (avanzado)**. Con la opción de envío avanzado, configurará el **nombre del trabajo**, los **argumentos**, las **configuraciones adicionales** y el **estado de directorio** para el script:
 
 	![hadoop en hdinsight consulta de hive][9]
 
@@ -182,7 +180,7 @@ La versión más reciente de la herramienta permite ver el contenido de los trab
 
 ### Ejecución de Hive más rápida mediante HiveServer2
 
->[AZURE.NOTE]Este tutorial solo funciona en la versión 3.2 y posteriores del clúster de HDInsight.
+>[AZURE.NOTE] Este tutorial solo funciona en la versión 3.2 y posteriores del clúster de HDInsight.
 
 Las herramientas de HDInsight se usan para enviar trabajos de Hive mediante WebHCat (también llamado Templeton). Tardó mucho tiempo en devolver los detalles del trabajo y la información de error. Para resolver este problema de rendimiento, las herramientas de HDInsight ejecutan trabajos de Hive directamente en el clúster mediante HiveServer2, de modo que omitan RDP o SSH. Además de mejorar el rendimiento, los usuarios también pueden ver Hive en gráficos Tez y los detalles de la tarea.
 
@@ -210,7 +208,7 @@ Aunque la ejecución de consultas a través de HiveServer2 ofrece muchas ventaja
 
 Las herramientas de HDInsight para Visual Studio admiten que se muestren gráficos de rendimiento de los trabajos de Hive que ejecuta el motor de ejecución de Tez. Para información sobre cómo habilitar Tez, vea [Uso de Hive en HDInsight][hdinsight.hive]. Después de enviar un trabajo de Hive a Visual Studio, Visual Studio mostrará el gráfico de dicho trabajo cuando se complete. Es posible que tenga que hacer clic en el botón **Actualizar** para ver el estado del trabajo más reciente.
 
-> [AZURE.NOTE]Esta característica solo está disponible para las versiones posteriores a 3.2.4.593 del clúster de HDInsight y sólo puede funcionar en los trabajos completados. Esto funciona en clústeres Windows y Linux.
+> [AZURE.NOTE] Esta característica solo está disponible para las versiones posteriores a 3.2.4.593 del clúster de HDInsight y sólo puede funcionar en los trabajos completados. Esto funciona en clústeres Windows y Linux.
 
 ![gráfico de rendimiento de tez de hive de hadoop](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
 
@@ -269,4 +267,4 @@ En este artículo, ha aprendido a conectarse a clústeres de HDInsight desde Vis
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

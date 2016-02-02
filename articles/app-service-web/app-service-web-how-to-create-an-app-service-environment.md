@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="10/26/2015" 
+	ms.date="01/14/2016" 
 	ms.author="ccompy"/>
 
 # Creación de un entorno del Servicio de aplicaciones #
@@ -47,7 +47,7 @@ La experiencia de creación de un ASE tiene un conjunto de valores predeterminad
 - Grupo de trabajo con recursos de proceso 2 P1
 - Una sola dirección IP que se usará para SSL de IP
 
-Este es el tamaño mínimo de un ASE. Los grupos de servidores front-end requieren P2 o superior. Asegúrese de seleccionar la suscripción en la que desea que esté el ASE. Las únicas cuentas que puede usar el ASE para hospedar contenido deben encontrarse en la suscripción utilizada para crearlo.
+Los grupos de servidores front-end requieren P2 o superior. Asegúrese de seleccionar la suscripción en la que desea que esté el ASE. Las únicas cuentas que puede usar el ASE para hospedar contenido deben encontrarse en la suscripción utilizada para crearlo.
 
 ![][1]
 
@@ -155,4 +155,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

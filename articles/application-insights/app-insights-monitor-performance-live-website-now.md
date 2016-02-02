@@ -24,7 +24,7 @@ El Monitor de estado de Application Insights de Visual Studio permite diagnostic
 
 ![gráficos de ejemplo](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
-> [AZURE.TIP]Existen varios artículos sobre cómo configurar [aplicaciones web en directo de J2EE](app-insights-java-live.md) y [Servicios en la nube de Azure](app-insights-cloudservices.md).
+> [AZURE.TIP] Existen varios artículos sobre cómo configurar [aplicaciones web en directo de J2EE](app-insights-java-live.md) y [Servicios en la nube de Azure](app-insights-cloudservices.md).
 
 
 Puede optar entre tres formas de aplicar Application Insights a sus aplicaciones web IIS:
@@ -99,7 +99,7 @@ En el panel de control de la aplicación web de Azure, agregue la extensión App
 
 ## Visualización de la telemetría de rendimiento
 
-Inicie sesión en el [Portal de Azure](http://portal.azure.com), examine Application Insights y abra el recurso que ha creado.
+Inicie sesión en el [Portal de Azure](https://portal.azure.com), examine Application Insights y abra el recurso que ha creado.
 
 ![Elija Examinar, Application Insights y, después, seleccione su aplicación.](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
@@ -136,7 +136,7 @@ Puede profundizar en las excepciones específicas (de los últimos siete días) 
 
 ## Muestreo
 
-Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Aprenda más sobre el muestreo](app-insights-sampling.md).
+Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Aprenda más sobre el muestreo.](app-insights-sampling.md)
 
 
 ## Solución de problemas
@@ -220,4 +220,4 @@ La compatibilidad de IIS es: IIS 7, 7.5, 8 y 8.5 (se requiere IIS)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

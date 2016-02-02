@@ -30,12 +30,12 @@
    - Dirección IP para el servidor DNS principal
    - Dirección IP para el servidor NTP principal
    
-      >[AZURE.NOTE]Tendrá que esperar unos minutos para que se apliquen la máscara de subred y la configuración de DNS. Si recibe el mensaje de error «El dispositivo no está listo», compruebe la conexión de red física en la interfaz de red DATA 0 de su controlador activo.
+      >[AZURE.NOTE] Tendrá que esperar unos minutos para que se apliquen la máscara de subred y la configuración de DNS. Si recibe el mensaje de error «El dispositivo no está listo», compruebe la conexión de red física en la interfaz de red DATA 0 de su controlador activo.
 
 8. (Opcional) Configure el servidor proxy web. Aunque la configuración del proxy web es opcional, **tenga en cuenta que, si usa un proxy web, solo puede configurarlo aquí**. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](storsimple-configure-web-proxy.md). Si surge algún problema durante este paso, vea la guía de solución de problemas de [Errores durante la configuración del proxy web](storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings).
  
 
-      >[AZURE.NOTE]También puede presionar Ctrl+C en cualquier momento para salir del Asistente para instalación. Se conservarán todos los valores de configuración que aplicó antes de emitir este comando.
+      >[AZURE.NOTE] También puede presionar Ctrl+C en cualquier momento para salir del Asistente para instalación. Se conservarán todos los valores de configuración que aplicó antes de emitir este comando.
 
 9. Por motivos de seguridad, la contraseña del administrador del dispositivo expira después de la primera sesión y deberá cambiarla para sesiones posteriores. Cuando se le solicite, proporcione una contraseña de administrador del dispositivo. Una contraseña de administrador del dispositivo válida debe tener entre 8 y 15 caracteres. La contraseña debe contener una combinación de caracteres en minúsculas, caracteres en mayúsculas, números y caracteres especiales.
 
@@ -53,7 +53,7 @@
 
 12. Una vez registrado el dispositivo, aparecerá una clave de cifrado de datos de servicio. Copie esta clave y guárdela en un lugar seguro.
 	
-	> [AZURE.WARNING]Esta clave se solicitará junto con la clave de registro de servicio para registrar dispositivos adicionales con el servicio de Administrador de StorSimple. Consulte [Seguridad de StorSimple](../articles/storsimple/storsimple-security.md) para obtener más información sobre esta clave.
+	> [AZURE.WARNING] Esta clave se solicitará junto con la clave de registro de servicio para registrar dispositivos adicionales con el servicio de Administrador de StorSimple. Consulte [Seguridad de StorSimple](../articles/storsimple/storsimple-security.md) para obtener más información sobre esta clave.
 
      ![Registrar el dispositivo 6 de StorSimple](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice6-include.png)
 
@@ -68,12 +68,12 @@
    
     ![Página de dispositivos de StorSimple](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png)
   
-      >[AZURE.IMPORTANT]Después de que el dispositivo esté en línea, conecta los cables de red que desconectaste al principio de este paso.
+      >[AZURE.IMPORTANT] Después de que el dispositivo esté en línea, conecta los cables de red que desconectaste al principio de este paso.
 
 Después de que el dispositivo se haya registrado correctamente y no esté en línea, puede ejecutar el `Test-HcsmConnection -Verbose` para asegurarse de que la conectividad de red es correcta. Para conocer el uso detallado de este cmdlet, vaya a [Referencia del cmdlet para Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx).
 
 ![Vídeo disponible](./media/storsimple-configure-and-register-device/Video_icon.png) **Vídeo disponible**
 
-Para ver un vídeo que muestra cómo configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple, haga clic [aquí](http://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
+Para ver un vídeo que muestra cómo configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple, haga clic [aquí](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -155,4 +155,4 @@ En este escenario, los cambios diferenciales de la replicación se envían desde
 
 [Prepárese para la implementación](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

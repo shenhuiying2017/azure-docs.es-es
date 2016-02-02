@@ -25,7 +25,7 @@ Cuando inicia Automatización de Azure por primera vez, debe crear al menos una 
 
 Los recursos de Automatización de cada cuenta de Automatización están asociados con una sola región de Azure, pero las cuentas de Automatización pueden administrar servicios de Azure en cualquier región. El principal motivo para crear cuentas de Automatización en distintas regiones sería si tiene directivas que requieren que los datos y recursos se aíslen en una región específica.
 
->[AZURE.NOTE]A las cuentas de automatización y los recursos que contienen, que se crean con el Portal de vista previa de Azure, no se puede acceder desde el portal de Azure. Si desea administrar estas cuentas o sus recursos con Windows PowerShell, debe usar los módulos del Administrador de recursos de Azure.
+>[AZURE.NOTE] A las cuentas de automatización y los recursos que contienen, que se crean con el Portal de vista previa de Azure, no se puede acceder desde el portal de Azure. Si desea administrar estas cuentas o sus recursos con Windows PowerShell, debe usar los módulos del Administrador de recursos de Azure.
 >
 >Las cuentas de automatización que se crean con el portal de Azure se pueden administrar a través de cualquiera de los portales y de cualquiera de los conjuntos de cmdlets. Tras crear la cuenta da igual la forma en que cree y administre los recursos en la misma. Si piensa seguir usando el portal de Azure, debe utilizarlo en lugar del Portal de vista previa de Azure para crear las cuentas de automatización.
 
@@ -37,7 +37,7 @@ En caso de que se produzca un problema con su cuenta de Azure, como un pago venc
 
 Cuando tiene acceso a los recursos de Azure mediante los [cmdlets de Azure](http://msdn.microsoft.com/library/azure/jj554330.aspx), deberá proporcionar autenticación a su suscripción de Azure. En la Automatización de Azure, esto se hace con una cuenta profesional en Azure Active Directory que configure como administrador para su suscripción. Luego puede crear una [credencial](http://msdn.microsoft.com/library/dn940015.aspx) para esta cuenta de usuario y utilizarla con [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) en el runbook.
 
->[AZURE.NOTE]No es posible usar cuentas de Microsoft, anteriormente conocidas como LiveID, con Automatización de Azure.
+>[AZURE.NOTE] No es posible usar cuentas de Microsoft, anteriormente conocidas como LiveID, con Automatización de Azure.
 
 ## Creación de un usuario nuevo de Azure Active Directory para administrar una suscripción de Azure
 
@@ -62,7 +62,7 @@ Una cuenta de automatización es un contenedor para los recursos de automatizaci
 
 3. En la hoja **Agregar cuenta de automatización**, configure los detalles de la cuenta de automatización.
 
->[AZURE.NOTE]Cuando se crea una cuenta de automatización mediante el Portal de vista previa de Azure, la cuenta y todos los recursos asociados a ella no volverán al Portal de administración clásico.
+>[AZURE.NOTE] Cuando se crea una cuenta de automatización mediante el Portal de vista previa de Azure, la cuenta y todos los recursos asociados a ella no volverán al Portal de administración clásico.
 
 A continuación se muestra la lista de parámetros de configuración:
 
@@ -76,7 +76,7 @@ A continuación se muestra la lista de parámetros de configuración:
 
 ![Creación de cuenta](media/automation-configuration/automation-01-create-automation-account.png)
 
->[AZURE.NOTE]Cuando una cuenta de automatización creada mediante el Portal de administración clásico se [mueve a otro grupo de recursos](../resource-group-move-resources.md) mediante el Portal de vista previa de Azure, la cuenta de automatización ya no estará disponible en el Portal de Azure clásico, ya que las cuentas de administrador de recursos de Azure no se admiten en el Portal de administración clásico.
+>[AZURE.NOTE] Cuando una cuenta de automatización creada mediante el Portal de administración clásico se [mueve a otro grupo de recursos](../resource-group-move-resources.md) mediante el Portal de vista previa de Azure, la cuenta de automatización ya no estará disponible en el Portal de Azure clásico, ya que las cuentas de administrador de recursos de Azure no se admiten en el Portal de administración clásico.
 
 
 
@@ -91,7 +91,7 @@ Puede recuperar la credencial en un runbook mediante el uso de la actividad [Get
 Deberá repetir estas líneas después de cada [punto de control](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) de su runbook. Si el runbook se suspende y luego se reanuda en otro trabajo, se deberá volver a realizar la autenticación.
 
 ## Artículos relacionados
-- [Azure Automation: Authenticating to Azure using Azure Active Directory (Automatización de Azure: autenticación en Azure mediante Azure Active Directory)](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
+- [Azure Automation: Authenticating to Azure using Azure Active Directory (Automatización de Azure: autenticación en Azure mediante Azure Active Directory)](https://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

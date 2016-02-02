@@ -28,7 +28,7 @@ Este artículo asume que tiene un conocimiento práctico de C# y Visual Studio y
 
 ### Cuentas
 
-- **Cuenta de Azure**: si todavía no dispone de una suscripción de Azure, puede crear una cuenta de evaluación gratuita en pocos minutos en [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+- **Cuenta de Azure**: si todavía no dispone de una suscripción de Azure, puede crear una cuenta de evaluación gratuita en pocos minutos en [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Cuenta de Lote**: cuando ya tenga una suscripción de Azure, consulte [Creación y administración de una cuenta de Lote de Azure en el Portal de Azure](batch-account-create-portal.md).
 - **Cuenta de Almacenamiento**: consulte la sección *Crear una cuenta de almacenamiento* en [Acerca de cuentas de almacenamiento de Azure](../storage-create-storage-account.md).
 
@@ -88,7 +88,7 @@ Puede encontrar las credenciales de la cuenta de Lote y de Almacenamiento en la 
 
 Ahora que ha actualizado el proyecto con sus credenciales, haga clic con el botón derecho en la solución en el *Explorador de soluciones* y haga clic en **Generar solución**. Si se le solicita, confirme la restauración de los paquetes NuGet.
 
-> [AZURE.TIP]Si no se restauran automáticamente los paquetes NuGet, o si ve errores relativos a un error al restaurar los paquetes, asegúrese de que tiene instalado el [Administrador de paquetes NuGet][nuget_packagemgr] y después habilite la descarga de los paquetes que falten. Consulte [Enabling Package Restore During Build][nuget_restore] (Habilitación de la restauración de paquetes durante la compilación) para habilitar la descarga de paquetes.
+> [AZURE.TIP] Si no se restauran automáticamente los paquetes NuGet, o si ve errores relativos a un error al restaurar los paquetes, asegúrese de que tiene instalado el [Administrador de paquetes NuGet][nuget_packagemgr] y después habilite la descarga de los paquetes que falten. Consulte [Enabling Package Restore During Build][nuget_restore] (Habilitación de la restauración de paquetes durante la compilación) para habilitar la descarga de paquetes.
 
 En las secciones siguientes, desglosaremos la aplicación de ejemplo en los pasos que lleva a cabo para procesar una carga de trabajo en el servicio Lote y se explican esos pasos con detalle. Se recomienda hacer referencia a la solución abierta en Visual Studio mientras completa el resto de este artículo, ya que no se tratan todas las líneas de código del ejemplo.
 
@@ -234,7 +234,7 @@ Las firmas de acceso compartido son cadenas que, cuando se incluyen como parte d
 
 - **SAS de contenedor**: como cada tarea finaliza su trabajo en el nodo de ejecución, carga el archivo de salida en el contenedor *output* de Almacenamiento de Azure. Para ello, la propiedad TaskApplication usa una SAS de contenedor que proporciona acceso de escritura al contenedor como parte de la ruta de acceso al cargar el archivo. La obtención de la SAS de contenedor es similar a la obtención de la SAS de blob y, en DotNetTutorial, encontrará que el método auxiliar `GetContainerSasUrl` llama a [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] para hacerlo. Podrá leer más sobre cómo la propiedad TaskApplication usa la SAS de contenedor en el paso 6, más abajo, "Supervisar tareas".
 
-> [AZURE.TIP]Consulte la serie de dos partes sobre las firmas de acceso compartido, [Firmas de acceso compartido, Parte 1: Descripción del modelo de firmas de acceso compartido](./../storage/storage-dotnet-shared-access-signature-part-1.md) y [Firmas de acceso compartido, Parte 2: Creación y uso de una firma de acceso compartido con el servicio BLOB](./../storage/storage-dotnet-shared-access-signature-part-2.md), para más información sobre cómo proporcionar acceso seguro a los datos de la cuenta de almacenamiento.
+> [AZURE.TIP] Consulte la serie de dos partes sobre las firmas de acceso compartido, [Firmas de acceso compartido, Parte 1: Descripción del modelo de firmas de acceso compartido](./../storage/storage-dotnet-shared-access-signature-part-1.md) y [Firmas de acceso compartido, Parte 2: Creación y uso de una firma de acceso compartido con el servicio BLOB](./../storage/storage-dotnet-shared-access-signature-part-2.md), para más información sobre cómo proporcionar acceso seguro a los datos de la cuenta de almacenamiento.
 
 ## Paso 3: Crear el grupo de Lote
 
@@ -288,7 +288,7 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
 
 Al crear un grupo con el método [CreatePool][net_pool_create], se especifica un número de parámetros, como el número de nodos de ejecución, el [tamaño de los nodos](./../cloud-services/cloud-services-sizes-specs.md) y el [sistema operativo](./../cloud-services/cloud-services-guestos-update-matrix.md) de los nodos.
 
-> [AZURE.IMPORTANT]Se cobrará por recursos de proceso en Lote. Para minimizar el costo, puede reducir `targetDedicated` a 1 antes de ejecutar el ejemplo.
+> [AZURE.IMPORTANT] Se cobrará por recursos de proceso en Lote. Para minimizar el costo, puede reducir `targetDedicated` a 1 antes de ejecutar el ejemplo.
 
 Junto con estas propiedades de nodo físicas, también puede especificar una clase [StartTask][net_pool_starttask] para el grupo. La clase StartTask se ejecutará en cada nodo cuando el nodo se una al grupo, así como cada vez que se reinicie el nodo. Esta clase es especialmente útil para instalar aplicaciones en nodos de ejecución antes de la ejecución de tareas. Por ejemplo, si las tareas procesan datos mediante scripts de Python, puede usar una clase StartTask para instalar Python en los nodos de ejecución.
 
@@ -296,7 +296,7 @@ En esta aplicación de ejemplo, la clase StartTask copia los archivos que descar
 
 En el fragmento de código anterior destaca también el uso de dos variables de entorno en la propiedad *CommandLine* de la clase StartTask: `%AZ_BATCH_TASK_WORKING_DIR%` y `%AZ_BATCH_NODE_SHARED_DIR%`. Cada nodo de ejecución dentro de un grupo de Lote se configura automáticamente con un número de variables de entorno específicas a Lote y cualquier proceso que ejecute una tarea tendrá acceso a estas variables de entorno.
 
-> [AZURE.TIP]Para obtener más información acerca de las variables de entorno disponibles en los nodos de ejecución en un grupo de Lote, así como información sobre los directorios de trabajo de las tareas, consulte las secciones **Configuración del entorno para las tareas** y **Archivos y directorios** del artículo [Información general de las características de Lote de Azure](batch-api-basics.md).
+> [AZURE.TIP] Para obtener más información acerca de las variables de entorno disponibles en los nodos de ejecución en un grupo de Lote, así como información sobre los directorios de trabajo de las tareas, consulte las secciones **Configuración del entorno para las tareas** y **Archivos y directorios** del artículo [Información general de las características de Lote de Azure](batch-api-basics.md).
 
 ## Paso 4: Crear el trabajo de Lote
 
@@ -356,7 +356,7 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
 }
 ```
 
-> [AZURE.IMPORTANT]Al acceder a las variables de entorno como `%AZ_BATCH_NODE_SHARED_DIR%` o al ejecutar una aplicación que no se encuentra en la variable `PATH` del nodo, las líneas de comandos de la tarea deben ir precedidas de `cmd /c` para ejecutar explícitamente el intérprete de comandos e indicarle que se va a finalizar después de ejecutar el comando. Este requisito no es necesario si las tareas ejecutan una aplicación en la ruta de acceso del nodo (como *robocopy.exe* o *powershell.exe*) y no se utiliza ninguna variable de entorno.
+> [AZURE.IMPORTANT] Al acceder a las variables de entorno como `%AZ_BATCH_NODE_SHARED_DIR%` o al ejecutar una aplicación que no se encuentra en la variable `PATH` del nodo, las líneas de comandos de la tarea deben ir precedidas de `cmd /c` para ejecutar explícitamente el intérprete de comandos e indicarle que se va a finalizar después de ejecutar el comando. Este requisito no es necesario si las tareas ejecutan una aplicación en la ruta de acceso del nodo (como *robocopy.exe* o *powershell.exe*) y no se utiliza ninguna variable de entorno.
 
 Dentro del bucle `foreach` en el fragmento de código anterior, puede ver que la línea de comandos para la tarea se construye de forma que se pasan tres argumentos de línea de comandos a *TaskApplication.exe*:
 
@@ -521,7 +521,7 @@ private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobCl
 }
 ```
 
-> [AZURE.NOTE]La llamada a `DownloadBlobsFromContainerAsync` en la aplicación *DotNetTutorial* especifica los archivos se deben descargar los archivos en su carpeta `%TEMP%`. Puede modificar si lo desea esta ubicación de salida.
+> [AZURE.NOTE] La llamada a `DownloadBlobsFromContainerAsync` en la aplicación *DotNetTutorial* especifica los archivos se deben descargar los archivos en su carpeta `%TEMP%`. Puede modificar si lo desea esta ubicación de salida.
 
 ## Paso 8: Eliminar contenedores
 
@@ -576,7 +576,7 @@ if (response != "n" && response != "no")
 }
 ```
 
-> [AZURE.IMPORTANT]Tenga en cuenta que se le cobrará por los recursos de proceso y la eliminación de grupos sin usar reducirá el costo. Tenga en cuenta que al eliminar un grupo elimina todos los nodos de ejecución que se encuentran en ese grupo y que no se podrán recuperar los datos de los nodos cuando se elimine el grupo.
+> [AZURE.IMPORTANT] Tenga en cuenta que se le cobrará por los recursos de proceso y la eliminación de grupos sin usar reducirá el costo. Tenga en cuenta que al eliminar un grupo elimina todos los nodos de ejecución que se encuentran en ese grupo y que no se podrán recuperar los datos de los nodos cuando se elimine el grupo.
 
 ## Ejecución del ejemplo *DotNetTutorial*
 
@@ -680,4 +680,4 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenciales de Almacenamiento en el Portal"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Flujo de trabajo de solución de Lote (diagrama mínimo)"
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

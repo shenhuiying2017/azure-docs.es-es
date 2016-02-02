@@ -22,13 +22,13 @@
 
 Apache Storm es un sistema de cálculo distribuido, escalable, con tolerancia a errores y en tiempo real para el procesamiento de secuencias de datos. Con Storm en HDInsight de Azure, puede crear un clúster de Storm basado en la nube que realice análisis en tiempo real de grandes cantidades de datos en tiempo real.
 
-> [AZURE.NOTE]En los pasos de este artículo se crea un clúster de HDInsight basado en Linux. A fin de conocer los pasos para crear un clúster de Storm en HDInsight basado en Windows, consulte [Tutorial de Apache Storm: Introducción a las muestras de inicio de Storm con análisis de datos en HDInsight](hdinsight-apache-storm-tutorial-get-started.md).
+> [AZURE.NOTE] En los pasos de este artículo se crea un clúster de HDInsight basado en Linux. A fin de conocer los pasos para crear un clúster de Storm en HDInsight basado en Windows, consulte [Tutorial de Apache Storm: Introducción a las muestras de inicio de Storm con análisis de datos en HDInsight](hdinsight-apache-storm-tutorial-get-started.md).
 
 ## Antes de empezar
 
 Debe cumplir los siguientes requisitos previos para poder completar correctamente este tutorial sobre Apache Storm.
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - **Familiaridad con SSH y SCP**. Para obtener más información sobre el uso de SSH y SCP con HDInsight, vea lo siguiente:
 
@@ -52,13 +52,13 @@ Storm en HDInsight usa el almacenamiento de blobs de Azure para almacenar archiv
 
 	Seleccione __Ubuntu__ para crear un clúster de HDInsight basado en Linux.
     
-    > [AZURE.NOTE]Deje el campo __Versión__ en el valor predeterminado cuando realice los pasos de este documento.
+    > [AZURE.NOTE] Deje el campo __Versión__ en el valor predeterminado cuando realice los pasos de este documento.
 	
 4. Si tienes más de una suscripción, selecciona la entrada __Suscripción__ entrada para seleccionar la suscripción de Azure que se usará para el clúster.
 
 5. Para el __Grupo de recursos__, puedes seleccionar la entrada para ver una lista de grupos de recursos existentes y después seleccionar en el que quieras crear el clúster. También puede seleccionar __Crear nuevo__ y escribir el nombre del nuevo grupo de recursos. Aparecerá una marca de verificación verde para indicar si el nuevo nombre de grupo está disponible.
 
-	> [AZURE.NOTE]Esta entrada se establecerá de manera predeterminada en uno de sus grupos de recursos existentes, si hay alguno disponible.
+	> [AZURE.NOTE] Esta entrada se establecerá de manera predeterminada en uno de sus grupos de recursos existentes, si hay alguno disponible.
 
 6. Selecciona __Credenciales__ y después escribe una __Contraseña de inicio de sesión de clúster__ y un __Nombre de usuario de inicio de sesión de clúster__. También tienes que especificar un __Nombre de usuario de SSH__ y una __CONTRASEÑA__ o una __CLAVE PÚBLICA__, que se usará para autenticar al usuario de SSH. Por último, use el botón __Seleccionar__ para establecer las credenciales.
 
@@ -86,11 +86,11 @@ Storm en HDInsight usa el almacenamiento de blobs de Azure para almacenar archiv
 	
 	- __Ubicación__: la región geográfica en la que se encontrará o donde se creará la cuenta de almacenamiento.
 	
-		> [AZURE.IMPORTANT]Al seleccionar la ubicación del origen de datos predeterminado también establecerá la ubicación del clúster de HDInsight. El origen de datos predeterminado y el clúster deben encontrarse en la misma región.
+		> [AZURE.IMPORTANT] Al seleccionar la ubicación del origen de datos predeterminado también establecerá la ubicación del clúster de HDInsight. El origen de datos predeterminado y el clúster deben encontrarse en la misma región.
     
     - __Identidad de AAD del clúster__: utilice esta opción para seleccionar una identidad de Azure Active Directory que usará el clúster para acceder al Almacén de Azure Data Lake.
     
-        > [AZURE.NOTE]No se usa en este documento y puede dejarse en su valor predeterminado. Para más información sobre el uso de esta entrada y del Almacén de Azure Data Lake con HDInsight, consulte [Aprovisionamiento de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md).
+        > [AZURE.NOTE] No se usa en este documento y puede dejarse en su valor predeterminado. Para más información sobre el uso de esta entrada y del Almacén de Azure Data Lake con HDInsight, consulte [Aprovisionamiento de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md).
 		
 	- __Seleccionar__: use esta opción para guardar la configuración del origen de datos.
 	
@@ -114,7 +114,7 @@ Storm en HDInsight usa el almacenamiento de blobs de Azure para almacenar archiv
 	| ------------------ | --------------------- |
 	| ![Indicador de aprovisionamiento en el panel de inicio](./media/hdinsight-apache-storm-tutorial-get-started-linux/provisioning.png) | ![Icono de clúster aprovisionado](./media/hdinsight-apache-storm-tutorial-get-started-linux/provisioned.png) |
 
-	> [AZURE.NOTE]El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada __Notificaciones__ en la parte izquierda de la página para comprobar el proceso de aprovisionamiento.
+	> [AZURE.NOTE] El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada __Notificaciones__ en la parte izquierda de la página para comprobar el proceso de aprovisionamiento.
 
 ##Ejecución de una muestra de inicio de Storm en HDInsight
 
@@ -136,11 +136,11 @@ Los ejemplos de [storm-starter](https://github.com/apache/storm/tree/master/exam
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology wordcount
 		
-	> [AZURE.NOTE]La parte `0.9.3.2.2.4.9-1` del nombre del archivo puede cambiar conforme HDinsight se actualiza con las versiones más recientes de Storm.
+	> [AZURE.NOTE] La parte `0.9.3.2.2.4.9-1` del nombre del archivo puede cambiar conforme HDinsight se actualiza con las versiones más recientes de Storm.
 
     Esto iniciará la topología de WordCount de ejemplo en el clúster, con un nombre descriptivo de "wordcount". Generará frases aleatoriamente y contará la aparición de cada palabra en las oraciones.
 
-    > [AZURE.NOTE]Al enviar la topología al clúster, primero debe copiar el archivo jar que contiene el clúster antes de usar el comando `storm`. Esto se puede lograr mediante el comando `scp` desde el cliente donde se encuentra el archivo. Por ejemplo: `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`.
+    > [AZURE.NOTE] Al enviar la topología al clúster, primero debe copiar el archivo jar que contiene el clúster antes de usar el comando `storm`. Esto se puede lograr mediante el comando `scp` desde el cliente donde se encuentra el archivo. Por ejemplo: `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`.
     >
     > El ejemplo de WordCount, y otros ejemplos de inicio de Storm, ya están incluidos en el clúster en `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
@@ -152,7 +152,7 @@ Siga estos pasos para supervisar la topología mediante la interfaz de usuario d
 
 1. Abra un explorador web en https://CLUSTERNAME.azurehdinsight.net/stormui, donde __CLUSTERNAME__ es el nombre del clúster. Se abrirá la interfaz de usuario de Storm.
 
-	> [AZURE.NOTE]Si se le pide que ofrezca un nombre de usuario y una contraseña, escriba el administrador de clústeres (admin) y la contraseña que usó al crear el clúster.
+	> [AZURE.NOTE] Si se le pide que ofrezca un nombre de usuario y una contraseña, escriba el administrador de clústeres (admin) y la contraseña que usó al crear el clúster.
 
 2. En el **resumen de la topología**, seleccione la entrada **wordcount** de la columna **Nombre**. Se mostrará más información sobre la topología.
 
@@ -162,7 +162,7 @@ Siga estos pasos para supervisar la topología mediante la interfaz de usuario d
 
 	* **Estadísticas de topología**: información básica sobre el rendimiento de la topología, organizada en ventanas de tiempo.
 
-		> [AZURE.NOTE]Al seleccionar una ventana de tiempo específica, se cambia la ventana de tiempo de la información que aparece en otras secciones de la página.
+		> [AZURE.NOTE] Al seleccionar una ventana de tiempo específica, se cambia la ventana de tiempo de la información que aparece en otras secciones de la página.
 
 	* **Spouts**: información básica sobre spouts, entre la que se incluye el último error que ha devuelto cada spout.
 
@@ -188,7 +188,7 @@ Siga estos pasos para supervisar la topología mediante la interfaz de usuario d
 
 	* **Estadísticas de spouts y bolts**: información básica sobre el rendimiento de los componentes, organizada en ventanas de tiempo.
 
-		> [AZURE.NOTE]Al seleccionar una ventana de tiempo específica, se cambia la ventana de tiempo de la información que aparece en otras secciones de la página.
+		> [AZURE.NOTE] Al seleccionar una ventana de tiempo específica, se cambia la ventana de tiempo de la información que aparece en otras secciones de la página.
 
 	* **Estadísticas de entrada** (solo bolt): información sobre los componentes que generan los datos que consume el bolt.
 
@@ -233,4 +233,4 @@ En este tutorial de Apache Storm, usó el inicio de Storm para aprender a crear 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

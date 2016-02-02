@@ -89,7 +89,7 @@ Los espacios de nombres y las entidades de mensajería del Bus de servicio se pu
 
 5.  Después de asegurarse de que el nombre de espacio de nombres está disponible, seleccione el país o región en el que debe hospedarse el espacio de nombres (asegúrese de que usa el mismo país o la misma región en los que está realizando la implementación de los recursos de proceso).
 
-    > [AZURE.IMPORTANT]seleccione la *misma región* que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
+    > [AZURE.IMPORTANT] seleccione la *misma región* que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
 
 6.	Deje los demás campos del cuadro de diálogo con los valores predeterminados (**Mensajería** y **Nivel estándar**) y, a continuación, haga clic en la marca de verificación. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
 
@@ -402,7 +402,7 @@ Ejecute la aplicación para comprobar que funciona.
 
 ## Preparación de la aplicación para que se implemente en Azure
 
-Cualquier aplicación se puede implementar en un servicio en la nube de Azure o en un sitio web de Azure. Para obtener más información sobre la diferencia entre sitios web y servicios en la nube, consulte [Modelos de ejecución de Azure][executionmodels]. Para obtener información sobre cómo implementar la aplicación en un sitio web de Azure, consulte [Implementación de una aplicación web ASP.NET en un sitio web de Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). Esta sección contiene los pasos detallados para implementar la aplicación en un servicio en la nube de Azure.
+Cualquier aplicación se puede implementar en un servicio en la nube de Azure o en un sitio web de Azure. Para obtener más información sobre la diferencia entre sitios web y servicios en la nube, consulte [Modelos de ejecución de Azure][executionmodels]. Para obtener información sobre cómo implementar la aplicación en un sitio web de Azure, consulte [Implementación de una aplicación web ASP.NET en un sitio web de Azure](https://azure.microsoft.com/develop/net/tutorials/get-started/). Esta sección contiene los pasos detallados para implementar la aplicación en un servicio en la nube de Azure.
 
 Para implementar una aplicación en un servicio en la nube, va a agregar a la solución un proyecto de implementación de un proyecto de servicio en la nube. El proyecto de implementación contiene información de configuración necesaria para ejecutar correctamente la aplicación en la nube.
 
@@ -503,7 +503,7 @@ El siguiente paso es conectar el servidor de productos local con la aplicación 
 
 2.  Para ver todas sus suscripciones, es posible que tenga que iniciar sesión.
 
-    Haga clic en **Sign in to see more subscriptions**:
+    Haga clic en **Iniciar sesión para ver más suscripciones**:
 
     ![][27]
 
@@ -610,4 +610,4 @@ Para obtener más información sobre el bus de servicio, consulte los siguientes
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

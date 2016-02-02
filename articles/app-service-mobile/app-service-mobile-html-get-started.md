@@ -19,11 +19,9 @@
 
 #Creación de una aplicación HTML
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
-&nbsp;  
-<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
->[AZURE.IMPORTANT]Este tema no está admitido actualmente por Aplicaciones móviles porque se quitó temporalmente el inicio rápido para las aplicaciones HTML/JavaScript en el Portal de Azure. Tenemos previsto ponerlo próximamente. Gracias por su paciencia.
+>[AZURE.IMPORTANT] Este tema no está admitido actualmente por Aplicaciones móviles porque se quitó temporalmente el inicio rápido para las aplicaciones HTML/JavaScript en el Portal de Azure. Tenemos previsto ponerlo próximamente. Gracias por su paciencia.
 
 ##Información general
 
@@ -39,11 +37,11 @@ Completar este tutorial es un requisito previo para todos los tutoriales de apli
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * [Visual Studio Community 2013] o versión posterior.
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://tryappservice.azure.com/?appServiceName=mobile), donde podrá crear inmediatamente una aplicación móvil de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://tryappservice.azure.com/?appServiceName=mobile), donde podrá crear inmediatamente una aplicación móvil de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ##Creación de un nuevo back-end de aplicación móvil
 
@@ -65,7 +63,7 @@ Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usar
 
 ##Activación de CORS en el proyecto de servidor
 
-El uso compartido de recursos entre orígenes (CORS) es una manera de que la aplicación basada en la web indique desde qué dominios las solicitudes están seguras para que el explorador las permita. Debe agregar una entrada de CORS para cada sitio web que vaya a tener acceso a su back-end de aplicación móvil. La configuración de CORS se ajusta con los comportamientos estándar de API web de ASP.NET. Para más información, consulte [Habilitación de solicitudes entre orígenes en API web de ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api#enable-cors).
+El uso compartido de recursos entre orígenes (CORS) es una manera de que la aplicación basada en la web indique desde qué dominios las solicitudes están seguras para que el explorador las permita. Debe agregar una entrada de CORS para cada sitio web que vaya a tener acceso a su back-end de aplicación móvil. La configuración de CORS se ajusta con los comportamientos estándar de API web de ASP.NET. Para obtener más información, consulte [Habilitación de solicitudes entre orígenes en API web de ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api#enable-cors).
 
 De forma predeterminada, el proyecto de inicio rápido de cliente que descargará desde el portal se ejecuta en localhost en el puerto 8000. Por este motivo, la próxima vez, habilitará CORS para `http://localhost:8000` en el proyecto de servidor.
 
@@ -103,7 +101,7 @@ Después, implementará el proyecto habilitado para CORS en Azure.
 	+ **launch-mac.command** (equipos con Mac OS X)
 	+ **launch-linux.sh** (equipos con Linux)
 
-	> [AZURE.NOTE]En un equipo con Windows, escriba `R` cuando PowerShell le pida que confirme que desea ejecutar el script. Su explorador web podría advertirle de no ejecutar el script porque se ha descargado de Internet. Cuando esto ocurra, debe solicitar que el explorador continúe con la carga del script.
+	> [AZURE.NOTE] En un equipo con Windows, escriba `R` cuando PowerShell le pida que confirme que desea ejecutar el script. Su explorador web podría advertirle de no ejecutar el script porque se ha descargado de Internet. Cuando esto ocurra, debe solicitar que el explorador continúe con la carga del script.
 
 	De este modo se inicia un servidor web en su equipo local para hospedar la nueva aplicación.
 
@@ -115,7 +113,7 @@ Después, implementará el proyecto habilitado para CORS en Azure.
 
    	Esta acción envía una solicitud POST al nuevo back-end de aplicación móvil hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem del esquema de la aplicación móvil. El servicio devuelve los elementos almacenados en la tabla y se muestran los datos en la segunda columna de la aplicación.
 
-	> [AZURE.TIP]Puede revisar el código de acceso al servicio móvil para consultar e insertar datos; este se encuentra en el archivo app.js.
+	> [AZURE.TIP] Puede revisar el código de acceso al servicio móvil para consultar e insertar datos; este se encuentra en el archivo app.js.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -127,4 +125,4 @@ Después, implementará el proyecto habilitado para CORS en Azure.
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0128_2016-->

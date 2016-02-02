@@ -13,19 +13,18 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="10/13/2015"
+   ms.date="01/21/2015"
    ms.author="danlep"/>
 
 # Introducción a los cmdlets de lotes PowerShell de Azure
-Este artículo es una breve introducción a los cmdlets de Azure PowerShell que puede usar para administrar sus cuentas de Lote y obtener información acerca de sus trabajos de Lote y otros detalles.
+Esta es una breve introducción a los cmdlets de Azure PowerShell que puede usar para administrar sus cuentas de Lote y trabajar con sus recursos de Lote tales como grupos, trabajos y tareas. Con los cmdlets de Lote puede realizar muchas de las mismas tareas que puede realizar con las API de Lote y el Portal de Azure. Este artículo se basa en los cmdlets de Azure PowerShell versión 1.0 o posteriores.
 
-Para conocer la sintaxis detallada de cmdlet, escriba `get-help <Cmdlet_name>` o consulte la [referencia de cmdlets de Lote de Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+Para obtener una lista completa de los cmdlets de Lote y la sintaxis detallada de los cmdlets, consulte la [referencia de los cmdlets de Lote de Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
-[AZURE.INCLUDE [powershell-preview-include](../../includes/powershell-preview-include.md)]
 
 ## Requisitos previos
 
-* **Azure PowerShell**: los cmdlets de lote se envían en el módulo del Administrador de recursos de Azure. Consulte [Cmdlets del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/mt125356.aspx) para conocer los requisitos previos, las instrucciones de instalación y el uso básico.
+* **Azure PowerShell**: consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener instrucciones para descargar e instalar Azure PowerShell. Como los cmdlets de Lote de Azure se incluyen en el módulo Administrador de recursos de Azure, deberá ejecutar el cmdlet **Login-AzureRmAccount** para conectarse a su suscripción. Encontrará más detalles en [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 
 
@@ -36,7 +35,6 @@ Para conocer la sintaxis detallada de cmdlet, escriba `get-help <Cmdlet_name>` o
     ```
 
 ## Administrar claves y cuentas por lotes
-
 
 ### Crear una cuenta de lote
 
@@ -52,13 +50,13 @@ A continuación, cree una nueva cuenta de Lote en el grupo de recursos, especifi
 New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
 ```
 
-> [AZURE.NOTE]El nombre de la cuenta de proceso debe ser único para Azure, contener entre 3 y 24 caracteres y usar solo letras minúsculas y números.
+> [AZURE.NOTE] El nombre de la cuenta de proceso debe ser único para Azure, contener entre 3 y 24 caracteres y usar solo letras minúsculas y números.
 
 ### Obtener claves de acceso de cuenta
 **Get-AzureBatchAccountKeys** muestra las claves de acceso asociadas a una cuenta de Lote de Azure. Por ejemplo, ejecute lo siguiente para obtener las claves principales y secundarias de la cuenta que creó.
 
 ```
-$Account = Get-AzureBatchAccountKeys –AccountName <accountname>
+$Account = Get-AzureRmBatchAccountKeys –AccountName <accountname>
 
 $Account.PrimaryAccountKey
 
@@ -72,7 +70,7 @@ $Account.SecondaryAccountKey
 New-AzureRmBatchAccountKey -AccountName <account_name> -KeyType Primary
 ```
 
-> [AZURE.NOTE]Para generar una nueva clave secundaria, especifique "Secondary" para el parámetro **KeyType**. Deberá volver a generar las claves principales y secundarias por separado.
+> [AZURE.NOTE] Para generar una nueva clave secundaria, especifique "Secondary" para el parámetro **KeyType**. Deberá volver a generar las claves principales y secundarias por separado.
 
 ### Eliminar una cuenta de lote
 **Remove-AzureBatchAccount** elimina una cuenta de Lote. Por ejemplo:
@@ -83,11 +81,9 @@ Remove-AzureRmBatchAccount -AccountName <account_name>
 
 Cuando se le pida, confirme que desea quitar la cuenta. La eliminación de cuenta puede tardar unos minutos en completarse.
 
-## Consulta de trabajos, tareas y otros detalles
+## Creación de un objeto BatchAccountContext
 
-Use cmdlets como **Get-AzureBatchJob**, **Get-AzureBatchTask** y **Get-AzureBatchPool** para consultar las entidades creadas en una cuenta de Lote.
-
-Para usar estos cmdlets, primero deberá crear un objeto AzureBatchContext para almacenar el nombre de cuenta y las claves:
+Para crear y administrar grupos, trabajos, tareas y otros recursos en una cuenta de Lote, primero debe crear un objeto BatchAccountContext para almacenar el nombre de cuenta y las claves:
 
 ```
 $context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
@@ -95,7 +91,23 @@ $context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
 
 Aplique este contexto en los cmdlets que interactúan con el servicio de proceso por lotes mediante el parámetro **BatchContext**.
 
-> [AZURE.NOTE]De forma predeterminada, se utiliza la clave principal de la cuenta para la autenticación, pero se puede seleccionar explícitamente la clave para utilizar cambiando el objeto la propiedad **KeyInUse** del objeto BatchAccountContext: `$context.KeyInUse = "Secondary"`.
+> [AZURE.NOTE] De forma predeterminada, se utiliza la clave principal de la cuenta para la autenticación, pero se puede seleccionar explícitamente la clave para utilizar cambiando el objeto la propiedad **KeyInUse** del objeto BatchAccountContext: `$context.KeyInUse = "Secondary"`.
+
+
+
+## Creación y modificación de recursos de Lote
+Use cmdlets como **New-AzureBatchPool**, **New-AzureBatchJob** y **New-AzureBatchTask** para crear recursos en una cuenta de Lote. Hay cmdlets **Get-** y **Set-** correspondientes para actualizar las propiedades de los recursos existentes, y cmdlets **Remove-** para quitar recursos en una cuenta de Lote.
+
+Por ejemplo, el siguiente cmdlet crea un nuevo grupo de Lote configurado para usar máquinas virtuales de tamaño pequeño con la versión del sistema operativo más reciente de la familia 3 (Windows Server 2012), con el número de destino de nodos de proceso determinado por una fórmula de escalado automático. En este caso, la fórmula es simplemente $TargetDedicated=3, que indica que el número de nodos de proceso en el grupo es 3 como máximo. El parámetro **BatchContext** especifica una variable definida anteriormente *$context* como el objeto BatchAccountContext.
+
+```
+New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
+```
+
+
+## Consulta de grupos, trabajos, tareas y otros detalles
+
+Use cmdlets como **Get-AzureBatchPool**, **Get-AzureBatchJob** y **Get-AzureBatchTask** para consultar las entidades creadas en una cuenta de Lote.
 
 
 ### Consulta de datos
@@ -127,13 +139,7 @@ Get-AzureBatchPool -Id "myPool" -BatchContext $context
 ```
 El parámetro **Id** solo admite la búsqueda de id. completo, no con caracteres comodín ni filtros al estilo de OData.
 
-### Usar la canalización
 
-Los cmdlets de lote pueden aprovechar la canalización para enviar datos entre los cmdlets de PowerShell. Esto tiene el mismo efecto que si se especifica un parámetro, pero hace enumerar varias entidades de forma más fácil. Por ejemplo, lo siguiente busca todas las tareas en su cuenta:
-
-```
-Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
-```
 
 ### Uso del parámetro MaxCount
 
@@ -146,10 +152,18 @@ Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 
 Para quitar el límite superior, establezca **MaxCount** en 0 o menos.
 
+### Usar la canalización
+
+Los cmdlets de lote pueden aprovechar la canalización para enviar datos entre los cmdlets de PowerShell. Esto tiene el mismo efecto que si se especifica un parámetro, pero hace enumerar varias entidades de forma más fácil. Por ejemplo, lo siguiente busca todas las tareas en su cuenta:
+
+```
+Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
+```
+
 ## Temas relacionados
 * [Descarga de Azure PowerShell](http://go.microsoft.com/?linkid=9811175)
 * [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md)
 * [Referencia de cmdlets de Lote de Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Consulta eficaz del servicio Lote](batch-efficient-list-queries.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

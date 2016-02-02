@@ -23,13 +23,13 @@
 
 Apache Storm es un sistema de cálculo distribuido, escalable, con tolerancia a errores y en tiempo real para el procesamiento de secuencias de datos. Con Storm en HDInsight de Microsoft Azure, puede crear un clúster de Storm basado en la nube que realice análisis de macrodatos en tiempo real.
 
-> [AZURE.NOTE]En los pasos de este artículo se crea un clúster de HDInsight basado en Windows. Para conocer los pasos para crear un clúster Storm basado en Linux en HDInsight, consulte [Tutorial de Apache Storm: Introducción al ejemplo de inicio de Storm mediante el análisis de datos en HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md)
+> [AZURE.NOTE] En los pasos de este artículo se crea un clúster de HDInsight basado en Windows. Para conocer los pasos para crear un clúster Storm basado en Linux en HDInsight, consulte [Tutorial de Apache Storm: Introducción al ejemplo de inicio de Storm mediante el análisis de datos en HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md)
 
 ## Requisitos previos
 
 Debe cumplir los siguientes requisitos previos para poder completar correctamente este tutorial sobre Apache Storm.
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## Creación de un clúster de Storm
 
@@ -41,27 +41,27 @@ Storm en HDInsight usa el almacenamiento de blobs de Azure para almacenar archiv
 
 	![Creación de un clúster en el Portal de Azure](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
 
-3. Escriba un valor en __Nombre de clúster__ y seleccione __Storm__ como __Tipo de clúster__. Si está disponible, aparece una marca de verificación verde junto al __nombre de clúster__.
+3. Escriba un __Nombre de clúster__ y seleccione __Storm__ como __Tipo de clúster__. Si está disponible, aparece una marca de verificación verde junto a __Nombre de clúster__.
 
 	![Nombre del clúster, tipo de clúster y tipo de sistema operativo](./media/hdinsight-apache-storm-tutorial-get-started/clustername.png)
 
-4. Si tiene más de una suscripción, seleccione la entrada __Suscripción__ para seleccionar la suscripción de Azure que se usará para el clúster.
+4. Si tienes más de una suscripción, selecciona la entrada __Suscripción__ entrada para seleccionar la suscripción de Azure que se usará para el clúster.
 
-5. Como valor para __Grupo de recursos__, puede seleccionar la entrada para ver una lista de grupos de recursos existentes y después seleccionar en el que se quiera crear el clúster. También puede seleccionar __Crear nuevo__ y escribir el nombre del nuevo grupo de recursos. Aparece una marca de verificación verde para indicar si el nuevo nombre de grupo está disponible.
+5. Para el __Grupo de recursos__, puedes seleccionar la entrada para ver una lista de grupos de recursos existentes y después seleccionar en el que quieras crear el clúster. También puede seleccionar __Crear nuevo__ y, a continuación, escribir el nombre del nuevo grupo de recursos. Aparece una marca de verificación verde para indicar si el nuevo nombre de grupo está disponible.
 
-	> [AZURE.NOTE]Esta entrada se establece de manera predeterminada en uno de los grupos de recursos existentes, si hay alguno disponible.
+	> [AZURE.NOTE] Esta entrada se establece de manera predeterminada en uno de los grupos de recursos existentes, si hay alguno disponible.
 
 6. Seleccione __Credenciales__ y luego especifique la información correspondiente en __Nombre de usuario de inicio de sesión del clúster__ y __Contraseña de inicio de sesión de clúster__. Por último, use __Seleccionar__ para establecer las credenciales. Escritorio remoto no se usará en este documento, por lo que puede dejarlo deshabilitado.
 
 	![Hoja Credenciales de clúster](./media/hdinsight-apache-storm-tutorial-get-started/clustercredentials.png)
 
-6. En __Origen de datos__, puede seleccionar la entrada para elegir un origen de datos existente o crear uno nuevo.
+6. Para __Origen de datos__, puede seleccionar la entrada para elegir un origen de datos existente o crear uno nuevo.
 
 	![Hoja Origen de datos](./media/hdinsight-apache-storm-tutorial-get-started/datasource.png)
 
 	Actualmente puede seleccionar una cuenta de almacenamiento de Azure como origen de datos para un clúster de HDInsight. Use lo siguiente para comprender las entradas de la hoja __Origen de datos__.
 
-	- __Método de selección__: establézcalo en __De todas las suscripciones__ para habilitar la exploración de cuentas de almacenamiento en sus suscripciones. Establézcalo en __Tecla de acceso__ si desea especificar el __Nombre de almacenamiento__ y la __Tecla de acceso__ de una cuenta de almacenamiento existente.
+	- __Método de selección__: establézcalo en __De todas las suscripciones__ para habilitar la exploración de cuentas de almacenamiento en sus suscripciones. Establézcalo como __Tecla de acceso__ si desea especificar el __Nombre de almacenamiento__ y la __Tecla de acceso__ de una cuenta de almacenamiento existente.
 
 	- __Crear nuevo__: use esta opción para crear una nueva cuenta de almacenamiento. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparece una marca de verificación verde.
 
@@ -69,7 +69,7 @@ Storm en HDInsight usa el almacenamiento de blobs de Azure para almacenar archiv
 
 	- __Ubicación__: la región geográfica en la que se encuentra o donde se creará la cuenta de almacenamiento.
 
-		> [AZURE.IMPORTANT]Al seleccionar la ubicación del origen de datos predeterminado también establece la ubicación del clúster de HDInsight. El origen de datos predeterminado y el clúster deben encontrarse en la misma región.
+		> [AZURE.IMPORTANT] Al seleccionar la ubicación del origen de datos predeterminado también establece la ubicación del clúster de HDInsight. El origen de datos predeterminado y el clúster deben encontrarse en la misma región.
 
 	- __Seleccionar__: use esta opción para guardar la configuración del origen de datos.
 
@@ -89,7 +89,7 @@ Storm en HDInsight usa el almacenamiento de blobs de Azure para almacenar archiv
 	| ------------------ | --------------------- |
 	| ![Indicador de aprovisionamiento en el Panel de inicio](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) | ![Icono de clúster aprovisionado](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
 
-	> [AZURE.NOTE]El clúster tarda algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada __Notificaciones__ de la izquierda de la página para comprobar el proceso de aprovisionamiento.
+	> [AZURE.NOTE] El clúster tarda algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada __Notificaciones__ de la izquierda de la página para comprobar el proceso de aprovisionamiento.
 
 ## Ejecución de una muestra de inicio de Storm en HDInsight
 
@@ -103,7 +103,7 @@ El panel se encuentra en **https://&lt;clustername>.azurehdinsight.net//**, dond
 
 ![El portal de Azure con el vínculo al panel Storm](./media/hdinsight-apache-storm-tutorial-get-started/dashboard.png)
 
-> [AZURE.NOTE]Al conectarse con el panel, se le pide que escriba un nombre de usuario y una contraseña. Es el nombre del administrador (**admin**) y la contraseña que usó al crear el clúster.
+> [AZURE.NOTE] Al conectarse con el panel, se le pide que escriba un nombre de usuario y una contraseña. Se trata del nombre del administrador (**admin**) y la contraseña que usó al crear el clúster.
 
 Cuando se haya cargado el panel Storm, verá el formulario **Enviar topología**.
 
@@ -113,7 +113,7 @@ El formulario **Enviar topología** sirve para cargar y ejecutar archivos .jar q
 
 ### <a id="run"></a>Ejecución de la muestra de recuento de palabras desde el proyecto de inicio de Storm en GitHub
 
-Las muestras que se facilitan con el clúster incluyen ciertas variaciones de una topología de recuento de palabras. Estos ejemplos incluyen un **spout** que emite oraciones de forma aleatoria y **bolts** que dividen una frase en palabras individuales para, a continuación, contar cuántas veces se ha encontrado cada palabra. Estos ejemplos proceden de los [ejemplos de inicio de Storm](https://github.com/apache/storm/tree/master/examples/storm-starter), que forman parte de Apache Storm.
+Las muestras que se facilitan con el clúster incluyen ciertas variaciones de una topología de recuento de palabras. Estos ejemplos incluyen un **spout** que emite oraciones de forma aleatoria y **bolts** que dividen una frase en palabras individuales para, a continuación, contar cuántas veces se ha encontrado cada palabra. Estos ejemplos proceden de los [Ejemplos de inicio de Storm](https://github.com/apache/storm/tree/master/examples/storm-starter), que forman parte de Apache Storm.
 
 Siga estos pasos para ejecutar una muestra de inicio de Storm:
 
@@ -124,11 +124,11 @@ Siga estos pasos para ejecutar una muestra de inicio de Storm:
 	* **Nombre de la clase**: la clase en el archivo .jar que envía la topología.
 	* **Parámetros adicionales**: los parámetros que requiere la topología. En este ejemplo, el campo se usa para proporcionar un nombre descriptivo para la topología enviada.
 
-2. Haga clic en **Enviar**. Tras unos instantes, el campo **Resultado** muestra el comando usado para enviar el trabajo, así como los resultados del comando. El campo **Error** muestra los errores que se producen durante el envío de la topología.
+2. Haga clic en **Enviar**. Tras unos instantes, el campo **Resultado** muestra el comando usado para enviar el trabajo, así como los resultados del comando. El campo **Error** muestra los errores que se producen en el envío de la topología.
 
 	![Botón Enviar y resultados de WordCount de inicio de Storm.](./media/hdinsight-apache-storm-tutorial-get-started/submit-results.png)
 
-	> [AZURE.NOTE]Los resultados no indican que haya finalizado la topología: **una topología Storm, una vez iniciada, se ejecuta hasta que la detenga.** La topología de recuento de palabras genera frases aleatorias y mantiene un recuento del número de veces que encuentra cada palabra hasta que la detenga.
+	> [AZURE.NOTE] Los resultados no indican que haya finalizado la topología: **una topología Storm, una vez iniciada, se ejecuta hasta que la detenga.** La topología de recuento de palabras genera frases aleatorias y mantiene un recuento del número de veces que encuentra cada palabra hasta que la detenga.
 
 ### <a id="monitor"></a>Supervisión de la topología
 
@@ -140,7 +140,7 @@ La interfaz de usuario de Storm se puede usar para supervisar la topología.
 
 	En la página anterior, puede ver el tiempo que ha estado activa la topología, así como el número de trabajos, ejecutores y tareas que se usan.
 
-	> [AZURE.NOTE]La columna **Nombre** contiene el nombre descriptivo que se proporcionó anteriormente mediante el campo **Parámetros adicionales**.
+	> [AZURE.NOTE] La columna **Nombre** contiene el nombre descriptivo que se proporcionó anteriormente mediante el campo **Parámetros adicionales**.
 
 4. En el **resumen de la topología**, seleccione la entrada **wordcount** de la columna **Nombre**. Se muestra más información sobre la topología.
 
@@ -150,7 +150,7 @@ La interfaz de usuario de Storm se puede usar para supervisar la topología.
 
 	* **Estadísticas de topología**: información básica sobre el rendimiento de la topología, organizada en ventanas de tiempo.
 
-		> [AZURE.NOTE]Al seleccionar una ventana de tiempo específica, se cambia la ventana de tiempo de la información que aparece en otras secciones de la página.
+		> [AZURE.NOTE] Al seleccionar una ventana de tiempo específica, se cambia la ventana de tiempo de la información que aparece en otras secciones de la página.
 
 	* **Spouts**: información básica sobre spouts, entre la que se incluye el último error que ha devuelto cada spout.
 
@@ -176,7 +176,7 @@ La interfaz de usuario de Storm se puede usar para supervisar la topología.
 
 	* **Estadísticas de spouts y bolts**: información básica sobre el rendimiento de los componentes, organizada en ventanas de tiempo.
 
-		> [AZURE.NOTE]Al seleccionar una ventana de tiempo específica, se cambia la ventana de tiempo de la información que aparece en otras secciones de la página.
+		> [AZURE.NOTE] Al seleccionar una ventana de tiempo específica, se cambia la ventana de tiempo de la información que aparece en otras secciones de la página.
 
 	* **Estadísticas de entrada** (solo bolt): información sobre los componentes que generan los datos que consume el bolt.
 
@@ -197,11 +197,11 @@ La interfaz de usuario de Storm se puede usar para supervisar la topología.
 		2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
 
-	A partir de estos datos, puede ver que la palabra **seven** se ha repetido 1 493 957 veces. Ese es el número de veces que se ha encontrado desde que se inició esta topología.
+	A partir de estos datos, puede ver que la palabra **seven** se ha repetido 1 493 957 veces. Ese es el número de veces que se ha encontrado desde que se inició esta topología.
 
 ### Detención de la topología
 
-Vuelva a la página **Resumen de la topología** de la topología de recuento de palabras y seleccione **Eliminar** en la sección **Acciones de topología**. Cuando se le solicite, escriba 10 como los segundos de espera antes de detener la topología. Tras el período de tiempo de espera, ya no aparece la topología cuando visita la sección **IU de Storm** del panel.
+Vuelva a la página **Resumen de la topología** de la topología de recuento de palabras y seleccione **Eliminar** de la sección **Acciones de topología**. Cuando se le solicite, escriba 10 como los segundos de espera antes de detener la topología. Tras el período de tiempo de espera, ya no aparece la topología cuando visita la sección **IU de Storm** del panel.
 
 ## Resumen
 
@@ -211,7 +211,7 @@ En este tutorial de Apache Storm, usó el inicio de Storm para aprender a crear 
 
 * **Herramientas de HDInsight para Visual Studio**: las herramientas de HDInsight le permiten usar Visual Studio para enviar, supervisar y administrar topologías Storm de forma similar al panel Storm mencionado anteriormente. Las herramientas de HDInsight también ofrecen la posibilidad de crear topologías de Storm en C# e incluyen topologías de muestra que puede implementar y ejecutar en el clúster.
 
-	Para más información, consulte [Introducción al uso de herramientas de Hadoop en Visual Studio para HDInsight para ejecutar una consulta de Hive](hdinsight-hadoop-visual-studio-tools-get-started.md).
+	Para obtener más información, consulte [Introducción al uso de las herramientas de HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 * **Archivos de muestra**: el clúster de Storm en HDInsight ofrece varios ejemplos en el directorio **%STORM\_HOME%\\contrib**. Cada ejemplo debe contener lo siguiente:
 
@@ -223,7 +223,7 @@ En este tutorial de Apache Storm, usó el inicio de Storm para aprender a crear 
 
 	Use el comando 'jar' para extraer el código fuente o los documentos de Java. Por ejemplo, 'jar -xvf storm-starter-0.9.1.2.1.5.0.2057-javadoc.jar'.
 
-	> [AZURE.NOTE]Los documentos de Java constan de páginas web. Una vez extraídos, use un explorador para ver el archivo **index.html**.
+	> [AZURE.NOTE] Los documentos de Java constan de páginas web. Una vez extraídos, use un explorador para ver el archivo **index.html**.
 
 	Para obtener acceso a estas muestras, debe habilitar Escritorio remoto para el clúster de Storm en HDInsight y, después, copiar los archivos desde **%STORM\_HOME%\\contrib**.
 
@@ -239,4 +239,4 @@ En este tutorial de Apache Storm, usó el inicio de Storm para aprender a crear 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

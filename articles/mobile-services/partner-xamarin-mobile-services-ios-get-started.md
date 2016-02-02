@@ -41,7 +41,7 @@ La siguiente captura de pantalla muestra la aplicación final:
 
 Para completar este tutorial es necesario XCode y [Xamarin Studio] para OS X o el complemento Xamarin Visual Studio para Visual Studio en Windows. El ejemplo se ejecutará en iOS 5.0 y más reciente.
 
-> [AZURE.IMPORTANT]Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.IMPORTANT] Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-new-service"> </a>Creación de un servicio móvil
 
@@ -89,7 +89,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 	Esta acción envía una solicitud POST al nuevo servicio móvil hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El servicio móvil devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
 
-	> [AZURE.NOTE]Puede revisar el código de acceso al servicio móvil para consultar e insertar datos; este se encuentra en el archivo de C# TodoService.cs.
+	> [AZURE.NOTE] Puede revisar el código de acceso al servicio móvil para consultar e insertar datos; este se encuentra en el archivo de C# TodoService.cs.
 
 4. De nuevo en el [Portal de Azure clásico], haga clic en la pestaña **Datos** y luego en la tabla **TodoItems**.
 
@@ -141,4 +141,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

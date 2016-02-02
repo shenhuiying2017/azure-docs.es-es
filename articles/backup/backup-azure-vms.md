@@ -6,7 +6,7 @@
 	authors="Jim-Parker"
 	manager="jwhit"
 	editor=""
-	keywords="copia de seguridad de la máquina virtual; hacer copia de seguridad de la máquina virtual; recuperación ante desastres y copia de seguridad"/>
+	keywords="copia de seguridad de máquinas virtuales; hacer copia de seguridad de máquinas virtuales; recuperación ante desastres y copia de seguridad; copia de seguridad de vm"/>
 
 <tags
 	ms.service="backup"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/19/2016"
+	ms.date="01/22/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
@@ -29,7 +29,7 @@ La realización de copias de seguridad de máquinas virtuales de Azure consta tr
 
 ![Tres pasos para realizar una copia de seguridad de una máquina virtual de IaaS](./media/backup-azure-vms/3-steps-for-backup.png)
 
->[AZURE.NOTE]La copia de seguridad de máquinas virtuales es un proceso local. No puede realizar copias de seguridad de máquinas virtuales desde una región hasta un almacén de copia de seguridad de otra región. Por lo tanto, para cada región de Azure que tiene máquinas virtuales que necesiten una copia de seguridad, debe crearse al menos un almacén de copia de seguridad en esa región.
+>[AZURE.NOTE] La copia de seguridad de máquinas virtuales es un proceso local. No puede realizar copias de seguridad de máquinas virtuales desde una región hasta un almacén de copia de seguridad de otra región. Por lo tanto, para cada región de Azure que tiene máquinas virtuales que necesiten una copia de seguridad, debe crearse al menos un almacén de copia de seguridad en esa región.
 
 ## Paso 1: Detección de máquinas virtuales de Azure
 El proceso de detección debe ser siempre el primer paso para asegurarse de que se identifican las nuevas máquinas virtuales que se agregan a la suscripción. El proceso consulta a Azure la lista de máquinas virtuales incluidas en la suscripción, junto con información adicional, por ejemplo, el nombre del servicio en la nube y la región.
@@ -40,8 +40,7 @@ El proceso de detección debe ser siempre el primer paso para asegurarse de que 
 
     ![Seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Haga clic en **DETECTAR** en la parte inferior de la página.
-    ![Botón Detectar](./media/backup-azure-vms/discover-button-only.png)
+3. Haga clic en **DETECTAR** en la parte inferior de la página. ![Botón Detectar](./media/backup-azure-vms/discover-button-only.png)
 
     El proceso de detección puede tardar unos minutos mientras se tabulan las máquinas virtuales. Hay una notificación en la parte inferior de la pantalla que informa de que el proceso se está ejecutando.
 
@@ -60,8 +59,7 @@ Se registra una máquina virtual de Azure para asociarla con el servicio Copia d
 
     ![Seleccionar carga de trabajo](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Haga clic en **REGISTRAR** en la parte inferior de la página. 
-    ![Botón Registrar](./media/backup-azure-vms/register-button-only.png)
+3. Haga clic en **REGISTRAR** en la parte inferior de la página. ![Botón Registrar](./media/backup-azure-vms/register-button-only.png)
 
 4. En el menú contextual **Elementos registrados**, seleccione las máquinas virtuales que desea registrar. Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguirlas.
 
@@ -164,4 +162,4 @@ Si se encuentra con problemas mientras realiza la copia de seguridad de la máqu
 - [Administración y supervisión de las máquinas virtuales](backup-azure-manage-vms.md)
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

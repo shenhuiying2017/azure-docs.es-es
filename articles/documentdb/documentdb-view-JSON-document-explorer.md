@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="10/26/2015"
+	ms.date="01/28/2015"
 	ms.author="anhoh"/>
 
 # Ver, editar, crear y cargar documentos JSON con el Explorador de documentos de DocumentDB #
 
-En este artículo se proporciona información general sobre el Explorador de documentos de [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), una herramienta del Portal de Azure que permite ver, editar, crear y cargar documentos JSON con DocumentDB.
+En este artículo se proporciona información general sobre el Explorador de documentos de [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), una herramienta del Portal de Azure que permite ver, editar, crear y cargar documentos JSON con DocumentDB.
 
 Después de completar este tutorial, podrá responder a las preguntas siguientes:
 
@@ -56,7 +56,7 @@ El Explorador de documentos permite crear, editar y eliminar documentos con toda
 
 	![Captura de pantalla del comando guardar del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/savedocument1.png)
 
-	> [AZURE.NOTE]Si no se proporciona una propiedad "id", el Explorador de documentos la agrega de forma automática y genera un GUID como valor de identificador.
+	> [AZURE.NOTE] Si no se proporciona una propiedad "id", el Explorador de documentos la agrega de forma automática y genera un GUID como valor de identificador.
 
 - Si ya dispone de datos procedentes de archivos JSON, MongoDB, SQL Server, archivos CSV, almacenamiento de tablas de Azure, Amazon DynamoDB, HBase o de otras colecciones de DocumentDB, puede usar la [herramienta de migración de datos](documentdb-import-data.md) de DocumentDB para importar rápidamente los datos.
 
@@ -84,7 +84,7 @@ El Explorador de documentos permite crear, editar y eliminar documentos con toda
 
 	![Captura de pantalla de la vista de propiedades del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/documentproperties.png)
 
-	> [AZURE.NOTE]La propiedad de marca de tiempo (\_ts) se representa internamente como tiempo de época, pero el Explorador de documentos muestra el valor en formato GMT en lenguaje natural.
+	> [AZURE.NOTE] La propiedad de marca de tiempo (\_ts) se representa internamente como tiempo de época, pero el Explorador de documentos muestra el valor en formato GMT en lenguaje natural.
 
 ##<a id="Navigate"></a>Opciones de navegación del Explorador de documentos y configuración avanzada##
 
@@ -99,7 +99,7 @@ El Explorador de documentos es compatible con una serie de opciones de navegaci�
 
 	![Captura de pantalla de la hoja Configuración del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
 
-	> [AZURE.NOTE]Después de modificar la configuración del Explorador de documentos, debe hacer clic en el comando **Actualizar** para aplicar la nueva configuración. La configuración solo se mantendrá en la sesión actual del explorador.
+	> [AZURE.NOTE] Después de modificar la configuración del Explorador de documentos, debe hacer clic en el comando **Actualizar** para aplicar la nueva configuración. La configuración solo se mantendrá en la sesión actual del explorador.
 	
 3. Los cuadros de listas desplegables **Base de datos** y **Colección** pueden utilizarse para cambiar fácilmente la colección desde la que se ven documentos en ese momento sin tener que cerrar y reiniciar el Explorador de documentos.
 
@@ -112,7 +112,7 @@ El Explorador de documentos es compatible con una serie de opciones de navegaci�
 	![Captura de pantalla del Explorador de documentos con los resultados filtrados](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
 
 
-	> [AZURE.IMPORTANT]La funcionalidad de filtro del Explorador de documentos solo filtra desde el conjunto de documentos cargado ***actualmente*** y no realiza ninguna consulta en la colección seleccionada.
+	> [AZURE.IMPORTANT] La funcionalidad de filtro del Explorador de documentos solo filtra desde el conjunto de documentos cargado ***actualmente*** y no realiza ninguna consulta en la colección seleccionada.
 
 5. Para actualizar la lista de documentos cargados en el Explorador de documentos, simplemente haga clic en el comando **Actualizar** en la parte superior de la hoja.
 
@@ -130,7 +130,7 @@ El Explorador de documentos admite la ingesta en bloque de uno o más documentos
 
 	![Captura de pantalla del proceso de ingesta en bloque del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/adddocument2.png)
 
-	> [AZURE.NOTE]El Explorador de documentos admite actualmente hasta 100 documentos JSON por operación de carga individual.
+	> [AZURE.NOTE] El Explorador de documentos admite actualmente hasta 100 documentos JSON por operación de carga individual.
 
 3. Cuando esté satisfecho con la selección, haga clic en el botón **Cargar**. Los documentos se agregan automáticamente a la cuadrícula del Explorador de documentos y se muestran los resultados de la carga a medida que progresa la operación. Los errores de importación se notifican para cada archivo.
 
@@ -145,4 +145,4 @@ El Explorador de documentos admite la ingesta en bloque de uno o más documentos
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

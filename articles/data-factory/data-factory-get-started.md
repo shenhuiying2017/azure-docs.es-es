@@ -25,7 +25,7 @@
 
 El tutorial de este artículo le ayuda a empezar a usar rápidamente el servicio de la factoría de datos de Azure. En este tutorial, creará una factoría de datos de Azure y creará una canalización en la factoría de datos para copiar datos desde un almacenamiento de blobs de Azure a una base de datos de SQL de Azure.
 
-> [AZURE.NOTE]Para obtener información general detallada del servicio de la factoría de datos, vea el artículo [Introducción a la factoría de datos de Azure][data-factory-introduction].
+> [AZURE.NOTE] Para obtener información general detallada del servicio de la factoría de datos, vea el artículo [Introducción a la factoría de datos de Azure][data-factory-introduction].
 
 ##Requisitos previos para el tutorial
 Antes de empezar este tutorial, debe contar con lo siguiente:
@@ -88,9 +88,9 @@ Ahora, prepare su almacenamiento de blobs de Azure y base de datos SQL de Azure 
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**Si tiene SQL Server 2012/2014 instalado en el equipo:** siga las instrucciones del artículo [Paso 2: Conectar con la base de datos SQL de la base de datos de administración de SQL de Azure con SQL Server Management Studio][sql-management-studio] para conectarse al servidor SQL de Azure y ejecutar el script de SQL. Tenga en cuenta que en este artículo se usa el [Portal de Azure clásico](http://manage.windowsazure.com), no el [Portal de Azure](http://portal.azure.com), para configurar el firewall para un servidor SQL de Azure.
+	**Si tiene SQL Server 2012/2014 instalado en el equipo:** siga las instrucciones del artículo [Paso 2: Conectar con la base de datos SQL de la base de datos de administración de SQL de Azure con SQL Server Management Studio][sql-management-studio] para conectarse al servidor SQL de Azure y ejecutar el script de SQL. Tenga en cuenta que en este artículo se usa el [Portal de Azure clásico](http://manage.windowsazure.com), no el [Portal de Azure](https://portal.azure.com), para configurar el firewall para un servidor SQL de Azure.
 
-	**Si tiene instalado Visual Studio 2013 en el equipo:** en el [Portal de Azure](http://portal.azure.com), haga clic en el concentrador **EXAMINAR** a la izquierda, en **Servidores SQL**, seleccione su base de datos y haga clic en el botón **Abrir en Visual Studio** en la barra de herramientas para conectarse a su servidor SQL de Azure y ejecutar el script. Si el cliente no tiene permiso para acceder al servidor SQL de Azure, tendrá que configurar el firewall de su servidor SQL de Azure para permitir el acceso desde su equipo (dirección IP). Consulte el artículo anterior para conocer los pasos para configurar el firewall para el servidor SQL de Azure.
+	**Si tiene instalado Visual Studio 2013 en el equipo:** en el [Portal de Azure](https://portal.azure.com), haga clic en el concentrador **EXAMINAR** a la izquierda, en **Servidores SQL**, seleccione su base de datos y haga clic en el botón **Abrir en Visual Studio** en la barra de herramientas para conectarse a su servidor SQL de Azure y ejecutar el script. Si el cliente no tiene permiso para acceder al servidor SQL de Azure, tendrá que configurar el firewall de su servidor SQL de Azure para permitir el acceso desde su equipo (dirección IP). Consulte el artículo anterior para conocer los pasos para configurar el firewall para el servidor SQL de Azure.
 
 
 Haga lo siguiente:
@@ -111,4 +111,4 @@ Haga lo siguiente:
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -111,9 +111,10 @@ Para quitar la extensión de diagnóstico de cada rol individual:
 ```
 
 
-## Temas relacionados
+## Consulte también
 
 * [Supervisión de aplicaciones de Servicios en la nube de Azure con Application Insights](app-insights-cloudservices.md)
 * [Envío de Azure Diagnostics a Application Insights](app-insights-azure-diagnostics.md)
+* [Automatización de la configuración de alertas](app-insights-powershell-alerts.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

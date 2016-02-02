@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # Implementación de granjas de servidores SharePoint con plantillas del Administrador de recursos de Azure
@@ -31,7 +31,7 @@ En una granja de servidores de SharePoint Server 2013 básica, una plantilla de 
 
 Puede ejecutar la plantilla con el Portal de Azure, Azure PowerShell o la CLI de Azure.
 
-> [AZURE.NOTE]También puede crear esta configuración mediante el elemento [Granja de SharePoint 2013 sin alta disponibilidad](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) en Azure Marketplace del Portal de Azure.
+> [AZURE.NOTE] También puede crear esta configuración mediante el elemento [Granja de SharePoint 2013 sin alta disponibilidad](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) en Azure Marketplace del Portal de Azure.
 
 ### Portal de Azure
 
@@ -50,7 +50,7 @@ Dependiendo de la plantilla, es posible que Azure tarde algún tiempo en generar
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]Este artículo contiene comandos para la versión preliminar de Azure PowerShell 1.0. Para ejecutar estos comandos en Azure PowerShell 0.9.8 y versiones anteriores, reemplace **New-AzureRMResourceGroup** por **New-AzureResourceGroup**, reemplace **New-AzureRMResourceGroupDeployment** por **New-AzureResourceGroupDeployment** y agregue el comando **Switch-AzureMode AzureResourceManager** antes del comando **New-AzureResourceGroup**. Para obtener más información, consulte la [versión de vista previa de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE] El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y una ubicación de centro de datos de Azure en el siguiente conjunto de comandos. Elimine todo el contenido dentro de las comillas, incluidos los caracteres < and >.
 
@@ -103,7 +103,7 @@ En una granja de servidores de SharePoint Server 2013 de alta disponibilidad, un
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
 
-> [AZURE.NOTE]También puede crear esta configuración mediante el elemento [Granja de servidores de SharePoint 2013 de alta disponibilidad](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) en Azure Marketplace del Portal de Azure.
+> [AZURE.NOTE] También puede crear esta configuración mediante el elemento [Granja de servidores de SharePoint 2013 de alta disponibilidad](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) en Azure Marketplace del Portal de Azure.
 
 ### Portal de Azure
 
@@ -122,7 +122,7 @@ Dependiendo de la plantilla, es posible que Azure tarde algún tiempo en generar
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]Este artículo contiene comandos para la versión preliminar de Azure PowerShell 1.0. Para ejecutar estos comandos en Azure PowerShell 0.9.8 y versiones anteriores, reemplace **New-AzureRMResourceGroup** por **New-AzureResourceGroup**, reemplace **New-AzureRMResourceGroupDeployment** por **New-AzureResourceGroupDeployment** y agregue el comando **Switch-AzureMode AzureResourceManager** antes del comando **New-AzureResourceGroup**. Para obtener más información, consulte la [versión de vista previa de Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE] El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y una ubicación de centro de datos de Azure en el siguiente conjunto de comandos. Elimine todo el contenido dentro de las comillas, incluidos los caracteres < and >.
 
@@ -170,20 +170,8 @@ Al ejecutar el comando **azure group deployment create**, se le solicitará que 
 Cuando haya finalizado la ejecución de la plantilla, tendrá una nueva granja SharePoint Server 2013 de nueve servidores en el grupo de recursos nuevo.
 
 
-## Recursos adicionales
+## Paso siguiente
 
-[Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
+- Detecte configuraciones adicionales [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) en los servicios de infraestructura de Azure.
 
-[Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-[Proveedores de proceso, red y almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
-
-[Información general del Administrador de recursos de Azure](../resource-group-overview.md)
-
-[Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y CLI de Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-[Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

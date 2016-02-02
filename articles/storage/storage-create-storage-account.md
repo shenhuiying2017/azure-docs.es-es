@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creación, administración o eliminación de una cuenta de almacenamiento | Microsoft Azure"
-	description="Cree una nueva cuenta de almacenamiento, administre las claves de acceso o elimine una cuenta de almacenamiento en el Portal de Azure."
+	pageTitle="Creación, administración o eliminación de una cuenta de almacenamiento en el Portal de Azure | Microsoft Azure"
+	description="Cree una nueva cuenta de almacenamiento, administre las claves de acceso de la misma o elimínela en el Portal de Azure. Obtenga información acerca de las cuentas de almacenamiento estándar y premium."
 	services="storage"
 	documentationCenter=""
 	authors="robinsh"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015"
+	ms.date="01/26/2016"
 	ms.author="robinsh"/>
 
 
@@ -39,11 +39,11 @@ El uso de Almacenamiento de Azure se le factura según su cuenta de almacenamien
 - Las transacciones se refieren a todas las operaciones de lectura y escritura en Almacenamiento de Azure.
 - La salida de los datos se refiere a los datos transferidos fuera de una región de Azure. Cuando una aplicación que no está en ejecución en la misma región tiene acceso a los datos en su cuenta de almacenamiento, se le cobra por la salida de los datos, independientemente de si la aplicación es un servicio en la nube u otro tipo de aplicación. (En el caso de los servicios de Azure, puede llevar a cabo pasos para agrupar sus datos y servicios en los mismos centros de datos para reducir o eliminar los cargos por concepto de salida de los datos).  
 
-La página [Detalles de precios de Azure](http://azure.microsoft.com/pricing/details/#storage) proporciona información detallada sobre los precios de la capacidad, la replicación y las transacciones de almacenamiento. La página [Detalles de precios de transferencias de datos](http://azure.microsoft.com/pricing/details/data-transfers/) proporciona información detallada sobre los precios para la salida de datos.
+La página [Detalles de precios de Azure](https://azure.microsoft.com/pricing/details/#storage) proporciona información detallada sobre los precios de la capacidad, la replicación y las transacciones de almacenamiento. La página [Detalles de precios de transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/) proporciona información detallada sobre los precios para la salida de datos.
 
 Para obtener más información acerca de los objetivos de capacidad y rendimiento de la cuenta de almacenamiento, consulte [Objetivos de escalabilidad y rendimiento del Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/dn249410.aspx).
 
-> [AZURE.NOTE]Al crear una máquina virtual de Azure, se crea automáticamente una cuenta de almacenamiento en la ubicación de implementación si todavía no tiene una cuenta de almacenamiento en esa ubicación. Por tanto, no es necesario aplicar los pasos descritos a continuación para crear una cuenta de almacenamiento para los discos de máquinas virtuales. El nombre de la cuenta de almacenamiento se basará en el nombre de la máquina virtual. Consulte la [documentación de máquinas virtuales de Azure](http://azure.microsoft.com/documentation/services/virtual-machines/) para obtener más detalles.
+> [AZURE.NOTE] Al crear una máquina virtual de Azure, se crea automáticamente una cuenta de almacenamiento en la ubicación de implementación si todavía no tiene una cuenta de almacenamiento en esa ubicación. Por tanto, no es necesario aplicar los pasos descritos a continuación para crear una cuenta de almacenamiento para los discos de máquinas virtuales. El nombre de la cuenta de almacenamiento se basará en el nombre de la máquina virtual. Consulte la [documentación de máquinas virtuales de Azure](https://azure.microsoft.com/documentation/services/virtual-machines/) para obtener más detalles.
 
 ## Extremos de la cuenta de almacenamiento
 
@@ -73,7 +73,7 @@ También puede configurar un nombre de dominio personalizado para usarlo con la 
 
 4. Escriba un nombre para la cuenta de almacenamiento.
 
-	> [AZURE.NOTE]Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas.
+	> [AZURE.NOTE] Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas.
 	>  
 	> El nombre de la cuenta de almacenamiento debe ser único dentro de Azure. El Portal de Azure indicará si ya existe el nombre de la cuenta de almacenamiento que seleccione.
 
@@ -89,7 +89,7 @@ También puede configurar un nombre de dominio personalizado para usarlo con la 
 
 7. Si tiene más de una suscripción a Azure, aparecerá el campo **Suscripción**. Seleccione la suscripción en la que desea crear la nueva cuenta de almacenamiento.
 
-8. Especifique un nuevo grupo de recursos o seleccione un grupo de recursos existente. Para obtener más información sobre los grupos de recursos, consulte [Uso del Portal de Azure para administrar los recursos de Azure](../resource-group-portal.md).
+8. Especifique un nuevo grupo de recursos o seleccione un grupo de recursos existente. Para obtener más información sobre los grupos de recursos, consulte [Uso del Portal de Azure para administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
 
 9. Seleccione la ubicación geográfica para la cuenta de almacenamiento.
 
@@ -99,7 +99,7 @@ También puede configurar un nombre de dominio personalizado para usarlo con la 
 
 Al crear una cuenta de almacenamiento, Azure genera dos claves de acceso de almacenamiento de 512 bits que se usan para autenticación cuando se obtiene acceso a la cuenta de almacenamiento. Al brindar dos claves de acceso de almacenamiento, Azure le permite volver a generar las claves sin interrupción en su servicio de almacenamiento, o bien, tener acceso a ese servicio.
 
-> [AZURE.NOTE]Se recomienda no compartir con nadie las claves de acceso de almacenamiento. Para permitir el acceso a los recursos de almacenamiento sin proporcionar sus claves de acceso, puede usar una *firma de acceso compartido*. Una firma de acceso compartido proporciona acceso a un recurso de su cuenta durante un intervalo que defina y con los permisos que especifique. Para obtener más información, consulte el [tutorial sobre firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md).
+> [AZURE.NOTE] Se recomienda no compartir con nadie las claves de acceso de almacenamiento. Para permitir el acceso a los recursos de almacenamiento sin proporcionar sus claves de acceso, puede usar una *firma de acceso compartido*. Una firma de acceso compartido proporciona acceso a un recurso de su cuenta durante un intervalo que defina y con los permisos que especifique. Para obtener más información, consulte el [tutorial sobre firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md).
 
 ### Visualización y copia de las claves de acceso de almacenamiento
 
@@ -109,7 +109,7 @@ En el [Portal de Azure](https://portal.azure.com), diríjase a su cuenta de alma
 
 Recomendamos que cambie las claves de acceso de su cuenta de almacenamiento periódicamente para ayudar a mantener seguras las conexiones de almacenamiento. Se asignan dos claves de acceso para que pueda mantener las conexiones con la cuenta de almacenamiento usando una clave de acceso mientras genera de nuevo la otra clave de acceso.
 
-> [AZURE.WARNING]La nueva generación de sus claves de acceso afecta a las máquinas virtuales, los servicios multimedia y cualquier aplicación que dependa de la cuenta de almacenamiento. Todos los clientes que usan la clave de acceso para acceder a la cuenta de almacenamiento deben estar actualizados para usar la nueva clave.
+> [AZURE.WARNING] La nueva generación de sus claves de acceso afecta a las máquinas virtuales, los servicios multimedia y cualquier aplicación que dependa de la cuenta de almacenamiento. Todos los clientes que usan la clave de acceso para acceder a la cuenta de almacenamiento deben estar actualizados para usar la nueva clave.
 
 **Máquinas virtuales**: si su cuenta de almacenamiento contiene una máquina virtual que se está ejecutando, tendrá que volver a implementar todas las máquinas virtuales después de generar de nuevo las claves de acceso. Para evitar una nueva implementación, apague las máquinas virtuales antes de generar de nuevo las claves de acceso.
 
@@ -131,12 +131,27 @@ Este es el proceso de rotación de las claves de acceso de almacenamiento:
 
 Para quitar una cuenta de almacenamiento que ya no se está usando, vaya a la cuenta de almacenamiento en el [Portal de Azure](https://portal.azure.com) y haga clic en **Eliminar**. Si se elimina la cuenta de almacenamiento, se elimina toda la cuenta, incluidos todos los datos de la cuenta.
 
-> [AZURE.WARNING]No es posible restaurar una cuenta de almacenamiento eliminada ni recuperar el contenido que contenía antes de la eliminación. Asegúrese de hacer una copia de seguridad de cualquier contenido que desee guardar antes de eliminar la cuenta. Esto también es verdad para los recursos de la cuenta: cuando se elimina un blob, tabla, cola o archivo, este se eliminará definitivamente.
+> [AZURE.WARNING] No es posible restaurar una cuenta de almacenamiento eliminada ni recuperar el contenido que contenía antes de la eliminación. Asegúrese de hacer una copia de seguridad de cualquier contenido que desee guardar antes de eliminar la cuenta. Esto también es verdad para los recursos de la cuenta: cuando se elimina un blob, tabla, cola o archivo, este se eliminará definitivamente.
+
+Para eliminar una cuenta de almacenamiento que está asociada a una máquina virtual de Azure, primero debe asegurarse de que se han eliminado los discos de la máquina virtual. Si no elimina primero los discos de las máquinas virtuales, cuando intente eliminar la cuenta de almacenamiento, verá un mensaje de error similar al siguiente:
+
+    Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
+
+Para quitar el disco de máquina virtual, siga estos pasos en el Portal de Azure clásico:
+
+1. Navegue hasta el [Portal de Azure clásico](https://manage.windowsazure.com).
+2. Vaya a la pestaña de máquinas virtuales.
+3. Haga clic en la pestaña Discos.
+4. Seleccione el disco de datos y luego haga clic en Eliminar disco.
+5. Para eliminar imágenes de discos, vaya a la pestaña Imágenes y elimine todas las imágenes almacenadas en la cuenta.
+
+Para más información, consulte [Documentación de Máquinas virtuales de Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## Pasos siguientes
 
-- Para obtener más información acerca del Almacenamiento de Azure, consulte la documentación sobre Almacenamiento de Azure en [Azure.com](http://azure.microsoft.com/documentation/services/storage/).
+- [Replicación de almacenamiento de Azure](storage-redundancy.md)
+- [Configuración de una cadena de conexión a Almacenamiento de Azure](storage-configure-connection-string.md)
+- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
-- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

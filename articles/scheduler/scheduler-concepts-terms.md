@@ -197,7 +197,7 @@ El intervalo de reintentos, especificado con el objeto **retryInterval**, es el 
 
  [Creación de programaciones complejas y periodicidad avanzada con Programador de Azure](scheduler-advanced-complexity.md)
 
- [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/dn528946)
+ [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Referencia de cmdlets de PowerShell de Programador de Azure](scheduler-powershell-reference.md)
 
@@ -207,4 +207,4 @@ El intervalo de reintentos, especificado con el objeto **retryInterval**, es el 
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -75,7 +75,7 @@ Antes de aprovisionar el dispositivo virtual, deberá realizar los siguientes pr
 - Puede usar el servidor DNS predeterminado proporcionado por Azure en lugar de especificar su propio nombre del servidor DNS. Si el nombre del servidor DNS no es válido, se producirá un error en la creación del dispositivo virtual.
 - Punto a sitio y sitio a sitio son opcionales, pero no obligatorios. Si lo desea, puede configurar estas opciones para escenarios más avanzados.
 
->[AZURE.IMPORTANT]**Asegúrese de que la red virtual está en la misma región que las cuentas de almacenamiento en la nube que va a usar con el dispositivo virtual.**
+>[AZURE.IMPORTANT] **Asegúrese de que la red virtual está en la misma región que las cuentas de almacenamiento en la nube que va a usar con el dispositivo virtual.**
 
 - Puede crear [Máquinas virtuales de Azure](../virtual-machines/virtual-machines-about.md) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo virtual. Estos servidores deben cumplir los siguientes requisitos:
 	- Estar en máquinas virtuales de Windows o Linux con el software iSCSI Initiator instalado.
@@ -180,7 +180,7 @@ Este parámetro contiene las credenciales que el dispositivo virtual utiliza cua
 
 El software StorSimple Snapshot Manager reside en el host de Windows y permite a los administradores administrar copias de seguridad del dispositivo StorSimple en forma de instantáneas locales y en la nube.
 
->[AZURE.NOTE]Para el dispositivo virtual, el host de Windows es una VM de Azure.
+>[AZURE.NOTE] Para el dispositivo virtual, el host de Windows es una VM de Azure.
 
 Al configurar un dispositivo en StorSimple Snapshot Manager, se le pedirá que proporcione la dirección IP del dispositivo StorSimple y la contraseña para autenticar el dispositivo de almacenamiento. Esta contraseña primero se configura a través de la interfaz de Windows PowerShell.
 
@@ -234,7 +234,7 @@ Realice los pasos siguientes para configurar la administración remota para el d
 
 ![Vídeo disponible](./media/storsimple-virtual-device/Video_icon.png) **Vídeo disponible**
 
-Para ver un vídeo que describe cómo crear un dispositivo StorSimple virtual en la nube, haga clic [aquí](http://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-device/).
+Para ver un vídeo que describe cómo crear un dispositivo StorSimple virtual en la nube, haga clic [aquí](https://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-device/).
 
 ## Trabajo con el dispositivo virtual de StorSimple
 
@@ -280,23 +280,23 @@ Tan pronto como se muestra el dispositivo como desactivado en la página de serv
 
 Una vez habilitado en la página de configuración del dispositivo StorSimple, puede usar la comunicación remota de Windows PowerShell para conectarse al dispositivo virtual desde otra máquina virtual dentro de la misma red virtual; por ejemplo, puede conectarse desde la máquina virtual del host que ha configurado y utilizado para conectarse a iSCSI. En la mayoría de las implementaciones, ya habrá abierto un extremo público para tener acceso a su máquina virtual host que se puede utilizar para tener acceso al dispositivo virtual.
 
->[AZURE.WARNING]Para mayor seguridad, se recomienda utilizar HTTPS al conectarse a los extremos y, a continuación, eliminar los extremos después de haber completado la sesión remota de PowerShell.
+>[AZURE.WARNING] Para mayor seguridad, se recomienda utilizar HTTPS al conectarse a los extremos y, a continuación, eliminar los extremos después de haber completado la sesión remota de PowerShell.
 
 Debe seguir los procedimientos que aparecen en [Conexión remota a su dispositivo StorSimple](storsimple-remote-connect.md) para establecer la comunicación remota para el dispositivo virtual.
 
 Sin embargo, si desea conectarse directamente al dispositivo virtual desde otro equipo fuera de la red virtual o fuera del entorno de Microsoft Azure, necesitará crear extremos adicionales, como se describe en el procedimiento siguiente.
 
-Realice los pasos siguientes para crear un extremo público en el dispositivo virtual.
+Realice los pasos siguientes para crear un punto de conexión público en el dispositivo virtual.
 
 1. Inicie sesión en el portal clásico de Azure.
 
 - Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual que se utiliza como dispositivo virtual.
 
-- Haga clic en **Extremos**. En la página Extremos aparecen todos los extremos para la máquina virtual.
+- Haga clic en **Puntos de conexión**. En la página Puntos de conexión aparecen todos los extremos para la máquina virtual.
 
-- Haga clic en **Agregar**. Aparecerá el cuadro de diálogo Agregar extremo. Haga clic en la flecha para continuar.
+- Haga clic en **Agregar**. Aparecerá el cuadro de diálogo Agregar Puntos de conexión. Haga clic en la flecha para continuar.
 
-- Para el **Nombre**, escriba el siguiente nombre para el extremo: **WinRMHttps**.
+- Para el **Nombre**, escriba el siguiente nombre para el Puntos de conexión: **WinRMHttps**.
 
 - En **Protocolo**, especifique **TCP**.
 
@@ -304,11 +304,11 @@ Realice los pasos siguientes para crear un extremo público en el dispositivo vi
 
 - Para el **puerto privado**, escriba **5986**.
 
-- Haga clic en la marca de verificación para crear el extremo.
+- Haga clic en la marca de verificación para crear el punto de conexión.
 
-Una vez creado el extremo, puede ver sus detalles para determinar la dirección IP virtual (VIP) pública. Anote esta dirección.
+Una vez creado el punto de conexión, puede ver sus detalles para determinar la dirección IP virtual (VIP) pública. Anote esta dirección.
 
-Se recomienda conectarse desde otra máquina virtual dentro de la misma red virtual, ya que esta práctica minimiza el número de extremos públicos de la red virtual. Cuando utiliza este método, simplemente conéctese a la máquina virtual mediante una sesión de escritorio remoto y, a continuación, configure esa máquina virtual para su uso como haría con cualquier otro cliente de Windows en una red local. No es necesario anexar el número de puerto público porque ya se conocerá el puerto.
+Se recomienda conectarse desde otra máquina virtual dentro de la misma red virtual, ya que esta práctica minimiza el número de puntos de conexión públicos de la red virtual. Cuando utiliza este método, simplemente conéctese a la máquina virtual mediante una sesión de escritorio remoto y, a continuación, configure esa máquina virtual para su uso como haría con cualquier otro cliente de Windows en una red local. No es necesario anexar el número de puerto público porque ya se conocerá el puerto.
 
 ### Detención y reinicio
 
@@ -358,11 +358,11 @@ La recuperación ante desastres (DR) es uno de los escenarios clave para los que
 
 Comenzará el proceso de conmutación por error. Cuando finalice la conmutación por error, vaya a la página **Dispositivos** y seleccione el dispositivo virtual que se utiliza como destino para el proceso de conmutación por error. Vaya a la página Contenedores de volúmenes. Deben aparecer todos los contenedores de volúmenes, junto con los volúmenes del dispositivo antiguo.
 
->[AZURE.NOTE]La cantidad de almacenamiento admitida en el dispositivo virtual es de 30 TB.
+>[AZURE.NOTE] La cantidad de almacenamiento admitida en el dispositivo virtual es de 30 TB.
 
 ![Vídeo disponible](./media/storsimple-virtual-device/Video_icon.png) **Vídeo disponible**
 
-Para ver un vídeo que describe cómo se puede restaurar un dispositivo físico con conmutación por error en un dispositivo virtual en la nube, haga clic [aquí](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+Para ver un vídeo que describe cómo se puede restaurar un dispositivo físico con conmutación por error en un dispositivo virtual en la nube, haga clic [aquí](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## Cerrar o eliminar el dispositivo virtual
 
@@ -391,4 +391,4 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
 
 Para administrar el dispositivo virtual, vea la lista detallada de flujos de trabajo en [Administración del dispositivo StorSimple mediante el servicio StorSimple Manager](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

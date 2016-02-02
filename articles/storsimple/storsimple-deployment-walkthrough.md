@@ -34,7 +34,7 @@ La información de estos tutoriales da por supuesto que revisó las precauciones
 
 Necesitará privilegios de administrador para completar el proceso de instalación y configuración. Se recomienda que revise la lista de comprobación de configuración antes de comenzar. El proceso de implementación y configuración puede tardar algún tiempo en completarse.
 
-> [AZURE.NOTE]La información de implementación de StorSimple publicada en el sitio web de Microsoft Azure se aplica solo a los dispositivos StorSimple de la serie 8000. Para obtener información completa sobre los dispositivos de la serie 7000, vaya a: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obtener información sobre la implementación de la serie 7000, vea la [Guía de inicio rápido del sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
+> [AZURE.NOTE] La información de implementación de StorSimple publicada en el sitio web de Microsoft Azure se aplica solo a los dispositivos StorSimple de la serie 8000. Para obtener información completa sobre los dispositivos de la serie 7000, vaya a: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obtener información sobre la implementación de la serie 7000, vea la [Guía de inicio rápido del sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
 
 ## Pasos de implementación
 
@@ -116,7 +116,7 @@ Antes de comenzar, asegúrese de que:
 
 - Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
 
-- Su suscripción de Microsoft Azure está habilitada para el servicio de Administrador de StorSimple. Debe adquirir la suscripción a través del [Contrato Enterprise](http://azure.microsoft.com/pricing/enterprise-agreement/).
+- Su suscripción de Microsoft Azure está habilitada para el servicio de Administrador de StorSimple. Debe adquirir la suscripción a través del [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
 - Tiene acceso a software de emulación de terminales, como PuTTY.
 
@@ -146,7 +146,7 @@ Antes de comenzar, asegúrese de que:
 | | | |
 | **NTP** | Desencadenamos una sincronización de tiempo tan pronto como se introduce el servidor NTP. Compruebe que el puerto UDP 123 está abierto cuando introduce `time.windows.com` o servidores de hora públicos). | [Descargue y use este script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
-| **Proxy (opcional)** | ¿Es un URI y un puerto válidos para el proxy? </br>¿Es correcto el modo de autenticación? | <code>wget http://bing.com &#124; % {$\_.StatusCode}</code></br>Este comando debe ejecutarse inmediatamente después de configurar el proxy web. Si se devuelve el código e estado 200, indica que la conexión es correcta. |
+| **Proxy (opcional)** | ¿Es un URI y un puerto válidos para el proxy? </br>¿Es correcto el modo de autenticación? | <code>wget http://bing.com | % {$\_.StatusCode}</code></br>Este comando debe ejecutarse inmediatamente después de configurar el proxy web. Si se devuelve el código e estado 200, indica que la conexión es correcta. |
 | | ¿Se puede enrutar el tráfico a través del proxy? | Ejecute las validación DNS y la comprobación NTP o HTTP después de configurar el proxy en el dispositivo. Esto le dará una idea clara de si el tráfico se está bloqueando en el proxy o en otro lugar. |
 | | | |
 | **Registro** | Compruebe si los puertos TCP de salida 443, 80, 9354 están abiertos. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Más información sobre el cmdlet Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx). |
@@ -159,16 +159,15 @@ Use las siguientes instrucciones paso a paso para implementar el dispositivo Sto
 
 El servicio de Administrador de StorSimple puede administrar varios dispositivos de StorSimple. Para la implementación de su primer dispositivo de StorSimple, deberá crear un nuevo servicio StorSimple Manager.
 
-> [AZURE.IMPORTANT]Omita este paso si tiene un servicio StorSimple Manager existente y desea implementar su dispositivo StorSimple con ese servicio.
+> [AZURE.IMPORTANT] Omita este paso si tiene un servicio StorSimple Manager existente y desea implementar su dispositivo StorSimple con ese servicio.
 
 Siga estos pasos para crear una nueva instancia del servicio de Administrador de StorSimple.
 
 [AZURE.INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
 
-> [AZURE.IMPORTANT]Si no habilitó la creación automática de una cuenta de almacenamiento con el servicio, debe crear al menos una cuenta de almacenamiento después de crear correctamente un servicio. Dicha cuenta de almacenamiento se usará al crear un contenedor de volúmenes.
+> [AZURE.IMPORTANT] Si no habilitó la creación automática de una cuenta de almacenamiento con el servicio, debe crear al menos una cuenta de almacenamiento después de crear correctamente un servicio. Dicha cuenta de almacenamiento se usará al crear un contenedor de volúmenes.
 >
-> Si no creó automáticamente una cuenta de almacenamiento, vaya a [Configurar una nueva cuenta de almacenamiento para el servicio](#configure-a-new-storage-account-for-the-service) para obtener instrucciones detalladas. 
-> Si habilitó la creación automática de una cuenta de almacenamiento, vaya al [Paso 2: Obtener la clave de registro del servicio](#step-2:-get-the-service-registration-key).
+> Si no creó automáticamente una cuenta de almacenamiento, vaya a [Configurar una nueva cuenta de almacenamiento para el servicio](#configure-a-new-storage-account-for-the-service) para obtener instrucciones detalladas. Si habilitó la creación automática de una cuenta de almacenamiento, vaya al [Paso 2: Obtener la clave de registro del servicio](#step-2:-get-the-service-registration-key).
 
 ## Paso 2: Obtener la clave de registro del servicio
 
@@ -181,7 +180,7 @@ Siga estos pasos en el Portal de Azure clásico.
 
 ## Paso 3: Configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple
 
-> [AZURE.IMPORTANT]Antes de realizar esta configuración, desconecte todas las interfaces de red que no sean de DATA 0 en ambos controladores (activo y pasivo).
+> [AZURE.IMPORTANT] Antes de realizar esta configuración, desconecte todas las interfaces de red que no sean de DATA 0 en ambos controladores (activo y pasivo).
 
 Use Windows PowerShell para StorSimple para completar la configuración inicial del dispositivo StorSimple, tal como se explica en el procedimiento siguiente. Deberá usar software de emulación de terminales para completar este paso. Para obtener más información, consulte [Uso de PuTTY para conectarse a la consola serie del dispositivo](#use-putty-to-connect-to-the-device-serial-console).
 
@@ -214,7 +213,7 @@ Siga estos pasos en el Portal de Azure clásico para crear un contenedor de vol�
 
 Después de crear un contenedor de volúmenes, puede aprovisionar un volumen de almacenamiento en el dispositivo StorSimple para los servidores. Siga estos pasos en el Portal de Azure clásico para crear un volumen.
 
-> [AZURE.IMPORTANT]StorSimple Manager solo puede crear volúmenes con aprovisionamiento fino. No se pueden crear volúmenes aprovisionados total o parcialmente.
+> [AZURE.IMPORTANT] StorSimple Manager solo puede crear volúmenes con aprovisionamiento fino. No se pueden crear volúmenes aprovisionados total o parcialmente.
 
 [AZURE.INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume.md)]
 
@@ -261,14 +260,14 @@ Para conectarse a Windows PowerShell para StorSimple, deberá usar software de e
 
 La actualización del dispositivo puede tardar entre 1 y 4 horas. Realice los pasos siguientes para detectar y aplicar las actualizaciones en el dispositivo.
 
-> [AZURE.NOTE]Si tiene una puerta de enlace configurada en una interfaz de red que no sea Data 0, deberá deshabilitar las interfaces de red Data 2 y Data 3 antes de instalar la actualización. Vaya a **Dispositivos > Configurar** y deshabilite las interfaces Data 2 y Data 3. Deberá volver a habilitar estas interfaces después de actualiza el dispositivo.
+> [AZURE.NOTE] Si tiene una puerta de enlace configurada en una interfaz de red que no sea Data 0, deberá deshabilitar las interfaces de red Data 2 y Data 3 antes de instalar la actualización. Vaya a **Dispositivos > Configurar** y deshabilite las interfaces Data 2 y Data 3. Deberá volver a habilitar estas interfaces después de actualiza el dispositivo.
 
 #### Para actualizar su dispositivo
 1.	En la página **Inicio rápido** del dispositivo, haga clic en **Dispositivos**. Seleccione el dispositivo físico, haga clic en **Mantenimiento** y luego en **Buscar actualizaciones**.  
 2.	Se crea un trabajo para buscar las actualizaciones disponibles. Si hay actualizaciones disponibles, la opción **Buscar actualizaciones** cambia a **Instalar actualizaciones**. Haga clic en **Instalar actualizaciones**. Puede que se le pida que deshabilite Data 2 y Data 3 antes de instalar las actualizaciones. Debe deshabilitar estas interfaces de red o las actualizaciones podrían dar error.
 3.	Se creará un trabajo de actualización. Vaya a **Trabajos** para supervisar el estado de la actualización.
 
-	> [AZURE.NOTE]Cuando se inicia el trabajo de actualización, se muestra inmediatamente el estado como 50 por ciento. Luego, el estado cambia al 100 por cien, una vez completado el trabajo de actualización. No hay ningún estado en tiempo real para el proceso de actualizaciones.
+	> [AZURE.NOTE] Cuando se inicia el trabajo de actualización, se muestra inmediatamente el estado como 50 por ciento. Luego, el estado cambia al 100 por cien, una vez completado el trabajo de actualización. No hay ningún estado en tiempo real para el proceso de actualizaciones.
 
 4.	Después de que el dispositivo se actualiza correctamente, habilite las interfaces de red Data 2 y Data 3 si estaban deshabilitadas.
 
@@ -294,4 +293,4 @@ Siga estos pasos en el Portal de Azure clásico para crear una copia de segurida
 
 - Use el [servicio de Administrador de StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx) para administrar el dispositivo StorSimple.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

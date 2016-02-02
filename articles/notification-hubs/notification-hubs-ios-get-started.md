@@ -42,11 +42,11 @@ Este tutorial requiere lo siguiente:
 + Un dispositivo compatible con iOS 8 (o una versión posterior)
 + Pertenencia al programa para desarrolladores de iOS
 
-   >[AZURE.NOTE]Debido a los requisitos de configuración de las notificaciones push, debe implementar y probar estas en un dispositivo compatible con iOS (iPhone o iPad) en lugar de en el simulador de iOS.
+   >[AZURE.NOTE] Debido a los requisitos de configuración de las notificaciones push, debe implementar y probar estas en un dispositivo compatible con iOS (iPhone o iPad) en lugar de en el simulador de iOS.
 
 La realización de este tutorial es un requisito previo para todos los demás tutoriales de Centros de notificaciones para aplicaciones iOS.
 
-> [AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
+> [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
 
 [AZURE.INCLUDE [Los Centros de notificaciones permiten notificaciones push de Apple](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
@@ -88,7 +88,7 @@ El centro de notificaciones está ahora configurado para funcionar con APNS y ti
 
 4. Descargue el [SDK de iOS versión 1.2.4 para Servicios móviles] y descomprima el archivo. En XCode, haga clic con el botón derecho en el proyecto y haga clic en la opción **Add Files to** (Agregar archivos a) para agregar la carpeta **WindowsAzureMessaging.framework** al proyecto de XCode. Seleccione **Copy items if needed** (Copiar elementos si es necesario) y luego haga clic en **Add** (Agregar).
 
-	>[AZURE.NOTE]El SDK de los Centros de notificaciones no es compatible con bitcode en Xcode 7. Debe establecer **Enable Bitcode** (Habilitar Bitcode) en **No** en **Build Options** (Opciones de compilación) en el proyecto.
+	>[AZURE.NOTE] El SDK de los Centros de notificaciones no es compatible con bitcode en Xcode 7. Debe establecer **Enable Bitcode** (Habilitar Bitcode) en **No** en **Build Options** (Opciones de compilación) en el proyecto.
 
    	![][10]
 
@@ -436,7 +436,7 @@ Si desea enviar notificaciones dentro de una aplicación. Esta sección proporci
 11. Compile el proyecto y compruebe si hay errores.
 
 
-> [AZURE.NOTE]Si encuentra un error de compilación en Xcode7 sobre la compatibilidad de bitcode, debe cambiar "Configuración de compilación" -> "Habilitar Bitcode"(ENABLE\_BITCODE) a 'NO' en Xcode. El SDK de los Centros de notificaciones no es compatible con bitcode.
+> [AZURE.NOTE] Si encuentra un error de compilación en Xcode7 sobre la compatibilidad de bitcode, debe cambiar "Configuración de compilación" -> "Habilitar Bitcode"(ENABLE\_BITCODE) a 'NO' en Xcode. El SDK de los Centros de notificaciones no es compatible con bitcode.
 
 Puede buscar todas las cargas de notificaciones posibles en la guía [Local and Push Notification Programming Guide] de Apple.
 
@@ -490,7 +490,7 @@ Para obtener más información general sobre los Centros de notificaciones, cons
 
 <!-- URLs. -->
 [SDK de iOS versión 1.2.4 para Servicios móviles]: http://aka.ms/kymw2g
-[SDK de iOS para Servicios móviles]: http://go.microsoft.com/fwLink/?LinkID=266533
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
@@ -501,10 +501,10 @@ Para obtener más información general sobre los Centros de notificaciones, cons
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Introducción a las notificaciones push en Servicios móviles]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Uso de Centros de notificaciones para enviar noticias de última hora]: notification-hubs-ios-send-breaking-news.md
 
-[guía de programación de notificaciones push y locales]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

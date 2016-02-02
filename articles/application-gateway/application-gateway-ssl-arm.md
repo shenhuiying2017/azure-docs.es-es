@@ -26,7 +26,7 @@
 
 ## Antes de empezar
 
-1. Instale la versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente desde la sección **Windows PowerShell** de la página [Descargas](http://azure.microsoft.com/downloads/).
+1. Instale la versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente desde la sección **Windows PowerShell** de la [página Descargas](https://azure.microsoft.com/downloads/).
 2. Creará una red virtual y una subred para la puerta de enlace de aplicaciones. Asegúrese de que ninguna máquina virtual o implementación en la nube usan la subred. La puerta de enlace de aplicaciones debe encontrarse en una subred de una red virtual.
 3. Los servidores que configurará para que usen la Puerta de enlace de aplicaciones deben existir, o bien sus puntos de conexión deben haberse creado en la red virtual o tener una dirección IP/VIP pública asignada.
 
@@ -89,13 +89,13 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 
 ### Paso 4
 
-Cree un grupo de recursos nuevo (omita este paso si usa un grupo de recursos existente).
+Cree un grupo de recursos nuevo (omita este paso si usa uno existente).
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear una puerta de enlace de aplicaciones se van a usar en el mismo grupo de recursos.
+El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear una puerta de enlace de aplicaciones usen el mismo grupo de recursos.
 
-En el ejemplo anterior, creamos un grupo de recursos denominado "appgw-RG" y la ubicación "West US".
+En el ejemplo anterior, creamos un grupo de recursos denominado "appgw-RG" y la ubicación "Oeste de EE. UU.".
 
 ## Creación de una red virtual y una subred para la puerta de enlace de aplicaciones.
 
@@ -182,7 +182,7 @@ Crea la regla de enrutamiento del equilibrador de carga denominada "rule01" que 
 
 Configura el tamaño de instancia de la puerta de enlace de aplicaciones.
 
->[AZURE.NOTE]El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Se puede elegir entre Standard\_Small, Standard\_Medium y Standard\_Large.
+>[AZURE.NOTE]  El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Se puede elegir entre Standard\_Small, Standard\_Medium y Standard\_Large.
 
 ## Creación de una puerta de enlace de aplicaciones con New-AzureApplicationGateway
 
@@ -199,4 +199,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

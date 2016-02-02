@@ -1,25 +1,29 @@
 <properties
-	pageTitle="Configuración de los servicios de Copia de seguridad de Azure para preparar la copia de seguridad de Windows Server | Microsoft Azure"
-	description="Use este tutorial para aprender a utilizar el servicio Copia de seguridad en la nube de Microsoft Azure para crear copias de seguridad de Windows Server en la nube."
+	pageTitle="Preparación del entorno para realizar la copia de seguridad de Windows Server o del Cliente de Windows en Azure | Microsoft Azure"
+	description="Para preparar el entorno para realizar la copia de seguridad de Windows, cree un almacén de copias de seguridad, descargue las credenciales e instale el agente de copia de seguridad."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="almacén de copia de seguridad; agente de copia de seguridad; copia de seguridad de Windows;"/>
 
 <tags
 	ms.service="backup"
 	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na" ms.devlang="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/26/2015"
-	ms.author="jimpark"; "aashishr"/>
+	ms.date="01/22/2016"
+	ms.author="trinadhk; jimpark; markgal"/>
+
 
 # Preparación del entorno para la copia de seguridad de máquinas virtuales de Windows
+Este artículo le ayudará a preparar la copia de seguridad de Windows Server o del cliente de Windows en Azure. Para ello, necesitará una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-Este artículo le guiará por los pasos de preparación para el uso de Copia de seguridad de Azure con servidores de Windows. Para realizar una copia de seguridad de Windows Server o del cliente de Windows en Azure, necesitará una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+Si ya lo hizo, puede comenzar a [realizar la copia de seguridad de las máquinas virtuales](backup-azure-backup-windows-server.md). Si no es así, siga estos pasos para asegurarse de que el entorno esté listo.
 
->[AZURE.NOTE]Anteriormente, era necesario crear o adquirir un certificado X.509 v3 con el fin de registrar el servidor de copia de seguridad. Los certificados aún se admiten, pero ahora, para facilitar el proceso de registro de almacenes de Azure en un servidor, puede generar una credencial de almacén directamente en la página Inicio rápido.
+>[AZURE.NOTE] Anteriormente, era necesario crear o adquirir un certificado X.509 v3 con el fin de registrar el servidor de copia de seguridad. Los certificados aún se admiten, pero ahora, para facilitar el proceso de registro de almacenes de Azure en un servidor, puede generar una credencial de almacén directamente en la página Inicio rápido.
 
 ## Antes de comenzar
 Para hacer una copia de seguridad de los archivos y los datos de Windows Server en Azure, primero debe:
@@ -41,4 +45,4 @@ Para hacer una copia de seguridad de los archivos y los datos de Windows Server 
 - [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 - [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

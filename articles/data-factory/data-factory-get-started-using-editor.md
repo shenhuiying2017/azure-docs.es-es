@@ -62,7 +62,7 @@ En este paso, utilice el Portal de Azure para crear una factoría de datos de Az
 	 
 	![Nombre de Factoría de datos no disponible][image-data-factory-name-not-available]
 	
-	> [AZURE.NOTE]El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
+	> [AZURE.NOTE] El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
 
 9. Haga clic en el concentrador **NOTIFICACIONES** de la izquierda y busque las notificaciones del proceso de creación. Haga clic en **X** para cerrar la hoja **NOTIFICACIONES** si está abierta.
 10. Una vez completada la creación, verá la hoja **FACTORÍA DE DATOS** como se muestra a continuación:
@@ -79,7 +79,6 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Azu
 
 	![Mosaico Crear e implementar][image-author-deploy-tile]
 
-	Consulte el tema [Editor de la Factoría de datos][data-factory-editor] para obtener información general del Editor de la Factoría de datos.
 	 
 5. En el **Editor**, haga clic en el botón **Nuevo almacén de datos** de la barra de herramientas y seleccione **Almacenamiento de Azure** en el menú desplegable. Debería ver la plantilla JSON para crear un servicio vinculado de almacenamiento de Azure en el panel derecho.
 
@@ -152,7 +151,7 @@ Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, 
 	- **folderPath** se establece en el contenedor **adftutorial**. También puede especificar el nombre de un blob en la carpeta. Puesto que no se especifica el nombre del blob, los datos de todos los blobs del contenedor se consideran datos de entrada.  
 	- el **tipo** de formato se establece en **TextFormat**
 	- Hay dos campos en el archivo de texto: **FirstName** y **LastName** separados por un carácter de coma (**columnDelimiter**)	
-	- **availability** se establece en **hourly** (**frequency** se establece en **hour** e **interval** se establece en **1**), por lo que el servicio de Factoría de datos buscará los datos de entrada cada hora en la carpeta raíz del contenedor de blobs (**adftutorial**) especificado. 
+	- La **disponibilidad** se establece en **cada hora** (**frecuencia** se establece en **hora** e **intervalo** se establece en **1**), por lo que el servicio de la factoría de datos buscará los datos de entrada cada hora en la carpeta raíz del contenedor de blob (**adftutorial**) especificado. 
 	
 
 	Si no especifica **fileName** para una **tabla** de **entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada. Consulte los archivos de muestra del [tutorial][adf-tutorial] para ver algunos ejemplos.
@@ -398,7 +397,6 @@ Para realizar este tutorial con PowerShell de Azure, consulte [Creación y super
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
 
-[data-factory-editor]: data-factory-editor.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -461,4 +459,4 @@ Para realizar este tutorial con PowerShell de Azure, consulte [Creación y super
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

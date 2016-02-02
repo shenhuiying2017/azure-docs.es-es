@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/30/2015" 
+	ms.date="01/26/2016" 
 	ms.author="MarkVi"/>
 
 # Incorporación de la información de marca de empresa a sus páginas de inicio de sesión y panel de acceso
@@ -21,7 +21,7 @@
 > [AZURE.NOTE]
 >
 - La información de marca de empresa es una característica que solo está disponible si ha actualizado a la edición Premium o Básico de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
-- Las ediciones Premium y Básico de Azure Active Directory están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Premium y Básico de Azure Active Directory no se admiten actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+- Las ediciones Premium y Básico de Azure Active Directory están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Premium y Básico de Azure Active Directory no se admiten actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 Muchas empresas desean aplicar un aspecto uniforme a los sitios web y los servicios que administran de manera que los usuarios finales no se confundan cuando necesiten utilizar dichos sitios. Azure Active Directory ofrece esta funcionalidad, ya que permite personalizar la apariencia de las siguientes páginas web orientadas al usuario final para que incluyan el logotipo y las combinaciones de color de su empresa:
 
@@ -80,7 +80,8 @@ Logotipo del banner | Se muestra en la parte superior derecha de la página. Ree
 Ilustración grande / Color de fondo | Se muestra a la izquierda de la página. Reemplaza a la imagen que se mostraría normalmente en el sitio de destino en el que los usuarios están iniciando sesión. El color de fondo puede mostrarse en lugar de la ilustración grande en conexiones con un ancho de banda bajo o en pantallas muy estrechas.
 Texto de la página de inicio de sesión | Se muestra encima del pie de página cuando necesita ofrecer información útil a los usuarios antes de que inicien sesión con su cuenta profesional o educativa. Por ejemplo, es posible que desee incluir el número de teléfono de soporte técnico o una declaración legal.
 
-> [AZURE.NOTE]Todos los elementos son opcionales. Por ejemplo, si especifica un logotipo del banner pero no una ilustración grande, la página de inicio de sesión mostrará su logotipo y la ilustración del sitio de destino (es decir, la imagen de la autopista de California de Office 365).
+> [AZURE.NOTE]
+Todos los elementos son opcionales. Por ejemplo, si especifica un logotipo del banner pero no una ilustración grande, la página de inicio de sesión mostrará su logotipo y la ilustración del sitio de destino (es decir, la imagen de la autopista de California de Office 365).
 
 También puede localizar todos los elementos de esta página. Una vez que haya configurado un conjunto de elementos de personalización "predeterminado", puede configurar versiones adicionales para las diferentes configuraciones regionales. También puede mezclar y hacer coincidir varios elementos. Por ejemplo, puede:
 
@@ -185,4 +186,4 @@ Color de fondo de la página de inicio de sesión | El color de fondo de la pág
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -17,8 +17,6 @@
 
 # Application Insights: lenguajes y plataformas e integraciones
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
 Se trata de implementaciones sobre las que tenemos noticias, que incluyen también algunas de terceros.
 
 ## Idiomas
@@ -85,4 +83,4 @@ Se trata de implementaciones sobre las que tenemos noticias, que incluyen tambi�
 
 Si no hay todavía un SDK para el lenguaje o plataforma, quizás desee crear uno. Examine el código de los SDK existentes que aparecen en el [proyecto de SDK de Application Insights en GitHub](https://github.com/Microsoft/AppInsights-Home).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

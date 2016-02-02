@@ -16,7 +16,7 @@ Para comenzar a usar suscripciones y temas del Bus de servicio en Azure, primero
 
 Para crear un nombre de espacio de servicio:
 
-1.  Inicie sesión en el [Portal de Azure][].
+1.  Inicie sesión en el [Portal de Azure clásico][].
 
 2.  En el panel de navegación izquierdo del Portal, haga clic en **Bus de servicio**.
 
@@ -26,7 +26,7 @@ Para crear un nombre de espacio de servicio:
 
 5.  Después de asegurarse de que el nombre de espacio de nombres está disponible, seleccione el país o región en el que debe hospedarse el espacio de nombres (asegúrese de que usa el mismo país o la misma región en los que está realizando la implementación de los recursos de proceso).
 
-	> [AZURE.IMPORTANT]seleccione la **misma región** que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
+	> [AZURE.IMPORTANT] seleccione la **misma región** que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
 
 6. 	Deje los demás campos del cuadro de diálogo con los valores predeterminados (**Mensajería** y **Nivel estándar**) y, a continuación, haga clic en la marca de verificación. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
 
@@ -47,7 +47,7 @@ Para realizar operaciones de administración (como la creación de un tema o una
 4.  En el cuadro de diálogo **Información de conexión de acceso**, busque la cadena de conexión que contiene la clave SAS y el nombre de la clave. Anote estos valores, ya que usará la información más adelante para realizar operaciones con el espacio de nombres.
 
 
-  [Portal de Azure]: http://manage.windowsazure.com
+  [Portal de Azure clásico]: http://manage.windowsazure.com
   [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [2]: ./media/howto-service-bus-topics/sb-queues-04.png
   [3]: ./media/howto-service-bus-topics/sb-queues-09.png
@@ -55,4 +55,4 @@ Para realizar operaciones de administración (como la creación de un tema o una
   
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

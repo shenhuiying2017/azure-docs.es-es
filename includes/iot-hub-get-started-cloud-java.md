@@ -16,7 +16,7 @@ En esta sección, creará una aplicación de consola de Java que crea una nueva 
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.0-preview.8</version>
+      <version>1.0.0-preview.9</version>
     </dependency>
     ```
     
@@ -84,7 +84,7 @@ En esta sección, creará una aplicación de consola de Java que crea una nueva 
 
 13. Tome nota del **identificador de dispositivo** y de la **clave de dispositivo**. Los necesitará más adelante cuando cree una aplicación que se conecta a Centro de IoT como un dispositivo.
 
-> [AZURE.NOTE]El registro de identidades del Centro de IoT solo almacena las identidades de dispositivo para permitir el acceso seguro al centro. Almacena las claves y los identificadores de dispositivo para usarlos como credenciales de seguridad, y un indicador de habilitado o deshabilitado que permite deshabilitar el acceso a un dispositivo individual. Si la aplicación necesita almacenar otros metadatos específicos del dispositivo, debe usar un almacén específico de la aplicación. Consulte [Guía para desarrolladores del Centro de IoT][lnk-devguide-identity] para más información.
+> [AZURE.NOTE] El registro de identidades del Centro de IoT solo almacena las identidades de dispositivo para permitir el acceso seguro al centro. Almacena las claves y los identificadores de dispositivo para usarlos como credenciales de seguridad, y un indicador de habilitado o deshabilitado que permite deshabilitar el acceso a un dispositivo individual. Si la aplicación necesita almacenar otros metadatos específicos del dispositivo, debe usar un almacén específico de la aplicación. Consulte [Guía para desarrolladores del Centro de IoT][lnk-devguide-identity] para más información.
 
 ## Recepción de mensajes de dispositivo a nube
 
@@ -173,7 +173,7 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
     }
     ```
 
-    > [AZURE.NOTE]Este método utiliza un filtro cuando crea el receptor para que este solo lea los mensajes enviados al Centro de IoT después de que el receptor comience a ejecutarse. Esto es útil en un entorno de prueba, por que puede ver el conjunto actual de mensajes, pero en un entorno de producción el código debe asegurarse de que se procesan todos los mensajes. Consulte el [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-processd2c-tutorial] para obtener más información.
+    > [AZURE.NOTE] Este método utiliza un filtro cuando crea el receptor para que este solo lea los mensajes enviados al Centro de IoT después de que el receptor comience a ejecutarse. Esto es útil en un entorno de prueba, por que puede ver el conjunto actual de mensajes, pero en un entorno de producción el código debe asegurarse de que se procesan todos los mensajes. Consulte el [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-processd2c-tutorial] para obtener más información.
 
 11. Modifique la firma del método **main** para incluir las excepciones que se muestran a continuación:
 
@@ -181,7 +181,7 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
     public static void main( String[] args ) throws IOException
     ```
 
-12. Agregue el siguiente código al método **main** en la clase **App**. Este código crea una instancia de **EventHubClient** para conectarse al punto de conexión compatible del Centro eventos en Centro de IoT. Después, crea dos subprocesos para leer de las dos particiones. Reemplace **{youriothubkey}**, **{youreventhubcompatiblenamespace}** y **{youreventhubcompatiblename}** por los valores indicados anteriormente:
+12. Agregue el siguiente código al método **main** en la clase **App**. Este código crea una instancia de **EventHubClient** para conectarse al punto de conexión compatible del Centro eventos en Centro de IoT. Después, crea dos subprocesos para leer de las dos particiones. Reemplace **{youriothubkey}**, **{youreventhubcompatiblenamespace}** y **{youreventhubcompatiblename}** por los valores indicados anteriormente. El valor del marcador **{youreventhubcompatiblenamespace}** proviene del **punto de conexión compatible con Centro de eventos** y adopta la forma siguiente: **xxxxnamespace.servicebus.windows.net**.
 
     ```
     String policyName = "iothubowner";
@@ -209,7 +209,7 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
     client.close();
     ```
 
-    > [AZURE.NOTE]Este código asume que ha creado un Centro de IoT gratis. Un Centro de IoT gratis tiene dos particiones denominadas "0" y "1". Si creó el Centro de IoT con uno de los demás planes de tarifa, debe ajustar el código para crear una clase **MessageReceiver** para cada partición.
+    > [AZURE.NOTE] Este código supone que usted creó el Centro de IoT en el nivel de F1 (gratis). Un Centro de IoT gratis tiene dos particiones denominadas "0" y "1". Si creó el Centro de IoT con uno de los demás planes de tarifa, debe ajustar el código para crear una clase **MessageReceiver** para cada partición.
 
 13. Guarde y cierre el archivo App.java.
 
@@ -228,4 +228,4 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
 [lnk-event-hubs-overview]: event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

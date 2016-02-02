@@ -33,7 +33,7 @@ Si no tiene una suscripción de Azure y le gustaría probar Application Insights
 
 El recurso de Application Insights es donde se muestran los datos sobre el rendimiento y el uso de la página. (Si ha ya creado un recurso, quizá para recopilar datos de su servidor web, omita este paso).
 
-Inicie sesión en el [Portal de Azure](http://portal.azure.com).
+Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
 Si ya ha configurado la supervisión del lado del servidor de su aplicación, ya tendrá un recurso:
 
@@ -125,7 +125,7 @@ Haga clic en un gráfico para ver otras métricas que se pueden mostrar o agregu
 
 ![](./media/app-insights-javascript/appinsights-63usermetrics.png)
 
-> [AZURE.NOTE]Las métricas solo se pueden mostrar en algunas combinaciones. Cuando selecciona una métrica, se deshabilitan las incompatibles.
+> [AZURE.NOTE] Las métricas solo se pueden mostrar en algunas combinaciones. Cuando selecciona una métrica, se deshabilitan las incompatibles.
 
 
 
@@ -150,7 +150,7 @@ En la hoja Búsqueda de diagnóstico, establezca Filtros en Vista de página.
 
 Seleccione el evento que desea ver con mayor detalle. En la página de detalles, haga clic en "..." para ver aún más detalles.
 
-> [AZURE.NOTE]Si usa [Buscar](app-insights-diagnostic-search.md), tenga en cuenta que tiene que hacer coincidir palabras completas: "Acerc" y "cerca de" no coinciden con "Acerca de", pero "Acerca d*" sí lo hace. Tampoco puede iniciar un término de búsqueda con un carácter comodín. Por ejemplo, "*cerc" no coincide con "Acerca".
+> [AZURE.NOTE] Si usa [Buscar](app-insights-diagnostic-search.md), tenga en cuenta que tiene que hacer coincidir palabras completas: "Acerc" y "cerca de" no coinciden con "Acerca de", pero "Acerca d*" sí lo hace. Tampoco puede iniciar un término de búsqueda con un carácter comodín. Por ejemplo, "*cerc" no coincide con "Acerca".
 
 > [Más información sobre Búsqueda de diagnóstico](app-insights-diagnostic-search.md)
 
@@ -187,4 +187,4 @@ O bien, si la aplicación web ya está activa, puede agregar telemetría de serv
 * [Eventos y métricas personalizados](app-insights-api-custom-events-metrics.md)
 * [Compilación - Métrica - Aprendizaje](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -34,13 +34,13 @@ Programador permite crear, actualizar, eliminar, ver y administrar [colecciones 
 
  [Conceptos, terminología y jerarquía de entidades de Programador de Azure](scheduler-concepts-terms.md)
 
- [Introducción al uso de Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
+ [Introducción al Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
 
  [Planes y facturación en Programador de Azure](scheduler-plans-billing.md)
 
  [Creación de programaciones complejas y periodicidad avanzada con Programador de Azure](scheduler-advanced-complexity.md)
 
- [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/dn528946)
+ [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Referencia de cmdlets de PowerShell de Programador de Azure](scheduler-powershell-reference.md)
 
@@ -50,4 +50,4 @@ Programador permite crear, actualizar, eliminar, ver y administrar [colecciones 
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

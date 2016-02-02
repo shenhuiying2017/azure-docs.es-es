@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Uso del almacenamiento de tablas de .NET | Microsoft Azure"
-	description="Use el Almacenamiento de tablas para almacenar datos no estructurados, sin esquema. Almacenamiento de tablas es un almacén de claves/atributos NoSQL. La biblioteca cliente de Almacenamiento para .NET proporciona las API para crear y eliminar tablas, así como para insertar, actualizar, eliminar y consultar datos."
+	pageTitle="Introducción al Almacenamiento de tablas de Azure mediante .NET | Microsoft Azure"
+	description="Almacene datos no estructurados en la nube con el Almacenamiento de tablas de Azure, el almacén de datos NoSQL de Microsoft. Introducción a las operaciones de Almacenamiento de tablas simples, incluidas la creación y eliminación de tablas y la inserción, actualización, eliminación y consulta de datos."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,17 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/07/2016"
+	ms.date="01/24/2016"
 	ms.author="tamram"/>
 
 
-# Uso del almacenamiento de tablas de .NET
+# Introducción al Almacenamiento de tablas de Azure mediante .NET
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
 ## Información general
 
-Este artículo muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento de tablas de Azure. Los ejemplos están escritos en código C# y utilizan la biblioteca del cliente de almacenamiento de Azure para .NET. Entre los escenarios descritos se incluyen crear y eliminar una tabla, así como trabajar con entidades de tabla.
+Almacenamiento de tablas de Azure es un servicio que almacena datos de NoSQL no estructurados en la nube. Almacenamiento de tablas es un almacén de claves/atributos con un diseño sin esquema. Como Almacenamiento de tablas carece de esquema, es fácil adaptar los datos a medida que evolucionan las necesidades de la aplicación. El acceso a los datos es rápido y rentable para todos los tipos de aplicaciones y, además, su coste es muy inferior al del SQL tradicional para volúmenes de datos similares.
+
+El almacenamiento de tablas se puede usar para almacenar conjuntos de datos flexibles, como datos de usuarios para aplicaciones web, libretas de direcciones, información de dispositivos y cualquier otro tipo de metadatos requerido por el servicio. Una tabla puede almacenar un número cualquiera de entidades y una cuenta de almacenamiento puede incluir un número cualquiera de tablas, hasta alcanzar el límite de capacidad de este tipo de cuenta.
+
+Este tutorial muestra cómo escribir código .NET para algunos escenarios comunes mediante Almacenamiento de tablas de Azure, incluidos la creación y eliminación de una tabla y la inserción, actualización, eliminación y consulta de los datos de tablas.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -440,4 +444,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de Ta
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

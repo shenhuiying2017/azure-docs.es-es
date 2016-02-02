@@ -25,7 +25,7 @@ En este tutorial se muestra cómo crear una aplicación de Java e implementarla 
 ## Requisitos previos
 
 1. [Kit para desarrolladores de Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (o superior)
-1. Una suscripción de [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) o de pago a [Microsoft Azure](https://azure.microsoft.com)
+1. Una suscripción de [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) o de pago a [Microsoft Azure](https://azure.microsoft.com/)
 1. [Maven](https://maven.apache.org/) instalado en el equipo de desarrollo
 1. GIT instalado en el equipo de desarrollo. 
 
@@ -254,7 +254,7 @@ En esta sección va a reemplazar la implementación del lado servidor del códig
 ## Publicación del resultado en el Servicio de aplicaciones de Azure
 En esta sección aprenderá a crear una nueva aplicación de API mediante el Portal de Azure, a prepararla para hospedar aplicaciones Java y a implementar el archivo WAR recién creado en el Servicio de aplicaciones de Azure para ejecutar la nueva aplicación de API.
 
-1. Cree una nueva aplicación de API en el [Portal de Azure](http://portal.azure.com); para ello, haga clic en el elemento de menú **Nuevo -> Web y móvil -> Aplicación de API**.
+1. Cree una nueva aplicación de API en el [Portal de Azure](https://portal.azure.com/); para ello, haga clic en el elemento de menú **Nuevo -> Web y móvil -> Aplicación de API**.
 	
 	![Crear una nueva aplicación de API](media/app-service-api-java-api-app/create-api-app.png)
 
@@ -295,4 +295,4 @@ Para sacar más partido a este ejemplo, aprenda más sobre el [SDK de almacenami
 
 Para obtener más información sobre del uso de Java en Azure, consulte el [Centro para desarrolladores de Java](/develop/java/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

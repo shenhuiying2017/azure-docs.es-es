@@ -2,13 +2,14 @@
 	pageTitle="Introducción a las soluciones preconfiguradas | Microsoft Azure"
 	description="Siga este tutorial para aprender a implementar una solución preconfigurada del conjunto de IoT de Azure."
 	services=""
+    suite="iot-suite"
 	documentationCenter=""
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="na"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
@@ -26,7 +27,7 @@ Este tutorial muestra cómo aprovisionar la solución preconfigurada de *supervi
 
 Para completar este tutorial, deberá tener una suscripción de Azure activa.
 
-> [AZURE.NOTE]En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][lnk_free_trial].
+> [AZURE.NOTE]  En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][lnk_free_trial].
 
 ## Aprovisionamiento de la solución preconfigurada de supervisión remota
 
@@ -159,4 +160,4 @@ Ahora que ha creado una solución preconfigurada que funciona, puede pasar a las
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

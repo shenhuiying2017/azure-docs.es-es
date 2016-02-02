@@ -30,7 +30,7 @@ Este tutorial le guiará para crear un [runbook de flujo de trabajo de PowerShel
 
 Para completar este tutorial, necesitará lo siguiente:
 
-- suscripción de Azure. Si aún no tiene ninguna, puede [activar los beneficios de la suscripción a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), o bien <a href="/pricing/free-trial/" target="_blank">[registrarse para obtener una evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- suscripción de Azure. Si aún no tiene ninguna, puede [activar los beneficios de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), o bien <a href="/pricing/free-trial/" target="_blank">[registrarse para obtener una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - [Cuenta de automatización](automation-configuring.md) para contener el runbook.
 - Una máquina virtual de Azure. Detendremos e iniciaremos esta máquina, por lo que no debería ser de producción.
 - [Usuario de Azure Active Directory y recurso de credencial de automatización](automation-configuring.md) para autenticarse en recursos de Azure. Este usuario debe tener permiso para iniciar y detener la máquina virtual.
@@ -124,4 +124,4 @@ Actualmente, nuestro runbook inicia la máquina virtual que codificamos en el ru
 - [Mi primer runbook gráfico](automation-first-runbook-graphical.md)
 - [Mi primer runbook de PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

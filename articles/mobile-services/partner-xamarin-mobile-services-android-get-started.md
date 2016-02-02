@@ -44,7 +44,7 @@ Para completar este tutorial es necesario [Xamarin.Android], que instala Xamarin
 
 El proyecto de inicio rápido descargado contiene el componente Servicios móviles de Azure para Xamarin.Android. Si bien este proyecto requiere Android 4.2 o versiones posteriores, el SDK para Servicios móviles tan solo requiere Android 2.2 o una versión posterior.
 
-> [AZURE.IMPORTANT]Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5).
+> [AZURE.IMPORTANT] Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5).
 
 ## <a name="create-new-service"> </a>Creación de un servicio móvil
 
@@ -82,7 +82,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 3. Presione el botón **Run** para compilar el proyecto e iniciar la aplicación. Se le solicitará que seleccione un emulador o un dispositivo USB conectado.
 
-	> [AZURE.NOTE]Para poder ejecutar el proyecto en el emulador de Android, debe definir al menos un dispositivo virtual Android (AVD). Use el administrador AVD para crear y administrar estos dispositivos.
+	> [AZURE.NOTE] Para poder ejecutar el proyecto en el emulador de Android, debe definir al menos un dispositivo virtual Android (AVD). Use el administrador AVD para crear y administrar estos dispositivos.
 
 4. En la aplicación, escriba un texto significativo, como _Realizar el tutorial_ y haga clic en **Add** (Agregar).
 
@@ -90,7 +90,8 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 	Esta acción envía una solicitud POST al nuevo servicio móvil hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El servicio móvil devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
 
-	> [AZURE.NOTE]Puede revisar el código de acceso al servicio móvil para consultar e insertar datos; este se encuentra en el archivo de C# ToDoActivity.cs.
+	> [AZURE.NOTE]
+   	Puede revisar el código de acceso al servicio móvil para consultar e insertar datos; este se encuentra en el archivo de C# ToDoActivity.cs.
 
 6. De nuevo en el [Portal de Azure clásico], haga clic en la pestaña **Datos** y luego en la tabla **TodoItems**.
 
@@ -145,4 +146,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Azure]: http://azure.microsoft.com/
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 
@@ -33,13 +33,13 @@ Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7
 Este artículo le guiará por los pasos necesarios para crear, configurar, iniciar y eliminar una Puerta de enlace de aplicaciones.
 
 
->[AZURE.IMPORTANT]Antes de trabajar con recursos de Azure, es importante comprender que Azure tiene actualmente dos modelos de implementación: el Administrador de recursos y el clásico. Asegúrese de que comprende los [modelos de implementación y las herramientas](azure-classic-rm.md) antes de trabajar con recursos de Azure. Puede ver la documentación de las distintas herramientas haciendo clic en las fichas en la parte superior de este artículo. Este documento describe la creación de una Puerta de enlace de aplicaciones con el Administrador de recursos de Azure Para utilizar la versión clásica, vaya a [Creación, inicio o eliminación de una Puerta de enlace de aplicaciones](application-gateway-create-gateway.md).
+>[AZURE.IMPORTANT] Antes de trabajar con recursos de Azure, es importante comprender que Azure tiene actualmente dos modelos de implementación: el Administrador de recursos y el clásico. Asegúrese de que comprende los [modelos de implementación y las herramientas](azure-classic-rm.md) antes de trabajar con recursos de Azure. Puede ver la documentación de las distintas herramientas haciendo clic en las fichas en la parte superior de este artículo. Este documento describe la creación de una Puerta de enlace de aplicaciones con el Administrador de recursos de Azure Para utilizar la versión clásica, vaya a [Creación, inicio o eliminación de una Puerta de enlace de aplicaciones](application-gateway-create-gateway.md).
 
 
 
 ## Antes de empezar
 
-1. Instale la versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente desde la sección **Windows PowerShell** de la página [Descargas](http://azure.microsoft.com/downloads/).
+1. Instale la versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente desde la sección **Windows PowerShell** de la [página Descargas](https://azure.microsoft.com/downloads/).
 2. Creará una red virtual y subred para la Puerta de enlace de aplicaciones. Asegúrese de que ninguna máquina virtual o implementación en la nube usan la subred. La Puerta de enlace de aplicaciones debe encontrarse en una subred de red virtual.
 3. Los servidores que configurará para que usen la Puerta de enlace de aplicaciones deben existir, o bien sus puntos de conexión deben haberse creado en la red virtual o tener una dirección IP/VIP pública asignada.
 
@@ -97,16 +97,16 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 
 ### Paso 4
 
-Cree un grupo de recursos nuevo (omita este paso si usa un grupo de recursos existente).
+Cree un grupo de recursos nuevo (omita este paso si usa uno existente).
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear una puerta de enlace de aplicaciones se van a usar en el mismo grupo de recursos.
+El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear una puerta de enlace de aplicaciones usen el mismo grupo de recursos.
 
 En el ejemplo anterior, creamos un grupo de recursos denominado "appgw-RG" y la ubicación "West US".
 
 
->[AZURE.NOTE]Si necesita configurar un sondeo personalizado para la Puerta de enlace de aplicaciones, consulte el artículo [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md) (Creación de una puerta de enlace de aplicaciones con sondeos personalizados mediante PowerShell). Consulte también [Application gateway health monitoring overview](application-gateway-probe-overview.md) para más información.
+>[AZURE.NOTE] Si necesita configurar un sondeo personalizado para la Puerta de enlace de aplicaciones, consulte el artículo [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md) (Creación de una puerta de enlace de aplicaciones con sondeos personalizados mediante PowerShell). Consulte también [Application gateway health monitoring overview](application-gateway-probe-overview.md) para más información.
 
 
 
@@ -123,14 +123,14 @@ Asigne el intervalo de direcciones 10.0.0.0/24 a la variable de subred que se ut
 
 ### Paso 2
 
-Cree una red virtual denominada "appgwvnet" en el grupo de recursos "appgw-rg" para la región West US con el prefijo 10.0.0.0/16 y la subred 10.0.0.0/24.
+Cree una red virtual denominada "appgwvnet" en el grupo de recursos "appgw-rg" para la región Oeste de EE. UU. con el prefijo 10.0.0.0/16 y la subred 10.0.0.0/24.
 
 	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
 
 ### Paso 3
 
-Asigne una variable de subred en los pasos siguientes para crear una Puerta de enlace de aplicaciones.
+Asigne una variable de subred en los pasos siguientes para crear una puerta de enlace de aplicaciones.
 
 	$subnet=$vnet.Subnets[0]
 
@@ -143,11 +143,11 @@ Cree un recurso IP público "publicIP01" en el grupo de recursos "appgw-rg" para
 
 ## Creación de un objeto de configuración de la Puerta de enlace de aplicaciones
 
-Debe configurar todos los elementos de configuración antes de crear la Puerta de enlace de aplicaciones de la aplicación. En los pasos siguientes se crean los elementos de configuración necesarios para un recurso de Puerta de enlace de aplicaciones.
+Debe configurar todos los elementos de configuración antes de crear la Puerta de enlace de aplicaciones de la aplicación. En los pasos siguientes, se crean los elementos de configuración necesarios para un recurso de puerta de enlace de aplicaciones.
 
 ### Paso 1
 
-Cree una configuración de IP de Puerta de enlace de aplicaciones denominada "gatewayIP01". Cuando se inicia la Puerta de enlace de aplicaciones, elige una dirección IP de la subred configurada y redirige el tráfico de red a las direcciones IP en el grupo IP de back-end. Tenga en cuenta que cada instancia tomará una dirección IP.
+Cree una configuración de IP de puerta de enlace de aplicaciones denominada "gatewayIP01". Cuando se inicia Puerta de enlace de aplicaciones, esta elige una dirección IP de la subred configurada y redirige el tráfico de red a las direcciones IP en el grupo IP del back-end. Tenga en cuenta que cada instancia tomará una dirección IP.
 
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
@@ -155,7 +155,7 @@ Cree una configuración de IP de Puerta de enlace de aplicaciones denominada "ga
 
 ### Paso 2
 
-Configure el grupo de direcciones IP de back-end denominado "pool01" con las direcciones IP "134.170.185.46, 134.170.188.221,134.170.185.50". Serán las direcciones IP que reciban el tráfico de red procedente del punto de conexión de la IP del front-end. Deberá reemplazar las direcciones IP anteriores para agregar sus propios extremos de direcciones IP de la aplicación.
+Configure el grupo de direcciones IP del back-end denominado "pool01" con las direcciones IP "134.170.185.46,134.170.188.221,134.170.185.50". Serán las direcciones IP que reciban el tráfico de red procedente del punto de conexión de la IP del front-end. Deberá reemplazar las direcciones IP anteriores para agregar sus propios extremos de direcciones IP de la aplicación.
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -200,11 +200,11 @@ Configure el tamaño de la instancia de la Puerta de enlace de aplicaciones.
 
 	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
->[AZURE.NOTE]El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Se puede elegir entre Standard\_Small, Standard\_Medium y Standard\_Large.
+>[AZURE.NOTE]  El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Se puede elegir entre Standard\_Small, Standard\_Medium y Standard\_Large.
 
-## Creación de una Puerta de enlace de aplicaciones mediante New-AzureRmApplicationGateway
+## Creación de una puerta de enlace de aplicaciones mediante New-AzureRmApplicationGateway
 
-Cree una Puerta de enlace de aplicaciones con todos los elementos de configuración de los pasos anteriores. En el ejemplo, la Puerta de enlace de aplicaciones se denomina "appgwtest".
+Cree una puerta de enlace de aplicaciones con todos los elementos de configuración de los pasos anteriores. En el ejemplo, la Puerta de enlace de aplicaciones se denomina "appgwtest".
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
@@ -237,13 +237,13 @@ Cuando la puerta de enlace de aplicaciones esté en estado detenido, use el cmdl
 
 
 
->[AZURE.NOTE]Se puede usar el modificador **-force** para suprimir el mensaje de confirmación de eliminación.
+>[AZURE.NOTE] Se puede usar el modificador **-force** para suprimir el mensaje de confirmación de eliminación.
 
 
 Para comprobar que el servicio se ha quitado, se puede usar el cmdlet **Get-AzureRmApplicationGateway**. Este paso no es necesario.
 
 
-	Get-AzureRmApplicationGateway -Name appgwtest-ResourceGroupName appgw-rg
+	Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 
 ## Pasos siguientes
@@ -257,4 +257,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

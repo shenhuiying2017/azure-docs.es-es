@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="12/03/2015" 
+	ms.date="01/21/2016" 
 	ms.author="sdanie"/>
 
 # Uso de Caché en Redis de Azure
@@ -34,7 +34,7 @@ Caché en Redis de Microsoft Azure está disponible en los siguientes niveles:
 
 Estos niveles difieren en las características y el precio. Para obtener información sobre los precios, consulte los [Detalles de precios de caché][].
 
-Esta guía muestra cómo usar el cliente [StackExchange.Redis][] con el código C#. Entre los escenarios tratados se incluyen la **creación y configuración de una caché**, la **configuración de clientes de caché** y la **incorporación y eliminación de objetos de la memoria caché**. Para obtener más información acerca del uso de Caché en Redis de Azure, consulte la sección [Pasos siguientes][].
+Esta guía muestra cómo usar el cliente [StackExchange.Redis][] con el código C#. Entre los escenarios tratados se incluyen la **creación y configuración de una caché**, la **configuración de clientes de caché** y la **adición y eliminación de objetos de la memoria caché**. Para obtener más información acerca del uso de Caché en Redis de Azure, consulte la sección [Pasos siguientes][].
 
 <a name="getting-started-cache-service"></a>
 ## Introducción a Caché en Redis de Azure
@@ -49,15 +49,21 @@ Ponerse en marcha con Caché en Redis de Azure es fácil. En primer lugar, tiene
 
 Para crear una memoria caché, primero inicie sesión en el [Portal de Azure][] y haga clic en **Nuevo**, **Datos y almacenamiento** y **Caché en Redis**.
 
+>[AZURE.NOTE] Además de crear memorias caché en el Portal de Azure, también puede crearlas mediante las plantillas de ARM, PowerShell o la CLI de Azure.
+>
+>-	Para crear una caché mediante plantillas ARM, consulte [Creación de una caché en Redis mediante una plantilla](cache-redis-cache-arm-provision.md).
+>-	Para crear una caché con Azure PowerShell, consulte [Administración de Caché en Redis de Azure con Azure PowerShell](cache-howto-manage-redis-cache-powershell.md).
+>-	Para crear una caché mediante la CLI de Azure, consulte [Creación y administración de Caché en Redis de Azure mediante la interfaz de línea de comandos de Azure (CLI de Azure)](cache-manage-cli.md).
+
 ![New cache][NewCacheMenu]
 
->[AZURE.NOTE]En caso de no tener ninguna cuenta de Azure, puede crear una de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][].
+>[AZURE.NOTE] En caso de no tener ninguna cuenta de Azure, puede crear una de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][].
 
 En la hoja **Nueva caché en Redis**, especifique la configuración que desee para la memoria caché.
 
 ![Create cache][CacheCreate]
 
--	En **Nombre DNS**, escriba un nombre de subdominio para usar el extremo de caché. El nombre debe tener entre seis y veinte caracteres, solo puede contener números y letras minúsculas, y debe comenzar por una letra.
+-	En **Nombre DNS**, escriba el nombre de la memoria caché que se va a usar para el punto de conexión de la caché. El nombre de la memoria caché debe ser una cadena de entre 1 y 63 caracteres, y que solo contenga números, letras y el carácter `-`. El nombre de la memoria caché no puede comenzar ni terminar por el carácter `-` y no son válidos varios caracteres `-` consecutivos.
 -	En **Suscripción**, seleccione la suscripción de Azure que desee utilizar para la memoria caché. Si su cuenta solo dispone de una suscripción, esta se seleccionará automáticamente y no aparecerá la lista desplegable **Suscripción**.
 -	En **Grupo de recursos**, seleccione o cree un grupo de recursos para su caché. Para obtener más información, consulte [Uso de grupos de recursos para administrar los recursos de Azure][]. 
 -	Use **Ubicación** para especificar la ubicación geográfica en la que se hospeda su caché. Para optimizar el rendimiento, Microsoft recomienda encarecidamente que cree la memoria caché en la misma región que la aplicación cliente de caché.
@@ -84,7 +90,7 @@ Haga clic en **Cachés en Redis** para ver sus cachés.
 
 Una caché creada usando Caché en Redis de Azure es accesible desde cualquier aplicación de Azure. Las aplicaciones .NET desarrolladas en Visual Studio pueden usar el cliente de caché **StackExchange.Redis**, que se puede configurar usando un paquete NuGet que simplifica la configuración de aplicaciones cliente de caché.
 
->[AZURE.NOTE]Para obtener más información, consulte la página Github [StackExchange.Redis][] y la [documentación del cliente de caché StackExchange.Redis][].
+>[AZURE.NOTE] Para obtener más información, consulte la página Github [StackExchange.Redis][] y la [documentación del cliente de caché StackExchange.Redis][].
 
 Para configurar una aplicación cliente en Visual Studio usando el paquete NuGet StackExchange.Redis, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**.
 
@@ -92,7 +98,7 @@ Para configurar una aplicación cliente en Visual Studio usando el paquete NuGet
 
 Escriba **StackExchange.Redis** o **StackExchange.Redis.StrongName** en el cuadro de texto **Buscar en línea**, seleccione la versión que desee en los resultados y haga clic en **Instalar**.
 
->[AZURE.NOTE]Si prefiere usar una versión con nombre seguro de la biblioteca de cliente **StackExchange.Redis**, elija **StackExchange.Redis.StrongName**; de lo contrario, elija **StackExchange.Redis**.
+>[AZURE.NOTE] Si prefiere usar una versión con nombre seguro de la biblioteca de cliente **StackExchange.Redis**, elija **StackExchange.Redis.StrongName**; de lo contrario, elija **StackExchange.Redis**.
 
 ![StackExchange.Redis NuGet package][StackExchangeNuget]
 
@@ -116,7 +122,7 @@ Para trabajar con una caché mediante programación, necesita una referencia a l
 
     using StackExchange.Redis;
 
->[AZURE.NOTE]El cliente StackExchange.Redis requiere .NET Framework 4 o superior.
+>[AZURE.NOTE] El cliente StackExchange.Redis requiere .NET Framework 4 o superior.
 
 La clase `ConnectionMultiplexer` administra la conexión con Caché en Redis de Azure. Esta clase está diseñada para compartirse y reusarse a través de su aplicación cliente y no necesita crearse basándose en operación.
 
@@ -124,11 +130,11 @@ Para conectarse a una Caché en Redis de Azure y que se devuelva una instancia d
 
 	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
->[AZURE.IMPORTANT]Advertencia: nunca almacene credenciales en el código fuente. Para que este ejemplo resulte sencillo, se muestra en código fuente. Consulte [Cómo funcionan las cadenas de aplicación y las cadenas de conexión][] para obtener información sobre cómo almacenar credenciales.
+>[AZURE.IMPORTANT] Advertencia: nunca almacene credenciales en el código fuente. Para que este ejemplo resulte sencillo, se muestra en código fuente. Consulte [Cómo funcionan las cadenas de aplicación y las cadenas de conexión][] para obtener información sobre cómo almacenar credenciales.
 
 Si no desea usar SSL, establezca `ssl=false` u omita el parámetro `ssl`.
 
->[AZURE.NOTE]El puerto no SSL está deshabilitado de forma predeterminada para las cachés nuevas. Para obtener instrucciones acerca de cómo habilitar el puerto no SSL, consulte [Puertos de acceso](cache-configure.md#access-ports).
+>[AZURE.NOTE] El puerto no SSL está deshabilitado de forma predeterminada para las cachés nuevas. Para obtener instrucciones acerca de cómo habilitar el puerto no SSL, consulte [Puertos de acceso](cache-configure.md#access-ports).
 
 Un enfoque para compartir una instancia `ConnectionMultiplexer` en su aplicación es tener una propiedad estática que devuelva una instancia conectada, similar al ejemplo siguiente. Esto proporciona una manera segura para subprocesos para inicializar una sola instancia`ConnectionMultiplexer` conectada. En estos ejemplos `abortConnect` está establecida en falso, lo que significa que la llamada se realizará correctamente incluso si no se establece ninguna conexión a la Caché en Redis de Azure. Una característica clave de `ConnectionMultiplexer` es que restaurará automáticamente la conectividad a la memoria caché una vez que el problema de red u otras causas se hayan resuelto.
 
@@ -329,4 +335,4 @@ Ahora que está familiarizado con los aspectos básicos, siga estos vínculos pa
 
 [Evaluación gratuita de Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

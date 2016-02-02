@@ -30,7 +30,7 @@ Servicios multimedia proporciona un servicio de entrega de licencias de Microsof
 
 A partir del SDK de Servicios multimedia para .NET versión 3.5.2, Servicios multimedia también permite configurar la plantilla de licencia Widevine y obtener licencias de Widevine.
 
->[AZURE.NOTE]Los servicios de entrega de licencias de Widevine proporcionados por Servicios de multimedia de Azure están en vista previa. Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
+>[AZURE.NOTE]Los servicios de entrega de licencias de Widevine proporcionados por Servicios de multimedia de Azure están en vista previa. Para obtener más información, consulte [este blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 También puede usar los siguientes asociados de AMS para ayudarle a entregar licencias de Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). Para obtener más información, consulte: integración con [Axinom](media-services-axinom-integration.md) y [castLabs](media-services-castlabs-integration.md).
 
@@ -631,6 +631,6 @@ En el ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de S
 
 [Configuración del empaquetado Widevine con AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
-[Anuncio de los servicios de entrega de licencias de la vista previa pública de Google Widevine de Servicios multimedia de Azure](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
+[Anuncio de los servicios de entrega de licencias de la vista previa pública de Google Widevine de Servicios multimedia de Azure](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->
