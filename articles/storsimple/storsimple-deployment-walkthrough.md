@@ -146,7 +146,7 @@ Antes de comenzar, asegúrese de que:
 | | | |
 | **NTP** | Desencadenamos una sincronización de tiempo tan pronto como se introduce el servidor NTP. Compruebe que el puerto UDP 123 está abierto cuando introduce `time.windows.com` o servidores de hora públicos). | [Descargue y use este script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
-| **Proxy (opcional)** | ¿Es un URI y un puerto válidos para el proxy? </br>¿Es correcto el modo de autenticación? | <code>wget http://bing.com | % {$\_.StatusCode}</code></br>Este comando debe ejecutarse inmediatamente después de configurar el proxy web. Si se devuelve el código e estado 200, indica que la conexión es correcta. |
+| **Proxy (opcional)** | ¿Es un URI y un puerto válidos para el proxy? </br>¿Es correcto el modo de autenticación? | <code>wget http://bing.com &#124; % {$\_.StatusCode}</code></br>Este comando debe ejecutarse inmediatamente después de configurar el proxy web. Si se devuelve el código e estado 200, indica que la conexión es correcta. |
 | | ¿Se puede enrutar el tráfico a través del proxy? | Ejecute las validación DNS y la comprobación NTP o HTTP después de configurar el proxy en el dispositivo. Esto le dará una idea clara de si el tráfico se está bloqueando en el proxy o en otro lugar. |
 | | | |
 | **Registro** | Compruebe si los puertos TCP de salida 443, 80, 9354 están abiertos. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Más información sobre el cmdlet Test-NetConnection](https://technet.microsoft.com/library/dn372891.aspx). |
@@ -167,7 +167,8 @@ Siga estos pasos para crear una nueva instancia del servicio de Administrador de
 
 > [AZURE.IMPORTANT] Si no habilitó la creación automática de una cuenta de almacenamiento con el servicio, debe crear al menos una cuenta de almacenamiento después de crear correctamente un servicio. Dicha cuenta de almacenamiento se usará al crear un contenedor de volúmenes.
 >
-> Si no creó automáticamente una cuenta de almacenamiento, vaya a [Configurar una nueva cuenta de almacenamiento para el servicio](#configure-a-new-storage-account-for-the-service) para obtener instrucciones detalladas. Si habilitó la creación automática de una cuenta de almacenamiento, vaya al [Paso 2: Obtener la clave de registro del servicio](#step-2:-get-the-service-registration-key).
+> Si no creó automáticamente una cuenta de almacenamiento, vaya a [Configurar una nueva cuenta de almacenamiento para el servicio](#configure-a-new-storage-account-for-the-service) para obtener instrucciones detalladas. 
+> Si habilitó la creación automática de una cuenta de almacenamiento, vaya al [Paso 2: Obtener la clave de registro del servicio](#step-2:-get-the-service-registration-key).
 
 ## Paso 2: Obtener la clave de registro del servicio
 

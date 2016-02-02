@@ -163,7 +163,7 @@ El último paso es agregar una acción que cargue unos tweets a un archivo de Dr
 
 5. Haga clic en la marca de verificación verde para guardar la configuración del conector.
 
-5. Ahora que el diseño se ha completado, haga clic en **Vista Código** en la parte superior izquierda del diseñador y tenga en cuenta que este es el código JSON que define el flujo de trabajo que acaba de crear en el diseñador. Trataremos este código más en el [siguiente tema][Use logic app features].
+5. Ahora que el diseño se ha completado, haga clic en **Vista Código** en la parte superior izquierda del diseñador y tenga en cuenta que este es el código JSON que define el flujo de trabajo que acaba de crear en el diseñador. Trataremos este código más en el [siguiente tema](Use logic app features).
 
 6. Haga clic en el botón **Aceptar** en la parte inferior de la pantalla y, a continuación, haga clic en el botón **Crear**.
 
@@ -188,4 +188,4 @@ En menos de 5 minutos ha sido capaz de configurar una aplicación lógica sencil
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Uso de las características de aplicaciones lógicas]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!-----HONumber=AcomDC_0128_2016-->
