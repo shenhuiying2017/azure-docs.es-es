@@ -41,11 +41,11 @@ Después de haber completado el tutorial de Node.js, use los botones de votos en
 
 Comencemos.
 
-## Requisitos previos
+## Requisitos previos para el tutorial de Node.js
 
 Asegúrese de que dispone de lo siguiente:
 
-- Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [prueba gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+- Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Node.js](https://nodejs.org/) versión v0.10.29 o superior
 
 ## Paso 1: Creación de una cuenta de DocumentDB
@@ -76,7 +76,7 @@ Abra ```config.js``` en el editor de texto que prefiera.
 
 Después, cree un objeto vacío llamado ```config``` y establezca las propiedades ```config.endpoint``` y ```config.authKey``` en sl punto de conexión y en la clave de autorización de DocumentDB. Ambas opciones de configuración se encuentran en el [Portal de Azure](https://portal.azure.com).
 
-![Captura de pantalla del Portal de Azure, que muestra una cuenta de DocumentDB, con el concentrador ACTIVO resaltado, el botón CLAVES resaltado en la hoja de cuenta de DocumentDB y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves][keys]
+![Tutorial de Node.js: captura de pantalla del Portal de Azure que muestra una cuenta de DocumentDB, con el concentrador ACTIVO resaltado, el botón CLAVES resaltado en la hoja de cuenta de DocumentDB y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves (base de datos de nodos).][keys]
 
     var config = {}
 
@@ -212,7 +212,7 @@ Para crear una [base de datos](documentdb-resources.md#databases), se puede usar
 
 ##<a id="CreateColl"></a>Paso 6: Creación de una colección  
 
-> [AZURE.WARNING]**CreateDocumentCollectionAsync** creará una nueva colección de S1, que tiene implicaciones de precios. Para obtener más información, visite nuestra [página de precios](https://azure.microsoft.com/pricing/details/documentdb/).
+> [AZURE.WARNING] **CreateDocumentCollectionAsync** creará una nueva colección de S1, que tiene implicaciones de precios. Para obtener más información, visite nuestra [página de precios](https://azure.microsoft.com/pricing/details/documentdb/).
 
 Para crear una [colección](documentdb-resources.md#collections), puede usar la función [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) de la clase **DocumentClient**. Una colección es un contenedor de documentos JSON asociado a la lógica de aplicación de JavaScript. La colección recién creada se asignará a un [nivel de rendimiento S1](documentdb-performance-levels.md). Agregue una función para crear la nueva colección en el archivo app.js con el ```id``` especificado en el objeto ```config```. Vuelva a comprobar que no existe una colección con el mismo identificador ```FamilyCollection```. Si existe, usaremos esa colección en lugar de crear una nueva.
 
@@ -276,7 +276,7 @@ A continuación, agregue una función a app.js para crear los documentos que con
 
 ¡Enhorabuena! Ya tiene funciones para crear una base de datos, una colección y un documento en DocumentDB.
 
-![Diagrama que muestra la relación jerárquica entre la cuenta, la base de datos, la colección y los documentos](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
+![Tutorial de Node.js: diagrama que muestra la relación jerárquica entre la cuenta, la base de datos, la colección y los documentos (base de datos de nodos)](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
 ##<a id="Query"></a>Paso 8: Consulta de recursos de DocumentDB
 
@@ -302,7 +302,7 @@ DocumentDB admite [consultas](documentdb-sql-query.md) enriquecidas contra los d
 
 El siguiente diagrama muestra cómo se llama a la sintaxis de la consulta SQL de DocumentDB en la colección creada.
 
-![Diagrama que ilustra el ámbito y el significado de la consulta](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
+![Tutorial de Node.js: diagrama que ilustra el ámbito y el significado de la consulta (base de datos de nodo).](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
 La palabra clave [FROM](documentdb-sql-query.md/#from-clause) es opcional en la consulta porque las consultas de DocumentDB ya tienen como ámbito una sola colección. Por lo tanto, «FROM Families f" se puede intercambiar por "FROM root r", o cualquier otra variable de nombre que elija. DocumentDB deducirá la familia, la raíz o el nombre de variable elegido y hará referencia a la colección actual de forma predeterminada.
 
@@ -419,7 +419,7 @@ Ahora debería ver la salida de la aplicación GetStarted. La salida debe coinci
 
 ¡Enhorabuena! Ha completado el tutorial de Node.js y tiene su primera aplicación de consola de DocumentDB.
 
-##<a id="GetSolution"></a> Obtención de la solución completa
+##<a id="GetSolution"></a> Obtener la solución completa del tutorial de Node.js
 Para compilar la solución GetStarted que contiene todos los ejemplos de este artículo, necesitará lo siguiente:
 
 -   [Cuenta de DocumentDB][documentdb-create-account].
@@ -442,4 +442,4 @@ Después, en el archivo ```config.js```, actualice los valores de config.endpoin
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

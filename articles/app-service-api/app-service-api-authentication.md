@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/07/2016"
+	ms.date="01/21/2016"
 	ms.author="tdykstra"/>
 
 # Autenticación y autorización para Aplicaciones de API en el Servicio de aplicaciones de Azure
@@ -74,6 +74,8 @@ En el [Portal de Azure](https://portal.azure.com/), seleccione la opción que de
 Para las opciones 1 y 2, active **Autenticación de Servicio de aplicaciones** y en la lista desplegable **Acción que se realiza cuando la solicitud no está autenticada** elija **Iniciar sesión** o **Permitir solicitud (ninguna acción)**. Si elige **Iniciar sesión**, tendrá que elegir un proveedor de autenticación y configurarlo.
 
 ![](./media/app-service-api-authentication/actiontotake.png)
+
+Para más información sobre cómo configurar la autenticación, consulte [Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). El artículo se aplica a aplicaciones de API, así como a aplicaciones móviles, e incluye vínculos a otros artículos para los demás proveedores de autenticación.
  
 ## <a id="internal"></a> Autenticación de cuentas de servicio
 
@@ -81,17 +83,20 @@ La autenticación del Servicio de aplicaciones también funciona en escenarios i
 
 En los escenarios entre servicios, proteja la aplicación de API llamada mediante Azure Active Directory y proporcione un token de autorización de la entidad de servicio de AAD al llamar a la aplicación de API. Puede obtener un token mediante la especificación del identificador de cliente y el secreto de cliente desde la aplicación de AAD. No se necesita ningún código especial solo para Azure, como el que se solía usar para controlar el token de Zumo de Servicios móviles. Un ejemplo del uso de este escenario por parte de aplicaciones de API de ASP.NET puede encontrarse en el tutorial [Autenticación de entidad de servicio para Aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-dotnet-service-principal-auth.md).
 
-Si desea administrar un escenario de servicio a servicio sin usar la autenticación del Servicio de aplicaciones, puede usar certificados de cliente o una autenticación básica. Para obtener información acerca de los certificados de cliente en Azure, consulte [Configuración de la autenticación mutua de TLS para una aplicación web](../app-service-web/app-service-web-configure-tls-mutual-auth.md). Para obtener información acerca de la autenticación básica en ASP.NET, consulte [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters) (Filtros de autenticación en ASP.NET Web API 2).
+Si desea administrar un escenario de servicio a servicio sin usar la autenticación del Servicio de aplicaciones, puede usar certificados de cliente o una autenticación básica. Para obtener información acerca de los certificados de cliente en Azure, consulte [Configuración de la autenticación mutua de TLS para una aplicación web](../app-service-web/app-service-web-configure-tls-mutual-auth.md). Para más información sobre la autenticación básica en ASP.NET, consulte [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters) (Filtros de autenticación en ASP.NET Web API 2).
 
 La autenticación de cuentas de servicio desde una aplicación lógica de Servicio de aplicaciones en una aplicación de API es un caso especial que se explica en [Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
 ## Autenticación de cliente
 
-Para obtener información acerca de cómo controlar la autenticación de clientes móviles, consulte la [documentación sobre la autenticación para aplicaciones móviles](../app-service-mobile/app-service-mobile-ios-get-started-users.md). La autenticación de Servicio de aplicaciones funciona igual para aplicaciones móviles y aplicaciones de API.
+Para más información sobre cómo controlar la autenticación desde clientes móviles, consulte la [documentación sobre la autenticación para aplicaciones móviles](../app-service-mobile/app-service-mobile-ios-get-started-users.md). La autenticación de Servicio de aplicaciones funciona igual para aplicaciones móviles y aplicaciones de API.
   
 ## Más información
 
-Para más información acerca de la autenticación y autorización en el Servicio de aplicaciones de Azure, consulte [Expanding App Service Authentication/Authorization](/blog/announcing-app-service-authentication-authorization/) (Ampliación de la autenticación y autorización de Servicio de aplicaciones de Azure).
+Para más información sobre la autenticación y la autorización del Servicio de aplicaciones de Azure, consulte los siguientes recursos:
+
+* [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/) (Expansión de la autenticación/autorización del Servicio de aplicaciones)
+* [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (Cómo configurar la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory), con vínculos a otros proveedores de autenticación en la parte superior de la página. 
 
 Para obtener más información sobre OAuth 2.0, OpenID Connect y JSON Web Tokens (JWT), consulte los siguientes recursos.
 
@@ -113,4 +118,4 @@ Si sigue la secuencia de tutoriales de introducción a ASP.NET y Aplicaciones de
 
 Para más información acerca del uso de Java y Node en el Servicio de aplicaciones de Azure, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/) y el [Centro para desarrolladores de Java](/develop/java/).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

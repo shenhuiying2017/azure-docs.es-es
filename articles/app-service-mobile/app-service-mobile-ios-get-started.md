@@ -30,7 +30,7 @@ En este tutorial se muestra cómo agregar un servicio back-end basado en la nube
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una [cuenta de Azure activa](http://azure.microsoft.com/pricing/free-trial/)
+* Una [cuenta de Azure activa](https://azure.microsoft.com/pricing/free-trial/)
 
 * Un equipo con [Visual Studio Community 2013] o una versión más reciente
 
@@ -69,4 +69,4 @@ Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usar
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0128_2016--->

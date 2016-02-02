@@ -20,10 +20,10 @@
 
 3. Haga clic en el icono de flecha. ![Icono de flecha de StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
 
-4. En la página de **Interfaces de red**, proporcione las direcciones IP fijas para el Controlador 0 y el Controlador 1. Si la interfaz DATA 0 estaba configurada para IPv4, las direcciones IP fijas deben suministrarse en formato IPv4. Si proporcionó un prefijo para la configuración de IPv6, las direcciones IP fijas se rellenarán automáticamente en estos campos.
+4. En la página de **Interfaces de red**, proporciona las direcciones IP fijas para el Controlador 0 y el Controlador 1. Si la interfaz DATA 0 estaba configurada para IPv4, las direcciones IP fijas deben suministrarse en formato IPv4. Si proporcionó un prefijo para la configuración de IPv6, las direcciones IP fijas se rellenarán automáticamente en estos campos.
 
 
-	> [AZURE.NOTE]
+	> [AZURE.NOTE] 
  	> 
  	> - Las direcciones IP fijas del controlador deben ser direcciones IP libres dentro de la subred y accesibles mediante la dirección IP del dispositivo.
  	> - Las direcciones IP fijas del controlador se usan para el mantenimiento de las actualizaciones del dispositivo y, por tanto, las direcciones IP fijas deben ser enrutables y poder conectarse a Internet.
@@ -32,10 +32,10 @@
 
 5. Haga clic en el icono de marca de verificación ![Icono de verificación de StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png). Volverá a la página **Inicio rápido** del dispositivo.
 
- >[AZURE.NOTE]Puede modificar la configuración restante del dispositivo en cualquier momento accediendo a la página **Configurar**.
+ >[AZURE.NOTE] Puede modificar la configuración restante del dispositivo en cualquier momento accediendo a la página **Configurar**.
 
 ![Vídeo disponible](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Vídeo disponible**
 
-Para ver un vídeo que muestra cómo completar la configuración mínima del dispositivo, haga clic [aquí](http://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
+Para ver un vídeo que muestra cómo completar la configuración mínima del dispositivo, haga clic [aquí](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

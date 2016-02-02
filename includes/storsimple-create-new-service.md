@@ -11,8 +11,8 @@
   1. Proporcione un **Nombre** único para el servicio. Se trata de un nombre descriptivo que sirve para identificar el servicio. El nombre puede tener entre 2 y 50 caracteres que pueden ser letras, números y guiones. El nombre debe empezar y terminar con una letra o un número.
   2. Proporcione una **Ubicación** para el servicio. En general, elige una ubicación más cercana a la región geográfica donde quieras implementar el dispositivo. También puedes querer tener en cuenta lo siguiente: 
 	 
-	- Si ya tiene cargas de trabajo en Azure que se van a implementar con el dispositivo StorSimple, debe usar este centro de datos.
-	- El servicio Administrador de StorSimple y el Almacenamiento de Azure pueden estar en dos ubicaciones independientes. En este caso, se le pedirá que cree la cuenta del Administrador de StorSimple y la del Almacenamiento de Azure por separado. Para crear una cuenta de Almacenamiento de Azure, vaya al servicio Almacenamiento de Azure en el Portal de Azure clásico y siga los pasos indicados en la sección [Crear una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account). Después de crear esta cuenta, agréguela al servicio Administrador de StorSimple mediante los pasos indicados en la sección [Configurar una nueva cuenta de almacenamiento para el servicio](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
+		- Si ya tiene cargas de trabajo en Azure que se van a implementar con el dispositivo StorSimple, debe usar este centro de datos.
+		- El servicio Administrador de StorSimple y el Almacenamiento de Azure pueden estar en dos ubicaciones independientes. En este caso, se le pedirá que cree la cuenta del Administrador de StorSimple y la del Almacenamiento de Azure por separado. Para crear una cuenta de Almacenamiento de Azure, vaya al servicio Almacenamiento de Azure en el Portal de administración y siga los pasos indicados en [Crear una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account). Después de crear esta cuenta, agréguela al servicio Administrador de StorSimple mediante los pasos indicados en [Configuración de una nueva cuenta de almacenamiento para el servicio](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
 		 
   3. Elija una **Suscripción** en la lista desplegable. La suscripción está vinculada a la cuenta de facturación. Este campo no está presente si tiene una sola suscripción.
   4. Seleccione **Crear una cuenta de almacenamiento nueva** para crear automáticamente una cuenta de almacenamiento con el servicio. Esta cuenta de almacenamiento tendrá un nombre especial, como "storsimplebwv8c6dcnf." Si necesitas tener tus datos en una ubicación diferente, desactiva esta casilla. 
@@ -26,6 +26,6 @@
 
 ![Vídeo disponible](./media/storsimple-create-new-service/Video_icon.png) **Vídeo disponible**
 
-Para ver un vídeo que muestra cómo crear un nuevo servicio StorSimple Manager, haga clic en [aquí](http://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
+Para ver un vídeo que muestra cómo crear un nuevo servicio StorSimple Manager, haga clic en [aquí](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

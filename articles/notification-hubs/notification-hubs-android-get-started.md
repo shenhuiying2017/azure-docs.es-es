@@ -38,7 +38,7 @@ El código completo de este tutorial se puede encontrar en GitHub [aquí](https:
 Este tutorial requiere lo siguiente:
 
 + Android Studio, que puede descargar en el <a href="http://go.microsoft.com/fwlink/?LinkId=389797">sitio de Android</a>.
-+ Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
++ Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
 
 
 La realización de este tutorial es un requisito previo para todos los tutoriales de Centros de notificaciones para aplicaciones Android.
@@ -129,9 +129,9 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
 	    private static Boolean isVisible = false;
 
 
-	Asegúrese de actualizar los tres marcadores de posición:
+	Asegúrese de actualizar los tres marcadores de posición: 
 	* **SENDER\_ID**: establezca `SENDER_ID` en el número de proyecto que obtuvo anteriormente del proyecto que creó en la [consola de la nube de Google](http://cloud.google.com/console). 
-	* **HubListenConnectionString**: establezca `HubListenConnectionString` en la cadena de conexión **DefaultListenAccessSignature** correspondiente a su centro. Para copiar dicha cadena de conexión, haga clic en **Ver cadena de conexión** en la pestaña **Panel** del centro en el [Portal de Azure clásico].
+	* **HubListenConnectionString**: establezca `HubListenConnectionString` en la cadena de conexión **DefaultListenAccessSignature** correspondiente a su centro. Para copiar dicha cadena de conexión, haga clic en **Ver cadena de conexión** en la pestaña **Panel** del centro en el [Portal de Azure clásico]. 
 	* **HubName**: use el nombre del Centro de notificaciones que aparece en la parte superior de la página de Azure correspondiente a su centro (**no** la dirección URL completa). Por ejemplo, use `"myhub"`.
 
 
@@ -204,7 +204,7 @@ El centro de notificaciones ya está configurado para funcionar con GCM y dispon
 
 8. Puesto que Android no muestra las notificaciones, debe escribir su propio receptor. En **AndroidManifest.xml**, agregue el siguiente elemento dentro del elemento `<application>`.
 
-	> [AZURE.NOTE]Reemplace el marcador de posición por el nombre del paquete.
+	> [AZURE.NOTE] Reemplace el marcador de posición por el nombre del paquete.
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -550,4 +550,4 @@ Para más información general sobre los Centros de notificaciones, consulte [Gu
 [Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-android-notify-users.md
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

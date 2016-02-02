@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Creación de una máquina virtual con Windows en el Portal de Azure | Microsoft Azure"
-	description="Aprenda a crear VM de Azure o un equipo virtual que usen Windows mediante Azure Marketplace en el Portal de Azure"
-	keywords="máquina virtual de Azure,crear una máquina virtual,equipo virtual,configurar una máquina virtual"
+	pageTitle="Creación de una máquina virtual de Windows en el Portal de Azure | Microsoft Azure"
+	description="Aprenda a crear una máquina virtual de Windows o un equipo virtual mediante Azure Marketplace en el Portal de Azure"
+	keywords="máquina virtual de Windows, crear una máquina virtual, equipo virtual, configurar una máquina virtual"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="01/07/2016"
 	ms.author="cynthn"/>
 
-# Creación de una máquina virtual que ejecuta Windows en el Portal de Azure#
+# Creación de una máquina virtual de Windows en el Portal de Azure.#
 
 > [AZURE.SELECTOR]
 - [Portal - Windows](virtual-machines-windows-tutorial.md)
@@ -26,13 +26,13 @@
 - [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [CLI](virtual-machines-linux-tutorial.md)
 
-Este tutorial muestra lo fácil que resulta crear una máquina virtual de Azure en unos minutos en el Portal de Azure. Usaremos una imagen de Windows Server 2012 R2 Datacenter como ejemplo para crear la máquina virtual, pero esa es solo una de las muchas imágenes que Azure ofrece. Las imágenes disponibles dependen de su suscripción. Por ejemplo, las imágenes de escritorio pueden estar disponibles para los suscriptores MSDN.
+Este tutorial muestra lo fácil que resulta crear una máquina virtual de Windows en unos minutos en el Portal de Azure. Usaremos una imagen de Windows Server 2012 R2 Datacenter como ejemplo para crear la máquina virtual, pero esa es solo una de las muchas imágenes que Azure ofrece. Las imágenes disponibles dependen de su suscripción. Por ejemplo, las imágenes de escritorio pueden estar disponibles para los suscriptores MSDN.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
 <br>
 
->[AZURE.TIP]Cuando usa el portal, si quiere que la máquina virtual forme parte de un conjunto de disponibilidad, necesitará crear el conjunto antes o durante la creación de la primera máquina virtual en el conjunto de disponibilidad. Para más información sobre la creación y uso de los conjuntos de disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales](virtual-machines-manage-availability.md).
+>[AZURE.TIP] Cuando usa el portal, si quiere que la máquina virtual forme parte de un conjunto de disponibilidad, necesitará crear el conjunto antes o durante la creación de la primera máquina virtual en el conjunto de disponibilidad. Para más información sobre la creación y uso de los conjuntos de disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales](virtual-machines-manage-availability.md).
 
 También puede crear máquinas virtuales con sus propias imágenes, con plantillas del Administrador de recursos o con herramientas de automatización. Para obtener información sobre los diferentes métodos, consulte [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md).
 
@@ -44,7 +44,7 @@ Se trata del tutorial en formato de vídeo.
 
 [AZURE.VIDEO create-a-virtual-machine-running-windows-in-the-azure-preview-portal]
 
-## Seleccione la imagen de la máquina virtual.
+## Seleccione la imagen de la máquina virtual de Windows.
 
 1. Inicie sesión en el Portal de Azure.
 
@@ -52,13 +52,13 @@ Se trata del tutorial en formato de vídeo.
 
 	![Captura de pantalla que muestra las imágenes de las máquinas virtuales de Azure disponibles en el Portal de vista previa](./media/virtual-machines-windows-tutorial/marketplace_new.png)
 
-	>[AZURE.TIP]Para encontrar otras imágenes, haga clic en **Marketplace** y luego busque o filtre los elementos disponibles.
+	>[AZURE.TIP] Para encontrar otras imágenes, haga clic en **Marketplace** y luego busque o filtre los elementos disponibles.
 
 3. En la página **Windows Server 2012 R2 Datacenter**, en **Seleccionar un modelo de implementación**, seleccione **Administrador de recursos**. Haga clic en **Crear**.
 
 	![Captura de pantalla que muestra el modelo de implementación seleccionado para una máquina virtual de Azure](./media/virtual-machines-windows-tutorial/marketplace_search_select.png)
 
-## de una máquina virtual
+## Creación de la máquina virtual de Windows
 
 Después de seleccionar la imagen, puede usar los valores predeterminados de Azure en la mayor parte de la configuración y crear rápidamente la máquina virtual.
 
@@ -77,7 +77,7 @@ Después de seleccionar la imagen, puede usar los valores predeterminados de Azu
 
 	![Captura de pantalla que muestra los tamaños de máquinas virtuales de Azure que puede seleccionar](./media/virtual-machines-windows-tutorial/create_vm_size.PNG)
 
-	>[AZURE.NOTE]El almacenamiento Premium está disponible para las máquinas virtuales de la serie DS en determinadas regiones. El almacenamiento Premium es la mejor opción de almacenamiento para cargas de trabajo intensivas de datos como una base de datos. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal.md)
+	>[AZURE.NOTE] El almacenamiento Premium está disponible para las máquinas virtuales de la serie DS en determinadas regiones. El almacenamiento Premium es la mejor opción de almacenamiento para cargas de trabajo intensivas de datos como una base de datos. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal.md)
 
 3. Haga clic en **Configuración** para ver la configuración de red y de almacenamiento de la nueva máquina virtual. En la primera máquina virtual, por lo general podrá aceptar la configuración predeterminada. Si ha seleccionado un tamaño de máquina virtual que lo admita, puede probar Almacenamiento premium, para lo que debe seleccionar **Premium (SSD)** en **Tipo de disco**.
 
@@ -89,11 +89,11 @@ Después de seleccionar la imagen, puede usar los valores predeterminados de Azu
 
 8. Mientras Azure crea la máquina virtual, puede realizar un seguimiento del progreso en **Máquinas virtuales**, en el menú Concentrador.
 
-## Iniciar sesión en la nueva máquina virtual
+## Inicio de sesión en una máquina virtual de Windows
 
 Una vez creada la máquina virtual, podrá iniciar sesión en ella para administrar su configuración y las aplicaciones que va a ejecutar en ella.
 
->[AZURE.NOTE]Para obtener consejos acerca de los requisitos y la solución de problemas, vea [Conectar a una máquina virtual de Azure con RDP o SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
+>[AZURE.NOTE] Para obtener consejos acerca de los requisitos y la solución de problemas, vea [Conectar a una máquina virtual de Azure con RDP o SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
 1. Si aún no lo ha hecho, inicie sesión en el Portal de Azure.
 
@@ -116,6 +116,6 @@ Ahora puede trabajar con la máquina virtual igual que hace con cualquier otro s
 ## Pasos siguientes
 
 * Use Azure PowerShell y la CLI de Azure para [buscar y seleccionar imágenes de máquina virtual](resource-groups-vm-searching.md).
-* Automatice la implementación y administración de máquinas virtuales y cargas de trabajo con las [plantillas de Administrador de recursos de Azure](http://azure.microsoft.com/documentation/templates/).
+* Automatice la implementación y administración de máquinas virtuales y cargas de trabajo con las [plantillas de Administrador de recursos de Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Tutorial de ASP.NET MVC para DocumentDB: desarrollo de aplicaciones web | Microsoft Azure" 
-	description="Complete este tutorial de ASP.NET MVC para crear una aplicación web MVC con DocumentDB. Almacenará JSON y accederá a datos desde una aplicación ToDo hospedada en Sitios web de Azure." 
+	description="Tutorial de ASP.NET MVC para crear una aplicación web MVC con DocumentDB. Almacenará el código JSON y accederá a los datos desde una aplicación ToDo hospedada en Sitios web de Azure. Tutorial de ASP NET MVC paso a paso." 
 	keywords="tutorial de asp.net mvc, desarrollo de aplicaciones web, aplicación web de mvc, tutorial de asp net mvc paso a paso"
 	services="documentdb" 
 	documentationCenter=".net" 
@@ -18,7 +18,7 @@
 	ms.date="11/18/2015" 
 	ms.author="ryancraw"/>
 
-#<a name="_Toc395809351"></a>Desarrollo de una aplicación web ASP.NET MVC usando DocumentDB
+#<a name="_Toc395809351"></a>Tutorial de ASP.NET MVC: Desarrollo de una aplicación web con DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -32,7 +32,7 @@ Para resaltar cómo puede aprovechar eficazmente Azure DocumentDB para almacenar
 
 Este tutorial muestra cómo utilizar el servicio de DocumentDB proporcionado por Azure para almacenar y tener acceso a datos desde una aplicación web de ASP.NET MVC hospedada en Azure.
 
-> [AZURE.TIP]En este tutorial se supone que tiene experiencia previa con ASP.NET MVC y Sitios web Azure. Si no está familiarizado con ASP.NET o con las [herramientas de requisitos previos](#_Toc395637760), le recomendamos que descargue el proyecto de ejemplo completo de [GitHub][] y siga las instrucciones de este ejemplo. Una vez compilado, puede revisar este artículo para obtener información sobre el código en el contexto del proyecto.
+> [AZURE.TIP] En este tutorial se supone que tiene experiencia previa con ASP.NET MVC y Sitios web Azure. Si no está familiarizado con ASP.NET o con las [herramientas de requisitos previos](#_Toc395637760), le recomendamos que descargue el proyecto de ejemplo completo de [GitHub][] y siga las instrucciones de este ejemplo. Una vez compilado, puede revisar este artículo para obtener información sobre el código en el contexto del proyecto.
 
 ## <a name="_Toc395637760"></a>Requisitos previos del tutorial de base de datos
 
@@ -397,7 +397,7 @@ Lo primero que debe hacerse es agregar una clase que contenga toda la lógica pa
     	    }
     	}
 
-	> [AZURE.TIP]Al crear DocumentCollection nuevo, puede proporcionar un parámetro RequestOptions opcional de OfferType, que le permite especificar el nivel de rendimiento de la nueva colección. Si no se pasa este parámetro, se utilizará el tipo de oferta predeterminado. Para obtener más información sobre los tipos de oferta de DocumentDB , consulte [Niveles de coherencia de DocumentDB](documentdb-performance-levels.md)
+	> [AZURE.TIP] Al crear DocumentCollection nuevo, puede proporcionar un parámetro RequestOptions opcional de OfferType, que le permite especificar el nivel de rendimiento de la nueva colección. Si no se pasa este parámetro, se utilizará el tipo de oferta predeterminado. Para obtener más información sobre los tipos de oferta de DocumentDB , consulte [Niveles de coherencia de DocumentDB](documentdb-performance-levels.md)
 
 3. Estamos leyendo algunos valores de la configuración; por tanto, abra el archivo **Web.config** de su aplicación y agregue las siguientes líneas debajo de la sección `<AppSettings>`.
 	
@@ -633,4 +633,4 @@ Para agregar la funcionalidad adicional a la aplicación, revise las API disponi
 [Operaciones CRUD básicas en ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

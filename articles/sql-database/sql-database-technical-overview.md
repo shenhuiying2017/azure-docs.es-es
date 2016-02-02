@@ -49,16 +49,16 @@ El contrato de nivel de servicio [(SLA)](http://azure.microsoft.com/support/lega
 ![Replicación geográfica de Base de datos SQL](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
 
-Para obtener más información sobre las diferentes características de continuidad del negocio disponibles para los distintos niveles de servicio, consulte [Continuidad empresarial](sql-database-business-continuity.md).
+Para obtener más información acerca de las diferentes características de continuidad empresarial disponibles para los distintos niveles de servicio, consulte [Continuidad empresarial](sql-database-business-continuity.md).
 
 ## Protección de los datos
-SQL Server tradicionalmente ha proporcionado una sólida seguridad de datos que Base de datos SQL respeta con sus características que limitan el acceso, protegen los datos y ayudan a supervisar la actividad. Para ver un resumen rápido de las opciones de seguridad que tiene Base de datos SQL, consulte [Protección de Bases de datos SQL](sql-database-security.md). Para obtener una vista más completa de las características de seguridad, consulte [Centro de seguridad para el motor de base de datos SQL Server y Base de datos SQL](https://msdn.microsoft.com/library/bb510589). Y para obtener información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure](http://azure.microsoft.com/support/trust-center/security/).
+SQL Server tradicionalmente ha proporcionado una sólida seguridad de datos que Base de datos SQL respeta con sus características que limitan el acceso, protegen los datos y ayudan a supervisar la actividad. Para ver un resumen rápido de las opciones de seguridad que tiene que tiene Base de datos SQL, consulte [Protección de bases de datos SQL](sql-database-security.md). Para obtener una vista más completa de las características de seguridad, consulte [Centro de seguridad para el motor de base de datos SQL Server y Base de datos SQL](https://msdn.microsoft.com/library/bb510589). Y para obtener información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure](https://azure.microsoft.com/support/trust-center/security/).
 
 ## Pasos siguientes
 Ahora que leyó una introducción a la Base de datos SQL y contestó a la pregunta "¿Qué es la Base de datos SQL?", está listo para lo siguiente:
 
-- Consulte la [página de precios](http://azure.microsoft.com/pricing/details/sql-database/) de una Base de datos única y los precios y calculadoras de bases de datos elásticas.
+- Consulte la [página de precios](https://azure.microsoft.com/pricing/details/sql-database/) de una Base de datos única y los precios y calculadoras de bases de datos elásticas.
 
 - Comience por [crear su primera base de datos](sql-database-get-started.md). Luego cree su primera aplicación en [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) o [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

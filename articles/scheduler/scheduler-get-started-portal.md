@@ -53,9 +53,9 @@ La primera vez que abra el Portal de Azure clásico, entrará automáticamente e
 
     1.  **Repetir cada:** ` 12 Hours`  
 
-    2.  **Iniciando:** ` Now`
+    2.  **Inicio:** ` Now`
 
-    3.  **Termina el:** ` Select date 2 days after current day and any time`
+    3.  **Finalización:** ` Select date 2 days after current day and any time`
 
    	![][5]
 
@@ -229,7 +229,7 @@ Por último, para todos los tipos de acción, puede cambiar la misma programaci�
 
  [Creación de programaciones complejas y periodicidad avanzada con Programador de Azure](scheduler-advanced-complexity.md)
 
- [Referencia de API de REST del Programador](https://msdn.microsoft.com/library/dn528946)
+ [Referencia de API de REST del Programador](https://msdn.microsoft.com/library/mt629143)
 
  [Referencia de cmdlets de PowerShell del Programador](scheduler-powershell-reference.md)
 
@@ -257,4 +257,4 @@ Por último, para todos los tipos de acción, puede cambiar la misma programaci�
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

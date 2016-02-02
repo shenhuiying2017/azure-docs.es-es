@@ -41,7 +41,7 @@ Además de los requisitos previos que se enumeran en el tema de información gen
 
 Cree un archivo JSON llamado **ADFTutorialARM.json** en la carpeta **C:\\ADFGetStarted** con el siguiente contenido:
 
-> [AZURE.IMPORTANT]Cambie los valores de las variables **storageAccountName** y **storageAccountKey**. Cambie también el valor de **dataFactoryName** porque el nombre debe ser único.
+> [AZURE.IMPORTANT] Cambie los valores de las variables **storageAccountName** y **storageAccountKey**. Cambie también el valor de **dataFactoryName** porque el nombre debe ser único.
 
 La plantilla permite crear las siguientes entidades de Factoría de datos.
 
@@ -213,6 +213,15 @@ Haga clic en la pestaña **Utilización del Editor de la Factoría de datos** pa
 	}
 
 
+Tenga en cuenta lo siguiente:
+
+- Factoría de datos crea automáticamente un clúster de HDInsight **basado en Windows** con el anterior código JSON. También podría hacer que cree un clúster de HDInsight **basado en Linux**. Consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para más información. 
+- Puede usar **su propio clúster de HDInsight** en lugar de usar un clúster de HDInsight a petición. Consulte [Servicio vinculado de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para más información.
+- El clúster de HDInsight crea un **contenedor predeterminado** en Almacenamiento de blobs especificado en el código JSON (**linkedServiceName**). HDInsight elimina este contenedor cuando se elimina el clúster. Esto es así por diseño. Con el servicio vinculado de HDInsight a petición, se crea un clúster de HDInsight cada vez que un segmento debe procesarse, a menos que haya un clúster existente activo (**timeToLive**), y se elimina cuando se realiza el procesamiento.
+
+	A medida que se procesan más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. El nombre de estos contenedores siguen un patrón: "adf**nombreDeFactoríaDeDatos**-**linkedservicename**-datetimestamp". Use herramientas como [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores de Almacenamiento de blobs de Azure.
+
+Consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para más información.
 
 ## Paso 2: Implementación de las entidades de Factoría de datos mediante la plantilla ARM
 
@@ -226,7 +235,7 @@ Haga clic en la pestaña **Utilización del Editor de la Factoría de datos** pa
 
 ## Supervisar la canalización
  
-1.	Después de iniciar sesión en el [Portal de Azure](http://portal.azure.com/), haga clic en **Examinar** y seleccione **Factorías de datos**. ![Examinar todo -> Fábricas de datos](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+1.	Después de iniciar sesión en el [Portal de Azure](https://portal.azure.com/), haga clic en **Examinar** y seleccione **Factorías de datos**. ![Examinar todo -> Fábricas de datos](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	En la hoja **Factorías de datos**, haga clic en la factoría de datos (**TutorialFactoryARM**) que creó.	
 2.	En la hoja **Factoría de datos** de su factoría de datos, haga clic en **Diagrama**. ![Icono Diagrama](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	En la **Vista de diagrama**, verá información general de las canalizaciones y los conjuntos de datos empleados en este tutorial.
@@ -241,4 +250,4 @@ Haga clic en la pestaña **Utilización del Editor de la Factoría de datos** pa
 10. Cuando el segmento se encuentre en el estado **Listo**, busque los datos de salida en la carpeta **partitioneddata** del contenedor **adfgetstarted** de Almacenamiento de blobs.  
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -27,7 +27,7 @@ Aprenda a crear un clúster de HBase en HDInsight, a crear tablas de HBase y a c
 
 * [Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight](hdinsight-hbase-tutorial-get-started.md)
  
-> [AZURE.NOTE]HBase (versión 0.98.0) solo está disponible para usarlo con clústeres de HDInsight 3.1 en HDInsight (basado en Apache Hadoop y YARN 2.4.0). Para obtener información de la versión, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight][hdinsight-versions].
+> [AZURE.NOTE] HBase (versión 0.98.0) solo está disponible para usarlo con clústeres de HDInsight 3.1 en HDInsight (basado en Apache Hadoop y YARN 2.4.0). Para obtener información de la versión, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight][hdinsight-versions].
 
 En el vídeo siguiente se muestra el mismo contenido:
 
@@ -40,7 +40,7 @@ En el vídeo siguiente se muestra el mismo contenido:
 
 Antes de empezar este tutorial de HBase, debe contar con lo siguiente:
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Una estación de trabajo** con Visual Studio 2013: para obtener instrucciones, vea [Instalación de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ## Creación de un clúster de HBase
@@ -53,7 +53,7 @@ Antes de empezar este tutorial de HBase, debe contar con lo siguiente:
 1. Inicie sesión en el [Portal de Azure][azure-management-portal].
 2. Haga clic en **Nuevo** en la parte inferior izquierda y, a continuación, en **Servicios de datos**, **HDInsight**, **HBase**.
 
-	>[AZURE.NOTE]También puede usar la opción **Creación personalizada**.
+	>[AZURE.NOTE] También puede usar la opción **Creación personalizada**.
 3. Escriba **Nombre del clúster**, **Tamaño del clúster**, contraseña de usuario HTTP y **Cuenta de almacenamiento**.
 
 	![Creación de un clúster de HBase en HDInsight][img-hdinsight-hbase-cluster-quick-create]
@@ -62,13 +62,13 @@ Antes de empezar este tutorial de HBase, debe contar con lo siguiente:
 
 	Se requiere una cuenta de almacenamiento de Azure con el proceso de creación de HBase predeterminado. Vea [Crear una cuenta de almacenamiento de Azure][azure-create-storageaccount] para crear una. La opción Creación personalizada ofrece la posibilidad de crear una cuenta de almacenamiento con el proceso de creación del clúster.
 
-	> [AZURE.WARNING]Para lograr alta disponibilidad de servicios de HBase, debe crear un clúster que contenga al menos **tres** nodos. Esto garantiza que, si un nodo deja de funcionar, las regiones de datos de HBase están disponibles en otros nodos.
+	> [AZURE.WARNING] Para lograr alta disponibilidad de servicios de HBase, debe crear un clúster que contenga al menos **tres** nodos. Esto garantiza que, si un nodo deja de funcionar, las regiones de datos de HBase están disponibles en otros nodos.
 
 	> Si está aprendiendo HBase, elija 1 siempre para el tamaño del clúster y elimine el clúster después de cada uso para reducir el coste.
 
 4. Haga clic en **Crear clúster de HDInsight** en la parte inferior derecha para crear el clúster de HBase.
 
->[AZURE.NOTE]Después de que se elimine un clúster de HBase, puede crear otro clúster de HBase mediante el mismo contenedor de blobs predeterminado. El nuevo clúster seleccionará las tablas de HBase que creó en el clúster original.
+>[AZURE.NOTE] Después de que se elimine un clúster de HBase, puede crear otro clúster de HBase mediante el mismo contenedor de blobs predeterminado. El nuevo clúster seleccionará las tablas de HBase que creó en el clúster original.
 
 ## Usar el shell de HBase
 Actualmente, hay dos formas de tener acceso a HBase. En esta sección se trata el uso del shell de HBase. En la sección siguiente se describe el uso del SDK de .NET.
@@ -140,7 +140,7 @@ Se ha cargado un archivo de datos de ejemplo en un contenedor de blobs público,
 
 Puede crear un archivo de texto y cargar el archivo en su propia cuenta de almacenamiento si lo desea. Para obtener instrucciones, consulte [Carga de datos para trabajos de Hadoop en HDInsight][hdinsight-upload-data].
 
-> [AZURE.NOTE]Este procedimiento usa la tabla HBase de contactos que ha creado en el último procedimiento.
+> [AZURE.NOTE] Este procedimiento usa la tabla HBase de contactos que ha creado en el último procedimiento.
 
 1. En la sesión de RDP, haga clic en el acceso directo de la **línea de comandos de Hadoop** situada en el escritorio.
 2. Cambie el directorio:
@@ -365,4 +365,4 @@ Para obtener más información, consulte:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -24,7 +24,7 @@ El Portal de Microsoft Azure es una ubicación central desde donde se pueden apr
 
 ## Antes de comenzar
 
-Necesitará una suscripción válida a Azure para continuar con este tutorial. Si no cuenta con una, [suscríbase a una prueba gratuita](http://azure.microsoft.com/pricing/free-trial/) hoy mismo. Una vez que tenga una suscripción, puede tener acceso al portal en [https://portal.azure.com].
+Necesitará una suscripción válida a Azure para continuar con este tutorial. Si no cuenta con una, [suscríbase a una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/) hoy mismo. Una vez que tenga una suscripción, puede tener acceso al portal en [https://portal.azure.com].
 
 ## Creación de un recurso
 
@@ -70,7 +70,7 @@ Azure configura previamente las hojas correspondientes a los recursos, pero los 
 
 ## Cómo obtener ayuda
 
-Estamos aquí para ayudarle en caso de tener problemas. El portal cuenta con una página de ayuda y soporte técnico que puede señalarle la dirección correcta. Dependiendo del [plan de soporte técnico](http://azure.microsoft.com/support/plans/) que tenga, también puede crear incidencias de soporte técnico directamente en el portal. Después de crear una incidencia de soporte técnico, puede administrar el ciclo de vida de la incidencia desde el portal. Para tener acceso a la página de ayuda y soporte técnico, navegue a Examinar > Ayuda y soporte técnico
+Estamos aquí para ayudarle en caso de tener problemas. El portal cuenta con una página de ayuda y soporte técnico que puede señalarle la dirección correcta. Dependiendo del [plan de soporte técnico](https://azure.microsoft.com/support/plans/) que tenga, también puede crear incidencias de soporte técnico directamente en el portal. Después de crear una incidencia de soporte técnico, puede administrar el ciclo de vida de la incidencia desde el portal. Para tener acceso a la página de ayuda y soporte técnico, navegue a Examinar > Ayuda y soporte técnico
 
 ![Ayuda y soporte técnico][HelpSupport]
 
@@ -78,7 +78,7 @@ Estamos aquí para ayudarle en caso de tener problemas. El portal cuenta con una
 
 Revisemos lo aprendido en este tutorial: - Aprendió a suscribirse, obtener una suscripción y navegar al portal. - Se le orientó respecto de la interfaz de usuario del portal y aprendió a crear y explorar recursos. - Aprendió a crear y explorar recursos. - Aprendió sobre la estructura o las hojas de administración y cómo administrar de manera coherente distintos tipos de recursos. - Aprendió a personalizar el portal para poner la información que le interesa al frente y al centro del mismo. - Aprendió a controlar el acceso a los recursos mediante el uso del acceso basado en rol (RBAC). - Aprendió a obtener ayuda y soporte técnico.
 
-El Portal de Microsoft Azure simplifica radicalmente la compilación y administración de las aplicaciones en la nube. Eche un vistazo al [blog de administración](http://azure.microsoft.com/blog/topics/management/) para mantenerse al día, dado que constantemente [prestamos atención a los comentarios](http://feedback.azure.com/forums/223579-azure-preview-portal) y realizamos mejoras. El [blog de ScottGu](http://weblogs.asp.net/scottgu) es otro excelente lugar para buscar todas las actualizaciones de Azure.
+El Portal de Microsoft Azure simplifica radicalmente la compilación y administración de las aplicaciones en la nube. Eche un vistazo al [blog de administración](https://azure.microsoft.com/blog/topics/management/) para mantenerse al día, dado que constantemente [prestamos atención a los comentarios](https://feedback.azure.com/forums/223579-azure-preview-portal/) y realizamos mejoras. El [blog de ScottGu](http://weblogs.asp.net/scottgu) es otro excelente lugar para buscar todas las actualizaciones de Azure.
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png
@@ -87,4 +87,4 @@ El Portal de Microsoft Azure simplifica radicalmente la compilación y administr
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

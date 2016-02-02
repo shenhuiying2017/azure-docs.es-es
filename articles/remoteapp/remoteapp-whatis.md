@@ -18,11 +18,11 @@
 
 # ¿Qué es Azure RemoteApp?
 
-Azure RemoteApp ofrece la funcionalidad del programa RemoteApp Microsoft local, respaldado por Servicios de Escritorio remoto, en Azure. Azure RemoteApp ayuda a proporcionar acceso remoto y seguro a aplicaciones desde diferentes dispositivos de usuario. Azure RemoteApp básicamente hospeda sesiones de Terminal Server no persistentes en la nube y va a usarlas y compartirlas con los usuarios.
+Azure RemoteApp ofrece la funcionalidad del programa RemoteApp Microsoft local, respaldado por Servicios de Escritorio remoto, en Azure. Azure RemoteApp ayuda a proporcionar acceso remoto y seguro a aplicaciones desde diferentes dispositivos de usuario. Azure RemoteApp básicamente hospeda en la nube sesiones de Terminal Server no persistentes que usted usará y compartirá con los usuarios.
 
 Con Azure RemoteApp puede compartir aplicaciones y recursos con usuarios en prácticamente cualquier dispositivo. Hospedamos sus aplicaciones en la nube, lo que significa que nosotros nos encargamos del hardware y la escalación para satisfacer las necesidades del usuario. Todo lo que tiene que hacer es cargar las aplicaciones que desea compartir y, a continuación, hacer que los usuarios utilicen esas aplicaciones. [Los usuarios se encargan de mantener sus propios dispositivos](remoteapp-clients.md), mientras usted administra todo el contenido a través del portal de Azure. Tiene incluso la opción de usar las credenciales corporativas, lo que permite garantizar la seguridad de las aplicaciones y los datos.
 
-Siga leyendo para obtener más información sobre Azure RemoteApp o, si ya está convencido, [pruébela ahora](http://azure.microsoft.com/services/remoteapp/).
+Siga leyendo para obtener más información sobre Azure RemoteApp o, si ya está convencido, [pruébela ahora](https://azure.microsoft.com/services/remoteapp/).
 
 ¿Tiene preguntas acerca de Azure RemoteApp? Consulte nuestras [preguntas más frecuentes](remoteapp-faq.md).
 
@@ -80,4 +80,4 @@ Venga, pruébelo. Estos artículos le ayudarán a comenzar a usar Azure RemoteAp
 ### Permítanos ayudarle 
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, a continuación, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

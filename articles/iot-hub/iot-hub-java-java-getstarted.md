@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción al centro de IoT de Azure | Microsoft Azure"
+	pageTitle="Introducción al Centro de IoT de Azure para Java | Microsoft Azure"
 	description="Siga este tutorial para comenzar a usar el Centro de IoT de Azure con Java."
 	services="iot-hub"
 	documentationCenter="java"
@@ -16,7 +16,7 @@
      ms.date="12/21/2015"
      ms.author="dobett"/>
 
-# Tutorial: Introducción al Centro de IoT de Azure
+# Introducción al Centro de IoT de Azure para Java
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
@@ -40,7 +40,7 @@ Al final de este tutorial tendrá tres aplicaciones de consola de Java:
 * **read-d2c-messages**, que muestra los datos de telemetría enviados por el dispositivo simulado.
 * **simulated-device**, que se conecta con el Centro de IoT con la identidad de dispositivo creada anteriormente y envía un mensaje de telemetría cada segundo.
 
-> [AZURE.NOTE]El artículo [SDK de Centro de IoT][lnk-hub-sdks] proporciona información sobre los distintos SDK que puede usar para crear dos aplicaciones que se ejecuten en los dispositivos y en el back-end de la solución.
+> [AZURE.NOTE] El artículo [SDK de Centro de IoT][lnk-hub-sdks] proporciona información sobre los distintos SDK que puede usar para crear dos aplicaciones que se ejecuten en los dispositivos y en el back-end de la solución.
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -120,14 +120,6 @@ En este tutorial, configuró un nuevo Centro de IoT en el portal y después cre�
 - [Procesamiento de mensajes de dispositivo a la nube][lnk-process-d2c-tutorial] muestra cómo procesar de forma confiable la telemetría y los mensajes interactivos procedentes de los dispositivos.
 - [Cómo cargar archivos desde dispositivos a la nube ][lnk-upload-tutorial] describe un patrón que usa mensajes de nube a dispositivo para facilitar la carga de archivos desde los dispositivos.
 
-Puede encontrar más información acerca del Centro de IoT en los siguientes artículos:
-
-* [Información general sobre el Centro de IoT][lnk-hub-overview]
-* [Guía para desarrolladores del Centro de IoT][lnk-hub-dev-guide]
-* [Diseño de la solución][lnk-hub-guidance]
-* [Lenguajes y plataformas de dispositivos compatibles][lnk-supported-devices]
-* [Centro para desarrolladores de Azure][lnk-dev-center]
-
 <!-- Images. -->
 [1]: ./media/iot-hub-java-java-getstarted/create-iot-hub1.png
 [2]: ./media/iot-hub-java-java-getstarted/create-iot-hub2.png
@@ -144,14 +136,9 @@ Puede encontrar más información acerca del Centro de IoT en los siguientes art
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
-[lnk-hub-overview]: iot-hub-what-is-iot-hub.md
-[lnk-hub-guidance]: iot-hub-guidance.md
-[lnk-hub-dev-guide]: iot-hub-devguide.md
-[lnk-supported-devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[lnk-dev-center]: http://www.azure.com/develop/iot
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

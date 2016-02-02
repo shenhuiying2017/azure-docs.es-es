@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/11/2016"
+   ms.date="01/25/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Creación de Almacenamiento de datos SQL con Powershell
@@ -23,31 +23,46 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-> [AZURE.NOTE]Para usar Microsoft Azure Powershell con Almacenamiento de datos SQL, se necesita la versión 1.0 o superior. Puede comprobar la versión ejecutando (Get-Module Azure).Version en Powershell.
-
 ## Obtención y ejecución de los cmdlets de Azure PowerShell.
+
+> [AZURE.NOTE]  Para utilizar Microsoft Azure Powershell con Almacenamiento de datos SQL, debe descargar e instalar la versión más reciente de Azure PowerShell con los cmdlets de ARM. Puede comprobar la versión ejecutando `Get-Module -ListAvailable -Name Azure`. Este artículo se basa en Microsoft Azure PowerShell versión 1.0.3.
+
 Si no tiene configurado PowerShell, debe descargarlo y configurarlo.
 
 1. Para descargar el módulo Azure PowerShell, ejecute el [Instalador de plataforma web de Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 2. Para ejecutar el módulo, en la ventana de inicio, escriba **Microsoft Azure PowerShell**.
-3. Si no ha agregado todavía su cuenta a la máquina, ejecute el siguiente cmdlet. (Para obtener más información, vea [Instalación y configuración de Azure PowerShell][]):
+3. Ejecute este cmdlet para iniciar sesión en el Administrador de recursos de Azure. Para más información, vea [Instalación y configuración de Azure PowerShell][].
 
-```
-Add-AzureAccount
-```
+	```
+	Login-AzureRmAccount
+	```
 
-4. Seleccione la suscripción que desea usar. Este ejemplo obtiene la lista de nombres de suscripción. Después, establece el nombre de la suscripción en "MySubscription". 
+4. Seleccione la suscripción que desea utilizar para la sesión actual.
 
-```
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
-```
+	```
+	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
+	```
    
-## Creación de Almacenamiento de datos SQL
-Una vez configurado PowerShell para la cuenta, puede ejecutar el siguiente procedimiento para implementar una nueva base de datos en Almacenamiento de datos SQL.
+## Creación de una base de datos de Almacenamiento de datos SQL.
+Para implementar un Almacenamiento de datos SQL, utilice el cmdlet New-AzureRmSQLDatabase. Asegúrese de que cumple los siguientes requisitos previos antes de ejecutar el comando:
+
+### Requisitos previos
+
+- Azure SQL Server v 12 para hospedar la base de datos.
+- Conocer el nombre del grupo de recursos de SQL Server.
+
+### Comando de implementación
+
+Este comando implementará una nueva base de datos en Almacenamiento de datos de SQL.
 
 ```
-New-AzureSqlDatabase -RequestedServiceObjectiveName "<Service Objective>" -DatabaseName "<Data Warehouse Name>" -ServerName "<Server Name>" -ResourceGroupName "<ResourceGroupName>" -Edition "DataWarehouse"
+New-AzureRmSqlDatabase -RequestedServiceObjectiveName "<Service Objective>" -DatabaseName "<Data Warehouse Name>" -ServerName "<Server Name>" -ResourceGroupName "<ResourceGroupName>" -Edition "DataWarehouse"
+```
+
+En este ejemplo se implementa una nueva base de datos denominada "mynewsqldw1", con el nivel de objetivo de servicio "DW400", en el servidor llamado "sqldwserver1" que se encuentra en el grupo de recursos denominado "mywesteuroperesgp1".
+
+```
+New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw1" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
 ```
 
 Los parámetros necesarios para este cmdlet son los siguientes:
@@ -58,9 +73,9 @@ Los parámetros necesarios para este cmdlet son los siguientes:
  + **ResourceGroupName**: el grupo de recursos que está usando. Para obtener los grupos de recursos que estén disponibles en su suscripción, use Get-AzureResource.
  + **Edition**: tiene que establecer la edición como "DataWarehouse" para crear un Almacenamiento de datos SQL. 
 
-Para la referencia de comandos, consulte [New-AzureSqlDatabase](https://msdn.microsoft.com/library/mt619339.aspx).
+Para la referencia de comandos, consulte [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619339.aspx).
 
-Para las opciones de parámetros, consulte [Create Database (Azure SQL Data Warehouse)](https://msdn.microsoft.com/library/mt204021.aspx).
+Para las opciones de parámetros, consulte [Create Database (Azure SQL Data Warehouse)](https://msdn.microsoft.com/library/mt204021.aspx) (Creación de base de datos (Almacenamiento de datos SQL de Azure)).
 
 ## Pasos siguientes
 Después de que Almacenamiento de datos SQL termine el aprovisionamiento, puede [cargar datos de ejemplo][] o averiguar cómo [desarrollar][], [cargar][] o [migrar][].
@@ -81,4 +96,4 @@ Si está interesado en obtener más información sobre cómo administrar el Alma
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [Instalación y configuración de Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

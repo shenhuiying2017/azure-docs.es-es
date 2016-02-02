@@ -16,10 +16,10 @@
 
 5. Haga clic en el icono de marca de verificación ![Icono de marca de verificación de StorSimple](./media/storsimple-get-service-registration-key/HCS_CheckIcon-include.png) para cerrar este cuadro de diálogo y volver a la página **Inicio rápido**.
 
-> [AZURE.NOTE]La clave de registro del servicio se usa para registrar todos los dispositivos que se deben registrar con el servicio de Administrador de StorSimple.
+> [AZURE.NOTE] La clave de registro del servicio se usa para registrar todos los dispositivos que se deben registrar con el servicio de Administrador de StorSimple.
 
 ![Vídeo disponible](./media/storsimple-get-service-registration-key/Video_icon.png) **Vídeo disponible**
 
-Para ver un vídeo que muestra cómo obtener la clave de registro del servicio, haga clic [aquí](http://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
+Para ver un vídeo que muestra cómo obtener la clave de registro del servicio, haga clic [aquí](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

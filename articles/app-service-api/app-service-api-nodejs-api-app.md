@@ -66,7 +66,7 @@ Los comandos siguientes se deben ejecutar con la línea de comandos de Node.js. 
 
 1. Copie la carpeta **lib** de la carpeta **start** a la carpeta **ContactList** creada por el procesador de scaffolding.
 
-1. Reemplace el código del archivo **handlers/contacts.js** por el código siguiente. Este código usa los datos JSON almacenados en el archivo **lib/contacts.json** proporcionado por **lib/contactRepository.js**. El siguiente código nuevo contats.js responderá a las solicitudes HTTP para obtener todos los contactos mediante este código.
+1. Reemplace el código del archivo **handlers/contacts.js** por el código siguiente. Este código usa los datos JSON almacenados en el archivo **lib/contacts.json** proporcionado por **lib/contactRepository.js**. El siguiente código nuevo contacts.js responderá a las solicitudes HTTP para obtener todos los contactos mediante este código.
 
         'use strict';
         
@@ -86,7 +86,7 @@ Los comandos siguientes se deben ejecutar con la línea de comandos de Node.js. 
         
         module.exports = {
             get: function contacts_get(req, res) {
-                res.json(repository.get(req.params['id']))
+                res.json(repository.get(req.params['id']));
             }    
         };
 
@@ -151,7 +151,7 @@ En esta sección le guiaremos por el proceso de creación de una aplicación de 
 
 El repositorio de GitHub desde el que se clonó el código fuente no es el mismo repositorio en el que va a insertar el código para su implementación. El repositorio de GitHub de ejemplo incluye el estado "inicial" del código y ahora que aplicó la técnica scaffolding al estado "final" del código, debe insertar ese código solo en el repositorio de Git asociado a su aplicación de API. El primer paso será crear la aplicación de API con el Portal de Azure y después:
 
-1. Vaya al [Portal de Azure](http://portal.azure.com). 
+1. Vaya al [Portal de Azure](https://portal.azure.com/). 
 
 1. Cree una nueva aplicación de API.
 
@@ -243,4 +243,4 @@ Ya ha creado e implementado correctamente su primera aplicación de API con Node
 
 Para basarse en este ejemplo, puede agregar código a los controladores para almacenar los datos en una base de datos o en el disco de la instancia de la aplicación de API. Ahora que ya conectó la implementación continua, el cambio de la funcionalidad de la aplicación de API y la su ampliación es tan fácil como cambiar en insertar de código en el repositorio de Git.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

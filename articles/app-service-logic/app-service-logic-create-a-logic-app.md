@@ -40,7 +40,7 @@ En primer lugar, deberá crear los dos conectores que se van a usar: el [conecto
 
 1. Inicie sesión en el Portal de Azure.
 
-2. Haga clic en [Marketplace](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) en la pantalla principal y busque Twitter (o [haga clic aquí](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2)).
+2. Haga clic en [Marketplace](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps/) en la pantalla principal y busque Twitter (o [haga clic aquí](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2/)).
 
 3. Seleccione el **conector de Twitter** y haga clic **Crear**. Aparecerá una vista con toda la configuración. Puede dejar el nombre como **Conector Twitter**.
 4. Seleccione **Configuración del paquete**: aquí deberá especificar la información de su aplicación de Twitter. Puede configurar una aplicación gratuita siguiendo estos pasos:
@@ -70,7 +70,7 @@ En primer lugar, deberá crear los dos conectores que se van a usar: el [conecto
 
 10. Haga clic en **Crear**. El paso de aprovisionamiento puede tardar un minuto o dos.
 
-11. Ahora repita el proceso con [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
+11. Ahora repita el proceso con [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2/).
 
 ## Iniciar la aplicación lógica
 
@@ -122,7 +122,7 @@ Las acciones son lo que hace el flujo de trabajo. Puede tener cualquier número 
 
 	![Acciones](./media/app-service-logic-create-a-logic-app/actions.png)
 
-	> [AZURE.NOTE]El botón **Autorizar** usa seguridad OAUTH para conectarse a servicios de SaaS, como Twitter. Más información sobre OAUTH en [Seguridad OAUTH](app-service-logic-oauth-security.md).
+	> [AZURE.NOTE] El botón **Autorizar** usa seguridad OAUTH para conectarse a servicios de SaaS, como Twitter. Más información sobre OAUTH en [Seguridad OAUTH](app-service-logic-oauth-security.md).
 
 3. Haga clic en **Buscar tweets**, a continuación en **Especificar una consulta**, escriba algo como `#MicrosoftAzure` y haga clic en la marca de verificación verde.
 
@@ -163,7 +163,7 @@ El último paso es agregar una acción que cargue unos tweets a un archivo de Dr
 
 5. Haga clic en la marca de verificación verde para guardar la configuración del conector.
 
-5. Ahora que el diseño se ha completado, haga clic en **Vista Código** en la parte superior izquierda del diseñador y tenga en cuenta que este es el código JSON que define el flujo de trabajo que acaba de crear en el diseñador. Trataremos este código más en el [siguiente tema][Use logic app features].
+5. Ahora que el diseño se ha completado, haga clic en **Vista Código** en la parte superior izquierda del diseñador y tenga en cuenta que este es el código JSON que define el flujo de trabajo que acaba de crear en el diseñador. Trataremos este código más en el [siguiente tema](Use logic app features).
 
 6. Haga clic en el botón **Aceptar** en la parte inferior de la pantalla y, a continuación, haga clic en el botón **Crear**.
 
@@ -188,4 +188,4 @@ En menos de 5 minutos ha sido capaz de configurar una aplicación lógica sencil
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Uso de las características de aplicaciones lógicas]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!-----HONumber=AcomDC_0128_2016-->

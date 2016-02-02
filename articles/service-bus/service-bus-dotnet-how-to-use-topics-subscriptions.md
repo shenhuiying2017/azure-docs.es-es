@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="10/15/2015"
+    ms.date="01/26/2016"
     ms.author="sethm"/>
 
 # Uso de temas/suscripciones del Bus de servicio
@@ -32,7 +32,7 @@ Cuando cree una aplicación que use el bus de servicio, deberá agregar una refe
 
 ## Obtenga el paquete NuGet del bus de servicio
 
-El paquete NuGet del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio. La extensión NuGet Visual Studio facilita la instalación y la actualización de las bibliotecas y las herramientas en Visual Studio y Visual Studio Express. El paquete NuGet del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio.
+El [paquete NuGet del bus de servicio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio. La extensión NuGet Visual Studio facilita la instalación y la actualización de las bibliotecas y las herramientas en Visual Studio y Visual Studio Express.
 
 Realice los pasos siguientes para instalar el paquete NuGet en su aplicación:
 
@@ -83,7 +83,7 @@ A continuación, especifique los valores del archivo de configuración de servic
 </ServiceConfiguration>
 ```
 
-Use el nombre y los valores de clave de la firma de acceso compartido (SAS) recuperados del Portal de Azure clásico, como se indica en la sección anterior.
+Use el nombre y los valores de clave de la firma de acceso compartido (SAS) recuperados del portal, como se ha descrito en la sección anterior.
 
 ### Configuración de la cadena de conexión al usar Sitios web de Azure o Máquinas virtuales de Azure
 
@@ -98,13 +98,13 @@ Al usar Sitios web o Máquinas virtuales, se recomienda usar el sistema de confi
 </configuration>
 ```
 
-Use el nombre y los valores de clave de SAS recuperados del Portal de Azure clásico, como se indica en la sección anterior.
+Use el nombre y los valores de clave de SAS que recuperó del [Portal de Azure clásico][], como se ha descrito en la sección anterior.
 
 ## de un tema
 
 Puede realizar operaciones de administración en los temas y las suscripciones del Bus de servicio a través de la clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Esta clase proporciona métodos para crear, enumerar y eliminar temas.
 
-En el ejemplo siguiente, se construye un objeto `NamespaceManager` con la clase `CloudConfigurationManager` de Azure con una cadena de conexión que consta de una dirección base de un espacio de nombres del servicio Bus de servicio y las credenciales de SAS pertinentes con permisos para administrarlo. Esta cadena de conexión tiene la forma siguiente.
+En el ejemplo siguiente, se construye un objeto `NamespaceManager` mediante la clase `CloudConfigurationManager` de Azure con una cadena de conexión que consta de la dirección base de un espacio de nombres del bus de servicio y las credenciales de SAS pertinentes con permisos para administrarlo. Esta cadena de conexión tiene la forma siguiente.
 
 ```
 Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey
@@ -147,7 +147,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-> [AZURE.NOTE]Puede usar el método [TopicExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.topicexists.aspx) en los objetos [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) para comprobar si ya existe un tema con un nombre especificado en un espacio de nombres.
+> [AZURE.NOTE] Puede usar el método [TopicExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.topicexists.aspx) en los objetos [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) para comprobar si ya existe un tema con un nombre especificado en un espacio de nombres.
 
 ## una suscripción
 
@@ -236,11 +236,11 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Los temas del Bus de servicio admiten un [tamaño máximo de mensaje de 256 KB](service-bus-quotas.md) (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener un tamaño máximo de 64 KB). No hay límite para el número de mensajes que contiene un tema, pero hay un tope para el tamaño total de los mensajes contenidos en un tema. El tamaño de los temas se define en el momento de la creación (el límite máximo es de 5 GB). Si está habilitada la división en particiones, el límite superior es más elevado. Para obtener más información, consulte [Entidades de mensajería con particiones](https://msdn.microsoft.com/library/azure/dn520246.aspx).
+Los temas del Bus de servicio admiten un [tamaño máximo de mensaje de 256 KB](service-bus-quotas.md) (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener un tamaño máximo de 64 KB). No hay límite para el número de mensajes que contiene un tema, pero hay un tope para el tamaño total de los mensajes contenidos en un tema. El tamaño de los temas se define en el momento de la creación (el límite máximo es de 5 GB). Si está habilitada la división en particiones, el límite superior es más elevado. Para más información, consulte [Entidades de mensajería con particiones](service-bus-partitioning.md).
 
 ## Recepción de mensajes de una suscripción
 
-La forma recomendada de recibir mensajes de una suscripción es usar un objeto [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx). Los objetos [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) pueden funcionar en dos modos distintos: [ReceiveAndDelete y PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx).
+La forma recomendada de recibir mensajes de una suscripción es usar un objeto [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx). Los objetos [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) pueden funcionar en dos modos distintos: [*ReceiveAndDelete* y *PeekLock*](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx).
 
 Al usar el modo **ReceiveAndDelete**, la operación de recepción consta de una sola fase; es decir, cuando el Bus de servicio recibe una solicitud de lectura para un mensaje en una suscripción, marca el mensaje como consumido y lo devuelve a la aplicación. El modo **ReceiveAndDelete** es el modelo más sencillo y funciona mejor para los escenarios en los que una aplicación puede tolerar no procesar un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el bus de servicio habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
@@ -283,7 +283,7 @@ Client.OnMessage((message) =>
 }, options);
 ```
 
-Este ejemplo configura la devolución de llamada [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) usando un objeto [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) se establece en **false** para permitir controlar manualmente cuándo llamar a [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) en el mensaje recibido. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) se establece en un minuto, lo que hace que el cliente espere hasta un minuto antes de terminar la característica de renovación automática y de realizar una nueva llamada para comprobar los mensajes. Este valor de propiedad reduce el número de veces que el cliente hace llamadas facturables que no recuperan mensajes.
+Este ejemplo configura la devolución de llamada [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) usando un objeto [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) se establece en **false** para permitir controlar manualmente cuándo llamar a [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) en el mensaje recibido. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) se establece en un minuto, lo que hace que el cliente espere hasta un minuto antes de terminar la característica de renovación automática y que el cliente realice una nueva llamada para comprobar los mensajes. Este valor de propiedad reduce el número de veces que el cliente hace llamadas facturables que no recuperan mensajes.
 
 ## Actuación ante errores de la aplicación y mensajes que no se pueden leer
 
@@ -312,10 +312,10 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 
 Ahora que conoce los fundamentos de los temas y las suscripciones del bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte [Colas, temas y suscripciones][].
+-   [Colas, temas y suscripciones][]
 -   Referencia de API para [Clase SqlFilter][].
--   Compilación de una aplicación que envíe y reciba mensajes desde una cola del Bus de servicio y hacia ella: [Tutorial de .NET de mensajería asincrónica de Bus de servicio][].
--   Ejemplos de Bus de servicio: descárguelos desde [Ejemplos de Azure][] o consulte la [información general](service-bus-samples.md).
+-   Compile una aplicación que envíe mensajes a una cola del bus de servicio y los reciba de ella: [Tutorial de .NET de mensajería asincrónica del Bus de servicio][].
+-   Ejemplos de bus de servicio: descárguelos de [Ejemplos de Azure][] o consulte la [información general](service-bus-samples.md).
 
   [Portal de Azure clásico]: http://manage.windowsazure.com
 
@@ -325,7 +325,7 @@ Ahora que conoce los fundamentos de los temas y las suscripciones del bus de ser
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Clase SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Tutorial de .NET de mensajería asincrónica de Bus de servicio]: service-bus-brokered-tutorial-dotnet.md
+  [Tutorial de .NET de mensajería asincrónica del Bus de servicio]: service-bus-brokered-tutorial-dotnet.md
   [Ejemplos de Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

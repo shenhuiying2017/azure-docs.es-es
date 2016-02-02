@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/24/2015"
+	ms.date="01/24/2016"
 	ms.author="awills"/>
 
 # Introducción a Application Insights en un proyecto web de Java
@@ -30,7 +30,7 @@ Application Insights es compatible con aplicaciones Java que se ejecutan en Linu
 Necesitará:
 
 * Oracle JRE 1.6 o posterior, o Zulu JRE 1.6 o posterior
-* Una suscripción a [Microsoft Azure](http://azure.microsoft.com/). (Puede empezar con la [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/)).
+* Una suscripción a [Microsoft Azure](https://azure.microsoft.com/). (Puede empezar con la [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)).
 
 *Si tiene una aplicación web que ya está en funcionamiento, puede seguir el procedimiento alternativo para [agregar el SDK en tiempo de ejecución en el servidor web](app-insights-java-live.md). Esa alternativa evita volver a generar el código, pero no incluye la opción de escribir código para realizar un seguimiento de la actividad del usuario.*
 
@@ -117,7 +117,7 @@ Agregue manualmente el SDK:
  * `applicationinsights-web` proporciona métricas que realizan el seguimiento de recuentos de solicitud HTTP y tiempos de respuesta. Lo puede omitir si no desea que se recopile automáticamente esta telemetría. Por ejemplo, si desea escribir la suya propia.
 
 * *Para actualizar el SDK cuando publicamos cambios*
- * Descargue el [SDK más reciente de Application Insights para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) y sustituya los antiguos.
+ * Descargue el [SDK más reciente de Application Insights para Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) y sustituya los antiguos.
  * Los cambios se describen en las [notas de la versión de SDK](app-insights-release-notes-java.md).
 
 
@@ -271,7 +271,7 @@ Las excepciones no controladas se recopilan automáticamente:
 
 Para recopilar datos de otras excepciones, tiene dos opciones:
 
-* [Insertar llamadas en TrackException() en el código][apiexceptions]. 
+* [Insertar llamadas a trackException() en el código][apiexceptions]. 
 * [Instalar el agente de Java en el servidor](app-insights-java-agent.md). Debe especificar los métodos que desee ver.
 
 
@@ -385,7 +385,7 @@ Obtendrá gráficos de tiempos de respuesta, junto con notificaciones por correo
 
 ## Pasos siguientes
 
-Para más información, consulte el [Centro para desarrolladores de Java](/develop/java/).
+Para obtener más información, consulte el [Centro para desarrolladores de Java](/develop/java/).
 
 <!--Link references-->
 
@@ -398,4 +398,4 @@ Para más información, consulte el [Centro para desarrolladores de Java](/devel
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

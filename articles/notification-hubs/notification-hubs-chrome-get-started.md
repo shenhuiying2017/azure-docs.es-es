@@ -24,7 +24,7 @@ Este tema muestra cómo puede utilizar los Centros de notificaciones de Azure pa
 
 Una de las ventajas clave del uso de notificaciones de aplicaciones Chrome es que las notificaciones se muestran en el contexto del explorador Google Chrome. No es necesario tener abierta o en ejecución la aplicación Chrome en el explorador (aunque el propio explorador Chrome se debe estar ejecutando). También obtendrá una vista consolidada de todas las notificaciones en la ventana de notificaciones de Chrome.
 
->[AZURE.NOTE]Esta no es una notificación push genérica que se ejecuta en el explorador y es específica de las aplicaciones Chrome. Vea [Información general sobre las aplicaciones Chrome] para obtener más información. Las aplicaciones Chrome se conocían anteriormente como "Aplicaciones empaquetadas" y son diferentes de las "Aplicaciones hospedadas" más sencillas. Vea [Aplicaciones web instalables] para ver la diferencia. Las aplicaciones Chrome también se pueden ejecutar en dispositivos móviles (Android y iOS) con Apache Cordova. Vea [Aplicaciones de Chrome en dispositivos móviles] para obtener más información.
+>[AZURE.NOTE] Esta no es una notificación push genérica que se ejecuta en el explorador y es específica de las aplicaciones Chrome. Vea [Información general sobre las aplicaciones Chrome] para obtener más información. Las aplicaciones Chrome se conocían anteriormente como "Aplicaciones empaquetadas" y son diferentes de las "Aplicaciones hospedadas" más sencillas. Vea [Aplicaciones web instalables] para ver la diferencia. Las aplicaciones Chrome también se pueden ejecutar en dispositivos móviles (Android y iOS) con Apache Cordova. Vea [Aplicaciones de Chrome en dispositivos móviles] para obtener más información.
 
 En este tutorial, creará una aplicación Chrome que reciba notificaciones push mediante el servicio de mensajería en la nube de Google (GCM). Cuando termine el tutorial, podrá difundir notificaciones push a todos los usuarios de Chrome que tengan instalada esta aplicación Chrome.
 
@@ -40,7 +40,7 @@ En este tutorial se demuestra el escenario de difusión sencillo con centros de 
 
 Asegúrese de seguir esta sección junto con los tutoriales de la sección de pasos siguientes para saber cómo usar los centros de notificaciones para abordar usuarios y grupos de dispositivos específicos.
 
->[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
+>[AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
 
 ##<a id="register"></a>Habilitación del servicio de mensajería en la nube de Google
 
@@ -368,16 +368,16 @@ La aplicación Chrome se crea con JavaScript y puede usar su editor de texto pre
 		  }
 		}
 
-	El script anterior incluye lo siguiente:
-	- *window.onload* define los eventos de clic de botón de los dos botones de la IU, uno se registra en GCM y el otro usa el identificador de registro devuelto tras el registro en GCM para registrarse en los Centros de notificaciones de Azure.
-	- La función *updateLog* define una función de registro sencilla.
-	- *registerWithGCM* es el primer controlador de clics de botón que realiza la llamada *chrome.gcm.register* a GCM para registrar esta instancia de aplicación de Chrome.
+	El script anterior tiene los siguientes beneficios:
+	- *window.onload* define los eventos de clic de botón de los dos botones de la interfaz de usuario. Uno se registra en GCM y el otro usa el identificador de registro devuelto tras el registro en GCM para registrarse en Centros de notificaciones de Azure. 
+	- *updateLog* es la función que define una función de registro sencilla. 
+	- *registerWithGCM* es el primer controlador de clic de botón que realiza la llamada **chrome.gcm.register** a GCM para registrar esta instancia de aplicación Chrome. 
 	- *registerCallback* es la función de devolución de llamada a la que se llama cuando se devuelve la llamada de registro anterior de GCM. 
-	- *registerWithNH* es el segundo controlador de clics de botón que se registra en los Centros de notificaciones. Obtiene los valores *hubName* y *connectionString* que el usuario ha especificado y crea la llamada a la API de REST para el registro en los Centros de notificaciones.
-	- *splitConnectionString* y *generateSaSToken* son una implementación de Javascript de la creación de un token de SaS que se debe enviar en todas las llamadas a la API de REST. Más información al respecto aquí[Conceptos comunes](http://msdn.microsoft.com/library/dn495627.aspx)
-	- *sendNHRegistrationRequest* es la función que realiza una llamada HTTP REST.
-	- *registrationPayload* define la carga xml del registro. Más información aquí: [Creación de una API de REST para el registro en el Centro de notificaciones]. Actualizamos el Id. de registro que contiene con el que recibimos de GCM.
-	- *client* es una instancia de *XMLHttpRequest* que usamos para crear la solicitud HTTP POST. Tenga en cuenta que actualizamos el encabezado *Authorization* con el sasToken. La finalización correcta de esta llamada registrará esta instancia de la aplicación Chrome con Centros de notificaciones de Azure.
+	- *registerWithNH* es el segundo controlador de clic de botón que se registra en Centros de notificaciones. Obtiene los valores **hubName** y **connectionString** que el usuario ha especificado y crea la llamada a la API de REST para el registro en los Centros de notificaciones. 
+	- *splitConnectionString* y *generateSaSToken* son una implementación de Javascript de la creación de un token de SaS que se debe enviar en todas las llamadas a la API de REST. Para obtener más información, consulte [Conceptos comunes](http://msdn.microsoft.com/library/dn495627.aspx). 
+	- *sendNHRegistrationRequest* es la función que realiza una llamada HTTP REST. 
+	- *registrationPayload* defines la carga XML de registro. Para obtener más información, consulte [Crear registro]. Actualizamos el id. de registro que contiene con el que recibimos de GCM. 
+	- *client* es una instancia de **XMLHttpRequest** que usamos para crear la solicitud HTTP POST. Tenga en cuenta que actualizamos el encabezado **Authorization** con **sasToken**. La finalización correcta de esta llamada registrará esta instancia de la aplicación Chrome con Centros de notificaciones de Azure.
 
 
 Debería ver la siguiente vista de la carpeta al final: ![][21]
@@ -435,7 +435,7 @@ Para ver un ejemplo de cómo enviar notificaciones desde un back-end de Servicio
 
    	Asegúrese de reemplazar el marcador de posición **hub name** por el nombre del centro de notificaciones que aparece en el portal en la pestaña *Centros de notificaciones*. Además, reemplace el marcador de posición de la cadena de conexión por la cadena de conexión llamada **DefaultFullSharedAccessSignature** que obtuvo en la sección "Configuración del centro de notificaciones".
 
-	>[AZURE.NOTE]Asegúrese de usar la cadena de conexión con acceso **Total**, no con acceso **Escuchar**. La cadena de acceso de **escucha** no tiene permisos para enviar notificaciones.
+	>[AZURE.NOTE] Asegúrese de usar la cadena de conexión con acceso **Total**, no con acceso **Escuchar**. La cadena de acceso de **escucha** no tiene permisos para enviar notificaciones.
 
 5. Agregue las siguientes líneas al método **Main**:
 
@@ -493,4 +493,4 @@ En este sencillo ejemplo, difundirá notificaciones a la aplicación Chrome. Obt
 [Uso de Centros de notificaciones para notificar a los usuarios]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Uso de Centros de notificaciones para enviar noticias de último minuto]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

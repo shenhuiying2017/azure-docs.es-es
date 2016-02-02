@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Uso del almacenamiento de colas de .NET | Microsoft Azure"
-	description="Aprenda a usar el Almacenamiento en cola para crear y eliminar colas e insertar, inspeccionar, obtener y eliminar mensajes en cola."
+	pageTitle="Introducción al Almacenamiento en cola de Azure mediante .NET | Microsoft Azure"
+	description="Envíe y reciba mensajes de forma asincrónica entre los componentes de aplicación mediante el Almacenamiento en cola de Azure. Introducción a las operaciones simples de Almacenamiento en cola, entre las que se incluyen crear y eliminar colas y agregar, leer y eliminar mensajes de la cola."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/04/2015"
+	ms.date="01/24/2016"
 	ms.author="gusapost"/>
 
-# Uso del almacenamiento de colas de .NET
+# Introducción al Almacenamiento en cola de Azure mediante .NET
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 ## Información general
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento en cola de Azure. Los ejemplos están escritos en código C# y utilizan el cliente de almacenamiento de Azure para .NET. Entre los escenarios descritos se incluyen **insertar**, **ojear**, **obtener** y **eliminar** mensajes de la cola, así como **crear y eliminar colas**.
+El Almacenamiento en cola de Azure es un servicio que proporciona colas de mensajes en la nube. A la hora de diseñar aplicaciones para escala, los componentes de las mismas suelen desacoplarse para poder escalarlos de forma independiente. El almacenamiento de colas ofrece una solución de mensajería de confianza para la comunicación asincrónica entre los componentes de las aplicaciones, independientemente de que se ejecuten en la nube, en el escritorio, en un servidor local o en un dispositivo móvil. Además, este tipo de almacenamiento admite la administración de tareas asincrónicas y la creación de flujos de trabajo de procesos.
+
+Este tutorial muestra cómo escribir código .NET para algunos escenarios comunes con el Almacenamiento en cola de Azure. Entre los escenarios descritos se incluyen los siguientes: creación y eliminación de colas y adición, lectura y eliminación de mensajes de la cola.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -260,4 +262,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

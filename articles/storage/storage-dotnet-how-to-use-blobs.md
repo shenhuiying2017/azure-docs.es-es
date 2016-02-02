@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Uso del almacenamiento de blobs de .NET | Microsoft Azure"
-	description="Aprenda a usar el almacenamiento de blobs de Azure y cómo crear un contenedor para cargar, descargar, enumerar y eliminar contenido de blobs."
+	pageTitle="Introducción al Almacenamiento de blobs de Azure mediante .NET | Microsoft Azure"
+	description="Almacene datos de archivo en la nube con Almacenamiento de blobs (objetos) de Azure. Introducción a operaciones simples de Almacenamiento de blobs, incluida la creación de un contenedor y la carga, descarga, enumeración y eliminación del contenido de blob."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,17 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/01/2015"
+	ms.date="01/22/2016"
 	ms.author="tamram"/>
 
 
-# Uso del almacenamiento de blobs de .NET
+# Introducción al Almacenamiento de blobs de Azure mediante .NET
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Información general
 
-Esta guía demuestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento de blobs de Azure. Los ejemplos están escritos en C# y utilizan la biblioteca del cliente de almacenamiento de Azure para .NET. La Biblioteca del cliente de almacenamiento es un SDK que facilita la interacción con las API de REST del Almacenamiento de blobs. Los escenarios descritos en esta guía incluyen la **carga**, **enumeración**, **descarga** y **eliminación** de blobs y tardarán aproximadamente una hora en completarse. Si desea ver un vídeo introductorio, consulte [Introducción a Almacenamiento de Azure en cinco minutos](https://azure.microsoft.com/documentation/videos/azure-storage-5-minute-overview/) o puede consultar [Introducción a Almacenamiento de Azure en cinco minutos](storage-getting-started-guide.md).
+Almacenamiento de blobs de Azure es un servicio que almacena datos de archivo en la nube. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como almacenamiento de objetos.
+
+Este tutorial muestra cómo escribir código .NET para algunos escenarios comunes con el Almacenamiento de blobs de Azure. Entre los escenarios descritos se incluyen cargar, enumerar, descargar y eliminar blobs. Este tutorial tardará una hora como máximo en completarse.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -38,6 +40,7 @@ Esta guía demuestra cómo realizar algunas tareas comunes a través del servici
 [AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
 
 ### Declaraciones de espacio de nombres
+
 Agregue las siguientes declaraciones de espacio de nombres en la parte superior de todo archivo C# en el que desee obtener acceso al almacenamiento de Azure mediante programación:
 
     using Microsoft.WindowsAzure;
@@ -292,7 +295,7 @@ Dado que el método de ejemplo llama a un método asincrónico, debe ir precedid
 ## Escritura en un blob en anexos
 
 Un blob en anexos es un nuevo tipo de blob, que se introdujo con la versión 5.x de la biblioteca de cliente de almacenamiento de Azure para. NET. Un blob en anexos se optimiza para las operaciones de anexado, como el registro. Como un blob en bloques, un blob en anexos se compone también de bloques, pero en el caso del blob en anexos cuando se agrega un nuevo bloque, siempre se anexa al final del blob. No se puede actualizar o eliminar un bloque existente en un blob en anexos. Los identificadores de bloque para un blob en anexos no está expuestos como lo están en el caso de los blobs en bloques.
- 
+
 Cada bloque en un blob en anexos puede tener un tamaño diferente, hasta un máximo de 4 MB y el blob puede incluir un máximo de 50.000 bloques. El tamaño máximo de un blob en anexos es, por tanto, ligeramente superior a 195 GB (4 MB X 50.000 bloques).
 
 El ejemplo siguiente crea un nuevo blob en anexos y le anexa algunos datos, para simular una operación de registro simple.
@@ -307,7 +310,7 @@ El ejemplo siguiente crea un nuevo blob en anexos y le anexa algunos datos, para
     //Get a reference to a container.
     CloudBlobContainer container = blobClient.GetContainerReference("my-append-blobs");
 
-    //Create the container if it does not already exist. 
+    //Create the container if it does not already exist.
     container.CreateIfNotExists();
 
     //Get a reference to an append blob.
@@ -323,7 +326,7 @@ El ejemplo siguiente crea un nuevo blob en anexos y le anexa algunos datos, para
     Random rnd = new Random();
     byte[] bytes = new byte[numBlocks];
     rnd.NextBytes(bytes);
-        
+
     //Simulate a logging operation by writing text data and byte data to the end of the append blob.
     for (int i = 0; i < numBlocks; i++)
     {
@@ -365,4 +368,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

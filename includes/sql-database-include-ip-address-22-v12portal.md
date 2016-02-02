@@ -15,7 +15,7 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Inicie sesión en el [Portal de Azure](http://portal.azure.com/) en http://portal.azure.com/.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) en http://portal.azure.com/.
 
 2. En el banner de la izquierda, haga clic en **EXAMINAR TODO**. Se mostrará la hoja **Examinar**.
 
@@ -63,4 +63,4 @@ includes/sql-database-include-ip-address-22-v12portal.md
 ? includes/sql-database-include-ip-address-*.md
 -->
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

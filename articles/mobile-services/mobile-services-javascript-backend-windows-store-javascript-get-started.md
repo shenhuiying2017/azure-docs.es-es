@@ -26,7 +26,7 @@ En este tutorial se muestra cómo agregar un servicio back-end basado en la nube
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
+* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
 * [Visual Studio 2013 Express para Windows]
 
 ## Creación de un servicio móvil
@@ -68,7 +68,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
    	Esto le permite examinar los datos que la aplicación inserta en la tabla.
 
->[AZURE.NOTE]Puede revisar el código de acceso al servicio móvil para consultar e insertar datos; este se encuentra en el archivo default.js.
+>[AZURE.NOTE] Puede revisar el código de acceso al servicio móvil para consultar e insertar datos; este se encuentra en el archivo default.js.
 
 ## Pasos siguientes
 Ahora que completó el tutorial, aprenderá a trabajar con el [Cliente de Servicios móviles para HTML/JavaScript](mobile-services-html-how-to-use-client-library.md).
@@ -89,4 +89,4 @@ Ahora que completó el tutorial, aprenderá a trabajar con el [Cliente de Servic
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

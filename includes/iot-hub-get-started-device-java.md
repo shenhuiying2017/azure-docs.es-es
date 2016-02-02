@@ -16,7 +16,7 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.0-preview.8</version>
+      <version>1.0.0-preview.9</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -50,7 +50,7 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
 
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.HTTPS;
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
     private static boolean stopThread = false;
     ```
 
@@ -153,9 +153,9 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
     mvn clean package -DskipTests
     ```
 
-> [AZURE.NOTE]Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Control de errores transitorios][lnk-transient-faults].
+> [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Control de errores transitorios][lnk-transient-faults].
 
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/es-ES/library/hh680901(v=pandp.50).aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/29/2015"
+	ms.date="01/13/2016"
 	ms.author="mohisri"/>
 
 # Aplicaciones de API del Servicio de aplicaciones: lo que ha cambiado
@@ -21,7 +21,7 @@
 En el evento Connect() de noviembre de 2015, se [anunciaron](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/) varias mejoras que se habían realizado en el Servicio de aplicaciones de Azure. Estas mejoras incluyen cambios subyacentes en Aplicaciones de API para equipararlas con las aplicaciones móviles y web, reducir el número de conceptos y mejorar el rendimiento en tiempo de ejecución e implementación. A partir del 30 de noviembre de 2015, las nuevas aplicaciones de API cree con el portal de administración o con las herramientas más recientes de Azure reflejarán esos cambios. Este artículo describe estos cambios y explica cómo volver a implementar las aplicaciones existentes para sacar partido de las funcionalidades.
 
 
-> [AZURE.NOTE]La versión preliminar inicial de Aplicaciones de API admitía dos escenarios principales: 1) API personalizadas para su uso en aplicaciones lógicas o en sus propios clientes y 2) API de Marketplace (con frecuencia conectores de SaaS) para su uso en aplicaciones lógicas. Este artículo trata el primer escenario, las API personalizadas. Para las API de Marketplace, a principios de 2016 se incorporará mejoras en la experiencia de diseñador de aplicaciones lógicas y en la base de conectividad subyacente. Las API de Marketplace existentes permanecen disponibles en el diseñador de aplicaciones lógicas.
+> [AZURE.NOTE] La versión preliminar inicial de Aplicaciones de API admitía dos escenarios principales: 1) API personalizadas para su uso en aplicaciones lógicas o en sus propios clientes y 2) API de Marketplace (con frecuencia conectores de SaaS) para su uso en aplicaciones lógicas. Este artículo trata el primer escenario, las API personalizadas. Para las API de Marketplace, a principios de 2016 se incorporará mejoras en la experiencia de diseñador de aplicaciones lógicas y en la base de conectividad subyacente. Las API de Marketplace existentes permanecen disponibles en el diseñador de aplicaciones lógicas.
 
 ## Cambios de características
 Las principales características de Aplicaciones de API (autenticación, CORS y metadatos de API) se movieron directamente al Servicio de aplicaciones. Con este cambio, las características están disponibles a través de aplicaciones web, móviles y de API. De hecho, las tres comparten el mismo el tipo de recurso **Microsoft.Web/Sites** en el Administrador de recursos. La puerta de enlace de Aplicaciones de API ya no es necesario ni se ofrece con Aplicaciones de API. También facilita el uso de Administración de API de Azure ya que habrá solo una puerta de enlace de Administración de API.
@@ -30,7 +30,7 @@ Las principales características de Aplicaciones de API (autenticación, CORS y 
 
 Un principio clave del diseño de la actualización de Aplicaciones de API es permitirle traer su API tal cual, en el lenguaje elegido. Si la API ya está implementada como una aplicación web o una aplicación móvil*, no es necesario volver a implementar la aplicación para aprovechar las nuevas características.
 
-> [AZURE.NOTE]*Si actualmente usa la versión preliminar de Aplicaciones de API, a continuación se detallan las instrucciones de migración.
+> [AZURE.NOTE] *Si actualmente usa la versión preliminar de Aplicaciones de API, a continuación se detallan las instrucciones de migración.
 
 ### Autenticación
 Las características de autenticación Aplicaciones de API, Servicios móviles o Aplicaciones móviles y Aplicaciones web existentes se unificaron y están disponibles en una sola hoja de autenticación del Servicio de aplicaciones de Azure, en el portal de administración. Para ver una introducción a los servicios de autenticación del Servicio de aplicaciones, consulte [Expanding App Service authentication/authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/).
@@ -79,11 +79,11 @@ Con la racionalización de los tipos del Servicio de aplicaciones, la publicaci�
 
 ![Publicación de aplicaciones de API](./media/app-service-api-whats-changed/api-apps-publish.png)
 
-Para más información sobre el SDK 2.8.1, consulte la [entrada del blog](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/) sobre el anuncio.
+Para obtener más información sobre el SDK 2.8.1, lea la [entrada del blog](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/) sobre el anuncio.
 
 Como alternativa, puede importar manualmente el perfil de publicación desde el portal de administración para habilitar la publicación. Sin embargo, Cloud Explorer, la generación de código y la creación y selección de aplicaciones de API requerirán el SDK 2.8.1 o superior.
 
-La capacidad para publicar aplicaciones de API existentes con las funcionalidades de la versión preliminar anterior sigue estando disponible en el SDK 2.8.1. Si ya publicó el proyecto, no es necesaria realizar ninguna otra acción. Para configurar la publicación, elija **Aplicaciones de API (clásico)** en la lista desplegable **Más opciones** del cuadro de diálogo de publicación.
+La capacidad para publicar aplicaciones de API existentes con las funcionalidades de la versión preliminar anterior sigue estando disponible en el SDK 2.8.1. Si ya publicó el proyecto, no es necesaria realizar ninguna otra acción. Para configurar la publicación, elija **Aplicaciones de API (clásico)** desde la lista desplegable **Más opciones** en el cuadro de diálogo de publicación.
 
 ## Migración de aplicaciones de API existentes
 Si la API personalizada se implementa en la versión preliminar anterior de Aplicaciones de API, le pedimos que migre al nuevo modelo de Aplicaciones de API antes del 31 de diciembre de 2015. Como el modelo nuevo y el antiguo se basan en las API web hospedadas en el Servicio de aplicaciones, se puede reutilizar la mayoría del código existente.
@@ -102,7 +102,7 @@ Los servicios de autenticación del Servicio de aplicaciones admiten las mismas 
 
 Si usaba los SDK alfa del Servicio de aplicaciones, estos están en desuso:
 
-- Cliente: [SDK del servicio de aplicaciones de Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.AppService)
+- Cliente: [SDK del Servicio de aplicaciones de Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.AppService)
 - Servidor: [Microsoft.Azure.AppService.ApiApps.Service](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service)
 
 En particular con Azure Active Directory, no se necesita ningún SDK específico del Servicio de aplicaciones si usa el token de AAD directamente.
@@ -122,7 +122,7 @@ El modelo de aplicaciones de API anterior tenía API para descubrir otras aplica
 El diseñador de aplicaciones lógicas incorporará una integración especialmente fluida con el nuevo modelo de Aplicaciones de API a principios de 2016. Dicho esto, el conector HTTP integrado en las aplicaciones lógicas puede invocar cualquier punto de conexión HTTP y admite la autenticación de entidad de servicio, que también se admite de forma nativa en los servicios de autenticación del Servicio de aplicaciones. Aprenda a consumir una API hospedada por el Servicio de aplicaciones en aplicaciones lógicas en [Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
 ### <a id="documentation"></a> Documentación del modelo de aplicaciones de API anterior
-Algunos artículos de [azure.microsoft.com](https://azure.microsoft.com) que se escribieron para el anterior modelo de aplicaciones de API no se aplican al nuevo modelo, por lo que se quitará del sitio. Sus direcciones URL se redirigirán a las equivalentes más cercanas que funcionen con el nuevo modelo, pero podrá ver los artículos anteriores en el [repositorio de documentación de GitHub para azure.microsoft.com](https://github.com/Azure/azure-content). La mayoría de los artículos que probablemente desee se encuentran en la carpeta [artículos /--api del servicio](https://github.com/Azure/azure-content/tree/master/articles/app-service-api). Aquí encontrará vínculos directos a algunos de los que más probablemente sigan siendo útiles si se admiten aplicaciones de API anteriores o se crean nuevas aplicaciones de API del conector desde Marketplace.
+Algunos artículos de [azure.microsoft.com](https://azure.microsoft.com/) que se escribieron para el anterior modelo de aplicaciones de API no se aplican al nuevo modelo, por lo que se quitará del sitio. Sus direcciones URL se redirigirán a las equivalentes más cercanas que funcionen con el nuevo modelo, pero podrá ver los artículos anteriores en el [repositorio de documentación de GitHub para azure.microsoft.com](https://github.com/Azure/azure-content). La mayoría de los artículos que probablemente desee se encuentran en la carpeta [artículos /--api del servicio](https://github.com/Azure/azure-content/tree/master/articles/app-service-api). Aquí encontrará vínculos directos a algunos de los que más probablemente sigan siendo útiles si se admiten aplicaciones de API anteriores o se crean nuevas aplicaciones de API del conector desde Marketplace.
 
 * [Información general la autenticación](https://github.com/Azure/azure-content/tree/master/articles/app-service/app-service-authentication-overview.md)
 * [Protección de una aplicación de API](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-add-authentication.md)
@@ -141,4 +141,4 @@ Para más información, consulte los artículos de la [sección Documentación d
 - [Foro de MSDN](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureAPIApps)
 - [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

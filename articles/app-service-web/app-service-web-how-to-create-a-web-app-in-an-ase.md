@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="10/26/2015"
+	ms.date="01/14/2016"
 	ms.author="ccompy"/>
 
 # Creación de una aplicación web en un entorno del Servicio de aplicaciones
@@ -22,7 +22,7 @@
 
 Este tutorial muestra cómo crear aplicaciones web y planes del Servicio de aplicaciones en un [entorno del Servicio de aplicaciones](app-service-app-service-environment-intro.md) (ASE).
 
-> [AZURE.NOTE]Si quiere obtener información sobre cómo crear una aplicación web pero no necesita hacerlo en un entorno del Servicio de aplicaciones, consulte [Creación de una aplicación web de .NET](web-sites-dotnet-get-started.md) o uno de los tutoriales relacionados para otros lenguajes y marcos.
+> [AZURE.NOTE] Si quiere obtener información sobre cómo crear una aplicación web pero no necesita hacerlo en un entorno del Servicio de aplicaciones, consulte [Creación de una aplicación web de .NET](web-sites-dotnet-get-started.md) o uno de los tutoriales relacionados para otros lenguajes y marcos.
 
 ## Requisitos previos
 
@@ -118,4 +118,4 @@ Después de crear la aplicación web y el plan del Servicio de aplicaciones, es 
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

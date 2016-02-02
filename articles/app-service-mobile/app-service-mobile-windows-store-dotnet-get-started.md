@@ -19,7 +19,7 @@
 #Creación de una aplicación para Windows
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;
+&nbsp;  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Información general
@@ -32,11 +32,11 @@ En este tutorial se muestra cómo agregar un servicio de back-end basado en la n
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * [Visual Studio Community 2013] o versión posterior.
 
->[AZURE.NOTE]Si desea empezar a usar el Servicio de aplicaciones de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://tryappservice.azure.com/?appServiceName=mobile). Allí puede crear de forma inmediata una aplicación móvil de corta duración para iniciarse en el Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a usar el Servicio de aplicaciones de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://tryappservice.azure.com/?appServiceName=mobile). Allí puede crear de forma inmediata una aplicación móvil de corta duración para iniciarse en el Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
 
 ##Creación de un nuevo back-end de Aplicaciones móviles de Azure
 
@@ -74,11 +74,9 @@ Una vez configurado el back-end de aplicación móvil, puede crear una nueva apl
 
 ##Pasos siguientes
 
-* [Incorporación de autenticación a la aplicación ](app-service-mobile-windows-store-dotnet-get-started-users.md) 
-  <br/>Obtenga información acerca de cómo autenticar a los usuarios de su aplicación con un proveedor de identidades.
+* [Incorporación de autenticación a la aplicación ](app-service-mobile-windows-store-dotnet-get-started-users.md) <br/>Obtenga información acerca de cómo autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
-* [Incorporación de notificaciones de inserción a la aplicación](app-service-mobile-windows-store-dotnet-get-started-push.md) 
-  <br/>Aprenda a enviar una notificación push muy básica a la aplicación.
+* [Incorporación de notificaciones de inserción a la aplicación](app-service-mobile-windows-store-dotnet-get-started-push.md) <br/>Aprenda a enviar una notificación push muy básica a la aplicación.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -87,4 +85,4 @@ Una vez configurado el back-end de aplicación móvil, puede crear una nueva apl
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016--->

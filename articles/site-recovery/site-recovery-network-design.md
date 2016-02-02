@@ -158,7 +158,7 @@ Para que Woodgrove implemente la replicación y mantenga las direcciones IP se r
 
 ### Opción 2: direcciones IP modificadas
 
-Esta opción parece ser la más habitual y significa que la dirección IP de cada una de las máquinas virtuales que conmute por error cambiará. La principal desventaja de esta opción es que la infraestructura de red debe ser consciente de que las direcciones IP han cambiado y que normalmente tendrán que cambiarse las entradas DNS o vaciar éstas en toda la red, de la misma forma que las entradas almacenadas en caché de las tablas de red. Esto podría suponer tiempo de inactividad dependiendo de cómo la infraestructura DNS esté configurada. Estos problemas se pueden mitigar mediante valores de TTL bajos en el caso de aplicaciones de intranet y mediante [Azure Traffic Manager con Site Recovery](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/) para aplicaciones basadas en Internet.
+Esta opción parece ser la más habitual y significa que la dirección IP de cada una de las máquinas virtuales que conmute por error cambiará. La principal desventaja de esta opción es que la infraestructura de red debe ser consciente de que las direcciones IP han cambiado y que normalmente tendrán que cambiarse las entradas DNS o vaciar éstas en toda la red, de la misma forma que las entradas almacenadas en caché de las tablas de red. Esto podría suponer tiempo de inactividad dependiendo de cómo la infraestructura DNS esté configurada. Estos problemas se pueden mitigar mediante valores de TTL bajos en el caso de aplicaciones de intranet y mediante [Azure Traffic Manager con Site Recovery](https://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/) para aplicaciones basadas en Internet.
 
 #### Ejemplo: direcciones IP modificadas
 
@@ -177,17 +177,17 @@ Veamos esta situación con un ejemplo que presenta un tercer sitio desde el cual
 - Las máquinas virtuales actualizarán el servidor DNS que están utilizando después de iniciarse. Las entradas DNS normalmente tendrán que cambiarse o vaciarse en toda la red y las entradas en caché de las tablas de red tienen que actualizarse o vaciarse, por lo que no es raro tener que hacer frente al tiempo de inactividad mientras se producen estos cambios de estado. Esto se puede mitigar mediante lo siguiente:
 
 	- Utilizando valores de TTL bajos para las aplicaciones de intranet.
-	- Utilizando [Azure Traffic Manager con Site Recovery] (http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/ para aplicaciones basadas en Internet).
+	- Utilizando el [Administrador de tráfico de Azure con Site Recovery] (https://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/ para aplicaciones basadas en Internet).
 	- Por medio del siguiente script en el plan de recuperación para actualizar el servidor DNS y garantizar la oportuna actualización (el script no es necesario si se configura el registro DNS dinámico)
 
     [string]$Zone, [string]$name, [string]$IP ) $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name $newrecord = $record.clone() $newrecord.RecordData[0].IPv4Address = $IP Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
 #### Por ejemplo: conmutación por error en Azure
 
-La [entrada de blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) sobre la configuración de la infraestructura de redes de Azure como sitio de recuperación ante desastres explica cómo configurar la infraestructura de red de Azure apropiada cuando no es imprescindible conservar las direcciones IP. Comienza describiendo la aplicación y, a continuación, se examina cómo configurar redes locales y en Azure. Concluye con instrucciones para ejecutar una prueba de conmutación por error y una conmutación por error planeada.
+La [entrada de blog](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) sobre la configuración de la infraestructura de redes de Azure como sitio de recuperación ante desastres explica cómo configurar la infraestructura de red de Azure apropiada cuando no es imprescindible conservar las direcciones IP. Comienza describiendo la aplicación y, a continuación, se examina cómo configurar redes locales y en Azure. Concluye con instrucciones para ejecutar una prueba de conmutación por error y una conmutación por error planeada.
 
 ## Pasos siguientes
 
 [Aprenda](site-recovery-network-mapping.md) cómo Site Recovery asigna las redes de origen y de destino.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

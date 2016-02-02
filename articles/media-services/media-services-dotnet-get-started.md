@@ -23,7 +23,7 @@
 
 
 >[AZURE.NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
  
 ##Información general 
 
@@ -59,7 +59,7 @@ Los siguientes requisitos son necesarios para completar el tutorial.
 
 ##Descarga de un ejemplo
 
-Obtenga y ejecute un ejemplo desde [aquí](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+Obtenga y ejecute un ejemplo desde [aquí](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ##Creación de una cuenta de Servicios multimedia con el Portal
 
@@ -114,7 +114,7 @@ Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
 La asignación de cualquier nueva unidad puede tardar unos 20 minutos en finalizarse.
 
->[AZURE.NOTE]Actualmente, pasar de cualquier valor positivo de unidades de streaming a ninguno puede deshabilitar el streaming hasta una hora.
+>[AZURE.NOTE] Actualmente, pasar de cualquier valor positivo de unidades de streaming a ninguno puede deshabilitar el streaming hasta una hora.
 >
 > Se utiliza el número más elevado de unidades especificadas durante el período de 24 horas al calcular el coste. Para más información acerca del precio, consulte la página sobre [Precios de Azure](http://go.microsoft.com/fwlink/?LinkId=275107).
 
@@ -130,12 +130,7 @@ La asignación de cualquier nueva unidad puede tardar unos 20 minutos en finaliz
 
 4. Abra el archivo App.config (agregue el archivo al proyecto si no se ha agregado de forma predeterminada) y agregue una sección *appSettings* al archivo. Establezca los valores de la clave de nombre y la cuenta de cuenta de Servicios multimedia de Azure, tal como se muestra en el ejemplo siguiente. Para obtener el nombre de la cuenta y la información de la clave, abra el Portal de Azure clásico, seleccione la cuenta de servicios multimedia y haga clic en el botón **ADMINISTRAR CLAVES**.
 
-<configuration>
-		...
-		  <appSettings>
-		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-		  </appSettings>
+<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
 		  
 		</configuration>
 
@@ -152,7 +147,7 @@ La asignación de cualquier nueva unidad puede tardar unos 20 minutos en finaliz
 		using Microsoft.WindowsAzure.MediaServices.Client;
 		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
 
-6. Cree una carpeta nueva en el directorio de proyectos y copie el archivo .mp4 o .wmv que desea codificar y transmítalo o descárguelo progresivamente. En este ejemplo, se usa la ruta de acceso "C:\VideoFiles".
+6. Cree una carpeta nueva en el directorio de proyectos y copie el archivo .mp4 o .wmv que desea codificar y transmítalo o descárguelo progresivamente. En este ejemplo, se usa la ruta de acceso "C:\\VideoFiles".
 
 ##Conexión a la cuenta de Servicios multimedia
 
@@ -452,4 +447,4 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

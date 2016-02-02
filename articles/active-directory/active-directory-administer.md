@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Administración del directorio de Azure AD | Microsoft Azure"
-	description="En este tema se explica qué es un inquilino de Azure AD y cómo administrar un directorio de Azure AD."
+	description="Explica qué es un inquilino de Azure AD y cómo administrar Azure mediante Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="01/25/2016"
 	ms.author="markvi"/>
 
 # Administración del directorio de Azure AD
@@ -27,7 +27,7 @@ En un área de trabajo habilitada en la nube, un inquilino puede definirse como 
 
 Cada directorio de Azure AD es distinto e independiente de otros directorios de Azure AD. Del mismo modo que un edificio de oficinas para empresas es un activo seguro dedicado específicamente a su organización, un directorio de Azure AD se ha diseñado también para ser un activo seguro para el uso exclusivo de su organización. La arquitectura de Azure AD aísla los datos del cliente y la información de identidad para evitar contactos cruzados. Esto significa que los usuarios y los administradores de un directorio de Azure AD no tendrán acceso a los datos de otro directorio, ya sea de manera involuntaria o malintencionada.
 
-![][1]
+![Administración de Azure Active Directory][1]
 
 ## ¿Cómo puedo obtener un directorio de Azure AD?
 
@@ -40,7 +40,8 @@ Azure AD proporciona las principales capacidades de administración de identidad
 
 Al suscribirse en cualquiera de estos servicios en la nube de Microsoft, obtendrá un directorio de Azure AD. Puede crear directorios adicionales según sea necesario. Por ejemplo, puede mantener el primer directorio como directorio de producción y, a continuación, crear otro directorio para pruebas o ensayos.
 
-> [AZURE.NOTE]Cuando se haya suscrito a un primer servicio, se recomienda que utilice la misma cuenta de administrador asociada con su organización si se suscribe a otros servicios en la nube de Microsoft.
+> [AZURE.NOTE]
+Cuando se haya suscrito a un primer servicio, se recomienda que utilice la misma cuenta de administrador asociada con su organización si se suscribe a otros servicios en la nube de Microsoft.
 
 La primera vez que se suscriba a un servicio en la nube de Microsoft, se le solicitará que proporcione detalles acerca de su organización y el registro de nombres de dominio en Internet de su organización. Esta información se utilizará a continuación para crear una nueva instancia de directorio de Azure AD para su organización. Ese mismo directorio se usará para autenticar los intentos de inicio de sesión cuando se suscriba a varios servicios en la nube de Microsoft.
 
@@ -115,7 +116,8 @@ También tenga en cuenta que, a diferencia de otros recursos de Azure, los direc
 ## ¿Cómo puedo eliminar un directorio de Azure AD?
 Un administrador global puede eliminar un directorio de Azure AD desde el portal. Antes de eliminar un directorio, asegúrese de que realmente no lo necesita, ya que también se eliminarán todos los recursos que contiene.
 
-> [AZURE.NOTE]Si el usuario inicia sesión con una cuenta profesional o educativa, el usuario no debe intentar eliminar su directorio particular. Por ejemplo, si el usuario ha iniciado sesión como joe@contoso.onmicrosoft.com, ese usuario no puede eliminar el directorio que tiene contoso.onmicrosoft.com como dominio predeterminado.
+> [AZURE.NOTE]
+Si el usuario inicia sesión con una cuenta profesional o educativa, el usuario no debe intentar eliminar su directorio particular. Por ejemplo, si el usuario ha iniciado sesión como joe@contoso.onmicrosoft.com, ese usuario no puede eliminar el directorio que tiene contoso.onmicrosoft.com como dominio predeterminado.
 
 ### Condiciones que deben cumplirse para eliminar un directorio de Azure AD
 
@@ -127,7 +129,8 @@ Se comprueban las condiciones siguientes:
 - No puede haber aplicaciones en el directorio. Las aplicaciones se deben eliminar antes de poder eliminar el directorio.
 - No puede haber suscripciones a ningún servicio de Microsoft Online Services, como Microsoft Azure, Office 365 o Azure AD Premium, asociadas al directorio. Por ejemplo, si se ha creado un directorio predeterminado en Azure en su nombre, no puede eliminar este directorio si la suscripción a Azure aún se basa en este directorio para la autenticación. De igual forma, no puede eliminar un directorio si otro usuario le ha asociado una suscripción. Para asociar su suscripción a un directorio diferente, inicie sesión en el Portal de administración de Azure y haga clic en **Configuración** en el panel izquierdo. A continuación, en la parte inferior de la página **Suscripciones**, haga clic en **Editar directorio**. Para obtener más información acerca de las suscripciones de Azure, consulte [Cómo se asocian las suscripciones a Azure con Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-    > [AZURE.NOTE]Si el usuario inicia sesión con una cuenta profesional o educativa, el usuario no debe intentar eliminar su directorio particular. Por ejemplo, si el usuario ha iniciado sesión como joe@contoso.onmicrosoft.com, ese usuario no puede eliminar el directorio que tiene contoso.onmicrosoft.com como dominio predeterminado.
+    > [AZURE.NOTE]
+    Si el usuario inicia sesión con una cuenta profesional o educativa, el usuario no debe intentar eliminar su directorio particular. Por ejemplo, si el usuario ha iniciado sesión como joe@contoso.onmicrosoft.com, ese usuario no puede eliminar el directorio que tiene contoso.onmicrosoft.com como dominio predeterminado.
 
 - No se pueden vincular proveedores de Multi-Factor Authentication al directorio.
 
@@ -145,4 +148,4 @@ Se comprueban las condiciones siguientes:
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

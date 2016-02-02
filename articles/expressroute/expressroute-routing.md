@@ -38,7 +38,7 @@ Para establecer la configuración entre pares se pueden usar direcciones IP priv
  - Si se usa una subred /29, se dividirá en dos /30 subredes. 
 	 - La primera subred /30 se usará para el vínculo principal, mientras que la segunda subred /30 se usará para el vínculo secundario.
 	 - Para cada uno de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usará la segunda dirección IP de la subred /30.
-	 - Para que el [contrato de nivel de servicio de disponibilidad](http://azure.microsoft.com/support/legal/sla/) sea válido, es preciso configurar las dos sesiones BGP.  
+	 - Para que el [contrato de nivel de servicio de disponibilidad](https://azure.microsoft.com/support/legal/sla/) sea válido, es preciso configurar las dos sesiones BGP.  
 
 #### Ejemplo de configuración entre pares privados
 
@@ -48,8 +48,8 @@ a.b.c.d/29 se divide en a.b.c.d/30 y a.b.c.d+4/30 y se pasa a Microsoft a travé
 
 Considere el caso en que selecciona 192.168.100.128/29 para configurar el emparejamiento privado. 192.168.100.128/29 incluye direcciones desde 192.168.100.128 hasta 192.168.100.135, entre los que:
 
-- 192.168.100.128/30 se asignará a link1, donde el proveedor usa 192.168.100.129 y Microsoft usa 192.168.100.130.
-- 192.168.100.132/30 se asignará a link2, donde el proveedor usa 192.168.100.133 y Microsoft usa 192.168.100.134.
+- 192\.168.100.128/30 se asignará a link1, donde el proveedor usa 192.168.100.129 y Microsoft usa 192.168.100.130.
+- 192\.168.100.132/30 se asignará a link2, donde el proveedor usa 192.168.100.133 y Microsoft usa 192.168.100.134.
 
 ### Direcciones IP para configuración de pares públicos de Azure y de Microsoft
 
@@ -59,7 +59,7 @@ Para configurar las sesiones BGP, debe usar las direcciones IP públicas que pos
 - Si se usa una subred /29, se dividirá en dos /30 subredes. 
 	- La primera subred /30 se usará para el vínculo principal, mientras que la segunda subred /30 se usará para el vínculo secundario.
 	- Para cada una de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usará la segunda dirección IP de la subred /30.
-	- Para que el [contrato de nivel de servicio de disponibilidad](http://azure.microsoft.com/support/legal/sla/) sea válido, es preciso configurar las dos sesiones BGP.
+	- Para que el [contrato de nivel de servicio de disponibilidad](https://azure.microsoft.com/support/legal/sla/) sea válido, es preciso configurar las dos sesiones BGP.
 
 Asegúrese de que la dirección IP y el número AS se registran en uno de los registros que se muestran a continuación.
 
@@ -147,7 +147,7 @@ Microsoft etiquetará los prefijos anunciados a través de la configuración de 
 
 Todas las rutas anunciadas de Microsoft se etiquetarán con el valor de la comunidad adecuado.
 
->[AZURE.IMPORTANT]Los prefijos globales se etiquetarán con un valor adecuado de comunidad y se anunciarán solo cuando esté habilitado el complemento premium de ExpressRoute.
+>[AZURE.IMPORTANT] Los prefijos globales se etiquetarán con un valor adecuado de comunidad y se anunciarán solo cuando esté habilitado el complemento premium de ExpressRoute.
 
 
 Además, Microsoft también etiquetará los prefijos en función del servicio al que pertenecen. Esto se aplica solo a la configuración de pares de Microsoft. La tabla siguiente proporciona una asignación de servicio al valor de la comunidad de BGP.
@@ -163,7 +163,7 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 
 ### Manipulación de preferencias de enrutamiento
 
-Microsoft no admite los valores de las comunidades de BGP que defina. Se requiere que configure un par de sesiones BGP por emparejamiento para asegurarse de que se cumplen los requisitos del [contrato de nivel de servicio de disponibilidad ](http://azure.microsoft.com/support/legal/sla/). Sin embargo, puede configurar la red para que prefiera un vínculo a otro mediante el uso de técnicas de manipulación de ruta BGP estándar. Puede aplicar diferentes preferencias locales de BGP a cada vínculo para favorecer un vínculo sobre otro de la red a Microsoft. Puede anteponer la ruta de acceso AS en los anuncios de las rutas para modificar el flujo de tráfico de Microsoft a su red.
+Microsoft no admite los valores de las comunidades de BGP que defina. Se requiere que configure un par de sesiones BGP por emparejamiento para asegurarse de que se cumplen los requisitos del [contrato de nivel de servicio de disponibilidad ](https://azure.microsoft.com/support/legal/sla/). Sin embargo, puede configurar la red para que prefiera un vínculo a otro mediante el uso de técnicas de manipulación de ruta BGP estándar. Puede aplicar diferentes preferencias locales de BGP a cada vínculo para favorecer un vínculo sobre otro de la red a Microsoft. Puede anteponer la ruta de acceso AS en los anuncios de las rutas para modificar el flujo de tráfico de Microsoft a su red.
 
 ## Pasos siguientes
 
@@ -173,4 +173,4 @@ Microsoft no admite los valores de las comunidades de BGP que defina. Se requier
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

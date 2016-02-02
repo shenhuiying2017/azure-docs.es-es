@@ -9,11 +9,11 @@
 
 <tags
     ms.service="service-bus"
-    ms.workload="tbd"
+    ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="10/07/2015"
+    ms.date="01/26/2016"
     ms.author="sethm"/>
 
 # Utilización de las colas del Bus de servicio
@@ -26,13 +26,9 @@ Este artículo describe cómo usar las colas del Bus de servicio. Los ejemplos e
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## Configuración de la aplicación para usar el bus de servicio
-
-Cuando cree una aplicación que use el bus de servicio, deberá agregar una referencia al conjunto del bus de servicio e incluir los espacios de nombres correspondientes.
-
 ## Agregar el paquete NuGet del bus de servicio
 
-El paquete **NuGet** del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio. La extensión NuGet Visual Studio facilita la instalación y la actualización de las bibliotecas y las herramientas en Visual Studio y Visual Studio Express. El paquete NuGet del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio.
+El [paquete**NuGet** del bus de servicio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) es la forma más sencilla de obtener la API del bus de servicio y configurar una aplicación con todas las dependencias del bus de servicio. La extensión NuGet Visual Studio facilita la instalación y la actualización de las bibliotecas y las herramientas en Visual Studio y Visual Studio Express. El paquete NuGet del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio.
 
 Realice los pasos siguientes para instalar el paquete NuGet en su aplicación:
 
@@ -146,7 +142,7 @@ if (!namespaceManager.QueueExists("TestQueue"))
 }
 ```
 
-> [AZURE.NOTE]Puede usar el método [QueueExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.queueexists.aspx) en los objetos [NamespaceManager][] para comprobar si ya existe una cola con un nombre especificado en un espacio de nombres de servicio.
+> [AZURE.NOTE] Puede usar el método [QueueExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.queueexists.aspx) en los objetos [NamespaceManager][] para comprobar si ya existe una cola con un nombre especificado en un espacio de nombres de servicio.
 
 ## mensajes a una cola
 
@@ -183,7 +179,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Las colas del Bus de servicio admiten mensajes con un [tamaño máximo de 256 KB](service-bus-quotas.md) (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Si está habilitada la división en particiones, el límite superior es más elevado. Para obtener más información, consulte [Entidades de mensajería con particiones](service-bus-partitioning.md).
+Las colas del Bus de servicio admiten mensajes con un [tamaño máximo de 256 KB](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas) (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Si está habilitada la división en particiones, el límite superior es más elevado. Para más información, consulte [Entidades de mensajería con particiones](service-bus-partitioning.md).
 
 ## Recepción de mensajes de una cola
 
@@ -259,4 +255,4 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

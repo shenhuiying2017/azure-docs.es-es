@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Introducción a Servidor Azure Multi-Factor Authentication" 
 	description="En esta página de Azure Multi-Factor Authentication se describe cómo empezar a trabajar con Servidor Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords="servidor de autenticación, página de activación de la aplicación de azure multi factor autenticación, descarga del servidor de autenticación" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="01/11/2016" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # Introducción a Servidor Azure Multi-Factor Authentication
@@ -23,7 +24,7 @@
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-Ahora que hemos determinado si se utiliza la autenticación multifactor local, vamos al paso siguiente. Esta página trata de una nueva instalación del servidor y de su configuración con Active Directory local. Si ya tiene instalado el servidor Phonefactor y desea actualizarlo, consulte [Actualización de PhoneFactor Agent al Servidor Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-upgrade.md) o si desea obtener información acerca de cómo instalar solo el servicio web, consulte [Introducción al servicio web de aplicación móvil del servidor MFA](multi-factor-authentication-get-started-server-webservice.md).
+Ahora que hemos determinado si se utiliza la autenticación multifactor local, vamos al paso siguiente. Esta página trata de una nueva instalación del servidor y de su configuración con Active Directory local. Si ya tiene instalado el servidor de Phonefactor y desea actualizarlo, consulte [Actualización de PhoneFactor Agent al Servidor Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-upgrade.md) o si busca información acerca de cómo instalar solo el servicio web, consulte [Implementación del servicio web de aplicación móvil del servidor Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md).
 
 
 ## Descarga de Servidor Azure Multi-Factor Authentication
@@ -185,4 +186,4 @@ Método|Descripción
 [Sincronización con Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md)|Información sobre la instalación y configuración de la sincronización entre Active Directory y el servidor de MFA de Azure.
 [Implementación del servicio web móvil de la aplicación móvil del servidor de Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md)|Información sobre la instalación y configuración del servicio web del servidor de Azure MFA.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -42,7 +42,6 @@
 
 [Creación de una VM con Linux usando la interfaz de la línea de comandos de Azure (CLI de Azure)](virtual-machines-linux-create-custom.md)
 
-[Creación de una implementación de varias máquinas virtuales mediante la CLI de Azure](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
 ## Plan
 
@@ -152,4 +151,4 @@
 
 [Referencia de la API de REST de Administración de servicios](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

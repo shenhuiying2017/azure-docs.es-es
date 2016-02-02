@@ -29,7 +29,7 @@ Actualmente se admiten aplicaciones de iOS, Android y Windows; aplicaciones web 
 
 Comience con cualquier combinación, en cualquier orden, de los puntos de entrada que aparecen en el siguiente diagrama. Siga la ruta de acceso que se adapte a sus necesidades.
 
-Aplicación Insights funciona agregando un SDK a la aplicación, que envía la telemetría al [Portal de Azure](http://portal.azure.com). Hay diferentes SDK para las diversas combinaciones de plataformas, lenguajes e IDE que se admiten.
+Aplicación Insights funciona agregando un SDK a la aplicación, que envía la telemetría al [Portal de Azure](https://portal.azure.com). Hay diferentes SDK para las diversas combinaciones de plataformas, lenguajes e IDE que se admiten.
 
 Obtenga una cuenta en [ Microsoft Azure](http://azure.com). Puede que ya tenga acceso a una cuenta de grupo a través de su organización, o que desee obtener una cuenta de pago por uso. Application Insights tiene un nivel gratuito, por lo que no tendrá que pagar hasta que su aplicación se haga popular. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/application-insights/).
 
@@ -74,4 +74,4 @@ Lo que desea | Lo que debe hacer | Lo que obtiene
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

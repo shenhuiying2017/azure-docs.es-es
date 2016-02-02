@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 
@@ -28,7 +28,7 @@ Este artículo le guiará por los pasos necesarios para configurar una puerta de
 
 ## Antes de empezar
 
-1. Instale la versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente desde la sección **Windows PowerShell** de la página [Descargas](http://azure.microsoft.com/downloads/).
+1. Instale la versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente desde la sección **Windows PowerShell** de la [página Descargas](https://azure.microsoft.com/downloads/).
 2. Creará una red virtual y una subred para la puerta de enlace de aplicaciones. Asegúrese de que ninguna máquina virtual o implementación en la nube usan la subred. La puerta de enlace de aplicaciones debe encontrarse en una subred de una red virtual.
 3. Los servidores que configurará para que usen la Puerta de enlace de aplicaciones deben existir, o bien sus puntos de conexión deben haberse creado en la red virtual o tener una dirección IP/VIP pública asignada.
 
@@ -82,7 +82,7 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 
 ### Paso 4
 
-Cree un grupo de recursos nuevo (omita este paso si usa un grupo de recursos existente).
+Cree un grupo de recursos nuevo (omita este paso si usa uno existente).
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
@@ -163,9 +163,12 @@ Crea la regla de enrutamiento del equilibrador de carga denominada "rule01" que 
 
 Configura el tamaño de instancia de la puerta de enlace de aplicaciones.
 
->[AZURE.NOTE]El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Se puede elegir entre Standard\_Small, Standard\_Medium y Standard\_Large.
+>[AZURE.NOTE]  El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Se puede elegir entre Standard\_Small, Standard\_Medium y Standard\_Large.
 
 ## Creación de una puerta de enlace de aplicaciones con New-AzureApplicationGateway
+
+Crea una puerta de enlace de aplicaciones con todos los elementos de configuración de los pasos anteriores. En el ejemplo, la puerta de enlace de aplicaciones se denomina "appgwtest".
+
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
@@ -176,8 +179,8 @@ Crea una puerta de enlace de aplicaciones con todos los elementos de configuraci
 
 Para eliminar una puerta de enlace de aplicaciones, deberá hacer lo siguiente en orden:
 
-1. Utilice el cmdlet **Stop-AzureRmApplicationGateway** para detener la puerta de enlace.
-2. Utilice el cmdlet **Remove-AzureRmApplicationGateway** para quitar la puerta de enlace.
+1. Use el cmdlet **Stop-AzureRmApplicationGateway** para detener la puerta de enlace.
+2. Use el cmdlet **Remove-AzureRmApplicationGateway** para quitar la puerta de enlace.
 3. Compruebe que se ha quitado la puerta de enlace mediante el cmdlet **Get-AzureApplicationGateway**.
 
 
@@ -189,7 +192,7 @@ Obtenga el objeto de puerta de enlace de aplicaciones y asócielo a una variable
 
 ### Paso 2
 
-Utilice **Stop-AzureRmApplicationGateway** para detener la puerta de enlace de aplicaciones. Este ejemplo muestra el cmdlet **Stop-AzureRmApplicationGateway** en la primera línea, seguido de la salida.
+Use **Stop-AzureRmApplicationGateway** para detener la puerta de enlace de aplicaciones. Este ejemplo muestra el cmdlet **Stop-AzureRmApplicationGateway** en la primera línea, seguido de la salida.
 
 	PS C:\> Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
 
@@ -210,7 +213,7 @@ Cuando la puerta de enlace de aplicaciones esté en estado detenido, use el cmdl
 	----       ----------------     ------------                             ----
 	Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
->[AZURE.NOTE]Se puede usar el modificador **-force** para suprimir el mensaje de confirmación de eliminación.
+>[AZURE.NOTE] Se puede usar el modificador **-force** para suprimir el mensaje de confirmación de eliminación.
 
 
 Para comprobar que el servicio se ha quitado, se puede usar el cmdlet **Get-AzureRmApplicationGateway**. Este paso no es necesario.
@@ -227,11 +230,11 @@ Para comprobar que el servicio se ha quitado, se puede usar el cmdlet **Get-Azur
 
 Si desea configurar la descarga de SSL, consulte [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica](application-gateway-ssl.md).
 
-Si quiere configurar una puerta de enlace de aplicaciones para usarla con ILB, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
+Si quiere configurar una puerta de enlace de aplicaciones para usarla con un ILB, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
 
 Si desea obtener más información acerca de opciones de equilibrio de carga en general, vea:
 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

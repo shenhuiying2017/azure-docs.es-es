@@ -26,7 +26,7 @@
 
 Este artículo le introduce en el creación de la primera Factoría de datos de Azure.
 
-> [AZURE.NOTE]Este artículo no ofrece información general conceptual sobre el servicio Factoría de datos de Azure. Para una información general detallada del servicio, consulte [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md).
+> [AZURE.NOTE] Este artículo no ofrece información general conceptual sobre el servicio Factoría de datos de Azure. Para una información general detallada del servicio, consulte [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md).
 
 ## Información general del tutorial
 Este tutorial le guiará por los pasos necesarios para poner su primera factoría de datos en funcionamiento. Va a crear una canalización en la factoría de datos que transformará y procesará los datos de entrada para generar datos de salida.
@@ -34,7 +34,7 @@ Este tutorial le guiará por los pasos necesarios para poner su primera factorí
 ## Requisitos previos
 Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
-1.	**Suscripción de Azure**: si no tiene ninguna, puede crear una cuenta de evaluación gratuita en un par de minutos. Consulte el artículo [Evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) sobre cómo puede obtener una cuenta de evaluación gratuita.
+1.	**Suscripción de Azure**: si no tiene ninguna, puede crear una cuenta de evaluación gratuita en un par de minutos. Consulte el artículo [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) sobre cómo puede obtener una cuenta de evaluación gratuita.
 
 2.	**Almacenamiento de Azure**: usará una cuenta de Almacenamiento de Azure para almacenar los datos de este tutorial. Si no dispone de una cuenta de Almacenamiento de Azure, consulte el artículo [Creación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account). Tras crear la cuenta de almacenamiento, tendrá que obtener la clave de cuenta que se usa para tener acceso al almacenamiento. Consulte [Visualización y copia de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
@@ -65,7 +65,7 @@ Cuando la canalización procesa el archivo mediante la actividad de Hive de HDIn
 	adfgetstarted/partitioneddata/year=2014/month=2/000000_0
 	adfgetstarted/partitioneddata/year=2014/month=3/000000_0
 
-De las líneas de ejemplo mostradas anteriormente, la primera de ellas (con 2014-01-01) se escribirá en el archivo 000000_0 en la carpeta month=1. De igual manera, la segunda se escribirá en el archivo de la carpeta month=2 y la tercera se escribirá en el archivo de la carpeta month=3.
+De las líneas de ejemplo mostradas anteriormente, la primera de ellas (con 2014-01-01) se escribirá en el archivo 000000\_0 en la carpeta month=1. De igual manera, la segunda se escribirá en el archivo de la carpeta month=2 y la tercera se escribirá en el archivo de la carpeta month=3.
 
 ## Carga de archivos en Almacenamiento de Azure para el tutorial
 Antes de comenzar el tutorial, tendrá que preparar el almacenamiento de Azure con los archivos necesarios para el tutorial.
@@ -77,7 +77,7 @@ En esta sección, hará lo siguiente:
 
 ### Creación del archivo de script HQL 
 
-1. Inicie el **Bloc de notas** y pegue el siguiente script HQL. Estos scripts de Hive crean dos tablas externas: **WebLogsRaw** y **WebLogsPartitioned**. Haga clic en **Archivo** en el menú y seleccione **Guardar como**. Cambie a la carpeta **C:\adfgetstarted** en el disco duro. Seleccione **Todos los archivos (*.*)** en el campo **Guardar como tipo**. Escriba **partitionweblogs.hql** en **Nombre de archivo**. Confirme que el campo **Codificación** en la parte inferior del cuadro de diálogo está establecido en **ANSI**. Si no es así, establézcalo en **ANSI**.  
+1. Inicie el **Bloc de notas** y pegue el siguiente script HQL. Estos scripts de Hive crean dos tablas externas: **WebLogsRaw** y **WebLogsPartitioned**. Haga clic en **Archivo** en el menú y seleccione **Guardar como**. Cambie a la carpeta **C:\\adfgetstarted** en el disco duro. Seleccione **Todos los archivos (*.*)** en el campo **Guardar como tipo**. Escriba **partitionweblogs.hql** en **Nombre de archivo**. Confirme que el campo **Codificación** en la parte inferior del cuadro de diálogo está establecido en **ANSI**. Si no es así, establézcalo en **ANSI**.  
 	
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
@@ -159,7 +159,7 @@ En esta sección, hará lo siguiente:
 		FROM WebLogsRaw
 
 ### Creación de un archivo de entrada de ejemplo
-Mediante el Bloc de notas, cree un archivo denominado **input.log** en **c:\adfgetstarted** con el siguiente contenido:
+Mediante el Bloc de notas, cree un archivo denominado **input.log** en **c:\\adfgetstarted** con el siguiente contenido:
 
 	#Software: Microsoft Internet Information Services 8.0
 	#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
@@ -185,7 +185,7 @@ Mediante el Bloc de notas, cree un archivo denominado **input.log** en **c:\adfg
 
 ### Carga del archivo de entrada y del archivo HQL en Almacenamiento de blobs de Azure
 
-Puede usar cualquier herramienta de su elección (por ejemplo: el Explorador de Almacenamiento de Azure, CloudXPlorer de ClumsyLeaf Software) para realizar esta tarea. Esta sección proporciona instrucciones sobre cómo usar la herramienta AzCopy.
+Puede usar cualquier herramienta de su elección (por ejemplo: el [Explorador de Almacenamiento de Microsoft Azure](http://storageexplorer.com/), CloudXPlorer de ClumsyLeaf Software) para realizar esta tarea. Esta sección proporciona instrucciones sobre cómo usar la herramienta AzCopy.
 	 
 2. Para preparar el almacenamiento de Azure para el tutorial:
 	1. Descargue la [versión más reciente de [AzCopy](http://aka.ms/downloadazcopypr)](http://aka.ms/downloadazcopy) o la **versión más reciente de vista previa**. Consulte el artículo [Uso de AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
@@ -193,11 +193,11 @@ Puede usar cualquier herramienta de su elección (por ejemplo: el Explorador de 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. Navegue hasta la carpeta c:\adfgetstarted y ejecute el siguiente comando para cargar el archivo **input.log** en la cuenta de almacenamiento (contenedor **adfgetstarted** y carpeta **inputdata**). Reemplace **StorageAccountName** por el nombre de la cuenta de almacenamiento y **Storage Key** por la clave de la cuenta de almacenamiento.
+	3. Navegue hasta la carpeta c:\\adfgetstarted y ejecute el siguiente comando para cargar el archivo **input.log** en la cuenta de almacenamiento (contenedor **adfgetstarted** y carpeta **inputdata**). Reemplace **StorageAccountName** por el nombre de la cuenta de almacenamiento y **Storage Key** por la clave de la cuenta de almacenamiento.
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
-		> [AZURE.NOTE]El comando anterior crea un contenedor llamado **adfgetstarted** en Almacenamiento de blobs de Azure y copia el archivo **partitionweblogs.hql** desde la unidad local a la carpeta **inputdata** del contenedor.
+		> [AZURE.NOTE] El comando anterior crea un contenedor llamado **adfgetstarted** en Almacenamiento de blobs de Azure y copia el archivo **partitionweblogs.hql** desde la unidad local a la carpeta **inputdata** del contenedor.
 	
 	5. Una vez cargado correctamente el archivo, verá un resultado similar al siguiente de AzCopy.
 	
@@ -222,4 +222,4 @@ Ahora ya está listo para comenzar el tutorial. Haga clic en una de las pestaña
 - Visual Studio
 - Plantillas del Administrador de recursos de Azure 
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

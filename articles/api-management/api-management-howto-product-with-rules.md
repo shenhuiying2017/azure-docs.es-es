@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/15/2016"
+	ms.date="01/27/2016"
 	ms.author="sdanie"/>
 
 # Protección de su API con límites de frecuencia mediante Administración de API de Azure
 
 Esta guía muestra lo fácil que es agregar protección para la API de back-end mediante la configuración de directivas de cuota y límite de frecuencia con Administración de API de Azure.
 
-En este tutorial creará un producto de API de "evaluación gratuita" que permite a los desarrolladores realizar hasta 10 llamadas por minuto y hasta un máximo de 200 llamadas por semana a la API mediante las opciones [Limitar tarifa de llamadas por suscripción](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) y [Establecer cuota de uso por suscripción](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). A continuación, publicará la API y probará la directiva de límite de frecuencia.
+En este tutorial, creará un producto de API de "evaluación gratuita" que permita a los desarrolladores realizar hasta 10 llamadas por minuto y hasta un máximo de 200 llamadas por semana a la API mediante las directivas [Limitar la frecuencia de llamadas por suscripción](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) y [Establecer la cuota de uso por suscripción](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). A continuación, publicará la API y probará la directiva de límite de frecuencia.
 
 Para obtener información sobre escenarios de limitación avanzados mediante las directivas [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) y [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey), consulte [Limitación avanzada de solicitudes con Administración de API de Azure](api-management-sample-flexible-throttling.md).
 
@@ -28,7 +28,7 @@ Para obtener información sobre escenarios de limitación avanzados mediante las
 
 En este paso, creará un producto Prueba gratuita que no requiere aprobación de suscripción.
 
->[AZURE.NOTE]Si ya tiene un producto configurado y desea usarlo para este tutorial, puede pasar la sección [Configurar directivas de cuota y límite de frecuencia][] y seguir el tutorial a partir de ahí con su producto en lugar de con el producto Prueba gratuita.
+>[AZURE.NOTE] Si ya tiene un producto configurado y desea usarlo para este tutorial, puede pasar la sección [Configurar directivas de cuota y límite de frecuencia][] y seguir el tutorial a partir de ahí con su producto en lugar de con el producto Prueba gratuita.
 
 Para comenzar, haga clic en **Administrar** en el Portal de Azure clásico para el servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
 
@@ -195,7 +195,7 @@ Seleccione **Evaluación gratuita** y, después, haga clic en **Suscribirse**.
 
 ![Add subscription][api-management-add-subscription]
 
->[AZURE.NOTE]En este tutorial, no está habilitada la posibilidad de varias suscripciones simultáneas para el producto Prueba gratuita. Si lo estuvieran, se le pediría que pusiera un nombre a la suscripción, tal como se muestra en el ejemplo siguiente.
+>[AZURE.NOTE] En este tutorial, no está habilitada la posibilidad de varias suscripciones simultáneas para el producto Prueba gratuita. Si lo estuvieran, se le pediría que pusiera un nombre a la suscripción, tal como se muestra en el ejemplo siguiente.
 
 ![Add subscription][api-management-add-subscription-multiple]
 
@@ -221,7 +221,7 @@ Mantenga los valores predeterminados de los parámetros y seleccione la clave de
 
 ![Subscription key][api-management-select-key]
 
->[AZURE.NOTE]Si tiene varias suscripciones, asegúrese de seleccionar la clave para **Prueba gratuita** ya que, de lo contrario, las directivas configuradas en los pasos anteriores no entrarán en vigor.
+>[AZURE.NOTE] Si tiene varias suscripciones, asegúrese de seleccionar la clave para **Prueba gratuita** ya que, de lo contrario, las directivas configuradas en los pasos anteriores no entrarán en vigor.
 
 Haga clic en **Enviar** y vea la respuesta. Observe el **Estado de respuesta** de **200 OK**.
 
@@ -294,4 +294,4 @@ Cuando la directiva de límite de tasa de 10 llamadas por minuto se aplique, las
 [Limitar frecuencia de llamadas]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Establecer cuota de uso]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -2,7 +2,7 @@
 	pageTitle="Conexión a Base de datos SQL con una consulta en C# | Microsoft Azure"
 	description="Escribir un programa en C# para realizar consultas y conectarse a Base de datos SQL. Información acerca de direcciones IP, cadenas de conexión, inicio de sesión seguro y Visual Studio gratuito."
 	services="sql-database"
-	keywords="consulta de base de datos en c#, consulta en c#, conectarse a base de datos"
+	keywords="consulta de base de datos en c#, consulta en c#, conectarse a base de datos, SQL C#"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
@@ -36,17 +36,17 @@ En este artículo se describen todos los pasos para las personas sin conocimient
 Para ejecutar el ejemplo de código de consulta en C#, debe tener:
 
 
-- Una cuenta y una suscripción de Azure. Puede suscribirse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Una cuenta y una suscripción de Azure. Puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 
 - Una base de datos de demostración **AdventureWorksLT** en el servicio Base de datos SQL de Azure.
  - [Creación de la base de datos de demostración](sql-database-get-started.md) en minutos.
 
 
-- Visual Studio 2013, actualización 4 o posterior. Microsoft ahora ofrece Visual Studio Community *de forma gratuita*.
+- Visual Studio 2013, actualización 4 o posterior. Microsoft ahora ofrece Visual Studio Community *gratis*.
  - [Visual Studio Community, descarga](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Más opciones para Visual Studio gratis](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - O bien, deje que el [paso](#InstallVSForFree) posterior de este tema describa la forma en que el [Portal de Azure](http://portal.azure.com/) le guía en la instalación de Visual Studio.
+ - O bien, deje que el [paso](#InstallVSForFree) posterior de este tema describa la forma en que el [Portal de Azure](https://portal.azure.com/) le guía en la instalación de Visual Studio.
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -59,13 +59,13 @@ Para ejecutar el ejemplo de código de consulta en C#, debe tener:
 Si necesita instalar Visual Studio, puede:
 
 - Para instalar Visual Studio Community gratis, en el explorador, vaya a las páginas web del producto Visual Studio en las que puede descargarlo gratis y otras opciones; o bien
-- Deje que el [Portal de Azure](http://portal.azure.com/) le guíe a la página web de descarga, que se describe a continuación.
+- Deje que el [Portal de Azure](https://portal.azure.com/) le guíe a la página web de descarga, que se describe a continuación.
 
 
 ### Visual Studio a través del Portal de Azure
 
 
-1. Inicie sesión mediante el [Portal de Azure](http://portal.azure.com/), http://portal.azure.com/.
+1. Inicie sesión mediante el [Portal de Azure](https://portal.azure.com/), http://portal.azure.com/.
 
 2. Haga clic en **EXAMINAR* TODO** > **Bases de datos SQL**. Se abre una hoja que busca bases de datos.
 
@@ -75,11 +75,11 @@ Si necesita instalar Visual Studio, puede:
 
 5. Para mayor comodidad, haga clic en el control de minimizar de cada una de las hojas anteriores.
 
-6. Haga clic en el botón **Abrir en Visual Studio**, que está cerca de la parte superior de la hoja de la base de datos. Se abre una nueva hoja acerca de Visual Studio con vínculos para instalar ubicaciones para Visual Studio.
+6. Haga clic en el botón **Abrir en Visual Studio**, cerca de la parte superior de la hoja de la base de datos. Se abre una nueva hoja acerca de Visual Studio con vínculos para instalar ubicaciones para Visual Studio.
 
 	![Botón Abrir en Visual Studio][20-OpenInVisualStudioButton]
 
-7. Haga clic en el vínculo **Community (gratis)**, o en un vínculo similar. Se agrega una página web nueva.
+7. Haga clic en el vínculo **Community (gratis)** o un vínculo similar. Se agrega una página web nueva.
 
 8. Use los vínculos de la página web nueva para instalar Visual Studio.
 
@@ -127,7 +127,7 @@ Nuestro ejemplo de C# usa el ensamblado de .NET Framework **System.Configuration
 ## Paso 4: Obtención de la cadena de conexión
 
 
-Use el [Portal de Azure](http://portal.azure.com/) para copiar la cadena de conexión necesaria para conectarse a la Base de datos SQL.
+Use el [Portal de Azure](https://portal.azure.com/) para copiar la cadena de conexión necesaria para conectarse a la Base de datos SQL.
 
 Su primer uso será conectar Visual Studio a la base de datos **AdventureWorksLT** de Base de datos SQL de Azure.
 
@@ -141,7 +141,7 @@ Su primer uso será conectar Visual Studio a la base de datos **AdventureWorksLT
 1. En Visual Studio, abra el archivo App.config en el panel Explorador de soluciones.
 
 2. Agregue un elemento **&#x3c;configuration&#x3e; &#x3c;/configuration&#x3e;**, como se muestra en el siguiente código de ejemplo App.config.
- - Reemplace *{sus\_marcadores\_de\_posición}* por los valores reales:
+ - Reemplace *{your\_placeholders}* por los valores reales:
 
 ```
 	<?xml version="1.0" encoding="utf-8" ?>
@@ -161,9 +161,9 @@ Su primer uso será conectar Visual Studio a la base de datos **AdventureWorksLT
 
 3. Guarde el archivo App.config.
 
-4. En el panel Explorador de soluciones, haga clic con el botón derecho en el nodo **App.config** y, a continuación, haga clic en **Propiedades**.
+4. En el panel Explorador de soluciones, haga clic en el nodo **App.config** y, a continuación, haga clic en **Propiedades**.
 
-5. En **Copiar en el directorio de salida**, seleccione **Copiar siempre**.
+5. Establezca **Copiar en el directorio de resultados** en **Copiar siempre**.
  - Esto hace que el contenido del archivo App.config reemplace el contenido del archivo &#x2a;.exe.config, en el directorio donde se genera el archivo &#x2a;.exe. La sustitución se produce cada vez que vuelve a compilar &#x2a;.exe.
  - El archivo &#x2a;.exe.config se lee cuando se ejecuta el programa de C# de ejemplo.
 
@@ -173,12 +173,12 @@ Su primer uso será conectar Visual Studio a la base de datos **AdventureWorksLT
 ## Paso 6: Pegado en el código C# de ejemplo
 
 
-1. En Visual Studio, use el panel **Explorador de soluciones** para abrir el archivo **Program.cs**.
+1. En Visual Studio, use el panel **Explorador de soluciones** para abrir su archivo **Program.cs**.
 
 	![Pegar en el código de la consulta en C# de ejemplo][40-VSProgramCsOverlay]
 
 2. Para sobrescribir todo el código de inicio en Program.cs, pegue el siguiente código de C# de ejemplo.
- - Si desea un código de ejemplo más corto, puede asignar toda la cadena de conexión como un literal a la variable **SQLConnectionString**. A continuación, puede borrar los dos métodos **GetConnectionStringFromExeConfig** y **GatherPasswordFromConsole**.
+ - Si desea un código de ejemplo más corto, puede asignar la cadena de conexión completa como un literal para la variable **SQLConnectionString**. A continuación, puede borrar los dos métodos **GetConnectionStringFromExeConfig** y **GatherPasswordFromConsole**.
 
 
 ```
@@ -305,7 +305,7 @@ namespace ConnectAndQuery_Example
 Tratamos de mantener el código de C# de ejemplo corto. Sin embargo, hemos agregado código para leer un archivo de configuración para respetar varias solicitudes de clientes como usted. Estamos de acuerdo que los programas de calidad de producción deberían usar archivos de configuración en lugar de literales codificados en el archivo .exe.
 
 
-> [AZURE.WARNING]Para mantener la brevedad del código, hemos optado por no incluir código de control de excepciones y lógica de reintento en este ejemplo educativo. Sin embargo, los programas de producción que interactúan con una base de datos en la nube deben incluir ambos.
+> [AZURE.WARNING] Para mantener la brevedad del código, hemos optado por no incluir código de control de excepciones y lógica de reintento en este ejemplo educativo. Sin embargo, los programas de producción que interactúan con una base de datos en la nube deben incluir ambos.
 >
 > [Aquí](sql-database-develop-csharp-retry-windows.md) hay un vínculo a un código de ejemplo con la lógica de reintento.
 
@@ -316,7 +316,7 @@ Tratamos de mantener el código de C# de ejemplo corto. Sin embargo, hemos agreg
 Su programa cliente en C# no se puede conectar a Base de datos SQL hasta que la dirección IP del equipo cliente se agregue al firewall de Base de datos SQL. El programa fallará con un mensaje de error útil que indica la dirección IP necesaria.
 
 
-Para agregar la dirección IP se puede usar el [Portal de Azure](http://portal.azure.com/).
+Para agregar la dirección IP se puede usar el [Portal de Azure](https://portal.azure.com/).
 
 
 
@@ -344,7 +344,7 @@ Para obtener más información, consulte<br/> [Configuración del firewall en Ba
 
 - [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-- Si el programa cliente se ejecuta en una máquina virtual de Azure, puede obtener información acerca de los puertos TCP, excepto del puerto 1433, en:<br/>[Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+- Si su programa cliente se ejecuta en una máquina virtual de Azure, obtenga información acerca de los puertos TCP, excepto el puerto 1433, en:<br/>[Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 
@@ -358,4 +358,4 @@ Para obtener más información, consulte<br/> [Configuración del firewall en Ba
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -34,11 +34,11 @@ Este tutorial requiere lo siguiente:
 + [SDK de Mobile Engagement iOS]
 + Certificado de notificaciones push (.p12), que puede obtener en el centro de desarrolladores de Apple.
 
-> [AZURE.NOTE]En este tutorial se usa Swift versión 2.0.
+> [AZURE.NOTE] En este tutorial se usa Swift versión 2.0.
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Mobile Engagement para aplicaciones iOS.
 
-> [AZURE.IMPORTANT]Completar este tutorial es un requisito previo para los demás tutoriales de Mobile Engagement para aplicaciones iOS. Para completarlo, debe tener una cuenta activa de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
+> [AZURE.IMPORTANT] Completar este tutorial es un requisito previo para los demás tutoriales de Mobile Engagement para aplicaciones iOS. Para completarlo, debe tener una cuenta activa de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
 
 ##<a id="setup-azme"></a>Configuración de Mobile Engagement para una aplicación iOS
 
@@ -66,7 +66,7 @@ Crearemos una aplicación básica con XCode para demostrar la integración:
 
 	![][2]
 
-5. Abra la ficha `Build Phases` y en el menú `Link Binary With Libraries` agregue los marcos tal y como se muestra a continuación:
+5. Abra la pestaña `Build Phases` y en el menú `Link Binary With Libraries` agregue los marcos tal como se muestra a continuación. **NOTA** Debe incluir `CoreLocation, CFNetwork, CoreTelephony, and SystemConfiguration`:
 
 	![][3]
 
@@ -210,4 +210,4 @@ Mobile Engagement permite interactuar y llegar a los usuarios mediante notificac
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->
