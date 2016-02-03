@@ -53,12 +53,12 @@ La carpeta *\articles* contiene los artículos de la documentación con formato 
 
 Los artículos del directorio raíz se publican en Azure.Microsoft.com, en la ruta de acceso **http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
 
-* **Nombres de archivo de los artículos**: consulte [File names and locations for Azure technical articles](./contributor-guide/file-names-and-locations.md).
+* **Nombres de archivo y artículos:**: Consulte [nuestra guía de nomenclatura de archivos](./contributor-guide/file-names-and-locations.md).
 
-Los artículos con su propia carpeta de servicio se publican en Azure.Microsoft.com, en la ruta de acceso 
+Los artículos con su propia carpeta de servicio se publican en Azure.Microsoft.com, en la ruta de acceso *
 *http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*
 
-* **Subcarpetas multimedia**: la carpeta *\articles* contiene la carpeta *\media* para los archivos multimedia de los artículos del directorio raíz; dentro de ella se encuentran subcarpetas con las imágenes de cada artículo. Las carpetas de servicio contienen una carpeta multimedia independiente para los artículos que se encuentran en cada carpeta de servicio. Las carpetas de imágenes de los artículos tienen el mismo nombre que el archivo del artículo, sin la extensión de archivo *.md*.
+* **Subcarpetas multimedia**: la carpeta *\\articles* contiene la carpeta *\\media* para los archivos multimedia de los artículos del directorio raíz; dentro de ella se encuentran subcarpetas con las imágenes de cada artículo. Las carpetas de servicio contienen una carpeta multimedia independiente para los artículos que se encuentran en cada carpeta de servicio. Las carpetas de imágenes de los artículos tienen el mismo nombre que el archivo del artículo, sin la extensión de archivo *.md*.
 
 ### \includes
 
@@ -98,7 +98,7 @@ Todos los artículos de este repositorio utilizan Markdown adaptado a GitHub. A 
 
 ## Metadatos de los artículos
 
-Los metadatos del artículo habilitan ciertas funcionalidades en el sitio web azure.microsoft.com, como atribución del autor, atribución del colaborador, rutas de navegación, descripciones del artículo y optimizaciones SEO, así como informes que Microsoft utiliza para evaluar el rendimiento del contenido. Por lo tanto ¡los metadatos son importantes! [Metadata for Azure technical articles](./contributor-guide/article-metadata.md).
+Los metadatos del artículo habilitan ciertas funcionalidades en el sitio web azure.microsoft.com, como atribución del autor, atribución del colaborador, rutas de navegación, descripciones del artículo y optimizaciones SEO, así como informes que Microsoft utiliza para evaluar el rendimiento del contenido. Por lo tanto ¡los metadatos son importantes! [Consulte esta guía para asegurarse de que sus metadatos son correctos](./contributor-guide/article-metadata.md).
 
 ## Más recursos
 
