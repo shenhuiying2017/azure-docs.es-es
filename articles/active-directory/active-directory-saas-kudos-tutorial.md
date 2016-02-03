@@ -97,7 +97,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
     ![SSO](./media/active-directory-saas-kudos-tutorial/IC787807.png "SSO")
 
     1.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Kudos**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
-2.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
+	2.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
 
         >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
@@ -154,4 +154,4 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->
