@@ -31,7 +31,7 @@ Ahora que hemos determinado si se utiliza la autenticación multifactor local, v
 
 
 
-Hay dos maneras diferentes de descargar Servidor Azure Multi-Factor Authentication. Ambas se pueden hacer a través del Portal de Azure. La primera es administrando el proveedor de autenticación multifactor directamente. La segunda es mediante la configuración del servicio. La segunda opción requiere un Proveedor de autenticación multifactor o una licencia de Azure MFA, Azure AD Premium o Enterprise Mobility Suite.
+Hay dos maneras diferentes de descargar Servidor Azure Multi-Factor Authentication. Ambas se pueden hacer a través del Portal de Azure. La primera es administrando el proveedor de autenticación multifactor directamente. La segunda es mediante la configuración del servicio. La segunda opción requiere un Proveedor de Multi-Factor Authentication o una licencia de Azure MFA, Azure AD Premium o Enterprise Mobility Suite.
 
 
 ### Para descargar Servidor Azure Multi-Factor Authentication del Portal de Azure.
@@ -41,8 +41,10 @@ Hay dos maneras diferentes de descargar Servidor Azure Multi-Factor Authenticati
 2. En la parte izquierda, seleccione Active Directory.
 3. En la parte superior de la página Active Directory, haga clic en **Proveedores de autenticación multifactor**.
 4. Haga clic en **Administrar** en la parte inferior.
-5. De este modo se abrirá una nueva página. Haga clic en **Descargas.** ![Descargar](./media/multi-factor-authentication-sdk/download.png)
-6. Encima de **Generar credenciales de activación**, haga clic en **Descargar.** ![Descargar](./media/multi-factor-authentication-get-started-server/download4.png)
+5. De este modo se abrirá una nueva página. Haga clic en **Descargas.** 
+![Descargar](./media/multi-factor-authentication-sdk/download.png)
+6. Encima de **Generar credenciales de activación**, haga clic en **Descargar.**
+![Descargar](./media/multi-factor-authentication-get-started-server/download4.png)
 7. Guarde el archivo descargado.
 
 
@@ -53,9 +55,11 @@ Hay dos maneras diferentes de descargar Servidor Azure Multi-Factor Authenticati
 1. Inicie sesión en el Portal de Azure como administrador.
 2. En la parte izquierda, seleccione Active Directory.
 3. Haga doble clic en la instancia de Azure AD.
-4. En la parte superior, haga clic en **Configurar.** ![Descargar](./media/multi-factor-authentication-sdk/download2.png)
+4. En la parte superior, haga clic en **Configurar.**
+![Descargar](./media/multi-factor-authentication-sdk/download2.png)
 5. En Multi-Factor Authentication, seleccione **Administrar configuración del servicio**.
-6. En la parte inferior de la página de configuración de servicios, haga clic en **Ir al portal**. ![Descargar](./media/multi-factor-authentication-get-started-server/servicesettings.png)
+6. En la parte inferior de la página de configuración de servicios, haga clic en **Ir al portal**.
+![Descargar](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 7. De este modo se abrirá una nueva página. Haga clic en **Descargas**.
 8. Encima de **Generar credenciales de activación**, haga clic en **Descargar**.
 9. Guarde el archivo descargado.
@@ -85,18 +89,18 @@ Si están restringidos los firewalls de salida en el puerto 443, deberán abrirs
 
 Subred IP|Máscara de red|Rango de direcciones IP
 :------------- | :------------- | :------------- |
-134\.170.116.0/25|255\.255.255.128|134\.170.116.1 – 134.170.116.126
-134\.170.165.0/25|255\.255.255.128|134\.170.165.1 – 134.170.165.126
-70\.37.154.128/25|255\.255.255.128|70\.37.154.129 – 70.37.154.254
+134.170.116.0/25|255.255.255.128|134.170.116.1 – 134.170.116.126
+134.170.165.0/25|255.255.255.128|134.170.165.1 – 134.170.165.126
+70.37.154.128/25|255.255.255.128|70.37.154.129 – 70.37.154.254
 
 Si no está utilizando características de confirmación de evento de Azure Multi-Factor Authentication y los usuarios no se autentican con las aplicaciones móviles de Multi-Factor Authentication desde dispositivos en la red corporativa, los rangos de direcciones IP se pueden reducir a lo siguiente:
 
 
 Subred IP|Máscara de red|Rango de direcciones IP
 :------------- | :------------- | :------------- |
-134\.170.116.72/29|255\.255.255.248|134\.170.116.72 – 134.170.116.79
-134\.170.165.72/29|255\.255.255.248|134\.170.165.72 – 134.170.165.79
-70\.37.154.200/29|255\.255.255.248|70\.37.154.201 – 70.37.154.206
+134.170.116.72/29|255.255.255.248|134.170.116.72 – 134.170.116.79
+134.170.165.72/29|255.255.255.248|134.170.165.72 – 134.170.165.79
+70.37.154.200/29|255.255.255.248|70.37.154.201 – 70.37.154.206
 
 
 ### Para instalar y configurar el Servidor Azure Multi-Factor Authentication
@@ -106,7 +110,7 @@ Subred IP|Máscara de red|Rango de direcciones IP
 1. Haga doble clic en el archivo ejecutable. Esto comenzará la instalación.
 2. En la pantalla Seleccionar carpeta de instalación, asegúrese de que la carpeta sea correcta y haga clic en Siguiente.
 3. Una vez completada la instalación, haga clic en Finalizar. Se inicia al asistente de configuración.
-4. En la pantalla de bienvenida del Asistente de configuración, coloque una marca de verificación en **Omitir el uso del Asistente para configuración de autenticación** y haga clic en **Siguiente**.  Se cerrará al Asistente y se iniciará el servidor.
+4. En la pantalla de bienvenida del Asistente de configuración, coloque una marca de verificación en **Omitir el uso del Asistente para configuración de autenticación** y haga clic en **Siguiente**. Se cerrará al Asistente y se iniciará el servidor. 
 ![Nube](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. De vuelta en la página desde la que hemos descargado el servidor, haga clic en el botón **Generar credenciales de activación**. Copie esta información en Servidor Azure Multi-Factor Authentication en los cuadros correspondientes y haga clic en **Activar**.
@@ -186,4 +190,4 @@ Método|Descripción
 [Sincronización con Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md)|Información sobre la instalación y configuración de la sincronización entre Active Directory y el servidor de MFA de Azure.
 [Implementación del servicio web móvil de la aplicación móvil del servidor de Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md)|Información sobre la instalación y configuración del servicio web del servidor de Azure MFA.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0128_2016--->
