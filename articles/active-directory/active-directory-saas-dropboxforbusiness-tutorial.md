@@ -108,7 +108,8 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
      5.2. En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en DropBox para Empresas**, copie el valor de **Dirección URL de la página de inicio de sesión** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
 
 
-     5.3. Cree un archivo **codificado en Base 64** a partir del certificado descargado.
+     5.3. Cree un archivo **codificado en Base 64** a partir del certificado descargado.  
+
      >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 
