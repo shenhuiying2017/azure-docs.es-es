@@ -16,7 +16,8 @@
 
 #Tutorial: integración de Azure Active Directory con Cisco Webex
 
-El objetivo de este tutorial es mostrar la integración de Azure y Cisco Webex. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y Cisco Webex.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Un inquilino de Cisco Webex
@@ -82,8 +83,8 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-cisco-webex-tutorial/IC777619.png "Configurar dirección URL de la aplicación")
 
-    1.  En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL de inquilino de Cisco Webex (p. ej.: **http://contoso.webex.com*).
-2.  En el cuadro de texto **Dirección URL de respuesta de Cisco Webex**, escriba su dirección **URL de AssertionConsumerService de Cisco Webex** (p. ej.: **https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company*)).
+    1.  En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL de inquilino de Cisco Webex (p. ej.: *http://contoso.webex.com*).
+    2.  En el cuadro de texto **Dirección URL de respuesta de Cisco Webex**, escriba su dirección **URL de AssertionConsumerService de Cisco Webex** (p. ej.: *https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company*).
 
 4.  En la página **Configurar inicio de sesión único en Cisco Webex**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
 
@@ -122,7 +123,8 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
     ![Configurar inicio de sesión único](./media/active-directory-saas-cisco-webex-tutorial/IC777624.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
 
-Para permitir que los usuarios de Azure AD inicien sesión en Cisco Webex, tienen que aprovisionarse en Cisco Webex. En el caso de Cisco Webex, el aprovisionamiento es una tarea manual.
+Para permitir que los usuarios de Azure AD inicien sesión en Cisco Webex, tienen que aprovisionarse en Cisco Webex.  
+En el caso de Cisco Webex, el aprovisionamiento es una tarea manual.
 
 ###Para aprovisionar cuentas de usuario, realice estos pasos:
 
@@ -150,7 +152,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 1.  En el Portal de Azure AD, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones de **Cisco Webex **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **Cisco Webex**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-cisco-webex-tutorial/IC777627.png "Asignar usuarios")
 
@@ -161,3 +163,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 <!---HONumber=AcomDC_0121_2016-->
+

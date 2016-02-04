@@ -16,7 +16,8 @@
 
 #Tutorial: Integración de Azure Active Directory con Kudos
   
-El objetivo de este tutorial es mostrar la integración de Azure y Kudos. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y Kudos.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Un inquilino de Kudos
@@ -64,7 +65,9 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
     ![Kudos](./media/active-directory-saas-kudos-tutorial/IC787801.png "Kudos")
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo habilitar la autenticación de usuarios en Kudos con su cuenta de Azure AD mediante federación basada en el protocolo SAML. Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+El objetivo de esta sección es describir cómo habilitar la autenticación de usuarios en Kudos con su cuenta de Azure AD mediante federación basada en el protocolo SAML.  
+Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64.  
+Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
@@ -76,7 +79,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-kudos-tutorial/IC787803.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Kudos**, escriba su dirección URL con el siguiente patrón "**https://company.kudosnow.com*" y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Kudos**, escriba su dirección URL con el siguiente patrón "*https://company.kudosnow.com*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-kudos-tutorial/IC787804.png "Configurar dirección URL de la aplicación")
 
@@ -99,11 +102,12 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
     1.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Kudos**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
 	2.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
 
-        >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP]
+        Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
     3.  Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509**.
     4.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Kudos**, copie el valor de **Dirección URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
-5.  En el cuadro de texto **Su dirección URL de Kudos**, escriba el nombre de su compañía.
+	5.  En el cuadro de texto **Su dirección URL de Kudos**, escriba el nombre de su compañía.
     6.  Haga clic en **Guardar**.
 
 9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
@@ -155,3 +159,6 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 <!----HONumber=AcomDC_0121_2016-->
+
+
+

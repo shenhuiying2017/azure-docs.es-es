@@ -16,7 +16,8 @@
 
 #Tutorial: Integración de Azure Active Directory con Jobscience
   
-El objetivo de este tutorial es mostrar la integración de Azure y Jobscience. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y Jobscience.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para inicio de sesión único en Jobscience
@@ -94,7 +95,7 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-jobscience-tutorial/IC784361.png "Configurar inicio de sesión único")
 
-8.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Jobscience**, escriba su dirección URL con el siguiente patrón "**http://company.my.salesforce.com*" y, a continuación, haga clic en **Siguiente**.
+8.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Jobscience**, escriba su dirección URL con el siguiente patrón "*http://company.my.salesforce.com*" y, a continuación, haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-jobscience-tutorial/IC784362.png "Configurar dirección URL de la aplicación")
 
@@ -119,8 +120,8 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
 
     1.  En el cuadro de texto **Nombre**, escriba el nombre de la configuración.
     2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Jobscience**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor**.
-    3.  En el cuadro de texto **Id. de entidad**, escriba ****https://salesforce-jobscience.com**.
-4.  Haga clic en **Examinar** para cargar el certificado de Azure AD.
+    3.  En el cuadro de texto **Id. de entidad**, escriba **https://salesforce-jobscience.com**.
+    4.  Haga clic en **Examinar** para cargar el certificado de Azure AD.
     5.  Como **Tipo de identidad SAML**, seleccione **La aserción contiene el identificador de la federación del objeto de usuario**.
     6.  Como **Ubicación de identidad SAML**, seleccione **La identidad está en el elemento NameIdentifier de la instrucción Subject**.
     7.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Jobscience**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión del proveedor de identidades**.
@@ -147,10 +148,12 @@ Para obtener la dirección URL de inicio de sesión único iniciado por el prove
 
 ![Controles de seguridad](./media/active-directory-saas-jobscience-tutorial/IC784368.png "Controles de seguridad")
   
-Haga clic en el perfil SSO creado en el paso anterior. Esta página muestra la dirección URL de inicio de sesión único de su empresa (por ejemplo, **https://companyname.my.salesforce.com?so=companyid*).
+Haga clic en el perfil SSO creado en el paso anterior.  
+Esta página muestra la dirección URL de inicio de sesión único de su empresa (por ejemplo, *https://companyname.my.salesforce.com?so=companyid*).
 ##Configuración del aprovisionamiento de usuario
   
-Para permitir que los usuarios de Azure AD inicien sesión en Jobscience, deben aprovisionarse en Jobscience. En el caso de Jobscience, el aprovisionamiento es una tarea manual.
+Para permitir que los usuarios de Azure AD inicien sesión en Jobscience, deben aprovisionarse en Jobscience.  
+En el caso de Jobscience, el aprovisionamiento es una tarea manual.
 
 ###Siga estos pasos para configurar el aprovisionamiento de usuario:
 
@@ -198,3 +201,4 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 <!---HONumber=AcomDC_0121_2016-->
+
