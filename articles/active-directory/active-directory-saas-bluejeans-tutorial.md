@@ -112,7 +112,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     1.  En el cuadro de texto **Identificador de usuario**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
     2.  En el cuadro de texto **Correo electrónico**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-3.  Haga clic en **Guardar cambios**.
+    3.  Haga clic en **Guardar cambios**.
 
 10. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
@@ -158,4 +158,4 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->
