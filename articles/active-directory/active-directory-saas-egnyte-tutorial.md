@@ -16,7 +16,7 @@
 
 #Tutorial: integración de Azure Active Directory con Egnyte
   
-El objetivo de este tutorial es mostrar la integración de Azure y Egnyte.
+El objetivo de este tutorial es mostrar la integración de Azure y Egnyte.  
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
@@ -79,7 +79,7 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-egnyte-tutorial/IC787816.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Egnyte**, escriba su dirección URL con el siguiente patrón "**https://company.egnyte.com*" y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Egnyte**, escriba su dirección URL con el siguiente patrón "*https://company.egnyte.com*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-egnyte-tutorial/IC787817.png "Configurar dirección URL de la aplicación")
 
@@ -107,8 +107,8 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
 
     1.  En **Autenticación de inicio de sesión único**, seleccione**SAML 2.0**.
     2.  En **Proveedor de identidades**, seleccione**AzureAD**.
-    3.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Egnyte**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión de proveedor de Id. **.
-4.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Egnyte**, copie el valor de **Id. de entidad ** y péguelo en el cuadro de texto **Id. de identidad de proveedor de identidades**.
+    3.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Egnyte**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión de proveedor de Id**.
+    4.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Egnyte**, copie el valor de **Id. de entidad** y péguelo en el cuadro de texto **Id. de identidad de proveedor de identidades**.
     5.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
 
         >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
@@ -123,7 +123,8 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
     ![Configurar inicio de sesión único](./media/active-directory-saas-egnyte-tutorial/IC787823.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
   
-Para permitir que los usuarios de Azure AD inicien sesión en Egnyte, deben aprovisionarse en Egnyte. En el caso de Egnyte, el aprovisionamiento es una tarea manual.
+Para permitir que los usuarios de Azure AD inicien sesión en Egnyte, deben aprovisionarse en Egnyte.  
+En el caso de Egnyte, el aprovisionamiento es una tarea manual.
 
 ###Para aprovisionar cuentas de usuario, realice estos pasos:
 

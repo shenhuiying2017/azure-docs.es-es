@@ -16,7 +16,8 @@
 
 #Tutorial: Integración de Azure Active Directory con Dropbox para Empresas
   
-El objetivo de este tutorial es mostrar la integración de Azure y Dropbox para Empresas. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y Dropbox para Empresas.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Un inquilino de prueba en Dropbox para empresas
@@ -73,7 +74,7 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Dropbox para Empresas**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único **.
+1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Dropbox para Empresas**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749323.png "Configurar inicio de sesión único")
 
@@ -107,7 +108,8 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
      5.2. En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en DropBox para Empresas**, copie el valor de **Dirección URL de la página de inicio de sesión** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
 
 
-     5.3. Cree un archivo **codificado en Base 64** a partir del certificado descargado. >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+     5.3. Cree un archivo **codificado en Base 64** a partir del certificado descargado.
+     >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 
      5.4. Haga clic en **Elegir certificado** y vaya a su **archivo de certificado codificado en Base 64**.
@@ -154,7 +156,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 1.  En el Portal de Azure AD, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones de **Dropbox para Empresas **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **Dropbox para Empresas**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769521.png "Asignar usuarios")
 
@@ -176,7 +178,8 @@ Un ciclo de aprovisionamiento de usuarios completado correctamente se indica con
 <br><br> ![Asignar usuarios](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769523.png "Asignar usuarios")
 
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso.
+Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 
 

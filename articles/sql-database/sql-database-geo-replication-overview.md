@@ -36,7 +36,8 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia entre cen
 ## Funcionalidad de replicación geográfica activa
 La característica Replicación geográfica activa ofrece la funcionalidad esencial siguiente:
 
-- **Replicación asincrónica automática**: después de la propagación de una base de datos secundaria en línea, las actualizaciones en la base de datos principal se copian de forma asincrónica a la base de datos secundaria en línea automáticamente. Esto significa que las transacciones se confirman en la base de datos principal antes de que se copien a la base de datos secundaria en línea. Sin embargo, después de la propagación, la base de datos secundaria en línea guarda coherencia transaccional en cualquier momento dado.
+- **Replicación asincrónica automática**: después de la propagación de una base de datos secundaria en línea, las actualizaciones en la base de datos principal se copian de forma asincrónica a la base de datos secundaria en línea automáticamente. Esto significa que las transacciones se confirman en la base de datos principal antes de que se copien a la base de datos secundaria en línea. Sin embargo, después de la propagación, la base de datos secundaria en línea guarda coherencia transaccional en cualquier momento dado. 
+
 	>[AZURE.NOTE] La replicación asincrónica permite la latencia que tipifica a las redes de área extensa mediante las que los centros de datos remotos están conectados.
 
 - **Varias bases de datos secundarias en línea**: dos o más bases de datos secundarias en línea aumentan la redundancia y la protección de la base de datos principal y la aplicación. Si existen varias bases de datos secundarias en línea, la aplicación seguirá estando protegida incluso si se produce un error en una de ellas. Si solo hay una base de datos secundaria en línea y se produce un error, la aplicación está expuesta a un mayor riesgo hasta que se crea una nueva base de datos secundaria en línea.
