@@ -242,10 +242,11 @@ Tal como se mencionó anteriormente, si la entidad implementa el elemento TableE
 Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da lugar a la sobrecarga de rendimiento adicional. Se deben generar la clave de contenido e IV, se debe cifrar el propio contenido y se deben formatear y cargar metadatos adicionales. Esta sobrecarga variará según la cantidad de datos que se cifran. Se recomienda que los clientes prueben siempre sus aplicaciones para obtener un rendimiento durante el desarrollo.
 
 ## Pasos siguientes  
-Descargue el [paquete Maven de la Biblioteca de cliente de Almacenamiento de Azure para Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.0.0) 
-Descargue el [Código fuente de la Biblioteca de cliente de Almacenamiento de Azure para Java desde GitHub](https://github.com/Azure/azure-storage-java) 
+Descargue el [paquete Maven de la Biblioteca de cliente de Almacenamiento de Azure para Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.0.0)  
+
+Descargue el [Código fuente de la Biblioteca de cliente de Almacenamiento de Azure para Java desde GitHub](https://github.com/Azure/azure-storage-java)   
 Descargue los paquetes Maven [Básico](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) y [Extensiones](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) de Almacén de claves de Azure
 
 Consulte la [Documentación de Almacén de claves de Azure](../articles/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
