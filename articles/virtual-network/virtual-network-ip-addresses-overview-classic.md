@@ -132,7 +132,8 @@ En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asign
 
 La tabla siguiente muestra los límites impuestos al direccionamiento IP en Azure por suscripción. Puede [ponerse en contacto con el soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar los límites predeterminados hasta alcanzar los límites máximos, según las necesidades empresariales.
 
-||Límite predeterminado|Límite máximo| |---|---|---|
+||Límite predeterminado|Límite máximo|
+|---|---|---|
 |Direcciones IP públicas (dinámicas)|5|póngase en contacto con el soporte técnico|
 |Direcciones IP públicas reservadas|20|póngase en contacto con el soporte técnico|
 |VIP pública por implementación (servicio en la nube)|5|póngase en contacto con el soporte técnico|
@@ -161,4 +162,4 @@ A continuación, se muestra una comparación de las características de direccio
 ## Pasos siguientes
 - [Implemente una máquina virtual con una dirección IP privada estática](virtual-networks-static-private-ip-classic-pportal.md) mediante el portal clásico.
 
-<!-----HONumber=AcomDC_0114_2016-->
+<!------HONumber=AcomDC_0114_2016-->
