@@ -143,9 +143,18 @@ En la mayoría de los casos, las direcciones IP públicas son gratis. El uso de 
 ## Diferencias entre la implementación del Administración de recursos y la implementación clásica
 A continuación, se muestra una comparación de las características de direccionamiento IP en el modelo de implementación del Administrador de recursos y el modelo de implementación clásica.
 
-||Recurso|Clásica|Administrador de recursos| |---|---|---|---| |**Dirección IP pública**|Máquina virtual|Denominada ILPIP (solo dinámica)|Denominada IP pública (dinámica o estática)| |||Asignada a una máquina virtual IaaS o una instancia de rol PaaS|Asociada a la tarjeta NIC de la máquina virtual| ||Equilibrador de carga accesible desde Internet|Denominada VIP (dinámica) o IP reservada (estática)|Denominada IP pública (dinámica o estática)| |||Asignada a un servicio en la nube|Asociada a la configuración del front-end del equilibrador de carga| |||| |**Dirección IP privada**|Máquina virtual|Denominada DIP|Denominada dirección IP privada| |||Asignada a una máquina virtual IaaS o una instancia de rol PaaS|Asociada a la tarjeta NIC de la máquina virtual| ||Equilibrador de carga interno (ILB)|Asignada al ILB (dinámica o estática)|Asignada a la configuración del front-end del ILB (dinámica o estática)|
+||Recurso|Clásica|Administrador de recursos|
+|---|---|---|---|
+|**Dirección IP pública**|Máquina virtual|Denominada ILPIP (solo dinámica)|Denominada IP pública (dinámica o estática)|
+|||Asignada a una máquina virtual IaaS o una instancia de rol PaaS|Asociada a la tarjeta NIC de la máquina virtual|
+||Equilibrador de carga accesible desde Internet|Denominada VIP (dinámica) o IP reservada (estática)|Denominada IP pública (dinámica o estática)|
+|||Asignada a un servicio en la nube|Asociada a la configuración del front-end del equilibrador de carga|
+||||
+|**Dirección IP privada**|Máquina virtual|Denominada DIP|Denominada dirección IP privada|
+|||Asignada a una máquina virtual IaaS o una instancia de rol PaaS|Asociada a la tarjeta NIC de la máquina virtual|
+||Equilibrador de carga interno (ILB)|Asignada al ILB (dinámica o estática)|Asignada a la configuración del front-end del ILB (dinámica o estática)|
 
 ## Pasos siguientes
 - [Implemente una máquina virtual con una dirección IP privada estática](virtual-networks-static-private-ip-classic-pportal.md) mediante el portal clásico.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->
