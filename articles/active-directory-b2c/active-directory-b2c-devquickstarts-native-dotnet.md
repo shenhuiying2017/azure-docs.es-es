@@ -84,7 +84,7 @@ Cuando `TaskService` recibe solicitudes de `TaskClient`, busca un token de acces
 
 Si quiere saber de qué forma una aplicación web autentica de forma segura las solicitudes con Azure AD B2C, consulte nuestro [artículo de introducción a la API web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6\. Ejecución de directivas
+## 6. Ejecución de directivas
 Ahora que `TaskService` está listo para autenticar las solicitudes, podemos implementar `TaskClient`. Su aplicación se comunica con Azure AD B2C mediante el envío de solicitudes de autenticación HTTP, especificando la directiva que desea ejecutar como parte de la solicitud. Para aplicaciones de escritorio .NET, puede usar la **Biblioteca de autenticación de Active Directory (AAL)** para enviar mensajes de autenticación OAuth 2.0, ejecutar directivas y obtener tokens para llamar a las API web.
 
 #### Instalación de AAL

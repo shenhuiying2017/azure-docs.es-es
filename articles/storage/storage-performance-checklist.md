@@ -235,7 +235,7 @@ Para cargar un solo blob grande rápidamente, la aplicación cliente debe cargar
 -	.NET: establezca ParallelOperationThreadCount en un objeto BlobRequestOptions para usar.
 -	Java/Android: use BlobRequestOptions.setConcurrentRequestCount()
 -	Node.js: use parallelOperationThreadCount en las opciones de solicitud o en el servicio BLOB.
--	C++: use el método blob\_request\_options::set\_parallelism\_factor.
+-	C++: use el método blob_request_options::set_parallelism_factor.
 
 ####<a name="subheading22"></a>Carga de muchos blobs rápidamente
 Para cargar muchos blobs rápidamente, cárguelos en paralelo. Este método es más rápido que cargar blobs de uno en uno con cargas de bloque paralelas porque distribuye la carga entre varias particiones del servicio de almacenamiento. Un solo blob únicamente admite un rendimiento de 60 MB/segundo (aproximadamente 480 Mbps). En el momento de escribir estas líneas, una cuenta LRS con sede en Estados Unidos admite entradas de hasta 20 Gbps, que es mucho más que la capacidad de proceso admitida por un blob individual. [AzCopy](#subheading18) realiza cargas en paralelo de forma predeterminada y se recomienda para este escenario.

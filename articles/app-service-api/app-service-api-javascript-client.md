@@ -38,7 +38,7 @@ Normalmente, CORS (uso compartido de recursos entre orígenes) es necesario en l
 
 ### Habilitación de CORS para puertas de enlace de aplicación de API
 
-Es posible configurar puertas de enlace de aplicación de API para habilitar CORS mediante el portal de vista previa de Azure. Agregando el *appSetting* **MS\_CrossDomainOrigins** puede especificar qué direcciones URL pueden llamar a la aplicación de API. Esta sección explicará cómo utilizar este *appSetting* para habilitar CORS en el nivel de puerta de enlace de API.
+Es posible configurar puertas de enlace de aplicación de API para habilitar CORS mediante el portal de vista previa de Azure. Agregando el *appSetting* **MS_CrossDomainOrigins** puede especificar qué direcciones URL pueden llamar a la aplicación de API. Esta sección explicará cómo utilizar este *appSetting* para habilitar CORS en el nivel de puerta de enlace de API.
 
 1. Navegue hasta la hoja del portal de vista previa de Azure para la aplicación de API en la que quiere habilitar CORS. Una vez allí, haga clic en el icono *Puerta de enlace* de la aplicación de API. 
 
@@ -56,7 +56,7 @@ Es posible configurar puertas de enlace de aplicación de API para habilitar COR
 
 	![Configuración de la aplicación de puerta de enlace](./media/app-service-api-javascript-client/22-gateway-app-settings-blade.png)
 
-1. Agregue el valor de configuración de aplicación **MS\_CrossDomainOrigins**. Convierta el valor de configuración en la lista de hosts HTTP separados por comas a los que desea proporcionar acceso a su aplicación de API. Si desea proporcionar acceso a varios hosts, el valor de *appSetting* se puede establecer en algo similar al código siguiente.
+1. Agregue el valor de configuración de aplicación **MS_CrossDomainOrigins**. Convierta el valor de configuración en la lista de hosts HTTP separados por comas a los que desea proporcionar acceso a su aplicación de API. Si desea proporcionar acceso a varios hosts, el valor de *appSetting* se puede establecer en algo similar al código siguiente.
 
 		http://foo.azurewebsites.net, https://foo.azurewebsites.net, http://contactlistwebapp.azurewebsites.net
 
@@ -68,7 +68,7 @@ Es posible configurar puertas de enlace de aplicación de API para habilitar COR
 
 	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
-El valor de configuración **MS\_CrossDomainOrigins** de la aplicación se describe detalladamente en la entrada de blog [Actualizaciones de .NET de Servicios móviles de Azure](https://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/); así pues, consúltela para obtener más información sobre dicho valor de configuración.
+El valor de configuración **MS_CrossDomainOrigins** de la aplicación se describe detalladamente en la entrada de blog [Actualizaciones de .NET de Servicios móviles de Azure](https://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/); así pues, consúltela para obtener más información sobre dicho valor de configuración.
 
 ### Habilitación de CORS en código de API web
 
@@ -82,7 +82,7 @@ El proceso de habilitación CORS en API web se documenta en profundidad en el ar
 
 	![apiapp.json y metadatos en el Explorador de soluciones](./media/app-service-api-javascript-client/01-cors-installed.png)
 
-1. Abra el archivo la *App\_Start/WebApiConfig.cs*. Agregue la línea de código siguiente al método **Register** de la clase **WebApiConfig** en el archivo.
+1. Abra el archivo la *App_Start/WebApiConfig.cs*. Agregue la línea de código siguiente al método **Register** de la clase **WebApiConfig** en el archivo.
 
 		config.EnableCors();
 

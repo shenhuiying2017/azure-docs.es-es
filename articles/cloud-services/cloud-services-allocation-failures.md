@@ -81,7 +81,7 @@ A continuación se presentan los escenarios de asignación comunes que ocasionan
 
 4. Quitar el grupo de afinidad para nuevas implementaciones - Ya no se recomienda utilizar grupos de afinidad. Siga los pasos del punto 1 anterior para implementar un nuevo servicio en la nube. Asegúrese de que el servicio en la nube no se encuentra en un grupo de afinidad.
 
-5. Convertir a una red virtual regional - Consulte [Migración de grupos de afinidad a una red virtual regional](https://azure.microsoft.com/documentation/articles/virtual-networks-migrate-to-regional-vnet/).
+5. Convertir a una red virtual regional - Consulte [Migración de grupos de afinidad a una red virtual regional]( https://azure.microsoft.com/documentation/articles/virtual-networks-migrate-to-regional-vnet/).
 
 ## Recursos adicionales
 ### Póngase en contacto con el servicio de atención al cliente de Azure

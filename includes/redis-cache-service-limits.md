@@ -2,7 +2,7 @@
 |---------------------------------------------|----------------------------------------|
 | Tamaño de memoria caché | 530 GB ([póngase en contacto con nosotros](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase) para obtener más información). |
 | Bases de datos | 16 |
-| Número máximo de clientes conectados | 40\.000 |
+| Número máximo de clientes conectados | 40.000 |
 | Réplicas de caché en Redis (para una alta disponibilidad) | 1 |
 | Particiones en una caché premium con agrupación en clústeres | 10 |
 

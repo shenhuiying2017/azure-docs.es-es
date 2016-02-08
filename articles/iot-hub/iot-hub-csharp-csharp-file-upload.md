@@ -78,14 +78,14 @@ Información adicional sobre el centro de IoT:
 
 <!-- Links -->
 
-[Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
+[Envío de mensajes de nube a dispositivo con el Centro de IoT]: iot-hub-csharp-csharp-c2d.md
 
 [Portal de Azure]: https://portal.azure.com/
 
 [Factoría de datos de Azure]: https://azure.microsoft.com/es-ES/documentation/services/data-factory/
 [Hadoop]: https://azure.microsoft.com/es-ES/documentation/services/hdinsight/
 
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Comenzar a usar el centro de IoT]: iot-hub-csharp-csharp-getstarted.md
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
 [Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md

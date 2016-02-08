@@ -46,7 +46,7 @@ Usará el mismo asistente **Publicar web** para implementar el código en la nue
 
 Como habilitó la interfaz de usuario de Swagger en el tutorial anterior, puede usarlo para comprobar que la aplicación de API se ejecuta en Azure.
 
-1. En el [Portal de vista previa de Azure](https://portal.azure.com/), vaya a la hoja **Aplicación de API** de la aplicación de API que ha implementado.
+1. En el [Portal de vista previa de Azure](https://portal.azure.com), vaya a la hoja **Aplicación de API** de la aplicación de API que ha implementado.
 
 2. Haga clic en la dirección URL de la aplicación de API.
 
@@ -62,7 +62,7 @@ Como habilitó la interfaz de usuario de Swagger en el tutorial anterior, puede 
 
 ## Visualización de la definición de API en el portal
 
-1. En el [Portal de vista previa de Azure](https://portal.azure.com/), vaya a la hoja **Aplicación de API** de la aplicación de API que implementó.
+1. En el [Portal de vista previa de Azure](https://portal.azure.com), vaya a la hoja **Aplicación de API** de la aplicación de API que implementó.
 
 4. Haga clic en **Definición de API**.
  

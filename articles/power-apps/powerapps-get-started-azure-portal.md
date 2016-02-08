@@ -159,7 +159,7 @@ Para obtener acceso al entorno del Servicio de aplicaciones, crear API, conexion
 
 1. Seleccione el entorno del Servicio de aplicaciones que acaba de crear.
 2. En Aspectos esenciales, seleccione la propiedad **Grupo de recursos**. Se abrirá el grupo de recursos que contiene el entorno del Servicio de aplicaciones: ![][7]
-3. Seleccione el icono RBAC para administrar los permisos: ![][8] Agregar usuarios y asignar roles es como utilizar [Control de acceso basado en roles](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) dentro de Azure.
+3. Seleccione el icono RBAC para administrar los permisos: ![][8] Agregar usuarios y asignar roles es como utilizar [Control de acceso basado en roles]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) dentro de Azure.
 
 > [AZURE.NOTE] Actualmente, no puede otorgar permisos de RBAC al entorno del Servicio de aplicaciones. Puede otorgar permisos de RBAC al nivel de grupo de recursos primario.
 

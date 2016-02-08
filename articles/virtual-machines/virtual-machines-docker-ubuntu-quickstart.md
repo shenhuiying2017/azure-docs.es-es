@@ -65,9 +65,9 @@ Y empezar a emitir comandos Docker, sin olvidar que en esta máquina virtual de 
 Va a comenzar a usar [Docker].
 
 <!--Anchors-->
-[Log on to the Portal]: #logon
-[Create a VM with the Docker Image from Canonical and MSOpenTech]: #createvm
-[Connect with SSH and Have Fun]: #havingfun
+[Inicio de sesión en el Portal]: #logon
+[Creación de una máquina virtual con la imagen de Docker de Canonical y MSOpenTech]: #createvm
+[Conexión con SSH y a disfrutar]: #havingfun
 [Next steps]: #next-steps
 
 

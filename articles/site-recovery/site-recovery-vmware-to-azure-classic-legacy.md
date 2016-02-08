@@ -1,4 +1,11 @@
-<properties pageTitle="Replicación de máquinas virtuales de VMware y servidores físicos en Azure Site Recovery (heredada) | Microsoft Azure" description="Describe una implementación heredada de configuración de Azure Site Recovery para orquestar la replicación, conmutación por error y recuperación de máquinas virtuales de VMware locales y servidores físicos de Windows/Linux en Azure." " services="site-recovery" documentationCenter="" authors="rayne-wiselman" manager="jwhit" editor=""/>
+<properties
+	pageTitle="Replicación de máquinas virtuales de VMware y servidores físicos en Azure Site Recovery (heredada) | Microsoft Azure" 
+	description="Describe una implementación heredada de configuración de Azure Site Recovery para orquestar la replicación, conmutación por error y recuperación de máquinas virtuales de VMware locales y servidores físicos de Windows/Linux en Azure." " 
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
+	editor=""/>
 
 <tags
 	ms.service="site-recovery"

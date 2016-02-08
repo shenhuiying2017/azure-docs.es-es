@@ -18,7 +18,8 @@
 
 # Uso del cliente administrado para Aplicaciones móviles de Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
@@ -56,7 +57,8 @@ Para información sobre cómo crear tablas nuevas en el back-end de aplicaciones
 
 El código siguiente crea el objeto `MobileServiceClient` que se usa para tener acceso al back-end de la aplicación móvil.
 
-	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
+	MobileServiceClient client = new MobileServiceClient(
+		"MOBILE_APP_URL", "", "");
 
 En el código anterior, reemplace `MOBILE_APP_URL` por la dirección URL del back-end de la aplicación móvil, que se encuentra en la hoja de la aplicación móvil en el [Portal de Azure](https://portal.azure.com/).
 
@@ -259,7 +261,12 @@ El siguiente código muestra cómo actualizar una instancia existente con el mis
 
 	await todoTable.UpdateAsync(todoItem);
 
-Para insertar datos sin tipo, puede aprovechar Json.NET como sigue: JObject jo = new JObject(); jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); jo.Add("Text", "Hello World"); jo.Add("Complete", false); var inserted = await table.UpdateAsync(jo);
+Para insertar datos sin tipo, puede aprovechar Json.NET como sigue: 
+	JObject jo = new JObject();
+	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
+	jo.Add("Text", "Hello World");
+	jo.Add("Complete", false);
+	var inserted = await table.UpdateAsync(jo);
 
 Tenga en cuenta que al realizar una actualización, debe especificarse un identificador. Así es cómo el back-end identifica qué instancia actualizar. El identificador puede obtenerse a partir del resultado de la llamada `InsertAsync`. Cuando intenta actualizar un elemento sin proporcionar el valor "Id", se genera una excepción `ArgumentException`.
 

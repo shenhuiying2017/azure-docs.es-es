@@ -140,19 +140,19 @@ Después de habilitar los diagnósticos para una aplicación web, haga clic en e
 
 Es posible seguir modificando los diagnósticos si agrega pares clave-valor a la sección **Configuración de aplicaciones** de la página de administración **Configurar**. Se pueden configurar las siguientes opciones en **Configuración de aplicaciones**:
 
-**DIAGNOSTICS\_TEXTTRACELOGDIRECTORY**
+**DIAGNOSTICS_TEXTTRACELOGDIRECTORY**
 
 - La ubicación en que se guardarán los registros de aplicaciones, en relación con la raíz web.
 
-- Valor predeterminado: ..\\..\\LogFiles\\Application
+- Valor predeterminado: ..\..\LogFiles\Application
 
-**DIAGNOSTICS\_TEXTTRACEMAXBUFFERSIZEBYTES**
+**DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 
 - El tamaño máximo de búfer que se utilizará cuando se capturen registros de aplicación. La información inicialmente se escribe en el búfer antes de vaciarla al archivo o el almacenamiento. Si se escribe información nueva en el búfer antes de poder vaciarla, es posible que pierda la información anteriormente registrada. Si la aplicación genera grandes ráfagas de información de registro, considere aumentar el tamaño del búfer.
 
 - Valor predeterminado: 10 MB
 
-**DIAGNOSTICS\_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
+**DIAGNOSTICS_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
 
 - El tamaño máximo de la carpeta de **aplicaciones**, en la que se almacenan los diagnósticos de la aplicación escritos en el archivo.
 

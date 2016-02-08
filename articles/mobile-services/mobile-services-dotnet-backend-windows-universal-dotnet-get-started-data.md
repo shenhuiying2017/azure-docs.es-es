@@ -98,11 +98,14 @@ De este modo se finaliza el tutorial.
 
 Este tutorial muestra los aspectos básicos de la habilitación de un proyecto de aplicación universal para Windows para trabajar con datos en Servicios móviles. A continuación, considere la posibilidad de obtener información acerca de uno de estos otros temas:
 
-* [Introducción a la autenticación] <br/>Aprenda a autenticar a los usuarios de su aplicación.
+* [Introducción a la autenticación]
+  <br/>Aprenda a autenticar a los usuarios de su aplicación.
 
-* [Introducción a las notificaciones de inserción] <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
+* [Introducción a las notificaciones de inserción]
+  <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
-* [Referencia conceptual de Servicios móviles con C#](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
+* [Referencia conceptual de Servicios móviles con C#](mobile-services-windows-dotnet-how-to-use-client-library.md) 
+  <br/>Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
 
 <!-- Images. -->

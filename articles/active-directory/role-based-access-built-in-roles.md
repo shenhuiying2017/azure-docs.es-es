@@ -387,7 +387,8 @@ Puede administrar el acceso de usuarios a los recursos de Azure
 
 | **Acciones** ||
 | ------- | ------ |
-| */read | Leer recursos de todos los tipos, excepto secretos. | | Microsoft.Authorization/* | Leer autorización |
+| */read | Leer recursos de todos los tipos, excepto secretos. | 
+| Microsoft.Authorization/* | Leer autorización |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Colaborador de la máquina virtual clásica

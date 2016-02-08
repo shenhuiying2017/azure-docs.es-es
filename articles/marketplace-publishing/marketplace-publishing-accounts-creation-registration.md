@@ -22,7 +22,7 @@ Este artículo le guía a través del proceso necesario de creación y registro 
 ## 1\. Creación de una cuenta Microsoft
 > [AZURE.WARNING] Para finalizar el proceso de publicación, deberá crear una cuenta Microsoft. Esta cuenta se utilizará para registrarse e iniciar sesión en el **Centro para desarrolladores de Microsoft** y el **Portal de publicación de Azure**. Solo debe tener una cuenta Microsoft para sus ofertas de Azure Marketplace. Esta no debe ser específica para servicios u ofertas.
 
-La dirección que constituye el nombre de usuario debe estar en su dominio y estar controlada por su equipo de TI (por ejemplo, publishing@example.com)). Los pagos, la información fiscal y los informes se tramitarán con esta cuenta.
+La dirección que constituye el nombre de usuario debe estar en su dominio y estar controlada por su equipo de TI (por ejemplo, publishing@example.com). Los pagos, la información fiscal y los informes se tramitarán con esta cuenta.
 
   >[AZURE.WARNING] No se admiten palabras como "Azure" y "Microsoft" en el registro de la cuenta Microsoft. Evite el uso de estas palabras para completar el proceso de creación y registro de cuentas.
 
@@ -65,7 +65,7 @@ El Centro para desarrolladores de Microsoft se usa para registrar la informació
 
 2. Vaya a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure).
 
-3. Inicie sesión con su cuenta Microsoft de registro de la compañía (por ejemplo, marketplace@example.com))
+3. Inicie sesión con su cuenta Microsoft de registro de la compañía (por ejemplo, marketplace@example.com)
 
     ![dibujo][img-signin]
 
@@ -143,7 +143,7 @@ El portal de publicación de Azure se usa para publicar y administrar sus oferta
 
 2.	Vaya a [http://publish.windowsazure.com](http://publish.windowsazure.com).
 
-3.	Inicie sesión con su cuenta Microsoft de registro de la compañía (es decir, marketplace@example.com)) y, si es necesario, agregue coadministradores.
+3.	Inicie sesión con su cuenta Microsoft de registro de la compañía (es decir, marketplace@example.com) y, si es necesario, agregue coadministradores.
 
   >[AZURE.TIP] Las directivas de participación se describen en el [sitio web de Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 

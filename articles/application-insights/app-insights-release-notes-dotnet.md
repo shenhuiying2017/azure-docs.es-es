@@ -16,7 +16,7 @@
  
 # Notas de la versión del SDK de Application Insights para .NET
 
-El [SDK de Application Insights para .NET](app-insights-asp-net.md) envía telemetría acerca de la aplicación activa a [Application Insights](https://azure.microsoft.com/services/application-insights/), donde puede analizar su uso y el rendimiento.
+El [SDK de Application Insights para .NET](app-insights-asp-net.md) envía telemetría acerca de la aplicación activa a [Application Insights]( https://azure.microsoft.com/services/application-insights/), donde puede analizar su uso y el rendimiento.
 
 
 #### Para instalar el SDK en su aplicación
@@ -61,7 +61,7 @@ Consulte [Introducción a Application Insights para .NET](app-insights-asp-net.m
 
 ## Versión 2.0.0-beta2
 - Se ha agregado compatibilidad para ITelemetryProcessor y la posibilidad de configuración a través de código o de la propia configuración. [Habilita el filtrado personalizado en el SDK](app-insights-api-filtering-sampling/#filtering)
-- Se han quitado los inicializadores de contexto. En su lugar, se usan [inicializadores de telemetría ](https://azure.microsoft.com/documentation/articles/app-insights-api-filtering-sampling/#filtering).
+- Se han quitado los inicializadores de contexto. En su lugar, se usan [inicializadores de telemetría ]( https://azure.microsoft.com/documentation/articles/app-insights-api-filtering-sampling/#filtering).
 - Application Insights para .Net Framework 4.6 actualizado. 
 - Los nombres de evento personalizados ahora pueden tener hasta 512 caracteres.
 - El nombre de la propiedad ```OperationContext.Name``` cambia a ```RootName```.

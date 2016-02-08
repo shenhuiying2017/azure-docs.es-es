@@ -88,7 +88,7 @@ En la pestaña **Legal**, proporcione un vínculo a sus directivas o términos d
 5.	Se abrirá un asistente para precios. Sígalo hasta completar sus precios, incluidos los precios en otros países si opta por permitir compras desde fuera del mercado especificado.
 6.	Algunos países son países de envío ISV. Para vender en un país de envío ISV, debe poder cobrar y recaudar impuestos por sus SKU, así como calcular y pagar impuestos al gobierno del país. Microsoft no puede proporcionar asesoramiento legal ni fiscal. Vea la sección "Países a los que se vende de la oferta" en la Introducción de este documento para obtener más información sobre los países a los que se vende.
 
-### 2\.2. Establecer precios de servicio para desarrolladores
+### 2.2. Establecer precios de servicio para desarrolladores
 Los planes pueden ser cualquier combinación de base y consumo, donde base es precio mensual y superávit es el precio de pago por uso. (Vea a continuación para obtener más información).
 
 **Ejemplo:** oferta de servicio de desarrolladores de Contoso

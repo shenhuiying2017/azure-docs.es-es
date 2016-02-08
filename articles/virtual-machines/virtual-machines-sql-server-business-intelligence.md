@@ -388,7 +388,9 @@ En esta sección se resumen los extremos de máquina virtual de Microsoft Azure 
 
 	|Port|Tipo|Descripción|
 |---|---|---|
-|**80**|TCP|Acceso remoto al servidor de informes (*).| |**1433**|TCP|SQL Server Management Studio (*).| |**1434**|UDP|SQL Server Browser. Esto es necesario cuando la máquina virtual se une a un dominio.|
+|**80**|TCP|Acceso remoto al servidor de informes (*).|
+|**1433**|TCP|SQL Server Management Studio (*).|
+|**1434**|UDP|SQL Server Browser. Esto es necesario cuando la máquina virtual se une a un dominio.|
 |**2382**|TCP|SQL Server Browser.|
 |**2383**|TCP|Instancia predeterminada de SQL Server Analysis Services e instancias con nombre en clúster.|
 |**Definida por el usuario**|TCP|Cree un puerto de instancia con nombre de Analysis Services estático para un número de puerto que elija y luego desbloquee el número de puerto en el firewall.|
@@ -425,7 +427,7 @@ En el siguiente diagrama se muestran los puertos que se abrirán en el firewall 
 
 - [Usar Power BI en un entorno híbrido](https://msdn.microsoft.com/library/dn798994.aspx)
 
->[AZURE.NOTE] [Submit feedback and contact information through Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
+>[AZURE.NOTE] [Envíe comentarios e información de contacto a través de Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### Contenido de la Comunidad
 

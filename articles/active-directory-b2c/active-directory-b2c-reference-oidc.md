@@ -77,7 +77,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parámetro | | Descripción |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client\_id | requerido | El identificador de aplicación que el [Portal de Azure](https://portal.azure.com/) asignó a la aplicación. |
+| client\_id | requerido | El identificador de aplicación que el [Portal de Azure](https://portal.azure.com) asignó a la aplicación. |
 | response\_type | requerido | Debe incluir `id_token` para OpenID Connect. Si su aplicación web también necesitará tokens para llamar a una API web, puede usar `code+id_token`, como hemos hecho aquí. |
 | redirect\_uri | requerido | El redirect\_uri de su aplicación, a donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los redirect\_uris que registró en el portal, con la excepción de que debe estar codificado como URL. |
 | ámbito | requerido | Una lista de ámbitos separada por espacios. Un valor de ámbito único indica a Azure AD los dos permisos que se solicitan. El ámbito `openid` indica un permiso para iniciar sesión para el usuario y obtener datos sobre el usuario en forma de **id\_tokens** (más información sobre esto más adelante). El ámbito `offline_access` es opcional para las aplicaciones web. Indica que la aplicación necesitará un **refresh\_token** para un acceso de larga duración a los recursos. |
@@ -133,7 +133,8 @@ Una de las propiedades de este documento de configuración es `jwks_uri`, cuyo v
 
 Para determinar qué directiva se usó en la firma de un id\_token (y de dónde obtener los metadatos), tiene dos opciones. En primer lugar, se incluye el nombre de la directiva en la notificación `acr` en id\_token. Para obtener información sobre cómo analizar las notificaciones de un id\_token, consulte la [referencia del token de Azure AD B2C](active-directory-b2c-reference-tokens.md). La otra opción consiste en codificar la directiva en el valor del parámetro `state` al emitir la solicitud y descodificarla para determinar qué directiva se ha usado. Cualquiera de los métodos es perfectamente válido.
 
-Una vez que haya adquirido el documento de metadatos del extremo de metadatos OpenID Connect, puede usar las claves públicas RSA256 ubicadas en este extremo para validar la firma del id\_token. Hay varias claves enumeradas en este extremo en cualquier momento, cada una identificada con un `kid`. El encabezado del id\_token también contiene una notificación `kid`, que indica cuál de estas claves se usó para firmar el id\_token. Consulte la [referencia del token de Azure AD B2C](active-directory-b2c-reference-tokens.md) para más información, por ejemplo, [Vista previa de Azure AD B2C: referencia del token](active-directory-b2c-reference-tokens.md#validating-tokens) e [Información importante acerca de la sustitución de la clave de firma en Azure AD](active-directory-b2c-reference-tokens.md#validating-tokens). <!--TODO: Improve the information on this-->
+Una vez que haya adquirido el documento de metadatos del extremo de metadatos OpenID Connect, puede usar las claves públicas RSA256 ubicadas en este extremo para validar la firma del id\_token. Hay varias claves enumeradas en este extremo en cualquier momento, cada una identificada con un `kid`. El encabezado del id\_token también contiene una notificación `kid`, que indica cuál de estas claves se usó para firmar el id\_token. Consulte la [referencia del token de Azure AD B2C](active-directory-b2c-reference-tokens.md) para más información, por ejemplo, [Vista previa de Azure AD B2C: referencia del token](active-directory-b2c-reference-tokens.md#validating-tokens) e [Información importante acerca de la sustitución de la clave de firma en Azure AD](active-directory-b2c-reference-tokens.md#validating-tokens). 
+<!--TODO: Improve the information on this-->
 
 Una vez haya validado la firma del id\_token, hay algunas notificaciones que tendrá que comprobar:
 
@@ -174,12 +175,12 @@ Content-Type: application/json
 | Parámetro | | Descripción |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | requerido | La directiva usada para adquirir el código de autorización. No se puede usar una directiva diferente en esta solicitud. **Tenga en cuenta que este parámetro se agrega a la cadena de consulta** pero no al cuerpo de POST. |
-| client\_id | requerido | El identificador de aplicación que el [Portal de Azure](https://portal.azure.com/) asignó a la aplicación. |
+| client\_id | requerido | El identificador de aplicación que el [Portal de Azure](https://portal.azure.com) asignó a la aplicación. |
 | grant\_type | requerido | Debe ser `authorization_code` para el flujo de código de autorización. |
 | ámbito | requerido | Una lista de ámbitos separada por espacios. Un valor de ámbito único indica a Azure AD los dos permisos que se solicitan. El ámbito `openid` indica un permiso para iniciar sesión para el usuario y obtener datos sobre el usuario en forma de **id\_tokens**. Se puede usar para obtener tokens para la propia API web back-end de la aplicación, representada por el mismo Id. de aplicación que el cliente. El ámbito `offline_access` indica que la aplicación necesitará un **refresh\_token** para un acceso de larga duración a los recursos. |
 | código | requerido | El authorization\_code que adquirió en el primer segmento del flujo. |
 | redirect\_uri | requerido | El redirect\_uri de la aplicación en la que recibió el authorization\_code. |
-| client\_secret | requerido | El secreto de la aplicación que generó en el [Portal de Azure](https://portal.azure.com/). Este secreto de la aplicación es un artefacto de seguridad importante y debe almacenarse de forma segura en el servidor. También debe procurar rotar este secreto del cliente de forma periódica. |
+| client\_secret | requerido | El secreto de la aplicación que generó en el [Portal de Azure](https://portal.azure.com). Este secreto de la aplicación es un artefacto de seguridad importante y debe almacenarse de forma segura en el servidor. También debe procurar rotar este secreto del cliente de forma periódica. |
 
 Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 
@@ -253,12 +254,12 @@ Content-Type: application/json
 | Parámetro | | Descripción |
 | ----------------------- | ------------------------------- | -------- |
 | p | requerido | La directiva usada para adquirir el código de actualización original. No se puede usar una directiva diferente en esta solicitud. **Tenga en cuenta que este parámetro se agrega a la cadena de consulta** pero no al cuerpo de POST. |
-| client\_id | requerido | El identificador de aplicación que el [Portal de Azure](https://portal.azure.com/) asignó a la aplicación. |
+| client\_id | requerido | El identificador de aplicación que el [Portal de Azure](https://portal.azure.com) asignó a la aplicación. |
 | grant\_type | requerido | Debe ser `refresh_token` para este segmento del flujo de código de autorización. |
 | ámbito | requerido | Una lista de ámbitos separada por espacios. Un valor de ámbito único indica a Azure AD los dos permisos que se solicitan. El ámbito `openid` indica un permiso para iniciar sesión para el usuario y obtener datos sobre el usuario en forma de **id\_tokens**. Se puede usar para obtener tokens para la propia API web back-end de la aplicación, representada por el mismo Id. de aplicación que el cliente. El ámbito `offline_access` indica que la aplicación necesitará un **refresh\_token** para un acceso de larga duración a los recursos. |
 | redirect\_uri | requerido | El redirect\_uri de la aplicación en la que recibió el authorization\_code. |
 | refresh\_token | requerido | El refresh\_token original que adquirió en el segundo segmento del flujo. Tenga en cuenta que debe haber usado el ámbito `offline_access` en las solicitudes de token y autorización para recibir un token de actualización. |
-| client\_secret | requerido | El secreto de la aplicación que generó en el [Portal de Azure](https://portal.azure.com/). Este secreto de la aplicación es un artefacto de seguridad importante y debe almacenarse de forma segura en el servidor. También debe procurar rotar este secreto del cliente de forma periódica. |
+| client\_secret | requerido | El secreto de la aplicación que generó en el [Portal de Azure](https://portal.azure.com). Este secreto de la aplicación es un artefacto de seguridad importante y debe almacenarse de forma segura en el servidor. También debe procurar rotar este secreto del cliente de forma periódica. |
 
 Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 

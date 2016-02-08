@@ -68,7 +68,8 @@ En la lista siguiente se muestran ejemplos del tiempo medio hasta el primer byte
 |Seúl, Corea del Sur| 190 | 190 | 0 % |
 
 
-* Tiene un nodo de la red CDN de Azure en la misma ciudad. ** Tiene un nodo de la red CDN de Azure en una ciudad vecina.
+\* Tiene un nodo de la red CDN de Azure en la misma ciudad.  
+\*\* Tiene un nodo de la red CDN de Azure en una ciudad vecina.
 
 ## Desafíos  
 
@@ -205,7 +206,13 @@ Incluya la red CDN como parte de la estrategia de supervisión de la aplicación
 
 Habilite el registro en la red CDN y supervise dicho registro como parte de las operaciones diarias.
 
-Consider la posibilidad de analizar el tráfico de la red CDN para encontrar patrones de uso. El Portal de Azure proporciona herramientas que permiten supervisar: + Ancho de banda, + Datos transferidos, + Accesos (códigos de estado), + Estado de la caché, + Proporción de aciertos de la caché y + Proporción de solicitudes de IPV4 o IPV6.
+Consider la posibilidad de analizar el tráfico de la red CDN para encontrar patrones de uso. El Portal de Azure proporciona herramientas que permiten supervisar:
++ Ancho de banda,
++ Datos transferidos,
++ Accesos (códigos de estado),
++ Estado de la caché,
++ Proporción de aciertos de la caché y
++ Proporción de solicitudes de IPV4 o IPV6.
 
 Para más información, consulte [Análisis de patrones de uso de la red CDN de Azure](cdn/cdn-analyze-usage-patterns.md/).
 

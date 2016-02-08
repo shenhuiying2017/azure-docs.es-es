@@ -20,7 +20,7 @@
 
 # Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure
 
-Puede pagar con tarjeta de crédito o débito, o recibir aprobación para pagar mediante factura. Para obtener más información sobre el pago mediante factura, consulte [Facturación de Azure](https://azure.microsoft.com/es-ES/pricing/invoicing/).
+Puede pagar con tarjeta de crédito o débito, o recibir aprobación para pagar mediante factura. Para obtener más información sobre el pago mediante factura, consulte [Facturación de Azure](https://azure.microsoft.com/pricing/invoicing/).
 
 ## Editar información de pago de una tarjeta de crédito existente
 1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions) como administrador de cuenta.

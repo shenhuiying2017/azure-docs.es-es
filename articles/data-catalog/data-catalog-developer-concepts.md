@@ -190,7 +190,7 @@ Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse 
 
 > [AZURE.NOTE]
 >
-> **__**\_\_permissions** solo se aplica a un elemento de raíz.
+> **\_\_permissions** solo se aplica a un elemento de raíz.
 >
 > El rol **Propietario** solo es aplicable a un elemento de raíz.
 >
