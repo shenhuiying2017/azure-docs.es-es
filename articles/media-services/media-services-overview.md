@@ -40,13 +40,13 @@ Para compilar soluciones de Servicios multimedia, puede usar:
 
 Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
-- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Póster
 
 
-[Aquí](http://azure.microsoft.com/documentation/infographics/media-services/) puede ver el póster de Servicios multimedia de Azure que representa los flujos de trabajo de AMS, desde la creación de medios hasta el consumo.
+[Aquí](https://azure.microsoft.com/documentation/infographics/media-services/) puede ver el póster de Servicios multimedia de Azure que representa los flujos de trabajo de AMS, desde la creación de medios hasta el consumo.
 
 ##Requisitos previos
 
@@ -206,7 +206,7 @@ También puede escalar la cuenta de Servicios multimedia agregándole cuentas de
 
 ##Soporte técnico
 
-El [Soporte técnico de Azure](http://azure.microsoft.com/support/options/) proporciona opciones de soporte técnico para Azure, incluido Servicios multimedia.
+El [Soporte técnico de Azure](https://azure.microsoft.com/support/options/) proporciona opciones de soporte técnico para Azure, incluido Servicios multimedia.
 
 ##Guía de patrones y prácticas
 
@@ -225,7 +225,7 @@ El [Soporte técnico de Azure](http://azure.microsoft.com/support/options/) prop
 - Para la protección de contenido, garantizamos que procesaremos correctamente las solicitudes clave como mínimo el 99,9% del tiempo.
 - Para el indizador, atenderemos correctamente las solicitudes de tarea de indizador procesadas con una unidad reservada de codificación el 99,9% del tiempo.
 
-	Para obtener más información, consulte el [Contrato de nivel de servicio (SLA) de Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
+	Para obtener más información, consulte el [Contrato de nivel de servicio (SLA) de Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
@@ -234,4 +234,4 @@ El [Soporte técnico de Azure](http://azure.microsoft.com/support/options/) prop
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

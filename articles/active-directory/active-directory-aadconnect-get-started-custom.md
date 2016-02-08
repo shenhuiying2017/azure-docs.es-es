@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Azure AD Connect: instalación personalizada | Microsoft Azure"
-	description="En este documento se explica las opciones de instalación personalizada de Azure AD Connect."
+	description="En este documento se explica las opciones de instalación personalizada de Azure AD Connect. Siga estas instrucciones para instalar Active Directory mediante Azure AD Connect."
 	services="active-directory"
+    keywords="qué es Azure AD Connect, instalar Active Directory, componentes necesarios para Azure AD"
 	documentationCenter=""
 	authors="billmath"
 	manager="stevenpo"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/25/2016"
 	ms.author="billmath;andkjell"/>
 
 # Instalación personalizada de Azure AD Connect
@@ -45,7 +46,7 @@ Al instalar los servicios de sincronización, puede dejar desactivada la secció
 
 | Configuración opcional | Descripción |
 | ------------- | ------------- |
-| Usar un SQL Server existente | Permite especificar el nombre de SQL Server y el nombre de la instancia. Elija esta opción si ya dispone de un servidor de base de datos que le gustaría utilizar. Si SQL Server no tiene la exploración habilitada y debe especificar un número de puerto, en el cuadro **Nombre de instancia** escriba el nombre de la instancia seguido de un coma y un número de puerto. |
+| Usar un SQL Server existente | Permite especificar el nombre de SQL Server y el nombre de la instancia. Elija esta opción si ya dispone de un servidor de base de datos que le gustaría utilizar. Si SQL Server no tiene la exploración habilitada y debe especificar un número de puerto, en el cuadro **Nombre de instancia** escriba el nombre de la instancia seguido de una coma y un número de puerto. |
 | Usar una cuenta de servicio existente | De forma predeterminada, Azure AD Connect creará una cuenta de servicio local para los servicios de sincronización que se van a utilizar. la contraseña se genera automáticamente y es desconocida para la persona que instala Azure AD Connect. Si utiliza un servidor SQL remoto, necesita una cuenta de servicio en el dominio y conocer la contraseña. En esos casos, especifique la cuenta de servicio para usar. Asegúrese de que el usuario que ejecuta la instalación es una SA en SQL, por lo que se puede crear un inicio de sesión para la cuenta de servicio. Consulte [Permisos y cuentas de Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
 | Especificar grupos de sincronización personalizada | De forma predeterminada, Azure AD Connect creará cuatro grupos locales en el servidor cuando se instalen los servicios de sincronización. Estos grupos son: grupo Administradores, grupo Operadores, grupo Examinar y grupo Restablecimiento de contraseña. Si desea especificar sus propios grupos puede hacerlo aquí. Los grupos deben ser locales en el servidor y no se pueden encontrar en el dominio. |
 
@@ -70,7 +71,7 @@ En la pantalla Conectarse a Azure AD, especifique una cuenta de administrador gl
 
 ![Inicio de sesión de usuario](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
-Si recibe un error y tiene problemas de conectividad, consulte [Solución de problemas de conectividad con Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md).
+Si recibe un error y tiene problemas de conectividad, consulte [Troubleshoot connectivity issues with Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md) (Solución de problemas de conectividad con Azure AD Connect).
 
 ## Páginas bajo la sección Sincronización
 
@@ -99,7 +100,7 @@ Mi propio atributo|Esta opción le permite seleccionar su propio atributo. **Lim
 
 - **UserPrincipalName**: el atributo userPrincipalName es el atributo que los usuarios van a usar al iniciar sesión en Azure AD y Office 365. Los dominios utilizados, también conocidos como sufijo UPN, deben comprobarse en Azure AD antes de que se sincronicen los usuarios. Se recomienda encarecidamente mantener el atributo userPrincipalName predeterminado. Si este atributo no es enrutable y no se puede comprobar, se puede seleccionar otro atributo, por ejemplo, correo electrónico, como atributo que contiene el identificador de inicio de sesión. Este se conoce como **identificador alternativo**. El valor del atributo Alternate ID debe seguir el estándar RFC822. El atributo Alternate ID puede usarse como solución de inicio de sesión tanto con el inicio de sesión único (SSO) de contraseña como con el SSO de federación.
 
->[AZURE.WARNING]El uso de un identificador alternativo no es compatible con todas las cargas de trabajo de Office 365. Para obtener más información, vea [Configuración del identificador de inicio de sesión alternativo](https://technet.microsoft.com/library/dn659436.aspx).
+>[AZURE.WARNING] El uso de un identificador alternativo no es compatible con todas las cargas de trabajo de Office 365. Para obtener más información, vea [Configuración del identificador de inicio de sesión alternativo](https://technet.microsoft.com/library/dn659436.aspx).
 
 
 
@@ -108,9 +109,9 @@ La característica de filtrado en grupos le permite ejecutar una pequeña prueba
 
 Para usar esta característica, en la ruta de acceso personalizada verá esta página: ![Filtrado de sincronización](./media/active-directory-aadconnect-get-started-custom/filter2.png)
 
->[AZURE.WARNING]Esta característica está diseñada solo para admitir una implementación piloto y no debe utilizarse en una implementación de producción real.
+>[AZURE.WARNING] Esta característica está diseñada solo para admitir una implementación piloto y no debe utilizarse en una implementación de producción real.
 
-En una implementación de producción completa va a ser difícil mantener un grupo único con todos los objetos para sincronizar. En su lugar, debería usar uno de los métodos de [Configurar filtrado](active-directory-aadconnectsync-configure-filtering.md).
+En una implementación de producción completa va a ser difícil mantener un grupo único con todos los objetos para sincronizar. En su lugar, debería usar uno de los métodos de [Configuración del filtrado](active-directory-aadconnectsync-configure-filtering.md).
 
 ### Características opcionales
 
@@ -118,7 +119,7 @@ Esta pantalla le permite seleccionar las características opcionales para situac
 
 ![Características opcionales](./media/active-directory-aadconnect-get-started-custom/optional.png)
 
-> [AZURE.WARNING]Si actualmente tiene activo DirSync o Azure AD Sync, no active ninguna de las características de escritura diferida en Azure AD Connect
+> [AZURE.WARNING] Si actualmente tiene activo DirSync o Azure AD Sync, no active ninguna de las características de escritura diferida en Azure AD Connect
 
 Características opcionales | Descripción
 -------------------    | ------------- |
@@ -165,7 +166,7 @@ Puede utilizar una granja de AD FS existente o crear una nueva granja de AD FS. 
 Aquí deberá especificar los servidores específicos que desea instalar en AD FS. Puede agregar uno o más servidores según su necesidades de planeación de capacidad. Estos servidores deben estar unidos a un dominio de Active Directory antes de realizar esta configuración. Se recomienda instalar a un único servidor de AD FS para las implementaciones piloto y de prueba e implementar servidores adicionales mediante la apertura de Azure AD Connect y la implementación de AD FS en servidores adicionales para satisfacer las necesidades de escalabilidad.
 
 
-> [AZURE.NOTE]Asegúrese de que todos los servidores están unidos a un dominio de AD antes de realizar esta configuración.
+> [AZURE.NOTE] Asegúrese de que todos los servidores están unidos a un dominio de AD antes de realizar esta configuración.
 
 ![Servidores de AD FS](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
 
@@ -175,7 +176,8 @@ Aquí deberá especificar los servidores específicos que desea instalar en AD F
 Aquí deberá especificar los servidores específicos que desee como servidores Proxy de aplicación web. El servidor Proxy de aplicación web se implementa en la red perimetral (a través de extranet) y admite solicitudes de autenticación desde la extranet. Puede agregar uno o más servidores según su necesidades de planeación de capacidad. Se recomienda instalar a un único servidor Proxy de aplicación web para las implementaciones piloto y de prueba e implementar servidores adicionales mediante la apertura de Azure AD Connect e implementar el servidor Proxy de aplicación web en servidores adicionales. Normalmente, se recomienda tener un número equivalente de servidores proxy para cumplir con la autenticación de la intranet.
 
 
-> [AZURE.NOTE]- Si la cuenta que está usando para instalar Azure AD Connect no es una cuenta de administración local en los servidores de AD FS, se le pedirán las credenciales de una cuenta con permisos suficientes. - Asegúrese de que hay conectividad HTTP/HTTPS entre el servidor de Azure AD Connect y el servidor Proxy de aplicación web antes de configurar este paso. - Además, asegúrese de que hay conectividad HTTP/HTTPS entre el Servidor de aplicaciones web y el servidor de AD FS para permitir que fluyan las solicitudes de autenticación.
+> [AZURE.NOTE]
+- Si la cuenta que está usando para instalar Azure AD Connect no es una cuenta de administración local en los servidores de AD FS, se le pedirán las credenciales de una cuenta con permisos suficientes. - Asegúrese de que hay conectividad HTTP/HTTPS entre el servidor de Azure AD Connect y el servidor Proxy de aplicación web antes de configurar este paso. - Además, asegúrese de que hay conectividad HTTP/HTTPS entre el Servidor de aplicaciones web y el servidor de AD FS para permitir que fluyan las solicitudes de autenticación.
 
 
 ![Aplicación web](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
@@ -251,4 +253,4 @@ Ahora que ha instalado Azure AD Connect, puede [comprobar la instalación y asig
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

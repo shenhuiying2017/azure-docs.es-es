@@ -2,13 +2,14 @@
 	pageTitle="Personalización de las soluciones preconfiguradas | Microsoft Azure"
 	description="Proporciona directrices sobre la personalización de ñas soluciones preconfiguradas del Conjunto de aplicaciones de IoT de Azure."
 	services=""
+    suite="iot-suite"
 	documentationCenter=".net"
 	authors="stevehob"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
@@ -30,7 +31,7 @@ Este origen se proporciona para mostrar un patrón para implementar la funcional
 
 ## Cambio de las reglas previamente configuradas
 
-La solución de supervisión remota incluye dos trabajos de [Análisis de transmisiones de Azure](http://azure.microsoft.com/services/stream-analytics) para implementar la lógica de alarmas y telemetría que se muestran en el panel.
+La solución de supervisión remota incluye dos trabajos de [Análisis de transmisiones de Azure](https://azure.microsoft.com/services/stream-analytics/) para implementar la lógica de alarmas y telemetría que se muestran en el panel.
 
 El primer trabajo selecciona todos los datos de la secuencia entrante de la telemetría y crea dos resultados diferentes. El trabajo se denominará **[nombre de la solución]-Telemetry**.
 
@@ -41,7 +42,7 @@ Mediante la interfaz de usuario de Análisis de transmisiones, puede editar dire
 
 El segundo trabajo funciona en los valores de dispositivo a umbral creados en la página **Reglas** de la solución. Este trabajo consume como datos de referencia el valor de umbral establecido para cada dispositivo. Compara el valor de umbral para ver si es mayor que (`>`) el valor real. Este trabajo se puede modificar, por ejemplo, para cambiar el operador de comparación.
 
-> [AZURE.NOTE]El panel de supervisión remota depende de datos específicos, así que la modificación de los trabajos puede provocar errores del panel.
+> [AZURE.NOTE] El panel de supervisión remota depende de datos específicos, así que la modificación de los trabajos puede provocar errores del panel.
 
 ## Adición de reglas propias
 
@@ -65,8 +66,8 @@ Los [SDK de IoT de Azure](https://github.com/Azure/azure-iot-sdks) proporcionan 
 
 ## Pasos siguientes
 
-Para obtener más información sobre los dispositivos de IoT, consulte el [sitio para desarrolladores de IoT de Azure](http://azure.microsoft.com/develop/iot), donde encontrará documentación y vínculos.
+Para obtener más información sobre los dispositivos de IoT, consulte el [sitio para desarrolladores de IoT de Azure](https://azure.microsoft.com/develop/iot/), donde encontrará documentación y vínculos.
 
 [SDK de dispositivo de IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

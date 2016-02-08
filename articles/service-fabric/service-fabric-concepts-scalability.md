@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="01/20/2016"
    ms.author="aprameyr"/>
 
 # Escalación de aplicaciones de Service Fabric
@@ -60,4 +60,4 @@ Para información sobre los conceptos de Service Fabric, vea lo siguiente:
 
 - [Definición y administración del estado](service-fabric-concepts-state.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

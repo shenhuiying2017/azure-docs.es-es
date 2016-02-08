@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2015"
+   ms.date="01/26/2016"
    ms.author="oanapl"/>
 
 # Incorporación de informes de mantenimiento de Service Fabric personalizados
@@ -45,11 +45,11 @@ Tal y como se mencionó anteriormente, los informes pueden realizarse desde:
 
 - Guardianes externos que sondean el recurso desde *fuera* del clúster de Service Fabric (por ejemplo, un servicio de supervisión de tipo Gomez).
 
-> [AZURE.NOTE]De fábrica, el clúster está rellenado con informes de estado enviados por los componentes del sistema. Lea más en [Uso de informes de mantenimiento del sistema para solucionar problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md). Los informes de usuario deben enviarse en [entidades de estado](service-fabric-health-introduction.md#health-entities-and-hierarchy) ya creadas por el sistema.
+> [AZURE.NOTE] De fábrica, el clúster está rellenado con informes de estado enviados por los componentes del sistema. Lea más en [Uso de informes de mantenimiento del sistema para solucionar problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md). Los informes de usuario deben enviarse en [entidades de estado](service-fabric-health-introduction.md#health-entities-and-hierarchy) ya creadas por el sistema.
 
 Una vez que el diseño de informes de mantenimiento está vacío, los informes de mantenimiento se pueden enviar de forma fácil. Para ello se puede usar la API mediante **FabricClient.HealthManager.ReportHealth**, PowerShell o REST. Internamente, todos los métodos usan un cliente de estado contenido en cliente de Fabric. Los botones de configuración procesan los informes por lotes para un mejor rendimiento.
 
-> [AZURE.NOTE]El informe de mantenimiento es sincrónico y solo representa el trabajo de validación en el cliente. El hecho de que el cliente de estado acepte el informe no significa que se aplique en el almacén. Se enviará de forma asincrónica y posiblemente por lotes con otros informes. El procesamiento en el servidor todavía puede seguir dando error (por ejemplo, un número de secuencia está obsoleto, la entidad en la que se debe aplicar el informe ha sido eliminada, etc.).
+> [AZURE.NOTE] El informe de mantenimiento es sincrónico y solo representa el trabajo de validación en el cliente. El hecho de que el cliente de estado acepte el informe no significa que se aplique en el almacén. Se enviará de forma asincrónica y posiblemente por lotes con otros informes. El procesamiento en el servidor todavía puede seguir dando error (por ejemplo, un número de secuencia está obsoleto, la entidad en la que se debe aplicar el informe ha sido eliminada, etc.).
 
 ## Cliente de mantenimiento
 Los informes de mantenimiento se envían al almacén de estado por medio de un cliente de mantenimiento, que reside en el cliente de Fabric. El cliente de mantenimiento puede configurarse con lo siguiente:
@@ -60,7 +60,7 @@ Los informes de mantenimiento se envían al almacén de estado por medio de un c
 
 - **HealthOperationTimeout**: el período de tiempo de espera para un mensaje de informe enviado al almacén de estado. Si un mensaje supera el tiempo de espera, el cliente de mantenimiento lo sigue intentando hasta que el almacén de estado confirme que el informe se ha procesado. Valor predeterminado: dos minutos.
 
-> [AZURE.NOTE]Cuando los informes se procesan por lotes, el cliente de Fabric se debe mantener activo durante al menos el valor de HealthReportSendInterval para tener la seguridad de que se envían. Si el mensaje se pierde o el almacén de estado no es capaz de aplicarlos debido a errores transitorios, el cliente de Fabric debe mantenerse activo más tiempo para darle una oportunidad de volver a intentarlo.
+> [AZURE.NOTE] Cuando los informes se procesan por lotes, el cliente de Fabric se debe mantener activo durante al menos el valor de HealthReportSendInterval para tener la seguridad de que se envían. Si el mensaje se pierde o el almacén de estado no es capaz de aplicarlos debido a errores transitorios, el cliente de Fabric debe mantenerse activo más tiempo para darle una oportunidad de volver a intentarlo.
 
 El almacenamiento en búfer en el cliente toma en consideración el carácter único de los informes. Por ejemplo, si un informador incorrecto determinado notifica 100 informes por segundo en la misma propiedad de la misma entidad, los informes se reemplazarán por la versión más reciente. A lo sumo existirá un informe de este tipo en la cola de cliente. Si se configura el procesamiento por lotes, el número de informes que se envían al almacén de estado es simplemente uno por intervalo de envío. Este es el último informe agregado, que refleja el estado más reciente de la entidad. Todos los parámetros de configuración pueden especificarse al crear **FabricClient**, pasando **FabricClientSettings** con los valores deseados para las entradas relacionadas con el estado.
 
@@ -104,7 +104,7 @@ GatewayInformation   : {
                        }
 ```
 
-> [AZURE.NOTE]Para asegurarse de que los servicios no autorizados no puedan notificar el estado en las entidades del clúster, el servidor se puede configurar para que acepte solamente solicitudes de clientes protegidos. Como los informes se realizan a través de FabricClient, este debe tener habilitada la seguridad para poder comunicarse con el clúster (por ejemplo, con la autenticación Kerberos o de certificados).
+> [AZURE.NOTE] Para asegurarse de que los servicios no autorizados no puedan notificar el estado en las entidades del clúster, el servidor se puede configurar para que acepte solamente solicitudes de clientes protegidos. Como los informes se realizan a través de FabricClient, este debe tener habilitada la seguridad para poder comunicarse con el clúster (por ejemplo, con la autenticación Kerberos o de certificados).
 
 ## Informes de estado del diseño
 El primer paso en la generación de informes de alta calidad es identificar las condiciones que pueden afectar al estado del servicio. Cualquier condición que puede ayudar a indicar los problemas en el servicio o el clúster cuando se inicia, o mejor aún, antes de que ocurran, puede suponer un ahorro potencial de miles de millones de dólares. Las ventajas incluyen menos tiempo de inactividad, menos noches dedicadas a investigar y reparar problemas y una mayor satisfacción del cliente.
@@ -119,7 +119,7 @@ En ocasiones, un guardián que se ejecuta en el clúster tampoco es una opción.
 
 Cuando los detalles del guardián hayan finalizado, debe determinar un identificador de origen que lo identifique de forma única. Si en el clúster viven varios guardianes del mismo tipo, deben informar en entidades diferentes, o, si informan en la misma entidad, asegurarse de que el identificador de origen o la propiedad sean diferentes. De este modo, los informes podrán coexistir. La propiedad del informe de estado debe capturar la condición supervisada. (En el ejemplo anterior, la propiedad puede ser **ShareSize**). Si se aplican varios informes a la misma condición, la propiedad debe contener cierta información dinámica para permitir que los informes coexistan. Por ejemplo, si hay varios recursos compartidos que deben supervisarse, el nombre de propiedad puede ser **ShareSize-sharename**.
 
-> [AZURE.NOTE]El almacén de estado *no* debe usarse para mantener la información de estado. Solo la información relacionada con el mantenimiento se debe notificar como estado, dado que esta información afecta a la evaluación del mantenimiento de una entidad. El almacén de estado no se diseñó como almacén de uso general. Usa una lógica de evaluación de estado para agregar todos los datos al estado de mantenimiento. El envío de información no relacionada con el estado (por ejemplo, el informe del estado con un estado de mantenimiento de correcto) no afectará al estado de mantenimiento agregado, pero puede afectar negativamente al rendimiento del almacén de estado.
+> [AZURE.NOTE] El almacén de estado *no* debe usarse para mantener la información de estado. Solo la información relacionada con el mantenimiento se debe notificar como estado, dado que esta información afecta a la evaluación del mantenimiento de una entidad. El almacén de estado no se diseñó como almacén de uso general. Usa una lógica de evaluación de estado para agregar todos los datos al estado de mantenimiento. El envío de información no relacionada con el estado (por ejemplo, el informe del estado con un estado de mantenimiento de correcto) no afectará al estado de mantenimiento agregado, pero puede afectar negativamente al rendimiento del almacén de estado.
 
 El siguiente punto de decisión trata de en qué entidad informar. La mayoría de veces, resulta obvio según la condición. Debe elegir la entidad con la mejor granularidad posible. Si una condición afecta a todas las réplicas de una partición, haga un informe sobre la partición, no sobre el servicio. Hay casos excepcionales en los que es necesario dedicar más esfuerzo. Si la condición afecta a una entidad (por ejemplo, a una réplica) pero lo que se quiere es marcar la condición durante un período superior al de la duración de la réplica, se debe notificar en la partición. De lo contrario, cuando se elimine la réplica, todos los informes asociados a ella se limpiarán del almacén. Esto significa que los escritores de guardianes también deben pensar en la duración de la entidad y el informe. Debe quedar claro cuándo se debe limpiar un informe de un almacén (por ejemplo, cuándo se deja de aplicar un error notificado en una entidad).
 
@@ -275,4 +275,4 @@ Según los datos del estado, los escritores del servicio y los administradores d
 
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

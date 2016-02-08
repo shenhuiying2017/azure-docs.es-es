@@ -39,9 +39,7 @@ En este momento, no tenemos una solución para las conexiones de red virtual a r
 
 La conexión de una red virtual a otra (VNet a VNet) es muy parecida a la conexión de una red virtual a la ubicación de un sitio local. Ambos tipos de conectividad usan una puerta de enlace de VPN para proporcionar un túnel seguro con IPsec/IKE. Las redes virtuales que se conecten pueden estar en regiones distintas. Incluso puede combinar la comunicación de red virtual a red virtual con configuraciones de varios sitios. Esto permite establecer topologías de red que combinen la conectividad entre entornos con la conectividad entre redes virtuales, como se muestra en el diagrama siguiente.
 
-
 ![Diagrama de conectividad VNet a VNet](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
-
  
 ### ¿Por qué debería conectarse a redes virtuales?
 
@@ -86,7 +84,7 @@ En este artículo, se le guiará en la conexión de dos redes virtuales: VNet1 y
 ### Antes de empezar
 
 
-- Compruebe que tiene una suscripción a Azure. Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Compruebe que tiene una suscripción a Azure. Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 - Instale módulos de PowerShell. Necesitará la versión más reciente de los cmdlets de PowerShell del Administrador de recursos de Azure para configurar la conexión.[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
 
@@ -264,4 +262,4 @@ Después de comprobar que las subredes de la puerta de enlace están configurada
 
 Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Vea [Creación de una máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md) para ver los pasos.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

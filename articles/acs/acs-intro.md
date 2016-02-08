@@ -28,7 +28,7 @@ ACS usa Docker para garantizar que los contenedores de su aplicación sean compl
 
 El servicio Contenedor de Azure permite aprovechar las características empresariales de Azure sin dejar de mantener la portabilidad de aplicaciones, incluso en las capas de orquestación.
 
-Mientras el servicio se encuentra en versión de vista previa, pedimos a todos los interesados en probarlo que se [propongan a sí mismos](http://aka.ms/acspreview). Una vez que se ha proporcionado acceso a la versión de vista previa, se enviará un correo electrónico con información adicional como plantillas de implementación e instrucciones de introducción. Para usar el servicio, necesitará una suscripción de Azure. Si aún no la tiene, ¿por qué no se suscribe a una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)?
+Mientras el servicio se encuentra en versión de vista previa, pedimos a todos los interesados en probarlo que se [propongan a sí mismos](http://aka.ms/acspreview). Una vez que se ha proporcionado acceso a la versión de vista previa, se enviará un correo electrónico con información adicional como plantillas de implementación e instrucciones de introducción. Para usar el servicio, necesitará una suscripción de Azure. Si aún no la tiene, ¿por qué no se suscribe a una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)?
 
 Uso del servicio Contenedor de Azure
 -----------------------------
@@ -104,16 +104,16 @@ Los usuarios de la versión de vista previa recibirán documentación y soporte 
 Obtención de acceso
 --------------
 
-Mientras el servicio se encuentra en versión de vista previa, pedimos a todos los interesados en probarlo que se [propongan a sí mismos](http://aka.ms/acspreview). En primer lugar, necesitará una suscripción de Azure. Si aún no la tiene, ¿por qué no se suscribe a una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)?
+Mientras el servicio se encuentra en versión de vista previa, pedimos a todos los interesados en probarlo que se [propongan a sí mismos](http://aka.ms/acspreview). En primer lugar, necesitará una suscripción de Azure. Si aún no la tiene, ¿por qué no se suscribe a una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)?
 
 Vídeos
 ------
 Anuncio de AzureCon:
 
-> [AZURE.VIDEO azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
+> [AZURE.VIDEO azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]  
 
 Introducción a ACS:
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

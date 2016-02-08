@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 
@@ -79,7 +79,7 @@ Para que la característica Análisis de uso pueda recopilar y analizar datos, e
 1. Haga clic en **Inicio**, seleccione **Programas**, **Herramientas administrativas** y luego haga clic en **Directiva de seguridad local**.
 2. Navegue hasta la carpeta **Configuración de seguridad\\Directivas locales\\Administración de derechos de usuario** y haga doble clic en Generar auditorías de seguridad.
 3. En la pestaña **Configuración de seguridad local**, compruebe que aparezca la cuenta de servicio de AD FS 2.0. Si no aparece, haga clic en **Agregar usuario o grupo**, agréguela a la lista y luego haga clic en **Aceptar**.
-4. Abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando para habilitar la auditoría.<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
+4. Abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando para habilitar la auditoría.<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
 5. Cierre Directiva de seguridad local y luego abra el complemento de administración. Para abrir el complemento de administración, haga clic en **Inicio**, seleccione **Programas**, **Herramientas administrativas** y luego haga clic en Administración de AD FS 2.0.
 6. En el panel Acciones, haga clic en Editar propiedades del servicio de federación.
 7. En el cuadro de diálogo **Propiedades del servicio de federación**, haga clic en la pestaña **Eventos**.
@@ -88,7 +88,7 @@ Para que la característica Análisis de uso pueda recopilar y analizar datos, e
 
 #### Para habilitar la auditoría de AD FS en Windows Server 2012 R2
 
-1. Abra **Directiva de seguridad local**; para ello, abra **Administrador del servidor** en la pantalla Inicio o Administrador del servidor en la barra de tareas del escritorio y luego haga clic en **Herramientas/Directiva de seguridad local**.
+1. Abra **Directiva de seguridad local**; para ello, abra **Administrador del servidor** en la pantalla Inicio o Administrador del servicio en la barra de tareas del escritorio y luego haga clic en **Herramientas/Directiva de seguridad local**.
 2. Navegue hasta la carpeta **Configuración de seguridad\\Directivas locales\\Asignación de derechos de usuario** y haga doble clic en **Generar auditorías de seguridad**.
 3. En la pestaña **Configuración de seguridad local**, compruebe que aparezca la cuenta de servicio de AD FS. Si no aparece, haga clic en **Agregar usuario o grupo**, agréguela a la lista y luego haga clic en **Aceptar**.
 4. Abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando para habilitar la auditoría:<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
@@ -112,7 +112,7 @@ Para que la característica Análisis de uso pueda recopilar y analizar datos, e
 
 ![Registros de auditoría de AD FS](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 
-> [AZURE.WARNING]Si tiene una directiva de grupo que deshabilita la auditoría de AD FS, el agente de Azure AD Connect Health no podrá recopilar información. Asegúrese de no tener ninguna directiva de grupo de este tipo.
+> [AZURE.WARNING] Si tiene una directiva de grupo que deshabilita la auditoría de AD FS, el agente de Azure AD Connect Health no podrá recopilar información. Asegúrese de no tener ninguna directiva de grupo de este tipo.
 
 [//]: # "Inicio de la sección de configuración del proxy del agente"
 
@@ -126,7 +126,7 @@ Para comprobar que se instaló el agente, abra los servicios y busque lo siguien
  
 ![Comprobación de Azure AD Connect Health para sincronización](./media/active-directory-aadconnect-health-sync/services.png)
 
->[Azure.NOTE]Recuerde que el uso de Azure AD Connect Health requiere Azure AD Premium. Si no tiene Azure AD Premium no podrá completar la configuración en el portal de Azure. Para obtener más información, consulte los requisitos [aquí](active-directory-aadconnect-health.md#requirements).
+>[Azure.NOTE] Recuerde que el uso de Azure AD Connect Health requiere Azure AD Premium. Si no tiene Azure AD Premium no podrá completar la configuración en el portal de Azure. Para obtener más información, consulte los requisitos [aquí](active-directory-aadconnect-health.md#requirements).
 
 
 
@@ -134,12 +134,13 @@ Para comprobar que se instaló el agente, abra los servicios y busque lo siguien
 ## Configuración de agentes de Azure AD Connect Health para usar el proxy HTTP
 Puede configurar agentes de Azure AD Connect Health para trabajar con un proxy HTTP
 
->[AZURE.NOTE]- El uso de "Netsh WinHttp set ProxyServerAddress" no funcionará ya que el agente utiliza System.Net para realizar solicitudes web en lugar de los servicios HTTP de Microsoft Windows. - La dirección del proxy Http configurada se utilizará para pasar mensajes Https cifrados. - No se admiten servidores proxy autenticados (mediante HTTPBasic).
+>[AZURE.NOTE]
+- El uso de "Netsh WinHttp set ProxyServerAddress" no funcionará ya que el agente utiliza System.Net para realizar solicitudes web en lugar de los servicios HTTP de Microsoft Windows. - La dirección del proxy Http configurada se utilizará para pasar mensajes Https cifrados. - No se admiten servidores proxy autenticados (mediante HTTPBasic).
 
 ### Cambio de configuración del proxy del agente de estado
 Tiene las siguientes opciones para configurar el agente de Azure AD Connect Health para utilizar a un proxy HTTP.
 
->[AZURE.NOTE]Debe reiniciar todos los servicios del agente de Azure AD Connect Health para la configuración de proxy. Ejecute el siguiente comando:<br> Restart-Service AdHealth*
+>[AZURE.NOTE] Debe reiniciar todos los servicios del agente de Azure AD Connect Health para la configuración de proxy. Ejecute el siguiente comando:<br> Restart-Service AdHealth*
 
 #### Importación de configuración de proxy existente
 
@@ -186,4 +187,4 @@ Puede utilizar el comando siguiente para leer la configuración de proxy definid
 * [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

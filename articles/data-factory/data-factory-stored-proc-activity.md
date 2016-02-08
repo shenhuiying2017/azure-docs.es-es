@@ -53,13 +53,15 @@ name | Nombre de la actividad | Sí
 description | Texto que describe para qué se usa la actividad. | No
 type | SqlServerStoredProcedure | Sí
 inputs | Los conjuntos de datos de entrada que deben estar disponibles (en estado "Listo") para que se ejecute la actividad de procedimiento almacenado. Las entradas a la actividad de procedimiento almacenado solo se usan para la administración de dependencias al encadenar esta actividad con otras. Los conjuntos de datos de entrada no se pueden usar en el procedimiento almacenado como parámetro. | No
-outputs | Conjuntos de datos de salida generados por la actividad de procedimiento almacenado. Asegúrese de que la tabla de salida usa un servicio vinculado que vincula una Base de datos SQL de Azure o un Almacenamiento de datos SQL de Azure a la Factoría de datos. Las salidas de la actividad de procedimiento almacenado pueden servir como una forma de pasar el resultado de la actividad de procedimiento almacenado para el posterior procesamiento o como administración de dependencias cuando se encadena esta actividad con otras. | Sí
+outputs | Conjuntos de datos de salida generados por la actividad de procedimiento almacenado. Asegúrese de que la tabla de salida usa un servicio vinculado que vincule una Base de datos SQL de Azure o un Almacenamiento de datos SQL de Azure con la Factoría de datos. Las salidas de la actividad de procedimiento almacenado pueden servir como una forma de pasar el resultado de la actividad de procedimiento almacenado para el posterior procesamiento o como administración de dependencias cuando se encadena esta actividad con otras. | Sí
 storedProcedureName | Especifique el nombre del procedimiento almacenado en la Base de datos SQL de Azure o en el Almacenamiento de datos SQL de Azure que se representa mediante el servicio vinculado que usa la tabla de salida. | Sí
 storedProcedureParameters | Especifique valores para los parámetros de procedimiento almacenado. | No
 
 ## Tutorial de ejemplo
 
 ### Procedimiento almacenado y tabla de ejemplo
+> [AZURE.NOTE] En este ejemplo se usa Base de datos SQL de Azure, pero funciona de la misma manera con Almacenamiento de datos SQL de Azure y Base de datos de SQL Server.
+
 1. Cree la siguiente **tabla** en la Base de datos SQL de Azure con SQL Server Management Studio o cualquier otra herramienta que le resulte cómoda. La columna datetimestamp indica la fecha y la hora en que se generó el identificador correspondiente. 
 
 		CREATE TABLE dbo.sampletable
@@ -84,10 +86,10 @@ storedProcedureParameters | Especifique valores para los parámetros de procedim
 		    VALUES (newid(), @DateTime)
 		END
 
-	> [AZURE.IMPORTANT]El **nombre** y el **uso de mayúsculas y minúsculas** en el parámetro (DateTime en este ejemplo) deben coincidir con los del parámetro especificado en el código JSON de la canalización o actividad. En la definición del procedimiento almacenado, asegúrese de que se usa **@** como prefijo del parámetro.
+	> [AZURE.IMPORTANT] El **nombre** y el **uso de mayúsculas y minúsculas** en el parámetro (DateTime en este ejemplo) deben coincidir con los del parámetro especificado en el código JSON de la canalización o actividad. En la definición del procedimiento almacenado, asegúrese de que se usa **@** como prefijo del parámetro.
 	
 ### Crear una factoría de datos  
-4. Tras iniciar sesión en el [Portal de Azure](http://portal.azure.com/), haga lo siguiente:
+4. Tras iniciar sesión en el [Portal de Azure](https://portal.azure.com/), haga lo siguiente:
 	1.	Haga clic en **NUEVO** en el menú de la izquierda. 
 	2.	Haga clic en **Análisis de datos** en la hoja **Creación**.
 	3.	Haga clic en **Factoría de datos** en la hoja **Análisis de datos**.
@@ -177,7 +179,7 @@ Ahora, vamos a crear una canalización con una actividad SqlServerStoredProcedur
 
 	Vea [Supervisar la canalización](data-factory-monitor-manage-pipelines.md) para obtener información detallada sobre cómo supervisar las canalizaciones de Factoría de datos de Azure.
 
-> [AZURE.NOTE]En el ejemplo anterior, SprocActivitySample no tiene entradas. Si desea vincular esta cadena con una actividad de nivel superior (por ejemplo, antes del procesamiento), las salidas de la actividad de nivel superior pueden usarse como entradas en esta actividad. En este caso, esta actividad no se ejecutará hasta que se completa la actividad de nivel superior y las salidas de dichas actividades están disponibles (en estado Listo). Las entradas no se pueden usar directamente como un parámetro para la actividad de procedimiento almacenado.
+> [AZURE.NOTE] En el ejemplo anterior, SprocActivitySample no tiene entradas. Si desea vincular esta cadena con una actividad de nivel superior (por ejemplo, antes del procesamiento), las salidas de la actividad de nivel superior pueden usarse como entradas en esta actividad. En este caso, esta actividad no se ejecutará hasta que se completa la actividad de nivel superior y las salidas de dichas actividades están disponibles (en estado Listo). Las entradas no se pueden usar directamente como un parámetro para la actividad de procedimiento almacenado.
 
 ## Pasar un valor estático 
 Ahora, pensemos en agregar otra columna denominada 'Escenario' en la tabla que contiene un valor estático denominado 'Ejemplo de documento'.
@@ -205,4 +207,4 @@ Para ello, pase el parámetro Escenario y el valor de la actividad de procedimie
 		}
 	}
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

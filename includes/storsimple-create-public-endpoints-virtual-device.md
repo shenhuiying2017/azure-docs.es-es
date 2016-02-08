@@ -1,12 +1,12 @@
 #### Para crear puntos de conexión públicos en el dispositivo virtual
 
-1. Inicie sesión en el Portal de administración.
+1. Inicie sesión en el portal clásico de Azure.
 
 - Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual que se utiliza como dispositivo virtual.
 
-- Haga clic en **Extremos**. En la página Extremos aparecen todos los extremos para la máquina virtual.
+- Haga clic en **Extremos**. En la página **Extremos** aparecen todos los extremos para la máquina virtual.
 
-- Haga clic en **Agregar**. Aparecerá el cuadro de diálogo Agregar extremo. Haga clic en la flecha para continuar.
+- Haga clic en **Agregar**. Aparecerá el cuadro de diálogo **Add Endpoint**. Haga clic en la flecha para continuar.
 
 - Para el **Nombre**, escriba el siguiente nombre para el extremo: **WinRMHttps**.
 
@@ -16,8 +16,8 @@
 
 - Para el **puerto privado**, escriba **5986**.
 
-- Haga clic en la marca de verificación para crear el extremo.
+- Haga clic en la marca de verificación para crear el punto de conexión.
 
-Una vez creado el extremo, puede ver sus detalles para determinar la dirección IP virtual (VIP) pública. Anote esta dirección.
+Una vez creado el punto de conexión, puede ver sus detalles para determinar la dirección IP virtual (VIP) pública. Anote esta dirección.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

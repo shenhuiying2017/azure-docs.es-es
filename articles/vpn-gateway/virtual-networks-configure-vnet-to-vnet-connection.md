@@ -126,7 +126,7 @@ En la página **Servidores DNS y conectividad VPN**, escriba la información sig
 
   - No seleccione ninguna casilla. Tan solo haga clic en la flecha de la parte inferior derecha para pasar a la pantalla siguiente.
 
-**En la página Espacios de direcciones de la red virtual**, especifique el intervalo de direcciones que quiere usar para la red virtual. Estas son las direcciones IP dinámicas (DIPS) que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual. Es especialmente importante seleccionar un intervalo que no se superponga con ninguno de los intervalos usados para la red local. Necesitará coordinarse con el administrador de red, quien es posible que necesite definir un intervalo de direcciones IP desde el espacio de direcciones de red local para el uso en la red virtual.
+**En la página Espacios de direcciones de la red virtual**, especifique el intervalo de direcciones que desea usar para la red virtual. Estas son las direcciones IP dinámicas (DIPS) que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual. Es especialmente importante seleccionar un intervalo que no se superponga con ninguno de los intervalos usados para la red local. Necesitará coordinarse con el administrador de red, quien es posible que necesite definir un intervalo de direcciones IP desde el espacio de direcciones de red local para el uso en la red virtual.
 
 
   ![Página Espacios de direcciones de la red virtual](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
@@ -198,7 +198,7 @@ Ahora que tiene configuradas las redes virtuales, configurará las puertas de en
 
 ## Paso 7: Conectar las puertas de enlace de VPN
 
-Una vez completados los pasos anteriores, definirá las claves compartidas previamente de IPsec/IKE para que sean iguales. Puede hacerlo con una API de REST o un cmdlet de PowerShell. Si usa PowerShell, compruebe que tiene la [versión más reciente](http://azure.microsoft.com/downloads/) de los cmdlets de Microsoft Azure PowerShell. Los ejemplos siguientes usan cmdlets de PowerShell para establecer el valor de clave en A1b2C3D4. Observe que las dos usan el mismo valor de clave. Edite los ejemplos siguientes para especificar sus propios valores.
+Una vez completados los pasos anteriores, definirá las claves compartidas previamente de IPsec/IKE para que sean iguales. Puede hacerlo con una API de REST o un cmdlet de PowerShell. Si usa PowerShell, compruebe que tiene la [versión más reciente](https://azure.microsoft.com/downloads/) de los cmdlets de Microsoft Azure PowerShell. Los ejemplos siguientes usan cmdlets de PowerShell para establecer el valor de clave en A1b2C3D4. Observe que las dos usan el mismo valor de clave. Edite los ejemplos siguientes para especificar sus propios valores.
 
 Para VNet1
 
@@ -223,4 +223,4 @@ Una vez completada la conexión, puede agregar máquinas virtuales a las redes v
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

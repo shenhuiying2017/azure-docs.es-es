@@ -27,7 +27,7 @@ Cada etiqueta que agrega a un recurso o a un grupo de recursos se agrega automá
 
 Cada recurso o grupo de recursos puede tener un máximo de 15 etiquetas. El nombre de etiqueta está limitado a 512 caracteres y el valor de la etiqueta, a 256.
 
-> [AZURE.NOTE]Solo puede aplicar etiquetas a recursos que admiten operaciones del Administrador de recursos. Si creó una máquina virtual, una red virtual o un almacenamiento a través del modelo de implementación clásica (por ejemplo, a través del Portal de Azure o la [API de administración de servicios](../services/api-management/)), no puede aplicar una etiqueta a ese recurso. Debe volver a implementar estos recursos mediante el Administrador de recursos para admitir el etiquetado. Todos los demás recursos admiten el etiquetado.
+> [AZURE.NOTE] Solo puede aplicar etiquetas a recursos que admiten operaciones del Administrador de recursos. Si creó una máquina virtual, una red virtual o un almacenamiento a través del modelo de implementación clásica (por ejemplo, a través del Portal de Azure o la [API de administración de servicios](../services/api-management/)), no puede aplicar una etiqueta a ese recurso. Debe volver a implementar estos recursos mediante el Administrador de recursos para admitir el etiquetado. Todos los demás recursos admiten el etiquetado.
 
 ## Etiquetas de plantillas
 
@@ -183,4 +183,4 @@ Al descargar el CSV de uso correspondiente a los servicios que admiten etiquetas
 - Para obtener información sobre cómo usar la interfaz de la línea de comandos de Azure al implementar recursos, consulte [Uso de la interfaz de la línea de comandos de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](./xplat-cli-azure-resource-manager.md).
 - Para obtener información sobre cómo usar el portal, consulte [Uso del Portal de Azure para administrar los recursos de Azure](./resource-group-portal.md)  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

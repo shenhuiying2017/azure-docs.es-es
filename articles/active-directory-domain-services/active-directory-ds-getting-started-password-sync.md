@@ -4,7 +4,7 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Servicios de dominio de Azure AD *(vista previa)*: introducción
@@ -46,15 +46,13 @@ Si el inquilino de Azure AD de la organización está configurado para sincroniz
 
 #### Instalación o actualización de Azure AD Connect
 
-Deberá instalar la versión recomendada más reciente de Azure AD Connect en un equipo unido a un dominio. Si tiene una instancia existente del programa de instalación de Azure AD Connect, deberá actualizarla para usar la compilación de disponibilidad general de Azure AD Connect. Asegúrese de usar la versión actual de Azure AD Connect, con el fin de evitar errores y problemas conocidos.
+Deberá instalar la versión recomendada más reciente de Azure AD Connect en un equipo unido a un dominio. Si tiene una instancia existente del programa de instalación de Azure AD Connect, deberá actualizarla para usar la compilación de disponibilidad general de Azure AD Connect. Asegúrese de usar la versión más reciente de Azure AD Connect, con el fin de evitar errores y problemas conocidos.
 
 **[Descarga de Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Versión mínima recomendada: **1.0.9125**, publicada el 3 de noviembre de 2015.
+Versión mínima recomendada: **1.0.9131**, publicada el 3 de diciembre de 2015.
 
-  >[AZURE.WARNING]Para permitir que las credenciales de contraseñas heredadas (necesarias para la autenticación de NTLM y Kerberos) se sincronicen con el inquilino de Azure AD, DEBE instalar la versión recomendada más reciente de Azure AD Connect. Esta funcionalidad no está disponible en versiones anteriores de Azure AD Connect o con la herramienta DirSync heredada.
-
-NOTA: Ya no es necesario crear la clave del Registro 'EnableWindowsLegacyCredentialsSync' con la versión más reciente de Azure AD Connect (es decir, 1.0.9125 y versiones posteriores).
+  >[AZURE.WARNING] Para permitir que las credenciales de contraseñas heredadas (necesarias para la autenticación de NTLM y Kerberos) se sincronicen con el inquilino de Azure AD, DEBE instalar la versión recomendada más reciente de Azure AD Connect. Esta funcionalidad no está disponible en versiones anteriores de Azure AD Connect o con la herramienta DirSync heredada.
 
 Puede encontrar las instrucciones de instalación de Azure AD Connect en el siguiente artículo: [Introducción a Azure AD Connect](../active-directory/active-directory-aadconnect.md).
 
@@ -79,4 +77,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 En función del tamaño de su directorio (número de usuarios, grupos etc.), la sincronización de credenciales con Azure AD llevará tiempo. Las contraseñas se podrán usar en el dominio administrado de los Servicios de dominio de Azure AD poco después de que los valores hash se hayan sincronizado con Azure AD.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

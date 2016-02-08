@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Administración de un servicio en la nube | Microsoft Azure" 
+	pageTitle="Tareas de administración de servicios en la nube comunes (clásicas) | Microsoft Azure" 
 	description="Vea cómo administrar servicios en la nube en el Portal de Azure clásico." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/20/2016"
 	ms.author="adegeo"/>
 
 
@@ -155,7 +155,8 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 
 5. Para eliminar el servicio en la nube, haga clic en **Eliminar servicio en la nube**. Luego, haga clic en **Sí** en la solicitud de confirmación.
 
-> [AZURE.NOTE]Si se configura una supervisión detallada para su servicio en la nube, Azure no elimina los datos de supervisión de la cuenta de almacenamiento al eliminar el servicio en la nube. Tendrá que eliminar los datos manualmente. Para obtener información sobre dónde buscar las tablas de métricas, vea "Acceso a datos de supervisión detallada fuera del Portal de Azure clásico" en [Supervisión de servicios en la nube](cloud-services-how-to-monitor.md).
+> [AZURE.NOTE]
+Si se configura una supervisión detallada para su servicio en la nube, Azure no elimina los datos de supervisión de la cuenta de almacenamiento al eliminar el servicio en la nube. Tendrá que eliminar los datos manualmente. Para obtener información sobre dónde buscar las tablas de métricas, vea "Acceso a datos de supervisión detallada fuera del Portal de Azure clásico" en [Supervisión de servicios en la nube](cloud-services-how-to-monitor.md).
 
 ## Pasos siguientes
 
@@ -164,4 +165,4 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

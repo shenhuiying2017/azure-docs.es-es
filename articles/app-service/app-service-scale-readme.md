@@ -19,7 +19,7 @@
 	
 # Servicio de aplicaciones de Azure: escalado de aplicaciones de Servicio de aplicaciones
 
-Las aplicaciones hospedadas en Servicio de aplicaciones de Azure pueden [lograr una escala masiva](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage); sin embargo, la tarea de escalar una aplicación es compleja y no existe una solución que sirva para todas las situaciones. Para escalar correctamente su aplicación, tenga en cuenta tres áreas clave que contribuirán a su éxito:
+Las aplicaciones hospedadas en el Servicio de aplicaciones de Azure pueden [lograr una escala masiva](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage/); sin embargo, la tarea de escalar una aplicación es compleja y no existe una solución que sirva para todas las situaciones. Para escalar correctamente su aplicación, tenga en cuenta tres áreas clave que contribuirán a su éxito:
 
 1. Comprensión de la arquitectura de la aplicación y sus puntos débiles.
 	* ¿Se trata de una aplicación con estado? ¿O sin estado?
@@ -38,4 +38,4 @@ Esta sección lo ayudará a comprender todos los factores y a diseñar una estra
 
 [AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

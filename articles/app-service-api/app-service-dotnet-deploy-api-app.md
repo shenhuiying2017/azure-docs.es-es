@@ -129,4 +129,4 @@ Las aplicaciones de API son aplicaciones web con características adicionales pa
 
 Para obtener información sobre las características de las aplicaciones de API, consulte [¿Qué son las aplicaciones de API?](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

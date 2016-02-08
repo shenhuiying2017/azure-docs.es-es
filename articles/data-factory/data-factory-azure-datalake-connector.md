@@ -19,7 +19,8 @@
 # Movimiento de datos hacia y desde el almacén de Azure Data Lake mediante la Factoría de datos de Azure
 En este artículo se describe cómo puede usar la actividad de copia en una Factoría de datos de Azure para mover datos al Almacén de Azure Data Lake desde otro almacén de datos, y viceversa. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
-> [AZURE.NOTE]Antes de crear una canalización con una actividad de copia para mover datos hacia y desde un almacén de Azure Data Lake, debe crear una cuenta de almacén de Azure Data Lake. Para obtener más información sobre el almacén de Azure Data Lake, consulte [Introducción al almacén de Azure Data Lake](../data-lake-store/data-lake-store-get-started-portal.md).
+> [AZURE.NOTE]
+Antes de crear una canalización con una actividad de copia para mover datos hacia y desde un almacén de Azure Data Lake, debe crear una cuenta de almacén de Azure Data Lake. Para obtener más información sobre el almacén de Azure Data Lake, consulte [Introducción al almacén de Azure Data Lake](../data-lake-store/data-lake-store-get-started-portal.md).
 >  
 > Revise el [tutorial Compilación de la primera canalización ](data-factory-build-your-first-pipeline.md) para ver los pasos detallados para crear una factoría de datos, servicios vinculados, conjuntos de datos y una canalización. Use los fragmentos de código JSON con el Editor de Factoría de datos, Visual Studio o Azure PowerShell para crear las entidades de Factoría de datos.
 
@@ -74,7 +75,7 @@ El procedimiento siguiente proporciona los pasos para crear un servicio vinculad
 5. (Opcional) Especifique valores para los parámetros opcionales, como **accountName**, **subscriptionID** y **resourceGroupName**, del código JSON o bien elimine esas propiedades de dicho código.
 6. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
-> [AZURE.IMPORTANT]El código de autorización que se generó al hacer clic en el botón **Autorizar** expira poco tiempo después. Necesitará **volver a dar la autorización** con el botón **Autorizar** cuando el **token expire** y volver a implementar el servicio vinculado. Para más información, consulte [Propiedades del servicio vinculado de Almacén de Azure Data Lake](#azure-data-lake-store-linked-service-properties).
+> [AZURE.IMPORTANT] El código de autorización que se generó al hacer clic en el botón **Autorizar** expira poco tiempo después. Necesitará **volver a dar la autorización** con el botón **Autorizar** cuando el **token expire** y volver a implementar el servicio vinculado. Para más información, consulte [Propiedades del servicio vinculado de Almacén de Azure Data Lake](#azure-data-lake-store-linked-service-properties).
 
 
 
@@ -238,7 +239,7 @@ El ejemplo copia los datos pertenecientes a una serie temporal desde un almacén
 	    }
 	}
 
-> [AZURE.NOTE]Vea los pasos del ejemplo anterior para obtener la dirección URL de autorización.
+> [AZURE.NOTE] Vea los pasos del ejemplo anterior para obtener la dirección URL de autorización.
 
 **Servicio vinculado de Almacenamiento de Azure:**
 
@@ -415,9 +416,9 @@ El código de autorización que se generó al hacer clic en el botón **Autoriza
 | :-------- | :----------- | 
 | No es usuario de AAD (@hotmail.com, @live.com, etc.) | 12 horas |
 | El usuario de AAD y el origen basado en OAuth están en un [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que no es el de la Factoría de datos del usuario. | 12 horas |
-| El usuario de AAD y el origen basado en OAuth están en el mismo inquilino que la Factoría de datos del usuario. | <p> El máximo es 90 días si el usuario ejecuta segmentos según su origen del servicio vinculado basado en OAuth al menos una vez cada 14 días. </p><p>Durante los 90 días esperados, si el usuario no ha ejecutado ningún segmento basado en dicho origen en 14 días, las credenciales expirarían inmediatamente 14 días después de su último segmento.</p> |
+| El usuario de AAD y el origen basado en OAuth se encuentran en el mismo inquilino que la Factoría de datos. | 14 días |
 
-Para evitar o resolver este error, será preciso que vuelva a dar la autorización con el botón **Autorizar** cuando el **token expire** y vuelva a implementar el servicio vinculado. También puede generar valores para las propiedades **sessionId** y **authorization** mediante programación, para lo que usará el código de la sección siguiente.
+Para evitar o resolver este error, tendrá que volver a dar la autorización con el botón **Autorizar** cuando el **token expire** y volver a implementar el servicio vinculado. También puede generar valores para las propiedades **sessionId** y **authorization** mediante programación, para lo que usará el código de la sección siguiente.
 
 ### Para generar los valores de sessionId y authorization mediante programación 
 
@@ -444,7 +445,7 @@ Para evitar o resolver este error, será preciso que vuelva a dar la autorizaci�
         }
     }
 
-Para más información sobre las clases de Factoría de datos que se usan en el código, consulte los temas [clase AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService clase](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [AuthorizationSessionGetResponse clase](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
+Para más información sobre las clases de Factoría de datos que se usan en el código, vea los temas [Clase AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Clase AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [Clase AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
  
 
 ## Propiedades de tipo del conjunto de datos de Azure Data Lake
@@ -604,4 +605,4 @@ Por otro lado, las propiedades disponibles en la sección typeProperties de la a
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

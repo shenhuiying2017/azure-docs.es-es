@@ -31,7 +31,7 @@ Los tres métodos de enrutamiento del tráfico del Administrador de tráfico son
 
 Tenga en cuenta que Sitios web de Azure ya proporciona la funcionalidad del método de enrutamiento de tráfico round robin de conmutación por error para sitios web de un centro de datos, independientemente del modo del sitio web. El Administrador de tráfico permite especificar el enrutamiento de tráfico de conmutación por error y de round robin para sitios web en distintos centros de datos.
 
->[AZURE.NOTE]El período de vida (TTL) de DNS informa a los clientes y a las resoluciones DNS en los servidores DNS sobre el período de tiempo durante el que se deben almacenar los nombres resueltos en la memoria caché. Los clientes seguirán usando un extremo determinado cuando resuelvan su nombre de dominio hasta que expire la entrada de la memoria caché de DNS local para el nombre.
+>[AZURE.NOTE] El período de vida (TTL) de DNS informa a los clientes y a las resoluciones DNS en los servidores DNS sobre el período de tiempo durante el que se deben almacenar los nombres resueltos en la memoria caché. Los clientes seguirán usando un extremo determinado cuando resuelvan su nombre de dominio hasta que expire la entrada de la memoria caché de DNS local para el nombre.
 
 ## Método de enrutamiento de tráfico de conmutación por error
 
@@ -85,7 +85,7 @@ En este momento, no puede usar el Portal de Azure para configurar el enrutamient
 
 Para obtener información acerca del uso de las API de REST, consulte [Operaciones en el Administrador de tráfico (referencia de la API de REST)](http://go.microsoft.com/fwlink/p/?LinkId=313584).
 
-Para obtener información acerca del uso de los cmdlets de Azure PowerShell, consulte [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769). Para obtener una configuración de ejemplo, consulte [Extremos externos del Administrador de tráfico de Azure y Round Robin ponderado a través de PowerShell](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) en el blog de Azure.
+Para obtener información acerca del uso de los cmdlets de Azure PowerShell, consulte [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769). Para obtener una configuración de ejemplo, consulte [Extremos externos del Administrador de tráfico de Azure y Round Robin ponderado a través de PowerShell](https://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) en el blog de Azure.
 
 Para probar el perfil desde un solo cliente y observar el comportamiento de round robin igual o ponderado, compruebe que el nombre de DNS se resuelve en direcciones IP distintas de los extremos según los valores iguales o ponderados en el perfil. Cuando realice comprobaciones, debe deshabilitar el almacenamiento en memoria caché de DNS del cliente o limpiar la memoria caché de DNS entre cada intento para asegurarse de que se envía una solicitud de nombre de DNS nueva.
 
@@ -137,4 +137,4 @@ Si desea incluir las ilustraciones de este tema como diapositivas de PowerPoint 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

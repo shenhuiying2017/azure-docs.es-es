@@ -97,7 +97,7 @@ La lista siguiente incluye los puntos clave que hay que tener en cuenta a la hor
 
 - El servicio Blob de Azure no dispone de medios para determinar si dos bloques contienen datos idénticos. Cada bloque que se carga y confirma se trata como único, incluso si tiene los mismos datos y el mismo identificador de bloque. Dado que las cargas se incrementan con los bloques únicos, es importante considerar que cuando se actualiza un blob con una instantánea se generan bloques únicos adicionales y se aplican cargos.
 
-> [AZURE.NOTE]Los procesos recomendados sugieren administrar las instantáneas con cuidado para evitar recargos. Se recomienda que administre las instantáneas de la siguiente manera:
+> [AZURE.NOTE] Los procesos recomendados sugieren administrar las instantáneas con cuidado para evitar recargos. Se recomienda que administre las instantáneas de la siguiente manera:
 
 > - Elimine y vuelva a crear las instantáneas asociadas a un blob siempre que lo actualice, incluso si lo hace con datos idénticos, a menos que el diseño de la aplicación requiera que se conserven las instantáneas. Si elimina y vuelve a crear las instantáneas del blob, podrá estar seguro de que el blob y las instantáneas no van a divergir.
 
@@ -125,4 +125,4 @@ En la situación 4, el blob de base se ha actualizado totalmente y no contiene n
 
 ![Recursos de almacenamiento de Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

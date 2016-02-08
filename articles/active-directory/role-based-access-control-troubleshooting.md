@@ -3,7 +3,7 @@
 	description="Trabajar con diferentes tipos de recursos para el control de acceso basado en rol."
 	services="azure-portal"
 	documentationCenter="na"
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,28 +13,32 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="inhenk"/>
+	ms.date="01/25/2016"
+	ms.author="kgremban"/>
 
-# Solución de problemas del control de acceso basado en roles
+# Solución de problemas del control de acceso basado en rol
 
 ## Introducción
 
-[El control de acceso basado en rol](../role-based-access-control-configure.md) es una función potente que le permite delegar accesos específicos a recursos en Azure. Esto significa que puede tener la seguridad de que concede a una determinada persona el acceso exclusivamente a lo que necesita. No obstante, algunas veces el modelo de recursos para los recursos de Azure puede ser complicado y puede costar entender a qué se están concediendo permisos exactamente.
+[El control de acceso basado en rol](../role-based-access-control-configure.md) es una función potente que le permite delegar accesos específicos a recursos en Azure. Esto significa que puede tener la seguridad de que concede a una determinada persona el acceso exclusivamente a lo que necesita y nada más. No obstante, algunas veces el modelo de recursos para los recursos de Azure puede ser complicado y puede costar entender a qué se están concediendo permisos exactamente.
 
-En este documento se explica lo que puede esperar al usar algunos de los nuevos roles del Portal de Azure clásico. Se incluyen tres roles comunes que cubren todos los tipos de recursos: * Propietario * Colaborador * Lector
+En este documento se explica qué puede esperar al usar algunos de los nuevos roles del Portal de Azure. Se incluyen tres roles comunes que cubren todos los tipos de recursos:
 
-Los propietarios y los colaboradores tienen acceso total a la experiencia de administración, pero un colaborador no puede dar acceso a otros usuarios o grupos. Nos centraremos en el rol del lector, ya que tiene más cosas que comentar. [Consulte este artículo](../role-based-access-control-configure.md) para obtener información detallada sobre cómo conceder acceso exactamente.
+- Propietario  
+- Colaborador  
+- Lector  
+
+Los propietarios y los colaboradores tienen acceso total a la experiencia de administración, pero un colaborador no puede dar acceso a otros usuarios o grupos. Nos centraremos en el rol del lector, ya que tiene más cosas que comentar. Consulte el [artículo de introducción de Control de acceso basado en rol](../role-based-access-control-configure.md) para obtener más información sobre cómo conceder acceso.
 
 ## Cargas de trabajo del Servicio de la aplicaciones
 
-### Acceso de solo lectura
+### Funcionalidades de acceso de escritura
 
-Cuando le conceda a un usuario acceso de lectura a un sitio web, o si es usted el que solo tiene este tipo de acceso, es posible que algunas funciones estén deshabilitadas sin esperarlo. Las siguientes capacidades de administración requieren acceso de **escritura** a una aplicación web (bien como colaborador, bien como propietario) y no están disponibles en un escenario de solo lectura.
+Si concede a un usuario acceso de solo lectura a una única aplicación web, se deshabilitan algunas características que no cabría esperar. Las siguientes funcionalidades de administración requieren acceso de **escritura** a una aplicación web (bien como colaborador, bien como propietario) y no están disponibles en un escenario de solo lectura.
 
 1. Comandos (p. ej., iniciar, parar, etc.)
 2. Cambiar opciones, como la configuración general, opciones de escala, opciones de copia de seguridad y opciones de supervisión
-3. Obtener acceso a las credenciales de publicación y otros secretos, como opciones de aplicaciones y cadenas de conexión
+3. Acceder a las credenciales de publicación y otros secretos, como opciones de aplicaciones y cadenas de conexión
 4. Registros de streaming
 5. Configuración de registros de diagnóstico
 6. Consola (símbolo del sistema)
@@ -43,7 +47,7 @@ Cuando le conceda a un usuario acceso de lectura a un sitio web, o si es usted e
 9. Pruebas web
 10. Red virtual (solo visible para un lector si un usuario con acceso de escritura ha configurado previamente una red virtual)
 
-Si no puede obtener acceso a ninguno de estos iconos, necesitará acceso de colaborador a la aplicación web.
+Si no puede acceder a ninguno de estos iconos, deberá pedirle al administrador el acceso de colaborador a la aplicación web.
 
 ### Tratar con recursos relacionados
 
@@ -68,18 +72,24 @@ Como consecuencia, si le concede a alguien acceso solo al sitio web, muchas de l
 
 Al igual que con las aplicaciones web, algunas funciones de la hoja de máquina virtual requieren acceso de escritura a la máquina virtual o a otros recursos del grupo de recursos.
 
-Las máquinas virtuales tienen estos recursos relacionados: * nombres de dominio * redes virtuales * cuentas de almacenamiento * reglas de alerta
+Las máquinas virtuales tienen estos recursos relacionados:
+
+- Nombres de dominio
+- Redes virtuales
+- Cuentas de almacenamiento
+- Reglas de alertas
+
 
 1. Estos elementos requieren acceso de **escritura** a la máquina virtual:  
     * Extremos
     * Direcciones IP
     * Discos
     * Extensiones
-2. Estos requieren acceso de escritura a la máquina virtual y al **grupo de recursos** (junto con el nombre de dominio) donde se encuentran:  
+2. Estos requieren acceso de **escritura** a la máquina virtual y al **grupo de recursos** (junto con el nombre de dominio) donde se encuentran:  
     * El conjunto de disponibilidad
     * El conjunto de carga equilibrada
     * Las reglas de alertas
 
 Si no puede acceder a ninguno de estos iconos, deberá pedirle al administrador el acceso de colaborador al grupo de recursos.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

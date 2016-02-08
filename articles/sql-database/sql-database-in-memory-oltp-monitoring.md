@@ -13,14 +13,14 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="10/28/2015"
 	ms.author="jodebrui"/>
 
 
 # Supervisión del almacenamiento en memoria de XTP
 
-Al usar [In-Memory](sql-database-in-memory.md), los datos de tablas optimizadas en memoria y las variables de tabla residen en el almacenamiento en memoria de XTP. Cada nivel de servicio Premium tiene un tamaño máximo de almacenamiento en memoria, que se documenta en el artículo [Niveles de servicio de Base de datos SQL](sql-database-service-tiers.md#service-tiers-for-single-databases). Una vez que se supera este límite, insertar y actualizar las operaciones pueden producir errores (con error 41805). En ese momento se necesita eliminar los datos para reclamar memoria o actualizar el nivel de rendimiento de la base de datos.
+Al usar [En memoria](sql-database-in-memory.md), los datos de tablas optimizadas en memoria y las variables de tabla residen en el almacenamiento en memoria de XTP. Cada nivel de servicio Premium tiene un tamaño máximo de almacenamiento en memoria, que se documenta en el artículo [Niveles de servicio de Base de datos SQL](sql-database-service-tiers.md#service-tiers-for-single-databases). Una vez que se supera este límite, insertar y actualizar las operaciones pueden producir errores (con error 41805). En ese momento se necesita eliminar los datos para reclamar memoria o actualizar el nivel de rendimiento de la base de datos.
 
 ## Determinación de si los datos se ajustan dentro del límite de almacenamiento en memoria
 
@@ -32,7 +32,7 @@ Tenga en cuenta que la tabla y las filas de variables de tabla, así como los í
 
 ## Supervisión y alertas
 
-Puede supervisar el uso del almacenamiento en memoria como un porcentaje del [extremo de almacenamiento para su nivel de rendimiento](sql-database-service-tiers.md#service-tiers-for-single-databases) en el [Portal](http://portal.azure.com/) de Azure:
+Puede supervisar el uso del almacenamiento en memoria como un porcentaje del [extremo de almacenamiento para su nivel de rendimiento](sql-database-service-tiers.md#service-tiers-for-single-databases) en el [Portal](https://portal.azure.com/) de Azure:
 
 - En la hoja Base de datos, busque el cuadro de uso de recursos y haga clic en Editar.
 - A continuación, seleccione el porcentaje de almacenamiento en memoria de XTP de métricas.
@@ -56,6 +56,6 @@ Para resolver este error, haga uno de los siguientes:
 - Actualice el nivel de servicio a uno con suficiente espacio de almacenamiento en memoria para los datos que necesita mantener en tablas optimizadas en memoria.
 
 ## Pasos siguientes
-Obtenga más información acerca de [Supervisión de Base de datos SQL de Azure con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md).
+Obtenga más información acerca de [Supervisión de Base de datos SQL de Azure con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

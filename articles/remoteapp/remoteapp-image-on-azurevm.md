@@ -1,18 +1,18 @@
-<properties 
+<properties
     pageTitle="Creación de una imagen de Azure RemoteApp basada en una máquina virtual de Azure | Microsoft Azure"
-    description="Obtenga información sobre cómo crear una imagen para Azure RemoteApp comenzando con una máquina virtual de Azure." 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
+    description="Obtenga información sobre cómo crear una imagen para Azure RemoteApp comenzando con una máquina virtual de Azure."
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/02/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/21/2016" 
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@ Existen dos pasos para crear su propia imagen basada en una máquina virtual de 
 
 Utilice estos pasos para crear una imagen basada en una máquina virtual de Azure.
 
-1. Cree una máquina virtual de Azure. Puede usar la imagen "Host de sesión de Escritorio remoto de Windows Server" o "Host de sesión de Escritorio remoto de Windows Server con Microsoft Office 365 ProPlus" de la galería de imágenes de máquina virtual de Azure. Esta imagen cumple con todos los requisitos de imagen de plantilla de Azure RemoteApp. 
+1. Cree una máquina virtual de Azure. Puede usar la imagen "Host de sesión de Escritorio remoto de Windows Server" o "Host de sesión de Escritorio remoto de Windows Server con Microsoft Office 365 ProPlus" de la galería de imágenes de máquina virtual de Azure. Esta imagen cumple con todos los requisitos de imagen de plantilla de Azure RemoteApp.
 
 	Para obtener información detallada, vea [Creación de una máquina virtual que ejecuta Windows](virtual-machines-windows-tutorial.md).
 
@@ -39,14 +39,14 @@ Utilice estos pasos para crear una imagen basada en una máquina virtual de Azur
 
 4. SYSPREP generalice y capture la imagen. Vea [Cómo capturar una máquina virtual Windows para usarla como plantilla#](../virtual-machines-capture-image-windows-server.md) para obtener instrucciones.
 
- 
+
 
 ## Importación de la imagen en la biblioteca de imágenes de Azure RemoteApp
 
 Use estos pasos para importar la imagen nueva en Azure RemoteApp:
 
 1. En la pestaña **Imágenes de plantilla**:
-	- Si no dispone de imágenes existentes, haga clic en **Carga o importación de una imagen de plantilla**. 
+	- Si no dispone de imágenes existentes, haga clic en **Carga o importación de una imagen de plantilla**.
 	- Si ya tiene al menos una imagen, haga clic en **+** para agregar otra imagen.
 
 2. Seleccione **Importar una imagen de la biblioteca de máquinas virtuales** y haga clic en **Siguiente**.
@@ -54,9 +54,8 @@ Use estos pasos para importar la imagen nueva en Azure RemoteApp:
 3. En la página siguiente, seleccione la imagen personalizada de la lista y confirme que siguió los pasos enumerados al momento de crear la imagen. Haga clic en **Siguiente**.
 4. Escriba un nombre para la imagen nueva de RemoteApp y elija la ubicación; a continuación, haga clic en la marca de verificación para comenzar el proceso de importación.
 
-> [AZURE.NOTE]Puede importar imágenes desde cualquier ubicación de Azure compatible con máquinas virtuales de Azure a cualquier ubicación de Azure compatible con Azure RemoteApp. La importación puede demorar hasta 25 minutos, dependiendo de las ubicaciones.
+> [AZURE.NOTE] Puede importar imágenes desde cualquier ubicación de Azure compatible con máquinas virtuales de Azure a cualquier ubicación de Azure compatible con Azure RemoteApp. La importación puede demorar hasta 25 minutos, dependiendo de las ubicaciones.
 
 Ahora está listo para crear su colección, ya sea una colección [en la nube](remoteapp-create-cloud-deployment.md) o una colección [híbrida](remoteapp-create-hybrid-deployment.md), según sus necesidades.
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

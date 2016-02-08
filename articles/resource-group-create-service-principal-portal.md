@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="01/20/2016"
    ms.author="tomfitz"/>
 
 # Creación de aplicación de Active Directory y entidad de servicio mediante el portal
 
 ## Información general
-Si tiene una aplicación o un proceso automatizado que necesita tener acceso a un recurso o modificarlo en su suscripción, puede usar el portal clásico para crear una aplicación de Active Directory y asignarla a un rol con los permisos correctos. Si crea una aplicación de Active Directory a través del portal clásico, en realidad se crea la aplicación y una entidad de servicio. La entidad de servicio se utiliza al establecer los permisos.
+Si tiene una aplicación o un proceso automatizado que necesita tener acceso a unos recursos o modificarlos, puede usar el portal clásico para crear una aplicación de Active Directory. Si crea una aplicación de Active Directory a través del portal clásico, en realidad se crea la aplicación y una entidad de servicio. Puede ejecutar la aplicación con la identidad de esta o con la identidad del usuario que ha iniciado sesión en la aplicación. Estos dos métodos de autenticación de las aplicaciones se conocen como interactivo (el usuario inicia sesión) y no interactivo (la aplicación proporciona sus propias credenciales). En el modo no interactivo, debe asignar la entidad de servicio a un rol con el permiso correcto.
 
 En este tema se muestra cómo crear una nueva aplicación y entidad de servicio mediante el portal clásico. Actualmente, debe usar el portal clásico para crear una nueva aplicación de Active Directory. Esta capacidad se agregará al portal de Azure en una versión posterior. Puede utilizar el portal para asignar la aplicación a un rol. También puede llevar a cabo estos pasos a través de Azure PowerShell o CLI de Azure. Para obtener más información sobre cómo usar PowerShell o CLI con la entidad de servicio, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
 
@@ -31,7 +31,9 @@ En este tema se muestra cómo crear una nueva aplicación y entidad de servicio 
 Para obtener una explicación más detallada de las aplicaciones y entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio](active-directory/active-directory-application-objects.md). Para obtener más información acerca de la autenticación de Active Directory, vea [Escenarios de autenticación en Azure AD](active-directory/active-directory-authentication-scenarios.md).
 
 
-## Creación de los objetos de la aplicación y la entidad de servicio
+## Creación de aplicación
+
+Para aplicaciones interactivas y no interactivas, debe crear y configurar la aplicación de Active Directory.
 
 1. Inicie sesión en su cuenta de Azure a través del [portal clásico](https://manage.windowsazure.com/).
 
@@ -59,16 +61,29 @@ Para obtener una explicación más detallada de las aplicaciones y entidades de 
 
      ![nueva aplicación][10]
 
-6. Rellene el nombre de la aplicación y seleccione el tipo de aplicación que desea utilizar. Puesto que se va a utilizar la entidad de servicio de esta aplicación para autenticar con el Administrador de recursos de Azure, se elegirá crear una **APLICACIÓN WEB Y/O API WEB** y haremos clic en el botón siguiente.
+6. Rellene el nombre de la aplicación y seleccione el tipo de aplicación que desea utilizar. Seleccione el tipo de aplicación que va a crear. Para este tutorial, vamos a elegir crear una **APLICACIÓN WEB Y/O API WEB** y hacer clic en el botón siguiente.
 
      ![aplicación de nombre][9]
 
-7. Rellene las propiedades de la aplicación. Para **DIRECCIÓN URL DE INICIO DE SESIÓN**, proporcione el URI para un sitio web que describe la aplicación. No se valida la existencia del sitio web. Para **URI DE ID. DE APLICACIÓN**, proporcione el URI que identifica la aplicación. No se valida la singularidad o la existencia del extremo. Haga clic en **Completo** para crear la aplicación de AAD.
+7. Rellene las propiedades de la aplicación. Para **DIRECCIÓN URL DE INICIO DE SESIÓN**, proporcione el URI para un sitio web que describe la aplicación. No se valida la existencia del sitio web. Para **URI DE ID. DE APLICACIÓN**, proporcione el URI que identifica la aplicación. No se valida la singularidad o la existencia del extremo. Si había seleccionado **Aplicación de cliente nativo** para el tipo de aplicación, proporcionará un valor de **URI de redirección**. Haga clic en **Completo** para crear la aplicación de AAD.
 
      ![propiedades de la aplicación][4]
 
-## Creación de una clave de autenticación para la aplicación
-El portal ahora debería tener la aplicación seleccionada.
+Ha creado la aplicación.
+
+## Obtención de id. de cliente e id. de inquilino
+
+Al tener acceso a la aplicación mediante programación, necesitará el id. de la aplicación. Seleccione la pestaña **Configurar** y copie el **ID. DE CLIENTE**.
+  
+   ![id. de cliente][5]
+
+En algunos casos, debe pasar el id. del inquilino con su solicitud de autenticación. Para recuperar el id. de inquilino, seleccione **Ver puntos de conexión** en la parte inferior de la pantalla y recupere el id. como se muestra a continuación.
+
+   ![id. de inquilino](./media/resource-group-create-service-principal-portal/save-tenant.png)
+
+## Creación de una clave de autenticación
+
+Si la aplicación se va a ejecutar con sus propias credenciales, debe crear una clave para la aplicación.
 
 1. Haga clic en la pestaña **Configurar** para configurar la contraseña de su aplicación.
 
@@ -86,22 +101,36 @@ El portal ahora debería tener la aplicación seleccionada.
 
      ![clave guardada][8]
 
-4. Ahora puede usar su clave para autenticarse como una entidad de servicio. Necesitará su **ID. DE CLIENTE** además su **CLAVE** para iniciar sesión. Vaya al **ID. DE CLIENTE** y cópielo.
-  
-     ![id. de cliente][5]
-
-5. En algunos casos, debe pasar el id. del inquilino con su solicitud de autenticación. Para recuperar el id. de inquilino, seleccione **Ver puntos de conexión** y recupere el id. como se muestra a continuación.
-
-     ![id. de inquilino](./media/resource-group-create-service-principal-portal/save-tenant.png)
-
 La aplicación está ahora lista y la entidad de servicio creada en el inquilino. Al iniciar sesión como una entidad de servicio asegúrese de usar lo siguiente:
 
 * **ID. DE CLIENTE**: como nombre de usuario.
 * **CLAVE**: como contraseña.
 
-## Asignación de la aplicación a un rol
+## Establecimiento de permisos delegados
 
-Debe asignar la aplicación a un rol para concederle permisos para realizar acciones. Para asignar la aplicación a un rol, cambie desde el portal clásico al [Portal de Azure](https://portal.azure.com). Debe decidir qué rol agregar a la aplicación y en qué ámbito. Para obtener más información acerca de los roles disponibles, vea [RBAC: Roles integrados](./active-directory/role-based-access-built-in-roles.md). Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o recurso. Los permisos se heredan en los niveles inferiores de ámbito (por ejemplo, el hecho de agregar una aplicación al rol Lector para un grupo de recursos significa que esta puede leer el grupo de recursos y los recursos que contenga).
+Si la aplicación tiene acceso a recursos en nombre del usuario que ha iniciado sesión, debe conceder a la aplicación el permiso delegado para tener acceso a otras aplicaciones. Esto se puede hacer en la sección de **permisos para otras aplicaciones** de la pestaña **Configurar**. De forma predeterminada, ya hay habilitado un permiso delegado para Azure Active Directory. Deje este permiso delegado sin cambios.
+
+1. Seleccione **Agregar aplicación**.
+
+2. En la lista, seleccione **API de administración de servicios de Windows Azure**.
+
+      ![seleccionar aplicación](./media/resource-group-create-service-principal-portal/select-app.png)
+
+3. Agregue el permiso delegado **Acceso a la Administración de servicios de Azure (vista previa)** a la API de administración de servicios.
+
+       ![seleccionar permiso](./media/resource-group-create-service-principal-portal/select-permissions.png)
+
+4. Guarde el cambio.
+
+## Configuración de aplicación multiinquilino
+
+Si los usuarios de otros directorios de Azure Active Directory pueden dar su consentimiento a la aplicación e iniciar sesión en ella, debe habilitar los servicios multiinquilino. En la pestaña **Configurar**, establezca **La aplicación es multiempresa** en **Sí**.
+
+![multiinquilino](./media/resource-group-create-service-principal-portal/multi-tenant.png)
+
+## Asignación de aplicación a un rol
+
+Si la aplicación no se está ejecutando con la identidad de un usuario que ha iniciado sesión, debe asignar la aplicación a un rol a fin de concederle permisos para realizar acciones. Para asignar la aplicación a un rol, cambie desde el portal clásico al [Portal de Azure](https://portal.azure.com). Debe decidir qué rol agregar a la aplicación y en qué ámbito. Para obtener más información acerca de los roles disponibles, vea [RBAC: Roles integrados](./active-directory/role-based-access-built-in-roles.md). Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o recurso. Los permisos se heredan en los niveles inferiores de ámbito (por ejemplo, el hecho de agregar una aplicación al rol Lector para un grupo de recursos significa que esta puede leer el grupo de recursos y los recursos que contenga).
 
 1. En el portal, desplácese hasta el nivel de ámbito al que desea asignar la aplicación. En este tema, puede navegar a un grupo de recursos y, en la hoja del grupo de recursos, seleccione el icono **Acceso**.
 
@@ -138,7 +167,7 @@ En primer lugar, debe instalar la biblioteca de autenticación de Active Directo
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
     PM> Update-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Safe
 
-En la aplicación, agregue un método similar al siguiente para recuperar el token.
+Para iniciar sesión con el id. y el secreto de la aplicación, use el método siguiente para recuperar el token.
 
     public static string GetAccessToken()
     {
@@ -154,6 +183,28 @@ En la aplicación, agregue un método similar al siguiente para recuperar el tok
 
         return token;
     }
+
+Para iniciar sesión en nombre del usuario, use el método siguiente para recuperar el token.
+
+    public static string GetAcessToken()
+    {
+        var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", {application id}, new Uri({redirect uri});
+
+        if (result == null) {
+            throw new InvalidOperationException("Failed to obtain the JWT token");
+        }
+
+        string token = result.AccessToken;
+
+        return token;
+    }
+
+Puede pasar el token en el encabezado de la solicitud con el código siguiente:
+
+    string token = GetAcessToken();
+    request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+
 
 ## Pasos siguientes
 
@@ -178,4 +229,4 @@ En la aplicación, agregue un método similar al siguiente para recuperar el tok
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

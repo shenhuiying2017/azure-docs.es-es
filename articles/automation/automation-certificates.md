@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Activos de certificados en Automatización de Azure
 
 Los certificados se pueden almacenar de manera segura en Automatización de Azure de manera que los runbooks o las configuraciones de DSC pueden tener acceso a ellos mediante el uso de la actividad **Get-AutomationCertificate**. Esto le permite crear runbooks y configuraciones de DSC que usan certificados para autenticación o agregarlos a Azure o a recursos de terceros.
 
->[AZURE.NOTE]Los recursos protegidos en Automatización de Azure incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Automatización de Azure con una clave única que se genera para cada cuenta de automatización. Esta clave se cifra mediante un certificado maestro y se almacena en Automatización de Azure. Antes de almacenar un recurso seguro, la clave de la cuenta de automatización se descifra con el certificado maestro y, a continuación, se utiliza para cifrar el recurso.
+>[AZURE.NOTE] Los recursos protegidos en Automatización de Azure incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Automatización de Azure con una clave única que se genera para cada cuenta de automatización. Esta clave se cifra mediante un certificado maestro y se almacena en Automatización de Azure. Antes de almacenar un recurso seguro, la clave de la cuenta de automatización se descifra con el certificado maestro y, a continuación, se utiliza para cifrar el recurso.
 
 ## Cmdlets de Windows PowerShell
 
@@ -40,7 +40,7 @@ Las actividades de la tabla siguiente se usan para obtener acceso a los certific
 |:---|:---|
 |Get-AutomationCertificate|Obtiene un certificado para usarlo en un runbook o una configuración de DSC.|
 
->[AZURE.NOTE]Debe evitar el uso de variables en el parámetro –Name de GetAutomationCertificate, debido a que esto podría complicar la detección de las dependencias entre runbooks o configuraciones de DSC, y recursos de certificados en tiempo de diseño.
+>[AZURE.NOTE] Debe evitar el uso de variables en el parámetro –Name de GetAutomationCertificate, debido a que esto podría complicar la detección de las dependencias entre runbooks o configuraciones de DSC, y recursos de certificados en tiempo de diseño.
 
 ## Creación de un certificado nuevo
 
@@ -107,4 +107,4 @@ Este ejemplo utiliza el parámetro **UseConnectionObject** definido para la **ac
 
 - [Vínculos de creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

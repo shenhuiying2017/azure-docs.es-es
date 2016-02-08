@@ -24,7 +24,7 @@ Las zonas DNS tienen un objeto secundario, llamado conjunto de registros. Los co
 
 <sup>1</sup> solo se permite un valor por conjunto de registros.
 
-<sup>2</sup> solo se permite un tipo de registro SOA por zona DNS.
+<sup>2</sup> solo se permite un tipo de registro por SOA por zona DNS.
 
 Ejemplo de una zona DNS en formato JSON:
 
@@ -85,6 +85,6 @@ Ejemplo de una zona DNS en formato JSON:
 
 Para más información, lea la [documentación de API de REST para las zonas DNS](https://msdn.microsoft.com/library/azure/mt130626.aspx).
 
-Para más información, lea la [documentación de API de REST para los conjuntos de registros DNS](https://msdn.microsoft.com/library/azure/mt130626.aspx).
+Para obtener más información, lea la [documentación de API de REST para los conjuntos de registros DNS](https://msdn.microsoft.com/library/azure/mt130627.aspx).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

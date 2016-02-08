@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # Uso de temas/suscripciones del Bus de servicio
@@ -63,7 +63,7 @@ bus_service.create_topic('mytopic', topic_options)
 
 Las suscripciones a los temas también se crean con el objeto **ServiceBusService**. A las suscripciones se les asigna un nombre y pueden tener un filtro opcional que restrinja el conjunto de mensajes que pasan a su cola virtual.
 
-> [AZURE.NOTE]Las suscripciones son permanentes y seguirán existiendo hasta que se eliminen o se elimine el tema al que están suscritas.
+> [AZURE.NOTE] Las suscripciones son permanentes y seguirán existiendo hasta que se eliminen o se elimine el tema al que están suscritas.
 
 ### Creación de una suscripción con el filtro predeterminado (MatchAll)
 
@@ -81,9 +81,9 @@ El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter*
 
 Es posible agregar filtros a una suscripción a través del método **create\_rule** del objeto **ServiceBusService**. Este método le permite agregar nuevos filtros a una suscripción existente.
 
-> [AZURE.NOTE]Debido a que el filtro predeterminado se aplica automáticamente a todas las suscripciones nuevas, debe eliminar primero el filtro predeterminado **MatchAll** si no quiere que este invalide a los demás filtros que especifique. Puede eliminar la regla predeterminada utilizando el método **delete\_rule** del objeto **ServiceBusService**.
+> [AZURE.NOTE] Debido a que el filtro predeterminado se aplica automáticamente a todas las suscripciones nuevas, debe eliminar primero el filtro predeterminado **MatchAll** si no quiere que este invalide a los demás filtros que especifique. Puede eliminar la regla predeterminada utilizando el método **delete\_rule** del objeto **ServiceBusService**.
 
-En el ejemplo siguiente, se crea una suscripción denominada `HighMessages` con **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** personalizada cuyo valor sea mayor que 3:
+En el ejemplo siguiente, se crea una suscripción denominada `HighMessages` con un objeto **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** personalizada cuyo valor sea mayor que 3:
 
 ```
 bus_service.create_subscription('mytopic', 'HighMessages')
@@ -134,7 +134,7 @@ msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lo
 print(msg.body)
 ```
 
-Los mensajes se eliminan de la suscripción a medida que se leen cuando el parámetro **peek\_lock** se establece en **False**. Puede leer y bloquear los mensajes sin eliminarlos de la cola si establece el parámetro opcional **peek\_lock** en **True**.
+Los mensajes se borran de la suscripción a medida que se leen cuando el parámetro **peek\_lock** se establece en **False**. Puede leer y bloquear los mensajes sin eliminarlos de la cola si establece el parámetro opcional **peek\_lock** en **True**.
 
 El comportamiento por el que los mensajes se eliminan tras leerlos como parte del proceso de recepción es el modelo más sencillo y el que mejor funciona en aquellas situaciones en las que una aplicación puede tolerar que no se procese un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el Bus de servicio habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
@@ -182,4 +182,4 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Colas de Bus de servicio y colas de Azure]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

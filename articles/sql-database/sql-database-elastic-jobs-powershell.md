@@ -25,7 +25,7 @@
 Las API de PowerShell para **Trabajos de base de datos elástica** permtein definir el grupo de bases de datos en las que se ejecutarán los scripts. Este artículo muestra cómo crear y administrar **trabajos de base de datos elástica** mediante cmdlets de PowerShell. Consulte [Información general sobre trabajos elásticos](sql-database-elastic-jobs-overview.md).
 
 ## Requisitos previos
-* Una suscripción de Azure. Para obtener una prueba gratuita, vea [Prueba gratuita de un mes](http://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure. Para obtener una prueba gratuita, vea [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
 * Un conjunto de bases de datos creadas con las herramientas de base de datos elástica. Consulte [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
 * Paquete PowerShell para **Trabajos de base de datos elástica**: consulte [Instalación de Trabajos de base de datos elástica](sql-database-elastic-jobs-service-installation.md).
@@ -242,7 +242,7 @@ Para ejecutar un trabajo en todas las bases de datos de un conjunto de particion
 
 En este ejemplo se crea un administrador de mapas de particiones junto con varias particiones y se insertan datos en las particiones.
 
-1. Cree y ejecute la aplicación de ejemplo de **Introducción a las herramientas de base de datos elástica**. Siga los pasos hasta el paso 7 en la sección [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). Al final del paso 7, verá la siguiente línea de comandos:
+1. Cree y ejecute la aplicación de ejemplo de **Introducción a las herramientas de base de datos elástica**. Siga los pasos hasta el paso 7 de la sección [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). Al final del paso 7, verá la siguiente línea de comandos:
 
 	![símbolo del sistema][1]
 
@@ -694,4 +694,4 @@ Una vez creada una DACPAC en Trabajos de base de datos elástica, puede crearse 
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

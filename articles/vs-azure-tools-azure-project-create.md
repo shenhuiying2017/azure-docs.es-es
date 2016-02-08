@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Creación de un proyecto de Azure con Visual Studio | Microsoft Azure"
    description="Creación de un proyecto de Azure en Visual Studio"
    services="visual-studio-online"
@@ -6,13 +6,13 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-<tags 
+<tags
    ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="01/22/2016"
    ms.author="tarcher" />
 
 # Creación de un proyecto de Azure en Visual Studio
@@ -21,12 +21,12 @@ Azure Tools para Visual Studio ofrece una plantilla que permite crear un servici
 
 Una solución de servicios en la nube de Azure contiene los siguientes tipos de proyecto:
 
-- **Proyecto de Azure** 
-    
-    El proyecto de Azure tiene asociaciones a los proyectos de rol de la solución. También incluye los archivos de definición del servicio y de configuración del servicio. El archivo de definición de servicio define la configuración de tiempo de ejecución de la aplicación, incluidos los roles que se requieren, los extremos y el tamaño de máquina virtual. El archivo de configuración de servicio configura el número de instancias de un rol que se ejecutan y los valores de la configuración definida para un rol. Para obtener más información sobre estas opciones, consulte [Configuración de los roles para un servicio en la nube de Azure con Visual Studio](https://msdn.microsoft.com/library/azure/hh369931.aspx).
+- **Proyecto de Azure**
+
+    El proyecto de Azure tiene asociaciones a los proyectos de rol de la solución. También incluye los archivos de definición del servicio y de configuración del servicio. El archivo de definición de servicio define la configuración de tiempo de ejecución de la aplicación, incluidos los roles que se requieren, los extremos y el tamaño de máquina virtual. El archivo de configuración de servicio configura el número de instancias de un rol que se ejecutan y los valores de la configuración definida para un rol. Para obtener más información sobre estas opciones, consulte [Configuración de los roles para un servicio en la nube de Azure con Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
 - **Proyecto de rol web**
- 
+
     Un rol de trabajo realiza el procesamiento en segundo plano. Un rol de trabajo puede comunicarse con servicios de almacenamiento y con otros servicios basados en Internet. Un rol de trabajo puede tener varios extremos HTTP, HTTPS o TCP.
 
     - **Rol web de ASP.NET**, para compilar una aplicación ASP.NET con un front-end web
@@ -62,4 +62,4 @@ Una solución de servicios en la nube de Azure contiene los siguientes tipos de 
 
 1. Para cambiar el nombre de un rol que agregó al proyecto, mantenga puntero sobre el rol en el cuadro de diálogo **Nuevo proyecto de Azure** y elija el icono **Cambiar nombre** situado a la derecha del rol. También puede cambiar el nombre de un rol dentro de la solución una vez agregado.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

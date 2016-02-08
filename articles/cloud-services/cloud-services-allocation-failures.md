@@ -24,7 +24,7 @@
 ## Resumen
 Al implementar instancias en un servicio en la nube o agregar nuevas instancias de rol de trabajo o web, Microsoft Azure asigna recursos de proceso. En ocasiones, es posible que reciba errores a realizar estas operaciones incluso antes de llegar a los límites de la suscripción de Azure. En este artículo se explican las causas de algunos de los errores de asignación más comunes y se sugieren posibles soluciones. La información también puede ser útil si tiene pensado realizar la implementación de sus servicios.
 
-Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure o de desbordamiento de pila](http://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](http://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**.
+Si en cualquier momento necesita más ayuda con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros MSDN Azure o Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**.
 
 ### Información de contexto: cómo funciona la asignación
 Los servidores de los centros de datos de Azure están particionados en clústeres. Se intenta una nueva solicitud de asignación de servicio en la nube en varios clústeres. Cuando se implementa la primera instancia a un servicio en la nube (ya sea en ensayo o producción), ese servicio en la nube se ancla a un clúster. Todas las implementaciones posteriores para el servicio en la nube tendrán lugar en el mismo clúster. En este artículo, haremos referencia a esto como que la solicitud está "anclada a un clúster". En el diagrama 1 siguiente se ilustra el caso de una asignación normal que se intenta en varios clústeres; en el diagrama 2 se ilustra el caso de una asignación que está anclada al clúster 2 porque es ahí donde se hospeda el servicio en la nube CS\_1.
@@ -81,11 +81,11 @@ A continuación se presentan los escenarios de asignación comunes que ocasionan
 
 4. Quitar el grupo de afinidad para nuevas implementaciones - Ya no se recomienda utilizar grupos de afinidad. Siga los pasos del punto 1 anterior para implementar un nuevo servicio en la nube. Asegúrese de que el servicio en la nube no se encuentra en un grupo de afinidad.
 
-5. Convertir a una red virtual regional - Consulte [Migración de grupos de afinidad a una red virtual regional](https://azure.microsoft.com/documentation/articles/virtual-networks-migrate-to-regional-vnet/).
+5. Convertir a una red virtual regional - Consulte [Migración de grupos de afinidad a una red virtual regional]( https://azure.microsoft.com/documentation/articles/virtual-networks-migrate-to-regional-vnet/).
 
 ## Recursos adicionales
 ### Póngase en contacto con el servicio de atención al cliente de Azure
 
-Si este artículo no le ha ayudado a resolver su problema con Azure, explore los foros de Azure en [MSDN y Stack Overflow](http://azure.microsoft.com/support/forums/). También puede presentar un incidente de soporte técnico de Azure sobre su problema. Vaya al sitio de [soporte técnico de Azure](http://azure.microsoft.com/support/options/) y haga clic en Obtener soporte. Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Si este artículo no le ayudó a resolver su problema con Azure, puede consultar los foros de Azure en [MSDN y Stack Overflow](https://azure.microsoft.com/support/forums/). También puede presentar un incidente de soporte técnico de Azure sobre su problema. Vaya al sitio del [soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en Obtener soporte. Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

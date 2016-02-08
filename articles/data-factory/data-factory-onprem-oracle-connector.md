@@ -26,6 +26,7 @@ Para que el servicio Factoría de datos de Azure pueda conectarse a la base de d
 - Data Management Gateway en el mismo equipo que hospede la base de datos o en un equipo independiente para evitar la competencia por los recursos con la base de datos. Data Management Gateway es un software que conecta orígenes de datos locales a servicios en la nube de forma segura y administrada. Consulte el artículo [Mover datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener más información acerca de Data Management Gateway. 
 - [Oracle Data Access Components (ODAC) para Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Debe estar instalado en el equipo host en el que está instalada la puerta de enlace.
 
+> [AZURE.NOTE] Vea [Solución de problemas de puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre solución de problemas de conexión o puerta de enlace.
 
 ## Ejemplo: copia de datos de Oracle a un blob de Azure
 
@@ -245,7 +246,7 @@ Por ejemplo: select * from MyTable <p>Si no se especifica, la instrucción SQL q
 
 ### Asignación de tipos para Oracle
 
-Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
+Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de tipos de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
 
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
@@ -300,4 +301,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

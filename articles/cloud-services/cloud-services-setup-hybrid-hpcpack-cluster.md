@@ -27,11 +27,11 @@ Este tutorial muestra un enfoque, en ocasiones denominado clúster "ráfaga en l
 
 En este tutorial se supone que no cuenta con experiencia previa con los clústeres informáticos o con HPC Pack. Únicamente está destinado a ayudarle a implementar un clúster de proceso híbrido rápidamente con fines de demostración. Para obtener más información, así como pasos para implementar un clúster híbrido HPC Pack a mayor escala en un entorno de producción, consulte la [información detallada](http://go.microsoft.com/fwlink/p/?LinkID=200493). Para otros escenarios de HPC Pack, incluida la implementación automatizada de clústeres en máquinas virtuales de Azure, consulte [Opciones de clúster HPC con Microsoft HPC Pack en Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
 
->[AZURE.NOTE]Azure ofrece una [serie de tamaños](../virtual-machines/virtual-machines-size-specs.md) para los recursos informáticos, adecuados para las diferentes cargas de trabajo. Por ejemplo, las instancias A8 y A9 combinan alto rendimiento y acceso a baja latencia, aunque se necesita una red de aplicaciones de alto rendimiento para determinadas aplicaciones de HPC. Consulte [Sobre las instancias informáticas intensivas A8, A9, A10 y A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).
+>[AZURE.NOTE] Azure ofrece una [serie de tamaños](../virtual-machines/virtual-machines-size-specs.md) para los recursos informáticos, adecuados para las diferentes cargas de trabajo. Por ejemplo, las instancias A8 y A9 combinan alto rendimiento y acceso a baja latencia, aunque se necesita una red de aplicaciones de alto rendimiento para determinadas aplicaciones de HPC. Consulte [Sobre las instancias informáticas intensivas A8, A9, A10 y A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).
 
 ## Requisitos previos
 
-* **Suscripción a Azure:** si no tiene ninguna cuenta, puede crear una cuenta gratuita de evaluación en un par de minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+* **Suscripción a Azure:** si no tiene ninguna cuenta, puede crear una cuenta gratuita de evaluación en un par de minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Un equipo local que ejecute Windows Server 2012 R2 o Windows Server 2012**. Este equipo será el nodo principal del clúster de HPC. Si todavía no tiene Windows Server, puede descargar e instalar una [versión de evaluación](http://technet.microsoft.com/evalcenter/dn205286.aspx).
 
@@ -348,4 +348,4 @@ Después de probar el clúster, detenga los nodos de Azure e impida que se produ
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

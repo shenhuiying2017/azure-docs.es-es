@@ -44,17 +44,17 @@ Hay tres fases principales para configurar este entorno de prueba de nube híbri
 2.	Configuración del equipo con SQL server (SQL1).
 3.	Configuración del servidor de SharePoint (SP1).
 
-Si todavía no dispone de una suscripción a Azure, puede registrarse para obtener una evaluación gratuita en [Probar Azure](http://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si todavía no dispone de una suscripción a Azure, puede registrarse para obtener una evaluación gratuita en [Probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Fase 1: configuración del entorno de nube híbrida
 
-Use las instrucciones del tema [Configuración de un entorno de nube híbrida para hacer pruebas](virtual-networks-setup-hybrid-cloud-environment-testing.md). Dado que este entorno de prueba no requiere la presencia del servidor APP1 en la subred de la red corporativa, no dude en cerrarlo por ahora.
+Utilice las instrucciones del tema [Configuración de un entorno de nube híbrida para hacer pruebas](virtual-networks-setup-hybrid-cloud-environment-testing.md). Dado que este entorno de prueba no requiere la presencia del servidor APP1 en la subred de la red corporativa, no dude en cerrarlo por ahora.
 
 Esta es su configuración actual.
 
 ![](./media/virtual-networks-setup-sharepoint-hybrid-cloud-testing/CreateSPFarmHybridCloud_1.png)
 
-> [AZURE.NOTE]Asimismo, puede configurar el entorno de prueba de nube híbrida simulada para la fase 1. Consulte [Configuración de un entorno simulado de nube híbrida para hacer pruebas](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) y así obtener más instrucciones.
+> [AZURE.NOTE] Asimismo, puede configurar el entorno de prueba de nube híbrida simulada para la fase 1. Consulte [Configuración de un entorno simulado de nube híbrida para hacer pruebas](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) y así obtener más instrucciones.
  
 ## Fase 2: configuración del equipo con SQL Server (SQL1)
 
@@ -214,4 +214,4 @@ Su granja de intranet de SharePoint en un entorno de nube híbrida ya está list
 [Instrucciones de implementación de los servicios de infraestructura de Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

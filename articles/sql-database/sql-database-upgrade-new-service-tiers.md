@@ -22,7 +22,7 @@
 Las bases de datos SQL [Web o Business de Azure se van a retirar](sql-database-web-business-sunset-faq.md), por lo que llegó el momento de actualizarlas a los [niveles de servicio Basic, Standard, Premium o Elastic](sql-database-service-tiers.md).
 
 
-> [AZURE.IMPORTANT]La actualización de bases de datos Web o Business a un nuevo nivel de servicio no desconecta la base de datos. La base de datos seguirá en línea y disponible durante toda la operación de actualización.
+> [AZURE.IMPORTANT] La actualización de bases de datos Web o Business a un nuevo nivel de servicio no desconecta la base de datos. La base de datos seguirá en línea y disponible durante toda la operación de actualización.
 
 
 Para ayudarle con la actualización, el servicio Base de datos SQL recomienda un nivel de servicio apropiado y un nivel de rendimiento (plan de tarifa) para cada base de datos. Al analizar el uso histórico para de base de datos, el servicio recomienda el nivel que mejor se adapte para ejecutar las cargas de trabajo de la base de datos existente.
@@ -73,7 +73,7 @@ La actualización de una base de datos Web o Business a un nuevo nivel de servic
 
 
 
-## 1\. Determinar el nivel de servicio basándose en la funcionalidad de características
+## 1. Determinar el nivel de servicio basándose en la funcionalidad de características
 
 Los niveles de servicio Basic, Standard y Premium ofrecen diferentes conjuntos de características, por lo que el primer paso a la hora de seleccionar un nivel apropiado es determinar el nivel de servicio que proporciona el nivel mínimo de características necesarias para su aplicación y su empresa.
 
@@ -91,7 +91,7 @@ Los niveles de rendimiento y características del nuevo nivel de servicio se res
 |:--|:--|
 |[Niveles de servicio y niveles de rendimiento de la Base de datos SQL de Azure](sql-database-service-tiers.md)| Información general, métricas y capacidades para cada nivel de servicio (y cómo supervisar el uso de la base de datos en el portal clásico y mediante las vistas de administración dinámica). |
 |[Continuidad de negocio de Base de datos SQL de Azure](sql-database-business-continuity.md)|Detalles de las características de recuperación ante desastres y continuidad de negocio (restauración a un momento dado, restauración geográfica, replicación geográfica) disponibles para los diferentes niveles de servicio.|
-|[Precios de base de datos SQL](http://azure.microsoft.com/pricing/details/sql-database/)|Información detallada sobre precios de los diferentes niveles de servicio y niveles de rendimiento.|
+|[Precios de base de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/)|Información detallada sobre precios de los diferentes niveles de servicio y niveles de rendimiento.|
 
 <br>
 
@@ -99,7 +99,7 @@ Después de seleccionar un nivel de servicio adecuado según los requisitos de s
 
 
 
-## 2\. Determinar el nivel de rendimiento aceptable basándose en el uso histórico de recursos
+## 2. Determinar el nivel de rendimiento aceptable basándose en el uso histórico de recursos
 
 El servicio de Base de datos SQL de Azure expone la información en el portal clásico y en las vistas del sistema para mostrar el nuevo nivel de rendimiento y servicio comparable que se sugiere para la base de datos Web o Business existente.
 
@@ -148,9 +148,9 @@ Para profundizar en los detalles del consumo de recursos de la base de datos, se
 ### Vistas del sistema
 
 
-Para acceder a los datos sobre el consumo de recursos de la base de datos Web y Business, hay que utilizar la vista [sys.resource\_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) de la base de datos maestra del servidor lógico en el que se encuentra la base de datos actual. Muestra los datos de consumo de recursos en porcentajes del límite del nivel de rendimiento. Esta vista proporciona datos de los últimos 14 días, a intervalos de 5 minutos.
+Para acceder a los datos sobre el consumo de recursos de la base de datos Web y Business, hay que utilizar la vista [sys.resource_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) de la base de datos maestra del servidor lógico en el que se encuentra la base de datos actual. Muestra los datos de consumo de recursos en porcentajes del límite del nivel de rendimiento. Esta vista proporciona datos de los últimos 14 días, a intervalos de 5 minutos.
 
-> [AZURE.NOTE]Ahora puede usar la vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) en las bases de datos Web y Business para obtener una vista con mayor granularidad (cada 15 segundos) de los datos de consumo de recursos. sys.dm\_db\_resource\_stats solo conserva datos históricos durante una hora, por lo que puede consultar esta vista de administración dinámica cada hora y almacenar los datos para realizar análisis adicionales.
+> [AZURE.NOTE]Ahora puede usar la vista [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) en las bases de datos Web y Business para obtener una vista con mayor granularidad (cada 15 segundos) de los datos de consumo de recursos. sys.dm_db_resource_stats solo conserva datos históricos durante una hora, por lo que puede consultar esta vista de administración dinámica cada hora y almacenar los datos para realizar análisis adicionales.
 
 Ejecute la siguiente consulta en la base de datos maestra para recuperar el consumo de DTU medio de una base de datos:
 
@@ -166,9 +166,9 @@ Ejecute la siguiente consulta en la base de datos maestra para recuperar el cons
     WHERE database_name = '<your db name>'
     ORDER BY end_time DESC;
 
-Los datos que devuelven [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) y [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) para los niveles de Web y Business indican los porcentajes en términos de nivel de rendimiento estándar S2. Por ejemplo, cuando se ejecutan en una base de datos Web o Business, el valor devuelto 70% indica el 70% del límite del nivel S2. Además, para Web y Business, los porcentajes pueden reflejar cifras por encima de 100%, lo que también se basa en el límite de nivel S2.
+Los datos que devuelven [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) y [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) para los niveles de Web y Business indican los porcentajes en términos de nivel de rendimiento estándar S2. Por ejemplo, cuando se ejecutan en una base de datos Web o Business, el valor devuelto 70% indica el 70% del límite del nivel S2. Además, para Web y Business, los porcentajes pueden reflejar cifras por encima de 100%, lo que también se basa en el límite de nivel S2.
 
-La información sobre el consumo de DTU en términos de un nivel de base de datos S2 permite normalizar el consumo actual de las bases de datos Web y Business en términos de nuevas bases de datos de servicios y ver dónde se ajustan mejor. Por ejemplo, si el consumo medio de porcentaje de DTU muestra un valor de 80 %, esto indica que la base de datos está consumiendo DTU a una velocidad de un 80 % del límite de una base de datos en el nivel de rendimiento S2. Si ve valores superiores al 100 % en la vista **sys.resource\_stats**, significa que necesita un nivel de rendimiento superior al S2. Por ejemplo, supongamos que ve un valor de porcentaje máximo de DTU de 300 %. Esto indica que está usando tres veces más recursos que los que estarían disponibles en un S2. Para determinar un tamaño inicial razonable, compare las DTU disponibles en un S2 (50 DTU) con los tamaños superiores siguientes (S3/P1 = 100 DTU, o 200 % de S2, P2 = 200 DTU o 400 % de S2). Debido a que está a un 300 % de S2, debería comenzar con un P2 y volver a probar.
+La información sobre el consumo de DTU en términos de un nivel de base de datos S2 permite normalizar el consumo actual de las bases de datos Web y Business en términos de nuevas bases de datos de servicios y ver dónde se ajustan mejor. Por ejemplo, si el consumo medio de porcentaje de DTU muestra un valor de 80 %, esto indica que la base de datos está consumiendo DTU a una velocidad de un 80 % del límite de una base de datos en el nivel de rendimiento S2. Si ve valores superiores al 100 % en la vista **sys.resource_stats**, significa que necesita un nivel de rendimiento superior al S2. Por ejemplo, supongamos que ve un valor de porcentaje máximo de DTU de 300 %. Esto indica que está usando tres veces más recursos que los que estarían disponibles en un S2. Para determinar un tamaño inicial razonable, compare las DTU disponibles en un S2 (50 DTU) con los tamaños superiores siguientes (S3/P1 = 100 DTU, o 200 % de S2, P2 = 200 DTU o 400 % de S2). Debido a que está a un 300 % de S2, debería comenzar con un P2 y volver a probar.
 
 Según el porcentaje de uso de DTU y la edición necesaria para ajustar su carga de trabajo, puede determinar qué niveles de rendimiento y servicio son más adecuados para la carga de trabajo de la base de datos (como se indica a través del porcentaje de DTU y las potencias de DTU relativas de varios [niveles de rendimiento](sql-database-service-tiers.md)). En esta tabla se proporciona una asignación del porcentaje de consumo de recursos de Web o Business a nuevos niveles de rendimiento de servicio:
 
@@ -212,11 +212,11 @@ En el gráfico puede ver la tendencia del consumo de porcentaje promedio de DTU 
 
 ![Uso de DTU](media/sql-database-upgrade-new-service-tiers/DTU_usage.png)
 
-**Impacto de la memoria en el rendimiento**: aunque la memoria es una de las dimensiones de recursos que contribuye a la clasificación de DTU, Base de datos SQL está diseñada para usar toda la memoria disponible en las operaciones de la base de datos. Por eso, el consumo de la memoria no se incluye en el promedio de consumo de DTU en la consulta anterior. Por otro lado, si pasa a un nivel de rendimiento inferior, la memoria disponible se reduce para la base de datos. Esto podría dar lugar a un consumo de E/S superior que afectará a la DTU consumida. Por lo tanto, al reducir el tamaño a un nivel de rendimiento inferior, asegúrese de que tiene suficiente espacio disponible en el porcentaje de E/S. Use la vista de administración dinámica [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) mencionada anteriormente para supervisar esta cuestión.
+**Impacto de la memoria en el rendimiento**: aunque la memoria es una de las dimensiones de recursos que contribuye a la clasificación de DTU, Base de datos SQL está diseñada para usar toda la memoria disponible en las operaciones de la base de datos. Por eso, el consumo de la memoria no se incluye en el promedio de consumo de DTU en la consulta anterior. Por otro lado, si pasa a un nivel de rendimiento inferior, la memoria disponible se reduce para la base de datos. Esto podría dar lugar a un consumo de E/S superior que afectará a la DTU consumida. Por lo tanto, al reducir el tamaño a un nivel de rendimiento inferior, asegúrese de que tiene suficiente espacio disponible en el porcentaje de E/S. Use la vista de administración dinámica [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) mencionada anteriormente para supervisar esta cuestión.
 
 
 
-## 3\. ¿Por qué rendimiento existente de la base de datos Web o Business coincide con los niveles más altos de Premium?
+## 3. ¿Por qué rendimiento existente de la base de datos Web o Business coincide con los niveles más altos de Premium?
 
 Las bases de datos Web y Business no tienen una cantidad específica de capacidad de recursos reservada para ninguna base de datos individual. Además, no hay ningún mecanismo in situ para que los clientes escalen o reduzcan verticalmente el rendimiento para una base de datos Web o Business. Esto tiene como consecuencia que el rendimiento de las bases de datos Web y Business puede oscilar entre niveles realmente lentos hasta niveles Premium. Este intervalo variable de rendimiento depende *injustamente* del nivel global de consumo de recursos en cualquier momento por parte de otras bases de datos dentro del entorno de varios inquilinos que comparten recursos.
 
@@ -229,7 +229,7 @@ Para comprender con mayor claridad las diferencias entre las bases de datos Web 
 Si el porcentaje de DTU global es muy alto, debe empezar la búsqueda en las métricas detalladas que constituyen las DTU. En concreto, hay que llegar hasta los detalles más precisos del uso de la memoria y de las E/S de registro de la base de datos. Se pueden descubrir áreas en las que sea posible optimizar y reducir el consumo de DTU.
 
 
-## 4\. Optimizar la carga de trabajo de la base de datos para ajustarla a un nivel de rendimiento inferior
+## 4. Optimizar la carga de trabajo de la base de datos para ajustarla a un nivel de rendimiento inferior
 Si el análisis del uso histórico de los recursos de la base de datos indica que se debe actualizar a un nivel de rendimiento que es más costoso de lo que desearía, puede buscar áreas en las que sea posible realizar optimizaciones adicionales.
 
 Teniendo en cuenta sus conocimientos acerca de los detalles de la aplicación, si el uso de recursos parece muy alto en comparación con lo que cabría esperar de una carga de trabajo típica, es posible que haya algunas oportunidades donde la optimización del rendimiento pueda ser beneficiosa para su aplicación.
@@ -248,7 +248,7 @@ Además del mantenimiento de optimización típico (por ejemplo, el análisis de
 
 
 
-## 5\. Actualizar al nuevo nivel de servicio o de rendimiento
+## 5. Actualizar al nuevo nivel de servicio o de rendimiento
 Después de determinar el nivel adecuado de servicio y de rendimiento para la base de datos Web o Business, hay varias maneras de actualizar la base de datos al nuevo nivel:
 
 | Herramienta de administración | Para cambiar el nivel de rendimiento y el nivel de servicio de una base de datos|
@@ -261,8 +261,8 @@ Después de determinar el nivel adecuado de servicio y de rendimiento para la ba
 Para obtener información más detallada, consulte [Cambio de los niveles de servicio y de rendimiento de la base de datos](sql-database-scale-up.md)
 
 
-## 6\. Supervisar la actualización al nuevo nivel de servicio o de rendimiento
-Base de datos SQL de Azure proporciona información sobre el progreso de las operaciones de administración (como CREATE, ALTER o DROP) que se realizan en una base de datos en la vista de administración dinámica sys.dm\_operation\_status en la base de datos maestra del servidor lógico donde se encuentra la base de datos actual [consulte la documentación de sys.dm\_operation\_status.](http://msdn.microsoft.com/library/azure/dn270022.aspx) Use la DMV del estado de la operación para determinar el progreso de la operación de actualización de una base de datos. Esta consulta de ejemplo muestra todas las operaciones de administración realizadas en una base de datos:
+## 6. Supervisar la actualización al nuevo nivel de servicio o de rendimiento
+Base de datos SQL de Azure proporciona información sobre el progreso de las operaciones de administración (como CREATE, ALTER o DROP) que se realizan en una base de datos en la vista de administración dinámica sys.dm_operation_status en la base de datos maestra del servidor lógico donde se encuentra la base de datos actual [consulte la documentación de sys.dm_operation_status.](http://msdn.microsoft.com/library/azure/dn270022.aspx) Use la DMV del estado de la operación para determinar el progreso de la operación de actualización de una base de datos. Esta consulta de ejemplo muestra todas las operaciones de administración realizadas en una base de datos:
 
     SELECT o.operation, o.state_desc, o.percent_complete
     , o.error_code, o.error_desc, o.error_severity, o.error_state
@@ -274,7 +274,7 @@ Base de datos SQL de Azure proporciona información sobre el progreso de las ope
 
 Si usa el portal clásico para la actualización, también hay una notificación disponible en el portal para la operación.
 
-## 7\. Supervisar la base de datos después de la actualización
+## 7. Supervisar la base de datos después de la actualización
 Después de la actualización de la base de datos Web o Business en el nuevo nivel, se recomienda supervisar activamente la base de datos para asegurar que las aplicaciones se ejecutan con el rendimiento deseado y optimizar el uso según sea necesario. Se recomiendan los siguientes pasos adicionales para supervisar la base de datos.
 
 
@@ -290,7 +290,7 @@ Después de la actualización de la base de datos Web o Business en el nuevo niv
     ORDER BY end_time DESC;
 
  
-La [documentación](http://msdn.microsoft.com/library/dn800981.aspx) adicional contiene detalles sobre cómo usar esta vista de administración dinámica. La [Guía de rendimiento de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn369873.aspx) explica cómo supervisar y ajustar la aplicación.
+La [documentación](http://msdn.microsoft.com/library/dn800981.aspx) adicional contiene detalles sobre cómo usar esta DMV (vista de administración dinámica). La [Guía de rendimiento de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn369873.aspx) explica cómo supervisar y ajustar la aplicación.
 
 
 - **Alertas**: configure "Alertas" en el Portal de Azure clásico para recibir una notificación cuando el consumo de DTU de una base de datos actualizada alcance un determinado nivel. Las alertas de la base de datos pueden configurarse en el Portal de Azure clásico con diferentes métricas de rendimiento como DTU, CPU, E/S y registro. 
@@ -317,4 +317,4 @@ El servicio Base de datos SQL de Azure proporciona herramientas y datos de telem
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

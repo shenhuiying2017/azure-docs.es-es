@@ -35,7 +35,7 @@ El hospedaje de una granja de SharePoint de intranet en Servicios de infraestruc
 
 El siguiente paso es configurar una granja de SharePoint de intranet de desarrollo y pruebas hospedada en Azure.
 
-> [AZURE.NOTE]Microsoft ha publicado la versión de vista previa de TI de SharePoint Server 2016. Para facilitar la instalación y prueba de esta vista previa, puede utilizar una imagen de la galería de máquinas virtuales de Azure con la vista previa de TI de SharePoint Server 2016 y sus requisitos previos preinstalados. Para obtener más información, consulte [Prueba de la vista previa de TI de SharePoint 2016 en Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+> [AZURE.NOTE] Microsoft ha publicado la versión de vista previa de TI de SharePoint Server 2016. Para facilitar la instalación y prueba de esta vista previa, puede utilizar una imagen de la galería de máquinas virtuales de Azure con la vista previa de TI de SharePoint Server 2016 y sus requisitos previos preinstalados. Para obtener más información, consulte [Prueba de la vista previa de TI de SharePoint 2016 en Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Creación de una granja de SharePoint de intranet de desarrollo y pruebas hospedada en Azure
 
@@ -44,7 +44,7 @@ Tiene dos opciones para crear un entorno de desarrollo y pruebas para una granja
 - Red virtual solo en la nube
 - Red virtual entre locales
 
-Puede crear estos entornos de desarrollo y pruebas de forma gratuita con su [suscripción a Visual Studio](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) o una [suscripción de evaluación de Azure](http://azure.microsoft.com/pricing/free-trial/).
+Puede crear estos entornos de desarrollo y pruebas de forma gratuita con su [suscripción a Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) o una [suscripción de evaluación de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### Red virtual solo en la nube
 
@@ -102,4 +102,4 @@ Una vez configurada, puede expandir esta granja de SharePoint con ayuda de [Arqu
 
 - Obtenga [información general](virtual-machines-workload-intranet-sharepoint-overview.md) de la carga de trabajo de producción antes de comenzar con la configuración.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

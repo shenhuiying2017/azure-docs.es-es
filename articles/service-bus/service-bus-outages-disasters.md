@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Bus de servicio
@@ -37,7 +37,7 @@ Para protegerse ante las interrupciones de ACS, use tokens de firma de acceso co
 
 ## Protección de colas y temas contra errores en el almacén de mensajería
 
-Se asigna una cola o un tema sin particiones a un almacén de mensajería. Si este almacén de mensajería no está disponible, se producirá un error en todas las operaciones de esa cola o tema. Por otra parte, una cola particionada está formada por varios fragmentos. Cada fragmento se guarda en un almacén de mensajería diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Bus de servicio asigna el mensaje a uno de los fragmentos. Si el almacén de mensajería correspondiente no está disponible, el Bus de servicio escribe el mensaje en otro fragmento, si es posible. Para obtener más información sobre las entidades particionadas, consulte [Particionamiento de entidades de mensajería][].
+Se asigna una cola o un tema sin particiones a un almacén de mensajería. Si este almacén de mensajería no está disponible, se producirá un error en todas las operaciones de esa cola o tema. Por otra parte, una cola particionada está formada por varios fragmentos. Cada fragmento se guarda en un almacén de mensajería diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Bus de servicio asigna el mensaje a uno de los fragmentos. Si el almacén de mensajería correspondiente no está disponible, el Bus de servicio escribe el mensaje en otro fragmento, si es posible. Para obtener más información acerca de las entidades con particiones, consulte [Entidades de mensajería con particiones][].
 
 ## Protección contra desastres o interrupciones del centro de datos
 
@@ -67,7 +67,7 @@ Un cliente recibe mensajes de ambas colas. El receptor procesa la primera copia 
 
 El ejemplo de [replicación geográfica con mensajes asincrónicos del Bus de servicio][] muestra la replicación activa de entidades de mensajería.
 
-> [AZURE.NOTE]La replicación activa dobla el número de operaciones; por lo tanto, este enfoque puede suponer un costo mayor.
+> [AZURE.NOTE] La replicación activa dobla el número de operaciones; por lo tanto, este enfoque puede suponer un costo mayor.
 
 ## Replicación pasiva
 
@@ -99,14 +99,14 @@ Para obtener más información acerca de la recuperación ante desastres, consul
 - [Orientación técnica de la continuidad del negocio de Azure][]
 
   [Autenticación y autorización de Bus de servicio]: service-bus-authentication-and-authorization.md
-  [Particionamiento de entidades de mensajería]: service-bus-partitioning.md
-  [Patrones de mensajería asincrónica y alta disponibilidad]: https://msdn.microsoft.com/library/azure/dn292562.aspx
+  [Entidades de mensajería con particiones]: service-bus-partitioning.md
+  [Patrones de mensajería asincrónica y alta disponibilidad]: service-bus-async-messaging.md
   [replicación geográfica con mensajes retransmitidos del Bus de servicio]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
   [BrokeredMessage.MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
   [BrokeredMessage.Label]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx
   [replicación geográfica con mensajes asincrónicos del Bus de servicio]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
   [remitente de mensaje duradero]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
-  [Continuidad de negocio de Base de datos SQL de Azure]: https://msdn.microsoft.com/library/azure/hh852669.aspx
+  [Continuidad de negocio de Base de datos SQL de Azure]: ../sql-database/sql-database-business-continuity.md
   [Orientación técnica de la continuidad del negocio de Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

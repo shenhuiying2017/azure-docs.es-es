@@ -27,7 +27,7 @@
 
 El cifrado de Capa de sockets seguros (SSL) es el método más usado para proteger los datos que se envían por Internet. Esta tarea común analiza cómo especificar un punto de conexión HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación.
 
-> [AZURE.NOTE]Los procedimientos de esta tarea se aplican a Servicios en la nube de Azure; para Servicios de aplicaciones consulte [esto](../app-service-web/web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE] Los procedimientos de esta tarea se aplican a Servicios en la nube de Azure; para Servicios de aplicaciones consulte [esto](../app-service-web/web-sites-configure-ssl-certificate.md).
 
 Esta tarea usa una implementación de producción; al final de este tema se proporciona información sobre el uso de una implementación de ensayo.
 
@@ -62,12 +62,20 @@ Su aplicación debe estar configurada para usar el certificado y se debe agregar
             <Certificates>
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
-                    		 storeName="CA" />
+                    		 storeName="CA"
+                             permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
         </WebRole>
 
     La sección **Certificates** define el nombre de nuestro certificado, su ubicación y el nombre de la tienda donde se encuentra.
+    
+    Se pueden establecer permisos (atributo `permisionLevel`) en uno de los siguientes casos:
+
+    | Valor del permiso | Descripción |
+    | ----------------  | ----------- |
+    | limitedOrElevated | **(Predeterminado)** todos los procesos de rol pueden tener acceso a la clave privada. |
+    | elevated | Solo los procesos elevados pueden tener acceso a la clave privada.|
 
 2.  En el archivo de definición de servicio, agregue un elemento **InputEndpoint** en la sección **Endpoints** para habilitar HTTPS:
 
@@ -145,11 +153,11 @@ Ahora que su implementación está funcionando en Azure, puede conectarse a ella
 
 2.  En el explorador web, modifique el vínculo para usar **https** en lugar de **http** y, a continuación, visite la página.
 
-    >[AZURE.NOTE]Si va a usar un certificado autofirmado, cuando vaya a un punto de conexión HTTPS que está asociado al certificado autofirmado, aparecerá un error de certificado en el explorador. El uso de un certificado firmado por una entidad de certificación de confianza elimina el problema; mientras tanto, puede ignorar el error. (Otra opción es agregar el certificado autofirmado a la tienda de certificados de la entidad de certificación de confianza para el usuario).
+    >[AZURE.NOTE] Si va a usar un certificado autofirmado, cuando vaya a un punto de conexión HTTPS que está asociado al certificado autofirmado, aparecerá un error de certificado en el explorador. El uso de un certificado firmado por una entidad de certificación de confianza elimina el problema; mientras tanto, puede ignorar el error. (Otra opción es agregar el certificado autofirmado a la tienda de certificados de la entidad de certificación de confianza para el usuario).
 
     ![Vista previa del sitio](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
-    >[AZURE.TIP]Si desea usar SSL para una implementación de ensayo en vez de una implementación de producción, tendrá que determinar primero la dirección URL que se usó para la implementación de ensayo. Una vez que se ha implementado el servicio en la nube, la dirección URL del entorno de almacenamiento provisional viene determinada por el GUID del **identificador de implementación** en este formato: `https://deployment-id.cloudapp.net/`
+    >[AZURE.TIP] Si desea usar SSL para una implementación de ensayo en vez de una implementación de producción, tendrá que determinar primero la dirección URL que se usó para la implementación de ensayo. Una vez que se ha implementado el servicio en la nube, la dirección URL del entorno de almacenamiento provisional viene determinada por el GUID del **identificador de implementación** en este formato: `https://deployment-id.cloudapp.net/`
       
     >Cree un certificado con un nombre común (CN) igual a la dirección URL basada en el GUID (por ejemplo, **328187776e774ceda8fc57609d404462.cloudapp.net**), use el Portal para agregar el certificado al servicio en la nube de almacenamiento provisional, agregue la información del certificado a los archivos CSDEF y CSCFG, vuelva a empaquetar la aplicación y actualice la implementación del almacenamiento provisional para usar el paquete y el archivo CSCFG nuevos.
 
@@ -160,4 +168,4 @@ Ahora que su implementación está funcionando en Azure, puede conectarse a ella
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Administración del servicio en la nube](cloud-services-how-to-manage-portal.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

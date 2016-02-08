@@ -24,7 +24,7 @@
 
 Este artículo le muestra cómo realizar algunas tareas comunes con Almacenamiento de blobs de Microsoft Azure. Los ejemplos están escritos en Java y utilizan el [SDK de almacenamiento de Azure para Java][]. Entre los escenarios descritos se incluyen **cargar**, **enumerar**, **descargar** y **eliminar** blobs. Para obtener más información sobre los blobs, consulte la sección [Pasos siguientes](#NextSteps).
 
-> [AZURE.NOTE]hay un SDK disponible para los desarrolladores que usen el almacenamiento de Azure en dispositivos Android. Para obtener más información, vea el [SDK de almacenamiento de Azure para Android][].
+> [AZURE.NOTE] hay un SDK disponible para los desarrolladores que usen el almacenamiento de Azure en dispositivos Android. Para obtener más información, vea el [SDK de almacenamiento de Azure para Android][].
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -46,7 +46,7 @@ Agregue las siguientes instrucciones de importación al principio del archivo Ja
 
 ## Configuración de una cadena de conexión de Almacenamiento de Azure
 
-Un cliente de Almacenamiento de Azure usa una cadena de conexión de almacenamiento para almacenar extremos y credenciales con el fin de obtener acceso a los servicios de administración de datos. Al ejecutarse en una aplicación cliente, debe proporcionar la cadena de conexión de almacenamiento en el siguiente formato, usando el nombre de su cuenta de almacenamiento y la clave de acceso principal de la cuenta de almacenamiento que se muestra en el [Portal de Azure](portal.azure.com) para los valores *AccountName* y *AccountKey*. En el ejemplo a continuación se muestra cómo puede declarar un campo estático para mantener la cadena de conexión:
+Un cliente de Almacenamiento de Azure usa una cadena de conexión de almacenamiento para almacenar extremos y credenciales con el fin de obtener acceso a los servicios de administración de datos. Al ejecutarse en una aplicación cliente, debe proporcionar la cadena de conexión de almacenamiento en el siguiente formato, usando el nombre de su cuenta de almacenamiento y la clave de acceso principal de la cuenta de almacenamiento que se muestra en el [Portal de Azure](https://portal.azure.com) para los valores *AccountName* y *AccountKey*. En el ejemplo a continuación se muestra cómo puede declarar un campo estático para mantener la cadena de conexión:
 
     // Define the connection-string with your values
     public static final String storageConnectionString =
@@ -66,7 +66,7 @@ En los ejemplos siguientes se supone que usó uno de estos dos métodos para obt
 
 Los objetos **CloudBlobClient** le permiten obtener objetos de referencia para los contenedores y los blobs. El siguiente código crea un objeto **CloudBlobClient**.
 
-> [AZURE.NOTE]Existen otras maneras de crear objetos **CloudStorageAccount**. Para obtener más información, consulte **CloudStorageAccount** en la [Referencia del SDK del cliente de almacenamiento de Azure].
+> [AZURE.NOTE] Existen otras maneras de crear objetos **CloudStorageAccount**. Para obtener más información, consulte **CloudStorageAccount** en la [Referencia del SDK del cliente de almacenamiento de Azure].
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
@@ -268,4 +268,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [API de REST de almacenamiento de Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

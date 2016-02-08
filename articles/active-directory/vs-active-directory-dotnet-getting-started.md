@@ -75,6 +75,6 @@ Para agregar controles SignIn/SignOut a su vista, utilice la vista parcial **\_L
     &lt;/html>
 </pre>
 
-[Más información acerca de Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

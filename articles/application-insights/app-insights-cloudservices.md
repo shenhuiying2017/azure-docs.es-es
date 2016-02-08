@@ -19,9 +19,9 @@
 # Application Insights para los Servicios en la nube de Azure
 
 
-*Application Insights se encuentra en su versión de vista previa*.
+*Application Insights se encuentra en su versión de vista previa.*
 
-[Las aplicaciones de los Servicios en la nube de Microsoft Azure](http://azure.microsoft.com/services/cloud-services/) se pueden supervisar mediante [Visual Studio Application Insights][start] para obtener información sobre la disponibilidad, el rendimiento, los errores y el uso. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
+[Las aplicaciones de los Servicios en la nube de Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) se pueden supervisar mediante [Visual Studio Application Insights][start] para obtener información sobre la disponibilidad, el rendimiento, los errores y el uso. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
 
 ![Ejemplo](./media/app-insights-cloudservices/sample.png)
 
@@ -279,4 +279,4 @@ Eso es todo. La experiencia del portal ya está dispuesta para ayudarle a ver la
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

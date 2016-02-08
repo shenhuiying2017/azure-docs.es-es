@@ -46,7 +46,7 @@ Hay tres fases principales para configurar este entorno de prueba de nube híbri
 2.	Configuración del equipo con SQL server (SQL1).
 3.	Configuración del servidor de línea de negocio (LOB1).
 
-Si todavía no dispone de una suscripción a Azure, puede registrarse para obtener una evaluación gratuita en [Probar Azure](http://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si todavía no dispone de una suscripción a Azure, puede registrarse para obtener una evaluación gratuita en [Probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Fase 1: configuración del entorno de nube híbrida
 
@@ -56,7 +56,7 @@ Esta es su configuración actual.
 
 ![](./media/virtual-networks-setup-lobapp-hybrid-cloud-testing/CreateLOBAppHybridCloud_1.png)
 
-> [AZURE.NOTE]Asimismo, puede configurar el entorno de prueba de nube híbrida simulada para la fase 1. Consulte [Configuración de un entorno simulado de nube híbrida para hacer pruebas](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) y así obtener más instrucciones.
+> [AZURE.NOTE] Asimismo, puede configurar el entorno de prueba de nube híbrida simulada para la fase 1. Consulte [Configuración de un entorno simulado de nube híbrida para hacer pruebas](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) y así obtener más instrucciones.
  
 ## Fase 2: configuración del equipo con SQL Server (SQL1)
 
@@ -162,8 +162,8 @@ A continuación, configure LOB1 para IIS y pruebe el acceso desde CLIENT1.
 
 1.	Ejecute el Administrador del servidor y haga clic en **Agregar roles y características**.
 2.	En la página Antes de comenzar, haga clic en **Siguiente**.
-3.	En la página Selección del tipo de instalación, haga clic en **Siguiente**.
-4.	En la página Selección del servidor de destino, haga clic en **Siguiente**.
+3.	En la página Seleccionar tipo de instalación, haga clic en **Siguiente**.
+4.	En la página Seleccionar servidor de destino, haga clic en **Siguiente**.
 5.	En la página Roles de servidor, haga clic en **Servidor web (IIS)** en la lista de **Roles**.
 6.	Cuando se le solicite, haga clic en **Agregar características** y después en **Siguiente**.
 7.	En la página Selección de características, haga clic en **Siguiente**.
@@ -199,4 +199,4 @@ Este entorno ya está preparado para implementar su aplicación basada en web en
 [Instrucciones de implementación de los servicios de infraestructura de Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

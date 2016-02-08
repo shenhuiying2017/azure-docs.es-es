@@ -28,6 +28,8 @@ Aunque puede instalar la puerta de enlace en el mismo equipo local o en la máqu
 
 Aparte de Data Management Gateway, también debe instalar el controlador ODBC para el almacén de datos en la máquina de puerta de enlace.
 
+> [AZURE.NOTE] Vea [Solución de problemas de puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre solución de problemas de conexión o puerta de enlace.
+
 ## Ejemplo: copiar datos del almacén de datos ODBC a un blob de Azure
 
 El ejemplo siguiente muestra:
@@ -42,7 +44,7 @@ El ejemplo copia los datos del resultado de una consulta en un almacén de datos
 
 Como primer paso, configure la puerta de enlace de administración de datos según las instrucciones del artículo sobre cómo [mover datos entre las ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md).
 
-**Servicio vinculado de ODBC** Este ejemplo utiliza la autenticación de Windows. Consulte la sección [ODBC linked service](#odbc-linked-service-properties) (Servicio vinculado de ODBC) para conocer los diferentes tipos de autenticación que se pueden utilizar.
+**Servicio vinculado de ODBC** Este ejemplo utiliza la autenticación básica. Vea la sección [Servicio vinculado de ODBC](#odbc-linked-service-properties) para conocer los diferentes tipos de autenticación que se pueden utilizar.
 
 	{
 	    "name": "OnPremOdbcLinkedService",
@@ -51,10 +53,10 @@ Como primer paso, configure la puerta de enlace de administración de datos seg�
 	        "type": "OnPremisesOdbc",
 	        "typeProperties":
 	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=<database>;",
-	            "userName": "<domain>\<user>",
-	            "password": "<password>",
+	            "authenticationType": "Basic",
+	            "connectionString": "Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;",
+	            "userName": "username",
+	            "password": "password",
 	            "gatewayName": "mygateway"
 	        }
 	    }
@@ -221,13 +223,13 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | type | La propiedad type debe establecerse en: **OnPremisesOdbc** | Sí |
 | connectionString | La parte de la credencial de no acceso de la cadena de conexión, así como una credencial cifrada opcional. Vea los ejemplos siguientes. | Sí
 | credential | La parte de la credencial de acceso de la cadena de conexión especificada en formato de valor de propiedad específico del controlador, por ejemplo “Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”. | No
-| authenticationType | Tipo de autenticación que se usa para conectarse al almacén de datos ODBC. Los valores posibles son: Anonymous, Basic y Windows. | Sí | 
-| nombre de usuario | Especifique el nombre de usuario si usa la autenticación Basic o Windows. | No | 
+| authenticationType | Tipo de autenticación que se usa para conectarse al almacén de datos ODBC. Los valores posibles son: Anonymous y Basic. | Sí | 
+| nombre de usuario | Especifique el nombre de usuario si usa la autenticación básica. | No | 
 | contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. | No | 
 | gatewayName | Nombre de la puerta de enlace que el servicio Factoría de datos debe usar para conectarse al almacén de datos ODBC. | Sí |
 
 
-Para más información acerca de cómo configurar las credenciales de un almacén de datos ODBC local, consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
+Para más información sobre cómo configurar las credenciales de un almacén de datos ODBC local, vea [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
 
 ### Uso de la autenticación básica
 
@@ -248,7 +250,7 @@ Para más información acerca de cómo configurar las credenciales de un almacé
 	}
 
 ### Uso de la autenticación básica con credenciales cifradas
-Las credenciales se pueden cifrar mediante [AzureRMDataFactoryEncryptValue nuevo](https://msdn.microsoft.com/library/mt603802.aspx) cmdlet (versión 1.0 de Azure PowerShell) o [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (versión 0.9, o una versión anterior, de Azure PowerShell).
+Las credenciales se pueden cifrar mediante [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) cmdlet (versión 1.0 de Azure PowerShell) o [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (versión 0.9 o una versión anterior de Azure PowerShell).
 
 	{
 	    "name": "odbc",
@@ -263,24 +265,6 @@ Las credenciales se pueden cifrar mediante [AzureRMDataFactoryEncryptValue nuevo
 	        }
 	    }
 	}
-
-### Uso de autenticación de Windows
-
-	{
-	    "name": "odbc",
-	    "properties":
-	    {
-	        "type": "OnPremisesOdbc",
-	        "typeProperties":
-	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=TestDatabase;",
-	            "userName": "<domain>\<user>",
-	            "password": "<password>",
-	            "gatewayName": "mygateway"
-	        }
-	    }
-	} 
 
 
 ### Uso de autenticación anónima
@@ -333,11 +317,11 @@ Como se mencionó en el artículo sobre [actividades del movimiento de datos](da
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
 
-Al mover datos desde almacenes de datos ODBC, los tipos de datos ODBC se asignan a tipos de .NET, como se mencionó en el tema [Asignar tipos de datos ODBC](https://msdn.microsoft.com/library/cc668763.aspx).
+Al mover datos desde almacenes de datos ODBC, los tipos de datos ODBC se asignan a tipos de .NET, como se mencionó en el tema [Asignación de tipos de datos ODBC](https://msdn.microsoft.com/library/cc668763.aspx).
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

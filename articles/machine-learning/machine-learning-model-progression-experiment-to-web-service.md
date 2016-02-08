@@ -25,7 +25,7 @@ Una vez que esté satisfecho con el experimento, puede implementarlo como un ***
 
 En este artículo le ofreceremos una información general de cómo progresa el modelo de Aprendizaje automático desde un experimento de desarrollo a un servicio web aplicado.
 
->[AZURE.NOTE]Hay otras maneras de desarrollar e implementar modelos de Aprendizaje automático, pero este artículo se centra en cómo usar Estudio de aprendizaje automático. Para obtener una explicación de cómo crear un servicio web predictivo con R, consulte la entrada del blog [Build & Deploy Predictive Web Apps Using RStudio and Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx) (Creación e implementación de aplicaciones web predictivas con RStudio y Aprendizaje automático de Azure).
+>[AZURE.NOTE] Hay otras maneras de desarrollar e implementar modelos de Aprendizaje automático, pero este artículo se centra en cómo usar Estudio de aprendizaje automático. Para obtener una explicación de cómo crear un servicio web predictivo con R, consulte la entrada del blog [Build & Deploy Predictive Web Apps Using RStudio and Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx) (Creación e implementación de aplicaciones web predictivas con RStudio y Aprendizaje automático de Azure).
 
 Aunque Estudio de aprendizaje automático de Azure está diseñado principalmente para ayudarle a desarrollar e implementar un *modelo de análisis predictivo*, es posible usar Estudio para desarrollar un experimento que no incluya un modelo de este tipo. Por ejemplo, un experimento podría simplemente insertar datos, manipularlos y, después, producir los resultados. Al igual que un experimento de análisis predictivo, puede implementar este experimento no predictivo como un servicio web, pero es un proceso más sencillo porque el experimento no está entrenando ni puntuando un modelo de Aprendizaje automático. Aunque no es el uso típico de Estudio, se deberá incluir en la explicación siguiente para que podemos dar una explicación completa de cómo funciona Estudio.
 
@@ -57,7 +57,7 @@ Puede haber más cambios que desee realizar para que el experimento predictivo e
 
 En este proceso de conversión no se descarta el experimento de entrenamiento. Cuando se complete el proceso, tendrá dos pestañas en Estudio: uno para el experimento de entrenamiento y otro para el experimento predictivo. De este modo, antes de implementar el servicio web, puede realizar cambios en el experimento de entrenamiento y volver a generar el experimento predictivo. O bien, puede guardar una copia del experimento de entrenamiento para iniciar otra línea de experimentación.
 
->[AZURE.NOTE]Al hacer clic en **Configurar servicio web**, se inicia un proceso automático para convertir el experimento de entrenamiento en un experimento predictivo y esto funciona bien en la mayoría de los casos. Pero si el experimento de entrenamiento es complejo (por ejemplo, tiene varias rutas de acceso para el entrenamiento que se unen), es posible que prefiera realizar esta conversión manualmente. Para obtener más detalles sobre el funcionamiento de este proceso de conversión, consulte [Convertir un experimento de entrenamiento en Aprendizaje automático en un experimento predictivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+>[AZURE.NOTE] Al hacer clic en **Configurar servicio web**, se inicia un proceso automático para convertir el experimento de entrenamiento en un experimento predictivo y esto funciona bien en la mayoría de los casos. Pero si el experimento de entrenamiento es complejo (por ejemplo, tiene varias rutas de acceso para el entrenamiento que se unen), es posible que prefiera realizar esta conversión manualmente. Para obtener más detalles sobre el funcionamiento de este proceso de conversión, consulte [Convertir un experimento de entrenamiento en Aprendizaje automático en un experimento predictivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
 ### El servicio web
 
@@ -160,4 +160,4 @@ Para ver ejemplos de todo el proceso, consulte:
 
 -   [Tutorial: Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -85,9 +85,9 @@ Debe utilizar la última familia del SO invitado para diseñar los servicios en 
 
 **¿Qué ocurre si mi aplicación web requiere una integración más profunda con el sistema operativo?**
 
-Si la arquitectura de la aplicación web requiere una dependencia más profunda del sistema operativo subyacente, utilice funciones admitidas por la plataforma, como las [tareas de inicio](cloud-services-startup-tasks.md) u otros mecanismos de extensibilidad que puedan existir en el futuro. Como alternativa, también puede usar [máquinas virtuales de Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS, Infraestructura como servicio), donde usted es responsable de mantener el sistema operativo subyacente.
+Si la arquitectura de la aplicación web requiere una dependencia más profunda del sistema operativo subyacente, utilice funciones admitidas por la plataforma, como las [tareas de inicio](cloud-services-startup-tasks.md) u otros mecanismos de extensibilidad que puedan existir en el futuro. Como alternativa, también puede usar [máquinas virtuales de Azure](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS, Infraestructura como servicio), donde usted es responsable de mantener el sistema operativo subyacente.
  
 ## Pasos siguientes
 Revise las [versiones del SO invitado](cloud-services-guestos-update-matrix.md) más recientes.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

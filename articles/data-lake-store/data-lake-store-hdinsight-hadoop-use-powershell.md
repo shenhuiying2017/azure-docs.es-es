@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/20/2016"
+   ms.date="01/21/2016"
    ms.author="nitinme"/>
 
 # Creación de un clúster de HDInsight con el Almacén de Data Lake mediante Azure PowerShell
@@ -97,6 +97,8 @@ Siga estos pasos para crear un Almacén de Data Lake.
 
 		# Register for Data Lake Store
 		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+
+	>[AZURE.NOTE] Si recibe un error similar a `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` al registrar el proveedor de recursos de Almacén de Data Lake, es posible que su suscripción no esté en la lista de permitidas de Almacén de Azure Data Lake. Asegúrese de habilitar su suscripción de Azure en la vista previa pública de Almacén Data Lake siguiendo estas [instrucciones](data-lake-store-get-started-portal.md#signup).
 
 3. La cuenta de Almacén de Azure Data Lake se asocia con un grupo de recursos de Azure. Comience creando un grupo de recursos de Azure.
 
@@ -259,7 +261,7 @@ Para obtener más información sobre el uso de PuTTY, consulte [Uso de SSH con H
 
     	hive
 
-2. Mediante la CLI, especifique las siguientes instrucciones para crear una nueva tabla denominada **vehicles** con los datos de ejemplo del Almacén de Data Lake:
+2. Mediante la CLI, especifique las siguientes instrucciones para crear una tabla denominada **vehicles** con los datos de ejemplo del Almacén de Data Lake:
 
 		DROP TABLE vehicles;
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';
@@ -376,4 +378,4 @@ También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en e
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

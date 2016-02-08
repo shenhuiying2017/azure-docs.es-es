@@ -27,7 +27,7 @@ Este artículo ofrece pasos detallados de solución de problemas para diagnostic
 
 Si obtiene un mensaje de error de Escritorio remoto que no se parece a ninguno de los mensajes de error específicos que se tratan en el artículo [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](virtual-machines-troubleshoot-remote-desktop-connections.md), puede seguir estos pasos e intentar averiguar por qué el cliente de Escritorio remoto (o [RDP](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol)) no se puede conectar al servicio RDP en la máquina virtual de Azure.
 
-Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure y de desbordamiento de pila](http://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](http://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**. Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes del soporte técnico de Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure y de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**. Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes del soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 
 ## Componentes de una conexión de Escritorio remoto
@@ -195,4 +195,4 @@ Compruebe que el punto de conexión de Escritorio remoto para la máquina virtua
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

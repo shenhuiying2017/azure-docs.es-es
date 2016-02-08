@@ -29,7 +29,7 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 
 ## Requisitos previos de configuración
 
-- Necesitará la versión más reciente de los cmdlets de Azure PowerShell. Puede descargar el módulo de PowerShell más reciente desde la sección de PowerShell en la [página de descargas de Azure](http://azure.microsoft.com/downloads). Siga las instrucciones de la página [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener instrucciones detalladas sobre cómo configurar el equipo para usar los módulos de Azure PowerShell. 
+- Necesitará la versión más reciente de los cmdlets de Azure PowerShell. Puede descargar el módulo de PowerShell más reciente desde la sección de PowerShell en la [página de descargas de Azure](https://azure.microsoft.com/downloads/). Siga las instrucciones de la página [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener instrucciones detalladas sobre cómo configurar el equipo para usar los módulos de Azure PowerShell. 
 - Asegúrese de que ha revisado la página [Requisitos previos](expressroute-prerequisites.md) y la página [Flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
 
 ## Para crear y aprovisionar un circuito ExpressRoute
@@ -286,7 +286,7 @@ Puede deshabilitar el complemento ExpressRoute Premium en el circuito existente 
 
 El complemento Premium ahora está deshabilitado para el circuito.
 
->[AZURE.IMPORTANT]Esta operación puede producir un error si está utilizando recursos superiores a lo que está permitido para el circuito estándar.
+>[AZURE.IMPORTANT] Esta operación puede producir un error si está utilizando recursos superiores a lo que está permitido para el circuito estándar.
 >
 >- Debe asegurarse de que el número de redes virtuales vinculadas al circuito es inferior a 10 antes de realizar la degradación de Premium a estándar. Si no lo hace, se producirá un error en la solicitud de actualización y se le factura con las tarifas Premium.
 - Tiene que desvincular todas las redes virtuales en otras regiones geopolíticas. Si no lo hace, se producirá un error en la solicitud de actualización y se le factura con las tarifas Premium.
@@ -310,7 +310,7 @@ Consulte la página [Preguntas más frecuentes sobre ExpressRoute](expressroute-
 
 El circuito habrá cambiado de tamaño en el lado de Microsoft. Debe ponerse en contacto con su proveedor de conectividad para actualizar las configuraciones de su parte para que coincidan con este cambio. Tenga en cuenta que le facturará la opción de ancho de banda actualizada desde este momento.
 
->[AZURE.IMPORTANT]No podrá reducir el ancho de banda de un circuito ExpressRoute sin interrupciones. Degradar de ancho de banda requiere que cancele el aprovisionamiento del circuito ExpressRoute y, a continuación, vuelva a aprovisionar un nuevo circuito ExpressRoute.
+>[AZURE.IMPORTANT] No podrá reducir el ancho de banda de un circuito ExpressRoute sin interrupciones. Degradar de ancho de banda requiere que cancele el aprovisionamiento del circuito ExpressRoute y, a continuación, vuelva a aprovisionar un nuevo circuito ExpressRoute.
 
 ##  Eliminación y desaprovisionamiento de un circuito ExpressRoute
 
@@ -328,4 +328,4 @@ Si el proveedor de servicios ha desaprovisionado el circuito (el estado de aprov
 
 - [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -50,7 +50,7 @@ Para usar el almacenamiento de archivos, necesita conectarse con la cuenta de al
 	    "AccountName=your_storage_account_name;" +
 	    "AccountKey=your_storage_account_key";
 
-> [AZURE.NOTE]Reemplace your\_storage\_account\_name y your\_storage\_account\_key por los valores reales de la cuenta de almacenamiento.
+> [AZURE.NOTE] Reemplace your\_storage\_account\_name y your\_storage\_account\_key por los valores reales de la cuenta de almacenamiento.
 
 ## Conexión a una cuenta de almacenamiento de Azure
 
@@ -222,4 +222,4 @@ Si desea obtener más información acerca de otras API de almacenamiento de Azur
 [API de REST de almacenamiento de Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

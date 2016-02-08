@@ -23,7 +23,7 @@ Los [**trabajos de base de datos elástica**](sql-database-elastic-jobs-overview
 Si ya instaló los **trabajos de base de datos elástica** a través del Portal en un **grupo de bases de datos elásticas** existente, la última vista previa de Powershell incluye scripts para actualizar la instalación existente. Es muy recomendable actualizar la instalación a los componentes más recientes de los **trabajos de base de datos elástica** para aprovechar la nueva funcionalidad expuesta a través de las API de PowerShell.
 
 ## Requisitos previos
-* Una suscripción de Azure. Para obtener una versión de evaluación gratuita, consulte [Versión de evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure. Para obtener una versión de evaluación gratuita, consulte [Versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell versión 0.8.16 o posterior. Instale la versión más reciente (0.9.5) a través del [Instalador de plataforma Web](http://go.microsoft.com/fwlink/p/?linkid=320376). Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
 * La [utilidad de línea de comandos NuGet](https://nuget.org/nuget.exe) sirve para instalar el paquete de trabajos de base de datos elástica. Para obtener más información, consulte http://docs.nuget.org/docs/start-here/installing-nuget.
 
@@ -188,4 +188,4 @@ La garantía de una credencial con los derechos adecuados para la ejecución del
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

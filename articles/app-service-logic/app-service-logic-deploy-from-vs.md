@@ -18,12 +18,12 @@
 	
 # Implementación desde Visual Studio
 
-Aunque el [Portal de Azure](https://portal.azure.com) le ofrece una excelente manera de diseñar y administrar las aplicaciones lógicas, es posible que también desee implementar la aplicación lógica desde Visual Studio. Hay un par de capacidades clave que lo habilitan:
+Aunque el [Portal de Azure](https://portal.azure.com/) le ofrece una excelente manera de diseñar y administrar las aplicaciones lógicas, es posible que también desee implementar la aplicación lógica desde Visual Studio. Hay un par de capacidades clave que lo habilitan:
 
 - Almacene la aplicación lógica junto con los demás recursos de la solución, de manea que pueda contener todos los aspectos de la aplicación.
 - Mantenga la definición de aplicación lógica protegida en el control de código fuente para poder usar TFS o Git para realizar revisiones en la aplicación 
 
-Debe tener el SDK de Azure 2.7 o posterior instalado para seguir los pasos que se describen a continuación. Busque [el último SDK para VS](http://azure.microsoft.com/downloads/) aquí.
+Debe tener el SDK de Azure 2.7 o posterior instalado para seguir los pasos que se describen a continuación. Busque [el último SDK para VS](https://azure.microsoft.com/downloads/) aquí.
 
 ## Creación de un proyecto
 
@@ -65,4 +65,4 @@ En el futuro, puede revisar la aplicación lógica en el control de código fuen
 
 Si no quiere usar Visual Studio, pero quiere usar herramientas para implementar la aplicación lógica del control de código fuente, siempre puede usar la [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) o [Powershell](../powershell-azure-resource-manager.md) directamente para automatizar las implementaciones.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

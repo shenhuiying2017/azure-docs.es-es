@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="tomfitz"/>
 
 # Vinculación de recursos en el Administrador de recursos de Azure
@@ -57,4 +57,4 @@ Para obtener más ejemplos, incluido cómo recuperar información acerca de los 
 - También puede organizar los recursos con etiquetas. Para obtener información sobre el etiquetado de recursos, consulte [Uso de etiquetas para organizar los recursos](resource-group-using-tags.md).
 - Para obtener una descripción sobre cómo crear plantillas y definir los recursos que se van a implementar, consulte [Creación de plantillas](resource-group-authoring-templates.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

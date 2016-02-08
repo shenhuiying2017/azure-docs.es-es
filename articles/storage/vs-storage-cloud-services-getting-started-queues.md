@@ -22,13 +22,13 @@
 
 En este artículo se describe cómo empezar a usar el almacenamiento de colas de Azure en Visual Studio después de crear una cuenta de almacenamiento de Azure en un proyecto de servicios en la nube mediante el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, o después hacer referencia a una.
 
-Le mostraremos cómo crear una cola en el código. También le mostraremos cómo realizar operaciones básicas de cola, como agregar, modificar, leer y quitar mensajes de cola. Los ejemplos están escritos en código C# y usan la [biblioteca del cliente de almacenamiento de Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Le mostraremos cómo crear una cola en el código. También le mostraremos cómo realizar operaciones básicas de cola, como agregar, modificar, leer y quitar mensajes de cola. Los ejemplos están escritos en código C# y usan la [biblioteca del cliente de Almacenamiento de Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 La operación **Agregar servicios conectados** instala los paquetes de NuGet adecuados para tener acceso al almacenamiento de Azure en el proyecto y agrega la cadena de conexión para la cuenta de almacenamiento a los archivos de configuración del proyecto.
 
  - Vea [Uso del Almacenamiento en cola de .NET](storage-dotnet-how-to-use-queues.md) para más información sobre la manipulación de colas en el código.
  - Vea [Documentación sobre Almacenamiento](https://azure.microsoft.com/documentation/services/storage/) para información general sobre Almacenamiento de Azure.
- - Vea [Documentación sobre Servicios en la nube](http://azure.microsoft.com/documentation/services/cloud-services/) para información general sobre los servicios en la nube de Azure.
+ - Vea [Documentación sobre Servicios en la nube](https://azure.microsoft.com/documentation/services/cloud-services/) para información general sobre los servicios en la nube de Azure.
  - Vea [ASP.NET](http://www.asp.net) para más información sobre la programación de aplicaciones ASP.NET.
 
 
@@ -45,7 +45,7 @@ Para obtener acceso a las colas en los proyectos de Servicios en la nube de Visu
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Queue;
 
-2. Obtenga un objeto **CloudStorageAccount** que represente la información de la cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure.
+2. Obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure.
 
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
@@ -61,7 +61,7 @@ Para obtener acceso a las colas en los proyectos de Servicios en la nube de Visu
 	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
-**NOTA:** use todo el código anterior delante del código que aparece en los ejemplos siguientes.
+**NOTA:** use todo el código anterior delante del código que aparece en las muestras siguientes.
 
 ## Creación de una cola en código
 
@@ -192,4 +192,4 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

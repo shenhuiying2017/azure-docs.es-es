@@ -30,7 +30,7 @@ La información de estos tutoriales da por supuesto que revisó las precauciones
 
 Necesitará privilegios de administrador para completar el proceso de instalación y configuración. Se recomienda que revise la lista de comprobación de configuración antes de comenzar. El proceso de implementación y configuración puede tardar algún tiempo en completarse.
 
-> [AZURE.NOTE]La información de implementación de StorSimple publicada en el sitio web de Microsoft Azure se aplica solo a los dispositivos StorSimple de la serie 8000. Para obtener información completa sobre los dispositivos de la serie 7000, vaya a: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obtener información sobre la implementación de la serie 7000, vea la [Guía de inicio rápido del sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
+> [AZURE.NOTE] La información de implementación de StorSimple publicada en el sitio web de Microsoft Azure se aplica solo a los dispositivos StorSimple de la serie 8000. Para obtener información completa sobre los dispositivos de la serie 7000, vaya a: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obtener información sobre la implementación de la serie 7000, vea la [Guía de inicio rápido del sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
 
 ## Pasos de implementación
 
@@ -115,7 +115,7 @@ Antes de comenzar, asegúrese de que:
 
 - Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
 
-- Su suscripción de Microsoft Azure está habilitada para el servicio de Administrador de StorSimple. Debe adquirir la suscripción a través del [Contrato Enterprise](http://azure.microsoft.com/pricing/enterprise-agreement/).
+- Su suscripción de Microsoft Azure está habilitada para el servicio de Administrador de StorSimple. Debe adquirir la suscripción a través del [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
 - Tiene acceso a software de emulación de terminales, como PuTTY.
 
@@ -145,7 +145,7 @@ El servicio de Administrador de StorSimple puede administrar varios dispositivos
 
 [AZURE.INCLUDE [storsimple-create-new-service-gov](../../includes/storsimple-create-new-service-gov.md)]
 
-> [AZURE.IMPORTANT]Si no habilitó la creación automática de una cuenta de almacenamiento con el servicio, debe crear al menos una cuenta de almacenamiento después de crear correctamente un servicio. Dicha cuenta de almacenamiento se usará al crear un contenedor de volúmenes.
+> [AZURE.IMPORTANT] Si no habilitó la creación automática de una cuenta de almacenamiento con el servicio, debe crear al menos una cuenta de almacenamiento después de crear correctamente un servicio. Dicha cuenta de almacenamiento se usará al crear un contenedor de volúmenes.
 >
 > * Si no creó automáticamente una cuenta de almacenamiento, vaya a [Configurar una nueva cuenta de almacenamiento para el servicio](#configure-a-new-storage-account-for-the-service) para obtener instrucciones detalladas. 
 > * Si habilitó la creación automática de una cuenta de almacenamiento, vaya al [Paso 2: Obtener la clave de registro del servicio](#step-2-get-the-service-registration-key).
@@ -189,7 +189,7 @@ Para crear un contenedor de volúmenes, siga estos pasos en el Portal de Governm
 
 Después de crear un contenedor de volúmenes, puede aprovisionar un volumen de almacenamiento en el dispositivo StorSimple para los servidores. Para crear un volumen, siga estos pasos en el Portal de Government.
 
-> [AZURE.IMPORTANT]Azure StorSimple solo puede crear volúmenes con aprovisionamiento fino. No es posible crear volúmenes total o parcialmente aprovisionados en un sistema de Azure StorSimple.
+> [AZURE.IMPORTANT] Azure StorSimple solo puede crear volúmenes con aprovisionamiento fino. No es posible crear volúmenes total o parcialmente aprovisionados en un sistema de Azure StorSimple.
 
 [AZURE.INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume.md)]
 
@@ -248,7 +248,7 @@ La actualización del dispositivo puede tardar entre varias horas. Realice los p
 2.	Se crea un trabajo para buscar las actualizaciones disponibles. Si hay actualizaciones disponibles, la opción **Buscar actualizaciones** cambia a **Instalar actualizaciones**. Haga clic en **Instalar actualizaciones**. 
 3.	Se creará un trabajo de actualización. Vaya a **Trabajos** para supervisar el estado de la actualización.
 
-	> [AZURE.NOTE]Cuando se inicia el trabajo de actualización, se muestra inmediatamente el estado como 50 por ciento. El estado cambia al 100 por cien una vez completado el trabajo de actualización. No hay ningún estado en tiempo real para el proceso de actualizaciones.
+	> [AZURE.NOTE] Cuando se inicia el trabajo de actualización, se muestra inmediatamente el estado como 50 por ciento. El estado cambia al 100 por cien una vez completado el trabajo de actualización. No hay ningún estado en tiempo real para el proceso de actualizaciones.
 
 4.	Después de que el dispositivo se actualiza correctamente, habilite las interfaces de red Data 2 y Data 3 si estaban deshabilitadas.
 
@@ -270,7 +270,7 @@ E/S de múltiples rutas (MPIO) es una característica opcional y no está instal
 
 Para instrucciones de instalación de MPIO para un dispositivo StorSimple conectado a un host Linux, vaya a [Configurar MPIO para el host Linux](storsimple-configure-mpio-on-linux.md).
 
-> [AZURE.NOTE]No se admite MPIO en un dispositivo virtual de StorSimple.
+> [AZURE.NOTE] No se admite MPIO en un dispositivo virtual de StorSimple.
 
 ## Pasos siguientes
 
@@ -279,4 +279,4 @@ Para instrucciones de instalación de MPIO para un dispositivo StorSimple conect
 - Use el [servicio de Administrador de StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx) para administrar el dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

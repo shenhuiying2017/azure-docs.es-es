@@ -166,7 +166,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 ## Escritura diferida de contraseñas
  - **P: ¿Cómo funciona en segundo plano la escritura diferida de contraseñas?**
  
- > **R:** Consulte Cómo funciona la escritura diferida de contraseñas para obtener una explicación detallada de lo que ocurre cuando se habilita la escritura diferida de contraseñas, además de cómo los datos fluyen por el sistema para volver al entorno local. Consulte "Modelo de seguridad de la escritura diferida de contraseñas" en Cómo funciona la escritura diferida de contraseñas para obtener información sobre cómo podemos asegurarnos de que la escritura diferida de contraseñas es un servicio con un alto nivel de seguridad.
+ > **R:** Consulte [Funcionamiento de la Escritura diferida de contraseñas](active-directory-passwords-learn-more.md#how-password-writeback-works) para obtener una explicación detallada de lo que ocurre cuando se habilita la Escritura diferida de contraseñas, además de cómo los datos fluyen por el sistema para volver al entorno local. Consulte [Modelo de seguridad de la Escritura diferida de contraseñas](active-directory-passwords-learn-more.md#password-writeback-security-model) en Funcionamiento de la Escritura diferida de contraseñas para obtener información sobre cómo podemos asegurarnos de que la Escritura diferida de contraseñas es un servicio con un alto nivel de seguridad.
 
  - **P: ¿Cuánto demora en funcionar la escritura diferida de contraseñas? ¿Existe un retraso en la sincronización, como ocurre con la sincronización de hash de contraseña?**
  
@@ -182,7 +182,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 
  - **P: ¿Es segura la escritura diferida de contraseñas? ¿Cómo puedo estar seguro de no ser víctima del ataque de un hacker?**
  
- > **R:** Sí, la escritura diferida de contraseñas es sumamente segura. Para obtener más información acerca de los 4 niveles de seguridad que implementa el servicio de escritura diferida de contraseñas, consulte "Modelo de seguridad de la escritura diferida de contraseñas" en Cómo funciona la escritura diferida de contraseñas.
+ > **R:** Sí, la escritura diferida de contraseñas es sumamente segura. Para obtener más información acerca de los 4 niveles de seguridad que implementa el servicio de Escritura diferida de contraseñas, consulte [Modelo de seguridad de la Escritura diferida de contraseñas](active-directory-passwords-learn-more.md#password-writeback-security-model) en Funcionamiento de la Escritura diferida de contraseñas.
 
 
 <br/> <br/> <br/>
@@ -190,7 +190,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 ## Vínculos a la documentación de restablecimiento de la contraseña
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password.md): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema.
+* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password.md): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Personalizar**](active-directory-passwords-customize.md) : obtenga información sobre cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización.
@@ -203,4 +203,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

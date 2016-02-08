@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/29/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 # Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)
@@ -22,11 +22,11 @@
 - [Resource Manager Powershell steps](application-gateway-ilb-arm.md)
 
 
-Puerta de enlace de aplicaciones se puede configurar con una VIP para Internet o con un extremo interno no expuesto a Internet, también conocido como extremo equilibrador de carga interno (ILB). Configurar la puerta de enlace con un ILB es útil para la línea interna de aplicaciones empresariales que no se exponen en Internet. También es útil para los servicios o niveles dentro de una aplicación de varios niveles que se asientan en un límite de seguridad no expuesto a Internet, pero siguen necesitando distribución de carga round robin, permanencia de sesión o terminación SSL. Este artículo le guiará por los pasos necesarios para configurar una puerta de enlace de la aplicaciones con un ILB.
+La Puerta de enlace de aplicaciones se puede configurar con una IP virtual accesible desde Internet o con un punto de conexión interno no expuesto a Internet, lo que se conoce también como punto de conexión de Equilibrador de carga interno (ILB). Configurar la puerta de enlace con un ILB es útil para la línea interna de aplicaciones empresariales que no se exponen en Internet. También es útil para los servicios o niveles dentro de una aplicación de varios niveles que se asientan en un límite de seguridad no expuesto a Internet, pero siguen necesitando distribución de carga round robin, permanencia de sesión o terminación SSL. Este artículo le guiará por los pasos necesarios para configurar una puerta de enlace de la aplicaciones con un ILB.
 
 ## Antes de empezar
 
-1. Instale la versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente desde la sección **Windows PowerShell** de la [Página de descarga](http://azure.microsoft.com/downloads/).
+1. Instale la versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente desde la sección **Windows PowerShell** de la [Página de descarga](https://azure.microsoft.com/downloads/).
 2. Compruebe que tiene una red virtual que funciona con una subred válida.
 3. Compruebe que dispone de servidores backend, ya sea en la red virtual o con una dirección IP virtual o dirección IP pública asignada.
 
@@ -79,11 +79,11 @@ Una configuración de puerta de enlace de aplicaciones consta de varios valores.
  
 Los valores son:
 
-- **Grupo de servidores de back-end**: la lista de direcciones IP de los servidores back-end. Las direcciones IP mostradas deben pertenecer a la subred de red virtual o deben ser una dirección IP virtual o dirección IP pública. 
+- **Grupo de servidores de backend:** lista de direcciones IP de los servidores backend. Las direcciones IP mostradas deben pertenecer a la subred de red virtual o deben ser una dirección IP virtual o dirección IP pública. 
 - **Configuración del grupo de servidores back-end**: cada grupo tiene una configuración como el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
-- **Puerto front-end**: este puerto es el puerto público abierto en la Puerta de enlace de aplicaciones. El tráfico llega a este puerto y, a continuación, se redirige a uno de los servidores backend.
+- **Puerto front-end:** este puerto es el puerto público abierto en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y, a continuación, se redirige a uno de los servidores backend.
 - **Agente de escucha**: la escucha tiene un puerto front-end, un protocolo (Http o Https, estos distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL). 
-- **Regla**: enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se redirigirá el tráfico cuando se seleccione un agente de escucha concreto. Actualmente, solo se admite la regla *básica*. La regla *básica* es la distribución de carga round robin.
+- **Regla:** enlaza el agente de escucha y el grupo de servidores backend, y define a qué grupo de servidores backend se debe dirigir el tráfico cuando llega a un agente de escucha determinado. Actualmente, solo se admite la regla *básica*. La regla *basic* regla es la distribución de carga round robin.
 
 Puede llevar a cabo la configuración mediante la creación de un objeto de configuración o usando un archivo XML de configuración. Para llevar a cabo la configuración usando un archivo XML de configuración, use el siguiente ejemplo.
 
@@ -96,7 +96,7 @@ Tenga en cuenta lo siguiente:
 
 - El elemento *Type* de la dirección IP del front-end debe establecerse en 'Private'
 
-- El elemento *StaticIPAddress* debe establecerse en la dirección IP interna deseada en la que la puerta de enlace recibirá el tráfico. Tenga en cuenta que el elemento *StaticIPAddress* es opcional. Si no se establece, se elige una dirección IP interna disponible de la subred implementada.
+- El elemento *StaticIPAddress* debe establecerse en la dirección IP interna deseada en el que la puerta de enlace recibirá el tráfico. Tenga en cuenta que el elemento *StaticIPAddress* es opcional. Si no se establece, se elige una dirección IP interna disponible de la subred implementada.
 
 - El valor del elemento *Name* especificado en *FrontendIPConfiguration* se debe usar en el elemento *FrontendIP* de HTTPListener para hacer referencia a FrontendIPConfiguration.
 
@@ -174,7 +174,7 @@ A continuación, establecerá la puerta de enlace de aplicaciones. Puede usar el
 Una vez configurada la puerta de enlace, use el cmdlet `Start-AzureApplicationGateway` para iniciarla. La facturación de una puerta de enlace de aplicaciones comienza después de que se haya iniciado correctamente.
 
 
-**Nota**: el cmdlet `Start-AzureApplicationGateway` puede tardar hasta 15-20 minutos en completarse.
+**Nota:** el cmdlet `Start-AzureApplicationGateway` puede tardar hasta 15-20 minutos en completarse.
    
 	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
@@ -212,4 +212,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

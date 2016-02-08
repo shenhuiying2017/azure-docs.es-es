@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2015" 
+	ms.date="01/26/2016" 
 	ms.author="cephalin"/>
 
 # Funcionalidad del sistema operativo en el Servicio de aplicaciones de Azure #
@@ -105,10 +105,10 @@ Las aplicaciones disponen de acceso de solo lectura a la mayor parte del registr
 
 El acceso de escritura al registro está bloqueado, incluido el acceso a las claves de registro por usuario. Desde una perspectiva de la aplicación, el acceso de escritura al registro no debe basarse nunca en el entorno de Azure, puesto que se pueden migrar aplicaciones entre distintas máquinas virtuales y, de hecho, se hace. El único almacenamiento persistente en el que se puede escribir y que puede depender de la aplicación es la estructura de directorios de contenido por aplicación almacenada en recursos compartidos UNC del Servicio de aplicaciones.
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
  
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

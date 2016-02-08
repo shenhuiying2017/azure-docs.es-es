@@ -56,16 +56,16 @@ Entre los usos típicos de la red CDN se incluyen:
 En la lista siguiente se muestran ejemplos del tiempo medio hasta el primer byte desde distintas ubicaciones geográficas. El rol web de destino se implementa en Azure en la zona oeste de EE. UU. Hay una correlación estrecha entre el mayor aumento debido a la red CDN y su proximidad a un nodo de la red CDN. Encontrará una lista completa de las ubicaciones de los nodos de la red CDN de Azure en [Ubicaciones de nodos de la red de entrega de contenido (CDN) de Azure](cdn/cdn-pop-locations.md/).
 
 
-|| Tiempo (ms) hasta primer byte (origen) | Tiempo (ms) hasta primer (CDN) | % de mejora de tiempo de CDN|
-|---|---|---|---|
-| * San José, CA| 47.5 | 46.5 | 2% |
-| ** Dulles, VA| 109 | 40,5 | % de 169 |
-| Buenos Aires, AR| 210 | 151 | 39% |
-| * Londres, UK| 195 | 44 | % de 343 |
-| Shangai, CN| 242 | 206 | 17% |
-| * Singapur | 214 | 74 | % De 189 |
-| * Tokio, Japón | 163 | 48 | 204% |
-| Seúl, KR| 190 | 190 | 0% |
+| Tiempo (ms) hasta el primer byte (origen) | Tiempo (ms) hasta la primera (CDN) |% de mejora de tiempo de CDN|
+|-------------|------------------------|--------------------|------------------|
+|*San José, California| 47,5 | 46,5 | 2 % |
+|**Dulles, Virginia| 109 | 40,5 | 169 % |
+|Buenos Aires, Argentina| 210 | 151 | 39 %|
+|*Londres, Reino Unido| 195 | 44 | 343 %|
+|Shangai, China| 242 | 206 | 17 % |
+|*Singapur | 214 | 74 | 189 % |
+|*Tokio, Japón | 163 | 48 | 204 % |
+|Seúl, Corea del Sur| 190 | 190 | 0 % |
 
 
 \* Tiene un nodo de la red CDN de Azure en la misma ciudad.  
@@ -153,7 +153,7 @@ No use la cadena de consulta para indicar versiones diferentes de la aplicación
 
 La implementación de nuevas versiones de contenido estático cuando se actualiza una aplicación puede ser un desafío si los recursos anteriores se almacenan en caché en la red CDN. Para más información, consulte la sección [Control de caché](#cache-control").
 
-Considere la posibilidad de restringir el acceso al contenido de la red CDN por país. La red CDN de Azure le permite filtrar las solicitudes en función del país de origen y restringir el contenido que se entrega. Para más información, consulte [Restricción del acceso a contenidos por país](cdn/cdn-restrict-access-by-country/).
+Considere la posibilidad de restringir el acceso al contenido de la red CDN por país. La red CDN de Azure le permite filtrar las solicitudes en función del país de origen y restringir el contenido que se entrega. Para más información, consulte [Restringir el acceso al contenido por país](cdn/cdn-restrict-access-by-country/).
 
 ###Control de caché
 
@@ -281,10 +281,10 @@ Tenga en cuenta que el uso de la reescritura de URL requiere que se realicen var
 ## Más información
 
 
-+ [Red CDN de Azure](http://azure.microsoft.com/services/cdn/)
++ [Red CDN de Azure](https://azure.microsoft.com/services/cdn/)
 + [CDN documentation](https://azure.microsoft.com/documentation/services/cdn/)
 + [Entrega de contenido desde la red CDN de Azure en su aplicación web](cdn/cdn-serve-content-from-cdn-in-your-web-application/)
 + [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](cdn/cdn-cloud-service-with-cdn.md/)
-+ [Best Practices for the Microsoft Azure Content Delivery Network](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
++ [Best Practices for the Microsoft Azure Content Delivery Network](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

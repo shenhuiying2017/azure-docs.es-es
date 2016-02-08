@@ -42,7 +42,7 @@ La demanda dinámica es una realidad para las aplicaciones de hoy en día. De la
 
 ## Servicios relacionados
 
-- [Servicios en la nube](http://azure.microsoft.com/services/cloud-services/) 
+- [Servicios en la nube](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

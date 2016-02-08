@@ -22,7 +22,7 @@
 
 Este tutorial describe cómo se integra Azure Site Recovery con Automatización de Azure para proporcionar extensibilidad a los planes de recuperación. Los planes de recuperación pueden coordinar la recuperación de las máquinas virtuales protegidas mediante Azure Site Recovery para escenarios de replicación en la nube secundaria y replicación en Azure. También ayudan a realizar la recuperación **coherente y precisa**, **repetible** y **automatizada**. Si conmuta por error las máquinas virtuales en Azure, la integración con Automatización de Azure amplía los planes de recuperación y le ofrece la capacidad de ejecutar runbooks, lo que proporciona tareas de automatización eficaces.
 
-Si aún no ha oído hablar de Automatización de Azure, suscríbase [aquí](http://azure.microsoft.com/services/automation/) y descargue sus scripts de ejemplo [aquí](http://azure.microsoft.com/documentation/scripts/). Obtenga más información sobre [Azure Site Recovery](http://azure.microsoft.com/services/site-recovery/) y cómo llevar a cabo la recuperación en Azure con los planes de recuperación [aquí](http://azure.microsoft.com/blog/?p=166264).
+Si aún no ha oído hablar de Automatización de Azure, suscríbase [aquí](https://azure.microsoft.com/services/automation/) y descargue sus scripts de ejemplo [aquí](https://azure.microsoft.com/documentation/scripts/). Obtenga más información sobre [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) y cómo llevar a cabo la recuperación en Azure con los planes de recuperación [aquí](https://azure.microsoft.com/blog/?p=166264).
 
 En este tutorial, veremos cómo se pueden integrar runbooks de Automatización de Azure en planes de recuperación. Automatizaremos tareas sencillas que anteriormente requerían una intervención manual y veremos cómo convertir una recuperación de varios paso en una acción de recuperación de un solo clic. También veremos cómo puede solucionar problemas de un script sencillo si algo va mal.
 
@@ -310,4 +310,4 @@ Mientras describimos la automatización de la tarea habitual de agregar un extre
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

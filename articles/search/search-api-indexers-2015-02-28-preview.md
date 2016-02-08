@@ -17,7 +17,7 @@ ms.author="heidist" />
 
 #Operaciones de indexador (API de REST del servicio de Búsqueda de Azure: 2015-02-28-Preview)#
 
-> [AZURE.NOTE]En este artículo se describen los indexadores de [2015-02-28-Preview](./search-api-2015-02-28-preview). Actualmente no hay ninguna diferencia entre la versión `2015-02-28` documentada en [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) y la versión `2015-02-28-Preview` descrita aquí. Este artículo se proporciona para darle la documentación completa establecida para `2015-02-28-Preview`, aunque esta API no presenta ningún cambio.
+> [AZURE.NOTE] En este artículo se describen los indexadores de [2015-02-28-Preview](./search-api-2015-02-28-preview). Actualmente no hay ninguna diferencia entre la versión `2015-02-28` documentada en [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) y la versión `2015-02-28-Preview` descrita aquí. Este artículo se proporciona para darle la documentación completa establecida para `2015-02-28-Preview`, aunque esta API no presenta ningún cambio.
 
 ## Información general ##
 
@@ -38,7 +38,7 @@ Actualmente se admiten los siguientes orígenes de datos:
 - Base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure
 - DocumentDB de Azure 
 
-Estamos considerando agregar compatibilidad con orígenes de datos adicionales en el futuro. Para ayudarnos a priorizar estas decisiones, proporcione sus comentarios en el [foro de comentarios de Búsqueda de Azure](http://feedback.azure.com/forums/263029-azure-search).
+Estamos considerando agregar compatibilidad con orígenes de datos adicionales en el futuro. Para ayudarnos a priorizar estas decisiones, proporcione sus comentarios en el [foro de comentarios de Búsqueda de Azure](https://feedback.azure.com/forums/263029-azure-search/).
 
 Consulte [Límites de servicio](search-limits-quotas-capacity.md) para obtener información sobre los límites máximos relacionados con recursos de origen de datos y de indexador.
 
@@ -776,4 +776,4 @@ Código de estado: 204 Sin contenido para obtener una respuesta correcta.
 </tr>
 </table>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

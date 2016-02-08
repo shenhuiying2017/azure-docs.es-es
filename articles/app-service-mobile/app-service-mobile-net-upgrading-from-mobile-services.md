@@ -28,7 +28,7 @@ Cuando un back-end móvil se actualiza a Servicio de aplicaciones de Azure, acce
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP]Se recomienda [realizar una migración](app-service-mobile-migrating-from-mobile-services.md) antes de pasar por una actualización. De este modo, puede colocar las dos versiones de la aplicación en el mismo Plan del Servicio de aplicaciones y no incurrir en ningún coste adicional.
+>[AZURE.TIP] Se recomienda [realizar una migración](app-service-mobile-migrating-from-mobile-services.md) antes de pasar por una actualización. De este modo, puede colocar las dos versiones de la aplicación en el mismo Plan del Servicio de aplicaciones y no incurrir en ningún coste adicional.
 
 ###Mejoras en el SDK de servidor .NET de Aplicaciones móviles
 
@@ -46,7 +46,7 @@ La actualización al nuevo [SDK de Aplicaciones móviles](https://www.nuget.org/
 
 En muchos casos, la actualización será tan sencilla como cambiar al nuevo SDK de servidor de Aplicaciones móviles y volver a publicar el código en una nueva instancia de Aplicaciones móviles. Sin embargo, hay algunos escenarios que requieren una configuración adicional, como los escenarios de autenticación avanzada y el trabajo con trabajos programados. Cada uno de ellos se trata en las secciones siguientes.
 
->[AZURE.TIP]Se recomienda leer y comprender totalmente el resto de este tema antes de iniciar una actualización. Tome nota de cualquier característica usada que se mencione a continuación.
+>[AZURE.TIP] Se recomienda leer y comprender totalmente el resto de este tema antes de iniciar una actualización. Tome nota de cualquier característica usada que se mencione a continuación.
 
 Los SDK de cliente de Servicios móviles **no** son compatibles con el nuevo SDK de servidor de Aplicaciones móviles. A fin de ofrecer continuidad del servicio para la aplicación, no debe publicar cambios en un sitio que actualmente presta servicio a clientes publicados. En su lugar, debe crear una aplicación móvil que actúe como duplicado. Puede colocar esta aplicación en el mismo Plan del Servicio de aplicaciones para evitar incurrir en costos financieros adicionales.
 
@@ -60,11 +60,11 @@ El esquema completo del proceso de actualización es el siguiente:
 4. (Opcional) Eliminación de la instancia original migrada
 
 ##<a name="mobile-app-version"></a>Creación de una segunda instancia de aplicación
-El primer paso en la actualización es crear el recurso de aplicación móvil que hospedará la nueva versión de la aplicación. Si ya ha migrado un servicio móvil existente, conviene crear esta versión en el mismo plan de hospedaje. Abra el [Portal de Azure] y navegue a la aplicación migrada. Tome nota del Plan del Servicio de aplicaciones en el que se ejecuta.
+El primer paso en la actualización es crear el recurso de aplicación móvil que hospedará la nueva versión de la aplicación. Si ya ha migrado un servicio móvil existente, conviene crear esta versión en el mismo plan de hospedaje. Abra el [Portal de Azure] y vaya a la aplicación migrada. Tome nota del Plan del Servicio de aplicaciones en el que se ejecuta.
 
 A continuación, cree la segunda instancia de aplicación siguiendo las [instrucciones de creación de back-end de .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). Cuando se le pida que seleccione el Plan del Servicio de aplicaciones o el "plan de hospedaje", elija el plan de la aplicación migrada.
 
-Probablemente deseará usar la misma base de datos y la base de datos central de notificaciones como hizo en Servicios móviles. Para copiar estos valores, abra el [Portal de Azure] y navegue a la aplicación original, luego haga clic en **Configuración** > **Configuración de la aplicación**. En **Cadenas de conexión**, copie `MS_NotificationHubConnectionString` y `MS_TableConnectionString`. Navegue al nuevo sitio de actualización y péguelos en él, sobrescribiendo los valores existentes. Repita este proceso para cualquier otra opción de configuración de la aplicación que la aplicación requiera. Si no usa un servicio migrado, puede leer las cadenas de conexión y la configuración de la aplicación en la pestaña **Configurar** de la sección Servicios móviles del [Portal de Azure clásico].
+Probablemente deseará usar la misma base de datos y la base de datos central de notificaciones como hizo en Servicios móviles. Para copiar estos valores, abra el [Portal de Azure] y vaya a la aplicación original, luego haga clic en **Configuración** > **Configuración de aplicación**. En **Cadenas de conexión**, copie `MS_NotificationHubConnectionString` y `MS_TableConnectionString`. Navegue al nuevo sitio de actualización y péguelos en él, sobrescribiendo los valores existentes. Repita este proceso para cualquier otra opción de configuración de la aplicación que la aplicación requiera. Si no usa un servicio migrado, puede leer las cadenas de conexión y la configuración de la aplicación en la pestaña **Configurar** de la sección Servicios móviles del [Portal de Azure clásico].
 
 Haga una copia del proyecto de ASP.NET para la aplicación y publíquela en el nuevo sitio web. Mediante una copia de la aplicación cliente actualizada con la nueva dirección URL, compruebe que todo funciona según lo esperado.
 
@@ -95,7 +95,7 @@ por
             .UseDefaultConfiguration()
         .ApplyTo(config);
 
->[AZURE.NOTE]Si desea más información sobre el nuevo SDK de servidor .NET y sobre cómo agregar o quitar características de la aplicación, vea el tema [Uso del SDK de servidor .NET].
+>[AZURE.NOTE] Si desea más información sobre el nuevo SDK de servidor .NET y sobre cómo agregar o quitar características de la aplicación, vea el tema [Uso del SDK de servidor .NET].
 
 Si la aplicación hace uso de las características de autenticación, también debe registrar un middleware de OWIN. En este caso, debe mover el código de configuración anterior a una nueva clase de inicio OWIN.
  
@@ -218,7 +218,7 @@ De forma similar, el registro ahora se realiza mediante la escritura de seguimie
 
 ##<a name="authentication"></a>Consideraciones de autenticación
 
-Ahora, los componentes de autenticación de Servicios móviles se han movido a la característica Autenticación/autorización de Servicio de aplicaciones. Para aprender a habilitar esto para el sitio, lea el tema [Adición de autenticación a una aplicación móvil](app-service-mobile-ios-get-started-users.md).
+Ahora, los componentes de autenticación de Servicios móviles se han movido a la característica Autenticación/autorización de Servicio de aplicaciones. Para aprender a habilitar esta característica para el sitio, lea el tema [Incorporación de autenticación a una aplicación móvil](app-service-mobile-ios-get-started-users.md).
 
 Con algunos proveedores, como AAD, Facebook y Google, podrá aprovechar el registro existente de la aplicación de copia. Basta con ir al portal del proveedor de identidades y agregar una nueva dirección URL de redirección al registro. Seguidamente, configure Autenticación/autorización de Servicio de aplicaciones con el identificador y el secreto del cliente.
 
@@ -244,7 +244,7 @@ Si la aplicación usa una solución de autenticación personalizada, conviene as
 ##<a name="updating-clients"></a>Actualización de clientes
 Cuando tenga un back-end de aplicación móvil operativo, podrá trabajar en una nueva versión de la aplicación cliente que lo usa. Aplicaciones móviles incluye también una nueva versión de los SDK de cliente y, de forma similar a la actualización del servidor anterior, tendrá que quitar todas las referencias a los SDK de Servicios móviles antes de instalar las versiones de Aplicaciones móviles.
 
-Uno de los principales cambios entre las versiones es que los constructores ya no requieren una clave de aplicación. Ahora basta con pasar la dirección URL de la aplicación móvil. Por ejemplo, en los clientes .NET, el `MobileServiceClient` constructor ahora es:
+Uno de los principales cambios entre las versiones es que los constructores ya no requieren una clave de aplicación. Ahora basta con pasar la dirección URL de la aplicación móvil. Por ejemplo, en los clientes .NET, el constructor `MobileServiceClient` es ahora:
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://contoso.azurewebsites.net", // URL of the Mobile App
@@ -277,4 +277,4 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 [precios del Servicio de aplicaciones]: https://azure.microsoft.com/es-ES/pricing/details/app-service/
 [Información general del SDK de .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

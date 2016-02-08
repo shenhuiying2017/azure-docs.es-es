@@ -34,7 +34,7 @@ En este tutorial, nos centraremos en la creación de firmas de acceso compartido
 
 ## Parte 1: Creación de una aplicación de consola para generar firmas de acceso compartido
 
-En primer lugar, asegúrese de tener instalada la biblioteca del cliente de almacenamiento de Azure para .NET. Puede instalar el paquete de [NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "Paquete de NuGet") que contiene los ensamblados más recientes para la biblioteca del cliente. Este es el método recomendado para asegurarse de que cuenta con las últimas revisiones. También puede descargar dicha biblioteca como parte de la última versión del [SDK de Azure para .NET](http://azure.microsoft.com/downloads/).
+En primer lugar, asegúrese de tener instalada la biblioteca del cliente de almacenamiento de Azure para .NET. Puede instalar el paquete de [NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "Paquete de NuGet") que contiene los ensamblados más recientes para la biblioteca del cliente. Este es el método recomendado para asegurarse de que cuenta con las últimas revisiones. También puede descargar dicha biblioteca como parte de la última versión del [SDK de Azure para .NET](https://azure.microsoft.com/downloads/).
 
 En Visual Studio, cree una aplicación de consola de Windows y denomínela **GenerateSharedAccessSignatures**. Agregue referencias a los archivos **Microsoft.WindowsAzure.Configuration.dll** y **Microsoft.WindowsAzure.Storage.dll** de una de las siguientes formas:
 
@@ -311,7 +311,7 @@ Al ejecutar la aplicación de consola GenerateSharedAccessSignatures, el resulta
 
 Para probar las firmas de acceso compartido creadas en los ejemplos anteriores, crearemos una segunda aplicación de consola que use dichas firmas para realizar operaciones en el contenedor y en un blob.
 
-> [AZURE.NOTE]Si han transcurrido más de 24 horas desde que se completó la primera parte del tutorial, las firmas generadas ya no serán válidas. En este caso, deberá ejecutar el código de la primera aplicación de consola a fin de generar nuevas firmas de acceso compartido y usarlas en la segunda parte del tutorial.
+> [AZURE.NOTE] Si han transcurrido más de 24 horas desde que se completó la primera parte del tutorial, las firmas generadas ya no serán válidas. En este caso, deberá ejecutar el código de la primera aplicación de consola a fin de generar nuevas firmas de acceso compartido y usarlas en la segunda parte del tutorial.
 
 En Visual Studio, cree una nueva aplicación de consola de Windows y denomínela **ConsumeSharedAccessSignatures**. Agregue referencias a **Microsoft.WindowsAzure.Configuration.dll** y **Microsoft.WindowsAzure.Storage.dll**, como ya ha hecho anteriormente.
 
@@ -554,4 +554,4 @@ Ejecute la aplicación de consola y observe el resultado para ver qué operacion
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

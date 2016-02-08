@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="01/22/2016"
 	ms.author="dkshir"/>
 
 # Creación y carga de un disco duro virtual que contiene el sistema operativo Linux
@@ -26,7 +26,7 @@ En este artículo se muestra cómo puede crear y cargar un disco duro virtual (V
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-Una máquina virtual en Azure ejecuta el sistema operativo basado en la imagen que elige cuando crea la máquina virtual. Las imágenes se almacenan en formato VHD en archivos .vhd en una cuenta de almacenamiento. Para obtener más detalles, consulte [Discos en Azure](virtual-machines-disks-vhds.md) e [Imágenes en Azure](virtual-machines-images.md).
+Una máquina virtual de Azure ejecuta el sistema operativo basado en la imagen que elija durante la creación. Estas imágenes se almacenan en formato VHD en archivos .vhd en una cuenta de almacenamiento. Para obtener más detalles, consulte [Discos en Azure](virtual-machines-disks-vhds.md) e [Imágenes en Azure](virtual-machines-images.md).
 
 Al crear la máquina virtual, puede personalizar parte de la configuración del sistema operativo para adaptarla a la aplicación que desea ejecutar. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada](virtual-machines-create-custom.md).
 
@@ -46,7 +46,7 @@ En este artículo se supone que tiene los siguientes elementos:
 
 - **Interfaz de línea de comandos de Azure**: si usa el sistema operativo Linux para crear su imagen, usará la [Interfaz de comandos de Azure](../virtual-machines-command-line-tools.md) para cargar el VHD.
 
-- **Herramientas de Azure PowerShell**: el cmdlet `Add-AzureVhd` se puede usar también para cargar el VHD. Consulte [Descargas de Azure](http://azure.microsoft.com/downloads/) para descargar los cmdlets de Azure Powershell. Para obtener información de referencia, consulte [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
+- **Herramientas de Azure PowerShell**: el cmdlet `Add-AzureVhd` se puede usar también para cargar el VHD. Consulte [Descargas de Azure](https://azure.microsoft.com/downloads/) para descargar los cmdlets de Azure Powershell. Para obtener información de referencia, consulte [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
 <a id="prepimage"> </a>
 ## Paso 1: Preparación de la imagen que se va a cargar
@@ -107,7 +107,7 @@ Use el método de Azure AD para iniciar sesión:
 
 	Donde `<PathToFile>` es la ruta completa al archivo .publishsettings.
 
-	Para más información, consulte [Conexión a Azure desde la CLI de Azure](../xplat-cli-connect.md).
+	Para obtener más información, consulte [Conectar a Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md).
 
 
 ### Si usa Azure PowerShell
@@ -122,7 +122,7 @@ Use el método de Azure AD para iniciar sesión:
 
 	Cuando se le solicite, escriba su Id. de usuario de organización y la contraseña.
 
-**O bien**, use en su lugar los archivos PublishSettings:
+**O**, use los archivos PublishSettings en su lugar:
 
 1. Abra una ventana de Azure PowerShell.
 
@@ -142,22 +142,26 @@ Use el método de Azure AD para iniciar sesión:
 
 	Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](powershell-install-configure.md)
 
-> [AZURE.NOTE]Se recomienda que use el método más reciente de Azure Active Directory para iniciar sesión en su suscripción de Azure desde la CLI de Azure o Azure PowerShell.
+> [AZURE.NOTE] Se recomienda que use el método más reciente de Azure Active Directory para iniciar sesión en su suscripción de Azure desde la CLI de Azure o Azure PowerShell.
 
 <a id="upload"> </a>
 ## Paso 3: cargar la imagen en Azure
 
+Tendrá que cargar el archivo VHD a una cuenta de almacenamiento. Puede elegir una existente o crear una nueva. Para crear una cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](../storage-create-storage-account.md).
+
+Cuando carga el archivo .vhd, puede colocarlo en cualquier parte del almacenamiento de blobs. En los siguientes ejemplos de comandos, **BlobStorageURL** es la URL de la cuenta de almacenamiento que planea usar, **YourImagesFolder** es el contenedor dentro del almacenamiento de blobs donde desea almacenar las imágenes. **VHDName** es la etiqueta que aparece tanto en el [Portal de Azure](http://portal.azure.com) como en el [Portal de Azure clásico](http://manage.windowsazure.com) para identificar el disco duro virtual. **PathToVHDFile** es la ruta de acceso completa y el nombre del archivo .vhd de su máquina.
+
+
 ### Si usa la CLI de Azure
 
-Use la CLI de Azure para cargar la imagen. Puede cargar una imagen mediante el siguiente comando:
+Use la CLI de Azure para cargar la imagen con el siguiente comando:
 
-		azure vm image create <image-name> --location <location-of-the-data-center> --os Linux <source-path-to the vhd>
+		azure vm image create <ImageName> --blob-url <BlobStorageURL>/<YourImagesFolder>/<VHDName> --os Linux <PathToVHDFile>
+
+Para obtener más información, consulte [Referencia de la CLI de Azure para el Administrador de servicios de Azure](virtual-machines-command-line-tools.md).
+
 
 ### Si usa PowerShell
-
-Tendrá que cargar el archivo VHD a una cuenta de almacenamiento. Puede elegir una existente o crear una nueva. Para crear una cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](../storage-create-storage-account.md)
-
-Cuando carga el archivo .vhd, puede colocarlo en cualquier parte del almacenamiento de blobs. En los siguientes ejemplos de comandos, **BlobStorageURL** es la URL de la cuenta de almacenamiento que planea usar, **YourImagesFolder** es el contenedor dentro del almacenamiento de blobs donde desea almacenar las imágenes. **VHDName** es la etiqueta que aparece en el [Portal de Azure clásico](http://manage.windowsazure.com) para identificar el disco duro virtual. **PathToVHDFile** es la ruta de acceso completa y el nombre del archivo .vhd.
 
 Desde la ventana de Azure PowerShell que ha usado en el paso anterior, escriba:
 
@@ -165,11 +169,9 @@ Desde la ventana de Azure PowerShell que ha usado en el paso anterior, escriba:
 
 Para obtener más información, consulte [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
-> [AZURE.NOTE]La [versión de vista previa de Azure Powershell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/) cambia considerablemente el modo de gestionar los cmdlets del modelo de implementación clásica y del Administrador de recursos. En este artículo todavía no se usa la versión de vista previa.
-
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

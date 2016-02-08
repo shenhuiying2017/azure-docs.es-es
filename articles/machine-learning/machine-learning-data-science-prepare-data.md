@@ -26,7 +26,7 @@ Las tareas de procesamiento previo y de limpieza, como la tarea de exploración 
 
 Este artículo presenta varios conceptos de procesamiento de datos y tareas que se pueden llevar a cabo antes o después de introducir datos en Aprendizaje automático de Azure.
 
-Para ver un ejemplo de exploración de datos y de procesamiento previo realizado dentro del Estudio de aprendizaje automático de Azure, vea el vídeo [Procesamiento previo de datos en Estudio de aprendizaje automático de Azure](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
+Para ver un ejemplo de exploración de datos y de procesamiento previo realizado dentro del Estudio de aprendizaje automático de Azure, vea el vídeo [Procesamiento previo de datos en Estudio de aprendizaje automático de Azure](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
 
 ## ¿Por qué preprocesar y limpiar datos?
@@ -111,4 +111,4 @@ La **exploración de los datos** ofrece una vista anticipada de los datos. Una s
 >*\_Minería de datos: conceptos y técnicas*, Tercera edición, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber y Jian Pei
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

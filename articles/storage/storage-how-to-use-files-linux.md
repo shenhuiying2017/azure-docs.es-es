@@ -22,13 +22,13 @@
 
 El almacenamiento de archivos de Azure ofrece recursos compartidos de archivos en la nube mediante el protocolo SMB estándar. Con archivos de Azure, puede migrar las aplicaciones empresariales que se basan en los servidores de archivos a Azure. Las aplicaciones que se ejecutan en Azure pueden montar fácilmente recursos compartidos de archivos de máquinas virtuales de Azure que ejecutan Linux. Y con la última versión de Almacenamiento de archivos, es posible también montar un recurso compartido de archivos desde una aplicación local que sea compatible con SMB 3.0.
 
-Puede crear recursos compartidos de archivos de Azure mediante el [Portal de Azure](portal.azure.com), los cmdlets de PowerShell de Almacenamiento de Azure, las bibliotecas de cliente de Almacenamiento de Azure o la API de REST de Almacenamiento de Azure. Además, dado que los recursos compartidos de archivos son recursos compartidos de SMB, puede tener acceso a ellos a través de las API del sistema de archivos estándar.
+Puede crear recursos compartidos de archivos de Azure mediante el [Portal de Azure](https://portal.azure.com), los cmdlets de PowerShell de Almacenamiento de Azure, las bibliotecas de cliente de Almacenamiento de Azure o la API de REST de Almacenamiento de Azure. Además, dado que los recursos compartidos de archivos son recursos compartidos de SMB, puede tener acceso a ellos a través de las API del sistema de archivos estándar.
 
 El almacenamiento de archivos se basa en la misma tecnología que el almacenamiento de blobs, tablas y en cola, por lo que el almacenamiento de archivos ofrece la disponibilidad, durabilidad, escalabilidad y redundancia geográfica que están integradas en la plataforma de Almacenamiento de Azure. Para más información sobre los límites y objetivos de rendimiento de Almacenamiento de archivos, vea [Objetivos de escalabilidad y rendimiento del Almacenamiento de Azure](storage-scalability-targets.md).
 
 El almacenamiento de archivos ya está disponible y es compatible con SMB 2.1 y SMB 3.0. Para más detalles sobre el almacenamiento de archivos, vea la [API de REST del servicio de archivos](https://msdn.microsoft.com/library/azure/dn167006.aspx).
 
->[AZURE.NOTE]El cliente SMB de Linux todavía no admite el cifrado, por lo que montar un recurso compartido de archivos de Linux requiere aún que el cliente se encuentre en la misma región de Azure que el recurso compartido de archivos. Sin embargo, la compatibilidad con el cifrado para Linux está en la hoja de ruta de los desarrolladores de Linux responsables de la funcionalidad SMB. Las distribuciones de Linux que admiten el cifrado en el futuro también podrán montar un recurso compartido de archivos de Azure desde cualquier lugar.
+>[AZURE.NOTE] El cliente SMB de Linux todavía no admite el cifrado, por lo que montar un recurso compartido de archivos de Linux requiere aún que el cliente se encuentre en la misma región de Azure que el recurso compartido de archivos. Sin embargo, la compatibilidad con el cifrado para Linux está en la hoja de ruta de los desarrolladores de Linux responsables de la funcionalidad SMB. Las distribuciones de Linux que admiten el cifrado en el futuro también podrán montar un recurso compartido de archivos de Azure desde cualquier lugar.
 
 ## Vídeo: Uso del almacenamiento de archivos de Azure con Linux
 
@@ -93,7 +93,7 @@ Si utiliza Open SUSE 13.2, puede montar el archivo como sigue:
 
 ## Administre el recurso compartido de archivos ##
 
-El [Portal de Azure](portal.azure.com) ofrece una interfaz de usuario para administrar el almacenamiento de archivos de Azure. Puede realizar las siguientes acciones desde el explorador web:
+El [Portal de Azure](https://portal.azure.com) ofrece una interfaz de usuario para administrar el almacenamiento de archivos de Azure. Puede realizar las siguientes acciones desde el explorador web:
 
 - Cargar y descargar archivos al recurso compartido de archivos y desde este.
 - Supervisar el uso real de cada recurso compartido de archivos.
@@ -140,4 +140,4 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 - [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

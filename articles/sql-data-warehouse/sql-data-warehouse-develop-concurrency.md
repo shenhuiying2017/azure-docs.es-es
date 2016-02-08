@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="01/25/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL
@@ -34,7 +34,7 @@ Como regla general, cada consulta que se ejecuta de forma simultánea consume un
 2. La **clase de recurso** a la que pertenezca el usuario
 3. Si la consulta o la operación se rige por el modelo de ranura de simultaneidad 
 
-> [AZURE.NOTE]Merece la pena tener en cuenta que no todas las consultas se rigen por la regla de consulta de ranura de simultaneidad. Sin embargo, sí lo hacen la mayoría de las consultas de usuario. Algunas consultas y operaciones no consumen ranuras de simultaneidad en absoluto. Estas consultas y operaciones todavía están limitadas por el límite de consultas simultáneas que es por lo que se describen ambas reglas. Consulte la siguiente sección de [excepciones de clases de recursos](#exceptions) para obtener más detalles.
+> [AZURE.NOTE] Merece la pena tener en cuenta que no todas las consultas se rigen por la regla de consulta de ranura de simultaneidad. Sin embargo, sí lo hacen la mayoría de las consultas de usuario. Algunas consultas y operaciones no consumen ranuras de simultaneidad en absoluto. Estas consultas y operaciones todavía están limitadas por el límite de consultas simultáneas que es por lo que se describen ambas reglas. Consulte la siguiente sección de [excepciones de clases de recursos](#exceptions) para obtener más detalles.
 
 En la siguiente tabla se describen tanto los límites de consultas simultáneas como las ranuras de simultaneidad, suponiendo que la consulta se rige por recursos.
 
@@ -75,7 +75,7 @@ El Almacenamiento de datos SQL ha implementado las clases de recursos mediante e
 
 Puede agregarse y quitarse usted mismo del rol de base de datos de administración de cargas de trabajo con los procedimientos `sp_addrolemember` y `sp_droprolemember`. Tenga en cuenta que necesitará el permiso `ALTER ROLE` para hacerlo. No podrá usar la sintaxis ALTER ROLE DDL. Debe usar los procedimientos almacenados anteriormente mencionados. Se ofrece un ejemplo completo de cómo crear inicios de sesión y usuarios en la sección[administración de usuarios) [#managing-usuarios] al final de este artículo.
 
-> [AZURE.NOTE]En lugar de entrar y sacar un usuario en un grupo de administración de cargas de trabajo, con frecuencia resulta más sencillo iniciar esas operaciones de mayor carga a través de un inicio de sesión o usuario independiente que se asigna permanentemente a la clase de recurso más alta.
+> [AZURE.NOTE] En lugar de entrar y sacar un usuario en un grupo de administración de cargas de trabajo, con frecuencia resulta más sencillo iniciar esas operaciones de mayor carga a través de un inicio de sesión o usuario independiente que se asigna permanentemente a la clase de recurso más alta.
 
 ### Asignación de memoria
 
@@ -183,7 +183,7 @@ Removed as these two are not confirmed / supported under SQLDW
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE 
 -->
-> [AZURE.NOTE]Merece la pena resaltar que las consultas de `SELECT` que se ejecutan exclusivamente contra vistas de catálogo y vistas de administración dinámicas **no** se rigen por las clases de recursos.
+> [AZURE.NOTE] Merece la pena resaltar que las consultas de `SELECT` que se ejecutan exclusivamente contra vistas de catálogo y vistas de administración dinámicas **no** se rigen por las clases de recursos.
 
 Es importante recordar que es probable que la mayoría de las consultas de usuario final se rijan por clases de recursos. La regla general es que la carga de trabajo de consultas activas debe tener cabida tanto en el umbral de ranuras simultáneas como en el de consultas simultáneas a menos que se haya excluido específicamente por la plataforma. Como usuario final no puede elegir excluir una consulta del modelo de ranura de simultaneidad. Una vez que se ha superado el umbral, las consultas comenzarán a ponerse en cola. Las consultas en cola se tratarán en orden de prioridad, seguido por la hora de envío.
 
@@ -267,7 +267,7 @@ ORDER BY
 ;
 ```
 
-> [AZURE.NOTE]La consulta anterior también puede usarse para analizar el uso activo e histórico de los grupos de cargas de trabajo en la solución de problemas.
+> [AZURE.NOTE] La consulta anterior también puede usarse para analizar el uso activo e histórico de los grupos de cargas de trabajo en la solución de problemas.
 
 ## Ejemplos de administración de cargas de trabajo
 
@@ -285,7 +285,7 @@ CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 CREATE USER newperson for LOGIN newperson
 ```
 
-[AZURE.NOTE]es una buena idea crear usuarios para los inicios de sesión en la base de datos maestra cuando se trabaja con Base de datos SQL y Almacenamiento de datos SQL de Azure. Hay dos roles de servidor disponibles en este nivel que requieren que el inicio de sesión tenga un usuario en la base de datos maestra para poder concederle la pertenencia. Los roles son `Loginmanager` y `dbmanager`. Tanto en Base de datos SQL como en Almacenamiento de datos SQL de Azure, estos roles conceden derechos para administrar los inicios de sesión y crear bases de datos. Esto es diferente de SQL Server. Para obtener más detalles, consulte el artículo [Administrar bases de datos, inicios de sesión y usuarios en Base de datos SQL de Microsoft Azure].
+> [AZURE.NOTE] Es una buena idea crear usuarios para los inicios de sesión en la base de datos maestra de la Base de datos SQL de Azure y del Almacenamiento de datos SQL de Azure. Hay dos roles de servidor disponibles en este nivel que requieren que el inicio de sesión tenga un usuario en la base de datos maestra para poder concederle la pertenencia. Los roles son `Loginmanager` y `dbmanager`. Tanto en Base de datos SQL como en Almacenamiento de datos SQL de Azure, estos roles conceden derechos para administrar los inicios de sesión y crear bases de datos. Esto es diferente de SQL Server. Para obtener más detalles, consulte el artículo [Administrar bases de datos, inicios de sesión y usuarios en Base de datos SQL de Microsoft Azure].
 
 Una vez creado el inicio de sesión, hay que agregar una cuenta de usuario.
 
@@ -323,7 +323,7 @@ Para quitar un usuario de un rol de administración de cargas de trabajo, use la
 EXEC sp_droprolemember 'largerc', 'newperson' 
 ```
 
-> [AZURE.NOTE]No se puede quitar un usuario de smallrc.
+> [AZURE.NOTE] No se puede quitar un usuario de smallrc.
 
 Para ver qué usuarios son miembros de un rol determinado, use la siguiente consulta:
 
@@ -452,4 +452,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

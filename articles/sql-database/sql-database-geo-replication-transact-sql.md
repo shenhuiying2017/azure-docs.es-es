@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="11/10/2015"
+    ms.date="01/25/2015"
     ms.author="carlrab"/>
 
 # Configuración de la replicación geográfica para una base de datos SQL de Azure con Transact-SQL
@@ -46,9 +46,9 @@ Para configurar la replicación geográfica, necesita lo siguiente:
 
 ## Agregar una base de datos secundaria
 
-Puede usar la instrucción **ALTER DATABASE** para crear una base de datos secundaria con replicación geográfica en un servidor asociado. Ejecute esta instrucción en la base de datos maestra del servidor que contiene la base de datos que se va a replicar. La base de datos con replicación geográfica (la "base de datos principal") tendrá el mismo nombre que la base de datos que se replica y, de forma predeterminada, tendrá el mismo nivel de servicio que la base de datos principal. La base de datos secundaria puede ser legible o no legible, y puede ser una base de datos única o elástica. Para obtener más información, consulte [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) y [Niveles de servicio](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/). Después de crear e inicializar la base de datos secundaria, los datos comenzarán a replicarse de manera asincrónica desde la base de datos principal. Los pasos siguientes describen cómo configurar la replicación geográfica con Management Studio. Se proporcionan pasos para crear bases de datos secundarias legibles y no legibles con una base de datos única o elástica.
+Puede usar la instrucción **ALTER DATABASE** para crear una base de datos secundaria con replicación geográfica en un servidor asociado. Ejecute esta instrucción en la base de datos maestra del servidor que contiene la base de datos que se va a replicar. La base de datos con replicación geográfica (la "base de datos principal") tendrá el mismo nombre que la base de datos que se replica y, de forma predeterminada, tendrá el mismo nivel de servicio que la base de datos principal. La base de datos secundaria puede ser legible o no legible, y puede ser una base de datos única o elástica. Para obtener más información, consulte [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) y [Niveles de servicio](sql-database-service-tiers.md). Después de crear e inicializar la base de datos secundaria, los datos comenzarán a replicarse de manera asincrónica desde la base de datos principal. Los pasos siguientes describen cómo configurar la replicación geográfica con Management Studio. Se proporcionan pasos para crear bases de datos secundarias legibles y no legibles con una base de datos única o elástica.
 
-> [AZURE.NOTE]Si la base de datos secundaria existe en el servidor asociado especificado (por ejemplo, porque ya existe o existía anteriormente una relación de replicación geográfica), el comando producirá un error.
+> [AZURE.NOTE] Si la base de datos secundaria existe en el servidor asociado especificado (por ejemplo, porque ya existe o existía anteriormente una relación de replicación geográfica), el comando producirá un error.
 
 
 ### Incorporación de una base de datos secundaria no legible (base de datos única)
@@ -57,12 +57,12 @@ Use los pasos siguientes para crear una base de datos secundaria no legible como
 
 1. Use la versión 13.0.600.65 o posterior de SQL Server Management Studio.
 
- 	 >[AZURE.IMPORTANT]Descargue la versión [más reciente](https://msdn.microsoft.com/library/mt238290.aspx) de SQL Server Management Studio. Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las últimas actualizaciones del Portal de Azure.
+ 	 >[AZURE.IMPORTANT] Descargue la versión [más reciente](https://msdn.microsoft.com/library/mt238290.aspx) de SQL Server Management Studio. Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las últimas actualizaciones del Portal de Azure.
 
 
 2. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y, a continuación, haga clic en **Nueva consulta**.
 
-3. Use la instrucción **ALTER DATABASE** para convertir una base de datos local en una base de datos principal con replicación geográfica, que posea una base de datos secundaria no legible en <MySecondaryServer1>.
+3. Use la instrucción **ALTER DATABASE** para convertir una base de datos local en una base de datos principal con replicación geográfica que tenga una base de datos secundaria no legible en un servidor MySecondaryServer1 donde MySecondaryServer1 sea el nombre descriptivo del servidor.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
@@ -96,8 +96,8 @@ Use los pasos siguientes para crear una base de datos secundaria no legible como
 3. Use la instrucción **ALTER DATABASE** para convertir una base de datos local en una base de datos principal con replicación geográfica, que posea una base de datos secundaria no legible en un servidor secundario de un grupo elástico.
 
         ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = MyElasticPool1);
+           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO
+           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 
 4. Haga clic en **Ejecutar** para ejecutar la consulta.
 
@@ -113,8 +113,8 @@ Use los siguientes pasos para crear una base de datos secundaria legible como ba
 3. Use la instrucción **ALTER DATABASE** para convertir una base de datos local en una base de datos principal con replicación geográfica, que posea una base de datos secundaria legible en un servidor secundario de un grupo elástico.
 
         ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = MyElasticPool2);
+           ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = ALL
+           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool2));
 
 4. Haga clic en **Ejecutar** para ejecutar la consulta.
 
@@ -122,7 +122,7 @@ Use los siguientes pasos para crear una base de datos secundaria legible como ba
 
 ## Elimine una base de datos secundaria
 
-Puede usar la instrucción **ALTER DATABASE** para terminar definitivamente la asociación de replicación entre una base de datos secundaria y su base de datos principal. Esta instrucción se ejecuta en la base de datos maestra en la que reside la base de datos principal. Después de terminarse la relación, la base de datos secundaria se convierte en una base de datos normal de lectura y escritura. Si se interrumpe la conectividad con la base de datos secundaria, el comando se ejecuta correctamente pero la base de datos secundaria será de lectura y escritura después de restaurarse la conectividad. Para obtener más información, consulte [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) y [Niveles de servicio](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+Puede usar la instrucción **ALTER DATABASE** para terminar definitivamente la asociación de replicación entre una base de datos secundaria y su base de datos principal. Esta instrucción se ejecuta en la base de datos maestra en la que reside la base de datos principal. Después de terminarse la relación, la base de datos secundaria se convierte en una base de datos normal de lectura y escritura. Si se interrumpe la conectividad con la base de datos secundaria, el comando se ejecuta correctamente pero la base de datos secundaria será de lectura y escritura después de restaurarse la conectividad. Para obtener más información, consulte [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) y [Niveles de servicio](sql-database-service-tiers.md).
 
 Use los pasos siguientes para quitar la base de datos secundaria con replicación geográfica de una asociación de replicación geográfica.
 
@@ -148,10 +148,10 @@ El comando ejecuta el siguiente flujo de trabajo:
 
 2. Cambia los roles de las dos bases de datos de la asociación de replicación geográfica.
 
-Esta secuencia garantiza que no se producirá ninguna pérdida de datos. Hay un breve período durante el que ambas bases de datos no están disponibles (del orden de 0 a 25 segundos) mientras se cambian los roles. En circunstancias normales, toda la operación debería tardar menos de un minuto en completarse. Para obtener más información, consulte [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) y [Niveles de servicio](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
+Esta secuencia garantiza que no se producirá ninguna pérdida de datos. Hay un breve período durante el que ambas bases de datos no están disponibles (del orden de 0 a 25 segundos) mientras se cambian los roles. En circunstancias normales, toda la operación debería tardar menos de un minuto en completarse. Para obtener más información, consulte [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) y [Niveles de servicio](sql-database-service-tiers.md).
 
 
-> [AZURE.NOTE]Si la base de datos principal no está disponible cuando se emite el comando, este generará un error con un mensaje que indica que el servidor principal no está disponible. En contadas ocasiones, es posible que la operación no pueda completarse y que aparezca detenida. En este caso, el usuario puede ejecutar el comando para forzar la conmutación por error y aceptar la pérdida de datos.
+> [AZURE.NOTE] Si la base de datos principal no está disponible cuando se emite el comando, este generará un error con un mensaje que indica que el servidor principal no está disponible. En contadas ocasiones, es posible que la operación no pueda completarse y que aparezca detenida. En este caso, el usuario puede ejecutar el comando para forzar la conmutación por error y aceptar la pérdida de datos.
 
 Use los pasos siguientes para iniciar una conmutación por error planeada.
 
@@ -175,7 +175,7 @@ Esta funcionalidad está diseñada para situaciones de recuperación ante desast
 
 Sin embargo, como la restauración a un momento dado no se admite en las bases de datos secundarias, si el usuario desea recuperar datos comprometidos en la base de datos principal anterior que no se habían replicado en la nueva base de datos principal antes de que se produjera la conmutación por error forzosa, el usuario deberá acudir al soporte técnico para recuperar estos datos perdidos.
 
-> [AZURE.NOTE]Si el comando se emite cuando las bases de datos principal y secundaria están en línea, la principal anterior se convertirá en la nueva secundaria pero no se intentará la sincronización de los datos. De modo que es posible que se pierdan algunos datos.
+> [AZURE.NOTE] Si el comando se emite cuando las bases de datos principal y secundaria están en línea, la principal anterior se convertirá en la nueva secundaria pero no se intentará la sincronización de los datos. De modo que es posible que se pierdan algunos datos.
 
 
 Si la base de datos principal tiene varias bases de datos secundarias, el comando solo funcionará en el servidor secundario en el que se ejecutó. Sin embargo, las otras bases de datos secundarias no sabrán que se produjo la conmutación por error forzosa. El usuario tendrá que reparar manualmente esta configuración mediante una API "quitar secundaria" y luego volver a configurar la replicación geográfica en estas bases de datos secundarias adicionales.
@@ -228,9 +228,9 @@ Use los pasos siguientes para supervisar una asociación de replicación geográ
 
 ## Recursos adicionales
 
-- [Lo más destacado de las nuevas funcionalidades de replicación geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [Lo más destacado de las nuevas funcionalidades de replicación geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Diseño de aplicaciones de nube para la continuidad del negocio mediante replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
-- [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Documentación de Base de datos SQL](sql-database.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

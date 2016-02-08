@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Para instalar actualizaciones periódicas a través del Portal de administración
+#### Instalación de actualizaciones normales a través del Portal de Azure clásico
 
 1. En la página **Dispositivos**, seleccione el dispositivo en el que desea instalar las actualizaciones.
 
@@ -12,4 +12,4 @@
 
     Recibirá una notificación cuando la actualización esté correctamente instalada.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

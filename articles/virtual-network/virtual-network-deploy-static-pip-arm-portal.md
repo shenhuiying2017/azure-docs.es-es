@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2015"
+   ms.date="01/08/2016"
    ms.author="telmos" />
 
 # Implementar una máquina virtual con una dirección IP pública estática mediante el portal de Azure
@@ -31,7 +31,7 @@
 
 Para crear una máquina virtual con una dirección IP pública estática en el portal de Azure, siga estos pasos.
 
-1. Desde un explorador, vaya al [Portal de Azure](http://portal.azure.com) y, si fuera necesario, inicie sesión con su cuenta de Azure.
+1. Desde un explorador, vaya al [Portal de Azure](https://portal.azure.com) y, si fuera necesario, inicie sesión con su cuenta de Azure.
 2. En la esquina superior izquierda del portal, haga clic en **Nuevo**>>**Proceso**>**Windows Server 2012 R2 Datacenter**.
 3. En la lista **Seleccionar un modelo de implementación**, seleccione **Administrador de recursos** y haga clic en **Crear**.
 4. En la hoja **Fundamentos**, escriba la información de la máquina virtual, tal como se muestra a continuación, y haga clic en **Aceptar**.
@@ -59,4 +59,4 @@ Para crear una máquina virtual con una dirección IP pública estática en el p
 
 	![Portal de Azure: crear la dirección IP pública](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

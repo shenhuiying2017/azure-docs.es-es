@@ -41,7 +41,7 @@ En la tabla siguiente se resumen las características de reintento de los servic
 | **[Active Directory](#azure-active-directory-retry-guidelines)** | Topaz* (con estrategia de detección personalizada) | Declarativo y programático | Bloques de código | Personalizado |
 **Topaz en el nombre descriptivo para el bloque de aplicaciones de manejo de errores transitorios que se incluye en <a href="http://msdn.microsoft.com/library/dn440719.aspx">Enterprise Library 6.0</a>. Puede usar una estrategia de detección personalizada con Topaz para la mayoría de los tipos de servicios, como se describe en esta guía. En la sección [Estrategias de bloques de aplicaciones de manejo de errores transitorios (Topaz)](#transient-fault-handling-application-block-topaz-strategies) del final de esta guía se muestran estrategias predeterminadas para Topaz. Tenga en cuenta que el bloque es ahora un marco de código abierto y no es compatible directamente con Microsoft.
 
-> [AZURE.NOTE]Para la mayoría de los mecanismos de reintento integrados de Azure, actualmente no hay ninguna manera de aplicar una directiva de reintento diferente para distintos tipos de error o excepción más allá de la funcionalidad que se incluye en la directiva de reintentos. Por lo tanto, las instrucciones recomendadas disponibles en el momento de la escritura consisten en configurar una directiva que proporcione el rendimiento y la disponibilidad medios óptimos. Una forma de ajustar la directiva consiste en analizar archivos de registro para determinar el tipo de errores transitorios que se están produciendo. Por ejemplo, si la mayoría de los errores está relacionada con problemas de conectividad de red, podría intentar efectuar un reintento inmediato en lugar de esperar mucho tiempo para el primer reintento.
+> [AZURE.NOTE] Para la mayoría de los mecanismos de reintento integrados de Azure, actualmente no hay ninguna manera de aplicar una directiva de reintento diferente para distintos tipos de error o excepción más allá de la funcionalidad que se incluye en la directiva de reintentos. Por lo tanto, las instrucciones recomendadas disponibles en el momento de la escritura consisten en configurar una directiva que proporcione el rendimiento y la disponibilidad medios óptimos. Una forma de ajustar la directiva consiste en analizar archivos de registro para determinar el tipo de errores transitorios que se están produciendo. Por ejemplo, si la mayoría de los errores está relacionada con problemas de conectividad de red, podría intentar efectuar un reintento inmediato en lugar de esperar mucho tiempo para el primer reintento.
 
 ## Directrices de reintento de almacenamiento Azure
 
@@ -212,7 +212,7 @@ namespace RetryCodeSamples
 
 ## Más información
 
-- [Recomendaciones de la directiva de reintento de biblioteca de cliente de almacenamiento de Azure](http://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
+- [Recomendaciones de la directiva de reintento de biblioteca de cliente de almacenamiento de Azure](https://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
 - [Biblioteca de cliente de almacenamiento 2.0: implementación de directivas de reintento](http://gauravmantri.com/2012/12/30/storage-client-library-2-0-implementing-retry-policies/)
 
 ## Base de datos SQL mediante el uso de las directrices de reintento de Entity Framework 6
@@ -302,7 +302,7 @@ Considere la posibilidad de comenzar con la configuración siguiente para volver
 | Interactivo, interfaz de usuario<br />o primer plano | 2 segundos | Exponencial | MaxRetryCount<br />MaxDelay | 3<br />750 ms | Intento 1 - retraso de 0 segundos<br />Intento 2 - retraso de 750 ms<br />Intento 3 – retraso de 750 ms |
 | Segundo plano<br /> o proceso por lotes | 30 segundos | Exponencial | MaxRetryCount<br />MaxDelay | 5<br />12 segundos | Intento 1 - retraso de 0 segundos<br />Intento 2 - retraso de ~1 segundos<br />Intento 3 - retraso de ~3 segundos<br />Intento 4 - retraso de ~7 segundos<br />Intento 5 - retraso de 12 segundos |
 
-> [AZURE.NOTE]Los destinos de latencia de extremo a extremo suponen el tiempo de espera predeterminado para las conexiones con el servicio. Si especifica tiempos de espera de conexión más largos, la latencia de extremo a extremo se extenderá este tiempo adicional en cada reintento.
+> [AZURE.NOTE] Los destinos de latencia de extremo a extremo suponen el tiempo de espera predeterminado para las conexiones con el servicio. Si especifica tiempos de espera de conexión más largos, la latencia de extremo a extremo se extenderá este tiempo adicional en cada reintento.
 
 ## Ejemplos (Base de datos SQL mediante Entity Framework 6)
 
@@ -429,7 +429,7 @@ Considere la posibilidad de comenzar con la configuración siguiente para volver
 | Interactivo, interfaz de usuario<br />o primer plano | 2 segundos | FixedInterval | Número de reintentos<br />Intervalo de reintento<br />Primer reintento rápido | 3<br />500 ms<br />true | Intento 1 - retraso de 0 segundos<br />Intento 2 - retraso de 500 ms<br />Intento 3 – retraso de 500 ms |
 | Fondo<br />o proceso por lotes | 30 segundos | ExponentialBackoff | Número de reintentos<br />Interrupción mínima<br />Interrupción máxima<br />Interrupción delta<br />primer reintento rápido | 5<br />0 segundos<br />60 segundos<br />2 segundos<br />false | Intento 1 - retraso de 0 segundos<br />Intento 2 - retraso de ~2 segundos<br />Intento 3 - retraso de ~6 segundos<br />Intento 4 - retraso de ~14 segundos<br />Intento 5 - retraso de ~30 segundos |
 
-> [AZURE.NOTE]Los destinos de latencia de extremo a extremo suponen el tiempo de espera predeterminado para las conexiones con el servicio. Si especifica tiempos de espera de conexión más largos, la latencia de extremo a extremo se extenderá este tiempo adicional en cada reintento.
+> [AZURE.NOTE] Los destinos de latencia de extremo a extremo suponen el tiempo de espera predeterminado para las conexiones con el servicio. Si especifica tiempos de espera de conexión más largos, la latencia de extremo a extremo se extenderá este tiempo adicional en cada reintento.
 
 ### Ejemplos (Base de datos SQL mediante ADO.NET)
 
@@ -437,7 +437,7 @@ Esta sección describe cómo puede usar el bloque de aplicaciones de manejo de e
 
 Sin embargo, en la versión actual del bloque de aplicaciones de control de errores transitorios estos enfoques no admiten las operaciones asincrónicas en la Base de datos SQL de manera nativa. Una buena práctica requiere usar solamente técnicas asincrónicas para tener acceso a servicios de Azure como Base de datos SQL, y por lo tanto debe tener en cuenta las siguientes técnicas para usar el bloque de aplicaciones de control de errores transitorios con la Base de datos SQL.
 
-Puede usar la compatibilidad asincrónica simplificada en la versión 5 del lenguaje C# para crear versiones asincrónicas de los métodos proporcionados por el bloque. Por ejemplo, el código siguiente muestra cómo es posible crear una versión asincrónica del método de extensión **ExecuteReaderWithRetry**. Se resaltan los cambios e incorporaciones al código original. El código fuente de Topaz está disponible en GitHub en [bloque de aplicaciones de control de errores transitorios ("Topaz")](http://topaz.codeplex.com/SourceControl/latest).
+Puede usar la compatibilidad asincrónica simplificada en la versión 5 del lenguaje C# para crear versiones asincrónicas de los métodos proporcionados por el bloque. Por ejemplo, el código siguiente muestra cómo es posible crear una versión asincrónica del método de extensión **ExecuteReaderWithRetry**. Se resaltan los cambios e incorporaciones al código original. El código fuente de Topaz está disponible en Codeplex en [Transient Fault Handling Application Block ("Topaz")](http://topaz.codeplex.com/SourceControl/latest) (Bloque de aplicación de control de errores transitorios ("Topaz")).
 
 ```csharp
 public async static Task<SqlDataReader> ExecuteReaderWithRetryAsync(this SqlCommand command, RetryPolicy cmdRetryPolicy,
@@ -713,7 +713,7 @@ La siguiente tabla muestra la configuración predeterminada de la directiva de r
 |----------------------|-----------------------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ConfigurationOptions | ConnectRetry<br /><br />ConnectTimeout<br /><br />SyncTimeout | 3<br /><br />Máximo de 5000 ms más SyncTimeout<br />1000 | El número de veces que se repiten los intentos de conexión durante la operación de conexión inicial.<br />Tiempo de espera (ms) para conectar las operaciones. No un retraso entre reintentos.<br />Tiempo (ms) para permitir las operaciones sincrónicas. |
 
-> [AZURE.NOTE]SyncTimeout contribuye a la latencia de extremo a extremo de una operación. Sin embargo, en general, no es recomendable usar operaciones sincrónicas. Para obtener más información, consulte [Canalizaciones y multiplexores](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md).
+> [AZURE.NOTE] SyncTimeout contribuye a la latencia de extremo a extremo de una operación. Sin embargo, en general, no es recomendable usar operaciones sincrónicas. Para obtener más información, consulte [Canalizaciones y multiplexores](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md).
 
 ## Instrucciones de uso del reintento
 
@@ -1107,4 +1107,4 @@ El bloque de aplicaciones de control de errores transitorios tiene las siguiente
 | **Lineal (intervalo fijo)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 segundo<br />true | Número de reintentos.<br />Intervalo entre reintentos.<br />Si el primer reintento se realizará inmediatamente. |
 Para obtener ejemplos del uso del bloque de aplicaciones de control de errores transitorios, consulte las secciones de ejemplos mostradas anteriormente en esta guía para la Base de datos SQL de Azure mediante ADO.NET y Azure Active Directory.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

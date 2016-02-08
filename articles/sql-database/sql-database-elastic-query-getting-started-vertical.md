@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/26/2016"
 	ms.author="torsteng" />
 
 # Introducción a consultas entre bases de datos (particiones verticales) 
@@ -109,4 +109,4 @@ Para obtener información de precios, vea [Precio de Base de datos SQL](/pricing
 
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

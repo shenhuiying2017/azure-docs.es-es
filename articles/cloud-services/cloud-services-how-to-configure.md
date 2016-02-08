@@ -29,7 +29,7 @@ Puede configurar la mayoría de los ajustes más usados para un servicio en la n
 
 El Portal de Azure clásico también le permite [habilitar la conexión a escritorio remoto para un rol de servicios en la nube de Azure](cloud-services-role-enable-remote-desktop.md).
 
-Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las actualizaciones de la configuración si tiene al menos dos instancias de rol para cada rol. Esto permite que una máquina virtual procese las solicitudes del cliente mientras la otra se actualiza. Para obtener más información, consulte [Contratos de nivel de servicio](http://azure.microsoft.com/support/legal/sla/).
+Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las actualizaciones de la configuración si tiene al menos dos instancias de rol para cada rol. Esto permite que una máquina virtual procese las solicitudes del cliente mientras la otra se actualiza. Para obtener más información, consulte [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
 
 ## Cambiar un servicio en la nube
 
@@ -73,7 +73,7 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las
     
     3. Si su servicio en la nube contiene cualquier rol que tiene una sola instancia, active la casilla **Aplicar la configuración aunque una o más reglas contenga una instancia única** para permitir que continúen las actualizaciones de configuración para los roles.
     
-        A menos que defina como mínimo dos instancias de cada rol, Azure no puede garantizar una disponibilidad de su servicio en la nube de al menos un 99,95 % durante las actualizaciones de la configuración del servicio. Para obtener más información, consulte [Contratos de nivel de servicio](http://azure.microsoft.com/support/legal/sla/).
+        A menos que defina como mínimo dos instancias de cada rol, Azure no puede garantizar una disponibilidad de su servicio en la nube de al menos un 99,95 % durante las actualizaciones de la configuración del servicio. Para obtener más información, consulte [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
     
     4. Haga clic en **Aceptar** (marca de verificación).
 
@@ -86,4 +86,4 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las
 * [Habilitar la conexión a Escritorio remoto para un rol de servicios en la nube de Azure](cloud-services-role-enable-remote-desktop.md)
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

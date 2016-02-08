@@ -27,7 +27,7 @@ La infraestructura restringe la accesibilidad y crea un límite de confianza ent
 
 Puede usar el ILB en muchas configuraciones nuevas, incluidas las siguientes:
 
-El equilibrio de carga interno (ILB) de Azure proporciona equilibrio de carga entre las máquinas virtuales que residen dentro de un servicio en la nube o en una red virtual con un ámbito regional. Para obtener información sobre el uso y la configuración de redes virtuales con un ámbito regional, consulte [Redes virtuales regionales](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/) en el blog de Azure. Las redes virtuales existentes que se han configurado para un grupo de afinidad no pueden usar ILB.
+El equilibrio de carga interno (ILB) de Azure proporciona equilibrio de carga entre las máquinas virtuales que residen dentro de un servicio en la nube o en una red virtual con un ámbito regional. Para obtener información sobre el uso y la configuración de redes virtuales con un ámbito regional, consulte [Redes virtuales regionales](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/) en el blog de Azure. Las redes virtuales existentes que se han configurado para un grupo de afinidad no pueden usar ILB.
 
 ILB permite los siguientes nuevos tipos de equilibrio de carga:
 
@@ -92,4 +92,4 @@ Otro escenario para el LOB es tener una VPN de sitio a sitio a la red virtual do
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -19,19 +19,19 @@
 
 ## Información general
 
-La CLI de Azure proporciona un conjunto de comandos de código abierto y multiplataforma para trabajar con la plataforma de Azure. Proporciona muchas de las funcionalidades que se encuentran en el [Portal de Azure](portal.azure.com), así como la funcionalidad de acceso a datos enriquecidos.
+La CLI de Azure proporciona un conjunto de comandos de código abierto y multiplataforma para trabajar con la plataforma de Azure. Proporciona muchas de las funcionalidades que se encuentran en el [Portal de Azure](https://portal.azure.com), así como la funcionalidad de acceso a datos enriquecidos.
 
 En esta guía, exploraremos cómo usar la [Interfaz de línea de comandos de Azure (CLI de Azure)](../xplat-cli-install.md) para realizar diversas tareas de desarrollo y administración con Almacenamiento de Azure. Antes de usar esta guía es aconsejable descargar e instalar la CLI de Azure más reciente, o actualizarse a ella.
 
 En esta guía se supone que conoce los conceptos básicos de Almacenamiento de Azure. La guía incluye varios scripts que muestran cómo se usa la CLI de Azure con Almacenamiento de Azure. Antes de ejecutar cada script, asegúrese de que ha actualizado las variables del mismo según su configuración.
 
-> [AZURE.NOTE]La guía proporciona ejemplos de comandos y scripts de la CLI de Azure que se ejecutan en el modo Administración de servicios de Azure (ASM). Para ver los comandos de la CLI de Azure para el almacenamiento en el modo administración de recursos de Azure (ARM), consulte [Uso de la CLI de Azure para Mac, Linux y Windows con la administración de recursos de Azure](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects).
+> [AZURE.NOTE] La guía proporciona ejemplos de comandos y scripts de la CLI de Azure que se ejecutan en el modo Administración de servicios de Azure (ASM). Para ver los comandos de la CLI de Azure para el almacenamiento en el modo administración de recursos de Azure (ARM), consulte [Uso de la CLI de Azure para Mac, Linux y Windows con la administración de recursos de Azure](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects).
 
 ## Introducción de 5 minutos a Almacenamiento de Azure y a la CLI de Azure
 
 En esta guía se usa Ubuntu para los ejemplos, pero el funcionamiento debe ser similar en otros sistemas operativos.
 
-**Nuevo en Azure:** obtenga una suscripción de Microsoft Azure y una cuenta de Microsoft asociada a dicha suscripción. Para obtener más información sobre las opciones de compra de Azure, consulte [Evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/), [Opciones de compra](http://azure.microsoft.com/pricing/purchase-options/) y [Ofertas para miembros](http://azure.microsoft.com/pricing/member-offers/) (para miembros de MSDN, Microsoft Partner Network, BizSpark y otros programas de Microsoft).
+**Nuevo en Azure:** obtenga una suscripción de Microsoft Azure y una cuenta de Microsoft asociada a dicha suscripción. Para obtener más información sobre las opciones de compra de Azure, consulte [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opciones de compra](https://azure.microsoft.com/pricing/purchase-options/) y [Ofertas para miembros](https://azure.microsoft.com/pricing/member-offers/) (para miembros de MSDN, Microsoft Partner Network, BizSpark y otros programas de Microsoft).
 
 Para obtener más información acerca de las suscripciones de Azure, consulte [Administrar cuentas, suscripciones y roles administrativos](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
@@ -129,7 +129,7 @@ Todos los blobs del almacenamiento de Azure han de estar en un contenedor. Puede
 
         azure storage container create mycontainer
 
-> [AZURE.NOTE]Existen tres niveles de acceso de lectura anónimo: **Desactivado**, **Blob** y **Contenedor**. Para evitar el acceso anónimo a los blobs, establezca el parámetro de permiso en **Desactivado**. El nuevo contenedor es privado por defecto y solo puede acceder a él el propietario de la cuenta. Para permitir un acceso de lectura público y anónimo a los recursos de blob, pero no a los metadatos del contenedor ni a la lista de blobs del contenedor, seleccione **Blob** en el parámetro Permiso. Para hacer que el acceso de lectura a los recursos de blob, a los metadatos del contenedor y a la lista de blobs del contenedor sean totalmente públicos, elija **Contenedor** en el parámetro Permiso. Para obtener más información, consulte [Administración del acceso a los recursos de Almacenamiento de Azure](storage-manage-access-to-resources.md).
+> [AZURE.NOTE] Existen tres niveles de acceso de lectura anónimo: **Desactivado**, **Blob** y **Contenedor**. Para evitar el acceso anónimo a los blobs, establezca el parámetro de permiso en **Desactivado**. El nuevo contenedor es privado por defecto y solo puede acceder a él el propietario de la cuenta. Para permitir un acceso de lectura público y anónimo a los recursos de blob, pero no a los metadatos del contenedor ni a la lista de blobs del contenedor, seleccione **Blob** en el parámetro Permiso. Para hacer que el acceso de lectura a los recursos de blob, a los metadatos del contenedor y a la lista de blobs del contenedor sean totalmente públicos, elija **Contenedor** en el parámetro Permiso. Para obtener más información, consulte [Administración del acceso a los recursos de Almacenamiento de Azure](storage-manage-access-to-resources.md).
 
 ### Cargar un blob en un contenedor
 
@@ -215,10 +215,10 @@ Para copiar un blob en un directorio de archivos:
 
 A continuación encontrará algunos artículos relacionados y recursos para obtener más información acerca de Almacenamiento de Azure.
 
-- [Documentación de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
+- [Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 - [Referencia a API de REST de Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

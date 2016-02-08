@@ -59,7 +59,7 @@ Para obtener una definición expandida de cada recurso enumerado en las tablas a
 
 La Base de datos SQL de Azure tiene una cuota actual de DTU por servidor lógico de 15.000 DTU. Esta cuota representa las DTU que puede alojar un servidor lógico, basándose en la suma de las DTU del nivel de rendimiento de cada base de datos en el servidor. Por ejemplo, un servidor con 5 bases de datos Basic (5 X 5 DTU como máximo), 2 bases de datos Standard S1 (2 X 20 DTU como máximo) y 3 bases de datos Premium P1 (3 X 100 DTU como máximo), habrá consumido 365 DTU de su cuota de 15.000 DTU.
 
->[AZURE.NOTE]Puede solicitar un aumento de esta cuota [contactando con el soporte técnico](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+>[AZURE.NOTE] Puede solicitar un aumento de esta cuota [contactando con el soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
 ## Otros límites de Base de datos SQL
 
@@ -75,4 +75,4 @@ La Base de datos SQL de Azure tiene una cuota actual de DTU por servidor lógico
 
 [Mensajes de error para los programas de cliente de base de datos SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

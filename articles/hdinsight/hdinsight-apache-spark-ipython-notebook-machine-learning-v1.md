@@ -20,7 +20,7 @@
 
 # Creación de aplicaciones de Aprendizaje automático con Apache Spark en HDInsight de Azure (Windows)
 
-> [AZURE.NOTE]HDInsight ofrece ahora clústeres de Spark en Linux. Para información sobre cómo crear una aplicación de aprendizaje automático en clústeres Spark para HDInsight basados en Linux, vea [Creación de aplicaciones de Aprendizaje automático con Apache Spark en HDInsight de Azure (Linux)](hdinsight-apache-spark-ipython-notebook-machine-learning.md).
+> [AZURE.NOTE] HDInsight ofrece ahora clústeres de Spark en Linux. Para información sobre cómo crear una aplicación de aprendizaje automático en clústeres Spark para HDInsight basados en Linux, vea [Creación de aplicaciones de Aprendizaje automático con Apache Spark en HDInsight de Azure (Linux)](hdinsight-apache-spark-ipython-notebook-machine-learning.md).
 
 Obtenga información acerca de cómo crear una aplicación de aprendizaje automático con un clúster Apache Spark en HDInsight. En este artículo se muestra cómo usar el cuaderno de Jupyter disponible con el clúster para compilar y probar la aplicación. La aplicación usa los datos de ejemplo de HVAC.csv, que está disponible en todos los clústeres de manera predeterminada.
 
@@ -28,7 +28,7 @@ Obtenga información acerca de cómo crear una aplicación de aprendizaje autom�
 
 Debe tener lo siguiente:
 
-- Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Un clúster Apache Spark. Para instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-provision-clusters.md). 
 
 ##<a name="data"></a>Visualización de los datos
@@ -47,13 +47,13 @@ Estos datos se usarán para predecir si un edificio será más cálido o frío e
 
 1. En el [Portal de vista previa de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
 
-2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, luego, en la hoja **Panel del clúster**, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
+2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, luego, en la hoja **Panel de clúster**, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
 
-	> [AZURE.NOTE]También puede comunicarse con el equipo Jupyter Notebook en el clúster si abre la siguiente dirección URL en el explorador. Reemplace __CLUSTERNAME__ por el nombre del clúster.
+	> [AZURE.NOTE] También puede comunicarse con el equipo Jupyter Notebook en el clúster si abre la siguiente dirección URL en el explorador. Reemplace __CLUSTERNAME__ por el nombre del clúster:
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Cree un nuevo notebook. Haga clic en **New** (Nuevo) y, luego, en **Python 2**.
+2. Cree un nuevo notebook. Haga clic en **New** (Nuevo) y luego en **Python 2**.
 
 	![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/hdispark.note.jupyter.createnotebook.png "Crear un nuevo cuaderno de Jupyter")
 
@@ -144,7 +144,7 @@ Estos datos se usarán para predecir si un edificio será más cálido o frío e
 		lr = LogisticRegression(maxIter=10, regParam=0.01)
 		pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 
-6. Ajuste la canalización al documento de formación. Pegue el siguiente fragmento de código en una celda vacía y presione **MAYÚS + ENTRAR**.
+6. Ajuste la canalización al documento de formación. Pegue el siguiente fragmento en una celda vacía y presione **MAYÚS + ENTRAR**.
 
 		model = pipeline.fit(training)
 
@@ -184,7 +184,7 @@ Estos datos se usarán para predecir si un edificio será más cálido o frío e
 
 8.  Prepare un conjunto de datos con el que ejecutar el modelo entrenado. Para ello, deberá pasar un id. del sistema y la antigüedad del sistema (representados en **SystemInfo** en los resultados de formación), y el modelo predirá si el edificio con ese id. y esa antigüedad del sistema es más cálido (indicado por 1.0) o frío (indicado por 0.0).
 
-	Pegue el siguiente fragmento de código en una celda vacía y presione **MAYÚS + ENTRAR**.
+	Pegue el siguiente fragmento en una celda vacía y presione **MAYÚS + ENTRAR**.
 		
 		# SystemInfo here is a combination of system ID followed by system age
 		Document = Row("id", "SystemInfo")
@@ -215,14 +215,14 @@ Estos datos se usarán para predecir si un edificio será más cálido o frío e
 
 	En la primera fila de la predicción, ve que, para un sistema HVAC con el id. 20 y una antigüedad de 25 años, el edificio estará cálido (**prediction=1.0**). El primer valor de DenseVector (0.49999) corresponde a la predicción 0.0 y el segundo, (0.5001), corresponde a la predicción 1.0. En la salida, aunque el segundo valor solo es levemente superior, el modelo muestra **prediction=1.0**.
 
-11. Ahora puede salir del cuaderno reiniciando el kernel. En la barra de menús superior, haga clic en **Kernel**, en **Reiniciar** y luego en **Reiniciar** de nuevo cuando se le pida.
+11. Ahora puede salir del cuaderno reiniciando el kernel. En la barra de menús superior, haga clic en **Kernel**, en **Restart** (Reiniciar) y luego en **Restart** de nuevo cuando se le pida.
 
 	![Reiniciar el kernel de Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/hdispark.jupyter.restart.kernel.png "Reiniciar el kernel de Jupyter")
 	  	   
 
-##<a name="anaconda"></a>Uso de la biblioteca scikit-learn de Anaconda para Aprendizaje automático
+##<a name="anaconda"></a>Use la biblioteca scikit-learn de Anaconda para el Aprendizaje automático
 
-Los clústeres Apache Spark en HDInsight incluyen bibliotecas de Anaconda, entre ellas la biblioteca **scikit-learn** para el aprendizaje automático. La biblioteca también contiene diversos conjuntos de datos que puede usar para crear aplicaciones de ejemplo directamente a partir de un cuaderno de Jupyter. Para ejemplos sobre cómo usar la biblioteca scikit-learn, vea [http://scikit-learn.org/stable/auto\_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+Los clústeres Apache Spark en HDInsight incluyen bibliotecas de Anaconda, entre ellas la biblioteca **scikit-learn** para el aprendizaje automático. La biblioteca también contiene diversos conjuntos de datos que puede usar para crear aplicaciones de ejemplo directamente a partir de un cuaderno de Jupyter. Para obtener ejemplos sobre cómo usar la biblioteca scikit-learn, consulte [http://scikit-learn.org/stable/auto\_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
 
 ##<a name="seealso"></a>Otras referencias
 
@@ -249,4 +249,4 @@ Los clústeres Apache Spark en HDInsight incluyen bibliotecas de Anaconda, entre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -34,7 +34,7 @@ El [simulador de iOS no admite notificaciones push](https://developer.apple.com/
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas. Puede seguir usándolas incluso después de que finalice el período de evaluación. Consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas. Puede seguir usándolas incluso después de que finalice el período de evaluación. Consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Un equipo Mac con [Xamarin Studio] y [Xcode] v4.4 o posterior instalado. Puede ejecutar la aplicación Xamarin.Forms mediante Visual Studio en un equipo Windows si lo desea, pero es un poco más complicado porque tiene que conectarse a un equipo Mac en red con el host de compilación Xamarin.iOS. Si está interesado en hacerlo, consulte [Installing Xamarin.iOS on Windows]
 
@@ -80,7 +80,7 @@ Esta sección trata de la ejecución del proyecto de Android de Xamarin para And
 
 ####Incorporación de notificaciones push al proyecto droid
 
-1. Haga clic en la carpeta Componentes, en Obtener más componentes..., busque el componente **Cliente del Servicio de mensajería en la nube de Google** y agréguelo al proyecto. Este componente ayuda a simplificar el trabajo con las notificaciones push con un proyecto Xamarrin Android.
+1. Haga clic con el botón derecho en la carpeta Componentes, haga clic en Obtener más componentes..., busque el componente **Servicio de mensajería en la nube de Google** y agréguelo al proyecto. Este componente ayuda a simplificar el trabajo con las notificaciones push con un proyecto Xamarrin Android.
 
 2. Abra el archivo de proyecto MainActivity.cs y agregue la siguiente instrucción using al principio del archivo:
 
@@ -307,7 +307,7 @@ Esta sección trata de la ejecución del proyecto de Android de Xamarin para And
  
 2. Presione el botón **Ejecutar** para crear el proyecto e iniciar la aplicación en un dispositivo compatible con iOS. A continuación, haga clic en **Aceptar** para aceptar las notificaciones push.
 	
-	> [AZURE.NOTE]Debe aceptar de forma explícita las notificaciones push desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
+	> [AZURE.NOTE] Debe aceptar de forma explícita las notificaciones push desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
 
 2. En la aplicación, escriba una tarea y luego haga clic en el icono de signo de suma (**+**).
 
@@ -411,11 +411,11 @@ Ahora su aplicación está actualizada para que sea compatible con las notificac
 
 ####Prueba de las notificaciones push en su aplicación de iOS
 
-1. Haga clic con el botón secundario en el proyecto de iOS y haga clic en **Establecer como proyecto de inicio**.
+1. Haga clic con el botón derecho en el proyecto de iOS y haga clic en **Establecer como proyecto de inicio**.
 
 2. Presione el botón **Ejecutar** o **F5** en Visual Studio para compilar el proyecto e iniciar la aplicación en un dispositivo compatible con iOS. Luego haga clic en **Aceptar** para aceptar las notificaciones push.
 	
-	> [AZURE.NOTE]Debe aceptar de forma explícita las notificaciones push desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
+	> [AZURE.NOTE] Debe aceptar de forma explícita las notificaciones push desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
 
 3. En la aplicación, escriba una tarea y luego haga clic en el icono de signo de suma (**+**).
 
@@ -441,7 +441,7 @@ Esta sección trata de la ejecución del proyecto de WinApp de Xamarin para disp
 
 ####Incorporación de notificaciones push a la aplicación de Windows
 
-1. En Visual Studio, abra el archivo **App.xaml.cs** en el proyecto **WinApp**. Agregue las instrucciones `using` siguientes.
+1. En Visual Studio, abra el archivo **App.xaml.cs** en el proyecto **WinApp**. Agregue las instrucciones `using` a continuación.
 
 		using System.Threading.Tasks;
 		using Windows.Networking.PushNotifications;
@@ -471,7 +471,7 @@ Esta sección trata de la ejecución del proyecto de WinApp de Xamarin para disp
             await TodoItemManager.DefaultManager.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
         }
 
-3. En el archivo App.xaml.cs, actualice el controlador de eventos `OnLaunched` con el atributo `async` y llame a `InitNotificationsAsync`.
+3. En App.xaml.cs actualice el controlador de eventos `OnLaunched` con el atributo `async` y llame a `InitNotificationsAsync`
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -508,7 +508,7 @@ Esta sección trata de la ejecución del proyecto de WinApp de Xamarin para disp
             await InitNotificationsAsync();
         }
 
-4. En el Explorador de soluciones de Visual Studio, abra el archivo **Package.appxmanifest** y establezca **Capacidad de aviso** como **Sí** en **Notificaciones**.
+4. En el Explorador de soluciones de Visual Studio, abra el archivo **Package.appxmanifest** y establezca **Capacidad de aviso** en **Sí** en **Notificaciones**.
 
 5. Compile la aplicación y compruebe que no haya errores. Ahora debe registrar la aplicación cliente para las notificaciones de plantilla desde el back-end de aplicación móvil.
 
@@ -520,7 +520,7 @@ Esta sección trata de la ejecución del proyecto de WinApp de Xamarin para disp
 
 2. Presione el botón **Ejecutar** para crear el proyecto e iniciar la aplicación en un dispositivo compatible con iOS. A continuación, haga clic en **Aceptar** para aceptar las notificaciones push.
 	
-	> [AZURE.NOTE]Debe aceptar de forma explícita las notificaciones push desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
+	> [AZURE.NOTE] Debe aceptar de forma explícita las notificaciones push desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
 
 3. En la aplicación, escriba una tarea y luego haga clic en el icono de signo de suma (**+**).
 
@@ -537,4 +537,4 @@ Esta sección trata de la ejecución del proyecto de WinApp de Xamarin para disp
 [Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

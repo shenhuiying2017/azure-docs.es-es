@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 # ¿Qué es Centros de eventos de Azure?
@@ -45,4 +45,4 @@ Para obtener información detallada acerca de los Centros de eventos, consulte l
 [tutorial de Centros de eventos]: event-hubs-csharp-ephcs-getstarted.md
 [aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

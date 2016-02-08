@@ -41,13 +41,13 @@ Para obtener información general sobre las opciones de implementación de clús
 
 * **Script de implementación de IaaS de HPC Pac **: descargue y desempaquete la versión más reciente del script desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Puede comprobar la versión del script ejecutando `New-HPCIaaSCluster.ps1 –Version`. Este artículo se basa en la versión 4.4.0 o posterior del script.
 
-* **Suscripción de Azure**: puede usar una suscripción en el servicio Azure Global o Azure China. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+* **Suscripción de Azure**: puede usar una suscripción en el servicio Azure Global o Azure China. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Cuota de núcleos**: tal vez tenga que aumentar la cuota de núcleos, especialmente si decide implementar varios nodos de clúster con tamaños de máquina virtual de múltiples núcleos. Por ejemplo, en este artículo, necesitará al menos 12 núcleos. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
+* **Cuota de núcleos**: tal vez tenga que aumentar la cuota de núcleos, especialmente si decide implementar varios nodos de clúster con tamaños de máquina virtual de múltiples núcleos. Por ejemplo, en este artículo, necesitará al menos 12 núcleos. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
 
 ### Creación del archivo de configuración
 
-El script de implementación de HPC Pack IaaS usa un archivo de configuración XML como entrada que describe la infraestructura del clúster HPC. Para implementar un clúster pequeño que consta de un nodo principal y dos nodos de proceso de Linux, sustituya los valores para el entorno en el siguiente archivo de configuración de ejemplo. Para obtener más información sobre el archivo de configuración, consulte el archivo Manual.rtf en la carpeta de script y [Creación de un clúster de informática de alto rendimiento (HPC) en máquinas virtuales de Azure con el script de implementación de IaaS de HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md).
+El script de implementación de HPC Pack IaaS usa un archivo de configuración XML como entrada que describe la infraestructura del clúster HPC. Para implementar un clúster pequeño que consta de un nodo principal y dos nodos de proceso de Linux, sustituya los valores para el entorno en el siguiente archivo de configuración de ejemplo. Para obtener más información sobre el archivo de configuración, vea el archivo Manual.rtf en la carpeta de script y [Creación de un clúster de HPC de Windows con el script de implementación de IaaS de HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -99,9 +99,9 @@ A continuación se incluyen descripciones breves de los elementos en el archivo 
 
 * **StorageAccount**: todos los datos persistentes para el clúster de HPC Pack se almacenarán en la cuenta de almacenamiento especificada (allvhdsje en este ejemplo). Si no existe la cuenta de almacenamiento, el script la creará en la región especificada en **Ubicación**.
 
-* **Location**: región de Azure donde implementará el clúster de HPC Pack (Japan East en este ejemplo).
+* **Ubicación**: región de Azure donde implementará el clúster de HPC Pack (este de Japón en este ejemplo).
 
-* **VNet**: configuración de la red virtual y la subred donde se creará el clúster de HPC. Puede crear la red virtual y subred antes de ejecutar este script, o el script crea una red virtual con espacio de direcciones 192.168.0.0/20 y una subred con espacio de direcciones 192.168.0.0/23. En este ejemplo, el script crea la red virtual centos7rdmavnetje y la subred CentOS7RDMACluster.
+* **VNet**: configuración de la red virtual y la subred donde se creará el clúster HPC. Puede crear la red virtual y subred antes de ejecutar este script, o el script crea una red virtual con espacio de direcciones 192.168.0.0/20 y una subred con espacio de direcciones 192.168.0.0/23. En este ejemplo, el script crea la red virtual centos7rdmavnetje y la subred CentOS7RDMACluster.
 
 * **Domain**: configuración de dominio de Active Directory para el clúster de HPC Pack. Todas las máquinas virtuales de Windows creadas por el script se unirán al dominio. Actualmente, el script admite tres opciones de dominio: ExistingDC, NewDC y HeadNodeAsDC. En este ejemplo, se configura el nodo principal como el controlador de dominio con un nombre de dominio completo de hpc.local.
 
@@ -123,7 +123,7 @@ A continuación se incluyen descripciones breves de los elementos en el archivo 
 
     Busque la que necesite y reemplace el valor **ImageName** en el archivo de configuración.
 
-* Hay disponibles imágenes de Linux que admiten conectividad de RDMA para VM de tamaño A8 y A9. Si especifica una imagen con controladores de Linux RDMA instalados y habilitados, el script de implementación de HPC Pack IaaS los implementará. Por ejemplo, especifique el nombre de imagen `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` para el SUSE Linux Enterprise Server 12 actual: optimizado para la imagen de informática de alto rendimiento en el Marketplace.
+* Hay disponibles imágenes de Linux que admiten conectividad de RDMA para VM de tamaño A8 y A9. Si especifica una imagen con controladores de Linux RDMA instalados y habilitados, el script de implementación de HPC Pack IaaS los implementará. Por ejemplo, especifique el nombre de imagen `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` para el SUSE Linux Enterprise Server 12 actual: optimizado para la imagen de proceso de alto rendimiento en el Marketplace.
 
 * Para habilitar Linux RDMA en las máquinas virtuales Linux creadas a partir de imágenes admitidas para ejecutar trabajos de MPI, instale y configure una biblioteca específica de MPI en los nodos de Linux después de implementar el clúster según las necesidades de su aplicación. Para ver un ejemplo, consulte [Ejecución de OpenFoam con Microsoft HPC Pack en un clúster de Linux RDMA en Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md).
 
@@ -146,7 +146,7 @@ A continuación se incluyen descripciones breves de los elementos en el archivo 
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
     ```
 
-    El script genera un archivo de registro automáticamente porque no se ha especificado el parámetro **-LogFile**. Los registros no se escriben en tiempo real, pero se recopilan al final de la validación y la implementación, por lo que si se detiene el proceso de PowerShell mientras se ejecuta el script, se perderán algunos registros.
+    El script genera un archivo de registro automáticamente porque el parámetro **-LogFile** no está especificado. Los registros no se escriben en tiempo real, pero se recopilan al final de la validación y la implementación, por lo que si se detiene el proceso de PowerShell mientras se ejecuta el script, se perderán algunos registros.
 
     a. Como **AdminPassword** no se ha especificado en el comando anterior, se le pedirá que escriba la contraseña del usuario *MyAdminName*.
 
@@ -182,7 +182,7 @@ Hay varias opciones para mover datos entre los nodos de Linux y el nodo principa
 
 ### Almacenamiento de archivos de Azure
 
-El servicio [Archivo de Azure](https://azure.microsoft.com/services/storage/files/) expone recursos compartidos de archivos mediante el protocolo SMB 2.1 estándar. Las VM y los servicios en la nube de Azure pueden compartir datos de archivo entre componentes de aplicaciones a través de recursos compartidos montados, y las aplicaciones locales pueden acceder a datos de archivo de un recurso compartido a través de la API de Almacenamiento de archivos. Para más información, consulte [Uso del almacenamiento de archivos de Azure con Windows](../storage/storage-dotnet-how-to-use-files.md).
+El servicio [Archivo de Azure](https://azure.microsoft.com/services/storage/files/) expone recursos compartidos de archivos mediante el protocolo SMB 2.1 estándar. Las VM y los servicios en la nube de Azure pueden compartir datos de archivo entre componentes de aplicaciones a través de recursos compartidos montados, y las aplicaciones locales pueden acceder a datos de archivo de un recurso compartido a través de la API de Almacenamiento de archivos. Para obtener más información, consulte [Uso de Almacenamiento de archivos de Azure con PowerShell y .NET](../storage/storage-dotnet-how-to-use-files.md).
 
 Para crear un recurso compartido de Archivo de Azure, consulte los pasos detallados en [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx). Para establecer conexiones persistentes, consulte [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
@@ -195,7 +195,7 @@ En este ejemplo, creamos un recurso compartido de Archivo de Azure denominado rd
 
 En este ejemplo, allvhdsje es el nombre de la cuenta de almacenamiento, storageaccountkey es la clave de la cuenta de almacenamiento y rdma es el nombre del recurso compartido de Archivo de Azure. El recurso compartido de Archivo de Azure se montará en Z: en el nodo principal.
 
-Para montar el recurso compartido de Archivo de Azure en los nodos de Linux, ejecute un comando **clusrun** en el nodo principal. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** es una herramienta de HPC Pack útil para llevar a cabo tareas administrativas en varios nodos (consulte también [CLusrun para nodos de Linux](#CLusrun-for-Linux-nodes) en este artículo).
+Para montar el recurso compartido de Archivo de Azure en los nodos de Linux, ejecute un comando **clusrun** en el nodo principal. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** es una herramienta de HPC Pack útil para llevar a cabo tareas administrativas en varios nodos (vea también [CLusrun para los nodos de Linux](#CLusrun-for-Linux-nodes)en este artículo).
 
 Abra una ventana de Windows PowerShell y escriba los comandos siguientes.
 
@@ -266,7 +266,7 @@ Hay varias formas de enviar trabajos al clúster de HPC Pack.
 
 * API de REST
 
-El envío de trabajos al clúster en Azure a través de herramientas de GUI de HPC Pack y el portal web de HPC es igual que para los nodos de proceso de Windows. Consulte [HPC Pack Job Manager](https://technet.microsoft.com/library/ff919691.aspx) y [Envío de trabajos HPC desde un equipo local a un clúster de HPC Pack en Azure](virtual-machines-hpcpack-cluster-submit-jobs.md).
+El envío de trabajos al clúster en Azure a través de herramientas de GUI de HPC Pack y el portal web de HPC es igual que para los nodos de proceso de Windows. Consulte [Administrador de trabajos de HPC Pack](https://technet.microsoft.com/library/ff919691.aspx) y [Envío de trabajos desde un cliente local](virtual-machines-hpcpack-cluster-submit-jobs.md).
 
 Para enviar trabajos mediante la API de REST, consulte [Creating and Submitting Jobs by Using the REST API in Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Consulte también el ejemplo de Python en el [SDK de HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756) para enviar trabajos desde un cliente Linux.
 
@@ -292,7 +292,7 @@ La herramienta **clusrun** de HPC Pack se puede usar para ejecutar comandos en l
     > clusrun /interleaved /nodegroup:linuxnodes echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
->[AZURE.NOTE]Tal vez tenga que usar ciertos caracteres de escape en los comandos de **clusrun**. Como se muestra en este ejemplo, utilice ^ en una ventana de comandos para anular el símbolo ">".
+>[AZURE.NOTE] Tal vez tenga que usar ciertos caracteres de escape en los comandos de **clusrun**. Como se muestra en este ejemplo, utilice ^ en una ventana de comandos para anular el símbolo ">".
 
 ## Pasos siguientes
 
@@ -316,4 +316,4 @@ La herramienta **clusrun** de HPC Pack se puede usar para ejecutar comandos en l
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

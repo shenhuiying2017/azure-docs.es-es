@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde Blob de Azure mediante Factoría de datos de Azure
@@ -53,6 +53,8 @@ El ejemplo copia los datos que pertenecen a una serie temporal desde un blob de 
 	    }
 	  }
 	}
+
+Factoría de datos de Azure admite dos tipos de servicios vinculados de Almacenamiento de Azure: **AzureStorage** y **AzureStorageSas**. En el primer caso, especifique la cadena de conexión que incluye la clave de cuenta. En el segundo, especifique el Uri de firma de acceso compartido (SAS). Vea la sección [Servicios vinculados](#linked-services) para más información.
 
 **Conjunto de datos de entrada de blob de Azure:**
 
@@ -225,6 +227,9 @@ El ejemplo copia los datos que pertenecen a una serie temporal desde una tabla d
 	  }
 	}
 
+Factoría de datos de Azure admite dos tipos de servicios vinculados de Almacenamiento de Azure: **AzureStorage** y **AzureStorageSas**. En el primer caso, especifique la cadena de conexión que incluye la clave de cuenta. En el segundo, especifique el Uri de firma de acceso compartido (SAS). Vea la sección [Servicios vinculados](#linked-services) para más información.
+
+
 **Conjunto de datos de entrada SQL de Azure:**
 
 El ejemplo supone que ha creado una tabla "MyTable" en SQL de Azure y que contiene una columna denominada "timestampcolumn" para los datos de series temporales.
@@ -254,9 +259,11 @@ Si se establece "external": "true" y se especifica la directiva externalData, se
 	  }
 	}
 
+
 **Conjunto de datos de salida de blob de Azure:**
 
 Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1). La ruta de acceso de la carpeta para el blob se evalúa dinámicamente según la hora de inicio del segmento que se está procesando. La ruta de acceso de la carpeta usa las partes year, month, day y hours de la hora de inicio.
+
 	
 	{
 	  "name": "AzureBlobOutput",
@@ -362,14 +369,10 @@ La canalización contiene una actividad de copia que está configurada para usar
 		}
 	}
 
-## Propiedades del servicio vinculado de Almacenamiento de Azure
+## Servicios vinculados
+Hay dos tipos de servicios vinculados que puede usar para vincular un almacenamiento de blobs de Azure a una Factoría de datos de Azure. Se trata del servicio vinculado **AzureStorage** y el servicio vinculado **AzureStorageSas**. El servicio vinculado de Almacenamiento de Azure proporciona a la factoría de datos acceso global al Almacenamiento de Azure. Mientras que el servicio vinculado de SAS (firma de acceso compartido) de Almacenamiento de Azure proporciona a la factoría de datos acceso restringido/controlado por tiempo al Almacenamiento de Azure. No existen otras diferencias entre estos dos servicios vinculados. Elija el servicio vinculado que se adapte a sus necesidades. En las siguientes secciones se ofrecen más detalles sobre estos dos servicios vinculados.
 
-Puede vincular una cuenta de Almacenamiento de Azure a una Factoría de datos de Azure mediante un servicio vinculado de Almacenamiento de Azure. En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de Almacenamiento de Azure.
-
-| Propiedad | Descripción | Obligatorio |
-| -------- | ----------- | -------- |
-| type | La propiedad type debe establecerse en: **AzureStorage** | Sí |
-| connectionString | Especifique la información necesaria para conectarse a Almacenamiento de Azure para la propiedad connectionString. Puede obtener connectionString para Almacenamiento de Azure desde el Portal de Azure clásico. | Sí |
+[AZURE.INCLUDE [data-factory-azure-storage-linked-services](../../includes/data-factory-azure-storage-linked-services.md)]
 
 ## Propiedades de tipo del conjunto de datos de Blob de Azure
 
@@ -505,4 +508,4 @@ false | mergeFiles | <p>Para una carpeta de origen Folder1 con la siguiente estr
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

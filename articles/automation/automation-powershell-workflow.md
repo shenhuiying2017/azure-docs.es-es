@@ -129,7 +129,7 @@ Puede pasar valores en un bloque de InlineScript, pero debe usar el modificador 
 		$ServiceName = "MyService"
 	
 		$Output = InlineScript {
-			$Service = Get-Service -Name $Using:MyService
+			$Service = Get-Service -Name $Using:ServiceName
 			$Service.Stop()
 			$Service
 		}
@@ -206,7 +206,7 @@ El ejemplo siguiente es similar al ejemplo anterior, en el que se copian archivo
 		Write-Output "All files copied."
 	}
 
-> [AZURE.NOTE]No se recomienda ejecutar runbooks secundarios en paralelo, ya que se ha demostrado que no tiene unos resultados confiables. A veces el resultado del runbook secundario no se mostrará, y la configuración de un runbook secundario puede afectar al resto de runbooks secundarios en paralelo.
+> [AZURE.NOTE]  No se recomienda ejecutar runbooks secundarios en paralelo, ya que se ha demostrado que no tiene unos resultados confiables. A veces el resultado del runbook secundario no se mostrará, y la configuración de un runbook secundario puede afectar al resto de runbooks secundarios en paralelo.
 
 
 ## Puntos de control
@@ -249,4 +249,4 @@ Para obtener más información acerca de los puntos de control, consulte [Adici�
 
 - [Introducción al flujo de trabajo de Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

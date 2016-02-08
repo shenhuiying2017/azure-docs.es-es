@@ -3,7 +3,7 @@
    description="Obtenga información sobre cómo usar el registro de auditoría en la extensión de Privileged Identity Management de Azure."
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,19 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="inhenk"/>
+   ms.date="01/21/2016"
+   ms.author="kgremban"/>
 
-# Privileged Identity Management de Azure: Cómo usar el registro de auditoría
+# Privileged Identity Management de Azure: Cómo utilizar el registro de auditoría
 
-## Uso del registro de auditoría
-Puede usar el registro de audio de Privileged Identity Management para ver todas las asignaciones de usuario y las activaciones comprendidas en un período de tiempo determinado.
+Puede utilizar el registro de auditoría de Privileged Identity Management (PIM) para ver todas las asignaciones de usuario y las activaciones comprendidas en un período de tiempo determinado.
 
 ## Navegación al registro de auditoría
-Puede acceder al registro de auditoría haciendo clic en el historial de auditoría del panel PIM.
+Puede acceder al registro de auditoría haciendo clic en el **historial de auditoría** del panel PIM.
 
 ## Gráfico del registro de auditoría
-Puede usar la vista del registro de auditoría del total de activaciones, el número máximo de activaciones por día y el promedio de activaciones por día en un gráfico de líneas. También puede filtrar los datos por rol si hay más de un rol en el historial de auditoría.
+Puede utilizar el registro de auditoría para ver el total de activaciones, el número máximo de activaciones por día y el promedio de activaciones por día en un gráfico de líneas. También puede filtrar los datos por rol si hay más de un rol en el historial de auditoría.
 
 Ordene por hora, acción o rol con los botones **hora**, **acción** o **rol**.
 
@@ -51,10 +50,10 @@ Cambie el intervalo de tiempo del registro de auditoría seleccionando uno de lo
 
 Active o desactive la casilla **Rol** situada junto a cada rol que quiera incluir o excluir del registro.
 
-Una vez establecidos todos los filtros para el registro de auditoría, haga clic en Actualizar para filtrar los datos del registro. Si los datos no aparecen inmediatamente, haga clic en el botón **Actualizar**.
+Una vez establecidos todos los filtros para el registro de auditoría, haga clic en Actualizar para filtrar los datos del registro. Si los datos no aparecen inmediatamente, actualice la página.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

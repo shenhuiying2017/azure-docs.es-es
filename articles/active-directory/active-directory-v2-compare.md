@@ -20,7 +20,8 @@
 
 Si está familiarizado con el servicio de Azure AD de disposición general o ha integrado aplicaciones con Azure AD en el pasado, puede que haya algunas diferencias en el modelo de aplicaciones v2.0 que no esperaría. Este documento describe esas diferencias para su comprensión.
 
-> [AZURE.NOTE]Esta información se aplica a la vista previa pública del modelo de aplicaciones v2.0. Para obtener instrucciones sobre cómo integrar con el servicio de Azure AD disponible con carácter general, consulte la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Esta información se aplica a la vista previa pública del modelo de aplicaciones v2.0. Para obtener instrucciones sobre cómo integrar con el servicio de Azure AD disponible con carácter general, consulte la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
 
 
 ## Cuentas de Microsoft y cuentas de Azure AD
@@ -105,12 +106,25 @@ Lo anterior solicita permiso para que la aplicación lea los datos de directorio
 
 Permitir que una aplicación solicite permisos dinámicamente mediante el parámetro `scope` le da un control total sobre la experiencia del usuario. Si lo desea, puede elegir adelantar su experiencia de consentimiento y pedir todos los permisos en una solicitud de autorización inicial. O bien, si su aplicación requiere un gran número de permisos, puede elegir recopilarlos del usuario de forma incremental, a medida que intentan usar determinadas características de la aplicación con el tiempo.
 
-## Acceso sin conexión
+## Ámbitos conocidos
+
+#### Acceso sin conexión
 El modelo de aplicaciones v2.0 presenta un nuevo permiso conocido para las aplicaciones: el ámbito `offline_access`. Todas las aplicaciones deberán solicitar este permiso si necesitan tener acceso a los recursos en nombre de un usuario durante un período de tiempo prolongado, incluso cuando es posible que el usuario no haya estado usando la aplicación activamente. El ámbito `offline_access` le aparecerá al usuario en cuadros de diálogo de consentimiento como "Obtener acceso a los datos sin conexión", que el usuario debe aceptar. Solicitar el permiso `offline_access` permitirá a su aplicación web recibir refresh\_tokens de OAuth 2.0 desde el extremo de v2.0. Los refresh\_tokens son de larga duración y se pueden intercambiar por nuevos access\_tokens de OAuth 2.0 durante largos períodos de acceso.
 
-Si su aplicación no solicita el ámbito de `offline_access`, no recibirá refresh\_tokens. Esto significa que cuando canjea un authorization\_code en el [flujo de código de autorización de OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), solo recibirá un access\_token desde el extremo de `/oauth2/token`. Ese token de acceso seguirá siendo válido durante un breve período de tiempo (normalmente una hora), pero finalmente caducará. En ese momento, la aplicación tendrá que redirigir al usuario de nuevo al extremo de `/oauth2/authorize` para recuperar un nuevo authorization\_code. Durante esta redirección, es posible o no que el usuario necesite escribir sus credenciales de nuevo o volver a dar el consentimiento a permisos, según el tipo de aplicación.
+Si su aplicación no solicita el ámbito de `offline_access`, no recibirá refresh\_tokens. Esto significa que cuando canjees un código de autorización (authorization\_code) del [flujo del código de autorización de OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), solo recibirás un token de acceso (access\_token) desde el extremo de `/token`. Ese token de acceso seguirá siendo válido durante un breve período de tiempo (normalmente una hora), pero finalmente caducará. En ese momento, la aplicación tendrá que redirigir al usuario de nuevo al extremo de `/authorize` para recuperar un nuevo authorization\_code. Durante esta redirección, es posible o no que el usuario necesite escribir sus credenciales de nuevo o volver a dar el consentimiento a permisos, según el tipo de aplicación.
 
 Para obtener más información acerca de OAuth 2.0, refresh\_tokens y access\_tokens, consulte la [referencia del protocolo del modelo de aplicaciones v2.0](active-directory-v2-protocols.md).
+
+#### OpenID, perfil y correo electrónico
+
+En el servicio de Azure Active Directory original, el flujo de inicio de sesión de OpenID Connect más básico proporciona una gran cantidad de información sobre el usuario en el id\_token resultante. Las notificaciones de un id\_token pueden incluir el nombre de usuario, el nombre de usuario preferido, la dirección de correo electrónico, el id. de objeto, etc.
+
+Ahora restringimos la información que el ámbito `openid` a la que permite acceder su aplicación. El ámbito `openid` solo permitirá que el usuario inicie sesión en la aplicación y que esta reciba un identificador específico de aplicación para el usuario. Si desea obtener información personal identificable (PII) acerca del usuario en la aplicación, esta tendrá que solicitar permisos adicionales al usuario. Introducimos dos nuevos ámbitos (`email` y `profile`) que permiten hacerlo.
+
+El ámbito `email` es muy sencillo: permite que la aplicación acceda a la dirección de correo electrónico principal del usuario a través de la notificación `email` en id\_token. El ámbito `profile` ofrece a la aplicación acceso a toda la demás información básica sobre el usuario: su nombre, el nombre de usuario preferido, identificador de objeto y demás.
+
+Esto le permite codificar la aplicación en un modo de divulgación mínima, puede pedir al usuario solo el conjunto de información que la aplicación necesita para hacer su trabajo. Para más información sobre estos ámbitos, consulte [la referencia de los ámbitos de la versión 2.0](active-directory-v2-scopes.md).
+
 
 ## Notificaciones de token
 Las notificaciones en tokens emitidas por el extremo de v2.0 no serán idénticas a los tokens emitidos por los extremos de Azure AD de disponibilidad general; las aplicaciones que migran al nuevo servicio no deben suponer que existirá una notificación concreta en id\_tokens o access\_tokens. Los tokens emitidos por el extremo dev2.0 son compatibles con las especificaciones de OAuth 2.0 y OpenID Connect, pero pueden seguir una semántica diferente a la del servicio de Azure AD de disponibilidad general.
@@ -121,4 +135,4 @@ Para obtener información sobre las notificaciones específicas emitidas en toke
 ## Limitaciones de vista previa
 Hay una serie de restricciones que se deben tener en cuenta al crear una aplicación con el modelo de aplicaciones v2.0 durante la vista previa pública. Consulte el [documento de limitaciones del modelo de aplicaciones v2.0](active-directory-v2-limitations.md) para ver si alguna de estas restricciones se aplica a su escenario concreto.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

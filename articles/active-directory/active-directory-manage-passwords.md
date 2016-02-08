@@ -28,7 +28,8 @@ El resto de este tema abarca el conjunto completo de funcionalidades de administ
 - Los **informes de actividad de administración de contraseñas** proporcionan a los administradores perspectivas sobre una actividad de registro y restablecimiento de contraseña en su organización.
 - La **escritura diferida de la contraseña** permite la administración de contraseñas locales desde la nube, por lo que todos los escenarios anteriores pueden realizarlos los usuarios sincronizados con contraseña y federados, o en nombre de ellos. La escritura diferida de la contraseña requiere Azure AD Premium. Para obtener más información, consulte [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md).
 
-> [AZURE.NOTE]Azure AD Premium está disponible para los clientes chinos con la instancia de todo el mundo de Azure AD. Azure AD Premium no es compatible actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+> [AZURE.NOTE]
+Azure AD Premium está disponible para los clientes chinos con la instancia de todo el mundo de Azure AD. Azure AD Premium no es compatible actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 Utilice los siguientes vínculos para ir a la documentación en la que esté más interesado:
 
@@ -48,4 +49,4 @@ Utilice los siguientes vínculos para ir a la documentación en la que esté má
 - [Creación o edición de usuarios en Azure AD](active-directory-create-users.md)
 - [Administración de grupos en Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # Habilitación de aplicaciones híbridas extendiendo la nube y las instalaciones
@@ -35,16 +35,16 @@ Las aplicaciones en la nube o locales híbridas son una realidad de los entornos
  
 ## Popular
 
-- [Información de precios de Bus de servicio](http://azure.microsoft.com/pricing/details/service-bus/)
+- [Información de precios de Bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/)
 - [P+F de precios de Bus de servicio](service-bus-pricing-faq.md)
 - [Referencia de la API de REST de Bus de servicio](http://msdn.microsoft.com/library/azure/hh780717.aspx)
-- [Suscribirse a una prueba gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
+- [Suscribirse a una prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
  
 ## Servicios relacionados
 
-- [Servicios de BizTalk](http://azure.microsoft.com/services/biztalk-services/)
-- [Servicios móviles](http://azure.microsoft.com/services/mobile-services/)
-- [Servicios en la nube](http://azure.microsoft.com/services/cloud-services/) 
+- [Servicios de BizTalk](https://azure.microsoft.com/services/biztalk-services/)
+- [Servicios móviles](https://azure.microsoft.com/services/mobile-services/)
+- [Servicios en la nube](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -27,7 +27,7 @@ Aprenda a crear un clúster de Hadoop en HDInsight con el Portal de Azure. El [P
 
 Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
-- Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## Creación de clústeres
 
@@ -124,7 +124,7 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 	* **Usuarios** (![icono de usuarios](./media/hdinsight-provision-clusters/users.png)): permite establecer permisos de _administración del portal_ de este clúster para otros usuarios de su suscripción de Azure.
 	
 
-		> [AZURE.IMPORTANT]Esto _solo_ afecta al acceso y los permisos para este clúster en el Portal, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
+		> [AZURE.IMPORTANT] Esto _solo_ afecta al acceso y los permisos para este clúster en el Portal, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
 		
 	* **Etiquetas** (![icono de etiqueta](./media/hdinsight-provision-clusters/tags.png)): las etiquetas permiten establecer pares clave-valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y luego usar un valor común para todos los servicios asociados a un proyecto específico.
 
@@ -140,4 +140,4 @@ En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight
 * [Envío de trabajos de Hadoop mediante programación](hdinsight-submit-hadoop-jobs-programmatically.md): aprenda a enviar trabajos a HDInsight mediante programación
 * [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure](hdinsight-administer-use-management-portal.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

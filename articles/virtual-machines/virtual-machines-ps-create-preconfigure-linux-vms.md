@@ -268,7 +268,7 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 ## Recursos adicionales
 
-[Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[Documentación sobre las máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Preguntas más frecuentes sobre las máquinas virtuales de Azure](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
@@ -280,4 +280,4 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

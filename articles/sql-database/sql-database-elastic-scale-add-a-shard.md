@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="01/27/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Incorporación de una partición con herramientas de bases de datos elásticas
@@ -25,7 +25,7 @@ Con frecuencia, las aplicaciones simplemente necesitan agregar nuevas particione
 Si el nuevo intervalo de valores de clave no forma parte todavía de una asignación existente, es muy sencillo agregar la nueva partición y asociar la nueva clave o el nuevo intervalo a dicha partición.
 
 ### Ejemplo: incorporación de una partición y su intervalo a una asignación de partición existente
-En el ejemplo siguiente, se ha creado una base de datos denominada **sample\_shard\_2** y todos los objetos de esquema necesarios en su interior para contener el intervalo [300, 400).
+En este ejemplo se utilizan los métodos [TryGetShard](https://msdn.microsoft.com/library/azure/dn823929.aspx), [CreateShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx) y [CreateRangeMapping] (https://msdn.microsoft.com/library/azure/dn807221.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeShardMap`1.CreateRangeMapping(Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeMappingCreationInfo{`0})) y se crea una instancia de la clase [ShardLocation](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation.shardlocation.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardLocation.). En el ejemplo siguiente, se ha creado una base de datos denominada **sample\_shard\_2** y todos los objetos de esquema necesarios en su interior para contener el intervalo [300, 400).
 
     // sm is a RangeShardMap object.
     // Add a new shard to hold the range being added. 
@@ -79,4 +79,4 @@ Se ha creado una base de datos denominada "sample\_shard\_2" y todos los objetos
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

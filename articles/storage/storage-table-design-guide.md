@@ -28,7 +28,7 @@ En esta sección se resaltan algunas de las características clave del servicio 
 
 ¿Qué es el servicio Tabla? Como cabría esperar del nombre, el servicio Tabla usa un formato tabular para almacenar los datos. En la terminología estándar, cada fila de la tabla representa una entidad y las columnas almacenan las distintas propiedades de la entidad. Cada entidad tiene un par de claves para identificar de forma exclusiva y una columna de marca de tiempo que el servicio Tabla utiliza para realizar un seguimiento de cuando la entidad se ha actualizado por última vez (esto ocurre automáticamente y no se puede sobrescribir manualmente la marca de tiempo con un valor arbitrario). El servicio Tabla usa esta última marca de tiempo modificada (LMT) para administrar la simultaneidad optimista.
 
->[AZURE.NOTE]Las operaciones de API de REST del servicio Tabla también devuelven un valor **ETag** que se deriva del LMT. En este documento se utilizarán los términos ETag y LMT indistintamente porque hacen referencia a los mismos datos subyacentes.
+>[AZURE.NOTE] Las operaciones de API de REST del servicio Tabla también devuelven un valor **ETag** que se deriva del LMT. En este documento se utilizarán los términos ETag y LMT indistintamente porque hacen referencia a los mismos datos subyacentes.
 
 En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacenar las entidades employee y department. Muchos de los ejemplos que se muestran más adelante en esta guía se basan en este diseño simple.
 
@@ -154,7 +154,7 @@ En la tabla siguiente se incluyen algunos de los valores de clave a tener en cue
 Para obtener más información, vea [Introducción al modelo de datos del servicio Tabla](http://msdn.microsoft.com/library/azure/dd179338.aspx) en MSDN.
 
 ### Consideraciones sobre el coste  
-El almacenamiento de tablas es relativamente económico, pero debe incluir las estimaciones de costes para el uso de la capacidad y la cantidad de transacciones como parte de la evaluación de cualquier solución que utilice el servicio Tabla. Sin embargo, en muchos escenarios, el almacenamiento de datos duplicados o sin normalizar para mejorar el rendimiento o la escalabilidad de su solución es un enfoque válido que se puede tomar. Para obtener más información acerca de los precios, consulte [Detalles de precios de almacenamiento](http://azure.microsoft.com/pricing/details/storage/).
+El almacenamiento de tablas es relativamente económico, pero debe incluir las estimaciones de costes para el uso de la capacidad y la cantidad de transacciones como parte de la evaluación de cualquier solución que utilice el servicio Tabla. Sin embargo, en muchos escenarios, el almacenamiento de datos duplicados o sin normalizar para mejorar el rendimiento o la escalabilidad de su solución es un enfoque válido que se puede tomar. Para obtener más información acerca de los precios, consulte [Detalles de precios de almacenamiento](https://azure.microsoft.com/pricing/details/storage/).
 
 ### Comparación de las tablas Azure y SQL Azure  
 Para obtener una comparación entre la base de datos de Azure SQL (un servicio de base de datos relacional) y el servicio Tabla, consulte [Almacenamiento de tablas de Microsoft Azure y Base de datos SQL de Microsoft Azure: comparación y diferencias](http://msdn.microsoft.com/library/azure/jj553018.aspx) en MSDN.
@@ -185,7 +185,7 @@ Las soluciones del servicio Tabla pueden requerir mucha lectura, escritura o una
 
 Un buen punto de partida para diseñar la solución del servicio Tabla para que pueda leer los datos de manera eficiente es preguntar "¿Qué consultas necesitará ejecutar mi aplicación para recuperar los datos que necesita del servicio Tabla?"
 
->[AZURE.NOTE]Con el servicio Tabla, es importante obtener el diseño correcto por adelantado porque resulta difícil y caro cambiarlo más adelante. Por ejemplo, en una base de datos relacional a menudo resulta posible resolver problemas de rendimiento agregando simplemente los índices en una base de datos existente: esto no es una opción con el servicio Tabla.
+>[AZURE.NOTE] Con el servicio Tabla, es importante obtener el diseño correcto por adelantado porque resulta difícil y caro cambiarlo más adelante. Por ejemplo, en una base de datos relacional a menudo resulta posible resolver problemas de rendimiento agregando simplemente los índices en una base de datos existente: esto no es una opción con el servicio Tabla.
 
 Esta sección se centra en los problemas clave que se deben solucionar al diseñar las tablas para las consultas. Entre los temas tratados en esta sección se incluyen:
 
@@ -235,7 +235,7 @@ En un extremo, puede almacenar todas las entidades en una sola partición, pero 
 
 Un **PartitionKey** idóneo es el que permite utilizar consultas eficaces y que tiene suficientes particiones para asegurarse de que su solución es escalable. Normalmente, encontrará que las entidades tendrán una propiedad adecuada que distribuye las entidades entre particiones suficientes.
 
->[AZURE.NOTE]Por ejemplo, en un sistema que almacena información acerca de los usuarios o empleados, el identificador del usuario puede ser un buen PartitionKey. Puede que tenga varias entidades que utilizan un determinado identificador de usuario como clave de partición. Cada entidad que almacena los datos de un usuario se agrupa en una sola partición y, de esta manera estas entidades están accesibles a través de las transacciones de grupo de entidad, y continúan siendo altamente escalables.
+>[AZURE.NOTE] Por ejemplo, en un sistema que almacena información acerca de los usuarios o empleados, el identificador del usuario puede ser un buen PartitionKey. Puede que tenga varias entidades que utilizan un determinado identificador de usuario como clave de partición. Cada entidad que almacena los datos de un usuario se agrupa en una sola partición y, de esta manera estas entidades están accesibles a través de las transacciones de grupo de entidad, y continúan siendo altamente escalables.
 
 Existen otros puntos adicionales que se tienen en cuenta al elegir **PartitionKey** y que están relacionados con la forma de insertar, actualizar y eliminar entidades: consulte la sección [Diseño de modificación de datos](#design-for-data-modification).
 
@@ -573,7 +573,7 @@ Utilice este patrón cuando desee garantizar la coherencia eventual entre las en
 #### Orientación y patrones relacionados  
 Los patrones y e instrucciones siguientes también pueden ser importantes a la hora de implementar este patrón: - [Transacciones de grupos de entidades](#entity-group-transactions) - [Combinar o reemplazar](#merge-or-replace)
 
->[AZURE.NOTE]Si el aislamiento de transacciones es importante para su solución, considere la posibilidad de volver a diseñar las tablas para poder utilizar EGT.
+>[AZURE.NOTE] Si el aislamiento de transacciones es importante para su solución, considere la posibilidad de volver a diseñar las tablas para poder utilizar EGT.
 
 ### Patrón de entidades de índice
 Mantenga entidades de índice para poder efectuar búsquedas eficaces que devuelvan listas de entidades.
@@ -594,7 +594,7 @@ Para habilitar la búsqueda por apellido con la estructura de entidad mostrada a
 -	Cree entidades de índice en la misma partición que las entidades employee.  
 -	Cree entidades de índice en una tabla o una partición independiente.  
 
-<u>Opción n.º 1: usar el almacenamiento de blobs</u>
+<u>Opción n.º 1: Usar el almacenamiento de blobs</u>
 
 Para la primera opción, cree un blob para cada apellido único y, en cada almacén de blobs, una lista de valores **PartitionKey** (departamento) y **RowKey** (identificador de empleado) para los empleados que tienen ese apellido. Al agregar o eliminar a un empleado debe asegurarse de que el contenido del blob relevante es coherente con las entidades employee.
 
@@ -1031,7 +1031,7 @@ El siguiente ejemplo de código muestra una funcionalidad equivalente mediante l
 	var employees = employeeTable.ExecuteQuery(employeeQuery);  
 
 
->[AZURE.NOTE]El ejemplo anida varios métodos **CombineFilters** para incluir las tres condiciones de filtro.
+>[AZURE.NOTE] El ejemplo anida varios métodos **CombineFilters** para incluir las tres condiciones de filtro.
 
 #### Recuperar una gran cantidad de entidades de una consulta  
 
@@ -1080,7 +1080,7 @@ Mediante el uso de tokens de continuación explícitamente, puede controlar cuan
 -	Le permite realizar E/S asincrónicas en. NET.  
 -	Le permite serializar el token de continuación en un almacenamiento persistente para que pueda continuar en caso de un bloqueo de la aplicación.  
 
->[AZURE.NOTE]Normalmente, un token de continuación devuelve un segmento que contiene 1.000 entidades, aunque pueden ser menos. Esto también sucede si se limita el número de entradas que devuelve una consulta mediante el uso de **Take** para devolver las n primeras entidades que cumplen los criterios de búsqueda: el servicio Tabla puede devolver un segmento que contenga menos de n entidades, junto con un token de continuación que permita recuperar las entidades restantes.
+>[AZURE.NOTE] Normalmente, un token de continuación devuelve un segmento que contiene 1.000 entidades, aunque pueden ser menos. Esto también sucede si se limita el número de entradas que devuelve una consulta mediante el uso de **Take** para devolver las n primeras entidades que cumplen los criterios de búsqueda: el servicio Tabla puede devolver un segmento que contenga menos de n entidades, junto con un token de continuación que permita recuperar las entidades restantes.
 
 El siguiente código de C# muestra cómo modificar el número de entidades devueltas dentro de un segmento:
 
@@ -1122,7 +1122,7 @@ El método **Replace** de la clase **TableOperation** siempre reemplaza toda la 
 
 Puede utilizar el método **Merge** de la clase **TableOperation** para reducir la cantidad de datos que envía al servicio Tabla si desea actualizar una entidad. El método **Merge** reemplaza cualquier propiedad de la entidad almacenada por valores de propiedad de la entidad que se incluyen en la solicitud, pero deja intactas las propiedades de la entidad almacenada no incluidas en la solicitud. Esto es útil si tiene entidades de gran tamaño y solo tiene que actualizar un pequeño número de propiedades en una solicitud.
 
->[AZURE.NOTE]Los métodos **Replace** y **Merge** generarán un error si la entidad no existe. Como alternativa, puede usar los métodos **InsertOrReplace** e **InsertOrMerge**, que crean una nueva entidad si todavía no existe.
+>[AZURE.NOTE] Los métodos **Replace** y **Merge** generarán un error si la entidad no existe. Como alternativa, puede usar los métodos **InsertOrReplace** e **InsertOrMerge**, que crean una nueva entidad si todavía no existe.
 
 ### Trabajar con tipos de entidad heterogéneos  
 
@@ -1319,7 +1319,7 @@ La primera opción, anteponer el tipo de entidad a **RowKey**, resulta útil si 
 
 Las técnicas que se describen en esta sección son especialmente relevantes en el tema [Relaciones de herencia](#inheritance-relationships), que ya ha aparecido en esta guía, en la sección [Relaciones de modelos](#modelling-relationships).
 
->[AZURE.NOTE]Considere la posibilidad de incluir un número de versión en el valor de tipo de entidad para permitir a las aplicaciones de cliente evolucionar objetos POCO y trabajar con distintas versiones.
+>[AZURE.NOTE] Considere la posibilidad de incluir un número de versión en el valor de tipo de entidad para permitir a las aplicaciones de cliente evolucionar objetos POCO y trabajar con distintas versiones.
 
 En el resto de esta sección se describen algunas de las características de la biblioteca de cliente de almacenamiento que facilitan el trabajo con varios tipos de entidad en la misma tabla.
 
@@ -1560,4 +1560,4 @@ También nos gustaría dar las gracias a los siguientes MVP de Microsoft por sus
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

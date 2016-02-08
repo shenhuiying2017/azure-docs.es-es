@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/29/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Sincronización de Azure AD Connect: cómo evitar eliminaciones accidentales
@@ -56,4 +56,4 @@ Obtenga más información sobre la configuración de la [Sincronización de Azur
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

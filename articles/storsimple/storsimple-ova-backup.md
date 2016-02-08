@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
+   ms.date="01/22/2016"
    ms.author="alkohli" />
 
 # Hacer una copia de seguridad de la matriz virtual de StorSimple (versión preliminar)
@@ -23,7 +23,7 @@ Este tutorial se aplica a la matiz virtual de Microsoft Azure StorSimple (tambi�
 
 La matriz virtual de StorSimple es un dispositivo virtual local de almacenamiento en nube híbrida que se puede configurar como servidor de archivos o servidor iSCSI. Puede crear copias de seguridad, restaurar copias de seguridad y realizar la conmutación por error de dispositivos si se necesita recuperación ante desastres. Cuando se configura como servidor de archivos, también permite la recuperación a nivel de elemento. En este tutorial se describe cómo usar el portal clásico de Azure o la interfaz de usuario web de StorSimple para crear copias de seguridad programadas y manuales de la matriz virtual de StorSimple.
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 >- La matriz virtual de StorSimple se encuentra en versión preliminar y está pensada con fines de evaluación y planificación de implementación. No se admite la instalación de esta versión preliminar en un entorno de producción. 
 >- Si experimenta problemas con la matriz virtual de StorSimple, publique los problemas en el [foro de MSDN de StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
@@ -32,7 +32,7 @@ La matriz virtual de StorSimple es un dispositivo virtual local de almacenamient
 
 Las copias de seguridad proporcionan seguridad a partir de un momento específico y mejoran la capacidad de recuperación, al mismo tiempo que reducen los tiempos de restauración de recursos compartidos y volúmenes. Puede hacer una copia de seguridad de un recurso compartido o de un volumen de su dispositivo StorSimple de dos maneras: **Programada** o **Manual**. En las siguientes secciones se detallan cada uno de los métodos.
 
-> [AZURE.NOTE]En esta versión, se crean copias de seguridad programadas mediante una directiva predeterminada que se ejecuta diariamente a la hora especificada y hace una copia de seguridad de todos los recursos compartidos o volúmenes en el dispositivo. No es posible crear directivas personalizadas para copias de seguridad programadas en este momento.
+> [AZURE.NOTE] En esta versión, se crean copias de seguridad programadas mediante una directiva predeterminada que se ejecuta diariamente a la hora especificada y hace una copia de seguridad de todos los recursos compartidos o volúmenes en el dispositivo. No es posible crear directivas personalizadas para copias de seguridad programadas en este momento.
 
 ## Establecer la programación de copias de seguridad
 
@@ -98,8 +98,14 @@ Siga estos pasos en el Portal de Azure clásico para ver las copias de seguridad
 
     Las copias de seguridad asociadas al recurso compartido o al volumen seleccionado deben aparecer en la lista de conjuntos de copias de seguridad.
 
+![video\_icon](./media/storsimple-ova-backup/video_icon.png) **Vídeo disponible**
+
+Consulte este vídeo para ver cómo puede crear recursos compartidos, realizar copias de seguridad de los recursos compartidos y restaurar datos en una matriz virtual de StorSimple.
+
+> [AZURE.VIDEO use-the-storsimple-virtual-array]
+
 ## Pasos siguientes
 
 Obtenga más información sobre la [administración de la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

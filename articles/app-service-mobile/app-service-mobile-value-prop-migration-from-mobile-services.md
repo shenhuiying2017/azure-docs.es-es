@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="01/12/2016"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"></a>Uso de Servicios móviles: ¿cómo ayuda el Servicio de aplicaciones?
@@ -44,7 +44,7 @@ En *Servicio de aplicaciones de Azure*, el código de back-end de la *aplicació
 
 
 ##Conexión de una *aplicación móvil* a API de SaaS
-*Servicio de aplicaciones de Azure* facilita la conexión de su aplicación móvil con las API de SaaS, como Office 365, Dynamics, Salesforce, SAP, etc. *Servicio de aplicaciones de Azure* ofrece autenticación inmediata en nombre del usuario y le permite realizar un verdadero inicio de sesión único en todas las API de SaaS que usa mediante la asociación de tokens para API de SaaS individuales con la identidad principal.
+*Servicio de aplicaciones de Azure* facilita la conexión de su aplicación móvil con las API de SaaS, como Office 365, Dynamics, Salesforce, SAP, etc. El *Servicio de aplicaciones de Azure* ofrece autenticación inmediata en nombre del usuario y le permite realizar un verdadero inicio de sesión único en todas las API de SaaS que se usan mediante la asociación de tokens de API de SaaS individuales con la identidad principal.
 
 ##Acceso a datos locales con red virtual
 Con Servicios móviles ahora puede usar las conexiones híbridas para acceder a los recursos locales. Sin embargo, hay situaciones en las que es preferible una solución de VPN. Con *Servicio de aplicaciones de Azure* puede usar la red virtual de Azure para el código de back-end de la aplicación móvil.
@@ -64,9 +64,7 @@ Realice una copia de seguridad automática del back-end y la base de datos. El c
 ##Preparado, listo...¡ya!
 Con *Servicio de aplicaciones de Azure* ahora puede crear varios entornos de ensayo y prueba privados para las aplicaciones móviles. Úselos para realizar la prueba antes de la implementación. Cambie a una producción sin tiempo de inactividad. Las aplicaciones web se cargan previamente, por lo que se garantiza la mejor experiencia del cliente.
 
-
-
-En el momento en el que la característica *Aplicación móvil del Servicio de aplicaciones de Azure * se encuentre disponible de forma general, proporcionaremos una experiencia de migración continua para los Servicios móviles existentes para el Servicio de aplicaciones que elija para la migración. Mientras tanto, puede empezar a explorar *Servicio de aplicaciones* y a aprovechar *Servicio de aplicaciones* para el servicio móvil existente siguiendo este [tutorial](app-service-mobile-migrating-from-mobile-services.md).
+Para comenzar a aprovechar el *Servicio de aplicaciones* en su servicio móvil existente, siga este [tutorial](app-service-mobile-migrating-from-mobile-services.md).
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

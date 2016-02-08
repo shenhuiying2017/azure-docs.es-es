@@ -65,6 +65,7 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 
 - Máquinas virtuales
 - Almacenamiento
+- ExpressRoute
 
 Al trabajar con aplicaciones web, no se puede mover solo un plan del Servicio de aplicaciones. Para mover las aplicaciones web, las opciones son:
 
@@ -116,4 +117,4 @@ En el cuerpo de la solicitud, especifique el grupo de recursos de destino y los 
 - [Uso del Portal de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md)
 - [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

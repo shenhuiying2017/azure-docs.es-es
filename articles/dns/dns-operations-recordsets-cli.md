@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/10/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 # Cómo administrar registros DNS con CLI
@@ -24,7 +24,7 @@
 
 En esta guía se explica cómo administrar conjuntos de registros y registros de zonas DNS.
 
->[AZURE.NOTE]DNS de Azure es un servicio exclusivo del Administrador de recursos de Azure. No tiene ninguna API de ASM. Por tanto, deberá asegurarse de que la CLI de Azure se ha configurado para usar el modo del Administrador de recursos, con el comando 'azure config mode arm'.
+>[AZURE.NOTE] DNS de Azure es un servicio exclusivo del Administrador de recursos de Azure. No tiene ninguna API de ASM. Por tanto, deberá asegurarse de que la CLI de Azure se ha configurado para usar el modo del Administrador de recursos, con el comando 'azure config mode arm'.
 
 >Si ve "error: 'dns' is not an azure command", lo más probable se deba a que está usando CLI de Azure en modo ASM, no en el modo del Administrador de recursos.
 
@@ -34,24 +34,22 @@ Es importante comprender la diferencia entre los conjuntos de registros de DNS y
 
 Los conjuntos de registros se crean con el comando `azure network dns record-set create`. Deberá especificar el nombre del conjunto de registros, la zona, el período de vida (TTL) y el tipo de registro.
 
->[AZURE.NOTE]El nombre del conjunto de registros debe ser un nombre relativo, sin incluir el nombre de la zona. Por ejemplo, el nombre del conjunto de registros “www” en la zona “contoso.com” creará un conjunto de registros con el nombre completo “www.contoso.com”.
+El nombre del conjunto de registros debe ser un nombre relativo, sin incluir el nombre de la zona. Por ejemplo, el nombre del conjunto de registros “www” en la zona “contoso.com” creará un conjunto de registros con el nombre completo “www.contoso.com”.
 
->Para un conjunto de registros del vértice de la zona, utilice "@" como nombre de conjunto de registro, incluidas las comillas.Para un conjunto de registros del vértice de la zona, utilice "@" como nombre de conjunto de registro, incluidas las comillas. El nombre completo del conjunto de registros es igual al nombre de zona, en este caso "contoso.com".
+Para un conjunto de registros del vértice de la zona, utilice "@" como nombre de conjunto de registro, incluidas las comillas.Para un conjunto de registros del vértice de la zona, utilice "@" como nombre de conjunto de registro, incluidas las comillas. El nombre completo del conjunto de registros es igual al nombre de zona, en este caso "contoso.com".
 
 DNS de Azure es compatible con todos los tipos de registro siguientes: A, AAAA, CNAME, MX, NS, SOA, SRV y TXT. Los conjuntos de registros de tipo SOA se crean automáticamente con cada zona; no se pueden crear por separado. Tenga en cuenta que [el tipo de registro SPF está en desuso por los estándares DNS en favor de la creación de registros SPF mediante el tipo de registro TXT](http://tools.ietf.org/html/rfc7208#section-3.1).
 
 	azure network dns record-set create myresourcegroup contoso.com  www  A --ttl 300
 
 
->[AZURE.IMPORTANT]Los conjuntos de registros CNAME coexisten con otros conjuntos de registros con el mismo nombre. Por ejemplo, no se puede crear un registro CNAME con el nombre relativo "www" y un registro A con el nombre relativo "www" al mismo tiempo. Habida cuenta de que el ápice de zona (nombre = “@”) siempre contiene los conjuntos de registros NS y SOA creados cuando se crea la zona, significa que no puede crear un conjunto de registros CNAME en el ápice de zona. Estas restricciones surgen de los estándares DNS; no son limitaciones de DNS de Azure.
+>[AZURE.IMPORTANT] Los conjuntos de registros CNAME coexisten con otros conjuntos de registros con el mismo nombre. Por ejemplo, no se puede crear un registro CNAME con el nombre relativo "www" y un registro A con el nombre relativo "www" al mismo tiempo. Habida cuenta de que el ápice de zona (nombre = “@”) siempre contiene los conjuntos de registros NS y SOA creados cuando se crea la zona, significa que no puede crear un conjunto de registros CNAME en el ápice de zona. Estas restricciones surgen de los estándares DNS; no son limitaciones de DNS de Azure.
 
 ### Registros de carácter comodín
 
-DNS de Azure admite [registros de carácter comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Estos se devuelven en cualquier consulta con un nombre coincidente (a menos que haya una coincidencia más próxima de un conjunto de registros que no sean de caracteres comodín).
+DNS de Azure admite [registros de carácter comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Estos se devuelven en cualquier consulta con un nombre coincidente (a menos que haya una coincidencia más próxima de un conjunto de registros que no sean de caracteres comodín). Para crear un conjunto de registros de carácter comodín, use el nombre de conjunto de registros "*" o un nombre cuya primera etiqueta sea "*", por ejemplo, "*.foo".
 
->[AZURE.NOTE]Para crear un conjunto de registros de carácter comodín, use el nombre de conjunto de registros "\*" o un nombre cuya primera etiqueta sea "\*", por ejemplo, "\*.foo".
-
->Los conjuntos de registros de carácter comodín son compatibles con todos los tipos de registro, excepto NS y SOA.
+Los conjuntos de registros de carácter comodín son compatibles con todos los tipos de registro, excepto NS y SOA.
 
 ## Recuperación de un conjunto de registros
 Para recuperar un conjunto de registros existente, use `azure network dns record-set show` y especifique el grupo de recursos, el nombre de zona, el nombre relativo del conjunto de registros y el tipo de registro:
@@ -91,7 +89,7 @@ Para crear un conjunto de registros, use `azure network dns record-set create` y
 	
 	azure network dns record-set create myresourcegroup  contoso.com "test-a"  A --ttl 300
 
->[AZURE.NOTE]Si no se define el parámetro--ttl, el valor predeterminado es 4 (en segundos).
+>[AZURE.NOTE] Si no se define el parámetro--ttl, el valor predeterminado es 4 (en segundos).
 
 
 Después de crear el conjunto de registros A, agregue la dirección IPv4 al conjunto de registros con `azure network dns record-set add-record`:
@@ -110,7 +108,7 @@ Después de crear el conjunto de registros A, agregue la dirección IPv4 al conj
 	
 	azure network dns record-set add-record  myresourcegroup contoso.com  test-cname CNAME -c "www.contoso.com"
 
->[AZURE.NOTE]Los registros CNAME solo permite un único valor de cadena.
+>[AZURE.NOTE] Los registros CNAME solo permite un único valor de cadena.
 
 ### Creación de un conjunto de registros MX con un único registro
 
@@ -229,7 +227,7 @@ Al eliminar el último registro de un conjunto de registros, no se elimina el co
 ## Eliminación de un conjunto de registros
 Los conjuntos de registros pueden eliminarse mediante el cmdlet Remove-AzureDnsRecordSet.
 
->[AZURE.NOTE]No se pueden eliminar conjuntos de registros SOA ni NS en el ápice de zona (nombre = “@”) que se crean automáticamente cuando se crea la zona. Se eliminarán automáticamente al eliminar la zona.
+>[AZURE.NOTE] No se pueden eliminar conjuntos de registros SOA ni NS en el ápice de zona (nombre = “@”) que se crean automáticamente cuando se crea la zona. Se eliminarán automáticamente al eliminar la zona.
 
 En el ejemplo siguiente, el conjunto de registros A "test-a" se eliminará de la zona DNS contoso.com:
 
@@ -238,9 +236,10 @@ En el ejemplo siguiente, el conjunto de registros A "test-a" se eliminará de la
 Se puede usar el modificador opcional “-q” para suprimir el mensaje de confirmación.
 
 
-##Otras referencias
+## Pasos siguientes
 
-[Delegar un dominio a DNS de Azure](dns-domain-delegation.md)<BR> [Administrar zonas DNS](dns-operations-dnszones-cli.md)<BR> [Automatizar operaciones mediante el SDK de .NET](dns-sdk.md)
+Después de crear la zona DNS y los registros, puede [delegar el dominio en DNS de Azure](dns-domain-delegation.md).<BR> Aprenda a [administrar zonas DNS](dns-operations-dnszones-cli.md) con CLI.<BR> También puede [automatizar operaciones mediante el SDK de .NET](dns-sdk.md) para codificar operaciones de DNS de Azure en la aplicación.
+
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

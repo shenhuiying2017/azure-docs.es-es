@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="01/21/2016"
    ms.author="mbaldwin"/>
 
 
@@ -94,4 +94,4 @@ También puede proporcionar una explicación adicional para ayudar a los usuario
 
 Si la aplicación admite tanto Azure AD como cuentas de Microsoft, deberá incluir dos botones de inicio de sesión independientes en su aplicación. Estamos trabajando activamente en una actualización que permitirá realizar la integración una sola vez y admitirá cuentas profesionales y personales de Microsoft. Cuando esté disponible, solo tendrá que incluir un botón "Iniciar sesión con Microsoft" en la aplicación.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

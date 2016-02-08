@@ -23,7 +23,7 @@
 ## Información general  
 Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento de tablas de Azure. Los ejemplos están escritos en C++ y usan la [biblioteca de cliente de almacenamiento de Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md). Entre los escenarios descritos se incluyen **crear y eliminar una tabla**, así como **trabajar con entidades de tabla**.
 
->[AZURE.NOTE]Esta guía se destina a la biblioteca de cliente de almacenamiento de Azure para C++, versión 1.0.0 y posteriores. La versión recomendada es la biblioteca de cliente de almacenamiento 1.0.0, que se encuentra disponible a través de [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/).
+>[AZURE.NOTE] Esta guía se destina a la biblioteca de cliente de almacenamiento de Azure para C++, versión 1.0.0 y posteriores. La versión recomendada es la biblioteca de cliente de almacenamiento 1.0.0, que se encuentra disponible a través de [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/).
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -46,12 +46,12 @@ Agregue las siguientes instrucciones include en la parte superior del archivo C+
 	#include "was/table.h"
 
 ## Configuración de una cadena de conexión de Almacenamiento de Azure  
-Un cliente de almacenamiento de Azure utiliza una cadena de conexión de almacenamiento para almacenar extremos y credenciales con el fin de obtener acceso a los servicios de administración de datos. Cuando se ejecuta una aplicación cliente, debe proporcionar la cadena de conexión de almacenamiento en el formato siguiente. Use el nombre de la cuenta de almacenamiento y la clave de acceso de almacenamiento para la cuenta de almacenamiento que aparece en el [Portal de Azure](portal.azure.com) para los valores *AccountName* y *AccountKey*. Para obtener información sobre las cuentas de almacenamiento y las claves de acceso, consulte [Acerca de las cuentas de almacenamiento de Azure](storage-create-storage-account.md). En este ejemplo se muestra cómo puede declarar un campo estático para mantener la cadena de conexión:
+Un cliente de almacenamiento de Azure utiliza una cadena de conexión de almacenamiento para almacenar extremos y credenciales con el fin de obtener acceso a los servicios de administración de datos. Cuando se ejecuta una aplicación cliente, debe proporcionar la cadena de conexión de almacenamiento en el formato siguiente. Use el nombre de la cuenta de almacenamiento y la clave de acceso de almacenamiento para la cuenta de almacenamiento que aparece en el [Portal de Azure](https://portal.azure.com) para los valores *AccountName* y *AccountKey*. Para obtener información sobre las cuentas de almacenamiento y las claves de acceso, consulte [Acerca de las cuentas de almacenamiento de Azure](storage-create-storage-account.md). En este ejemplo se muestra cómo puede declarar un campo estático para mantener la cadena de conexión:
 
 	// Define the connection string with your values.
 	const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 
-Para probar la aplicación en el equipo local de Windows, puede usar el [emulador de almacenamiento](storage-use-emulator.md) de Azure que se instala con el [SDK de Azure](http://azure.microsoft.com/downloads/). El emulador de almacenamiento es una utilidad que simula los servicios Blob, Cola y Tabla de Azure en el equipo de desarrollo local. En el ejemplo siguiente se muestra cómo puede declarar un campo estático para mantener la cadena de conexión en el emulador de almacenamiento local:
+Para probar la aplicación en el equipo local de Windows, puede usar el [emulador de almacenamiento](storage-use-emulator.md) de Azure que se instala con el [SDK de Azure](https://azure.microsoft.com/downloads/). El emulador de almacenamiento es una utilidad que simula los servicios Blob, Cola y Tabla de Azure en el equipo de desarrollo local. En el ejemplo siguiente se muestra cómo puede declarar un campo estático para mantener la cadena de conexión en el emulador de almacenamiento local:
 
 	// Define the connection string with Azure storage emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
@@ -359,7 +359,7 @@ Una consulta de tabla puede recuperar solo algunas propiedades de una entidad. L
 		std::wcout << std::endl;
 	}
 
->[AZURE.NOTE]Consultar una serie de propiedades de una entidad es una operación más eficaz que recuperar todas las propiedades.
+>[AZURE.NOTE] Consultar una serie de propiedades de una entidad es una operación más eficaz que recuperar todas las propiedades.
 
 ## Eliminación de una entidad
 Puede eliminar fácilmente una entidad después de que la haya recuperado. Cuando se recupere la entidad, llame a **table\_operation::delete\_entity** con la entidad que se eliminará. A continuación, llame al método **cloud\_table.execute**. El código siguiente recupera y elimina una entidad con la clave de partición "Smith" y la clave de fila "Jeff".
@@ -412,6 +412,6 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
 -	[Uso del almacenamiento de colas en C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[Enumeración de los recursos de Almacenamiento de Azure en C++](storage-c-plus-plus-enumeration.md)
 -	[Referencia de la biblioteca de clientes de almacenamiento para C++](http://azure.github.io/azure-storage-cpp)
--	[Documentación de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
+-	[Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

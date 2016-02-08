@@ -24,7 +24,7 @@ En este artículo se ofrece la información necesaria para abrir una incidencia 
 
 >[AZURE.NOTE]Solo el administrador de cuenta de Azure tiene permiso para acceder al Centro de cuentas.
 
-1. Vaya al sitio web de [soporte técnico de Azure](http://azure.microsoft.com/support) y haga clic en **Obtener soporte**. También puede enviar un incidente desde el Portal de Microsoft Azure o el Centro de cuentas de Azure.
+1. Vaya al sitio web de [soporte técnico de Azure](https://azure.microsoft.com/support/) y haga clic en **Obtener soporte**. También puede enviar un incidente desde el Portal de Microsoft Azure o el Centro de cuentas de Azure.
 
  * Para enviar una incidencia de soporte técnico desde el [Portal de Azure](https://manage.windowsazure.com/), haga clic en el nombre de la cuenta y luego en Contactar al servicio técnico de Microsoft.
  * Para enviar una incidencia de soporte técnico desde el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions), seleccione una suscripción y haga clic en Contactar al servicio técnico de Microsoft.
@@ -49,4 +49,4 @@ En este artículo se ofrece la información necesaria para abrir una incidencia 
 
 Un representante de soporte técnico de Azure se comunicará con usted conforme a los términos del contrato.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

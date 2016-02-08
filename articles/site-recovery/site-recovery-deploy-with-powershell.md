@@ -36,7 +36,7 @@ Asegúrese de que tiene preparados estos requisitos previos:
 
 ### Requisitos previos de Azure
 
-- Necesitará una cuenta de [Microsoft Azure](http://azure.microsoft.com/). Puede comenzar con una [evaluación gratuita](pricing/free-trial/).
+- Necesitará una cuenta de [Microsoft Azure](https://azure.microsoft.com/). Puede comenzar con una [evaluación gratuita](pricing/free-trial/).
 - Necesitará una cuenta de almacenamiento de Azure para almacenar los datos replicados. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el almacén de Azure Site Recovery y estar asociada a la misma suscripción. [Más información sobre Almacenamiento de Azure](../storage/storage-introduction.md).
 - Deberá asegurarse de que las máquinas virtuales que quiere proteger cumplen los [requisitos previos de máquina virtual de Azure](site-recovery-best-practices.md#virtual-machines).
 
@@ -310,7 +310,7 @@ Una vez que los servidores, las nubes y las redes se configuran correctamente, p
 
 Las máquinas virtuales deben cumplir [Requisitos previos de las máquinas virtuales de Azure](site-recovery-best-practices.md#virtual-machines).
 
-Para habilitar la protección del sistema operativo y el disco del sistema operativo, deben establecerse las propiedades de la máquina virtual. Al crear una máquina virtual en VMM con una plantilla de máquina virtual puede establecer la propiedad. También puede establecer estas propiedades para las máquinas virtuales existentes en las pestañas **General** y **Configuración de hardware** de las propiedades de la máquina virtual. Si no ve estas propiedades en VMM, podrá configurarlas en el portal de Azure Site Recovery.
+Para habilitar la protección del sistema operativo y el disco del sistema operativo, deben establecerse las propiedades de la máquina virtual. Al crear una máquina virtual en VMM con una plantilla de máquina virtual puede establecer la propiedad. También puede establecer estas propiedades para máquinas virtuales existentes en las pestañas **General** y **Configuración del hardware** de las propiedades de la máquina virtual. Si no ve estas propiedades en VMM, podrá configurarlas en el portal de Azure Site Recovery.
 
 
 	
@@ -449,4 +449,4 @@ if($isJobLeftForProcessing)
 
 [Obtenga más información](https://msdn.microsoft.com/library/dn850420.aspx) sobre cmdlets de PowerShell de Azure Site Recovery. </a>.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

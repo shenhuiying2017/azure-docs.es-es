@@ -51,7 +51,7 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 Origen de datos | Sí | Un nombre de origen de datos (servicio de red) que se especifica en el archivo tnsnames.ora en el equipo donde está instalado el cliente de Oracle. Para obtener información acerca de los nombres del origen de datos y de tnsnames.ora, consulte [Configuración del cliente de Oracle](http://msdn.microsoft.com/library/dd787872.aspx).
 User Name | Sí | Escriba un nombre de usuario válido para conectarse al servidor de Oracle.
 Password | Sí | Escriba la contraseña del nombre de usuario.
-Cadena de conexión del bus de servicio | Sí | Si se conecta en un entorno local, escriba la cadena de conexión de Retransmisión de bus de servicio.<br/><br/>[Uso del Administrador de conexiones híbridas](app-service-logic-hybrid-connection-manager.md)<br/>[Precios de Bus de servicio](http://azure.microsoft.com/pricing/details/service-bus/)
+Cadena de conexión del bus de servicio | Sí | Si se conecta en un entorno local, escriba la cadena de conexión de Retransmisión de bus de servicio.<br/><br/>[Uso del Administrador de conexiones híbridas](app-service-logic-hybrid-connection-manager.md)<br/>[Precios de Bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/)
 Tablas | No | Especifique las tablas de la base de datos que pueden modificarse mediante el conector. Por ejemplo, escriba *OrdersTable,EmployeeTable*.
 Procedimientos almacenados | No | Especifique los procedimientos almacenados en la base de datos que se pueden llamar mediante el conector. Por ejemplo, escriba *IsEmployeeEligible,CalculateOrderDiscount*.
 Funciones | No | Especifique las funciones de la base de datos que se pueden llamar mediante el conector. Por ejemplo, escriba *IsEmployeeEligible,CalculateOrderDiscount*.
@@ -91,7 +91,7 @@ Puede probar la aplicación lógica mediante la adición de un nuevo registro en
 
 ## Configuración híbrida
 
-> [AZURE.NOTE]Este paso solo es necesario si está utilizando Oracle local detrás del firewall.
+> [AZURE.NOTE] Este paso solo es necesario si está utilizando Oracle local detrás del firewall.
 
 El Servicio de aplicaciones utiliza el Administrador de configuración híbrida para conectarse de forma segura al sistema local. Si el conector usa Oracle en un entorno local, se necesita el Administrador de conexiones híbridas.
 
@@ -100,7 +100,7 @@ Consulte [Uso del Administrador de conexiones híbridas](app-service-logic-hybri
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -118,4 +118,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -204,7 +204,7 @@ Imagine un escenario en el que está a punto de enviar una notificación de inse
 
 - **Distribuir la carga a lo largo del tiempo.** Si controla el ritmo de determinados eventos (por ejemplo una notificación de inserción de difusión), que se espera que generen un pico de demanda, y el ritmo de los mismos no es crítico, plantéese distribuirlos a lo largo del tiempo. En el ejemplo anterior, quizás sea aceptable para los clientes de la aplicación que se les notifique del nuevo contenido de la aplicación en lotes durante el período de tiempo de un día en lugar de casi simultáneamente. Plantéese organizar los clientes en grupos, lo que le permitirá una entrega escalonada a cada lote. Si usa Centros de notificaciones, una forma sencilla de implementar esta estrategia es aplicar una etiqueta adicional para realizar un seguimiento del lote y después entregar una notificación de inserción a esa etiqueta. Para obtener más información sobre etiquetas, consulte [Uso de los Centros de notificaciones para enviar noticias de última hora](../notification-hubs-windows-store-dotnet-send-breaking-news.md).
 - **Usar almacenamiento de blobs y tablas siempre que sea apropiado.** Con frecuencia, el contenido que los clientes verán durante el pico es bastante estático y no necesita almacenarse en una base de datos SQL porque probablemente el usuario no necesite capacidades de consulta relacional sobre ese contenido. En ese caso, puede ser conveniente almacenar el contenido en almacenamiento de blobs o tablas. Puede acceder a blobs públicos en Almacenamiento de blobs directamente desde el dispositivo. Para acceder a blobs de una forma segura o usar Almacenamiento de tablas, necesitará recorrer una API personalizada de Servicios móviles para proteger la clave de acceso de almacenamiento. Para obtener más información, consulte [Carga de imágenes en el almacenamiento de Azure mediante Servicios móviles](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md).
-- **Utilice una caché en memoria.** Otra alternativa es almacenar aquellos datos a los que habitualmente se accederá durante un pico de tráfico en una caché en memoria como [Caché de Azure](http://azure.microsoft.com/services/cache/). Esto significa que las solicitudes entrantes podrán capturar la información que necesitan de memoria, en lugar de realizar consultas repetidamente a la base de datos.
+- **Utilice una caché en memoria.** Otra alternativa es almacenar aquellos datos a los que habitualmente se accederá durante un pico de tráfico en una caché en memoria como [Caché de Azure](https://azure.microsoft.com/services/cache/). Esto significa que las solicitudes entrantes podrán capturar la información que necesitan de memoria, en lugar de realizar consultas repetidamente a la base de datos.
 
 <a name="Advanced"></a>
 ## Solución avanzada de problemas
@@ -279,7 +279,8 @@ El portal de administración crea determinadas métricas fácilmente disponibles
     WHERE database_name = 'todoitem_db'
     ORDER BY start_time DESC
 
-> [AZURE.NOTE]Ejecute esta consulta en la base de datos **master** del servidor; la vista **sys.resource\_stats** solo está presente en esa base de datos.
+> [AZURE.NOTE]
+Ejecute esta consulta en la base de datos **master** del servidor; la vista **sys.resource\_stats** solo está presente en esa base de datos.
 
 El resultado contendrá las siguientes mediciones útiles: CPU (% del límite del nivel), Almacenamiento (megabytes), Lecturas de datos físicos (% del límite del nivel), Escrituras en registro (% del límite del nivel), Memoria (% del límite del nivel), Recuento de trabajadores, Recuento de sesiones, etc.
 
@@ -292,7 +293,8 @@ La vista **[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.asp
     and event_type like 'throttling%'
     order by start_time desc
 
-> [AZURE.NOTE]Ejecute esta consulta en la base de datos **master** del servidor; la vista **sys.event\_log** solo está presente en esa base de datos.
+> [AZURE.NOTE]
+Ejecute esta consulta en la base de datos **master** del servidor; la vista **sys.event\_log** solo está presente en esa base de datos.
 
 <a name="AdvancedIndexing" ></a>
 ### Indización avanzada
@@ -305,7 +307,8 @@ Una tabla o vista puede contener los siguientes tipos de índices:
 
 Para proporcionar una analogía con el mundo real, piense en un libro o manual técnico. El contenido de cada página es un registro, el número de página es el índice en clúster y el índice de temas de la parte posterior del libro es un índice no clúster. Cada entrada del índice de temas apunta al índice en clúster, el número de página.
 
-> [AZURE.NOTE]De forma predeterminada, el back-end de JavaScript de Servicios móviles de Azure establece **\_createdAt** como índice agrupado. Si quita esta columna o si desea un índice agrupado diferente, asegúrese de seguir las [instrucciones de diseño de índices agrupados](#ClusteredIndexes) que se indican a continuación. En el back-end de .NET, la clase `EntityData` define `CreatedAt` como un índice en clúster mediante la anotación `[Index(IsClustered = true)]`.
+> [AZURE.NOTE]
+De forma predeterminada, el back-end de JavaScript de Servicios móviles de Azure establece **\_createdAt** como índice agrupado. Si quita esta columna o si desea un índice agrupado diferente, asegúrese de seguir las [instrucciones de diseño de índices agrupados](#ClusteredIndexes) que se indican a continuación. En el back-end de .NET, la clase `EntityData` define `CreatedAt` como un índice en clúster mediante la anotación `[Index(IsClustered = true)]`.
 
 <a name="ClusteredIndexes"></a>
 #### Directrices para el diseño de índices en clúster
@@ -489,4 +492,4 @@ Para analizar el plan de consulta en el **Portal de administración de bases de 
 <!-- BLOG LINKS -->
 [¿Cuánto cuesta esa clave?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -24,7 +24,7 @@
 
 En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para usar Azure Active Directory como proveedor de autenticación.
 
-> [AZURE.NOTE]En este tema se muestra el uso de la característica Autenticación/autorización del Servicio de aplicaciones. Esto reemplaza a la puerta de enlace del Servicio de aplicaciones en la mayoría de las aplicaciones. Si usa la puerta de enlace, consulte el [método alternativo]. Las diferencias que se aplican al uso de la puerta de enlace se indican con notas a lo largo de esa sección.
+> [AZURE.NOTE] En este tema se muestra el uso de la característica Autenticación/autorización del Servicio de aplicaciones. Esto reemplaza a la puerta de enlace del Servicio de aplicaciones en la mayoría de las aplicaciones. Si usa la puerta de enlace, consulte el [método alternativo]. Las diferencias que se aplican al uso de la puerta de enlace se indican con notas a lo largo de esa sección.
 
 
 ## <a name="express"> </a>Configuración de Azure Active Directory mediante la configuración rápida
@@ -66,12 +66,13 @@ También puede elegir proporcionar los valores de configuración manualmente. Es
 
 7. En el cuadro **URL DE INICIO DE SESIÓN**, pegue la dirección URL que copió anteriormente. Escriba esa misma dirección URL en el cuadro **URI de id. de aplicación**. A continuación, haga clic para continuar.
 
-8. Una vez que se haya agregado la aplicación, haga clic en la pestaña **Configurar**. Edite el valor de **URL de respuesta** en **Inicio de sesión único** para que sea la URL de la aplicación anexada a la ruta de acceso, _/.auth/login/aad/callback_. Por ejemplo: `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Asegúrese de que está utilizando el esquema HTTPS.
+8. Una vez que se haya agregado la aplicación, haga clic en la pestaña **Configurar**. Edite la **URL de respuesta** en **Inicio de sesión único** para que sea la URL de la aplicación anexada a la ruta de acceso, _/.auth/login/aad/callback_. Por ejemplo: `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Asegúrese de que está utilizando el esquema HTTPS.
 
     ![][3]
 	
 	
-	> [AZURE.NOTE]Si usa la puerta de enlace en lugar de la característica Autenticación/autorización del Servicio de aplicaciones, la URL de respuesta usará en su lugar la URL de la puerta de enlace con la ruta de acceso _/signin-aad_.
+	> [AZURE.NOTE]
+	Si usa la puerta de enlace en lugar de la característica Autenticación/autorización del Servicio de aplicaciones, la URL de respuesta usará en su lugar la URL de la puerta de enlace con la ruta de acceso _/signin-aad_.
 
 
 9. Haga clic en **Guardar**. A continuación, copie **Id. de cliente** de la aplicación. Más adelante configurará la aplicación para usar este valor.
@@ -82,7 +83,8 @@ También puede elegir proporcionar los valores de configuración manualmente. Es
 
 ### <a name="secrets"> </a>Incorporación de información de Azure Active Directory a la aplicación
 
-> [AZURE.NOTE]Si usa la puerta de enlace del Servicio de aplicaciones, omita esta sección y en su lugar, vaya a la puerta de enlace en el portal. Seleccione **Configuración**, **Identidad**, y luego **Azure Active Directory**. Pegue el elemento ClientID y agregue el identificador del inquilino a la lista **Inquilinos permitidos**. Haga clic en **Guardar**.
+> [AZURE.NOTE]
+Si usa la puerta de enlace del Servicio de aplicaciones, omita esta sección y en su lugar, vaya a la puerta de enlace en el portal. Seleccione **Configuración**, **Identidad**, y luego **Azure Active Directory**. Pegue el elemento ClientID y agregue el identificador del inquilino a la lista **Inquilinos permitidos**. Haga clic en **Guardar**.
 
 
 13. Vuelva al [Portal de Azure] y vaya a la aplicación. Haga clic en **Configuración** y, a continuación, en **Autenticación/autorización**.
@@ -119,7 +121,7 @@ Azure Active Directory también permite registrar a los clientes nativos, lo que
 
 7. Desplácese hacia abajo por la página hasta la sección **Permisos para otras aplicaciones** y haga clic en **Agregar aplicación**.
 
-8. Busque la aplicación web que registró y haga clic en el icono del signo de suma. A continuación, haga clic en la marca de verificación para cerrar el cuadro de diálogo.
+8. Busque la aplicación web que registró y haga clic en el icono del signo de suma. A continuación, haga clic en la marca de verificación para cerrar el cuadro de diálogo. Si la aplicación web no se encuentra, vaya a su registro y agregue una nueva URL de respuesta (por ejemplo, la versión HTTP de la dirección URL actual), haga clic en Guardar y, a continuación, repita estos pasos; la aplicación debería aparecer en la lista.
 
 9. En la entrada nueva que acaba de agregar, abra la lista desplegable **Permisos delegados** y seleccione **Acceso (nombreaplic)**. A continuación, haga clic en **Guardar**.
 
@@ -143,4 +145,4 @@ Ahora ha configurado una aplicación de cliente nativo que puede acceder a la ap
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
 [método alternativo]: #advanced
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

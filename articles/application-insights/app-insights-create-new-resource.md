@@ -33,7 +33,7 @@ En primer lugar, necesita una suscripción a [Microsoft Azure](http://azure.com)
 
 O bien, puede crear una nueva suscripción. La evaluación gratuita permite probar todos los componentes de Azure. Después de que expire el período de prueba, podría encontrar la suscripción de pago por uso adecuada, ya que no se le cobrará por los servicios gratuitos.
 
-Cuando tenga acceso a una suscripción, inicie sesión en Application Insights en [http://portal.azure.com](http://portal.azure.com) y utilice su Live ID para iniciar sesión.
+Cuando tenga acceso a una suscripción, inicie sesión en Application Insights en [http://portal.azure.com](https://portal.azure.com) y utilice su Live ID para iniciar sesión.
 
 
 ## Creación de recursos en Application Insights
@@ -94,4 +94,4 @@ Puede escribir un [script de PowerShell](app-insights-powershell-script-create-r
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

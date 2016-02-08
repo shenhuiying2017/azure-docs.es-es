@@ -27,7 +27,7 @@ Normalmente, usará collectd si ya ha [instrumentado el servicio web de Java con
 
 ## Obtención de la clave de instrumentación
 
-En el [Portal de Microsoft Azure](http://portal.azure.com), abra el recurso [Application Insights](start)donde desea que aparezcan los datos (o bien, [cree un nuevo recurso](app-insights-create-new-resource.md)).
+En el [Portal de Microsoft Azure](https://portal.azure.com), abra el recurso [Application Insights](start)donde desea que aparezcan los datos (o bien, [cree un nuevo recurso](app-insights-create-new-resource.md)).
 
 Realice una copia de la clave de instrumentación, que identifica al recurso.
 
@@ -143,4 +143,4 @@ Separar directivas con una nueva línea.
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

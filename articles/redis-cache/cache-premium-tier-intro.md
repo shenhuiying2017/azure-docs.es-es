@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="01/09/2016" 
 	ms.author="sdanie"/>
 
 # Introducción al nivel Premium de Caché en Redis de Azure
@@ -54,4 +54,4 @@ Cree una memoria caché y explore las nuevas características del nivel Premium.
 -	[Cómo configurar la agrupación en clústeres para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md)
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

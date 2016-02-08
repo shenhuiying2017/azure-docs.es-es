@@ -27,7 +27,7 @@ Como cliente de la versión preliminar, puede usar cualquiera de estas versiones
 
 Ahora que Búsqueda de Azure está disponible con carácter general, recomendamos realizar la transición a versiones más recientes: 2015-02-28 es la versión oficial de la API de la versión de Búsqueda de Azure disponible con carácter general. Esta versión está documentada en [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx).
 
-También estamos implementando la próxima versión preliminar, [2015-02-28-Preview](search-api-2015-02-28-preview.md), que introduce características que aún están en desarrollo. Puede proporcionar comentarios sobre la API preliminar a través de los [foros de Búsqueda de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch) o de nuestra [página de comentarios](http://feedback.azure.com/forums/263029-azure-search).
+También estamos implementando la próxima versión preliminar, [2015-02-28-Preview](search-api-2015-02-28-preview.md), que introduce características que aún están en desarrollo. Puede proporcionar comentarios sobre la API preliminar a través de los [foros de Búsqueda de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch) o de nuestra [página de comentarios](https://feedback.azure.com/forums/263029-azure-search /).
 
 ###Lista de comprobación para la migración###
 
@@ -144,4 +144,4 @@ La versión `2015-02-28` de la API responde a un Contrato de nivel de servicio (
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

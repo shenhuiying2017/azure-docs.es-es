@@ -54,7 +54,7 @@ User Name | Sí | Escriba un nombre de usuario con el que puede iniciar sesión 
 Password | Sí | Escriba la contraseña del nombre de usuario.
 Nombre de la base de datos | Sí | Especifique la base de datos a la que se está conectando. Por ejemplo, puede escribir *Clientes* o *dbo/pedidos*.
 Local | Sí | El valor predeterminado es False. Escriba False si se conecta a una base de datos SQL de Azure. Escriba True si se conecta a un servidor SQL Server local.
-Cadena de conexión del bus de servicio | No | Si se conecta en un entorno local, escriba la cadena de conexión de Retransmisión de bus de servicio.<br/><br/>[Uso del Administrador de conexiones híbridas](app-service-logic-hybrid-connection-manager.md)<br/>[Precios de Bus de servicio](http://azure.microsoft.com/pricing/details/service-bus/)
+Cadena de conexión del bus de servicio | No | Si se conecta en un entorno local, escriba la cadena de conexión de Retransmisión de bus de servicio.<br/><br/>[Uso del Administrador de conexiones híbridas](app-service-logic-hybrid-connection-manager.md)<br/>[Precios de Bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/)
 Nombre del servidor asociado | No | Si el servidor principal no está disponible, puede especificar un servidor asociado como un servidor de copia de seguridad o alternativo.
 Tablas | No | Enumere las tablas de base de datos que se pueden actualizar mediante el conector. Por ejemplo, escriba *OrdersTable* o *EmployeeTable*. Si no se especifica ninguna tabla, todas las tablas pueden usarse. Las tablas válidas o los procedimientos almacenados son necesarios para usar este conector como una acción.
 Procedimientos almacenados | No | Escriba un procedimiento almacenado que se pueda llamar mediante el conector. Por ejemplo, escriba *sp\_IsEmployeeEligible* o *sp\_CalculateOrderDiscount*. Las tablas válidas o los procedimientos almacenados son necesarios para usar este conector como una acción.
@@ -74,7 +74,7 @@ Para usar el conector de SQL como un desencadenador, especifique los valores **C
 
 **Sondear consulta de datos** solo se ejecuta cuando la consulta de datos disponibles indica que hay datos disponibles. Esta instrucción se ejecuta dentro de una transacción y solo se confirma cuando los datos extraídos se almacenan de forma duradera en el flujo de trabajo. Es importante evitar volver a extraer infinitamente los mismos datos. La naturaleza transaccional de esta ejecución puede utilizarse para eliminar o actualizar los datos a fin de asegurarse de que no se recopilan la próxima vez que se consulten los datos.
 
-> [AZURE.NOTE]El esquema devuelto por esta instrucción identifica las propiedades disponibles en el conector. Todas las columnas deben tener nombres.
+> [AZURE.NOTE] El esquema devuelto por esta instrucción identifica las propiedades disponibles en el conector. Todas las columnas deben tener nombres.
 
 #### Ejemplo de consulta de datos disponibles
 
@@ -133,11 +133,11 @@ Campos (en consulta Select) | <ul><li>Nombres de columna válidos separados por 
 
 ## Configuración híbrida (opcional)
 
-> [AZURE.NOTE]Este paso solo es necesario si está utilizando SQL Server local detrás del firewall.
+> [AZURE.NOTE] Este paso solo es necesario si está utilizando SQL Server local detrás del firewall.
 
 El Servicio de aplicaciones utiliza el Administrador de configuración híbrida para conectarse de forma segura al sistema local. Si el conector usa SQL Server en un entorno local, se necesita el Administrador de conexiones híbridas.
 
-> [AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> [AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte [Uso del Administrador de conexiones híbridas](app-service-logic-hybrid-connection-manager.md).
 
@@ -161,4 +161,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

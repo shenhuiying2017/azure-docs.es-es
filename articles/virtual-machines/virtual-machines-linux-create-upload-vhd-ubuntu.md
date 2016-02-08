@@ -14,29 +14,33 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
-	ms.author="szarkos"/>
+	ms.date="01/22/2016"
+	ms.author="szark"/>
 
 # Preparación de una máquina virtual Ubuntu para Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##Requisitos previos##
+## Ubuntu Cloud Images Oficial
+Ahora Ubuntu publica VHD de Azure oficiales que se pueden descargar en [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/). Si necesita crear su propia imagen de Ubuntu especializada para Azure, en lugar de usar el siguiente procedimiento manual se recomienda comenzar con estos VHD conocidos y personalizarlos según sea necesario.
+
+
+## Requisitos previos
 
 En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linux en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Notas de instalación de Ubuntu**
 
 - El formato VHDX no se admite en Azure, solo **VHD fijo**. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
-
 - Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas. LVM o [RAID](virtual-machines-linux-configure-raid.md) se pueden utilizar en discos de datos si así se prefiere.
-
 - No cree una partición de intercambio en el disco del SO. El agente de Linux se puede configurar para crear un archivo de intercambio en el disco de recursos temporal. Puede encontrar más información al respecto en los pasos que vienen a continuación.
-
 - El tamaño de todos los archivos VHD debe ser múltiplo de 1 MB.
 
 
-## <a id="ubuntu"> </a>Ubuntu 12.04 ##
+## Pasos manuales
+
+> [AZURE.NOTE] Antes de crear su propia imagen personalizada de Ubuntu para Azure, considere la posibilidad de utilizar las imágenes de [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) en su lugar.
+
 
 1. Seleccione la máquina virtual en el panel central del Administrador de Hyper-V.
 
@@ -122,4 +126,4 @@ Kernel de habilitación de hardware (HWE) de Ubuntu
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -26,7 +26,7 @@ La retirada de la familia 1 del SO se anunció por primera vez el 1 de junio de 
 
 **3 de noviembre de 2014** El soporte extendido para la familia 1 del SO invitado finaliza y se retira completamente. Todos los servicios todavía en la familia 1 se verá afectados. Podemos detener dichos servicios en cualquier momento. No existen garantías de que los servicios continúen ejecutándose a menos que los actualice manualmente.
 
-Si tiene más preguntas, visite los [foros de servicios en la nube](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) o [póngase en contacto con el soporte técnico de Azure](http://azure.microsoft.com/support/options/).
+Si tiene más preguntas, visite los [foros de servicios en la nube](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) o [póngase en contacto con el soporte técnico de Azure](https://azure.microsoft.com/support/options/).
 
 
 
@@ -81,4 +81,4 @@ Los servicios en la nube de la familia 1 del SO invitado ya no son compatibles. 
 ## Pasos siguientes
 Revise las [versiones del SO invitado](cloud-services-guestos-update-matrix.md) más recientes.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

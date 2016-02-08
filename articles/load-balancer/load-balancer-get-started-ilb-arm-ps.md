@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="01/21/2015"
    ms.author="joaoma" />
 
 # Introducción a la creación de un equilibrador de carga interno mediante PowerShell
@@ -87,7 +87,7 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 
 Creación de un grupo de recursos (omitir este paso si se usa un grupo de recursos existente)
 
-    PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear un equilibrador de carga usarán el mismo grupo de recursos.
 
@@ -189,8 +189,9 @@ En este paso, creamos una segunda interfaz de red, la asignamos al mismo grupo b
 A continuación se muestra el resultado final:
 
 
-PS C:\> $backendnic1
+	PS C:\> $backendnic1
 
+Resultado esperado:
 
 	Name                 : lb-nic1-be
 	ResourceGroupName    : NRP-RG
@@ -242,6 +243,39 @@ Use el comando Add-AzureRmVMNetworkInterface para asignar el NIC a una máquina 
 
 Encontrará instrucciones paso a paso para crear una máquina virtual y asignarla a un NIC en el artículo [Creación y preconfiguración de una máquina virtual de Windows con el Administrador de recursos y Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), opción 4 o 5.
 
+O bien, si ya tiene una máquina virtual creada, puede agregar la interfaz de red con los pasos siguientes:
+
+#### Paso 1 
+
+Cargue el recurso de equilibrador de carga en una variable (si no lo ha hecho todavía). La variable que se utiliza se denomina $lb y utiliza los mismos nombres del recurso de equilibrador de carga creado anteriormente.
+
+	$lb= Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
+
+#### Paso 2 
+
+Cargue la configuración de back-end a una variable.
+
+	$backend= Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+
+#### Paso 3 
+
+Cargue la interfaz de red ya creada en una variable. El nombre de variable que se utiliza es $nic. El nombre de la interfaz de red utilizado es el mismo que en el ejemplo anterior.
+
+	$nic=Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
+
+#### Paso 4
+
+Cambie la configuración de back-end en la interfaz de red.
+
+	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+
+#### Paso 5 
+
+Guarde el objeto de interfaz de red.
+
+	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+
+Después de agregar una interfaz de red para el grupo de back-end del equilibrador de carga, este inicia la recepción del tráfico de red según la reglas de equilibrio de carga para ese recurso de equilibrador de carga.
 
 ## Actualización de un equilibrador de carga existente
 
@@ -271,7 +305,7 @@ Use el comando Remove-AzureRmLoadBalancer para eliminar un equilibrador de carga
 
 	Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
->[AZURE.NOTE]Puede usar el conmutador opcional -Force para evitar la solicitud de eliminación.
+>[AZURE.NOTE] Puede usar el conmutador opcional -Force para evitar la solicitud de eliminación.
 
 
 
@@ -282,4 +316,4 @@ Use el comando Remove-AzureRmLoadBalancer para eliminar un equilibrador de carga
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

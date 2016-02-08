@@ -28,7 +28,7 @@ Este tutorial le guiará a través de purga de los recursos de todos los nodos p
 
 ## Tutorial
 
-1. En el [Portal de Azure](http://portal.azure.com), examine el perfil de red CDN que contiene el punto de conexión que quiera purgar.
+1. En el [Portal de Azure](https://portal.azure.com), examine el perfil de red CDN que contiene el punto de conexión que quiera purgar.
 
 2. En la hoja Perfil de CDN, haga clic en el botón para purgar.
 	
@@ -42,11 +42,11 @@ Este tutorial le guiará a través de purga de los recursos de todos los nodos p
 
 	![Formulario para purgar](./media/cdn-purge-endpoint/cdn-purge-form.png)
 	
-	> [AZURE.NOTE]También puede obtener acceso a la hoja para purgar haciendo clic en el botón **Purgar** de la hoja del punto de conexión de red de CDN. En ese caso, el campo **URL** se rellenará previamente con la dirección del servicio de ese punto de conexión concreto.
+	> [AZURE.NOTE] También puede obtener acceso a la hoja para purgar haciendo clic en el botón **Purgar** de la hoja del punto de conexión de red de CDN. En ese caso, el campo **URL** se rellenará previamente con la dirección del servicio de ese punto de conexión concreto.
 	
 4. Seleccione los activos que quiera purgar de los nodos perimetrales. Si quiere borrar todos los recursos, haga clic en la casilla **Purgar todo**. De lo contrario, escriba la ruta de acceso completa de cada activo que quiera purgar (por ejemplo, */pictures/kitten.png*) en el cuadro de texto **Ruta de acceso**.
 
-	> [AZURE.TIP]Aparecerán más cuadros de texto de **Ruta de acceso** después de escribir texto para permitirle crear una lista de varios activos. Puede eliminar activos en la lista haciendo clic en el botón de puntos suspensivos (...).
+	> [AZURE.TIP] Aparecerán más cuadros de texto de **Ruta de acceso** después de escribir texto para permitirle crear una lista de varios activos. Puede eliminar activos en la lista haciendo clic en el botón de puntos suspensivos (...).
 	>
 	> Las rutas de acceso deben ser una dirección URL relativa. Se puede usar el asterisco (*) como carácter comodín.
 	
@@ -59,4 +59,4 @@ Este tutorial le guiará a través de purga de los recursos de todos los nodos p
 - [Carga previa de activos en un punto de conexión de CDN de Azure](cdn-preload-endpoint.md)
 - [Referencia de la API de REST de red de CDN de Azure - purgar o cargar previamente un punto de conexión](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

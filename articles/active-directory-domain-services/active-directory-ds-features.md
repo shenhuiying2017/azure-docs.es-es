@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Servicios de dominio de Azure AD *(Vista previa)*
@@ -39,10 +39,10 @@ Las siguientes características están disponibles en la versión de vista previ
 
 - **Directiva de grupo:** puede aprovechar un único GPO integrado para los usuarios y contenedores de equipos para exigir el cumplimiento de directivas de seguridad necesarias para las cuentas de usuario, así como para los equipos unidos a dominios.
 
-- **Disponible en varias regiones de Azure:** consulte la página de [regiones de Azure admitidas](active-directory-ds-regions.md) para obtener una lista de regiones de Azure en las que Servicios de dominio de Azure AD está disponible.
+- **Disponible en varias regiones de Azure:** consulte la página de [servicios de Azure por región](https://azure.microsoft.com/regions/#services/) para conocer las regiones de Azure en las que están disponibles los Servicios de dominio de Azure AD.
 
 - **Alta disponibilidad:** Servicios de dominio de Azure AD proporciona alta disponibilidad para el dominio. Esta funcionalidad ofrece la garantía de mayor tiempo de actividad de servicio y resistencia a errores. La supervisión de estado integrada ofrece corrección automatiza de errores poniendo en marcha nuevas instancias para reemplazar instancias con errores y proporcionar un servicio continuado para el dominio.
 
 - **Usar herramientas de administración familiares:** puede utilizar herramientas de administración familiares de Windows Server Active Directory, como Centro de administración de Active Directory o Active Directory PowerShell, para administrar dominios proporcionados por Servicios de dominio de Azure AD.
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sincronización de Azure AD Connect: conector de SQL genérico"
+   pageTitle="Azure AD Connect Sync: Conector de SQL genérico | Microsoft Azure"
    description="En este artículo se describe cómo configurar el conector de SQL genérico de Microsoft."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/11/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Referencia técnica del conector de SQL genérico
@@ -295,4 +295,4 @@ Si el usuario elige la opción Consulta SQL, la exportación requiere tres consu
 
 -	Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

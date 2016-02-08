@@ -120,6 +120,6 @@ StrongAuthenticationRequirement | Si Multi-Factor Authentication se exige, habil
 StrongAuthenticationUserDetails | Número de teléfono, número de teléfono alternativo y dirección de correo electrónico del usuario que se usan para Multi-Factor Authentication y para la comprobación de restablecimiento de contraseña.
 TelephoneNumber | Número de teléfono del usuario.
 
-Los registros de auditoría son un control necesario para muchas regulaciones de conformidad. Para que los clientes que usan el Informe de auditoría de Azure Active Directory cumplan las regulaciones de conformidad, se recomienda que el cliente envíe una copia de este tema de ayuda con la copia del informe de auditoría exportado del cliente para ayudar a explicar los detalles del informe. Si el auditor desea conocer las regulaciones de conformidad que cumple actualmente Azure, diríjalo a la [página Conformidad](http://azure.microsoft.com/support/trust-center/compliance/) del Centro de confianza de Microsoft Azure.
+Los registros de auditoría son un control necesario para muchas regulaciones de conformidad. Para que los clientes que usan el Informe de auditoría de Azure Active Directory cumplan las regulaciones de conformidad, se recomienda que el cliente envíe una copia de este tema de ayuda con la copia del informe de auditoría exportado del cliente para ayudar a explicar los detalles del informe. Si el auditor desea conocer las regulaciones de conformidad que cumple actualmente Azure, diríjalo a la [página Conformidad](https://azure.microsoft.com/support/trust-center/compliance/) del Centro de confianza de Microsoft Azure.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

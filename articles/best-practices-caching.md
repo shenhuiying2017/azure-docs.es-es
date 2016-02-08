@@ -123,7 +123,7 @@ Tenga cuidado de no introducir dependencias críticas en la disponibilidad de un
 
 Sin embargo, retroceder al almacén de datos original si la memoria caché no está disponible temporalmente puede tener un impacto de escalabilidad en el sistema; mientras se está recuperando el almacén de datos, el almacén de datos original podría inundarse de solicitudes de datos, lo que daría lugar a tiempos de espera y conexiones con errores. Una estrategia que debería considerar es implementar una memoria caché local y privada en cada instancia de una aplicación junto con la memoria caché compartida a la que tienen acceso todas las instancias de la aplicación. Cuando la aplicación recupera un elemento, puede comprobar primero en su memoria caché local, a continuación, en la memoria caché compartida y finalmente en el almacén de datos originales. La memoria caché local se pueden rellenar con los datos de la memoria caché compartida, o la base de datos si la memoria caché compartida no está disponible. Este enfoque requiere una cuidadosa configuración para evitar que la memoria caché local se vuelva demasiado obsoleta con respecto a la memoria caché compartida, pero actúa como un búfer si la memoria caché compartida es inaccesible. En la Figura 3 se muestra esta estructura.
 
-![Uso de una memoria caché local y privada con una caché compartida\_](media/best-practices-caching/Caching3.png)
+![Uso de una memoria caché local y privada con una caché compartida\_](media/best-practices-caching/Caching3.png) 
 _Figura 3: Uso de una memoria caché local y privada con una memoria caché compartida_
 
 Para admitir cachés de gran tamaño con datos de duración relativamente larga, algunos servicios de caché ofrecen una opción de alta disponibilidad que implementa la conmutación automática por error si la memoria caché dejar de estar disponible. Este enfoque normalmente implica la réplica de los datos en caché que se almacenan en un servidor de caché principal en un servidor de caché secundario y el cambio al servidor secundario si el servicio principal genera error o se pierde la conectividad. Para reducir la latencia asociada a la escritura en varios destinos, cuando se escriben datos en la memoria caché del servidor principal, la replicación en el servidor secundario puede producirse de forma asincrónica. Este enfoque lleva a la posibilidad de que se pueda perder parte de la información almacenada en caché en el caso de un error, pero la proporción de estos datos debe ser pequeña en comparación con el tamaño total de la memoria caché.
@@ -225,7 +225,7 @@ El portal de administración de Azure incluye una visualización gráfica adecua
 
 También puede supervisar la CPU, la memoria y el uso de la red para la memoria caché.
 
-Para obtener más información y ejemplos en los que se muestra cómo crear y configurar una caché en Redis de Azure, visite la página [En torno a Caché en Redis de Azure](http://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) en el blog de Azure.
+Para obtener más información y ejemplos en los que se muestra cómo crear y configurar una caché en Redis de Azure, visite la página [En torno a Caché en Redis de Azure](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) en el blog de Azure.
 
 ## Estado de la sesión del almacenamiento en caché y salida HTML
 
@@ -412,7 +412,7 @@ var customer1 = cache.Wait(task1);
 var customer2 = cache.Wait(task2);
 ```
 
-La página [Documentación de la Caché en Redis de Azure](http://azure.microsoft.com/documentation/services/cache/) del sitio web de Microsoft ofrece proporciona más información sobre cómo escribir aplicaciones cliente que pueden usar la memoria caché en Redis de Azure. Hay información adicional disponible en la [página Uso básico](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) del sitio web de StackExchange.Redis y la página [Canalizaciones y multiplexadores](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) del mismo sitio web ofrece más información sobre la canalización y las operaciones asíncronas con Redis y la biblioteca de StackExchange. La sección Casos de uso para el almacenamiento en caché de Redis más adelante en esta guía proporciona ejemplos de algunas de las técnicas más avanzadas que se pueden aplicar a los datos almacenados en una caché de Redis.
+La página [Documentación de la Caché en Redis de Azure](https://azure.microsoft.com/documentation/services/cache/) del sitio web de Microsoft ofrece proporciona más información sobre cómo escribir aplicaciones cliente que pueden usar la memoria caché en Redis de Azure. Hay información adicional disponible en la [página Uso básico](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) del sitio web de StackExchange.Redis y la página [Canalizaciones y multiplexadores](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) del mismo sitio web ofrece más información sobre la canalización y las operaciones asíncronas con Redis y la biblioteca de StackExchange. La sección Casos de uso para el almacenamiento en caché de Redis más adelante en esta guía proporciona ejemplos de algunas de las técnicas más avanzadas que se pueden aplicar a los datos almacenados en una caché de Redis.
 
 ## Casos de uso para el almacenamiento en caché en Redis
 
@@ -766,8 +766,8 @@ Hay varios puntos que deben comprender acerca del mecanismo de publicación o su
 
 - Varios suscriptores pueden suscribirse al mismo canal y todos recibirán los mensajes publicados en ese canal.
 - Los suscriptores solo reciben mensajes que se han publicado después de haberse suscrito. Los canales no se almacenan en búfer y cuando se publica un mensaje, la infraestructura de Redis envía el mensaje a cada suscriptor y luego lo elimina.
-- De forma predeterminada, los suscriptores reciben los mensajes en el orden en que se envían. En un sistema muy activo, con un gran número de mensajes y muchos suscriptores y publicadores, la entrega secuencial garantizada de mensajes puede ralentizar el rendimiento del sistema. Si cada mensaje es independiente y el orden es irrelevante, puede habilitar el procesamiento simultáneo por el sistema de Redis que puede ayudar a mejorar la capacidad de respuesta. Puede lograrlo en un cliente de StackExchange estableciendo la PreserveAsyncOrder de la conexión usada por el suscriptor en false:
-  ```csharp
+- De forma predeterminada, los suscriptores reciben los mensajes en el orden en que se envían. En un sistema muy activo, con un gran número de mensajes y muchos suscriptores y publicadores, la entrega secuencial garantizada de mensajes puede ralentizar el rendimiento del sistema. Si cada mensaje es independiente y el orden es irrelevante, puede habilitar el procesamiento simultáneo por el sistema de Redis que puede ayudar a mejorar la capacidad de respuesta. Puede lograrlo en un cliente de StackExchange estableciendo la PreserveAsyncOrder de la conexión usada por el suscriptor en false: 
+```csharp
   ConnectionMultiplexer redisHostConnection = ...;
   redisHostConnection.PreserveAsyncOrder = false;
   ISubscriber subscriber = redisHostConnection.GetSubscriber();
@@ -783,7 +783,7 @@ El siguiente patrón también puede ser pertinente para su escenario al implemen
 ## Más información
 
 - La página [Clase MemoryCache](http://msdn.microsoft.com/library/system.runtime.caching.memorycache.aspx) del sitio web de Microsoft.
-- La página [Documentación de la Caché en Redis de Azure](http://azure.microsoft.com/documentation/services/cache/) del sitio web de Microsoft.
+- La página [Documentación de la Caché en Redis de Azure](https://azure.microsoft.com/documentation/services/cache/) del sitio web de Microsoft.
 - La página [Preguntas más frecuentes de Caché en Redis de Azure](redis-cache/cache-faq.md) del sitio web de Microsoft.
 - La página [Modelo de configuración de](http://msdn.microsoft.com/library/windowsazure/hh914149.aspx) del sitio web de Microsoft.
 - La página [Modelo asincrónico basado en tareas](http://msdn.microsoft.com/library/hh873175.aspx) del sitio web de Microsoft.
@@ -795,7 +795,7 @@ El siguiente patrón también puede ser pertinente para su escenario al implemen
 - La página [Uso de Redis como caché de LRU](http://redis.io/topics/lru-cache) del sitio web de Redis.
 - La [página de transacciones](http://redis.io/topics/transactions) del sitio web de Redis.
 - La página [Seguridad de Redis](http://redis.io/topics/security) del sitio web de Redis.
-- La página [En torno a la Caché en Redis de Azure](http://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) del blog de Azure.
+- La página [En torno a la Caché en Redis de Azure](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) del blog de Azure.
 - La página [Ejecución de Redis en una máquina virtual Linux de CentOS en Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) en el sitio web de Microsoft.
 - La página [Proveedor de estados de sesión de ASP.NET para Caché en Redis de Azure](redis-cache/cache-asp.net-session-state-provider.md) del sitio web de Microsoft.
 - La página [Proveedor de caché de salida de ASP.NET para Caché en Redis de Azure](redis-cache/cache-asp.net-output-cache-provider.md) del sitio web de Microsoft.
@@ -804,4 +804,4 @@ El siguiente patrón también puede ser pertinente para su escenario al implemen
 - La página [Transacciones en Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) del repositorio de StackExchange.Redis.
 - La [Guía de creación de particiones de datos](http://msdn.microsoft.com/library/dn589795.aspx) del sitio web de Microsoft.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

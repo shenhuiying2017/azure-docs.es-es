@@ -27,7 +27,7 @@ Aprenda a crear clústeres de HDInsight con plantillas del Administrador de recu
 
 Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
-- [Suscripción de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- [Suscripción de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) o [CLI de Azure](xplat-cli-install.md). 
 
 ## Plantillas de ARM
@@ -444,4 +444,4 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
 	  }
 	}
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

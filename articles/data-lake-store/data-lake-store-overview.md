@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="01/22/2016"
    ms.author="nitinme"/>
 
 # Información general del Almacén de Azure Data Lake
 
 El Almacén de Azure Data Lake es un repositorio de gran escala en toda la empresa para cargas de trabajo de análisis de macrodatos. Azure Data Lake permite capturar datos de cualquier tamaño, tipo y velocidad de ingesta en un único lugar para realizar análisis exploratorios y operativos.
 
-> [AZURE.TIP]Use la [vía de aprendizaje del Almacén de Data Lake](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/) para empezar a explorar el servicio Almacén de Azure Data Lake.
+> [AZURE.TIP] Use la [vía de aprendizaje del Almacén de Data Lake](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/) para empezar a explorar el servicio Almacén de Azure Data Lake.
 
 Se puede acceder al Almacén de Azure Data Lake desde Hadoop (disponible con el clúster de HDInsight) mediante las API de REST compatibles con WebHDFS. Está diseñado específicamente para habilitar el análisis de los datos almacenados y está optimizado para el rendimiento en escenarios de análisis de datos. De forma inmediata, incluye todas las capacidades de nivel empresarial –seguridad, facilidad de administración, escalabilidad, confiabilidad y disponibilidad– esenciales para los casos de uso empresariales reales.
 
@@ -55,6 +55,8 @@ Además, el Almacén de Data Lake también proporciona seguridad de nivel empres
 
 El Almacén de Azure Data Lake puede almacenar cualquier dato en su formato nativo, tal cual, sin necesidad de transformarlo antes. El Almacén de Data Lake no requiere la definición de un esquema antes de que se carguen los datos, sino que deja que cada marco analítico interprete los datos y defina un esquema en el momento del análisis. La capacidad de almacenar archivos de formatos y tamaños arbitrarios hace posible que el Almacén de Data Lake administre datos estructurados, semiestructurados y no estructurados.
 
+Los contenedores de datos de Almacén de Azure Data Lake son básicamente carpetas y archivos. Se opera en los datos almacenados mediante los SDK, el Portal de Azure y Azure Powershell. Siempre que ponga los datos en el almacén mediante estas interfaces y los contenedores adecuados, puede almacenar cualquier tipo de datos. Almacén de Data Lake no realiza ningún control especial de datos según el tipo de datos que almacena.
+
 
 ## <a name="DataLakeStoreSecurity"></a>Protección de los datos en el Almacén de Azure Data Lake
 
@@ -86,4 +88,4 @@ Consulte [Introducción al Almacén de Azure Data Lake mediante el Portal de Azu
 - [Introducción al Almacén de Azure Data Lake mediante SDK de .NET](data-lake-store-get-started-net-sdk.md)
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

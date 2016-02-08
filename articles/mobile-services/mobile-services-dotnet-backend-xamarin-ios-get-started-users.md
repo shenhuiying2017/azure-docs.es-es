@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/01/2015" 
+	ms.date="01/25/2015" 
 	ms.author="donnam"/>
 
 # Incorporación de autenticación a la aplicación de Servicios móviles
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
+>[AZURE.NOTE]Se trata de un tema de Servicios móviles de Azure. Microsoft Azure recomienda usar Aplicaciones móviles del Servicio de aplicaciones de Azure para todas las nuevas implementaciones de back-end móvil. Para más información, consulte el [tutorial equivalente en la documentación de Aplicaciones móviles](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md).
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
-
-En este tema se muestra cómo autenticar usuarios en Servicios móviles de Azure desde su aplicación. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
+En este tema se muestra cómo autenticar usuarios en Servicios móviles desde su aplicación. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
 En este tutorial se realiza un recorrido por los pasos básicos para habilitar la autenticación en su aplicación:
 
@@ -45,11 +44,9 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Primero d
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-<ol start="6">
-<li><p>En Visual Studio o Xamarin Studio, ejecute el proyecto de cliente en un dispositivo o simulador. Compruebe que se produce una excepción no controlada con el código de estado 401 (No autorizado) después de iniciarse la aplicación.</p>
+&nbsp;&nbsp;&nbsp;6. En Visual Studio o Xamarin Studio, ejecute el proyecto de cliente en un dispositivo o simulador. Compruebe que se produce una excepción no controlada con el código de estado 401 (No autorizado) después de iniciarse la aplicación.
 
-   	<p>Esto se produce porque la aplicación intenta obtener acceso a Servicios móviles como usuario sin autenticar, pero la tabla <em>TodoItem</em> requiere ahora autenticación.</p></li>
-</ol>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Esto se produce porque la aplicación intenta acceder a Servicios móviles como usuario sin autenticar, pero la tabla *TodoItem* requiere ahora autenticación.
 
 A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del servicio móvil.
 
@@ -77,50 +74,31 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
             }
         }
 
-> [AZURE.NOTE]Si usa un proveedor de identidades que no sea una cuenta de Facebook, cambie el valor que pasó anteriormente a **LoginAsync** por uno de los siguientes: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
+	> [AZURE.NOTE] Cuando usa un proveedor de identidades que no sea una cuenta de Facebook, cambie el valor que pasó anteriormente a **LoginAsync** por uno de los siguientes: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
 
-3. Abra **QSTodoListViewController.cs**. Modifique la definición del método de **ViewDidLoad** para quitar la llamada a **RefreshAsync()** cerca del final:
+3. Abra **QSTodoListViewController.cs** y modifique la definición del método **ViewDidLoad** para quitar o convertir en comentario la llamada a **RefreshAsync()** cerca del final.
 
-		public override async void ViewDidLoad ()
-		{
-			base.ViewDidLoad ();
+4. Agregue el siguiente código al principio de la definición del método **RefreshAsync**:
 
-			todoService = QSTodoService.DefaultService;
-
-			todoService.BusyUpdate += (bool busy) => {
-				if (busy)
-					activityIndicator.StartAnimating ();
-				else
-					activityIndicator.StopAnimating ();
-			};
-
-			// Comment out the call to RefreshAsync
-			// await RefreshAsync ();
-
-			AddRefreshControl ();
-		}
-
-
-4. Modifique el método **RefreshAsync** para autenticar y mostrar una pantalla de inicio si la propiedad **User** es null. Agregue el siguiente código al principio de la definición del método:
-
-		// start of RefreshAsync method
+		// Add at the start of the RefreshAsync method.
 		if (todoService.User == null) {
 			await QSTodoService.DefaultService.Authenticate (this);
 			if (todoService.User == null) {
-				Console.WriteLine ("couldn't login!!");
+				Console.WriteLine ("You must sign in.");
 				return;
 			}
 		}
-		// rest of RefreshAsync method
+		
+	Se muestra una pantalla de inicio de sesión para intentar la autenticación cuando la propiedad **User** es null. Cuando el inicio de sesión se ha realizado correctamente, se establece **User**.
 
-5. Presione el botón **Ejecutar** para compilar el proyecto e iniciar la aplicación en el simulador de iPhone. Compruebe que la aplicación no muestra ningún dato.
+5. Presione el botón **Ejecutar** para compilar el proyecto e iniciar la aplicación en el simulador de iPhone. Compruebe que la aplicación no muestra ningún dato. **RefreshAsync()** no se ha llamado.
 
-	Despliegue la lista de tareas para actualizar la pantalla, lo que dará lugar a que aparezca la pantalla de inicio de sesión. Una vez que haya proporcionado credenciales válidas, la aplicación mostrará la lista de tareas pendientes y podrá actualizar los datos.
+6. Realice el gesto de actualización desplegando la lista de elementos, que llama a **RefreshAsync()**. Se llama a **Authenticate()** para iniciar la pantalla de inicio de sesión y de autenticación que se muestra. Después de haberse autenticado correctamente, la aplicación mostrará la lista de tareas pendientes y podrá realizar actualizaciones en los datos.
 
-<!-- ## <a name="next-steps"> </a>Next steps
+## <a name="next-steps"> </a>Pasos siguientes
 
-In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.
- -->
+En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios móviles][Authorize users with scripts], usará el valor del identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado y lo usará para filtrar los datos devueltos por Servicios móviles.
+
 
 <!-- Anchors. -->
 [Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
@@ -139,4 +117,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

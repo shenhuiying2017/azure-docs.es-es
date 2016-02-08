@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath;andkjell"/>
 
 # Habilitación de escritura diferida de dispositivos en Azure AD Connect
@@ -24,11 +24,11 @@ Habilite el acceso condicional basado en dispositivos para aplicaciones protegid
 
 Esto ofrece seguridad adicional y la garantía de que el acceso a las aplicaciones solo se concede para dispositivos de confianza. Para obtener más información sobre el acceso condicional, consulte [Administración de riesgos con el acceso condicional](active-directory-conditional-access.md) y [Configuración del acceso condicional local mediante el Registro de dispositivos de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx).
 
->[AZURE.NOTE]Se necesita una suscripción a Azure AD Premium para la reescritura de dispositivos.
+>[AZURE.NOTE] Se necesita una suscripción a Azure AD Premium para la reescritura de dispositivos.
 
 .
 
->[AZURE.IMPORTANT]Los dispositivos deben encontrarse en el mismo bosque que los usuarios. Puesto que los dispositivos deben volver a escribir en un único bosque, esta característica no admite actualmente una implementación con varios bosques de usuarios.
+>[AZURE.IMPORTANT] Los dispositivos deben encontrarse en el mismo bosque que los usuarios. Puesto que los dispositivos deben volver a escribir en un único bosque, esta característica no admite actualmente una implementación con varios bosques de usuarios.
 
 ## Parte 1: Instalación de Azure AD Connect
 1. Instale Azure AD Connect mediante la configuración rápida o personalizada. Para empezar, se recomienda tener sincronizados correctamente todos los usuarios y grupos antes de habilitar la reescritura de dispositivos.
@@ -129,4 +129,4 @@ Compruebe la configuración de Active Directory:-Compruebe que el servicio de re
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

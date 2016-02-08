@@ -37,13 +37,13 @@ En este artículo se explicará cómo configurar RBAC en Automatización de Azur
 
 ## Configuración de RBAC para una Cuenta de Automatización mediante el Portal de Azure
 
-1.	Inicie sesión en el [Portal de Azure](http://portal.azure.com/) y abra su Cuenta de Automatización de la hoja Cuentas de Automatización.  
+1.	Inicie sesión en el [Portal de Azure](https://portal.azure.com/) y abra su Cuenta de Automatización de la hoja Cuentas de Automatización.  
 
 2.	Haga clic en el control **Acceso** de la esquina superior derecha. Se abrirá la hoja **Usuarios**, donde puede agregar nuevos usuarios, grupos y aplicaciones para administrar la Cuenta de Automatización y ver los roles existentes que se pueden configurar para la Cuenta de Automatización.
 
     ![Botón de acceso](media/automation-role-based-access-control/automation-01-access-button.png)
 
->[AZURE.NOTE]**Administradores de suscripción** ya existe como usuario predeterminado. El grupo de Active Directory Administradores de suscripción incluye los administradores y coadministradores de servicios de su suscripción de Azure. El administrador del servicio es el propietario de la suscripción de Azure y sus recursos, y también heredará el rol de propietario de las cuentas de Automatización. Esto significa que el acceso es **Heredado** en el caso de los **administradores y coadministradores de servicios** de una suscripción, mientras que es **Asignado** en el caso de los restantes usuarios. Haga clic en **Administradores de suscripción** para ver más detalles acerca de sus permisos.
+>[AZURE.NOTE]  **Administradores de suscripción** ya existe como usuario predeterminado. El grupo de Active Directory Administradores de suscripción incluye los administradores y coadministradores de servicios de su suscripción de Azure. El administrador del servicio es el propietario de la suscripción de Azure y sus recursos, y también heredará el rol de propietario de las cuentas de Automatización. Esto significa que el acceso es **Heredado** en el caso de los **administradores y coadministradores de servicios** de una suscripción, mientras que es **Asignado** en el caso de los restantes usuarios. Haga clic en **Administradores de suscripción** para ver más detalles acerca de sus permisos.
 
 ### Adición de usuarios nuevos y asignación de roles
 
@@ -67,7 +67,7 @@ También se pueden asignar roles al usuario desde la hoja **Roles**. Haga clic e
 
 ![Asignar rol en la hoja de usuarios](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
    
->[AZURE.NOTE]El control de acceso basado en roles solo se puede establecer en el nivel de Cuenta de Automatización, no en los recursos que estén debajo de Cuenta de Automatización.
+>[AZURE.NOTE] El control de acceso basado en roles solo se puede establecer en el nivel de Cuenta de Automatización, no en los recursos que estén debajo de Cuenta de Automatización.
 
 Es posible asignar más de un rol a un usuario, grupo o aplicación. Por ejemplo, si se agrega el rol **Operador de Automatización** junto con el rol **Lector** al usuario, este podrá ver todos los recursos de Automatización y ejecutar los trabajos de Runbook. Puede expandir la lista desplegable para ver una lista de los roles asignados al usuario.
 
@@ -139,4 +139,4 @@ En los cmdlets anteriores, reemplace el nombre de inicio de sesión, el identifi
 - Para más información sobre las distintas maneras de iniciar un Runbook, consulte [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md).
 - Para más información acerca de distintos tipos, consulte [Tipos de runbooks de Automatización de Azure](automation-runbook-types.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

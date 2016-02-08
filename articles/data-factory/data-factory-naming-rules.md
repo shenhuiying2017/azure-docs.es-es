@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Factoría de datos de Azure: reglas de nomenclatura 
@@ -27,4 +27,4 @@ Factoría de datos | Único en Microsoft Azure. Los nombres no distinguen mayús
 Servicios, tablas o canalizaciones vinculados | Único en una factoría de datos. Los nombres no distinguen mayúsculas de minúsculas. | <ul><li>Número máximo de caracteres en un nombre de tabla: 260.</li><li>Los nombres de objetos deben comenzar con un número, una letra o un carácter de subrayado (_).</li><li>No se permiten los siguientes caracteres: ".", "+","?", "/", "<", ">","*", "%", "&", ":","\"</li></ul>
 Grupo de recursos | Único en Microsoft Azure. Los no nombres distinguen mayúsculas de minúsculas. | <ul><li>Número máximo de caracteres: 1000.</li><li>El nombre puede contener letras, dígitos y los siguientes caracteres: "-","_",","y".".</li></ul>
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

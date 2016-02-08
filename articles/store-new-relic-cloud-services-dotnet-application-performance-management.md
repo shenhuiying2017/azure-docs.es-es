@@ -33,9 +33,9 @@ New Relic realiza el seguimiento del tiempo de carga y de la capacidad de proces
 
 Los usuarios de Azure pueden obtener la versión estándar de New Relic de manera gratuita, mientras que New Relic Pro se ofrece por tamaño de instancia para los Servicios en la nube de Azure.
 
-Para obtener información sobre precios, consulte la [página de New Relic en la Tienda de Azure](http://azure.microsoft.com/marketplace/partners/newrelic/newrelic).
+Para obtener información sobre precios, consulte la [página de New Relic en la Tienda de Azure](https://azure.microsoft.com/marketplace/partners/newrelic/newrelic/).
 
-> [AZURE.NOTE]El precio solo se muestra para 10 equipos como máximo. Para cantidades mayores, póngase en contacto con New Relic (sales@newrelic.com) para obtener información de precios por volumen.
+> [AZURE.NOTE] El precio solo se muestra para 10 equipos como máximo. Para cantidades mayores, póngase en contacto con New Relic (sales@newrelic.com) para obtener información de precios por volumen.
 
 Los clientes de Azure reciben una suscripción de prueba a New Relic Pro de dos semanas de duración cuando implementan el agente de New Relic.
 
@@ -148,4 +148,4 @@ Consulte estos recursos adicionales para obtener más información:
  * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): información general sobre cómo detalla RUM el tiempo que tardan los exploradores de sus usuarios en cargar las páginas web, de dónde proceden y qué exploradores usan.
  * [Buscar ayuda](https://newrelic.com/docs/site/finding-help): recursos disponibles en el centro de ayuda en línea de New Relic.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

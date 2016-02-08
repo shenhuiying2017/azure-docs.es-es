@@ -35,7 +35,7 @@ Este tutorial le guía en el proceso de creación de una colección en la nube. 
 
 Necesita llevar a cabo los pasos siguientes antes de crear la colección:
 
-- [Suscribirse](http://azure.microsoft.com/services/remoteapp/) a Azure RemoteApp. 
+- [Suscribirse](https://azure.microsoft.com/services/remoteapp/) a Azure RemoteApp. 
 - Recopile información sobre los usuarios a los que quiera conceder acceso. Esta información puede ser información de cuentas de Microsoft o información de cuentas de trabajo de Active Directory de usuarios.
 - En este procedimiento se supone que va a usar una de las imágenes de plantilla que se proporcionan con la suscripción o que ya ha cargado la imagen de plantilla que quiere usar. Si tiene que cargar una imagen de plantilla diferente, puede hacerlo desde la página Imágenes de plantilla. Haga clic en **cargar una imagen de plantilla** y siga los pasos del asistente. 
 - ¿Desea usar la imagen de Office 365 ProPlus? Consulte la información [aquí](remoteapp-officesubscription.md).
@@ -70,7 +70,7 @@ Siga los pasos que se indican a continuación para crear una **colección en la 
 3. Escriba un nombre para la colección.
 4. Seleccione el plan que quiere usar: Standard o Basic.
 5. Elija la red virtual que ya creó. ¿No sabe cómo hacerlo? Por ahora, los pasos se encuentran en el tema [Híbrida](remoteapp-create-hybrid-deployment.md).
-6. Decida si quiere unir la colección a su dominio. En caso afirmativo, deberá usar AD Connect para integrar Azure AD y su entorno de Active Directory. Esto se trata más adelante en el **paso 2**.
+6. Decida si quiere unir la colección a su dominio. En caso afirmativo, deberá usar AD Connect para integrar Azure AD y su entorno de Active Directory. Esto es lo que se trata más adelante en el **paso 2**.
 6. Haga clic en **Crear colección de RemoteApp**.
 
 
@@ -109,4 +109,4 @@ Eso es todo, creó e implementó correctamente su colección en la nube de Azure
 ### Permítanos ayudarle 
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, luego, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

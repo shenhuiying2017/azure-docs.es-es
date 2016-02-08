@@ -32,7 +32,7 @@ Una Base de datos SQL proporciona un sistema de administración de bases de dato
 
 Base de datos SQL proporciona servicios de administración, acceso y almacenamiento de datos relacionales en Azure. Para usarla, necesitará una suscripción a Azure.
 
-1. Abra un explorador web y diríjase a [http://azure.microsoft.com/](http://azure.microsoft.com). Para comenzar con una cuenta gratuita, haga clic en Evaluación gratuita en la esquina superior derecha y siga los pasos.
+1. Abra un explorador web y diríjase a [http://azure.microsoft.com/](https://azure.microsoft.com/). Para comenzar con una cuenta gratuita, haga clic en Evaluación gratuita en la esquina superior derecha y siga los pasos.
 
 2. Se ha creado su cuenta. Ya está listo para comenzar.
 
@@ -211,4 +211,4 @@ Para obtener más información, consulte [Proveedor de EntityClient para Entity 
 Ahora que ha aprendido los conceptos básicos de la conexión a Base de datos SQL, consulte los [temas de procedimientos sobre desarrollo (Base de datos SQL)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

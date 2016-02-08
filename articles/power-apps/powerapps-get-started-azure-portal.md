@@ -94,7 +94,7 @@ Puede encontrar más características en las [ediciones de Azure Active Director
 
 
 ## Paso 3: Registrarse a PowerApps Enterprise en la suscripción profesional de Azure
-> [AZURE.NOTE]Estos pasos requieren que el administrador de la suscripción inicie sesión en el Portal de Azure y envíe una solicitud.
+> [AZURE.NOTE] Estos pasos requieren que el administrador de la suscripción inicie sesión en el Portal de Azure y envíe una solicitud.
 
 Ahora que dispone de un inquilino de AD y una suscripción de Azure, los administradores de la suscripción profesional pueden registrarse en PowerApps Enterprise. El administrador también puede agregar a usuarios de la empresa para "administrar" PowerApps, lo que incluye otorgar permisos de usuario, y administren las instancias de PowerApps publicadas en la suscripción de Azure.
 
@@ -133,7 +133,7 @@ El entorno del Servicio de aplicaciones de Azure tiene características distinta
 - Inició sesión en el Portal de Azure como el administrador de PowerApps ("propietario" de PowerApps) o el administrador de suscripciones.
 
 ### Crear un entorno del Servicio de aplicaciones
-> [AZURE.NOTE]Si no ve la opción para crear el entorno del Servicio de aplicaciones, es porque ya está creado para su inquilino. Si desea ver los detalles, seleccione **Configuración** para abrir el entorno del Servicio de aplicaciones.
+> [AZURE.NOTE] Si no ve la opción para crear el entorno del Servicio de aplicaciones, es porque ya está creado para su inquilino. Si desea ver los detalles, seleccione **Configuración** para abrir el entorno del Servicio de aplicaciones.
 
 1. En el [Portal de Azure](https://portal.azure.com/), inicie sesión con su cuenta profesional. Por ejemplo, inicie sesión con *suNombreDeUsuario*@* SuEmpresa*.com. Al hacerlo, automáticamente inicia sesión en la suscripción de su empresa.
  
@@ -143,13 +143,13 @@ El entorno del Servicio de aplicaciones de Azure tiene características distinta
 
 4. En la hoja **PowerApps**, seleccione **Crear Entorno del Servicio de aplicaciones para comenzar** o **Entorno del Servicio de aplicaciones** en *Configuración*: ![][5]
 
-	> [AZURE.NOTE]Si hace clic en **Crear Entorno del Servicio de aplicaciones para comenzar**, verá una hoja adicional con detalles sobre el Entorno del Servicio de aplicaciones. Solo haga clic en el vínculo Crear de esa hoja para iniciar la hoja de creación.
+	> [AZURE.NOTE] Si hace clic en **Crear Entorno del Servicio de aplicaciones para comenzar**, verá una hoja adicional con detalles sobre el Entorno del Servicio de aplicaciones. Solo haga clic en el vínculo Crear de esa hoja para iniciar la hoja de creación.
 
 5. Luego, escriba el nombre, seleccione la suscripción que desea usar, seleccione un grupo de recursos o cree uno nuevo y seleccione una red virtual. **Tenga en cuenta** que después de elegir una red virtual, no puede cambiarla: ![][6] Para obtener más información sobre cómo funcionan las redes virtuales con un entorno del Servicio de aplicaciones, consulte [Creación de un entorno del Servicio de aplicaciones](../app-service-web-how-to-create-an-app-service-environment.md).
 
 6. Seleccione **Agregar** para terminar de crear el entorno del Servicio de aplicaciones.
 
-> [AZURE.TIP]Cuando crea el entorno del Servicio de aplicaciones con PowerApps, no se le solicita configurar grupos de recursos de proceso. Este paso se realiza de forma automática.
+> [AZURE.TIP] Cuando crea el entorno del Servicio de aplicaciones con PowerApps, no se le solicita configurar grupos de recursos de proceso. Este paso se realiza de forma automática.
 
 Recuerde que también puede agregar aplicaciones web, aplicaciones móviles y aplicaciones de API a este entorno del Servicio de aplicaciones. De hecho, es el entorno donde puede agregar todas las características que admite el Entorno del Servicio de aplicaciones.
 
@@ -159,17 +159,17 @@ Para obtener acceso al entorno del Servicio de aplicaciones, crear API, conexion
 
 1. Seleccione el entorno del Servicio de aplicaciones que acaba de crear.
 2. En Aspectos esenciales, seleccione la propiedad **Grupo de recursos**. Se abrirá el grupo de recursos que contiene el entorno del Servicio de aplicaciones: ![][7]
-3. Seleccione el icono RBAC para administrar los permisos: ![][8] Agregar usuarios y asignar roles es como utilizar [Control de acceso basado en roles](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure) dentro de Azure.
+3. Seleccione el icono RBAC para administrar los permisos: ![][8] Agregar usuarios y asignar roles es como utilizar [Control de acceso basado en roles]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) dentro de Azure.
 
-> [AZURE.NOTE]Actualmente, no puede otorgar permisos de RBAC al entorno del Servicio de aplicaciones. Puede otorgar permisos de RBAC al nivel de grupo de recursos primario.
+> [AZURE.NOTE] Actualmente, no puede otorgar permisos de RBAC al entorno del Servicio de aplicaciones. Puede otorgar permisos de RBAC al nivel de grupo de recursos primario.
 
 ## Resumen y pasos siguientes
 La empresa se suscribió a PowerApps y tiene un entorno del Servicio de aplicaciones. A continuación, puede agregar API y conexiones que sus aplicaciones pueden usar.
 
-- [Supervisar las aplicaciones de PowerApps](powerapps-manage-monitor-usage.md).
-- [Desarrollar una API para PowerApps](powerapps-develop-api.md).
-- [Agregar una API nueva, una conexión y otorgar acceso a los usuarios](powerapps-manage-api-connection-user-access.md).
-- [Actualizar una API existente y sus propiedades](powerapps-configure-apis.md).
+- [Supervisar las aplicaciones de PowerApps.](powerapps-manage-monitor-usage.md)
+- [Desarrollar una API para PowerApps.](powerapps-develop-api.md)
+- [Agregar una API nueva, una conexión y otorgar acceso a los usuarios.](powerapps-manage-api-connection-user-access.md)
+- [Actualizar una API existente y sus propiedades.](powerapps-configure-apis.md)
 
 
 [1]: ./media/powerapps-get-started-azure-portal/browseall.png
@@ -181,4 +181,4 @@ La empresa se suscribió a PowerApps y tiene un entorno del Servicio de aplicaci
 [7]: ./media/powerapps-get-started-azure-portal/aseessentials.png
 [8]: ./media/powerapps-get-started-azure-portal/resourcegrouprbac.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
+	ms.date="01/19/2015" 
 	ms.author="yuaxu"/>
 
 # Registro del usuario actual para notificaciones de inserción con un servicio móvil
@@ -57,7 +57,7 @@ Este tema muestra cómo solicitar un registro de notificación de inserción con
 
 	Esta acción actualiza la propiedad **deviceToken**.
 
-	> [AZURE.NOTE]En este punto, no debería haber ningún otro código en este método. Si ya tiene una llamada al método **registerNativeWithDeviceToken** que se agregó cuando realizó el tutorial [Introducción a los Centros de notificaciones](/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank"), debe convertir la llamada en comentario o borrarla.
+	> [AZURE.NOTE] En este punto, no debería haber ningún otro código en este método. Si ya tiene una llamada al método **registerNativeWithDeviceToken** que se agregó cuando realizó el tutorial [Introducción a los Centros de notificaciones](/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank"), debe convertir la llamada en comentario o borrarla.
 
 5.  (Opcional) En el archivo QSAppDelegate.m, agregue el siguiente método de controlador:
 
@@ -105,7 +105,7 @@ Este tema muestra cómo solicitar un registro de notificación de inserción con
 			    }];
 			}
 
-	> [AZURE.NOTE]Esto garantiza que se solicitará registro cada vez que se cargue la página. En la aplicación, es posible que solo desee realizar este registro de manera periódica para asegurarse de que el registro esté actualizado.
+	> [AZURE.NOTE] Esto garantiza que se solicitará registro cada vez que se cargue la página. En la aplicación, es posible que solo desee realizar este registro de manera periódica para asegurarse de que el registro esté actualizado.
 	
 Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación a los usuarios con los Centros de notificaciones] y actualice el servicio móvil para enviar notificaciones mediante Centros de notificaciones.
 
@@ -121,4 +121,4 @@ Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación 
 [Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

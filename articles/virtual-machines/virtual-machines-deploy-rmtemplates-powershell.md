@@ -28,7 +28,7 @@
 
 El uso de plantillas de Azure PowerShell y del Administrador de recursos te proporciona mucha eficacia y flexibilidad al administrar los recursos de Microsoft Azure. Puedes usar las tareas de este artículo para administrar los recursos de máquinas virtuales.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
 Estas tareas solo usan PowerShell:
 
@@ -193,7 +193,7 @@ En el comando siguiente, reemplace el *nombre del grupo de recursos* por el nomb
 
 	Remove-AzureRmVM -ResourceGroupName "resource group name" –Name "VM name"
 
-> [AZURE.NOTE]Puede usar el parámetro **–Force** para omitir la solicitud de confirmación.
+> [AZURE.NOTE] Puede usar el parámetro **–Force** para omitir la solicitud de confirmación.
 
 Se te pedirá una confirmación si no usaste el parámetro -Force:
 
@@ -216,4 +216,4 @@ Si quieres ver un vídeo en el que se realiza esta tarea, mira aquí:
 
 [AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

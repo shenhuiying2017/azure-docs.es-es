@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="01/19/2016"
    ms.author="bwren" />
 
 # Creación gráfica en Automatización de Azure
@@ -40,6 +40,10 @@ Las secciones siguientes describen los controles del editor de gráficos.
 
 ### Lienzo
 El lienzo es donde se diseña su runbook. Puede agregar actividades desde los nodos del control de Biblioteca al runbook y conectarlas con vínculos para definir la lógica del runbook.
+
+Puede utilizar los controles en la parte inferior del lienzo para acercar y alejar.
+
+![Área de trabajo gráfica](media/automation-graphical-authoring-intro/canvas-zoom.png)
 
 ### Control de Biblioteca
 
@@ -141,6 +145,38 @@ Cuando especifica un valor para un parámetro, selecciona un origen de datos par
 
 Todos los cmdlets tendrán la opción de proporcionar parámetros adicionales. Se trata de parámetros comunes de PowerShell u otros parámetros personalizados. Aparecerá un cuadro de texto en el que podrá proporcionar parámetros con la sintaxis de PowerShell. Por ejemplo, para usar el parámetro común **Verbose**, debiera especificar **"-Verbose:$True"**.
 
+### Vuelva a intentar la actividad
+
+**Comportamiento de reintento** permite que una actividad se ejecute varias veces hasta que se cumpla una condición determinada. Puede utilizar esta característica para las actividades que deben ejecutarse varias veces o que son propensas a errores y pueden requerir más de un intento para realizarlas correctamente.
+
+Cuando se habilita el reintento de una actividad, puede establecer un retraso y una condición. El retraso es el tiempo (medido en segundos o minutos) que el runbook esperará antes de que se ejecute la actividad de nuevo. Si no se especifica ningún retraso, la actividad se ejecutará de nuevo inmediatamente después de que se complete.
+
+![Retraso de reintento de actividades](media/automation-graphical-authoring-intro/retry-delay.png)
+
+La condición de reintento es una expresión de PowerShell que se evalúa cada vez que se ejecuta la actividad. Si la expresión se resuelve como True, la actividad se vuelve a ejecutar. Si la expresión se resuelve en False, la actividad no se vuelve a ejecutar y el runbook se mueve a la actividad siguiente.
+
+![Retraso de reintento de actividades](media/automation-graphical-authoring-intro/retry-condition.png)
+
+La condición de reintento puede utilizar una variable denominada $RetryData que proporciona acceso a información sobre los reintentos de actividad. Esta variable tiene las propiedades de la tabla siguiente.
+
+| Propiedad | Descripción |
+|:--|:--|
+| NumberOfAttempts | Número de veces que se ha ejecutado la actividad. |
+| Salida | Salida de la última ejecución de la actividad. |
+| TotalDuration | Tiempo transcurrido desde la primera vez que se inició la actividad. |
+| StartedAt | Hora en formato UTC a la que se inició la actividad por primera vez. |
+
+A continuación se muestran ejemplos de las condiciones de reintento de actividades.
+
+	# Run the activity exactly 10 times.
+	$RetryData.NumberOfAttempts -ge 10 
+
+	# Run the activity repeatedly until it produces any output.
+	$RetryData.Output.Count -ge 1 
+
+	# Run the activity repeatedly until 2 minutes has elapsed. 
+	$RetryData.TotalDuration.TotalMinutes -ge 2
+
 ### Control de Script de flujo de trabajo
 
 Un control de Script de flujo de trabajo es una actividad especial que acepta código de flujo de trabajo de PowerShell para proporcionar funcionalidad que, de otro modo, podría no estar disponible. Este no es un flujo de trabajo completo, pero debe contener líneas válidas de código de flujo de trabajo de PowerShell. No puede aceptar parámetros, pero puede usar variables para los parámetros de entrada de runbook y de salida de actividad. Cualquier salida de la actividad se agrega al bus de datos, a menos que no tenga un vínculo de salida, en cuyo caso se agrega a la salida del runbook.
@@ -239,7 +275,11 @@ También puede recuperar la salida de una actividad en un origen de datos **Expr
 
 ### Puntos de control
 
-Las mismas instrucciones para configurar los [puntos de control](automation-powershell-workflow/#checkpoints) en el runbook se aplican a los runbooks gráficos. Puede agregar una actividad para el cmdlet Checkpoint-Workflow donde necesite establecer un punto de control. A continuación, debe seguir esta actividad con Add-AzureAccount en caso de que el runbook se inicie desde este punto de control en un trabajo distinto.
+Puede establecer [puntos de control](automation-powershell-workflow/#checkpoints) en un runbook gráfico; para ello, seleccione *Establecer punto de control en runbook* en cualquier actividad. Esto permite establecer un punto de control después de que se ejecuta la actividad.
+
+![Punto de control](media/automation-graphical-authoring-intro/set-checkpoint.png)
+
+Las mismas instrucciones para configurar los puntos de control en el runbook se aplican a los runbooks gráficos. Si el runbook usa cmdlets de Azure, debe seguir cualquier actividad establecida con puntos de control con un AzureRMAccount en caso de suspender el runbook y de reiniciarlo a partir de dicho punto de control en un trabajo diferente.
 
 
 ## Autenticación a los recursos de Azure
@@ -379,4 +419,4 @@ En el ejemplo siguiente se usa la salida de una actividad llamada *Get Twitter C
 - [Operadores](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

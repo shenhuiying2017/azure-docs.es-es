@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="01/22/2016"
 	ms.author="dkshir"/>
 
 
@@ -29,9 +29,7 @@ Azure almacena la imagen en **Imágenes**. Aquí también están almacenadas tod
 
 ## Antes de empezar
 
-En estos pasos se supone que ya ha creado un máquina virtual de Azure con el modelo de implementación clásica y ha configurado el sistema operativo, incluido adjuntar cualquier disco de datos. Si no ha realizado esto todavía, siga estas instrucciones:
-
-- [Creación de una máquina virtual que ejecuta Linux][]
+En estos pasos se supone que ya ha creado un máquina virtual de Azure con el modelo de implementación clásica y ha configurado el sistema operativo, incluido adjuntar cualquier disco de datos. Si no lo ha hecho todavía, lea [Creación de una máquina virtual con Linux][].
 
 
 ## Captura de la máquina virtual
@@ -51,7 +49,7 @@ En estos pasos se supone que ya ha creado un máquina virtual de Azure con el mo
 	- Restablece el nombre de host a localhost.localdomain
 	- Elimina la última cuenta de usuario aprovisionada (obtenida desde /var/lib/waagent) **y los datos asociados**.
 
-	>[AZURE.NOTE]El desaprovisionando elimina los archivos y datos en un esfuerzo por "generalizar" la imagen. Solo puede ejecutar este comando en máquinas virtuales que quiera capturar como nueva plantilla de imagen. No garantiza que se haya borrado toda información sensible de la imagen o que sea adecuada para su redistribución a terceros.
+	>[AZURE.NOTE] El desaprovisionando elimina los archivos y datos en un esfuerzo por "generalizar" la imagen. Solo puede ejecutar este comando en máquinas virtuales que quiera capturar como nueva plantilla de imagen. No garantiza que se haya borrado toda información sensible de la imagen o que sea adecuada para su redistribución a terceros.
 
 
 3. Escriba **y** para continuar. Puede agregar el parámetro `-force` para evitar este paso de confirmación.
@@ -59,7 +57,7 @@ En estos pasos se supone que ya ha creado un máquina virtual de Azure con el mo
 4. Escriba **Salir** para cerrar el cliente SSH.
 
 
-	>[AZURE.NOTE]En los siguientes pasos se supone que ya ha [instalado la CLI de Azure](../xplat-cli-install.md) en el equipo cliente. Los pasos siguientes también pueden realizarse en el [Portal de Azure clásico][].
+	>[AZURE.NOTE] En los siguientes pasos se supone que ya ha [instalado la CLI de Azure](../xplat-cli-install.md) en el equipo cliente. Los pasos siguientes también pueden realizarse en el [Portal de Azure clásico][].
 
 5. Desde el equipo cliente, abra la CLI de Azure e inicie sesión en su suscripción de Azure. Para obtener más información, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md).
 
@@ -71,7 +69,7 @@ En estos pasos se supone que ya ha creado un máquina virtual de Azure con el mo
 
 	`azure vm shutdown <your-virtual-machine-name>`
 
-	>[AZURE.NOTE]Puede encontrar todas las máquinas virtuales creadas en su mediante `azure vm list`
+	>[AZURE.NOTE] Puede encontrar todas las máquinas virtuales creadas en su mediante `azure vm list`
 
 8. Cuando se detenga la máquina virtual, capture la imagen con el comando:
 
@@ -98,6 +96,6 @@ La imagen está lista para usarse para crear máquinas virtuales. Puede usar el 
 [Acerca de las imágenes de máquina virtual en Azure]: virtual-machines-images.md
 [Creación de una máquina virtual personalizada]: virtual-machines-linux-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
-[Creación de una máquina virtual que ejecuta Linux]: virtual-machines-linux-tutorial.md
+[Creación de una máquina virtual con Linux]: virtual-machines-linux-create-custom.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

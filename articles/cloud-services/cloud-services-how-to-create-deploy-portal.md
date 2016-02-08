@@ -29,7 +29,7 @@ El Portal de Azure le ofrece dos formas de crear e implementar un servicio en la
 
 En este artículo se explica cómo usar el método Creación rápida para crear un nuevo servicio en la nube y, a continuación, cómo usar **Cargar** para cargar e implementar un paquete de servicios en la nube en Azure. Cuando usa este método, el Portal de Azure pone a su disposición los vínculos pertinentes para completar todos los requisitos que vaya necesitando sobre la marcha. Si está listo para implementar su servicio en la nube una vez creado, puede hacer las dos cosas a la vez usando Creación personalizada.
 
-> [AZURE.NOTE]Si tiene pensado publicar su servicio en la nube desde Visual Studio Team Services (VSTS), use Creación rápida y, a continuación, configure la publicación VSTS desde Creación rápida de Azure o el panel. Para más información, consulte [Entrega continua a Azure usando Visual Studio Team Services][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido**.
+> [AZURE.NOTE] Si tiene pensado publicar su servicio en la nube desde Visual Studio Team Services (VSTS), use Creación rápida y, a continuación, configure la publicación VSTS desde Creación rápida de Azure o el panel. Para más información, consulte [Entrega continua a Azure usando Visual Studio Team Services][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido**.
 
 ## Conceptos
 Necesita tres componentes para implementar una aplicación como servicio en la nube en Azure:
@@ -43,7 +43,7 @@ Necesita tres componentes para implementar una aplicación como servicio en la n
 Puede obtener más información acerca de estas y cómo crear un paquete [aquí](cloud-services-model-and-package.md).
 
 ## Preparación de la aplicación
-Antes de implementar un servicio en la nube, debe crear el paquete de servicio en la nube (.cspkg) desde su código de aplicación y un archivo de configuración de servicio en la nube (.cscfg). El SDK de Azure proporciona herramientas para preparar estos archivos de implementación necesarios. Puede instalar el SDK desde la página [Descargas de Azure](http://azure.microsoft.com/downloads/), en el idioma en que prefiera implementar su código de aplicación.
+Antes de implementar un servicio en la nube, debe crear el paquete de servicio en la nube (.cspkg) desde su código de aplicación y un archivo de configuración de servicio en la nube (.cscfg). El SDK de Azure proporciona herramientas para preparar estos archivos de implementación necesarios. Puede instalar el SDK desde la página [Descargas de Azure](https://azure.microsoft.com/downloads/), en el idioma en que prefiera implementar su código de aplicación.
 
 Hay tres características del servicio en la nube que requieren configuraciones especiales antes de exportar un paquete de servicio:
 
@@ -57,7 +57,7 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 
 ## Antes de empezar
 
-- Si no ha instalado el SDK de Azure, haga clic en **Instalación de SDK de Azure** para abrir la [página Descargas de Azure](http://azure.microsoft.com/downloads/) y, a continuación, descargue el SDK en el idioma en que prefiera desarrollar el código. (Tendrá la oportunidad de hacer esto más tarde).
+- Si no ha instalado el SDK de Azure, haga clic en **Instalación de SDK de Azure** para abrir la [página Descargas de Azure](https://azure.microsoft.com/downloads/) y, a continuación, descargue el SDK en el idioma en que prefiera desarrollar el código. (Tendrá la oportunidad de hacer esto más tarde).
 
 - Si hay instancias de rol que necesitan certificados, créelos. Los servicios en la nube requieren un archivo .pfx con una clave privada. [Puede cargar los certificados en Azure]() mientras crea e implementa el servicio en la nube.
 
@@ -115,4 +115,4 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 * [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

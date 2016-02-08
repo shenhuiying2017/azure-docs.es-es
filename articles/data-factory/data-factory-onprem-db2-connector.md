@@ -31,6 +31,9 @@ Para que Data Management Gateway se conecte a la base de datos DB2, es preciso i
 
 Se conocen varios problemas notificados por IBM acerca de la instalación de IBM DB2 Data Server Driver en Windows 8, donde se necesitan pasos de instalación adicionales. Para obtener más información sobre IBM DB2 Data Server Driver en Windows 8, consulte [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434).
 
+> [AZURE.NOTE] Vea [Solución de problemas de puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre solución de problemas de conexión o puerta de enlace.
+
+
 ## Ejemplo: Copiar datos de DB2 a un blob de Azure
 
 El ejemplo siguiente muestra:
@@ -309,4 +312,4 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

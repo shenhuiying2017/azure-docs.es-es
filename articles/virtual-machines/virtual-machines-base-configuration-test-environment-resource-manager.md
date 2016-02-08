@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # Entorno de prueba de la configuración base con Administrador de recursos de Azure
@@ -50,15 +50,15 @@ Hay cuatro fases de configuración de la subred de la red corporativa del entorn
 3.	Configuración de APP1.
 4.	Configuración de CLIENT1.
 
-Si no dispone de ninguna cuenta de Azure, puede registrarse para una prueba gratuita en [Probar Azure](http://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si no dispone de ninguna cuenta de Azure, puede registrarse para una prueba gratuita en [Probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-> [AZURE.NOTE]Las máquinas virtuales en Azure suponen en un costo económico constante cuando se están ejecutando. Este costo se factura en su prueba gratuita, la suscripción de MSDN o la suscripción de pago. Para obtener más información acerca de los costos de ejecutar máquinas virtuales de Azure, consulte [Detalles de precios de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/) y [Calculadora de precios de Azure](http://azure.microsoft.com/pricing/calculator/). Para reducir los costos, consulte [Reducción del costo de las máquinas virtuales del entorno de prueba en Azure](#costs).
+> [AZURE.NOTE] Las máquinas virtuales en Azure suponen en un costo económico constante cuando se están ejecutando. Este costo se factura en su prueba gratuita, la suscripción de MSDN o la suscripción de pago. Para obtener más información acerca de los costos de ejecutar máquinas virtuales de Azure, consulte [Detalles de precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/) y [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/). Para reducir los costos, consulte [Reducción del costo de las máquinas virtuales del entorno de prueba en Azure](#costs).
 
 ## Fase 1: creación de la red virtual
 
 En primer lugar, inicie un símbolo del sistema de Azure PowerShell.
 
-> [AZURE.NOTE]El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> [AZURE.NOTE] El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Inicie sesión en su cuenta.
 
@@ -244,6 +244,8 @@ Se trata de la configuración actual.
 
 Client1 actúa como un equipo portátil, tableta o de escritorio en la intranet de Contoso.
 
+> [AZURE.NOTE] El siguiente conjunto de comandos crea CLIENT1 que ejecuta Windows Server 2012 R2 Datacenter, lo que puede realizarse para todos los tipos de suscripciones de Azure. Si tiene una suscripción de Azure basada en MSDN, puede crear CLIENT1 que ejecuta Windows 10, Windows 8 o Windows 7 mediante el [Portal de Azure](virtual-machines-windows-tutorial.md).
+
 En primer lugar, proporcione el nombre del grupo de recursos, la ubicación de Azure y el nombre de la cuenta de almacenamiento, y ejecute estos comandos en el símbolo del sistema de Azure PowerShell en el equipo local para crear una máquina virtual de Azure para CLIENT1.
 
 	$rgName="<resource group name>"
@@ -326,4 +328,4 @@ Para iniciar las máquinas virtuales en orden con Azure PowerShell, escriba el n
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

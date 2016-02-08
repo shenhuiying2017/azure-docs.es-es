@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/19/2016"
+    ms.date="01/22/2016"
     ms.author="elizapo" />
 
 
@@ -30,7 +30,7 @@ La siguiente información se aplica a Azure RemoteApp, una colección de nube o 
 *	 https://*remoteapp.windowsazure.com  
 *	 https://*.core.windows.net  
 *	 Salientes - TCP: 443, TCP: 10101-10175 
-*	 Opcional. UDP: 10201-10275 
+*	 Opcional. UDP: 10201-10275  
  
 ## Los clientes Azure RemoteApp necesitan acceso a estos puntos de conexión y direcciones URL: 
 
@@ -44,6 +44,6 @@ Por clientes, me refiero a los escritorios, dispositivos etc. que los usuarios u
 -  https://**.remoteapp.windowsazure.com  
 -  https://*.core.windows.net  
 -  Saliente: TCP: 443  
--  Opcional. UDP: 10201-10275
+-  Opcional: UDP: 3391 
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

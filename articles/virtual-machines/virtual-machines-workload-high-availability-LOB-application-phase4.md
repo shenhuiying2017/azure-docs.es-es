@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # Fase 4 de la carga de trabajo de aplicación de línea de negocio: Configuración de servidores web
@@ -31,7 +31,7 @@ Hay dos máquinas virtuales de servidor web en las que puede implementar aplicac
 
 En primer lugar, configure el equilibrio de carga interno para que Azure distribuya el tráfico de cliente a la aplicación de línea de negocio de manera uniforme entre los dos servidores web. Esto requiere que especifique una instancia de equilibrio de carga que conste de un nombre y su propia dirección IP, y se asigne en el espacio de direcciones de subred que asignó a la red virtual de Azure.
 
-> [AZURE.NOTE]El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> [AZURE.NOTE] El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Especifique los valores de las variables quitando los caracteres < and >. Tenga en cuenta que los siguientes conjuntos de comandos de Azure PowerShell usan los valores de las siguientes tablas:
 
@@ -109,7 +109,7 @@ Cuando proporcione todos los valores adecuados, ejecute el bloque resultante en 
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]Dado que estas máquinas virtuales son para una aplicación de intranet, no se les asigna una dirección IP pública o una etiqueta de nombre de dominio DNS ni se exponen a Internet. Sin embargo, esto significa también que no se puede conectar a ellas desde el Portal de Azure. El botón **Conectar** no estará disponible cuando vea las propiedades de la máquina virtual.
+> [AZURE.NOTE] Dado que estas máquinas virtuales son para una aplicación de intranet, no se les asigna una dirección IP pública o una etiqueta de nombre de dominio DNS ni se exponen a Internet. Sin embargo, esto significa también que no se puede conectar a ellas desde el Portal de Azure. El botón **Conectar** no estará disponible cuando vea las propiedades de la máquina virtual.
 
 Use el cliente de Escritorio remoto que prefiera y cree una conexión de Escritorio remoto para cada máquina virtual de servidor web. Use el DNS de la intranet o el nombre del equipo y las credenciales de la cuenta de administrador local.
 
@@ -127,8 +127,8 @@ En cada servidor web, instale y configure IIS.
 
 1. Ejecute el Administrador del servidor y haga clic en **Agregar roles y características**.
 2. En la página Antes de comenzar, haga clic en **Siguiente**.
-3. En la página Selección del tipo de instalación, haga clic en **Siguiente**.
-4. En la página Selección del servidor de destino, haga clic en **Siguiente**.
+3. En la página Seleccionar tipo de instalación, haga clic en **Siguiente**.
+4. En la página Seleccionar servidor de destino, haga clic en **Siguiente**.
 5. En la página Roles de servidor, haga clic en **Servidor web (IIS)** en la lista de **Roles**.
 6. Cuando se le solicite, haga clic en **Agregar características** y después en **Siguiente**.
 7. En la página Selección de características, haga clic en **Siguiente**.
@@ -151,4 +151,4 @@ Este diagrama representa la configuración resultante de la realización correct
 
 - Para completar la configuración de esta carga de trabajo, vaya a la [Fase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -68,8 +68,8 @@ El Agente de Linux de Azure incluye la funcionalidad para detectar automáticame
 Las imágenes de **Ubuntu** y **CoreOS** usan cloud-init en Azure, que proporciona funcionalidades adicionales para arrancar una máquina virtual.
 
  - [Inyección de datos personalizados en una máquina virtual de Azure](virtual-machines-how-to-inject-custom-data.md)
- - [Custom Data and Cloud-Init on Microsoft Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/) (Datos personalizados y cloud-init en Microsoft Azure)
- - [Create Azure Swap Partitions Using Cloud-Init](https://wiki.ubuntu.com/AzureSwapPartitions) (Creación de particiones de intercambio de Azure con cloud-init)
+ - [Custom Data and Cloud-Init on Microsoft Azure (Datos personalizados y cloud-init en Microsoft Azure)](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
+ - [Create Azure Swap Partitions Using Cloud-Init (Creación de particiones de intercambio de Azure con cloud-init)](https://wiki.ubuntu.com/AzureSwapPartitions)
  - [Uso de CoreOS en Azure](virtual-machines-linux-coreos-how-to.md)
 
 
@@ -93,10 +93,10 @@ Las máquinas virtuales disponen de un *disco de recursos* local y temporal acop
 En Linux, el disco de recursos se administra generalmente mediante el Agente de Linux de Azure y se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu).
 
 
->[AZURE.NOTE]Tenga en cuenta que el disco de recursos es un disco **temporal**, que debe eliminarse y reformatearse cuando se reinicia la máquina virtual.
+>[AZURE.NOTE] Tenga en cuenta que el disco de recursos es un disco **temporal**, que debe eliminarse y reformatearse cuando se reinicia la máquina virtual.
 
 En Linux el kernel debe poner al disco de datos el nombre `/dev/sdc` y los usuarios tendrán que particionar ese recurso, darle formato y montarlo. Esto se trata paso a paso en el tutorial: [Acoplamiento de un disco de datos a una máquina virtual](virtual-machines-linux-how-to-attach-disk.md).
 
  - **Consulte también:** [Configuración del software RAID en Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

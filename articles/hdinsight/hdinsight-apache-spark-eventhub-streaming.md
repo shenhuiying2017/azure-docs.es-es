@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/29/2015" 
+	ms.date="01/27/2016" 
 	ms.author="nitinme"/>
 
 
@@ -24,13 +24,13 @@ La transmisión de Spark amplía la API de Spark de núcleo para crear aplicacio
 
 En este tutorial aprenderá a crear un Centro de eventos de Azure, a introducir mensajes en un Centro de eventos mediante una aplicación de consola en Java y a recuperarlos en paralelo mediante una aplicación Spark escrita en Scala. Esta aplicación consume los datos que se transmiten a través de Centros de eventos y los enruta a diferentes salidas (blob de Almacenamiento de Azure, tabla de Hive y tabla SQL).
 
-> [AZURE.NOTE]Para seguir las instrucciones de este artículo, tendrá que usar las dos versiones del portal de Azure. Para crear un Centro de eventos, deberá usar el [Portal de Azure](https://manage.windowsazure.com). Para trabajar con el clúster de HDInsight Spark, deberá usar el [Portal de vista previa de Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] Para seguir las instrucciones de este artículo, tendrá que usar las dos versiones del portal de Azure. Para crear un Centro de eventos, deberá usar el [Portal de Azure](https://manage.windowsazure.com). Para trabajar con el clúster de HDInsight Spark, deberá usar el [Portal de vista previa de Azure](https://ms.portal.azure.com/).
 
 **Requisitos previos:**
 
 Debe tener lo siguiente:
 
-- Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Un clúster Apache Spark. Para obtener instrucciones, consulte [Aprovisionamiento de clústeres Apache Spark en HDInsight mediante opciones personalizadas](hdinsight-apache-spark-jupyter-spark-sql.md).
 - Kit de desarrollo de Oracle Java. Se puede instalar desde [aquí](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 - Un IDE de Java. En este artículo se usa IntelliJ IDEA 15.0.1. Se puede instalar desde [aquí](https://www.jetbrains.com/idea/download/).
@@ -55,7 +55,7 @@ Así es como fluye la solución de streaming:
 
 	![página 1 del asistente](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub.png "Crear un centro de eventos de Azure")
 
-	> [AZURE.NOTE]Para reducir la latencia y los costos, debe seleccionar la misma **ubicación** que la del clúster Apache Spark en HDInsight.
+	> [AZURE.NOTE] Para reducir la latencia y los costos, debe seleccionar la misma **ubicación** que la del clúster Apache Spark en HDInsight.
 
 3. En la pantalla **Configuración del centro de eventos**, escriba los valores **Recuento de particiones** y **Retención de mensajes** y, a continuación, haga clic en la marca de verificación. En este ejemplo, utilice un recuento de particiones de 10 y una retención de mensajes de 1. Anote el recuento de particiones, porque necesitará más adelante este valor.
 
@@ -64,12 +64,10 @@ Así es como fluye la solución de streaming:
 4. Haga clic en el Centro de eventos que ha creado, en **Configurar** y, después, cree dos directivas de acceso para el Centro de eventos.
 
 	<table>
-	<tr><th>Nombre</th><th>Permisos</th></tr>
-	<tr><td>mysendpolicy</td><td>Los métodos Send</td></tr>
-	<tr><td>myreceivepolicy</td><td>Escuchar</td></tr>
-	</table>
-
-	Después de crear los permisos, seleccione el icono **Guardar** en la parte inferior de la página. Así se crean las directivas de acceso compartido que se usarán para enviar (**mysendpolicy**) y escuchar (**myreceivepolicy**) a este Centro de eventos.
+<tr><th>Nombre</th><th>Permisos</th></tr>
+<tr><td>mysendpolicy</td><td>Los métodos Send</td></tr>
+<tr><td>myreceivepolicy</td><td>Escuchar</td></tr>
+</table>Después de crear los permisos, seleccione el icono **Guardar** en la parte inferior de la página. Así se crean las directivas de acceso compartido que se usarán para enviar (**mysendpolicy**) y escuchar (**myreceivepolicy**) a este Centro de eventos.
 
 	![directivas](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Crear directivas de centro de eventos")
 
@@ -90,7 +88,7 @@ En esta sección se usa una aplicación de Scala autónoma local para enviar una
 	
 2. Compile el proyecto. En el menú **Compilar**, haga clic en **Crear proyecto**. El archivo JAR de salida se crea en **\\out\\artifacts**.
 
->[AZURE.TIP]También puede usar una opción disponible en IntelliJ IDEA para crear el proyecto directamente desde un repositorio de GitHub. Para entender cómo usar dicho enfoque, siga las instrucciones de la siguiente sección. Tenga en cuenta que muchos de los pasos que se describen en la siguiente sección no se pueden aplicar a la aplicación de Scala que cree en este paso. Por ejemplo:
+>[AZURE.TIP] También puede usar una opción disponible en IntelliJ IDEA para crear el proyecto directamente desde un repositorio de GitHub. Para entender cómo usar dicho enfoque, siga las instrucciones de la siguiente sección. Tenga en cuenta que muchos de los pasos que se describen en la siguiente sección no se pueden aplicar a la aplicación de Scala que cree en este paso. Por ejemplo:
 
 > * No tendrá que actualizar el archivo POM para incluir la versión de Spark, ya que no se depende de Spark para crear esta aplicación.
 > * No tendrá que agregar archivos JAR de dependencia a la biblioteca de proyectos, ya que el proyecto no requiere dichos archivos.
@@ -123,9 +121,9 @@ En [https://github.com/hdinsight/spark-streaming-data-persistence-examples](http
 
 5. La aplicación requiere dos archivos JAR de dependencia:
 
-	* **Archivo JAR de receptor de EventHub**. Requerido para que Spark reciba los mensajes del Centro de eventos. Este archivo JAR está disponible en el clúster Spark Linux en `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.1.2.3.2.1-12-jar-with-dependencies.jar`. Para copiar el archivo JAR en el equipo local se puede usar pscp.
+	* **Archivo JAR de receptor de EventHub**. Requerido para que Spark reciba los mensajes del Centro de eventos. Este archivo JAR está disponible en el clúster Spark Linux en `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`. Para copiar el archivo JAR en el equipo local se puede usar pscp.
 
-			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.1.2.3.2.1-12-jar-with-dependencies.jar C:/eventhubjar
+			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net:/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar C:/eventhubjar
 
 		Así se copiará el archivo JAR desde el clúster Spark en el equipo local.
 
@@ -211,7 +209,7 @@ Estos son los parámetros del archivo de entrada:
 * **numExecutors** es el número de núcleos que usa Spark para ejecutar la aplicación de streaming. Siempre debe ser al menos dos veces el número de particiones del Centro de eventos.
 * **executorMemory**, **executorCores** y **driverMemory** son los parámetros que se usan para asignar los recursos requeridos a la aplicación de streaming.
 
->[AZURE.NOTE]No es preciso crear las carpetas de salida (EventCheckpoint, EventCount/EventCount10) que se usan como parámetros. La aplicación de streaming las crea automáticamente.
+>[AZURE.NOTE] No es preciso crear las carpetas de salida (EventCheckpoint, EventCount/EventCount10) que se usan como parámetros. La aplicación de streaming las crea automáticamente.
 	
 Al ejecutar el comando, debería ver una salida similar a la siguiente:
 
@@ -372,4 +370,4 @@ Debería ver una salida similar a la siguiente:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

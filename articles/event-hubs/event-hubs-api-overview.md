@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Introducción a la API de Centros de eventos
 
 Este artículo resume algunas de las API de cliente de .NET de los centros de eventos. Existen dos categorías: API de administración y de tiempo de ejecución. Las API de tiempo de ejecución están compuestas por todas las operaciones necesarias para enviar y recibir un mensaje. Las operaciones de administración le permiten administrar un estado de entidad de centros de eventos mediante la creación, actualización y eliminación de entidades.
 
-Los escenarios de supervisión abarcan la administración y el tiempo de ejecución. Para obtener documentación de referencia detallada sobre las API de .NET, consulte las referencias de la [biblioteca de clases .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx) y de la [API EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
+Los escenarios de supervisión abarcan la administración y el tiempo de ejecución. Para obtener documentación de referencia detallada sobre las API de .NET, vea las referencias [.NET del Bus de servicio](https://msdn.microsoft.com/library/azure/mt419900.aspx) y [API de EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
 
 ## API de administración
 
@@ -84,7 +84,7 @@ await client.SendAsync(data);
 ### Crear consumidor
 
 ```
-// Create the Event Hub client
+// Create the Event Hubs client
 EventHubClient eventHubClient = EventHubClient.Create(EventHubName);
 
 // Get the default consumer group
@@ -120,6 +120,7 @@ Estas API ofrecen resistencia a los procesos de trabajo que pueden dejar de esta
 ```
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
 // Use the EventData.Offset value for checkpointing yourself, this value is unique per partition.
+
 string eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
 string blobConnectionString = System.Configuration.ConfigurationManager.AppSettings["AzureStorageConnectionString"]; // Required for checkpoint/state
 
@@ -185,7 +186,7 @@ Para obtener más información acerca de los escenarios de los centros de evento
 
 A continuación se incluyen referencias de API de .NET:
 
-- [Referencia de Bus de servicio y API de .NET de los centros de eventos](https://msdn.microsoft.com/library/azure/mt419900.aspx)
+- [Referencias de la API de .NET de Centros de eventos y de Bus de servicio](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [Referencia de la API de host del procesador de eventos](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

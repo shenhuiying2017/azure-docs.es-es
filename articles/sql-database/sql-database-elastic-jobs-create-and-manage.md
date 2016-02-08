@@ -27,7 +27,7 @@
 
 ## Requisitos previos
 
-* Una suscripción de Azure. Para obtener una prueba gratuita, vea [Prueba gratuita de un mes](http://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure. Para obtener una prueba gratuita, vea [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
 * Grupo de bases de datos elásticas. Vea [Acerca de los grupos de bases de datos elásticas](sql-database-elastic-pool.md).
 * Instalación de componentes del servicio de trabajo de bases de datos elásticas. Vea [Instalación del servicio de trabajo de bases de datos elásticas](sql-database-elastic-jobs-service-installation.md).
 
@@ -115,4 +115,4 @@ Si se produce un error en un trabajo, puede encontrar un registro de su ejecuci�
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

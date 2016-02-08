@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/17/2015"
+   	ms.date="01/22/2016"
    	ms.author="larryfr"/>
 
 #Crear clústeres basados en Linux en HDInsight con la CLI de Azure
@@ -27,15 +27,15 @@ Las plantillas de Administración de recursos de Azure son documentos JSON que d
 
 Los pasos de este documento recorren el proceso de creación de un nuevo clúster de HDInsight mediante la CLI de Azure y una plantilla:
 
-> [AZURE.IMPORTANT]Los pasos de este documento usan el número predeterminado de nodos de trabajo (4) para un clúster de HDInsight. Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
+> [AZURE.IMPORTANT] Los pasos de este documento usan el número predeterminado de nodos de trabajo (4) para un clúster de HDInsight. Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
 >
 > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Requisitos previos
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- __CLI de Azure__ Para información sobre la instalación de la CLI, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md).
+- __CLI de Azure__ Para obtener información sobre la instalación de la CLI, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md).
 
 ##Iniciar sesión en su suscripción de Azure
 
@@ -84,7 +84,7 @@ Los siguientes pasos se deben realizar desde un símbolo del sistema, el shell o
 
         azure group create RESOURCEGROUPNAME LOCATION
     
-    > [AZURE.NOTE]Si el nombre de la ubicación contiene espacios, escríbalo entre comillas. Por ejemplo, "Centro-Sur de EE.UU."
+    > [AZURE.NOTE] Si el nombre de la ubicación contiene espacios, escríbalo entre comillas. Por ejemplo, "Centro-Sur de EE.UU."
 
 6. Utilice el siguiente comando para crear la implementación inicial de este grupo de recursos. Reemplace __PATHTOTEMPLATE__ por la ruta de acceso al archivo de plantilla __azuredeploy.json__. Reemplace __PATHTOPARAMETERSFILE__ por la ruta de acceso al archivo de plantilla __azuredeploy.parameters.json__. Reemplace __RESOURCEGROUPNAME__ por el nombre del grupo que creó en el paso anterior:
 
@@ -121,4 +121,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

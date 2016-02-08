@@ -131,7 +131,7 @@ Los valores y tipos permitidos son los siguientes:
 
 Para especificar un parámetro como opcional, establezca su defaultValue en una cadena vacía.
 
->[AZURE.NOTE]Todas las contraseñas, claves y otros secretos deben utilizar el tipo **secureString**. No se pueden leer los parámetros de plantilla con el tipo secureString después de la implementación de recursos.
+>[AZURE.NOTE] Todas las contraseñas, claves y otros secretos deben utilizar el tipo **secureString**. No se pueden leer los parámetros de plantilla con el tipo secureString después de la implementación de recursos.
 
 En el ejemplo siguiente se muestra cómo definir los parámetros.
 
@@ -168,6 +168,8 @@ En el ejemplo siguiente se muestra cómo definir los parámetros.
           "minValue": 1
        }
     }
+
+Para obtener información acerca de la especificación de valores de parámetros durante la implementación, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md/#parameter-file).
 
 ## Variables
 
@@ -225,7 +227,7 @@ En el ejemplo siguiente se muestra una variable que es un tipo JSON complejo y l
 
 ## Recursos
 
-En la sección de recursos, se define que los recursos se implementan o se actualizan. Aquí es donde la plantilla puede ser más complicada porque es preciso entender los tipos que se implementan para proporcionar los valores correctos. Para aprender gran parte de lo que necesita saber sobre proveedores de recursos, vea [Proveedores, regiones, versiones de API y esquemas del Administrador de recursos](resource-manager-supported-services.md).
+En la sección de recursos, se define que los recursos se implementan o se actualizan. Aquí es donde la plantilla puede ser más complicada porque es preciso entender los tipos que se implementan para proporcionar los valores correctos. Para aprender gran parte de lo que necesita saber sobre proveedores de recursos, consulte [Proveedores, regiones, versiones de API y esquemas del Administrador de recursos](resource-manager-supported-services.md).
 
 Defina recursos con la siguiente estructura:
 
@@ -252,11 +254,11 @@ Defina recursos con la siguiente estructura:
 | apiVersion | Sí | Versión de la API de REST que debe usar para crear el recurso. Para determinar los números de versión disponibles para un determinado tipo de recurso, consulte [Versiones de API compatibles](../resource-manager-supported-services/#supported-api-versions).
 | type | Sí | Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso que admite el proveedor de recursos.
 | name | Sí | Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986.
-| location | No | Ubicaciones geográficas compatibles del recurso proporcionado. Para determinar las ubicaciones disponibles, vea [Regiones admitidas](../resource-manager-supported-services/#supported-regions).
+| location | No | Ubicaciones geográficas compatibles del recurso proporcionado. Para determinar las ubicaciones disponibles, consulte [Regiones admitidas](../resource-manager-supported-services/#supported-regions).
 | etiquetas | No | Etiquetas asociadas al recurso.
 | comentarios | No | Notas para documentar los recursos de la plantilla
 | dependsOn | No | Recursos de los que depende el recurso que se está definiendo. Las dependencias entre los recursos se evalúan y los recursos se implementan en su orden dependiente. Cuando no hay recursos dependientes entre sí, se intenta implementarlos en paralelo. El valor puede ser una lista separada por comas de nombres de recursos o identificadores de recursos únicos.
-| propiedades | No | Opciones de configuración específicas de recursos. Los valores de las propiedades son exactamente los mismos valores que se especifican en el cuerpo de la solicitud de la operación de API de REST (método PUT) para crear el recurso. Para obtener vínculos a documentación del esquema de recursos o la API de REST, vea [Proveedores, regiones, versiones de API y esquemas del Administrador de recursos](resource-manager-supported-services.md).
+| propiedades | No | Opciones de configuración específicas de recursos. Los valores de las propiedades son exactamente los mismos valores que se especifican en el cuerpo de la solicitud de la operación de API de REST (método PUT) para crear el recurso. Para obtener vínculos a documentación del esquema de recursos o la API de REST, consulte [Proveedores, regiones, versiones de API y esquemas del Administrador de recursos](resource-manager-supported-services.md).
 | resources | No | Recursos secundarios que dependen del recurso que se está definiendo. Solo puede proporcionar los tipos de recursos que permite el esquema del recurso principal. El nombre completo del tipo de recurso secundario incluye el tipo de recurso principal, como **Microsoft.Web/sites/extensions**. La dependencia del recurso primario no está implícita; debe definir explícitamente esa dependencia. 
 
 
@@ -291,7 +293,7 @@ La sección de recursos contiene una matriz de los recursos para implementar. En
 
 
 
-En el ejemplo siguiente se muestra un recurso **Microsoft.Web/serverfarms** y un recurso **Microsoft.Web/Sites** con un recurso secundario **Extensions**: Observe que el sitio se ha marcado como dependiente de la granja de servidores ya que la granja de servidores debe existir antes para que se pueda implementar el sitio. Observe también que el recurso **Extensions** es un elemento secundario del sitio.
+En el ejemplo siguiente se muestra un recurso **Microsoft.Web/serverfarms** y un recurso **Microsoft.Web/sites** con un recurso secundario **Extensions**: Observe que el sitio se ha marcado como dependiente de la granja de servidores ya que la granja de servidores debe existir antes para que se pueda implementar el sitio. Observe también que el recurso **Extensions** es un elemento secundario del sitio.
 
     "resources": [
         {
@@ -470,4 +472,4 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
 - Para obtener un ejemplo en profundidad de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para ver los esquemas disponibles, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

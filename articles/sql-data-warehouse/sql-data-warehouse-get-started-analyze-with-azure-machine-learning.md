@@ -19,6 +19,7 @@
 # Análisis de datos con Aprendizaje automático de Azure
 Este tutorial le enseñará a crear un modelo de aprendizaje automático predictivo con Aprendizaje automático de Azure con sus datos de Almacenamiento de datos SQL de Azure. En este tutorial, crearemos una campaña de marketing dirigida para Adventure Works, una tienda de bicicletas, mediante la predicción de la probabilidad que existe de que un cliente compre una bicicleta.
 
+> [AZURE.VIDEO integrating-azure-machine-learning-with-azure-sql-data-warehouse]
 
 ## Requisitos previos
 Para seguir paso a paso este tutorial, necesita
@@ -139,4 +140,4 @@ Para obtener más información sobre la creación de modelos de aprendizaje auto
 [cargar manualmente los datos de ejemplo]: sql-data-warehouse-get-started-manually-load-samples.md
 [Creación de un Almacenamiento de datos SQL]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Administración de Bases de datos SQL de Azure con el Portal de Azure clásico" 
-	description="Aprenda a usar el Portal de Azure clásico para administrar una base de datos relacional en la nube mediante el Portal de Azure clásico." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Administración de Bases de datos SQL de Azure con el Portal de Azure clásico"
+	description="Aprenda a usar el Portal de Azure clásico para administrar una base de datos relacional en la nube mediante el Portal de Azure clásico."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.devlang="NA" 
-	ms.workload="data-management" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="NA" 
-	ms.date="09/11/2015" 
+<tags
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.workload="data-management"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.date="01/22/2016"
 	ms.author="sstein"/>
 
 
-# Administración de Bases de datos SQL de Azure con el Portal de Azure clásico
+# Administración de Bases de datos SQL de Azure con el Portal de Azure
 
 
 > [AZURE.SELECTOR]
@@ -25,16 +25,14 @@
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-El [Portal de Azure clásico][Classic Portal] le permite crear, supervisar y administrar servidores y Bases de datos SQL de Azure. En este artículo se verán las operaciones de base de datos que se pueden realizar mediante el Portal clásico.
-
->[AZURE.NOTE]Si no está familiarizado con el Portal de Azure clásico, este [recorrido en vídeo proporciona una introducción rápida][Azure Classic Portal Tour] de sus conceptos y características generales.
+El [Portal de Azure](https://portal.azure.com/) le permite crear, supervisar y administrar servidores lógicos y Bases de datos SQL de Azure. En este artículo se resumen algunas de las tareas más comunes.
 
 ![Información general de la base de datos](./media/sql-database-manage-portal/sqldatabase_annotated.png)
 
 ## 1\. Acciones de administración de bases de datos
 ![Acciones de administración de bases de datos](./media/sql-database-manage-portal/sqldatabase_actions.png)
 
-El Portal de Azure clásico proporciona un conjunto de acciones comunes de base de datos accesibles en la parte superior de una hoja de base de datos. Puede restaurar una base de datos a un momento anterior en el tiempo, abra una base de datos en Visual Studio, copiar una base de datos a un nuevo servidor y exportar la base de datos a una cuenta de Almacenamiento de Azure.
+El Portal de Azure proporciona un conjunto de acciones de base de datos comunes a las que se puede acceder en la parte superior de una hoja de la base de datos. Puede restaurar una base de datos a un momento anterior en el tiempo, abra una base de datos en Visual Studio, copiar una base de datos a un nuevo servidor y exportar la base de datos a una cuenta de Almacenamiento de Azure.
 
 - [Restauración de una base de datos SQL](sql-database-point-in-time-restore-tutorial-management-portal.md)
 - [Apertura de una base de datos SQL en Visual Studio](sql-database-connect-query.md)
@@ -54,7 +52,7 @@ Se pueden configurar Bases de datos SQL de Azure para que realicen un seguimient
 
 - [Auditoría de Base de datos SQL](sql-database-auditing-get-started.md)
 
-Bases de datos SQL de Azure también pueden configurarse para enmascarar los datos confidenciales a usuarios sin privilegios.
+Las bases de datos SQL de Azure también pueden configurarse para enmascarar los datos confidenciales a usuarios sin privilegios.
 
 - [Enmascaramiento de datos dinámicos](sql-database-dynamic-data-masking-get-started.md)
 
@@ -62,7 +60,7 @@ Bases de datos SQL de Azure también pueden configurarse para enmascarar los dat
 ## 4\. Replicación geográfica
 ![Replicación geográfica](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-Se pueden configurar Bases de datos SQL Azure para replicar asincrónicamente las transacciones confirmadas en una base de datos secundaria. La parte de la replicación geográfica en el Portal clásico permite seleccionar la región de Azure en la que le gustaría que residiera la base de datos secundaria.
+Se pueden configurar Bases de datos SQL Azure para replicar asincrónicamente las transacciones confirmadas en una base de datos secundaria. La parte de la replicación geográfica en el portal permite seleccionar la región de Azure en la que le gustaría que residiera la base de datos secundaria.
 
 - [Replicación geográfica](https://msdn.microsoft.com/library/azure/dn783447.aspx)
 
@@ -74,7 +72,7 @@ Se pueden configurar Bases de datos SQL Azure para replicar asincrónicamente la
 * [Base de datos SQL](sql-database-technical-overview.md)   
 * [Supervisión de Base de datos SQL de Azure mediante vistas de administración dinámica][]   
 * [Referencia de Transact-SQL (Base de datos SQL)][]
-  
+
   [Azure Classic Portal Tour]: https://go.microsoft.com/fwlink/?LinkID=522341
   [Classic Portal]: https://portal.azure.com
   [Azure part monitoring]: ../documentdb-monitor-accounts.md
@@ -87,7 +85,4 @@ Se pueden configurar Bases de datos SQL Azure para replicar asincrónicamente la
   [AzureDb Auditing]: http://azure.microsoft.com/documentation/articles/sql-database-auditing-get-started/
   [AzureDb datamasking]: http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/
 
- 
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

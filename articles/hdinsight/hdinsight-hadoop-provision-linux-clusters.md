@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="12/08/2015"
+   	ms.date="01/28/2016"
    	ms.author="nitinme"/>
 
 
@@ -24,7 +24,7 @@
 
 En este documento, obtendrá información sobre las diferentes maneras de crear un clúster de HDInsight basado en Linux en Azure, así como las configuraciones opcionales que se pueden usar con el clúster. HDInsight proporciona Apache Hadoop, Apache Storm y Apache HBase como servicios en la plataforma de nube de Azure.
 
-> [AZURE.NOTE]En este documento se proporcionan instrucciones sobre diferentes formas de crear un clúster. Si busca un enfoque rápido para crear un clúster, consulte [Introducción a HDInsight de Azure en Linux](../hdinsight-hadoop-linux-get-started.md).
+> [AZURE.NOTE] En este documento se proporcionan instrucciones sobre diferentes formas de crear un clúster. Si busca un enfoque rápido para crear un clúster, consulte [Introducción a HDInsight de Azure en Linux](../hdinsight-hadoop-linux-get-started.md).
 
 ## ¿Qué es un clúster de HDInsight?
 
@@ -154,9 +154,11 @@ De forma predeterminada, este contenedor tiene el mismo nombre que el del clúst
 
 Puede seleccionar el tamaño de los recursos de proceso usados por el clúster. Por ejemplo, si sabe que va a realizar las operaciones que necesitan una gran cantidad de memoria, es posible que quiera seleccionar un recurso de proceso con más memoria.
 
+>[AZURE.NOTE] Los nodos de clúster utilizados por el clúster no se consideran máquinas virtuales, ya que las imágenes de máquinas virtuales que se usan para los nodos son un detalle de implementación del servicio de HDInsight. Sin embargo, los núcleos de proceso utilizados por los nodos sí cuentan para el número total de núcleos de proceso disponibles para su suscripción. Puede ver el número de núcleos que se utilizarán en el clúster, así como el número de núcleos disponibles, en la sección de resumen de la hoja Plan de tarifa de nodos al crear un clúster de HDInsight.
+
 Los distintos tipos de clúster tienen tipos de nodos, número de nodos y tamaños de nodo diferentes. Por ejemplo, un tipo de clúster de Hadoop tiene dos _nodos principales_ y su valor predeterminado es de cuatro _nodos de datos_, mientras que un tipo de clúster Storm tiene dos _nodos nimbus_, tres _nodos zookeeper_ y su valor predeterminado es de cuatro _nodos de supervisor_.
 
-> [AZURE.IMPORTANT] Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
+> [AZURE.IMPORTANT] Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o al cambiar el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
 
 Al usar el Portal de vista previa de Azure para configurar el clúster, el tamaño de nodo se expone a través de la hoja __Plan de tarifas de nodo__ y también debe mostrar el costo asociado con los distintos tamaños de nodo.
 
@@ -172,7 +174,7 @@ Se usa para determinar la versión de HDInsight que usará este clúster. Para o
 
 ### Uso de redes virtuales de Azure
 
-Una [Red virtual de Azure](http://azure.microsoft.com/documentation/services/virtual-network/) permite crear una red segura y persistente que contenga los recursos que necesita para la solución. Una red virtual permite hacer lo siguiente:
+Una [Red virtual de Azure](https://azure.microsoft.com/documentation/services/virtual-network/) permite crear una red segura y persistente que contenga los recursos que necesita para la solución. Una red virtual permite hacer lo siguiente:
 
 * Conectar recursos en la nube en una red privada (solo en la nube)
 
@@ -184,7 +186,7 @@ Una [Red virtual de Azure](http://azure.microsoft.com/documentation/services/vir
     | -------------------------- | --------------------------- |
     | La configuración sitio a sitio permite conectar varios recursos de su centro de datos a la red virtual de Azure usando una VPN de hardware o el servicio de enrutamiento y acceso remoto.<br />![Diagrama de la configuración de sitio a sitio](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) | La configuración punto a sitio permite conectar un recurso específico a la red virtual de Azure usando una VPN de software.<br />![Diagrama de la configuración de punto a sitio](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
 
-Para obtener más información sobre el uso de HDInsight con una red virtual, como por ejemplo, los requisitos de configuración específicos de la red virtual, consulte [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) (Ampliar las capacidades de HDInsight con una red virtual de Azure).
+Para obtener información sobre el uso de HDInsight con una red virtual, incluidos los requisitos de configuración específicos de la red virtual, consulte [Extensión de las funcionalidades de HDInsight con Red virtual de Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ### Tienda de metadatos
 
@@ -215,9 +217,8 @@ En este artículo, aprendió información básica acerca de cómo crear un clús
 | [Portal de vista previa de Azure](hdinsight-hadoop-create-linux-clusters-portal.md) | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ |
 | [CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ |
-| [cURL](hdinsight-hadoop-create-linux-clusters-curl.md) | &nbsp; | ✔ | ✔ | &nbsp; | ✔ | ✔ |
-| [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
-
+| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) | &nbsp; | ✔ | ✔ | &nbsp; | ✔ | ✔ |
+| [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 
 
 [hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
@@ -267,4 +268,4 @@ En este artículo, aprendió información básica acerca de cómo crear un clús
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Uso de Sqoop con HDInsight"
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -3,7 +3,7 @@
 	description="Administración del control de acceso basado en rol con la API de REST"
 	services="active-directory"
 	documentationCenter="na"
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="rest-api"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="inhenk"/>
+	ms.date="01/25/2016"
+	ms.author="kgremban"/>
 
 # Administración del control de acceso basado en rol con la API de REST
 
@@ -27,31 +27,36 @@
 
 Proporciona una lista todas las asignaciones de roles en el ámbito y los ámbitos secundarios especificados.
 
-Para obtener una lista de las asignaciones de roles, debe tener acceso a la operación `Microsoft.Authorization/roleAssignments/read` *en el ámbito*. Se concede acceso a esta operación a todos los roles integrados. Para más información sobre las asignaciones de roles y cómo administrar el acceso para recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para obtener una lista de las asignaciones de roles, debe tener acceso a la operación `Microsoft.Authorization/roleAssignments/read` en el ámbito. Se concede acceso a esta operación a todos los roles integrados. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
-| **Método** | **URI de solicitud** |
-|--------|-------------|
-| GET | `https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&filter={filter}` |
+Use el método **GET** con el identificador URI siguiente:
+
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&filter={filter}
+
+Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
+
+Reemplace *{scope}* por el ámbito para el que desee obtener una lista de asignaciones de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
+
+| Level | *{Scope}* |
+|-------|-----------|
+| La suscripción | /subscriptions/{id. de suscripción} |
+| El grupos de recursos | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1 |
+| Recurso | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
 
 Reemplace *{api-version}* por 2015-07-01.
 
 Reemplace *{filter}* por la condición que desea aplicar para filtrar la lista de asignaciones de roles. Se admiten las condiciones siguientes.
 
-| | Filtrar |
-|-----------------------------------------------------------------------------------------------------------------|--------|
-| Para obtener una lista de las asignaciones de roles para únicamente el ámbito especificado, sin incluir las asignaciones de roles en ámbitos secundarios | `atScope()` <br/> Por ejemplo, <br/> `&filter=atScope()` |
-| Para obtener una lista de las asignaciones de roles para solo un usuario, un grupo o una aplicación determinados | `principalId%20eq%20'{objectId}'` <br/> Reemplace *{objectId}* por el valor objectId de Azure AD del usuario, el grupo o la entidad de servicio. <br/> Por ejemplo, <br/> `&filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
-| Para obtener una lista de las asignaciones de roles solo para un usuario específico, incluidos los asignados a grupos de los que el usuario forme parte | `assignedTo('{objectId}')` <br/> Reemplace *{objectId}* por el valor objectId de Azure AD del usuario. <br/> Por ejemplo, <br/> `&filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
 
-Reemplace *{scope}* por el ámbito para el que desee obtener una lista de asignaciones de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
+| Condición | *{Filter}* | Sustituya |
+|-----------|------------|---------|
+| Para obtener una lista de las asignaciones de roles para únicamente el ámbito especificado, sin incluir las asignaciones de roles en ámbitos secundarios | `atScope()` | |
+| Para obtener una lista de las asignaciones de roles para solo un usuario, un grupo o una aplicación determinados | `principalId%20eq%20'{objectId}'` | Reemplace *{objectId}* por el valor objectId de Azure AD del usuario, grupo o entidad de servicio. Por ejemplo, `&filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
+| Para obtener una lista de las asignaciones de roles solo para un usuario específico, incluidos los asignados a grupos de los que el usuario forme parte | `assignedTo('{objectId}')` | Reemplace *{objectId}* por el valor objectId de Azure AD del usuario. Por ejemplo, `&filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
 
-| | **Ámbito** |
-|----------------|-------|
-| La suscripción | /subscriptions/{id. de suscripción} |
-| El grupos de recursos | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1 |
-| Recurso | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
+
 
 ### Response
 
@@ -84,25 +89,27 @@ Código de estado: 200
 
 Obtiene información sobre una única asignación de roles especificada por el identificador de asignación de roles.
 
-Para obtener información sobre una asignación de roles, debe tener acceso a la operación `Microsoft.Authorization/roleAssignments/read`. Se concede acceso a esta operación a todos los roles integrados. Para más información sobre las asignaciones de roles y cómo administrar el acceso para recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para obtener información sobre una asignación de roles, debe tener acceso a la operación `Microsoft.Authorization/roleAssignments/read`. Se concede acceso a esta operación a todos los roles integrados. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
-| **Método** | **URI de solicitud** |
-|--------|-------------|
-| GET | `https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}` |
+Use el método **GET** con el identificador URI siguiente:
 
-Reemplace *{api-version}* por 2015-07-01.
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
-Reemplace *{role-assignment-id}* por el identificador GUID de la asignación de roles.
+Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
 Reemplace *{scope}* por el ámbito para el que desee obtener una lista de asignaciones de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
 
-| | **Ámbito** |
-|----------------|-------|
+| Level | *{Scope}* |
+|-------|-----------|
 | La suscripción | /subscriptions/{id. de suscripción} |
 | El grupos de recursos | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1 |
 | Recurso | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
+
+Reemplace *{role-assignment-id}* por el identificador GUID de la asignación de roles.
+
+Reemplace *{api-version}* por 2015-07-01.
 
 ### Response
 
@@ -130,27 +137,27 @@ Código de estado: 200
 
 Cree una asignación de roles en el ámbito especificado para la entidad de seguridad especificada que concede el rol especificado.
 
-Para crear una asignación de roles, debe tener acceso a la operación `Microsoft.Authorization/roleAssignments/write`. Entre los roles integrados, *solo se concede acceso a esta operación a Propietario y Administrador de acceso de usuarios*. Para más información sobre las asignaciones de roles y cómo administrar el acceso para recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para crear una asignación de roles, debe tener acceso a la operación `Microsoft.Authorization/roleAssignments/write`. Entre los roles integrados, solo se concede acceso a esta operación a *Propietario* y *Administrador de acceso de usuarios*. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
-| **Método** | **URI de solicitud** |
-|--------|-------------|
-| PUT | `https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}` |
+Use el método **PUT** con el identificador URI siguiente:
 
-Reemplace *{api-version}* por 2015-07-01.
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
-Reemplace *{role-assignment-id}* por un nuevo GUID. Se usará como identificador GUID de la nueva asignación de roles.
+Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
-Reemplace *{scope}* por el ámbito en el que desee crear las asignaciones de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
+Reemplace *{scope}* por el ámbito en el que desee crear las asignaciones de roles. Cuando se crea una asignación de roles en un ámbito primario, todos los ámbitos secundarios heredan la misma asignación de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
 
-| | **Ámbito** |
-|----------------|-------|
+| Level | *{Scope}* |
+|-------|-----------|
 | La suscripción | /subscriptions/{id. de suscripción} |
 | El grupos de recursos | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1 |
 | Recurso | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
 
-Cuando se crea una asignación de roles en un ámbito primario, todos los ámbitos secundarios heredan la misma asignación de roles.
+Reemplace *{role-assignment-id}* por un nuevo GUID. Se usará como identificador GUID de la nueva asignación de roles.
+
+Reemplace *{api-version}* por 2015-07-01.
 
 Para el cuerpo de la solicitud, proporcione los valores en el formato siguiente:
 
@@ -165,8 +172,8 @@ Para el cuerpo de la solicitud, proporcione los valores en el formato siguiente:
 ```
 
 | Nombre del elemento | Obligatorio | Tipo | Descripción |
-|------------------|----------|--------|-------------------------------------------------------------------------------------------------------------|
-| roleDefinitionId | Sí | String | Identificador del rol que se va a asignar. El formato del identificador es: <br/> `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+|------------------|----------|--------|-------------|
+| roleDefinitionId | Sí | String | Identificador del rol que se va a asignar. El formato del identificador es: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
 | principalId | Sí | String | objectId de la entidad de seguridad de Azure AD (usuario, grupo o entidad de servicio) a la que se va a asignar el rol. |
 
 ### Response
@@ -195,25 +202,27 @@ Código de estado: 201
 
 Elimine una asignación de roles en el ámbito especificado.
 
-Para eliminar una asignación de roles, debe tener acceso a la operación `Microsoft.Authorization/roleAssignments/delete`. Entre los roles integrados, *solo se concede acceso a esta operación a Propietario y Administrador de acceso de usuarios*. Para más información sobre las asignaciones de roles y cómo administrar el acceso para recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para eliminar una asignación de roles, debe tener acceso a la operación `Microsoft.Authorization/roleAssignments/delete`. Entre los roles integrados, solo se concede acceso a esta operación a *Propietario* y *Administrador de acceso de usuarios*. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
-| **Método** | **URI de solicitud** |
-|--------|-------------|
-| DELETE | `https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}` |
+Use el método **DELETE** con el identificador URI siguiente:
 
-Reemplace *{api-version}* por 2015-07-01.
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
-Reemplace *{role-assignment-id}* por el identificador GUID de la asignación de roles.
+Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
 Reemplace *{scope}* por el ámbito en el que desee crear las asignaciones de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
 
-| | **Ámbito** |
-|----------------|-------|
+| Level | *{Scope}* |
+|-------|-----------|
 | La suscripción | /subscriptions/{id. de suscripción} |
 | El grupos de recursos | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1 |
 | Recurso | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
+
+Reemplace *{role-assignment-id}* por el identificador GUID de la asignación de roles.
+
+Reemplace *{api-version}* por 2015-07-01.
 
 ### Response
 
@@ -241,30 +250,34 @@ Código de estado: 200
 
 Proporciona una lista de todos los roles disponibles para asignarse en el ámbito especificado.
 
-Para obtener una lista de roles, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/read` en el ámbito. Se concede acceso a esta operación a todos los roles integrados. Para más información sobre las asignaciones de roles y cómo administrar el acceso para recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para obtener una lista de roles, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/read` en el ámbito. Se concede acceso a esta operación a todos los roles integrados. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
-| **Método** | **URI de solicitud** |
-|--------|-------------|
-| GET | `https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&filter={filter}` |
+Use el método **GET** con el identificador URI siguiente:
+
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&filter={filter}
+
+Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
+
+Reemplace *{scope}* por el ámbito para el que desee obtener una lista de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
+
+| Level | *{Scope}* |
+|-------|-----------|
+| La suscripción | /subscriptions/{id. de suscripción} |
+| El grupos de recursos | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1 |
+| Recurso | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
 
 Reemplace *{api-version}* por 2015-07-01.
 
 Reemplace *{filter}* por la condición que desea aplicar para filtrar la lista de roles. Se admiten las condiciones siguientes.
 
-| | Filtrar |
-|--------------------------------------------------------------------------------------------|--------|
-| Para obtener una lista de los roles disponibles para asignarse en el ámbito especificado y cualquiera de sus ámbitos secundarios | `atScopeAndBelow()` <br/> Por ejemplo, <br/> `&filter=atScopeAndBelow()` |
-| Para buscar un rol con un nombre para mostrar exacto | `roleName%20eq%20'{role-display-name}'` <br/> Reemplace *{rol-display-name}* por la forma con codificación URL del nombre para mostrar exacto del rol. <br/> Por ejemplo, <br/> `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+| Condición | *{Filter}* | Sustituya |
+|-----------|------------|---------|
+| Para obtener una lista de los roles disponibles para asignarse en el ámbito especificado y cualquiera de sus ámbitos secundarios | `atScopeAndBelow()` | |
+| Para buscar un rol con un nombre para mostrar exacto | `roleName%20eq%20'{role-display-name}'` | Reemplace *{rol-display-name}* por la forma con codificación URL del nombre para mostrar exacto del rol. Por ejemplo, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
-Reemplace *{scope}* por el ámbito para el que desee obtener una lista de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
 
-| | **Ámbito** |
-|----------------|-------|
-| La suscripción | /subscriptions/{id. de suscripción} |
-| El grupos de recursos | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1 |
-| Recurso | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
 
 ### Response
 
@@ -327,29 +340,29 @@ Código de estado: 200
 
 ```
 
-### Obtención de información sobre un rol
+## Obtención de información sobre un rol
 
 Obtiene información sobre un único rol especificado por el identificador de la definición de roles. Para obtener información sobre un solo rol utilizando su nombre para mostrar, consulte Lista de todos los roles y el filtro roleName.
 
-Para obtener información sobre un rol, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/read`. Se concede acceso a esta operación a todos los roles integrados. Para más información sobre las asignaciones de roles y cómo administrar el acceso para recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para obtener información sobre un rol, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/read`. Se concede acceso a esta operación a todos los roles integrados. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
-| **Método** | **URI de solicitud** |
-|--------|-------------|
-| GET | `https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}` |
+Use el método **GET** con el identificador URI siguiente:
 
-Reemplace *{api-version}* por 2015-07-01.
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
-Reemplace *{role-definition-id}* por el identificador GUID de la definición de roles.
+Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
 Reemplace *{scope}* por el ámbito para el que desee obtener una lista de asignaciones de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
 
-| | **Ámbito** |
-|----------------|-------|
+| Level | *{Scope}* |
+|-------|-----------|
 | La suscripción | /subscriptions/{id. de suscripción} |
 | El grupos de recursos | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1 |
 | Recurso | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
+
+Reemplace *{role-definition-id}* por el identificador GUID de la definición de roles. Reemplace *{api-version}* por 2015-07-01.
 
 ### Response
 
@@ -415,25 +428,27 @@ Código de estado: 200
 ## Creación de un rol personalizado
 Cree un rol personalizado.
 
-Para crear un rol personalizado, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/write` en todos sus `AssignableScopes`. Entre los roles integrados, *solo se concede acceso a esta operación a Propietario y Administrador de acceso de usuarios*. Para más información sobre las asignaciones de roles y cómo administrar el acceso para recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para crear un rol personalizado, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/write` en todos sus `AssignableScopes`. Entre los roles integrados, solo se concede acceso a esta operación a *Propietario* y *Administrador de acceso de usuarios*. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
-| **Método** | **URI de solicitud** |
-|--------|-------------|
-| PUT | `https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}` |
+Use el método **PUT** con el identificador URI siguiente:
 
-Reemplace *{api-version}* por 2015-07-01.
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
-Reemplace *{role-definition-id}* por un nuevo GUID. Se usará como identificador GUID del nuevo rol personalizado.
+Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
 Reemplace *{scope}* por el primer elemento *AssignableScope* del rol personalizado. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles.
 
-| | **Ámbito** |
-|----------------|-------|
+| Level | *{Scope}* |
+|-------|-----------|
 | La suscripción | /subscriptions/{id. de suscripción} |
 | El grupos de recursos | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1 |
 | Recurso | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
+
+Reemplace *{role-definition-id}* por un nuevo GUID. Se usará como identificador GUID del nuevo rol personalizado.
+
+Reemplace *{api-version}* por 2015-07-01.
 
 Para el cuerpo de la solicitud, proporcione los valores en el formato siguiente:
 
@@ -469,7 +484,7 @@ Para el cuerpo de la solicitud, proporcione los valores en el formato siguiente:
 ```
 
 | Nombre del elemento | Obligatorio | Tipo | Descripción |
-|-----------------------------------|----------|----------|------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------|----------|------|-------------|
 | name | Sí | String | Identificador GUID del rol personalizado. |
 | properties.roleName | Sí | String | Nombre para mostrar del rol personalizado. Tamaño máximo: 128 caracteres. |
 | properties.description | No | String | Descripción del rol personalizado. Tamaño máximo: 1024 caracteres. |
@@ -523,25 +538,27 @@ Código de estado: 201
 
 Modifique un rol personalizado.
 
-Para modificar un rol personalizado, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/write` en todos sus `AssignableScopes`. Entre los roles integrados, *solo se concede acceso a esta operación a Propietario y Administrador de acceso de usuarios*. Para más información sobre las asignaciones de roles y cómo administrar el acceso para recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para modificar un rol personalizado, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/write` en todos sus `AssignableScopes`. Entre los roles integrados, solo se concede acceso a esta operación a *Propietario* y *Administrador de acceso de usuarios*. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
-| **Método** | **URI de solicitud** |
-|--------|-------------|
-| PUT | `https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}` |
+Use el método **PUT** con el identificador URI siguiente:
 
-Reemplace *{api-version}* por 2015-07-01.
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
-Reemplace *{role-definition-id}* por el identificador GUID del rol personalizado que se va a actualizar.
+Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
 Reemplace *{scope}* por el primer elemento *AssignableScope* del rol personalizado. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
 
-| | **Ámbito** |
-|----------------|-------|
+| Level | *{Scope}* |
+|-------|-----------|
 | La suscripción | /subscriptions/{id. de suscripción} |
 | El grupos de recursos | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1 |
 | Recurso | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
+
+Reemplace *{role-definition-id}* por el identificador GUID del rol personalizado que se va a actualizar.
+
+Reemplace *{api-version}* por 2015-07-01.
 
 Para el cuerpo de la solicitud, proporcione los valores en el formato siguiente:
 
@@ -577,7 +594,7 @@ Para el cuerpo de la solicitud, proporcione los valores en el formato siguiente:
 ```
 
 | Nombre del elemento | Obligatorio | Tipo | Descripción |
-|-----------------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------|----------|------|-------------|
 | name | Sí | String | Identificador GUID del rol personalizado que se va a actualizar. |
 | properties.roleName | Sí | String | Nombre para mostrar del rol personalizado actualizado. |
 | properties.description | No | String | Descripción del rol personalizado actualizado. |
@@ -631,25 +648,27 @@ Código de estado: 201
 
 Elimine un rol personalizado.
 
-Para eliminar un rol personalizado, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/delete` en todos sus `AssignableScopes`. Entre los roles integrados, solo se concede acceso a esta operación a Propietario y Administrador de acceso de usuarios. Para más información sobre las asignaciones de roles y cómo administrar el acceso para recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
+Para eliminar un rol personalizado, debe tener acceso a la operación `Microsoft.Authorization/roleDefinitions/delete` en todos sus `AssignableScopes`. Entre los roles integrados, solo se concede acceso a esta operación a *Propietario* y *Administrador de acceso de usuarios*. Para más información sobre las asignaciones de roles y cómo administrar el acceso a los recursos de Azure, consulte [Control de acceso basado en rol de Azure](role-based-access-control-configure.md).
 
 ### Solicitud
 
-| **Método** | **URI de solicitud** |
-|--------|-------------|
-| DELETE | `https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}` |
+Use el método **DELETE** con el identificador URI siguiente:
 
-Reemplace *{api-version}* por 2015-07-01.
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
-Reemplace *{role-definition-id}* por el identificador GUID de definición de roles del rol personalizado que se va a eliminar.
+Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
 Reemplace *{scope}* por el ámbito en el que desee eliminar la definición de roles. En los ejemplos siguientes, se muestra cómo especificar el ámbito para los distintos niveles:
 
-| | **Ámbito** |
-|----------------|-------|
+| Level | *{Scope}* |
+|-------|-----------|
 | La suscripción | /subscriptions/{id. de suscripción} |
 | El grupos de recursos | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1 |
 | Recurso | /subscriptions/{id. de suscripción}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
+
+Reemplace *{role-definition-id}* por el identificador GUID de definición de roles del rol personalizado que se va a eliminar.
+
+Reemplace *{api-version}* por 2015-07-01.
 
 ### Response
 
@@ -692,4 +711,4 @@ Código de estado: 200
 
 ```
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

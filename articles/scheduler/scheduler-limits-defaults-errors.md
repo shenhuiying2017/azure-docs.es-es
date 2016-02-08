@@ -49,13 +49,7 @@ Por ejemplo, puede producirse un error HTTP 404 por diversos motivos, por lo que
 |ConflictError|Conflicto (409)|Se produjo un conflicto que impide completar la operación.|
 |TemporaryRedirect|Redirección temporal (307)|El objeto solicitado no está disponible. Se puede obtener un URI temporal para la nueva ubicación del objeto del campo de ubicación de la respuesta. Puede repetir la solicitud original en el nuevo URI.|
 
-Las operaciones de API pueden devolver también información adicional de error definida por el servicio de administración. Esta información de error adicional se devuelve en el cuerpo de la respuesta. El cuerpo de la respuesta de error sigue el formato básico que se muestra a continuación.
-
-		<?xml version="1.0" encoding="utf-8"?>  
-		<Error>  
-			<Code>string-code</Code>  
-			<Message>detailed-error-message</Message>  
-		</Error>  
+Las operaciones de API pueden devolver también información adicional de error definida por el servicio de administración. Esta información de error adicional se devuelve en el cuerpo de la respuesta.
 
 ## Otras referencias
 
@@ -68,7 +62,7 @@ Las operaciones de API pueden devolver también información adicional de error 
 
  [Planes y facturación en Programador de Azure](scheduler-plans-billing.md)
 
- [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/dn528946)
+ [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Referencia de cmdlets de PowerShell de Programador de Azure](scheduler-powershell-reference.md)
 
@@ -78,4 +72,4 @@ Las operaciones de API pueden devolver también información adicional de error 
  
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

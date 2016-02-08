@@ -20,7 +20,7 @@
 
 # Uso de herramientas de BI con Apache Spark en HDInsight de Azure (Windows)
 
-> [AZURE.NOTE]HDInsight ofrece ahora clústeres Spark en Linux. Para obtener información sobre cómo usar las herramientas de BI con clústeres Spark en HDInsight Linux, vea [Uso de herramientas de BI con Apache Spark en HDInsight de Azure (Linux)](hdinsight-apache-spark-use-bi-tools.md).
+> [AZURE.NOTE] HDInsight ofrece ahora clústeres Spark en Linux. Para obtener información sobre cómo usar las herramientas de BI con clústeres Spark en HDInsight Linux, vea [Uso de herramientas de BI con Apache Spark en HDInsight de Azure (Linux)](hdinsight-apache-spark-use-bi-tools.md).
 
 Obtenga información sobre cómo usar Apache Spark en HDInsight de Azure para hacer lo siguiente:
 
@@ -31,7 +31,7 @@ Obtenga información sobre cómo usar Apache Spark en HDInsight de Azure para ha
 
 Debe tener lo siguiente:
 
-- Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Un clúster Apache Spark. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-provision-clusters.md).
 - Un equipo con el controlador ODBC de Microsoft Spark instalado (necesario para que Spark en HDInsight trabaje con Tableau). Puede instalar el controlador desde [aquí](http://go.microsoft.com/fwlink/?LinkId=616229).
 - Herramientas de BI como [Power BI](http://www.powerbi.com/) o [Tableau Desktop](http://www.tableau.com/products/desktop). Puede obtener una suscripción de vista previa gratuita de Power BI en [http://www.powerbi.com/](http://www.powerbi.com/).
@@ -46,7 +46,7 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 
 2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, luego, en la hoja **Panel de clúster**, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
 
-	> [AZURE.NOTE]También puede comunicarse con el equipo Jupyter Notebook en el clúster si abre la siguiente dirección URL en el explorador. Reemplace __CLUSTERNAME__ por el nombre del clúster:
+	> [AZURE.NOTE] También puede comunicarse con el equipo Jupyter Notebook en el clúster si abre la siguiente dirección URL en el explorador. Reemplace __CLUSTERNAME__ por el nombre del clúster:
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -58,7 +58,7 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 
 	![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-use-bi-tools-v1/hdispark.note.jupyter.notebook.name.png "Proporcionar un nombre para el cuaderno")
 
-4. Importe los módulos necesarios y cree los contextos Spark y Hive. Pegue el siguiente fragmento de código en una celda vacía y presione **MAYÚS + ENTRAR**.
+4. Importe los módulos necesarios y cree los contextos Spark y Hive. Pegue el siguiente fragmento en una celda vacía y presione **MAYÚS + ENTRAR**.
 
 		from pyspark import SparkContext
 		from pyspark.sql import *
@@ -214,4 +214,4 @@ Una vez que haya guardado los datos como tabla de Hive, puede usar Power BI para
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

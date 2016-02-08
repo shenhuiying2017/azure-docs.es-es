@@ -36,7 +36,7 @@ Los contenidos como chats, comentarios y publicaciones pueden almacenarse en Doc
 
 Las aplicaciones que se integran con varias redes sociales deben responder a los esquemas cambiantes de estas redes. Como los datos se indizan automáticamente de forma predeterminada en DocumentDB, los datos están listos para ser consultados en cualquier momento. Por lo tanto, estas aplicaciones tienen la flexibilidad para recuperar las proyecciones en función de sus necesidades respectivas.
 
-Muchas de las aplicaciones sociales se ejecutan a escala global y pueden presentar patrones de uso impredecibles. La flexibilidad en el escalado del almacén de datos es esencial, ya que el nivel de la aplicación se escala para satisfacer la demanda de uso. Es posible escalar horizontalmente mediante la adición de particiones de datos adicionales a una cuenta de DocumentDB. Además, también puede crear cuentas adicionales de DocumentDB en varias regiones. Para ver la disponibilidad del servicio de DocumentDB por regiones, consulte [Regiones de Azure](http://azure.microsoft.com/regions/#services).
+Muchas de las aplicaciones sociales se ejecutan a escala global y pueden presentar patrones de uso impredecibles. La flexibilidad en el escalado del almacén de datos es esencial, ya que el nivel de la aplicación se escala para satisfacer la demanda de uso. Es posible escalar horizontalmente mediante la adición de particiones de datos adicionales a una cuenta de DocumentDB. Además, también puede crear cuentas adicionales de DocumentDB en varias regiones. Para ver la disponibilidad del servicio de DocumentDB por regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/#services).
 
 ## Datos del catálogo
 Entre los escenarios de uso de los datos de catálogo se encuentra el almacenamiento y la consulta de un conjunto de atributos para entidades como personas, lugares y productos. Algunos ejemplos de datos de catálogo son cuentas de usuario, catálogos de productos, registros de dispositivo para Internet de las cosas y sistemas de lista de materiales. Los atributos de estos datos pueden variar y cambiar con el tiempo para satisfacer los requisitos de la aplicación.
@@ -68,7 +68,7 @@ Para obtener más información sobre las posibilidades de Azure para IoT, consul
 
 ## Pasos siguientes
  
-Para empezar a usar DocumentDB, puede crear una [cuenta](http://azure.microsoft.com/pricing/free-trial/) y, a continuación, seguir nuestra [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para obtener información sobre DocumentDB y buscar la información que necesita.
+Para empezar a usar DocumentDB, puede crear una [cuenta](https://azure.microsoft.com/pricing/free-trial/) y, a continuación, seguir nuestra [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para obtener información sobre DocumentDB y buscar la información que necesita.
 
 O bien, si desea leer más acerca de los usuarios que emplean DocumentDB, tiene a su disposición los siguientes testimonios de clientes:
 
@@ -79,4 +79,4 @@ O bien, si desea leer más acerca de los usuarios que emplean DocumentDB, tiene 
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). El almacén del futuro se ejecuta con la rapidez en la búsqueda y la sencillez en el flujo de datos.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

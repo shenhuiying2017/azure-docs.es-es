@@ -44,9 +44,9 @@ Existen cuatro fases principales para configurar este entorno de prueba de nube 
 3.	Creación de la conexión VPN de red virtual a red virtual.
 4.	Configuración de DC2. 
 
-Si todavía no dispone de una suscripción a Azure, puede registrarse para obtener una evaluación gratuita en [Probar Azure](http://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si todavía no dispone de una suscripción a Azure, puede registrarse para obtener una evaluación gratuita en [Probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
->[AZURE.NOTE]Las máquinas virtuales y las puertas de enlace de redes virtuales en Azure incurren en un coste económico constante cuando se están ejecutando. Este costo se factura en su prueba gratuita, la suscripción de MSDN o la suscripción de pago. Para reducir el coste de la ejecución de este entorno de prueba cuando no lo esté usando, consulte [Minimización de los costes de este entorno](#costs) en este artículo para obtener más información.
+>[AZURE.NOTE] Las máquinas virtuales y las puertas de enlace de redes virtuales en Azure incurren en un coste económico constante cuando se están ejecutando. Este costo se factura en su prueba gratuita, la suscripción de MSDN o la suscripción de pago. Para reducir el coste de la ejecución de este entorno de prueba cuando no lo esté usando, consulte [Minimización de los costes de este entorno](#costs) en este artículo para obtener más información.
 
 
 ## Fase 1: configuración de la red virtual TestLab
@@ -231,7 +231,7 @@ Configurar las siguientes cargas de trabajo en la red virtual TestVNET:
 
 Para minimizar el coste de la ejecución de las máquinas virtuales en este entorno, realice las pruebas y las demostraciones necesarias tan pronto como sea posible y, a continuación, elimínelas o apague las máquinas virtuales cuando no las esté utilizando. Por ejemplo, podría utilizar la automatización de Azure y un Runbook para apagar automáticamente las máquinas virtuales en las redes virtuales TestLab y Test\_VNET al final de cada día laborable. Para obtener información, consulte [Introducción a la automatización de Azure](../automation-create-runbook-from-samples.md). Cuando vuelva a iniciar las máquinas virtuales en la subred de la red corporativa, inicie en primer lugar DC1.
 
-Una puerta de enlace VPN de Azure se implementa como un conjunto de dos máquinas virtuales de Azure que incurren en un coste económico continuo. Para obtener más información, consulte [Precios: red virtual](http://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar el coste de las dos puertas de enlace VPN (una para TestLab y otra para TestVNET), cree el entorno de prueba y realice las pruebas y demostraciones necesarias tan rápido como sea posible o elimine las puertas de enlace con estos pasos.
+Una puerta de enlace VPN de Azure se implementa como un conjunto de dos máquinas virtuales de Azure que incurren en un coste económico continuo. Para obtener más información, consulte [Precios: red virtual](https://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar el coste de las dos puertas de enlace VPN (una para TestLab y otra para TestVNET), cree el entorno de prueba y realice las pruebas y demostraciones necesarias tan rápido como sea posible o elimine las puertas de enlace con estos pasos.
  
 1.	En el Portal de administración de Azure en el equipo local, haga clic en **Redes** en el panel izquierdo, después en **TestLab** y, a continuación, haga clic en **Panel**.
 2.	En la barra de tareas, haga clic en **Eliminar puerta de enlace**. Haga clic en **Sí** cuando se le solicite. Espere hasta que se elimine la puerta de enlace y su estado cambie a **No se ha creado la puerta de enlace**.
@@ -266,4 +266,4 @@ A continuación, configure la clave previamente compartida para que ambas puerta
 A continuación, en la página Red del Portal de administración de Azure, haga clic en la red virtual **TestLab** y, a continuación, haga clic en **Conectar** en la barra de tareas. Espere hasta que la red virtual TestLab muestre un estado conectado a la red local TestVNET.
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

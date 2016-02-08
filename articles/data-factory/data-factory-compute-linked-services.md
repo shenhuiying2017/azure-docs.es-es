@@ -24,11 +24,10 @@ En este artículo se explican distintos entornos de procesos que se pueden usar 
 
 En este tipo de configuración, el entorno de procesos está totalmente administrado por el servicio Factoría de datos de Azure. El servicio Factoría de datos lo crea automáticamente antes de que se envíe un trabajo para procesar los datos y que se quite cuando finalice el trabajo. Puede crear un servicio vinculado para el entorno de procesos a petición, configurarlo y controlar la configuración granular para la ejecución del trabajo, la administración del clúster y las acciones de arranque.
 
-> [AZURE.NOTE]La configuración a petición solo se admite actualmente para los clústeres de HDInsight de Azure.
+> [AZURE.NOTE] La configuración a petición solo se admite actualmente para los clústeres de HDInsight de Azure.
 
 ## Servicio vinculado a petición de HDInsight de Azure
-
-El servicio Factoría de datos de Azure crea el clúster de HDInsight a petición para procesar los datos. El clúster se crea en la misma región que la de la cuenta de almacenamiento (propiedad linkedServiceName en JSON) asociada al clúster.
+El servicio Factoría de datos de Azure crea automáticamente un clúster de HDInsight basado en Windows/Linux a petición para procesar los datos. El clúster se crea en la misma región que la de la cuenta de almacenamiento (propiedad linkedServiceName en JSON) asociada al clúster.
 
 Tenga en cuenta los siguientes puntos **importantes** acerca del servicio vinculado de HDInsight a petición:
 
@@ -36,28 +35,49 @@ Tenga en cuenta los siguientes puntos **importantes** acerca del servicio vincul
 - Los registros de trabajos que se ejecutan en un clúster de HDInsight a petición se copian en la cuenta de almacenamiento asociada al clúster de HDInsight. Puede tener acceso a estos registros desde el Portal de Azure clásico en la hoja **Detalles de ejecución de la actividad**. Consulte el artículo [Supervisión y administración de canalizaciones](data-factory-monitor-manage-pipelines.md) para obtener más información.
 - Se le cobrará solo por el tiempo en el que el clúster de HDInsight esté en ejecución y realizando trabajos.
 
-> [AZURE.IMPORTANT]Normalmente se tarda más de **15 minutos** en aprovisionar un clúster de HDInsight a petición de Azure.
+> [AZURE.IMPORTANT] Normalmente se tarda más de **15 minutos** en aprovisionar un clúster de HDInsight a petición de Azure.
 
 ### Ejemplo
+En el siguiente JSON se define un servicio vinculado de HDInsight a petición. La Factoría de datos crea automáticamente un clúster de HDInsight **basado en Windows** al procesar un segmento de datos. Tenga en cuenta el **osType** no se especifica en este JSON de ejemplo y el valor predeterminado de esta propiedad es **Windows**.
 
 	{
 	  "name": "HDInsightOnDemandLinkedService",
 	  "properties": {
 	    "type": "HDInsightOnDemand",
 	    "typeProperties": {
-	      "clusterSize": 4,
-	      "timeToLive": "00:05:00",
 	      "version": "3.2",
-		  "osType": "linux",
-	      "linkedServiceName": "MyBlobStore",
-		  "hcatalogLinkedServiceName": "AzureSqlLinkedService",
-	      "additionalLinkedServiceNames": [
-	        "otherLinkedServiceName1",
-	        "otherLinkedServiceName2"
-	      ]
+	      "clusterSize": 1,
+	      "timeToLive": "00:30:00",
+	      "linkedServiceName": "StorageLinkedService"
 	    }
 	  }
 	}
+
+
+En el siguiente JSON se define un servicio vinculado de HDInsight a petición basado en Linux. El servicio Factoría de datos crea automáticamente un clúster de HDInsight **basado en Linux** al procesar un segmento de datos. Debe especificar valores para **sshUserName** y **sshPassword**.
+
+
+	{
+	    "name": "HDInsightOnDemandLinkedService",
+	    "properties": {
+	        "hubName": "getstarteddf0121_hub",
+	        "type": "HDInsightOnDemand",
+	        "typeProperties": {
+	            "version": "3.2",
+	            "clusterSize": 4,
+	            "timeToLive": "00:05:00",
+	            "osType": "linux",
+	            "sshPassword": "MyPassword!",
+	            "sshUserName": "myuser",
+	            "linkedServiceName": "StorageLinkedService",
+	        }
+	    }
+	}
+
+> [AZURE.IMPORTANT] 
+El clúster de HDInsight crea un **contenedor predeterminado** en el almacenamiento de blobs especificado en el código JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Esto es así por diseño. Con el servicio vinculado de HDInsight a petición, se crea un clúster de HDInsight cada vez que un segmento debe procesarse, a menos que haya un clúster existente activo (**timeToLive**), y se elimina cuando se realiza el procesamiento.
+> 
+> A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. El nombre de estos contenedores siguen un patrón: "adf**nombreDeFactoríaDeDatos**-**linkedservicename**-datetimestamp". Use herramientas como [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores del Almacenamiento de blobs de Azure.
 
 ### Propiedades
 
@@ -71,7 +91,17 @@ linkedServiceName | El almacén de blobs que usará el clúster a petición para
 additionalLinkedServiceNames | Especifica cuentas de almacenamiento adicionales para el servicio vinculado de HDInsight, de forma que el servicio Factoría de datos pueda registrarlas en su nombre. | No
 osType | Tipo de sistema operativo. Los valores permitidos son: Windows (predeterminado) y Linux | No
 hcatalogLinkedServiceName | Nombre del servicio vinculado de SQL de Azure que apunta a la base de datos de HCatalog. El clúster de HDInsight a petición se creará mediante la base de datos SQL de Azure como la tienda de metadatos. | No
+sshUser | Usuario de SSH del clúster de HDInsight basado en Linux | Sí (solo para Linux)
+sshPassword | Contraseña de SSH del clúster de HDInsight basado en Linux | Sí (solo para Linux)
 
+
+#### Ejemplo JSON de additionalLinkedServiceNames
+
+    "additionalLinkedServiceNames": [
+        "otherLinkedServiceName1",
+		"otherLinkedServiceName2"
+  	]
+ 
 ### Propiedades avanzadas
 
 También puede especificar las siguientes propiedades para la configuración granular del clúster de HDInsight a petición.
@@ -297,9 +327,9 @@ El código de autorización que se generó al hacer clic en el botón **Autoriza
 | :-------- | :----------- | 
 | No es usuario de AAD (@hotmail.com, @live.com, etc.) | 12 horas |
 | El usuario de AAD y el origen basado en OAuth están en un [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que no es el de la Factoría de datos del usuario. | 12 horas |
-| El usuario de AAD y el origen basado en OAuth están en el mismo inquilino que la Factoría de datos del usuario. | <p> El máximo es 90 días si el usuario ejecuta segmentos según su origen del servicio vinculado basado en OAuth al menos una vez cada 14 días. </p><p>Durante los 90 días esperados, si el usuario no ha ejecutado ningún segmento basado en dicho origen en 14 días, las credenciales expirarían inmediatamente 14 días después de su último segmento.</p> | 
+| El usuario de AAD y el origen basado en OAuth se encuentran en el mismo inquilino que la Factoría de datos. | 14 días |
 
-Para evitar o resolver este error, será preciso que vuelva a dar la autorización con el botón **Autorizar** cuando el **token expire** y vuelva a implementar el servicio vinculado. También puede generar valores para las propiedades sessionId y authorization mediante programación, para lo que usará el código de la sección siguiente.
+Para evitar o resolver este error, tendrá que volver a dar la autorización con el botón **Autorizar** cuando el **token expire** y volver a implementar el servicio vinculado. También puede generar valores para las propiedades sessionId y authorization mediante programación, para lo que usará el código de la sección siguiente.
 
 ### Para generar los valores de sessionId y authorization mediante programación 
 El código siguiente genera los valores de **sessionId** y **authorization**.
@@ -327,11 +357,11 @@ El código siguiente genera los valores de **sessionId** y **authorization**.
         }
     }
 
-Para más información sobre las clases de Factoría de datos que se usan en el código, consulte los temas [clase AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService clase](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [AuthorizationSessionGetResponse clase](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
+Para más información sobre las clases de Factoría de datos que se usan en el código, vea los temas [Clase AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Clase AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [Clase AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
  
 
 ## Servicio vinculado SQL de Azure
 
 Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Factoría de datos. Vea el artículo [Conector SQL de Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para más información sobre este servicio vinculado.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

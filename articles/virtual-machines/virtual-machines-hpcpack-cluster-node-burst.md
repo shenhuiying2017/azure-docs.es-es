@@ -25,7 +25,7 @@ En este artículo se muestra cómo agregar nodos de "ráfaga" Azure (instancias 
 
 ![Nodos de ráfaga][burst]
 
->[AZURE.TIP]Si usa el [script de implementación de HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) para crear el clúster en Azure, puede incluir nodos de ráfaga de Azure en la implementación automatizada. Consulte los ejemplos del artículo correspondiente.
+>[AZURE.TIP] Si usa el [script de implementación de HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) para crear el clúster en Azure, puede incluir nodos de ráfaga de Azure en la implementación automatizada. Consulte los ejemplos del artículo correspondiente.
 
 Los pasos descritos en este artículo le ayudarán a agregar nodos de Azure rápidamente a una máquina virtual de nodo principal de HPC Pack basado en la nube para la implementación de una prueba o una prueba de concepto. El procedimiento es básicamente el mismo que el de "ráfaga en Azure" para agregar capacidad de proceso en la nube a un clúster de HPC Pack local. Si desea conseguir un tutorial, consulte [Configurar un clúster de proceso híbrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Para obtener instrucciones detalladas y consideraciones acerca de las implementaciones de producción, consulte [Ráfaga en Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
@@ -37,7 +37,7 @@ Si quiere usar el tamaño de instancia de proceso intensivo A8 o A9, consulte [S
 
 * **Suscripción de Azure** : para agregar nodos de Azure, puede elegir la misma suscripción usada para implementar la máquina virtual del nodo principal o una suscripción (o suscripciones) diferente.
 
-* **Cuota de núcleos**: tal vez tenga que aumentar la cuota de núcleos, especialmente si decide implementar varios nodos de Azure con tamaños de núcleos múltiples. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
+* **Cuota de núcleos**: tal vez tenga que aumentar la cuota de núcleos, especialmente si decide implementar varios nodos de Azure con tamaños de núcleos múltiples. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
 
 ## Step 1: Crear un servicio en la nube y una cuenta de almacenamiento para agregar nodos de Azure
 
@@ -46,7 +46,7 @@ Use el Portal de Azure clásico o las herramientas equivalentes para configurar 
 * Un nuevo servicio en la nube de Azure
 * Una nueva cuenta de almacenamiento de Azure
 
->[AZURE.NOTE]No vuelva a usar un servicio en la nube existente en su suscripción. Tampoco implemente un paquete de servicios en la nube personalizado e independiente en este servicio en la nube. HPC Pack implementa automáticamente un paquete de servicios en la nube al iniciar (aprovisionar) los nodos de Azure.
+>[AZURE.NOTE] No vuelva a usar un servicio en la nube existente en su suscripción. Tampoco implemente un paquete de servicios en la nube personalizado e independiente en este servicio en la nube. HPC Pack implementa automáticamente un paquete de servicios en la nube al iniciar (aprovisionar) los nodos de Azure.
 
 **Consideraciones**
 
@@ -88,4 +88,4 @@ Si tiene problemas al implementar nodos de Azure, consulte [Solución de problem
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

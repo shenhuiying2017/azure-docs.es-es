@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="01/22/2016" 
 	ms.author="awills"/>
  
 # Creación de recursos de Application Insights mediante PowerShell
@@ -117,6 +117,27 @@ find | reemplazar por
 `"myappname"` (minúscula) | `"[toLower(parameters('appName'))]"`
 `"<WebTest Name="myWebTest" ...`<br/>` Url="http://fabrikam.com/home" ...>"`|`[concat('<WebTest Name="',` <br/> `parameters('webTestName'),` <br/> `'" ... Url="', parameters('Url'),` <br/> `'"...>')]" `
 
+## Si la aplicación es una aplicación web de Azure
+
+Agregue este recurso, o si ya existe ahí un recurso `siteextensions`, parametrícelo de este modo:
+
+```json
+    {
+      "apiVersion": "2014-04-01",
+      "name": "Microsoft.ApplicationInsights.AzureWebSites",
+      "type": "siteextensions",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]",
+        "[resourceId('Microsoft.Web/Sites/config', parameters('siteName'), 'web')]",
+        "[resourceId('Microsoft.Web/sites/sourcecontrols', parameters('siteName'), 'web')]"
+      ],
+      "properties": { }
+    }
+
+```
+
+Este recurso implementa el SDK de Application Insights en la aplicación web de Azure.
+
 ## Establecimiento de dependencias entre los recursos
 
 Azure debe instalar los recursos en un orden estricto. Para tener la seguridad de que una instalación finaliza antes de que comience la siguiente, agregue líneas de dependencia:
@@ -145,6 +166,7 @@ Azure debe instalar los recursos en un orden estricto. Para tener la seguridad d
                -webTestName aWebTest `
                -Url http://myapp.com `
                -text "Welcome!"
+               -siteName "MyAzureSite"
 
     ``` 
 
@@ -154,6 +176,7 @@ Azure debe instalar los recursos en un orden estricto. Para tener la seguridad d
     * -webTestName es el nombre de la prueba web para crear.
     * -Url es la dirección URL de la aplicación web.
     * -text es una cadena que aparece en la página web.
+    * -siteName: se utiliza si es un sitio web de Azure
 
 
 ## Definición de alertas de métrica
@@ -288,4 +311,4 @@ A continuación se muestra el componente completo, la prueba web y la plantilla 
 
 ```
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

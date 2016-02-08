@@ -20,13 +20,13 @@
 
 En este tema se muestra cómo copiar blobs de una cuenta de almacenamiento a un nuevo recurso de Servicios multimedia de Microsoft Azure.
 
-Los blobs podrían existir en una cuenta de almacenamiento asociada a la cuenta de Servicios multimedia o una cuenta de almacenamiento que no esté asociada a la cuenta de Servicios multimedia. En este tema se muestra cómo copiar blobs de una cuenta de almacenamiento a un activo de Servicios multimedia. Tenga en cuenta que también puede copiar entre centros de datos. Sin embargo, se podrían cobrar gastos por hacerlo. Para obtener más información sobre los precios, vea [Transferencias de datos](http://azure.microsoft.com/pricing/#header-11).
+Los blobs podrían existir en una cuenta de almacenamiento asociada a la cuenta de Servicios multimedia o una cuenta de almacenamiento que no esté asociada a la cuenta de Servicios multimedia. En este tema se muestra cómo copiar blobs de una cuenta de almacenamiento a un activo de Servicios multimedia. Tenga en cuenta que también puede copiar entre centros de datos. Sin embargo, se podrían cobrar gastos por hacerlo. Para obtener más información sobre los precios, vea [Transferencias de datos](https://azure.microsoft.com/pricing/#header-11).
 
->[AZURE.NOTE]No debe intentar cambiar el contenido de los contenedores de blobs que generó Servicios multimedia sin usar las API de Servicios multimedia.
+>[AZURE.NOTE] No debe intentar cambiar el contenido de los contenedores de blobs que generó Servicios multimedia sin usar las API de Servicios multimedia.
 
 ##Descarga de un ejemplo
 
-Obtenga y ejecute un ejemplo desde [aquí](http://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
+Obtenga y ejecute un ejemplo desde [aquí](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
 
 ##Requisitos previos
 
@@ -316,4 +316,4 @@ El ejemplo de código siguiente realiza las siguientes tareas:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

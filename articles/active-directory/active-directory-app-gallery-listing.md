@@ -19,7 +19,7 @@
 
 # Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory
 
-Para anunciar una aplicación compatible con inicio de sesión único con Azure Active Directory en la [galería de Azure AD](http://azure.microsoft.com/marketplace/active-directory/all/), la aplicación primero debe implementar uno de los siguientes modos de integración:
+Para anunciar una aplicación compatible con inicio de sesión único con Azure Active Directory en la [galería de Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/), la aplicación primero debe implementar uno de los siguientes modos de integración:
 
 * **OpenID Connect**: integración directa con Azure AD mediante OpenID Connect para autenticación y la API de consentimiento de Azure AD para configuración. Si acaba de iniciar una integración y la aplicación no es compatible con SAML, este es el modo recomendado.
 
@@ -33,7 +33,7 @@ Para integrar la aplicación con Azure AD, siga la [instrucciones para desarroll
 
 * Proporcione credenciales para una cuenta o inquilino de prueba con la aplicación que el equipo de Azure AD puede usar para probar la integración.  
 
-* Proporcione instrucciones sobre cómo el equipo de Azure AD puede iniciar sesión y conectarse a una instancia de Azure AD para la aplicación mediante el [marco de consentimiento de Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework).
+* Proporcione instrucciones sobre cómo el equipo de Azure AD puede iniciar sesión y conectarse a una instancia de Azure AD para la aplicación mediante el [marco de consentimiento de Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework/).
 
 * Proporcione las instrucciones que sean necesarias para que el equipo de Azure AD pruebe el inicio de sesión único con la aplicación.
 
@@ -97,4 +97,4 @@ Cualquier aplicación compatible con SAML 2.0 se puede integrar directamente con
 > 
 > Adjunte el logotipo de la aplicación (archivo PNG, 150 px por 122 px, color de fondo transparente):
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

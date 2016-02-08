@@ -18,6 +18,8 @@
 
 # Entrega de contenido desde la red CDN de Azure en su aplicación web #
 
+> [AZURE.NOTE] Este tutorial se aplica al servicio CDN clásico. Estamos trabajando muy duro escribiendo una actualización para la versión actual del servicio CDN.
+
 Este tutorial le mostrará cómo sacar el máximo partido de la red CDN de Azure para mejorar el alcance y el rendimiento de su aplicación web. La red CDN de Azure puede ayudarle a mejorar el rendimiento de su aplicación web cuando:
 
 - Tiene varios vínculos a contenido estático o semiestático en las páginas.
@@ -43,7 +45,7 @@ Este tutorial cuenta con los siguientes requisitos previos:
 -	Visual Studio 2013 con el [SDK de Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) para GUI de administración de blobs
 -	[Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (utilizado por [Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN](#upload))
 
-> [AZURE.NOTE]Necesita una cuenta de Azure para completar este tutorial: + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/?WT.mc_id=A261C142F): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Sitios web. + Puede [activar los beneficios de suscriptores de MSDN](/pricing/member-offers/msdn-benefits-details/): su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
+> [AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial: + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/?WT.mc_id=A261C142F): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Sitios web. + Puede [activar los beneficios de suscriptores de MSDN](/pricing/member-offers/msdn-benefits-details/): su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
 
 <a name="static"></a>
 ## Entrega de contenido estático desde un extremo de la red CDN de Azure ##
@@ -63,13 +65,13 @@ Vamos a verlo. Siga los pasos siguientes para comenzar a utilizar la red CDN de 
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG)
 
-	>[AZURE.NOTE]Tenga en cuenta que estoy usando Asia Oriental como región, ya que está lo suficientemente alejada para probar después mi red CDN desde Norteamérica.
+	>[AZURE.NOTE] Tenga en cuenta que estoy usando Asia Oriental como región, ya que está lo suficientemente alejada para probar después mi red CDN desde Norteamérica.
 
 2. Cuando el nuevo estado de la cuenta de almacenamiento es **En línea**, cree un nuevo extremo de red CDN que esté vinculado a la cuenta de almacenamiento que ha creado. Haga clic en **Nuevo > Servicios de aplicaciones > CDN > Creación rápida**. Seleccione la cuenta de almacenamiento que ha creado y haga clic en **Crear**.
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2.PNG)
 
-	>[AZURE.NOTE]Una vez creada la red CDN, el portal de Azure le mostrará su URL y el dominio de origen al que está vinculada. Sin embargo, la configuración del extremo de red CDN puede tardar un poco en propagarse por completo a todas las ubicaciones del nodo.
+	>[AZURE.NOTE] Una vez creada la red CDN, el portal de Azure le mostrará su URL y el dominio de origen al que está vinculada. Sin embargo, la configuración del extremo de red CDN puede tardar un poco en propagarse por completo a todas las ubicaciones del nodo.
 
 3. Pruebe el extremo de red CDN para asegurarse de que está en línea haciendo ping en él. Si el extremo de red CDN no se ha propagado en todos los nodos, verá un mensaje similar al siguiente.
 
@@ -93,7 +95,7 @@ Vamos a verlo. Siga los pasos siguientes para comenzar a utilizar la red CDN de 
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequeryb.PNG)
 
-	>[AZURE.NOTE]Aunque no es necesario habilitar la cadena de consulta para esta parte del tutorial, le conviene hacerlo lo antes posible para mayor comodidad ya que cualquier cambio va a tardar tiempo en propagarse al resto de los nodos y no deseará que cualquier contenido no habilitado para cadenas de consulta atasque el caché de la red CDN (la actualización del contenido de la red CDN se tratará después). Averiguará cómo sacar partido de esto en [Entrega inmediata de contenido nuevo mediante cadenas de consulta](#query).
+	>[AZURE.NOTE] Aunque no es necesario habilitar la cadena de consulta para esta parte del tutorial, le conviene hacerlo lo antes posible para mayor comodidad ya que cualquier cambio va a tardar tiempo en propagarse al resto de los nodos y no deseará que cualquier contenido no habilitado para cadenas de consulta atasque el caché de la red CDN (la actualización del contenido de la red CDN se tratará después). Averiguará cómo sacar partido de esto en [Entrega inmediata de contenido nuevo mediante cadenas de consulta](#query).
 
 6. En Visual Studio 2013, en el Explorador de soluciones, haga clic en el botón **Conectar a Microsoft Azure**.
 
@@ -126,7 +128,7 @@ Vamos a verlo. Siga los pasos siguientes para comenzar a utilizar la red CDN de 
 
 13.	Si puede ver el blob correctamente representado en el explorador, cambie la URL de `http://<yourStorageAccountName>.blob.core.windows.net` a la URL de la red CDN de Azure. En mi caso, para probar la primera imagen en mi extremo de red CDN, utilizo `http://az623979.vo.msecnd.net/cdn/cephas_lin.png`.
 
-	>[AZURE.NOTE]Puede encontrar la URL del extremo de red CDN en el portal de administración de Azure, en la pestaña CDN.
+	>[AZURE.NOTE] Puede encontrar la URL del extremo de red CDN en el portal de administración de Azure, en la pestaña CDN.
 
 	Si compara el rendimiento del acceso directo de blobs y el acceso a la red CDN, puede ver la ganancia de rendimiento al utilizar la red CDN de Azure. A continuación se muestra la captura de pantalla de las herramientas de desarrollador F12 de Internet Explorer 11 para el acceso de la URL del blob de mi imagen:
 
@@ -155,7 +157,7 @@ Si desea cargar fácilmente todo el contenido estático a su aplicación web de 
 
 		Import-AzurePublishSettingsFile "<yourDownloadedFilePath>"
 
-	>[AZURE.NOTE]Cuando haya importado el archivo de configuración de publicación, será la cuenta de Azure predeterminada la que se utilizará en todas las sesiones de Azure PowerShell. Esto significa que los pasos anteriores solo tienen que realizarse una vez.
+	>[AZURE.NOTE] Cuando haya importado el archivo de configuración de publicación, será la cuenta de Azure predeterminada la que se utilizará en todas las sesiones de Azure PowerShell. Esto significa que los pasos anteriores solo tienen que realizarse una vez.
 	
 1. Descargue el script desde la [página de descargas](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a). Guárdelo en la carpeta de proyecto de la aplicación ASP.NET.
 2. Haga clic con el botón derecho en el archivo descargado y haga clic en **Propiedades**.
@@ -271,4 +273,4 @@ Sin la integración con Aplicaciones web del Servicio de aplicaciones de Azure o
 - [Uso de la red CDN en Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -67,7 +67,7 @@ Puede usar el cuadro de diálogo Servicios conectados para conectarse a Azure AD
 
 ## ¿Cómo se modifica el proyecto?
 
-Al ejecutar el asistente, Visual Studio agrega Azure AD y referencias asociadas a su proyecto. También se modifican los archivos de configuración y archivos de código de su proyecto para agregar compatibilidad con Azure AD. Las modificaciones específicas realizadas por Visual Studio dependen del tipo de proyecto. Para más información sobre cómo se modifican los proyectos de ASP.NET MVC, vea [¿Qué ha ocurrido? - Proyectos de MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Para los proyectos de API web, vea [¿Qué ha ocurrido? - Proyectos de API web](http://go.microsoft.com/fwlink/p/?LinkId=513810).
+Al ejecutar el asistente, Visual Studio agrega Azure AD y referencias asociadas a su proyecto. También se modifican los archivos de configuración y archivos de código de su proyecto para agregar compatibilidad con Azure AD. Las modificaciones específicas realizadas por Visual Studio dependen del tipo de proyecto. Para información detallada sobre cómo se modifican los proyectos de ASP.NET MVC, consulte [¿Qué ha ocurrido? - Proyectos de MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Para los proyectos de API web, consulte [¿Qué ha ocurrido? - Proyectos de API web](http://go.microsoft.com/fwlink/p/?LinkId=513810).
 
 ##Pasos siguientes
 
@@ -75,8 +75,8 @@ Formule preguntas y obtenga ayuda.
 
  - [Foro de MSDN: Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
 
- - [Documentación de Azure AD](http://azure.microsoft.com/documentation/services/active-directory/)
+ - [Documentación de Azure AD](https://azure.microsoft.com/documentation/services/active-directory/)
 
  - [Entrada de blog: introducción a Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

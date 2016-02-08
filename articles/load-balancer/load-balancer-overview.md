@@ -108,7 +108,7 @@ Todo el tráfico saliente a Internet procedente de su servicio pasa por NAT de o
 La configuración del Equilibrador de carga de Azure admite NAT de cono completo para UDP. NAT de cono completo es un tipo de NAT en el que el puerto permite conexiones entrantes desde cualquier host externo (en respuesta a una solicitud saliente).
 
 
->[AZURE.NOTE]Tenga en cuenta que para cada nueva conexión saliente iniciada por una máquina virtual, el Equilibrador de carga de Azure también asigna un puerto saliente. El host externo verá el tráfico entrante como un puerto IP virtual (VIP) asignado. Si los escenarios requieren un gran número de conexiones salientes, se recomienda que las máquinas virtuales usen direcciones IP públicas a nivel de instancia para que tengan una dirección IP saliente dedicada para SNAT. Esto reducirá el riesgo de agotamiento de puertos.
+>[AZURE.NOTE] Tenga en cuenta que para cada nueva conexión saliente iniciada por una máquina virtual, el Equilibrador de carga de Azure también asigna un puerto saliente. El host externo verá el tráfico entrante como un puerto IP virtual (VIP) asignado. Si los escenarios requieren un gran número de conexiones salientes, se recomienda que las máquinas virtuales usen direcciones IP públicas a nivel de instancia para que tengan una dirección IP saliente dedicada para SNAT. Esto reducirá el riesgo de agotamiento de puertos.
 >
 >El número máximo de puertos que pueden usar las direcciones VIP o ILPIP (dirección IP pública a nivel de instancia) es 64.000. Se trata de una limitación estándar de TCP.
 
@@ -119,7 +119,7 @@ Puede tener más de una dirección IP pública con equilibrio de carga asignada 
 
 **Implementaciones basadas en plantilla a través del Administrador de recursos de Azure**
 
-El Administrador de recursos de Azure es el nuevo marco de administración de servicios en Azure. El Equilibrador de carga de Azure puede administrarse ahora mediante las herramientas y las API basadas en el Administrador de recursos de Azure. Para más información sobre el Administrador de recursos de Azure, vea [IaaS simplemente más fácil con el Administrador de recursos de Azure](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/).
+El Administrador de recursos de Azure es el nuevo marco de administración de servicios en Azure. El Equilibrador de carga de Azure puede administrarse ahora mediante las herramientas y las API basadas en el Administrador de recursos de Azure. Para obtener más información sobre el Administrador de recursos de Azure, vea [IaaS just got easier with Azure Resource Manager (IaaS, simplemente más fácil con el Administrador de recursos de Azure)](https://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/).
 
 
 ## Pasos siguientes
@@ -130,4 +130,4 @@ El Administrador de recursos de Azure es el nuevo marco de administración de se
 
 [Introducción a la creación de un equilibrador de carga accesible desde Internet](load-balancer-internet-getstarted.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="01/26/2016" 
 	ms.author="ddove"/>
 
 # Uso de la clase RecoveryManager para solucionar problemas de mapas de particiones
@@ -32,15 +32,13 @@ Para definiciones de términos, consulte el [Glosario de herramientas de base de
 
 ## ¿Por qué usar el Administrador de recuperación?
 
-En un entorno de base de datos con particiones, hay un número de servidores de base de datos. Cada servidor contiene varias bases de datos, una por cada usuario en una solución para varios inquilinos. Cada base de datos debe asignarse para que se puedan dirigir con precisión las llamadas al servidor y a la base de datos correctos. Se realiza un seguimiento de las bases de datos según una clave de particionamiento y a cada servidor se le asigna un rango de valores clave. Por ejemplo, una clave de particionamiento puede representar los nombres de los clientes de "D" a "F". La asignación de todos los servidores y sus rangos con clave se encuentran en el mapa de particiones global. Cada servidor también contiene un mapa de las bases de datos contenidas en la partición, lo que se conoce como el mapa de particiones local. El mapa de particiones local se usa para validar los datos almacenados en caché. (Cuando una aplicación se conecta a una partición, la asignación se almacena en caché con la aplicación para una rápida recuperación. El mapa de particiones local valida la asignación).
+En un entorno de base de datos con particiones, hay varias bases de datos y un número potencial de bases de datos en varios servidores lógicos. Cada servidor contiene varias bases de datos, una por cada inquilino de una solución para un solo inquilino. Cada base de datos debe asignarse en el mapa de partición para que se puedan dirigir con precisión las llamadas al servidor y a la base de datos correctos. Se realiza un seguimiento de las bases de datos según una clave de particionamiento y se asigna un rango de valores clave a cada partición. Por ejemplo, una clave de particionamiento puede representar los nombres de los clientes de "D" a "F". La asignación de todas las particiones (es decir, de las bases de datos) y sus rangos de asignación se encuentran en el mapa de particiones global. Cada base de datos también contiene un mapa de los rangos contenidos en la partición, lo que se conoce como el mapa de particiones local. El mapa de particiones local se usa para validar los datos almacenados en caché. (Cuando una aplicación se conecta a una partición, la asignación se almacena en caché con la aplicación para una rápida recuperación. El mapa de particiones local valida la asignación).
 
-Puede mover los datos de una partición a otra mediante una herramienta como la biblioteca de herramientas de cliente de Base de datos elástica. Si se produce una interrupción durante el desplazamiento, los mapas de particiones global y local pueden no estar sincronizados. Entre otras razones, se incluyen:
+Puede que GSM y LSM no estén sincronizados por los motivos siguientes:
 
-1. Una incoherencia causada por la eliminación de una partición cuyo rango se considera que ya no está en uso, o por el cambio de nombre de una partición. La eliminación de una partición da como resultado una **asignación de particiones huérfana**. Una base de datos cuyo nombre cambió puede provocar de igual forma una asignación de particiones huérfanas. En ese caso, la ubicación de la partición simplemente tiene que actualizarse. 
-2. Se produce un evento de conmutación por error geográfica. Para continuar, hay que actualizar el nombre del servidor, el nombre de la base de datos o los detalles de la asignación de particiones cualquier partición, o todas, de un mapa de particiones. En el caso de una conmutación por error geográfica, se debería automatizar esa lógica de recuperación en el flujo de trabajo de conmutación por error. 
-3. Se restaura la partición o la base de datos de ShardMapManager al anterior punto de tiempo. 
- 
-La automatización de las acciones de recuperación permite una capacidad de administración sin contacto para bases de datos habilitadas geográficamente y evita acciones humanas manuales. También ayuda con escenarios de recuperación donde los datos se eliminan de manera accidental.
+1. Una incoherencia causada por la eliminación de una partición cuyo rango se considera que ya no está en uso, o por el cambio de nombre de una partición. La eliminación de una partición da como resultado una **asignación de particiones huérfana**. Una base de datos cuyo nombre cambió puede provocar de igual forma una asignación de particiones huérfanas. En función de su objetivo, puede que tenga que quitar la partición o simplemente actualizar la ubicación de la partición. 
+2. Se produce un evento de conmutación por error geográfica. Para continuar, hay que actualizar el nombre del servidor, el nombre de la base de datos o los detalles de la asignación de particiones cualquier partición, o todas, de un mapa de particiones. En el caso de una conmutación por error geográfica, se debería automatizar esa lógica de recuperación en el flujo de trabajo de conmutación por error. La automatización de las acciones de recuperación permite una capacidad de administración sin contacto para bases de datos habilitadas geográficamente y evita acciones humanas manuales.
+3. Se restaura la partición o la base de datos de ShardMapManager al anterior punto de tiempo.
 
 Para obtener más información acerca de las herramientas de la Base de datos elástica de Base de datos SQL de Azure, la replicación y restauración geográficas, consulte lo siguiente:
 
@@ -157,4 +155,4 @@ Este ejemplo realiza los pasos siguientes: 1. Quita las particiones del mapa de 
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

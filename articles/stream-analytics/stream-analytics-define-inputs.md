@@ -112,7 +112,7 @@ Cuando los datos proceden de un origen de Centro de IoT, puede acceder a algunos
 
 ## Crear una entrada de transmisión de datos de Almacenamiento de blobs
 
-El almacenamiento de blobs ofrece una solución rentable y escalable para aquellos escenarios con grandes cantidades de datos no estructurados para almacenar en la nube. Los datos del [almacenamiento de blobs](http://azure.microsoft.com/services/storage/blobs/) generalmente se consideran como datos "en reposo", pero Análisis de transmisiones puede procesarlos como un flujo de datos. Un escenario común para las entradas de Almacenamiento de blobs con Análisis de transmisiones es el procesamiento de registros, donde la telemetría se captura desde un sistema y es necesario analizarla y procesarla para extraer datos significativos.
+El almacenamiento de blobs ofrece una solución rentable y escalable para aquellos escenarios con grandes cantidades de datos no estructurados para almacenar en la nube. Los datos del [almacenamiento de blobs](https://azure.microsoft.com/services/storage/blobs/) generalmente se consideran como datos "en reposo", pero Análisis de transmisiones puede procesarlos como una transmisión de datos. Un escenario común para las entradas de Almacenamiento de blobs con Análisis de transmisiones es el procesamiento de registros, donde la telemetría se captura desde un sistema y es necesario analizarla y procesarla para extraer datos significativos.
 
 Es importante tener en cuenta que la marca de tiempo predeterminada de los eventos del almacenamiento de blobs en Análisis de transmisiones es la marca de tiempo cuando se modificó el blob por última vez, que es *isBlobLastModifiedUtcTime*. Para procesar los datos como una transmisión mediante una marca de tiempo en la carga del evento, se debe usar la palabra clave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
@@ -207,4 +207,4 @@ Ha obtenido información sobre las opciones de conexión de datos de Azure para 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

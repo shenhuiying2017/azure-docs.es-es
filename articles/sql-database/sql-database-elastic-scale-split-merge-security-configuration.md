@@ -453,7 +453,7 @@ En el asistente para importar certificados:
 
 ## Carga del certificado
 
-En el [Portal de Azure clásico](http://portal.azure.com/)
+En el [Portal de Azure clásico](https://portal.azure.com/)
 
 1. Seleccione **Servicios en la nube**.
 2. Seleccione el servicio en la nube.
@@ -473,4 +473,4 @@ Las credenciales almacenadas en esta base de datos están cifradas. Sin embargo,
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

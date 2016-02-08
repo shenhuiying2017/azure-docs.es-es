@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # Fase 2 de la carga de trabajo de aplicación de línea de negocio: Configuración de controladores de dominio
@@ -54,7 +54,7 @@ Use el siguiente bloque de comandos de Azure PowerShell para crear las máquinas
 
 Recuerde que definió las tablas V, S, ST y A en [Fase 1: Configuración de Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
-> [AZURE.NOTE]El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> [AZURE.NOTE] El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Cuando proporcione todos los valores adecuados, ejecute el bloque resultante en el símbolo del sistema de Azure PowerShell.
 
@@ -111,7 +111,7 @@ Cuando proporcione todos los valores adecuados, ejecute el bloque resultante en 
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]Dado que estas máquinas virtuales son para una aplicación de intranet, no se les asigna una dirección IP pública o una etiqueta de nombre de dominio DNS ni se exponen a Internet. Sin embargo, esto significa también que no se puede conectar a ellas desde el Portal de Azure. El botón **Conectar** no estará disponible cuando vea las propiedades de la máquina virtual. Utilice el accesorio de conexión a Escritorio remoto u otra herramienta de Escritorio remoto para conectarse a la máquina virtual usando el nombre DNS de intranet o la dirección IP privada.
+> [AZURE.NOTE] Dado que estas máquinas virtuales son para una aplicación de intranet, no se les asigna una dirección IP pública o una etiqueta de nombre de dominio DNS ni se exponen a Internet. Sin embargo, esto significa también que no se puede conectar a ellas desde el Portal de Azure. El botón **Conectar** no estará disponible cuando vea las propiedades de la máquina virtual. Utilice el accesorio de conexión a Escritorio remoto u otra herramienta de Escritorio remoto para conectarse a la máquina virtual usando el nombre DNS de intranet o la dirección IP privada.
 
 ## Configuración del primer controlador de dominio
 
@@ -197,4 +197,4 @@ Este diagrama muestra la configuración resultante de la realización correcta d
 
 - Para continuar con la configuración de esta carga de trabajo, vaya a la [Fase 3](virtual-machines-workload-high-availability-LOB-application-phase3.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

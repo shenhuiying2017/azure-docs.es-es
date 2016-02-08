@@ -27,7 +27,7 @@ Aprenda a crear clústeres de HDInsight con la CLI de Azure. Para consultar otra
 
 Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
-- **Suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **CLI de Azure** - Vea [Instalar y configurar la CLI de Azure](../xplat-cli-install.md) para obtener información de instalación y configuración.
 
 ##Conexión a Azure
@@ -70,7 +70,7 @@ Para poder crear un clúster de HDInsight, debe tener una Administración de rec
 	
 		azure storage account create "<Azure Storage Account Name>" -g "<Resource Group Name>" -l "<Azure Location>" --type LRS
 
-	> [AZURE.NOTE]La cuenta de Almacenamiento debe colocarse con HDInsight en el mismo centro de datos. El tipo de cuenta de almacenamiento no puede ser ZRS, porque ZRS no admite tablas.
+	> [AZURE.NOTE] La cuenta de Almacenamiento debe colocarse con HDInsight en el mismo centro de datos. El tipo de cuenta de almacenamiento no puede ser ZRS, porque ZRS no admite tablas.
 
 	Para obtener información sobre la creación de una cuenta de Almacenamiento de Azure a través del Portal de Azure, consulte [Creación, administración o eliminación de una cuenta de Almacenamiento][azure-create-storageaccount].
 	
@@ -134,4 +134,4 @@ Puede utilizar la CLI para crear clústeres llamando a plantillas de ARM. Consul
 - [Administración de clústeres de Hadoop en HDInsight mediante la CLI de Azure](hdinsight-administer-use-command-line.md)
 - [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure](virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

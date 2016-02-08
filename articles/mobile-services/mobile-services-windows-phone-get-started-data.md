@@ -37,7 +37,7 @@ También puede ver a Nick Harris realizar una demostración de esto en el siguie
 
 + Visual Studio 2012 Express para Windows Phone 8 y el [SDK de Windows Phone 8] en Windows 8. Para completar este tutorial para crear una aplicación de Windows Phone 8.1, debe utilizar Visual Studio 2013 Update 2 o una versión posterior.
 
-+ Una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F).
++ Una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F).
 
 ##<a name="download-app"></a>Descarga del proyecto GetStartedWithData
 
@@ -154,7 +154,7 @@ Ahora que se ha actualizado la aplicación para utilizar Servicios móviles para
 
    	Esto envía un elemento nuevo como inserción al servicio móvil.
 
-3. Inicie sesión en el [Portal de Azure clásico], haga clic en **Servicios móviles** y en su servicio móvil.
+3. Inicie sesión en el [Portal de Azure clásico], haga clic en **Servicios móviles **y en su servicio móvil.
 
 4. Haga clic en la pestaña **Datos** y, a continuación, en **Examinar**.
 
@@ -196,4 +196,4 @@ Este tutorial demostró los aspectos básicos de la habilitación de una aplicac
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [sitio de ejemplos de código para desarrolladores]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

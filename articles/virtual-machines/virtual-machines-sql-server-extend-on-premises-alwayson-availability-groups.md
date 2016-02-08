@@ -25,7 +25,7 @@ Puede ampliar los grupos de disponibilidad locales a Microsoft Azure al aprovisi
 
 Este tutorial supone que tiene lo siguiente:
 
-- Una suscripción de Azure activa. Puede [suscribirse a una evaluación gratuita](http://azure.microsoft.com/pricing/free-trial).
+- Una suscripción de Azure activa. Puede [suscribirse a una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 - Un grupo de disponibilidad AlwaysOn local existente. Para obtener más información sobre los grupos de disponibilidad, consulte [Grupos de disponibilidad AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx).
 
@@ -91,7 +91,7 @@ En esta sección se muestra cómo usar el **Asistente para agregar una réplica 
 
 1. Comienza el proceso de aprovisionamiento. Cuando el asistente finalice correctamente, haga clic en **Cerrar** para salir del asistente.
 
->[AZURE.NOTE]El Asistente para agregar una réplica de Azure crea un archivo de registro en <Users><nombre de usuario>\\AppData\\Local\\SQL Server\\AddReplicaWizard. Este archivo de registro puede usarse para solucionar problemas de las implementaciones de réplicas de Azure incorrectas. Si el asistente no puede ejecutar alguna acción, todas las operaciones anteriores se revierten, incluida la eliminación de la máquina virtual aprovisionada.
+>[AZURE.NOTE] El Asistente para agregar una réplica de Azure crea un archivo de registro en <Users><nombre de usuario>\\AppData\\Local\\SQL Server\\AddReplicaWizard. Este archivo de registro puede usarse para solucionar problemas de las implementaciones de réplicas de Azure incorrectas. Si el asistente no puede ejecutar alguna acción, todas las operaciones anteriores se revierten, incluida la eliminación de la máquina virtual aprovisionada.
 
 ## Creación del agente de escucha del grupo de disponibilidad
 
@@ -103,4 +103,4 @@ Además de usar el **Asistente para agregar una réplica de Azure** para ampliar
 
 Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

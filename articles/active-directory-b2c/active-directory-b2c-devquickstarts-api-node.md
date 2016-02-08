@@ -13,20 +13,20 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # Vista previa de B2C: Protección de una API web mediante node.js
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]
-	Este artículo no trata de la implementación de la administración de registros, inicios de sesión y perfiles con Azure AD B2C. Se centra en la llamada a las API web después de que el usuario ya está autenticado.
-Si no lo ha hecho ya, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para obtener información sobre los conceptos básicos de Azure AD B2C.
 
-> [AZURE.NOTE]Este ejemplo se escribió para estar conectados con nuestra [aplicación de ejemplo B2C para iOS.](active-directory-b2c-devquickstarts-ios.md) Primero realice este tutorial y luego continúe con ese ejemplo.
+> [AZURE.NOTE] Este artículo no trata de la implementación de la administración de registros, inicios de sesión y perfiles con Azure AD B2C. Se centra en la llamada a las API web después de que el usuario ya está autenticado. Si no lo ha hecho ya, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para obtener información sobre los conceptos básicos de Azure AD B2C.
 
-**Passport** es middleware de autenticación para Node.js. Muy flexible y modular, Passport puede pasar discretamente a cualquier aplicación web basada en Express o Restify. Un conjunto completo de estrategias admite la autenticación mediante un nombre de usuario y contraseña, Facebook, Twitter y mucho más. Hemos desarrollado una estrategia para Microsoft Azure Active Directory. Instalaremos este módulo y, luego, agregaremos el complemento `passport-azure-ad` de Microsoft Azure Active Directory.
+
+> [AZURE.NOTE]	Este ejemplo se escribió para estar conectados con nuestra [aplicación de ejemplo B2C para iOS.](active-directory-b2c-devquickstarts-ios.md) Primero realice este tutorial y luego continúe con ese ejemplo.
+
+**Passport** es middleware de autenticación para Node.js. Muy flexible y modular, Passport puede pasar discretamente a cualquier aplicación web basada en Express o Restify. Un conjunto completo de estrategias admite la autenticación mediante un nombre de usuario y contraseña, Facebook, Twitter y mucho más. Hemos desarrollado una estrategia para Microsoft Azure Active Directory. Instalaremos este módulo y, a continuación, agregaremos el complemento `passport-azure-ad` de Microsoft Azure Active Directory.
 
 Para llevar a cabo esta tarea, deberá hacer lo siguiente:
 
@@ -34,13 +34,13 @@ Para llevar a cabo esta tarea, deberá hacer lo siguiente:
 2. Configurar la aplicación para que use el complemento passport-azure-ad de Passport.
 3. Configurar una aplicación cliente para llamar a la API web Lista de tareas pendientes
 
-El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs). Para continuar, puede [descargar el esqueleto de la aplicación como un archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/skeleton.zip) o clonar el esqueleto:
+El código de este tutorial se mantiene [en GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs). Para continuar, puede [descargar el esqueleto de la aplicación como un archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/skeleton.zip) o clonar el esqueleto:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
 
 La aplicación completa se ofrece también al final de este tutorial.
 
-> [AZURE.WARNING]Para nuestra vista previa de B2C debe usar el mismo identificador de aplicación o de cliente, así como directivas tanto para el servidor de tareas de API web como para el cliente que se conecta a él. Esto se aplica a nuestros tutoriales de iOS y Android. Si previamente ha creado una aplicación en cualquiera de estos tutoriales, use los valores siguientes en lugar de crear otros nuevos.
+> [AZURE.WARNING] 	Para nuestra vista previa de B2C debe usar el mismo identificador de aplicación o de cliente, así como directivas tanto para el servidor de tareas de API web como para el cliente que se conecta a él. Esto se aplica a nuestros tutoriales de iOS y Android. Si previamente ha creado una aplicación en cualquiera de estos tutoriales, use los valores siguientes en lugar de crear otros nuevos.
 
 
 ## 1\. Obtener un directorio de Azure AD B2C
@@ -53,7 +53,7 @@ Ahora debe crear una aplicación en su directorio de B2C, que ofrece a Azure AD 
 
 - Incluir una **aplicación web/API web** en la aplicación.
 - Escribir `http://localhost/TodoListService` como **dirección URL de respuesta**: es la dirección URL predeterminada para este ejemplo de código.
-- Crear un **Secreto de aplicación** para la aplicación y copiarlo. Lo necesitará en breve.
+- Crear un **Secreto de aplicación ** para la aplicación y copiarlo. Lo necesitará en breve.
 - Escribir el **Id. de aplicación** asignado a la aplicación. También lo necesitará en breve.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -83,7 +83,7 @@ Para usar correctamente este ejemplo, debe disponer de una instalación en funci
 
 Instale MongoDB desde [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE]En este tutorial se asume que usa la instalación predeterminada y los extremos de servidor de MongoDB, que en el momento de escribir este artículo es: mongodb://localhost.
+> [AZURE.NOTE] En este tutorial se asume que usa la instalación predeterminada y los extremos de servidor de MongoDB, que en el momento de escribir este artículo es: mongodb://localhost
 
 ## Paso 6: Instalación de los módulos Restify en su API web
 
@@ -175,7 +175,7 @@ El resultado del comando debe ser similar al siguiente:
 
 A continuación, agregaremos la estrategia OAuth usando passport-azuread, un conjunto de estrategias que se conectan a Azure Active Directory con Passport. Usaremos esta estrategia para los tokens de portador en este ejemplo de API de REST.
 
-> [AZURE.NOTE]Aunque OAuth2 proporciona un marco de trabajo en el que se puede emitir cualquier tipo de token conocido, solo ciertos tipos de token gozan de uso generalizado. Para la protección de extremos, que han resultado ser tokens portadores. Los tokens portadores son el tipo de token más emitido de OAuth2 y muchas implementaciones asumen que son el único tipo de token emitido.
+> [AZURE.NOTE] Aunque OAuth2 proporciona un marco de trabajo en el que se puede emitir cualquier tipo de token conocido, solo ciertos tipos de token gozan de uso generalizado. Para la protección de extremos, que han resultado ser tokens portadores. Los tokens portadores son el tipo de token más emitido de OAuth2 y muchas implementaciones asumen que son el único tipo de token emitido.
 
 Desde la línea de comandos, cambie al directorio azuread.
 
@@ -305,7 +305,7 @@ policyName:'b2c_1_<sign in policy name>',
 
 *policyName*: la directiva con la que desea validar los tokens que entran en el servidor. Debe ser la misma directiva que usaría en la aplicación cliente para iniciar sesión.
 
-> [AZURE.NOTE]En nuestra vista previa de B2C, use las mismas directivas en las instalaciones de cliente y de servidor. Si ya realizó un tutorial y creó estas directivas, no tiene que volver a crearlas. Puesto que ha realizado este tutorial, no debería tener que configurar nuevas políticas cuando realice cualquier tutorial en este sitio.
+> [AZURE.NOTE] En nuestra vista previa de B2C, use las mismas directivas en las instalaciones de cliente y de servidor. Si ya realizó un tutorial y creó estas directivas, no tiene que volver a crearlas. Puesto que ha realizado este tutorial, no debería tener que configurar nuevas políticas cuando realice cualquier tutorial en este sitio.
 
 
 ## 13: Agregar configuración a su archivo server.js
@@ -752,7 +752,8 @@ server.use(passport.initialize()); // Starts passport
 server.use(passport.session()); // Provides session support
 ```
 
-> [AZURE.TIP]Al escribir las API, siempre debería vincular los datos a un elemento único del token cuya identidad el usuario no pueda suplantar. Cuando este servidor almacena elementos TODO, los almacena en función del Id. de objeto del usuario en el token (llamado a través de token.oid) que se coloca en el campo "owner". Esto garantiza que ese usuario sea el único que pueda acceder a sus TODO y nadie más tenga acceso a los TODO especificados. En la API "owner" no queda expuesto, así que un usuario externo puede solicitar los TODO de los demás, incluso si se autentican.
+> [AZURE.TIP]
+Al escribir las API, siempre debería vincular los datos a un elemento único del token cuya identidad el usuario no pueda suplantar. Cuando este servidor almacena elementos TODO, los almacena en función del Id. de objeto del usuario en el token (llamado a través de token.oid) que se coloca en el campo "owner". Esto garantiza que ese usuario sea el único que pueda acceder a sus TODO y nadie más tenga acceso a los TODO especificados. En la API "owner" no queda expuesto, así que un usuario externo puede solicitar los TODO de los demás, incluso si se autentican.
 
 A continuación, vamos a usar la estrategia de portador que se incluye con passport-azure-ad. Por ahora veamos el código y lo explicaré en breve. Incluya esto después de lo anterior:
 
@@ -801,7 +802,8 @@ passport.use(oidcStrategy);
 
 Passport usa un patrón similar para todas sus estrategias (Twitter, Facebook, etc.) al que se ajustan todos los escritores de estrategias. Si se examina la estrategia, se percibe que se pasa function(), que tiene un token y un done como parámetros. La estrategia volverá diligentemente a nosotros una vez que haya finalizado su labor. Una vez que lo haga, almacenaremos el usuario y guardaremos provisionalmente el token, con el fin de que no tengamos que volver a pedirlo.
 
-> [AZURE.IMPORTANT]El código anterior toma cualquier usuario que se autentique en el servidor. Esto se conoce como registro automático. En los servidores de producción, no debería permitir que acceda cualquier usuario sin que antes pase por el proceso de registro que decida. Este suele ser el patrón que se observa en las aplicaciones de consumidor que permiten registrarse con Facebook, pero que luego piden que se rellene información adicional. Si no se tratara de un programa de línea de comandos, podríamos haber extraído el correo electrónico del objeto de token que se devuelve y, a continuación, haber pedido al usuario que rellenara la información adicional. Puesto que se trata de un servidor de prueba, simplemente los agregaremos a la base de datos en memoria.
+> [AZURE.IMPORTANT]
+El código anterior toma cualquier usuario que se autentique en el servidor. Esto se conoce como registro automático. En los servidores de producción, no debería permitir que acceda cualquier usuario sin que antes pase por el proceso de registro que decida. Este suele ser el patrón que se observa en las aplicaciones de consumidor que permiten registrarse con Facebook, pero que luego piden que se rellene información adicional. Si no se tratara de un programa de línea de comandos, podríamos haber extraído el correo electrónico del objeto de token que se devuelve y, a continuación, haber pedido al usuario que rellenara la información adicional. Puesto que se trata de un servidor de prueba, simplemente los agregaremos a la base de datos en memoria.
 
 ### 2\. Por último, proteja algunos extremos
 
@@ -890,4 +892,4 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 [Conexión a una API web mediante iOS con B2C >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

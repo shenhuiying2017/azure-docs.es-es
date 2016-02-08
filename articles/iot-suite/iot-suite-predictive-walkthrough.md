@@ -2,13 +2,14 @@
  pageTitle="Tutorial de mantenimiento predictivo | Microsoft Azure"
  description="Tutorial de la solución preconfigurada de mantenimiento predictivo de IoT de Azure."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="aguilaaj"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -102,7 +103,7 @@ La simulación completa tarda alrededor de 35 minutos en finalizar 148 ciclos. S
 
 La simulación ejecuta el conjunto de datos completo para 148 ciclos y se establece en los valores finales de la vida útil existente y de ciclos.
 
-Puede detener la simulación en cualquier punto, pero, al hacer clic en **Iniciar simulación**, se reproduce la simulación desde el principio del conjunto de datos.
+Puede detener la simulación en cualquier punto, pero al hacer clic en **Iniciar simulación** se reproduce la simulación desde el principio del conjunto de datos.
 
 ## Pasos siguientes
 
@@ -123,4 +124,4 @@ Ahora que ha ejecutado la solución preconfigurada de mantenimiento predictivo, 
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

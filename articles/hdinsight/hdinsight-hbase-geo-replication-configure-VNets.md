@@ -49,9 +49,9 @@ El diagrama siguiente muestra las dos redes virtuales que creará en este tutori
 ##Requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Una estación de trabajo con Azure PowerShell**. Vea [Instalar y usar Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Una estación de trabajo con Azure PowerShell**. Vea [Instalar y usar Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 	Antes de ejecutar scripts de PowerShell, asegúrese de estar conectado a su suscripción de Azure mediante el siguiente cmdlet:
 
@@ -62,7 +62,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 		Select-AzureSubscription <AzureSubscriptionName>
 
 
->[AZURE.NOTE]Los nombres de servicio de Azure y los nombres de máquina virtual deben ser únicos. El nombre usado en este tutorial es Contoso-[Servicio de Azure/nombre de máquina virtual]-[EU/US]. Por ejemplo, Contoso-VNet-EU es la red virtual de Azure del centro de datos Norte de Europa; Contoso-DNS-US es la máquina virtual del servidor DNS del centro de datos Este de EE. UU. Debe proponer sus propios nombres.
+>[AZURE.NOTE] Los nombres de servicio de Azure y los nombres de máquina virtual deben ser únicos. El nombre usado en este tutorial es Contoso-[Servicio de Azure/nombre de máquina virtual]-[EU/US]. Por ejemplo, Contoso-VNet-EU es la red virtual de Azure del centro de datos Norte de Europa; Contoso-DNS-US es la máquina virtual del servidor DNS del centro de datos Este de EE. UU. Debe proponer sus propios nombres.
  
 
 ##Creación de dos redes virtuales de Azure
@@ -270,4 +270,4 @@ En este tutorial ha aprendido cómo configurar una conexión VPN entre dos redes
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

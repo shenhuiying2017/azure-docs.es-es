@@ -31,7 +31,7 @@ Cuando finaliza la transferencia de datos, se elimina la instantánea y se crea 
 ### Coherencia de datos
 La copia de seguridad y restauración de datos críticos para el negocio resulta complicado por el hecho de que es necesario realizar la copia de seguridad mientras se ejecutan las aplicaciones que producen los datos. Para solucionar este problema, el servicio Copia de seguridad de Azure proporciona copias de seguridad coherentes con la aplicación para las cargas de trabajo de Microsoft utilizando VSS para garantizar que los datos se escriben correctamente en el almacenamiento.
 
->[AZURE.NOTE]En las máquinas virtuales Linux, solo se pueden realizar copias de seguridad coherentes con el archivo, dado que Linux no dispone de una plataforma equivalente a VSS.
+>[AZURE.NOTE] En las máquinas virtuales Linux, solo se pueden realizar copias de seguridad coherentes con el archivo, dado que Linux no dispone de una plataforma equivalente a VSS.
 
 Copia de seguridad de Azure realiza copias de seguridad completas de VSS en máquinas virtuales de Windows (más información sobre [copia de seguridad completa de VSS](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx)). Para habilitar las copias de seguridad de VSS, hay que establecer la siguiente clave del Registro en la máquina virtual.
 
@@ -91,7 +91,7 @@ Copia de seguridad de Azure no cifra los datos como parte del proceso de copia d
 
 
 ## ¿Cómo se calculan las instancias protegidas?
-Las máquinas virtuales de Azure cuya copia de seguridad se realiza mediante el servicio Copia de seguridad de Azure estarán sujetas a los [precios de Copia de seguridad de Azure](http://azure.microsoft.com/pricing/details/backup/). El cálculo de instancias protegidas se basa en el tamaño *real* de la máquina virtual, que es la suma de todos los datos de la máquina virtual, excepto el "disco de recursos".
+Las máquinas virtuales de Azure cuya copia de seguridad se realiza mediante el servicio Copia de seguridad de Azure estarán sujetas a los [precios de Copia de seguridad de Azure](https://azure.microsoft.com/pricing/details/backup/). El cálculo de instancias protegidas se basa en el tamaño *real* de la máquina virtual, que es la suma de todos los datos de la máquina virtual, excepto el "disco de recursos".
 
 *No* se le facturará en función del tamaño máximo admitido para cada disco de datos conectado a la máquina virtual, sino de los datos reales almacenados en el disco de datos. De forma similar, la factura de almacenamiento de copia de seguridad se basa en la cantidad de datos almacenados con Copia de seguridad de Azure, que es la suma de los datos reales de cada punto de recuperación.
 
@@ -120,4 +120,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Solución de problemas de copia de seguridad de máquinas virtuales](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -23,7 +23,7 @@
 
 En este tema se describe cómo usar la interfaz de línea de comandos (CLI de Azure) de Azure en modo del Administrador de recursos de Azure para crear, administrar y eliminar servicios en la línea de comandos de equipos Mac, Linux y Windows. Puede realizar muchas de las mismas tareas mediante las diversas bibliotecas de los SDK de Azure, Azure PowerShell y el Portal de Azure.
 
-El Administrador de recursos de Azure le permite crear un grupo de recursos (máquinas virtuales, sitios web, bases de datos, etc.) como una sola unidad de implementación. A continuación, puede implementar, actualizar o eliminar todos los recursos de la aplicación en una operación única y coordinada. Describa sus recursos de grupo en una plantilla JSON para la implementación, y luego use esa plantilla para diferentes entornos, como pruebas, almacenamiento provisional y producción.
+El Administrador de recursos de Azure le permite crear un grupo de recursos (máquinas virtuales, sitios web, bases de datos, etc.) como una sola unidad de implementación. A continuación, puede implementar, actualizar o eliminar todos los recursos de la aplicación en una operación única y coordinada. Describa sus recursos de grupo en una plantilla JSON para la implementación, luego use esa plantilla para diferentes entornos, como pruebas, almacenamiento provisional y producción.
 
 ## Ámbito del artículo
 
@@ -35,7 +35,7 @@ Además de los parámetros opcionales específicos de los comandos documentados 
 
 ## Enfoques imperativos y declarativos
 
-Al igual que con el [Modo de administración de servicio](../virtual-machines-command-line-tools.md), el modo del Administrador de recursos de la CLI de Azure le ofrece comandos que crean recursos de forma imperativa en la línea de comandos. Por ejemplo, si escribe `azure group create <groupname> <location>`, pide a Azure que cree un grupo de recursos, y con `azure group deployment create <resourcegroup> <deploymentname>` indica a Azure que cree una implementación de cualquier número de elementos y los coloque en un grupo. Dado que cada tipo de recurso tiene comandos imperativos, se pueden encadenar para crear implementaciones bastante complejas.
+Al igual que con el [Modo de administración de servicios de Azure](../virtual-machines-command-line-tools.md), el modo del Administrador de recursos de la CLI de Azure le ofrece comandos que crean recursos de forma imperativa en la línea de comandos. Por ejemplo, si escribe `azure group create <groupname> <location>`, pide a Azure que cree un grupo de recursos, y con `azure group deployment create <resourcegroup> <deploymentname>` indica a Azure que cree una implementación de cualquier número de elementos y los coloque en un grupo. Dado que cada tipo de recurso tiene comandos imperativos, se pueden encadenar para crear implementaciones bastante complejas.
 
 Sin embargo, el uso del grupo de recursos de _plantillas_ que describe un grupo de recursos es un enfoque declarativo mucho más eficaz, lo que permite automatizar implementaciones complejas de (casi) cualquier número de recursos para (casi) cualquier propósito. Cuando se usen plantillas, el único comando imperativo es implementar uno. Para obtener una descripción general de las plantillas, los recursos y grupos de recursos, vea [Información general del grupo de recursos de Azure](../resource-group-overview.md).
 
@@ -43,14 +43,14 @@ Sin embargo, el uso del grupo de recursos de _plantillas_ que describe un grupo 
 
 Los requisitos de configuración para usar el modo del Administrador de recursos con la CLI de Azure son:
 
-- una cuenta de Azure ([obtenga aquí una prueba gratuita](http://azure.microsoft.com/pricing/free-trial/));
-- [instalar las bibliotecas de clientes de Azure](../xplat-cli-install.md);
+- una cuenta de Azure ([obtenga aquí una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/));
+- [instalar las bibliotecas de clientes de Azure;](../xplat-cli-install.md)
 
 
 Una vez que tiene una cuenta y ha instalado la CLI de Azure, debe:
 
 - [configurar la CLI de Azure](../xplat-cli-connect.md) para usar una cuenta profesional o educativa o una identidad de cuenta Microsoft
-- cambie al modo del Administrador de recursos escribiendo `azure config mode arm`
+- cambiar al modo del Administrador de recursos escribiendo `azure config mode arm`
 
 
 ## cuenta de Azure: administración de la información de la cuenta
@@ -198,6 +198,125 @@ La herramienta usa la información de la suscripción de Azure para la conexión
 	group template show [options] <name>
 	group template download [options] [name] [file]
 	group template validate [options] <resource-group>
+
+## hdinsight de azure: comandos para administrar sus cuentas de HDInsight
+
+**Comandos para crear o agregar a un archivo de configuración de clúster**
+
+	hdinsight config create [options] <configFilePath> <overwrite>
+	hdinsight config add-config-values [options] <configFilePath>
+	hdinsight config add-script-action [options] <configFilePath>
+
+Ejemplo: Crear un archivo de configuración que contenga una acción de sript para ejecutarlo al crear un clúster.
+
+	hdinsight config create "C:\myFiles\configFile.config"
+	hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <scriptActionURI> --name myScriptAction --parameters "-param value"
+
+**Comando para crear un clúster en un grupo de recursos**
+
+	hdinsight cluster create [options] <clusterName>
+	 
+Ejemplo: Crear una clúster de Linux o Storm
+
+	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
+	
+	info:    Executing command hdinsight cluster create
+	+ Submitting the request to create cluster...
+	info:    hdinsight cluster create command OK
+
+Ejemplo: Crear un clúster con una acción de script
+
+	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
+	
+	info:    Executing command hdinsight cluster create
+	+ Submitting the request to create cluster...
+	info:    hdinsight cluster create command OK
+	
+Opciones de parámetro:
+
+	-h, --help                                                 output usage information
+	-v, --verbose                                              use verbose output
+	-vv                                                        more verbose with debug output
+	--json                                                     use json output
+	-g --resource-group <resource-group>                       The name of the resource group
+	-c, --clusterName <clusterName>                            HDInsight cluster name
+	-l, --location <location>                                  Data center location for the cluster
+	-y, --osType <osType>                                      HDInsight cluster operating system
+	'Windows' or 'Linux'
+	--version <version>                                        HDInsight cluster version
+	--clusterType <clusterType>                                HDInsight cluster type.
+	Hadoop | HBase | Spark | Storm
+	--defaultStorageAccountName <storageAccountName>           Storage account url to use for default HDInsight storage
+	--defaultStorageAccountKey <storageAccountKey>             Key to the storage account to use for default HDInsight storage
+	--defaultStorageContainer <storageContainer>               Container in the storage account to use for HDInsight default storage
+	--headNodeSize <headNodeSize>                              (Optional) Head node size for the cluster
+	--workerNodeCount <workerNodeCount>                        Number of worker nodes to use for the cluster
+	--workerNodeSize <workerNodeSize>                          (Optional) Worker node size for the cluster)
+	--zookeeperNodeSize <zookeeperNodeSize>                    (Optional) Zookeeper node size for the cluster
+	--userName <userName>                                      Cluster username
+	--password <password>                                      Cluster password
+	--sshUserName <sshUserName>                                SSH username (only for Linux clusters)
+	--sshPassword <sshPassword>                                SSH password (only for Linux clusters)
+	--sshPublicKey <sshPublicKey>                              SSH public key (only for Linux clusters)
+	--rdpUserName <rdpUserName>                                RDP username (only for Windows clusters)
+	--rdpPassword <rdpPassword>                                RDP password (only for Windows clusters)
+	--rdpAccessExpiry <rdpAccessExpiry>                        RDP access expiry.
+	For example 12/12/2015 (only for Windows clusters)
+	--virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster. 
+	Value is a GUID for Windows cluster and ARM resource ID for Linux cluster)
+	--subnetName <subnetName>                                  (Optional) Subnet for the cluster
+	--additionalStorageAccounts <additionalStorageAccounts>    (Optional) Additional storage accounts.
+	Can be multiple.
+	In the format of 'accountName#accountKey'.
+	For example, --additionalStorageAccounts "acc1#key1;acc2#key2"
+	--hiveMetastoreServerName <hiveMetastoreServerName>        (Optional) SQL Server name for the external metastore for Hive
+	--hiveMetastoreDatabaseName <hiveMetastoreDatabaseName>    (Optional) Database name for the external metastore for Hive
+	--hiveMetastoreUserName <hiveMetastoreUserName>            (Optional) Database username for the external metastore for Hive
+	--hiveMetastorePassword <hiveMetastorePassword>            (Optional) Database password for the external metastore for Hive
+	--oozieMetastoreServerName <oozieMetastoreServerName>      (Optional) SQL Server name for the external metastore for Oozie
+	--oozieMetastoreDatabaseName <oozieMetastoreDatabaseName>  (Optional) Database name for the external metastore for Oozie
+	--oozieMetastoreUserName <oozieMetastoreUserName>          (Optional) Database username for the external metastore for Oozie
+	--oozieMetastorePassword <oozieMetastorePassword>          (Optional) Database password for the external metastore for Oozie
+	--configurationPath <configurationPath>                    (Optional) HDInsight cluster configuration file path
+	-s, --subscription <id>                                    The subscription id
+	--tags <tags>                                              Tags to set to the cluster.
+	Can be multiple.
+	In the format of 'name=value'.
+	Name is required and value is optional.
+	For example, --tags tag1=value1;tag2
+
+
+**Comando para eliminar un clúster**
+
+	hdinsight cluster delete [options] <clusterName>
+
+**Comandos para mostrar los detalles del clúster**
+
+	hdinsight cluster show [options] <clusterName>
+
+**Comando para enumerar todos los clústeres (en un grupo de recursos específico, si se ofrece)**
+
+	hdinsight cluster list [options]
+
+**Comando para cambiar el tamaño de un clúster**
+
+	hdinsight cluster resize [options] <clusterName> <targetInstanceCount>
+
+**Comando para habilitar el acceso HTTP para un clúster**
+
+	hdinsight cluster enable-http-access [options] <clusterName> <userName> <password>
+
+**Comando para deshabilitar el acceso HTTP para un clúster**
+
+	hdinsight cluster disable-http-access [options] <clusterName>
+
+**Comando para habilitar el acceso RDP para un clúster**
+
+	hdinsight cluster enable-rdp-access [options] <clusterName> <rdpUserName> <rdpPassword> <rdpExpiryDate>
+
+**Comando para deshabilitar el acceso HTTP para un clúster**
+
+	hdinsight cluster disable-rdp-access [options] <clusterName>
 
 ## azure insights: comandos relacionados con la supervisión con Insights (eventos, reglas de alerta, configuración de escalado automático, métricas)
 
@@ -529,7 +648,7 @@ Opciones de parámetro:
 <BR>
 
 	network lb list [options] <resource-group>
-Enumera los recursos de equilibrador de carga dentro de un grupo de recursos.
+Enumera los recursos de Equilibrador de carga dentro de un grupo de recursos.
 
 	azure network lb list myresourcegroup
 
@@ -770,7 +889,7 @@ Opciones de parámetro:
 
 	network lb frontend-ip list [options] <resource-group> <lb-name>
 
-Enumera todos los recursos IP de frontend configurados para el equilibrador de carga.
+Enumera todos los recursos IP de front-end configurados para el equilibrador de carga.
 
 	azure network lb frontend-ip list -g myresourcegroup -l mylb
 
@@ -815,7 +934,7 @@ Opciones de parámetro:
 
 	network lb address-pool create [options] <resource-group> <lb-name> <name>
 
-Crea un grupo de direcciones de backend para un equilibrador de carga.
+Crea un grupo de direcciones de back-end para un equilibrador de carga.
 
 	azure network lb address-pool create -g myresourcegroup --lb-name mylb -n myaddresspool
 
@@ -846,7 +965,7 @@ Opciones de parámetro:
 
 	network lb address-pool add [options] <resource-group> <lb-name> <name>
 
-Un intervalo de grupo de direcciones de backend es el modo en que un equilibrador de carga sabrá a qué recursos enrutar el tráfico de red entrante desde su extremo mediante el Administrador de recursos de Azure. Una vez que se crea y denomina el intervalo de grupo de direcciones de backend (vea el comando "azure network lb address-pool creat"), deberá agregar los extremos ahora definidos por un recurso denominado "network interfaces".
+Un intervalo de grupo de direcciones de back-end es el modo en que un equilibrador de carga sabrá a qué recursos enrutar el tráfico de red entrante desde su punto de conexión mediante el Administrador de recursos de Azure. Una vez que se crea y denomina el intervalo de grupo de direcciones de back-end (vea el comando "azure network lb address-pool creat"), deberá agregar los puntos de conexión ahora definidos por un recurso denominado "network interfaces".
 
 Para configurar el intervalo de direcciones de backend, necesitará al menos una "interfaz de red" (vea la línea de comandos de "azure network lb nic" para más detalles).
 
@@ -889,7 +1008,7 @@ Opciones de parámetro:
 
 	network lb address-pool remove [options] <resource-group> <lb-name> <name>
 
-Quita una interfaz de red del intervalo de grupo de direcciones IP de backend.
+Quita una interfaz de red del intervalo de grupo de direcciones IP de back-end.
 
 	azure network lb address-pool remove -g myresourcegroup -l mylb -n mybackendpool -a nic1
 
@@ -974,9 +1093,9 @@ Opciones de parámetro:
 	network lb rule create [options] <resource-group> <lb-name> <name>
 Crea reglas de equilibrador de carga.
 
-Puede crear una regla de equilibrador de carga mediante la configuración del extremo de frontend para el equilibrador de carga y el intervalo de grupo de direcciones de backend que va a recibir el tráfico de red entrante. La configuración también incluye los puertos para el extremo IP de frontend y los puertos para el intervalo de grupo de direcciones de backend.
+Puede crear una regla de equilibrador de carga configurando el punto de conexión de front-end para el equilibrador de carga y el intervalo de grupo de direcciones de back-end que recibirá el tráfico de red entrante. La configuración también incluye los puertos para el extremo IP de frontend y los puertos para el intervalo de grupo de direcciones de backend.
 
-En el ejemplo siguiente se muestra cómo crear una regla de equilibrador de carga, el extremo de frontend que escucha los puertos TCP 80 y el tráfico de red de equilibrio de carga que se envía al puerto 8080 para el intervalo de grupo de direcciones de backend.
+En el siguiente ejemplo se muestra cómo crear una regla de equilibrador de carga, el punto de conexión de front-end que escucha el puerto TCP 80 y el tráfico de red de equilibrio de carga que se envía al puerto 8080 para el intervalo de grupo de direcciones de back-end.
 
 	azure network lb rule create -g myresourcegroup -l mylb -n mylbrule -p tcp -f 80 -b 8080 -i 10
 
@@ -1004,7 +1123,7 @@ En el ejemplo siguiente se muestra cómo crear una regla de equilibrador de carg
 
 	network lb rule set [options] <resource-group> <lb-name> <name>
 
-Actualiza una regla existente del equilibrador de carga establecida en un grupo de recursos específico. En el ejemplo siguiente se cambió el nombre de la regla de mylbrule a mynewlbrule.
+Actualiza una regla existente del equilibrador de carga establecida en un grupo de recursos específico. En el siguiente ejemplo se cambió el nombre de la regla de mylbrule a mynewlbrule.
 
 	azure network lb rule set -g myresourcegroup -l mylb -n mylbrule -r mynewlbrule -p tcp -f 80 -b 8080 -i 10 -t myfrontendip -o mybackendpool
 
@@ -1049,7 +1168,7 @@ Opciones de parámetro:
 
 	network lb rule list [options] <resource-group> <lb-name>
 
-Enumera todas carga reglas del equilibrador configuradas para un equilibrador de carga en un grupo de recursos específico.
+Enumera todas las reglas configuradas para un equilibrador de carga de un grupo de recursos específico.
 
 	azure network lb rule list -g myresourcegroup -l mylb
 
@@ -1140,7 +1259,7 @@ Opciones de parámetro:
 <BR>
 
 	network lb inbound-nat-rule set [options] <resource-group> <lb-name> <name>
-Actualiza una regla NAT de entrada existente. En el ejemplo siguiente, cambie el puerto de escucha entrante entre 80 y 81.
+Actualiza una regla NAT de entrada existente. En el siguiente ejemplo se cambió el puerto de escucha entrante de 80 a 81.
 
 	azure network lb inbound-nat-rule set -g group-1 -l mylb -n myinboundnat -p tcp -f 81 -b 8080 -i myfrontendip
 
@@ -1208,7 +1327,7 @@ Opciones de parámetro:
 
 	network lb inbound-nat-rule delete [options] <resource-group> <lb-name> <name>
 
-Elimina la regla NAT para el equilibrador de carga en un grupo de recursos específico.
+Elimina la regla NAT para el equilibrador de carga de un grupo de recursos específico.
 
 	azure network lb inbound-nat-rule delete -g myresourcegroup -l mylb -n myinboundnat
 
@@ -1232,7 +1351,7 @@ Opciones de parámetro:
 **Comandos para administrar direcciones ip públicas**
 
 	network public-ip create [options] <resource-group> <name> <location>
-Crea un recurso de dirección ip pública. Creará el recurso de dirección ip pública y lo asociará a un nombre de dominio.
+Crea un recurso de dirección IP pública. Creará el recurso de dirección ip pública y lo asociará a un nombre de dominio.
 
 	azure network public-ip create -g myresourcegroup -n mytestpublicip1 -l eastus -d azureclitest -a "Dynamic"
 	info:    Executing command network public-ip create
@@ -1360,7 +1479,7 @@ Opciones de parámetro:
 
 	network public-ip delete [options] <resource-group> <name>
 
-Elimina un recurso de dirección ip pública.
+Elimina un recurso de dirección IP pública.
 
 	azure network public-ip delete -g group-1 -n mypublicipname
 	info:    Executing command network public-ip delete
@@ -1760,123 +1879,4 @@ Opciones de parámetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-## hdinsight de azure: comandos para administrar sus cuentas de HDInsight
-
-**Comandos para crear o agregar a un archivo de configuración de clúster**
-
-	hdinsight config create [options] <configFilePath> <overwrite>
-	hdinsight config add-config-values [options] <configFilePath>
-	hdinsight config add-script-action [options] <configFilePath>
-
-Ejemplo: Crear un archivo de configuración que contenga una acción de sript para ejecutarlo al crear un clúster.
-
-	hdinsight config create "C:\myFiles\configFile.config"
-	hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <scriptActionURI> --name myScriptAction --parameters "-param value"
-
-**Comando para crear un clúster en un grupo de recursos**
-
-	hdinsight cluster create [options] <clusterName>
-	 
-Ejemplo: Crear una clúster de Linux o Storm
-
-	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
-	
-	info:    Executing command hdinsight cluster create
-	+ Submitting the request to create cluster...
-	info:    hdinsight cluster create command OK
-
-Ejemplo: Crear un clúster con una acción de script
-
-	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
-	
-	info:    Executing command hdinsight cluster create
-	+ Submitting the request to create cluster...
-	info:    hdinsight cluster create command OK
-	
-Opciones de parámetro:
-
-	-h, --help                                                 output usage information
-	-v, --verbose                                              use verbose output
-	-vv                                                        more verbose with debug output
-	--json                                                     use json output
-	-g --resource-group <resource-group>                       The name of the resource group
-	-c, --clusterName <clusterName>                            HDInsight cluster name
-	-l, --location <location>                                  Data center location for the cluster
-	-y, --osType <osType>                                      HDInsight cluster operating system
-	'Windows' or 'Linux'
-	--version <version>                                        HDInsight cluster version
-	--clusterType <clusterType>                                HDInsight cluster type.
-	Hadoop | HBase | Spark | Storm
-	--defaultStorageAccountName <storageAccountName>           Storage account url to use for default HDInsight storage
-	--defaultStorageAccountKey <storageAccountKey>             Key to the storage account to use for default HDInsight storage
-	--defaultStorageContainer <storageContainer>               Container in the storage account to use for HDInsight default storage
-	--headNodeSize <headNodeSize>                              (Optional) Head node size for the cluster
-	--workerNodeCount <workerNodeCount>                        Number of worker nodes to use for the cluster
-	--workerNodeSize <workerNodeSize>                          (Optional) Worker node size for the cluster)
-	--zookeeperNodeSize <zookeeperNodeSize>                    (Optional) Zookeeper node size for the cluster
-	--userName <userName>                                      Cluster username
-	--password <password>                                      Cluster password
-	--sshUserName <sshUserName>                                SSH username (only for Linux clusters)
-	--sshPassword <sshPassword>                                SSH password (only for Linux clusters)
-	--sshPublicKey <sshPublicKey>                              SSH public key (only for Linux clusters)
-	--rdpUserName <rdpUserName>                                RDP username (only for Windows clusters)
-	--rdpPassword <rdpPassword>                                RDP password (only for Windows clusters)
-	--rdpAccessExpiry <rdpAccessExpiry>                        RDP access expiry.
-	For example 12/12/2015 (only for Windows clusters)
-	--virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster. 
-	Value is a GUID for Windows cluster and ARM resource ID for Linux cluster)
-	--subnetName <subnetName>                                  (Optional) Subnet for the cluster
-	--additionalStorageAccounts <additionalStorageAccounts>    (Optional) Additional storage accounts.
-	Can be multiple.
-	In the format of 'accountName#accountKey'.
-	For example, --additionalStorageAccounts "acc1#key1;acc2#key2"
-	--hiveMetastoreServerName <hiveMetastoreServerName>        (Optional) SQL Server name for the external metastore for Hive
-	--hiveMetastoreDatabaseName <hiveMetastoreDatabaseName>    (Optional) Database name for the external metastore for Hive
-	--hiveMetastoreUserName <hiveMetastoreUserName>            (Optional) Database username for the external metastore for Hive
-	--hiveMetastorePassword <hiveMetastorePassword>            (Optional) Database password for the external metastore for Hive
-	--oozieMetastoreServerName <oozieMetastoreServerName>      (Optional) SQL Server name for the external metastore for Oozie
-	--oozieMetastoreDatabaseName <oozieMetastoreDatabaseName>  (Optional) Database name for the external metastore for Oozie
-	--oozieMetastoreUserName <oozieMetastoreUserName>          (Optional) Database username for the external metastore for Oozie
-	--oozieMetastorePassword <oozieMetastorePassword>          (Optional) Database password for the external metastore for Oozie
-	--configurationPath <configurationPath>                    (Optional) HDInsight cluster configuration file path
-	-s, --subscription <id>                                    The subscription id
-	--tags <tags>                                              Tags to set to the cluster.
-	Can be multiple.
-	In the format of 'name=value'.
-	Name is required and value is optional.
-	For example, --tags tag1=value1;tag2
-
-
-**Comando para eliminar un clúster**
-
-	hdinsight cluster delete [options] <clusterName>
-
-**Comandos para mostrar los detalles del clúster**
-
-	hdinsight cluster show [options] <clusterName>
-
-**Comando para enumerar todos los clústeres (en un grupo de recursos específico, si se ofrece)**
-
-	hdinsight cluster list [options]
-
-**Comando para cambiar el tamaño de un clúster**
-
-	hdinsight cluster resize [options] <clusterName> <targetInstanceCount>
-
-**Comando para habilitar el acceso HTTP para un clúster**
-
-	hdinsight cluster enable-http-access [options] <clusterName> <userName> <password>
-
-**Comando para deshabilitar el acceso HTTP para un clúster**
-
-	hdinsight cluster disable-http-access [options] <clusterName>
-
-**Comando para habilitar el acceso RDP para un clúster**
-
-	hdinsight cluster enable-rdp-access [options] <clusterName> <rdpUserName> <rdpPassword> <rdpExpiryDate>
-
-**Comando para deshabilitar el acceso HTTP para un clúster**
-
-	hdinsight cluster disable-rdp-access [options] <clusterName>
-
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -29,7 +29,7 @@ La seguridad en el Servicio de aplicaciones de Azure tiene dos niveles:
 #### Seguridad de la infraestructura y la plataforma
 Dado que el Servicio de aplicaciones mantiene las máquinas virtuales de Azure, el almacenamiento, las conexiones de red, los marcos web, la administración y las características de integración, entre muchas otras cosas, se protege y refuerza de forma activa, además de someterla a controles y comprobaciones de cumplimiento exhaustivos de forma continua para garantizar que:
 
-- Sus aplicaciones del Servicio de aplicaciones estén aisladas de Internet y de los recursos de Azure de otros clientes.
+- Sus aplicaciones del Servicio de aplicaciones están aisladas de Internet y de los recursos de Azure de otros clientes.
 - La comunicación de secretos (por ejemplo, cadenas de conexión) entre su aplicación del Servicio de aplicaciones y otros recursos de Azure (por ejemplo, Base de datos SQL) en un grupo de recursos permanezca dentro de Azure y no cruce ningún límite de la red. Los secretos siempre están cifrados.
 - Toda la comunicación entre su aplicación del Servicio de aplicaciones y los recursos externos, como la administración de PowerShell, la interfaz de la línea de comandos, los SDK de Azure, las API de REST y las conexiones híbridas, se hayan cifrado correctamente.
 - La administración ininterrumpida de amenazas proteja los recursos del Servicio de aplicaciones frente a malware, ataques por denegación de servicio distribuido (DDoS), ataques de tipo "Man in the middle" (MITM) y otras amenazas. 
@@ -89,7 +89,7 @@ Además, debería asegurarse de que se protegen las credenciales importadas. Por
 ### Valores de configuración y cadenas de conexión
 Es habitual almacenar cadenas de conexión, credenciales de autenticación y otra información de tipo confidencial en archivos de configuración. Lamentablemente, estos archivos pueden resultar expuestos en su sitio web o podrían aparecer en búsquedas de un repositorio público, con lo que la información podría quedar al descubierto. Por ejemplo, una simple búsqueda en [GitHub](https://github.com) descubre innumerables archivos de configuración con secretos expuestos en los repositorios públicos.
 
-Lo mejor es mantener esta información fuera de los archivos de configuración de la aplicación. El Servicio de aplicaciones le permite almacenar la información de configuración como parte del entorno en tiempo de ejecución en forma de **configuración de aplicación** y **cadenas de conexión**. Estos valores se exponen a su aplicación en el tiempo de ejecución a través de *variables de entorno* para la mayoría de lenguajes de programación. En el caso de las aplicaciones .NET, estos valores se insertan en la configuración de .NET en el tiempo de ejecución. Aparte de estos casos, estas opciones de configuración permanecerán cifradas a menos que las vea o configure mediante el [Portal de Azure](http://portal.azure.com) o utilidades tales como PowerShell o la CLI de Azure.
+Lo mejor es mantener esta información fuera de los archivos de configuración de la aplicación. El Servicio de aplicaciones le permite almacenar la información de configuración como parte del entorno en tiempo de ejecución en forma de **configuración de aplicación** y **cadenas de conexión**. Estos valores se exponen a su aplicación en el tiempo de ejecución a través de *variables de entorno* para la mayoría de lenguajes de programación. En el caso de las aplicaciones .NET, estos valores se insertan en la configuración de .NET en el tiempo de ejecución. Aparte de estos casos, estas opciones de configuración permanecerán cifradas a menos que las vea o configure mediante el [Portal de Azure](https://portal.azure.com) o utilidades tales como PowerShell o la CLI de Azure.
 
 Si se almacena información de configuración en el Servicio de aplicaciones, el administrador de la aplicación puede bloquear la información confidencial para las aplicaciones de producción. Los desarrolladores pueden usar un conjunto independiente de valores de configuración para el desarrollo de aplicaciones y la configuración se puede sustituir automáticamente por la configuración en el Servicio de aplicaciones. Ni siquiera los desarrolladores necesitan saber los secretos configurados para la aplicación de producción. Para más información sobre cómo establecer la configuración de la aplicación y las cadenas de conexión en el Servicio de aplicaciones, consulte [Configuración de aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-configure.md).
 
@@ -99,7 +99,7 @@ El Servicio de aplicaciones de Azure proporciona a la aplicación acceso FTP seg
 
 Puede encontrar el vínculo FTPS para su aplicación con los siguientes pasos:
 
-1. Abra el [Portal de Azure](http://portal.azure.com).
+1. Abra el [Portal de Azure](https://portal.azure.com).
 2. Seleccione **Examinar todo**.
 3. En la hoja **Examinar**, seleccione **Servicios de aplicaciones**.
 4. En la hoja **Servicios de aplicaciones**, seleccione la aplicación deseada.
@@ -111,16 +111,16 @@ Para obtener más información acerca de FTPS, consulte [File Transfer Protocol]
 
 ## Pasos siguientes
 
-Para obtener más información sobre la seguridad en la plataforma de Azure, aprender cómo notificar un **abuso o incidente de seguridad** o informar a Microsoft de que va a realizar una **prueba de penetración** en su sitio, consulte la sección de seguridad del [Centro de confianza de Microsoft Azure](http://azure.microsoft.com/support/trust-center/security/).
+Para obtener más información sobre la seguridad en la plataforma de Azure, aprender cómo notificar un **abuso o incidente de seguridad** o informar a Microsoft de que va a realizar una **prueba de penetración** en su sitio, consulte la sección de seguridad del [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
 
-Para más información sobre los archivos **web.config** o **applicationhost.config** en aplicaciones del Servicio de aplicaciones, consulte [More to explore: configuration options unlocked in Microsoft Azure Web Sites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/) (Más para explorar: opciones de configuración desbloqueadas en Sitios web de Microsoft de Azure).
+Para obtener información sobre los archivos **web.config** o **applicationhost.config** en aplicaciones del Servicio de aplicaciones, consulte [ Opciones de configuración desbloqueadas en aplicaciones web del Servicio de aplicaciones de Azure](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
 
 Para más datos sobre la información de registro para aplicaciones del Servicio de aplicaciones, que puede resultar útil para detectar de ataques, consulte [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-enable-diagnostic-log.md).
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Probar Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Probar Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Lo que ha cambiado
 
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0128_2016-->

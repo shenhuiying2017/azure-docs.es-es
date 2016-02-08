@@ -29,7 +29,7 @@ Para consultar límites generales de las máquinas virtuales de Azure, vea [Lím
 
 Los tamaños estándar constan de varias series: A, D, DS, G y GS. Entre las consideraciones para algunos de estos tamaños, se incluyen:
 
-*   Las máquinas virtuales de la serie D están diseñadas para ejecutar aplicaciones que exigen mayor capacidad de proceso y rendimiento de disco temporal. Las máquinas virtuales de la serie D proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco temporal. Para obtener más información, consulte el anuncio en el blog de Azure, [Nuevos tamaños de máquinas virtuales de la serie D](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
+*   Las máquinas virtuales de la serie D están diseñadas para ejecutar aplicaciones que exigen mayor capacidad de proceso y rendimiento de disco temporal. Las máquinas virtuales de la serie D proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco temporal. Para obtener más información, consulte el anuncio en el blog de Azure, [Nuevos tamaños de máquinas virtuales de la serie D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
 *   Serie de Dv2, una evolución de la serie D original, presenta una CPU más eficaz. La CPU de la serie Dv2 es un 35 % aproximadamente más rápida que la CPU de la serie D. Se basa en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz de la última generación; y con Intel Turbo Boost Technology 2.0, puede alcanzar los 3,2 GHz. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
 
@@ -37,7 +37,7 @@ Los tamaños estándar constan de varias series: A, D, DS, G y GS. Entre las con
 
 *   Las VM de las series DS y GS pueden usar Almacenamiento premium, que proporciona un almacenamiento de alto rendimiento y una baja latencia para cargas de trabajo con uso intensivo de E/S. Estas VM utilizan unidades de estado sólido (SSD) para hospedar los discos de una máquina virtual y también proporcionan una memoria caché de disco SSD local. Almacenamiento premium está disponible en determinadas regiones. Para obtener más información, consulte [Almacenamiento Premium: almacenamiento de alto rendimiento para las cargas de trabajo de la máquina virtual de Azure](../storage-premium-storage-preview-portal.md)
 
-El tamaño de la máquina virtual afecta a los precios. El tamaño también afecta a la capacidad de procesamiento, memoria y almacenamiento de la máquina virtual. Los costes de almacenamiento se calculan por separado según las páginas utilizadas en la cuenta de almacenamiento. Para obtener más información, consulte [Precios de Máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/) y [Precios de Almacenamiento de Azure](http://azure.microsoft.com/pricing/details/storage/). Para obtener más detalles acerca del almacenamiento de VM, consulte [Acerca de los discos y los discos duros virtuales para máquinas virtuales ](virtual-machines-disks-vhds.md).
+El tamaño de la máquina virtual afecta a los precios. El tamaño también afecta a la capacidad de procesamiento, memoria y almacenamiento de la máquina virtual. Los costes de almacenamiento se calculan por separado según las páginas utilizadas en la cuenta de almacenamiento. Para obtener más información, consulte [Precios de Máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/) y [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/). Para obtener más detalles acerca del almacenamiento de VM, consulte [Acerca de los discos y los discos duros virtuales para máquinas virtuales ](virtual-machines-disks-vhds.md).
 
 Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 
@@ -54,7 +54,7 @@ Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 
 Creamos el concepto de unidad de proceso de Azure (ACU) para brindar una forma de comparar el rendimiento de los procesos (CPU) en todas las SKU de Azure. Esto le ayudará a identificar fácilmente el SKU que tiene más probabilidades de satisfacer sus necesidades de rendimiento. Actualmente, una ACU está estandarizada en una máquina virtual pequeña (Standard\_A1) como 100 y todas las demás SKU representan, aproximadamente, qué tanto más rápido esa SKU puede ejecutar una prueba comparativa estándar.
 
->[AZURE.IMPORTANT]La ACU es solo una referencia. Los resultados de la carga de trabajo pueden variar.
+>[AZURE.IMPORTANT] La ACU es solo una referencia. Los resultados de la carga de trabajo pueden variar.
 
 <br>
 
@@ -189,4 +189,4 @@ Nota: Para obtener información y algunas consideraciones sobre el uso de estos 
 
 [Sobre las instancias informáticas intensivas A8, A9, A10 y A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

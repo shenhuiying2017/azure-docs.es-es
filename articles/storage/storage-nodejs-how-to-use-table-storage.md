@@ -71,7 +71,7 @@ Agregue el código siguiente a la parte superior del archivo **server.js** de la
 
 El módulo azure leerá las variables de entorno AZURE\_STORAGE\_ACCOUNT, AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING para obtener la información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **TableService**.
 
-Para ver un ejemplo de configuración de las variables de entorno en el [Portal de Azure](portal.azure.com) para un sitio web de Azure, consulte [Aplicación web Node.js con Almacenamiento]
+Para ver un ejemplo de configuración de las variables de entorno en el [Portal de Azure](https://portal.azure.com) para un sitio web de Azure, consulte [Aplicación web Node.js con Almacenamiento]
 
 ## Creación de una tabla
 
@@ -125,7 +125,7 @@ Este es un ejemplo de la definición de una entidad. Tenga en cuenta que **dueDa
 	  dueDate: {'_':new Date(2015, 6, 20), '$':'Edm.DateTime'}
 	};
 
-> [AZURE.NOTE]Hay también un campo **Timestamp** para cada registro; Azure lo establece cuando se inserta o actualiza una entidad.
+> [AZURE.NOTE] Hay también un campo **Timestamp** para cada registro; Azure lo establece cuando se inserta o actualiza una entidad.
 
 También puede usar **entityGenerator** para crear entidades. En el siguiente ejemplo se crea la misma entidad de tarea mediante **entityGenerator**.
 
@@ -151,7 +151,7 @@ Respuesta de ejemplo:
 
 	{ '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 
-> [AZURE.NOTE]De forma predeterminada, el elemento **insertEntity** no devuelve la entidad insertada como parte de la información de `response`. Si tiene pensado realizar otras operaciones en esta entidad o desea almacenar en caché la información, puede ser útil que la devuelva como parte de `result`. Para ello, puede habilitar **echoContent** de la manera siguiente:
+> [AZURE.NOTE] De forma predeterminada, el elemento **insertEntity** no devuelve la entidad insertada como parte de la información de `response`. Si tiene pensado realizar otras operaciones en esta entidad o desea almacenar en caché la información, puede ser útil que la devuelva como parte de `result`. Para ello, puede habilitar **echoContent** de la manera siguiente:
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 
@@ -175,7 +175,7 @@ El ejemplo siguiente demuestra cómo actualizar una entidad usando **updateEntit
       }
     });
 
-> [AZURE.NOTE]De manera predeterminada, al actualizar una entidad no se comprueba si otro proceso ha modificado anteriormente los datos que se actualizan. Para permitir las actualizaciones simultáneas:
+> [AZURE.NOTE] De manera predeterminada, al actualizar una entidad no se comprueba si otro proceso ha modificado anteriormente los datos que se actualizan. Para permitir las actualizaciones simultáneas:
 >
 > 1. Obtenga la etiqueta ETag del objeto que se va a actualizar. Esta se devuelve como parte del valor de `response` para cualquier operación relacionada con entidades y se puede recuperar a través de `response['.metadata'].etag`.
 >
@@ -302,7 +302,7 @@ Puede eliminar una entidad usando sus claves de partición y fila. En este ejemp
 	  }
 	});
 
-> [AZURE.NOTE]Cuando elimine elementos, debería considerar el uso de etiquetas ETag para garantizar que otro proceso no haya modificado el elemento. Consulte [Actualización de una entidad](#update-an-entity) para obtener información sobre el uso de etiquetas ETag.
+> [AZURE.NOTE] Cuando elimine elementos, debería considerar el uso de etiquetas ETag para garantizar que otro proceso no haya modificado el elemento. Consulte [Actualización de una entidad](#update-an-entity) para obtener información sobre el uso de etiquetas ETag.
 
 ## Eliminación de una tabla
 
@@ -448,4 +448,4 @@ Para obtener más información, consulte los siguientes recursos:
   [Aplicación web Node.js con Almacenamiento]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

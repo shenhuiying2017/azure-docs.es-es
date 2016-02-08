@@ -24,7 +24,7 @@ Las plantillas de soluciones están diseñadas para acelerar el proceso de creac
 
 El objetivo de este documento es explicar la arquitectura de referencia y los diferentes componentes aprovisionados en su suscripción como parte de esta plantilla de solución. El documento también trata sobre cómo reemplazar los datos de ejemplo con datos reales para poder ver recomendaciones y predicciones a partir de sus propios datos. Además, el documento explica las partes de la plantilla de solución que deberán modificarse si desea personalizar la solución con sus propios datos. Se proporcionan instrucciones sobre cómo crear el panel de Power BI para esta plantilla de solución al final.
 
->[AZURE.TIP]Puede descargar e imprimir una [versión en PDF de este documento](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
+>[AZURE.TIP] Puede descargar e imprimir una [versión en PDF de este documento](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
 
 ## **Idea general**
 
@@ -156,6 +156,18 @@ El experimento de [Aprendizaje automático de Azure](https://azure.microsoft.com
 
 Para más información acerca de cómo se creó el experimento de Aprendizaje automático de Azure, consulte [Predictive Maintenance: Step 1 of 3, data preparation and feature engineering (Mantenimiento predictivo: Paso 1 de 3, preparación de datos e ingeniería de características)](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
+## **Supervisión de progreso**
+ Una vez iniciado el Generador de datos, la canalización comienza a hidratarse y los distintos componentes de la solución empiezan a entrar en acción siguiendo los comandos emitidos por la Factoría de datos. Hay dos maneras de supervisar la canalización.
+
+1. Uno de los trabajos de Análisis de transmisiones escribe los datos entrantes sin procesar en Almacenamiento de blobs. Si hace clic en el componente Almacenamiento de blobs de la solución desde la pantalla en la que implementó correctamente la solución y después hace clic en Abrir en el panel derecho, irá al [portal de administración](https://portal.azure.com/). Una vez allí, haga clic en Blobs. En el siguiente panel, verá una lista de contenedores. Haga clic en **maintenancesadata**. En el siguiente panel, verá la carpeta **rawdata**. Dentro de la carpeta rawdata, verá las carpetas con nombres como hour= 17, hour=18, etc. Si ve estas carpetas, significa que los datos sin procesar se están generando en el equipo y almacenando en Almacenamiento de blobs correctamente. Debería ver archivos csv que deben tener tamaños finitos en MB en esas carpetas.
+
+2. El último paso de la canalización es escribir los datos (por ejemplo, predicciones del aprendizaje automático) en Base de datos SQL. Es posible que deba esperar un máximo de tres horas para los datos aparezcan en Base de datos SQL. Una manera de supervisar la cantidad de datos que están disponibles en Base de datos SQL es a través del [Portal de Azure](https://manage.windowsazure.com/). En el panel izquierdo, busque el icono BASES DE DATOS SQL ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-SQL-databases.png) y haga clic en él. Después, busque la base de datos **pmaintenancedb** y haga clic en ella. En la parte inferior de la página siguiente, haga clic en ADMINISTRAR.
+
+	![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-manage.png).
+
+	Aquí, puede hacer clic en Nueva consulta y consultar el número de filas (por ejemplo, select count(*) from PMResult). A medida que la base de datos crece, debe aumentar el número de filas de la tabla.
+
+
 ## **Panel de Power BI**
 
 ### Información general
@@ -168,19 +180,19 @@ En la canalización de datos de la ruta de acceso inactiva, el objetivo fundamen
 
 Power BI se conecta a una Base de datos SQL de Azure como su origen de datos, donde se almacenan los resultados de predicción. Observe que: 1) Una vez implementada la solución, aparecerá una predicción real en la base de datos dentro de 3 horas. El archivo pbix incluido con la descarga del generador, contiene algunos datos de inicialización para que pueda crear el panel de Power BI inmediatamente. 2) En este paso, el requisito previo es descargar e instalar el software gratis [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
 
-Los siguientes pasos le guiarán a la hora de conectar el archivo pbix a la base de datos SQL que estaba en marcha en el momento de la implementación de la solución que contiene los datos (*por ejemplo,*. resultados de predicción) para su visualización.
+Los siguientes pasos le guiarán a la hora de conectar el archivo pbix con Base de datos SQL que estaba en marcha en el momento de la implementación de la solución que contiene los datos (*por ejemplo,* resultados de predicción) para su visualización.
 
 1.  Obtenga las credenciales de la base de datos.
 
-    Necesitará el **nombre del servidor de la base de datos, el nombre de la base de datos, un nombre de usuario y una contraseña** antes de pasar a los pasos siguientes. Estos son los pasos que le ayudarán a encontrarlos.
+    Antes de continuar con los pasos siguientes, necesitará el **nombre del servidor de la base de datos, el nombre de la base de datos, el nombre de usuario y la contraseña**. Estos son los pasos que le ayudarán a encontrarlos.
 
-    -   Una vez que **'Base de datos SQL de Azure'** se torne verde en el diagrama de la plantilla de solución, haga clic en él y, a continuación, haga clic en **'Abrir'**.
+    -   Una vez que **'Base de datos SQL de Azure'** se torne verde en el diagrama de la plantilla de solución, haga clic en ello y después haga clic en **'Abrir'**.
 
     -   Verá una nueva pestaña o ventana del explorador que muestra la página del Portal de Azure. Haga clic en **'Grupos de recursos'** en el panel izquierdo.
 
-    -   Seleccione la suscripción que va a utilizar para implementar la solución y, a continuación, seleccione **'YourSolutionName\_ResourceGroup'**.
+    -   Seleccione la suscripción que va a utilizar para implementar la solución y después seleccione **'YourSolutionName\_ResourceGroup'**.
 
-    -   En el nuevo panel emergente, haga clic en el ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-sql.png) icono para tener acceso a la base de datos. El nombre de la base de datos está junto a este icono (*por ejemplo*, **'pmaintenancedb'**) y el **nombre del servidor de base de datos** aparece en la propiedad de nombre de servidor y se parece a **YourSoutionName.database.windows.net**.
+    -   En el nuevo panel emergente, haga clic en el icono ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-sql.png) para acceder a la base de datos. El nombre de la base de datos se sitúa junto a este icono (*por ejemplo*, **'pmaintenancedb'**) y el **nombre del servidor de base de datos** aparece bajo la propiedad de nombre de servidor y se parece a **YourSoutionName.database.windows.net**.
 
 	-   El **nombre de usuario** y la **contraseña** de la base de datos son los mismos que los grabados anteriormente durante la implementación de la solución.
 
@@ -190,42 +202,42 @@ Los siguientes pasos le guiarán a la hora de conectar el archivo pbix a la base
 
 	    ![](media\cortana-analytics-technical-guide-predictive-maintenance\edit-queries.png)
 
-	-	Verá dos tablas, **RemainingUsefulLife** y **PMResult**. Seleccione la primera tabla y haga clic en ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-query-settings.png) junto a **'Origen'** en **'PASOS APLICADOS'** en el panel de la derecha **'Configuración de consulta'**. Ignore los mensajes de advertencia que aparezcan.
+	-	Verá dos tablas, **RemainingUsefulLife** y **PMResult**. Seleccione la primera tabla y haga clic en ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-query-settings.png) junto a **'Origen'** en **'PASOS APLICADOS'** en el panel de la derecha **'Configuración de la consulta'**. Ignore los mensajes de advertencia que aparezcan.
 
-    -   En la ventana emergente, reemplace **'Server'** y **'Database'** con sus propios nombres de servidor y base de datos y, a continuación, haga clic en **'Aceptar'**. Para el nombre del servidor, asegúrese de especificar el puerto 1433 (**YourSoutionName.database.windows.net, 1433**). Ignore los mensajes de advertencia que aparezcan en la pantalla.
+    -   En la ventana emergente, reemplace **'Servidor'** y **'Base de datos'** por sus propios nombres de servidor y base de datos y después haga clic en **'Aceptar'**. Para el nombre del servidor, asegúrese de especificar el puerto 1433 (**YourSoutionName.database.windows.net, 1433**). Ignore los mensajes de advertencia que aparezcan en la pantalla.
 
-    -   En la siguiente ventana emergente, verá dos opciones en el panel izquierdo (**Windows** y **Base de datos**). Haga clic en **'Base de datos'**, escriba su **'Nombre de usuario'** y **'Contraseña'** (que es el nombre de usuario y la contraseña que escribió la primera vez que implementó la solución y creó una Base de datos SQL de Azure). En ***Seleccionar en qué nivel hay que aplicar estos valores***, marque la opción de nivel de base de datos. A continuación, haga clic en **'Conectar'**.
+    -   En la siguiente ventana emergente, verá dos opciones en el panel izquierdo (**Windows** y **Base de datos**). Haga clic en **'Base de datos'**, escriba su **'Nombre de usuario'** y **'Contraseña'** (que es el nombre de usuario y la contraseña que escribió la primera vez que implementó la solución y creó una Base de datos SQL de Azure). En ***Seleccionar en qué nivel hay que aplicar estos valores***, active la opción de nivel de base de datos. A continuación, haga clic en **'Conectar'**.
 
-    -   Haga clic en la segunda tabla **PMResult**, a continuación, haga clic en ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-navigation.png) junto a **'Origen'** en **'Pasos aplicados'** en el panel de la derecha **'Configuración de consulta'** y actualice los nombres del servidor y de la base de datos como en los pasos anteriores y haga clic en Aceptar.
+    -   Haga clic en la segunda tabla **PMResult**, después haga clic en ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-navigation.png) junto a **'Origen'** en **'PASOS APLICADOS'** en el panel de la derecha **'Configuración de la consulta'**. Luego, actualice los nombres del servidor y de la base de datos como en los pasos anteriores y, por último, haga clic en Aceptar.
 
-    -   Una vez que se le dirija a la página anterior, cierre la ventana. Aparecerá un mensaje: haga clic en **Aplicar**. Finalmente, haga clic en el botón **Guardar** para guardar los cambios. El archivo de Power BI ha establecido ya la conexión con el servidor. Si las visualizaciones están vacías, asegúrese de borrar todas las selecciones para poder visualizar todos los datos haciendo clic en el icono de borrador de la esquina superior derecha de las leyendas. Utilice el botón Actualizar para reflejar los nuevos datos en las visualizaciones. Inicialmente, solo verá los datos de inicialización en las visualizaciones ya que la Factoría de datos está programada para actualizarse cada 3 horas. Después de 3 horas, verá nuevas predicciones reflejadas en las visualizaciones al actualizar los datos.
+    -   Una vez que se le dirija a la página anterior, cierre la ventana. Aparecerá un mensaje. Haga clic en **Aplicar**. Finalmente, haga clic en el botón **Guardar** para guardar los cambios. El archivo de Power BI ha establecido ya la conexión con el servidor. Si las visualizaciones están vacías, asegúrese de borrar todas las selecciones para poder visualizar todos los datos haciendo clic en el icono de borrador de la esquina superior derecha de las leyendas. Utilice el botón Actualizar para reflejar los nuevos datos en las visualizaciones. Inicialmente, solo verá los datos de inicialización en las visualizaciones ya que la Factoría de datos está programada para actualizarse cada 3 horas. Después de 3 horas, verá nuevas predicciones reflejadas en las visualizaciones al actualizar los datos.
 
 3.  (Opcional) Publique el panel de la ruta de acceso inactiva en [Power BI en línea](http://www.powerbi.com/). Tenga en cuenta que este paso necesita una cuenta de Power BI (o la cuenta de Office 365).
 
-    -   Haga clic en **'Publicar'** y algunos segundos más tarde aparecerá una ventana con el mensaje "Publicación en Power BI Correcta" con una marca de verificación verde. Haga clic en el vínculo "Abrir PredictiveMaintenanceAerospace.pbix en Power BI". Para obtener instrucciones detalladas, consulte [Publicar desde Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
+    -   Haga clic en **'Publicar'** y algunos segundos más tarde aparecerá una ventana con un mensaje que indicará que la publicación en Power BI se ha realizado correctamente y con una marca de verificación verde. Haga clic en el vínculo "Abrir PredictiveMaintenanceAerospace.pbix en Power BI". Para obtener instrucciones detalladas, consulte [Publicar desde Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
 
     -   Para crear un nuevo panel: haga clic en el signo **+** junto a la sección **Paneles** del panel izquierdo. Escriba el nombre "Demo de mantenimiento predictivo" para este nuevo panel.
 
     -   Una vez que abra el informe, haga clic en ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-pin.png) para anclar todas las visualizaciones al panel. Para obtener instrucciones detalladas, consulte [Anclaje de un icono a un panel de Power BI desde un informe](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report). Vaya a la página del panel y ajuste el tamaño y la ubicación de las visualizaciones y edite los títulos. Para obtener instrucciones detalladas sobre cómo editar los iconos, consulte [Edición de un icono: cambiar el tamaño, mover, cambiar el nombre, anclar, eliminar, agregar un hipervínculo](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Este es un panel de ejemplo con algunas visualizaciones de la ruta de acceso inactiva ancladas. Dependiendo de cuánto tiempo tarde en ejecutarse el simulador de datos, los números en las visualizaciones pueden ser diferentes. <br/> ![](media\cortana-analytics-technical-guide-predictive-maintenance\final-view.png) <br/>
-    -   Para programar la actualización de los datos, mantenga el puntero sobre el conjunto de datos **PredictiveMaintenanceAerospace**, haga clic en ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-elipsis.png) y, a continuación, elija **Programar actualización**. <br/> **Nota:** si ve un mensaje de advertencia, haga clic en **Editar credenciales** y asegúrese de que las credenciales de la base de datos son las mismas que las descritas en el paso 1. <br/> ![](media\cortana-analytics-technical-guide-predictive-maintenance\schedule-refresh.png) <br/>
-    -   Expanda la sección **Programar actualización**. Active "mantener los datos actualizados". <br/>
-    -   Programe la actualización según sus necesidades. Para más información, consulte [Actualizar datos en Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
+    -   Para programar la actualización de los datos, mantenga el puntero sobre el conjunto de datos **PredictiveMaintenanceAerospace**, haga clic en ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-elipsis.png) y después elija **Programar actualización**. <br/> **Nota:** si ve un mensaje de advertencia, haga clic en **Editar credenciales** y asegúrese de que las credenciales de la base de datos son las mismas que las descritas en el paso 1. <br/> ![](media\cortana-analytics-technical-guide-predictive-maintenance\schedule-refresh.png) <br/>
+    -   Expanda la sección **Programar actualización**. Active "Mantener los datos actualizados". <br/>
+    -   Programe la actualización según sus necesidades. Para obtener más información, consulte [Actualizar datos en Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
 
 ### Configuración del panel de ruta de acceso activa
 
-Los siguientes pasos le guiarán por los pasos para visualizar la salida de datos en tiempo real de los trabajos de Análisis de transmisiones que se generaron en el momento de la implementación de la solución. Se necesita una cuenta [Power BI en línea](http://www.powerbi.com/) para realizar los pasos siguientes. Si no tiene una cuenta, puede [crear una](https://powerbi.microsoft.com/pricing).
+Los siguientes pasos le guiarán por los pasos para visualizar la salida de datos en tiempo real de los trabajos de Análisis de transmisiones que se generaron en el momento de la implementación de la solución. Se necesita una cuenta de [Power BI en línea](http://www.powerbi.com/) para realizar los pasos siguientes. Si no tiene una cuenta, puede [crear una](https://powerbi.microsoft.com/pricing).
 
 1.  Agregue una salida de Power BI en el Análisis de transmisiones de Azure (ASA).
 
     -  Debe seguir las instrucciones descritas en [Análisis de transmisiones de Azure y Power BI: panel de análisis en tiempo real para visibilidad de streaming de datos](stream-analytics-power-bi-dashboard.md) para configurar la salida del trabajo de Análisis de transmisiones de Azure como panel de Power BI.
 	- Busque el trabajo de Análisis de transmisiones **maintenancesa02asapbi** en el [Portal de Azure](https://manage.windowsazure.com).
-	- Configure las tres salidas de la consulta ASA, que son **aircraftmonitor**, **aircraftalert** y **flightsbyhour**. Asegúrese de que el **Alias de salida**, el **Nombre del conjunto de datos** y el **Nombre de tabla** son iguales a los de la consulta (**aircraftmonitor**, **aircraftalert** y **flightsbyhour**). Una vez haya agregado las tres tablas de salida e iniciado el trabajo de Análisis de transmisiones, recibirá un mensaje de confirmación (*por ejemplo,*, "El inicio del trabajo de Análisis de transmisiones maintenancesa02asapbi se realizó correctamente").
+	- Configure las tres salidas de la consulta ASA, que son **aircraftmonitor**, **aircraftalert** y **flightsbyhour**. Asegúrese de que el **Alias de salida**, el **Nombre del conjunto de datos** y el **Nombre de tabla** son iguales a los de la consulta (**aircraftmonitor**, **aircraftalert** y **flightsbyhour**). Una vez haya agregado las tres tablas de salida e iniciado el trabajo de Análisis de transmisiones, recibirá un mensaje de confirmación (*por ejemplo,*, "Se ha iniciado correctamente el trabajo de análisis de transmisiones maintenancesa02asapbi").
 
 2. Inicie sesión en [Power BI en línea](http://www.powerbi.com)
 
     -   En el panel izquierdo en la sección de Conjuntos de datos en Mi área de trabajo, deben aparecer los nombres de los ***CONJUNTOS DE DATOS*** **aircraftmonitor**, **aircraftalert** y **flightsbyhour** definidos previamente en la configuración de salida de Power BI en el trabajo de ASA.
 
-    -   Asegúrese de que el panel de ***visualizaciones*** está abierto y se muestra en el lado derecho de la pantalla.
+    -   Asegúrese de que el panel ***Visualizaciones*** está abierto y se muestra en el lado derecho de la pantalla.
 
 3. Cree el icono "Fleet View of Sensor 11 vs. Threshold 48.26":
 
@@ -233,11 +245,11 @@ Los siguientes pasos le guiarán por los pasos para visualizar la salida de dato
 
     -   Haga clic en el icono **Gráfico de líneas**.
 
-    -   Haga clic en **Procesados** en el panel **Campos** para que aparezca en "Eje" en el panel de **visualizaciones**.
+    -   Haga clic en **Procesados** en el panel **Campos** para que aparezca en "Eje" en el panel de **Visualizaciones**.
 
-    -   Haga clic en "s11" y "s11\_alert" para que ambos aparezcan en "Valores". Haga clic en la flecha pequeña situada junto a **s11** y **s11\_alert**, cambie "Suma" a "Media".
+    -   Haga clic en "s11" y "s11\_alert" para que ambos aparezcan en "Valores". Haga clic en la flecha pequeña situada junto a **s11** y **s11\_alert** y cambie "Suma" a "Media".
 
-    -   Haga clic en **GUARDAR** en la parte superior y dé nombre al informe como "aircraftmonitor". El informe denominado "aircraftmonitor" se mostrará en la sección **Informes** del panel **Navegador** de la izquierda.
+    -   Haga clic en **GUARDAR** en la parte superior y asigne el nombre "aircraftmonitor" al informe. El informe denominado "aircraftmonitor" se mostrará en la sección **Informes** del panel **Navegador** de la izquierda.
 
     -   Haga clic en el icono **Anclar visualización** situado en la esquina superior derecha de este gráfico de líneas. Puede aparecer una ventana llamada "Anclar en el panel" que le permitirá elegir un panel. Seleccione "Demostración de mantenimiento predictivo" y luego haga clic en "Anclar".
 
@@ -255,4 +267,4 @@ Las dos herramientas siguientes están disponibles para ayudarle a comprender me
 
 -   [Herramienta de estimación de costos de Microsoft Azure (escritorio)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

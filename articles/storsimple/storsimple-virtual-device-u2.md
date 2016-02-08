@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/14/2015"
+   ms.date="01/22/2016"
    ms.author="alkohli" />
 
 # Implementación y administración de un dispositivo virtual de StorSimple en Azure (actualización 2)
@@ -167,7 +167,7 @@ Realice los pasos siguientes para configurar la administración remota para el d
 
 Una vez habilitada la administración remota en la página de configuración del dispositivo StorSimple, puede usar la comunicación remota de Windows PowerShell para conectarse al dispositivo virtual desde otra máquina virtual dentro de la misma red virtual; por ejemplo, puede conectarse desde la máquina virtual del host que ha configurado y utilizado para conectarse a iSCSI. En la mayoría de las implementaciones, ya habrá abierto un punto de conexión público para tener acceso a su máquina virtual host que se puede utilizar para tener acceso al dispositivo virtual.
 
->[AZURE.WARNING]**Para mayor seguridad, se recomienda utilizar HTTPS al conectarse a los puntos de conexión y, a continuación, eliminar los extremos después de haber completado la sesión remota de PowerShell.**
+>[AZURE.WARNING] **Para mayor seguridad, se recomienda utilizar HTTPS al conectarse a los puntos de conexión y, a continuación, eliminar los extremos después de haber completado la sesión remota de PowerShell.**
 
 Debe seguir los procedimientos que aparecen en [Conectarse de forma remota al dispositivo StorSimple](storsimple-remote-connect.md) para establecer la comunicación remota para el dispositivo virtual.
 
@@ -235,7 +235,7 @@ Si decide que desea empezar de nuevo con su dispositivo virtual, simplemente des
 
 La recuperación ante desastres (DR) es uno de los escenarios clave para los que se diseñó el dispositivo virtual de StorSimple. En este escenario, es posible que el dispositivo físico de StorSimple o todo el centro de datos no esté disponible. Afortunadamente, puede usar un dispositivo virtual para restaurar las operaciones en una ubicación alternativa. Durante la recuperación ante desastres, los contenedores de volúmenes del dispositivo de origen cambia la propiedad y se transfieren al dispositivo virtual. Los requisitos previos para la recuperación ante desastres son que haya creado y configurado el dispositivo virtual, todos los volúmenes en el contenedor de volúmenes se hayan desconectado y el contenedor de volúmenes tenga asociada una instantánea en la nube.
 
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 > - Al utilizar un dispositivo virtual como el dispositivo secundario para recuperación ante desastres, tenga en cuenta que el 8010 tiene 30 TB de almacenamiento estándar y 8020 tiene 64 TB de almacenamiento premium. La mayor capacidad del 8020 puede resultar más adecuada para un escenario de recuperación ante desastres.
 > - No se puede efectuar la conmutación por error ni clonar desde un dispositivo que ejecute la actualización 2 a un dispositivo que ejecute el software anterior a la actualización 1. Sin embargo puede conmutar por error un dispositivo que ejecuta la actualización 2 a un dispositivo que ejecuta la actualización 1 (1.1 o 1.2)
@@ -259,4 +259,4 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
  
 - Obtenga información sobre cómo [Restaurar un volumen de StorSimple de un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

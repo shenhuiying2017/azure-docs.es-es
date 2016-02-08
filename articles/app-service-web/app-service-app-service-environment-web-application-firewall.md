@@ -19,7 +19,7 @@
 # Configuración de un firewall de aplicaciones web (WAF) para entornos del Servicio de aplicaciones
 
 ## Información general ##
-Los firewalls de aplicaciones web, como [Barracuda WAF para Azure](https://www.barracuda.com/programs/azure) que está disponible en [Azure Marketplace](http://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) ayuda a proteger las aplicaciones web mediante la inspección de tráfico web entrante para bloquear ataques por inyección de código SQL, scripts de sitios, cargas de malware, DDoS de aplicaciones y otros ataques. También examina las respuestas de los servidores web back-end para prevención de pérdida de datos (DLP). Combinado con el aislamiento y la escala adicional proporcionados por los entornos del Servicio de aplicaciones, esto proporciona un entorno ideal para hospedar importantes aplicaciones web empresariales que deben soportar peticiones malintencionadas y tráfico de gran volumen.
+Los firewalls de aplicaciones web, como [Barracuda WAF para Azure](https://www.barracuda.com/programs/azure) que está disponible en [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) ayuda a proteger las aplicaciones web mediante la inspección de tráfico web entrante para bloquear ataques por inyección de código SQL, scripts de sitios, cargas de malware, DDoS de aplicaciones y otros ataques. También examina las respuestas de los servidores web back-end para prevención de pérdida de datos (DLP). Combinado con el aislamiento y la escala adicional proporcionados por los entornos del Servicio de aplicaciones, esto proporciona un entorno ideal para hospedar importantes aplicaciones web empresariales que deben soportar peticiones malintencionadas y tráfico de gran volumen.
 
 \+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -35,7 +35,7 @@ Para configurar un entorno del Servicio de aplicaciones, consulte [nuestra docum
 Barracuda tiene un [artículo detallado](https://techlib.barracuda.com/WAF/AzureDeploy) sobre la implementación de su WAF en una máquina virtual en Azure. No obstante, habida cuenta de que queremos redundancia y no introducir un único punto de error, hay que implementar al menos dos máquinas virtuales de la instancia de WAF en el mismo servicio en la nube al seguir estas instrucciones.
 
 ### Incorporación de extremos al servicio en la nube ###
-Cuando ya tenga dos o más instancias de máquina virtual de WAF en el servicio en la nube, puede usar el [Portal de Azure](https://portal.azure.com) para agregar puntos de conexión HTTP y HTTPS que la aplicación use, como se muestra en la imagen siguiente.
+Cuando ya tenga dos o más instancias de máquina virtual de WAF en el servicio en la nube, puede usar el [Portal de Azure](https://portal.azure.com/) para agregar puntos de conexión HTTP y HTTPS que la aplicación use, como se muestra en la imagen siguiente.
 
 ![Configuración de extremos][ConfigureEndpoint]
 
@@ -99,4 +99,4 @@ Reemplace SourceAddressPrefix con la dirección IP virtual (VIP) del servicio en
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/23/2015"
+	ms.date="01/19/2016"
 	ms.author="bwren" />
 
 # Edición de runbooks de texto en Automatización de Azure
@@ -21,7 +21,7 @@ El editor de texto de Automatización de Azure sirve para editar [runbooks de Po
 
 El editor de texto incluye una característica para insertar código para las actividades, los recursos y los runbooks secundarios en un runbook. En lugar de escribir en el código personalmente, puede seleccionar entre una lista de recursos disponibles para que se inserte el código adecuado en el runbook.
 
-Cada runbook de Automatización de Azure tiene dos versiones: una de borrador y otra publicada. Edite la versión de borrador del flujo de trabajo y después publíquela para que pueda ejecutarse. No se puede editar la versión publicada. Consulte el artículo sobre la [publicación de un runbook](automation-creating-importing-runbook.md#publishing-a-runbook) para obtener más información.
+Cada runbook de Automatización de Azure tiene dos versiones: una de borrador y otra publicada. Edite la versión de borrador del runbook y después publíquela para que pueda ejecutarse. No se puede editar la versión publicada. Consulte el artículo sobre la [publicación de un runbook](automation-creating-importing-runbook.md#publishing-a-runbook) para obtener más información.
 
 Para trabajar con [runbooks gráficos](automation-runbook-types.md#graphical-runbooks), consulte [Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md).
 
@@ -58,7 +58,7 @@ Use el siguiente procedimiento para abrir un runbook para su edición en el edit
 2. En el lienzo del editor de texto, coloque el cursor donde desee colocar el código para el runbook secundario.
 3. Expanda el nodo **Recursos** en el control Biblioteca. 
 4. Expanda el nodo para el tipo de recurso que desee.
-3. Haga clic con el botón derecho en el recurso para insertarlo y seleccione **Agregar a lienzo**. Para [recursos variables](variable-assets.md), seleccione **Agregar "Obtener variable" a lienzo** o **Agregar "Establecer variable" a lienzo** en función de si desea obtener o establecer la variable.
+3. Haga clic con el botón derecho en el recurso para insertarlo y seleccione **Agregar a lienzo**. Para [recursos variables](automation-variables.md), seleccione **Agregar "Obtener variable" a lienzo** o **Agregar "Establecer variable" a lienzo** en función de si desea obtener o establecer la variable.
 4. El código para el recurso se inserta en el runbook.
 
 
@@ -107,7 +107,7 @@ Use el siguiente procedimiento para abrir un runbook para su edición en el edit
 
 ## Para editar un runbook de Automatización de Azure mediante Windows PowerShell
 
-Para editar un runbook con Windows PowerShell, edite el flujo de trabajo en el editor de su elección y guárdelo en un archivo. ps1. Puede usar el cmdlet [Get-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) para recuperar el contenido del runbook y después el cmdlet [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) para reemplazar el borrador de flujo de trabajo por el modificado.
+Para editar un runbook con Windows PowerShell, use el editor de su elección y guárdelo en un archivo. ps1. Puede usar el cmdlet [Get-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) para recuperar el contenido del runbook y después el cmdlet [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) para reemplazar el borrador del runbook existente por el modificado.
 
 ### Para recuperar el contenido de un runbook mediante Windows PowerShell
 
@@ -124,7 +124,7 @@ En los siguientes comandos de ejemplo, se muestra cómo se recupera el script pa
 
 ### Para cambiar el contenido de un runbook mediante Windows PowerShell
 
-En los siguientes comandos de ejemplo, se muestra cómo reemplazar el contenido existente de un runbook por el de un archivo de script que contiene un flujo de trabajo. Tenga en cuenta que es el mismo procedimiento de ejemplo que en el artículo sobre cómo [importar un runbook desde un archivo de script con Windows PowerShell](../automation-creating-or-importing-a-runbook#ImportRunbookScriptPS).
+En los siguientes comandos de ejemplo, se muestra cómo reemplazar el contenido existente de un runbook por el de un archivo de script. Tenga en cuenta que es el mismo procedimiento de ejemplo que en el artículo sobre cómo [importar un runbook desde un archivo de script con Windows PowerShell](../automation-creating-or-importing-a-runbook#ImportRunbookScriptPS).
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
@@ -135,7 +135,7 @@ En los siguientes comandos de ejemplo, se muestra cómo reemplazar el contenido 
 
 ## Artículos relacionados
 
-- [Creación o importación de un runbook en Automatización de Azure](automation-creatnig-importing-runbook.md)
+- [Creación o importación de un runbook en Automatización de Azure](automation-creating-importing-runbook.md)
 - [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
 - [Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md)
 - [Certificados](automation-certificates.md)
@@ -144,4 +144,4 @@ En los siguientes comandos de ejemplo, se muestra cómo reemplazar el contenido 
 - [Programaciones](automation-schedules.md)
 - [Variables](automation-variables.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

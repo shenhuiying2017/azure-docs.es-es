@@ -48,7 +48,7 @@ Para obtener instrucciones y un vínculo a la versión más reciente, consulte [
 
 ### Definición de su cuenta y suscripción de Azure
 
-Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
+Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Abra un símbolo del sistema de Azure PowerShell e inicie sesión en Azure con este comando.
 
@@ -78,4 +78,4 @@ Puede establecer la suscripción actual de Azure ejecutando estos comandos en el
 
 Para obtener más información acerca de las cuentas y suscripciones de Azure, vea [Conexión a su suscripción](powershell-install-configure.md#Connect).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

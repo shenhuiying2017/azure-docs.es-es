@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Vista previa de Active Directory B2C: inicie sesión web con OpenID Connect
@@ -133,7 +133,7 @@ Una de las propiedades de este documento de configuración es `jwks_uri`, cuyo v
 
 Para determinar qué directiva se usó en la firma de un id\_token (y de dónde obtener los metadatos), tiene dos opciones. En primer lugar, se incluye el nombre de la directiva en la notificación `acr` en id\_token. Para obtener información sobre cómo analizar las notificaciones de un id\_token, consulte la [referencia del token de Azure AD B2C](active-directory-b2c-reference-tokens.md). La otra opción consiste en codificar la directiva en el valor del parámetro `state` al emitir la solicitud y descodificarla para determinar qué directiva se ha usado. Cualquiera de los métodos es perfectamente válido.
 
-Una vez que haya adquirido el documento de metadatos del extremo de metadatos OpenID Connect, puede usar las claves públicas RSA256 ubicadas en este extremo para validar la firma del id\_token. Hay varias claves enumeradas en este extremo en cualquier momento, cada una identificada con un `kid`. El encabezado del id\_token también contiene una notificación `kid`, que indica cuál de estas claves se usó para firmar el id\_token. Consulte la [referencia del token de Azure AD B2C](active-directory-b2c-reference-tokens.md) para obtener más información, por ejemplo, [Validación de los tokens](active-directory-b2c-reference-tokens.md#validating-tokens) e [Información importante acerca de la cadencia de sustitución de clave](active-directory-b2c-reference-tokens.md#validating-tokens).
+Una vez que haya adquirido el documento de metadatos del extremo de metadatos OpenID Connect, puede usar las claves públicas RSA256 ubicadas en este extremo para validar la firma del id\_token. Hay varias claves enumeradas en este extremo en cualquier momento, cada una identificada con un `kid`. El encabezado del id\_token también contiene una notificación `kid`, que indica cuál de estas claves se usó para firmar el id\_token. Consulte la [referencia del token de Azure AD B2C](active-directory-b2c-reference-tokens.md) para más información, por ejemplo, [Vista previa de Azure AD B2C: referencia del token](active-directory-b2c-reference-tokens.md#validating-tokens) e [Información importante acerca de la sustitución de la clave de firma en Azure AD](active-directory-b2c-reference-tokens.md#validating-tokens). 
 <!--TODO: Improve the information on this-->
 
 Una vez haya validado la firma del id\_token, hay algunas notificaciones que tendrá que comprobar:
@@ -207,7 +207,8 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 | refresh\_token | Un token de actualización de OAuth 2.0. La aplicación puede usar este token para adquirir tokens adicionales una vez que expire el token actual. Los refresh\_tokens son de larga duración y pueden usarse para conservar el acceso a los recursos durante largos períodos de tiempo. Para obtener más información, consulte la [referencia del token B2C](active-directory-b2c-reference-tokens.md). Tenga en cuenta que debe haber usado el ámbito `offline_access` en las solicitudes de token y autorización para recibir un token de actualización. |
 | refresh\_token\_expires\_in | El tiempo máximo que un token de actualización puede ser válido (en segundos). Sin embargo, el token de actualización puede dejar de ser válido en cualquier momento. |
 
-> [AZURE.NOTE]Si en ese momento está pensando: "¿dónde está el access\_token?", tenga en cuenta lo siguiente. Cuando solicite el ámbito `openid`, Azure AD emitirá un `id_token` JWT en la respuesta. Aunque este `id_token` no es técnicamente un access\_token de OAuth 2.0, se puede usar como tal al comunicarse con el propio servicio back-end de la aplicación, representado por el mismo client\_id que el cliente. El `id_token` sigue siendo un token de portador JWT firmado que se puede enviar a un recurso en un encabezado de autorización HTTP y usar para autenticar solicitudes. La diferencia es que un `id_token` no tiene un mecanismo para definir el ámbito de acceso que puede tener una aplicación cliente en particular. Sin embargo, cuando la aplicación cliente es el único cliente capaz de comunicarse con el servicio back-end (como ocurre con la vista previa de Azure AD B2C actual), no hay necesidad de usar este mecanismo de definición de ámbito. Cuando la vista previa de Azure AD B2C agrega la capacidad para que los clientes puedan comunicarse con recursos adicionales propios y de terceros, se incorporarán access\_tokens. No obstante, incluso en ese momento, el uso de `id_tokens` para comunicarse con el servicio back-end de la aplicación seguirá siendo el modelo de solución recomendado. Para obtener más información sobre los tipos de aplicaciones que puede crear con la vista previa de Azure AD B2C, consulte [este artículo](active-directory-b2c-apps.md).
+> [AZURE.NOTE]
+	Si en ese momento está pensando: "¿dónde está el access\_token?", tenga en cuenta lo siguiente. Cuando solicite el ámbito `openid`, Azure AD emitirá un `id_token` JWT en la respuesta. Aunque este `id_token` no es técnicamente un access\_token de OAuth 2.0, se puede usar como tal al comunicarse con el propio servicio back-end de la aplicación, representado por el mismo client\_id que el cliente. El `id_token` sigue siendo un token de portador JWT firmado que se puede enviar a un recurso en un encabezado de autorización HTTP y usar para autenticar solicitudes. La diferencia es que un `id_token` no tiene un mecanismo para definir el ámbito de acceso que puede tener una aplicación cliente en particular. Sin embargo, cuando la aplicación cliente es el único cliente capaz de comunicarse con el servicio back-end (como ocurre con la vista previa de Azure AD B2C actual), no hay necesidad de usar este mecanismo de definición de ámbito. Cuando la vista previa de Azure AD B2C agrega la capacidad para que los clientes puedan comunicarse con recursos adicionales propios y de terceros, se incorporarán access\_tokens. No obstante, incluso en ese momento, el uso de `id_tokens` para comunicarse con el servicio back-end de la aplicación seguirá siendo el modelo de solución recomendado. Para obtener más información sobre los tipos de aplicaciones que puede crear con la vista previa de Azure AD B2C, consulte [este artículo](active-directory-b2c-apps.md).
 
 Las respuestas de error tendrán un aspecto similar al siguiente:
 
@@ -246,7 +247,7 @@ Content-Type: application/json
 	"scope": "openid offline_access",
 	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
 	"redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
-	"client_secret": "<your-application-secret>"	
+	"client_secret": "<your-application-secret>"
 }
 ```
 
@@ -300,11 +301,11 @@ Las respuestas de error tendrán un aspecto similar al siguiente:
 | error\_description | Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |
 
 
-<!-- 
+<!--
 
 Here is the entire flow for a native  app; each request is detailed in the sections below:
 
-![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png) 
+![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png)
 
 -->
 
@@ -325,7 +326,8 @@ p=b2c_1_sign_in
 | p | requerido | La directiva que el usuario empleó más recientemente para iniciar sesión en su aplicación. |
 | post\_logout\_redirect\_uri | recomendado | La dirección URL a la que se debe redireccionar al usuario después de un cierre de sesión correcto. Si no se incluye, Azure AD B2C mostrará un mensaje genérico al usuario. |
 
-> [AZURE.NOTE]Si bien dirigir al usuario a `end_session_endpoint` borrará algunos de los estados de inicio de sesión único del usuario con Azure AD, en la actualidad no cerrará la sesión del usuario realmente. En su lugar, el usuario seleccionará el IDP con el que desea iniciar sesión y, a continuación, volverá a autenticarse sin escribir sus credenciales. En el caso de IDP sociales, este es el comportamiento esperado. Si un usuario desea cerrar sesión en su directorio B2C, no necesariamente significa que desea cerrar sesión de su cuenta de Facebook completamente. Sin embargo, en el caso de las cuentas locales, debería ser posible terminar la sesión del usuario correctamente. Es una conocida [limitación](active-directory-b2c-limitations.md) de la vista previa de Azure AD que el cierre de sesión de las cuentas locales no funcionan correctamente. Una solución alternativa para la terminación inmediata es enviar el parámetro `&prompt=login` en cada solicitud de autenticación, que tendrá la apariencia del comportamiento deseado, pero interrumpirá el inicio de sesión único entre aplicaciones en su directorio B2C.
+> [AZURE.NOTE]
+	Si bien dirigir al usuario a `end_session_endpoint` borrará algunos de los estados de inicio de sesión único del usuario con Azure AD, en la actualidad no cerrará la sesión del usuario realmente. En su lugar, el usuario seleccionará el IDP con el que desea iniciar sesión y, a continuación, volverá a autenticarse sin escribir sus credenciales. En el caso de IDP sociales, este es el comportamiento esperado. Si un usuario desea cerrar sesión en su directorio B2C, no necesariamente significa que desea cerrar sesión de su cuenta de Facebook completamente. Sin embargo, en el caso de las cuentas locales, debería ser posible terminar la sesión del usuario correctamente. Es una conocida [limitación](active-directory-b2c-limitations.md) de la vista previa de Azure AD que el cierre de sesión de las cuentas locales no funcionan correctamente. Una solución alternativa para la terminación inmediata es enviar el parámetro `&prompt=login` en cada solicitud de autenticación, que tendrá la apariencia del comportamiento deseado, pero interrumpirá el inicio de sesión único entre aplicaciones en su directorio B2C.
 
 ## Uso del directorio de B2C propio
 
@@ -345,4 +347,4 @@ image goes here
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/02/2015"
+   ms.date="01/22/2016"
    ms.author="andkjell"/>
 
 # Topologías de Azure AD Connect
@@ -43,7 +43,7 @@ La topología más común es un único bosque local, con uno o varios dominios y
 ### Bosque único, varios servidores de sincronización con un directorio de Azure AD
 ![SingleForestFilteredUnsupported](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
 
-No se permite tener varios servidores de sincronización de Azure AD Connect conectados al mismo directorio de Azure AD, aunque estén configurados para sincronizar un conjunto de objetos mutuamente excluyentes (a excepción de un [servidor provisional](#staging-server)). Esto podría intentarse cuando un dominio de un bosque no es accesible desde una ubicación de red común o en un intento de distribuir la carga de sincronización entre varios servidores.
+No se permite tener varios servidores de Azure AD Connect Sync conectados al mismo directorio de Azure AD, incluso si están configurados para sincronizar un conjunto de objetos mutuamente excluyentes (a excepción de un [servidor provisional](#staging-server)). Esto podría intentarse cuando un dominio de un bosque no es accesible desde una ubicación de red común o en un intento de distribuir la carga de sincronización entre varios servidores.
 
 ## Varios bosques, un único directorio de Azure AD
 ![MultiForestSingleDirectory](./media/active-directory-aadconnect-topologies/MultiForestSingleDirectory.png)
@@ -56,14 +56,22 @@ El asistente de Azure AD Connect ofrece varias opciones para consolidar a los us
 
 Las topologías comunes se describen en las siguientes secciones: [Topologías independientes](#multiple-forests-separate-topologies), [Malla completa](#multiple-forests-full-mesh-with-optional-galsync) y [Cuenta-recurso](#multiple-forests-account-resource-forest).
 
-En la configuración predeterminada proporcionada por Azure AD Connect Sync, se dan por hecho los siguientes supuestos: Los usuarios tienen solo una cuenta habilitada y el bosque donde se encuentra esta cuenta se usa para la autenticación del usuario. Esta se usa para la sincronización de contraseñas y para la federación; userPrincipalName y sourceAnchor/immutableID proceden de este bosque. 2. Los usuarios tienen solo un buzón. 3. El bosque que aloja el buzón de un usuario tiene la mejor calidad de datos para los atributos visibles en la lista global de direcciones (GAL) de Exchange. Si no hay ningún buzón en el usuario, puede usarse cualquiera de los bosques para aportar estos valores de atributo. 4. Si tiene un buzón vinculado, hay también otra cuenta en un bosque diferente que se usa para el inicio de sesión.
+En la configuración predeterminada proporcionada por Azure AD Connect Sync, se dan por hecho los siguientes supuestos:
 
-Si su entorno no coincide con estos supuestos, ocurrirá lo siguiente: -Si tiene más de una cuenta activa o más de un buzón, el motor de sincronización seleccionará uno y omitirá el otro. -Si ha vinculado los buzones, pero ninguna otra cuenta, estas cuentas no se exportarán a Azure AD y el usuario no será miembro de ningún grupo. En la sincronización de directorios, un buzón vinculado se representará como un buzón normal, de modo que es intencionadamente un comportamiento diferente para una mejor compatibilidad con escenarios de varios bosques.
+1.	Los usuarios tienen solo una cuenta habilitada y el bosque donde se encuentra esta cuenta se usa para la autenticación del usuario. Esta se usa para la sincronización de contraseñas y para la federación; userPrincipalName y sourceAnchor/immutableID proceden de este bosque.
+2.	Los usuarios tienen solo un buzón.
+3.	El bosque que aloja el buzón de un usuario tiene la mejor calidad de datos para los atributos visibles en la lista global de direcciones (GAL) de Exchange. Si no hay ningún buzón en el usuario, puede usarse cualquiera de los bosques para aportar estos valores de atributo.
+4.	Si tiene un buzón vinculado, hay también otra cuenta en un bosque diferente que se usa para el inicio de sesión.
+
+Si su entorno no se ajusta a estos supuestos, ocurrirá lo siguiente:
+
+-	Si tiene más de una cuenta activa o más de un buzón, el motor de sincronización elegirá uno y pasará por alto los demás.
+-	Si tiene buzones vinculados pero no hay ninguna otra cuenta, estas cuentas no se exportarán a Azure AD y el usuario no será miembro de ningún grupo. En la sincronización de directorios, un buzón vinculado se representará como un buzón normal, de modo que es intencionadamente un comportamiento diferente para una mejor compatibilidad con escenarios de varios bosques.
 
 ### Varios bosques, varios servidores de sincronización con un directorio de Azure AD
 ![MultiForestMultiSyncUnsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiSyncUnsupported.png)
 
-No se puede tener más de un servidor de sincronización de Azure AD Connect conectado a un solo directorio de Azure AD (a excepción de un [servidor provisional](#staging-server)).
+No se puede para tener más de un servidor de Azure AD Connect Sync conectado a un único directorio de Azure AD (a excepción de un [servidor provisional](#staging-server)).
 
 ### Varios bosques: topologías independientes
 "Los usuarios solo se representan una vez en todos los directorios".
@@ -142,7 +150,10 @@ En esta topología no hay ninguna "GALsync" entre las instancias de directorio d
 
 Con esta topología, solo uno de los directorios de Azure AD puede permitir la implementación híbrida de Exchange con Active Directory local.
 
-El requisito del conjunto de objetos mutuamente excluyente también se aplica a la reescritura. Esto hace que algunas características de reescritura no se admitan con esta topología, ya que estas asumen una sola configuración local. Aquí se incluyen: - Reescritura de grupos con configuración predeterminada - Reescritura de dispositivo
+El requisito del conjunto de objetos mutuamente excluyente también se aplica a la reescritura. Esto hace que algunas características de reescritura no se admitan con esta topología, ya que estas asumen una sola configuración local. Esto incluye:
+
+-	Escritura diferida de grupos con la configuración predeterminada
+-	Escritura diferida de dispositivos
 
 ### Cada objeto se incluye varias veces en un directorio de Azure AD
 ![SingleForestMultiDirectoryUnsupported](./media/active-directory-aadconnect-topologies/SingleForestMultiDirectoryUnsupported.png) ![SingleForestMultiConnectorsUnsupported](./media/active-directory-aadconnect-topologies/SingleForestMultiConnectorsUnsupported.png)
@@ -167,4 +178,4 @@ Obtenga más información sobre la configuración de [sincronización de Azure A
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

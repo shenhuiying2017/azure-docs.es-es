@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="01/12/2016" 
 	ms.author="erikre"/>
 
 # Administración de una aplicación web en Servicio de aplicaciones de Azure
@@ -45,7 +45,7 @@ Use el [Portal de Azure](https://portal.azure.com/) para establecer varias opcio
 Además de estas opciones de configuración básicas, puede configurar lo siguiente:
 
 - Cifrado de **Capa de sockets seguros (SSL)**. Para usar SSL con un nombre de dominio personalizado, debe obtener un certificado SSL y configurar la aplicación web para que lo use. Consulte [Habilitación de HTTPS para una aplicación web en el Servicio de aplicaciones de Azure](web-sites-configure-ssl-certificate.md).
-- **Nombre de dominio personalizado**. Su aplicación web tiene automáticamente un subdominio en azurewebsites.net. Puede asociar un nombre de dominio personalizado, como contoso.com. Consulte [Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure](web-sites-custom-domain-name.md).
+- **Nombre de dominio personalizado.** Su aplicación web tiene automáticamente un subdominio en azurewebsites.net. Puede asociar un nombre de dominio personalizado, como contoso.com. Consulte [Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure](web-sites-custom-domain-name.md).
 
 Configuración específica por idioma:
 
@@ -65,7 +65,7 @@ Cuando la aplicación web está en ejecución, querrá asegurarse de que está d
  
 ### Copias de seguridad
 
-- Establezca las [copias de seguridad automáticas](web-sites-backup.md) de la aplicación web. Obtenga más información sobre las copias de seguridad en [este vídeo](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
+- Establezca las [copias de seguridad automáticas](web-sites-backup.md) de la aplicación web. Obtenga más información sobre las copias de seguridad en [este vídeo](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
 - Conozca las opciones para la [recuperación de bases de datos](../sql-database-business-continuity.md) en Base de datos SQL de Azure.
 
 ### Solución de problemas
@@ -103,4 +103,4 @@ Si usa Visual Studio Team Services, puede configurar una implementación continu
 
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

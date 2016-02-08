@@ -2,13 +2,14 @@
 	pageTitle="Información general de Microsoft Azure IoT Suite | Microsoft Azure"
 	description="Esto proporciona una visión general del Conjunto de aplicaciones de IoT de Azure incluidos el empaquetado y las soluciones preconfiguradas."
 	services=""
+    suite="iot-suite"
 	documentationCenter=""
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="na"
      ms.topic="article"
      ms.tgt_pltfrm="na"
@@ -40,7 +41,7 @@ El [Análisis de transmisiones de Azure][lnk-asa] ofrece análisis de datos en m
 
 El [Almacenamiento de Azure][lnk-azure-storage] y [Azure DocumentDB][lnk-document-db] ofrecen las capacidades de almacenamiento de datos. Las soluciones preconfiguradas usan el almacenamiento de blobs para almacenar la telemetría y que esté disponible para análisis. Las soluciones preconfiguradas usan el almacenamiento indizado en la capacidad de datos semiestructurados de DocumentDB para administrar los metadatos del dispositivo. Esto permite que las soluciones administren dispositivos heterogéneos que tienen requisitos de almacenamiento de contenido diferentes.
 
-[Aplicaciones web de Azure][lnk-web-apps] y [Microsoft Power BI][lnk-power-bi] ofrecen las capacidades de visualización de datos. La flexibilidad de Power BI le permite compilar rápidamente sus propios paneles interactivos que usan los datos del conjunto de aplicaciones de IoT.
+[Aplicaciones web de Azure][lnk-web-apps] y [Microsoft Power BI][lnk-power-bi] proporcionan capacidades de visualización de datos. La flexibilidad de Power BI le permite compilar rápidamente sus propios paneles interactivos que usan los datos del conjunto de aplicaciones de IoT.
 
 Para información general de la arquitectura de una solución de IoT típica, vea [Microsoft Azure e Internet de las cosas (IoT)][iot-suite-what-is-azure-iot].
 
@@ -69,4 +70,4 @@ Para más información sobre el servicio Centro de IoT de Azure, vea la [Documen
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

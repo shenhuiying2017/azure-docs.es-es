@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="01/22/2016"
 	ms.author="larryfr"/>
 
 # Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)
@@ -23,7 +23,7 @@
 
 HDInsight proporciona una opción de configuración denominada **Acción de script** que invoca scripts personalizados, que definen la personalización que se realizará en el clúster en el proceso de aprovisionamiento. Estos scripts pueden utilizarse para instalar software adicional en un clúster o para cambiar la configuración de las aplicaciones de un clúster.
 
-> [AZURE.NOTE]La información de este artículo es específica de los clústeres de HDInsight basados en Linux. Para obtener una versión de este artículo específica para clústeres basados en Windows, vea [Personalización de clústeres de HDInsight mediante la acción de script (Windows)](hdinsight-hadoop-customize-cluster.md)
+> [AZURE.NOTE] La información de este artículo es específica de los clústeres de HDInsight basados en Linux. Para obtener una versión de este artículo específica para clústeres basados en Windows, vea [Personalización de clústeres de HDInsight mediante la acción de script (Windows)](hdinsight-hadoop-customize-cluster.md)
 
 ## Acción de script en el proceso de aprovisionamiento de clústeres
 
@@ -33,11 +33,11 @@ Acción de script sólo se utiliza mientras un clúster está en proceso de crea
 
 Se ejecuta el script durante la configuración de HDInsight. En esta fase, el script se ejecuta de forma paralela en todos los nodos especificados en el clúster con privilegios raíz en los nodos.
 
-> [AZURE.NOTE]Puesto que dispone de privilegios raíz en los nodos del clúster cuando se ejecuta el script, puede realizar operaciones como la detención o el inicio de servicios, incluidos los servicios de Hadoop. Si detiene los servicios, tiene que asegurarse de que los servicios de Ambari y los demás servicios de Hadoop estén en funcionamiento antes de que finalice la ejecución del script. Estos servicios son necesarios para determinar correctamente el estado del clúster durante la creación.
+> [AZURE.NOTE] Puesto que dispone de privilegios raíz en los nodos del clúster cuando se ejecuta el script, puede realizar operaciones como la detención o el inicio de servicios, incluidos los servicios de Hadoop. Si detiene los servicios, tiene que asegurarse de que los servicios de Ambari y los demás servicios de Hadoop estén en funcionamiento antes de que finalice la ejecución del script. Estos servicios son necesarios para determinar correctamente el estado del clúster durante la creación.
 
 Cada clúster puede aceptar varias acciones de script, que se invocan en el orden en que se hayan especificado. Un script se puede ejecutar en los nodos principales, los nodos de trabajo, o en ambos.
 
-> [AZURE.IMPORTANT]Las acciones de script se tienen que completar dentro de un periodo de 60 minutos o superarán el tiempo de espera. Durante el aprovisionamiento del nodo, el script se ejecuta a la vez con otros procesos de instalación y de configuración. La competición por los recursos, como el ancho de banda de red o el tiempo de CPU puede ocasionar que el script tarde más en terminar que en el entorno de desarrollo.
+> [AZURE.IMPORTANT] Las acciones de script se tienen que completar dentro de un periodo de 60 minutos o superarán el tiempo de espera. Durante el aprovisionamiento del nodo, el script se ejecuta a la vez con otros procesos de instalación y de configuración. La competición por los recursos, como el ancho de banda de red o el tiempo de CPU puede ocasionar que el script tarde más en terminar que en el entorno de desarrollo.
 > 
 > Para minimizar el tiempo necesario para ejecutar el script, evite tareas tales como descargar y compilar aplicaciones desde el origen. En su lugar, compile previamente la aplicación y almacene la versión binaria en el almacenamiento de blobs de Azure para que se pueda descargar rápidamente en el clúster.
 
@@ -255,7 +255,7 @@ En esta sección, usamos plantillas del Administrador de recursos de Azure (ARM)
 
 		Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
-    > [AZURE.NOTE]Puede usar `Get-AzureRmSubscription` para obtener una lista de todas las suscripciones asociadas a su cuenta, lo que incluye el identificador de suscripción de cada una.
+    > [AZURE.NOTE] Puede usar `Get-AzureRmSubscription` para obtener una lista de todas las suscripciones asociadas a su cuenta, lo que incluye el identificador de suscripción de cada una.
 
 5. Si no tiene un grupo de recursos existente, cree uno nuevo. Proporcione el nombre del grupo de recursos y la ubicación que necesita para la solución. Se devuelve un resumen del grupo de recursos nuevo.
 
@@ -390,9 +390,9 @@ Si se produce un error en la creación del clúster debido a un error en la acci
 
 	![Captura de pantalla de operaciones](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-	En este caso, los registros se organizan por separado para el nodo principal, el nodo de trabajo y el nodo de Zookeeper. Algunos ejemplos son:
-	* **nodo principal** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
-	* **nodo de trabajo** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+	En este caso, los registros se organizan por separado para el nodo principal, el nodo de trabajo y el nodo de Zookeeper. Algunos ejemplos son: 
+	* **nodo principal** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net` 
+	* **nodo de trabajo** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net` 
 	* **nodo de Zookeeper** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
 * Todos los stdout y stderr del host correspondiente se cargan en la cuenta de almacenamiento. Hay un archivo **output-*.txt** y **errors-\*.txt** para cada acción de script. El archivo de output-*.txt contiene información sobre el URI del script que se ejecuta en el host. Por ejemplo:
@@ -412,7 +412,7 @@ Si se produce un error en la creación del clúster debido a un error en la acci
 
 ## Soporte técnico para el software de código abierto utilizado en clústeres de HDInsight
 
-El servicio Microsoft Azure HDInsight es una plataforma flexible que permite compilar aplicaciones con grandes volúmenes de datos en la nube mediante el ecosistema de tecnologías de código abierto formadas en torno a Hadoop. Microsoft Azure ofrece un nivel general de soporte técnico para las tecnologías de código abierto, tal como se describe en la sección **Ámbito de soporte técnico** del [sitio web de Preguntas más frecuentes de soporte técnico de Azure](http://azure.microsoft.com/support/faq/). Además, el servicio de HDInsight ofrece un nivel adicional de soporte técnico para algunos de los componentes, como se describe a continuación.
+El servicio Microsoft Azure HDInsight es una plataforma flexible que permite compilar aplicaciones con grandes volúmenes de datos en la nube mediante el ecosistema de tecnologías de código abierto formadas en torno a Hadoop. Microsoft Azure ofrece un nivel general de soporte técnico para las tecnologías de código abierto, tal como se describe en la sección **Ámbito de soporte técnico** del [sitio web de Preguntas más frecuentes de soporte técnico de Azure](https://azure.microsoft.com/support/faq/). Además, el servicio de HDInsight ofrece un nivel adicional de soporte técnico para algunos de los componentes, como se describe a continuación.
 
 Hay dos tipos de componentes de código abierto que están disponibles en el servicio de HDInsight:
 
@@ -420,7 +420,7 @@ Hay dos tipos de componentes de código abierto que están disponibles en el ser
 
 - **Componentes personalizados**: el usuario del clúster puede instalar o usar en la carga de trabajo cualquier componente que esté disponible en la comunidad o que haya creado personalmente.
 
-> [AZURE.WARNING]Los componentes ofrecidos con HDInsight son totalmente compatibles. Además, el soporte técnico de Microsoft le ayudará a aislar y resolver problemas relacionados con estos componentes.
+> [AZURE.WARNING] Los componentes ofrecidos con HDInsight son totalmente compatibles. Además, el soporte técnico de Microsoft le ayudará a aislar y resolver problemas relacionados con estos componentes.
 >
 > Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. Esto podría resolver el problema o pedirle que forme parte de los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/es-ES/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Además, los proyectos de Apache tienen sitios del proyecto en [http://apache.org](http://apache.org), por ejemplo, [Hadoop](http://hadoop.apache.org/) y [Spark](http://spark.apache.org/).
 
@@ -446,4 +446,4 @@ Consulte la siguiente información y ejemplos sobre la creación y uso de script
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fases durante la creación del clúster"
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

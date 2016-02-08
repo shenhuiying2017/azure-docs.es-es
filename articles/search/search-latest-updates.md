@@ -13,116 +13,76 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="12/23/2015" 
+	ms.date="01/23/2016" 
 	ms.author="heidist"/>
 
 #Novedades en la actualización más reciente de Búsqueda de Azure#
 
-Búsqueda de Azure es un servicio de búsqueda hospedado en la nube en Microsoft Azure. Está disponible con carácter general y ofrece un contrato de nivel de servicio (SLA) con el 99,9 % de disponibilidad para las configuraciones admitidas de la [versión 2015-02-28 de la API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Búsqueda de Azure es un servicio de búsqueda hospedado en la nube en Microsoft Azure. Está disponible con carácter general y ofrece un contrato de nivel de servicio (SLA) con el 99,9 % de disponibilidad para las configuraciones admitidas de la [versión 2015-02-28 de la API de REST de servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 ##Cómo se actualizan e implementan las características
 
-Las características se publican por separado o conjuntamente mediante la [API de REST](https://msdn.microsoft.com/library/azure/dn798935.aspx), el [SDK para .NET](http://go.microsoft.com/fwlink/?LinkId=528216) o en el panel de servicio del [Portal de Azure clásico](https://portal.azure.com).
+Las características se publican por separado o conjuntamente mediante la [API de REST](https://msdn.microsoft.com/library/azure/dn798935.aspx), el [SDK de .NET](http://go.microsoft.com/fwlink/?LinkId=528216) o el panel de servicio del [Portal de Azure](https://portal.azure.com). La biblioteca .NET y la API de REST tienen varias versiones. Las API más antiguas siguen estando operativas cuando se implementan características nuevas. Puede visitar [Versiones del servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn864560.aspx) para obtener más información acerca de nuestra directiva de control de versiones.
 
-La biblioteca .NET y la API de REST tienen varias versiones. Las API más antiguas siguen estando operativas cuando se implementan características nuevas. Puede visitar [Versiones del servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn864560.aspx) para obtener más información acerca de nuestra directiva de control de versiones.
+Las características de vista previa y de disponibilidad general (GA) están vinculadas a una versión de la API de la misma categoría.
+
+- Las características de vista previa están en fase de prueba y podrían cambiar o incluso cancelarse antes de alcanzar la disponibilidad general. Las características de vista previa están siempre disponibles en la [versión de vista previa de la API de REST](search-api-2015-02-28-preview.md) y a veces en el [SDK de .NET](http://go.microsoft.com/fwlink/?LinkId=528216). La documentación de la característica siempre explicará cómo obtener acceso a la característica en cuestión.
+- Las características de GA son estables y es poco probable que cambien. Cualquier cambio en una característica de GA se anuncia como un cambio importante.
+
+Se espera que las características que se basen exclusivamente en una herramienta o en el portal cambien con el tiempo y no se clasifican como vista previa o GA.
+
+##Novedades en 2016
+
+Característica|Fecha de publicación|Estado|Detalles
+-------|--------|------|-------
+[Analizadores personalizados](https://azure.microsoft.com/blog/custom-analyzers-in-azure-search/)|Enero de 2016|[Vista previa](search-api-2015-02-28-preview.md)|Configuraciones definidas por el usuario de Tokenizer y filtros de token. Consulte [Análisis en Búsqueda de Azure](https://msdn.microsoft.com/library/azure/mt605304.aspx) en MSDN.
+[Indexador de Almacenamiento de blobs de Azure](search-howto-indexing-azure-blob-storage.md)|Enero de 2016|[Vista previa](search-api-2015-02-28-preview.md)|Los archivos PDF, documentos de Office, XML, HTML o los archivos de audio y vídeo pueden combinarse o introducirse en un índice de Búsqueda de Azure.
+[Explorador de búsqueda](search-explorer.md)|Enero de 2016|[Portal](https://portal.azure.com)|Herramienta de consulta integrada para consultas ad hoc en un índice.
+[Paquete de contenido de Power BI para Búsqueda de Azure](http://blogs.msdn.com/b/powerbi/archive/2016/01/19/visualizing-azure-search-data-with-power-bi.aspx)|Enero de 2016|Herramienta|Visualización y análisis de datos de servicio con un nuevo paquete de contenido de Power BI para Búsqueda de Azure. Disponible a través de Análisis de búsqueda.
+[Análisis de búsqueda](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/)|Enero de 2016|Portal|Habilite la recopilación de datos para obtener información sobre la actividad de búsqueda del usuario.
+[Versión de vista previa del SDK de .NET 1.0.1](https://msdn.microsoft.com/library/azure/dn951165.aspx)|Enero de 2016|Vista previa|Se trata de la tercera iteración de la biblioteca de cliente .NET, Microsoft.Azure.Search.dll. Esta versión presenta cambios importantes. Vea [Actualización a la versión de vista previa del SDK de .NET 1.0.1 de Búsqueda de Azure](search-dotnet-sdk-migration.md) para obtener instrucciones sobre la migración.
+
+##Novedades en 2015
+
+Característica|Fecha de publicación|Estado|Detalles
+-------|--------|------|-------
+Analizadores de idioma de Lucene|Octubre de 2015|GA|Esta característica está ahora disponible con carácter general (GA): está disponible en la API de REST del servicio y en el SDK de .NET.
+[Procesadores de lenguaje natural de Microsoft](search-api-2015-02-28-Preview.md)|Octubre de 2015|GA|Esta característica está ahora disponible con carácter general (GA): está disponible en la API de REST del servicio y en el SDK de .NET. 
+[Compatibilidad con la sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx)|Septiembre de 2015|[Vista previa](search-api-2015-02-28-preview.md)|Agrega el analizador de consultas de Lucene. Para usar la nueva sintaxis, debe especificar el `queryType` en una operación de búsqueda de documentos.
+[Procesadores de lenguaje natural](search-language-support.md)|Septiembre de 2015|[Vista previa](search-api-2015-02-28-preview.md)|Se han agregado procesadores del idioma de Microsoft, por lo que ha aumentado el número de idiomas globales y se proporciona una implementación alternativa para los demás.
+PUBLICACIÓN en consultas de búsqueda, sugerencias y búsquedas|Septiembre de 2015|[Vista previa](search-api-2015-02-28-preview.md)|Se aplica a la API de REST del servicio.
+[API de REST de administración](https://msdn.microsoft.com/library/azure/dn832684.aspx)|Septiembre de 2015|GA|Segunda versión de la API de REST de administración. Incluye comprobaciones checkNameAvailability de si un nombre de servicio determinado ya se está usando, el intervalo de réplica era anteriormente 1-6 y ahora es 1-12, la propiedad de la SKU se ha movido del contenedor de propiedades al nivel superior de la carga del servicio o se ha actualizado el cuerpo de respuesta de la operación de creación del servicio de búsqueda para acomodar la reubicación de la configuración de la SKU.
+SDK para .NET 0.10.0-preview|Agosto de 2015|Vista previa|Se trata de la segunda iteración de la biblioteca de cliente .NET, Microsoft.Azure.Search.dll. Esta versión agrega compatibilidad para crear, administrar y usar la [clase DataSource](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.datasource.aspx) y la [clase de indizadores](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) por medio de clases. NET. Además, para los indizadores de SQL Azure, hay nueva compatibilidad para la indización de puntos geográficos.
+Construcciones de fieldMapping|Abril de 2015|Vista previa|Los indizadores ahora admiten construcciones de fieldMapping que proporcionan asignaciones de campo cuando los nombres de campo reales son diferentes entre la base de datos externa y el índice de Búsqueda de Azure. Consulte [Indizadores](search-api-indexers-2015-02-28-Preview.md) para la versión `2015-02-28-preview` de la documentación de indizadores.
+transformaciones de tipo de campo|Abril de 2015|Vista previa|Los indizadores admiten ahora transformaciones de tipo de campo para que pueda asignar un campo de cadena de una tabla SQL a un campo de recopilación de cadenas en un índice de búsqueda, suponiendo que el campo de origen represente una matriz JSON.
+[API de REST de servicio](https://msdn.microsoft.com/library/azure/dn798935.aspx)|Marzo de 2015|GA|Primera versión disponible con carácter general de la API de REST del servicio Búsqueda de Azure. Esta versión incluye las características anteriores. También incluye [indizadores](http://go.microsoft.com/fwlink/p/?LinkID=528210). Los [proveedores de sugerencias](https://msdn.microsoft.com/library/azure/dn798936.aspx) reemplaza la compatibilidad de consulta con escritura anticipada, más limitada, de la implementación anterior (sólo coincide con los prefijos) agregando compatibilidad para la coincidencia con infijos. Esta implementación puede buscar coincidencias en cualquier parte de un término y también admite la coincidencia aproximada. El [aprovechamiento de etiquetas](http://go.microsoft.com/fwlink/p/?LinkId=528212) permite un nuevo escenario de perfiles de puntuación. En concreto, aprovecha los datos almacenados (por ejemplo, las preferencias de compra), por lo que puede mejorar los resultados de búsqueda para usuarios individuales en función de su información personalizada. 
+SDK para .NET 0.9.6-preview|Marzo de 2015|Vista previa|Se trata de la primera versión pública del SDK para .NET de Búsqueda de Azure. Incluye una biblioteca de cliente, Microsoft.Azure.Search.dll, con dos espacios de nombres: [Microsoft.Azure.Search](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx) y [Microsoft.Azure.Search.Models](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx).
+API de REST de administración|Marzo de 2015|GA|La primera versión de la API de REST de administración que pertenece a la versión disponible con carácter general de Búsqueda de Azure. No hay ninguna diferencia entre la versión preliminar anterior y esta.
+[Procesadores de lenguaje natural de Microsoft](search-api-2015-02-28-Preview.md)|Marzo de 2015|Vista previa|Agrega más idiomas y lematización expansiva para todos los idiomas compatibles con Office y Bing.
+[moreLikeThis=](search-api-2015-02-28-Preview.md)|Marzo de 2015|Vista previa|Un parámetro de búsqueda, mutuamente exclusivo de `search=`, que desencadena una ruta de ejecución de consulta alternativa. En lugar de realizar una búsqueda de texto completo de `search=` basada en una entrada de término de búsqueda, `moreLikeThis=` busca documentos que son similares a un documento determinado mediante la comparación de sus campos de búsqueda.
+
+##Novedades en 2014
+
+Característica|Fecha de publicación|Estado|Detalles
+-------|--------|------|-------
+Analizadores de idioma de Lucene|Noviembre de 2014|Vista previa|Se agregaron para proporcionar compatibilidad con múltiples idiomas para los analizadores de idiomas personalizados distribuidos con Lucene. 
+Compatibilidad del portal incorporada para la creación de índices|Noviembre de 2014|[Portal](https://portal.azure.com)|Pueden crearse índices, analizadores y perfiles de puntuación en el portal.
+Versión de API de administración 2014-07-31|Octubre de 2014|Vista previa|Primera versión de vista previa pública de la API de REST de administración. La documentación de esta versión de la API está disponible a petición.
+API de REST del servicio de búsqueda|Agosto de 2014|Vista previa|Primera versión de vista previa pública de la API de REST de servicio (vista previa de la versión de la API del 31-07-2014). Se trata de la API de REST para operaciones de documentos e índices, perfiles de puntuación para optimizar los resultados de búsqueda y compatibilidad geoespacial. Esta versión admite el aprovisionamiento del servicio en el Portal de Azure. La documentación de esta versión de la API está disponible a petición. Se actualiza de forma independiente de la API de REST del servicio.
 
 
-##Versión de API 2015-02-28-Preview
-**Nueva publicación: septiembre de 2015**
 
-Esta versión agrega nueva [compatibilidad con la sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) que se puede usar con la [versión de vista previa de la API de REST del servicio Búsqueda de Azure](search-api-2015-02-28-preview.md). Para usar la nueva sintaxis, debe especificar el `queryType` en una operación de búsqueda de documentos.
 
-Además, las dos características siguientes se extrajeron de la vista previa y ahora forman parte de la API oficial en MSDN: - [Procesadores de lenguaje natural](search-language-support.md): POST en búsqueda, sugerencias y consultas de búsqueda.
 
-##SDK para .NET 0.10.0-preview
-**Fecha de publicación: agosto de 2015**
 
-Se trata de la segunda iteración de la biblioteca de cliente .NET, Microsoft.Azure.Search.dll. Esta versión agrega compatibilidad para crear, administrar y utilizar indizadores por medio de clases. NET. Además, para los indizadores de SQL Azure, hay nueva compatibilidad para la indización de puntos geográficos.
 
-- [Clase de indizadores](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx)
-- [Clase de origen de datos](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.datasource.aspx)
 
-##SDK para .NET 0.9.6-preview
-**Publicado: 5 de marzo de 2015**
 
-Se trata de la primera versión pública del SDK para .NET de Búsqueda de Azure. Incluye una biblioteca de cliente, Microsoft.Azure.Search.dll, con dos espacios de nombres:
 
-- [Microsoft.Azure.Search](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx)
-- [Microsoft.Azure.Search.Models](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx)
 
-Excluye:
 
-- [Indizadores](http://go.microsoft.com/fwlink/p/?LinkId=528173) (esta característica ya no se excluye en la versión 0.10.0-preview)
-- [API de REST de administración](https://msdn.microsoft.com/library/azure/dn832684.aspx)
-- Características de [2015-02-28-Preview](search-api-2015-02-28-Preview.md) (actualmente, las características de solo vista previa consisten en procesadores de lenguaje natural de Microsoft y `moreLikeThis`).
-
-Visite [Cómo usar Búsqueda de Azure en .NET](http://go.microsoft.com/fwlink/p/?LinkId=528088) para obtener instrucciones sobre la instalación y el uso del SDK.
-
-##Versión de API 2015-02-28-Preview
-**Publicado: 22 de abril de 2015**
-
-- Los indizadores ahora admiten construcciones de fieldMapping que proporcionan asignaciones de campo cuando los nombres de campo reales son diferentes entre la base de datos externa y el índice de Búsqueda de Azure. Consulte [Indizadores](search-api-indexers-2015-02-28-Preview.md) para la versión `2015-02-28-preview` de la documentación de indizadores.
-
-- Además, en esta actualización de la vista previa, los indizadores admiten transformaciones de tipo de campo para que pueda asignar un campo de cadena de una tabla SQL a un campo de recopilación de cadenas en un índice de búsqueda, suponiendo que el campo de origen represente una matriz JSON.
-
-**Publicado: 5 de marzo de 2015**
-
-- Los [procesadores de lenguaje natural de Microsoft](search-api-2015-02-28-Preview.md) proporcionan compatibilidad para varios idiomas y lematización expansiva para todos los idiomas compatibles con Office y Bing.
-
-- [moreLikeThis =](search-api-2015-02-28-Preview.md) es un parámetro de búsqueda, mutuamente exclusivo de `search=`, que desencadena una ruta de ejecución de consulta alternativa. En lugar de realizar una búsqueda de texto completo de `search=` basada en una entrada de término de búsqueda, `moreLikeThis=` busca documentos que son similares a un documento determinado mediante la comparación de sus campos de búsqueda.
-
-##Versión de API 2015-02-28
-**Publicado: 5 de marzo de 2015**
-
-- Los [indizadores](http://go.microsoft.com/fwlink/p/?LinkID=528210) son una nueva característica que simplifica en gran medida la indización de orígenes de datos de la base de datos SQL de Azure, DocumentDB de Azure y SQL Server en máquinas virtuales de Azure.
-
-- Los [proveedores de sugerencias](https://msdn.microsoft.com/library/azure/dn798936.aspx) reemplaza la compatibilidad de consulta con escritura anticipada, más limitada, de la implementación anterior (sólo coincide con los prefijos) agregando compatibilidad para la coincidencia con infijos. Esta implementación puede buscar coincidencias en cualquier parte de un término y también admite la coincidencia aproximada.
-
-- El [aprovechamiento de etiquetas](http://go.microsoft.com/fwlink/p/?LinkId=528212) permite un nuevo escenario de perfiles de puntuación. En concreto, aprovecha los datos almacenados (por ejemplo, las preferencias de compra), por lo que puede mejorar los resultados de búsqueda para usuarios individuales en función de su información personalizada.
-
-Visite [Búsqueda de Azure ya está disponible con carácter general](http://go.microsoft.com/fwlink/p/?LinkId=528211) para ver en el blog de Azure el anuncio de servicio que describe todas estas características.
-
-##Versión de API 2014-10-20-Preview
-**Publicado: noviembre de 2014, enero de 2015**
-
-- Se agregaron [analizadores de lenguaje Lucene](search-api-2014-10-20-preview.md) para proporcionar compatibilidad con múltiples idiomas para los analizadores de lenguaje personalizados distribuidos con Lucene. 
-
-- Se introdujo la compatibilidad con herramientas para la creación de índices, incluidos los perfiles de puntuación, en el [Portal de Azure clásico](https://portal.azure.com).
-
-##Versión de API 2014-07-31-Preview
-**Publicado: 21 de agosto de 2014**
-
-Esta versión era la versión preliminar pública de Búsqueda de Azure y ofrecía las siguientes características principales:
-
-- API de REST para las operaciones de índice y de documento. La mayor parte de esta versión de API está intacta en 2015-02-28. La documentación de la versión `2014-07-31-Preview` puede encontrarse en [API de REST del Servicio Búsqueda de Azure versión 2014-07-31](search-api-2014-07-31-preview.md).
-
-- Perfiles de puntuación para optimizar los resultados de la búsqueda. Un perfil de puntuación agrega criterios que se usan para calcular los resultados de búsqueda. La documentación de esta característica puede encontrarse en [API de REST de perfiles de puntuación del Servicio Búsqueda de Azure versión 2014-07-31](search-api-scoring-profiles-2014-07-31-preview.md).
-
-- La compatibilidad con geoespaciales ha estado disponible desde el principio, y se proporcionaba a través del tipo de datos `Edm.GeographyPoint` que ha formado parte de Búsqueda de Azure desde sus inicios.
-
-- Aprovisionamiento en la versión preliminar del [Portal de Azure clásico](https://portal.azure.com). Búsqueda de Azure fue uno de los pocos servicios que solo estaba disponible en el nuevo portal.
-
-##Api-version de administración 2015-08-19
-**Publicado: 11 de septiembre de 2015**
-
-La [API de REST de administración](https://msdn.microsoft.com/library/azure/dn832684.aspx) incluye las siguientes actualizaciones.
-
-- checkNameAvailability comprueba si un nombre de servicio determinado ya está en uso.
-- El intervalo de réplica era anteriormente de 1 a 6 y ahora es de 1 a 12.
-- La propiedad SKU se movió del contenedor de propiedades al nivel superior de la carga del servicio.
-- El cuerpo de respuesta de la operación de creación del servicio Búsqueda se actualizó para dar cabida a la reubicación de la opción SKU.
-
-##Versión de API de administración 2015-02-28
-**Publicado: 5 de marzo de 2015**
-
-La [API de REST de administración](search-management-api-2014-02-28.md) marca la primera versión de la API de administración que pertenece a la versión disponible con carácter general de Búsqueda de Azure. No hay ninguna diferencia entre la versión preliminar anterior y esta.
-
-##Versión de API de administración 2014-07-31
-**Publicado: octubre de 2014**
-
-La versión preliminar de [API de REST de administración](search-management-api-2014-07-31-preview.md) se agregó para permitir la administración de servicios mediante programación. Se actualiza de forma independiente de la API de REST del servicio.
 
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

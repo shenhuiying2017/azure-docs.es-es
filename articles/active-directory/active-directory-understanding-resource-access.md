@@ -1,26 +1,26 @@
 <properties 
-                pageTitle="Descripción de acceso a los recursos de Azure" 
-                description="En este tema se explican conceptos acerca del uso de los administradores de suscripciones para controlar el acceso a los recursos en todo el Portal de Azure." 
-                services="active-directory" 
-                documentationCenter="" 
-                authors="markusvi" 
-                manager="stevenpo" 
-                editor=""/>
+    pageTitle="Descripción de acceso a los recursos de Azure" 
+    description="En este tema se explican conceptos acerca del uso de los administradores de suscripciones para controlar el acceso a los recursos en todo el Portal de Azure." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="markusvi" 
+    manager="stevenpo" 
+    editor=""/>
 
 <tags 
-                ms.service="active-directory" 
-                ms.workload="identity" 
-                ms.tgt_pltfrm="na" 
-                ms.devlang="na" 
-                ms.topic="article" 
-                ms.date="10/30/2015" 
-                ms.author="markusvi"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="01/26/2016" 
+    ms.author="markusvi"/>
 
 
 # Descripción de acceso a los recursos de Azure
 
 
-> [AZURE.NOTE]En este tema se explican conceptos acerca del uso de los administradores de suscripciones para controlar el acceso a los recursos en todo el Portal de Azure. Como alternativa, el Portal de vista previa de Azure proporciona [control de acceso basado en rol](role-based-access-control-configure.md) para que los recursos de Azure se puedan administrar con mayor precisión.
+> [AZURE.NOTE] En este tema se explican conceptos acerca del uso de los administradores de suscripciones para controlar el acceso a los recursos en todo el Portal de Azure. Como alternativa, el Portal de vista previa de Azure proporciona [control de acceso basado en rol](role-based-access-control-configure.md) para que los recursos de Azure se puedan administrar con mayor precisión.
 
 En octubre de 2013, el Portal de administración de Azure y las API de administración de servicios se integraron con Azure Active Directory para sentar las bases para mejorar la experiencia del usuario para administrar el acceso a los recursos de Azure. Azure Active Directory ya proporciona excelentes funcionalidades, como la administración de usuarios, la sincronización de directorios locales, la autenticación multifactor y el control de acceso a aplicaciones. Naturalmente, también deben estar disponibles para administrar los recursos globales de Azure.
 
@@ -37,7 +37,7 @@ La funcionalidad del Portal de administración de Azure permite a los SA que han
 
 
 
-> [AZURE.NOTE]El comando **Editar directorio** del Portal de administración de Azure no está disponible para los usuarios que han iniciado sesión con una cuenta profesional o educativa, porque con dichas cuentas solo pueden iniciar sesión en el directorio al que pertenecen.
+> [AZURE.NOTE] El comando **Editar directorio** del Portal de administración de Azure no está disponible para los usuarios que han iniciado sesión con una cuenta profesional o educativa, porque con dichas cuentas solo pueden iniciar sesión en el directorio al que pertenecen.
 
 <br><br>![Flujo de inicio de sesión de usuario simple][3]
 
@@ -64,4 +64,4 @@ Operaciones tales como mover recursos entre suscripciones pueden ser más difíc
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

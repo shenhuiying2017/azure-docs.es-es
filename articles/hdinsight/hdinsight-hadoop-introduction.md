@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/02/2015"
+   ms.date="01/27/2016"
    ms.author="cgronlun"/>
 
 
@@ -85,7 +85,7 @@ Para obtener información sobre el desarrollo de sus propias acciones de script,
 
 Se incluyen los siguientes componentes y utilidades en clústeres de HDInsight.
 
-* **[Ambari](#ambari)**: aprovisionamiento, administración y supervisión de clústeres.
+* **[Ambari](#ambari)**: aprovisionamiento, administración, supervisión y utilidades de clústeres.
 
 * **[Avro](#avro)** (biblioteca de Microsoft .NET para Avro): serialización de datos para el entorno de Microsoft .NET.
 
@@ -93,7 +93,7 @@ Se incluyen los siguientes componentes y utilidades en clústeres de HDInsight.
 
 * **[Mahout](#mahout)**: aprendizaje automático.
 
-* **[MapReduce y YARN](#mapreduce)**: procesamiento distribuido y administración de recursos.
+* **[MapReduce](#mapreduce)**: marco heredado para el procesamiento distribuido y la administración de recursos de Hadoop. Consulte [YARN](#yarn), el marco de recursos de última generación.
 
 * **[Oozie](#oozie)**: administración de flujo de trabajo.
 
@@ -105,13 +105,15 @@ Se incluyen los siguientes componentes y utilidades en clústeres de HDInsight.
 
 * **[Tez](#tez)**: permite a los procesos con muchos datos ejecutarse de forma eficaz a escala.
 
+* **[YARN](#yarn)**: parte de la biblioteca principal de Hadoop y el marco de software de MapReduce de última generación.
+
 * **[ZooKeeper](#zookeeper)**: coordinación de procesos en sistemas distribuidos.
 
-> [AZURE.NOTE]Para obtener información sobre los componentes específicos y sus versiones, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight][component-versioning].
+> [AZURE.NOTE] Para obtener información sobre los componentes específicos y sus versiones, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight][component-versioning].
 
-###<a name="ambari"></a>Ambari
+### <a name="ambari"></a>Ambari
 
-Apache Ambari sirve para el aprovisionamiento, la administración y la supervisión de clústeres de Hadoop de Apache. Incluye una recopilación intuitiva de herramientas de operador y un conjunto sólido de API que ocultan la complejidad de Hadoop y simplifican la operación de clústeres. Los clústeres de HDInsight basados en Linux proporcionan la interfaz de usuario web de Ambari y la API de REST de Ambari, mientras que los clústeres basados en Windows proporcionan un subconjunto de la API de REST.
+Apache Ambari sirve para el aprovisionamiento, la administración y la supervisión de clústeres de Hadoop de Apache. Incluye una recopilación intuitiva de herramientas de operador y un conjunto sólido de API que ocultan la complejidad de Hadoop y simplifican la operación de clústeres. Los clústeres de HDInsight basados en Linux proporcionan la interfaz de usuario web de Ambari y la API de REST de Ambari, mientras que los clústeres basados en Windows proporcionan un subconjunto de la API de REST. Las Vistas de Ambari en clústeres de HDInsight admiten funcionalidades de IU de complementos.
 
 Consulte [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md) (solo Linux), [Supervisión de clústeres de Hadoop en HDInsight con la API de Ambari](hdinsight-monitor-use-ambari-api.md) y la <a target="_blank" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md">Referencia de API de Apache Ambari</a>.
 
@@ -134,12 +136,12 @@ El sistema de archivos distribuido de Hadoop (HDFS) es un sistema de archivos di
 
 <a target="_blank" href="https://mahout.apache.org/">Apache Mahout</a> es una biblioteca escalable de algoritmos de aprendizaje automático que se ejecuta en Hadoop. Mediante principios de estadísticas, las aplicaciones de aprendizaje automático enseñan a los sistemas a aprender de los datos y a usar los resultados obtenidos en el pasado para determinar el comportamiento en el futuro. Consulte [Generación de recomendaciones de películas mediante Mahout en Hadoop](hdinsight-mahout.md).
 
-### <a name="mapreduce"></a>MapReduce y YARN
-MapReduce de Hadoop es un marco de software para la escritura de aplicaciones con el fin de procesar en paralelo conjuntos de Big Data. Un trabajo de MapReduce divide conjuntos de datos de gran tamaño y organiza los datos en pares clave-valor para su procesamiento.
+### <a name="mapreduce"></a>MapReduce
+MapReduce es el marco de software heredado para permitir a Hadoop la escritura de aplicaciones con el fin de procesar en lote conjuntos de macrodatos en paralelo. Un trabajo de MapReduce divide conjuntos de datos de gran tamaño y organiza los datos en pares clave-valor para su procesamiento.
 
-Apache YARN es la última generación de MapReduce (MapReduce 2.0 o MRv2) que divide las dos tareas principales de la herramienta de seguimiento de trabajos, la administración de recursos y la programación y supervisión de trabajos, en entidades independientes.
+[YARN](#yarn) es el marco de aplicación y administrador de recursos de última generación, al que se conoce como MapReduce 2.0. Los trabajos de MapReduce se ejecutarán en YARN.
 
-Para obtener más información sobre MapReduce, consulte <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce</a> en el sitio Wiki de Hadoop. Para obtener información sobre YARN, consulte <a target="_blank" href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html">MapReduce de última generación de Apache Hadoop (YARN)</a>.
+Para obtener más información sobre MapReduce, consulte <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce</a> en el sitio Wiki de Hadoop.
 
 ### <a name="oozie"></a>Oozie
 <a target="_blank" href="http://oozie.apache.org/">Apache Oozie</a> es un sistema de coordinación de flujos de trabajo que administra trabajos de Hadoop. Se integra con la pila de Hadoop y es compatible con los trabajos de Hadoop para MapReduce, Pig, Hive y Sqoop. También puede usarse para programar trabajos específicos de un sistema, como scripts de shell o programas Java. Consulte [Uso del coordinador de Oozie de tiempo con Hadoop en HDInsight](hdinsight-use-oozie-coordinator-time.md).
@@ -157,9 +159,49 @@ Para obtener más información sobre MapReduce, consulte <a target="_blank" href
 ### <a name="tez"></a>Tez
 <a  target="_blank" href="http://tez.apache.org/">Apache Tez</a> es un marco de aplicación basado en Hadoop YARN que ejecuta gráficos complejos y acíclicos general de procesamiento de datos generales. Es un sucesor más flexible y eficaz al marco de MapReduce que permite procesos intensivos de datos, como Hive, para ejecutar de manera más eficaz a escala. Consulte ["Usar Apache Tez para un rendimiento mejorado" en Usar Hive y HiveQL](hdinsight-use-hive.md#usetez).
 
+### <a name="yarn"></a>YARN
+Apache YARN es la siguiente generación de MapReduce (MapReduce 2.0, o MRv2) y es compatible con escenarios de procesamiento de datos más allá del procesamiento por lotes de MapReduce con mayor escalabilidad y procesamiento en tiempo real. YARN proporciona un marco de aplicación distribuida y administración de recursos. Los trabajos de MapReduce se ejecutarán en YARN.
+
+Para obtener información sobre YARN, consulte <a target="_blank" href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html">MapReduce de última generación de Apache Hadoop (YARN)</a>.
+
 
 ### <a name="zookeeper"></a>ZooKeeper
 <a  target="_blank" href="http://zookeeper.apache.org/">Apache ZooKeeper</a> coordina procesos en grandes sistemas distribuidos por medio de un espacio de nombres jerárquico compartido de registros de datos (znodes). Znodes contiene pequeñas cantidades de metadatos necesarios para la coordinación de procesos: estado, ubicación, configuración, entre otros.
+
+## Lenguajes de programación en HDInsight
+
+Los clústeres de HDInsight clusters—los clústeres de Hadoop, HBase, Storm y Spark— admiten varios lenguajes de programación, pero algunos de ellos no están instalados de manera predeterminada. En el caso de las bibliotecas, los módulos o los paquetes no instalados de manera predeterminada, instale el componente con una acción de script. Consulte [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
+
+### Compatibilidad con lenguajes de programación predeterminados
+
+De forma predeterminada, los clústeres de HDInsight admiten lo siguiente:
+
+* Java
+
+* Python
+
+Se pueden instalar lenguajes adicionales mediante acciones de script: [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
+
+### Lenguajes de la máquina virtual de Java (JVM)
+
+En una máquina virtual de Java se pueden utilizar muchos lenguajes distintos de Java; sin embargo, la ejecución de algunos de estos lenguajes puede requerir la instalación de componentes adicionales en el clúster.
+
+Estos lenguajes basados en JVM son compatibles con clústeres de HDInsight:
+
+* Clojure
+
+* Jython (Python para Java)
+
+* Scala
+
+### Lenguajes específicos de Hadoop
+
+Los clústeres de HDInsight proporcionan compatibilidad para los siguientes lenguajes específicos del ecosistema de Hadoop:
+
+* Pig Latin para trabajos de Pig
+
+* HiveQL para trabajos de Hive y SparkSQL
+
 
 ## <a name="advantage"></a>Ventajas de Hadoop en la nube
 
@@ -189,7 +231,7 @@ Básese en esta introducción a Hadoop en la nube y en el análisis de macrodato
 
 ### Documentación de Hadoop para HDInsight
 
-* [Documentación de HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/): la página de documentación de HDInsight de Azure con vínculos a artículos, vídeos y otros recursos.
+* [Documentación de HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/): la página de documentación de HDInsight de Azure con vínculos a artículos, vídeos y otros recursos.
 
 * [Introducción a HDInsight en Linux](hdinsight-hadoop-linux-tutorial-get-started.md): un tutorial de inicio rápido sobre el aprovisionamiento de clústeres de Hadoop para HDInsight en Linux y la ejecución de consultas de ejemplo de Hive.
 
@@ -250,4 +292,4 @@ Utilice el análisis de Big Data sobre los datos de su organización para obtene
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

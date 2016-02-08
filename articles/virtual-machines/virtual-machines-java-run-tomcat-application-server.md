@@ -79,7 +79,7 @@ En este tutorial, se instalará Tomcat.
 1. Cuando haya iniciado sesión en la máquina virtual, abra una sesión del explorador en [Apache Tomcat](http://tomcat.apache.org/download-70.cgi).
 2. Haga doble clic en el vínculo del **instalador del servicio de Windows de 32 bits y 64 bits**. Mediante esta técnica, Tomcat se instalará como servicio de Windows.
 3. Cuando se le pida, elija ejecutar el instalador.
-4. En el asistente para la **instalación de Apache Tomcat**, siga las indicaciones para instalar Tomcat. En este tutorial, es adecuado aceptar los valores predeterminados. Cuando llegue al cuadro de diálogo **Completing the Apache Tomcat Setup Wizard (Finalización del asistente para la instalación de Apache Tomcat)**, si lo desea, puede activar **Run Apache Tomcat (Ejecutar Apache Tomcat)** para iniciar Tomcat ahora. Haga clic en **Finalizar** para finalizar el proceso de instalación de Tomcat.
+4. En el asistente para la **instalación de Apache Tomcat**, siga las indicaciones para instalar Tomcat. En este tutorial, es adecuado aceptar los valores predeterminados. Cuando llegue al cuadro de diálogo **Completing the Apache Tomcat Setup Wizard** (Finalización del asistente para la instalación de Apache Tomcat), si lo desea, puede activar **Run Apache Tomcat** (Ejecutar Apache Tomcat) para iniciar Tomcat ahora. Haga clic en **Finalizar** para finalizar el proceso de instalación de Tomcat.
 
 ## Para iniciar Tomcat
 Si no ha elegido ejecutar Tomcat en el cuadro de diálogo **Completing the Apache Tomcat Setup Wizard** (Finalización del asistente para la instalación de Apache Tomcat), inícielo; para ello, abra un símbolo del sistema en la máquina virtual y ejecute **net start Tomcat7**.
@@ -125,7 +125,7 @@ En este momento, el sitio web de Tomcat se debería ver desde un explorador exte
     La ventaja de que Tomcat se inicie automáticamente es que se iniciará si se inicia la máquina virtual (por ejemplo, después de instalar actualizaciones de software que requieren un reinicio).
 
 ## Pasos siguientes
-Para obtener más información sobre otros servicios (como Almacenamiento de Azure, bus de servicio y Base de datos SQL) que desee incluir con sus aplicaciones Java, consulte la información disponible en el [Centro para desarrolladores de Java](http://azure.microsoft.com/develop/java/).
+Para obtener más información sobre otros servicios (como Almacenamiento de Azure, bus de servicio y Base de datos SQL) que desee incluir con sus aplicaciones Java, consulte la información disponible en el [Centro para desarrolladores de Java](https://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
 
@@ -146,4 +146,4 @@ Para obtener más información sobre otros servicios (como Almacenamiento de Azu
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

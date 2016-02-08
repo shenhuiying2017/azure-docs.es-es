@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) crea un panorama de identidad en la nube para 
 
 Imagínese una cuenta de Azure AD como si fuera un permiso de conducir para la nube: es el id. único para tener acceso a los servicios en línea. En ese sentido, Azure AD funciona como su propio registrador privado en la nube para los permisos de conducir. Habilita identidades que se usarán en cualquier parte de la nube y mejora la movilidad de los usuarios que tienen acceso a recursos locales.
 
-> [AZURE.NOTE]Para usar Azure Active Directory, necesita una cuenta de Azure. Si aún no tiene ninguna, puede [registrarse para obtener una cuenta de Azure gratuita](http://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Para usar Azure Active Directory, necesita una cuenta de Azure. Si aún no tiene ninguna, puede [registrarse para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 ## ¿Cómo Azure AD admite Office 365, Microsoft Intune y otros servicios de Azure?
 El portal de Azure, el Centro de administración de Office 365, el portal de cuentas Microsoft Intune y los cmdlets del módulo de PowerShell de Azure AD leen desde y escriben en una sola instancia compartida de Azure AD que está asociada a su directorio. Los portales (o cmdlets) actúan como una interfaz front-end que extrae o cambia la información del directorio. [Más información sobre la compatibilidad con otros servicios](active-directory-administer.md#what-is-an-azure-ad-tenant)
@@ -48,4 +48,4 @@ Azure Active admite varios de los protocolos de autenticación y autorización m
 * [Registro en Azure como una organización](sign-up-organization.md)
 * [Identidad de Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

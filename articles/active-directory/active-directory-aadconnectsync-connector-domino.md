@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Sincronización de Azure AD Connect: conector de Lotus Domino"
+   pageTitle="Azure AD Connect Sync: Conector de Lotus Domino | Microsoft Azure"
    description="En este artículo, se describe cómo configurar el conector de Lotus Domino para Microsoft."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/14/2016"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Referencia técnica del conector de Lotus Domino
@@ -539,4 +539,4 @@ En Domino, existen varias maneras de extender el esquema para que aparezca como 
 
 -	Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

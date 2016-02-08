@@ -84,7 +84,7 @@ Si bien las configuraciones de punto a sitio y de sitio a sitio pueden existir s
 
 - En caso de que no tenga acceso a una dirección IP del tipo IPv4 accesible desde Internet para el dispositivo VPN.
 
-Para más información sobre cómo configurar una conexión de punto a sitio, vea [Configuración de una conexión VPN de punto a sitio a una red virtual](vpn-gateway-point-to-site-create.md).
+Para obtener más información acerca de cómo configurar una conexión de punto a sitio, consulte [Configurar una conexión VPN de punto a sitio con una red virtual](vpn-gateway-point-to-site-create.md).
 
 ## Conexiones de ExpressRoute
 
@@ -99,4 +99,4 @@ Para más información sobre ExpressRoute, vea la [Información técnica de Expr
 
 Vea las [Preguntas más frecuentes sobre ExpressRoute](../expressroute/expressroute-faqs.md) y las [Preguntas más frecuentes de la puerta de enlace de VPN](vpn-gateway-vpn-faq.md) para más información.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

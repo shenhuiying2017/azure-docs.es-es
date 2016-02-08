@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="01/25/2016"
 	ms.author="paulettm"/>
 
 # Preguntas más frecuentes de Aprendizaje automático de Azure: facturación, capacidades, limitaciones y compatibilidad
@@ -47,7 +47,7 @@ Consulte [Conexión a un servicio web de Aprendizaje automático](machine-learni
 
 **¿Cómo funciona la facturación de Aprendizaje automático?**
 
-Para obtener información sobre precios y facturación, consulte [Precios de Aprendizaje automático](http://azure.microsoft.com/pricing/details/machine-learning/).
+Para obtener información sobre precios y facturación, consulte [Precios de Aprendizaje automático](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 **¿Dispone Aprendizaje automático de una evaluación gratuita?**
 
@@ -93,9 +93,8 @@ En el caso de conjuntos de datos que tengan más de dos gigas, hay que cargar lo
 
 **¿Se pueden leer datos de Amazon S3?**
 
-Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo de [lectura][reader]. Para transferir grandes cantidades de datos al almacenamiento de Azure, en primer lugar, hay que realizar la transferencia y, a continuación, utilizar el módulo de [lectura][reader] para incluirlos en el experimento. <!--
-<SEE CLOUD DS PROCESS>
--->
+Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo de [lectura][reader]. Para transferir grandes cantidades de datos al almacenamiento de Azure, en primer lugar, hay que realizar la transferencia y, a continuación, utilizar el módulo de [lectura][reader] para incluirlos en el experimento. 
+<!--<SEE CLOUD DS PROCESS>-->
 
 **¿Hay una capacidad integrada para usar una entrada de imagen?**
 
@@ -163,7 +162,7 @@ Actualmente, solo se pueden crear nuevos módulos personalizados en R.
 
 **¿Qué paquetes de R están disponibles en Estudio de aprendizaje automático?**
 
-Estudio de aprendizaje automático admite en la actualidad más de 400 paquetes de R, y la lista sigue creciendo. Consulte [Ampliación de experimentos con R](machine-learning-extend-your-experiment-with-r.md) para conocer la forma de obtener la lista de paquetes R admitidos. Si el paquete que desea no está en la lista, especifique el nombre del paquete en el [foro de comentarios de los usuarios](http://go.microsoft.com/fwlink/?LinkId=404231).
+Estudio de aprendizaje automático admite en la actualidad más de 400 paquetes de CRAN R, y la lista sigue creciendo. Consulte [Ampliación de experimentos con R](machine-learning-extend-your-experiment-with-r.md) para conocer la forma de obtener la lista de paquetes R admitidos. Si el paquete que desea no está en la lista, especifique el nombre del paquete en el [foro de comentarios de los usuarios](http://go.microsoft.com/fwlink/?LinkId=404231).
 
 **¿Es posible crear un módulo personalizado de R?**
 
@@ -219,6 +218,8 @@ Cuando el modelo predictivo se ha puesto en producción, lo puede supervisar des
 Para RRS, en la respuesta del servicio web normalmente es donde se verá el resultado. También puede escribirlo en un blob. Para BES, el resultado se escribe en un blob de manera predeterminada. También puede escribir el resultado en una base de datos o una tabla con el módulo de escritor.
 
  **¿**Solamente puedo crear servicios web a partir de los modelos creados en el Estudio? No. También puede crear servicios web directamente desde los Jupyter Notebooks y RStudio.
+ 
+ ****¿Dónde puedo encontrar información sobre los códigos de error? Los códigos de error se describen [aquí.](https://msdn.microsoft.com/library/azure/dn905910.aspx)
 
 ## Escalabilidad
 
@@ -310,4 +311,4 @@ El Aprendizaje automático de Azure cuenta también con un foro de la comunidad 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

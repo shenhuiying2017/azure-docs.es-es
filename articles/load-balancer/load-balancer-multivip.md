@@ -24,11 +24,11 @@ Sin embargo, hay escenarios en los que puede que necesite más de una dirección
 
 En el escenario anterior, todas las direcciones VIP usan el mismo puerto público (443) y el tráfico se redirige a una o varias máquinas virtuales con equilibrio de carga en un único puerto privado, según la dirección IP interna del servicio en la nube que hospeda todos los sitios web.
 
->[AZURE.NOTE]Otro escenario de uso de varias direcciones VIP es el hospedaje de varios agentes de escucha de grupo de disponibilidad SQL AlwaysOn en el mismo conjunto de máquinas virtuales.
+>[AZURE.NOTE] Otro escenario de uso de varias direcciones VIP es el hospedaje de varios agentes de escucha de grupo de disponibilidad SQL AlwaysOn en el mismo conjunto de máquinas virtuales.
 
 Las direcciones VIP son dinámicas de forma predeterminada, lo que significa que la dirección IP real asignada al servicio en la nube puede cambiar con el tiempo. Para evitar que esto suceda, puede reservar una dirección VIP para su servicio. Para obtener más información sobre las direcciones VIP reservadas, consulte [IP pública reservada](../virtual-networks-reserved-public-ip).
 
->[AZURE.NOTE]Consulte [Precios de las direcciones IP](http://azure.microsoft.com/pricing/details/ip-addresses/) para obtener información sobre los precios de las direcciones VIP y las direcciones IP reservadas.
+>[AZURE.NOTE] Consulte [Precios de las direcciones IP](https://azure.microsoft.com/pricing/details/ip-addresses/) para obtener información sobre los precios de las direcciones VIP y las direcciones IP reservadas.
 
 Puede usar PowerShell para comprobar las direcciones VIP usadas por los servicios en la nube, y también para agregar y quitar direcciones VIP, asociar una dirección VIP a un extremo y configurar el equilibrio de carga para una dirección VIP específica.
 
@@ -39,7 +39,7 @@ En este momento, la funcionalidad de VIP múltiples se limita a los siguientes e
 - **Solo IaaS**. Solo puede habilitar VIP múltiples en servicios en la nube que contengan máquinas virtuales. No puede usar VIP múltiples en escenarios de PaaS, con instancias de rol.
 - **Solo PowerShell**. Los VIP múltiples solo se pueden administrar mediante PowerShell.
 
->[AZURE.IMPORTANT]Estas limitaciones son temporales y pueden cambiar en cualquier momento. Asegúrese de volver a visitar esta página para comprobar los cambios futuros.
+>[AZURE.IMPORTANT] Estas limitaciones son temporales y pueden cambiar en cualquier momento. Asegúrese de volver a visitar esta página para comprobar los cambios futuros.
 
 
 ## Agregar una dirección VIP a un servicio en la nube
@@ -58,7 +58,7 @@ Para quitar la dirección VIP agregada al servicio en el ejemplo anterior, ejecu
 
     Remove-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
 
->[AZURE.IMPORTANT]Solo puede quitar una dirección VIP si no tiene ningún extremo asociado a ella.
+>[AZURE.IMPORTANT] Solo puede quitar una dirección VIP si no tiene ningún extremo asociado a ella.
 
 ## Recuperación de la información de dirección VIP de un servicio en la nube
 Para recuperar las direcciones VIP asociadas a un servicio en la nube, ejecute el siguiente script de PowerShell:
@@ -91,7 +91,7 @@ En este ejemplo, el servicio en la nube tiene 3 direcciones VIP:
 - **Vip1** es la dirección VIP predeterminada. Se sabe porque el valor de IsDnsProgrammedName está establecido en true.
 - **Vip2** y **Vip3** no se usan, ya que no tienen ninguna dirección IP. Solo se usarán si asocia un extremo a la dirección VIP.
 
->[AZURE.NOTE]Solo se cobrarán las direcciones VIP adicionales de su suscripción una vez que estén asociadas a un extremo. Para obtener más información sobre los precios, consulte [Precios de las direcciones IP](http://azure.microsoft.com/pricing/details/ip-addresses/).
+>[AZURE.NOTE] Solo se cobrarán las direcciones VIP adicionales de su suscripción una vez que estén asociadas a un extremo. Para obtener más información sobre los precios, consulte [Precios de las direcciones IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## Asociación de una dirección VIP a un extremo
 Para asociar una dirección VIP de un servicio en la nube a un extremo, ejecute el siguiente comando de PowerShell:
@@ -155,4 +155,4 @@ También puede actualizar el equilibrador de carga para que use una dirección V
 [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

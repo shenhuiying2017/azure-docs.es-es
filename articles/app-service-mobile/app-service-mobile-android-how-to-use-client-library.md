@@ -71,7 +71,7 @@ Para obtener acceso a Azure, la aplicación debe tener habilitado el permiso de 
 
 Esta sección describe parte del código en la aplicación de inicio rápido. Si no completó el inicio rápido, deberá agregar este código a la aplicación.
 
-> [AZURE.NOTE]La cadena "MobileServices" aparece con frecuencia en el código; sin embargo, el código hace realmente referencia al SDK de aplicaciones móviles (se trata simplemente de algo que se arrastra del pasado).
+> [AZURE.NOTE] La cadena "MobileServices" aparece con frecuencia en el código; sin embargo, el código hace realmente referencia al SDK de aplicaciones móviles (se trata simplemente de algo que se arrastra del pasado).
 
 
 ###<a name="data-object"></a>Definición de clases de datos de cliente
@@ -125,7 +125,7 @@ Este código crea el objeto **MobileServiceClient** que se usa para obtener acce
 				"MobileAppUrl", // Replace with the above Site URL
 				this)
 
-En este código, reemplace `MobileAppUrl` por la dirección URL del back-end de la aplicación móvil, que se encuentra en el [Portal de Azure](https://portal.azure.com) en la hoja del back-end de la aplicación móvil. Para que esta línea de código se compile, también debe agregar la siguiente instrucción **import**:
+En este código, reemplace `MobileAppUrl` por la dirección URL del back-end de la aplicación móvil, que se puede encontrar en el [Portal de Azure](https://portal.azure.com/) en la hoja del back-end de la aplicación móvil. Para que esta línea de código se compile, también debe agregar la siguiente instrucción **import**:
 
 	import com.microsoft.windowsazure.mobileservices.*;
 
@@ -602,9 +602,88 @@ Puede ver un ejemplo completo de cómo almacenar en memoria caché los tokens de
 
 Si intenta utilizar un token caducado, recibirá como respuesta *401 unauthorized*. El usuario deberá pues iniciar sesión para obtener nuevos tokens. Es posible evitar la necesidad de escribir código para gestionar esto en cada sitio de su aplicación que llame a su servicio móvil utilizando filtros; así, podrá interceptar llamadas y respuestas de Servicios móviles. El código de filtro probará la respuesta para un 401, desencadenará el proceso de inicio de sesión si procede y, a continuación, reanudará la solicitud que generó el 401. También puede inspeccionar el token para comprobar la caducidad.
 
+
+## <a name="adal"></a>Autenticación de usuarios con la biblioteca de autenticación de Active Directory
+
+Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para iniciar la sesión de los usuarios en su aplicación con Azure Active Directory. Esta opción es con frecuencia preferible al uso de los métodos `loginAsync()`, ya que proporciona una experiencia UX más nativa y permite personalizaciones adicionales.
+
+1. Configure su back-end de aplicación móvil para el inicio de sesión en AAD siguiendo el tutorial [Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Asegúrese de completar el paso opcional de registrar una aplicación cliente nativa.
+
+2. Instale AAL modificando el archivo build.gradle para incluir lo siguiente:
+
+	repositories { mavenCentral() flatDir { dirs 'libs' } maven { url "YourLocalMavenRepoPath\\.m2\\repository" } } packagingOptions { exclude 'META-INF/MSFTSIG.RSA' exclude 'META-INF/MSFTSIG.SF' } dependencies { compile fileTree(dir: 'libs', include: ['*.jar']) compile('com.microsoft.aad:adal:1.1.1') { exclude group: 'com.android.support' } // Recent version is 1.1.1 compile 'com.android.support:support-v4:23.0.0' }
+
+3. Agregue el siguiente código a la aplicación y realice las siguientes sustituciones:
+
+* Sustituya **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que ha aprovisionado la aplicación. El formato debe ser https://login.windows.net/contoso.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en el [Portal de Azure clásico].
+
+* Sustituya **INSERT-RESOURCE-ID-HERE** por el id. de cliente del back-end de la aplicación móvil. Puede obtenerlo en la pestaña **Avanzadas** en **Configuración de Azure Active Directory** en el portal.
+
+* Sustituya **INSERT-CLIENT-ID-HERE** por el id. de cliente que copió de la aplicación cliente nativa.
+
+* Sustituya **INSERT-REDIRECT-URI-HERE** por el punto de conexión _/.auth/login/done_ del sitio, mediante el esquema HTTPS. Este valor debería ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_.
+
+		private AuthenticationContext mContext;
+		private void authenticate() {
+		String authority = "INSERT-AUTHORITY-HERE";
+		String resourceId = "INSERT-RESOURCE-ID-HERE";
+		String clientId = "INSERT-CLIENT-ID-HERE";
+		String redirectUri = "INSERT-REDIRECT-URI-HERE";
+		try {
+		    mContext = new AuthenticationContext(this, authority, true);
+		    mContext.acquireToken(this, resourceId, clientId, redirectUri, PromptBehavior.Auto, "", callback);
+		} catch (Exception exc) {
+		    exc.printStackTrace();
+		}
+		}
+		private AuthenticationCallback<AuthenticationResult> callback = new AuthenticationCallback<AuthenticationResult>() {
+		@Override
+		public void onError(Exception exc) {
+		    if (exc instanceof AuthenticationException) {
+		        Log.d(TAG, "Cancelled");
+		    } else {
+		        Log.d(TAG, "Authentication error:" + exc.getMessage());
+		    }
+		}
+		@Override
+			public void onSuccess(AuthenticationResult result) {
+		    if (result == null || result.getAccessToken() == null
+		            || result.getAccessToken().isEmpty()) {
+		        Log.d(TAG, "Token is empty");
+		    } else {
+		        try {
+		            JSONObject payload = new JSONObject();
+		            payload.put("access_token", result.getAccessToken());
+		            ListenableFuture<MobileServiceUser> mLogin = mClient.login("aad", payload.toString());
+		            Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+		                @Override
+		                public void onFailure(Throwable exc) {
+		                    exc.printStackTrace();
+		                }
+		                @Override
+		                public void onSuccess(MobileServiceUser user) {
+		            		Log.d(TAG, "Login Complete");
+		                }
+		            });
+		        }
+		        catch (Exception exc){
+		            Log.d(TAG, "Authentication error:" + exc.getMessage());
+		        }
+		    }
+		}
+		};
+		@Override
+		protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (mContext != null) {
+		    mContext.onActivityResult(requestCode, resultCode, data);
+		}
+		}
+
+
 ## Procedimiento: Incorporación de una notificación push a la aplicación
 
-También puede [leer una introducción](notification-hubs-overview.md/#integration-with-app-service-mobile-apps) que describe cómo los Centros de notificaciones de Microsoft Azure admiten una amplia variedad de notificaciones de inserción.
+Puede [leer información general](notification-hubs-overview.md/#integration-with-app-service-mobile-apps) en la que se describe cómo los Centros de notificaciones de Microsoft Azure admiten una amplia variedad de notificaciones push.
 
 En [este tutorial](app-service-mobile-android-get-started-push.md), cada vez que se inserta un registro, se envía una notificación push.
 
@@ -762,4 +841,4 @@ Este método general se puede usar siempre que tengamos un objeto complejo que n
 [Portal de Azure]: https://portal.azure.com
 [Introducción a la autenticación]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

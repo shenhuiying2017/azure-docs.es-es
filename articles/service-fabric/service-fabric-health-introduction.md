@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2015"
+   ms.date="01/26/2016"
    ms.author="oanapl"/>
 
 # Introducción a la supervisión del mantenimiento de Service Fabric
@@ -21,7 +21,7 @@ Azure Service Fabric presenta un modelo de mantenimiento que proporciona informe
 
 Los componentes de Service Fabric usan este modelo de estado para informar de su estado actual. Este mismo mecanismo puede usar para informar del mantenimiento de las aplicaciones. La calidad y exhaustividad de los informes de mantenimiento específicos para sus condiciones personalizadas determinarán la facilidad con la que podrá detectar y corregir los problemas de la aplicación en ejecución.
 
-> [AZURE.NOTE]El subsistema de mantenimiento se inició para cubrir la necesidad de actualizaciones supervisadas. Service Fabric proporciona actualizaciones supervisadas que saben cómo actualizar un clúster o una aplicación sin tiempo de inactividad, con una intervención del usuario mínima o nula, y con disponibilidad completa no solo del clúster, sino también de la aplicación. Para ello, la actualización comprueba el mantenimiento según las directivas de actualización configuradas y solo permite que la actualización continúe cuando dicho mantenimiento respeta los umbrales deseados. De lo contrario, la actualización se revierte automáticamente o se pausa para ofrecer a los administradores una oportunidad de solucionar los problemas. Para más información sobre la actualización de aplicaciones, consulte [este artículo](service-fabric-application-upgrade.md).
+> [AZURE.NOTE] El subsistema de mantenimiento se inició para cubrir la necesidad de actualizaciones supervisadas. Service Fabric proporciona actualizaciones supervisadas que saben cómo actualizar un clúster o una aplicación sin tiempo de inactividad, con una intervención del usuario mínima o nula, y con disponibilidad completa no solo del clúster, sino también de la aplicación. Para ello, la actualización comprueba el mantenimiento según las directivas de actualización configuradas y solo permite que la actualización continúe cuando dicho mantenimiento respeta los umbrales deseados. De lo contrario, la actualización se revierte automáticamente o se pausa para ofrecer a los administradores una oportunidad de solucionar los problemas. Para más información sobre la actualización de aplicaciones, consulte [este artículo](service-fabric-application-upgrade.md).
 
 ## Almacén de estado
 El Almacén de estado conserva la información relacionada con el mantenimiento de las entidades del clúster, con el fin de facilitar su recuperación y evaluación. Se implementa como un servicio con estado persistente de Service Fabric para garantizar alta disponibilidad y escalabilidad. El Almacén de estado forma parte de la aplicación **fabric:/System** y está disponible en cuanto el clúster entra en funcionamiento.
@@ -79,7 +79,7 @@ Los estados posibles de mantenimiento son:
 ## Directivas de mantenimiento
 El Almacén de estado aplica directivas de mantenimiento para determinar si una entidad es correcta en función de sus informes y sus elementos secundarios.
 
-> [AZURE.NOTE]Las directivas de mantenimiento se pueden especificar en el manifiesto de clúster (para la evaluación del mantenimiento del clúster y el nodo) o en el manifiesto de aplicación (para la evaluación de la aplicación y cualquiera de sus elementos secundarios). Las solicitudes de evaluación del mantenimiento también pueden pasar directivas de evaluación de mantenimiento personalizadas, que solo se usarán para dicha evaluación.
+> [AZURE.NOTE] Las directivas de mantenimiento se pueden especificar en el manifiesto de clúster (para la evaluación del mantenimiento del clúster y el nodo) o en el manifiesto de aplicación (para la evaluación de la aplicación y cualquiera de sus elementos secundarios). Las solicitudes de evaluación del mantenimiento también pueden pasar directivas de evaluación de mantenimiento personalizadas, que solo se usarán para dicha evaluación.
 
 De manera predeterminada, Service Fabric aplica reglas estrictas (todo debe estar correcto) a la relación jerárquica entre elementos primarios y secundarios. Si uno solo de los elementos secundarios tiene un evento incorrecto, el elemento primario se considera incorrecto.
 
@@ -334,4 +334,4 @@ El modelo de mantenimiento se usa mucho para la supervisión y el diagnóstico, 
 
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,15 +20,15 @@
 
 # Servicio de aplicaciones de Azure y los servicios de Azure existentes
 
-En este artículo se describen las modificaciones de los servicios de Azure ya existentes como parte del cambio para reunir varios servicios de Azure en el [Servicio de aplicaciones de Azure](http://azure.microsoft.com/services/app-service/), una nueva oferta integrada.
+En este artículo se describen las modificaciones de los servicios de Azure ya existentes como parte del cambio para reunir varios servicios de Azure en el [Servicio de aplicaciones de Azure](https://azure.microsoft.com/services/app-service/), una nueva oferta integrada.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Información general 
 
-El [Servicio de aplicaciones de Azure](http://azure.microsoft.com/services/app-service/) es un servicio en la nube nuevo y exclusivo que permite a los desarrolladores crear aplicaciones web y móviles destinadas a cualquier plataforma y dispositivo. Se trata de una solución integral diseñada para simplificar las funciones de codificación repetitivas, integrarse en sistemas Saas y empresariales y automatizar los procesos de negocio a la vez que cumplir sus necesidades de seguridad, confiabilidad y escalabilidad.
+El [Servicio de aplicaciones de Azure](https://azure.microsoft.com/services/app-service/) es un servicio en la nube nuevo y exclusivo que permite a los desarrolladores crear aplicaciones web y móviles destinadas a cualquier plataforma y dispositivo. Se trata de una solución integral diseñada para simplificar las funciones de codificación repetitivas, integrarse en sistemas Saas y empresariales y automatizar los procesos de negocio a la vez que cumplir sus necesidades de seguridad, confiabilidad y escalabilidad.
 
-El Servicio de aplicaciones reúne los siguientes servicios de Azure ya existentes: [Sitios web](http://azure.microsoft.com/services/websites/), [Servicios móviles](http://azure.microsoft.com/services/mobile-services/) y [Servicios de Biztalk](http://azure.microsoft.com/services/biztalk-services/) en un servicio único combinado que, a su vez, agrega nuevas capacidades de gran eficacia. Además, permite hospedar los siguientes tipos de aplicaciones:
+El Servicio de aplicaciones reúne los siguientes servicios de Azure ya existentes: [Sitios web](https://azure.microsoft.com/services/websites/), [Servicios móviles](https://azure.microsoft.com/services/mobile-services/) y [Servicios de Biztalk](https://azure.microsoft.com/services/biztalk-services/) en un servicio único combinado que, a su vez, agrega nuevas capacidades de gran eficacia. Además, permite hospedar los siguientes tipos de aplicaciones:
 
 -   Aplicaciones web
 -   Aplicaciones móviles
@@ -90,7 +90,7 @@ En la tabla siguiente se explica cómo se asignan los servicios de Azure existen
 </tbody>
 </table>
 
-Para obtener más información, visite [Documentación del Servicio de aplicaciones](http://azure.microsoft.com/documentation/services/app-service/).
+Para obtener más información, visite [Documentación del Servicio de aplicaciones](https://azure.microsoft.com/documentation/services/app-service/).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -40,7 +40,7 @@ El sistema completo y el flujo de la clave de contenido, el identificador de cla
 
 ##Protección de contenido
 
-Para configurar la protección dinámica y la directiva de entrega de claves, vea el blog de Mingfei: [Cómo configurar el empaquetado de Widevine con Servicios multimedia de Azure](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
+Para configurar la protección dinámica y la directiva de entrega de claves, consulte el blog de Mingfei: [How to configure Widevine packaging with Azure Media Services](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services) (Cómo configurar el empaquetado de Widevine con Servicios multimedia de Azure).
 
 Puede configurar la protección dinámica de CENC con Multi-DRM para streaming de DASH y tener los dos elementos siguientes:
 
@@ -209,4 +209,4 @@ Id. de clave de contenido|Se debe incluir como parte del valor de notificación 
 
 Nos gustaría mencionar a las siguientes personas que han contribuido a crear este documento: Kristjan Jõgi de Axinom, Mingfei Yan y Amit Rajput.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Uso del Bus de servicio desde Java con AMQP 1.0
 
 [AZURE.INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
-Java Message Service (JMS) es una API estándar que funciona con middleware orientado a mensajes en la plataforma Java. El Bus de servicio de Azure se ha probado con la biblioteca de cliente JMS basada en AMQP 1.0 desarrollada por el proyecto Apache Qpid. Esta biblioteca es compatible con la API de JMS 1.1 completa y puede usarse con cualquier servicio de mensajería compatible con AMQP 1.0. Este escenario también se admite en el Bus de servicio para Windows Server (Bus de servicio local). Para obtener más información, consulte [AMQP de Bus de servicio para Windows Server][].
+Java Message Service (JMS) es una API estándar que funciona con middleware orientado a mensajes en la plataforma Java. El Bus de servicio de Microsoft Azure se ha probado con la biblioteca de cliente JMS basada en AMQP 1.0 desarrollada por el proyecto Apache Qpid. Esta biblioteca es compatible con la API de JMS 1.1 completa y puede usarse con cualquier servicio de mensajería compatible con AMQP 1.0. Este escenario también se admite en el [Bus de servicio para Windows Server](https://msdn.microsoft.com/library/dn282144.aspx) (Bus de servicio local). Para obtener más información, consulte [AMQP de Bus de servicio para Windows Server][].
 
 ## Descarga de la biblioteca de cliente Apache Qpid JMS AMQP 1.0
 
@@ -86,7 +86,7 @@ Donde `[namespace]`, `[username]` y `[password]` tienen los significados siguien
 | `[username]` | El nombre del emisor del Bus de servicio obtenido del [Portal de Azure clásico][]. | | | | |
 | `[password]` | Formulario codificado como URL de la clave del emisor del Bus de servicio obtenido del [Portal de Azure clásico][]. | | | | |
 
-> [AZURE.NOTE]debe codificar la contraseña manualmente como dirección URL. Podrá encontrar una práctica utilidad de codificación de la URL en [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> [AZURE.NOTE] debe codificar la contraseña manualmente como dirección URL. Podrá encontrar una práctica utilidad de codificación de la URL en [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 Por ejemplo, si la información obtenida del portal es la siguiente:
 
@@ -446,4 +446,4 @@ Existen las restricciones siguientes al usar JMS sobre AMQP 1.0 con el Bus de se
 [Información general sobre AMQP para el Bus de servicio]: service-bus-amqp-overview.md
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

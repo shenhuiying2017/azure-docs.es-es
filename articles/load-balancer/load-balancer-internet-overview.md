@@ -5,7 +5,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/16/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 
@@ -23,7 +23,7 @@ Uno de los usos de los extremos es la configuración del Equilibrador de carga d
 
 El Equilibrador de carga de Azure asigna la dirección IP y el número de puerto públicos del tráfico entrante a la dirección IP y el número de puerto privados de la máquina virtual, y viceversa, para el tráfico de respuesta desde la máquina virtual.
 
->[AZURE.NOTE]El equilibrador de carga de Azure proporcionará un tráfico de red de distribución hash entre varias instancias de máquina virtual con la configuración predeterminada (obtenga más información acerca de la distribución hash en [características del equilibrador de carga](load-balancer-overview.md#load-balancer-features)). Si busca la afinidad de sesión, consulte [modo de distribución de equilibrador de carga](load-balancer-distribution-mode.md).
+>[AZURE.NOTE] El equilibrador de carga de Azure proporcionará un tráfico de red de distribución hash entre varias instancias de máquina virtual con la configuración predeterminada (obtenga más información acerca de la distribución hash en [características del equilibrador de carga](load-balancer-overview.md#load-balancer-features)). Si busca la afinidad de sesión, consulte [modo de distribución de equilibrador de carga](load-balancer-distribution-mode.md).
 
 Para los servicios en la nube que contienen instancias de roles web o de roles de trabajo, puede definir un extremo público en la definición de servicio (.csdef).
  
@@ -34,22 +34,18 @@ En la siguiente ilustración se muestra un extremo con equilibrio de carga para 
 
 ![ejemplo de equilibrador de carga público](./media/load-balancer-internet-overview/IC727496.png))
 
-
-
 Cuando los clientes de Internet envían solicitudes de página web a la dirección IP pública del servicio en la nube y el puerto TCP 443, el equilibrador de carga realiza un equilibrio de carga basado en hash de esas solicitudes entre las tres máquinas virtuales del conjunto con equilibrio de carga. Puede obtener más información sobre el algoritmo del equilibrador de carga en [Página de información general del equilibrador de carga](load-balancer-overview.md#load-balancer-features).
 
 
 ## Pasos siguientes
 
-[Información general sobre el equilibrador de carga interno](load-balancer-internal-overview.md)
+Después de obtener información sobre un equilibrador de carga orientado hacia Internet, también puede leer sobre el [equilibrador de carga interno](load-balancer-internal-overview.md) y comprobar qué equilibrador de carga se adapta mejor a su implementación en la nube.
 
-[Introducción a la configuración de un equilibrador de carga accesible desde Internet](load-balancer-internet-getstarted.md)
+También puede [empezar a crear un equilibrador de carga orientado a Internet](load-balancer-get-started-internet-arm-ps.md) y configurar el tipo de [modo de distribución](load-balancer-distribution-mode.md) para un comportamiento especifico del tráfico de red del equilibrador de carga.
 
-[Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)
-
-[Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
+Si la aplicación necesita mantener conexiones activas para servidores detrás de un equilibrador de carga, puede obtener más información acerca de la [configuración de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md). Le ayudará a conocer el comportamiento de conexión del tiempo de inactividad cuando se usa el Equilibrador de carga de Azure.
 
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

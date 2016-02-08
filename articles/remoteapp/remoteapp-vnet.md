@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="01/22/2016"
     ms.author="elizapo" />
 
 
@@ -33,8 +33,8 @@ Si esto se realiza correctamente, la red virtual de Azure está lista para usars
 
 Para obtener más información sobre el flujo de trabajo completo de la colección híbrida, vea los siguientes artículos:
 
-- [Planeación de la red virtual de Azure RemoteApp](remoteapp-planvpn.md)
+- [Planeación de la red virtual de Azure RemoteApp](remoteapp-planvnet.md)
 - [Creación de una colección híbrida](remoteapp-create-hybrid-deployment.md)
 - [Implementación de la colección Azure RemoteApp en la Red virtual de Azure (con compatibilidad para ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

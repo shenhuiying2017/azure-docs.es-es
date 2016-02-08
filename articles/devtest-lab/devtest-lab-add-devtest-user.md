@@ -26,7 +26,7 @@ Se concede acceso al laboratorio de desarrollo y pruebas a través de dos roles:
 
  - **Propietario**: los usuarios asignados al rol **propietario** en el nivel de suscripción de Azure tienen acceso completo al laboratorio, incluidas las funciones de administración y supervisión.
 
-     >[AZURE.NOTE]Los roles **propietario** que se asignan en niveles RBAC diferentes al nivel de suscripción no se admiten en Laboratorio de desarrollo y pruebas. La asignación de un usuario al rol **Propietario** en el laboratorio de desarrollo y pruebas no se admite.
+     >[AZURE.NOTE] Los roles **propietario** que se asignan en niveles RBAC diferentes al nivel de suscripción no se admiten en Laboratorio de desarrollo y pruebas. La asignación de un usuario al rol **Propietario** en el laboratorio de desarrollo y pruebas no se admite.
 
  -  **Usuario de laboratorio de desarrollo y pruebas**: los usuarios asignados al rol **Usuario de laboratorio de desarrollo y pruebas** pueden crear, actualizar y eliminar VM en el laboratorio especificado. Los usuarios pueden ser *internos* (miembro de Azure Active Directory para la suscripción) o *externos* (usuario que no es miembro de Azure AD, como un miembro de una organización asociada).
 	-  Un rol **Usuario de laboratorio de desarrollo y pruebas** debe asignarse a través de los iconos **Agregar usuarios** del laboratorio.
@@ -39,7 +39,7 @@ Laboratorio de desarrollo y pruebas considera que los propietarios de una suscri
 
 Para agregar un propietario a una suscripción de Azure donde tiene laboratorios ya creados o va a crear nuevos laboratorios, siga estos pasos:
 
-1. Inicie sesión en el [Portal de vista previa de Azure](http://portal.azure.com).
+1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com).
 
 1. En el panel de navegación izquierdo, pulse **Suscripciones**.
 
@@ -71,7 +71,7 @@ Para agregar un propietario a una suscripción de Azure donde tiene laboratorios
 
 Para agregar un usuario de Laboratorio de desarrollo y pruebas al laboratorio, siga estos pasos:
 
-1. Inicie sesión en el [Portal de vista previa de Azure](http://portal.azure.com).
+1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com).
 
 1. Pulse **Examinar**.
 
@@ -101,4 +101,4 @@ Para agregar un usuario de Laboratorio de desarrollo y pruebas al laboratorio, s
 
 	1. La hoja **Usuarios** muestra los roles y usuarios agregados.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

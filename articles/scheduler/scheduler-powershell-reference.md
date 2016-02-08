@@ -46,7 +46,7 @@ En la tabla siguiente aparece una descripción y vínculos a la página de refer
 
  [Planes y facturación en Programador de Azure](scheduler-plans-billing.md)
 
- [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/dn528946)
+ [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Alta disponibilidad y confiabilidad de Programador de Azure](scheduler-high-availability-reliability.md)
 
@@ -59,4 +59,4 @@ En la tabla siguiente aparece una descripción y vínculos a la página de refer
 
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

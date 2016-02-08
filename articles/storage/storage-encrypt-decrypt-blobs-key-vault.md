@@ -136,7 +136,7 @@ En la función Main, agregue el código siguiente:
 	KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 
 
-> [AZURE.NOTE]Modelos de objetos de Almacén de claves
+> [AZURE.NOTE] Modelos de objetos de Almacén de claves
 >
 >Es importante entender que hay en realidad dos modelos de objeto de Almacén de claves a tener en cuenta: uno se basa en la API de REST (espacio de nombres KeyVault) y el otro es una extensión para el cifrado de cliente.
 
@@ -167,11 +167,11 @@ Agregue el código siguiente para cifrar un blob y cargarlo en la cuenta de alma
 		blob.UploadFromStream(stream, stream.Length, null, options, null);
 
 
-La siguiente es una captura de pantalla del [Portal de Azure clásico](manage.windowsazure.com) para un blob que se ha cifrado mediante el cifrado del lado cliente con una clave almacenada en Almacén de claves. La propiedad **KeyId** es el URI de la clave en Almacén de claves que actúa como la clave de cifrado de claves (KEK). La propiedad **EncryptedKey** contiene la versión cifrada de la CEK.
+La siguiente es una captura de pantalla del [Portal de Azure clásico](https://manage.windowsazure.com) para un blob que se ha cifrado mediante el cifrado del lado cliente con una clave almacenada en Almacén de claves. La propiedad **KeyId** es el URI de la clave en Almacén de claves que actúa como la clave de cifrado de claves (KEK). La propiedad **EncryptedKey** contiene la versión cifrada de la CEK.
 
 ![Captura de pantalla en la que se muestran los metadatos del blob que incluyen los metadatos de cifrado][1]
 
-> [AZURE.NOTE]Si observa el constructor BlobEncryptionPolicy, verá que puede aceptar una clave o una resolución. Tenga en cuenta que ahora no puede utilizar una resolución para el cifrado porque en la actualidad no admite una clave predeterminada.
+> [AZURE.NOTE] Si observa el constructor BlobEncryptionPolicy, verá que puede aceptar una clave o una resolución. Tenga en cuenta que ahora no puede utilizar una resolución para el cifrado porque en la actualidad no admite una clave predeterminada.
 
 
 
@@ -191,7 +191,7 @@ Agregue lo siguiente para descifrar el blob que acaba de cargar.
 	    blob.DownloadToStream(np, null, options, null);
 
 
-> [AZURE.NOTE]Existen un par de otros tipos de solucionadores que facilitan la administración de claves, incluidos AggregateKeyResolver y CachingKeyResolver.
+> [AZURE.NOTE] Existen un par de otros tipos de solucionadores que facilitan la administración de claves, incluidos AggregateKeyResolver y CachingKeyResolver.
 
 
 ## Uso de secretos de Almacén de claves
@@ -235,4 +235,4 @@ Para obtener la información más reciente sobre Almacenamiento de Microsoft Azu
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

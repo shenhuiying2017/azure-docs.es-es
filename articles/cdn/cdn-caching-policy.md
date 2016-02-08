@@ -26,7 +26,7 @@ De forma predeterminada, los extremos de streaming aplican encabezados de caché
 
 ##Integración de CDN de Azure
 
-Servicios multimedia de Azure proporciona [CDN integrado ](http://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) para extremos de streaming. Los encabezados Cache-control se aplican de la misma manera que los extremos de streaming a extremos de streaming habilitados para CDN. CDN de Azure usa valores de caché configurados de extremo de streaming para definir el tiempo de duración de los objetos almacenados en caché internamente y también utiliza este valor para establecer encabezados de caché de entrega. Cuando se utilizan extremos de streaming habilitados para CDN, no se recomienda establecer valores de caché pequeños. Si se establecen valores pequeños, se disminuye el rendimiento y se reducen las ventajas de CDN. No se permite establecer encabezados de caché menores de 600 segundos para extremos de streaming habilitados para CDN.
+Servicios multimedia de Azure proporciona [CDN integrado ](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) para extremos de streaming. Los encabezados Cache-control se aplican de la misma manera que los extremos de streaming a extremos de streaming habilitados para CDN. CDN de Azure usa valores de caché configurados de extremo de streaming para definir el tiempo de duración de los objetos almacenados en caché internamente y también utiliza este valor para establecer encabezados de caché de entrega. Cuando se utilizan extremos de streaming habilitados para CDN, no se recomienda establecer valores de caché pequeños. Si se establecen valores pequeños, se disminuye el rendimiento y se reducen las ventajas de CDN. No se permite establecer encabezados de caché menores de 600 segundos para extremos de streaming habilitados para CDN.
 
 ##Configuración de encabezados de caché con Servicios multimedia de Azure
 
@@ -43,4 +43,4 @@ Puede usar el Portal de administración de Azure o las API de Servicios multimed
 3. De forma predeterminada, se aplican encabezados de caché de 2 segundos para manifest(playlist) de streaming en directo independientemente de la configuración multimedia o de almacenamiento de Azure y la anulación de este valor no está disponible.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

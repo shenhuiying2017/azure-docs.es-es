@@ -34,7 +34,7 @@ Consulte esta página para la ubicación del servicio y la disponibilidad: [Asoc
 Puede seleccionar un operador regional y conexiones Ethernet por tierra a una de las ubicaciones del proveedor de intercambio compatible. A continuación, puede explorar con Microsoft en la ubicación del proveedor. Compruebe la última sección de [Asociados y ubicaciones de ExpressRoute](expressroute-locations.md) para ver si su proveedor de servicio está presente en cualquiera de las ubicaciones de Exchange. A continuación, puede solicitar un circuito ExpressRoute a través del proveedor de servicio para conectarse a Azure.
 
 ### ¿Cuánto cuesta ExpressRoute?
-Para obtener más información sobre los precios, consulte [Información sobre el precio](http://azure.microsoft.com/pricing/details/expressroute/).
+Para obtener más información sobre los precios, consulte [Información sobre el precio](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ### Si pago por un circuito ExpressRoute de un ancho de banda determinado, ¿la conexión VPN que adquiero de mi proveedor de servicios de red debe tener la misma velocidad?
 No. Puede adquirir una conexión VPN de cualquier velocidad de su proveedor de servicios. Sin embargo, la conexión a Azure se limitará al ancho de banda de circuito ExpressRoute que compre.
@@ -46,7 +46,7 @@ Sí. Los circuitos ExpressRoute están configurados para admitir casos en los qu
 Sí. Un circuito ExpressRoute, una vez que el programa de instalación le permita acceder a los servicios en una red virtual y otros servicios de Azure simultáneamente. Se conectará a redes virtuales a través de la ruta de acceso de emparejamiento privado y otros servicios a través de la ruta de acceso de emparejamiento público.
 
 ### ¿ExpressRoute ofrece un contrato de nivel de servicio (SLA)?
-Consulte la [página de SLA de ExpressRoute](http://azure.microsoft.com/support/legal/sla/) para obtener más información.
+Consulte la [página de SLA de ExpressRoute](https://azure.microsoft.com/support/legal/sla/) para obtener más información.
 
 ## Servicios admitidos
 La mayoría de los servicios de Azure son compatibles con ExpressRoute.
@@ -65,7 +65,7 @@ La mayoría de los servicios de Azure son compatibles con ExpressRoute.
 ## Datos y conexiones
 
 ### ¿Hay límites en la cantidad de datos que se puede transferir mediante ExpressRoute?
-No se establece un límite sobre la cantidad de transferencia de datos. Consulte [Información de precios](http://azure.microsoft.com/pricing/details/expressroute/) para obtener información sobre las tasas de ancho de banda.
+No se establece un límite sobre la cantidad de transferencia de datos. Consulte [Información de precios](https://azure.microsoft.com/pricing/details/expressroute/) para obtener información sobre las tasas de ancho de banda.
 
 ### ¿Qué velocidades de conexión son compatibles con ExpressRoute?
 Ofertas de ancho de banda compatibles:
@@ -208,7 +208,7 @@ Puede deshabilitar ExpressRoute Premium llamando al cmdlet de Powershell/API del
 No. No podrá seleccionar las características que necesita. Habilitaremos todas las características cuando active ExpressRoute Premium.
 
 ### ¿Cuánto cuesta ExpressRoute Premium?
-Consulte [Información de precios](http://azure.microsoft.com/pricing/details/expressroute/) para ver el coste.
+Consulte [Información de precios](https://azure.microsoft.com/pricing/details/expressroute/) para ver el coste.
 
 ### ¿Debo pagar ExpressRoute Premium además de la tarifa de ExpressRoute Standard?
 Sí. Las tarifas de ExpressRoute Premium se aplican a las tarifas de circuito ExpressRoute y a las tarifas que precisa el proveedor de conectividad de mayor nivel.
@@ -249,7 +249,7 @@ Sí. El circuito ExpressRoute existente puede configurarse para admitir conectiv
 Puede conectarse a esos servicios a través de Internet.
 
 ### ¿Cuánto cuesta ExpressRoute para Office 365?
-No hay ningún coste adicional para conectarse a Office 365 a través de ExpressRoute. La [página de información de precios](http://azure.microsoft.com/pricing/details/expressroute/) proporciona información sobre los costes de ExpressRoute.
+No hay ningún coste adicional para conectarse a Office 365 a través de ExpressRoute. La [página de información de precios](https://azure.microsoft.com/pricing/details/expressroute/) proporciona información sobre los costes de ExpressRoute.
 
 ### ¿En qué regiones es compatible ExpressRoute para Office 365?
 Consulte [Asociados y ubicaciones de ExpressRoute](expressroute-locations.md) para obtener más información sobre la lista de asociados y ubicaciones en las que se admite ExpressRoute.
@@ -258,4 +258,4 @@ Consulte [Asociados y ubicaciones de ExpressRoute](expressroute-locations.md) pa
 Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a través de Internet a pesar de que se haya configurado ExpressRoute para su red. Si está en una ubicación que está configurada para conectarse a servicios de Office 365 a través de ExpressRoute, se conectará a través de ExpressRoute.
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

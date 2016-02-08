@@ -49,7 +49,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 + Microsoft Visual Studio 2015.
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
++ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
 
 También se dan por sentados ciertos conocimientos sobre el [Almacenamiento de Azure] y el [Bus de servicio de Azure].
 
@@ -69,7 +69,7 @@ Ya está preparado para ejecutar las aplicaciones.
 
   ![][50]
 
-> [AZURE.NOTE]Para ver las actualizaciones en el archivo blob, debe reducir la constante **MAX\_BLOCK\_SIZE** de la clase **StoreEventProcessor** a un valor inferior como **1024**. Esto se debe a que se tarda algún tiempo en alcanzar el límite de tamaño de bloque con los datos enviados por el dispositivo simulado. Con un tamaño de bloque menor, no tendrá que esperar tanto tiempo para ver el blob que se crea y se actualiza. Aunque un tamaño de bloque mayor hace que la aplicación sea más escalable.
+> [AZURE.NOTE] Para ver las actualizaciones en el archivo blob, debe reducir la constante **MAX\_BLOCK\_SIZE** de la clase **StoreEventProcessor** a un valor inferior como **1024**. Esto se debe a que se tarda algún tiempo en alcanzar el límite de tamaño de bloque con los datos enviados por el dispositivo simulado. Con un tamaño de bloque menor, no tendrá que esperar tanto tiempo para ver el blob que se crea y se actualiza. Aunque un tamaño de bloque mayor hace que la aplicación sea más escalable.
 
 ## Pasos siguientes
 
@@ -99,7 +99,6 @@ Información adicional sobre el centro de IoT:
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
-[control de errores transitorios]: https://msdn.microsoft.com/es-ES/library/hh680901(v=pandp.50).aspx
 
 [Guía del desarrollador del Centro de IoT de Azure]: https://azure.microsoft.com/es-ES/documentation/articles/iot-hub-devguide/#d2c
 
@@ -108,9 +107,7 @@ Información adicional sobre el centro de IoT:
 
 
 
-[Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Envío de mensajes de nube a dispositivo con el Centro de IoT]: iot-hub-csharp-csharp-c2d.md
-[Procesamiento de mensajes de dispositivo a nube]: iot-hub-csharp-csharp-process-d2c.md
 [Carga de archivos desde dispositivos]: iot-hub-csharp-csharp-file-upload.md
 
 [Información general sobre el centro de IoT]: iot-hub-what-is-iot-hub.md
@@ -121,4 +118,4 @@ Información adicional sobre el centro de IoT:
 [Centro para desarrolladores de Azure]: https://azure.microsoft.com/develop/iot
 [Centro para desarrolladores de IoT de Azure]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

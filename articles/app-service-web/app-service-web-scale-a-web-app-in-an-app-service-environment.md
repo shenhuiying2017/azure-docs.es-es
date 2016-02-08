@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="01/14/2016" 
 	ms.author="ccompy"/>
 
 # Escalado de aplicaciones en un entorno del Servicio de aplicaciones #
@@ -58,7 +58,7 @@ Como se indicó anteriormente, a la selección del grupo de trabajo se accede de
 
 Antes de mover el ASP de un grupo de trabajo a otro, es importante asegurarse de que tendrá la capacidad adecuada para él. En la lista de grupos de trabajo, no solo se muestra el nombre del grupo de trabajo, sino que también puede ver cuántos trabajos están disponibles en ese grupo de trabajo. Asegúrese de que hay suficientes instancias disponibles para contener su plan de Servicio de aplicaciones. Si necesita más recursos de proceso en el grupo de trabajo al que desea moverse, tendrá que agregarlos a través del administrador de ASE.
 
-> [AZURE.NOTE]Al mover un ASP de un grupo de trabajo se reiniciarán las aplicaciones de ese ASP. Esto puede ocasionar un pequeño tiempo de inactividad en la aplicación dependiendo de lo que tarde en reiniciarse.
+> [AZURE.NOTE] Al mover un ASP de un grupo de trabajo se reiniciarán las aplicaciones de ese ASP. Esto puede ocasionar un pequeño tiempo de inactividad en la aplicación dependiendo de lo que tarde en reiniciarse.
 
 ## Introducción
 
@@ -83,4 +83,4 @@ Para obtener más información acerca de la plataforma Servicio de aplicaciones 
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

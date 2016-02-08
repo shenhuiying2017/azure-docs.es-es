@@ -48,15 +48,15 @@ En este tutorial, obtendrá información sobre cómo reunir los escenarios sigui
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE]Necesita una cuenta de Azure para completar este tutorial: + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/?WT.mc_id=A261C142F): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Aplicaciones web. + Puede [activar los beneficios de suscriptores de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): su suscripción a Visual Studio le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
+> [AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial: + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Aplicaciones web. + Puede [activar los beneficios de suscriptores de Visual Studio](/pricing/member-offers/msdn-benefits-details/): su suscripción a Visual Studio le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
 >
 > Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Configuración de la aplicación web de producción
 
->[AZURE.NOTE]El script que se emplea en este tutorial configurará automáticamente la publicación continua desde el repositorio de GitHub. Esto requiere que las credenciales de GitHub ya estén almacenadas en Azure; en caso contrario, no se realizará la implementación con script al intentar definir la configuración del control de código fuente para las aplicaciones web.
+>[AZURE.NOTE] El script que se emplea en este tutorial configurará automáticamente la publicación continua desde el repositorio de GitHub. Esto requiere que las credenciales de GitHub ya estén almacenadas en Azure; en caso contrario, no se realizará la implementación con script al intentar definir la configuración del control de código fuente para las aplicaciones web.
 >
->Para almacenar sus credenciales de GitHub en Azure, cree una aplicación web en el [Portal de Azure](https://portal.azure.com) y [configure la implementación de GitHub](web-sites-publish-source-control.md#Step7). Solo tiene que hacer esto una vez.
+>Para almacenar sus credenciales de GitHub en Azure, cree una aplicación web en el [Portal de Azure](https://portal.azure.com/) y [configure la implementación de GitHub](web-sites-publish-source-control.md#Step7). Solo tiene que hacer esto una vez.
 
 En un escenario típico de DevOps, tiene una aplicación que se ejecuta directamente en Azure y quiere realizar cambios en ella mediante publicación continua. En este escenario, se implementará en producción una plantilla que haya desarrollado y probado.
 
@@ -84,7 +84,7 @@ En un escenario típico de DevOps, tiene una aplicación que se ejecuta directam
 	![](./media/app-service-web-test-in-production-controlled-test-flight/00.2-swap-to-production.png)
 
 7.	Cuando finalice el script, vuelva a examinar la dirección del front-end (http://ToDoApp*&lt;your_suffix>*master.azurewebsites.net/) para ver la ejecución de la aplicación en producción.
-5.	Inicie sesión en el [Portal de Azure](https://portal.azure.com) y observe lo que se crea.
+5.	Inicie sesión en el [Portal de Azure](https://portal.azure.com/) y observe lo que se crea.
 
 	Podrá ver dos aplicaciones web en el mismo grupo de recursos, una con el sufijo `Api` en el nombre. Si observa la vista de grupo de recursos, también verá el servidor y Base de datos SQL, el plan de Servicio de aplicaciones y las ranuras de ensayo para las aplicaciones web. Examine los distintos recursos y compárelos con *&lt;raíz\_repositorio>*\\ARMTemplates\\ProdAndStage.json para ver cómo están configurados en la plantilla.
 
@@ -215,7 +215,7 @@ Como está recopilando datos sobre el comportamiento del cliente, [agregará un 
 
 5. Haga clic en el botón **Favoritos** para guardar la configuración actual del Explorador de métricas con un nombre del tipo **Eventos personalizados: producción**. Más adelante puede cambiar fácilmente entre esta vista y la vista de una ranura de implementación.
 
-    > [AZURE.TIP]Para realizar análisis aún más eficaces, considere la posibilidad de la [integración de los recursos de Application Insights con Power BI](app-insights-export-power-bi.md).
+    > [AZURE.TIP] Para realizar análisis aún más eficaces, considere la posibilidad de la [integración de los recursos de Application Insights con Power BI](app-insights-export-power-bi.md).
 
 ### Incorporación de etiquetas específicas de ranura a las métricas de la aplicación de servidor
 De nuevo, con el fin de tener una visión completa se configurará también la aplicación del lado del servidor. A diferencia de la aplicación de cliente que se instrumenta en JavaScript, las etiquetas específicas de ranura para la aplicación de servidor se instrumentan con código. NET.
@@ -279,7 +279,7 @@ De nuevo, con el fin de tener una visión completa se configurará también la a
 
     Una vez que finalice el script, se conservan todos los recursos en el grupo de recursos original, pero se crea en él una nueva ranura llamada "beta" con la misma configuración que la ranura de "Ensayo" que se creó al principio.
 
-    >[AZURE.NOTE]Este método de creación de diferentes entornos de implementación es diferente del método en [Agile Software Development con el Servicio de aplicaciones de Azure](app-service-agile-software-development.md). Aquí puede crear entornos de implementación con las ranuras de implementación, mientras que en el otro caso los entornos de implementación se crean con grupos de recursos. Administrar entornos de implementación con grupos de recursos le permite mantener el entorno de producción fuera del radio de acción de los desarrolladores, pero no es fácil realizar pruebas en producción, lo que sí es fácil de hacer con las ranuras.
+    >[AZURE.NOTE] Este método de creación de diferentes entornos de implementación es diferente del método en [Agile Software Development con el Servicio de aplicaciones de Azure](app-service-agile-software-development.md). Aquí puede crear entornos de implementación con las ranuras de implementación, mientras que en el otro caso los entornos de implementación se crean con grupos de recursos. Administrar entornos de implementación con grupos de recursos le permite mantener el entorno de producción fuera del radio de acción de los desarrolladores, pero no es fácil realizar pruebas en producción, lo que sí es fácil de hacer con las ranuras.
 
 Si lo desea, también puede crear una aplicación alfa ejecutando
 
@@ -328,7 +328,7 @@ En esta sección, enrutará el tráfico a la aplicación beta. Por motivos de cl
 
 3. En el recurso de Application Insights, filtre las métricas por entorno = "beta".
 
-    > [AZURE.NOTE]Si guarda esta vista filtrada como otro favorito, es muy fácil alternar las vistas del explorador de métrica entre las vista de producción y de la versión beta.
+    > [AZURE.NOTE] Si guarda esta vista filtrada como otro favorito, es muy fácil alternar las vistas del explorador de métrica entre las vista de producción y de la versión beta.
 
 Supongamos que en Application Insights ve algo similar a lo siguiente:
 
@@ -375,4 +375,4 @@ El Servicio de aplicaciones de Azure permite que las pequeñas y medianas empres
 -	[Azure PowerShell](powershell-install-configure.md)
 -	[Wiki de Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

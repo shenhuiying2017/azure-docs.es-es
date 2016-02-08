@@ -34,7 +34,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 > [AZURE.NOTE]
 >
 - Algunos informes de uso de recursos y de anomalías avanzados solo están disponibles cuando se habilita [Azure Active Directory Premium](active-directory-get-started-premium.md). Los informes avanzados le ayudan a mejorar la seguridad de acceso, responder a amenazas potenciales y obtener acceso a análisis sobre el uso de aplicaciones y el acceso a dispositivos.
-- Las ediciones Premium y Básico de Azure Active Directory están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Premium y Básico de Azure Active Directory no se admiten actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+- Las ediciones Premium y Básico de Azure Active Directory están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Premium y Básico de Azure Active Directory no se admiten actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## Informes
 
@@ -99,7 +99,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 ## Informes de actividades anómalas
 <p>Los informes de actividades anómalas de inicio de sesión marcan actividades de inicio de sesión sospechosos en Office365, en el Portal de administración de Azure, el Panel de acceso de Azure AD, Sharepoint Online, Dynamics CRM Online y otros servicios en línea de Microsoft.</p>
 <p>Todos estos informes, excepto el informe "Inicios de sesión tras varios errores", también marcan inicios de sesión <i>federados</i> sospechosos en los servicios mencionados anteriormente, independientemente del proveedor de federación. </p>
-<p>Están disponibles los siguientes informes: </p><ul> <li>[Inicios de sesión de orígenes desconocidos](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Inicios de sesión tras varios errores](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Inicios de sesión desde varias ubicaciones geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Inicios de sesión desde direcciones IP con actividad sospechosa](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Actividad de inicio de sesión irregular](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Inicios de sesión desde dispositivos posiblemente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Usuarios con actividad de inicio de sesión anómalo](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Usuarios con credenciales perdidas</li></ul>
+<p>Están disponibles los siguientes informes: </p><ul> <li>[Inicios de sesión de orígenes desconocidos](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Inicios de sesión tras varios errores](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Inicios de sesión desde varias ubicaciones geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Inicios de sesión desde direcciones IP con actividad sospechosa](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Actividad de inicio de sesión irregular](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Inicios de sesión desde dispositivos posiblemente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Usuarios con actividad de inicio de sesión erróneo](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Usuarios con credenciales perdidas</li></ul>
 
 
 
@@ -221,7 +221,7 @@ Solo determinados tipos de eventos de inicio de sesión aparecerán en el inform
 | ----------------------								| ---------		|
 | Inicios de sesión en el [Panel de acceso](http://myapps.microsoft.com/) | Sí |
 | Inicios de sesión en el [Portal de administración de Azure](https://manage.windowsazure.com/) | Sí |
-| Inicios de sesión en el [Portal de Microsoft Azure](http://portal.azure.com/) | Sí |
+| Inicios de sesión en el [Portal de Microsoft Azure](https://portal.azure.com/) | Sí |
 | Inicios de sesión en el [portal de Office 365](http://portal.office.com/) | Sí |
 | Inicios de sesión en una aplicación nativa, como Outlook (consulte la excepción a continuación) | Sí |
 | Inicios de sesión en una aplicación federada/aprovisionada a través del Panel de acceso, como Salesforce | Sí |
@@ -253,7 +253,7 @@ Si sospecha que una cuenta de usuario puede estar en peligro o que cualquier tip
 1. En el Portal de administración de Azure, haga clic en **Active Directory**, haga clic en el nombre del directorio de la organización y, a continuación, haga clic en **Informes**.
 2. En la página Informes, haga clic en el informe que desea ver o descargar.
 
-    > [AZURE.NOTE]Si es la primera vez que se usa la característica de informes de Azure Active Directory, verá un mensaje para participar. Si está de acuerdo, haga clic en el icono de marca de verificación para continuar.
+    > [AZURE.NOTE] Si es la primera vez que se usa la característica de informes de Azure Active Directory, verá un mensaje para participar. Si está de acuerdo, haga clic en el icono de marca de verificación para continuar.
 
 3. Haga clic en el menú desplegable situado al lado de Intervalo y, a continuación, seleccione uno de los siguientes intervalos de tiempo que se debe usar al generar este informe:
     - Últimas 24 horas
@@ -278,4 +278,4 @@ Para obtener más información sobre las notificaciones de informes de Azure AD,
 - [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

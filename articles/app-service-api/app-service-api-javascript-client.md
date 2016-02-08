@@ -68,7 +68,7 @@ Es posible configurar puertas de enlace de aplicación de API para habilitar COR
 
 	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
-El valor de configuración **MS_CrossDomainOrigins** de la aplicación se describe detalladamente en la entrada de blog [Actualizaciones de .NET de Servicios móviles de Azure](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/); así pues, consúltela para obtener más información sobre dicho valor de configuración.
+El valor de configuración **MS_CrossDomainOrigins** de la aplicación se describe detalladamente en la entrada de blog [Actualizaciones de .NET de Servicios móviles de Azure](https://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/); así pues, consúltela para obtener más información sobre dicho valor de configuración.
 
 ### Habilitación de CORS en código de API web
 
@@ -314,7 +314,7 @@ En esta sección, podrá crear una nueva aplicación web vacía, instalar y usar
 
 1, en el código que acaba de agregar a index.html, reemplace el número de puerto en la dirección URL base (`http://localhost:1578`) por el número de puerto real para el proyecto de API.
 
->[AZURE.NOTE]**Nota** No use el número de puerto del proyecto del cliente HTML. Puede hacer clic con el botón derecho en el proyecto de la API y, a continuación, hacer clic en **Depurar > Iniciar nueva instancia** para que aparezca una ventana del navegador que muestre el número de puerto
+>[AZURE.NOTE] **Nota** No use el número de puerto del proyecto del cliente HTML. Puede hacer clic con el botón derecho en el proyecto de la API y, a continuación, hacer clic en **Depurar > Iniciar nueva instancia** para que aparezca una ventana del navegador que muestre el número de puerto
 
 1. Asegúrese de que también se ejecute el proyecto de aplicación de API cuando ejecute el cliente HTML. De lo contrario, el HTML de JavaScript no funcionará correctamente. Haga clic con el botón derecho en la solución y seleccione **Propiedades**. A continuación, establezca ambos proyectos web en **Iniciar sin depurar**, y haga que el proyecto de API se ejecute primero. 
 
@@ -373,4 +373,4 @@ Este ejemplo muestra cómo puede utilizar AngularJS como plataforma de JavaScrip
 
 En este ejemplo se muestra el acceso no autenticado a una aplicación de API. Para obtener información sobre la autenticación en el Servicio de aplicaciones, consulte [Autenticación para aplicaciones de API y aplicaciones móviles](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

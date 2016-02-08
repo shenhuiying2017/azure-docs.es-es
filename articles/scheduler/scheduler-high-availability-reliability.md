@@ -24,7 +24,7 @@ Como servicio principal de la plataforma Azure, Programador de Azure tiene una a
 
 ### Implementación de servicio con redundancia geográfica
 
-Programador de Azure está disponible a través de la interfaz de usuario en prácticamente todas las regiones geográficas actuales de Azure. La lista de regiones en las que Programador de Azure está disponible se [muestra aquí](http://azure.microsoft.com/regions/#services). Si un centro de datos en una región hospedada no está disponible, las capacidades de conmutación por error de Programador de Azure son tales que el servicio está disponible en otro centro de datos.
+Programador de Azure está disponible a través de la interfaz de usuario en prácticamente todas las regiones geográficas actuales de Azure. La lista de regiones en las que Programador de Azure está disponible se [muestra aquí](https://azure.microsoft.com/regions/#services). Si un centro de datos en una región hospedada no está disponible, las capacidades de conmutación por error de Programador de Azure son tales que el servicio está disponible en otro centro de datos.
 
 ### Replicación geográfica regional de trabajos
 
@@ -72,10 +72,9 @@ Para obtener información sobre cómo configurar un extremo alternativo, consult
 
  [Creación de programaciones complejas y periodicidad avanzada con Programador de Azure](scheduler-advanced-complexity.md)
 
- [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/dn528946)
+ [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Referencia de cmdlets de PowerShell de Programador de Azure](scheduler-powershell-reference.md)
-
 
  [Límites, valores predeterminados y códigos de error de Programador de Azure](scheduler-limits-defaults-errors.md)
 
@@ -88,4 +87,4 @@ Para obtener información sobre cómo configurar un extremo alternativo, consult
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

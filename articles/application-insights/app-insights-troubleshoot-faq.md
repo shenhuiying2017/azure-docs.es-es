@@ -32,7 +32,7 @@
 
 #### ¿Qué obtengo si opto por la versión de pago?
 
-* Una mayor [cuota mensual de datos](http://azure.microsoft.com/pricing/details/application-insights/).
+* Una mayor [cuota mensual de datos](https://azure.microsoft.com/pricing/details/application-insights/).
 * En caso de que se supere la cuota mensual, tendrá la opción de pagar para seguir recopilando datos. Si los datos superan la cuota, se le cobrará por Mb.
 * [Exportación continua](app-insights-export-telemetry.md)
 
@@ -155,7 +155,7 @@ Consulte las [notas de la versión](app-insights-release-notes.md) del SDK adecu
 #### Solía ver datos, pero ya no sucede esto.
 
 * Compruebe el [blog de estado](http://blogs.msdn.com/b/applicationinsights-status/).
-* ¿Ha alcanzado su cuota mensual de puntos de datos? Abra Configuración/Cuotas y Precios para averiguarlo. Si es así, puede actualizar el plan o pagar para obtener capacidad adicional. Consulte el [esquema de precios](http://azure.microsoft.com/pricing/details/application-insights/).
+* ¿Ha alcanzado su cuota mensual de puntos de datos? Abra Configuración/Cuotas y Precios para averiguarlo. Si es así, puede actualizar el plan o pagar para obtener capacidad adicional. Consulte el [esquema de precios](https://azure.microsoft.com/pricing/details/application-insights/).
 
 
 #### No veo todos los datos que esperaba
@@ -252,4 +252,4 @@ Puede [escribir un script de PowerShell](app-insights-powershell-script-create-r
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

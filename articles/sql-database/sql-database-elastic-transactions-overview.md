@@ -126,7 +126,7 @@ Use vistas de administración dinámica (DMV) en Base de datos SQL para supervis
 Estas DMV son especialmente útiles:
 
 * **sys.dm\_tran\_active\_transactions**: enumera las transacciones actualmente activas y su estado. La columna UOW (unidad de trabajo) puede identificar las distintas transacciones secundarias que pertenecen a la misma transacción distribuida. Todas las transacciones de la misma transacción distribuida llevan el mismo valor de UOW. Consulte la [documentación de DMV](https://msdn.microsoft.com/library/ms174302.aspx) para obtener más detalles.
-* **sys.dm\_tran\_database\_transactions**: ofrece información adicional sobre las transacciones, como la ubicación de la transacción en el registro. Consulte la [documentación de DMV](https://msdn.microsoft.com/library/ms186957.aspx) para obtener más detalles.
+* **sys.dm\_tran\_database\_transactions**: proporciona información adicional sobre las transacciones, como la colocación de la transacción en el registro. Consulte la [documentación de DMV](https://msdn.microsoft.com/library/ms186957.aspx) para obtener más detalles.
 * **sys.dm\_tran\_locks**: ofrece información sobre los bloqueos que las transacciones en curso mantienen actualmente. Consulte la [documentación de DMV](https://msdn.microsoft.com/library/ms190345.aspx) para obtener más detalles.
 
 ## Limitaciones 
@@ -140,9 +140,9 @@ Las siguientes limitaciones se aplican actualmente a transacciones de base de da
 
 ## Más información
 
-¿Aún no usa las funcionalidades de base de datos elástica en sus aplicaciones de Azure? Consulte nuestro [mapa de documentación](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de Base de datos SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Para efectuar solicitudes de características, agréguelas en el [foro de comentarios sobre Base de datos SQL](http://feedback.azure.com/forums/217321-sql-database).
+¿Aún no usa las funcionalidades de base de datos elástica en sus aplicaciones de Azure? Consulte nuestro [mapa de documentación](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de Base de datos SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Para efectuar solicitudes de características, agréguelas en el [foro de comentarios sobre Base de datos SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

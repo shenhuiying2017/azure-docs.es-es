@@ -6,6 +6,6 @@
 | Tamaño de la etiqueta de difusión | 10K | 10K | Sin límite |
 | número de etiquetas (grupos de difusión) | 3K | 3K excepto que se difundan a menos de 5 dispositivos | Sin límite |
 
-Para obtener más información acerca de estos límites y los precios, consulte [Precios de los Centros de notificaciones](http://azure.microsoft.com/pricing/details/notification-hubs/).
+Para obtener más información acerca de estos límites y los precios, consulte [Precios de los Centros de notificaciones](https://azure.microsoft.com/pricing/details/notification-hubs/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

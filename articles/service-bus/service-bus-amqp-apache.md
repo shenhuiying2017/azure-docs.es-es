@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Instalación de Apache Qpid Proton-C en una máquina virtual Linux de Azure
@@ -104,7 +104,7 @@ Después de realizar estos pasos, Proton estará instalado en el equipo y listo 
 
 ¿Listo para obtener más información? Consulte los siguientes vínculos:
 
-- [Información general sobre AMQP para el Bus de servicio]
+- [Información general sobre AMQP para el Bus de servicio][]
 
 [Información general sobre AMQP para el Bus de servicio]: service-bus-amqp-overview.md
 [0]: ./media/service-bus-amqp-apache/amqp-apache-1.png
@@ -114,4 +114,4 @@ Después de realizar estos pasos, Proton estará instalado en el equipo y listo 
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

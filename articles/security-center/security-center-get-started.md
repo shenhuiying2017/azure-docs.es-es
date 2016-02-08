@@ -20,16 +20,16 @@
 
 Este documento le ayuda a empezar a trabajar rápidamente con el Centro de seguridad de Azure, guiándole a través de la supervisión de la seguridad y los componentes de administración de directivas y ofreciendo vínculos a los pasos siguientes.
 
-> [AZURE.NOTE]La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure. Se trata de una introducción al servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
+> [AZURE.NOTE] La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure. Se trata de una introducción al servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
 
 ## ¿Qué es el Centro de seguridad de Azure?
 El Centro de seguridad de Azure ayuda a evitar, detectar y responder a amenazas con más visibilidad y control de la seguridad en sus recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
 ## Requisitos previos
 
-Para empezar a trabajar con el Centro de seguridad de Azure, debe disponer de una suscripción a Microsoft Azure. Centro de seguridad de Azure se habilita con su suscripción. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial).
+Para empezar a trabajar con el Centro de seguridad de Azure, debe disponer de una suscripción a Microsoft Azure. Centro de seguridad de Azure se habilita con su suscripción. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Al Centro de seguridad de Azure se accede desde el [Portal de Azure](http://azure.microsoft.com/features/azure-portal/). Consulte [Documentación del portal](https://azure.microsoft.com/documentation/services/azure-portal/) para más información.
+Al Centro de seguridad de Azure se accede desde el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). Consulte [Documentación del portal](https://azure.microsoft.com/documentation/services/azure-portal/) para más información.
 
 
 ## Acceso al Centro de seguridad de Azure
@@ -89,9 +89,9 @@ En este documento se presentaron los componentes de supervisión de seguridad y 
 
 - [Configuración de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md): obtenga información acerca de cómo configurar las directivas de seguridad
 - [Administración de recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md): obtenga información sobre cómo las recomendaciones le ayudan a proteger sus recursos de Azure.
-- [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md): obtenga información acerca de cómo supervisar el estado de los recursos de Azure
-- [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): obtenga información acerca de cómo administrar y responder a alertas de seguridad
-- [Preguntas más frecuentes acerca del Centro de seguridad de Azure](security-center-faq.md): busque preguntas frecuentes acerca de cómo usar el servicio
+- [Supervisión del estado de seguridad en Centro de seguridad de Azure](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
+- [Administración de alertas de seguridad y respuesta a estas en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): Obtenga información sobre cómo administrar alertas de seguridad y responder a estas.
+- [Preguntas más frecuentes acerca del Centro de seguridad de Azure](security-center-faq.md): busque las preguntas más frecuentes sobre cómo usar el servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información de seguridad de Azure
 
 <!--Image references-->
@@ -103,4 +103,4 @@ En este documento se presentaron los componentes de supervisión de seguridad y 
 [6]: ./media/security-center-get-started/security-alert.png
 [7]: ./media/security-center-get-started/security-alert-detail.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

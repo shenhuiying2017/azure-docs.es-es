@@ -47,7 +47,7 @@ El número total de "puntos de retención" (desde los que un cliente puede resta
 
 El número total de puntos de recuperación es 56.
 
-> [AZURE.NOTE]La copia de seguridad de Azure no tiene una restricción sobre el número de puntos de recuperación.
+> [AZURE.NOTE] La copia de seguridad de Azure no tiene una restricción sobre el número de puntos de recuperación.
 
 ## Configuración avanzada
 Al hacer clic en **Modificar** en la pantalla anterior, los clientes tienen más flexibilidad para especificar programaciones de retención.
@@ -60,4 +60,4 @@ Para obtener más información sobre Copia de seguridad de Azure, vea
 - [Introducción a la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
 - [Probar Copia de seguridad de Azure](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

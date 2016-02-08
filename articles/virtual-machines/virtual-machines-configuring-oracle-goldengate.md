@@ -30,11 +30,11 @@ En este tutorial se supone que ya tiene conocimientos teóricos y prácticos sob
 
 Además, en el tutorial se supone que ya se han implementado los siguientes requisitos previos:
 
-- Ya ha revisado la sección Consideraciones de recuperación ante desastres y de alta disponibilidad en el tema [Imágenes de máquina Virtual de Oracle: consideraciones variadas](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md). Tenga en cuenta que actualmente Azure es compatible con las instancias de base de datos de Oracle independientes, pero no con los clústeres de aplicación reales de Oracle (RAC de Oracle).
+- Ya ha revisado la sección Consideraciones de recuperación ante desastres y de alta disponibilidad en el tema [Imágenes de máquina virtual de Oracle: consideraciones variadas](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md). Tenga en cuenta que actualmente Azure es compatible con las instancias de base de datos de Oracle independientes, pero no con los clústeres de aplicación reales de Oracle (RAC de Oracle).
 
 - Que haya descargado el software de Oracle GoldenGate del sitio web de [Descargas de Oracle](http://www.oracle.com/us/downloads/index.html). Que haya seleccionado el Product Pack Oracle Fusion Middleware: integración de datos. A continuación, ha seleccionado Oracle GoldenGate en Oracle v11.2.1 Media Pack para Microsoft Windows x 64 (64 bits) para una base de datos Oracle 11g. A continuación, descargue Oracle GoldenGate V11.2.1.0.3 para Oracle 11g de 64 bits en Windows 2008 (64 bits).
 
-- Que haya creado dos máquinas virtuales en Azure con la plataforma que proporciona la imagen de Oracle Enterprise Edition en Windows Server. Para obtener información, consulte [Creación de una máquina virtual de base de datos de Oracle 12c en Azure](#z3dc8d3c097cf414e9048f7a89c026f80) y [Máquinas virtuales de Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Asegúrese de que las máquinas virtuales estén en el [mismo servicio en la nube](virtual-machines-load-balance.md) y en la misma [red virtual](http://azure.microsoft.com/documentation/services/virtual-network/) para asegurarse de que pueden tener acceso entre sí a través de la dirección IP privada persistente.
+- Que haya creado dos máquinas virtuales en Azure con la plataforma que proporciona la imagen de Oracle Enterprise Edition en Windows Server. Para obtener información, consulte [Creación de una máquina virtual de base de datos de Oracle 12c en Azure](#z3dc8d3c097cf414e9048f7a89c026f80) y [Máquinas virtuales de Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Asegúrese de que las máquinas virtuales estén en el [mismo servicio en la nube](virtual-machines-load-balance.md) y en la misma [red virtual](https://azure.microsoft.com/documentation/services/virtual-network/) para asegurarse de que pueden tener acceso entre sí a través de la dirección IP privada persistente.
 
 - Que haya establecido los nombres de las máquinas virtuales como "MachineGG1" en el sitio A y "MachineGG2" en el sitio B en el Portal de Azure clásico.
 
@@ -80,7 +80,7 @@ En este tutorial, aprenderá lo siguiente:
 
 6. Comprobar el proceso de replicación bidireccional
 
->[AZURE.IMPORTANT]Este tutorial se ha configurado y probado con la siguiente configuración de software:
+>[AZURE.IMPORTANT] Este tutorial se ha configurado y probado con la siguiente configuración de software:
 >
 >| | **Base de datos del sitio A** | **Base de datos del sitio B** |
 >|------------------------|----------------------------------|----------------------------------|
@@ -602,4 +602,4 @@ Establezca un escritorio remoto en el sitio A y compruebe si la replicación ha 
 ##Recursos adicionales
 [Imágenes de máquina virtual de Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

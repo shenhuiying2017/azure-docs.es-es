@@ -7,7 +7,7 @@ Una máquina virtual *personalizada* se refiere a una máquina virtual creada co
 - Adición de la VM a un servicio en la nube existente
 - Adición de la VM a un conjunto de disponibilidad
 
-> [AZURE.IMPORTANT]Si desea que la máquina virtual use una red virtual, con el fin de poder conectarse a ella directamente mediante un nombre de host o configurar conexiones entre locales, asegúrese de que especifica la red virtual al crear la máquina virtual. Puede configurarse una máquina virtual para que se una a una red virtual solo cuando se cree la máquina virtual. Para obtener más información acerca de redes virtuales, consulte [Información general sobre redes virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+> [AZURE.IMPORTANT] Si desea que la máquina virtual use una red virtual, con el fin de poder conectarse a ella directamente mediante un nombre de host o configurar conexiones entre locales, asegúrese de que especifica la red virtual al crear la máquina virtual. Puede configurarse una máquina virtual para que se una a una red virtual solo cuando se cree la máquina virtual. Para obtener más información acerca de redes virtuales, consulte [Información general sobre redes virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 1. Inicie sesión en el [Portal de Azure](http://manage.windowsazure.com).
 
@@ -34,7 +34,7 @@ Una máquina virtual *personalizada* se refiere a una máquina virtual creada co
 	- Si es la primera o única máquina virtual en el servicio en la nube, seleccione **Crear un nuevo servicio en la nube**. A continuación, en **Nombre DNS de servicio en la nube**, escriba un nombre que use entre 3 y 24 letras minúsculas y números. Este nombre se convierte en parte del URI que se usa para ponerse en contacto con la máquina virtual mediante el servicio en la nube.
 	- Si la máquina virtual se agrega a un servicio en la nube, selecciónelo en la lista.
 
-	> [AZURE.NOTE]para obtener más información sobre la colocación de máquinas virtuales en el mismo servicio en la nube, consulte [Conexión de máquinas virtuales en un Servicio en la nube](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/).
+	> [AZURE.NOTE] para obtener más información sobre la colocación de máquinas virtuales en el mismo servicio en la nube, consulte [Conexión de máquinas virtuales en un Servicio en la nube](https://azure.microsoft.com/manage/windows/how-to-guides/connect-to-a-cloud-service/).
 
 12. En **Región/grupo de afinidad/red virtual**, seleccione la región, el grupo de afinidad o la red virtual que desea usar con la máquina virtual. Para obtener más información sobre los grupos de afinidad, consulte [Acerca de los grupos de afinidad para la red virtual](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
@@ -58,4 +58,4 @@ Una vez creada una máquina virtual, esta arrancará automáticamente. Cuando el
 - [Inicio de sesión en una máquina virtual con Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Inicio de sesión en una máquina virtual con Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

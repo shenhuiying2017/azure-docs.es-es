@@ -32,7 +32,7 @@ Aprenderá a:
 -	Preparar la máquina virtual para la pila LAMP.
 -	Instalar el software que necesita el servidor LAMP en la máquina virtual.
 
-Se supone que el lector ya tiene una suscripción de Azure. Si no, puede registrarse para una evaluación gratuita en [http://azure.microsoft.com](http://azure.microsoft.com). Si tiene una suscripción de MSDN, consulte [Precios especiales de Microsoft Azure: Ventajas de MSDN, MPN y Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Para obtener más información acerca de Azure, consulte [¿Qué es Azure?](http://azure.microsoft.com/overview/what-is-azure/).
+Se supone que el lector ya tiene una suscripción de Azure. Si no, puede registrarse para una evaluación gratuita en [http://azure.microsoft.com](https://azure.microsoft.com/). Si tiene una suscripción de MSDN, consulte [Precios especiales de Microsoft Azure: Ventajas de MSDN, MPN y Bizspark](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Para obtener más información acerca de Azure, consulte [¿Qué es Azure?](https://azure.microsoft.com/overview/what-is-azure/).
 
 Además de este tema, si ya dispone de una máquina virtual y solo busca los aspectos básicos de la instalación de una pila LAMP en distintas distribuciones de Linux, consulte [Instalación de la pila LAMP en una máquina virtual de Linux en Azure](virtual-machines-linux-install-lamp-stack.md).
 
@@ -49,7 +49,7 @@ Siga estos pasos para generar la clave de autenticación SSH.
 -	Descargue e instale Puttygen en [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 -	Ejecute puttygen.exe.
 -	Haga clic en **Generar** para generar las claves. En el proceso puede aumentar la aleatoriedad al mover el mouse sobre el área en blanco en la ventana. ![][1]
--	Después del proceso de generar, Puttygen.exe mostrará la clave generada. Por ejemplo: ![][2]
+-	Después del proceso de generar, puttygen.exe mostrará la clave generada. Por ejemplo: ![][2]
 -	Seleccione y copie la clave pública en **Clave** y guárdela en un archivo denominado **publicKey.pem**. No haga clic en **Guardar clave pública**, porque el formato de archivo de la clave pública guardada es diferente de la clave pública que queremos.
 -	Haga clic en **Guardar clave privada** y guárdela en un archivo denominado **privateKey.ppk**.
 
@@ -80,7 +80,7 @@ En el Portal de Azure, haga clic en **Examinar -> Máquina virtual** y luego hag
 
 ![][5]
 
-Para agregar un punto de conexión a una máquina virtual, haga clic en el cuadro **Extremos**.
+Para agregar un extremo a una máquina virtual, haga clic en el cuadro **Extremos**.
 
 ![][6]
 
@@ -88,7 +88,7 @@ Haga clic en **Agregar**. Al aprovisionar una nueva máquina virtual puede habil
 
 Configurar el extremo:
 
-1.	Escriba un nombre para el punto de conexión en **Punto de conexión**.
+1.	Escriba un nombre para el extremo en **Extremo**.
 2.	Escriba 80 en **Puerto público**. Si cambia el puerto de escucha predeterminado de Apache, debe actualizar el Puerto privado para que coincida con el puerto de escucha de Apache.
 3.	Escriba 80 en **Puerto público**. De forma predeterminada, el tráfico HTTP usa el puerto 80. Si se establece en 80, no necesita incluir el número de puerto en la dirección URL que le permite acceder al servicio web de Apache. Por ejemplo: http://lampdemo.cloudapp.net. Si establece el puerto de escucha de Apache a otro valor, como el 81, deberá agregar el número de puerto a la dirección URL para acceder al servicio web de Apache. Por ejemplo, http://lampdemo.cloudapp.net:81/.
 
@@ -147,7 +147,7 @@ Una vez instalado, inicie Apache con este comando:
 	sudo service httpd start
 
 ####Probar Apache
-Para comprobar si Apache se ha instalado correctamente, busque el nombre DNS del servidor Apache (para la dirección URL de ejemplo en este artículo, http://lampdemo.cloudapp.net/)). La página debe mostrar las palabras “It works!"![][14].
+Para comprobar si Apache se ha instalado correctamente, busque el nombre DNS del servidor Apache (para la dirección URL de ejemplo en este artículo, http://lampdemo.cloudapp.net/)). La página debe mostrar las palabras “It works!" ![][14]
 
 ####Solución de problemas
 Si se ejecuta Apache, pero no puede ver la página anterior predeterminada de Apache, deberá comprobar lo siguiente:
@@ -350,7 +350,7 @@ Una vez que haya configurado la pila LAMP correctamente, puede implementar la ap
 		sudo chgrp lampappgroup /var/www/html/  # Change the ownership to group lampappgroup
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
-	>[AZURE.NOTE]Puede que necesite iniciar sesión de nuevo si quiere modificar un archivo en /var/www/html/.
+	>[AZURE.NOTE] Puede que necesite iniciar sesión de nuevo si quiere modificar un archivo en /var/www/html/.
 -	Use cualquier cliente SFTP (por ejemplo, FileZilla) para conectar con el nombre DNS de la máquina virtual (por ejemplo, lampdemo.cloudapp.net) y navegue a /**var/www/html** para publicar el sitio. ![][18]
 
 
@@ -456,4 +456,4 @@ Una vez que haya configurado la pila LAMP correctamente, puede implementar la ap
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

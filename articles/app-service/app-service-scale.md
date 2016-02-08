@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="01/09/2016" 
 	ms.author="stepsic"/>
 
 # Escala de nivel de precios de Servicio de aplicaciones de Azure
@@ -22,13 +22,13 @@ Para aumentar el rendimiento y la capacidad de las aplicaciones de Microsoft Azu
 
 El nivel de servicio tiene su plan de servicio de la aplicación se basa en el [*nivel de precios* para el plan](/pricing/details/app-service/). Los niveles de servicio superiores, como **Estándar** y **Premium** ofrecen una mayor robustez y flexibilidad a la hora de determinar cómo se utilizan los recursos en Azure. Cambiar el nivel de precios afecta al número de núcleos y a la cantidad de memoria que tiene su servicio, y esto se conoce como *Escalado verticalmente* (o *Reducción vertical*).
 
-Además de escalar verticalmente el nivel de precio, puede aumentar el número de instancias que tiene el servicio. Esto se conoce como *Reducción vertical* o *Reducción horizontal*. Vea el artículo sobre [Escalación del recuento de instancias de forma manual o automática](../insights-how-to-scale.md) para obtener más información sobre *Reducción vertical* y *Reducción horizontal*.
+Además de escalar verticalmente el plan de tarifa, puede aumentar el número de instancias que tiene el servicio. Esto se conoce como *Reducción vertical* o *Reducción horizontal*. Vea el artículo sobre [Escalación del recuento de instancias de forma manual o automática](../insights-how-to-scale.md) para obtener más información sobre *Reducción vertical* y *Reducción horizontal*.
 
 Para obtener información acerca de los planes de servicio de la aplicación, consulte [¿Qué es un plan de Servicios de aplicaciones?](../web-sites-web-hosting-plan-overview.md) e [Información general detallada de planes de Servicios de aplicaciones de Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md). Para obtener información de los precios y características de planes Servicios de aplicaciones individuales, consulte [Detalles de precios de servicio de aplicación](/pricing/details/app-service/).
 
 Por último, la escalación funciona de una forma distinta si desea usar un [entorno del Servicio de aplicaciones](app-service-app-service-environment-intro.md) dedicado. Consulte [Escalado de aplicaciones web en un entorno del Servicio de aplicaciones](app-service-web-scale-a-web-app-in-an-app-service-environment.md) para obtener más información.
 
-> [AZURE.NOTE]Antes de cambiar del modo **Gratis** al modo** Básico**, **Estándar** o **Premium**, primero debe quitar los límites de gasto vigentes para la suscripción al Servicio de aplicaciones de Azure. Para ver o cambiar opciones para la suscripción a Servicios de aplicaciones de Microsoft Azure, consulte [Suscripciones a Microsoft Azure][azuresubscriptions].
+> [AZURE.NOTE] Antes de cambiar del modo **Gratis** al modo** Básico**, **Estándar** o **Premium**, primero debe quitar los límites de gasto vigentes para la suscripción al Servicio de aplicaciones de Azure. Para ver o cambiar opciones para la suscripción a Servicios de aplicaciones de Microsoft Azure, consulte [Suscripciones a Microsoft Azure][azuresubscriptions].
 
 <a name="scalingsharedorbasic"></a> <a name="scalingstandard"></a>
 
@@ -85,7 +85,7 @@ Según el nivel de precios, se encuentran disponibles las siguientes caracterís
 
 - Para obtener información detallada sobre todas las características restantes en los planes de Servicios de aplicaciones, incluido el precio y las características de interés para todos los usuarios (incluidos los desarrolladores), consulte [Detalles de precios de Servicios de aplicaciones](/pricing/details/web-sites/).
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 <a name="Next Steps"></a>
 ## Pasos siguientes
@@ -130,4 +130,4 @@ Según el nivel de precios, se encuentran disponibles las siguientes caracterís
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

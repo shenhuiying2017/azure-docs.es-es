@@ -40,7 +40,7 @@ En la pestaña **Vínculos** de la barra izquierda, incluya vínculos con inform
 ![dibujo](media/marketplace-publishing-push-to-staging/pubportal-02.png)
 
 ### Imágenes de ejemplo (opcional)
-> [AZURE.NOTE]La inclusión de una imagen de ejemplo es un paso opcional. Puede completar el resto del contenido de marketing para cumplir los requisitos para la inserción en ensayo.
+> [AZURE.NOTE] La inclusión de una imagen de ejemplo es un paso opcional. Puede completar el resto del contenido de marketing para cumplir los requisitos para la inserción en ensayo.
 
 En la pestaña **Imágenes de ejemplo** del menú izquierdo, cargue una nueva imagen haciendo clic en **Cargar una nueva imagen**. Si tiene una imagen existente y desea reemplazarla, haga clic en **Reemplazar imagen**.
 
@@ -52,7 +52,7 @@ En la pestaña **Imágenes de ejemplo** del menú izquierdo, cargue una nueva im
 ### Información legal
 En la pestaña **Legal**, proporcione un vínculo a sus directivas o términos de uso. Escriba o pegue los términos en el cuadro grande **Términos de uso**.
 
-> [AZURE.IMPORTANT]Todos los campos deben tener entradas, incluidas las imágenes, para poder pasar a la etapa de ensayo.
+> [AZURE.IMPORTANT] Todos los campos deben tener entradas, incluidas las imágenes, para poder pasar a la etapa de ensayo.
 
 
 ## Paso 2: Establecimiento de precios
@@ -67,7 +67,7 @@ En la pestaña **Legal**, proporcione un vínculo a sus directivas o términos d
 
 **Modelos de precios disponibles por tipo de oferta**
 
-> [AZURE.IMPORTANT]La disponibilidad de ciertos modelos de precios varía según el tipo de la oferta. Consulte la siguiente tabla.
+> [AZURE.IMPORTANT] La disponibilidad de ciertos modelos de precios varía según el tipo de la oferta. Consulte la siguiente tabla.
 
 | | Solo base | Solo consumo | Base y consumo |
 |---|---|---|---|
@@ -76,19 +76,19 @@ En la pestaña **Legal**, proporcione un vínculo a sus directivas o términos d
 | Servicio de datos | Sí | No | No |
 
 ### 2\.1. Establecimiento de los precios de máquina virtual
-> [AZURE.NOTE]BYOL solo es compatible con máquinas virtuales.
+> [AZURE.NOTE] BYOL solo es compatible con máquinas virtuales.
 
 1.	En la pestaña **Precios**, verá todos los mercados admitidos. Seleccione el que corresponda para mostrar los campos de precios.
 2.	El vínculo proporcionado en el portal de publicación mostrará información de precios para ayudarle a determinar los precios de las SKU.
 3.	Si la SKU es BYOL, active la casilla para disponibilidad de SKU con licencia externa (BYOL).
 4.	Si la SKU es cada hora, escriba los precios del software. Las SKU sin precios no estarán disponibles para su compra o uso.
 
-  >[AZURE.NOTE]Si tiene SKU tanto con licencia BYOL como con base horaria, asegúrese de que ambos requisitos se incluyen: casilla BYOL y valores de precio para cada hora.
+  >[AZURE.NOTE] Si tiene SKU tanto con licencia BYOL como con base horaria, asegúrese de que ambos requisitos se incluyen: casilla BYOL y valores de precio para cada hora.
 
 5.	Se abrirá un asistente para precios. Sígalo hasta completar sus precios, incluidos los precios en otros países si opta por permitir compras desde fuera del mercado especificado.
 6.	Algunos países son países de envío ISV. Para vender en un país de envío ISV, debe poder cobrar y recaudar impuestos por sus SKU, así como calcular y pagar impuestos al gobierno del país. Microsoft no puede proporcionar asesoramiento legal ni fiscal. Vea la sección "Países a los que se vende de la oferta" en la Introducción de este documento para obtener más información sobre los países a los que se vende.
 
-### 2\.2. Establecer precios de servicio para desarrolladores
+### 2.2. Establecer precios de servicio para desarrolladores
 Los planes pueden ser cualquier combinación de base y consumo, donde base es precio mensual y superávit es el precio de pago por uso. (Vea a continuación para obtener más información).
 
 **Ejemplo:** oferta de servicio de desarrolladores de Contoso
@@ -115,7 +115,7 @@ Parte de esta información se habrá cumplimentado durante el paso de certificac
 La pestaña **Categorías** proporciona una matriz de selecciones. Su oferta puede estar dentro de estas y es posible seleccionar hasta cinco categorías.
 
 ## Apariencia del marketing
-A continuación se muestra una vista detallada de cómo se utiliza la información de marketing de la oferta en el [sitio web de Azure Marketplace](http://azure.microsoft.com/marketplace) y en el [Portal de vista previa de Azure](https://ms.portal.azure.com).
+A continuación se muestra una vista detallada de cómo se utiliza la información de marketing de la oferta en el [sitio web de Azure Marketplace](https://azure.microsoft.com/marketplace/) y en el [Portal de vista previa de Azure](https://ms.portal.azure.com).
 
 ### Sitio web de Azure Marketplace
 ![dibujo](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
@@ -144,7 +144,7 @@ A continuación se muestra una vista detallada de cómo se utiliza la informaci�
 ## Pasos siguientes
 Ahora que el contenido de Marketplace está cargado, avanzamos a la prueba de la oferta en ensayo. Sin embargo, debe seleccionar el tipo de la oferta adecuado en la lista siguiente, ya que los pasos varían según el tipo de oferta.
 
-||Imagen de máquina virtual |Servicio de desarrolladores | Servicio de datos | Plantilla de solución |
+|Imagen de máquina virtual |Servicio de desarrolladores | Servicio de datos | Plantilla de solución |
 |----|----|----|----|----|
 | **Paso 3. Traslado de la oferta al entorno de ensayo** | [Prueba de la oferta de máquina virtual en el entorno de ensayo](marketplace-publishing-vm-image-test-in-staging.md) | Prueba de la oferta de servicio de desarrollador en el entorno de ensayo | [Prueba de la oferta de servicio de datos en el entorno de ensayo](marketplace-publishing-data-service-test-in-staging.md) | [Prueba de la plantilla de solución en el entorno de ensayo](marketplace-publishing-solution-template-test-in-staging.md) |
 
@@ -160,4 +160,4 @@ Ahora que el contenido de Marketplace está cargado, avanzamos a la prueba de la
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

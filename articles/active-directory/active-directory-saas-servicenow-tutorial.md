@@ -2,7 +2,7 @@
     pageTitle="Tutorial: integración de Azure Active Directory con ServiceNow | Microsoft Azure" 
     description="Aprenda a usar ServiceNow con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,12 +11,12 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="11/02/2015" 
-    ms.author="markvi" />
+    ms.date="01/26/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con ServiceNow
   
-El objetivo de este tutorial es mostrar la integración de Azure y ServiceNow.  
+El objetivo de este tutorial es mostrar la integración de Azure y ServiceNow.
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
@@ -38,7 +38,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para ServiceNow:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-servicenow-tutorial/IC700993.png "Active Directory")
 
@@ -71,7 +71,7 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **ServiceNow**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure AD clásico, en la página de integración de aplicaciones de **ServiceNow**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Configurar inicio de sesión único")
 
@@ -175,11 +175,11 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
 
     b. En el cuadro de texto **User Field** (Campo de usuario), escriba **email** (dirección de correo electrónico).
 
-    c. En el Portal de Azure AD, copie el valor de **Id. de proveedor de identidad** y luego péguelo en el cuadro de texto **Identity Provider URL** (URL del proveedor de identidades).
+    c. En el Portal de Azure AD clásico, copie el valor de **Id. de proveedor de identidad** y péguelo en el cuadro de texto **Identity Provider URL** (URL de proveedor de identidades).
 
-    d. En el Portal de Azure AD, copie el valor de **Dirección URL de solicitud de autenticación** y luego péguelo en el cuadro de texto **Identity Provider's AuthnRequest** (Solicitud de autenticación del proveedor de identidades).
+    d. En el Portal de Azure AD clásico, copie el valor de **Dirección URL de solicitud de autenticación** y péguelo en el cuadro de texto **Identity Provider's AuthnRequest** (Solicitud de autenticación de proveedor de identidades).
 
-    e. En el Portal de Azure AD, copie el valor de **Dirección URL del servicio de cierre de sesión único** y luego péguelo en el cuadro de texto **Identity Provider's SingleLogoutRequest** (Solicitud de cierre de sesión único del proveedor de identidades).
+    e. En el Portal de Azure AD clásico, copie el valor de **Dirección URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **Identity Provider's SingleLogoutRequest** (Solicitud de cierre de sesión única del proveedor de identidades).
 
     f. En el cuadro de texto **ServiceNow Homepage** (Página de inicio de ServiceNow), escriba la dirección URL de la página de inicio de instancia de ServiceNow.
 
@@ -208,7 +208,7 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
 
 
 
-6. En el Portal de Azure AD, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
+6. En el Portal de Azure AD clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Configurar inicio de sesión único")
 
@@ -225,7 +225,7 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 ### Siga estos pasos para configurar el aprovisionamiento de usuario:
 
-1. En el Portal de administración de Azure, en la página de integración de aplicaciones de **ServiceNow**, haga clic en **Configurar aprovisionamiento de usuarios**. <br><br> ![Aprovisionamiento de usuarios](./media/active-directory-saas-servicenow-tutorial/IC769498.png "Aprovisionamiento de usuarios")
+1. En el Portal de administración de Azure clásico, en la página de integración de la aplicación **ServiceNow**, haga clic en **Configurar aprovisionamiento de usuarios**. <br><br> ![Aprovisionamiento de usuarios](./media/active-directory-saas-servicenow-tutorial/IC769498.png "Aprovisionamiento de usuarios")
 
 
 2. En la página **Especifique sus credenciales de ServiceNow para habilitar el aprovisionamiento automático de usuarios**, proporcione los valores de configuración siguientes: Configurar aprovisionamiento de usuarios
@@ -266,7 +266,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-servicenow-tutorial/IC769499.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-servicenow-tutorial/IC767830.png "Sí")
   
@@ -278,4 +278,4 @@ Si desea probar la configuración de inicio de sesión único, abra el Panel de 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

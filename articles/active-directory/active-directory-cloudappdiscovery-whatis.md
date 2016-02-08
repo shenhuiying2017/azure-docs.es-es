@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Búsqueda de aplicaciones de nube no sancionadas con Cloud App Discovery | Microsoft Azure"
+	pageTitle="Búsqueda de aplicaciones de nube no administradas con Cloud App Discovery | Microsoft Azure"
 	description="Ofrece información sobre la búsqueda y la administración de aplicaciones con Cloud App Discovery, sobre cuáles son los beneficios y sobre cómo funciona."
 	services="active-directory"
 	keywords="cloud app discovery, administrar aplicaciones"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/20/2015"
-	ms.author="markusvi"/>
+	ms.date="01/26/2016"
+	ms.author="markvi"/>
 
-# Búsqueda de aplicaciones de nube no sancionadas con Cloud App Discovery
+# Búsqueda de aplicaciones de nube no administradas con Cloud App Discovery
 
 ## Información general
 En las empresas modernas, los departamentos de TI a menudo no son conscientes de todas las aplicaciones en la nube que usan los miembros de su organización para realizar su trabajo. Es fácil ver por qué a los administradores les podría preocupar el acceso no autorizado a datos corporativos, la posible pérdida de datos y otros riesgos de seguridad. Esta falta de conciencia puede hacer que un plan para tratar estos riesgos de seguridad parezca abrumador.
@@ -48,4 +48,4 @@ Para empezar con Cloud App Discovery, vea [Introducción a Cloud App Discovery](
 - [Registro de cambios del agente de Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 - [Preguntas más frecuentes de Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -30,7 +30,7 @@ Este tutorial se basa en el [tutorial de inicio rápido de Xamarin.iOS](app-serv
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 back-ends de aplicaciones móviles gratuitas. Puede seguir usándolas incluso después de que finalice el período de evaluación. Consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 back-ends de aplicaciones móviles gratuitas. Puede seguir usándolas incluso después de que finalice el período de evaluación. Consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Un equipo Mac con [Xamarin Studio] y [Xcode] v4.4 o posterior instalado. Puede ejecutar la aplicación Xamarin.iOS mediante Visual Studio en un equipo Windows si lo desea, pero es un poco más complicado porque tiene que conectarse a un equipo Mac en red. Si está interesado en hacerlo, consulte [Installing Xamarin.iOS on Windows] (Instalación de Xamarin.iOS en Windows).
 
@@ -153,7 +153,7 @@ Ahora su aplicación está actualizada para que sea compatible con las notificac
 
 1. Presione el botón **Ejecutar** para crear el proyecto e iniciar la aplicación en un dispositivo compatible con iOS. A continuación, haga clic en **Aceptar** para aceptar las notificaciones push.
 	
-	> [AZURE.NOTE]Debe aceptar de forma explícita las notificaciones push desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
+	> [AZURE.NOTE] Debe aceptar de forma explícita las notificaciones push desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
 
 2. En la aplicación, escriba una tarea y luego haga clic en el icono de signo de suma (**+**).
 
@@ -174,4 +174,4 @@ Ha completado correctamente este tutorial.
 
  
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

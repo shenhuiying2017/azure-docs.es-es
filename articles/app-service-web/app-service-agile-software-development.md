@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="01/07/2016"
 	ms.author="cephalin"/>
 
 
@@ -67,19 +67,19 @@ También usará la estrategia de ramas típica, donde el código se mueve de la 
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE]Necesita una cuenta de Azure para completar este tutorial: + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/?WT.mc_id=A261C142F): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Aplicaciones web. + Puede [activar los beneficios de suscriptores de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): su suscripción a Visual Studio le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
+> [AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial: + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Aplicaciones web. + Puede [activar los beneficios de suscriptores de Visual Studio](/pricing/member-offers/msdn-benefits-details/): su suscripción a Visual Studio le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
 >
 > Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Configuración del entorno de producción ##
 
->[AZURE.NOTE]El script que se emplea en este tutorial configurará automáticamente la publicación continua desde el repositorio de GitHub. Esto requiere que las credenciales de GitHub ya estén almacenadas en Azure; en caso contrario, no se realizará la implementación con script al intentar definir la configuración del control de código fuente para las aplicaciones web.
+>[AZURE.NOTE] El script que se emplea en este tutorial configurará automáticamente la publicación continua desde el repositorio de GitHub. Esto requiere que las credenciales de GitHub ya estén almacenadas en Azure; en caso contrario, no se realizará la implementación con script al intentar definir la configuración del control de código fuente para las aplicaciones web.
 >
->Para almacenar sus credenciales de GitHub en Azure, cree una aplicación web en el [Portal de Azure](https://portal.azure.com) y [configure la implementación de GitHub](web-sites-publish-source-control.md#Step7). Solo tiene que hacer esto una vez.
+>Para almacenar sus credenciales de GitHub en Azure, cree una aplicación web en el [Portal de Azure](https://portal.azure.com/) y [configure la implementación de GitHub](web-sites-publish-source-control.md#Step7). Solo tiene que hacer esto una vez.
 
 En un escenario típico de DevOps, tiene una aplicación que se ejecuta directamente en Azure y quiere realizar cambios en ella mediante publicación continua. En este escenario, tiene una plantilla que ya desarrolló, probó y usó para implementar el entorno de producción. La configurará en esta sección.
 
-1.	Cree su propia bifurcación del repositorio [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp). Para obtener información sobre la creación de la bifurcación, vea [Bifurcación de un repositorio](https://help.github.com/articles/fork-a-repo/). Una vez creada la bifurcación, puede verla en el explorador.
+1.	Cree su propia bifurcación del repositorio [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp). Para obtener información sobre la creación de la bifurcación, consulte [Bifurcación de un repositorio](https://help.github.com/articles/fork-a-repo/). Una vez creada la bifurcación, puede verla en el explorador.
  
 	![](./media/app-service-agile-software-development/production-1-private-repo.png)
 
@@ -99,7 +99,7 @@ En un escenario típico de DevOps, tiene una aplicación que se ejecuta directam
 
 	![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
  
-	>[AZURE.TIP]Eche un vistazo a *&lt;raíz\_repositorio>*\\ARMTemplates\\Deploy.ps1 para ver cómo genera recursos con identificadores únicos. Puede usar el mismo enfoque para crear clones de la misma implementación sin preocuparse por los nombres de recursos en conflicto.
+	>[AZURE.TIP] Eche un vistazo a *&lt;raíz\_repositorio>*\\ARMTemplates\\Deploy.ps1 para ver cómo genera recursos con identificadores únicos. Puede usar el mismo enfoque para crear clones de la misma implementación sin preocuparse por los nombres de recursos en conflicto.
  
 6.	De nuevo en la sesión del Shell de Git, ejecute:
 
@@ -109,7 +109,7 @@ En un escenario típico de DevOps, tiene una aplicación que se ejecuta directam
 
 7.	Cuando finalice el script, vuelva a examinar la dirección del front-end (http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/) para ver la ejecución de la aplicación en producción.
  
-5.	Inicie sesión en el [Portal de Azure](https://portal.azure.com) y observe lo que se crea.
+5.	Inicie sesión en el [Portal de Azure](https://portal.azure.com/) y observe lo que se crea.
 
 	Podrá ver dos aplicaciones web en el mismo grupo de recursos, una con el sufijo `Api` en el nombre. Si observa la vista de grupo de recursos, también verá el servidor y Base de datos SQL, el plan de Servicio de aplicaciones y las ranuras de ensayo para las aplicaciones web. Examine los distintos recursos y compárelos con *&lt;raíz\_repositorio>*\\ARMTemplates\\ProdAndStage.json para ver cómo están configurados en la plantilla.
 
@@ -152,7 +152,7 @@ Ahora que tiene una aplicación compleja en ejecución en producción en Azure, 
 	-	El entorno de desarrollo se ejecuta en directo en Azure.
 	-	Eliminar este entorno de desarrollo es tan sencillo como eliminar el grupo de recursos. Encontrará información sobre cómo hacerlo [más adelante](#delete).
 
->[AZURE.NOTE]Si tiene varios desarrolladores que trabajan en la nueva actualización, cada uno de ellos puede crear fácilmente una rama y el entorno de desarrollo dedicado haciendo lo siguiente:
+>[AZURE.NOTE] Si tiene varios desarrolladores que trabajan en la nueva actualización, cada uno de ellos puede crear fácilmente una rama y el entorno de desarrollo dedicado haciendo lo siguiente:
 >
 >1.	Crear su propia rama del repositorio de GitHub (vea [Bifurcación de un repositorio](https://help.github.com/articles/fork-a-repo/)).
 >2.	Clonar la bifurcación en su equipo local
@@ -166,7 +166,7 @@ Y usted debe tener seis aplicaciones web (tres conjuntos de dos) en tres grupos 
 
 ![](./media/app-service-agile-software-development/test-2-all-webapps.png)
  
->[AZURE.NOTE]Tenga en cuenta que ProdandStage.json especifica el entorno de producción que usa el nivel de precios **Estándar**, que es el adecuado para la escalabilidad de la aplicación de producción.
+>[AZURE.NOTE] Tenga en cuenta que ProdandStage.json especifica el entorno de producción que usa el nivel de precios **Estándar**, que es el adecuado para la escalabilidad de la aplicación de producción.
 
 ## Compilación y prueba de cada confirmación ##
 
@@ -180,7 +180,7 @@ Los archivos de plantilla ProdAndStage.json y Dev.json ya especifican los parám
 
 	![](./media/app-service-agile-software-development/commit-1-changes.png)
 
-	>[AZURE.NOTE]Si no puede leer la imagen anterior:
+	>[AZURE.NOTE] Si no puede leer la imagen anterior:
 	>
 	>- En la línea 18, cambie `check-list` a `list-group`.
 	>- En la línea 19, cambie `class="check-list-item"` a `class="list-group-item"`.
@@ -258,9 +258,8 @@ Dado que diseñó deliberadamente sus entornos de desarrollo y prueba para que s
 	git push origin :Dev
 	git branch -d NewUpdate
 	git push origin :NewUpdate
-	Switch-AzureMode AzureResourceManager
-	Remove-AzureResourceGroup -Name ToDoApp<unique_string>dev-group -Force -Verbose
-	Remove-AzureResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
+	Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>dev-group -Force -Verbose
+	Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
 
 ## Resumen ##
 
@@ -281,4 +280,4 @@ Agile Software Development es un componente indispensable para muchas empresas q
 -	[Creación o edición de usuarios en Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Wiki de Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

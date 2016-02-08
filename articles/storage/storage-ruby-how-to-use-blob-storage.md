@@ -59,7 +59,7 @@ El módulo azure leerá las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y *
 
 Para obtener estos valores:
 
-1. Inicie sesión en el [Portal de Azure](portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Vaya a la cuenta de almacenamiento que desea utilizar.
 3. Haga clic en **ADMINISTRAR CLAVES** en la parte inferior del panel de navegación.
 4. En el cuadro de diálogo emergente, verá el nombre de cuenta de almacenamiento, la clave de acceso principal y la clave de acceso secundaria. Para la clave de acceso, puede usar la principal o la secundaria.
@@ -146,4 +146,4 @@ Para obtener información acerca de tareas de almacenamiento más complejas, sig
 - Repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 - [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

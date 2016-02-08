@@ -66,7 +66,7 @@ Con el Bloc de notas u otro editor de texto, agregue lo siguiente en la parte su
 
 El módulo azure leerá las variables de entorno AZURE\_STORAGE\_ACCOUNT, AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING para obtener la información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **createQueueService**.
 
-Para ver un ejemplo de configuración de las variables de entorno en el [Portal de Azure](portal.azure.com) para un sitio web de Azure, consulte [Aplicación web Node.js con almacenamiento].
+Para ver un ejemplo de configuración de las variables de entorno en el [Portal de Azure](https://portal.azure.com) para un sitio web de Azure, consulte [Aplicación web Node.js con almacenamiento].
 
 ## Creación de una cola
 
@@ -123,7 +123,7 @@ Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin qui
 
 El `result` contiene el mensaje.
 
-> [AZURE.NOTE]Si se usa **peekMessages** cuando no existen mensajes en la cola, no se devolverá un error, pero tampoco se devolverán mensajes.
+> [AZURE.NOTE] Si se usa **peekMessages** cuando no existen mensajes en la cola, no se devolverá un error, pero tampoco se devolverán mensajes.
 
 ## Extracción del siguiente mensaje de la cola
 
@@ -147,9 +147,10 @@ Para quitar un mensaje de la cola, use **getMessages**. De esta forma los mensaj
 	  }
 	});
 
-> [AZURE.NOTE]De manera predeterminada, un mensaje solo está oculto durante 30 segundos, después de lo cual es visible para otros clientes. Puede especificar un valor diferente usando `options.visibilityTimeout` con **getMessages**.
+> [AZURE.NOTE] De manera predeterminada, un mensaje solo está oculto durante 30 segundos, después de lo cual es visible para otros clientes. Puede especificar un valor diferente usando `options.visibilityTimeout` con **getMessages**.
 
-> [AZURE.NOTE]Si usa **getMessages** cuando no existen mensajes en la cola, no se devolverá un error, pero tampoco se devolverán mensajes.
+> [AZURE.NOTE]
+Si usa **getMessages** cuando no existen mensajes en la cola, no se devolverá un error, pero tampoco se devolverán mensajes.
 
 ## Cambio del contenido de un mensaje en cola
 
@@ -330,4 +331,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Sitio web con WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

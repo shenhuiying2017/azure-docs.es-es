@@ -1,6 +1,7 @@
-<properties 
-	pageTitle="Mensajes de error para los programas de cliente de base de datos SQL"
-	description="Para cada error, esto proporciona el id. numérico y el mensaje de texto. No dude en hacer una referencia cruzada a su propio texto de mensaje de error más descriptivo que prefiera si lo cree adecuado."
+<properties
+	pageTitle="Códigos de error SQL: error de conexión de base de datos | Microsoft Azure"
+	description="Obtenga información acerca de los códigos de error de SQL de las aplicaciones cliente de la Base de datos SQL, como los errores de conexión de base de datos más comunes, los problemas de copia de la base de datos y los errores generales."
+	keywords="código de error de SQL, acceder a SQL, error de conexión de base de datos, códigos de error de SQL"
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -8,17 +9,17 @@
 	editor="" />
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/06/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/06/2015"
 	ms.author="genemi"/>
 
 
-# Mensajes de error para los programas de cliente de base de datos SQL
+# Códigos de error para las aplicaciones cliente de la Base de datos SQL: error de conexión de base de datos y otros problemas.
 
 
 <!--
@@ -28,25 +29,19 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 -->
 
 
-En este tema se enumeran varias categorías de mensajes de error. La mayoría de las categorías son específicas de la Base de datos SQL de Azure y no se aplican a Microsoft SQL Server.
+En este artículo se enumeran los códigos de error de SQL de la aplicación cliente de la Base de datos SQL, incluidos los errores de conexión de base de datos, los errores transitorios, los errores de regulación de recursos, los problemas de copia de la base de datos y otros errores. La mayoría de las categorías son específicas de la Base de datos SQL de Azure y no se aplican a Microsoft SQL Server.
 
-
-En su programa de cliente tiene la opción de ofrecer su usuario con un mensaje alternativo personalizado por usted, para cualquier error determinado.
-
-
-> [AZURE.TIP]La siguiente sección sobre [*errores transitorios* es de especial importancia](#bkmk_connection_errors).
-
-
+En la aplicación cliente, tiene la opción de ofrecer a su usuario un mensaje personalizado cuando se produzca cualquier error.
 
 <a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
 
 
-## Errores transitorios, pérdida de conexión y otros errores temporales
+## Errores de conexión de base de datos, errores transitorios y otros errores temporales
 
-En la siguiente tabla se tratan los errores de pérdida de conexión y otros errores transitorios, que puede encontrar mientras se trabaja a través de Internet con la Base de datos SQL de Azure.
+En la siguiente tabla se abordan los códigos de error de SQL para errores de pérdida de conexión y otros errores transitorios que pueden surgir cuando la aplicación intenta obtener acceso a la Base de datos SQL.
 
 
-### Errores transitorios más comunes
+### Errores de conexión de base de datos y errores transitorios más comunes
 
 
 Los errores transitorios suelen manifestarse como uno de los siguientes mensajes de error de los programas cliente:
@@ -67,13 +62,13 @@ Los errores transitorios deberían dar lugar a que el programa cliente ejecute *
 - [Acciones para corregir errores de conexión y errores transitorios en Base de datos SQL](sql-database-connectivity-issues.md)
 
 
-### Números de los errores transitorios
+### Códigos de errores transitorios
 
 
-| Número de error | Gravedad | Descripción |
+| Código de error | Gravedad | Descripción |
 | ---: | ---: | :--- |
 | 4060 | 16 | No se puede abrir la base de datos "%.&#x2a;ls" solicitada por el inicio de sesión. Error de inicio de sesión. |
-|40197|17|Error en el servicio al procesar la solicitud. Vuelva a intentarlo. Código de error %d.<br/><br/>Recibirá este error cuando el servicio esté inactivo debido a actualizaciones de software o hardware, errores de hardware u otros problemas de conmutación por error. El código de error (%d) incrustado en el mensaje de error 40197 proporciona información adicional sobre el tipo de error o conmutación por error que se ha producido. Algunos ejemplos de los códigos de error que se insertan dentro del mensaje de error 40197 son 40020, 40143, 40166 y 40540.<br/><br/>Al volver a conectarse al servidor de Base de datos SQL, se conectará automáticamente a una copia correcta de su base de datos. La aplicación debe detectar el error 40197, registrar el código de error incrustado (%d) dentro del mensaje para solucionar problemas y volver a conectarse a la base de datos SQL hasta que los recursos estén disponibles; entonces, la conexión se establecerá de nuevo.|
+|40197|17|Error en el servicio al procesar la solicitud. Vuelva a intentarlo. Código de error %d.<br/><br/>Recibirá este error cuando el servicio esté inactivo debido a actualizaciones de software o hardware, errores de hardware u otros problemas de conmutación por error. El código de error (%d) incrustado en el mensaje de error 40197 proporciona información adicional sobre el tipo de error o conmutación por error que se ha producido. Algunos ejemplos de los códigos de error que se incrustan dentro del mensaje de error 40197 son 40020, 40143, 40166 y 40540.<br/><br/>Al volver a conectarse al servidor de Base de datos SQL se conectará automáticamente a una copia correcta de su base de datos. La aplicación debe detectar el error 40197, registrar el código de error incrustado (%d) dentro del mensaje para solucionar problemas y volver a conectarse a la base de datos SQL hasta que los recursos estén disponibles; entonces, la conexión se establecerá de nuevo.|
 |40501|20|El servicio está ocupado actualmente. Vuelva a intentar la solicitud después de 10 segundos. Identificador de incidente: %ls. Código: %d.<br/><br/>*Nota:* para obtener más información, consulte <br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md).
 |40613|17|La base de datos '%.&#x2a;ls' en el servidor '%.&#x2a;ls' no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de soporte al cliente y proporcióneles el id. de seguimiento de sesión de '%. & #x2a; ls'.|
 |49918|16|No se puede procesar la solicitud. No hay suficientes recursos para procesar la solicitud.<br/><br/>El servicio está ocupado actualmente. Vuelva a intentar realizar la solicitud más tarde. |
@@ -89,7 +84,7 @@ Los errores transitorios deberían dar lugar a que el programa cliente ejecute *
 En la tabla siguiente se describen los diversos errores que puede encontrarse al copiar una base de datos en la Base de datos SQL de Azure. Para más información, vea [Copiar una base de datos SQL de Azure](sql-database-copy.md).
 
 
-|Número de error|Gravedad|Descripción|
+|Código de error|Gravedad|Descripción|
 |---:|---:|:---|
 |40635|16|El cliente con la dirección IP '%.&#x2a;ls' está deshabilitado temporalmente.|
 |40637|16|Crear copia de base de datos está deshabilitado actualmente.|
@@ -126,16 +121,16 @@ En la tabla siguiente se muestran los errores causados por un uso excesivo de re
 - [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md)
 
 
-|Número de error|Gravedad|Descripción|
+|Código de error|Gravedad|Descripción|
 |---:|---:|:---|
-|10928|20|Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El id. de recurso indica el recurso que alcanzó el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el id. de recurso = 2.<br/><br/>*Nota:* para más información sobre este error y cómo resolverlo, vea:<br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md). |
-|10929|20|Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, vuelva a intentarlo más tarde.<br/><br/>El id. de recurso indica el recurso que alcanzó el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el id. de recurso = 2.<br/><br/>*Nota:* para más información sobre este error y cómo resolverlo, vea:<br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md).|
+|10928|20|Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El id. de recurso indica el recurso que alcanzó el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el identificador de recurso = 2.<br/><br/>*Nota:* para obtener más información sobre este error y cómo resolverlo, consulte:<br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md). |
+|10929|20|Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para obtener más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, vuelva a intentarlo más tarde.<br/><br/>El id. de recurso indica el recurso que alcanzó el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, el id. de recurso = 2.<br/><br/>*Nota:* para más información sobre este error y cómo resolverlo, vea:<br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md).|
 |40544|20|La base de datos ha alcanzado su cuota de tamaño. Cree particiones o elimine datos, quite índices o consulte la documentación para obtener soluciones posibles.|
 |40549|16|La sesión terminó porque tiene una transacción de larga duración. Intente reducir la transacción.|
 |40550|16|La sesión ha terminado porque ha adquirido demasiados bloqueos. Intente leer o modificar menos filas en una sola transacción.|
 |40551|16|La sesión ha terminado debido al uso excesivo de `TEMPDB`. Intente modificar la consulta para reducir el uso de espacio de la tabla temporal.<br/><br/>*Sugerencia: * si usa objetos temporales, puede ahorrar espacio en la base de datos `TEMPDB` si quita los objetos temporales cuando la sesión ya no los necesite.|
-|40552|16|La sesión ha terminado debido al excesivo uso de espacio del registro de transacciones. Intente modificar menos filas en una sola transacción.<br/><br/>*Sugerencia:* si realiza inserciones masivas con la utilidad `bcp.exe` o la clase `System.Data.SqlClient.SqlBulkCopy`, intente usar las opciones `-b batchsize` o `BatchSize` para limitar el número de filas copiadas al servidor en cada transacción. Si está volviendo a crear un índice con la instrucción `ALTER INDEX`, intente usar la opción `REBUILD WITH ONLINE = ON`.|
-|40553|16|La sesión ha terminado debido al uso excesivo de la memoria. Intente modificar la consulta para procesar menos filas.<br/><br/>*Sugerencia:* la reducción del número de operaciones `ORDER BY` y `GROUP BY` en el código Transact-SQL reduce los requisitos de memoria de la consulta.|
+|40552|16|La sesión ha terminado debido al excesivo uso de espacio del registro de transacciones. Intente modificar menos filas en una sola transacción.<br/><br/>*Sugerencia:* si realiza inserciones masivas con la utilidad `bcp.exe` o la clase `System.Data.SqlClient.SqlBulkCopy`, intente usar las opciones `-b batchsize`o `BatchSize` para limitar el número de filas copiadas al servidor en cada transacción. Si está volviendo a crear un índice con la instrucción `ALTER INDEX`, intente usar la opción `REBUILD WITH ONLINE = ON`.|
+|40553|16|La sesión ha terminado debido al uso excesivo de la memoria. Intente modificar su consulta para procesar menos filas.<br/><br/>*Sugerencia:* la reducción del número de operaciones `ORDER BY` y `GROUP BY` en el código de Transact-SQL reduce los requisitos de memoria de la consulta.|
 
 
 Para obtener más información sobre la regulación de recursos y los errores asociados, vea:
@@ -153,7 +148,7 @@ Para obtener más información sobre la regulación de recursos y los errores as
 En la tabla siguiente se muestran todos los errores generales que no pertenecen a ninguna categoría anterior.
 
 
-|Número de error|Gravedad|Descripción|
+|Código de error|Gravedad|Descripción|
 |---:|---:|:---|
 |15006|16|<AdministratorLogin> no es un nombre válido porque contiene caracteres no válidos.|
 |18452|14|Error de inicio de sesión. El inicio de sesión se realiza desde un dominio que no es de confianza y no se puede utilizar con autenticación de Windows.%.&#x2a;ls (Los inicios de sesión de Windows no se admiten en esta versión de SQL Server.).|
@@ -214,7 +209,7 @@ En la tabla siguiente se muestran todos los errores generales que no pertenecen 
 |40649|16|Se ha especificado un content-type no válido. Solo se admite application/xml.|
 |40650|16|La suscripción <subscription-id> no existe o no está lista para la operación.|
 |40651|16|No se pudo crear el servidor porque la suscripción <subscription-id> está deshabilitada.|
-|40652|16|No se puede mover ni crear un servidor. La suscripción <subscription-id> superará la cuota de servidor.|
+|40652|16|No se puede mover ni crear un servidor. La suscripción <subscription-id> excederá la cuota|
 |40671|17|Error de comunicación entre la puerta de enlace y el servicio de administración. Inténtelo de nuevo más tarde.|
 |40852|16|No se puede abrir la base de datos '%.*ls' del servidor '%.*ls' solicitada por el inicio de sesión. Solo se permite el acceso a la base de datos mediante una cadena de conexión habilitada para seguridad. Para obtener acceso a esta base de datos, modifique sus cadenas de conexión que contienen 'secure' en el FQDN del servidor. -'server name'.database.windows.net debe modificarse para 'server name'.database.`secure`.windows.net.|
 |45168|16|El sistema de SQL Azure está bajo carga y está colocando un límite superior en operaciones DB CRUD simultáneas para un único servidor (por ejemplo, crear base de datos). El servidor especificado en el mensaje de error ha superado el número máximo de conexiones simultáneas. Inténtelo de nuevo más tarde.|
@@ -226,4 +221,4 @@ En la tabla siguiente se muestran todos los errores generales que no pertenecen 
 - [Instrucciones y limitaciones generales de Base de datos SQL de Azure](sql-database-general-limitations.md)
 - [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

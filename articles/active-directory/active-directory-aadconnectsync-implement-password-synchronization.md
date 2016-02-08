@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="01/21/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -27,7 +27,7 @@ El objetivo de este tema es proporcionarle la información que necesita para com
 
 La sincronización de contraseñas es una característica de los servicios de sincronización de Azure Active Directory Connect (sincronización de Azure AD Connect) que sincroniza las contraseñas de usuario de Active Directory local con Azure Active Directory (Azure AD). Esta característica permite que los usuarios inicien sesión en sus servicios de Azure Active Directory (como Office 365, Microsoft Intune, CRM Online, etc.) con la misma contraseña que usan para iniciar sesión en la red local.
 
-> [AZURE.NOTE]Para obtener más información acerca de los Servicios de dominio de Active Directory configurados para la sincronización de contraseñas y FIPS, consulte [Sincronización de contraseñas y FIPS](#password-synchronization-and-fips).
+> [AZURE.NOTE] Para obtener más información acerca de los Servicios de dominio de Active Directory configurados para la sincronización de contraseñas y FIPS, consulte [Sincronización de contraseñas y FIPS](#password-synchronization-and-fips).
 
 ### Disponibilidad de sincronización de contraseñas
 
@@ -45,7 +45,7 @@ Al habilitar la característica de sincronización de contraseñas por primera v
 
 La sincronización de una contraseña no influye en los usuarios con la sesión iniciada actualmente. Si un usuario que ha iniciado sesión en un servicio en la nube también cambia la contraseña local, la sesión del servicio en la nube continuará sin interrupciones. Sin embargo, si el servicio en la nube requiere que el usuario vuelva a realizar la autenticación, debe proporcionarse la nueva contraseña. En este punto, el usuario debe proporcionar la nueva contraseña: la contraseña que se ha sincronizado recientemente desde Active Directory local a la nube.
 
-> [AZURE.NOTE]Solo se admite la sincronización de la contraseña para el usuario del tipo de objeto de Active Directory. No se admite para el tipo de objeto iNetOrgPerson.
+> [AZURE.NOTE] Solo se admite la sincronización de la contraseña para el usuario del tipo de objeto de Active Directory. No se admite para el tipo de objeto iNetOrgPerson.
 
 ### Funcionamiento de la sincronización de contraseñas con Servicios de dominio de Azure AD
 
@@ -68,7 +68,7 @@ Existen dos tipos de directivas de contraseña que se ven afectados por la habil
 
 Cuando se habilita la sincronización de contraseñas, las directivas de complejidad de contraseñas configuradas en Active Directory local reemplazan a las directivas de complejidad que pueden definirse en la nube para los usuarios sincronizados. Esto significa que cualquier contraseña válida en el entorno del Active Directory local del usuario puede usarse para obtener acceso a servicios de Azure AD.
 
-> [AZURE.NOTE]Las contraseñas para los usuarios que se crean directamente en la nube siguen estando sujetas a las directivas de contraseñas tal como se definen en la nube.
+> [AZURE.NOTE] Las contraseñas para los usuarios que se crean directamente en la nube siguen estando sujetas a las directivas de contraseñas tal como se definen en la nube.
 
 **Directiva de expiración de contraseñas**
 
@@ -160,4 +160,4 @@ No es necesario forzar una sincronización completa de todas las contraseñas, p
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

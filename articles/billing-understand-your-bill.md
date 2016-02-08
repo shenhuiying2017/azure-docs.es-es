@@ -24,7 +24,7 @@ Los cargos de las suscripciones de Microsoft Azure varían según el plan de tar
 
 Tenga en cuenta que es posible informar un uso latente de hasta 24 horas correspondiente al período de facturación anterior en el período de facturación actual.
 
-Para obtener más información acerca del consumo y los planes de tarifas, consulte la [página Opciones de compra de Microsoft Azure](http://azure.microsoft.com/pricing/purchase-options/).
+Para obtener más información acerca del consumo y los planes de tarifas, consulte la [página Opciones de compra de Microsoft Azure](https://azure.microsoft.com/pricing/purchase-options/).
 
 Los vínculos siguientes cubren una lista completa de todos los servicios de Microsoft Azure.
 
@@ -262,4 +262,4 @@ Vaya a la sección **Administrar cuentas, suscripciones y roles administrativos*
 
 <!--Image references-->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

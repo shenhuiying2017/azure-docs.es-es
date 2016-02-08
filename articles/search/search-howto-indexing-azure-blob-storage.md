@@ -19,7 +19,7 @@ ms.author="eugenesh" />
 
 En este artículo se explica cómo usar Búsqueda de Azure para indexar documentos (como archivos PDF o de Office) almacenados en el Almacenamiento de blobs de Azure. El nuevo indexador de blob de Búsqueda de Azure agiliza y facilita este proceso.
 
-> [AZURE.IMPORTANT]Actualmente, la versión de esta funcionalidad es una versión preliminar. Está disponible solo en la API de REST con la versión **2015-02-28-Preview**. Por favor, recuerde que las versiones preliminares de las API están pensadas para realizar pruebas y evaluar, y no deben usarse en entornos de producción.
+> [AZURE.IMPORTANT] Actualmente, la versión de esta funcionalidad es una versión preliminar. Está disponible solo en la API de REST con la versión **2015-02-28-Preview**. Por favor, recuerde que las versiones preliminares de las API están pensadas para realizar pruebas y evaluar, y no deben usarse en entornos de producción.
 
 ## Configuración de la indexación de blob
 
@@ -102,7 +102,7 @@ Búsqueda de Azure indexa cada documento (blob) como sigue:
 
 No es necesario definir campos para todas las propiedades anteriores en el índice de búsqueda, capture solo las propiedades que necesita para la aplicación.
 
-> [AZURE.NOTE]A menudo, los nombres de campo en el índice existente serán diferentes de los nombres de campo generados durante la extracción del documento. Puede usar **asignaciones de campos** para asignar los nombres de propiedad proporcionados por Búsqueda de Azure a los nombres de campo en el índice de búsqueda. A continuación, verá un ejemplo del uso de las asignaciones de campos.
+> [AZURE.NOTE] A menudo, los nombres de campo en el índice existente serán diferentes de los nombres de campo generados durante la extracción del documento. Puede usar **asignaciones de campos** para asignar los nombres de propiedad proporcionados por Búsqueda de Azure a los nombres de campo en el índice de búsqueda. A continuación, verá un ejemplo del uso de las asignaciones de campos.
 
 ## Selección del campo de clave de documento y uso de diferentes nombres de campo
 
@@ -116,7 +116,7 @@ Debe considerar detenidamente qué campo extraído se debe asignar al campo de c
 
 - Si ninguna de las opciones anteriores le sirve, tiene la opción que le garantiza máxima flexibilidad que es la de agregar una propiedad de metadatos personalizada a los blobs. De todas formas, esta opción requiere que el proceso de carga de blob agregue dicha propiedad de metadatos a todos los blobs. Dado que la clave es una propiedad obligatoria, todos los blobs que no tengan esa propiedad no se indexarán.
 
-> [AZURE.IMPORTANT]Si no hay ninguna asignación explícita para el campo de clave en el índice, Búsqueda de Azure usará automáticamente `metadata_storage_path` (la segunda opción anterior) como clave y habilitará la codificación de base 64 para las claves.
+> [AZURE.IMPORTANT] Si no hay ninguna asignación explícita para el campo de clave en el índice, Búsqueda de Azure usará automáticamente `metadata_storage_path` (la segunda opción anterior) como clave y habilitará la codificación de base 64 para las claves.
 
 En este ejemplo, vamos a seleccionar el campo `metadata_storage_name` como clave de documento. Supongamos también que el índice tiene un campo de clave denominado `key` y un campo `fileSize` para almacenar el tamaño del documento. Para conectar las cosas como desee, especifique las siguientes asignaciones de campo al crear o actualizar el indexador:
 
@@ -142,17 +142,17 @@ Para conectar todo esto, aquí está la forma de agregar asignaciones de campo y
 	  "parameters" : { "base64EncodeKeys": true }
 	}
 
-> [AZURE.NOTE]Para más información sobre las asignaciones de campos, vea [este artículo](search-indexers-customization.md).
+> [AZURE.NOTE] Para más información sobre las asignaciones de campos, vea [este artículo](search-indexers-customization.md).
 
 ## Indexación incremental y detección de eliminación
 
 Al configurar un indexador de blob para ejecutarlo en una programación, se vuelven a indexar solamente los blobs modificados, que vienen determinados por marca de tiempo `LastModified` del blob.
 
-> [AZURE.NOTE]No tiene que especificar una directiva de detección de cambios, la indexación incremental ya está habilitada automáticamente.
+> [AZURE.NOTE] No tiene que especificar una directiva de detección de cambios, la indexación incremental ya está habilitada automáticamente.
 
 Para indicar que determinados documentos tienen que quitarse del índice, debe usar una estrategia de eliminación temporal: en lugar de eliminar los blobs correspondientes, agregue una propiedad de metadatos personalizada para indicar que están eliminados y configure una directiva de detección de eliminación temporal en el origen de datos.
 
-> [AZURE.WARNING]Si en lugar de usar una directiva de detección de eliminación, simplemente elimina los blobs, los documentos correspondientes no se eliminarán del índice de búsqueda.
+> [AZURE.WARNING] Si en lugar de usar una directiva de detección de eliminación, simplemente elimina los blobs, los documentos correspondientes no se eliminarán del índice de búsqueda.
 
 Por ejemplo, la directiva que se muestra a continuación considerará que un blob se elimina si tiene una propiedad de metadatos `IsDeleted` con el valor `true`:
 
@@ -190,7 +190,7 @@ PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_auth
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extraer texto, incluidos los datos adjuntos
 ZIP (application/zip) | `metadata_content_type` | Extraer el texto de todos los documentos en el archivo
 XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Seccionar el marcado XML y extraer texto </td>
-JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extraer texto<br/>NOTA: si necesita extraer varios campos de documentos de un blob JSON, vote [esta sugerencia de UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs)
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extraer texto<br/>NOTA: si necesita extraer varios campos de documentos de un blob JSON, vote [esta sugerencia de UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs/)
 Plain text (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
@@ -205,6 +205,6 @@ AzureSearch\_SkipContent | "true" | Indica al indexador de blobs que solo indexe
 
 ## Ayúdenos a mejorar Búsqueda de Azure
 
-Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

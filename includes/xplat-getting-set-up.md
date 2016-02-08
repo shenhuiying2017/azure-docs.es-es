@@ -32,6 +32,6 @@ Una vez que haya conectado la CLI de Azure a la cuenta que desee utilizar, puede
     info:    Changes saved
     info:    account set command OK
 
-> [AZURE.NOTE]Si todavía no tiene una cuenta de Azure, pero dispone de una suscripción a MSDN, puede obtener créditos gratuitos de Azure mediante la activación de sus [ventajas de suscriptor de MSDN aquí](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), o puede usar la cuenta gratuita. Con cualquiera de estas opciones podrá obtener acceso a Azure.
+> [AZURE.NOTE] Si todavía no tiene una cuenta de Azure, pero dispone de una suscripción a MSDN, puede obtener créditos gratuitos de Azure mediante la activación de sus [ventajas de suscriptor de MSDN aquí](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), o puede usar la cuenta gratuita. Con cualquiera de estas opciones podrá obtener acceso a Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

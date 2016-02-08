@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="La experiencia de inicio de sesión de Azure MFA con Azure Multi-Factor Authentication " 
-	description="Esta página proporciona instrucciones sobre dónde debe ir para ver los distintos métodos de inicio de sesión disponibles con Azure MFA." 
+	description="Esta página proporciona instrucciones sobre dónde debe ir para ver los distintos métodos de inicio de sesión disponibles con Azure MFA."
+	keywords="autenticación de usuario, experiencia de inicio de sesión, inicio de sesión con el teléfono móvil, inicio de sesión con el teléfono del trabajo" 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # La experiencia de inicio de sesión con Azure Multi-Factor Authentication
-> [AZURE.NOTE]La siguiente documentación incluida en esta página muestra una experiencia típica de inicio de sesión. Para obtener ayuda con el inicio de sesión, vea [Problemas con Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
+> [AZURE.NOTE]  La siguiente documentación incluida en esta página muestra una experiencia típica de inicio de sesión. Para obtener ayuda con el inicio de sesión, vea [Problemas con Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
 
 
 
@@ -103,4 +104,4 @@ En la siguiente sección se mostrará cómo iniciar sesión con un método alter
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

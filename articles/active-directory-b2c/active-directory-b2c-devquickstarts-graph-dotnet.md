@@ -1,5 +1,6 @@
 <properties
-	pageTitle="Vista previa de Azure AD B2C: Uso de la API Graph | Microsoft Azure"
+	pageTitle="Versión preliminar
+de Azure AD B2C: uso de la API Graph | Microsoft Azure"
 	description="Cómo llamar a la API Graph para un inquilino de B2C mediante una identidad de aplicación para automatizar el proceso."
 	services="active-directory-b2c"
 	documentationCenter=".net"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Vista previa de Azure AD B2C: Uso de la API Graph
@@ -23,7 +24,7 @@
 Los inquilinos de Azure AD B2C tienden a ser muy grandes, lo que supone que muchas tareas comunes de administración de inquilinos necesitan realizarse mediante programación. Un ejemplo importante es la administración de usuarios: podría tener que migrar un almacén de usuarios existente a un inquilino de B2C o puede que desee hospedar el registro de usuarios en su propia página mediante la creación de cuentas de usuario en Azure AD en un segundo plano. Estos tipos de tareas requieren la capacidad de crear, leer, actualizar y eliminar cuentas de usuario, lo que puede realizar mediante la API de Azure AD Graph.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-	
+
 Para los inquilinos de B2C, existen principalmente dos modos de comunicación con la API Graph.
 
 - Para las tareas interactivas, que se ejecutan una vez, probablemente deseará realizar tareas de administración con una cuenta de administrador en el inquilino de B2C. Este modo requiere un administrador para iniciar sesión con sus credenciales antes de realizar las llamadas a la API Graph.
@@ -39,14 +40,15 @@ Antes de crear la aplicación, usuarios o interactuar con Azure AD, necesitará 
 
 Ahora que ya tiene un inquilino de B2C, deberá crear la aplicación de servicio con los cmdlets de Azure AD Powershell. En primer lugar, descargue e instale [Microsoft Online Services - Ayudante para el inicio de sesión](http://go.microsoft.com/fwlink/?LinkID=286152). A continuación, puede descargar e instalar el [módulo de Azure Active Directory de 64 bits para Windows Powershell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
-> [AZURE.NOTE]Para usar la API Graph con su inquilino B2C, deberá registrar una aplicación dedicada con PowerShell mediante estas instrucciones. No puede volver a usar las aplicaciones B2C ya existentes que registró en el Portal de Azure. Se trata de una limitación de la vista previa de Azure AD B2C que se eliminará en un futuro cercano, momento en el cual actualizaremos este artículo.
+> [AZURE.NOTE]
+Para usar la API Graph con su inquilino B2C, deberá registrar una aplicación dedicada con PowerShell mediante estas instrucciones. No puede volver a usar las aplicaciones B2C ya existentes que registró en el Portal de Azure. Se trata de una limitación de la vista previa de Azure AD B2C que se eliminará en un futuro cercano, momento en el cual actualizaremos este artículo.
 
 Una vez instalado el módulo de Powershell, abra PowerShell y conéctese al inquilino de B2C. Después de ejecutar `Get-Credential`, se le pedirá un nombre de usuario y una contraseña: escriba la información de su cuenta de administrador del inquilino B2C.
 
 ```
 > $msolcred = Get-Credential
 > Connect-MsolService -credential $msolcred
-``` 
+```
 
 Antes de crear la aplicación, debe generar un nuevo "secreto de cliente". La aplicación usará el secreto de cliente para autenticarse en Azure AD y adquirir tokens de acceso. Puede generar un secreto válido de Powershell:
 
@@ -57,7 +59,7 @@ Antes de crear la aplicación, debe generar un nuevo "secreto de cliente". La ap
 > $rand.Dispose()
 > $newClientSecret = [System.Convert]::ToBase64String($bytes)
 > $newClientSecret
-``` 
+```
 
 El comando final anterior debe imprimir el nuevo secreto de cliente. Cópielo en un lugar seguro, ya que pronto lo necesitará de nuevo. Ahora puede crear la aplicación al proporcionar el nuevo secreto de cliente como una credencial para la aplicación:
 
@@ -127,7 +129,8 @@ Se mostrará una breve descripción de cada comando. Cuando se llama a cualquier
 
 Cualquier solicitud a la API Graph requerirá un token de acceso para la autenticación. B2CGraphClient usa el código abierto Active Directory Authentication Library (ADAL) para adquirir tokens de acceso. No es necesario usar ADAL para obtener tokens: puede obtenerlos diseñando usted mismo las solicitudes HTTP. ADAL facilita la adquisición de tokens al proporcionar una API sencilla y ocuparse de algunos detalles importantes, como el almacenamiento en caché de tokens de acceso.
 
-> [AZURE.NOTE]Este ejemplo de código usa deliberadamente ADAL v2, la versión de ADAL disponible con carácter general. NO usa ADAL v4, que es una versión de vista previa diseñada para funcionar con Azure AD B2C. Para la vista previa de Azure AD B2C, debe usar ADAL v2 para comunicarse con la API Graph. Con el tiempo, habilitaremos el acceso a la API Graph con ADAL v4, por lo que no es necesario que use dos versiones diferentes de ADAL en la solución completa de Azure AD B2C.
+> [AZURE.NOTE]
+	Este ejemplo de código usa deliberadamente ADAL v2, la versión de ADAL disponible con carácter general. NO usa ADAL v4, que es una versión de vista previa diseñada para funcionar con Azure AD B2C. Para la vista previa de Azure AD B2C, debe usar ADAL v2 para comunicarse con la API Graph. Con el tiempo, habilitaremos el acceso a la API Graph con ADAL v4, por lo que no es necesario que use dos versiones diferentes de ADAL en la solución completa de Azure AD B2C.
 
 Cuando se ejecuta B2CGraphClient, se crea una instancia de la clase `B2CGraphClient`. El constructor para esta clase configura scaffolding de autenticación de ADAL:
 
@@ -142,7 +145,7 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 	// The AuthenticationContext is ADAL's primary class, in which you indicate the tenant to use.
 	this.authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenant);
 
-	// The ClientCredential is where you pass in your client_id and client_secret, which are 
+	// The ClientCredential is where you pass in your client_id and client_secret, which are
 	// provided to Azure AD in order to receive an access_token using the app's identity.
 	this.credential = new ClientCredential(clientId, clientSecret);
 }
@@ -157,7 +160,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 	// The first parameter is the resource we want an access_token for; in this case, the Graph API.
 	AuthenticationResult result = authContext.AcquireToken("https://graph.windows.net", credential);
 
-	... 
+	...
 
 ```
 
@@ -177,14 +180,15 @@ Para ver esta solicitud en acción, intente ejecutar:
  ```
  > B2C Get-User
  ```
- 
+
 Hay dos aspectos importantes que se deben tener en cuenta aquí:
 
 - El token de acceso adquirido mediante ADAL se ha agregado al encabezado `Authorization` según el esquema `Bearer`.
 - Para los inquilinos de B2C, debe usar el parámetro de consulta `api-version=beta`.
 
 
-> [AZURE.NOTE]La versión beta de la API de Azure AD Graph proporciona funcionalidad de vista previa. Consulte [esta entrada de blog del equipo de API Graph](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx) para obtener detalles sobre la versión beta.
+> [AZURE.NOTE]
+	La versión beta de la API de Azure AD Graph proporciona funcionalidad de vista previa. Consulte [esta entrada de blog del equipo de API Graph](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx) para obtener detalles sobre la versión beta.
 
 Estos dos detalles se controlan en el método `B2CGraphClient.SendGraphGetRequest(...)`:
 
@@ -192,7 +196,7 @@ Estos dos detalles se controlan en el método `B2CGraphClient.SendGraphGetReques
 public async Task<string> SendGraphGetRequest(string api, string query)
 {
 	...
-	
+
 	// For B2C user managment, be sure to use the beta Graph API version.
 	HttpClient http = new HttpClient();
 	string url = "https://graph.windows.net/" + tenant + api + "?" + "api-version=beta";
@@ -200,16 +204,16 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 	{
 		url += "&" + query;
 	}
-	
+
 	// Append the access token for the Graph API to the Authorization header of the request, using the Bearer scheme.
 	HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, url);
 	request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 	HttpResponseMessage response = await http.SendAsync(request);
-	
-	... 
+
+	...
 ```
-		
-### Creación de cuentas de usuario de consumidor 
+
+### Creación de cuentas de usuario de consumidor
 
 Al crear cuentas de usuario en el inquilino de B2C, puede enviar una solicitud HTTP POST al punto de conexión `/users`:
 
@@ -221,7 +225,7 @@ Content-Length: 338
 
 {
 	// These properties are all required for creating consumer users.
-	 
+
 	"accountEnabled": true,
 	"alternativeSignInNamesInfo": [             // controls what identifier the user uses to sign into their account
 		{
@@ -278,7 +282,7 @@ Puede intentar actualizar un usuario actualizando los archivos JSON con nuevos d
 > B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
 > B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
 ```
-	
+
 Consulte el método `B2CGraphClient.SendGraphPatchRequest(...)` para obtener más información sobre cómo enviar esta solicitud.
 
 ### Eliminación de usuarios
@@ -345,8 +349,9 @@ Puede usar el nombre completo, por ejemplo `extension_55dc0861f9a44eb999e0a8a872
 - Al llamar a la API Graph, use [`api-version=beta`](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx).
 - A la hora de crear y actualizar los usuarios de consumidor, hay algunas propiedades necesarias, descritas anteriormente.
 
-> [AZURE.IMPORTANT]Necesitará dar cuenta de las características de replicación del servicio de directorio que subyacen bajo Azure AD B2C (lea [este](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx) artículo para obtener más información) cuando use la API Graph de Azure AD en la aplicación B2C. Después de que un consumidor se suscriba a la aplicación B2C mediante una directiva de **suscripción**, si sale inmediatamente e intenta leer el objeto de usuario mediante la API Graph de Azure AD en su aplicación, puede que no esté disponible. Tendrá que esperar unos segundos para que se complete el proceso de replicación. Publicaremos instrucciones más concretas en la "garantía de coherencia de lectura y escritura" proporcionada por la API Graph de Azure AD y el servicio de directorio en disponibilidad general.
+> [AZURE.IMPORTANT]
+Necesitará dar cuenta de las características de replicación del servicio de directorio que subyacen bajo Azure AD B2C (lea [este](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx) artículo para obtener más información) cuando use la API Graph de Azure AD en la aplicación B2C. Después de que un consumidor se suscriba a la aplicación B2C mediante una directiva de **suscripción**, si sale inmediatamente e intenta leer el objeto de usuario mediante la API Graph de Azure AD en su aplicación, puede que no esté disponible. Tendrá que esperar unos segundos para que se complete el proceso de replicación. Publicaremos instrucciones más concretas en la "garantía de coherencia de lectura y escritura" proporcionada por la API Graph de Azure AD y el servicio de directorio en disponibilidad general.
 
 Si tiene alguna pregunta o solicitud para las acciones que desea realizar con la API Graph en el inquilino de B2C, ¡somos todo oídos! Deje un comentario sobre el artículo o registre un problema en el repositorio de GitHub de ejemplos de código.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/30/2015"
+   ms.date="01/26/2016"
    ms.author="alkohli" />
 
 # Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple
@@ -21,7 +21,7 @@
 
 En este artículo se proporciona información sobre el hardware adicional que funciona con el dispositivo Microsoft Azure StorSimple.
 
-## Lista de dispositivos compatibles
+## Lista de dispositivos probados por Microsoft
 
 Microsoft ha probado los siguientes transceptores, cables y conmutadores acoplables de factor de forma pequeño (SFP) para garantizar que funcionan correctamente con los dispositivos. (Las siguientes tablas se actualizarán a medida que se pruebe nuevo hardware.)
 
@@ -48,7 +48,25 @@ Microsoft ha probado los siguientes transceptores, cables y conmutadores acoplab
 | 2\. |Cisco|N3K-C3048-ZM-F|
 | 3\. |Cisco|N5K-C5596UP-FA|
 
-## Lista de dispositivos compatibles con Mellanox  
+## Lista de dispositivos probados sobre el terreno
+
+Esta sección contiene la lista de dispositivos que se implementaron correctamente en el terreno por los clientes de StorSimple. Microsoft no los ha probado pero probablemente funcionan con el dispositivo StorSimple.
+ 
+| Parámetro | Valor |
+|-----------------------------------|------------------------------------------|
+| Proveedor de conmutador | Juniper |
+| Modelo de conmutador | ex4550-32F |
+| Versión del sistema operativo del conmutador | JunOS 12.3R9.4 |
+| Modelo Blade | Puertos incorporados (PIC 0) |
+| Proveedor de transceptor | Juniper |
+| Modelo de transceptor | Número de pieza 740-021308 <br></br> Número de pieza 740-030658 |
+| Versión del firmware del transceptor | Rev 01 versión 0.0 (comunicado) |
+| Modelo de cable | Duplex jumper LC/LC 50/125µ, OM3, LSZH |
+| Modelo de StorSimple | 8600 |
+| Versión del software de StorSimple | 6\.3.9600.17491 |
+
+
+## Lista de dispositivos probados por el proveedor OEM (Mellanox)  
 
 Mellanox ha probado los siguientes transceptores acoplables de factor de forma pequeño (SFP), cables y conmutadores para garantizar que funcionan correctamente con las interfaces de red Mellanox como las interfaces de red 10 GbE en el dispositivo StorSimple.
 
@@ -112,4 +130,4 @@ En la tabla siguiente se enumeran los conmutadores y módulos compatibles con Me
 
 [Obtenga más información sobre los componentes de hardware de StorSimple y su estado](storsimple-monitor-hardware-status.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

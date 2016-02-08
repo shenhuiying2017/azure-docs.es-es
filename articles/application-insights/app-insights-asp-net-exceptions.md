@@ -25,11 +25,31 @@ Supervisando la aplicación con [Visual Studio Application Insights][start], pue
 
 Para supervisar una aplicación ASP.NET, debe [agregar el SDK de Application Insights][greenbrown] a la aplicación, o bien [instalar el Monitor de estado en el servidor IIS][redfield]; o, si su aplicación es una aplicación web de Azure, agregue la [extensión de Application Insights][azure].
 
-## Diagnóstico de errores 
+## Diagnóstico de excepciones mediante Visual Studio
 
-En la hoja de información general, el icono Problemas muestra los gráficos de excepciones y las solicitudes HTTP con error, junto con una lista de las direcciones URL de solicitudes que provocan los errores más frecuentes.
+Abra la solución de aplicación en Visual Studio para ayudar con la depuración.
 
-![Selección de errores](./media/app-insights-asp-net-exceptions/012-start.png)
+Ejecute la aplicación, bien en el servidor o en el equipo de desarrollo mediante F5.
+
+Abra la ventana Búsqueda de Application Insights en Visual Studio y configúrela para mostrar los eventos de la aplicación. Durante la depuración, puede hacer esto haciendo clic simplemente en el botón de Application Insights.
+
+![Haga clic con el botón derecho en el proyecto y seleccione Application Insights, Abrir.](./media/app-insights-asp-net-exceptions/34.png)
+
+Observe que puede filtrar el informe para mostrar solo excepciones.
+
+*¿No se muestra ninguna excepción? Consulte [Captura de excepciones](#exceptions).*
+
+Haga clic en un informe de excepciones para mostrar su seguimiento de la pila.
+
+![Haga clic en una excepción.](./media/app-insights-asp-net-exceptions/35.png)
+
+Haga clic en una referencia de línea en el seguimiento de la pila para abrir el archivo pertinente.
+
+## Diagnóstico de errores mediante el Portal de Azure
+
+En la hoja de información general de Application Insights de su aplicación, el icono Errores muestra los gráficos de excepciones y las solicitudes HTTP con error, junto con una lista de las direcciones URL de solicitudes que provocan los errores más frecuentes.
+
+![Selección de Configuración, Errores](./media/app-insights-asp-net-exceptions/012-start.png)
 
 Haga clic en uno de los tipos de solicitudes con error de la lista para llegar a las repeticiones individuales del error. Desde ahí, siga haciendo clic hasta llegar a las excepciones o a los datos de seguimiento asociados con ellas:
 
@@ -50,6 +70,8 @@ Desde ahí, puede examinar el seguimiento de pila y las propiedades detalladas d
 
 [Más información sobre Búsqueda de diagnóstico][diagnostic].
 
+
+
 ## Errores de dependencia
 
 Una *dependencia* es un servicio al que llama su aplicación, normalmente a través de una API de REST o una conexión de base de datos. El [Monitor de estado de Application Insights][redfield] supervisa automáticamente diversos tipos de llamadas de dependencia, y mide la duración de la llamada y el acierto o error.
@@ -68,7 +90,7 @@ Para obtener datos de diagnóstico específicos de su aplicación, puede inserta
 
 Tiene varias opciones:
 
-* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) normalmente se usa para supervisar patrones de uso, pero los datos que envía también aparecen en Eventos personalizados en la búsqueda de diagnóstico. Los eventos tienen nombre y pueden llevar propiedades de cadena y métricas numéricas en las que puede [filtrar las búsquedas de diagnósticos][diagnostic].
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) normalmente se usa para supervisar patrones de uso, pero los datos que envía también aparecen en Eventos personalizados en la búsqueda de diagnósticos. Los eventos tienen nombre y pueden llevar propiedades de cadena y métricas numéricas en las que puede [filtrar las búsquedas de diagnósticos][diagnostic].
 * [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) le permite enviar datos más grandes, como la información de POST.
 * [TrackException()](#exceptions) envía seguimientos de la pila. [Más información sobre excepciones](#exceptions).
 * Si ya utiliza un marco de registro como Log4Net o NLog, puede [capturar aquellos registros][netlogs] y verlos en la búsqueda de diagnósticos junto con datos de solicitud y excepción.
@@ -79,7 +101,7 @@ Para ver estos eventos, abra [Buscar][diagnostic], abra Filtrar y luego elija Ev
 ![Obtener detalles](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
 
 
-> [AZURE.NOTE]Si la aplicación genera mucha telemetría, el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de únicamente una fracción representativa de eventos. Los eventos que forman parte de la misma operación se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre los eventos relacionados. [Más información sobre el muestreo](app-insights-sampling.md).
+> [AZURE.NOTE] Si la aplicación genera mucha telemetría, el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de únicamente una fracción representativa de eventos. Los eventos que forman parte de la misma operación se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre los eventos relacionados. [Más información sobre el muestreo.](app-insights-sampling.md)
 
 ### Visualización de los datos de solicitud POST
 
@@ -455,4 +477,4 @@ Tenga en cuenta que será diferente del recuento de "Excepciones" calculado por 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

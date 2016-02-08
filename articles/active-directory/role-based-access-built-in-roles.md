@@ -3,7 +3,7 @@
 	description="Este tema describe los roles integrados para el control de acceso basado en rol"
 	services="active-directory"
 	documentationCenter=""
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/04/2016"
-	ms.author="inhenk"/>
+	ms.date="01/21/2016"
+	ms.author="kgremban"/>
 
 #RBAC: Roles integrados
 
 ## Roles integrados
 
-El control de acceso basado en roles de Azure dispone de tres roles integrados siguientes que se pueden asignar a usuarios, grupos y servicios. La definición de los roles integrados no se puede modificar. En una próxima versión del RBAC de Azure se podrán definir roles personalizados formando un conjunto de acciones elegidas a partir de una lista de acciones disponibles que se pueden realizar en recursos de Azure.
+El control de acceso basado en roles de Azure (RBAC) dispone de los siguientes roles integrados que se pueden asignar a usuarios, grupos y servicios. La definición de los roles integrados no se puede modificar. En una próxima versión del RBAC de Azure se podrán definir roles personalizados formando un conjunto de acciones elegidas a partir de una lista de acciones disponibles que se pueden realizar en recursos de Azure.
 
-Haga clic en el vínculo correspondiente para ver las propiedades **acciones** y **no acciones** de una definición de rol. La propiedad **acciones** especifica las acciones permitidas en los recursos de Azure. Las cadenas de acciones pueden utilizar caracteres comodín. La propiedad **no acciones** de una definición de rol especifica las acciones que se deben excluir de las acciones permitidas.
+Haga clic en los vínculo a continuación para ver las propiedades **acciones** y **no acciones** de una definición de rol. La propiedad **acciones** especifica las acciones permitidas en los recursos de Azure. Las cadenas de acciones pueden utilizar caracteres comodín. La propiedad **no acciones** de una definición de rol especifica las acciones que se deben excluir de las acciones permitidas.
 
 
 | Nombre de rol | Descripción |
@@ -34,20 +34,20 @@ Haga clic en el vínculo correspondiente para ver las propiedades **acciones** y
 | [Colaborador de ClearDB MySQL DB](#cleardb-mysql-db-contributor) | Puede administrar bases de datos ClearDB MySQL |
 | [Colaborador](#contributor) | Puede administrar todo el contenido, excepto el acceso |
 | [Colaborador de Factoría de datos](#data-factory-contributor) | Puede administrar las factorías de datos |
-| [Usuario del laboratorio de desarrollo y pruebas](#devtest-lab-user) | Puede ver todo el contenido y conectar, iniciar, reiniciar y apagar las máquinas virtuales |
+| [Usuario del laboratorio de desarrollo y pruebas](#devtest-lab-user) | Puede ver todo el contenido así como conectar, iniciar, reiniciar y apagar las máquinas virtuales |
 | [Colaborador de cuenta de base de datos de documento](#document-db-account-contributor) | Puede administrar cuentas de DocumentDB |
 | [Colaborador de la cuenta de Sistemas inteligentes](#intelligent-systems-account-contributor) | Puede administrar cuentas de Sistemas inteligentes |
 | [Colaborador de la red](#network-contributor) | Puede administrar todos los recursos de red |
 | [Colaborador de la cuenta de NewRelic APM](#newrelic-apm-account-contributor) | Puede administrar aplicaciones y cuentas de administración del rendimiento de la aplicación New Relic |
-| [Propietario](#owner) | El propietario puede administra todo el contenido, incluido el acceso |
-| [Lector](#reader) | Los lectores pueden ver todo, pero no realizar cambios. |
+| [Propietario](#owner) | Puede administrar todo el contenido, incluido el acceso |
+| [Lector](#reader) | Puede ver todo el contenido, pero no puede realizar cambios |
 | [Colaborador de la memoria caché de Redis](#redis-cache-contributor]) | Puede administrar memorias caché en Redis |
 | [Colaborador de colecciones de trabajos de Scheduler](#scheduler-job-collections-contributor) | Puede administrar las colecciones de trabajo de Programador |
 | [Colaborador del servicio de búsqueda](#search-service-contributor) | Puede administrar los servicios de búsqueda |
-| [Administrador de seguridad](#security-manager) | Puede administrar los componentes y las directivas, además de las máquinas virtuales |
+| [Administrador de seguridad](#security-manager) | Puede administrar los componentes y las directivas de seguridad, además de las máquinas virtuales |
 | [Colaborador de Base de datos de SQL](#sql-db-contributor) | Puede administrar bases de datos SQL, pero no las directivas relacionadas con la seguridad |
 | [Administrador de seguridad SQL](#sql-security-manager) | Puede administrar las directivas relacionadas con la seguridad de las bases de datos y los servidores SQL |
-| [Colaborador de SQL Server](#sql-server-contributor) | Puede administrar las bases de datos y los servidores SQL, pero no las directivas relacionadas con la seguridad |
+| [Colaborador de SQL Server](#sql-server-contributor) | Puede administrar las bases de datos y los servidores SQL, pero no las directivas relacionadas con su seguridad |
 | [Colaborador de cuentas de almacenamiento clásico](#classic-storage-account-contributor) | Puede administrar las cuentas de almacenamiento clásico |
 | [Colaborador de la cuenta de almacenamiento](#storage-account-contributor) | Puede administrar las cuentas de almacenamiento |
 | [Administrador de acceso de usuario](#user-access-administrator) | Puede administrar el acceso de usuarios a los recursos de Azure |
@@ -85,7 +85,7 @@ Puede administrar los componentes de Application Insights
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Operador de automatización
-Los operadores de automatización pueden iniciar, detener, suspender y reanudar trabajos
+Puede iniciar, detener, suspender y reanudar trabajos
 
 | **Acciones** ||
 | ------- | ------ |
@@ -128,12 +128,14 @@ Puede administrar bases de datos ClearDB MySQL
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Colaborador
-Los colaboradores pueden administrar todo el contenido, excepto el acceso
+Puede administrar todo el contenido, excepto el acceso
 
 | **Acciones** ||
 | ------- | ------ |
 | * | Crear y administrar recursos de todos los tipos |
-| ****Sin acciones |  |
+
+| **No acciones** | |
+| ------- | ------ |
 | Microsoft.Authorization/*/Write | No puede crear roles ni asignaciones de roles |
 | Microsoft.Authorization/*/Delete | No puede eliminar roles ni asignaciones de roles |
 
@@ -151,7 +153,7 @@ Puede administrar las factorías de datos
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Usuario del laboratorio de desarrollo y pruebas
-Puede ver todo el contenido y conectar, iniciar, reiniciar y apagar las máquinas virtuales
+Puede ver todo el contenido así como conectar, iniciar, reiniciar y apagar las máquinas virtuales
 
 | **Acciones** ||
 | ------- | ------ |
@@ -301,7 +303,9 @@ Puede administrar bases de datos SQL, pero no las directivas relacionadas con la
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+
 | **No acciones** | |
+| ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | No puede editar las directivas de auditoría |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | No puede editar las directivas de conexión |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | No puede editar las directivas de enmascaramiento |
@@ -341,7 +345,9 @@ Puede administrar las bases de datos y los servidores SQL, pero no las directiva
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Crear y administrar implementaciones de grupos de recursos de suscripciones |
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+
 | **No acciones** | |
+| ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | No puede editar las directivas de auditoría de SQL Server |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | No puede editar las directivas de auditoría de bases de datos de SQL Server |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | No puede editar las directivas de conexión de bases de datos de SQL Server |
@@ -381,7 +387,7 @@ Puede administrar el acceso de usuarios a los recursos de Azure
 
 | **Acciones** ||
 | ------- | ------ |
-| */read | Leer recursos de todos los tipos, excepto secretos. |
+| */read | Leer recursos de todos los tipos, excepto secretos. | 
 | Microsoft.Authorization/* | Leer autorización |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
@@ -483,4 +489,4 @@ Puede administrar sitios web, pero no los planes web a los que están conectados
 ## Temas de RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

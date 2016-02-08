@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="01/21/2016"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Creación de un directorio de Azure AD B2C
@@ -26,7 +26,8 @@ Para empezar a usar Azure Active Directory (AD) B2C, siga los 3 pasos que se des
 
 Si ya tiene una suscripción de Azure, vaya al paso siguiente. Si no es así, regístrese para [una suscripción de Azure](sign-up-organization.md) y obtenga acceso a Azure AD B2C.
 
-> [AZURE.NOTE]La vista previa de Azure AD B2C es actualmente de uso gratuito pero limitado (hasta 50 000 usuarios por directorio). Se necesita una suscripción de Azure para tener acceso al [Portal de Azure clásico](http://manage.windowsazure.com/).
+> [AZURE.NOTE]
+La vista previa de Azure AD B2C es actualmente de uso gratuito pero limitado (hasta 50 000 usuarios por directorio). Se necesita una suscripción de Azure para tener acceso al [Portal de Azure clásico](http://manage.windowsazure.com/).
 
 ## Paso 2: Crear un inquilino de Azure AD B2C
 
@@ -45,7 +46,8 @@ Use los pasos siguientes para crear un nuevo inquilino de Azure AD B2C. Actualme
 
 6. El inquilino se crea y aparecerá en la extensión de Active Directory. También se crea un administrador global del inquilino. Puede agregar otros administradores globales según sea necesario.
 
-    > [AZURE.IMPORTANT]La creación del inquilino puede tardar en completarse hasta dos minutos. Si se encuentra con problemas durante la creación del inquilino, vea este [artículo](active-directory-b2c-support-create-directory.md) para obtener instrucciones.
+    > [AZURE.IMPORTANT]
+    La creación del inquilino puede tardar en completarse hasta dos minutos. Si se encuentra con problemas durante la creación del inquilino, vea este [artículo](active-directory-b2c-support-create-directory.md) para obtener instrucciones.
 
 ## Paso 3: Ir a la hoja Características B2C en el Portal de Azure
 
@@ -58,16 +60,18 @@ Use los pasos siguientes para crear un nuevo inquilino de Azure AD B2C. Actualme
 
 4. El Portal de Azure con la hoja de características B2C se abrirá en una nueva pestaña o ventana del explorador.
 
-    > [AZURE.IMPORTANT]Hay un problema conocido por el que esta página no se carga correctamente (para un número reducido de inquilinos). Al actualizar el explorador se debería corregir. En caso contrario, póngase en contacto con el equipo de soporte técnico.
+    > [AZURE.IMPORTANT]
+    Hay un problema conocido por el que esta página no se carga correctamente (para un número reducido de inquilinos). Al actualizar el explorador se debería corregir. En caso contrario, póngase en contacto con el equipo de soporte técnico.
 
 5. Ancle esta hoja (vea la esquina superior derecha) al panel de inicio para que pueda acceder a ella fácilmente.
 
     ![Hoja de características B2C](./media/active-directory-b2c-get-started/b2c-features-blade.png)
 
-    > [AZURE.NOTE]Puede administrar usuarios y grupos, la configuración del autoservicio de restablecimiento de contraseña y las características de personalización de marca corporativa de su inquilino en el [Portal de Azure clásico](https://manage.windowsazure.com/).
+    > [AZURE.NOTE]
+    Puede administrar usuarios y grupos, la configuración del autoservicio de restablecimiento de contraseña y las características de personalización de marca corporativa de su inquilino en el [Portal de Azure clásico](https://manage.windowsazure.com/).
 
 ## Pasos siguientes
 
 Para continuar, [registre una aplicación con Azure AD B2C y cree una aplicación de inicio rápido](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

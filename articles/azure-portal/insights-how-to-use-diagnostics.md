@@ -18,13 +18,13 @@
 
 # Habilitación de supervisión y diagnóstico
 
-En el [Portal Azure](http://portal.azure.com), puede configurar datos exhaustivos y frecuentes de supervisión y diagnóstico sobre sus recursos. También puede usar la [API de REST](https://msdn.microsoft.com/library/azure/dn931932.aspx) o el [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) para configurar diagnósticos mediante programación.
+En el [Portal Azure](https://portal.azure.com), puede configurar datos exhaustivos y frecuentes de supervisión y diagnóstico sobre sus recursos. También puede usar la [API de REST](https://msdn.microsoft.com/library/azure/dn931932.aspx) o el [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) para configurar diagnósticos mediante programación.
 
 Los datos de diagnóstico, supervisión y métrica de Azure se guardan en una cuenta de almacenamiento de su elección. Esto le permite usar las herramientas que quiera, desde un explorador de almacenamiento, pasando por Power BI hasta herramientas de terceros, para leer los datos.
 
 ## Cuando se crea un recurso
 
-La mayoría de los servicios le permiten habilitar el diagnóstico cuando los crea por primera vez en el [Portal Azure](http://portal.azure.com).
+La mayoría de los servicios le permiten habilitar el diagnóstico cuando los crea por primera vez en el [Portal Azure](https://portal.azure.com).
 
 1. Vaya a **Nuevo** y elija el recurso que le interesa. 
 
@@ -71,4 +71,4 @@ Tenga en cuenta que actualmente no se admiten algunas distribuciones de Linux y 
 * [Realice el seguimiento del estado del servicio](insights-service-health.md) para averiguar cuándo ha sufrido Azure interrupciones del servicio o degradación del rendimiento. 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

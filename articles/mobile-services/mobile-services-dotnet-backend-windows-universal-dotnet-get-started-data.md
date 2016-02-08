@@ -39,7 +39,7 @@ El servicio móvil que creará en este tutorial es un servicio móvil backend de
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
+* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> (Update 3 o una versión posterior).
 
 ##Descarga del proyecto GetStartedWithData
@@ -104,7 +104,7 @@ Este tutorial muestra los aspectos básicos de la habilitación de un proyecto d
 * [Introducción a las notificaciones de inserción]
   <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
-* [Referencia conceptual de Servicios móviles con C#](mobile-services-windows-dotnet-how-to-use-client-library.md)
+* [Referencia conceptual de Servicios móviles con C#](mobile-services-windows-dotnet-how-to-use-client-library.md) 
   <br/>Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
 
@@ -120,12 +120,10 @@ Este tutorial muestra los aspectos básicos de la habilitación de un proyecto d
 [Introducción a las notificaciones de inserción]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
 [Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
-[Introducción a la sincronización de datos sin conexión]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
-[sitio de ejemplos de código para desarrolladores]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!---HONumber=AcomDC_1203_2015-->
-
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/21/2016"
 	ms.author="wesmc"/>
 
 # Control de conflictos de escritura de bases de datos
@@ -125,7 +125,7 @@ En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemen
 			public string Version { set; get; }
 		}
 
-	> [AZURE.NOTE]Cuando use tablas sin tipo, habilite la simultaneidad optimista agregando la marca de versión en las SystemProperties de la tabla.
+	> [AZURE.NOTE] Cuando use tablas sin tipo, habilite la simultaneidad optimista agregando la marca de versión en las SystemProperties de la tabla.
 	>
 	>`````
 	//Enable optimistic concurrency by retrieving __version
@@ -369,4 +369,4 @@ Este tutorial le ha mostrado cómo habilitar la aplicación de Tienda Windows pa
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [propiedades del sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Servicios de dominio de Azure AD *(vista previa)*: introducción
@@ -23,7 +23,7 @@ Este artículo le guía por los pasos de configuración necesarios para habilita
 ## Paso 1: Creación del grupo 'Administradores de DC de AAD'
 El primer paso es crear un grupo administrativo en el inquilino de Azure Active Directory. Este grupo administrativo especial se llama **Administradores de DC de AAD**. A los miembros de este grupo se les concederán privilegios administrativos en las máquinas unidas a un dominio para el dominio de los Servicios de dominio de Azure AD que va a configurar. Después de unirse a un dominio, este grupo se agregará al grupo 'Administradores' en estas máquinas unidas a un dominio. Además, los miembros de este grupo también podrá usar Escritorio remoto para conectarse de forma remota a las máquinas unidas a un dominio.
 
-> [AZURE.NOTE]No podrá tener privilegios de administrador de dominio o administrador de empresa dentro del dominio creado mediante los Servicios de dominio de Azure AD. Puesto que se trata de un dominio administrado, estos privilegios están reservados por el servicio y no están disponibles para los usuarios del inquilino. Sin embargo, podrá usar este grupo especial de administradores creado en este paso de configuración para realizar algunas operaciones con privilegios, como unir máquinas al dominio, crear pertenencia al grupo Administradores en las máquinas unidas a un dominio, configurar la directiva de grupo, etc.
+> [AZURE.NOTE] No podrá tener privilegios de administrador de dominio o administrador de empresa dentro del dominio creado mediante los Servicios de dominio de Azure AD. Puesto que se trata de un dominio administrado, estos privilegios están reservados por el servicio y no están disponibles para los usuarios del inquilino. Sin embargo, podrá usar este grupo especial de administradores creado en este paso de configuración para realizar algunas operaciones con privilegios, como unir máquinas al dominio, crear pertenencia al grupo Administradores en las máquinas unidas a un dominio, configurar la directiva de grupo, etc.
 
 En este paso de configuración creará el grupo y agregará uno o más usuarios del inquilino al grupo. Realice los pasos siguientes para crear el grupo administrativo para los Servicios de dominio de Azure AD:
 
@@ -37,7 +37,7 @@ En este paso de configuración creará el grupo y agregará uno o más usuarios 
 5. Haga clic en **Agregar grupo** en el panel de tareas de la parte inferior de la página, para agregar un grupo a su directorio.
 6. Cree un grupo denominado **Administradores de DC de AAD**.
 
-    > [AZURE.WARNING]Debe crear un grupo con este nombre exacto para permitir el acceso dentro de los Servicios de dominio de Azure AD.
+    > [AZURE.WARNING] Debe crear un grupo con este nombre exacto para permitir el acceso dentro de los Servicios de dominio de Azure AD.
 
 	![Creación del grupo de administradores](./media/active-directory-domain-services-getting-started/create-admin-group.png)
 
@@ -50,4 +50,4 @@ En este paso de configuración creará el grupo y agregará uno o más usuarios 
 ---
 [**Paso siguiente: Creación o selección de una red virtual de Azure.**](active-directory-ds-getting-started-vnet.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

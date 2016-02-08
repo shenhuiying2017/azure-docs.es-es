@@ -18,7 +18,7 @@
 
 # Ver, editar y crear procedimientos almacenados, desencadenadores y funciones definidas por el usuario mediante el Explorador de scripts de DocumentDB
 
-En este artículo se ofrece información general sobre el Explorador de scripts de [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), una herramienta del Portal de Azure que le permite ver los artefactos de programación del lado servidor de DocumentDB, incluidos procedimientos almacenados, desencadenadores y funciones definidas por el usuario. Obtenga más información sobre la programación del lado servidor de DocumentDB [aquí](documentdb-programming.md).
+En este artículo se ofrece información general sobre el Explorador de scripts de [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), una herramienta del Portal de Azure que le permite ver los artefactos de programación del lado servidor de DocumentDB, incluidos procedimientos almacenados, desencadenadores y funciones definidas por el usuario. Obtenga más información sobre la programación del lado servidor de DocumentDB [aquí](documentdb-programming.md).
 
 Después de completar este tutorial, podrá responder a las preguntas siguientes:
 
@@ -56,7 +56,7 @@ El Explorador de scripts se puede iniciar desde cualquier hoja, colección, base
 	![Captura de pantalla del Explorador de scripts con los resultados filtrados](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
 
-	> [AZURE.IMPORTANT]La funcionalidad de filtro del Explorador de scripts solo filtra desde el conjunto de documentos cargado ***actualmente*** y no actualiza la colección seleccionada actualmente.
+	> [AZURE.IMPORTANT] La funcionalidad de filtro del Explorador de scripts solo filtra desde el conjunto de documentos cargado ***actualmente*** y no actualiza la colección seleccionada actualmente.
 
 5. Para actualizar la lista de scripts cargados en el Explorador de scripts, simplemente haga clic en el comando **Actualizar** de la parte superior de la hoja.
 
@@ -91,7 +91,7 @@ El Explorador de scripts le permite llevar a cabo con facilidad operaciones de C
 
 	![Captura de pantalla de la vista de propiedades de script del Explorador de scripts](./media/documentdb-view-scripts/scriptproperties.png)
 
-	> [AZURE.NOTE]La propiedad de marca de tiempo (\_ts) se representa internamente como tiempo de época, pero el Explorador de scripts muestra el valor en formato GMT en lenguaje natural.
+	> [AZURE.NOTE] La propiedad de marca de tiempo (\_ts) se representa internamente como tiempo de época, pero el Explorador de scripts muestra el valor en formato GMT en lenguaje natural.
 
 - Para eliminar un script, selecciónelo en el Explorador de scripts y haga clic en el comando **Eliminar**.
 
@@ -106,4 +106,4 @@ El Explorador de scripts le permite llevar a cabo con facilidad operaciones de C
 Para obtener más información sobre DocumentDB, haga clic [aquí](http://azure.com/docdb).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

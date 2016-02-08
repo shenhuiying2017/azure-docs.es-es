@@ -8,7 +8,14 @@
    editor=""
    keywords="solución de copia de seguridad; servicio de copia de seguridad"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="01/26/2016"
+	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # P+F de servicio de Copia de seguridad de Azure
 A continuación se muestra una lista de las preguntas más frecuentes acerca de la Copia de seguridad de Azure. Si tiene alguna pregunta adicional sobre la solución Copia de seguridad de Azure, vaya al [foro de discusión](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) y publique sus preguntas. Alguien de nuestra comunidad le ayudará a obtener respuestas. Si una pregunta es frecuente, se agregará a este artículo para que se pueda encontrar de forma rápida y sencilla.
@@ -41,7 +48,7 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 
 **P6. ¿Debo considerar el almacén como una entidad de facturación?** <br/> R6. Aunque es posible obtener una factura detallada de cada almacén, es muy recomendable que considere una suscripción de Azure como entidad de facturación. Es coherente en todos los servicios y es más fácil de administrar.
 
-**P7. ¿Hay algún límite en el número de servidores o máquinas que se puede registrar en cada almacén?** <br/> R7. Sí, puede registrar hasta 50 máquinas por almacén. Para las máquinas virtuales de IaaS de Azure, el límite es de 100 máquinas virtuales por almacén. Si necesita registrar más máquinas, cree un nuevo almacén.
+**P7. ¿Hay algún límite en el número de servidores o máquinas que se puede registrar en cada almacén?** <br/> R7. Sí, puede registrar hasta 50 máquinas por almacén. Para las máquinas virtuales de IaaS de Azure, el límite es de 200 máquinas virtuales por almacén. Si necesita registrar más máquinas, cree un nuevo almacén.
 
 **P8. ¿Hay algún límite en la cantidad de datos de los que se puede hacer una copia de seguridad desde un servidor o cliente de Windows o un servidor de SCDPM?** <br/> R8. Nº
 
@@ -176,4 +183,4 @@ El tamaño de origen de datos se mide según se menciona a continuación
 
 Una vez que las copias de seguridad se realizan correctamente con la nueva ubicación de caché, puede quitar la carpeta de la memoria caché original.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

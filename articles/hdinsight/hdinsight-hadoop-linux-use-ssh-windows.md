@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/16/2015"
+   ms.date="01/22/2016"
    ms.author="larryfr"/>
 
 #Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows
@@ -25,7 +25,7 @@
 
 [Shell seguro (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) permite realizar operaciones de forma remota en los clústeres de HDInsight basado en Linux con una interfaz de línea de comandos. Este documento proporciona información sobre cómo conectarse a HDInsight desde clientes Windows usando el cliente SSH PuTTY.
 
-> [AZURE.NOTE]Los pasos que aparecen en este artículo suponen que está usando un cliente Windows. Si usa un cliente Linux, Unix u OS X, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+> [AZURE.NOTE] Los pasos que aparecen en este artículo suponen que está usando un cliente Windows. Si usa un cliente Linux, Unix u OS X, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ##Requisitos previos
 
@@ -73,15 +73,15 @@ Use la siguiente información si planea usar claves SSH con el clúster. Si pien
 
 	![frase de contraseña](./media/hdinsight-hadoop-linux-use-ssh-windows/key.png)
 
-	> [AZURE.NOTE]Recomendamos encarecidamente que use una frase de contraseña segura para la clave. Sin embargo, si se le olvida la frase de contraseña, no hay forma de recuperarla.
+	> [AZURE.NOTE] Recomendamos encarecidamente que use una frase de contraseña segura para la clave. Sin embargo, si se le olvida la frase de contraseña, no hay forma de recuperarla.
 
 5. Haga clic en **Save private key** (Guardar clave privada) para guardar la clave en un archivo **.ppk**. Esta clave se usará para autenticarse en el clúster de HDInsight basado en Linux.
 
-	> [AZURE.NOTE]Debe almacenar esta clave en una ubicación segura, puesto que se puede usar para tener acceso a su clúster de HDInsight basado en Linux.
+	> [AZURE.NOTE] Debe almacenar esta clave en una ubicación segura, puesto que se puede usar para tener acceso a su clúster de HDInsight basado en Linux.
 
 6. Haga clic en **Save public key** (Guardar clave pública) para guardar la clave como archivo **.txt**. Esto le permitirá volver a usar la clave pública cuando cree clústeres adicionales de HDInsight basado en Linux.
 
-	> [AZURE.NOTE]La clave pública también aparece en la parte superior de PuTTYGen. Puede hacer clic con el botón secundario en este campo, copiar el valor y, a continuación, pegarlo en un formulario al crear un clúster mediante el Portal de Azure.
+	> [AZURE.NOTE] La clave pública también aparece en la parte superior de PuTTYGen. Puede hacer clic con el botón secundario en este campo, copiar el valor y, a continuación, pegarlo en un formulario al crear un clúster mediante el Portal de Azure.
 
 ##Creación de un clúster de HDInsight basado en Linux
 
@@ -107,7 +107,7 @@ Esta acción crea un inicio de sesión para el usuario especificado y le permite
 
 Puede utilizar [CLI de Azure para Mac, Linux y Windows](../xplat-cli-install.md) con el fin de crear un clúster nuevo con el comando `azure hdinsight cluster create`.
 
-Para más información sobre el uso de este comando, vea [Aprovisionamiento de clústeres Hadoop Linux en HDInsight con opciones personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
+Para obtener más información acerca del uso de este comando, consulte [Aprovisionamiento de clústeres de Hadoop Linux en HDInsight con opciones personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
 
 ##Conexión a un clúster de HDInsight basado en Linux
 
@@ -129,11 +129,11 @@ Para más información sobre el uso de este comando, vea [Aprovisionamiento de c
 
 5. Haga clic en **Open** (Abrir) para conectarse al clúster.
 
-	> [AZURE.NOTE]Si es la primera vez que se conecta al clúster, recibirá una alerta de seguridad. Esto es normal. Seleccione **Yes** (Sí) para almacenar en caché la clave RSA2 del servidor para continuar.
+	> [AZURE.NOTE] Si es la primera vez que se conecta al clúster, recibirá una alerta de seguridad. Esto es normal. Seleccione **Yes** (Sí) para almacenar en caché la clave RSA2 del servidor para continuar.
 
 6. Cuando se le solicite, escriba el usuario que ingresó cuando creó el clúster. Si proporcionó una contraseña para el usuario, también se le pedirá escribirla.
 
-> [AZURE.NOTE]En los pasos anteriores se da por hecho que está usando el puerto 22, que se conectará al nodo principal 0 en el clúster de HDInsight. Si usa el puerto 23, se conectará al nodo principal 1. Para más información sobre los nodos principales, vea [Disponibilidad y confiabilidad de clústeres de Hadoop en HDInsight](hdinsight-high-availability-linux.md).
+> [AZURE.NOTE] En los pasos anteriores se da por hecho que está usando el puerto 22, que se conectará al nodo principal 0 en el clúster de HDInsight. Si usa el puerto 23, se conectará al nodo principal 1. Para más información sobre los nodos principales, vea [Disponibilidad y confiabilidad de clústeres de Hadoop en HDInsight](hdinsight-high-availability-linux.md).
 
 ###Conexión a los nodos de trabajo
 
@@ -149,7 +149,7 @@ Si proporcionó una clave SSH cuando creó la cuenta de usuario, debe realizar l
 
 3. Cuando aparezca el cuadro de diálogo para examinar, seleccione el archivo .ppk que contiene la clave y, a continuación, haga clic en **Open** (Abrir). Con esto la clave se agrega a Pageant, que la proporcionará a PuTTY cuando se conecte al clúster.
 
-    > [AZURE.IMPORTANT]Si usa una clave SSH para proteger la cuenta, deberá completar los pasos anteriores para poder conectarse a los nodos de trabajo.
+    > [AZURE.IMPORTANT] Si usa una clave SSH para proteger la cuenta, deberá completar los pasos anteriores para poder conectarse a los nodos de trabajo.
 
 4. Abra PuTTY.
 
@@ -175,7 +175,7 @@ Si proporcionó una clave SSH cuando creó la cuenta de usuario, debe realizar l
 
     Reemplace *USERNAME* por el nombre de usuario SSH y *FQDN* por el FQDN del nodo de trabajo. Por ejemplo, `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`.
 
-    > [AZURE.NOTE]Si usa una contraseña para realizar la autenticación de la sesión SSH, se le pedirá que la escriba nuevamente. Si usa una clave SSH, la conexión debiera finalizar sin que deba realizar ninguna acción.
+    > [AZURE.NOTE] Si usa una contraseña para realizar la autenticación de la sesión SSH, se le pedirá que la escriba nuevamente. Si usa una clave SSH, la conexión debiera finalizar sin que deba realizar ninguna acción.
 
 9. Una vez establecida la sesión, el símbolo del sistema de la sesión de PuTTY cambiará de `username@hn0-clustername` a `username@wn0-clustername` para indicar que está conectado al nodo de trabajo. Los comandos que ejecute en este punto se ejecutarán en el nodo de trabajo.
 
@@ -213,7 +213,7 @@ Si necesita agregar más cuentas al clúster, siga estos pasos:
 
 SSH se puede usar para tunelizar las solicitudes locales, como solicitudes web, al clúster de HDInsight. La solicitud se enrutará al recurso solicitado como si se hubiese originado en el nodo principal del clúster de HDInsight.
 
-> [AZURE.IMPORTANT]El túnel SSH es un requisito para acceder a la interfaz de usuario web de algunos servicios de Hadoop. Por ejemplo, solo se puede acceder a la interfaz de usuario del historial de trabajos o la interfaz de usuario del administrador de recursos usando un túnel SSH.
+> [AZURE.IMPORTANT] El túnel SSH es un requisito para acceder a la interfaz de usuario web de algunos servicios de Hadoop. Por ejemplo, solo se puede acceder a la interfaz de usuario del historial de trabajos o la interfaz de usuario del administrador de recursos usando un túnel SSH.
 
 Para más información sobre la creación y el uso de un túnel SSH, vea [Uso de la tunelización de SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
 
@@ -229,4 +229,4 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

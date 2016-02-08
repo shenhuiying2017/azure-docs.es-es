@@ -86,11 +86,11 @@ Para usar el servicio BLOB con Hudson, necesitará instalar el complemento de al
 2. En la página **Administrar Hudson**, haga clic en **Configurar sistema**.
 3. En la sección **Microsoft Azure Storage Account Configuration** (Configuración de la cuenta de almacenamiento de Microsoft Azure):
 
-    a. Escriba el nombre de la cuenta de almacenamiento, que puede obtener en el [Portal de Azure](portal.azure.com).
+    a. Escriba el nombre de la cuenta de almacenamiento, que puede obtener en el [Portal de Azure](https://portal.azure.com).
 
-    b. Escriba la clave de la cuenta de almacenamiento, que también puede obtener en el [Portal de Azure](portal.azure.com).
+    b. Escriba la clave de la cuenta de almacenamiento, que también puede obtener en el [Portal de Azure](https://portal.azure.com).
 
-    c. Use el valor predeterminado para **Blob Service Endpoint URL** (Dirección URL del extremo de servicio BLOB) si usa la nube pública de Azure. Si usa una nube de Azure distinta, use el punto de conexión tal y como se especifica en el [Portal de Azure](portal.azure.com) para la cuenta de almacenamiento.
+    c. Use el valor predeterminado para **Blob Service Endpoint URL** (Dirección URL del extremo de servicio BLOB) si usa la nube pública de Azure. Si usa una nube de Azure distinta, use el punto de conexión tal y como se especifica en el [Portal de Azure](https://portal.azure.com) para la cuenta de almacenamiento.
 
     d. Haga clic en **Validate storage credentials** (Validar credenciales de almacenamiento) para validar la cuenta de almacenamiento.
 
@@ -129,7 +129,7 @@ Con el fin de facilitar instrucciones, primero necesitaremos crear un trabajo qu
 13. En el panel de Hudson, haga clic en **Build Now** (Compilar ahora) para ejecutar **MyJob**. Examine el resultado de la consola para consultar el estado. Los mensajes de estado sobre el almacenamiento de Azure se incluirán en los resultados de la consola cuando la acción posterior a la compilación comience a cargar los artefactos de compilación.
 14. Tras completar el trabajo satisfactoriamente, abra el blob público si desea examinar los artefactos de compilación.
 
-    a. Inicie sesión en el [Portal de Azure](portal.azure.com).
+    a. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
     b. Haga clic en **Storage** (Almacenamiento).
 
@@ -166,7 +166,7 @@ A continuación se ofrece información general acerca de los componentes del ser
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
 
-    (El formato anterior se aplica a la nube pública de Azure. Si usa una nube de Azure distinta, use el punto de conexión en el [Portal de Azure](portal.azure.com) para determinar el punto de conexión de la URL).
+    (El formato anterior se aplica a la nube pública de Azure. Si usa una nube de Azure distinta, use el punto de conexión en el [Portal de Azure](https://portal.azure.com) para determinar el punto de conexión de la URL).
 
     En el formato anterior, `storageaccount` representa el nombre de la cuenta de almacenamiento, `container_name` representa el nombre del contenedor y `blob_name` representa el nombre del blob. En el nombre del contenedor, puede tener varias rutas de acceso, separadas por una barra diagonal, **/**. El nombre de contenedor utilizado como ejemplo para este tutorial es **MyJob** y **${BUILD\\_ID}/${BUILD\\_NUMBER}** se ha usado para la ruta de acceso virtual común; como resultado, la URL del blob presenta el siguiente formato:
 
@@ -177,4 +177,4 @@ A continuación se ofrece información general acerca de los componentes del ser
   [Creación de una cuenta de almacenamiento]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Meet Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

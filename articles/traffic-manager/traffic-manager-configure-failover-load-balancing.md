@@ -32,7 +32,7 @@ Tenga en cuenta que Sitios web de Azure ya proporciona la funcionalidad del mét
 7. Compruebe que la **Configuración de supervisión** sea correcta. La supervisión garantiza que no se envíe tráfico a los extremos sin conexión. Para supervisar los extremos, debe especificar una ruta de acceso y un nombre de archivo. Tenga en cuenta que una barra diagonal “/“ es una entrada válida para la ruta de acceso relativa e implica que el archivo se encuentra en el directorio raíz (valor predeterminado). Para obtener más información acerca de la supervisión, consulte [Supervisión del Administrador de tráfico](traffic-manager-monitoring.md).
 8. Una vez que haya terminado de cambiar la configuración, haga clic en **Guardar** en la parte inferior de la página.
 9. Pruebe los cambios de la configuración. Consulte [Comprobar la configuración del Administrador de tráfico](traffic-manager-testing-settings.md) para obtener más información.
-10. Una vez que el perfil del Administrador de tráfico se haya configurado y esté en funcionamiento, edite el registro DNS en el servidor DNS relevante para redireccionar el nombre de dominio de la empresa al nombre de dominio del Administrador de tráfico. Para obtener más información acerca de este procedimiento, consulte [Seleccionar un dominio de la compañía en Internet para un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md).
+10. Una vez que el perfil del Administrador de tráfico se haya configurado y esté en funcionamiento, edite el registro DNS en el servidor DNS relevante para redireccionar el nombre de dominio de la empresa al nombre de dominio del Administrador de tráfico. Para obtener más información acerca del procedimiento, consulte [Seleccionar un dominio de la compañía en Internet para un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md).
 
 ## Pasos siguientes
 
@@ -53,4 +53,4 @@ Tenga en cuenta que Sitios web de Azure ya proporciona la funcionalidad del mét
 [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

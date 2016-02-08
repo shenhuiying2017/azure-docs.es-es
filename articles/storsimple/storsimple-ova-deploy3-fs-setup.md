@@ -169,7 +169,7 @@ Ahora se actualizará la configuración. Después de actualizar la configuració
  ![](./media/storsimple-ova-deploy3-fs-setup/image17.png)
 
 
-> [AZURE.NOTE]
+> [AZURE.NOTE]                                                              
 >
 > Puede modificar la configuración restante del dispositivo en cualquier momento accediendo a la página **Configurar**.
 
@@ -231,4 +231,4 @@ Mire el vídeo para ver cómo puede configurar y registrar una matriz virtual de
 
 Obtenga más información acerca de usar la interfaz de usuario web local para [administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

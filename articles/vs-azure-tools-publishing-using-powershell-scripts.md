@@ -351,4 +351,4 @@ Para obtener ayuda para las funciones que puede usar en el símbolo del sistema 
 
 Obtenga más información sobre el scripting de PowerShell leyendo [Scripting con Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) y vea otros scripts de Azure PowerShell en el [Centro de scripts](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

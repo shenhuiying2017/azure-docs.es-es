@@ -1,19 +1,30 @@
 
 <properties
 	pageTitle="Restauración de una copia de seguridad de una máquina virtual | Microsoft Azure"
-	description="Información sobre cómo restaurar una máquina virtual de Azure"
+	description="Información sobre cómo restaurar una máquina virtual de Azure desde un punto de recuperación"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
-	editor=""/>
+	editor=""
+	keywords="restaurar copias de seguridad; cómo restaurar; punto de recuperación;"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="trinadhk"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/22/2016"
+	ms.author="trinadhk; jimpark;"/>
+
 
 # Restauración de máquinas virtuales en Azure
-Puede restaurar una máquina virtual en una nueva máquina virtual desde las copias de seguridad almacenadas en el almacén de copia de seguridad de Azure mediante la acción de restauración.
+
+Restaure una máquina virtual en una nueva máquina virtual desde las copias de seguridad almacenadas en el almacén de Copia de seguridad de Azure; para ello, siga estos pasos.
 
 ## Restauración del flujo de trabajo
+
 ### 1\. Selección de un elemento para restaurar
 
 1. Navegue hasta la pestaña **Elementos protegidos** y seleccione la máquina virtual que desea restaurar en una máquina virtual nueva.
@@ -97,7 +108,7 @@ Si tiene un entorno de varios controladores de dominio, estos tienen su propia m
 
 El problema surge porque el modo DSRM no está presente en Azure. Así que para restaurar dicha VM, no puede usar el Portal de Azure. El único mecanismo de restauración admitido es la restauración basada en disco mediante PowerShell.
 
->[AZURE.WARNING]En el caso de máquinas virtuales de controlador de dominio en un entorno de varios controladores de dominio, no use el Portal de Azure para la restauración. Solo admite la restauración basada en PowerShell.
+>[AZURE.WARNING] En el caso de máquinas virtuales de controlador de dominio en un entorno de varios controladores de dominio, no use el Portal de Azure para la restauración. Solo admite la restauración basada en PowerShell.
 
 Obtenga más información sobre el [problema de reversión de USN](https://technet.microsoft.com/library/dd363553) y las estrategias sugeridas para corregirlo.
 
@@ -110,7 +121,7 @@ Copia de seguridad de Azure es compatible con copia de seguridad para las siguie
 
 Estas configuraciones exigen las siguientes consideraciones al restaurarlas.
 
->[AZURE.TIP]Use el flujo de restauración basado en PowerShell para volver a crear la configuración de red especial posterior a la restauración de máquinas virtuales.
+>[AZURE.TIP] Use el flujo de restauración basado en PowerShell para volver a crear la configuración de red especial posterior a la restauración de máquinas virtuales.
 
 ### Restauración a partir de la interfaz de usuario:
 Al restaurar desde la interfaz de usuario, **elija siempre un nuevo servicio en la nube**. Tenga en cuenta que, puesto que portal solo acepta parámetros obligatorios durante el flujo de restauración, las máquinas virtuales restauradas con la interfaz de usuario perderán la configuración de red especial que posean. En otras palabras, las máquinas virtuales restauradas serán máquinas virtuales normales sin configuración de equilibrador de carga ni de varias NIC o varias IP reservadas.
@@ -124,13 +135,13 @@ Con el fin de volver a crear por completo los discos de máquina virtual posteri
 
 2. Cree la configuración de máquina virtual necesaria para el equilibrador de carga/varias NIC/varias IP reservadas mediante los cmdlets de PowerShell y úsela para crear la máquina virtual de la configuración que quiera.
 	- Creación de una máquina virtual en el servicio en la nube con el [equilibrador de carga interno ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
-	- Creación de una máquina virtual para conectarse al [equilibrador de carga accesible desde Internet](https://azure.microsoft.com/es-ES/documentation/articles/load-balancer-internet-getstarted)
-	- Creación de una máquina virtual con [varias NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics)
+	- Creación de una máquina virtual para conectarse al [equilibrador de carga accesible desde Internet](https://azure.microsoft.com/es-ES/documentation/articles/load-balancer-internet-getstarted/)
+	- Creación de una máquina virtual con [varias NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
 	- Creación de una máquina virtual con [varias direcciones IP reservadas](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
-  
+
 
 ## Pasos siguientes
 - [Solución de errores](backup-azure-vms-troubleshoot.md#restore)
 - [Administración de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,46 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="07/13/2015"
+   ms.date="01/13/2016"
    ms.author="heidist"/>
 
 # Pruebe Búsqueda de Azure de forma gratuita con Servicio de aplicaciones de Azure
 
-[Servicio de aplicaciones de Azure](https://tryappservice.azure.com/) es una manera nueva y totalmente gratuita de probar determinados servicios de Azure, incluido Búsqueda de Azure, durante una hora sin necesidad de registrar una suscripción de Azure.
+[Pruebe el Servicio de aplicaciones de Azure](https://tryappservice.azure.com/) es una sesión basada en navegador gratuita de una hora de duración para probar los servicios de Azure, incluido **Búsqueda de Azure**, sin que sea necesaria ninguna suscripción. El sitio ofrece varias plantillas para elegir. Al seleccionar la plantilla ASP.NET que incluye Búsqueda de Azure, obtendrá acceso a un sitio web completamente funcional, respaldado por los servicios que seleccionó.
 
-El sitio ofrece varias plantillas para elegir. Al seleccionar la plantilla ASP.NET que incluye Búsqueda de Azure, obtendrá una hora de acceso a un sitio web completamente funcional, respaldado por los servicios que seleccionó. No podrá actualizar ni eliminar los datos administrados por Búsqueda de Azure, pero puede ejecutar consultas y realizar todos los cambios que quiera en el código para dar forma a la experiencia del usuario. Si la sesión expira antes de que termine de explorar, siempre puede comenzar otra sesión, o pasar a una suscripción completa o de prueba si su objetivo es crear o cargar un índice directamente.
+Como parte de la oferta de [Pruebe el Servicio de aplicaciones de Azure](https://tryappservice.azure.com/), el servicio Búsqueda de Azure ya se ha creado y está listo para recibir consultas de búsqueda. No puede cargar o usar su propio índice o sus propios datos, pero puede ejecutar consultas y realizar un número de cambios de código que vuelvan a dar forma a la experiencia del usuario.
 
-En el sitio [Servicio de aplicaciones de Azure](https://tryappservice.azure.com/), Búsqueda de Azure forma parte de la plantilla de aplicación web, que ofrece una experiencia enriquecida de búsqueda de texto completo, además de una gran cantidad de características centradas en la búsqueda, que solo están disponibles en este servicio en la plataforma Azure.
-
-Aunque otros servicios de Azure, como Base de datos SQL, ofrecen búsqueda de texto completo, un servicio como Búsqueda de Azure ofrece control sobre los ajustes, paginación y recuentos, resaltado de referencias, sugerencias para autocompletar consultas, compatibilidad con lenguaje natural, navegación por facetas, filtrado y mucho más. Como muestran algunos de nuestros [ejemplos](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=search), es posible desarrollar una aplicación basada en búsqueda completa usando solo Búsqueda de Azure y ASP.NET.
-
-Como parte de la oferta de [Servicio de aplicaciones de Azure](https://tryappservice.azure.com/), el servicio Búsqueda de Azure que se va a utilizar ya se ha creado y está listo para recibir consultas de búsqueda. No podrá cargar ni usar sus propios datos o índice. Los datos con los que trabajará proceden de [United States Geological Survey (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), que consta de 3 millones de filas con puntos de referencia, sitios históricos, edificios y otros puntos de referencia en Estados Unidos.
-
-Para ayudarle a sacar el máximo partido de la sesión de una hora, las instrucciones siguientes le guiarán a través de consultas y el código.
-
-Antes de continuar, quizás quiera dedicar unos minutos a revisar algunos de los puntos clave sobre el código, el servicio y los datos que se pueden buscar. Tener cierta información básica puede resultar útil si aún no está familiarizado con Búsqueda de Azure.
-
-## Hechos sobre el código y Búsqueda de Azure
-
-Búsqueda de Azure es una plataforma totalmente administrada como un servicio [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) que facilita a los desarrolladores la integración de interesantes experiencias de búsqueda en aplicaciones web y móviles. Los datos usados en las operaciones de búsqueda se almacenan con el servicio de búsqueda en Azure, donde la proximidad de los datos a las operaciones garantiza una baja latencia y comportamientos de búsqueda coherentes. Veamos esto con un poco más de detalle:
-
-- Los datos, en los que se pueden efectuar búsquedas, se almacenan en un índice administrado por Búsqueda de Azure.
-- El esquema que define el índice está definido por el usuario y especificará los campos de búsqueda, los campos que no son de búsqueda que podrían ser útiles en una expresión de filtro y construcciones como perfiles de puntuación para la optimización de resultados.
-- Un índice de búsqueda contiene uno o varios documentos que son similares a una fila de una tabla. Es posible recuperarlos y realizar búsquedas en ellos.
-- La mayoría de los índices se cargan desde un único conjunto de datos, preparado de antemano por el usuario, que incluye solo los campos que son útiles en el contexto de las operaciones de búsqueda. 
-- Un indizador puede cargar los datos automáticamente (solo se admite para Base de datos SQL de Azure o DocumentDB de Azure) o una de las API de búsqueda de Azure puede insertarlos en un índice de búsqueda. Cuando se usa la API, puede insertar los datos de cualquier origen de datos, siempre que tenga el formato JSON.
-
-En la opción [Servicio de aplicaciones de Azure](https://tryappservice.azure.com/), la plantilla "ASP.NET + Azure Search Site" proporciona código fuente para la aplicación web, que se puede modificar en Visual Studio Team Services (disponible como parte de la sesión de una hora). No se necesitan herramientas de desarrollo independientes para ver o cambiar el código.
-
-El código se escribe en C#, usando la [biblioteca de cliente .NET de Búsqueda de Azure](https://msdn.microsoft.com/library/dn951165.aspx) para ejecutar las consultas en el índice, proporcionar navegación por facetas y mostrar recuentos y resultados de búsqueda en una página web.
-
-Para generar y cargar el índice de búsqueda de USG se usó otro código, que no se incluye en la plantilla. Como el servicio es de solo lectura, todas las operaciones que requieren acceso de escritura deben completarse de antemano. Al final de este artículo, verá una [copia del esquema](#schema) usado para generar el esquema.
+Los datos de búsqueda proceden de [United States Geological Survey (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), que consta de 3 millones de filas con puntos de referencia, sitios históricos, edificios y otros puntos de referencia en Estados Unidos.
 
 ## Primeros pasos
 
 Si aún no ha iniciado la sesión de 1 hora, siga estos pasos para comenzar.
 
-1. Vaya a [https://tryappservice.azure.com](https://tryappservice.azure.com/) y desplácese hacia abajo para seleccionar **Aplicación web**. 
+1. Vaya a [https://tryappservice.azure.com](https://tryappservice.azure.com/) y desplácese hacia abajo para seleccionar **Web App**. 
 2. Haga clic en **Siguiente**.
 3. Elija la plantilla **ASP.NET + Azure Search Site**.
 
@@ -95,12 +71,12 @@ Como el índice de búsqueda es totalmente operativo, un primer paso adecuado es
 
 ## Cambiar searchMode.All
 
-Búsqueda de Azure tiene una propiedad **searchMode** configurable que se puede usar para controlar el comportamiento del operador de búsqueda. Los valores válidos de esta propiedad son `Any` (valor predeterminado) o `All`. Consulte [Sintaxis de consulta simple](https://msdn.microsoft.com/library/dn798920.aspx) para obtener instrucciones sobre cómo configurar estas opciones.
+Búsqueda de Azure tiene una propiedad **searchMode** configurable que se puede usar para controlar el comportamiento del operador de búsqueda. Los valores válidos de esta propiedad son `Any` (valor predeterminado) o `All`. Consulte [Sintaxis de consulta simple](https://msdn.microsoft.com/library/dn798920.aspx) para obtener instrucciones para configurar estas opciones.
 
 - **searchMode.Any** estipula que cualquier coincidencia en un término de búsqueda es suficiente para incluir un elemento en los resultados de búsqueda. Si la frase de búsqueda es `Yellowstone visitor center`, cualquier documento que contenga uno de estos términos se incluirá en los resultados de búsqueda. Este modo está orientado hacia la *recuperación*.
 - **searchModel.All**, que se usa en este ejemplo, requiere que todos los términos especificados estén presentes en el documento. Este modo es más estricto que **searchMode.Any**, pero si su prioridad es la *precisión* frente a la recuperación, probablemente es la elección correcta para su aplicación. 
 
-> [AZURE.NOTE]**searchMode.Any** funciona mejor cuando la construcción de la consulta se compone principalmente de frases, con un uso mínimo de operadores. Por regla general, los usuarios que buscan en aplicaciones de consumo, como sitios de comercio electrónico, tienden a usar términos precisos, mientras que las personas que buscan en contenido o datos, es más probable que incluyan operadores en la frase de búsqueda. Si cree que las búsquedas incluirán probablemente operadores, especialmente el operador `NOT (-)`, comience con **searchModel.All**. Por el contrario, la otra opción **searchMode.Any** aplicará `OR` al operador `NOT` con otros términos de búsqueda, lo que puede ampliar drásticamente los resultados en lugar de reducirlos. El ejemplo siguiente puede ayudarlo a entender la diferencia.
+> [AZURE.NOTE] **searchMode.Any** funciona mejor cuando la construcción de la consulta se compone principalmente de frases, con un uso mínimo de operadores. Por regla general, los usuarios que buscan en aplicaciones de consumo, como sitios de comercio electrónico, tienden a usar términos precisos, mientras que las personas que buscan en contenido o datos, es más probable que incluyan operadores en la frase de búsqueda. Si cree que las búsquedas incluirán probablemente operadores, especialmente el operador `NOT (-)`, comience con **searchModel.All**. Por el contrario, la otra opción **searchMode.Any** aplicará `OR` al operador `NOT` con otros términos de búsqueda, lo que puede ampliar drásticamente los resultados en lugar de reducirlos. El ejemplo siguiente puede ayudarlo a entender la diferencia.
 
 En esta tarea, cambiará el valor de **searchMode** y comparará los resultados de búsqueda según el modo.
 
@@ -173,7 +149,7 @@ Al ejecutar este ejemplo de código, las entradas de términos de búsqueda que 
 
 Quizás quiera guardar una copia del archivo **Search.cshtml** original para comparar ambas versiones.
 
-> [AZURE.NOTE]Los comentarios se han truncado para reducir el tamaño del archivo.
+> [AZURE.NOTE] Los comentarios se han truncado para reducir el tamaño del archivo.
  
     @using System.Collections.Specialized
     @using System.Configuration
@@ -307,18 +283,37 @@ Quizás quiera guardar una copia del archivo **Search.cshtml** original para com
     }
     }
 
+## ¿Por qué elegir Búsqueda de Azure?
+
+Aunque otros servicios de Azure, como Base de datos SQL, ofrecen búsqueda de texto completo, un servicio como Búsqueda de Azure ofrece control sobre los ajustes, paginación y recuentos, resaltado de referencias, sugerencias para autocompletar consultas, compatibilidad con lenguaje natural, navegación por facetas, filtrado y mucho más. Como muestran algunos de nuestros [ejemplos](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=search), es posible desarrollar una aplicación basada en búsqueda completa usando solo Búsqueda de Azure y ASP.NET.
 
 ## Pasos siguientes
 
 Usando el servicio de solo lectura proporcionado en el sitio de [prueba del Servicio de aplicaciones de Azure](https://tryappservice.azure.com/), pudo ver la sintaxis de consulta y la búsqueda de texto completo en acción, obtuvo información sobre searchMode y los filtros, y agregó resaltado de referencias a la aplicación de búsqueda. En el siguiente paso, considere la posibilidad de crear y actualizar índices. Esto agrega la capacidad de:
 
 - [Definir perfiles de puntuación](https://msdn.microsoft.com/library/dn798928.aspx), que se usan para ajustar las puntuaciones de búsqueda y mostrar en primer lugar los elementos de mayor valor.
-- [Definir sugerencias](https://msdn.microsoft.com/library/mt131377.aspx), que agregan sugerencias de consulta autocompletando o anticipando la escritura de la entrada del usuario.
+- [Definir sugerencias](https://msdn.microsoft.com/library/mt131377.aspx) que agregan sugerencias de consulta autocompletando o anticipando la escritura de la entrada del usuario.
 - [Definir indexadores](https://msdn.microsoft.com/library/dn946891.aspx), que actualizan el índice automáticamente cuando el origen de datos es Base de datos SQL de Azure o DocumentDB de Azure.
 
-Para llevar a cabo todas estas tareas, necesitará una suscripción de Azure para poder crear y rellenar los índices de un servicio. Para obtener más información acerca de cómo suscribirse para una evaluación gratuita, visite [https://azure.microsoft.com/pricing/free-trial](https://azure.microsoft.com/pricing/free-trial/).
+Para llevar a cabo todas estas tareas, necesitará una suscripción de Azure para poder crear y rellenar los índices de un servicio. Para obtener más información acerca de cómo suscribirse para una prueba gratuita, visite [https://azure.microsoft.com/pricing/free-trial](https://azure.microsoft.com/pricing/free-trial/).
 
-Para obtener más información sobre Búsqueda de Azure, visite nuestra [página de documentación](http://azure.microsoft.com/documentation/services/search/) en [http://azure.microsoft.com](http://azure.microsoft.com) o vea los [ejemplos y vídeos](search-video-demo-tutorial-list.md) sobre la gama completa de funciones de Azure.
+Para obtener más información acerca de Búsqueda de Azure, visite nuestra [página de documentación](https://azure.microsoft.com/documentation/services/search/) en [http://azure.microsoft.com](https://azure.microsoft.com/) o consulte los [ejemplos y vídeos](search-video-demo-tutorial-list.md) que exploran la funcionalidad completa de Búsqueda de Azure.
+
+## Hechos sobre el código y Búsqueda de Azure
+
+Búsqueda de Azure es una plataforma totalmente administrada como un servicio [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) que facilita a los desarrolladores la integración de interesantes experiencias de búsqueda en aplicaciones web y móviles. Los datos usados en las operaciones de búsqueda se almacenan con el servicio de búsqueda en Azure, donde la proximidad de los datos a las operaciones garantiza una baja latencia y comportamientos de búsqueda coherentes. Veamos esto con un poco más de detalle:
+
+- Los datos, en los que se pueden efectuar búsquedas, se almacenan en un índice administrado por Búsqueda de Azure.
+- El esquema que define el índice está definido por el usuario y especificará los campos de búsqueda, los campos que no son de búsqueda que podrían ser útiles en una expresión de filtro y construcciones como perfiles de puntuación para la optimización de resultados.
+- Un índice de búsqueda contiene uno o varios documentos que son similares a una fila de una tabla. Es posible recuperarlos y realizar búsquedas en ellos.
+- La mayoría de los índices se cargan desde un único conjunto de datos, preparado de antemano por el usuario, que incluye solo los campos que son útiles en el contexto de las operaciones de búsqueda. 
+- Un indizador puede cargar los datos automáticamente (solo se admite para Base de datos SQL de Azure o DocumentDB de Azure) o una de las API de búsqueda de Azure puede insertarlos en un índice de búsqueda. Cuando se usa la API, puede insertar los datos de cualquier origen de datos, siempre que tenga el formato JSON.
+
+En la opción [Servicio de aplicaciones de Azure](https://tryappservice.azure.com/), la plantilla "ASP.NET + Azure Search Site" proporciona código fuente para la aplicación web, que se puede modificar en Visual Studio Team Services (disponible como parte de la sesión de una hora). No se necesitan herramientas de desarrollo independientes para ver o cambiar el código.
+
+El código se escribe en C#, usando la [biblioteca de cliente .NET de Búsqueda de Azure](https://msdn.microsoft.com/library/dn951165.aspx) para ejecutar las consultas en el índice, proporcionar navegación por facetas y mostrar recuentos y resultados de búsqueda en una página web.
+
+Para generar y cargar el índice de búsqueda de USG se usó otro código, que no se incluye en la plantilla. Como el servicio es de solo lectura, todas las operaciones que requieren acceso de escritura deben completarse de antemano. Al final de este artículo, verá una [copia del esquema](#schema) usado para generar el esquema.
 
 <a name="Schema"></a>
 ## Acerca del esquema
@@ -528,4 +523,4 @@ La siguiente captura de pantalla muestra el esquema usado para crear el índice 
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

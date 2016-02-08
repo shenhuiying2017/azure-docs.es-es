@@ -28,7 +28,7 @@ En este artículo se describen diferentes maneras de etiquetar una máquina virt
 
 En primer lugar, veamos el etiquetado a través de plantillas. [Esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) coloca etiquetas en los siguientes recursos: proceso (máquina virtual), almacenamiento (cuenta de almacenamiento) y red (dirección IP pública, red virtual e interfaz de red).
 
-Haga clic en el botón **Implementar en Azure** del [vínculo de la plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Esto le remitirá al [Portal de Azure](http://portal.azure.com/), donde puede implementar esta plantilla.
+Haga clic en el botón **Implementar en Azure** del [vínculo de la plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Esto le remitirá al [Portal de Azure](https://portal.azure.com/), donde puede implementar esta plantilla.
 
 ![Implementación sencilla con etiquetas](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
@@ -141,7 +141,7 @@ El etiquetado también es compatible con los recursos creados a través de la CL
 
         azure vm show -g MyResourceGroup -n MyVM
 
-A diferencia de PowerShell, si va a agregar etiquetas a un recurso que ya contiene etiquetas, no necesitará especificar todas las etiquetas (antiguas y nuevas) antes de usar el comando `azure vm set`. En su lugar, este comando permite anexar una etiqueta al recurso. Para agregar una nueva etiqueta de máquina virtual a través de la CLI de Azure, puede usar el comando `azure vm set` junto con el parámetro de etiqueta **-t**:
+A diferencia de PowerShell, si va a agregar etiquetas a un recurso que ya contiene etiquetas, no necesitará especificar todas las etiquetas (antiguas y nuevas) antes de utilizar el comando `azure vm set`. En su lugar, este comando permite anexar una etiqueta al recurso. Para agregar una nueva etiqueta de máquina virtual a través de la CLI de Azure, puede usar el comando `azure vm set` junto con el parámetro de etiqueta **-t**:
 
         azure vm set -g MyResourceGroup -n MyVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
@@ -190,4 +190,4 @@ Mediante el análisis de estas junto con el uso, las organizaciones podrán obte
 [Comprender la factura de Azure]: ../billing-understand-your-bill.md
 [Obtención de información sobre el consumo de recursos de Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

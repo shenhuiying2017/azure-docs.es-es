@@ -33,9 +33,9 @@ Este tema explica cómo la implementación de eventos extendidos en Base de dato
 *XEvents* es un sobrenombre informal que a veces se usa para los eventos extendidos en blogs y otras referencias informales.
 
 
-> [AZURE.NOTE]A partir de octubre de 2015, la característica de sesión de eventos extendidos está activada en Base de datos SQL de Azure en el nivel de vista previa. Aún no se ha establecido una fecha de disponibilidad general (GA).
+> [AZURE.NOTE] A partir de octubre de 2015, la característica de sesión de eventos extendidos está activada en Base de datos SQL de Azure en el nivel de vista previa. Aún no se ha establecido una fecha de disponibilidad general (GA).
 > 
-> Cuando hay un anuncio de GA, la página de Azure [Actualizaciones del servicio](http://azure.microsoft.com/updates/?service=sql-database) lo publica .
+> Cuando hay un anuncio de GA, la página de Azure [Actualizaciones del servicio](https://azure.microsoft.com/updates/?service=sql-database) lo publica .
 
 
 ## Requisitos previos
@@ -44,7 +44,7 @@ Este tema explica cómo la implementación de eventos extendidos en Base de dato
 En este tema asume que ya tiene algunos conocimientos sobre:
 
 
-- [Servicio Base de datos SQL de Azure](http://azure.microsoft.com/services/sql-database/).
+- [Servicio Base de datos SQL de Azure](https://azure.microsoft.com/services/sql-database/).
 
 
 - [Eventos extendidos](http://msdn.microsoft.com/library/bb630282.aspx) en Microsoft SQL Server.
@@ -54,7 +54,7 @@ En este tema asume que ya tiene algunos conocimientos sobre:
 Exposición anterior a los elementos siguientes es útil cuando se elige el archivo de eventos como [destino](#AzureXEventsTargets):
 
 
-- [Servicio Almacenamiento de Azure](http://azure.microsoft.com/services/storage/)
+- [Servicio Almacenamiento de Azure](https://azure.microsoft.com/services/storage/)
 
 
 - PowerShell
@@ -252,7 +252,7 @@ El destino del **archivo de eventos** puede experimentar latencia de red o error
 - [Uso del almacenamiento de blobs de .NET](storage-dotnet-how-to-use-blobs.md)
 
 
-- [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx).
+- [ CREATE CREDENTIAL (Transact-SQL).](http://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
 
 
@@ -269,4 +269,4 @@ Otros temas de ejemplo de código para eventos extendidos están disponibles en 
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -306,10 +306,10 @@ En esta sección llevará a cabo los pasos para crear una entidad de servicio pa
   
 - Para información general sobre el control de acceso basado en roles, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).  
 - Para obtener información sobre cómo usar el portal con entidades de seguridad de servicio, consulte [Creación de una entidad de servicio de Azure mediante el Portal de Azure](./resource-group-create-service-principal-portal.md).  
-- Para obtener instrucciones sobre cómo implementar la seguridad con el Administrador de recursos de Azure, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
+- Para obtener instrucciones sobre cómo implementar la seguridad con el Administrador de recursos de Azure, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md)
 
 
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

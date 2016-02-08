@@ -27,7 +27,7 @@ Actualmente el complemento funciona para proyectos Maven y proyectos web dinámi
 Necesitará:
 
 * Oracle JRE 1.6 o posterior
-* Una suscripción a [Microsoft Azure](http://azure.microsoft.com/). (Puede empezar con la [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/)).
+* Una suscripción a [Microsoft Azure](https://azure.microsoft.com/). (Puede empezar con la [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)).
 * [Eclipse IDE para Java EE Developers](http://www.eclipse.org/downloads/), Indigo o superior.
 * Windows 7 o posterior, o Windows Server 2008 o posterior
 
@@ -260,4 +260,4 @@ Puede insertar código en el JavaScript de la página web y en Java del servidor
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

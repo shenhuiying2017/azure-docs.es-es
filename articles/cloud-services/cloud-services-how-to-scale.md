@@ -36,7 +36,7 @@ Debe considerar la siguiente información antes de configurar el escalado para s
 
 - Puede escalar los recursos que están vinculados con su servicio en la nube. Para obtener más información acerca de los recursos de vinculación, consulte [Vinculación de un recurso a un servicio en la nube](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 
-- Para permitir una alta disponibilidad de la aplicación, debe asegurarse de que se implemente con dos o más instancias de rol o máquinas virtuales. Para obtener más información, consulte [Contratos de nivel de servicio](http://azure.microsoft.com/support/legal/sla/).
+- Para permitir una alta disponibilidad de la aplicación, debe asegurarse de que se implemente con dos o más instancias de rol o máquinas virtuales. Para obtener más información, consulte [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
 
 
 ## Escalado manual de una aplicación que ejecuta roles web o roles de trabajo
@@ -227,4 +227,4 @@ Puede programar el escalado automático de su aplicación al configurar programa
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

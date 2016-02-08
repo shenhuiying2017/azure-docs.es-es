@@ -28,11 +28,11 @@ Este artículo le guiará por los pasos necesarios para crear y administrar la c
 
 ## Requisitos previos de configuración
 
-- Necesitará la versión más reciente de los cmdlets de Azure PowerShell. Puede descargar el módulo de PowerShell más reciente desde la sección de PowerShell en la [página de descargas de Azure](http://azure.microsoft.com/downloads). Siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para obtener una orientación paso a paso sobre cómo configurar el equipo para usar los módulos de Azure PowerShell. 
+- Necesitará la versión más reciente de los cmdlets de Azure PowerShell. Puede descargar el módulo de PowerShell más reciente desde la sección de PowerShell en la [página de descargas de Azure](https://azure.microsoft.com/downloads/). Siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para obtener una orientación paso a paso sobre cómo configurar el equipo para usar los módulos de Azure PowerShell. 
 - Asegúrese de que ha revisado la página de [requisitos previos](expressroute-prerequisites.md), la de [requisitos de enrutamiento](expressroute-routing.md) y la página de [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
 - Tiene que tener un circuito ExpressRoute activo. Siga las instrucciones para [crear un circuito ExpressRoute](expressroute-howto-circuit-classic.md) y habilite el circuito mediante el proveedor de conectividad antes de continuar. El circuito ExpressRoute debe estar en un estado habilitado y aprovisionado para poder ejecutar los cmdlets que se describen a continuación.
 
->[AZURE.IMPORTANT]Estas instrucciones se aplican solo a circuitos creados con proveedores de servicios que ofrece servicios de conectividad de capa 2. Si usa un proveedor de servicios que ofrece servicios administrados de nivel 3 (normalmente IPVPN, como MPLS), el mismo proveedor de conectividad configurará y administrará el enrutamiento. En estos casos no podrá crear ni administrar las configuraciones entre pares.
+>[AZURE.IMPORTANT] Estas instrucciones se aplican solo a circuitos creados con proveedores de servicios que ofrece servicios de conectividad de capa 2. Si usa un proveedor de servicios que ofrece servicios administrados de nivel 3 (normalmente IPVPN, como MPLS), el mismo proveedor de conectividad configurará y administrará el enrutamiento. En estos casos no podrá crear ni administrar las configuraciones entre pares.
 
 Puede configurar una, dos o las tres configuraciones entre pares (Azure privado, Azure público y Microsoft) para un circuito ExpressRoute. Puede establecer las configuraciones entre pares en cualquier orden. Pero tiene que asegurarse de que completa cada configuración entre pares de una en una.
 
@@ -92,7 +92,7 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
 
 		New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
 
-	>[AZURE.IMPORTANT]Asegúrese de especificar su número AS como ASN de configuración entre pares, no como cliente ASN.
+	>[AZURE.IMPORTANT] Asegúrese de especificar su número AS como ASN de configuración entre pares, no como cliente ASN.
 
 ### Obtención de detalles del emparejamiento privado de Azure
 
@@ -124,7 +124,7 @@ Puede actualizar cualquier parte de la configuración mediante el siguiente cmdl
 
 Puede quitar el establecimiento de configuración entre pares ejecutando el siguiente cmdlet.
 
->[AZURE.WARNING]Tiene que asegurarse de que todas las redes virtuales se desvinculan del circuito ExpressRoute antes de ejecutar este cmdlet.
+>[AZURE.WARNING] Tiene que asegurarse de que todas las redes virtuales se desvinculan del circuito ExpressRoute antes de ejecutar este cmdlet.
 
 	Remove-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
 
@@ -186,7 +186,7 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
 
 		New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
 
-	>[AZURE.IMPORTANT]Asegúrese de especificar su número AS como ASN de configuración entre pares y no como cliente ASN.
+	>[AZURE.IMPORTANT] Asegúrese de especificar su número AS como ASN de configuración entre pares y no como cliente ASN.
 
 ### Obtención de detalles del emparejamiento público de Azure
 
@@ -318,4 +318,4 @@ A continuación, [Vinculación de una red virtual a un circuito ExpressRoute](ex
 -  Para obtener más información sobre los flujos de trabajo, consulte [Flujos de trabajo de ExpressRoute](expressroute-workflows.md).
 -  Para más información sobre el emparejamiento de circuitos, vea [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

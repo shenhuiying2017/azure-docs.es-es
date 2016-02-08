@@ -105,7 +105,7 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 
 ## Creación de una aplicación Java que realiza una tarea de proceso intensivo
 
-1. En nuestro equipo de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para Java](http://azure.microsoft.com/develop/java/).
+1. En nuestro equipo de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para Java](https://azure.microsoft.com/develop/java/).
 2. Cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. En este tutorial, utilizaremos **TSPSolver.java** como nombre de archivo de Java. Modifique los marcadores de posición **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** y **your\_service\_bus\_key** para usar los valores **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada**, respectivamente.
 3. Después de la codificación, exporte la aplicación a un archivo Java (JAR) ejecutable y empaquete las bibliotecas requeridas en el JAR generado. En este tutorial, utilizaremos **TSPSolver.jar** como el nombre JAR generado.
 
@@ -484,7 +484,8 @@ Ejecute la aplicación de proceso intensivo, cree primero la cola y después res
 
  Si no especifica un número, se ejecutará en 10 ciudades. Cuando el solucionador encuentra las rutas más cortas actuales, las agregará a la cola.
 
-> [AZURE.NOTE]Cuanto mayor sea el número que especifique, más tiempo se ejecutará el solucionador. Por ejemplo, si la ejecución en 14 ciudades puede tardar varios minutos, la ejecución en 15 ciudades podría tardar varias horas. Si se aumenta a 16 o más ciudades, la ejecución podría tardar varios días (posiblemente semanas, meses y años). Esto se debe al rápido aumento del número de permutaciones evaluadas por el solucionador a medida que aumenta el número de ciudades.
+> [AZURE.NOTE]
+Cuanto mayor sea el número que especifique, más tiempo se ejecutará el solucionador. Por ejemplo, si la ejecución en 14 ciudades puede tardar varios minutos, la ejecución en 15 ciudades podría tardar varias horas. Si se aumenta a 16 o más ciudades, la ejecución podría tardar varios días (posiblemente semanas, meses y años). Esto se debe al rápido aumento del número de permutaciones evaluadas por el solucionador a medida que aumenta el número de ciudades.
 
 ### Ejecución de la supervisión de la aplicación cliente
 1. Inicie sesión en el equipo donde se va a ejecutar la aplicación cliente. No tiene que ser el mismo que ejecuta la aplicación **TSPSolver**, aunque podría serlo.
@@ -520,4 +521,4 @@ En ambas aplicaciones, el solucionador y el cliente, presione **Ctrl+C** para sa
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

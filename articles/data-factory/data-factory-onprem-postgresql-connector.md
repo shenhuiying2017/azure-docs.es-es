@@ -30,6 +30,8 @@ Factoría de datos solo admite mover datos desde PostgreSQL a otros almacenes de
 
 Para que Data Management Gateway se conecte a la Base de datos PostgreSQL, es preciso instalar el [proveedor de datos Ngpsql para PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) en el mismo sistema que Data Management Gateway.
 
+> [AZURE.NOTE] Vea [Solución de problemas de puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre solución de problemas de conexión o puerta de enlace.
+
 ## Ejemplo: copia de datos de PostgreSQL a un blob de Azure
 
 El ejemplo siguiente muestra:
@@ -306,4 +308,4 @@ text | | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

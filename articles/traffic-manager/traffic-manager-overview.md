@@ -61,12 +61,12 @@ La *ilustración 2* muestra por orden los pasos que son necesarios para implemen
    - **Crear el perfil de Administrador de tráfico**: para crear un perfil mediante Creación rápida en el Portal de Azure clásico, vea [Administrar perfiles de Administrador de tráfico](traffic-manager-manage-profiles.md).
    - **Configurar los valores del método de enrutamiento del tráfico**: en Creación rápida, debe seleccionar el método de enrutamiento del tráfico para el perfil. Esta configuración puede cambiarse en cualquier momento después de completar los pasos de Creación rápida. Para los pasos de configuración, consulte el tema que corresponde a su método de enrutamiento del tráfico: [Configuración del método de enrutamiento del tráfico de rendimiento](traffic-manager-configure-performance-load-balancing.md), [Configuración del método de enrutamiento del tráfico de conmutación por error](traffic-manager-configure-failover-load-balancing.md), [Método de enrutamiento del tráfico Round Robin](traffic-manager-configure-round-robin-load-balancing.md).
    
-   >[AZURE.NOTE]El método de enrutamiento del tráfico de Round Robin admite una distribución ponderada del tráfico de red. Sin embargo, en este momento debe usar las API de REST o Windows PowerShell para configurar la ponderación. Para obtener más información y un ejemplo de configuración, consulte [Extremos externos del Administrador de tráfico de Azure y Round Robin ponderado mediante PowerShell](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) en el blog de Azure.
+   >[AZURE.NOTE] El método de enrutamiento del tráfico de Round Robin admite una distribución ponderada del tráfico de red. Sin embargo, en este momento debe usar las API de REST o Windows PowerShell para configurar la ponderación. Para obtener más información y un ejemplo de configuración, consulte [Extremos externos del Administrador de tráfico de Azure y Round Robin ponderado mediante PowerShell](https://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) en el blog de Azure.
 
    - **Configurar extremos**: los extremos no se configuran durante la Creación rápida. Después de crear el perfil y especificar el método de enrutamiento del tráfico, tiene que informar al Administrador de tráfico sobre los extremos. Para obtener los pasos para configurar los extremos, consulte [Administrar extremos en el Administrador de tráfico](traffic-manager-endpoints.md)
 
    - **Configurar opciones de supervisión**: las opciones de supervisión no se configuran durante la Creación rápida. Después de crear el perfil y especificar el método de enrutamiento del tráfico, tiene que informar al Administrador de tráfico sobre lo que debe supervisar. Para obtener los pasos para configurar la supervisión, consulte [Supervisión del Administrador de tráfico](traffic-manager-monitoring.md).
-6. **Probar el perfil del Administrador de tráfico**. Compruebe que el perfil y el dominio funcionan según lo esperado. Para obtener información sobre cómo llevar a cabo esto, consulte [Pruebas de configuración del Administrador de tráfico](traffic-manager-testing-settings.md).
+6. **Probar el perfil de Administrador de tráfico**. Compruebe que el perfil y el dominio funcionan según lo esperado. Para obtener información sobre cómo llevar a cabo esto, consulte [Pruebas de configuración del Administrador de tráfico](traffic-manager-testing-settings.md).
 7. **Hacer que el registro de recursos DNS del nombre de dominio de la compañía apunte al perfil para activarlo**. Para obtener más información, consulte [Seleccionar un dominio de Internet de la compañía para un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md).
 
 Si toma el ejemplo de la ilustración 1 como referencia, podrá cambiar el registro de recursos DNS de sus servidores de la manera siguiente para que el nombre de dominio de la compañía indique el nombre de dominio del Administrador de tráfico: www.contoso.com IN CNAME contoso.trafficmanager.net
@@ -79,7 +79,7 @@ Aunque en el Portal de Azure clásico no se ve cada elemento de la API de REST, 
 
 Para obtener más información sobre los cmdlets de Windows PowerShell para el Administrador de tráfico, consulte [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769).
 
->[AZURE.NOTE]Actualmente no es posible configurar puntos de conexión externos (tipo = 'Any'), ponderaciones para el método de enrutamiento de tráfico Round Robin y perfiles anidados, ya que no son compatibles con el Portal de Azure clásico. Debe usar REST (consulte [Crear definición](http://go.microsoft.com/fwlink/p/?LinkId=400772)) o Windows PowerShell (consulte [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx)).
+>[AZURE.NOTE] Actualmente no es posible configurar puntos de conexión externos (tipo = 'Any'), ponderaciones para el método de enrutamiento de tráfico Round Robin y perfiles anidados, ya que no son compatibles con el Portal de Azure clásico. Debe usar REST (consulte [Crear definición](http://go.microsoft.com/fwlink/p/?LinkId=400772)) o Windows PowerShell (consulte [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx)).
 
 ### Configuración de opciones en el Portal de Azure clásico
 
@@ -152,7 +152,7 @@ La *ilustración 4* muestra la configuración.
 
 **Ilustración 4**
 
-En la *ilustración 4*, el perfil del Administrador de tráfico del nivel superior es un perfil principal y los perfiles del Administrador de tráfico del nivel medio son perfiles secundarios.
+En la *ilustración 4*, el perfil de Administrador de tráfico del nivel superior es un perfil principal y los perfiles de Administrador de tráfico del nivel medio son perfiles secundarios.
 
 Si el Administrador de tráfico dirige usuarios a un perfil secundario que tiene un pequeño número de extremos correctos, es posible dichos extremos se sobrecarguen y causen problemas de rendimiento. Para evitar esta situación, puede configurar el perfil del Administrador de tráfico principal con un umbral de extremos correctos que determine si cualquiera de los extremos en los perfiles secundarios de ese elemento principal puede recibir tráfico. Por ejemplo, si desea asegurarse de que hay al menos tres extremos correctos en los perfiles secundarios, establecería este valor de umbral en tres. En el ejemplo de la figura 4, configuraría el perfil del Administrador de tráfico de nivel superior con este umbral.
 
@@ -172,4 +172,4 @@ Si desea incluir las ilustraciones de este tema como diapositivas de PowerPoint 
 
 [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

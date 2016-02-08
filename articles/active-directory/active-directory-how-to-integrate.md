@@ -48,7 +48,7 @@ Hay varias maneras de integrar la aplicación con Azure AD. Aprovechar muchos o 
 
 ### Promueva su aplicación en los catálogos de soluciones Azure y Office 365
 
-**Promueva la aplicación en millones de organizaciones que ya están utilizando Azure AD.** Los usuarios que buscan y examinan estos catálogos de soluciones ya están usando uno o más servicios en la nube, lo que los convierte en clientes de servicio en la nube cualificados. Más información acerca de la promoción de la aplicación en [Azure Marketplace](http://azure.microsoft.com/marketplace/partner-program/).
+**Promueva la aplicación en millones de organizaciones que ya están utilizando Azure AD.** Los usuarios que buscan y examinan estos catálogos de soluciones ya están usando uno o más servicios en la nube, lo que los convierte en clientes de servicio en la nube cualificados. Más información acerca de la promoción de la aplicación en [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
 **Cuando los usuarios registrar la aplicación, aparecerá en el panel de acceso de Azure AD y en el iniciador de aplicaciones de Office 365.** Los usuarios podrán volver de forma rápida y sencilla a la aplicación más tarde y mejorar la afiliación del usuario. Obtenga más información acerca del [panel de acceso de Azure AD](active-directory-saas-access-panel-introduction.md).
 
@@ -68,7 +68,7 @@ La integración con Azure AD conlleva beneficios que no requieren que escriba c�
 
 ### Características de seguridad avanzadas
 
-**Multi-factor authentication.** Azure AD proporciona Multi-factor Authentication nativa. Los administradores de TI pueden requerir Multi-factor Authentication para tener acceso a la aplicación, por lo que no tiene que codificar este soporte técnico usted mismo. Obtenga más información sobre [Multi-Factor Authentication](http://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+**Multi-factor authentication.** Azure AD proporciona Multi-factor Authentication nativa. Los administradores de TI pueden requerir Multi-factor Authentication para tener acceso a la aplicación, por lo que no tiene que codificar este soporte técnico usted mismo. Obtenga más información sobre [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
 **Detección de inicio de sesión erróneo.** Azure AD procesa más de mil millones de inicios de sesión al día, y además usa algoritmos de aprendizaje automático para detectar actividades sospechosas e informar a los administradores de TI de posibles problemas. Al admitir el inicio de sesión de Azure AD, la aplicación obtiene la ventaja de esta protección. Obtenga más información sobre [visualización del informe de acceso de Azure Active Directory](active-directory-view-access-usage-reports.md).
 
@@ -90,4 +90,4 @@ La integración con Azure AD conlleva beneficios que no requieren que escriba c�
 
 [Inicio de sesión de usuario con Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

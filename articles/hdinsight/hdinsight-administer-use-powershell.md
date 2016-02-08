@@ -29,7 +29,7 @@ Azure PowerShell es un potente entorno de scripting que puede usar para controla
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
-- **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ##Instalar Azure PowerShell 1.0 y versiones posteriores
 
@@ -164,7 +164,7 @@ Use el comando siguiente para eliminar un clúster:
 ##Escalado de clústeres
 La característica de escalado de clústeres permite cambiar la cantidad de nodos de trabajo que usa un clúster que se ejecuta en HDInsight de Azure sin necesidad de volver a crear el clúster.
 
->[AZURE.NOTE]Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades. Consulte [Familiarizarse con la interfaz del portal del clúster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
+>[AZURE.NOTE] Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades. Consulte [Familiarizarse con la interfaz del portal del clúster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
 
 A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de datos de cada tipo de clúster compatible con HDInsight:
 
@@ -241,7 +241,7 @@ Para conceder:
 	
 	Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
 
->[AZURE.NOTE]Al conceder/revocar el acceso, restablecerá el nombre de usuario y la contraseña del clúster.
+>[AZURE.NOTE] Al conceder/revocar el acceso, restablecerá el nombre de usuario y la contraseña del clúster.
 
 Esto también se puede hacer a través del Portal. Vea [Administración de HDInsight mediante el Portal de Azure][hdinsight-admin-portal].
 
@@ -332,4 +332,4 @@ Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

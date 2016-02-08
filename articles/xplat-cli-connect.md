@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="12/29/2015"
 	ms.author="danlep"/>
 
 # Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)
@@ -35,7 +35,7 @@ Para obtener más información acerca de la administración de la autenticación
 
 En caso de no tener ninguna cuenta de Azure, puede crear una de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][free-trial].
 
->[AZURE.NOTE]Si está utilizando una versión de la CLI de Azure anterior a 0.9.10, puede utilizar el comando `azure login` solo con las identidades de cuenta profesional o educativa; las identidades de la cuenta Microsoft no funcionan. Sin embargo, puede utilizar cualquier identidad para iniciar sesión en su cuenta con el comando `azure login` interactivo con versiones de la CLI de Azure 0.9.10 y posteriores.
+>[AZURE.NOTE] Si está utilizando una versión de la CLI de Azure anterior a 0.9.10, puede utilizar el comando `azure login` solo con las identidades de cuenta profesional o educativa; las identidades de la cuenta Microsoft no funcionan. Sin embargo, puede utilizar cualquier identidad para iniciar sesión en su cuenta con el comando `azure login` interactivo con versiones de la CLI de Azure 0.9.10 y posteriores.
 >
 Las versiones 0.9.9. y superiores son compatibles con la autenticación multifactor.
 
@@ -48,7 +48,7 @@ Utilice el comando `azure login` --sin argumentos-- para autenticarse interactiv
 - una cuenta profesional o educativa que requiere autenticación multifactor, o
 - una identidad de cuenta Microsoft cuando desea tener acceso a la funcionalidad del modo de implementación del Administrador de recursos
 
-> [AZURE.NOTE]En ambos casos, la autenticación y la autorización se realizan con Azure Active Directory. Si usa una identidad de cuenta de Microsoft, el proceso de inicio de sesión obtiene acceso a su dominio predeterminado de Azure Active Directory. (Si se registró para obtener una prueba gratuita, puede que no sepa que Azure Active Directory creó un dominio predeterminado para su cuenta).
+> [AZURE.NOTE]  En ambos casos, la autenticación y la autorización se realizan con Azure Active Directory. Si usa una identidad de cuenta de Microsoft, el proceso de inicio de sesión obtiene acceso a su dominio predeterminado de Azure Active Directory. (Si se registró para obtener una prueba gratuita, puede que no sepa que Azure Active Directory creó un dominio predeterminado para su cuenta).
 
 Iniciar sesión de forma interactiva es fácil; escriba `azure login` y siga las instrucciones tal como se muestra a continuación:
 
@@ -96,9 +96,9 @@ Si solo necesita usar los comandos clásicos de la CLI (administración de servi
 
 Esto abrirá el explorador predeterminado y le solicitará iniciar sesión en el [Portal de Azure clásico][portal]. Después de iniciar sesión, se descarga un archivo `.publishsettings`. Tome nota de dónde se guarda este archivo.
 
-	> [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
-	>
-	> Once selected using the download page, or by visiting the Azure classic portal, the selected Active Directory becomes the default used by the classic portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
+> [AZURE.NOTE] Si su cuenta está asociada a varios inquilinos de Azure Active Directory, puede que se le pida que seleccione para qué Active Directory desea descargar el archivo de configuración de publicación.
+>
+> Una vez seleccionado usando la página de descarga, o visitando el Portal de Azure clásico, el Active Directory seleccionado se convierte en el predeterminado que usan tanto el portal clásico como la página de descarga. Cuando se haya establecido el predeterminado, verá el texto "__click here to return to the selection page__" en la parte superior de la página de descarga. Utilice el vínculo proporcionado para volver a la página de selección.
 
 * **Para importar el archivo de configuración de publicación**, ejecute el comando siguiente:
 
@@ -123,7 +123,7 @@ En la lista anterior, la columna **Current** indica las suscripciones predetermi
 
 Esto cambia la suscripción predeterminada a Azure-sub-2.
 
-> [AZURE.NOTE]El cambio de la suscripción predeterminada surte efecto de forma inmediata y es global; los nuevos comandos de la CLI de Azure, ya los ejecute desde la misma instancia de línea de comandos o desde una instancia diferente, usan la nueva suscripción predeterminada.
+> [AZURE.NOTE] El cambio de la suscripción predeterminada surte efecto de forma inmediata y es global; los nuevos comandos de la CLI de Azure, ya los ejecute desde la misma instancia de línea de comandos o desde una instancia diferente, usan la nueva suscripción predeterminada.
 
 Si desea usar una suscripción no predeterminada con la CLI de Azure, pero no quiere cambiar la predeterminada actualmente, puede usar la opción `--subscription` para el comando y proporcionar el nombre de la suscripción que desee usar para la operación.
 
@@ -158,4 +158,4 @@ Independientemente de que inicie sesión con una cuenta profesional o educativa 
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

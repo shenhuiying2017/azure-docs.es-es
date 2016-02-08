@@ -41,9 +41,9 @@ Este tutorial cuenta con los siguientes requisitos previos:
 -	Una [cuenta de Microsoft Azure activa](/account/)
 -	Visual Studio 2015 con [SDK de Azure para .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) Si utiliza Visual Studio, los pasos pueden variar.
 
-> [AZURE.NOTE]Necesita una cuenta de Azure para completar este tutorial:
-> + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/?WT.mc_id=A261C142F): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Aplicaciones web. 
-> + Puede [activar los beneficios de suscriptores de MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
+> [AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial: 
++ Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Aplicaciones web. 
++ Puede [activar los beneficios de suscriptores de Visual Studio](/pricing/member-offers/msdn-benefits-details/): su suscripción a Visual Studio le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
 >
 > Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
@@ -82,7 +82,7 @@ En esta sección, implementará la plantilla de aplicación predeterminada ASP.N
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
-	> [AZURE.NOTE]Cuando haya creado el punto de conexión de red CDN, el Portal de Azure clásico mostrará su URL y el dominio de origen con el que está integrado. Sin embargo, puede que pase un tiempo hasta que la configuración del extremo de red CDN se propague a las ubicaciones de todos los nodos de red CDN.
+	> [AZURE.NOTE] Cuando haya creado el punto de conexión de red CDN, el Portal de Azure clásico mostrará su URL y el dominio de origen con el que está integrado. Sin embargo, puede que pase un tiempo hasta que la configuración del extremo de red CDN se propague a las ubicaciones de todos los nodos de red CDN.
 
 3. De vuelta en el Portal de Azure clásico, en la pestaña **CDN**, haga clic en el nombre del punto de conexión de la red de entrega de contenido que acaba de crear.
 
@@ -92,7 +92,7 @@ En esta sección, implementará la plantilla de aplicación predeterminada ASP.N
 
 	![](media/cdn-websites-with-cdn/9-enable-query-string.png)
 
-	>[AZURE.NOTE]Aunque habilitar la cadena de consulta no es necesario en esta sección del tutorial, querrá hacer esto lo antes posible por comodidad dado que cualquier cambio aquí realizado va a tardar en propagarse a todos los nodos de red CDN, y no deseará que el contenido no habilitado para la cadena de consulta colapse la caché de red CDN (la actualización del contenido de red CDN se tratará más adelante).
+	>[AZURE.NOTE] Aunque habilitar la cadena de consulta no es necesario en esta sección del tutorial, querrá hacer esto lo antes posible por comodidad dado que cualquier cambio aquí realizado va a tardar en propagarse a todos los nodos de red CDN, y no deseará que el contenido no habilitado para la cadena de consulta colapse la caché de red CDN (la actualización del contenido de red CDN se tratará más adelante).
 
 2. Ahora, haga clic en la dirección del extremo de la red CDN. Si el extremo está listo, debería ver la aplicación web. Si obtiene un error **HTTP 404**, el extremo de la red CDN no está listo. Puede que sea necesario esperar hasta una hora para que la configuración de la red CDN se propague a todos los nodos perimetrales.
 
@@ -148,7 +148,7 @@ Una vez realizado esto, todos los archivos estáticos de la aplicación web de A
 	  </system.webServer>
 	</configuration>
 
-Esta configuración hace que todos los archivos estáticos de la carpeta *\\Content* se almacenen en la caché durante 15 días.
+Esta configuración hace que todos los archivos estáticos de la carpeta *\Content* se almacenen en la caché durante 15 días.
 
 Para obtener más información sobre cómo configurar el elemento `<clientCache>`, vea [Caché de cliente clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
 
@@ -166,7 +166,7 @@ Tiene una acción `Index` sencilla que permite a los clientes especificar los su
 
 Siga los pasos anteriores para configurar esta acción de controlador:
 
-1. En la carpeta *\\Controllers*, cree un nuevo archivo .cs llamado *MemeGeneratorController.cs* y sustituya el contenido por el siguiente código. Sustituya la ruta de acceso al archivo por `~/Content/chuck.bmp` y el nombre de la red de entrega de contenido por `yourCDNName`.
+1. En la carpeta *\\Controllers*, cree un nuevo archivo .cs llamado *MemeGeneratorController.cs* y sustituya el contenido por el siguiente código. Sustituya la ruta de acceso al archivo por `~/Content/chuck.bmp` y el nombre de la red CDN por `yourCDNName`.
 
 
         using System;
@@ -563,4 +563,4 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

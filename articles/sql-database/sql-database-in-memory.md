@@ -13,8 +13,8 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="12/11/2015"
+	ms.topic="article"
+	ms.date="01/27/2016"
 	ms.author="jodebrui"/>
 
 
@@ -82,7 +82,7 @@ Vista previa:
 [Más adelante en este tema](#preview_considerations_for_in_memory) se describen las consideraciones necesarias mientras las características de In-Memory se encuentren en vista previa.
 
 
-> [AZURE.NOTE]Estas características que se encuentran en la vista previa solo están disponibles para las bases de datos SQL de Azure [*Premium*](sql-database-service-tiers.md), no para las bases de datos en los niveles de servicio Estándar o Básico.
+> [AZURE.NOTE] Estas características que se encuentran en la versión preliminar solo están disponibles para Bases de datos SQL de Azure [*Premium*](sql-database-service-tiers.md), no para las bases de datos en el nivel de servicio Estándar o Básico.
 
 
 
@@ -92,7 +92,7 @@ Vista previa:
 
 ## R: Instalación del ejemplo de In-Memory OLTP.
 
-La base de datos de ejemplo AdventureWorksLT [V12] se puede crear haciendo clic varias veces en el [Portal de Azure](http://portal.azure.com/). Después, los pasos de esta sección explican cómo puede mejorar la base de datos AdventureWorksLT con:
+La base de datos de ejemplo AdventureWorksLT [V12] se puede crear haciendo clic varias veces en el [Portal de Azure](https://portal.azure.com/). Después, los pasos de esta sección explican cómo puede mejorar la base de datos AdventureWorksLT con:
 
 - Tablas de In-Memory.
 - Un procedimiento almacenado compilado de forma nativa.
@@ -100,8 +100,8 @@ La base de datos de ejemplo AdventureWorksLT [V12] se puede crear haciendo clic 
 
 #### Pasos de instalación
 
-1. En el [Portal de Azure](http://portal.azure.com/), cree una base de datos Premium en un servidor V12. Establezca el **origen** en la base de datos de ejemplo de AdventureWorksLT [V12].
- - Para obtener instrucciones detalladas, consulte [Creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo](sql-database-get-started.md).
+1. En el [Portal de Azure](https://portal.azure.com/), cree una base de datos Premium en un servidor V12. Establezca el **origen** en la base de datos de ejemplo de AdventureWorksLT [V12].
+ - Para obtener instrucciones detalladas, consulte [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md).
 
 2. Conéctese a la base de datos con SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -148,7 +148,7 @@ Un resultado de **0** significa que In-Memory no se admite, mientras que un resu
 - Demo.DemoSalesOrderDetailSeed
 
 
-Las tablas con optimización para memoria se pueden inspeccionar mediante el **Explorador de objetos** en SSMS de la forma siguiente:
+Puede inspeccionar las tablas con optimización para memoria a través del **Explorador de objetos** en SSMS por:
 
 - Haga clic con el botón derecho en **Tablas** > **Filtro** > **Configuración de filtro** > **Con optimización para memoria** es igual a 1.
 
@@ -177,7 +177,7 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 ## Ejecución de la carga de trabajo de OLTP de ejemplo
 
-La única diferencia entre los dos *procedimientos almacenados* siguientes es que el primero usa las versiones con optimización para memoria de las tablas, mientras que el segundo procedimiento usa las tablas en disco habituales:
+La única diferencia entre los dos *procedimientos almacenados* siguientes es que el primer procedimiento usa las versiones de las tablas con optimización para memoria, mientras que el segundo procedimiento usa las tablas en disco habituales:
 
 - SalesLT**.**usp\_InsertSalesOrder**\_inmem**
 - SalesLT**.**usp\_InsertSalesOrder**\_ondisk**
@@ -226,6 +226,7 @@ WHILE (@i < 20)
 begin;
 	EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
 		@DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+	SET @i = @i + 1;
 end
 ```
 
@@ -236,13 +237,13 @@ Para hacer que la versión \_ondisk del T-SQL anterior sirva para ostress.exe, s
 ### Instalación de ostress y utilidades de RML
 
 
-Lo ideal sería planear la ejecución de ostress.exe en una Máquina virtual de Azure. Se crearía una [máquina virtual de Azure](http://azure.microsoft.com/documentation/services/virtual-machines/) en la misma región geográfica de Azure en que reside la base de datos AdventureWorksLT. Pero puede ejecutar si lo desea ostress.exe en el equipo portátil.
+Lo ideal sería planear la ejecución de ostress.exe en una Máquina virtual de Azure. Se crearía una [máquina virtual de Azure](https://azure.microsoft.com/documentation/services/virtual-machines/) en la misma región geográfica de Azure en que reside la base de datos AdventureWorksLT. Pero puede ejecutar si lo desea ostress.exe en el equipo portátil.
 
 
 En la máquina virtual, o en cualquier host que elija, instale las utilidades de Replay Markup Language (RML), entre las que se incluye ostress.exe.
 
 - Consulte la explicación de ostress.exe en [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
- - O bien consulte [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
+ - O bien consulte [Base de datos de ejemplo para In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
  - También, puede consultar el [blog para instalar ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)
 
 
@@ -262,7 +263,7 @@ whereas for SQL 2016+
 ### Ejecución de la carga de trabajo de esfuerzo \_inmem en primer lugar
 
 
-Puede usar una ventana del *símbolo del sistema de RML* para ejecutar la línea de comandos de ostress.exe. Los parámetros de la línea de comandos dirigen ostress para:
+Puede usar una ventana *del símbolo del sistema de RML* para ejecutar la línea de comandos de ostress.exe. Los parámetros de la línea de comandos dirigen ostress para:
 
 - Ejecutar 100 conexiones simultáneamente (-n100).
 - Hacer que cada conexión ejecute el script de T-SQL 50 veces (-r50).
@@ -314,10 +315,7 @@ EXECUTE Demo.usp_DemoReset;
 
 #### Resultados de la comparación esperados
 
-Las pruebas de la salida de In-Memory demostraron una mejora de **9 veces** en el rendimiento de esta carga de trabajo simplista, con ostress ejecutándose en una VM de Azure que está en la misma región de Azure que la base de datos.
-
-
-La mejora del rendimiento puede ser mayor cuando se agrega la conversión a procedimientos almacenados compilados de forma nativa.
+Las pruebas de la salida de In-Memory demostraron tener un rendimiento **9 veces** mejor en esta carga de trabajo simplista, con ostress ejecutándose en una VM de Azure que está en la misma región de Azure que la base de datos.
 
 
 ## B. Instalación del ejemplo de In-Memory Analytics.
@@ -357,7 +355,7 @@ Para realizar análisis en tiempo real en una carga de trabajo de OLTP, suele se
 
 - dbo.FactResellerSalesXL\_CCI es una tabla con un índice de **almacén de columnas** agrupado que tiene una compresión avanzada a nivel de *datos*.
 
-- dbo.FactResellerSalesXL\_PageCompressed es una tabla con un índice agrupado equivalente normal que se comprime solo a nivel de *página*.
+- dbo.FactResellerSalesXL\_PageCompressed es una tabla con un índice agrupado equivalente normal, que se comprime solo a nivel de *página*.
 
 
 #### Consultas cruciales para comparar el índice de almacén de columnas
@@ -449,7 +447,7 @@ GO
 ## Consideraciones de la versión preliminar de In-Memory OLTP
 
 
-Las características de In-Memory OLTP de la Base de datos SQL de Azure se [activaron en la vista previa del 28 de octubre de 2015](http://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
+Las características de In-Memory OLTP de la Base de datos SQL de Azure se [activaron en la vista previa del 28 de octubre de 2015](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
 
 
 Durante la fase de vista previa antes de la disponibilidad general (GA), In-Memory OLTP solo se admite para:
@@ -509,7 +507,7 @@ Si una base de datos contiene cualquiera de los siguientes tipos de objetos o ti
 
 - [Obtenga información sobre análisis operativos en tiempo real en MSDN](http://msdn.microsoft.com/library/dn817827.aspx)
 
-- Notas del producto sobre [patrones de carga de trabajo comunes y consideraciones de migración](http://msdn.microsoft.com/library/dn673538.aspx), donde se describen los patrones de carga de trabajo en los que In-Memory OLTP normalmente proporciona importantes mejoras de rendimiento.
+- Notas del producto sobre [patrones de cargas de trabajo comunes y consideraciones de migración](http://msdn.microsoft.com/library/dn673538.aspx), que describe los patrones de carga de trabajo donde In-Memory OLTP normalmente proporciona importantes mejoras de rendimiento.
 
 #### Diseño de aplicación
 
@@ -525,4 +523,4 @@ Si una base de datos contiene cualquiera de los siguientes tipos de objetos o ti
 
 - [Supervisión del almacenamiento en memoria](sql-database-in-memory-oltp-monitoring.md) para In-Memory OLTP.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

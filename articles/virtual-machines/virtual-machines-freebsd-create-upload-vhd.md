@@ -27,13 +27,13 @@ En este artículo se muestra cómo puede crear y cargar un disco duro virtual (V
 ##Requisitos previos##
 En este artículo se supone que tiene los siguientes elementos:
 
-- **Una suscripción de Azure:** si no tiene ninguna, puede crear una cuenta en un par de minutos. Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). De lo contrario, consulte [crear una cuenta de prueba gratuita](http://azure.microsoft.com/pricing/free-trial/).  
+- **Una suscripción de Azure:** si no tiene ninguna, puede crear una cuenta en un par de minutos. Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). De lo contrario, consulte [crear una cuenta de prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).  
 
-- **Herramientas de Azure PowerShell**: dispone del módulo Microsoft Azure PowerShell instalado y configurado para usar su suscripción. Para descargar el módulo, consulte [Descargas de Azure](http://azure.microsoft.com/downloads/). Hay disponible un tutorial para instalar y configurar el módulo aquí. Usará el cmdlet de [descargas de Azure](http://azure.microsoft.com/downloads/) para cargar el VHD.
+- **Herramientas de Azure PowerShell**: dispone del módulo Microsoft Azure PowerShell instalado y configurado para usar su suscripción. Para descargar el módulo, consulte [Descargas de Azure](https://azure.microsoft.com/downloads/). Hay disponible un tutorial para instalar y configurar el módulo aquí. Usará el cmdlet de [descargas de Azure](https://azure.microsoft.com/downloads/) para cargar el VHD.
 
 - **Sistema operativo FreeBSD instalado en un archivo .vhd**: ha instalado un sistema operativo FreeBSD compatible en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, puede utilizar una solución de virtualización como Hyper-V para crear el archivo .vhd e instalar el sistema operativo. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
-> [AZURE.NOTE]el reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD mediante el Administrador de Hyper-V o el cmdlet [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx).
+> [AZURE.NOTE] el reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD mediante el Administrador de Hyper-V o el cmdlet [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx).
 
 Esta tarea incluye los cinco pasos siguientes.
 
@@ -141,7 +141,7 @@ Necesita una cuenta de almacenamiento de Azure para cargar un archivo .vhd, por 
 
 	![Nombre del contenedor](./media/virtual-machines-freebsd-create-upload-vhd/storageaccount_containervalues.png)
 
-    > [AZURE.NOTE]De manera predeterminada, el contenedor es privado y solo puede acceder a él el propietario de la cuenta. Para permitir el acceso de lectura público a los blobs del contenedor, pero no a las propiedades y metadatos del contenedor, utilice la opción de "Public Blob". Para permitir el acceso de lectura público completo del contenedor y de los blobs, utilice la opción de "Public Container".
+    > [AZURE.NOTE] De manera predeterminada, el contenedor es privado y solo puede acceder a él el propietario de la cuenta. Para permitir el acceso de lectura público a los blobs del contenedor, pero no a las propiedades y metadatos del contenedor, utilice la opción de "Public Blob". Para permitir el acceso de lectura público completo del contenedor y de los blobs, utilice la opción de "Public Container".
 
 ## Paso 3: Preparación de la conexión con Microsoft Azure ##
 
@@ -209,4 +209,4 @@ Después de cargar el archivo .vhd, puede agregarlo como una imagen a la lista d
 
 	![imagen de FreeBSD en azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

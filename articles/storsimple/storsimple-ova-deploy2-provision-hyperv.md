@@ -32,7 +32,7 @@ Se necesitan privilegios de administrador para aprovisionar y configurar un disp
 
 ## Requisitos previos de aprovisionamiento
 
-Aquí encontrará los requisitos previos para aprovisionar un dispositivo virtual en un sistema host que ejecuta Hyper-V 2008 R2, Hyper-V 2012 y 2012 R2.
+Aquí encontrará los requisitos previos para aprovisionar un dispositivo virtual en un sistema host que ejecuta Hyper-V 2008 R2, Hyper-V 2012 o Hyper-V 2012 R2.
 
 ### Para el servicio de Administrador de StorSimple
 
@@ -274,4 +274,4 @@ Mire el vídeo para ver cómo puede aprovisionar una matriz virtual de StorSimpl
 
 -   [Configurar la matriz virtual de StorSimple como servidor iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

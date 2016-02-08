@@ -57,4 +57,4 @@ Hay servicios gratuitos de indagación y de búsqueda DNS basada en web disponib
 [Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](../about-traffic-manager-balancing-methods.md) [Administrador de tráfico](../traffic-manager.md)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

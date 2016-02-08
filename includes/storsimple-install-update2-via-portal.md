@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/11/16-->
+<!--author=alkohli last changed: 01/26/16-->
 
 #### Instalar la actualización 2 desde el Portal de Azure
 
@@ -8,7 +8,7 @@
 
 3. En la sección **Actualizaciones de software** en la misma página, verá que hay nuevas actualizaciones de software disponibles. Se recomienda revisar las notas de la versión antes de aplicar la actualización 2 en el dispositivo.
 
-    ![Instalación de actualizaciones de software](./media/storsimple-install-update2-via-portal/InstallUpdate12_11M.png)
+    ![Instalación de actualizaciones de software](./media/storsimple-install-update2-via-portal/scanupdate1.png)
 
 4. En la parte inferior de la página, haga clic en **Instalar actualizaciones**.
 
@@ -39,7 +39,7 @@
    	 ![Error de comprobación previa](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
 
 	
-	> [AZURE.NOTE]Si está actualizando desde software anterior a la actualización 1, después de haber aplicado la actualización 2 en el dispositivo de StorSimple, las comprobaciones de DATA 2 y DATA 3, así como la comprobación de la puerta de enlace, ya no será necesarias para futuras actualizaciones. Las demás comprobaciones previas seguirán siendo necesarias. Si actualiza desde la actualización 1 o posterior, las comprobaciones previas DATA 2, DATA 3 y de puerta de enlace no se realizan.
+	> [AZURE.NOTE] Si está actualizando desde software anterior a la actualización 1, después de haber aplicado la actualización 2 en el dispositivo de StorSimple, las comprobaciones de DATA 2 y DATA 3, así como la comprobación de la puerta de enlace, ya no será necesarias para futuras actualizaciones. Las demás comprobaciones previas seguirán siendo necesarias. Si actualiza desde la actualización 1 o posterior, las comprobaciones previas DATA 2, DATA 3 y de puerta de enlace no se realizan.
 
 
 8. Una vez completadas correctamente las comprobaciones anteriores a la actualización, se creará un trabajo de actualización. Recibirá una notificación cuando el trabajo de actualización esté correctamente creado.
@@ -57,8 +57,10 @@
 12. Compruebe que el dispositivo ejecuta **StorSimple 8000 Series Update 2 (6.3.9600.17673)**. También se debe modificar **Fecha de última actualización:**.
 
 
-13. Ahora verá que las actualizaciones del modo de mantenimiento están disponibles. Estas actualizaciones son actualizaciones perjudiciales que provocan tiempos de inactividad del dispositivo y solo pueden aplicarse a través de la interfaz de Windows PowerShell del dispositivo. Siga los pasos enumerados en [Instalar y comprobar las revisiones de modo de mantenimiento](#to-install-and-verify-maintenance-mode-hotfix) para instalar estas actualizaciones en modo de mantenimiento.
+13. Ahora verá que las actualizaciones del modo de mantenimiento están disponibles. En algunos casos, puede que el firmware de disco ya se haya actualizado cuando se esté ejecutando la actualización 1.2. En estos casos, el portal lo determinará automáticamente y no solicitará las actualizaciones del modo de mantenimiento.
 
-> [AZURE.NOTE]En determinados casos, el mensaje que indica que las actualizaciones del modo de mantenimiento están disponibles pueden mostrarse hasta 24 horas después de que las actualizaciones del modo de mantenimiento se apliquen correctamente en el dispositivo.
+	Las actualizaciones del modo de mantenimiento son actualizaciones perturbadoras que provocan tiempos de inactividad del dispositivo y solo pueden aplicarse a través de la interfaz de Windows PowerShell del dispositivo. Siga los pasos enumerados en [Instalar y comprobar las revisiones de modo de mantenimiento](#to-install-and-verify-maintenance-mode-hotfix) para instalar estas actualizaciones del Modo de mantenimiento.
 
-<!---HONumber=AcomDC_0114_2016-->
+> [AZURE.NOTE] En determinados casos, el mensaje que indica que las actualizaciones del modo de mantenimiento están disponibles pueden mostrarse hasta 24 horas después de que las actualizaciones del modo de mantenimiento se apliquen correctamente en el dispositivo.
+
+<!---HONumber=AcomDC_0128_2016-->

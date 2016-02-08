@@ -16,7 +16,7 @@
  
 # Notas de la versión de los adaptadores de registro para .NET
 
-Si ya utiliza un marco de registro como log4net, NLog o System.Diagnostics.Trace, puede capturar esos registros y enviarlos a [Application Insights](http://azure.microsoft.com/services/application-insights/), donde puede correlacionar los seguimientos de registros con las acciones del usuario, las excepciones y otros eventos.
+Si ya utiliza un marco de registro como log4net, NLog o System.Diagnostics.Trace, puede capturar esos registros y enviarlos a [Application Insights](https://azure.microsoft.com/services/application-insights/), donde puede correlacionar los seguimientos de registros con las acciones del usuario, las excepciones y otros eventos.
 
 
 #### Primeros pasos
@@ -32,4 +32,4 @@ Consulte [Registros, excepciones y diagnósticos personalizados para ASP.NET en 
 ## Versión 1.2.5
 - Abrir primero la versión de origen: referencias de API de Application Insights versión 1.2.3 o superior.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

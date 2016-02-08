@@ -131,7 +131,7 @@ Eche un vistazo a la [proyecto de Github de ejemplos de creación de particiones
 
 Los ejemplos son de código abierto y le animamos a que envíe solicitudes de extracción con las contribuciones que podrían ayudar a otros desarrolladores de DocumentDB. Consulte las [directrices de contribución](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obtener instrucciones acerca de cómo realizar sus aportaciones.
 
->[AZURE.NOTE]Las creaciones de colección tienen la velocidad limitada por DocumentDB, por lo que algunos de los métodos de ejemplo que se muestran a continuación pueden tardar unos minutos en completarse.
+>[AZURE.NOTE] Las creaciones de colección tienen la velocidad limitada por DocumentDB, por lo que algunos de los métodos de ejemplo que se muestran a continuación pueden tardar unos minutos en completarse.
 
 ##P+F
 **¿Por qué DocumentDB admite la creación de particiones de cliente frente a la creación de particiones de servidor?**
@@ -164,7 +164,7 @@ Puede encadenar PartitionResolvers implementando su propio valor de IPartitionRe
 * [Documentación del SDK de .NET de DocumentDB en MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Ejemplos de .NET de DocumentDB](https://github.com/Azure/azure-documentdb-net)
 * [Límites de DocumentDB](documentdb-limits.md)
-* [Blog de DocumentDB sobre sugerencias de rendimiento](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
+* [Blog de DocumentDB sobre sugerencias de rendimiento](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

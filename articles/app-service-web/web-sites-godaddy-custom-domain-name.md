@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/12/2016"
 	ms.author="erikre"/>
 
 # Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure (adquirido directamente de GoDaddy)
@@ -50,7 +50,7 @@ Para asociar el dominio personalizado a una aplicación web del Servicio de apli
 
 	Seleccione el icono de lápiz y papel junto al registro para **editar** un registro existente.
 
-	> [AZURE.NOTE]Antes de agregar nuevos registros, tenga en cuenta que GoDaddy ya ha creado registros DNS de subdominios populares (llamados **Host** en el editor), como **email**, **files**, **mail** y otros. Si el nombre que desea utilizar ya existe, modifique el registro actual en lugar de crear uno nuevo.
+	> [AZURE.NOTE] Antes de agregar nuevos registros, tenga en cuenta que GoDaddy ya ha creado registros DNS de subdominios populares (llamados **Host** en el editor), como **email**, **files**, **mail** y otros. Si el nombre que desea utilizar ya existe, modifique el registro actual en lugar de crear uno nuevo.
 
 4. Al agregar un registro, primero debe seleccionar el tipo de registro.
 
@@ -67,7 +67,7 @@ Para asociar el dominio personalizado a una aplicación web del Servicio de apli
 5. Haga clic en **Agregar otro**.
 6. Seleccione **CNAME** como el tipo de registro, a continuación, especifique un valor de **Host** de **awverify** y un valor de **Orientado a** de **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
 
-	> [AZURE.NOTE]Azure usa este registro CNAME para comprobar que el dominio descrito por el registro A o el primer registro CNAME es efectivamente suyo. Una vez que el dominio se ha asignado a la aplicación web en el Portal de Azure, podrá eliminarse la entrada **awverify**.
+	> [AZURE.NOTE] Azure usa este registro CNAME para comprobar que el dominio descrito por el registro A o el primer registro CNAME es efectivamente suyo. Una vez que el dominio se ha asignado a la aplicación web en el Portal de Azure, podrá eliminarse la entrada **awverify**.
 
 5. Cuando haya terminado de agregar o modificar los registros, haga clic en **Finish** (Finalizar) para guardar los cambios.
 
@@ -76,9 +76,9 @@ Para asociar el dominio personalizado a una aplicación web del Servicio de apli
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

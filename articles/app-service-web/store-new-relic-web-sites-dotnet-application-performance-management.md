@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="01/21/2016" 
 	ms.author="stepsic"/>
 
 
@@ -34,11 +34,12 @@ La versión estándar de New Relic es gratuita para usuarios de Azure. La versi�
 
 Para obtener información sobre precios, consulte la [página de New Relic en Azure Marketplace](/marketplace/partners/newrelic/newrelic).
 
-> [AZURE.NOTE]El precio solo se muestra para 10 equipos como máximo. Para cantidades mayores, póngase en contacto con New Relic (sales@newrelic.com) para obtener información de precios por volumen.
+> [AZURE.NOTE] El precio solo se muestra para 10 equipos como máximo. Para cantidades mayores, póngase en contacto con New Relic (sales@newrelic.com) para obtener información de precios por volumen.
 
 Los clientes de Azure reciben una suscripción de prueba a New Relic Pro de dos semanas de duración cuando implementan el agente de New Relic.
 
-Suscripción a New Relic a través de Azure Marketplace --
+Suscripción a New Relic a través de Azure Marketplace 
+--
 
 New Relic se integra perfectamente con los roles web y de trabajo y el Servicio de aplicaciones de Azure.
 
@@ -46,7 +47,7 @@ Para suscribirse a New Relic directamente desde Azure Marketplace, siga estos cu
 
 ## Paso 1. Creación de una cuenta de New Relic
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com) y, en la esquina, haga clic en **Nuevo**.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) y, en la esquina, haga clic en **Nuevo**.
 3. Haga clic en **Servicios para desarrolladores** > **New Relic APM**.
 4. Configure la cuenta de New Relic especificando los siguientes valores y haga clic en **Crear**.
 	- **Name**
@@ -62,7 +63,7 @@ Para suscribirse a New Relic directamente desde Azure Marketplace, siga estos cu
 
 ## Paso 2: Configuración de la integración de New Relic para la aplicación web
 
-1. En el [Portal de Azure](https://portal.azure.com), abra la hoja de la aplicación web.
+1. En el [Portal de Azure](https://portal.azure.com/), abra la hoja de la aplicación web.
 2. Haga clic en el menú "..." que aparece en la parte superior de la hoja y seleccione **Agregar iconos**.
 3. En la ficha **Supervisión**, seleccione **Resumen de la aplicación** y arrástrelo al lugar donde desea que aparezca el icono en la hoja de su aplicación web.
 4. Haga clic en Listo para terminar de agregar iconos.
@@ -73,7 +74,7 @@ Para suscribirse a New Relic directamente desde Azure Marketplace, siga estos cu
 
 	Cuando termine de guardarse, haga clic en **Toda la configuración** en la hoja de la aplicación web y luego en **Configuración de la aplicación**. Debería ver el parámetro **NEWRELIC\_LICENSEKEY** agregado a la sección **Configuración de la aplicación** de la hoja para admitir New Relic:
 
-	>[AZURE.NOTE]Se puede tardar hasta 30 segundos en que la nueva configuración de la aplicación surta efecto. Para que la configuración surta efecto de inmediato, reinicie la aplicación web.
+	>[AZURE.NOTE] Se puede tardar hasta 30 segundos en que la nueva configuración de la aplicación surta efecto. Para que la configuración surta efecto de inmediato, reinicie la aplicación web.
 
 ## Paso 3: Publicación de la aplicación web ASP.NET
 
@@ -83,7 +84,7 @@ Use Visual Studio para publicar la aplicación web. Si anteriormente publicó la
 
 Para ver el panel de New Relic:
 
-2. En el [Portal de Azure](https://portal.azure.com), abra la hoja de la aplicación web.
+2. En el [Portal de Azure](https://portal.azure.com/), abra la hoja de la aplicación web.
 3. Haga clic en **Supervisión de aplicaciones** > **nombre de la aplicación** > **Vista en New Relic**.
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/view-new-relic-data.png)
@@ -153,14 +154,14 @@ A continuación se muestra un ejemplo del panel Applications Overview cuando se 
 
 Consulte estos recursos adicionales para obtener más información:
 
- * [Installing the .NET Agent for Azure Websites](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-websites#manual): procedimientos de instalación de NET Agent de New Relic. 
+ * [Instalación de .NET Agent en aplicaciones web de Azure](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-preview-portal#install-new-relic-azure-webapps): Procedimientos de instalación de .NET Agent de New Relic. 
  * [Nueva interfaz de usuario de New Relic](https://newrelic.com/docs/site/the-new-relic-ui): información general sobre la interfaz de usuario de New Relic, configuración de derechos de usuario y perfiles, uso de funciones estándar e información detallada del panel.
  * [Descripción general de aplicaciones](https://newrelic.com/docs/site/applications-overview): características y funciones disponibles al usar el panel Applications Overview de New Relic.
  * [Apdex](https://newrelic.com/docs/site/apdex): información general sobre cómo mide Apdex la satisfacción de los usuarios finales con la aplicación.
  * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): información general sobre cómo detalla RUM el tiempo que tardan los exploradores de sus usuarios en cargar las páginas web, de dónde proceden y qué exploradores usan.
  * [Buscar ayuda](https://newrelic.com/docs/site/finding-help): recursos disponibles en el centro de ayuda en línea de New Relic.
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -177,4 +178,4 @@ Consulte estos recursos adicionales para obtener más información:
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

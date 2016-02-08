@@ -33,7 +33,7 @@ Hay tres SKU de puerta de enlace de VPN:
 - Standard
 - Alto rendimiento
 
-La tabla siguiente muestra los tipos de puerta de enlace y el rendimiento agregado estimado. Los precios difieren entre las SKU de puerta de enlace. Para obtener información acerca de los precios, consulte [Precios de puertas de enlace de VPN](http://azure.microsoft.com/pricing/details/vpn-gateway/).
+La tabla siguiente muestra los tipos de puerta de enlace y el rendimiento agregado estimado. Los precios difieren entre las SKU de puerta de enlace. Para obtener información acerca de los precios, consulte [Precios de puertas de enlace de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/).
 
 | SKU | Puerta de enlace de VPN y ExpressRoute coexisten | Rendimiento de puerta de enlace de ExpressRoute | Rendimiento de puerta de enlace de VPN | Túneles IPsec máx. de puerta de enlace de VPN |
 |-------------|-----------------------------------|---------------------------------|------------------------|-------------------------------|
@@ -83,4 +83,4 @@ Seleccione el dispositivo VPN para su configuración. Consulte [Acerca de los di
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

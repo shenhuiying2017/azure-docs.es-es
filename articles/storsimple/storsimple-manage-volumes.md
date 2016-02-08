@@ -25,7 +25,7 @@ Este tutorial explica cómo usar el servicio de Administrador de StorSimple para
 
 El servicio de Administrador de StorSimple es una extensión del Portal de Azure clásico que le permite administrar la solución de StorSimple desde una interfaz web única. Además de administrar volúmenes, puede usar el servicio de Administrador de StorSimple para crear y administrar servicios de StorSimple, ver y administrar dispositivos, ver alertas, y ver y administrar las directivas de copia de seguridad y el catálogo de copias de seguridad.
 
-> [AZURE.NOTE]Azure StorSimple solo puede crear volúmenes con aprovisionamiento fino. No es posible crear volúmenes total o parcialmente aprovisionados en un sistema de Azure StorSimple.
+> [AZURE.NOTE] Azure StorSimple solo puede crear volúmenes con aprovisionamiento fino. No es posible crear volúmenes total o parcialmente aprovisionados en un sistema de Azure StorSimple.
 >
 > El aprovisionamiento fino es una tecnología de virtualización en que el almacenamiento disponible parece superar los recursos físicos. En lugar de reservar almacenamiento suficiente por adelantado, Azure StorSimple usa el aprovisionamiento fino para asignar solo el espacio suficiente para cumplir con los requisitos actuales. La naturaleza elástica del almacenamiento en la nube facilita este enfoque porque Azure StorSimple puede aumentar o disminuir el almacenamiento en la nube para cumplir con las exigencias cambiantes.
 
@@ -90,7 +90,7 @@ El nuevo volumen ya está listo para usarse.
 
 Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen acceso al volumen.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 >
 > - Si modifica el tamaño del volumen en el dispositivo, también deberá cambiar el tamaño del volumen en el host. 
 > - Los pasos del lado host que se describen aquí son para Windows Server 2012 (2012R2). Los procedimientos para Linux u otros sistemas operativos de host serán diferentes. Consulte las instrucciones del sistema operativo del host cuando modifique el volumen del host que esté ejecutando otro sistema operativo. 
@@ -108,14 +108,14 @@ Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen a
   - Editar el **Nombre** y el **Tipo de aplicación**.
   - Aumentar la **Capacidad aprovisionada**. La **Capacidad aprovisionada** solo puede aumentarse. No se puede reducir un volumen después de crearlo.
 
-    > [AZURE.NOTE]No se puede cambiar el contenedor de volúmenes después de asignarlo a un volumen.
+    > [AZURE.NOTE] No se puede cambiar el contenedor de volúmenes después de asignarlo a un volumen.
 
 5. En **Configuración adicional**, puede hacer lo siguiente:
 
   - Modificar los ACR, siempre que el volumen esté desconectado. Si el volumen está conectado, primero deberá desconectarlo. Consulte los pasos indicados en [Desconectar un volumen](#take-a-volume-offline) antes de modificar el ACR.
   - Modificar la lista de ACR después de desconectar el volumen.
  
-    > [AZURE.NOTE]En cuanto al volumen, no puede cambiar la opción **Habilitar una copia de seguridad predeterminada para este volumen**.
+    > [AZURE.NOTE] En cuanto al volumen, no puede cambiar la opción **Habilitar una copia de seguridad predeterminada para este volumen**.
 
 6. Guarde los cambios haciendo clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-manage-volumes/HCS_CheckIcon.png). El Portal de Azure clásico mostrará un mensaje de actualización del volumen. Presentará en la pantalla un mensaje de confirmación cuando el volumen se haya actualizado correctamente.
 
@@ -128,7 +128,7 @@ Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen a
 
 ![Vídeo disponible](./media/storsimple-manage-volumes/Video_icon.png) **Vídeo disponible**
 
-Para ver un vídeo que muestra cómo expandir un volumen, haga clic [aquí](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
+Para ver un vídeo que muestra cómo expandir un volumen, haga clic [aquí](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
 ## Desconectar un volumen
 
@@ -149,11 +149,11 @@ Puede que necesite desconectar un volumen si tiene previsto modificarlo o elimin
 
     Una vez desconectado un volumen, pasa a estar disponible la opción **Conectar**.
 
-> [AZURE.NOTE]El comando **Desconectar** envía una solicitud al dispositivo para desconectar el volumen. Si los hosts todavía están usando el volumen las conexiones se interrumpirán, pero la desconexión del volumen no producirá un error.
+> [AZURE.NOTE] El comando **Desconectar** envía una solicitud al dispositivo para desconectar el volumen. Si los hosts todavía están usando el volumen las conexiones se interrumpirán, pero la desconexión del volumen no producirá un error.
 
 ## Eliminar un volumen
 
-> [AZURE.IMPORTANT]Puede eliminar un volumen solo si está desconectado.
+> [AZURE.IMPORTANT] Puede eliminar un volumen solo si está desconectado.
 
 Siga estos pasos para eliminar un volumen.
 
@@ -198,4 +198,4 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

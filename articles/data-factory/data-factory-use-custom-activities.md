@@ -302,7 +302,7 @@ El método tiene algunos componentes clave que debe conocer.
 	![Archivos de salida binarios](./media/data-factory-use-custom-activities/Binaries.png)
 13. Cargue **MyDotNetActivity.zip** como un blob en el contenedor de blobs: **customactvitycontainer** en el Almacenamiento de blobs de Azure que usa el servicio vinculado **StorageLinkedService** en **ADFTutorialDataFactory**. Cree el contenedor de blobs **customactivitycontainer**, si no existe.
 
-> [AZURE.NOTE]Si agrega este proyecto de actividad de .NET a una solución en Visual Studio que contenga un proyecto de la factoría de datos, no tendrá que realizar los dos últimos pasos de creación del archivo zip y que cargarlos manualmente en el almacenamiento de blobs de Azure. Al publicar las entidades de la factoría de datos con Visual Studio el proceso de publicación realizar automáticamente estos pasos. Consulte los artículos [Compilación de la primera canalización mediante Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) y [Tutorial: Creación y supervisión de una factoría de datos mediante Visual Studio](data-factory-get-started-using-vs.md) para aprender a crear y publicar entidades de una factoría de datos mediante Visual Studio.
+> [AZURE.NOTE] Si agrega este proyecto de actividad de .NET a una solución en Visual Studio que contenga un proyecto de la factoría de datos, no tendrá que realizar los dos últimos pasos de creación del archivo zip y que cargarlos manualmente en el almacenamiento de blobs de Azure. Al publicar las entidades de la factoría de datos con Visual Studio el proceso de publicación realizar automáticamente estos pasos. Consulte los artículos [Compilación de la primera canalización mediante Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) y [Tutorial: Creación y supervisión de una factoría de datos mediante Visual Studio](data-factory-get-started-using-vs.md) para aprender a crear y publicar entidades de una factoría de datos mediante Visual Studio.
 
 ### Método Execute
 
@@ -422,7 +422,7 @@ Los servicios vinculados vinculan almacenes de datos o servicios de proceso con 
 #### Creación de un servicio vinculado de HDInsight de Azure 
 El servicio Factoría de datos de Azure admite la creación de un clúster a petición y usarlo para procesar la entrada para generar datos de salida. También puede utilizar su propio clúster para realizar la misma tarea. Cuando se utiliza el clúster de HDInsight a petición, se crea un clúster para cada sector. Mientras que, si utiliza su propio clúster de HDInsight, el clúster está preparado para procesar el sector inmediatamente. Por lo tanto, cuando utilice el clúster a petición, es posible que no vea los datos de salida tan rápido como cuando utilice su propio clúster.
 
-> [AZURE.NOTE]En tiempo de ejecución, una instancia de una actividad de .NET solo se ejecuta en un nodo de trabajo en el clúster de HDInsight; no se puede escalar para que se ejecute en varios nodos. Se pueden ejecutar en paralelo varias instancias de actividad de .NET en distintos nodos del clúster de HDInsight.
+> [AZURE.NOTE] En tiempo de ejecución, una instancia de una actividad de .NET solo se ejecuta en un nodo de trabajo en el clúster de HDInsight; no se puede escalar para que se ejecute en varios nodos. Se pueden ejecutar en paralelo varias instancias de actividad de .NET en distintos nodos del clúster de HDInsight.
 
 Si ya ha ampliado el tutorial [Introducción a Factoría de datos de Azure][adfgetstarted] con el tutorial [Uso de Pig y Hive con Factoría de datos de Azure][hivewalkthrough], puede omitir la creación de este servicio vinculado y usar el servicio vinculado que ya existe en ADFTutorialDataFactory.
 
@@ -701,7 +701,7 @@ Para acceder a estas propiedades extendidas en el método **Execute**, use códi
 
 
 ## <a name="AzureBatch"></a> Uso del servicio vinculado de Lote de Azure
-> [AZURE.NOTE]Consulte [Datos básicos de Lote de Azure][batch-technical-overview] para obtener información general del servicio Lote de Azure y consulte [Introducción a la biblioteca de .NET de Lote de Azure][batch-get-started] para empezar a trabajar rápidamente con el servicio Lote de Azure.
+> [AZURE.NOTE] Consulte [Datos básicos de Lote de Azure][batch-technical-overview] para obtener información general del servicio Lote de Azure y consulte [Introducción a la biblioteca de .NET de Lote de Azure][batch-get-started] para empezar a trabajar rápidamente con el servicio Lote de Azure.
 
 Puede ejecutar sus actividades de .NET personalizadas mediante el Lote de Azure como recurso de proceso. Debe crear sus propios grupos de Lote de Azure y especificar el número de máquinas virtuales junto con otras configuraciones. Los grupos de Lote de Azure ofrecen las siguientes características a los clientes:
 
@@ -750,7 +750,7 @@ Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azu
 		  }
 		}
 
-	> [AZURE.IMPORTANT]La **dirección URL** de la **hoja de la cuenta de Lote de Azure** tiene el formato siguiente: accountname.region.batch.azure.com. En la propiedad **batchUri** del script JSON, tendrá que **quitar "accountname."** de la dirección URL y usar **accountname** en la propiedad de JSON **accountName**.
+	> [AZURE.IMPORTANT] La **dirección URL** de la **hoja de la cuenta de Lote de Azure** tiene el formato siguiente: accountname.region.batch.azure.com. En la propiedad **batchUri** del script JSON, tendrá que **quitar "accountname."** de la dirección URL y usar **accountname** en la propiedad de JSON **accountName**.
 
 	En la propiedad **poolName**, también puede especificar el identificador del grupo, en lugar del nombre del grupo.
 
@@ -762,11 +762,11 @@ Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azu
 
 	![Tareas de Lote de Azure][image-data-factory-azure-batch-tasks]
 
-> [AZURE.NOTE]El servicio de Factoría de datos no admite una opción a petición para el Lote de Azure como lo hace para HDInsight. Solo puede usar su propio grupo de Lote de Azure en una factoría de datos de Azure.
+> [AZURE.NOTE] El servicio de Factoría de datos no admite una opción a petición para el Lote de Azure como lo hace para HDInsight. Solo puede usar su propio grupo de Lote de Azure en una factoría de datos de Azure.
 
 ## Otras referencias
 
-[Actualizaciones de Factoría de datos de Azure: ejecución de actividades de .NET personalizadas de ADF mediante Lote de Azure](http://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/).
+[Actualizaciones de Factoría de datos de Azure: ejecución de actividades de .NET personalizadas de ADF mediante Lote de Azure](https://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/).
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
@@ -803,4 +803,4 @@ Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azu
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

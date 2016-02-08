@@ -22,7 +22,7 @@ La integración del control de código fuente permite asociar runbooks de su cue
 El control de código fuente le permite insertar código de Automatización de Azure en el control de código fuente o extraer sus runbooks del control de código fuente para llevarlos a Automatización de Azure. En este artículo se describe cómo configurar el control de código fuente en su entorno de Automatización de Azure. Para comenzar, vamos a configurar Automatización de Azure para acceder a su repositorio de GitHub y a recorrer diferentes operaciones que pueden realizarse mediante la integración del control de código fuente.
 
 
->[AZURE.NOTE]El control de código fuente admite la extracción e inserción de [runbooks del flujo de trabajo de PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) y de [runbooks de PowerShell](automation-runbook-types.md#powershell-runbooks). Los [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) aún no se admiten.<br><br>
+>[AZURE.NOTE] El control de código fuente admite la extracción e inserción de [runbooks del flujo de trabajo de PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) y de [runbooks de PowerShell](automation-runbook-types.md#powershell-runbooks). Los [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) aún no se admiten.<br><br>
 
 
 Hay dos pasos sencillos necesarios para configurar el control de código fuente para su cuenta de Automatización y solo uno si ya tiene una cuenta GitHub. Son las siguientes:
@@ -42,7 +42,7 @@ Si ya tiene una cuenta de GitHub y un repositorio que desea vincular a Automatiz
     |**Parámetro** |**Descripción** |
     |:---|:---| 
     |Elegir origen | Seleccione el origen. Actualmente, solo se admite **GitHub**. |
-    |Autorización | Haga clic en el botón **Autorizar** para conceder acceso a Automatización de Azure al repositorio de GitHub. Si ya inició sesión con su cuenta de GitHub en una ventana diferente, se usan las credenciales de dicha cuenta. Cuando obtenga autorización, la hoja mostrará su nombre de usuario de GitHub en **Propiedad de autorización**. |
+    |Autorización | Haga clic en el botón **Autorizar** para conceder acceso a Automatización de Azure al repositorio de GitHub. Si ya inició sesión con su cuenta de GitHub en una ventana diferente, se usan las credenciales de dicha cuenta. Cuando la autorización sea correcta, la hoja mostrará su nombre de usuario de GitHub en **Propiedad de autorización**. |
     |Selección del repositorio | Seleccione un repositorio de GitHub en la lista de repositorios disponibles. |
     |Elegir rama | Seleccione una rama en la lista de ramas disponibles. Solo se muestra la rama **principal** si no creó ninguna rama. |
     |Ruta de acceso de la carpeta de runbook | La ruta de acceso de la carpeta de runbook especifica la ruta de acceso en el repositorio de GitHub desde el que desea insertar o extraer el código. Debe especificarse en formato **/nombreCarpeta/nombreDeSubcarpeta**. Solo se pueden sincronizar los runbooks de la ruta de acceso de la carpeta de runbook con la cuenta de Automatización. Los runbooks de las subcarpetas de la ruta de acceso de la carpeta de runbook **no** se sincronizarán. Use **/** para sincronizar todos los runbooks en el repositorio. |
@@ -104,7 +104,7 @@ La protección de runbooks permite insertar los cambios realizados en un runbook
     ![Botón Proteger](media/automation-source-control-integration/automation_06_CheckinButton.png)
 
 
-     >[AZURE.NOTE]La protección de la Automatización de Azure sobrescribirá el código existente en el control de código fuente. La instrucción de línea de comandos de Git equivalente para la protección es **git add + git commit + git push**.
+     >[AZURE.NOTE] La protección de la Automatización de Azure sobrescribirá el código existente en el control de código fuente. La instrucción de línea de comandos de Git equivalente para la protección es **git add + git commit + git push**.
 
 3. Al hacer clic en **proteger**, se mostrará un mensaje de confirmación. Haga clic en Sí para continuar.
 
@@ -114,7 +114,7 @@ La protección de runbooks permite insertar los cambios realizados en un runbook
 
     ![Runbook de protección](media/automation-source-control-integration/automation_08_CheckinRunbook.png)
 
-    >[AZURE.NOTE]Los runbooks de control de código fuente son runbooks de Automatización especiales que no se pueden ver ni editar. Aunque no se muestran en la lista de runbooks, verá que se muestran los trabajos de sincronización en la lista de trabajos.
+    >[AZURE.NOTE] Los runbooks de control de código fuente son runbooks de Automatización especiales que no se pueden ver ni editar. Aunque no se muestran en la lista de runbooks, verá que se muestran los trabajos de sincronización en la lista de trabajos.
  
 5. El nombre del runbook modificado se envía como un parámetro de entrada al runbook de protección. También puede [ver los detalles del trabajo](automation-runbook-execution.md#viewing-job-status-using-the-azure-management-portal) si expande el runbook en la hoja **Sincronización de repositorio**.
 
@@ -137,7 +137,7 @@ El botón de sincronización que se encuentra en la hoja Sincronización de repo
     ![Runbook de sincronización](media/automation-source-control-integration/automation_11_SyncRunbook.png)
 
  
-    >[AZURE.NOTE]Una sincronización del control de código fuente sobrescribe la versión de borrador de los runbooks que existen actualmente en la cuenta de Automatización para **TODOS** los runbooks que están actualmente en el control del código fuente. La instrucción de línea de comandos de Git equivalente para realizar la sincronización es **git pull**.
+    >[AZURE.NOTE] Una sincronización del control de código fuente sobrescribe la versión de borrador de los runbooks que existen actualmente en la cuenta de Automatización para **TODOS** los runbooks que están actualmente en el control del código fuente. La instrucción de línea de comandos de Git equivalente para realizar la sincronización es **git pull**.
 
 
 ## Solución de problemas de control de código fuente
@@ -158,4 +158,4 @@ Para desconectarse de su cuenta de GitHub, abra la hoja Sincronización de repos
 
 Para más información sobre la integración del control de código fuente, consulte los siguientes recursos: - [Automatización de Azure: integración del control de código fuente en Automatización de Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [Vote por su sistema de control de código fuente favorito](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Automatización de Azure: integración del control de código fuente de runbook mediante Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

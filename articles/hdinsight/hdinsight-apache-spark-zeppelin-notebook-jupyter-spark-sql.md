@@ -20,7 +20,7 @@
 
 # Inicio rápido: creación de Apache Spark en HDInsight de Azure y ejecución de consultas interactivas mediante Spark SQL
 
-> [AZURE.NOTE]HDInsight ofrece ahora clústeres Spark en Linux. Para obtener información sobre cómo comenzar a usar clústeres Spark en HDInsight Linux, vea [Inicio rápido: creación de Apache Spark en HDInsight de Azure (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
+> [AZURE.NOTE] HDInsight ofrece ahora clústeres Spark en Linux. Para obtener información sobre cómo comenzar a usar clústeres Spark en HDInsight Linux, vea [Inicio rápido: creación de Apache Spark en HDInsight de Azure (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 Obtenga información sobre cómo crear un clúster Apache Spark en HDInsight con la opción Creación rápida y después usar cuadernos de [Zeppelin](https://zeppelin.incubator.apache.org) y [Jupyter](https://jupyter.org) basados en web para ejecutar consultas interactivas de Spark SQL en el clúster Spark.
 
@@ -29,14 +29,14 @@ Obtenga información sobre cómo crear un clúster Apache Spark en HDInsight con
 
 **Requisitos previos:**
 
-Antes de comenzar este tutorial, debe tener una suscripción a Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Antes de comenzar este tutorial, debe tener una suscripción a Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 
 ## Creación de un clúster de Spark en HDInsight
 
 En esta sección, se crea un clúster de HDInsight versión 3.2, que se basa en la versión 1.3.1 de Spark. Para obtener información acerca de las diferentes versiones de HDInsight y sus contratos de nivel de servicio, consulte la página [Control de versiones de componentes de HDInsight](hdinsight-component-versioning.md).
 
->[AZURE.NOTE]En este artículo, se proporcionan pasos para crear un clúster Apache Spark en HDInsight con los valores de configuración básica. Si quiere información sobre otras opciones de configuración del clúster (como usar almacenamiento adicional, una red virtual de Azure o una tienda de metadatos para Hive), vea [Creación de clústeres en HDInsight mediante opciones personalizadas](hdinsight-apache-spark-provision-clusters.md).
+>[AZURE.NOTE] En este artículo, se proporcionan pasos para crear un clúster Apache Spark en HDInsight con los valores de configuración básica. Si quiere información sobre otras opciones de configuración del clúster (como usar almacenamiento adicional, una red virtual de Azure o una tienda de metadatos para Hive), vea [Creación de clústeres en HDInsight mediante opciones personalizadas](hdinsight-apache-spark-provision-clusters.md).
 
 
 **Para crear un clúster Spark**
@@ -47,7 +47,7 @@ En esta sección, se crea un clúster de HDInsight versión 3.2, que se basa en 
 
     ![Creación de un clúster nuevo en el Portal de Azure](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.createcluster.1.png "Creación de un clúster en el Portal de Azure")
 
-3. Escriba un nombre en **Nombre de clúster**, seleccione **Hadoop** en **Tipo de clúster** y, en el menú desplegable **Sistema operativo de clúster**, seleccione **Windows Server 2012 R2 Datacenter**. Si está disponible, aparece una marca de verificación verde junto al nombre de clúster.
+3. Escriba un **Nombre de clúster**, seleccione **Spark** para el **Tipo de clúster** y, en el menú desplegable **Sistema operativo de clúster**, seleccione **Windows Server 2012 R2 Datacenter**. Si está disponible, aparece una marca de verificación verde junto al nombre de clúster.
 
 	![Especifique el tipo y el nombre del clúster](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.createcluster.2.png "Especifique el tipo y el nombre del clúster")
 
@@ -55,7 +55,7 @@ En esta sección, se crea un clúster de HDInsight versión 3.2, que se basa en 
 
 5. Haga clic en **Grupo de recursos** para ver una lista de grupos de recursos existentes y seleccione dónde crear el clúster. También puede hacer clic en **Crear nuevo** y luego escribir el nombre del nuevo grupo de recursos. Aparece una marca de verificación verde para indicar si el nuevo nombre de grupo está disponible.
 
-	> [AZURE.NOTE]Esta entrada se establece de manera predeterminada en uno de los grupos de recursos existentes, si hay alguno disponible.
+	> [AZURE.NOTE] Esta entrada se establece de manera predeterminada en uno de los grupos de recursos existentes, si hay alguno disponible.
 
 6. Haga clic en **Credenciales** y especifique la información correspondiente en **Nombre de usuario de inicio de sesión de clúster** y **Contraseña de inicio de sesión de clúster**. Si desea habilitar Escritorio remoto en el nodo de clúster, para **Habilitar Escritorio remoto**, haga clic en **Sí** y especifique los valores necesarios. Este tutorial no requiere Escritorio remoto, por lo que puede omitir esto. Haga clic en **Seleccionar** en la parte inferior para guardar la configuración de las credenciales.
 
@@ -67,15 +67,15 @@ En esta sección, se crea un clúster de HDInsight versión 3.2, que se basa en 
 
 	Actualmente puede seleccionar una cuenta de almacenamiento de Azure como origen de datos para un clúster de HDInsight. Use lo siguiente para comprender las entradas de la hoja **Origen de datos**.
 
-	- **Método de selección**: establézcalo en **De todas las suscripciones** para habilitar la exploración de cuentas de almacenamiento en todas sus suscripciones. Establézcalo en **Clave de acceso** si quiere especificar el **Nombre de almacenamiento** y la **Clave de acceso** de una cuenta de almacenamiento existente.
+	- **Método de selección**: establézcalo en **De todas las suscripciones** para habilitar la exploración de cuentas de almacenamiento en todas sus suscripciones. Establézcalo en **Clave de acceso** si desea especificar el **Nombre de almacenamiento** y la **Clave de acceso** de una cuenta de almacenamiento existente.
 
-	- **Seleccionar cuenta de almacenamiento o Crear nueva**: haga clic en **Seleccionar cuenta de almacenamiento** para buscar y seleccionar una cuenta de almacenamiento existente que desee asociar con el clúster. O bien, haga clic en **Crear nueva** para crear una cuenta de almacenamiento. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparece una marca de verificación verde.
+	- **Seleccionar cuenta de almacenamiento o Crear nueva**: haga clic en **Seleccionar cuenta de almacenamiento** para buscar y seleccionar una cuenta de almacenamiento existente que desee asociar con el clúster. O bien, haga clic en **Crear nueva** para crear una nueva cuenta de almacenamiento. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparece una marca de verificación verde.
 
 	- **Elegir contenedor predeterminado**: use esta opción para escribir el nombre del contenedor predeterminado que se usará para el clúster. Aunque se puede escribir cualquier nombre aquí, se recomienda usar el mismo nombre que el del clúster para que pueda reconocer fácilmente que el contenedor se usa para este clúster concreto.
 
 	- **Ubicación**: región geográfica en la que se encuentra la cuenta de almacenamiento o donde se creará.
 
-		> [AZURE.IMPORTANT]Al seleccionar la ubicación del origen de datos predeterminado también establece la ubicación del clúster de HDInsight. El origen de datos predeterminado y el clúster deben encontrarse en la misma región.
+		> [AZURE.IMPORTANT] Al seleccionar la ubicación del origen de datos predeterminado también establece la ubicación del clúster de HDInsight. El origen de datos predeterminado y el clúster deben encontrarse en la misma región.
 
 	Haga clic en **Seleccionar** para guardar la configuración del origen de datos.
 
@@ -83,7 +83,7 @@ En esta sección, se crea un clúster de HDInsight versión 3.2, que se basa en 
 
 	![Hoja Niveles de precios de nodo](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.createcluster.5.png "Especifique el número de nodos de clúster")
 
-	Haga clic en **Seleccionar** para guardar la configuración de precios de nodo.
+	Haga clic en **Seleccionar** para guardar la configuración de los precios del nodo.
 
 9. En la hoja **Nuevo clúster de HDInsight**, asegúrese de que la opción **Anclar a Panel de inicio** está seleccionada y haga clic en **Crear**. Esto crea el clúster y agrega un icono para él en el panel de inicio de su Portal de Azure. El icono indicará que el clúster se está creando y, cuando se haya completado el proceso, cambiará para mostrar el icono de HDInsight.
 
@@ -91,7 +91,7 @@ En esta sección, se crea un clúster de HDInsight versión 3.2, que se basa en 
 	| ------------------ | --------------------- |
 	| ![Indicador de creación en el Panel de inicio](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/provisioning.png) | ![Icono de clúster creado](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/provisioned.png) |
 
-	> [AZURE.NOTE]El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada **Notificaciones** de la izquierda de la página para comprobar el proceso de creación.
+	> [AZURE.NOTE] El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada **Notificaciones** de la izquierda de la página para comprobar el proceso de creación.
 
 10. Una vez que termine la creación, haga clic en el icono del clúster Spark desde el panel de inicio para iniciar la hoja del clúster.
 
@@ -100,13 +100,13 @@ En esta sección, se crea un clúster de HDInsight versión 3.2, que se basa en 
 
 Después de haber creado un clúster, puede usar un cuaderno de Zeppelin basado en web para ejecutar consultas interactivas de Spark SQL en el clúster Spark de HDInsight. En esta sección, se usará un archivo de datos de ejemplo (hvac.csv) disponible de manera predeterminada en el clúster para ejecutar algunas consultas Spark SQL interactivas.
 
->[AZURE.NOTE]El cuaderno que crea cuando sigue las instrucciones más abajo también está disponible de manera predeterminada en el clúster. Después de iniciar Zeppelin, encontrará el cuaderno con el nombre **Zeppelin HVAC tutorial**.
+>[AZURE.NOTE] El cuaderno que crea cuando sigue las instrucciones más abajo también está disponible de manera predeterminada en el clúster. Después de iniciar Zeppelin, encontrará el cuaderno con el nombre **Zeppelin HVAC tutorial**.
 
 1. Desde el [Portal de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
 
-2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, a continuación, desde la hoja **Panel de clúster**, haga clic en **Equipo portátil ligero Zeppelin**. Cuando se le pida, escriba las credenciales del clúster.
+2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y luego, en la hoja **Panel de clúster**, haga clic en **Equipo portátil ligero Zeppelin**. Cuando se le pida, escriba las credenciales del clúster.
 
-	> [AZURE.NOTE]También puede comunicarse con su equipo portátil ligero Zeppelin en el clúster si abre la siguiente dirección URL en el explorador. Reemplace __CLUSTERNAME__ por el nombre del clúster:
+	> [AZURE.NOTE] También puede comunicarse con su equipo portátil ligero Zeppelin en el clúster si abre la siguiente dirección URL en el explorador. Reemplace __CLUSTERNAME__ por el nombre del clúster.
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
@@ -114,9 +114,9 @@ Después de haber creado un clúster, puede usar un cuaderno de Zeppelin basado 
 
 	![Crear un nuevo cuaderno de Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.createnewnote.png "Crear un nuevo cuaderno de Zeppelin")
 
-	En la misma página, en el encabezado **Notebook**, debería ver un nuevo cuaderno con un nombre que empiece por **Note XXXXXXXXX**. Haga clic en el nuevo cuaderno.
+	En la misma página, en el encabezado **Notebook**, debería ver un nuevo cuaderno con un nombre que empiece por **Note XXXXXXXXX** (Nota XXXXXXXXX). Haga clic en el nuevo cuaderno.
 
-3. En la página web del nuevo cuaderno, haga clic en el encabezado y cambie el nombre del cuaderno si quiere. Presione ENTRAR para guardar el cambio de nombre. Además, asegúrese de que el encabezado del cuaderno muestre el estado **Connected** (Conectado) en la esquina superior derecha.
+3. En la página web del nuevo cuaderno, haga clic en el encabezado y cambie el nombre del cuaderno si quiere. Presione ENTRAR para guardar el cambio de nombre. Además, asegúrese de que el encabezado de cuaderno muestre el estado **Connected** (Conectado) en la esquina superior derecha.
 
 	![Estado del cuaderno de Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.newnote.connected.png "Estado del cuaderno de Zeppelin")
 
@@ -175,7 +175,7 @@ Después de haber creado un clúster, puede usar un cuaderno de Zeppelin basado 
 
 	![Ejecutar una instrucción Spark SQL mediante el cuaderno](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.note.sparksqlquery2.png "Ejecutar una instrucción Spark SQL mediante el cuaderno")
 
-	Para las consultas posteriores, puede seleccionar un nuevo valor en la lista desplegable y después volver a ejecutar la consulta. Haga clic en **Settings** (Configuración) para elegir qué constituye la clave y los valores de la salida. En la captura de pantalla anterior se usa **buildingID** como clave, la media de **temp\_diff** como valor y **targettemp** como grupo.
+	Para las consultas posteriores, puede seleccionar un nuevo valor en la lista desplegable y después volver a ejecutar la consulta. Haga clic en **Settings** (Configuración) para elegir qué constituye la clave y los valores de la salida. La captura de pantalla anterior usa **buildingID** como clave, la media de **temp\_diff** como valor y **targettemp** como grupo.
 
 7. Reinicie el intérprete Spark SQL para salir de la aplicación. Haga clic en la pestaña **Interpreter** (Intérprete) en la parte superior y, para el intérprete Spark, haga clic en **Restart** (Reiniciar).
 
@@ -185,13 +185,13 @@ Después de haber creado un clúster, puede usar un cuaderno de Zeppelin basado 
 
 En esta sección, utilice un cuaderno de Jupyter para ejecutar consultas Spark SQL en un clúster Spark.
 
->[AZURE.NOTE]El cuaderno que crea cuando sigue las instrucciones más abajo también está disponible de manera predeterminada en el clúster. Después de iniciar Jupyter, encontrará este cuaderno por el nombre **HVACTutorial.ipynb**.
+>[AZURE.NOTE] El cuaderno que crea cuando sigue las instrucciones más abajo también está disponible de manera predeterminada en el clúster. Después de iniciar Jupyter, encontrará este cuaderno por el nombre **HVACTutorial.ipynb**.
 
 1. Desde el [Portal de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
 
 2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, luego, en la hoja **Panel de clúster**, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
 
-	> [AZURE.NOTE]También puede comunicarse con el equipo Jupyter Notebook en el clúster si abre la siguiente dirección URL en el explorador. Reemplace __CLUSTERNAME__ por el nombre del clúster:
+	> [AZURE.NOTE] También puede comunicarse con el equipo Jupyter Notebook en el clúster si abre la siguiente dirección URL en el explorador. Reemplace __CLUSTERNAME__ por el nombre del clúster:
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -290,4 +290,4 @@ En esta sección, utilice un cuaderno de Jupyter para ejecutar consultas Spark S
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

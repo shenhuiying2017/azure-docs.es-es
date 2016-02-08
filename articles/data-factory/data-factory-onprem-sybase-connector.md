@@ -30,6 +30,8 @@ Factoría de datos solo admite actualmente el movimiento de datos desde Sybase a
 
 Para que Data Management Gateway se conecte a la Base de datos Sybase, es preciso instalar el [proveedor de datos para Sybase](http://go.microsoft.com/fwlink/?linkid=324846) en el mismo sistema que Data Management Gateway.
 
+> [AZURE.NOTE] Vea [Solución de problemas de puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre solución de problemas de conexión o puerta de enlace.
+
 ## Ejemplo: copia de datos de Sybase a un blob de Azure
 
 El ejemplo siguiente muestra:
@@ -79,7 +81,7 @@ Como primer paso, configure la puerta de enlace de administración de datos seg�
 
 El ejemplo supone que ha creado una tabla "MyTable" en Sybase y que contiene una columna denominada "timestamp" para los datos de serie temporal.
 
-Si se establece "external": true y se especifica la directiva externalData, se indica a Factoría de datos que la tabla es externa a la factoría de datos y que no se produce por ninguna actividad de la factoría de datos. Tenga en cuenta que el **tipo** del servicio vinculado se establece en: **RelationalTable**.
+Si se establece "external": true y se especifica la directiva externalData, se indica a Factoría de datos que la tabla es externa a la factoría de datos y que no se produce por ninguna actividad de la factoría de datos. Tenga en cuenta que el **tipo**del servicio vinculado se establece en: **RelationalTable**.
 	
 	{
 	    "name": "SybaseDataSet",
@@ -258,10 +260,10 @@ Como se mencionó en el artículo sobre actividades de movimiento de datos, la a
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
 
-Sybase admite T-SQL y tipos de T-SQL. Para ver una tabla de asignación de tipos sql al tipo .NET, consulte el artículo [Conector SQL de Azure](data-factory-azure-sql-connector.md).
+Sybase admite T-SQL y tipos de T-SQL. Para ver una tabla de asignación de tipos sql al tipo .NET, consulte el artículo [Conector SQL Azure](data-factory-azure-sql-connector.md).
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

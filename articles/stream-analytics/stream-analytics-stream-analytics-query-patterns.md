@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/04/2015"
+	ms.date="01/25/2016"
 	ms.author="jeffstok"/>
 
 
@@ -22,7 +22,7 @@
 
 ## Introducción ##
 
-Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje de consulta similar a SQL que se documenta [aquí](https://msdn.microsoft.com/library/azure/dn834998.aspx). En este documento se describen las soluciones para varios patrones de consulta común basados en situaciones del mundo real. Es un trabajo en curso y continuará actualizándose con nuevos patrones de forma continuada.
+Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje de consulta similar a SQL que se documenta en [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx). En este artículo se describen las soluciones para varios patrones de consulta comunes basados en situaciones del mundo real. Es un trabajo en curso y continuará actualizándose con nuevos patrones de forma continuada.
 
 ## Ejemplo de consulta: conversiones de tipos de datos ##
 **Descripción**: defina los tipos de las propiedades en la transmisión de entrada, p. ej., el peso del vehículo se incorpora a la transmisión de entrada como cadena y se debe convertir en INT para realizar la operación SUM.
@@ -384,6 +384,35 @@ Ahora vamos a cambiar el problema y buscaremos el primer vehículo de una marca 
 
 **Explicación**: use LAG para revisar en la transmisión de entrada un evento anterior y obtener el valor Marca. A continuación, compárelo con el del evento actual y genere el evento si son iguales, y use LAG para obtener los datos del vehículo anterior.
 
+## Ejemplo de consulta: detectar la duración entre eventos
+**Descripción**: busque la duración de un evento dado. Por ejemplo, al proporcionar una secuencia de clics de web, determine el tiempo invertido en una característica.
+
+**Entrada**:
+  
+| Usuario | Característica | Evento | Hora |
+| --- | --- | --- | --- |
+| user@location.com | RightMenu | Iniciar | 2015-01-01T00:00:01.0000000Z |
+| user@location.com | RightMenu | End | 2015-01-01T00:00:08.0000000Z |
+  
+**Salida**:
+  
+| Usuario | Característica | Duración |
+| --- | --- | --- |
+| user@location.com | RightMenu | 7 |
+  
+
+**Solución**
+
+````
+    SELECT
+    	[user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+    FROM input TIMESTAMP BY Time
+    WHERE
+    	Event = 'end'
+````
+
+**Explicación**: use la función LAST para recuperar el último valor Time en el que el tipo de evento era "Start". Tenga en cuenta que la última LAST usa PARTITION BY [user] para indicar que el resultado se calculará por usuario único. La consulta tiene un umbral máximo de 1 hora para el intervalo de tiempo entre eventos "Start" y "Stop", pero se puede configurar como según sea necesario (LIMIT DURATION(hour, 1).
+
 ## Ejemplo de consulta: detectar la duración de una condición ##
 **Descripción**: averigüe durante cuánto tiempo se produjo una condición, por ejemplo, supongamos que por error todos los vehículos tienen un peso incorrecto (por encima de 20.000 libras) y queremos calcular la duración del error.
 
@@ -413,32 +442,17 @@ Ahora vamos a cambiar el problema y buscaremos el primer vehículo de una marca 
 
 **Solución**:
 
-	SELECT
-	    PrevGood.Time AS StartFault,
-	    ThisGood.Time AS Endfault,
-	    DATEDIFF(second, PrevGood.Time, ThisGood.Time) AS FaultDuraitonSeconds
-	FROM
-	    Input AS ThisGood TIMESTAMP BY Time
-	    INNER JOIN Input AS PrevGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, ThisGood) BETWEEN 1 AND 3600
-	    AND PrevGood.Weight < 20000
-	    INNER JOIN Input AS Bad TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, Bad) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, Bad, ThisGood) BETWEEN 1 AND 3600
-	    AND Bad.Weight >= 20000
-	    LEFT JOIN Input AS MidGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, MidGood) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, MidGood, ThisGood) BETWEEN 1 AND 3600
-	    AND MidGood.Weight < 20000
-	WHERE
-	    ThisGood.Weight < 20000
-	    AND MidGood.Weight IS NULL
+````
+SELECT 
+    LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN weight < 20000 ) [StartFault],
+    [time] [EndFault]
+FROM input
+WHERE
+    [weight] < 20000
+    AND LAG(weight) OVER (LIMIT DURATION(hour, 24)) > 20000
+````
 
-**Explicación**: estamos buscando dos eventos correctos con un evento incorrecto entre medio y sin un evento correcto entre medio, lo que significa que los dos eventos son los primeros eventos antes y después de al menos un evento incorrecto. Obtener dos eventos correctos con un evento incorrecto en el medio es sencillo si usamos dos combinaciones y validamos que obtenemos la secuencia correcto -> incorrecto -> correcto comprobando el peso y comparando las marcas de tiempo.
-
-Usando lo que aprendimos en "Combinación externa izquierda para incluir valores NULL o realizar la ausencia de eventos", sabemos cómo comprobar que no se ha producido ningún evento correcto entre los dos eventos correctos que seleccionamos.
-
-Al componer juntas estas funciones, obtenemos la secuencia correcto -> incorrecto -> correcto sin ningún evento correcto entre medio. Ahora podemos calcular la duración entre el principio y el final de los eventos correctos, lo que nos da la duración del error.
+**Explicación**: use LAG para ver el flujo de entrada que se produjo durante 24 horas y busque instancias donde StartFault y StopFault superan el peso de 20 000.
 
 ## Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
@@ -452,4 +466,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

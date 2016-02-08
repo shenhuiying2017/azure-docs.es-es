@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="PDF de la hoja de referencia de SQL de DocumentDB | Microsoft Azure" 
-	description="Una hoja de referencia de SQL imprimible que le ayuda a usar la sintaxis SQL de DocumentDB para consultar documentos JSON en su base de datos NoSQL." 
+	description="PDF imprimible de hoja de referencia rápida sobre SQL que le ayuda a usar la sintaxis SQL de DocumentDB para consultar documentos JSON en su base de datos NoSQL - Referencia rápida de SQL" 
 	keywords="hoja de referencia sobre SQL, pdf de hoja de referencia de sql, hoja de referencia de consultas sql"
 	services="documentdb" 
 	documentationCenter="" 
@@ -29,7 +29,7 @@ Descargue y use la hoja de referencia de consultas SQL para escribir consultas m
 
 **Descargue aquí la hoja de referencia SQL: [Hoja de referencia SQL de Microsoft Azure DocumentDB](http://go.microsoft.com/fwlink/?LinkId=623215)**
 
-![Hoja de referencia de consultas SQL de DocumentDB: referencia rápida a la gramática SQL compatible con DocumentDB.][cheat-sheet]
+![Hoja de referencia rápida sobre consultas SQL de DocumentDB: PDF de referencia rápida para la sintaxis SQL admitida por DocumentDB - Hoja de referencia rápida sobre SQL, PDF de hoja de referencia rápida sobre SQL, referencia rápida de SQL][cheat-sheet]
 
 [cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v2.png
 
@@ -39,4 +39,4 @@ Descargue y use la hoja de referencia de consultas SQL para escribir consultas m
 - Para realizar un recorrido por las opciones de consulta disponibles en DocumentDB, consulte [Consulta de DocumentDB](documentdb-sql-query.md).
 - Para obtener la documentación de referencia relacionada, consulte [Lenguaje de consulta SQL de DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

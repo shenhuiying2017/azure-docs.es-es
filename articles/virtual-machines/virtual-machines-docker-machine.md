@@ -39,7 +39,7 @@ La forma más rápida para comenzar con **docker-machine** es descargar la versi
 
 También puede compilar su **docker-machine** mediante los pasos que se indican para [contribuir a la máquina](https://github.com/docker/machine#contributing). Tiene que poder descargar más de un 1 GB para realizar la compilación; gracias a ello podrá personalizar su experiencia de la forma que le sea más cómoda.
 
-> [AZURE.NOTE]También puede crear un [vínculo simbólico](http://en.wikipedia.org/wiki/Symbolic_link) en su propia versión de la plataforma, pero en este tutorial se usará directamente el binario para mostrar claramente cada comportamiento. El resultado de esto, es que en lugar de comandos como `docker-machine env` tal y como muestra la documentación de **docker-machine**, este tutorial usa `docker-machine_linux-amd64 env`. Usted decide si crear un vínculo simbólico o si directamente prefiere usar el nombre binario, pero, si cambia el nombre que está usando, recuerde modificarlo en las instrucciones que tiene a continuación.
+> [AZURE.NOTE] También puede crear un [vínculo simbólico](http://en.wikipedia.org/wiki/Symbolic_link) en su propia versión de la plataforma, pero en este tutorial se usará directamente el binario para mostrar claramente cada comportamiento. El resultado de esto, es que en lugar de comandos como `docker-machine env` tal y como muestra la documentación de **docker-machine**, este tutorial usa `docker-machine_linux-amd64 env`. Usted decide si crear un vínculo simbólico o si directamente prefiere usar el nombre binario, pero, si cambia el nombre que está usando, recuerde modificarlo en las instrucciones que tiene a continuación.
 
 <br />
 
@@ -49,7 +49,7 @@ También puede compilar su **docker-machine** mediante los pasos que se indican 
 
 Ahora debe crear los archivos de certificado y clave que Azure necesita para confirmar su identidad y permisos, así como aquellos que **docker-machine** necesita para comunicarse con su máquina virtual de Azure para crear y administrar contenedores de forma remota. Si ya tiene esos archivos en un directorio (quizá para usarlos con docker) puede reutilizarlos. De todos modos, la mejor práctica para probar **docker-machine** es crearlos en un directorio aparte e indicárselos a docker-machine.
 
-> [AZURE.NOTE]Si prueba **docker-machine** una y otra vez, no olvide o volver a utilizar los mismos archivos de certificado y de clave. **docker-machine** crea un conjunto de certificados de cliente; también se puede examinar todo lo que se crea en `~/.docker/machine`. Si mueve estos certificados a otro equipo, necesitará mover también las carpetas de certificados de **docker-machine**. Esto será diferente si va a usar **docker-machine** en otra plataforma para ver, por ejemplo, cómo funciona todo.
+> [AZURE.NOTE] Si prueba **docker-machine** una y otra vez, no olvide o volver a utilizar los mismos archivos de certificado y de clave. **docker-machine** crea un conjunto de certificados de cliente; también se puede examinar todo lo que se crea en `~/.docker/machine`. Si mueve estos certificados a otro equipo, necesitará mover también las carpetas de certificados de **docker-machine**. Esto será diferente si va a usar **docker-machine** en otra plataforma para ver, por ejemplo, cómo funciona todo.
 
 Si tiene experiencia con las distribuciones de Linux, es posible que ya tenga esos archivos disponibles en un lugar específico para usarlos en el equipo; la [documentación de Docker HTTPS explica estos pasos perfectamente](https://docs.docker.com/articles/https/). Sin embargo, lo que mostramos a continuación es el modo más sencillo de dar este paso.
 
@@ -106,7 +106,7 @@ Si tiene experiencia con las distribuciones de Linux, es posible que ya tenga es
 	    INFO[0368] "machine-name" has been created and is now the active machine.
 	    INFO[0368] To point your Docker client at it, run this in your shell: $(docker-machine_linux-amd64 env machine-name)
 
-    > [AZURE.NOTE]Ya que está creando una máquina virtual, es posible que tarde unos minutos en estar lista. Mientras espera, puede comprobar el estado de su nuevo host Docker escribiendo `azure vm list` mediante la CLI de Azure hasta que vea que sus máquinas virtuales tienen el estado **ReadyRole**.
+    > [AZURE.NOTE] Ya que está creando una máquina virtual, es posible que tarde unos minutos en estar lista. Mientras espera, puede comprobar el estado de su nuevo host Docker escribiendo `azure vm list` mediante la CLI de Azure hasta que vea que sus máquinas virtuales tienen el estado **ReadyRole**.
 
 5. Establezca las variables de entorno de docker y de la máquina para la sesión de terminal. La última línea de comentarios recomienda que ejecute de forma inmediata el comando **env** para exportar las variables de entorno necesarias para usar su cliente de docker directamente con una máquina específica.
 
@@ -140,7 +140,7 @@ Si tiene experiencia con las distribuciones de Linux, es posible que ya tenga es
 	    ID: W3FZ:BCZW:UX24:GDSV:FR4N:N3JW:XOC2:RI56:IWQX:LRTZ:3G4P:6KJK
 	    WARNING: No swap limit support
 
-> [AZURE.NOTE]Este tutorial muestra cómo **docker-machine** crea una máquina virtual. De todos modos, puede repetir estos pasos para crear tantas máquinas como desee. Si decide hacer esto, la mejor manera de alternar entre máquinas virtuales con docker es usar el comando **env** insertado para establecer las variables del entorno de **docker** para cada comando individual. Por ejemplo, para usar**docker info** con una máquina virtual diferente, puede escribir `docker $(docker-machine env <VM name>) info` y el comando **env** rellenará la información de conexión de docker para usarla con esa máquina virtual.
+> [AZURE.NOTE] Este tutorial muestra cómo **docker-machine** crea una máquina virtual. De todos modos, puede repetir estos pasos para crear tantas máquinas como desee. Si decide hacer esto, la mejor manera de alternar entre máquinas virtuales con docker es usar el comando **env** insertado para establecer las variables del entorno de **docker** para cada comando individual. Por ejemplo, para usar**docker info** con una máquina virtual diferente, puede escribir `docker $(docker-machine env <VM name>) info` y el comando **env** rellenará la información de conexión de docker para usarla con esa máquina virtual.
 
 ## Estamos terminando. Vamos a ejecutar algunas aplicaciones de forma remota usando docker y las imágenes del concentrador Docker.
 
@@ -158,7 +158,7 @@ Ahora podrá usar docker de la forma habitual para crear una aplicación en el c
 
 Sin embargo, es posible que quiera crear una aplicación que pueda ver inmediatamente en Internet, como por ejemplo [nginx](https://registry.hub.docker.com/_/nginx/), desde el [concentrador de Docker](https://registry.hub.docker.com/).
 
-> [AZURE.NOTE]Recuerde que ha de usar la opción **-P** para que **docker** asigne puertos aleatorios a la imagen y **-d** para asegurarse de que el contenedor se ejecuta en segundo plano sin interrupción. (Si se olvida de hacer esto, iniciará nginx y éste se apagará inmediatamente. ¡No se olvide!)
+> [AZURE.NOTE] Recuerde que ha de usar la opción **-P** para que **docker** asigne puertos aleatorios a la imagen y **-d** para asegurarse de que el contenedor se ejecuta en segundo plano sin interrupción. (Si se olvida de hacer esto, iniciará nginx y éste se apagará inmediatamente. ¡No se olvide!)
 
 	$ docker run --name machinenginx -P -d nginx
     Unable to find image 'nginx:latest' locally
@@ -201,7 +201,7 @@ Abra su explorador favorito y échele un vistazo.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
-Vaya a la [guía de usuario de Docker](https://docs.docker.com/userguide/) y cree algunas aplicaciones en Microsoft Azure. O bien, puede jugar con [**docker** y swarm](https://github.com/docker/swarm) en Azure (virtual-machines-docker-swarm.md) y así comprobar cómo puede usar swarm con docker y Azure.
+Vaya a la [guía de usuario de Docker](https://docs.docker.com/userguide/) y cree algunas aplicaciones en Microsoft Azure. O bien, puede jugar con [Docker Swarm en Azure] y así comprobar cómo puede usar [Swarm](https://github.com/docker/swarm) con Docker y Azure.
 
 <!--Image references-->
 [nginx]: ./media/virtual-machines-docker-machine/nginxondocker.png
@@ -213,5 +213,6 @@ Vaya a la [guía de usuario de Docker](https://docs.docker.com/userguide/) y cre
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+[Docker Swarm en Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

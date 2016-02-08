@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Recursos de conexión en Automatización de Azure
@@ -21,7 +21,7 @@ Un recurso de conexión de Automatización contiene la información necesaria pa
 
 Cuando crea una conexión, debe especificar un *tipo de conexión*. El tipo de conexión es una plantilla que define un conjunto de propiedades. La conexión define valores para cada propiedad definida en su tipo de conexión. Los tipos de conexión se agregan a Automatización de Azure en módulos de creación o se crean con la [API de Automatización de Azure](http://msdn.microsoft.com/library/azure/mt163818.aspx). Los únicos tipos de conexión que se encuentran disponibles cuando se crea una conexión son los que están instalados en su cuenta de Automatización.
 
->[AZURE.NOTE]Los recursos protegidos en Automatización de Azure incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Automatización de Azure con una clave única que se genera para cada cuenta de automatización. Esta clave se cifra mediante un certificado maestro y se almacena en Automatización de Azure. Antes de almacenar un recurso seguro, la clave de la cuenta de automatización se descifra con el certificado maestro y, a continuación, se utiliza para cifrar el recurso.
+>[AZURE.NOTE] Los recursos protegidos en Automatización de Azure incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Automatización de Azure con una clave única que se genera para cada cuenta de automatización. Esta clave se cifra mediante un certificado maestro y se almacena en Automatización de Azure. Antes de almacenar un recurso seguro, la clave de la cuenta de automatización se descifra con el certificado maestro y, a continuación, se utiliza para cifrar el recurso.
 
 ## Cmdlets de Windows PowerShell
 
@@ -42,7 +42,7 @@ Las actividades de la siguiente tabla se usan para tener acceso a las conexiones
 |---|---|
 |Get-AutomationConnection|Obtiene una conexión para usar. Devuelve una tabla hash con las propiedades de la conexión.|
 
->[AZURE.NOTE]Debe evitar el uso de variables en el parámetro –Name de **Get- AutomationConnection**, debido a que esto podría complicar la detección de dependencias entre runbooks o configuraciones de DSC y activos de conexión en tiempo de diseño.
+>[AZURE.NOTE] Debe evitar el uso de variables en el parámetro –Name de **Get- AutomationConnection**, debido a que esto podría complicar la detección de dependencias entre runbooks o configuraciones de DSC y activos de conexión en tiempo de diseño.
 
 ## Creación de una conexión nueva
 
@@ -120,4 +120,4 @@ La imagen que aparece a continuación muestra el mismo ejemplo anterior, pero us
 - [Vínculos de creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

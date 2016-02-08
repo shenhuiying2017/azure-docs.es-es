@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/12/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli" />
 
 # Instalar la actualización 2 en el dispositivo de StorSimple
@@ -81,16 +81,16 @@ Las versiones de software que se pueden actualizar con el método de revisión s
 
 Las revisiones que se aplican a través de este método son como se indican a continuación:
 
-| Orden | KB | Nombre | Descripción del paquete | Tipo de actualización |
-|--------|-----------|-------------------------|-----------------------------|-------------|
-| 1 | KB3121901 | Actualización de software | HcsMdsSfotwareUpdate.exe <br></br> CisMdsAgentUpdateBundle.exe | Normal |
-| 2 | KB3121900 | Controlador LSI | HcsLsiUpdate.exe | Normal |
-| 3 | KB3080728 | Corrección de Storport | Storport-KB3080728-x64.msu | Normal |
-| 4 | KB3090322 | Corrección de Spaceport | Spaceport-KB3090322-x64.msu | Normal |
-| 5 | KB3121899 | Firmware del disco | DiskFirmwarePackage.exe | Mantenimiento |
+| Orden | KB | Nombre | Tipo de actualización |
+|--------|-----------|-------------------------|------------- |
+| 1 | KB3121901 | Actualización de software | Normal |
+| 2 | KB3121900 | Controlador LSI | Normal |
+| 3 | KB3080728 | Corrección de Storport | Normal |
+| 4 | KB3090322 | Corrección de Spaceport | Normal |
+| 5 | KB3121899 | Firmware del disco | Mantenimiento |
 
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 > 
 > - Si el dispositivo está ejecutando la versión de lanzamiento (GA), [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) para que le ayude con la actualización.
 > - Este procedimiento debe realizarse una sola vez para aplicar la actualización 2. Puede usar el Portal de Azure clásico para aplicar las actualizaciones posteriores.
@@ -127,4 +127,4 @@ Si ha comprobado que existe conectividad y sigue apareciendo este problema, pón
 
 Obtenga más información sobre el [lanzamiento de la actualización 2](storsimple-update2-release-notes.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

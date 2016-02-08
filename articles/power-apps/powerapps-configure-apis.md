@@ -70,7 +70,7 @@ Autenticar con el servicio back-end | Después de registrar su servicio back-end
 2. Seleccione **Toda la configuración**.
 3. En **Configuración**, seleccione **Directiva**: ![][14]
 
-Esta es la misma directiva admitida por [Administración de API de Azure](https://azure.microsoft.com/services/api-management). La directiva actual está en el editor XML insertado. Puede editarlo en línea o cargar un nuevo archivo XML. Después de **Guardar** los cambios, los errores se muestran en esta hoja, incluidos los errores de la directiva de la API.
+Esta es la misma directiva admitida por [Administración de API de Azure](https://azure.microsoft.com/services/api-management/). La directiva actual está en el editor XML insertado. Puede editarlo en línea o cargar un nuevo archivo XML. Después de **Guardar** los cambios, los errores se muestran en esta hoja, incluidos los errores de la directiva de la API.
 
 [Directivas de administración de API de Azure](../api-management-howto-policies.md) es un buen recurso para obtener más información acerca de la configuración y la descripción de las directivas.
 
@@ -88,4 +88,4 @@ Estos son algunos temas y recursos relacionados que le permitirán obtener más 
 [13]: ./media/powerapps-configure-apis/api-settings-api-definition.png
 [14]: ./media/powerapps-configure-apis/api-settings-policy.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

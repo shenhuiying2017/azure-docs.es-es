@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
+   ms.date="01/22/2016"
    ms.author="alkohli" />
 
 # Usar la interfaz de usuario web para administrar la matriz virtual de StorSimple (vista previa)
@@ -23,7 +23,7 @@
 
 Los tutoriales de este artículo se aplican a la matriz virtual de Microsoft Azure StorSimple (también conocida como dispositivo virtual local de StorSimple) que se ejecuta en la versión 1.1.1.0 (versión preliminar). En este artículo se describen algunos de los flujos de trabajo complejos y tareas de administración que se pueden realizar en la matriz virtual de StorSimple. Existen dos interfaces de usuario que se pueden usar para administrar la matriz virtual de StorSimple: la interfaz de usuario del servicio StorSimple Manager (denominada como portal de interfaz de usuario) y la interfaz de usuario web local del dispositivo. En este artículo nos centraremos en las tareas que puede realizar mediante la interfaz de usuario web.
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 >- La matriz virtual de StorSimple se encuentra en versión preliminar y está pensada con fines de evaluación y planificación de implementación. No se admite la instalación de esta versión preliminar en un entorno de producción. 
 >- Si experimenta problemas con la matriz virtual de StorSimple, publique los problemas en el [foro de MSDN de StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
@@ -132,14 +132,8 @@ Puede apagar o reiniciar el dispositivo virtual mediante la interfaz de usuario 
 
     Mientras el proceso de reinicio esté en curso, perderá la conexión a la interfaz de usuario. De todos modos, puede supervisar el proceso de reinicio si actualiza la interfaz de usuario de forma regular. Como alternativa, puede supervisar el estado del proceso de reinicio del dispositivo a través del Administrador de Hyper-V.
 
-![video\_icon](./media/storsimple-ova-web-ui-admin/video_icon.png) **Vídeo disponible**
-
-Consulte este vídeo para ver cómo puede crear recursos compartidos, realizar copias de seguridad de los recursos compartidos y restaurar datos en una matriz virtual de StorSimple.
-
-> [AZURE.VIDEO use-the-storsimple-virtual-array]
-
 ## Pasos siguientes
 
-Obtenga más información sobre cómo [Usar el servicio StorSimple Manager para administrar su dispositivo](storsimple-manager-service-administration.md).
+Obtenga más información sobre cómo [usar el servicio StorSimple Manager para administrar su dispositivo](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

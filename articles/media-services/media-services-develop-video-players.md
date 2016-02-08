@@ -34,7 +34,7 @@ Para obtener más información:
 
 - [Reproductor multimedia de Azure](http://aka.ms/ampinfo)
 - [Documentación de Reproductor multimedia de Azure](http://aka.ms/ampdocs) 
-- [Blog de Introducción a Reproductor multimedia de Azure](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player)
+- [Blog de Introducción a Reproductor multimedia de Azure](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
 - [Suscríbase para mantenerse al día con la versión más reciente de Reproductor multimedia de Azure](http://aka.ms/ampsignup)
 - [Agregue nuevas solicitudes, ideas, comentarios](http://aka.ms/ampuservoice) 
 
@@ -82,4 +82,4 @@ Para obtener información sobre la compatibilidad con anuncios y subtítulos en 
 [Repositorio dash.js de GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

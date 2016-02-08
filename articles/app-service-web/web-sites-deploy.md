@@ -35,7 +35,7 @@ Como no tiene que preocuparse por el marco de trabajo de la aplicación o del se
 
 Las herramientas de desarrollo web más populares admiten uno o varios de estos procesos de implementación. Aunque la herramienta que elija determina los procesos de implementación que puede aprovechar, la funcionalidad de DevOps real a su disposición depende de la combinación del proceso de implementación y las herramientas específicas que elija. Por ejemplo, si ejecuta Web Deploy desde [Visual Studio con Azure SDK](#vspros), aunque no obtenga la automatización de Kudu, tendrá la restauración de paquetes y la automatización de MSBuild en Visual Studio. Azure SDK también proporciona un asistente fácil de usar que le ayuda a crear los recursos de Azure que necesita directamente en la interfaz de Visual Studio.
 
->[AZURE.NOTE]Estos procesos de implementación no [aprovisionan realmente los recursos de Azure](resource-group-portal) que puede necesitar la aplicación, como el Plan de servicio de aplicaciones, la aplicación del Servicio de aplicaciones y la Base de datos SQL. Sin embargo, la mayoría de los artículos de procedimientos vinculados muestra cómo aprovisionar la aplicación e implementar el código en ella de un extremo a otro. También puede encontrar opciones adicionales para el aprovisionamiento de recursos de Azure en la sección [Automatización de la implementación mediante herramientas de línea de comandos](#automate).
+>[AZURE.NOTE] Estos procesos de implementación no [aprovisionan realmente los recursos de Azure](resource-group-portal) que puede necesitar la aplicación, como el Plan de servicio de aplicaciones, la aplicación del Servicio de aplicaciones y la Base de datos SQL. Sin embargo, la mayoría de los artículos de procedimientos vinculados muestra cómo aprovisionar la aplicación e implementar el código en ella de un extremo a otro. También puede encontrar opciones adicionales para el aprovisionamiento de recursos de Azure en la sección [Automatización de la implementación mediante herramientas de línea de comandos](#automate).
 
 ## <a name="ftp"></a>Implementación mediante la copia manual de archivos en Azure
 Si está familiarizado con la copia manual de contenido web en proveedores de servicios de hosting web, un flujo de trabajo común para los desarrolladores de PHP, puede usar una utilidad [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para copiar archivos, como el Explorador de Windows o [FileZilla](https://filezilla-project.org/).
@@ -201,8 +201,8 @@ Las ventajas adicionales de la implementación mediante Visual Studio Team Servi
 ###<a name="cloudgitmercurial"></a>Implementación desde un repositorio de Git o Mercurial basado en la nube
 
 - [Publicación desde el control de código fuente en aplicaciones web con Git](web-sites-publish-source-control.md). Habilitación de la implementación continua de repositorios desde GitHub, CodePlex o BitBucket. A pesar de que este tutorial muestra cómo publicar un repositorio Git, el proceso para los repositorios de Mercurial hospedados en CodePlex o BitBucket es similar.
-- [Implementación en aplicaciones web con GitHub con Kudu](http://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/). Vídeo de Scott Hanselman y David Ebbo que muestra cómo implementar una aplicación web directamente desde GitHub en el Servicio de aplicaciones.
-- [Implementación en Azure Button para aplicaciones web](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog sobre un método para desencadenar la implementación desde un repositorio Git.
+- [Implementación en aplicaciones web con GitHub con Kudu](https://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/). Vídeo de Scott Hanselman y David Ebbo que muestra cómo implementar una aplicación web directamente desde GitHub en el Servicio de aplicaciones.
+- [Implementación en Azure Button para aplicaciones web](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog sobre un método para desencadenar la implementación desde un repositorio Git.
 - [Foro de Azure para Git, Mercurial y Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
 Para obtener más información, consulte los siguientes recursos:
@@ -264,7 +264,7 @@ Para obtener más información, consulte el siguiente recurso:
 
 Para obtener más información, consulte el siguiente recurso:
 
-* [Aplicaciones web simples: implementación](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog de David Ebbo sobre una herramienta que escribió para facilitar el uso de Web Deploy.
+* [Aplicaciones web simples: implementación](https://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog de David Ebbo sobre una herramienta que escribió para facilitar el uso de Web Deploy.
 * [Herramienta de implementación web](http://technet.microsoft.com/library/dd568996). Documentación oficial sobre el sitio de Microsoft TechNet. Información antigua, pero sigue siendo un buen lugar para comenzar.
 * [Uso de Web Deploy](http://www.iis.net/learn/publish/using-web-deploy). Documentación oficial sobre el sitio de Microsoft IIS.NET. También es información antigua, pero es un buen lugar para comenzar.
 * [StackOverflow](http://www.stackoverflow.com). El mejor sitio para visitar y obtener información más actualizada sobre el uso de Web Deploy desde la línea de comandos.
@@ -276,7 +276,7 @@ En algunos escenarios, es posible que desee poder cambiar fácilmente entre una 
 
 Tener un plan de copia de seguridad y restauración es un elemento importante de cualquier flujo de trabajo de implementación. Para obtener información sobre la característica de copia de seguridad y restauración de Web Apps, consulte [Copias de seguridad de Web Apps](web-sites-backup.md).
 
-Para obtener información sobre cómo usar el Control de acceso basado en roles de Azure para administrar el acceso a la implementación de Web Apps, consulte [RBAC y la publicación de aplicaciones web](http://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing).
+Para obtener información sobre cómo usar el Control de acceso basado en roles de Azure para administrar el acceso a la implementación de Web Apps, consulte [RBAC y la publicación de aplicaciones web](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/).
 
 Para obtener información sobre otros temas de implementación, consulte la sección Implementación en la [Documentación de aplicaciones web](/documentation/services/web-sites/).
 
@@ -284,4 +284,4 @@ Para obtener información sobre otros temas de implementación, consulte la secc
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

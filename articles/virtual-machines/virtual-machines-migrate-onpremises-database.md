@@ -47,7 +47,7 @@ Para minimizar el tiempo de inactividad durante el proceso de migración de la b
 
 Si no es posible usar los métodos anteriores, migre la base de datos de forma manual. Por lo general, con este método comenzará con una copia de seguridad de la base de datos y luego la copiará en Azure para, posteriormente, realizar una restauración de la base de datos. También es posible copiar los archivos mismos de la base de datos en Azure y, luego, anexarlos. Existen varios métodos para llevar a cabo este proceso manual de migración de una base de datos a una máquina virtual de Azure.
 
-> [AZURE.NOTE]Al actualizar a SQL Server 2014 o SQL Server 2016 desde versiones anteriores de SQL Server, es preciso considerar si es preciso realizar cambios. Como parte del proyecto de migración es aconsejable solucionar todas las dependencias de características no compatibles con la nueva versión de SQL Server. Para obtener más información sobre los escenarios y las ediciones compatibles, consulte [Actualización a SQL Server](https://msdn.microsoft.com/library/bb677622.aspx).
+> [AZURE.NOTE] Al actualizar a SQL Server 2014 o SQL Server 2016 desde versiones anteriores de SQL Server, es preciso considerar si es preciso realizar cambios. Como parte del proyecto de migración es aconsejable solucionar todas las dependencias de características no compatibles con la nueva versión de SQL Server. Para obtener más información sobre los escenarios y las ediciones compatibles, consulte [Actualización a SQL Server](https://msdn.microsoft.com/library/bb677622.aspx).
 
 En la tabla siguiente se muestran los principales métodos de migración y se explica en qué circunstancias es más apropiado usar cada uno de ellos.
 
@@ -164,7 +164,7 @@ Este método se usa para migrar todas las bases de datos de usuario y del sistem
 2.	Cargue archivos VHD en Almacenamiento de Azure mediante el [cmdlet Add-AzureVHD](https://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
 3.	Implemente una máquina virtual nueva mediante el VHD cargado.
 
-> [AZURE.NOTE]Para migrar una aplicación completa, considere el uso de [Azure Site Recovery](../services/site-recovery/).
+> [AZURE.NOTE] Para migrar una aplicación completa, considere el uso de [Azure Site Recovery](../services/site-recovery/).
 
 ## Envío de unidad de disco duro
 
@@ -174,4 +174,4 @@ Use el [método del servicio de importación y exportación de Azure](../storage
 
 Para obtener más información sobre cómo ejecutar SQL Server en Máquinas virtuales de Azure, consulte [Información general sobre SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

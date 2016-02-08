@@ -27,7 +27,7 @@ En este artículo se proporciona información general y consideraciones sobre el
 
 * **Conexión de red RDMA para aplicaciones MPI**: cuando se configura con los controladores de red necesarios, las instancias A8 y A9 pueden comunicarse con otras instancias A8 y A9 a través de una red de baja latencia y alto rendimiento en Azure basadas en tecnología de acceso a memoria directa remota (RDMA). Esta característica puede mejorar el rendimiento de las aplicaciones que usan las implementaciones de la interfaz de transferencia de mensajes de Linux o Windows compatibles.
 
-* **Compatibilidad con clústeres de HPC de Windows y Linux**: implemente software de administración de clústeres y de programación de trabajos en las instancias A8, A9, A10 y A11 en Azure para crear un clúster HPC independiente o para agregar más capacidad a un clúster local. Como otros tamaños de máquina virtual de Azure, las instancias A8, A9, A10 y A11 admiten imágenes del sistema operativo Windows Server y Linux estándar o personalizadas o plantillas del Administrador de recursos de Azure en máquinas virtuales de Azure (IaaS) o versiones de SO invitado de Azure en servicios en la nube (PaaS, solamente para Windows Server).
+* **Compatibilidad con clústeres de HPC de Windows y Linux**: implemente la administración del clúster y el software de programación de trabajos en las instancias A8, A9, A10 y A11 en Azure para crear un clúster HPC independiente o para agregar más capacidad a un clúster local. Como otros tamaños de máquina virtual de Azure, las instancias A8, A9, A10 y A11 admiten imágenes del sistema operativo Windows Server y Linux estándar o personalizadas o plantillas del Administrador de recursos de Azure en máquinas virtuales de Azure (IaaS) o versiones de SO invitado de Azure en servicios en la nube (PaaS, solamente para Windows Server).
 
 >[AZURE.NOTE]Las instancias A10 y A11 tienen las mismas optimizaciones y especificaciones de rendimiento que las instancias A8 y A9. Sin embargo, no incluyen el acceso a la red RDMA en Azure. Están diseñadas para aplicaciones HPC que no requieren comunicación constante y de baja latencia entre nodos, también conocidas como aplicaciones paramétricas o embarazosamente paralelas.
 
@@ -63,9 +63,9 @@ Las instancias A10 y A11 tienen un único adaptador de red Ethernet de 10 Gbps q
 
 ## Consideraciones para la suscripción
 
-* **Cuenta de Azure**: si desea implementar más de un pequeño número de instancias de proceso intensivo, considere la posibilidad de usar una suscripción de pago por uso u otras opciones de compra. También puede utilizar su suscripción a MSDN. Consulte [Ventajas de Azure para suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Si usa una [evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/), solo puede usar un número limitado de núcleos de proceso de Azure.
+* **Cuenta de Azure**: si desea implementar más de un pequeño número de instancias de proceso intensivo, considere la posibilidad de usar una suscripción de pago por uso u otras opciones de compra. También puede utilizar su suscripción a MSDN. Consulte [Ventajas de Azure para suscriptores de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Si usa una [evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/), solo puede usar un número limitado de núcleos de proceso de Azure.
 
-* **Cuota de núcleos**: es posible que tenga que aumentar la cuota de núcleos de su suscripción a Azure desde el valor predeterminado de 20 núcleos por suscripción (en el caso de las implementaciones de Administración de servicios de Azure) o de 20 núcleos por región (en el caso de las implementaciones de Administrador de recursos de Azure), que no es suficiente para muchos escenarios con instancias de 8 o 16 núcleos. Para las pruebas iniciales, puede considerar la posibilidad de solicitar un aumento de cuota hasta 100 núcleos. Para ello, abra una incidencia de soporte técnico gratuita, tal como se muestra en [Descripción de los límites y aumentos de Azure](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+* **Cuota de núcleos**: es posible que tenga que aumentar la cuota de núcleos de su suscripción a Azure desde el valor predeterminado de 20 núcleos por suscripción (en el caso de las implementaciones de Administración de servicios de Azure) o de 20 núcleos por región (en el caso de las implementaciones de Administrador de recursos de Azure), que no es suficiente para muchos escenarios con instancias de 8 o 16 núcleos. Para las pruebas iniciales, puede considerar la posibilidad de solicitar un aumento de cuota hasta 100 núcleos. Para ello, abra una incidencia de soporte técnico gratuita, tal como se muestra en [Descripción de los límites y aumentos de Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
     >[AZURE.NOTE]Las cuotas de Azure son límites de crédito, no garantías de capacidad. Solamente se le cobrarán los núcleos que use.
 
@@ -91,7 +91,7 @@ Para obtener más información y listas de comprobación para usar instancias de
 
 En un único servicio en la nube o en conjunto de disponibilidad, las instancias A8 y A9 pueden tener acceso a la red RDMA de Azure para ejecutar aplicaciones MPI que usan controladores Linux RDMA para comunicarse entre instancias. En este momento, Azure Linux RDMA solo se admite con [Intel MPI Library 5](https://software.intel.com/es-ES/intel-mpi-library/).
 
->[AZURE.NOTE]Actualmente los controladores Azure Linux RDMA no están disponibles para instalarse a través de extensiones de controladores. Solamente están disponibles mediante la imagen SLES 12 habilitada para RDMA desde Azure Marketplace.
+>[AZURE.NOTE] Actualmente los controladores Azure Linux RDMA no están disponibles para instalarse a través de extensiones de controladores. Solamente están disponibles mediante la imagen SLES 12 habilitada para RDMA desde Azure Marketplace.
 
 Consulte la siguiente tabla para obtener información sobre los requisitos previos para las aplicaciones de Linux MPI para acceder a la red RDMA en clústeres de nodos de cálculo (IaaS). Consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-cluster-rdma.md) para obtener opciones de implementación y pasos de configuración.
 
@@ -126,8 +126,8 @@ MPI | MS-MPI 2012 R2 o versiones posteriores, ya sean independientes o instalada
 
 ## Pasos siguientes
 
-* Para obtener más información sobre la disponibilidad y los precios de las instancias A8, A9, A10 y A11, consulte [Precios de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/) y [Precios de servicios en la nube](http://azure.microsoft.com/pricing/details/cloud-services/).
+* Para obtener más información sobre la disponibilidad y los precios de las instancias A8, A9, A10 y A11, consulte [Precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/) y [Precios de servicios en la nube](https://azure.microsoft.com/pricing/details/cloud-services/).
 * Para implementar y configurar un clúster basado en Linux con instancias A8 y A9 para tener acceso a la red RDMA de Azure, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-cluster-rdma.md).
 * Para empezar a implementar y usar instancias A8 y A9 con HPC Pack en Windows, consulte [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

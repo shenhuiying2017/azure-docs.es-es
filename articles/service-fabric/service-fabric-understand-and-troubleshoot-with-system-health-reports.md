@@ -13,22 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2015"
+   ms.date="01/26/2016"
    ms.author="oanapl"/>
 
 # Utilización de informes de mantenimiento del sistema para solucionar problemas
 
 Los componentes de Azure Service Fabric informan desde el primer momento de todas las entidades del clúster. El [almacén de estado](service-fabric-health-introduction.md#health-store) crea y elimina entidades basándose en los informes del sistema. También las organiza en una jerarquía que captura las interacciones de la entidad.
 
-> [AZURE.NOTE]Obtenga más información sobre el [Modelo de mantenimiento de Service Fabric](service-fabric-health-introduction.md) para comprender los conceptos relacionados con el mantenimiento.
+> [AZURE.NOTE] Obtenga más información sobre el [Modelo de mantenimiento de Service Fabric](service-fabric-health-introduction.md) para comprender los conceptos relacionados con el mantenimiento.
 
 Los informes de mantenimiento del sistema proporcionan visibilidad en el clúster y funcionalidad de la aplicación, así como indican problemas a través del mantenimiento. Para aplicaciones y servicios, los informes de mantenimiento del sistema comprueban que las entidades se implementan y que se comportan correctamente desde la perspectiva de Service Fabric. Los informes no proporcionan ninguna supervisión del mantenimiento de la lógica empresarial del servicio o de la detección de los procesos bloqueados. Los servicios de usuario pueden enriquecer los datos de mantenimiento con información específica de su lógica.
 
-> [AZURE.NOTE]Solo son visibles los informes de mantenimiento de los guardianes *después* de que los componentes del sistema hayan creado la entidad. Cuando se elimina una entidad, el almacén de estado elimina automáticamente todos los informes de mantenimiento asociados a ella. Lo mismo sucede cuando se crea una nueva instancia de la entidad (por ejemplo, se crea una nueva instancia de la réplica de servicio). Todos los informes asociados a la instancia anterior se eliminan y se limpian del almacén.
+> [AZURE.NOTE] Solo son visibles los informes de mantenimiento de los guardianes *después* de que los componentes del sistema hayan creado la entidad. Cuando se elimina una entidad, el almacén de estado elimina automáticamente todos los informes de mantenimiento asociados a ella. Lo mismo sucede cuando se crea una nueva instancia de la entidad (por ejemplo, se crea una nueva instancia de la réplica de servicio). Todos los informes asociados a la instancia anterior se eliminan y se limpian del almacén.
 
 Los informes de los componentes del sistema se identifican mediante el origen, que comienza por el prefijo **"System"**. Los guardianes no pueden utilizar el mismo prefijo para sus orígenes, ya que los informes con parámetros no válidos se rechazarán. Veamos algunos informes de sistema para entender qué los desencadena y cómo corregir los posibles problemas que representan.
 
-> [AZURE.NOTE]Service Fabric sigue agregando informes de condiciones de interés que mejoran la visibilidad de lo que sucede en el clúster y la aplicación.
+> [AZURE.NOTE] Service Fabric sigue agregando informes de condiciones de interés que mejoran la visibilidad de lo que sucede en el clúster y la aplicación.
 
 ## Informes de mantenimiento del sistema de clúster
 La entidad de mantenimiento del clúster se crea automáticamente en el almacén de estado, por tanto si todo funciona correctamente, no habrá un informe del sistema.
@@ -537,4 +537,4 @@ HealthEvents          :
 
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

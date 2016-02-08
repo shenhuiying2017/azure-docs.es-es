@@ -31,13 +31,13 @@ Al final de este tutorial ejecutará dos aplicaciones de consola de Windows:
 * **SimulatedDevice**, versión modificada de la aplicación creada en [Introducción al Centro de IoT], que se conecta al Centro de IoT y recibe mensajes de nube a dispositivo.
 * **SendCloudToDevice**, que envía un mensaje de nube a dispositivo al dispositivo simulado a través del Centro de IoT y luego recibe su confirmación de entrega.
 
-> [AZURE.NOTE]El centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes (incluido C, Java y Javascript), mediante los SDK de dispositivos IoT de Azure. Consulte el [Centro para desarrolladores de IoT de Azure] para obtener instrucciones paso a paso sobre cómo conectar el dispositivo al código de este tutorial y, en general, al Centro de IoT de Azure. Próximamente estarán disponibles SDK de servicios IoT de Azure para Java y Node.
+> [AZURE.NOTE] El centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes (incluido C, Java y Javascript), mediante los SDK de dispositivos IoT de Azure. Consulte el [Centro para desarrolladores de IoT de Azure] para obtener instrucciones paso a paso sobre cómo conectar el dispositivo al código de este tutorial y, en general, al Centro de IoT de Azure. Próximamente estarán disponibles SDK de servicios IoT de Azure para Java y Node.
 
 Para completar este tutorial, necesitará lo siguiente:
 
 + Microsoft Visual Studio 2015
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, vea [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="\_blank").
++ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, vea [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="\_blank").
 
 [AZURE.INCLUDE [iot-hub-c2d-device-csharp](../../includes/iot-hub-c2d-device-csharp.md)]
 
@@ -53,11 +53,11 @@ En este tutorial, aprendió a enviar y recibir mensajes de nube a dispositivo. P
 
 Información adicional sobre el Centro de IoT:
 
-* [Información general sobre el Centro de IoT]
-* [Guía para desarrolladores del Centro de IoT]
-* [Directrices sobre el Centro de IoT]
+* [Información general sobre el centro de IoT]
+* [Guía del desarrollador del centro de IoT]
+* [Directrices sobre el centro de IoT]
 * [Lenguajes y plataformas de dispositivos compatibles][Supported devices]
-* [Centro para desarrolladores de IoT de Azure]
+* [Centro para desarrolladores de Azure]
 
 <!-- Images. -->
 
@@ -73,12 +73,13 @@ Información adicional sobre el Centro de IoT:
 [Procesamiento de mensajes de dispositivo a nube]: iot-hub-csharp-csharp-process-d2c.md
 [Carga de archivos desde dispositivos]: iot-hub-csharp-csharp-file-upload.md
 
-[Información general sobre el Centro de IoT]: iot-hub-what-is-iot-hub.md
-[Directrices sobre el Centro de IoT]: iot-hub-guidance.md
-[Guía para desarrolladores del Centro de IoT]: iot-hub-devguide.md
+[Información general sobre el centro de IoT]: iot-hub-what-is-iot-hub.md
+[Directrices sobre el centro de IoT]: iot-hub-guidance.md
+[Guía del desarrollador del centro de IoT]: iot-hub-devguide.md
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Introducción al Centro de IoT]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
+[Centro para desarrolladores de Azure]: http://www.azure.com/develop/iot
 [Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

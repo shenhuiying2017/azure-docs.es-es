@@ -70,7 +70,7 @@ Las herramientas de base de datos elástica son gratuitas. No imponen cargos adi
 
 Por ejemplo, la aplicación de ejemplo crea nuevas bases de datos. El coste depende de la edición de Base de datos SQL de Azure que elija y del uso de Azure de la aplicación.
 
-Para obtener información sobre los precios, consulte [Detalles de precios de Base de datos SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+Para obtener información sobre los precios, consulte [Detalles de precios de Base de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## Pasos siguientes
 Para obtener más información sobre las herramientas de base de datos elástica, consulte:
@@ -80,7 +80,7 @@ Para obtener más información sobre las herramientas de base de datos elástica
     -    [Elastic DB with Azure SQL - Getting Started (Bases de datos elásticas con SQL de Azure - Introducción)](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Elastic DB with Azure SQL - Integrating with Entity Framework (Bases de datos elásticas con SQL de Azure - Integración con Entity Framework)](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
     -    [Shard Elasticity on Script Center (Elasticidad de particiones en el Centro de scripts)](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
--    Blog: [Elastic Scale Announcement](http://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/) (Anuncio de Escalado elástico)
+-    Blog: [Elastic Scale Announcement](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/) (Anuncio de Escalado elástico)
 -    Canal 9: [vídeo Elastic Scale Overview](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale) (Información general de Escalado elástico)
 -    Foro de discusión: [Foro de Base de datos SQL de Azure](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 
@@ -98,4 +98,4 @@ Para obtener más información sobre las herramientas de base de datos elástica
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

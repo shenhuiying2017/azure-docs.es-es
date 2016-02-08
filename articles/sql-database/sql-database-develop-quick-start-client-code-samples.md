@@ -39,7 +39,7 @@ Los ejemplos abarcan:
 - Ejemplos de código que permiten convertir conjuntos de resultados relacionales en un formato orientado a objetos.
 
 
-> [AZURE.NOTE]Se están preparando ejemplos de código en más lenguajes cuyos vínculos se agregarán al presente tema.
+> [AZURE.NOTE] Se están preparando ejemplos de código en más lenguajes cuyos vínculos se agregarán al presente tema.
 
 
 ## Clientes de Linux
@@ -86,7 +86,7 @@ Esta sección proporciona vínculos a temas de ejemplo de código para programas
 ## Consulte también
 
 
-- [Descargas de SDK y herramientas para varios lenguajes y plataformas](http://azure.microsoft.com/downloads/#cmd-line-tools)
+- [Descargas de SDK y herramientas para varios lenguajes y plataformas](https://azure.microsoft.com/downloads/#cmd-line-tools)
 - [Bibliotecas de conexiones para la base de datos SQL y SQL Server](sql-database-libraries.md)
 - [Lista de códigos numéricos para errores transitorios](sql-database-develop-error-messages.md#bkmk_connection_errors)<br/>&nbsp;
 - [Desarrollo de base de datos SQL de Azure: temas de procedimientos](http://msdn.microsoft.com/library/azure/ee621787.aspx)
@@ -94,4 +94,4 @@ Esta sección proporciona vínculos a temas de ejemplo de código para programas
 - [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md)
 - [Entity Framework 6 aquí, EF 7 en GitHub](http://entityframework.codeplex.com/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

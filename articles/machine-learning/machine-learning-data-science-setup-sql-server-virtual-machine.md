@@ -25,12 +25,12 @@ La galería de máquinas virtuales de Azure incluye varias imágenes que contien
 - SQL Server 2012 SP2 Enterprise para tamaños de datos pequeños y medianos
 - SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads para tamaños de datos grandes o muy grandes
 
- >[AZURE.NOTE]La imagen de SQL Server 2012 SP2 Enterprise **no incluye un disco de datos**. Deberá agregar o asociar uno o más discos duros virtuales para almacenar los datos. Al crear una máquina virtual de Azure, esta cuenta con un disco para el sistema operativo asignado a la unidad C y un disco temporal asignado a la unidad D. No utilice la unidad D para almacenar datos. Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure.
+ >[AZURE.NOTE] La imagen de SQL Server 2012 SP2 Enterprise **no incluye un disco de datos**. Deberá agregar o asociar uno o más discos duros virtuales para almacenar los datos. Al crear una máquina virtual de Azure, esta cuenta con un disco para el sistema operativo asignado a la unidad C y un disco temporal asignado a la unidad D. No utilice la unidad D para almacenar datos. Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure.
 
 
 ##<a name="Provision"></a>Conexión al Portal de Azure clásico y aprovisionamiento de una máquina virtual de SQL Server
 
-1.  Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com/) con su cuenta. Si no tiene una cuenta de Azure, visite [Evaluación gratuita de Azure](http://www.windowsazure.com/pricing/free-trial/).
+1.  Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com/) con su cuenta. Si no tiene una cuenta de Azure, visite [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 2.  En el Portal de Azure clásico, en la parte inferior izquierda de la página web, haga clic sucesivamente en **+NUEVO**, **PROCESO**, **MÁQUINA VIRTUAL** y, a continuación, haga clic en **DESDE LA GALERÍA**.
 
@@ -46,7 +46,7 @@ La galería de máquinas virtuales de Azure incluye varias imágenes que contien
     -   En el cuadro **CONFIRMAR CONTRASEÑA**, vuelva a escribir la contraseña.
     -   Seleccione el **TAMAÑO** correspondiente en la lista desplegable.
 
-     >[AZURE.NOTE]El tamaño de la máquina virtual se especifica durante el aprovisionamiento: A2 es el tamaño mínimo recomendado para cargas de trabajo de producción. El tamaño mínimo recomendado es A3 para una máquina virtual cuando se usa SQL Server Enterprise Edition. Seleccione A3 o un tamaño superior cuando use SQL Server Enterprise Edition. Seleccione A4 si usa SQL Server 2012 o 2014 Enterprise optimizado para imágenes de cargas de trabajo transaccionales. Seleccione A7 si usa SQL Server 2012 o 2014 Enterprise optimizado para imágenes de cargas de trabajo de almacenamiento de datos. El tamaño seleccionado limita el número de discos de datos que se puede configurar. Para obtener la información más actualizada sobre los tamaños disponibles de máquina virtual y la cantidad de discos de datos que puede adjuntar a una máquina virtual, consulte [Tamaños de máquina virtual para Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Para obtener información sobre el precio, consulte [Precios de Máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/).
+     >[AZURE.NOTE] El tamaño de la máquina virtual se especifica durante el aprovisionamiento: A2 es el tamaño mínimo recomendado para cargas de trabajo de producción. El tamaño mínimo recomendado es A3 para una máquina virtual cuando se usa SQL Server Enterprise Edition. Seleccione A3 o un tamaño superior cuando use SQL Server Enterprise Edition. Seleccione A4 si usa SQL Server 2012 o 2014 Enterprise optimizado para imágenes de cargas de trabajo transaccionales. Seleccione A7 si usa SQL Server 2012 o 2014 Enterprise optimizado para imágenes de cargas de trabajo de almacenamiento de datos. El tamaño seleccionado limita el número de discos de datos que se puede configurar. Para obtener la información más actualizada sobre los tamaños disponibles de máquina virtual y la cantidad de discos de datos que puede adjuntar a una máquina virtual, consulte [Tamaños de máquina virtual para Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Para obtener información sobre el precio, consulte [Precios de Máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
     Haga clic en la flecha de avance en la esquina inferior derecha para continuar.
 
@@ -120,7 +120,7 @@ Para configurar la nueva máquina virtual de SQL Server para que actúe como un 
 
 Si la imagen de la máquina virtual no incluye discos de datos, es decir, discos que no sean la unidad C (disco del sistema operativo) y la unidad D (disco temporal), deberá agregar uno o más discos de datos para almacenar los datos. La imagen de máquina virtual de SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads viene configurada previamente con discos adicionales para los archivos de registro y de datos de SQL Server.
 
- >[AZURE.NOTE]No utilice la unidad D para almacenar datos. Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure.
+ >[AZURE.NOTE] No utilice la unidad D para almacenar datos. Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure.
 
 Para conectar discos de datos adicionales, siga los pasos descritos en [Acoplamiento de un disco de datos a una máquina virtual de Windows](storage-windows-attach-disk.md), que le guiarán a través de la:
 
@@ -144,7 +144,7 @@ El motor de base de datos de SQL Server no puede utilizar la autenticación de W
 
 	<br>
 
-	 >[AZURE.TIP]Puede cambiar el modo de autenticación de SQL Server mediante un cambio de clave del registro de Windows o con SQL Server Management Studio. Para cambiar el modo de autenticación mediante el cambio de la clave del registro, inicie una **Nueva consulta** y ejecute el script siguiente:
+	 >[AZURE.TIP] Puede cambiar el modo de autenticación de SQL Server mediante un cambio de clave del registro de Windows o con SQL Server Management Studio. Para cambiar el modo de autenticación mediante el cambio de la clave del registro, inicie una **Nueva consulta** y ejecute el script siguiente:
 
 		USE master
     	go
@@ -175,7 +175,7 @@ El motor de base de datos de SQL Server no puede utilizar la autenticación de W
 
 Para conectarse al motor de base de datos desde otro equipo, debe crear al menos un inicio de sesión para la autenticación de SQL Server.
 
-> [AZURE.TIP]Puede crear nuevos inicios de sesión de SQL Server mediante programación o con SQL Server Management Studio. Para crear un nuevo usuario sysadmin con autenticación SQL mediante programación, inicie una **Nueva consulta** y ejecute el script siguiente. Sustituya <new user name> y <new password> por el nombre de usuario y la contraseña que prefiera. Ajuste la directiva de contraseñas según sea necesario (el código de ejemplo desactiva la expiración de la contraseña y la comprobación de la directiva). Para ver más información acerca de los inicios de sesión de SQL Server, consulte [Crear un inicio de sesión](http://msdn.microsoft.com/library/aa337562.aspx).
+> [AZURE.TIP] Puede crear nuevos inicios de sesión de SQL Server mediante programación o con SQL Server Management Studio. Para crear un nuevo usuario sysadmin con autenticación SQL mediante programación, inicie una **Nueva consulta** y ejecute el script siguiente. Sustituya <new user name> y <new password> por el nombre de usuario y la contraseña que prefiera. Ajuste la directiva de contraseñas según sea necesario (el código de ejemplo desactiva la expiración de la contraseña y la comprobación de la directiva). Para ver más información acerca de los inicios de sesión de SQL Server, consulte [Crear un inicio de sesión](http://msdn.microsoft.com/library/aa337562.aspx).
 
     USE master
     go
@@ -232,7 +232,7 @@ Para conectarse al motor de base de datos de SQL Server desde otro equipo, debe 
 
 1.  En un equipo conectado a Internet, abra SQL Server Management Studio.
 
-2.  En el cuadro de diálogo **Conectar al servidor** o **Conectarse al motor de base de datos**, en el cuadro **Nombre del servidor**, escriba el nombre DNS de la máquina virtual (determinado en la tarea anterior) y un número de puerto de extremo público con formato **NombreDNS,nombrepuerto**, como por ejemplo *tutorialtestVM.cloudapp.net,57500*.
+2.  En el cuadro de diálogo **Conectar al servidor ** o **Conectarse al motor de base de datos**, en el cuadro **Nombre del servidor**, escriba el nombre DNS de la máquina virtual (determinado en la tarea anterior) y un número de puerto de extremo público con formato **NombreDNS,nombrepuerto**, como por ejemplo *tutorialtestVM.cloudapp.net,57500*.
 
 3.  En el cuadro **Autenticación**, seleccione **Autenticación de SQL Server**.
 
@@ -260,7 +260,7 @@ En las fases posteriores Tecnología y procesos de análisis avanzado, se usará
 
 Las máquinas virtuales de Azure tienen unas tarifas del tipo **pague solo por lo que use**. Para asegurarse de que no se le facture cuando no use la máquina virtual, debe estar en estado **Detenida (desasignada)**.
 
-> [AZURE.NOTE]Si se apaga la máquina virtual desde dentro (con las opciones de energía de Windows), se detiene, pero permanece asignada. Para asegurarse de que no se le facture, detenga siempre las máquinas virtuales desde el [Portal de Azure clásico](http://manage.windowsazure.com/). También puede detener la máquina virtual a través de Powershell, con una llamada a ShutdownRoleOperation con "PostShutdownAction" igual a "StoppedDeallocated".
+> [AZURE.NOTE] Si se apaga la máquina virtual desde dentro (con las opciones de energía de Windows), se detiene, pero permanece asignada. Para asegurarse de que no se le facture, detenga siempre las máquinas virtuales desde el [Portal de Azure clásico](http://manage.windowsazure.com/). También puede detener la máquina virtual a través de Powershell, con una llamada a ShutdownRoleOperation con "PostShutdownAction" igual a "StoppedDeallocated".
 
 Para apagar y desasignar la máquina virtual:
 
@@ -299,4 +299,4 @@ Los pasos siguientes del proceso de ciencia de datos se asignan en la [Guía de 
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

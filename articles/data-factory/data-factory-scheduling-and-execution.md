@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/27/2016" 
 	ms.author="spelluru"/>
 
 # Programación y ejecución con Factoría de datos
@@ -22,7 +22,7 @@ En este artículo se explican los aspectos de programación y ejecución del mod
 
 ## Programación de actividades
 
-Con la sección **scheduler** de JSON de la actividad, puede especificar una programación periódica de la actividad. Por ejemplo puede programar que la actividad se ejecute cada hora como sigue:
+Con la sección **scheduler** de JSON de la actividad, puede especificar una programación periódica de la actividad. Por ejemplo, puede programar una actividad cada hora como sigue:
 
 	"scheduler": {
 		"frequency": "Hour",
@@ -31,11 +31,11 @@ Con la sección **scheduler** de JSON de la actividad, puede especificar una pro
     
 ![Ejemplo de programador](./media/data-factory-scheduling-and-execution/scheduler-example.png)
 
-Como se indicó anteriormente, al especificar una programación por hora, se crea una actividad que se ejecuta en una serie de ventanas de saltos. Las ventanas de saltos son series de intervalos de tiempo de tamaño fijo, no superpuestos y contiguos.
+Como se indicó anteriormente, especificando una programación para la actividad crea una serie de ventanas de saltos. Las ventanas de saltos son series de intervalos de tiempo de tamaño fijo, no superpuestos y contiguos. Estas ventanas de saltos lógicas para la actividad se denominan **ventanas de actividad**.
  
-Para la ejecución de la actividad actualmente en curso, se puede acceder al intervalo de tiempo de la ventana con las variables del sistema **WindowStart** y **WindowEnd** del JSON de la actividad. Puede usar estas variables con distintos fines en el JSON de la actividad y en scripts asociados con la actividad, incluido la selección de datos de a partir de conjuntos de datos de entrada y de salida que representan datos de serie temporal.
+Para la ventana de actividad actualmente en ejecución, se puede acceder al intervalo de tiempo asociado a la ventana de actividad con las variables del sistema **WindowStart** y **WindowEnd** del JSON de la actividad. Puede usar estas variables con distintos fines en el JSON de la actividad y en scripts asociados con la actividad, incluido la selección de datos de a partir de conjuntos de datos de entrada y de salida que representan datos de serie temporal.
 
-Para obtener más información sobre las diferentes propiedades disponibles para el programador, incluido la programación en un desplazamiento de tiempo específico y el establecimiento del modo para alinear el procesamiento al principio del intervalo de la ventana o al final, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md).
+Para más información sobre las diferentes propiedades disponibles para el programador como, por ejemplo, la programación con un desplazamiento de tiempo específico y el establecimiento del modo para alinear el procesamiento al principio del intervalo de la ventana o al final, vea el artículo [Creación de canalizaciones](data-factory-create-pipelines.md).
 
 ## Conjuntos de datos y segmentos de datos de series temporales
 
@@ -54,7 +54,7 @@ Cada unidad de datos consumida y producida por la ejecución de una actividad se
 
 Los segmentos de datos de cada hora para el conjunto de datos de entrada y salida se muestran en el diagrama anterior. El diagrama muestra tres segmentos de entrada que están listos para su procesamiento y la ejecución de la actividad 10-11AM en curso que produce el segmento de salida 10-11AM.
 
-Se puede acceder al intervalo de tiempo asociado con el segmento actual que se produce en el JSON del conjunto de datos con variables **SliceStart** y **SliceEnd**.
+Se puede acceder al intervalo de tiempo asociado con el segmento actual que se produce en el JSON del conjunto de datos con las variables **SliceStart** y **SliceEnd**.
 
 Para obtener más información sobre las diferentes propiedades disponibles para la sección availability, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md).
 
@@ -523,7 +523,7 @@ WindowEnd | Final del intervalo de tiempo para la ventana de ejecución de activ
 SliceStart | Inicio del intervalo de tiempo para el segmento de datos que se está generando | activity<br/>dataset | <ol><li>Especifique las rutas de acceso de la carpeta dinámica y los nombres de archivo mientras se trabaja con el [blob de Azure](data-factory-azure-blob-connector.md) y con los [conjuntos de datos del sistema de archivos](data-factory-onprem-file-system-connector.md).</li><li>Especifique las dependencias de entrada con las funciones de Factoría de datos en la colección de entradas de la actividad.</li></ol>
 SliceEnd | Fin del intervalo de tiempo para el segmento de datos que se está generando | actividad<br/>conjunto de datos | Igual que el anterior. 
 
-> [AZURE.NOTE]Actualmente Factoría de datos requiere que el programa especificado en la actividad coincida exactamente con el programa especificado en la disponibilidad del conjunto de datos de salida. Esto significa que WindowStart, WindowEnd, SliceStart y SliceEnd siempre se asignan al mismo período de tiempo y un segmento de salida única.
+> [AZURE.NOTE] Actualmente Factoría de datos requiere que el programa especificado en la actividad coincida exactamente con el programa especificado en la disponibilidad del conjunto de datos de salida. Esto significa que WindowStart, WindowEnd, SliceStart y SliceEnd siempre se asignan al mismo período de tiempo y un segmento de salida única.
  
 ## Referencia de funciones de Factoría de datos
 
@@ -577,7 +577,7 @@ Texto | Format(X) | X: String variable | Da formato al texto.
 	    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
 	}
 
-> [AZURE.NOTE]Cuando se usa una función dentro de otra función, no es necesario usar el prefijo **$$** para la función interna. Por ejemplo: $$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' y RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). En este ejemplo, observe que el prefijo **$$** no se usa para la función **Time.AddHours**.
+> [AZURE.NOTE] Cuando se usa una función dentro de otra función, no es necesario usar el prefijo **$$** para la función interna. Por ejemplo: $$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' y RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). En este ejemplo, observe que el prefijo **$$** no se usa para la función **Time.AddHours**.
   
 
 ## Profundización de la dependencia de datos
@@ -678,4 +678,4 @@ De forma similar a los conjuntos de datos que produce Factoría de datos, los se
 
   
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->
