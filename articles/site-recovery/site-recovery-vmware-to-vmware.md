@@ -27,7 +27,7 @@ InMage Scout en Azure Site Recovery proporciona características de replicación
 
 ## Requisitos previos
 
-- **Cuenta de Azure**: necesitará una cuenta de [Microsoft Azure](http://azure.microsoft.com/). Puede comenzar con una [evaluación gratuita](pricing/free-trial/).
+- **Cuenta de Azure**: necesitará una cuenta de [Microsoft Azure](https://azure.microsoft.com/). Puede comenzar con una [evaluación gratuita](pricing/free-trial/).
 
 
 ## Paso 1: Creación de un almacén
@@ -130,4 +130,4 @@ Esta última actualización incluye correcciones de errores y características n
 
 Publique cualquier pregunta en el [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

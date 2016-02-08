@@ -27,7 +27,7 @@ En la página **Catálogo de copias de seguridad** del servicio StorSimple Manag
 
 Este tutorial describe cómo puede usar una copia de seguridad para clonar un volumen individual. También explica la diferencia entre clones *transitorios* y *permanente*.
 
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 >Un volumen anclado localmente se clonará como volumen en capas. Si necesita que el volumen clonado se ancle localmente, puede convertir el clon en un volumen anclado local cuando la operación de clonación se complete correctamente. Para información sobre cómo convertir un volumen en capas en un volumen anclado localmente, vaya a [Cambiar el tipo de volumen](storsimple-manage-volumes-u2.md#change-the-volume-type).
 >
@@ -55,11 +55,11 @@ Puede crear un clon en el mismo dispositivo, en otro dispositivo o incluso en un
 
   1. Identifique un dispositivo de destino. Esta es la ubicación donde se creará el clon. Puede elegir el mismo dispositivo o especificar otro dispositivo. Si elige un volumen asociado a otros proveedores de servicios en la nube (no Azure), la lista desplegable del dispositivo de destino solo mostrará dispositivos físicos. No se puede clonar un volumen asociado a otros proveedores de servicios en la nube en un dispositivo virtual.
 
-        >[AZURE.NOTE] Asegúrese de que la capacidad necesaria para el clon es inferior a la capacidad disponible en el dispositivo de destino.
+        >[AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
 
   2. Especifique un nombre de volumen único para el clon. El nombre debe tener entre 3 y 127 caracteres.
     
-        >[AZURE.NOTE] El campo **Clonar volumen como** tiene el valor **En capas** aunque esté clonando un volumen anclado localmente.No puede cambiar esta configuración. Sin embargo, si necesita que el volumen clonado se ancle localmente también, puede convertir el clon en un volumen anclado localmente una vez creado correctamente el clon. Para más información sobre cómo convertir un volumen en capas en un volumen anclado localmente, vaya a [Cambiar el tipo de volumen](storsimple-manage-volumes-u2.md#change-the-volume-type).
+        >[AZURE.NOTE] The **Clone Volume As** field will be **Tiered** even if you are cloning a locally pinned volume. You cannot change this setting; however, if you need the cloned volume to be locally pinned as well, you can convert the clone to a locally pinned volume after you successfully create the clone. For information about converting a tiered volume to a locally pinned volume, go to [Change the volume type](storsimple-manage-volumes-u2.md#change-the-volume-type).
 
         ![Clone wizard 1](./media/storsimple-clone-volume-u2/clone1.png) 
 
@@ -82,7 +82,7 @@ Puede crear un clon en el mismo dispositivo, en otro dispositivo o incluso en un
   1. Vaya a la página **Dispositivos** y seleccione la pestaña **Contenedores de volúmenes**.
   2. Seleccione el contenedor de volúmenes que está asociado con el volumen de origen que clonó. En la lista de volúmenes, debería ver el clon recién creado.
 
->[AZURE.NOTE]La copia de seguridad predeterminada y la supervisión se deshabilitan automáticamente en un volumen clonado.
+>[AZURE.NOTE] La copia de seguridad predeterminada y la supervisión se deshabilitan automáticamente en un volumen clonado.
 
 Los clones que se creen de esta forma son clones transitorios. Para obtener más información acerca de los tipos de clon, consulte [Clones transitorios frente a clones permanentes](#transient-vs.-permanent-clones).
 
@@ -104,7 +104,7 @@ Necesita recuperar un archivo de presentación de Microsoft PowerPoint de un añ
  
 ![Vídeo disponible](./media/storsimple-clone-volume-u2/Video_icon.png) **Vídeo disponible**
 
-Para ver un vídeo en el que se muestra cómo puede usar el clon y restaurar las características de StorSimple para recuperar archivos eliminados, haga clic [aquí](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+Para ver un vídeo en el que se muestra cómo puede usar el clon y restaurar las características de StorSimple para recuperar archivos eliminados, haga clic [aquí](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
 ### Pruebas en el entorno de producción con un clon permanente
 
@@ -117,4 +117,4 @@ Necesita comprobar un error de prueba en el entorno de producción. Crear un clo
 
  
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

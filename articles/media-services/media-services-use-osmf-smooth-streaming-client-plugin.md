@@ -410,6 +410,6 @@ Para obtener más información acerca del desarrollo de OSMF general, consulte l
 
 ##Otras referencias
 
-[Actualización del complemento de streaming adaptable para OSMF](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
+[Actualización del complemento de streaming adaptable para OSMF](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

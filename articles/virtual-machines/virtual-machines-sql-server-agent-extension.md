@@ -27,7 +27,7 @@ Esta extensión permite que SQL Server en máquinas virtuales de Azure utilice d
 ## Requisitos previos
 Requisitos para usar los cmdlets de Powershell:
 
-- El SDK de línea de comandos de Azure más reciente está [disponible aquí](http://azure.microsoft.com/downloads/)
+- El SDK de línea de comandos de Azure más reciente está [disponible aquí](https://azure.microsoft.com/downloads/)
 
 Requisitos para usar la extensión en la máquina virtual:
 
@@ -49,7 +49,7 @@ Si aprovisiona la máquina virtual de SQL Server mediante el [Portal de Azure](h
 
 Set-AzureVMSqlServerExtension [-VM] <IPersistentVM> [[-Version] <string>] [-AutoBackupSettings <AutoBackupSettings>] [-AutoPatchingSetttings <AutoPatchingSetttings>] [-Confirm] [-WhatIf] [<CommonParameters>]
 
-> [AZURE.NOTE]Se recomienda la omisión del parámetro -Version. Sin él, el valor predeterminado es la versión más reciente de la extensión.
+> [AZURE.NOTE] Se recomienda la omisión del parámetro -Version. Sin él, el valor predeterminado es la versión más reciente de la extensión.
 
 ### Ejemplo
 	Get-AzureVM –ServiceName serviceName –Name vmName | Set-AzureVMSqlServerExtension –AutoBackupSettings $abs | Update-AzureVM**
@@ -65,7 +65,7 @@ También puede utilizar el siguiente cmdlet de Azure PowerShell:
 
 Get-AzureVMSqlServerExtension [[-VM] <IPersistentVM>] [[-Version] <string>] [<parámetrosComunes>]
 
-> [AZURE.NOTE]Puede omitir el parámetro -Version. Sin él, el valor predeterminado es la versión más reciente de la extensión.
+> [AZURE.NOTE] Puede omitir el parámetro -Version. Sin él, el valor predeterminado es la versión más reciente de la extensión.
 
 ### Ejemplo
 	Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
@@ -78,4 +78,4 @@ Si desea quitar esta extensión de la máquina virtual, puede utilizar el siguie
 ### Sintaxis
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2016" 
+	ms.date="01/21/2016" 
 	ms.author="sdanie"/>
 
 # P+F de Caché en Redis de Azure
@@ -74,12 +74,12 @@ Para obtener el mejor rendimiento y la latencia más baja, busque Caché en Redi
 <a name="cache-billing"></a>
 ## ¿Cómo me facturan por la Caché en Redis de Azure?
 
-Los precios de la Caché en Redis de Azure están [aquí](http://azure.microsoft.com/pricing/details/cache/). La página de precios muestra los precios por hora. Las memorias caché se facturan por minuto desde el momento en que se crea la memoria caché hasta el momento en que se elimina una memoria caché. No hay ninguna opción de detener o pausar la facturación de una memoria caché.
+Los precios de la Caché en Redis de Azure están [aquí](https://azure.microsoft.com/pricing/details/cache/). La página de precios muestra los precios por hora. Las memorias caché se facturan por minuto desde el momento en que se crea la memoria caché hasta el momento en que se elimina una memoria caché. No hay ninguna opción de detener o pausar la facturación de una memoria caché.
 
 <a name="cache-timeouts"></a>
 ## ¿Por qué estoy viendo los tiempos de expiración?
 
-Los tiempos de expiración se producen en el cliente que usa para comunicarse con Redis. Por lo general, el servidor de Redis no agota el tiempo de espera. Cuando se envía un comando al servidor de Redis, el comando se pone en cola y el servidor de Redis finalmente recoge el comando y lo ejecuta. Sin embargo el cliente puede agotar el tiempo de espera durante este proceso y, si lo hace, se produce una excepción en el lado de la llamada. Para obtener más información sobre cómo solucionar problemas de tiempo de espera, consulte [Investigación de las excepciones del tiempo de expiración en StackExchange.Redis para Caché en Redis de Azure](http://azure.microsoft.com/blog/2015/02/10/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
+Los tiempos de expiración se producen en el cliente que usa para comunicarse con Redis. Por lo general, el servidor de Redis no agota el tiempo de espera. Cuando se envía un comando al servidor de Redis, el comando se pone en cola y el servidor de Redis finalmente recoge el comando y lo ejecuta. Sin embargo el cliente puede agotar el tiempo de espera durante este proceso y, si lo hace, se produce una excepción en el lado de la llamada. Para obtener más información sobre cómo solucionar problemas de tiempo de espera, consulte [Investigación de las excepciones del tiempo de expiración en StackExchange.Redis para Caché en Redis de Azure](https://azure.microsoft.com/blog/2015/02/10/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
 
 <a name="cache-monitor"></a>
 ## ¿Cómo se puede supervisar el estado y el rendimiento de la memoria caché?
@@ -174,6 +174,15 @@ Cómo configurar este valor:
 
 -	Fuera de ASP.NET, utilice la API [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx).
 
+<a name="server-gc"></a>
+## Habilitación de GC del servidor para obtener más rendimiento en el cliente cuando se usa StackExchange.Redis
+
+La habilitación de GC del servidor puede optimizar el cliente y mejorar el rendimiento y la capacidad cuando se usa StackExchange.Redis. Para obtener más información sobre GC del servidor y cómo habilitarlo, vea los siguientes artículos.
+
+-	[Para habilitar GC del servidor](https://msdn.microsoft.com/library/ms229357.aspx)
+-	[Fundamentos de la recolección de elementos no utilizados](https://msdn.microsoft.com/library/ee787088.aspx)
+-	[Recolección de elementos no utilizados y rendimiento](https://msdn.microsoft.com/library/ee851764.aspx)
+
 <a name="cache-redis-commands"></a>
 ## ¿Cuáles son algunas de las consideraciones al usar los comandos de Redis comunes?
 
@@ -229,12 +238,12 @@ Puede usar cualquiera de los comandos enumerados en [Comandos de Redis](http://r
 
 Caché en Redis de Microsoft Azure se basa en la popular Caché de Redis de código abierto, que proporciona acceso a una caché de Redis segura y dedicada, administrada por Microsoft. Está disponible una variedad de [clientes de Redis](http://redis.io/clients) para muchos lenguajes de programación. Cada cliente tiene su propia API que realiza llamadas a la instancia de Caché de Redis mediante los [comandos de Redis](http://redis.io/commands).
 
-Dado que cada cliente es diferente, no hay no una referencia de clase centralizada en MSDN; en cambio, cada cliente mantiene su propia documentación de referencia. Además de la documentación de referencia, hay varios tutoriales en Azure.com que muestra cómo empezar a trabajar con Caché en Redis de Azure con distintos idiomas y clientes de la caché en la página [Documentación de Caché de Redis](http://azure.microsoft.com/documentation/services/redis-cache/).
+Dado que cada cliente es diferente, no hay no una referencia de clase centralizada en MSDN; en cambio, cada cliente mantiene su propia documentación de referencia. Además de la documentación de referencia, hay varios tutoriales en Azure.com que muestra cómo empezar a trabajar con Caché en Redis de Azure con distintos idiomas y clientes de la caché en la página [Documentación de Caché de Redis](https://azure.microsoft.com/documentation/services/redis-cache/).
 
 
 ## ¿Qué oferta de caché de Azure es adecuada para mí?
 
->[AZURE.IMPORTANT]Microsoft recomienda que todos los trabajos de desarrollo nuevos usen Caché en Redis de Azure.
+>[AZURE.IMPORTANT] Microsoft recomienda que todos los trabajos de desarrollo nuevos usen Caché en Redis de Azure.
 
 Caché de Azure tiene tres ofertas actualmente:
 
@@ -273,4 +282,4 @@ La retirada de la Caché en rol se establece para el 30 de noviembre de 2016.
 
 [valor de configuración "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

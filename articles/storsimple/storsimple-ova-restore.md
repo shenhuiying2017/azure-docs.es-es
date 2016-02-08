@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/14/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli"/>
 
 # Realizar una restauración mediante una copia de seguridad de la matriz virtual de StorSimple (vista previa)
@@ -77,11 +77,9 @@ Siga estos pasos en el Portal de Azure clásico para realizar una restauración 
 
 3.  Vuelva a la pestaña **Catálogo de copias de seguridad** y seleccione un conjunto de copias de seguridad.
 
-4.  En la parte inferior de la página, haga clic en **Restaurar como nuevo**.
+5.  En la parte inferior de la página, haga clic en **Restaurar como nuevo**. Se iniciará el asistente para **restaurar como nuevo volumen**.
 
-5.  Haga clic en **Restaurar como nuevo** en la parte inferior de la página. Se iniciará el asistente para **restaurar como nuevo volumen**.
-
-1.  En la página **Especificar el nombre y la ubicación**:
+1.  En la página **Especificar nombre y ubicación**:
 
 
 	1.  Compruebe el nombre del dispositivo de origen. Este debe ser el dispositivo que contiene el volumen que quiera restaurar. La selección del dispositivo no está disponible. Para seleccionar un dispositivo de origen diferente, debe salir del asistente y volver a seleccionar la copia de seguridad de nuevo.
@@ -92,7 +90,7 @@ Siga estos pasos en el Portal de Azure clásico para realizar una restauración 
 
 		![](./media/storsimple-ova-restore/image12.png)
 
-1.  En la página **Especificar hosts que puedan usar este volumen** seleccione los ACR adecuados en la lista desplegable.
+1.  En la página **Especificar hosts que puedan usar este volumen**, seleccione los ACR adecuados en la lista desplegable.
 
 	![](./media/storsimple-ova-restore/image13.png)
 
@@ -100,11 +98,11 @@ Siga estos pasos en el Portal de Azure clásico para realizar una restauración 
 
 2.  Una vez completado el trabajo de restauración, la restauración se iniciará y aparecerá otra notificación. Para supervisar el progreso de la restauración, haga clic en **Ver trabajo**. Esto le llevará a la página **Trabajos**.
 
-3.  Puede supervisar el progreso del trabajo de restauración. Cuando la restauración se haya completado al 100 %, vaya a la página **Volúmenes** del dispositivo.
+3.  Puede supervisar el progreso del trabajo de restauración. Cuando la restauración se haya completado al 100 %, vuelva a la página **Volúmenes** del dispositivo.
 
 4.  En la lista de volúmenes del dispositivo podrá ver el volumen recién restaurado.
 
-	> [AZURE.NOTE]Asimismo, verá que al realizar la restauración el tipo del volumen sigue siendo el mismo. Esto es, un volumen en niveles se restaurará “en niveles” y un volumen anclado localmente se restaurará como “anclado localmente”.
+	> [AZURE.NOTE] Asimismo, verá que al realizar la restauración el tipo del volumen sigue siendo el mismo. Esto es, un volumen en niveles se restaurará “en niveles” y un volumen anclado localmente se restaurará como “anclado localmente”.
 
 ## Recuperación a nivel de elemento (ILR)
 
@@ -120,7 +118,7 @@ Cada recurso compartido tiene una carpeta con formato *.backups* que contiene la
 	
 	-   **Copias de seguridad programadas** denominadas &lt;Nombre de dispositivo&gt; DailySchedule-AAAAMMDD-HHMMSS-UTC.
 
-	-   **Copias de seguridad manuales** denominadas “DDMMAAAA-HHMMSS-UTC ad hoc”.
+	-   **Copias de seguridad manuales** denominadas Ad-hoc-DDMMAAAA-HHMMSS-UTC.
 	
 		![](./media/storsimple-ova-restore/image14.png)
 
@@ -130,9 +128,14 @@ Cada recurso compartido tiene una carpeta con formato *.backups* que contiene la
 
 3.  Copie el archivo o la carpeta en el recurso compartido adecuado del servidor de archivos de StorSimple.
 
+![video\_icon](./media/storsimple-ova-restore/video_icon.png) **Vídeo disponible**
+
+Consulte este vídeo para ver cómo puede crear recursos compartidos, realizar copias de seguridad de los recursos compartidos y restaurar datos en una matriz virtual de StorSimple.
+
+> [AZURE.VIDEO use-the-storsimple-virtual-array]
 
 ## Pasos siguientes
 
 Obtenga más información acerca de cómo [administrar la matriz virtual de StorSimple mediante la interfaz de usuario web local](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

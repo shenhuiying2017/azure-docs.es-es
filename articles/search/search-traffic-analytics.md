@@ -27,7 +27,7 @@ Análisis de tráfico de búsqueda es una característica de Búsqueda de Azure 
 ## Habilitación de Análisis de tráfico de búsqueda
 
 ### 1\. Uso del portal
-Abra el servicio de Búsqueda de Azure en el [Portal de Azure](http://portal.azure.com). En Configuración, encontrará la opción Análisis de tráfico de búsqueda.
+Abra el servicio de Búsqueda de Azure en el [Portal de Azure](https://portal.azure.com). En Configuración, encontrará la opción Análisis de tráfico de búsqueda.
 
 ![][1]
 
@@ -36,7 +36,7 @@ Seleccione esta opción y se abrirá una nueva hoja. Cambie el estado a **Encend
 ![][2]
 
 
-> [AZURE.IMPORTANT]La cuenta de almacenamiento debe estar en la misma región y suscripción que el servicio de búsqueda.
+> [AZURE.IMPORTANT] La cuenta de almacenamiento debe estar en la misma región y suscripción que el servicio de búsqueda.
 > 
 > Se aplican gastos estándares para esta cuenta de almacenamiento
 
@@ -211,7 +211,7 @@ Consulte la siguiente consulta de ejemplo que le permitirá crear sus propios in
 
 Obtenga más información sobre la sintaxis de búsqueda y los parámetros de consulta. Vea [Búsqueda de documentos (API de REST de Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) para información detallada.
 
-Obtenga más información sobre cómo crear informes increíbles. Vea [Introducción a Power BI Desktop](https://powerbi.microsoft.com/es-ES/documentation/powerbi-desktop-getting-started/) para más información.
+Obtenga más información sobre cómo crear informes increíbles. Consulte [Introducción a Power BI Desktop](https://powerbi.microsoft.com/es-ES/documentation/powerbi-desktop-getting-started/) para obtener más información
 
 <!--Image references-->
 
@@ -221,4 +221,4 @@ Obtenga más información sobre cómo crear informes increíbles. Vea [Introducc
 [4]: ./media/search-traffic-analytics/BlobStorage.png
 [5]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

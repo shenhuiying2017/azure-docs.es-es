@@ -11,8 +11,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="10/07/2015"
+   ms.workload="na"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Preguntas más frecuentes sobre la disponibilidad y el soporte técnico de los Centros de eventos
@@ -23,7 +23,7 @@ En esta sección se proporciona información sobre disponibilidad y respuestas a
 
 ## Información de precios
 
-Para obtener una completa información sobre los precios de los Centros de eventos, consulte los [detalles de precios de los Centros de eventos](http://azure.microsoft.com/pricing/details/event-hubs/).
+Para obtener una completa información sobre los precios de los Centros de eventos, consulte los [detalles de precios de los Centros de eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## ¿Cómo se calculan los eventos de entrada de los Centros de eventos?
 
@@ -47,9 +47,9 @@ Las unidades de procesamiento de los Centros de eventos se facturan por horas, s
 
 Si el procesamiento de entrada total o la tasa de eventos de entrada total en todos los Centros de eventos en un espacio de nombres superan las unidades de procesamiento totales permitidas, los remitentes se limitarán y recibirán errores que indican que se superó la cuota de entrada.
 
-Si el procesamiento de salida total o la tasa de eventos de salida total en todos los Centros de eventos en un espacio de nombres superan las unidades de procesamiento totales permitidas, los receptores se limitarán y recibirán errores que indican que se superó la cuota de salida. Las cuotas de entrada y de salida se aplican por separado, por lo que ningún remitente puede provocar que se ralentice el consumo de eventos, ni tampoco puede un receptor impedir que los eventos se envíen a un Centro de eventos.
+Si el procesamiento de salida total o la tasa de eventos de salida total en todos los Centros de eventos en un espacio de nombres superan las unidades de procesamiento totales permitidas, los receptores se limitarán y recibirán errores que indican que se superó la cuota de salida. Las cuotas de entrada y de salida se aplican por separado, por lo que ningún remitente puede provocar que se ralentice el consumo de eventos ni ningún receptor puede impedir que los eventos se envíen a un Centro de eventos.
 
-Tenga en cuenta que la selección de la unidad de procesamiento es independiente del número de particiones de los Centros de eventos. Aunque cada partición ofrece un procesamiento máximo de 1 MB por segundo de entrada (con un máximo de 1000 eventos por segundo) y 2 MB por segundo de salida, no hay ningún cargo fijo por las propias particiones. El cargo es para las unidades de procesamiento totales en todos los Centros de eventos en un espacio de nombres del Bus de servicio. Con este patrón, puede crear particiones suficientes para admitir la carga máxima anticipada de sus sistemas, sin incurrir en cargos por unidades de procesamiento hasta que la carga de eventos en el sistema requiera realmente mayores cifras de procesamiento, sin tener que cambiar la estructura y la arquitectura de los sistemas a medida que la carga del sistema aumente.
+Tenga en cuenta que la selección de la unidad de procesamiento es independiente del número de particiones de los Centros de eventos. Aunque cada partición ofrece un procesamiento máximo de 1 MB por segundo de entrada (con un máximo de 1000 eventos por segundo) y 2 MB por segundo de salida, no hay ningún cargo fijo por las propias particiones. El cargo corresponde a las unidades de procesamiento agregadas en todos los Centros de eventos en un espacio de nombres del Bus de servicio. Con este patrón, puede crear particiones suficientes para admitir la carga máxima anticipada de sus sistemas, sin incurrir en cargos por unidades de procesamiento hasta que la carga de eventos en el sistema requiera realmente mayores cifras de procesamiento, sin tener que cambiar la estructura y la arquitectura de los sistemas a medida que la carga del sistema aumente.
 
 ## ¿Hay un límite en el número de unidades de procesamiento que se pueden seleccionar?
 
@@ -73,11 +73,11 @@ Sí, siempre y cuando todos los Centros de eventos, colas y temas se encuentren 
 
 ## ¿Los cargos por conexión desacoplada se aplican a los Centros de eventos?
 
-Para los remitentes, los cargos de conexión se aplican solo cuando se usa el protocolo AMQP. No hay ningún cargo de conexión por el envío de eventos mediante HTTP, independientemente del número de sistemas o dispositivos emisores. Si tiene previsto usar AMQP (por ejemplo, para conseguir un flujo de eventos más eficiente o para habilitar la comunicación bidireccional en escenarios de comando y control de Internet de las cosas), consulte la página de [información de precios del Bus de servicio](http://azure.microsoft.com/pricing/details/service-bus/) para obtener información sobre lo que constituye una conexión desacoplada y cómo se mide.
+Para los remitentes, los cargos de conexión se aplican solo cuando se usa el protocolo AMQP. No hay ningún cargo de conexión por el envío de eventos mediante HTTP, independientemente del número de sistemas o dispositivos emisores. Si tiene previsto usar AMQP (por ejemplo, para conseguir un flujo de eventos más eficiente o para habilitar la comunicación bidireccional en escenarios de comando y control de Internet de las cosas), consulte la página de [información de precios del Bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/) para obtener información sobre lo que constituye una conexión desacoplada y cómo se mide.
 
 ## ¿Cuál es la diferencia entre los niveles Basic y Standard de los Centros de eventos?
 
-El nivel Standard de los Centros de eventos ofrece características que van más allá de lo que está disponible en Basic, así como en algunos sistemas competitivos. Estas características incluyen períodos de retención superiores a 24 horas y la capacidad para usar una conexión AMQP única para enviar comandos a un gran número de dispositivos con latencias de fracciones de segundos, así como para enviar telemetría desde estos dispositivos a Centros de eventos. Consulte [detalles de precios] ([Detalles de precios de los Centros de eventos](http://azure.microsoft.com/pricing/details/event-hubs/)) para obtener la lista de características.
+El nivel Standard de los Centros de eventos ofrece características que van más allá de lo que está disponible en Basic, así como en algunos sistemas competitivos. Estas características incluyen períodos de retención superiores a 24 horas y la capacidad para usar una conexión AMQP única para enviar comandos a un gran número de dispositivos con latencias de fracciones de segundos, así como para enviar telemetría desde estos dispositivos a Centros de eventos. Para obtener la lista de características, vea los [Detalles de precios de Centros de eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## Disponibilidad geográfica
 
@@ -96,7 +96,7 @@ Los Centros de eventos están disponibles en las siguientes regiones:
 
 El soporte técnico para los Centros de eventos está disponible a través de los [foros de la comunidad](https://social.msdn.microsoft.com/forums/azure/home). Se ofrece de forma gratuita soporte técnico para la administración de suscripciones y la facturación.
 
-Para obtener más información sobre nuestro SLA, visite la página [Acuerdos de nivel de servicio](http://azure.microsoft.com/support/legal/sla/).
+Para obtener más información sobre nuestro SLA, visite la página [Acuerdos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
 
 ## Pasos siguientes
 
@@ -110,4 +110,4 @@ Para obtener más información sobre los Centros de eventos, consulte los siguie
 [aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

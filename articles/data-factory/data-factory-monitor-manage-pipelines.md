@@ -25,7 +25,7 @@ En este artículo se describe cómo supervisar, administrar y depurar las canali
 Con el Portal de Azure, puede ver la factoría de datos como un diagrama, las actividades de una canalización, los conjuntos de datos de entrada y salida, etc. En esta sección se indica también cómo pasa un segmento de un estado a otro.
 
 ### Navegación hasta la factoría de datos
-1.	Inicie sesión en el [Portal de Azure](http://portal.azure.com).
+1.	Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2.	Haga clic en **Examinar todo** y seleccione **Factorías de datos**.
 	
 	![Examinar todo -> Factorías de datos](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -96,6 +96,7 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 <td>ValidationRetry</td><td>En espera de que se vuelva a intentar la validación.</td>
 </tr>
 <tr>
+&lt;tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>Validación en curso.</td>
 </tr>
 <td></td>
@@ -539,9 +540,7 @@ Puede implementar alertas para las métricas de la misma manera que lo hace para
  
 Reemplace subscriptionId, resourceGroupName y dataFactoryName en el ejemplo anterior con los valores adecuados.
 
-*metricName* a partir de ahora admite dos valores:
-- FailedRuns
-- SuccessfulRuns.
+*metricName* a partir de ahora admite dos valores: - FailedRuns - SuccessfulRuns.
 
 **Implementación de alertas:**
 
@@ -568,4 +567,4 @@ Debería ver el siguiente mensaje después de la implementación correcta:
 
 También puede usar el cmdlet **Add-AlertRule** para implementar una regla de alerta. Consulte el tema [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) para obtener información detallada y ejemplos.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

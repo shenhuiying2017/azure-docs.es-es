@@ -92,7 +92,7 @@ Puede encontrar la documentación detallada de la API de REST para los proveedor
 
 ## Preguntas más frecuentes
 
-**¿Puedo crear una máquina virtual mediante el nuevo Administrador de recursos de Azure para implementar en una red virtual o una cuenta de almacenamiento creada mediante las API de Administración de servicios de Azure?**
+**¿Puedo crear una máquina virtual mediante el nuevo Administrador de recursos de Azure para implementar en una red virtual o en una cuenta de almacenamiento creada mediante las API de Administración de servicios de Azure?**
 
 Esto no se admite en este momento. No se puede implementar mediante las nuevas API del Administrador de recursos de Azure para implementar una máquina virtual en una red virtual que creó con las API de administración de servicios.
 
@@ -114,6 +114,6 @@ Esto no se admite en este momento. No se pueden conectar las redes virtuales cre
 
 **¿Dónde puedo encontrar ejemplos de plantillas del Administrador de recursos de Azure?**
 
-Puede encontrar un conjunto completo de plantillas de inicio en [Plantillas de inicio rápido del Administrador de recursos de Azure](http://azure.microsoft.com/documentation/templates/).
+Puede encontrar un conjunto completo de plantillas de inicio en [Plantillas de inicio rápido del Administrador de recursos de Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

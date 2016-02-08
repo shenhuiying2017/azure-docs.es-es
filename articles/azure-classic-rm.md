@@ -48,7 +48,7 @@ En las secciones siguientes se explica cómo se configuran los recursos de Azure
 Azure tiene dos portales:
 
 - **[Portal de Azure](https://manage.windowsazure.com):** si lleva tiempo usando Azure, ya utiliza este portal. Sirve para crear y configurar recursos de Azure anteriores que admiten el modelo de implementación Clásico. No se puede usar para crear o configurar recursos que solo admiten el Administrador de recursos. 
-- **[Portal de vista previa de Azure](http://azure.microsoft.com/overview/preview-portal/):** si usa un recurso de Azure más reciente, es probable que ya utilice este portal. Sirve para crear y configurar algunos recursos de Azure. Con el tiempo, podrá crear y configurar todos los recursos de Azure con él. En el caso de algunos recursos que admitan ambos modelos de implementación, puede usarse este portal para crear y configurar un recurso con cualquier modelo de implementación. 
+- **[Portal de vista previa de Azure](https://azure.microsoft.com/overview/preview-portal/):** si usa un recurso de Azure más reciente, es probable que ya utilice este portal. Sirve para crear y configurar algunos recursos de Azure. Con el tiempo, podrá crear y configurar todos los recursos de Azure con él. En el caso de algunos recursos que admitan ambos modelos de implementación, puede usarse este portal para crear y configurar un recurso con cualquier modelo de implementación. 
 
 Algunos recursos y características solo se pueden crear y configurar en un portal o en el otro. Algunos recursos o características (todavía) no se pueden crear ni configurar en ninguno de los portales, solo pueden configurarse con PowerShell, la CLI o ambos. La documentación sobre cada recurso de Azure describe detalladamente el método con el que se puede crear.
 
@@ -57,7 +57,7 @@ Con [PowerShell](powershell-install-configure.md) puede usar una línea de coman
 
 - **Solo cmdlets de PowerShell:** puede crear y configurar cada recurso de Azure individualmente con los cmdlets para cada recurso. Puede hacerlo desde una línea de comandos o mediante la inclusión de varios comandos en un script de PowerShell que puede almacenar y modificar para crear versiones.
 
-- **Cmdlets de PowerShell con una plantilla del Administrador de recursos de Azure:** puede usar PowerShell para crear recursos de Azure con una plantilla del Administrador de recursos de Azure. Las plantillas se pueden guardar y modificar para crear versiones. Lea el artículo [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md) para obtener más información. Existen varias [plantillas de inicio rápido de Azure](http://azure.microsoft.com/documentation/templates/) para soluciones comunes que también se pueden descargar y modificar.
+- **Cmdlets de PowerShell con una plantilla del Administrador de recursos de Azure:** puede usar PowerShell para crear recursos de Azure con una plantilla del Administrador de recursos de Azure. Las plantillas se pueden guardar y modificar para crear versiones. Lea el artículo [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md) para obtener más información. Existen varias [plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) para soluciones comunes que también se pueden descargar y modificar.
 
 ## CLI
 Puede crear y configurar recursos de Azure desde equipos Windows, OS X o Linux mediante la CLI. Lea el artículo [Instalación de la CLI de Azure](xplat-cli-install.md) para instalar la CLI en el sistema operativo que prefiera. Como en el caso de PowerShell, existen distintos comandos que deben usarse en función de que se estén creando recursos con el modelo de implementación [Administrador de recursos](xplat-cli-azure-resource-manager.md) o [Clásico (administración de servicios)](virtual-machines-command-line-tools.md).
@@ -68,4 +68,4 @@ Puede crear y configurar recursos de Azure desde equipos Windows, OS X o Linux m
 - Aprenda a [diseñar plantillas](/best-practices-resource-manager-design-templates.md).
 - Uso de [prácticas recomendadas](/best-practices-resource-manager-examples.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

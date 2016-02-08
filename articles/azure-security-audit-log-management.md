@@ -18,7 +18,7 @@
 
 # Administración de registros de auditoría y seguridad de Microsoft Azure
 
-Azure permite que los clientes realicen la generación y recopilación de eventos de seguridad desde los roles de Infraestructura como servicio (IaaS) y Plataforma como servicio (PaaS) de Azure hasta el almacenamiento central en sus suscripciones. Los clientes entonces pueden utilizar [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/) para agregar y analizar los eventos recopilados. Además, estos eventos recopilados se pueden exportar a sistemas de administración de eventos e información de seguridad (SIEM) locales para una supervisión continua.
+Azure permite que los clientes realicen la generación y recopilación de eventos de seguridad desde los roles de Infraestructura como servicio (IaaS) y Plataforma como servicio (PaaS) de Azure hasta el almacenamiento central en sus suscripciones. Los clientes entonces pueden utilizar [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/) para agregar y analizar los eventos recopilados. Además, estos eventos recopilados se pueden exportar a sistemas de administración de eventos e información de seguridad (SIEM) locales para una supervisión continua.
 
 El ciclo de vida de registro, análisis y supervisión de seguridad de Azure incluye:
 
@@ -32,9 +32,9 @@ Este artículo se centra en las fases de generación y recopilación del ciclo d
 ## Generación de registros
 Los eventos de seguridad se generan en el registro de eventos de Windows para los canales de **Sistema**, **Seguridad** y **Aplicación** en las máquinas virtuales. Para garantizar que los eventos se registren sin una posible pérdida de datos, es importante configurar adecuadamente el tamaño del registro de eventos. El tamaño del registro de eventos se debe basar en la cantidad de eventos que genera la configuración de la directiva de auditoría y en las directivas de recopilación de eventos. Si desea obtener más información, consulte [Planeación para la administración y supervisión de auditoría de seguridad](http://technet.microsoft.com/library/ee513968.aspx#BKMK_4).
 
->[AZURE.NOTE]Cuando se utilice Reenvío de eventos de Windows (WEF) o Diagnósticos de Azure (que se explican en la sección [Recopilación de registros](#log-collection)) para extraer registros desde Servicios en la nube o máquinas virtuales, considere el potencial impacto de interrupciones en el sistema. Por ejemplo, si el entorno de WEF deja de funcionar durante un tiempo, deberá asegurarse de que el tamaño del registro es suficientemente grande para considerar una duración más prolongada, o bien estar preparado para una posible pérdida de datos del registro.
+>[AZURE.NOTE] Cuando se utilice Reenvío de eventos de Windows (WEF) o Diagnósticos de Azure (que se explican en la sección [Recopilación de registros](#log-collection)) para extraer registros desde Servicios en la nube o máquinas virtuales, considere el potencial impacto de interrupciones en el sistema. Por ejemplo, si el entorno de WEF deja de funcionar durante un tiempo, deberá asegurarse de que el tamaño del registro es suficientemente grande para considerar una duración más prolongada, o bien estar preparado para una posible pérdida de datos del registro.
 
-En el caso de las aplicaciones de Servicios en la nube implementadas en Azure y máquinas virtuales creadas desde el [Catálogo de máquinas virtuales de Azure](http://azure.microsoft.com/marketplace/virtual-machines/#microsoft), se habilita un conjunto de eventos de seguridad del sistema operativo de manera predeterminada. Los clientes pueden agregar, quitar o modificar los eventos que se auditarán a través de la personalización de la directiva de auditoría del sistema operativo. Para obtener más información, consulte [Security Policy Settings Reference](http://technet.microsoft.com/library/jj852210.aspx) (Referencia de la configuración de la directiva de seguridad).
+En el caso de las aplicaciones de Servicios en la nube implementadas en Azure y máquinas virtuales creadas desde el [Catálogo de máquinas virtuales de Azure](https://azure.microsoft.com/marketplace/virtual-machines/#microsoft), se habilita un conjunto de eventos de seguridad del sistema operativo de manera predeterminada. Los clientes pueden agregar, quitar o modificar los eventos que se auditarán a través de la personalización de la directiva de auditoría del sistema operativo. Para obtener más información, consulte [Security Policy Settings Reference](http://technet.microsoft.com/library/jj852210.aspx) (Referencia de la configuración de la directiva de seguridad).
 
 Puede utilizar los siguientes métodos para generar registros adicionales desde el sistema operativo (como cambios en la directiva de auditoría) y componentes de Windows (como IIS):
 
@@ -93,7 +93,7 @@ La tabla que aparece a continuación incluye algunas diferencias clave entre est
 ##	Recopilación de datos de eventos de seguridad con Reenvío de eventos de Windows
 En el caso de Máquinas virtuales de Azure unidas a un dominio, puede configurar WEF con la configuración de directiva de grupo del mismo modo que para los equipos locales unidos a un dominio. Para obtener más información, consulte [Nube híbrida](http://www.microsoft.com/server-cloud/solutions/hybrid-cloud.aspx).
 
-Con este enfoque, una organización podría comprar una suscripción a IaaS, conectarla a su red corporativa mediante [ExpressRoute](http://azure.microsoft.com/services/expressroute/) o una VPN de sitio a sitio y luego unir las máquinas virtuales que tiene en Azure al dominio corporativo. Después, puede configurar WEF desde las máquinas unidas a un dominio.
+Con este enfoque, una organización podría comprar una suscripción a IaaS, conectarla a su red corporativa mediante [ExpressRoute](https://azure.microsoft.com/services/expressroute/) o una VPN de sitio a sitio y luego unir las máquinas virtuales que tiene en Azure al dominio corporativo. Después, puede configurar WEF desde las máquinas unidas a un dominio.
 
 El reenvío de eventos se divide en dos partes: el origen y el recopilador. El origen es el equipo donde se generan los registros de seguridad. El recopilador es el servidor centralizado que recopila y consolida los registros de eventos. Los administradores de TI se pueden suscribir a eventos para poder recibir y almacenar los eventos que se reenvían desde equipos remotos (el origen del evento). Para obtener más información, consulte [Configurar equipos para reenviar y recopilar eventos](http://technet.microsoft.com/library/cc748890.aspx).
 
@@ -197,7 +197,7 @@ Para fines de demostración, crearemos algunos eventos de inicio de sesión y co
 Aproximadamente 5 minutos después de completar los pasos anteriores, los datos debieran comenzar a fluir a la cuenta de almacenamiento de cliente en función de la configuración existente en el archivo XML. Hay muchas herramientas disponibles para ver datos desde Almacenamiento de Azure. Para más información, consulte:
 
 - [Explorar recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx)
-- [Azure Storage Explorer 6 Preview 3](http://azurestorageexplorer.codeplex.com/) (Vista previa 3 del Explorador de Almacenamiento de Azure 6) (agosto de 2014)
+- [Azure Storage Explorer 6 Preview 3 (Vista previa 3 del Explorador de Almacenamiento de Azure 6) (agosto de 2014)](http://azurestorageexplorer.codeplex.com/)
 
 Para ver los datos:
 
@@ -218,7 +218,7 @@ Tanto **PartitionKey** como **RowKey** identifican de forma exclusiva todas las 
 
 - Una marca de tiempo es un valor de fecha/hora que se mantiene en el servidor para hacer un seguimiento de la última modificación de una entidad.
 
->[AZURE.NOTE]El tamaño máximo de fila en una tabla de Almacenamiento de Azure está limitado a 1 MB. Una cuenta de almacenamiento puede contener hasta 200 TB de datos provenientes de blobs, colas y tablas si la cuenta se creó después de junio de 2012. Por lo tanto, el tamaño de la tabla puede llegar a 200 TB si los blobs y las colas no ocupan espacio de almacenamiento. Las cuentas creadas antes de junio de 2012 tienen un límite de 100 TB.
+>[AZURE.NOTE] El tamaño máximo de fila en una tabla de Almacenamiento de Azure está limitado a 1 MB. Una cuenta de almacenamiento puede contener hasta 200 TB de datos provenientes de blobs, colas y tablas si la cuenta se creó después de junio de 2012. Por lo tanto, el tamaño de la tabla puede llegar a 200 TB si los blobs y las colas no ocupan espacio de almacenamiento. Las cuentas creadas antes de junio de 2012 tienen un límite de 100 TB.
 
 Explorador de almacenamiento también le ofrece la opción de editar los datos de la tabla. Haga doble clic en una fila determinada en la vista Tabla para abrir la ventana Editar entidad, como se muestra a continuación:
 
@@ -230,7 +230,7 @@ En esta sección, actualizamos una canalización de recopilación de registros d
 ##### Paso 1: Actualizar archivo de configuración para incluir eventos de interés
 El archivo de Diagnósticos de Azure creado en el ejemplo anterior se debe actualizar para incluir los tipos de errores de registros de eventos de la aplicación de Windows.
 
->[AZURE.NOTE]Las opciones de configuración de Diagnósticos de Azure existentes se deben combinar con el nuevo archivo de configuración. La configuración definida en el archivo nuevo sobrescribe las configuraciones existentes.
+>[AZURE.NOTE] Las opciones de configuración de Diagnósticos de Azure existentes se deben combinar con el nuevo archivo de configuración. La configuración definida en el archivo nuevo sobrescribe las configuraciones existentes.
 
 Si desea recuperar la opción de configuración existente, utilice el cmdlet **Get-AzureVMDiagnosticsExtension**. El siguiente es un script de Azure PowerShell de ejemplo para recuperar la configuración existente:
 
@@ -396,7 +396,7 @@ En esta sección, actualizamos una canalización de recopilación de registros d
 Para detectar cambios en el firewall, actualizaremos la configuración existente para que incluya los eventos de cambio de firewall.
 
 #### Paso 1: Obtener la configuración existente
->[AZURE.NOTE]Las opciones de configuración nuevas sobrescribirán la configuración existente. Por lo tanto, es importante que todas las opciones de configuración de Diagnósticos de Azure existentes se combinen con el nuevo archivo de configuración.
+>[AZURE.NOTE] Las opciones de configuración nuevas sobrescribirán la configuración existente. Por lo tanto, es importante que todas las opciones de configuración de Diagnósticos de Azure existentes se combinen con el nuevo archivo de configuración.
 
 Para recuperar las opciones de configuración existentes, puede utilizar el cmdlet **Get-AzureServiceDiagnosticsExtension**:
 
@@ -527,7 +527,7 @@ Cuando recopile registros de seguridad, le recomendamos:
 - Combinar las opciones de configuración de Diagnósticos de Azure existentes con los cambios que realice. El archivo de configuración nuevo sobrescribe las opciones de configuración existentes.
 - Elija el intervalo **Período de transferencia programado** con cuidado. Los tiempos de transferencia más breves aumentarán la relevancia de los datos, pero eso puede aumentar los costos de almacenamiento y la carga de procesamiento.
 
->[AZURE.NOTE]La otra variable que afectará considerablemente la cantidad de datos recopilados es el nivel de registro. El siguiente es un ejemplo de cómo filtrar los registros por nivel de registro:
+>[AZURE.NOTE] La otra variable que afectará considerablemente la cantidad de datos recopilados es el nivel de registro. El siguiente es un ejemplo de cómo filtrar los registros por nivel de registro:
 
     System!*[System[(Level =2)]]
 
@@ -535,7 +535,7 @@ El nivel de registro es acumulativo. Si el filtro está definido en **Advertenci
 
 - Borre periódicamente los datos de diagnóstico de Almacenamiento de Azure si ya no son necesarios.
 
->[AZURE.NOTE]Si desea obtener más información sobre los datos de diagnóstico, consulte [Guardar y ver datos de diagnóstico en Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx). Los contenedores y las tablas donde se almacenan datos de diagnóstico son iguales a otros contenedores y tablas; es posible eliminar blobs y entidades de ellos del mismo modo que lo haría con otros datos. Puede eliminar los datos de diagnóstico de manera programática, a través de una de las bibliotecas de clientes de almacenamiento, o de manera visual, a través de un [cliente del explorador de almacenamiento](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx).
+>[AZURE.NOTE] Si desea obtener más información sobre los datos de diagnóstico, consulte [Guardar y ver datos de diagnóstico en Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx). Los contenedores y las tablas donde se almacenan datos de diagnóstico son iguales a otros contenedores y tablas; es posible eliminar blobs y entidades de ellos del mismo modo que lo haría con otros datos. Puede eliminar los datos de diagnóstico de manera programática, a través de una de las bibliotecas de clientes de almacenamiento, o de manera visual, a través de un [cliente del explorador de almacenamiento](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx).
 
 - Almacenar datos de servicio y datos de registro de seguridad en cuentas de almacenamiento independientes es un procedimiento recomendado. Este aislamiento asegura que guardar los datos de registro de seguridad no afecta el rendimiento del almacenamiento para los datos de servicio de producción.
 - Elija la duración de la retención de registros según la directiva de cumplimiento y los requisitos de análisis y supervisión de datos de su organización.
@@ -572,7 +572,7 @@ Para ver los **Registros de operaciones**, abra el [Portal de administración de
 ## Recursos adicionales
 Los recursos siguientes proporcionan información general sobre Microsoft Azure y servicios relacionados de Microsoft:
 
-- [Centro de confianza de Microsoft Azure](http://azure.microsoft.com/support/trust-center/)
+- [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/)
 
     Información sobre cómo la seguridad y la privacidad se incrustan en el desarrollo de Azure y sobre cómo Azure cumple con un amplio conjunto de estándares de cumplimiento internacionales y específicos del sector.
 
@@ -614,4 +614,4 @@ Los recursos siguientes proporcionan información general sobre Microsoft Azure 
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

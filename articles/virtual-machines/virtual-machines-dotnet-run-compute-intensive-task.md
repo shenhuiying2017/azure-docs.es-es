@@ -83,7 +83,7 @@ Para crear un nombre de espacio de servicio:
     ![Creación de un cuadro de diálogo de espacio de nombres][create_namespace_dialog]
 5.  Después de comprobar que el nombre de espacio de nombres esté disponible, seleccione la región en la que debe hospedarse el espacio de nombres (asegúrese de que usa la misma región en la que está hospedada la máquina virtual).
 
-    > [AZURE.IMPORTANT]Seleccione la **misma región** que use o vaya a usar para la máquina virtual. Con esto conseguirá el máximo rendimiento.
+    > [AZURE.IMPORTANT] Seleccione la **misma región** que use o vaya a usar para la máquina virtual. Con esto conseguirá el máximo rendimiento.
 
 6. Si dispone de más de una suscripción a Azure para la cuenta con la que ha iniciado sesión, seleccione la suscripción que desea usar para el espacio de nombres. Si cuenta solo con una suscripción para la cuenta con la que inicia sesión, no verá una lista desplegable que contenga las suscripciones.
 7. Haga clic en la marca de verificación. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
@@ -103,7 +103,7 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 
 ## Creación de una aplicación .NET que realiza una tarea de proceso intensivo
 
-1. En la máquina de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para .NET](http://azure.microsoft.com/develop/net/).
+1. En la máquina de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para .NET](https://azure.microsoft.com/develop/net/).
 2. Cree una aplicación de la consola .NET con el proyecto con el nombre TSPSolver. Asegúrese de que el marco de trabajo de destino esté establecido para .**NET Framework 4** o posterior (no para **.NET Framework 4 Client Profile**). El marco de trabajo de destino puede establecerse después de crear un proyecto mediante lo siguiente: en el menú de Visual Studio, haga clic en **Proyectos**, en **Propiedades**, en la pestaña **Aplicación** y, a continuación, establezca el valor para **Marco de trabajo de destino**.
 3. Agregue en la biblioteca de Microsoft ServiceBus. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en **TSPSolver**, en **Agregar referencia**, en la pestaña **Examinar**, vaya a la ubicación del SDK de Azure para .NET (por ejemplo, C:\\Archivos de programa\\Microsoft SDKs\\Azure\\.NET SDK\\v2.5\\ToolsRef) y seleccione **Microsoft.ServiceBus.dll** como referencia.
 4. Agregue la biblioteca System Runtime Serialization. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en **TSPSolver**, haga clic en** Agregar referencia**, haga clic en la pestaña** .NET** y, a continuación, seleccione **System.Runtime.Serialization** como referencia.
@@ -515,7 +515,8 @@ Ejecute la aplicación de proceso intensivo, cree primero la cola y después res
 
 El solucionador se ejecutará hasta que acabe de examinar todas las rutas.
 
-> [AZURE.NOTE]Cuanto mayor sea el número que especifique, más tiempo se ejecutará el solucionador. Por ejemplo, si la ejecución en 14 ciudades puede tardar varios minutos, la ejecución en 15 ciudades podría tardar varias horas. Si se aumenta a 16 o más ciudades, la ejecución podría tardar varios días (posiblemente semanas, meses y años). Esto se debe al rápido aumento del número de permutaciones evaluadas por el solucionador a medida que aumenta el número de ciudades.
+> [AZURE.NOTE]
+Cuanto mayor sea el número que especifique, más tiempo se ejecutará el solucionador. Por ejemplo, si la ejecución en 14 ciudades puede tardar varios minutos, la ejecución en 15 ciudades podría tardar varias horas. Si se aumenta a 16 o más ciudades, la ejecución podría tardar varios días (posiblemente semanas, meses y años). Esto se debe al rápido aumento del número de permutaciones evaluadas por el solucionador a medida que aumenta el número de ciudades.
 
 ### Ejecución de la supervisión de la aplicación cliente
 1. Inicie sesión en el equipo donde se va a ejecutar la aplicación cliente. No tiene que ser el mismo que ejecuta la aplicación TSPSolver, aunque podría serlo.
@@ -550,4 +551,4 @@ En lugar de usar TSPSolver para crear o eliminar la cola, puede crear o eliminar
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -106,13 +106,13 @@ Para obtener más información, consulte [Aprovisionamiento y desaprovisionamien
 
 ###Uso de la Galería de aplicaciones de Azure AD
 
-La [Galería de aplicaciones de Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/) proporciona una lista de las aplicaciones que se sabe que admiten un formulario de inicio de sesión único con Azure Active Directory.
+La [Galería de aplicaciones de Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/) proporciona una lista de las aplicaciones que se sabe que admiten un formulario de inicio de sesión único con Azure Active Directory.
 
 ![][1]
 
 Algunas sugerencias para buscar aplicaciones por las funciones que admiten:
 
-*	Azure AD admite el aprovisionamiento y el desaprovisionamiento automático para todas las aplicaciones de tipo "Destacada" en la [Galería de aplicaciones de Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/).
+*	Azure AD admite el aprovisionamiento automático y el desaprovisionamiento para todas las aplicaciones de tipo "Destacada" en la [Galería de aplicaciones de Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/).
 
 *	[Aquí](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx) se puede consultar una lista de aplicaciones federadas que admiten específicamente el inicio de sesión único federado usando protocolos como SAML, WS-Federation u OpenID Connect.
 
@@ -131,7 +131,7 @@ Si la aplicación no se encuentra en la Galería de aplicaciones de Azure AD, ti
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 
-*	**Solicitar una integración de aplicaciones**: solicite soporte técnico que necesite para la aplicación en el [foro de comentarios de Azure AD](http://feedback.azure.com/forums/169401-azure-active-directory).
+*	**Solicitar una integración de aplicaciones**: solicite soporte técnico que necesite para la aplicación en el [foro de comentarios de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ###Mediante el Portal de administración de Azure
 
@@ -168,7 +168,7 @@ Los métodos que elija implementar en su organización son criterio suyo.
 
 ###Panel de acceso de Azure AD
 
-El Panel de acceso de https://myapps.microsoft.com es un portal basado en web que permite que los usuarios finales que tengan una cuenta profesional en Azure Active Directory puedan ver e iniciar aplicaciones basadas en la nube a las que el administrador de Azure AD les haya concedido acceso. Si usted es un usuario final con [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/), también puede usar las capacidades de autoservicio de administración de grupos a través del Panel de acceso.
+El Panel de acceso de https://myapps.microsoft.com es un portal basado en web que permite que los usuarios finales que tengan una cuenta organizativa en Azure Active Directory puedan ver e iniciar aplicaciones basadas en la nube a las que el administrador de Azure AD les haya concedido acceso. Si usted es un usuario final con [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), también puede utilizar las capacidades de autoservicio de administración de grupos a través del Panel de acceso.
 
 ![][3]
 
@@ -220,4 +220,4 @@ Estos vínculos utilizan los mismos mecanismos de control de acceso que el panel
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

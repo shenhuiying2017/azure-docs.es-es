@@ -27,7 +27,7 @@
 Antes de empezar este artículo, debe tener lo siguiente:
 
 - Visual Studio 2012 o 2013
-- Descargue e instale el [SDK de .NET de Azure](http://azure.microsoft.com/downloads/).
+- Descargue e instale el [SDK de .NET de Azure](https://azure.microsoft.com/downloads/).
 - Un trabajo de Análisis de transmisiones existente que requiera la habilitación de supervisión.
 
 ## Configuración de un proyecto
@@ -139,7 +139,8 @@ El código siguiente configurará las variables y los clientes de administració
 
 El código siguiente habilitará la supervisión de un trabajo de Análisis de transmisiones **existente**. La primera parte del código realiza una solicitud GET en el servicio Análisis de transmisiones para recuperar información sobre el trabajo de Análisis de transmisiones en concreto. Usa la propiedad "Id" (recuperada de la solicitud GET) como parámetro del método Put en la segunda mitad del código que envía una solicitud PUT al servicio Insights para habilitar la supervisión para el trabajo de Análisis de transmisiones.
 
-> [AZURE.WARNING]Si previamente ha habilitado la supervisión de otro trabajo de Análisis de transmisiones, a través del Portal de Azure o mediante programación con el siguiente código, **es recomendable proporcionar el mismo nombre de cuenta de almacenamiento que indicó cuando habilitó anteriormente la supervisión.**
+> [AZURE.WARNING]
+Si previamente ha habilitado la supervisión de otro trabajo de Análisis de transmisiones, a través del Portal de Azure o mediante programación con el siguiente código, **es recomendable proporcionar el mismo nombre de cuenta de almacenamiento que indicó cuando habilitó anteriormente la supervisión.**
 > 
 > La cuenta de almacenamiento está vinculada a la región en la que se ha creado el trabajo de Análisis de transmisiones, no específicamente al trabajo.
 > 
@@ -179,4 +180,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

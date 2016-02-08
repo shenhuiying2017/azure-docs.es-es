@@ -37,8 +37,9 @@ Una regla avanzada completa se parece a esto: (leftParameter binaryOperator "Rig
 
 Para obtener una lista completa de los parámetros y los operadores de regla de expresión admitidos, vea las secciones siguientes.
 
-La longitud total del cuerpo de la regla avanzada no puede superar los 255 caracteres.
-> [AZURE.NOTE]Las operaciones de cadena y regex no distinguen mayúsculas de minúsculas. También puede realizar comprobaciones Null, usando $null como constante; por ejemplo, user.department -eq $null. Las cadenas que contienen comillas " deben convertirse en escape con caracteres '; por ejemplo, user.department -eq "Sa`"les".
+La longitud total del cuerpo de la regla avanzada no puede superar los 2048 caracteres.
+> [AZURE.NOTE]
+Las operaciones de cadena y regex no distinguen mayúsculas de minúsculas. También puede realizar comprobaciones Null, usando $null como constante; por ejemplo, user.department -eq $null. Las cadenas que contienen comillas " deben convertirse en escape con caracteres '; por ejemplo, user.department -eq "Sa`"les".
 
 ##Operadores de regla de expresión admitidos
 En la tabla siguiente se enumeran todos los operadores de regla de expresión admitidos y su sintaxis para su uso en el cuerpo de la regla avanzada:
@@ -148,14 +149,27 @@ Operadores permitidos
 | otherMails | Cualquier valor de cadena | (user.otherMails -contains "alias@domain") |
 | proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## Atributos de extensión y atributos personalizados
+Se admiten los atributos de extensión y los atributos personalizados en las reglas de pertenencia dinámica.
+
+Los atributos de extensión se sincronizan desde Windows Server AD local y tienen el formato "ExtensionAttributeX", donde X es igual a un número de 1 a 15. Un ejemplo de una regla que utiliza un atributo de extensión sería
+
+(user.extensionAttribute15 -eq "Marketing")
+
+Los atributos personalizados se sincronizan desde Windows Server AD local o desde una aplicación de SaaS conectada y el formato es "user.extension\_[GUID]\_\_[Attribute]", donde [GUID] es el identificador único de AAD para la aplicación que creó el atributo en AAD y [Attribute] es el nombre del atributo que se creó. Un ejemplo de una regla que utiliza un atributo personalizado es
+
+user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
+
+El nombre de atributo personalizado se puede encontrar en el directorio mediante la consulta de un atributo de usuario a través del explorador de Microsoft Azure AD Graph y la búsqueda del nombre en cuestión.
+
 ## Regla de informes directos
 Ahora puede rellenar los miembros de un grupo en función del atributo de administrador de un usuario.
 Para configurar un grupo como un grupo de “Administrador”
 --------------------------------------------------------------------------------
 1. En el Portal de administrador, haga clic en la pestaña **Configurar** y luego seleccione **REGLA AVANZADA**.
-2. Escriba la regla con la siguiente sintaxis: Direct Reports for *Direct Reports for {Identificador de usuario del administrador}*. Un ejemplo de una regla válida para Direct Reports es 
+2. Escriba la regla con la siguiente sintaxis: Direct Reports for *Direct Reports for {UserID\_of\_manager}*. Un ejemplo de una regla válida para informes directos 
 
-Direct Reports for 62e19b97-8b3d-4d4a-a106-4ce66896a863”
+Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
 
 donde "62e19b97-8b3d-4d4a-a106-4ce66896a863" es el identificador de objeto del administrador. El identificador de objeto puede encontrarse en el Portal de administración de AAD en la pestaña Perfil de la página del usuario que es el administrador.
 
@@ -173,4 +187,4 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

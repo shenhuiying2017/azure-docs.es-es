@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/11/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Tutorial sobre la mensajería retransmitida del Bus de servicio
@@ -21,9 +21,9 @@ En este tutorial se describe cómo crear un servicio y una aplicación cliente d
 
 Al trabajar con este tutorial adquirirá unos conocimientos sobre los pasos necesarios para crear una aplicación cliente y de servicio de Bus de servicio. Como sus homólogos WCF, un servicio es una construcción que expone uno o varios extremos, cada uno de los cuales expone una o varias operaciones de servicio. El extremo de un servicio especifica una dirección donde se puede encontrar el servicio, un enlace que contiene la información que un cliente debe comunicar al servicio y un contrato que define la funcionalidad que ofrece el servicio a sus clientes. La diferencia principal entre un servicio WCF y uno de Bus de servicio es que el extremo se expone en la nube en lugar de localmente en su equipo.
 
-Cuando complete la secuencia de temas de este tutorial, tendrá un servicio en ejecución y un cliente que puede invocar las operaciones de dicho servicio. En el primer tema se describe cómo configurar una cuenta. Los pasos siguientes explican cómo definir un servicio que usa un contrato, cómo implementar dicho servicio y cómo configurarlo en el código. También se describe cómo se hospeda y ejecuta el servicio. El servicio que se crea se hospeda a sí mismo y el cliente y el servicio se ejecutan en el mismo equipo. Puede configurar el servicio mediante código o con un archivo de configuración. Para más información, consulte [Configuración de un servicio de WCF para registrar con el Bus de servicio](https://msdn.microsoft.com/library/ee173579.aspx) y [Creación de un servicio de Bus de servicio](https://msdn.microsoft.com/library/ee173564.aspx).
+Cuando complete la secuencia de temas de este tutorial, tendrá un servicio en ejecución y un cliente que puede invocar las operaciones de dicho servicio. En el primer tema se describe cómo configurar una cuenta. Los pasos siguientes explican cómo definir un servicio que usa un contrato, cómo implementar dicho servicio y cómo configurarlo en el código. También se describe cómo se hospeda y ejecuta el servicio. El servicio que se crea se hospeda a sí mismo y el cliente y el servicio se ejecutan en el mismo equipo. Puede configurar el servicio mediante código o con un archivo de configuración.
 
-En los últimos tres pasos se describe cómo crear una aplicación cliente, cómo configurarla y cómo crear y usar un cliente que pueda tener acceso a la funcionalidad del host. Para más información, consulte [Creación de una aplicación cliente de Bus de servicio](https://msdn.microsoft.com/library/ee173543.aspx) y [Detección y exposición de un servicio de Bus de servicio](https://msdn.microsoft.com/library/dd582704.aspx).
+En los últimos tres pasos se describe cómo crear una aplicación cliente, cómo configurarla y cómo crear y usar un cliente que pueda tener acceso a la funcionalidad del host.
 
 En todos los temas de esta sección se presupone que usa Visual Studio como entorno de desarrollo.
 
@@ -33,17 +33,17 @@ El primer paso es crear un espacio de nombres del servicio de Bus de servicio y 
 
 1. Para crear un espacio de nombres de servicio, visite el [Portal de Azure clásico][]. Haga clic en **Bus de servicio** en el lado izquierdo y después en **Crear**. Escriba un nombre para el espacio de nombres y luego haga clic en la marca de verificación.
 
-	>[AZURE.NOTE]No es necesario utilizar el mismo espacio de nombres para las aplicaciones cliente y servicio.
+	>[AZURE.NOTE] No es necesario utilizar el mismo espacio de nombres para las aplicaciones cliente y servicio.
 
-1. En la ventana principal del [Portal de Azure clásico][], haga clic en el nombre del espacio de nombres de servicio que creó en el paso anterior.
+1. En la ventana principal del portal, haga clic en el nombre del espacio de nombres que creó en el paso anterior.
 
-2. Haga clic en **Configurar** para ver las directivas de acceso compartido predeterminadas del espacio de nombres del servicio.
+2. Haga clic en **Configurar** para ver las directivas de acceso compartido predeterminadas del espacio de nombres.
 
-3. Anote la clave principal de la directiva **RootManageSharedAccessKey** o cópiela en el Portapapeles. Usará este valor más adelante en el tutorial.
+3. Tome nota de la clave principal para la directiva **RootManageSharedAccessKey**, o cópiela en el Portapapeles. Usará este valor más adelante en el tutorial.
 
 ## Definir un contrato de servicio de WCF basado en REST para usarlo con el Bus de servicio
 
-El contrato de servicio especifica las operaciones (la terminología del servicio web para funciones o métodos).que admite el servicio Los contratos se crean mediante la definición de una interfaz de C++, C# o Visual Basic. Cada método de la interfaz corresponde a una operación de servicio específica. Todas las interfaces debe tener el atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) aplicado y todas las operaciones deben tener el atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) aplicado. Si un método en una interfaz que tiene el atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) no tiene el atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), no se expone dicho método. El código para estas tareas se ofrece en el ejemplo a continuación del procedimiento. Para más información sobre cómo definir un contrato, consulte [Diseño de un contrato de WCF para el Bus de servicio](https://msdn.microsoft.com/library/ee173585.aspx). Para leer una descripción completa de los contratos y servicios, vea [Diseño e implementación de servicios](https://msdn.microsoft.com/library/ms729746.aspx), en la documentación de WCF.
+El contrato de servicio especifica las operaciones (la terminología del servicio web para funciones o métodos).que admite el servicio Los contratos se crean mediante la definición de una interfaz de C++, C# o Visual Basic. Cada método de la interfaz corresponde a una operación de servicio específica. Todas las interfaces debe tener el atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) aplicado y todas las operaciones deben tener el atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) aplicado. Si un método en una interfaz que tiene el atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) no tiene el atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), no se expone dicho método. El código para estas tareas se ofrece en el ejemplo a continuación del procedimiento. Para leer una descripción completa de los contratos y servicios, vea [Diseño e implementación de servicios](https://msdn.microsoft.com/library/ms729746.aspx), en la documentación de WCF.
 
 ### Para crear un contrato de Bus de servicio con una interfaz
 
@@ -65,7 +65,7 @@ El contrato de servicio especifica las operaciones (la terminología del servici
 
 1. Cambie el nombre de espacio de nombres de su nombre predeterminado **EchoService** a **Microsoft.ServiceBus.Samples**.
 
-	>[AZURE.IMPORTANT]En este tutorial se usa el espacio de nombres de C# Micr**osoft.ServiceBus.Samples**, que es el espacio de nombres del tipo administrado por contrato que se utiliza en el archivo de configuración del Paso 6: configurar el cliente de WCF. Puede especificar el espacio de nombres que quiera al compilar este ejemplo; no obstante, el tutorial no funcionará a menos que también modifique los espacios de nombres del contrato y el servicio de manera acorde, en el archivo de configuración de la aplicación. El espacio de nombres especificado en el archivo App.config debe ser el mismo que el que se especifique en los archivos de C#.
+	>[AZURE.IMPORTANT] En este tutorial se usa el espacio de nombres de C# **Microsoft.ServiceBus.Samples**, que es el espacio de nombres del tipo administrado por contrato que se utiliza en el archivo de configuración del paso [Configurar el cliente de WCF](#configure-the-wcf-client). Puede especificar el espacio de nombres que quiera al compilar este ejemplo; no obstante, el tutorial no funcionará a menos que también modifique los espacios de nombres del contrato y el servicio de manera acorde, en el archivo de configuración de la aplicación. El espacio de nombres especificado en el archivo App.config debe ser el mismo que el que se especifique en los archivos de C#.
 
 1. Inmediatamente después de la declaración del espacio de nombres `Microsoft.ServiceBus.Samples`, pero dentro del espacio de nombres, defina una nueva interfaz denominada `IEchoContract` y aplique el atributo `ServiceContractAttribute` a la interfaz con un valor de espacio de nombres de ****http://samples.microsoft.com/ServiceModel/Relay/**. El valor del espacio de nombres difiere del espacio de nombres que utiliza en todo el ámbito de su código. En su lugar, el valor del espacio de nombres se usa como identificador único para este contrato. La especificación del espacio de nombres impide explícitamente que el valor del espacio de nombres predeterminado se agregue al nombre del contrato.
 
@@ -76,9 +76,9 @@ El contrato de servicio especifica las operaciones (la terminología del servici
 	}
 	```
 
-	>[AZURE.NOTE]Normalmente, el espacio de nombres del contrato de servicio contiene un esquema de nomenclatura que incluye información de versión. Al incluirse la información de versión en el espacio de nombres del contrato de servicio, los servicios pueden aislar los cambios más importantes mediante la definición de un nuevo contrato de servicio con un nuevo espacio de nombres y su exposición en un nuevo extremo. De esta manera, los clientes pueden seguir usando el contrato de servicio anterior sin tener que actualizarse. La información de versión puede constar de una fecha o un número de compilación. Para obtener más información, consulte [Control de versiones del servicio](http://go.microsoft.com/fwlink/?LinkID=180498). Para los fines de este tutorial, el esquema de nomenclatura del espacio de nombres del contrato de servicio no contiene información de versión.
+	>[AZURE.NOTE] Normalmente, el espacio de nombres del contrato de servicio contiene un esquema de nomenclatura que incluye información de versión. Al incluirse la información de versión en el espacio de nombres del contrato de servicio, los servicios pueden aislar los cambios más importantes mediante la definición de un nuevo contrato de servicio con un nuevo espacio de nombres y su exposición en un nuevo extremo. De esta manera, los clientes pueden seguir usando el contrato de servicio anterior sin tener que actualizarse. La información de versión puede constar de una fecha o un número de compilación. Para obtener más información, consulte [Control de versiones del servicio](http://go.microsoft.com/fwlink/?LinkID=180498). Para los fines de este tutorial, el esquema de nomenclatura del espacio de nombres del contrato de servicio no contiene información de versión.
 
-1. Dentro de la interfaz IEchoContract, declare un método para la única operación que el contrato `IEchoContract` expone en la interfaz y aplique el atributo `OperationContractAttribute` al método que quiere exponer como parte del contrato público de Bus de servicio.
+1. Dentro de la interfaz `IEchoContract`, declare un método para la operación sencilla que el contrato `IEchoContract` expone en la interfaz y aplique el atributo `OperationContractAttribute` al método que desea exponer como parte del contrato público del Bus de servicio.
 
 	```
 	[OperationContract]
@@ -168,7 +168,7 @@ La creación de un servicio de Bus de servicio requiere que primero cree el cont
 
 ### Para definir la configuración del host de servicio
 
-1. El archivo de configuración es muy similar a un archivo de configuración de WCF. Incluye el nombre del servicio, el extremo (es decir, la ubicación que el Bus de servicio expone para que clientes y hosts se comuniquen entre sí) y el enlace (el tipo de protocolo que se usa para la comunicación). La principal diferencia es que el punto de conexión de servicio configurado hace referencia a un elemento [netTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx), que no forma parte de .NET Framework. [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) es uno de los enlaces que define el Bus de servicio.
+1. El archivo de configuración es muy similar a un archivo de configuración de WCF. Incluye el nombre del servicio, el extremo (es decir, la ubicación que el Bus de servicio expone para que clientes y hosts se comuniquen entre sí) y el enlace (el tipo de protocolo que se usa para la comunicación). La principal diferencia es que el punto de conexión de servicio configurado hace referencia a un enlace [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) que no forma parte de .NET Framework. [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) es uno de los enlaces que define el Bus de servicio.
 
 1. En el **Explorador de soluciones**, haga clic en el archivo App.config, que actualmente contiene los elementos XML siguientes.
 
@@ -215,7 +215,7 @@ La creación de un servicio de Bus de servicio requiere que primero cree el cont
 	<endpointcontract="Microsoft.ServiceBus.Samples.IEchoContract"binding="netTcpRelayBinding"/>
 	```
 
-	El extremo define dónde buscará el cliente la aplicación host. Más adelante, en el tutorial se usa este paso para crear un identificador URI que expone el host a través del Bus de servicio. El enlace declara que se está usando TCP como el protocolo para comunicarse con el Bus de servicio.
+	El extremo define dónde buscará el cliente la aplicación host. Más adelante en el tutorial, se usa este paso para crear un identificador URI que expone completamente el host a través del Bus de servicio. El enlace declara que se está usando TCP como protocolo para comunicarse con el Bus de servicio.
 
 
 1. Inmediatamente después del elemento `<services>`, agregue la extensión de enlace siguiente:
@@ -273,15 +273,7 @@ En este paso se detalla cómo ejecutar un servicio de Bus de servicio básico.
 
 ### Para crear las credenciales del Bus de servicio
 
-1. Agregue al proyecto una referencia a Microsoft.ServiceBus.dll: consulte [Usar el paquete NuGet del bus de servicio](https://msdn.microsoft.com/library/dn741354.aspx).
-
-	>[AZURE.NOTE]Al usar un compilador de la línea de comandos, también debe proporcionar la ruta de acceso a los ensamblados.
-
-1. En Program.cs, agregue una instrucción `using` para el espacio de nombres Microsoft.ServiceBus.
-
-	```
-	using Microsoft.ServiceBus;
-	```
+1. Instale el [paquete NuGet del Bus de servicio](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 1. En `Main()`, cree dos variables para almacenar el espacio de nombres y la clave de SAS que se leen desde la ventana de la consola.
 
@@ -292,7 +284,7 @@ En este paso se detalla cómo ejecutar un servicio de Bus de servicio básico.
 	string sasKey = Console.ReadLine();
 	```
 
-	La clave de SAS se usará más adelante para obtener acceso al proyecto de Bus de servicio. El espacio de nombres del servicio se pasa como parámetro a `CreateServiceUri` para crear un identificador URI de servicio.
+	La clave de SAS se usará más adelante para obtener acceso al proyecto de Bus de servicio. El espacio de nombres se pasa como parámetro a `CreateServiceUri` para crear un URI de servicio.
 
 4. Con un objeto [TransportClientEndpointBehavior](https://msdn.microsoft.com/library/microsoft.servicebus.transportclientendpointbehavior.aspx), declare que usará una clave de SAS como tipo de credencial. Agregue el código siguiente directamente después del código de que se agregó en el último paso.
 
@@ -396,7 +388,6 @@ using Microsoft.ServiceBus.Description;
 namespace Microsoft.ServiceBus.Samples
 {
     [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-
     public interface IEchoContract
     {
         [OperationContract]
@@ -406,7 +397,6 @@ namespace Microsoft.ServiceBus.Samples
     public interface IEchoChannel : IEchoContract, IClientChannel { };
 
     [ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-
     class EchoService : IEchoContract
     {
         public string Echo(string text)
@@ -514,7 +504,7 @@ using System.ServiceModel;
 namespace Microsoft.ServiceBus.Samples
 {
 
-[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+	[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -624,17 +614,11 @@ En el código siguiente se muestra el archivo App.config del cliente de eco.
 En este paso, implementará una aplicación cliente básica que accede al servicio que creó anteriormente en este tutorial. De forma similar al servicio, el cliente realiza muchas de las mismas operaciones para tener acceso al Bus de servicio:
 
 1. Establece el modo de conectividad.
-
 1. Crea el identificador URI que localiza el servicio de host.
-
 1. Define las credenciales de seguridad.
-
 1. Aplica a las credenciales para la conexión.
-
 1. Abre la conexión.
-
 1. Realiza las tareas específicas de la aplicación.
-
 1. Cierra la conexión.
 
 Sin embargo, una de las principales diferencias es que la aplicación cliente usa un canal para conectarse al Bus de servicio, mientras que el servicio utiliza una llamada a **ServiceHost**. El código utilizado para estas tareas se proporciona en el ejemplo que sigue al procedimiento.
@@ -732,15 +716,11 @@ Sin embargo, una de las principales diferencias es que la aplicación cliente us
 
 	Este un ejemplo del resultado de la ventana de consola. Tenga en cuenta que los valores que se proporcionan aquí se ofrecen solamente como un ejemplo.
 
-	`Your Service Namespace: myNamespace`
-
-	`Your SAS Key: <SAS key value>`
+	`Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
 
 	La aplicación del servicio se inicia e imprime en la ventana de la consola la dirección en la que está escuchando, tal y como se muestra en el ejemplo siguiente.
 
-    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/`
-
-    `Press [Enter] to exit`
+    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
     
 1. Ejecute la aplicación cliente Ahora debería tener un archivo ejecutable de la aplicación del cliente de eco llamado EchoClient.exe, que se encuentra en el directorio del proyecto del cliente en.\\bin\\Debug\\EchoClient.exe (para la configuración de depuración) o.\\bin\\Release\\EchoClient.exe (para la configuración de lanzamiento). Haga doble clic en este archivo para iniciar la aplicación cliente.
 
@@ -843,4 +823,4 @@ Para obtener más información sobre el Bus de servicio, consulte los temas sigu
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

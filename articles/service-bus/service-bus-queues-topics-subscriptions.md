@@ -158,7 +158,7 @@ Para más información sobre los valores de filtro posibles, vea la documentaci�
 
 ## Centros de eventos
 
-[Centros de eventos](http://azure.microsoft.com/services/event-hubs/) es un servicio de procesamiento de eventos que se usa para ofrecer la entrada de telemetría y eventos en Azure a escala masiva, con una latencia baja y una alta confiabilidad. Este servicio, cuando se usa con otros servicios del flujo de trabajo, es especialmente útil en escenarios de Internet de las cosas, procesamiento del flujo de trabajo o de la experiencia del usuario y en instrumentación de aplicaciones.
+[Centros de eventos](https://azure.microsoft.com/services/event-hubs/) es un servicio de procesamiento de eventos que se usa para ofrecer la entrada de telemetría y eventos en Azure a escala masiva, con una latencia baja y una alta confiabilidad. Este servicio, cuando se usa con otros servicios del flujo de trabajo, es especialmente útil en escenarios de Internet de las cosas, procesamiento del flujo de trabajo o de la experiencia del usuario y en instrumentación de aplicaciones.
 
 Los Centros de eventos son una construcción de streaming de mensajes, y aunque parezca similar a las colas y los temas, tienen características muy distintas. Por ejemplo, los Centros de eventos no proporcionan TTL de mensajes, mensajes fallidos, transacciones o confirmaciones, ya que son características de mensajería asíncrona tradicionales, no características de streaming. Los Centros de eventos proporcionan otras características relacionadas con el flujo, como las particiones, la conservación del orden y la reproducción de la secuencia.
 
@@ -172,4 +172,4 @@ Consulte los siguientes temas avanzados para obtener más información y ejemplo
 - [Guía de desarrolladores de Centros de eventos](../event-hubs/event-hubs-programming-guide.md)
 - [Mensajería asíncrona: filtros avanzados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

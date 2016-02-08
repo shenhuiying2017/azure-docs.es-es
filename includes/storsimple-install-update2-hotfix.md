@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/15-->
+<!--author=alkohli last changed: 01/26/16-->
 
 #### Descargar revisiones
 
@@ -20,7 +20,7 @@ Realice los pasos siguientes para descargar la actualización de software desde 
  
 6. Haga clic en **Descargar**. Especifique o **busque** una ubicación local en la que quiera que aparezca la descarga. La actualización se descargará en una carpeta (el mismo nombre que la actualización) en la ubicación elegida. La carpeta también se puede copiar en un recurso compartido de red que sea accesible desde el dispositivo.
        
-	> [AZURE.NOTE]
+	> [AZURE.NOTE] 
 	> 
 	> - También tendrá que descargar la **actualización del controlador LSI** (actualización del controlador de SAS 2.0 para la serie StorSimple 8000 - KB3121900), **Actualización de Storport** (revisión para Windows Server 2012 R2 x64 Edition - KB3080728) **Actualización de Spaceport** (revisión para Windows Server 2012 R2 x64 Edition - KB3090322) y la **Actualización del firmware del disco** (actualización 2.0 acumulativa del firmware del disco para la serie StorSimple 8000 - KB3121899) y copiar todo en la misma carpeta compartida.
 	> - La revisión debe ser accesible desde ambos controladores para detectar los posibles mensajes de error desde el controlador del mismo nivel.
@@ -85,7 +85,7 @@ Realice los pasos siguientes para instalar y comprobar las revisiones normales.
         ````
 		
 
-	> [AZURE.NOTE]En ocasiones, el cmdlet notifica `False` cuando la actualización está todavía en curso. Para garantizar que la revisión está completada, espere unos minutos, vuelva a ejecutar este comando y compruebe que `RunInProgress` es `False`. Si es así, se habrá completado la revisión.
+	> [AZURE.NOTE] En ocasiones, el cmdlet notifica `False` cuando la actualización está todavía en curso. Para garantizar que la revisión está completada, espere unos minutos, vuelva a ejecutar este comando y compruebe que `RunInProgress` es `False`. Si es así, se habrá completado la revisión.
 	
 8. Una vez completada la actualización de software, repita los pasos 3 a 5 para instalar y supervisar el agente de SaaS y agente MDS con el `CisMdsAgentUpdateBundle.exe`. Asegúrese de que `HcsMdsSoftwareUpdate.exe` se instale antes de `CisMdsAgentUpdateBundle.exe`.
 
@@ -109,7 +109,11 @@ Realice los pasos siguientes para instalar y comprobar las revisiones normales.
 
 #### Instalar y comprobar la revisión del modo de mantenimiento
 
-Use el paquete de `DiskFirmwarePackage.exe` paquete (KB3121899) para instalar las actualizaciones de firmware del disco. Se trata de actualizaciones potencialmente perjudiciales y tardan unos 30 minutos en completarse. Puede elegir instalarlas en una ventana de mantenimiento planificado mediante la conexión a la consola serie del dispositivo. Para instalar las actualizaciones de firmware de disco, siga las instrucciones siguientes.
+Use el paquete de `DiskFirmwarePackage.exe` paquete (KB3121899) para instalar las actualizaciones de firmware del disco. Se trata de actualizaciones potencialmente perjudiciales y tardan unos 30 minutos en completarse. Puede elegir instalarlas en una ventana de mantenimiento planificado mediante la conexión a la consola serie del dispositivo.
+
+Tenga en cuenta que si el firmware del disco ya está actualizado, no será necesario instalar estas actualizaciones. Ejecute el cmdlet `Get-HcsUpdateAvailability` desde la consola serie del dispositivo. Se le enviará una notificación si hay actualizaciones disponibles y si son perturbadoras (actualizaciones del modo de mantenimiento) o no (normales).
+ 
+Para instalar las actualizaciones de firmware de disco, siga las instrucciones a continuación.
 
 1. Active el modo de mantenimiento del dispositivo. Tenga en cuenta que no debe usar la conexión remota de Windows PowerShell al conectarse a un dispositivo en modo de mantenimiento. Tendrá que ejecutar este cmdlet en el controlador del dispositivo cuando esté conectado a través de la consola serie del dispositivo. Escriba:
 		
@@ -155,7 +159,7 @@ Use el paquete de `DiskFirmwarePackage.exe` paquete (KB3121899) para instalar la
 		WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 	
 
-1.  Supervise el progreso de la instalación con el comando `Get-HcsUpdateStatus`. La actualización se habrá completado cuando `RunInProgress` cambia a `False`.
+1.  Supervise el progreso de la instalación con el comando `Get-HcsUpdateStatus`. La actualización se habrá completado cuando `RunInProgress` cambie a `False`.
  
 2.  Una vez completada la instalación, se reiniciará el controlador en el que se instaló la revisión de modo de mantenimiento. Inicie sesión como en la opción 1 con acceso completo y compruebe la versión de firmware del disco. Escriba:
 	
@@ -235,4 +239,4 @@ Use el paquete de `DiskFirmwarePackage.exe` paquete (KB3121899) para instalar la
  
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

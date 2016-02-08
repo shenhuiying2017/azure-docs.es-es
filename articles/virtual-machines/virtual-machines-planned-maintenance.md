@@ -50,7 +50,7 @@ Para obtener más información sobre la configuración de las máquinas virtuale
 
 Por el contrario, se usa una configuración de una sola instancia se usa para máquinas virtuales independientes no colocadas en un conjunto de disponibilidad. Por sí mismas, estas máquinas virtuales no tienen derecho al contrato de nivel de servicio (SLA) que requiere la implementación de dos o más máquinas virtuales en el mismo conjunto de disponibilidad.
 
-Para obtener más información sobre los contratos de nivel de servicio, vea la sección "Servicios en la nube, máquinas virtuales y red virtual" de [Contratos de nivel de servicio](http://azure.microsoft.com/support/legal/sla/).
+Para obtener más información sobre los contratos de nivel de servicio, vea la sección "Servicios en la nube, máquinas virtuales y red virtual" de [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
 
 
 ## Actualizaciones de una configuración de instancias múltiples
@@ -126,4 +126,4 @@ Por ejemplo, durante un mantenimiento planeado, Azure no implementará ninguna a
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

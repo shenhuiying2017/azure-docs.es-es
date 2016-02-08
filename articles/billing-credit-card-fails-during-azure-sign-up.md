@@ -59,9 +59,9 @@ La oferta de evaluación gratuita de Azure está limitada a una activación de p
 
 Sugerencias
 
-Si se produce un error en la activación de una evaluación gratuita porque en el pasado ya activó una suscripción de Azure, use otro plan de Azure disponible entre los que aparecen en la lista [Detalles de las ofertas de Microsoft Azure](http://azure.microsoft.com/support/legal/offer-details/) en lugar del plan de evaluación gratuita de Azure.
+Si se produce un error en la activación de una evaluación gratuita porque en el pasado ya activó una suscripción de Azure, use otro plan de Azure disponible entre los que aparecen en la lista [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) en lugar del plan de evaluación gratuita de Azure.
 
 ## Póngase en contacto con el soporte técnico de Azure
 Si después de seguir estos pasos para solucionar problemas sigue teniendo un problema para realizar la inscripción, póngase en contacto con el [soporte técnico de Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

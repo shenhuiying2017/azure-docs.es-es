@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Instalación de un bosque de Active Directory en una red virtual de Azure | Microsoft Azure" 
 	description="Un tutorial que explica cómo crear un nuevo bosque de Active Directory en una máquina virtual (VM) en una red virtual de Azure." 
-	services="active-directory, virtual-network" 
+	services="active-directory, virtual-network"
+    keywords="máquina virtual de Active Directory, instalación de un bosque de Active Directory, vídeos de Azure Active Directory"
 	documentationCenter="" 
 	authors="markusvi" 
 	manager="stevenpo" 
@@ -13,7 +14,7 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="01/05/2016" 
+	ms.date="01/25/2016" 
 	ms.author="markusvi"/>
 
 
@@ -31,7 +32,7 @@ Es posible que también le interesen los siguientes temas relacionados:
 
 En este escenario, los usuarios externos necesitan tener acceso a las aplicaciones que se ejecutan en servidores unidos a un dominio. Las máquinas virtuales que ejecutan los servidores de aplicaciones y las máquinas virtuales que ejecutan los controladores de dominio se instalan en su propio servicio en la nube en una red virtual de Azure. También se incluyen dentro de un conjunto de disponibilidad para mayor tolerancia a errores.
 
-![][1] 7
+![Bosque de Active Directory en una máquina virtual de una Red virtual de Azure][1] 7
 ## ¿En qué se diferencia del entorno local?
 
 No existe mucha diferencia entre instalar un controlador de dominio en Azure y una instalación en el entorno local. Las principales diferencias se mencionan en la siguiente tabla.
@@ -137,4 +138,4 @@ Para obtener más información acerca del uso de Windows PowerShell, consulte [E
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

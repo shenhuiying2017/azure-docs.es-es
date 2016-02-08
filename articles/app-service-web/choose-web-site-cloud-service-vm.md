@@ -123,7 +123,7 @@ Si no se admite el marco de código abierto en el Servicio de aplicaciones, pued
 
 ### <a id="lob"></a>Tengo una aplicación de línea de negocio que necesita conectarse a la red corporativa.
 
-Si desea crear una aplicación de línea de negocio, puede que su sitio web requiera un acceso directo a los servicios o datos de la red corporativa. Es posible hacerlo en el Servicio de aplicaciones, Servicios en la nube y Máquinas virtuales mediante el servicio [Red virtual de Azure](/services/virtual-network/). En el Servicio de aplicaciones puede usar la nueva [característica de integración de VNET](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), que permite la ejecución de las aplicaciones de Azure como si se encontraran en su red corporativa.
+Si desea crear una aplicación de línea de negocio, puede que su sitio web requiera un acceso directo a los servicios o datos de la red corporativa. Es posible hacerlo en el Servicio de aplicaciones, Servicios en la nube y Máquinas virtuales mediante el servicio [Red virtual de Azure](/services/virtual-network/). En el Servicio de aplicaciones puede usar la nueva [característica de integración de VNET](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), que permite la ejecución de las aplicaciones de Azure como si se encontraran en su red corporativa.
 
 ### <a id="mobile"></a>Deseo hospedar una API de REST o un servicio web para los clientes móviles.
 
@@ -153,7 +153,7 @@ Código de implementación con Web Deploy|X||X|Servicios en la nube admite el us
 Soporte para WebMatrix|X||X|
 Acceso a servicios como Bus de servicio, Almacenamiento, Base de datos SQL|X|X|X|
 Web de host o nivel de servicios web de una arquitectura multinivel|X|X|X|
-Nivel medio del host de una arquitectura multinivel|X|X|X|Las aplicaciones web del Servicio de aplicaciones pueden hospedar con facilidad un nivel medio de la API de REST y la característica [Trabajos web](http://go.microsoft.com/fwlink/?linkid=390226) puede hospedar trabajos de procesamiento en segundo plano. Puede ejecutar Trabajos web en un sitio web dedicado para alcanzar una escalabilidad independiente para el nivel. La característica de [aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform.md) de la vista preliminar ofrece incluso más características para hospedar servicios REST.
+Nivel medio del host de una arquitectura multinivel|X|X|X|Las aplicaciones web del Servicio de aplicaciones pueden hospedar con facilidad un nivel medio de la API de REST y la característica [Trabajos web](http://go.microsoft.com/fwlink/?linkid=390226) puede hospedar trabajos de procesamiento en segundo plano. Puede ejecutar Trabajos web en un sitio web dedicado para alcanzar una escalabilidad independiente para el nivel. La característica de [aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform.md) de vista previa proporciona incluso más características para hospedar servicios REST.
 Soporte integrado de MySQL como servicio|X|X|X|Servicios en la nube puede integrar MySQL como servicio mediante las ofertas de ClearDB, pero no como parte del flujo de trabajo del Portal de Azure.
 Soporte para ASP.NET, ASP clásico, Node.js, PHP, Python|X|X|X|
 Escalado horizontal a varias instancias sin volver a implementar|X|X|X|Máquinas virtuales puede escalar horizontalmente hasta varias instancias, pero los servicios que se ejecutan en este servicio se deben escribir para controlar este escalado horizontal. Tiene que configurar un equilibrador de carga para que dirija solicitudes entre las máquinas y crear un Grupo de afinidad para evitar que todas las instancias se reinicien simultáneamente debido a errores de mantenimiento o hardware.
@@ -170,7 +170,8 @@ Capacidad de definir/ejecutar tareas de inicio||X|X|
 Puede atender eventos de ETW||X|X|
 
 
-> [AZURE.NOTE]Si desea empezar a usar el Servicio de aplicaciones de Azure antes de registrarse para crear una cuenta, vaya a <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, donde puede crear inmediatamente y de forma gratuita una aplicación básica de ASP.NET de corta duración en el Servicio de aplicaciones de Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> [AZURE.NOTE]
+Si desea empezar a usar el Servicio de aplicaciones de Azure antes de registrarse para crear una cuenta, vaya a <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, donde puede crear inmediatamente y de forma gratuita una aplicación básica de ASP.NET de corta duración en el Servicio de aplicaciones de Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 
 ## <a id="nextsteps"></a> Pasos siguientes
@@ -204,4 +205,4 @@ Para conocer con mayor profundidad las opciones que ha elegido para su aplicaci�
   [Almacenamiento]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

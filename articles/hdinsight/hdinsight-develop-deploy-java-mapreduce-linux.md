@@ -223,7 +223,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
 
 3. Cuando el comando termine de ejecutarse, el directorio __wordcountjava\\target__ contendrá un archivo llamado __wordcountjava-1.0-SNAPSHOT.jar__.
 
-	> [AZURE.NOTE]El archivo __wordcountjava-1.0-SNAPSHOT.jar__ es un uberjar que contiene no sólo el trabajo WordCount, sino también las dependencias que el trabajo necesita en tiempo de ejecución.
+	> [AZURE.NOTE] El archivo __wordcountjava-1.0-SNAPSHOT.jar__ es un uberjar que contiene no sólo el trabajo WordCount, sino también las dependencias que el trabajo necesita en tiempo de ejecución.
 
 
 ##<a id="upload"></a>Carga del archivo .jar
@@ -236,7 +236,7 @@ Use el siguiente comando para cargar el archivo .jar al nodo principal de HDInsi
 
 De esta manera, se copiarán los archivos del sistema local al nodo principal.
 
-> [AZURE.NOTE]Si usó una contraseña para proteger la cuenta SSH, se le preguntará la contraseña. Si usó una clave SSH, es posible que deba usar el parámetro `-i` y la ruta de acceso a la clave privada. Por ejemplo: `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+> [AZURE.NOTE] Si usó una contraseña para proteger la cuenta SSH, se le preguntará la contraseña. Si usó una clave SSH, es posible que deba usar el parámetro `-i` y la ruta de acceso a la clave privada. Por ejemplo: `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 ##<a name="run"></a>Ejecute el trabajo MapReduce
 
@@ -250,7 +250,7 @@ De esta manera, se copiarán los archivos del sistema local al nodo principal.
 
 		hadoop jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
 
-	Haciendo esto, usará la aplicación WordCount MapReduce para contar las palabras en el archivo davinci.txt y almacenar los resultados en \_\___wasb:///example/data/wordcountout__. Tanto el archivo de entrada como el de salida se almacenan en el almacenamiento predeterminado del clúster.
+	De este modo, se usará la aplicación WordCount MapReduce para contar las palabras del archivo davinci.txt y almacenar los resultados en \_\___wasb:///example/data/wordcountout__. Tanto el archivo de entrada como el de salida se almacenan en el almacenamiento predeterminado del clúster.
 
 3. Una vez completado el trabajo, use lo siguiente para ver los resultados:
 
@@ -270,7 +270,7 @@ Gracias a este documento, ha aprendido a desarrollar un trabajo MapReduce de Jav
 - [Uso de Pig con HDInsight][hdinsight-use-pig]
 - [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-Para más información, consulte también el [Centro de desarrolladores de Java](http://azure.microsoft.com/develop/java/).
+Para más información, consulte también el [Centro de desarrolladores de Java](https://azure.microsoft.com/develop/java/).
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -292,4 +292,4 @@ Para más información, consulte también el [Centro de desarrolladores de Java]
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -76,7 +76,7 @@ En un servicio implementado mediante la API Web de ASP.NET, cada solicitud se en
 	}
 	```
 
-	> [AZURE.TIP]Use el enrutamiento predeterminado siempre que sea posible y evite la definición de muchas rutas personalizadas complejas, ya que puede provocar fragilidad (es muy fácil agregar métodos en un controlador con rutas ambiguas) y un rendimiento reducido (cuanto mayor sea la tabla de enrutamiento, más trabajo deberá hacer el marco API Web para averiguar qué ruta coincide con un URI determinado). Mantenga la API y las rutas simples. Para obtener más información, consulte la sección Organización de la API web en torno a los recursos en la Guía de diseño de una API. Si debe definir rutas personalizadas, un enfoque preferible es usar el enrutamiento basado en atributos que se describe más adelante en esta sección.
+	> [AZURE.TIP] Use el enrutamiento predeterminado siempre que sea posible y evite la definición de muchas rutas personalizadas complejas, ya que puede provocar fragilidad (es muy fácil agregar métodos en un controlador con rutas ambiguas) y un rendimiento reducido (cuanto mayor sea la tabla de enrutamiento, más trabajo deberá hacer el marco API Web para averiguar qué ruta coincide con un URI determinado). Mantenga la API y las rutas simples. Para obtener más información, consulte la sección Organización de la API web en torno a los recursos en la Guía de diseño de una API. Si debe definir rutas personalizadas, un enfoque preferible es usar el enrutamiento basado en atributos que se describe más adelante en esta sección.
 
 	Para obtener más información sobre el enrutamiento basado en convenciones, consulte la página [Routing in ASP.NET Web API](http://www.asp.net/web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api) del sitio web de Microsoft.
 
@@ -157,7 +157,7 @@ Cuando una solicitud de una aplicación cliente se ha enrutado correctamente a u
 
 	El código que implementa estas solicitudes no debe imponer efectos secundarios. La misma solicitud repetida en el mismo recurso debe dar como resultado el mismo estado. Por ejemplo, si se envían varias solicitudes DELETE al mismo URI, deben tener el mismo efecto, aunque el código de estado HTTP de los mensajes de respuesta puede ser diferente (la primera solicitud DELETE podría devolver el código de estado 204 (sin contenido), mientras que una solicitud DELETE posterior podría devolver el código de estado 404 (no encontrado)).
 
-> [AZURE.NOTE]En el artículo [Idempotency Patterns](http://blog.jonathanoliver.com/idempotency-patterns/) del blog de Jonathan Oliver se ofrece una visión general de la idempotencia y cómo se relaciona con las operaciones de administración de datos.
+> [AZURE.NOTE] En el artículo [Idempotency Patterns](http://blog.jonathanoliver.com/idempotency-patterns/) del blog de Jonathan Oliver se ofrece una visión general de la idempotencia y cómo se relaciona con las operaciones de administración de datos.
 
 - **Las acciones POST que crean nuevos recursos deben hacerlo sin efectos secundarios no relacionados**.
 
@@ -226,7 +226,7 @@ Cuando una solicitud de una aplicación cliente se ha enrutado correctamente a u
 
 	Si el cliente no especifica un encabezado Accept, use un formato predeterminado razonable para el cuerpo de respuesta. Por ejemplo, el tipo predeterminado del marco API Web de ASP.NET es JSON para datos basados en texto.
 
-	> [AZURE.NOTE]El marco API Web de ASP.NET realiza cierta detección automática de los encabezados Accept y los controla él mismo según el tipo de datos del cuerpo del mensaje de respuesta. Por ejemplo, si el cuerpo de un mensaje de respuesta contiene un objeto CLR (common language runtime), la API Web de ASP.NET asigna automáticamente el formato JSON a la respuesta con el encabezado Content-Type de la misma establecido en "application/json"; a menos que el cliente indique que requiere que los resultados sean XML, en cuyo caso el marco de la API Web de ASP.NET asigna el formato XML a la respuesta y establece el encabezado Content-Type de la misma en "text/xml". Sin embargo, puede ser necesario controlar los encabezados Accept que especifiquen explícitamente tipos de medios distintos en el código de implementación de una operación.
+	> [AZURE.NOTE] El marco API Web de ASP.NET realiza cierta detección automática de los encabezados Accept y los controla él mismo según el tipo de datos del cuerpo del mensaje de respuesta. Por ejemplo, si el cuerpo de un mensaje de respuesta contiene un objeto CLR (common language runtime), la API Web de ASP.NET asigna automáticamente el formato JSON a la respuesta con el encabezado Content-Type de la misma establecido en "application/json"; a menos que el cliente indique que requiere que los resultados sean XML, en cuyo caso el marco de la API Web de ASP.NET asigna el formato XML a la respuesta y establece el encabezado Content-Type de la misma en "text/xml". Sin embargo, puede ser necesario controlar los encabezados Accept que especifiquen explícitamente tipos de medios distintos en el código de implementación de una operación.
 
 - **Proporcione vínculos para admitir la navegación y la detección de recursos de estilo HATEOAS**.
 
@@ -362,9 +362,9 @@ De forma predeterminada, en el marco de la API Web de ASP.NET, si una operación
 	}
 	```
 
-	> [AZURE.TIP]No incluya información que pueda ser útil para un atacante que intente penetrar en la API web. Para obtener más información, visite la página [Exception Handling in ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling) del sitio web de Microsoft.
+	> [AZURE.TIP] No incluya información que pueda ser útil para un atacante que intente penetrar en la API web. Para obtener más información, visite la página [Exception Handling in ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling) del sitio web de Microsoft.
 
-	> [AZURE.NOTE]Muchos servidores web interceptan condiciones de error por sí mismos antes de que lleguen a la API web. Por ejemplo, si configura la autenticación de un sitio web y el usuario no proporciona la información de autenticación correcta, el servidor web debe responder con código de estado 401 (no autorizado). Cuando un cliente se ha autenticado, el código puede realizar sus propias comprobaciones para asegurarse de que el cliente puede obtener acceso al recurso solicitado. Si se produce un error en esta autorización, debe devolver un código de estado 403 (prohibido).
+	> [AZURE.NOTE] Muchos servidores web interceptan condiciones de error por sí mismos antes de que lleguen a la API web. Por ejemplo, si configura la autenticación de un sitio web y el usuario no proporciona la información de autenticación correcta, el servidor web debe responder con código de estado 401 (no autorizado). Cuando un cliente se ha autenticado, el código puede realizar sus propias comprobaciones para asegurarse de que el cliente puede obtener acceso al recurso solicitado. Si se produce un error en esta autorización, debe devolver un código de estado 403 (prohibido).
 
 - **Controle las excepciones de una forma coherente y registre la información sobre los errores**.
 
@@ -465,13 +465,13 @@ En un entorno distribuido, como los que implican un servidor web y aplicaciones 
     }
 	```
 
-	> [AZURE.NOTE]El protocolo HTTP también define la directiva _no-cache_ para el encabezado Cache-Control. De forma bastante confusa, esta directiva no significa "no almacenar en memoria caché", sino "volver a validar la información almacenada en caché con el servidor antes de devolverla"; los datos siguen pudiendo almacenarse en memoria caché, pero se comprueban cada vez que se usan para asegurar que sigan siendo actuales.
+	> [AZURE.NOTE] El protocolo HTTP también define la directiva _no-cache_ para el encabezado Cache-Control. De forma bastante confusa, esta directiva no significa "no almacenar en memoria caché", sino "volver a validar la información almacenada en caché con el servidor antes de devolverla"; los datos siguen pudiendo almacenarse en memoria caché, pero se comprueban cada vez que se usan para asegurar que sigan siendo actuales.
 
 	La administración en memoria caché es responsabilidad de la aplicación cliente o el servidor intermedio, pero si se implementa correctamente, puede ahorrar ancho de banda y mejorar el rendimiento, eliminando la necesidad de capturar los datos que ya se ha recuperado recientemente.
 
 	El valor de _max-age_ en el encabezado Cache-Control es solo una guía y no una garantiza de que los datos correspondientes no cambiarán durante el tiempo especificado. La API web debe establecer max-age en un valor adecuado según la volatilidad esperada de los datos. Cuando expire este período, el cliente debería descartar el objeto de la memoria caché.
 
-	> [AZURE.NOTE]La mayoría de los exploradores web modernos admiten el almacenamiento en memoria caché del lado cliente, agregando los encabezados cache-control adecuados a las solicitudes y examinando los encabezados de los resultados, como se describe. Sin embargo, algunos exploradores más antiguos no almacenarán en memoria caché los valores devueltos desde una dirección URL que incluya una cadena de consulta. Normalmente, esto no es un problema para las aplicaciones de cliente personalizadas que implementan su propia estrategia de administración de la memoria caché basada en el protocolo que se trata aquí.
+	> [AZURE.NOTE] La mayoría de los exploradores web modernos admiten el almacenamiento en memoria caché del lado cliente, agregando los encabezados cache-control adecuados a las solicitudes y examinando los encabezados de los resultados, como se describe. Sin embargo, algunos exploradores más antiguos no almacenarán en memoria caché los valores devueltos desde una dirección URL que incluya una cadena de consulta. Normalmente, esto no es un problema para las aplicaciones de cliente personalizadas que implementan su propia estrategia de administración de la memoria caché basada en el protocolo que se trata aquí.
 	>
 	> Algunos servidores proxy antiguos tienen el mismo comportamiento y podrían no almacenar en memoria caché las solicitudes basadas en direcciones URL con cadenas de consulta. Esto podría ser un problema para las aplicaciones cliente personalizadas que se conectan a un servidor web a través de un proxy de este tipo.
 
@@ -517,7 +517,7 @@ En un entorno distribuido, como los que implican un servidor web y aplicaciones 
 	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
-	> [AZURE.TIP]Por motivos de seguridad, no permita que los datos confidenciales o los que se devuelvan a través de una conexión autenticada (HTTPS) se almacenen en memoria caché.
+	> [AZURE.TIP] Por motivos de seguridad, no permita que los datos confidenciales o los que se devuelvan a través de una conexión autenticada (HTTPS) se almacenen en memoria caché.
 
 	Una aplicación cliente puede emitir una solicitud GET posterior para recuperar el mismo recurso en cualquier momento y, si ha cambiado el recurso (tiene una ETag diferente), debe descartarse la versión en caché y agregarse la nueva versión a la memoria caché. Si un recurso es grande y requiere una gran cantidad de ancho de banda para transmitirse de vuelta al cliente, las solicitudes repetidas para capturar los mismos datos pueden resultar ineficaces. Para combatir esta situación, el protocolo HTTP define el proceso siguiente para optimizar las solicitudes GET que se deben admitir en una API web:
 
@@ -539,7 +539,7 @@ En un entorno distribuido, como los que implican un servidor web y aplicaciones 
 
 	- El cliente usa el código de estado para mantener la memoria caché. Si los datos no ha cambiado (código de estado 304), el objeto puede permanecer en la memoria caché y la aplicación cliente debe seguir usando esta versión del objeto. Si los datos han cambiado (código de estado 200), debe descartarse el objeto almacenado en caché e insertarse uno nuevo. Si los datos ya no están disponibles (código de estado 404), el objeto debe quitarse de la memoria caché.
 
-	> [AZURE.NOTE]Si el encabezado de la respuesta contiene el encabezado Cache-Control no-store, el objeto debe quitarse siempre de la memoria caché sin tener en cuenta el código de estado HTTP.
+	> [AZURE.NOTE] Si el encabezado de la respuesta contiene el encabezado Cache-Control no-store, el objeto debe quitarse siempre de la memoria caché sin tener en cuenta el código de estado HTTP.
 
 	El código siguiente muestra el método `FindOrderByID` extendido para admitir el encabezado If-None-Match. Tenga en cuenta que si se omite el encabezado If-None-Match, siempre se recupera el pedido especificado:
 
@@ -631,7 +631,7 @@ En un entorno distribuido, como los que implican un servidor web y aplicaciones 
     }
 	```
 
-	> [AZURE.TIP]En este ejemplo, la ETag para los datos se genera mediante la aplicación de un algoritmo hash a los datos recuperados del origen de datos subyacente. Si la ETag se puede calcular de alguna otra manera, es posible optimizar aún más el proceso y los datos solo deben capturarse desde el origen de datos si han cambiado. Este enfoque es especialmente útil si los datos son grandes o el acceso al origen de datos puede provocar una latencia significativa (por ejemplo, si el origen de datos es una base de datos remota).
+	> [AZURE.TIP] En este ejemplo, la ETag para los datos se genera mediante la aplicación de un algoritmo hash a los datos recuperados del origen de datos subyacente. Si la ETag se puede calcular de alguna otra manera, es posible optimizar aún más el proceso y los datos solo deben capturarse desde el origen de datos si han cambiado. Este enfoque es especialmente útil si los datos son grandes o el acceso al origen de datos puede provocar una latencia significativa (por ejemplo, si el origen de datos es una base de datos remota).
 
 - **Use ETags para admitir la simultaneidad optimista**.
 
@@ -732,7 +732,7 @@ En un entorno distribuido, como los que implican un servidor web y aplicaciones 
     }
 	```
 
-	> [AZURE.TIP]El uso del encabezado If-Match es totalmente opcional y, si se omite, la API web siempre intentará actualizar el pedido especificado, posiblemente sobrescribiendo ciegamente una actualización que otro usuario haya realizado. Para evitar problemas debidos a actualizaciones perdidas, facilite siempre un encabezado If-Match.
+	> [AZURE.TIP] El uso del encabezado If-Match es totalmente opcional y, si se omite, la API web siempre intentará actualizar el pedido especificado, posiblemente sobrescribiendo ciegamente una actualización que otro usuario haya realizado. Para evitar problemas debidos a actualizaciones perdidas, facilite siempre un encabezado If-Match.
 
 <a name="considerations-for-handling-large"></a>
 ## Consideraciones para controlar respuestas y solicitudes de gran tamaño
@@ -873,11 +873,11 @@ Puede haber ocasiones en que una aplicación cliente necesite emitir solicitudes
     }
 	```
 
-	> [AZURE.TIP]El volumen de datos que se pueden cargar en un servicio web no está restringido por el streaming y una sola solicitud posiblemente podría producir un objeto masivo que consumiera recursos considerables. Si durante el proceso de streaming la API web determina que la cantidad de datos de una solicitud ha superado algunos límites aceptables, puede anular la operación y devolver un mensaje de respuesta con el código de estado 413 (entidad solicitada demasiado grande).
+	> [AZURE.TIP] El volumen de datos que se pueden cargar en un servicio web no está restringido por el streaming y una sola solicitud posiblemente podría producir un objeto masivo que consumiera recursos considerables. Si durante el proceso de streaming la API web determina que la cantidad de datos de una solicitud ha superado algunos límites aceptables, puede anular la operación y devolver un mensaje de respuesta con el código de estado 413 (entidad solicitada demasiado grande).
 
 	Puede minimizar el tamaño de los objetos grandes transmitidos por la red con la compresión HTTP. Este enfoque ayuda a reducir la cantidad de tráfico de red y la latencia de red asociada, pero a costa de requerir un procesamiento adicional en el cliente y en el servidor que hospeda la API web. Por ejemplo, una aplicación cliente que espera recibir datos comprimidos puede incluir un encabezado de solicitud Accept-Encoding: gzip (también se pueden especificar otros algoritmos de compresión de datos). Si el servidor admite la compresión, debe responder con el contenido almacenado en formato gzip en el cuerpo del mensaje y el encabezado de respuesta Content-Encoding: gzip.
 
-	> [AZURE.TIP]Puede combinar la compresión codificada con streaming; comprima los datos antes de hacer streaming y especifique la codificación de contenido gzip y la codificación de transferencia fragmentada en los encabezados de los mensajes. Tenga en cuenta también que algunos servidores web (por ejemplo, Internet Information Server) pueden configurarse para comprimir automáticamente las respuestas HTTP sin tener en cuenta si la API web comprime los datos o no.
+	> [AZURE.TIP] Puede combinar la compresión codificada con streaming; comprima los datos antes de hacer streaming y especifique la codificación de contenido gzip y la codificación de transferencia fragmentada en los encabezados de los mensajes. Tenga en cuenta también que algunos servidores web (por ejemplo, Internet Information Server) pueden configurarse para comprimir automáticamente las respuestas HTTP sin tener en cuenta si la API web comprime los datos o no.
 
 - **Implemente respuestas parciales para los clientes que no admitan operaciones asincrónicas**.
 
@@ -926,7 +926,7 @@ Puede haber ocasiones en que una aplicación cliente necesite emitir solicitudes
 
 	Una aplicación cliente puede emitir una solicitud para recuperar 30 pedidos empezando con un desplazamiento de 50 mediante el URI \__http://www.adventure-works.com/api/orders?limit=30&offset=50_.
 
-	> [AZURE.TIP]Evite permitir que las aplicaciones de cliente especifiquen las cadenas de consulta que resultan en un URI que tenga más de 2000 caracteres. Muchos servidores y clientes web no pueden controlar los URI así de largos.
+	> [AZURE.TIP] Evite permitir que las aplicaciones de cliente especifiquen las cadenas de consulta que resultan en un URI que tenga más de 2000 caracteres. Muchos servidores y clientes web no pueden controlar los URI así de largos.
 
 <a name="considerations-for-maintaining-responsiveness"></a>
 ## Consideraciones para mantener la capacidad de respuesta, la escalabilidad y la disponibilidad
@@ -937,7 +937,7 @@ La misma API web pueden usarla muchas aplicaciones cliente que se ejecuten en cu
 
 	Una solicitud que podría tardar mucho tiempo en procesarse debe realizarse sin bloquear al cliente que la envió. La API web puede realizar ciertas comprobaciones iniciales para validar la solicitud, iniciar una tarea independiente para realizar el trabajo y, después, devolver un mensaje de respuesta con el código HTTP 202 (aceptado). La tarea podría ejecutarse de forma asincrónica como parte del procesamiento de la API web o podría descargarse en un trabajo web de Azure (si la API web está alojada en un sitio web de Azure) o en un rol de trabajo (si la API web se implementa como un servicio en la nube de Azure).
 
-	> [AZURE.NOTE]Para obtener más información sobre el uso de trabajos web con el sitio web de Azure, visite la página [Uso de trabajos web para ejecutar tareas en segundo plano en Sitios web Microsoft Azure](web-sites-create-web-jobs.md) del sitio web de Microsoft.
+	> [AZURE.NOTE] Para obtener más información sobre el uso de trabajos web con el sitio web de Azure, visite la página [Uso de trabajos web para ejecutar tareas en segundo plano en Sitios web Microsoft Azure](web-sites-create-web-jobs.md) del sitio web de Microsoft.
 
 	La API web también debe proporcionar un mecanismo para devolver los resultados del procesamiento a la aplicación cliente. Puede lograr esto si proporciona un mecanismo de sondeo de aplicaciones cliente para consultar periódicamente si ha finalizado el procesamiento y se ha obtenido el resultado o si habilita la API para que envíe una notificación cuando la operación se haya completado.
 
@@ -965,7 +965,7 @@ La misma API web pueden usarla muchas aplicaciones cliente que se ejecuten en cu
 
 	- El uso de SignalR para insertar datos en tiempo real desde el servidor web en el cliente a través de una conexión de red persistente. SignalR está disponible para las aplicaciones web de ASP.NET como un paquete de NuGet. Puede encontrar más información en el sitio web de [ASP.NET SignalR](http://signalr.net/).
 
-	> [AZURE.NOTE]Comet y SignalR usan conexiones de red persistentes entre el servidor web y la aplicación cliente. Esto puede afectar a la escalabilidad, ya que un gran número de clientes puede requerir un número igual de grande de conexiones simultáneas.
+	> [AZURE.NOTE] Comet y SignalR usan conexiones de red persistentes entre el servidor web y la aplicación cliente. Esto puede afectar a la escalabilidad, ya que un gran número de clientes puede requerir un número igual de grande de conexiones simultáneas.
 
 - **Asegúrese de que cada solicitud no tiene estado**.
 
@@ -981,7 +981,7 @@ La misma API web pueden usarla muchas aplicaciones cliente que se ejecuten en cu
 
 	Si se mantiene abierta una conexión, puede ayudar a mejorar la capacidad de respuesta al reducir la latencia y la congestión de la red, pero puede ser perjudicial para la escalabilidad porque se mantienen conexiones innecesarias abiertas durante más tiempo del necesario, lo que limita la capacidad de conexión de otros clientes simultáneos. También puede afectar a la duración de la batería si la aplicación cliente se ejecuta en un dispositivo móvil; si la aplicación solo realiza solicitudes ocasionales al servidor, mantener abierta una conexión puede hacer que la batería se gaste con mayor rapidez. Para asegurarse de que una conexión no se hace persistente con HTTP 1.1, el cliente puede incluir un encabezado Connection:Close con los mensajes para reemplazar el comportamiento predeterminado. De forma similar, si un servidor está controlando un gran número de clientes, puede incluir un encabezado Connection:Close en los mensajes de respuesta, lo que debería cerrar la conexión y ahorrar recursos del servidor.
 
-	> [AZURE.NOTE]Las conexiones HTTP persistentes son una característica puramente opcional para reducir la sobrecarga de la red asociada al restablecimiento repetido de un canal de comunicaciones. Ni la API web ni la aplicación cliente deben depender de que haya una conexión HTTP persistente disponible. No use conexiones HTTP persistentes para implementar sistemas de notificación de estilo Comet; en su lugar, debería usar sockets (o websockets si están disponible) en la capa TCP. Por último, tenga en cuenta que los encabezados Keep-Alive son de uso limitado si una aplicación cliente se comunica con un servidor mediante un proxy; solo la conexión con el cliente y el proxy será persistente.
+	> [AZURE.NOTE] Las conexiones HTTP persistentes son una característica puramente opcional para reducir la sobrecarga de la red asociada al restablecimiento repetido de un canal de comunicaciones. Ni la API web ni la aplicación cliente deben depender de que haya una conexión HTTP persistente disponible. No use conexiones HTTP persistentes para implementar sistemas de notificación de estilo Comet; en su lugar, debería usar sockets (o websockets si están disponible) en la capa TCP. Por último, tenga en cuenta que los encabezados Keep-Alive son de uso limitado si una aplicación cliente se comunica con un servidor mediante un proxy; solo la conexión con el cliente y el proxy será persistente.
 
 ## Consideraciones para la publicación y administración de una API web
 
@@ -1003,7 +1003,7 @@ Es útil poder separar estos problemas de los problemas técnicos relativos a la
 ## Consideraciones para probar una API web
 Una API web debe probarse tan exhaustivamente como cualquier otro producto de software. Considere la posibilidad de crear pruebas unitarias para validar la funcionalidad de cada operación, como lo haría con cualquier otro tipo de aplicación. Para obtener más información, vea la página [Comprobar código utilizando pruebas unitarias](https://msdn.microsoft.com/library/dd264975.aspx) del sitio web de Microsoft.
 
-> [AZURE.NOTE]La API web de ejemplo disponible con esta guía incluye un proyecto de prueba que muestra cómo realizar pruebas unitarias sobre operaciones seleccionadas.
+> [AZURE.NOTE] La API web de ejemplo disponible con esta guía incluye un proyecto de prueba que muestra cómo realizar pruebas unitarias sobre operaciones seleccionadas.
 
 La naturaleza de una API web incorpora sus propios requisitos adicionales para comprobar que funciona correctamente. Debe prestar especial atención a los siguientes aspectos:
 
@@ -1013,13 +1013,13 @@ La naturaleza de una API web incorpora sus propios requisitos adicionales para c
 
 - Compruebe que todas las rutas estén protegidas correctamente y que estén sujetas a las comprobaciones de autenticación y autorización apropiadas.
 
-	> [AZURE.NOTE]Algunos aspectos de seguridad, como la autenticación de los usuarios, tienen más probabilidades de ser responsabilidad del entorno de host y no de la API web, pero sigue siendo necesario incluir las pruebas de seguridad como parte del proceso de implementación.
+	> [AZURE.NOTE] Algunos aspectos de seguridad, como la autenticación de los usuarios, tienen más probabilidades de ser responsabilidad del entorno de host y no de la API web, pero sigue siendo necesario incluir las pruebas de seguridad como parte del proceso de implementación.
 
 - Pruebe el control de excepciones que realiza cada operación y compruebe que se pasa una respuesta HTTP adecuada y significativa de vuelta a la aplicación cliente.
 - Compruebe que los mensajes de solicitud y respuesta están formados correctamente. Por ejemplo, si una solicitud HTTP POST contiene los datos de un recurso nuevo en formato x-www-form-urlencoded, confirme que la operación correspondiente analiza correctamente los datos, crea los recursos y devuelve una respuesta que contiene los detalles del nuevo recurso, incluido el encabezado Location correcto.
 - Compruebe todos los vínculos y los URI de los mensajes de respuesta. Por ejemplo, un mensaje HTTP POST debe devolver el URI del recurso recién creado. Todos los vínculos HATEOAS deben ser válidos.
 
-	> [AZURE.IMPORTANT]Si publica la API web a través de un servicio de administración de API, estos URI deben reflejar la dirección URL del servicio de administración y no la del servidor web que hospeda la API web.
+	> [AZURE.IMPORTANT] Si publica la API web a través de un servicio de administración de API, estos URI deben reflejar la dirección URL del servicio de administración y no la del servidor web que hospeda la API web.
 
 - Asegúrese de que cada operación devuelve los códigos de estado correctos para diferentes combinaciones de entradas. Por ejemplo:
 	- Si una consulta es correcta, debe devolver el código de estado 200 (correcto).
@@ -1039,13 +1039,13 @@ También debería crear y ejecutar pruebas de rendimiento para comprobar que la 
 
 ## Publicación y administración de una API web mediante el servicio de administración de API de Azure
 
-Azure ofrece el [servicio de administración de API](http://azure.microsoft.com/documentation/services/api-management/) que puede usar para publicar y administrar una API web. Con esta utilidad, puede generar un servicio que actúe como una fachada para una o varias API web. El servicio es en sí mismo un servicio web escalable que puede crear y configurar mediante el Portal de administración de Azure. Puede utilizar este servicio para publicar y administrar una API web como se indica a continuación:
+Azure ofrece el [servicio de administración de API](https://azure.microsoft.com/documentation/services/api-management/) que puede usar para publicar y administrar una API web. Con esta utilidad, puede generar un servicio que actúe como una fachada para una o varias API web. El servicio es en sí mismo un servicio web escalable que puede crear y configurar mediante el Portal de administración de Azure. Puede utilizar este servicio para publicar y administrar una API web como se indica a continuación:
 
 1. Implemente la API web en un sitio web, un servicio en la nube de Azure o una máquina virtual de Azure.
 
 2. Conecte el servicio de administración de API a la API web. Las solicitudes enviadas a la dirección URL de la API de administración se asignan a URI de la API web. El mismo servicio de administración de API puede enrutar las solicitudes a más de una API web. Esto le permite agregar varias API web en un servicio de administración único. De forma similar, es posible hacer referencia a la misma API web desde más de un servicio de administración de API si necesita restringir o hacer particiones de la funcionalidad disponible para distintas aplicaciones.
 
-	> [AZURE.NOTE]Los URI de vínculos HATEOAS generados como parte de la respuesta de solicitudes HTTP GET deben hacer referencia a la dirección URL del servicio de administración de API y no al servidor web que hospeda la API web.
+	> [AZURE.NOTE] Los URI de vínculos HATEOAS generados como parte de la respuesta de solicitudes HTTP GET deben hacer referencia a la dirección URL del servicio de administración de API y no al servidor web que hospeda la API web.
 
 3. Para cada API web, especifique las operaciones HTTP que expone la API web junto con los parámetros opcionales que una operación puede tomar como entrada. También puede configurar si el servicio de administración de API debe almacenar en caché la respuesta recibida de la API web para optimizar las solicitudes repetidas para los mismos datos. Registre los detalles de las respuestas HTTP que puede generar cada operación. Esta información se usa para generar la documentación para desarrolladores, por lo que es importante que sea precisa y completa.
 
@@ -1055,13 +1055,13 @@ Azure ofrece el [servicio de administración de API](http://azure.microsoft.com/
 
 5. Cree un producto. Un producto es la unidad de publicación; agregue las API web que había conectado previamente al servicio de administración al producto. Cuando se publica el producto, las API web están disponibles para los desarrolladores.
 
-	> [AZURE.NOTE]Antes de publicar un producto, también puede definir grupos de usuarios que pueden tener acceso al producto y agregar usuarios a esos grupos. Esto le da control sobre los desarrolladores y las aplicaciones que puede usar la API web. Si una API web está sujeta a aprobación, antes de poder tener acceso a ella, un desarrollador debe enviar una solicitud al administrador del producto. El administrador puede conceder o denegar el acceso al desarrollador. Los desarrolladores existentes también se pueden bloquear si cambian las circunstancias.
+	> [AZURE.NOTE] Antes de publicar un producto, también puede definir grupos de usuarios que pueden tener acceso al producto y agregar usuarios a esos grupos. Esto le da control sobre los desarrolladores y las aplicaciones que puede usar la API web. Si una API web está sujeta a aprobación, antes de poder tener acceso a ella, un desarrollador debe enviar una solicitud al administrador del producto. El administrador puede conceder o denegar el acceso al desarrollador. Los desarrolladores existentes también se pueden bloquear si cambian las circunstancias.
 
 6.	Configure directivas para cada API web. Las directivas rigen aspectos como si se deben permitir las llamadas entre dominios, cómo autenticar los clientes, si se debe hacer una conversión entre los formatos de datos XML y JSON de forma transparente, si se quieren restringir las llamadas de un determinado intervalo de IP, las cuotas de uso y si se quiere limitar la tasa de llamadas. Las directivas pueden aplicarse globalmente a todo el producto, a una API web única de un producto o a operaciones individuales de una API web.
 
-Puede encontrar información detallada sobre cómo realizar estas tareas en la página [Administración de API](http://azure.microsoft.com/services/api-management/) del sitio web de Microsoft. El servicio de administración de API de Azure también ofrece su propia interfaz REST, que permite crear una interfaz personalizada para simplificar el proceso de configuración de una API web. Para obtener más información, visite la página [Referencia de la API REST de administración de API de Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) del sitio web de Microsoft.
+Puede encontrar información detallada sobre cómo realizar estas tareas en la página [Administración de API](https://azure.microsoft.com/services/api-management/) del sitio web de Microsoft. El servicio de administración de API de Azure también ofrece su propia interfaz REST, que permite crear una interfaz personalizada para simplificar el proceso de configuración de una API web. Para obtener más información, visite la página [Referencia de la API REST de administración de API de Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) del sitio web de Microsoft.
 
-> [AZURE.TIP]Azure ofrece el Administrador de tráfico de Azure que le permite implementar la conmutación por error y equilibrio de carga y reducir la latencia en varias instancias de un sitio web hospedado en distintas ubicaciones geográficas. Puede usar el Administrador de tráfico de Azure junto con el servicio de administración de API, que puede enrutar solicitudes a instancias de un sitio web a través del Administrador de tráfico de Azure. Para obtener más información, visite la página [Acerca de los métodos de equilibrio de carga de Traffic Manager](../traffic-manager/traffic-manager-load-balancing-methods.md) del sitio web de Microsoft.
+> [AZURE.TIP] Azure ofrece el Administrador de tráfico de Azure que le permite implementar la conmutación por error y equilibrio de carga y reducir la latencia en varias instancias de un sitio web hospedado en distintas ubicaciones geográficas. Puede usar el Administrador de tráfico de Azure junto con el servicio de administración de API, que puede enrutar solicitudes a instancias de un sitio web a través del Administrador de tráfico de Azure. Para obtener más información, visite la página [Acerca de los métodos de equilibrio de carga de Traffic Manager](../traffic-manager/traffic-manager-load-balancing-methods.md) del sitio web de Microsoft.
 
 > En esta estructura, si está utilizando nombres DNS personalizados para sus sitios web, debe configurar el registro CNAME adecuado para que cada sitio web apunte al nombre DNS del sitio web del Administrador de tráfico de Azure.
 
@@ -1127,7 +1127,7 @@ Si ha publicado la API web mediante el servicio de administración de API, la p�
 
 Puede usar esta información para determinar si una operación o API web determinadas están causando un cuello de botella y si es necesario escalar el entorno de host y agregar más servidores. También puede determinar si una o varias aplicaciones usan un volumen de recursos desproporcionado y aplican las directivas adecuadas para establecer las cuotas y limitar las tasas de llamadas.
 
-> [AZURE.NOTE]Puede cambiar los detalles de un producto publicado y los cambios se aplicarán inmediatamente. Por ejemplo, puede agregar o quitar una operación de una API web sin necesidad de volver a publicar el producto que contenga la API web.
+> [AZURE.NOTE] Puede cambiar los detalles de un producto publicado y los cambios se aplicarán inmediatamente. Por ejemplo, puede agregar o quitar una operación de una API web sin necesidad de volver a publicar el producto que contenga la API web.
 
 ## Patrones relacionados
 - El patrón de [fachada](http://en.wikipedia.org/wiki/Facade_pattern) describe cómo proporcionar una interfaz a una API web.
@@ -1145,11 +1145,11 @@ Puede usar esta información para determinar si una operación o API web determi
 - En el artículo [Web API Global Error Handling](http://www.asp.net/web-api/overview/error-handling/web-api-global-error-handling) del sitio web de Microsoft se describe cómo implementar una estrategia global de registro y control de errores para una API web.
 - En la página [Uso de trabajos web para ejecutar tareas en segundo plano en Sitios web Microsoft Azure](web-sites-create-web-jobs.md) del sitio web de Microsoft se ofrece información y ejemplos sobre el uso de trabajos web para realizar operaciones en segundo plano en un sitio web de Azure.
 - En la página [Notificación a los usuarios con los Centros de notificaciones de Azure](notification-hubs-aspnet-backend-windows-dotnet-notify-users/) del sitio web de Microsoft se muestra cómo se puede usar un Centro de notificaciones de Azure para insertar respuestas asíncronas en las aplicaciones cliente.
-- En la página [Administración de API](http://azure.microsoft.com/services/api-management/) del sitio web de Microsoft se describe cómo publicar un producto que ofrezca un acceso seguro y controlado a una API web.
+- En la página [Administración de API](https://azure.microsoft.com/services/api-management/) del sitio web de Microsoft se describe cómo publicar un producto que ofrezca un acceso seguro y controlado a una API web.
 - En la página [Referencia de la API REST de administración de API de Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) del sitio web de Microsoft se describe cómo usar la API de REST de administración de API para crear aplicaciones de administración personalizadas.
 - En la página [Acerca de los métodos de equilibrio de carga de Traffic Manager](../traffic-manager/traffic-manager-load-balancing-methods.md) del sitio web de Microsoft se resume cómo se puede usar el Administrador de tráfico de Azure para realizar un equilibrio de carga de las solicitudes entre varias instancias de un sitio web que hospeda una API web.
 - En la página [Application Insights: comience a supervisar el estado y el uso de la aplicación](app-insights-start-monitoring-app-health-usage.md) del sitio web de Microsoft se ofrece información detallada sobre la instalación y configuración de Application Insights en un proyecto API Web de ASP.NET.
 - En la página [Comprobar código utilizando pruebas unitarias](https://msdn.microsoft.com/library/dd264975.aspx) del sitio web de Microsoft se ofrece información detallada sobre la creación y administración de las pruebas unitarias con Visual Studio.
 - En la página [Ejecutar pruebas de rendimiento en la aplicación](https://msdn.microsoft.com/library/dn250793.aspx) del sitio web de Microsoft se describe cómo usar Visual Studio Ultimate para crear un proyecto de pruebas de carga y rendimiento web.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

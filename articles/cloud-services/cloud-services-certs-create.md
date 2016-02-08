@@ -33,7 +33,7 @@ Los certificados de servicio se pueden administrar independientemente de los ser
 ## ¿Qué son los certificados de administración?
 Los certificados de administración permiten realizar autenticación con la API de administración de servicios proporcionada por Azure clásico. Muchos programas y herramientas (como Visual Studio o el SDK de Azure) utilizarán estos certificados para automatizar la configuración y la implementación de varios servicios de Azure. Estos no están relacionados realmente con servicios en la nube.
 
->[AZURE.WARNING]Por lo tanto, tenga cuidado. Estos tipos de certificados permiten a quien se autentica con ellos administrar la suscripción a la que están asociados.
+>[AZURE.WARNING] Por lo tanto, tenga cuidado. Estos tipos de certificados permiten a quien se autentica con ellos administrar la suscripción a la que están asociados.
 
 ### Limitaciones
 Hay un límite de 100 certificados de administración por suscripción. También hay un límite de 100 certificados de administración para todas las suscripciones bajo un identificador de usuario de un administrador de servicio específico. Si ya ha se ha usado el identificador de usuario para el administrador de la cuenta para agregar 100 certificados de administración y se necesitan más certificados, puede agregar un coadministrador para añadir certificados adicionales.
@@ -74,10 +74,10 @@ En [este](..\virtual-machines\virtual-machines-linux-use-ssh-key.md) artículo s
 
 ## Pasos siguientes
 
-[Cargue el certificado de servicio en el Portal de Azure clásico](cloud-services-configure-ssl-certificate.md) (o en el [Portal de Azure](cloud-services-configure-ssl-certificate-portal.md)) y [configúrelo](cloud-services-xml-certs.md) para el servicio en la nube.
+[Cargue el certificado de servicio en el Portal de Azure clásico](cloud-services-configure-ssl-certificate.md) (o en el [Portal de Azure](cloud-services-configure-ssl-certificate-portal.md)).
 
 Cargue un [certificado de API de administración](../azure-api-management-certs.md) en el Portal de Azure clásico.
 
->[AZURE.NOTE]El Portal de Azure no usa certificados de administración para tener acceso a la API, sino cuentas de usuario.
+>[AZURE.NOTE] El Portal de Azure no usa certificados de administración para tener acceso a la API, sino cuentas de usuario.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

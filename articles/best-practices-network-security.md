@@ -28,7 +28,7 @@ El gráfico de lógica siguiente puede dirigirle a un ejemplo específico de las
 ## Protección de infraestructura y cumplimiento normativo de Microsoft
 Microsoft ha adoptado una posición de liderazgo al apoyar las iniciativas de cumplimiento normativo requeridas por los clientes de empresa. Éstas son algunas de las certificaciones de cumplimiento normativo para Azure: ![Notificaciones de cumplimiento de Azure][1]
 
-Encontrará más detalles en: [http://azure.microsoft.com/support/trust-center/compliance/](http://azure.microsoft.com/support/trust-center/compliance/)
+Encontrará más detalles en: [http://azure.microsoft.com/support/trust-center/compliance/](https://azure.microsoft.com/support/trust-center/compliance/)
 
 Microsoft tiene un enfoque integral para proteger la infraestructura en la nube necesaria para ejecutar servicios globales a gran escala. La infraestructura en la nube de Microsoft incluye hardware, software, redes, personal administrativo y operativo, así como centros de datos físicos.
 
@@ -118,7 +118,7 @@ Para habilitar estas características, en la lista siguiente se proporciona info
     - Dispositivo VPN: actúa como puertas de enlace de VPN entre locales para conectividad VPN entre locales entre clientes de redes locales y redes virtuales de Azure
     - Servidor VPN: actúa como servidores de VPN para aceptar clientes de VPN que se conectan a redes virtuales de Azure
 
->[AZURE.TIP]Hacer que las personas autorizadas a tener acceso al engranaje de seguridad de la red perimetral sean totalmente distintas de las personas autorizadas como administradores de desarrollo/implementación/operaciones de aplicaciones. Mantener estos grupos separados permite una separación de funciones y evita que una sola persona omita la seguridad de las aplicaciones y los controles de seguridad de red.
+>[AZURE.TIP] Hacer que las personas autorizadas a tener acceso al engranaje de seguridad de la red perimetral sean totalmente distintas de las personas autorizadas como administradores de desarrollo/implementación/operaciones de aplicaciones. Mantener estos grupos separados permite una separación de funciones y evita que una sola persona omita la seguridad de las aplicaciones y los controles de seguridad de red.
 
 ### Preguntas que se deben plantear al crear límites de red
 Cuando se habla de "Redes de Azure" en esta sección, a menos que especifique de otro modo, todas las redes (redes, redes virtuales o subredes) hacen referencia a redes virtuales de Azure privadas creadas por un administrador de suscripción y no se habla de redes físicas subyacentes dentro de Azure.
@@ -137,7 +137,7 @@ La primera decisión consiste en decidir cuántos límites de seguridad son nece
 
 El número y el tipo de límites necesarios variarán en función de la tolerancia al riesgo de la empresa y el escenario concreto que se implementa. Por lo general, suele ser una decisión tomada conjuntamente por varios grupos de una organización, a menudo, un equipo de riesgos y cumplimientos, un equipo de redes/plataformas y un equipo de desarrollo de aplicaciones. Las personas con conocimientos sobre seguridad, los datos implicados y las tecnologías que se van a usar deben participar en esta toma de decisiones a fin de garantizar la posición de seguridad adecuada para cada implementación.
 
->[AZURE.TIP]Use el menor número posible de límites que cumplan los requisitos de seguridad para una situación determinada. Cuanto mayor sea el número de límites, más difíciles pueden ser las operaciones y la solución de problemas, así como la sobrecarga de administración implicada en la administración de varias directivas de límites con el tiempo. Sin embargo, unos límites insuficientes aumentan el riesgo. Encontrar el equilibrio es fundamental.
+>[AZURE.TIP] Use el menor número posible de límites que cumplan los requisitos de seguridad para una situación determinada. Cuanto mayor sea el número de límites, más difíciles pueden ser las operaciones y la solución de problemas, así como la sobrecarga de administración implicada en la administración de varias directivas de límites con el tiempo. Sin embargo, unos límites insuficientes aumentan el riesgo. Encontrar el equilibrio es fundamental.
 
 ![Red híbrida con tres límites de seguridad][6]
 
@@ -184,7 +184,7 @@ Hay más detalles para crear este ejemplo (proporciona ambos scripts y una plant
 #### Descripción de un grupo de seguridad de red (NSG)
 En este ejemplo, se crea un grupo de seguridad de red y se cargan después seis reglas.
 
->[AZURE.TIP]Por lo general, debe crear primero las reglas específicas de "Permitir" y, por último, las reglas de "Denegar" más genéricas. La prioridad asignada indica qué reglas se evalúan primero. Una vez que se encuentra el tráfico para aplicar a una regla específica, no se evalúa ninguna otra regla. Se pueden aplicar reglas de grupo de seguridad de red en cualquier dirección, entrante o saliente (desde la perspectiva de la subred).
+>[AZURE.TIP] Por lo general, debe crear primero las reglas específicas de "Permitir" y, por último, las reglas de "Denegar" más genéricas. La prioridad asignada indica qué reglas se evalúan primero. Una vez que se encuentra el tráfico para aplicar a una regla específica, no se evalúa ninguna otra regla. Se pueden aplicar reglas de grupo de seguridad de red en cualquier dirección, entrante o saliente (desde la perspectiva de la subred).
 
 De forma declarativa, se compilan las reglas siguientes para el tráfico entrante:
 
@@ -230,7 +230,7 @@ Hay más detalles para crear este ejemplo (proporciona ambos scripts y una plant
 #### Descripción de un grupo de seguridad de red (NSG)
 En este ejemplo, se crea un grupo de seguridad de red y se cargan después seis reglas.
 
->[AZURE.TIP]Por lo general, debe crear primero las reglas específicas de "Permitir" y, por último, las reglas de "Denegar" más genéricas. La prioridad asignada indica qué reglas se evalúan primero. Una vez que se encuentra el tráfico para aplicar a una regla específica, no se evalúa ninguna otra regla. Se pueden aplicar reglas de grupo de seguridad de red en cualquier dirección, entrante o saliente (desde la perspectiva de la subred).
+>[AZURE.TIP] Por lo general, debe crear primero las reglas específicas de "Permitir" y, por último, las reglas de "Denegar" más genéricas. La prioridad asignada indica qué reglas se evalúan primero. Una vez que se encuentra el tráfico para aplicar a una regla específica, no se evalúa ninguna otra regla. Se pueden aplicar reglas de grupo de seguridad de red en cualquier dirección, entrante o saliente (desde la perspectiva de la subred).
 
 De forma declarativa, se compilan las reglas siguientes para el tráfico entrante:
 
@@ -307,7 +307,7 @@ Una vez creadas las tablas de enrutamiento se enlazan a sus subredes. Una vez cr
 		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE]Hay determinadas restricciones en el uso del enrutamiento definido por el usuario (UDR) con ExpressRoute debido a la complejidad del enrutamiento dinámico que se usa en la puerta de enlace virtual de Azure. Son las siguientes:
+>[AZURE.NOTE] Hay determinadas restricciones en el uso del enrutamiento definido por el usuario (UDR) con ExpressRoute debido a la complejidad del enrutamiento dinámico que se usa en la puerta de enlace virtual de Azure. Son las siguientes:
 >
 > 1. El enrutamiento definido por el usuario no se debe aplicar a la subred de la puerta de enlace en la que está conectada la puerta de enlace virtual de Azure vinculada a ExpressRoute.
 > 2. La puerta de enlace virtual de Azure vinculada a ExpressRoute no puede ser el dispositivo NextHop para otras subredes enlazadas con enrutamiento definido por el usuario.
@@ -334,7 +334,7 @@ En el firewall, deberán crearse reglas de reenvío. Dado que el firewall bloque
  
 ![Vista lógica de las reglas de firewall][10]
 
->[AZURE.NOTE]Según el dispositivo virtual de red usado, los puertos de administración varían. En este ejemplo se hace referencia a un Barracuda NG Firewall que usa los puertos 22, 801 y 807. Consulte la documentación del proveedor del dispositivo para buscar los puertos exactos usados para la administración del dispositivo que se va a usar.
+>[AZURE.NOTE] Según el dispositivo virtual de red usado, los puertos de administración varían. En este ejemplo se hace referencia a un Barracuda NG Firewall que usa los puertos 22, 801 y 807. Consulte la documentación del proveedor del dispositivo para buscar los puertos exactos usados para la administración del dispositivo que se va a usar.
 
 #### Descripción de reglas de firewall
 En el diagrama lógico anterior, no se muestra la subred de seguridad debido a que el firewall es el único recurso de la subred y este diagrama muestra las reglas de firewall y cómo permiten o deniegan lógicamente los flujos de tráfico, no la ruta enrutada real. Además, los puertos externos seleccionados para el tráfico RDP están en un intervalo más alto (8014 – 8026) y se han seleccionado para que se correspondan en cierto modo con los dos últimos octetos de la dirección IP local y facilitar así su legibilidad (por ejemplo, la dirección de servidor local 10.0.1.4 está asociada al puerto externo 8014); sin embargo, podría usarse cualquier puerto superior que no planteara conflictos.
@@ -354,7 +354,7 @@ En este ejemplo, necesitamos siete tipos de reglas que se describen a continuaci
 - Regla para notificaciones de error (para el tráfico que no cumple ninguna de las anteriores):
   7.	Denegar todas las reglas de tráfico: esta debe ser siempre la última regla (en términos de prioridad) y, como tal, si un flujo de tráfico no coincide con ninguna de las reglas anteriores, esta regla lo descartará. Esta es una regla predeterminada y normalmente está activada; normalmente no se necesitan modificaciones.
 
->[AZURE.TIP]En la segunda regla de tráfico de aplicación, se permite cualquier puerto para facilitar el ejemplo; en un escenario real, se usarían el puerto más específico e intervalos de direcciones para reducir la superficie de ataque de esta regla.
+>[AZURE.TIP] En la segunda regla de tráfico de aplicación, se permite cualquier puerto para facilitar el ejemplo; en un escenario real, se usarían el puerto más específico e intervalos de direcciones para reducir la superficie de ataque de esta regla.
 
 Una vez creadas todas las reglas anteriores, es importante revisar la prioridad de cada una para asegurarse de que el tráfico se permitirá o se denegará según se desee. En este ejemplo, las reglas están en orden de prioridad.
 
@@ -378,7 +378,7 @@ Las redes híbridas que usan un dispositivo virtual de red (NVA) pueden agregars
 
 Como se muestra en la ilustración anterior, se usa una conexión VPN a través de Internet (sitio a sitio) para conectar una red local a una red virtual de Azure a través de un dispositivo virtual de red.
 
->[AZURE.NOTE]Si usa ExpressRoute con la opción de configuración entre pares públicos de Azure habilitada, se debe crear una ruta estática para enrutar la dirección IP de VPN del dispositivo virtual de red con el borde de Internet corporativo y no con el borde WAN de ExpressRoute. Esto es debido a la NAT requerida en la opción de configuración entre pares públicos de ExpressRoute de Azure que probablemente interrumpirá la sesión de VPN (al IPSec normalmente no le gustan las NAT).
+>[AZURE.NOTE] Si usa ExpressRoute con la opción de configuración entre pares públicos de Azure habilitada, se debe crear una ruta estática para enrutar la dirección IP de VPN del dispositivo virtual de red con el borde de Internet corporativo y no con el borde WAN de ExpressRoute. Esto es debido a la NAT requerida en la opción de configuración entre pares públicos de ExpressRoute de Azure que probablemente interrumpirá la sesión de VPN (al IPSec normalmente no le gustan las NAT).
 
 Una vez implementada la conexión VPN, el dispositivo virtual de red se convierte en el "concentrador" central para todas las redes y subredes. Las reglas de reenvío de firewall determinan qué flujos de tráfico se permiten, se traducen, redirigen o descartan (incluso para los flujos de tráfico entre la red local y Azure si los flujos están diseñados de este modo).
 
@@ -413,7 +413,7 @@ Las redes híbridas que usan una puerta de enlace de VPN de Azure se pueden agre
 
 Como se muestra en la ilustración anterior, se usa una conexión VPN a través de Internet (sitio a sitio) para conectar una red local a una red virtual de Azure a través de una puerta de enlace de VPN de Azure.
 
->[AZURE.NOTE]Si usa ExpressRoute con la opción de configuración entre pares públicos de Azure habilitada, se debe crear una ruta estática para enrutar a la dirección IP de puerta de enlace de VPN de Azure con el borde de Internet corporativo y no con el borde WAN de ExpressRoute. Esto es debido a la NAT requerida en la opción de configuración entre pares públicos de ExpressRoute de Azure que probablemente interrumpirá la sesión de VPN (al IPSec normalmente no le gustan las NAT).
+>[AZURE.NOTE] Si usa ExpressRoute con la opción de configuración entre pares públicos de Azure habilitada, se debe crear una ruta estática para enrutar a la dirección IP de puerta de enlace de VPN de Azure con el borde de Internet corporativo y no con el borde WAN de ExpressRoute. Esto es debido a la NAT requerida en la opción de configuración entre pares públicos de ExpressRoute de Azure que probablemente interrumpirá la sesión de VPN (al IPSec normalmente no le gustan las NAT).
 
 Como se muestra a continuación, con esta opción el entorno tiene ahora dos extremos de red. En el primer borde, el dispositivo virtual de red y el grupo de seguridad de red controlan los flujos de tráfico para redes internas de Azure y entre Azure e Internet, mientras que el segundo borde es la puerta de enlace de VPN de Azure, que es un borde de red totalmente independiente y aislado entre local y Azure.
 
@@ -442,7 +442,7 @@ Las redes híbridas que usan una conexión de configuración entre pares privado
 
 Como se muestra en la ilustración anterior, la configuración entre pares privados de ExpressRoute proporciona una conexión directa entre la red local y la red virtual de Azure. El tráfico transita solo por la red del proveedor de servicio y la red de Microsoft Azure y no toca nunca Internet.
 
->[AZURE.NOTE]Hay determinadas restricciones en el uso del enrutamiento definido por el usuario (UDR) con ExpressRoute debido a la complejidad del enrutamiento dinámico que se usa en la puerta de enlace virtual de Azure. Son las siguientes:
+>[AZURE.NOTE] Hay determinadas restricciones en el uso del enrutamiento definido por el usuario (UDR) con ExpressRoute debido a la complejidad del enrutamiento dinámico que se usa en la puerta de enlace virtual de Azure. Son las siguientes:
 >
 > 1. El enrutamiento definido por el usuario no se debe aplicar a la subred de la puerta de enlace en la que está conectada la puerta de enlace virtual de Azure vinculada a ExpressRoute.
 > 2. La puerta de enlace virtual de Azure vinculada a ExpressRoute no puede ser el dispositivo NextHop para otras subredes enlazadas con enrutamiento definido por el usuario.
@@ -451,7 +451,7 @@ Como se muestra en la ilustración anterior, la configuración entre pares priva
 
 <br />
 
->[AZURE.TIP]Mediante ExpressRoute, se mantiene el tráfico de la red corporativa fuera de Internet para una mayor seguridad, se aumenta significativamente el rendimiento y se permiten los contratos de nivel de servicio del proveedor de ExpressRoute. En cuanto al rendimiento de ExpressRoute, la puerta de enlace de Azure puede pasar a 2 Gbps con ExpressRoute, mientras que con la puerta de enlace de Azure de VPN de sitio a sitio, el rendimiento máximo es de 200 Mbps.
+>[AZURE.TIP] Mediante ExpressRoute, se mantiene el tráfico de la red corporativa fuera de Internet para una mayor seguridad, se aumenta significativamente el rendimiento y se permiten los contratos de nivel de servicio del proveedor de ExpressRoute. En cuanto al rendimiento de ExpressRoute, la puerta de enlace de Azure puede pasar a 2 Gbps con ExpressRoute, mientras que con la puerta de enlace de Azure de VPN de sitio a sitio, el rendimiento máximo es de 200 Mbps.
 
 Tal como se ve en el diagrama siguiente, con esta opción el entorno tiene ahora dos bordes de red, el dispositivo virtual de red y el grupo de seguridad de red controlan los flujos de tráfico para redes internas de Azure y entre Azure e Internet, mientras que la puerta de enlace de VPN de Azure es un borde de red totalmente independiente y aislado entre local y Azure.
 
@@ -511,4 +511,4 @@ Pronto estarán disponible y enlazados desde esta página.
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

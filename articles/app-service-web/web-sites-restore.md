@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/07/2015" 
+	ms.date="01/26/2016" 
 	ms.author="cephalin"/>
 
 # Restauración de una aplicación en el Servicio de aplicaciones de Azure
@@ -22,7 +22,7 @@ En este artículo se muestra cómo restaurar una aplicación del Servicio de apl
 
 La característica de restauración del Servicio de aplicaciones le permite restaurar la aplicación con sus bases de datos vinculadas (base de datos SQL o MySQL) a petición a un estado anterior o crear una nueva aplicación basada en una copia de seguridad de la aplicación original. La creación de una nueva aplicación que se ejecuta en paralelo con la versión más reciente puede resultar útil para la prueba A/B.
 
-La característica de restauración del Servicio de aplicaciones, disponible en la hoja **Copias de seguridad** del [Portal de Azure](http://portal.azure.com), solo está disponible en los planes de tarifa estándar y premium. Para obtener información sobre cómo escalar la aplicación con las capas estándar o premium, consulte [Escalado de una aplicación en el Servicio de aplicaciones de Azure](web-sites-scale.md). Tenga en cuenta que el nivel premium permite realizar un mayor número de copias de seguridad diarias que el nivel estándar.
+La característica de restauración del Servicio de aplicaciones, disponible en la hoja **Copias de seguridad** del [Portal de Azure](https://portal.azure.com), solo está disponible en los planes de tarifa estándar y premium. Para obtener información sobre cómo escalar la aplicación con las capas estándar o premium, consulte [Escalado de una aplicación en el Servicio de aplicaciones de Azure](web-sites-scale.md). Tenga en cuenta que el nivel premium permite realizar un mayor número de copias de seguridad diarias que el nivel estándar.
 
 <a name="PreviousBackup"></a>
 ## Para restaurar una aplicación a partir de una copia de seguridad realizada anteriormente
@@ -41,7 +41,7 @@ La característica de restauración del Servicio de aplicaciones, disponible en 
 
 	![](./media/web-sites-restore/022ChooseDestination.png)
 	
-	>[AZURE.WARNING]Si elige **Sobrescribir**, se borrarán todos los datos relacionados con la aplicación existente. Antes de hacer clic en **Aceptar**, asegúrese de que es exactamente lo que desea.
+	>[AZURE.WARNING] Si elige **Sobrescribir**, se borrarán todos los datos relacionados con la aplicación existente. Antes de hacer clic en **Aceptar**, asegúrese de que es exactamente lo que desea.
 	
 	Puede seleccionar **Aplicación existente** para restaurar la copia de seguridad de la aplicación a otra aplicación en el mismo grupo de recursos. Antes de utilizar esta opción, debe haber creado primero otra aplicación en el grupo de recursos con una configuración de base de datos reflejada en la definida en la copia de seguridad de la aplicación.
 	
@@ -80,7 +80,7 @@ La característica de restauración del Servicio de aplicaciones, disponible en 
 	
 La hoja de detalles mostrará la información disponible relacionada con la operación.
 	
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Pasos siguientes
 
@@ -106,4 +106,4 @@ También puede crear una copia de seguridad y restaurar las aplicaciones del Ser
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

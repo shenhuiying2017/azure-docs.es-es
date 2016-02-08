@@ -169,6 +169,6 @@ Se han agregado las siguientes secciones de configuración y la cadena de conexi
 ###Se ha actualizado la aplicación Azure Active Directory
 La aplicación Azure Active Directory se actualizó para incluir el permiso *Leer datos de directorio* y se creó una clave adicional que luego se usó como *ida:ClientSecret* en el archivo **web.config**.
 
-[Más información acerca de Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

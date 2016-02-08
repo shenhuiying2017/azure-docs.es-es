@@ -12,18 +12,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="01/24/2016"
 	ms.author="robinsh"/>
 
 # Usar Azure PowerShell con Almacenamiento de Azure
 
 ## Información general
 
-En esta guía, exploraremos cómo usar los [Cmdlets de administración del servicio de Azure para almacenamiento](https://msdn.microsoft.com/library/azure/dn806401.aspx) para realizar diversas tareas de desarrollo y administración con el Almacenamiento de Azure.
+Azure PowerShell es un módulo que ofrece cmdlets para administrar Azure mediante Windows PowerShell. Es un Shell de línea de comandos y un lenguaje de scripting basados en tareas y diseñados especialmente para la administración del sistema. Con PowerShell, podrá controlar y automatizar fácilmente la administración de los servicios y aplicaciones de Azure. Por ejemplo, puede usar los cmdlets para realizar las mismas tareas que podría realizar a través del [Portal de Azure](https://portal.azure.com).
 
-Azure PowerShell es un módulo que ofrece cmdlets para administrar Azure mediante Windows PowerShell. Es un Shell de línea de comandos y un lenguaje de scripting basados en tareas y diseñados especialmente para la administración del sistema. Con PowerShell, podrá controlar y automatizar fácilmente la administración de los servicios y aplicaciones de Azure. Por ejemplo, puede usar los cmdlets para realizar las mismas tareas que podría realizar a través del [Portal de Azure](portal.azure.com).
+En esta guía, exploraremos cómo usar los [Cmdlets de Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/mt269418.aspx) para realizar diversas tareas de desarrollo y administración con el Almacenamiento de Azure.
 
-En esta guía se da por sentado que ya tiene experiencia previa en el uso de [Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/) y de [Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx). La guía le proporcionará una serie de scripts para que pueda aprender a usar PowerShell con Almacenamiento de Azure. Antes de ejecutar cada script, deberá actualizar las variables de los mismos según su configuración.
+En esta guía se da por sentado que ya tiene experiencia previa en el uso de [Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/) y de [Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx). La guía le proporcionará una serie de scripts para que pueda aprender a usar PowerShell con Almacenamiento de Azure. Antes de ejecutar cada script, deberá actualizar las variables de los mismos según su configuración.
 
 La primera sección de esta guía le permitirá echar un rápido vistazo a Almacenamiento de Azure y a PowerShell. Para obtener información detallada e instrucciones, puede comenzar por los [requisitos previos para usar Azure PowerShell con Almacenamiento de Azure](#prerequisites-for-using-azure-powershell-with-azure-storage).
 
@@ -32,7 +32,7 @@ La primera sección de esta guía le permitirá echar un rápido vistazo a Almac
 
 En esta sección, aprenderá en 5 minutos a acceder a Almacenamiento de Azure a través de PowerShell.
 
-**Nuevo en Azure:** obtenga una suscripción de Microsoft Azure y una cuenta de Microsoft asociada a dicha suscripción. Para obtener más información sobre las opciones de compra de Azure, consulte [Evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/), [Opciones de compra](http://azure.microsoft.com/pricing/purchase-options/) y [Ofertas para miembros](http://azure.microsoft.com/pricing/member-offers/) (para miembros de MSDN, Microsoft Partner Network, BizSpark y otros programas de Microsoft).
+**Nuevo en Azure:** obtenga una suscripción de Microsoft Azure y una cuenta de Microsoft asociada a dicha suscripción. Para obtener más información sobre las opciones de compra de Azure, consulte [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opciones de compra](https://azure.microsoft.com/pricing/purchase-options/) y [Ofertas para miembros](https://azure.microsoft.com/pricing/member-offers/) (para miembros de MSDN, Microsoft Partner Network, BizSpark y otros programas de Microsoft).
 
 Para obtener más información acerca de las suscripciones de Azure, consulte [Administrar cuentas, suscripciones y roles administrativos](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
@@ -106,7 +106,7 @@ Para obtener más información acerca de las suscripciones de Azure, consulte [A
 			Add-AzureAccount
 				Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
 		
-		b. Para ubicar y copiar el nombre de la suscripción en el [Portal de Azure](portal.azure.com), en el menú del concentrador que se encuentra a la izquierda, haga clic en **suscripciones**. Copie el nombre de la suscripción que desee usar para ejecutar los scripts que se proporcionan en esta guía.
+		b. Para ubicar y copiar el nombre de la suscripción en el [Portal de Azure](https://portal.azure.com), en el menú del concentrador que se encuentra a la izquierda, haga clic en **suscripciones**. Copie el nombre de la suscripción que desee usar para ejecutar los scripts que se proporcionan en esta guía.
 		
 		![Portal de Azure][Image2]
 		  
@@ -131,7 +131,7 @@ Una vez ejecutado el script, debería tener una carpeta de destino local que inc
 ![de blobs][Image3]
 
 
-> [AZURE.NOTE]La sección "Introducción de 5 minutos a Almacenamiento de Azure y PowerShell" le proporcionará una breve introducción sobre cómo usar Azure PowerShell con Almacenamiento de Azure. Para obtener información detallada e instrucciones, le recomendamos que lea las secciones siguientes.
+> [AZURE.NOTE] La sección "Introducción de 5 minutos a Almacenamiento de Azure y PowerShell" le proporcionará una breve introducción sobre cómo usar Azure PowerShell con Almacenamiento de Azure. Para obtener información detallada e instrucciones, le recomendamos que lea las secciones siguientes.
 
 ## Requisitos previos para usar Azure PowerShell con Almacenamiento de Azure
 Necesita una suscripción de Azure y una cuenta para poder ejecutar los cmdlets de PowerShell que se proporcionan en esta guía, como se describe anteriormente.
@@ -185,7 +185,7 @@ Para utilizar Almacenamiento de Azure, necesitará una cuenta de almacenamiento.
 	    $StorageAccountName = "yourstorageaccount"
 	    New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $location
 
-> [AZURE.IMPORTANT]El nombre de la cuenta de almacenamiento debe ser único en Azure y estar en minúscula. Para las convenciones de nomenclatura y otras restricciones, consulte [Acerca de las cuentas de Almacenamiento de Azure](storage-create-storage-account.md) y [Convenciones de nomenclatura y referencia de contenedores, blobs y metadatos](http://msdn.microsoft.com/library/azure/dd135715.aspx).
+> [AZURE.IMPORTANT] El nombre de la cuenta de almacenamiento debe ser único en Azure y estar en minúscula. Para las convenciones de nomenclatura y otras restricciones, consulte [Acerca de las cuentas de Almacenamiento de Azure](storage-create-storage-account.md) y [Convenciones de nomenclatura y referencia de contenedores, blobs y metadatos](http://msdn.microsoft.com/library/azure/dd135715.aspx).
 
 ### Cómo configurar una cuenta de almacenamiento de Azure predeterminada
 Puede tener varias cuentas de almacenamiento en su suscripción. Puede elegir una de ellas y establecerla como cuenta de almacenamiento predeterminada para todos los comandos de almacenamiento en la misma sesión de PowerShell. Esto le permite ejecutar los comandos de almacenamiento de Azure PowerShell sin especificar explícitamente el contexto de almacenamiento.
@@ -244,7 +244,7 @@ Todos los blobs del almacenamiento de Azure han de estar en un contenedor. Puede
     $StorageContainerName = "yourcontainername"
     New-AzureStorageContainer -Name $StorageContainerName -Permission Off
 
-> [AZURE.NOTE]Existen tres niveles de acceso de lectura anónimo: **Desactivado**, **Blob** y **Contenedor**. Para evitar el acceso anónimo a los blobs, establezca el parámetro de permiso en **Desactivado**. El nuevo contenedor es privado por defecto y solo puede acceder a él el propietario de la cuenta. Para permitir un acceso de lectura público y anónimo a los recursos de blob, pero no a los metadatos del contenedor ni a la lista de blobs del contenedor, seleccione **Blob** en el parámetro Permiso. Para hacer que el acceso de lectura a los recursos de blob, a los metadatos del contenedor y a la lista de blobs del contenedor sean totalmente públicos, elija **Contenedor** en el parámetro Permiso. Para obtener más información, consulte [Administración del acceso a los recursos de Almacenamiento de Azure](storage-manage-access-to-resources.md).
+> [AZURE.NOTE] Existen tres niveles de acceso de lectura anónimo: **Desactivado**, **Blob** y **Contenedor**. Para evitar el acceso anónimo a los blobs, establezca el parámetro de permiso en **Desactivado**. El nuevo contenedor es privado por defecto y solo puede acceder a él el propietario de la cuenta. Para permitir un acceso de lectura público y anónimo a los recursos de blob, pero no a los metadatos del contenedor ni a la lista de blobs del contenedor, seleccione **Blob** en el parámetro Permiso. Para hacer que el acceso de lectura a los recursos de blob, a los metadatos del contenedor y a la lista de blobs del contenedor sean totalmente públicos, elija **Contenedor** en el parámetro Permiso. Para obtener más información, consulte [Administración del acceso a los recursos de Almacenamiento de Azure](storage-manage-access-to-resources.md).
 
 ### Cómo cargar un blob en un contenedor
 El almacenamiento de blobs de Azure admite blobs en bloques y en páginas. Para obtener más información, consulte [Introducción a los blobs en bloques y a los blobs en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
@@ -647,7 +647,7 @@ Use el cmdlet Remove-AzureStorageTableStoredAccessPolicy para eliminar una direc
 
 
 ## Cómo usar el servicio Almacenamiento de Azure desarrollado para el gobierno de Estados Unidos y Azure desarrollado para China
-Un entorno de Azure es una implementación independiente de Microsoft Azure como, por ejemplo, [Azure Government para el gobierno de EE. UU.](http://azure.microsoft.com/features/gov/), [AzureCloud para el servicio global de Azure](https://manage.windowsazure.com) y [AzureChinaCloud para el servicio de Azure operado por 21Vianet en China](http://www.windowsazure.cn/). Puede implementar el nuevo entorno de Azure para el gobierno de los EE. UU. y Azure para China.
+Un entorno de Azure es una implementación independiente de Microsoft Azure como, por ejemplo, [Azure Government para el gobierno de EE. UU.](https://azure.microsoft.com/features/gov/), [AzureCloud para el servicio global de Azure](https://manage.windowsazure.com) y [AzureChinaCloud para el servicio de Azure operado por 21Vianet en China](http://www.windowsazure.cn/). Puede implementar el nuevo entorno de Azure para el gobierno de los EE. UU. y Azure para China.
 
 Para usar Almacenamiento de Azure con AzureChinaCloud, necesitará crear un contexto de almacenamiento que esté asociado con AzureChinaCloud. Siga estos pasos para comenzar:
 
@@ -663,7 +663,7 @@ Para usar Almacenamiento de Azure con AzureChinaCloud, necesitará crear un cont
 
     	$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
 
-Para usar el almacenamiento de Azure con [Azure Government para EE. UU.](http://azure.microsoft.com/features/gov/), deberá precisar un nuevo entorno y crear un nuevo contexto de almacenamiento con este entorno:
+Para usar el almacenamiento de Azure con [Azure Government para EE. UU.](https://azure.microsoft.com/features/gov/), deberá precisar un nuevo entorno y crear un nuevo contexto de almacenamiento con este entorno:
 
 1. Llame al cmdlet [Add-AzureEnvironment](http://msdn.microsoft.com/library/azure/dn790364.aspx) para crear un nuevo entorno de Azure para su centro de datos privado.
 
@@ -681,7 +681,7 @@ Para más información, consulte:
 ## Pasos siguientes
 En esta guía ha aprendido a administrar Almacenamiento de Azure con Azure PowerShell. A continuación encontrará algunos artículos relacionados y recursos para obtener más información acerca de estos servicios.
 
-- [Documentación de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
+- [Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 - [Cmdlets de PowerShell de Almacenamiento de Azure.](http://msdn.microsoft.com/library/azure/dn806401.aspx)
 - [Referencia de Windows PowerShell](https://msdn.microsoft.com/library/ms714469.aspx)
 
@@ -730,4 +730,4 @@ En esta guía ha aprendido a administrar Almacenamiento de Azure con Azure Power
 [Next Steps]: #next
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

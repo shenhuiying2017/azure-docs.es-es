@@ -11,9 +11,9 @@
 
 ## Uso de la CLI de Azure con el Administrador de recursos de Azure (ARM)
 
-Para poder usar la CLI de Azure con los comandos y plantillas del Administrador de recursos para implementar los recursos de Azure y las cargas de trabajo mediante grupos de recursos, necesitará una cuenta de Azure (por supuesto). Si no tiene una cuenta, puede obtener [aquí una evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+Para poder usar la CLI de Azure con los comandos y plantillas del Administrador de recursos para implementar los recursos de Azure y las cargas de trabajo mediante grupos de recursos, necesitará una cuenta de Azure (por supuesto). Si no tiene una cuenta, puede obtener [aquí una evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-> [AZURE.NOTE]Si todavía no tiene una cuenta de Azure, pero dispone de una suscripción a MSDN, puede obtener créditos gratuitos de Azure mediante la activación de sus [ventajas de suscriptor de MSDN aquí](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), o puede usar la cuenta gratuita. Con cualquiera de estas opciones podrá obtener acceso a Azure.
+> [AZURE.NOTE] Si todavía no tiene una cuenta de Azure, pero dispone de una suscripción a MSDN, puede obtener créditos gratuitos de Azure mediante la activación de sus [ventajas de suscriptor de MSDN aquí](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), o puede usar la cuenta gratuita. Con cualquiera de estas opciones podrá obtener acceso a Azure.
 
 ### Paso 1: Comprobación de la versión de CLI de Azure
 
@@ -62,6 +62,6 @@ Para utilizar el modo de administración de recursos de Azure (ARM) con la CLI d
     $ azure config mode arm
     info:    New mode is arm
 
-> [AZURE.NOTE]Puede volver a utilizar los comandos de administración de servicio de Azure escribiendo `azure config mode asm`.
+> [AZURE.NOTE] Puede volver a utilizar los comandos de administración de servicio de Azure escribiendo `azure config mode asm`.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

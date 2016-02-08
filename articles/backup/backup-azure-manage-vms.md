@@ -8,7 +8,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/25/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Administración y supervisión de copias de seguridad de máquinas virtuales de Azure
 
@@ -51,7 +58,7 @@ Para realizar una copia de seguridad a petición de una máquina virtual:
 
     ![Creación de trabajo de copia de seguridad](./media/backup-azure-manage-vms/creating-job.png)
 
-    >[AZURE.NOTE]Para ver la directiva asociada a una máquina virtual, acceda a la máquina virtual en la página **Elementos protegidos** y vaya a la pestaña de la directiva de la copia de seguridad.
+    >[AZURE.NOTE] Para ver la directiva asociada a una máquina virtual, acceda a la máquina virtual en la página **Elementos protegidos** y vaya a la pestaña de la directiva de la copia de seguridad.
 
 3. Una vez que se crea el trabajo, puede hacer clic en el botón **Ver trabajo** de la barra de notificación del sistema para ver el trabajo correspondiente en la página de los trabajos.
 
@@ -65,7 +72,7 @@ Puede detener las futuras copias de seguridad de una máquina virtual con las si
 - Conservar los datos de copia de seguridad asociados a la máquina virtual en el almacén de copia de seguridad de Azure
 - Eliminación de datos de copia de seguridad asociados a la máquina virtual
 
-Si ha seleccionado la opción de conservar los datos de copia de seguridad asociados a la máquina virtual, puede usar estos datos para restaurar la máquina virtual. Para obtener más detalles sobre el precio de estas máquinas virtuales, haga clic [aquí](http://azure.microsoft.com/pricing/details/backup/).
+Si ha seleccionado la opción de conservar los datos de copia de seguridad asociados a la máquina virtual, puede usar estos datos para restaurar la máquina virtual. Para obtener más detalles sobre el precio de estas máquinas virtuales, haga clic [aquí](https://azure.microsoft.com/pricing/details/backup/).
 
 Para detener la protección de una máquina virtual:
 
@@ -104,7 +111,7 @@ Después de aplicar de nuevo la protección, el estado de protección de la máq
 
   ![Máquina virtual protegida de nuevo](./media/backup-azure-manage-vms/reprotected-status.png)
 
->[AZURE.NOTE]Al volver a proteger la máquina virtual, puede elegir una directiva diferente de la directiva con la que estaba protegida inicialmente la máquina virtual.
+>[AZURE.NOTE] Al volver a proteger la máquina virtual, puede elegir una directiva diferente de la directiva con la que estaba protegida inicialmente la máquina virtual.
 
 ## Anular registro de máquinas virtuales
 
@@ -153,7 +160,7 @@ En la página **Panel**, puede revisar la información sobre las máquinas virtu
 
 ![Panel](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
->[AZURE.NOTE]Los valores indicados en el panel se actualizan cada 24 horas.
+>[AZURE.NOTE] Los valores indicados en el panel se actualizan cada 24 horas.
 
 ## Operaciones de auditoría
 Copia de seguridad de Azure proporciona la revisión de los "registros de operación" de las operaciones de copia de seguridad desencadenadas por el cliente, lo que facilita ver exactamente qué operaciones de administración se realizaron en el almacén de copia de seguridad. Los registros de operaciones permiten excelentes análisis finales y soportes técnicos de auditoría para las operaciones de copia de seguridad.
@@ -213,13 +220,13 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 
 **OperationName**: tendrá el formato "Microsoft.Backup/backupvault/<EventName>", donde EventName es tal como se describió anteriormente.
 
-**Status**: los valores admitidos son Started, Succeeded y Failed. Es conveniente mantener Informational como nivel para un estado de correcto.
+**Status**: los valores admitidos son: Started, Succeeded y Failed. Es conveniente mantener Informational como nivel para un estado de correcto.
 
 **SubStatus**: igual que estado para las operaciones de copia de seguridad
 
 **RuleType**: manténgalo como *Event* ya que las alertas de copia de seguridad están basadas en eventos.
 
-**ResourceGroup**: ResourceGroup del recurso en el que se desencadena la operación. Puede obtenerlo del valor de ResourceId. El valor incluido entre los campos */resourceGroups/* y */providers/* en el valor de ResourceId es el valor de ResourceGroup.
+**ResourceGroup**: ResourceGroup del recurso en el que se desencadena la operación. Puede obtenerlo del valor de ResourceId. El valor entre los campos */resourceGroups/* y */providers/* en el valor de ResourceId es el valor de ResourceGroup.
 
 **Name**: nombre de la regla de alerta.
 
@@ -243,10 +250,10 @@ Cuerpo de ejemplo del mensaje de alerta:
 Las alertas basadas en eventos están sometidas a las siguientes limitaciones:
 
 1. Las alertas se activan en todas las máquinas virtuales del almacén de copia de seguridad. No es posible personalizar esto para obtener alertas para un conjunto específico de máquinas virtuales de un almacén de copia de seguridad.
-2. Las alertas se resuelven automáticamente si no hay ningún evento coincidente de alerta desencadenado a lo largo de la duración de la alerta siguiente. Use el parámetro *WindowSize* del cmdlet Add-AlertRule para establecer la duración del desencadenamiento de alerta.
+2. Las alertas se resuelven automáticamente si no hay ningún evento coincidente de alerta desencadenado a lo largo de la duración de la alerta siguiente. Use el parámetro *WindowSize* del cmdlet Add-AlertRule para establecer la duración de desencadenamiento de alerta.
 
 ## Pasos siguientes
 
 - [Restauración de máquinas virtuales de Azure](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

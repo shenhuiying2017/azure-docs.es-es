@@ -46,7 +46,7 @@ Si la versión no es 0.9.11 o una posterior, tendrá que [instalar la CLI de Azu
 
 ### Definición de su cuenta y suscripción de Azure
 
-Si aún no tiene una suscripción a Azure pero sí una suscripción a Visual Studio, puede activar sus [ventajas para los suscriptores de Visual Studio](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). O puede suscribirse a una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
+Si aún no tiene una suscripción a Azure pero sí una suscripción a Visual Studio, puede activar sus [ventajas para los suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). O puede suscribirse a una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Para usar plantillas de Administración de recursos de Azure, debe tener una identidad de cuentas Microsoft o de cuenta profesional o educativa. Si tiene una de estas cuentas, escriba el siguiente comando.
 
@@ -59,7 +59,7 @@ Lo que genera el siguiente resultado:
     Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
-> [AZURE.NOTE]Si no tiene una cuenta de Azure, verá un mensaje de error que indica que necesita un otro tipo de cuenta. Para crear una a partir su cuenta de Azure actual, consulte [Crear una identidad profesional o educativa en Azure Active Directory](../virtual-machines/resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE] Si no tiene una cuenta de Azure, verá un mensaje de error que indica que necesita un otro tipo de cuenta. Para crear una a partir su cuenta de Azure actual, consulte [Crear una identidad profesional o educativa en Azure Active Directory](../virtual-machines/resource-group-create-work-id-from-personal.md).
 
 Abra [https://aka.ms/devicelogin](https://aka.ms/devicelogin) en un explorador y escriba el código proporcionado en la salida del comando.
 
@@ -136,7 +136,7 @@ Si se producen errores, consulte [Solución de problemas](#troubleshooting).
 
 Cree una cuenta de DocumentDB en el grupo de recursos nuevo o existente escribiendo el siguiente comando en el símbolo del sistema:
 
-> [AZURE.TIP]Si ejecuta este comando en Azure PowerShell o Windows PowerShell, recibirá un error sobre un token inesperado. En su lugar, ejecute este comando en el símbolo del sistema de Windows.
+> [AZURE.TIP] Si ejecuta este comando en Azure PowerShell o Windows PowerShell, recibirá un error sobre un token inesperado. En su lugar, ejecute este comando en el símbolo del sistema de Windows.
 
     azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2015-04-08" -l <databaseaccountlocation> -p "{"databaseAccountOfferType":"Standard"}" 
 
@@ -314,7 +314,7 @@ Después de que el comando responda, la cuenta se encontrará en el estado **Cre
 
 Si recibe errores como `Deployment provisioning state was not successful` al crear la cuenta de base de datos o de grupo de recursos, dispone de varias opciones de solución de problemas.
 
-> [AZURE.NOTE]Si se proporcionan caracteres incorrectos en el nombre de la cuenta de base de datos o una ubicación en la que DocumentDB no está disponible, esto causará errores de implementación. Los nombres de cuenta de base de datos solo pueden incluir minúsculas, números y el carácter "-"; y deben tener entre 3 y 50 caracteres. Se enumeran todas las ubicaciones de cuenta de base de datos válidas en la [página Regiones de Azure](https://azure.microsoft.com/regions/#services).
+> [AZURE.NOTE] Si se proporcionan caracteres incorrectos en el nombre de la cuenta de base de datos o una ubicación en la que DocumentDB no está disponible, esto causará errores de implementación. Los nombres de cuenta de base de datos solo pueden incluir minúsculas, números y el carácter "-"; y deben tener entre 3 y 50 caracteres. Se enumeran todas las ubicaciones de cuenta de base de datos válidas en la [página Regiones de Azure](https://azure.microsoft.com/regions/#services).
 
 - Si la salida contiene lo siguiente: `Error information has been recorded to C:\Users\wendy\.azure\azure.err`, revise la información del error en el archivo azure.err.
 
@@ -349,6 +349,6 @@ Para obtener más información acerca de DocumentDB, explore estos recursos:
 -	[Ruta de aprendizaje de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Modelo de recursos y conceptos de DocumentDB](documentdb-resources.md)
 
-Para obtener más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](http://azure.microsoft.com/documentation/templates/).
+Para obtener más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -26,7 +26,7 @@ En este documento se ofrece orientación para ayudar a evaluar si usar un grupo 
 - Para obtener información detallada sobre los grupos de bases de datos elásticas, vea [Referencia de grupos de bases de datos elásticas de Base de datos SQL](sql-database-elastic-pool-reference.md).
 
 
-> [AZURE.NOTE]Los grupos de bases de datos elásticas están actualmente en vista previa y solo estarán disponibles en servidores con Base de datos SQL V12.
+> [AZURE.NOTE] Los grupos de bases de datos elásticas están actualmente en vista previa y solo estarán disponibles en servidores con Base de datos SQL V12.
 
 ## Grupos de bases de datos elásticas
 
@@ -119,7 +119,7 @@ La siguiente heurística puede ayudar a estimar si un grupo de bases de datos el
 
     precio del grupo = *nº de eDTU del grupo* * *precio unitario de eDTU del grupo*
 
-    Vea [Base de datos SQL Precios](http://azure.microsoft.com/pricing/details/sql-database/) para obtener información sobre los precios.
+    Vea [Base de datos SQL Precios](https://azure.microsoft.com/pricing/details/sql-database/) para obtener información sobre los precios.
 
 
 4. Compare el precio del grupo del paso 3 con el precio de uso de los niveles de rendimiento adecuados para bases de datos únicas.
@@ -162,7 +162,7 @@ STA evalúa el historial de uso de las bases de datos y recomienda un grupo de b
 
 STA está disponible en el portal cuando se agrega un grupo de bases de datos elásticas a un servidor existente. Si las recomendaciones para un grupo de bases de datos elásticas están disponibles para ese servidor, se muestran en la hoja de creación Grupo de bases de datos elásticas. Los clientes siempre pueden cambiar las configuraciones recomendadas para crear sus propios grupos de bases de datos elásticas.
 
-Para obtener más información, vea [Recomendaciones de plan de tarifas de grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
+Para obtener más información, vea [Recomendaciones de nivel de precios de grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
 
 ### Estimación del tamaño de grupos elásticos con vista de administración dinámica (DMV) 
 
@@ -176,20 +176,20 @@ A continuación se ofrece un script de ejemplo de PowerShell para calcular los v
 
 El script solo recopila datos cuando está en ejecución. Para una carga de trabajo de producción típica, debe ejecutar el script para al menos un día, aunque una semana e incluso más ofrecerá probablemente una estimación más apropiada. Ejecute el script para una duración que represente la carga de trabajo típica de las bases de datos.
 
-> [AZURE.IMPORTANT]Debe mantener la ventana de PowerShell abierta cuando ejecute el script. No cierre la ventana de PowerShell hasta que haya ejecutado el script durante una cantidad de tiempo suficiente y capturado suficientes datos para representar la carga de trabajo típica que divide los tiempos de uso normales y de picos.
+> [AZURE.IMPORTANT] Debe mantener la ventana de PowerShell abierta cuando ejecute el script. No cierre la ventana de PowerShell hasta que haya ejecutado el script durante una cantidad de tiempo suficiente y capturado suficientes datos para representar la carga de trabajo típica que divide los tiempos de uso normales y de picos.
 
 ### Requisitos previos de script 
 
 Instale lo siguientes antes de ejecutar el script:
 
 - Las últimas [herramientas de línea de comandos de Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
-- El paquete [SQL Server 2014 Feature Pack](https://www.microsoft.com/download/details.aspx?id=42295).
+- El [paquete de características de SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
 
 
 ### Detalles del script
 
 
-Puede ejecutar el script desde la máquina local o una máquina virtual en la nube. Cuando lo ejecute desde la máquina local, es posible que se produzcan cargos de salida de datos porque el script tiene que descargar datos de las bases de datos de destino. A continuación se muestra la estimación de volumen de datos según el número de bases de datos de destino y la duración de la ejecución del script. Para ver los costos de transferencia de datos de Azure, consulte [Detalles de precios de Transferencias de datos](http://azure.microsoft.com/pricing/details/data-transfers/).
+Puede ejecutar el script desde la máquina local o una máquina virtual en la nube. Cuando lo ejecute desde la máquina local, es posible que se produzcan cargos de salida de datos porque el script tiene que descargar datos de las bases de datos de destino. A continuación se muestra la estimación de volumen de datos según el número de bases de datos de destino y la duración de la ejecución del script. Para ver los costes de transferencia de datos de Azure, consulte [Detalles de precios de transferencia de datos](https://azure.microsoft.com/pricing/details/data-transfers/).
        
  -     1 base de datos por hora = 38 KB
  -     1 base de datos por día = 900 KB
@@ -216,7 +216,7 @@ Si detecta las siguientes advertencias cuando ejecute el script, puede ignorarla
 
 Cuando el script se completa, proporcionará el número estimado de eDTU necesarias para que un grupo elástico contenga todas las bases de datos candidatas en el servidor de destino. Esta DTU estimada puede usarse para crear y configurar un grupo de bases de datos elásticas que contenga estas bases de datos. Una vez que se crea el grupo y las bases de datos se trasladan al grupo, hay que supervisarlo estrechamente durante algunos días y deben realizarse los ajustes a la configuración de la eDTU de grupo que se requieran.
 
-> [AZURE.IMPORTANT]Este script contiene comandos para las versiones 1.0 y posteriores (*pero no incluidas*) de Azure PowerShell. Puede comprobar la versión de Azure PowerShell con el comando **Get-Module azure | format-table version**. Para obtener más información detallada, consulte [Degradación del cmdlet Switch-AzureMode en Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
+> [AZURE.IMPORTANT] Este script contiene comandos para las versiones 1.0 y posteriores (*pero no incluidas*) de Azure PowerShell. Puede comprobar la versión de Azure PowerShell con el comando **Get-Module azure | format-table version**. Para obtener más información detallada, consulte [Degradación del cmdlet Switch-AzureMode en Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 
     
@@ -435,4 +435,4 @@ No todas las bases de datos únicas son candidatas óptimas para los grupos de b
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

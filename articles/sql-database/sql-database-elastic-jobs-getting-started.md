@@ -29,7 +29,7 @@ Descargue [Introducción al ejemplo de herramientas de base de datos elástica](
 
 Aquí se creará un administrador de mapas de particiones junto con varias particiones, seguido de la inserción de datos en las particiones. Si ya dispone de particiones configuradas con datos particionados en ellas, puede omitir los pasos siguientes y pasar a la sección siguiente.
 
-1. Cree y ejecute la aplicación de ejemplo **Introducción a las herramientas de base de datos elástica**. Siga los pasos hasta el paso 7 en la sección [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). Al final del paso 7, verá la siguiente línea de comandos:
+1. Cree y ejecute la aplicación de ejemplo **Introducción a las herramientas de base de datos elástica**. Siga los pasos hasta el paso 7 de la sección [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). Al final del paso 7, verá la siguiente línea de comandos:
 
 	![símbolo del sistema][1]
 
@@ -417,11 +417,11 @@ Para suspender la ejecución de un trabajo recurrente a través de un desencaden
  Puede importar los resultados de una consulta a un archivo Excel.
 
 1. Inicie Excel 2013.
-2. 	Navegue a la cinta **Datos**.
+2. 	Diríjase a la barra de herramientas **Datos**.
 3. 	Haga clic en **Desde otros orígenes** y luego en **Desde SQL Server**.
 
 	![Importación de Excel desde otros orígenes][5]
-4. 	En el **Asistente para la conexión de datos**, escriba el nombre del servidor y las credenciales de inicio de sesión. A continuación, haga clic en **Siguiente**.
+4. 	En el **Asistente de conexión de datos**, escriba el nombre del servidor y las credenciales de inicio de sesión. A continuación, haga clic en **Siguiente**.
 5. 	En el cuadro de diálogo **Seleccione la base de datos que contiene la información que desea**, seleccione la base de datos **ElasticDBQuery**.
 6. 	Seleccione la tabla **Clientes** de la vista de lista y haga clic en **Siguiente**. Haga clic en **Finalizar**.
 7. 	En el formulario **Importar datos**, en **Seleccione cómo desea ver estos datos en el libro**, seleccione **Tabla** y haga clic en **Aceptar**.
@@ -434,7 +434,7 @@ Ahora puede usar las funciones de datos decisivas de Excel. Puede usar la cadena
 ### Coste
 No hay ningún cargo adicional por usar la característica de consulta de base de datos elástica. Sin embargo, en este momento la característica está solo disponible en bases de datos premium como extremo, pero las particiones pueden ser de cualquier nivel de servicio.
 
-Para obtener información sobre los precios, consulte [Detalles de precios de Base de datos SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+Para obtener información sobre los precios, consulte [Detalles de precios de Base de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -447,4 +447,4 @@ Para obtener información sobre los precios, consulte [Detalles de precios de Ba
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

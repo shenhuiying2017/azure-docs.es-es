@@ -17,9 +17,9 @@
 
 # P+F de precios de Bus de servicio
 
-En esta sección responde a algunas preguntas frecuentes acerca de la estructura de precios del Bus de servicio. También puede visitar [Preguntas más frecuentes de soporte técnico de Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obtener información general sobre los precios de Microsoft Azure. Para obtener más información sobre los precios del Bus de servicio, consulte [Precios del Bus de servicio](http://azure.microsoft.com/pricing/details/service-bus/).
+En esta sección responde a algunas preguntas frecuentes acerca de la estructura de precios del Bus de servicio. También puede visitar [Preguntas más frecuentes de soporte técnico de Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obtener información general sobre los precios de Microsoft Azure. Para obtener más información sobre los precios del Bus de servicio, consulte [Precios del Bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/).
 
->[AZURE.NOTE]La estructura de precios para los Centros de eventos en el tema [Preguntas más frecuentes sobre la disponibilidad y el soporte técnico de los Centros de eventos](event-hubs-availability-and-support-faq.md), con más información en el tema [Precios de los Centros de eventos](http://azure.microsoft.com/pricing/details/event-hubs/).
+>[AZURE.NOTE] La estructura de precios para los Centros de eventos en el tema [Preguntas más frecuentes sobre la disponibilidad y el soporte técnico de los Centros de eventos](event-hubs-availability-and-support-faq.md), con más información en el tema [Precios de los Centros de eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 - [¿Cómo se cobra el Bus de servicio?](#how-do-you-charge-for-service-bus)
 - [¿Qué uso del Bus de servicio está sujeto a la transferencia de datos? ¿Cuál no lo está?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
@@ -32,7 +32,7 @@ En esta sección responde a algunas preguntas frecuentes acerca de la estructura
 
 ## ¿Cómo se cobra el Bus de servicio?
 
-Para obtener información acerca de los precios del Bus de servicio, consulte [Precios y facturación del Bus de servicio](https://msdn.microsoft.com/library/dn831889.aspx) y [Precios del Bus de servicio](http://azure.microsoft.com/pricing/details/service-bus/). Además de los precios indicados, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación. Puede encontrar más detalles en la sección [¿Qué uso del Bus de servicio está sujeto a la transferencia de datos? ¿Cuál no lo está?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not), a continuación.
+Para obtener información acerca de los precios del Bus de servicio, consulte [Precios y facturación del Bus de servicio](https://msdn.microsoft.com/library/dn831889.aspx) y [Precios del Bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/). Además de los precios indicados, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación. Puede encontrar más detalles en la sección [¿Qué uso del Bus de servicio está sujeto a la transferencia de datos? ¿Cuál no lo está?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not), a continuación.
 
 ## ¿Qué uso del Bus de servicio está sujeto a la transferencia de datos? ¿Cuál no lo está?
 
@@ -116,4 +116,4 @@ Para obtener más información sobre la mensajería de Bus de servicio, consulte
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

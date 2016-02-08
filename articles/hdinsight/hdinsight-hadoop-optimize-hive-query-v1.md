@@ -34,7 +34,7 @@ El aumento del número de nodos de trabajo de un clúster puede aprovechar más 
 	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
 - En tiempo de ejecución, también puede escalar horizontalmente un clúster sin volver a crear uno. Esto se muestra a continuación. ![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
 
-Para obtener más detalles sobre las distintas máquinas virtuales admitidas por HDInsight, vea [precios HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
+Para obtener más detalles sobre las distintas máquinas virtuales admitidas por HDInsight, vea [precios HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Habilitar Tez
 
@@ -218,4 +218,4 @@ En este artículo, ha aprendido varios métodos comunes de optimización de cons
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

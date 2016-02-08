@@ -2,13 +2,14 @@
    pageTitle="Conectar un dispositivo mediante C en mbed | Microsoft Azure"
    description="Se describe cómo conectar un dispositivo a la solución de supervisión remota preconfigurada del Conjunto de IoT de Azure mediante una aplicación creada en C que se ejecuta en un dispositivo de mbed."
    services=""
+   suite="iot-suite"
    documentationCenter="na"
    authors="dominicbetts"
    manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="iot-suite"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -82,7 +83,7 @@ Las instrucciones siguientes describen los pasos para conectar un dispositivo [F
 3. Conecte con el dispositivo mediante una aplicación cliente de SSH, como PuTTY. Puede determinar el puerto serie que el dispositivo usa comprobando el Administrador de dispositivos de Windows:
 
 
-4. En PuTTY, haga clic en el tipo de conexión **serie**. Lo más probable es que el dispositivo se conecte en 115200, así que escriba ese valor en el cuadro **Velocidad**. Haga clic en **Abrir**.
+4. En PuTTY, haga clic en el tipo de conexión **serie**. Lo más probable es que el dispositivo se conecte en 115200, así que escriba ese valor en el cuadro **Speed** (Velocidad). Haga clic en **Abrir**.
 
     ![][11]
 
@@ -101,4 +102,4 @@ Las instrucciones siguientes describen los pasos para conectar un dispositivo [F
 [lnk-mbed-getstarted]: https://developer.mbed.org/platforms/FRDM-K64F/#getting-started-with-mbed
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

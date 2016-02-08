@@ -30,7 +30,7 @@ El siguiente diagrama muestra la arquitectura del sistema implementado. Un admin
 
 Para ejecutar los siguientes pasos, necesitará:
 
- * Una suscripción de Azure activa. Si no tiene una, puede obtener una prueba gratuita en [azure.com](https://azure.microsoft.com).
+ * Una suscripción de Azure activa. Si no tiene una, puede obtener una prueba gratuita en [azure.com](https://azure.microsoft.com/).
  * Un identificador profesional o educativo para usar grupos de recursos de Azure. Si tiene una cuenta personal e inicia sesión con un identificador de Microsoft, deberá [crear un identificador profesional a partir del suyo personal](resource-group-create-work-id-from-personal.md).
  * O bien, dependiendo de su sistema operativo de cliente: el [Azure PowerShell](powershell-install-configure.md) o el [CLI de Azure para Mac, Linux y Windows](xplat-cli-install.md).
  * [OpenSSL](https://www.openssl.org/). OpenSSL se usa para generar los certificados necesarios.
@@ -117,7 +117,7 @@ La plantilla define reglas NAT de entrada que asignan 2223 a la instancia 1, 222
 
 ![Reglas NAT en el equilibrador de carga](media/virtual-machines-deis-cluster/nat-rules.png)
 
-> [AZURE.NOTE]La plantilla solo admite actualmente clústeres de 3 nodos. Esto es debido a una limitación en la definición de la regla NAT de la plantilla del Administrador de recursos de Azure, que no admite la sintaxis del bucle.
+> [AZURE.NOTE] La plantilla solo admite actualmente clústeres de 3 nodos. Esto es debido a una limitación en la definición de la regla NAT de la plantilla del Administrador de recursos de Azure, que no admite la sintaxis del bucle.
 
 ## Instalar e iniciar la plataforma Deis
 
@@ -128,7 +128,7 @@ Ahora puede usar deisctl para instalar e iniciar la plataforma Deis:
     deisctl install platform
     deisctl start platform
 
-> [AZURE.NOTE]Iniciar la plataforma tarda unos instantes (hasta 10 minutos). Especialmente, iniciar el servicio generador puede tardar mucho tiempo. En ocasiones precisa unos intentos para iniciar correctamente: si parece que la operación se bloquea, intente escribir `ctrl+c` para interrumpir la ejecución del comando y vuelva a intentarlo.
+> [AZURE.NOTE] Iniciar la plataforma tarda unos instantes (hasta 10 minutos). Especialmente, iniciar el servicio generador puede tardar mucho tiempo. En ocasiones precisa unos intentos para iniciar correctamente: si parece que la operación se bloquea, intente escribir `ctrl+c` para interrumpir la ejecución del comando y vuelva a intentarlo.
 
 Puede usar `deisctl list` para comprobar si se están ejecutando todos los servicios:
 
@@ -258,4 +258,4 @@ En este artículo le guiamos a través de todos los pasos para aprovisionar un n
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -114,7 +114,7 @@ Puede cambiar estos valores en cualquier momento si especifica uno o ambos pará
 
 Incluso si intenta tolerar algunos errores, la [API de obtención del estado de indexador](https://msdn.microsoft.com/library/azure/dn946884.aspx) devolverá información acerca de cuáles son los documentos que presentaron errores.
 
-Eso es todo por ahora. Si tiene ideas o sugerencias para futuras ideas de contenido, envíenos un mensaje de Twitter con el hashtag #AzureSearch o envíe sus ideas a nuestra [página de UserVoice](http://feedback.azure.com/forums/263029-azure-search).
+Eso es todo por ahora. Si tiene ideas o sugerencias para futuras ideas de contenido, envíenos un mensaje de Twitter con el hashtag #AzureSearch o envíe sus ideas a nuestra [página de UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

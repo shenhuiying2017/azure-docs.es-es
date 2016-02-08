@@ -3,7 +3,7 @@
    description="Obtenga información sobre los roles que se usan para identidades con privilegios con la extensión de Privileged Identity Management de Azure."
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="inhenk"/>
+   ms.date="01/21/2016"
+   ms.author="kgremban"/>
 
 # Privileged Identity Management de Azure: Roles
 
@@ -22,7 +22,7 @@
 
 ## Roles de Azure Active Directory, Office 365 y otros orígenes
 
-PIM de Azure usa los siguientes roles como roles de administrador predeterminados.
+Privileged Identity Management (PIM) de Azure utiliza los siguientes roles como roles de administrador predeterminados:
 
 - Administrador global
 - Administrador de facturación
@@ -30,7 +30,7 @@ PIM de Azure usa los siguientes roles como roles de administrador predeterminado
 - Administrador de usuarios
 - Administrador de contraseñas
 
-Para obtener más información sobre los roles de Office 365, Exchange Online, Sharepoint Online y Skype Empresarial, haga clic aquí: [Asignación de roles de administrador en Office 365](https://support.office.com/es-ES/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504?ui=es-ES&rs=es-ES&ad=US)
+Para obtener más información sobre los roles de Office 365, Exchange Online, SharePoint Online y Skype Empresarial, vaya a: [Asignación de roles de administrador en Office 365](https://support.office.com/es-ES/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504?ui=es-ES&rs=es-ES&ad=US).
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 
@@ -38,11 +38,11 @@ Para obtener más información sobre los roles de Office 365, Exchange Online, S
 <!-- ## The PIM Security Administrator Role **PLACEHOLDER: Need description of the Security Administrator role.**-->
 
 ## Roles de usuario e inicio de sesión
-> [AZURE.NOTE]A fin de que un usuario pueda iniciar sesión en PIM de Azure, debe tener una licencia para Azure.
+> [AZURE.NOTE]Para que un usuario pueda iniciar sesión en PIM de Azure, debe tener una licencia para Azure.
 
 ## Asignación de una licencia a un usuario en Azure AD
 
-> [AZURE.NOTE]La opción de licencias sólo aparecerá si realmente existen licencias para esta suscripción.
+> [AZURE.NOTE] La opción de licencias sólo aparecerá si realmente existen licencias para esta suscripción.
 
 1. Con una cuenta de administrador global o una cuenta de coadministrador, inicie sesión en [http://manage.windowsazure.com](http://manage.windowsazure.com).
 2. Haga clic en **Todos los elementos** en el menú principal.
@@ -57,4 +57,4 @@ Para obtener más información sobre los roles de Office 365, Exchange Online, S
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

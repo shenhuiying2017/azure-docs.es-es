@@ -3,11 +3,18 @@
    description="Aprenda a restaurar desde Windows Server o desde el Cliente de Windows."
    services="backup"
    documentationCenter=""
-   authors="aashishr"
+   authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="01/25/2016"
+	 ms.author="trinadhk; jimpark; markgal;"/>
 
 # Restaurar archivos en una máquina de Windows Server o del Cliente de Windows
 En este artículo se describen los pasos necesarios para realizar dos tipos de operaciones de restauración:
@@ -64,7 +71,7 @@ La terminología usada en estos pasos incluye:
 - *Máquina de destino*: es la máquina en la que se recuperan los datos.
 - *Almacén de ejemplo*: almacén de copia de seguridad en el que se registran la *máquina de origen* y la *máquina de destino*. <br/>
 
-> [AZURE.NOTE]No se pueden restaurar copias de seguridad realizadas desde una máquina en una máquina que está ejecutando una versión anterior del sistema operativo. Por ejemplo, si se realizan copias de seguridad de una máquina con Windows 7, esta puede restaurarse en un Windows 8 o una máquina con una versión superior. Sin embargo, la acción a la inversa no está asegurada.
+> [AZURE.NOTE] No se pueden restaurar copias de seguridad realizadas desde una máquina en una máquina que está ejecutando una versión anterior del sistema operativo. Por ejemplo, si se realizan copias de seguridad de una máquina con Windows 7, esta puede restaurarse en un Windows 8 o una máquina con una versión superior. Sin embargo, la acción a la inversa no está asegurada.
 
 1. Abra el complemento **Copia de seguridad de Microsoft Azure** en la *Máquina de destino*.
 2. Asegúrese de que tanto la *Máquina de destino* como la *Máquina de origen* están registradas en el mismo almacén de copia de seguridad.
@@ -109,4 +116,4 @@ La terminología usada en estos pasos incluye:
 - [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-introduction.md)
 - [Copia de seguridad de las cargas de trabajo de Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

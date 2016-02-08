@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/15/2015"
+	ms.date="01/14/2016"
 	ms.author="ricksal"/>
 
 # Registro de las aplicaciones para usar un inicio de sesión de la cuenta de Azure Active Directory
@@ -31,13 +31,13 @@ Este tema indica cómo registrar las aplicaciones para que puedan usar Azure Act
 
 ##Registrar la aplicación
 
->[AZURE.NOTE]Los pasos descritos en este tema están diseñados para utilizarse con el tutorial [Incorporación de autenticación a la aplicación de Servicios móviles](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md) cuando desee usar [operaciones de inicio de sesión dirigidas por el servicio](http://msdn.microsoft.com/library/azure/dn283952.aspx) con su aplicación. Como alternativa, si la aplicación tiene un requisito de [operaciones de inicio de sesión dirigidas por el cliente](http://msdn.microsoft.com/library/azure/jj710106.aspx) para Azure Active Directory y un servicio móvil de back-end de .NET, debe comenzar por el tutorial [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory](mobile-services-windows-store-dotnet-adal-sso-authentication.md).
+>[AZURE.NOTE] Los pasos descritos en este tema están diseñados para utilizarse con el tutorial [Incorporación de autenticación a la aplicación de Servicios móviles](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md) cuando desee usar [operaciones de inicio de sesión dirigidas por el servicio](http://msdn.microsoft.com/library/azure/dn283952.aspx) con su aplicación. Como alternativa, si la aplicación tiene un requisito de [operaciones de inicio de sesión dirigidas por el cliente](http://msdn.microsoft.com/library/azure/jj710106.aspx) para Azure Active Directory y un servicio móvil de back-end de .NET, debe comenzar por el tutorial [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory](mobile-services-windows-store-dotnet-adal-sso-authentication.md).
 
 1. Inicie sesión en el [Portal de Azure clásico], vaya al servicio móvil, haga clic en la pestaña **Identidad** y desplácese hacia abajo hasta la sección del proveedor de identidades de **Azure Active Directory** y copie la **Dirección URL de la aplicación** que aparece.
 
     ![Dirección URL de la aplicación de servicio móvil de AAD](./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-copy-app-url-waad-auth.png)
 
-2. Vaya hasta **Active Directory** en el [Portal de Azure clásico], haga clic en su directorio y luego en **Dominios** y tome nota del dominio predeterminado de su directorio.
+2. Vaya hasta **Active Directory** en el [Portal clásico], haga clic en su directorio y luego en **Dominios** y tome nota del dominio predeterminado de su directorio.
 
 3. Haga clic en **Aplicaciones** > **Agregar** > **Agregar una aplicación que mi organización está desarrollando**.
 
@@ -68,5 +68,6 @@ Ahora está preparado para usar Azure Active Directory para realizar la autentic
 
 <!-- URLs. -->
 [Portal de Azure clásico]: https://manage.windowsazure.com/
+[Portal clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

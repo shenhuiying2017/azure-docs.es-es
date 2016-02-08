@@ -21,11 +21,11 @@ Para usar un sistema local, el Servicio de aplicaciones de Azure emplea el Admin
 
 El Administrador de conexiones híbridas (HCM) es un instalador de un solo clic que se instala en un servidor IIS de la red, detrás del firewall. Mediante una Retransmisión de bus de servicio de Azure, HCM autentica el sistema local con el conector de Azure.
 
-> [AZURE.NOTE]El Administrador de conexiones híbridas solo es necesario si va a conectarse a un recurso local detrás del firewall. En caso contrario, no lo necesita.
+> [AZURE.NOTE] El Administrador de conexiones híbridas solo es necesario si va a conectarse a un recurso local detrás del firewall. En caso contrario, no lo necesita.
 
 Para empezar, necesitará lo siguiente:
 
-- Una cadena de conexión SAS para el espacio de nombres de la Retransmisión de bus de servicio. Consulte [Precios de Service Bus](http://azure.microsoft.com/pricing/details/service-bus/) para determinar qué nivel incluye retransmisiones.
+- Una cadena de conexión SAS para el espacio de nombres de la Retransmisión de bus de servicio. Consulte [Precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) para determinar qué nivel incluye retransmisiones.
 - Información de inicio de sesión del sistema local, que incluye nombre de usuario y contraseña. Por ejemplo, si se conecta a un servidor SQL Server local, necesitará la cuenta de inicio de sesión y la contraseña de SQL Server.
 - Información del servidor, lo que incluye el número de puerto y el nombre del servidor. Por ejemplo, si se va a conectar a un servidor SQL Server local, necesitará el nombre del servidor SQL Server y el número de puerto TCP.
 
@@ -56,7 +56,7 @@ Cuando el programa de instalación haya finalizado, se mostrará lo siguiente: <
 
 Ahora, cuando busque de nuevo el conector, el estado de la conexión híbrida será **Conectada**. Puede que tenga que cerrar el conector y volver a abrirlo: <br/> ![][4]
 
-> [AZURE.NOTE]Para cambiar a la cadena de conexión secundaria, vuelva a ejecutar el programa de instalación de conexiones híbridas y escriba la **Cadena de configuración secundaria**.
+> [AZURE.NOTE] Para cambiar a la cadena de conexión secundaria, vuelva a ejecutar el programa de instalación de conexiones híbridas y escriba la **Cadena de configuración secundaria**.
 
 
 ## Puertos TCP y seguridad
@@ -119,7 +119,7 @@ Si la API personalizada usa un puerto TCP o HTTP, puede usar [Conexiones híbrid
 
 ## Más información.
 
-[Supervisión de las aplicaciones de lógica](app-service-logic-monitor-your-logic-apps.md)<br/> [Precios de Service Bus](http://azure.microsoft.com/pricing/details/service-bus/)
+[Supervisión de las aplicaciones de lógica](app-service-logic-monitor-your-logic-apps.md)<br/> [Precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/)
 
 
 
@@ -133,4 +133,4 @@ Si la API personalizada usa un puerto TCP o HTTP, puede usar [Conexiones híbrid
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

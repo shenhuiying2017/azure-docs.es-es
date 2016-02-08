@@ -41,7 +41,7 @@ Este tema presenta un ejemplo de código de dos fases:
 ## Requisitos previos
 
 
-- Una cuenta y una suscripción de Azure. Puede registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Una cuenta y una suscripción de Azure. Puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 
 - Cualquier base de datos donde pueda crear una tabla.
@@ -597,4 +597,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

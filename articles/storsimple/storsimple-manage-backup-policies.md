@@ -57,7 +57,7 @@ Agregue una directiva de copia de seguridad para programar automáticamente sus 
 
 ![Vídeo disponible](./media/storsimple-manage-backup-policies/Video_icon.png) **Vídeo disponible**
 
-Para ver un vídeo en el que se muestra cómo crear una directiva de copia de seguridad local o en la nube, haga clic [aquí](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
+Para ver un vídeo en el que se muestra cómo crear una directiva de copia de seguridad local o en la nube, haga clic [aquí](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
 
 ## Incorporación o modificación de una programación
@@ -90,4 +90,4 @@ Realice los pasos siguientes en el Portal de Azure clásico para crear una direc
 
 Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

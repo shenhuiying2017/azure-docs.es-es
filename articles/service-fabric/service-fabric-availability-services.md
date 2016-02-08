@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="01/20/2016"
    ms.author="aprameyr"/>
 
 # Disponibilidad de los servicios de Service Fabric
@@ -38,7 +38,7 @@ Este concepto de una réplica como secundaria activa o principal se conoce como 
 ### Roles de réplica
 El rol de una réplica se usa para administrar el ciclo de vida del estado que se está administrando por esa réplica. Una réplica cuyo rol sea solicitudes de lectura de servicios principales. También ofrece solicitudes de escritura al actualizar su estado y replicar los cambios en las secundarias activas en su conjunto de réplicas. El rol de una secundaria activa es recibir cambios de estado que la réplica principal ha replicado y de actualizar su vista del estado.
 
->[AZURE.NOTE]Como los modelos de programación de nivel superior como el [marco de Reliable Actors](service-fabric-reliable-actors-introduction.md) abstraen del concepto de rol de réplica del desarrollador.
+>[AZURE.NOTE] Como los modelos de programación de nivel superior como el [marco de Reliable Actors](service-fabric-reliable-actors-introduction.md) abstraen del concepto de rol de réplica del desarrollador.
 
 ## Pasos siguientes
 
@@ -50,4 +50,4 @@ Para información sobre los conceptos de Service Fabric, vea lo siguiente:
 
 - [Definición y administración del estado](service-fabric-concepts-state.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

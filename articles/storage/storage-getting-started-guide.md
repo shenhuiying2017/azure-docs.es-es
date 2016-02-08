@@ -30,7 +30,7 @@ Tendrá que cumplir los siguientes requisitos previos antes de empezar:
 
 1. Para compilar y crear la aplicación, es necesario tener [Visual Studio](https://www.visualstudio.com/) instalado en el equipo. 
 
-2. Instale la versión más reciente de [SDK de Azure para .NET](http://azure.microsoft.com/downloads/). SDK incluye los proyectos de ejemplo de la guía rápida de Azure, Emulador de almacenamiento de Azure y el [Biblioteca de cliente de Almacenamiento de Azure para .NET](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
+2. Instale la versión más reciente de [SDK de Azure para .NET](https://azure.microsoft.com/downloads/). SDK incluye los proyectos de ejemplo de la guía rápida de Azure, Emulador de almacenamiento de Azure y el [Biblioteca de cliente de Almacenamiento de Azure para .NET](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
 
 3. Asegúrese de que tiene [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) instalado en su equipo ya que es necesario para los proyectos de ejemplo de la guía rápida de Azure que usaremos en este tutorial.
 
@@ -38,7 +38,7 @@ Tendrá que cumplir los siguientes requisitos previos antes de empezar:
 
 4. Necesitará una suscripción de Azure y una cuenta de Almacenamiento de Azure.
 
-    - Para obtener una suscripción de Azure, consulte [Prueba gratuita](http://azure.microsoft.com/pricing/free-trial/), [Opciones de compra](http://azure.microsoft.com/pricing/purchase-options/) y [Ofertas para miembros](http://azure.microsoft.com/pricing/member-offers/) (para miembros de MSDN, Microsoft Partner Network, BizSpark y otros programas de Microsoft).
+    - Para obtener una suscripción de Azure, consulte [Prueba gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opciones de compra](https://azure.microsoft.com/pricing/purchase-options/) y [Ofertas para miembros](https://azure.microsoft.com/pricing/member-offers/) (para miembros de MSDN, Microsoft Partner Network, BizSpark y otros programas de Microsoft).
     - Para crear una cuenta de almacenamiento en Azure, consulte [Cómo crear, administrar o eliminar una cuenta de almacenamiento](storage-create-storage-account.md).
 
 ## Ejecución de la primera aplicación de Almacenamiento de Azure en Almacenamiento de Azure en la nube
@@ -102,11 +102,11 @@ Para obtener más información sobre Almacenamiento de Azure, consulte los sigui
 * [Uso del almacenamiento de tablas en .NET](storage-dotnet-how-to-use-tables.md)
 * [Uso del almacenamiento en cola en .NET](storage-dotnet-how-to-use-queues.md)
 * [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
-* [Documentación de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
+* [Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Biblioteca de cliente de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 * [API de REST de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

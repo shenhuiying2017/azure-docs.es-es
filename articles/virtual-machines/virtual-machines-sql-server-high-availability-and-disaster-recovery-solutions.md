@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="Alta disponibilidad y recuperación ante desastres para SQL Server | Microsoft Azure"
 	description="Un análisis de los diversos tipos de estrategias HADR de SQL Server en ejecución en máquinas virtuales de Azure."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" 
+	editor="monicar"
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/07/2015"
+	ms.date="01/22/2016"
 	ms.author="jroth" />
 
 # Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure
@@ -39,7 +39,7 @@ Entre las tecnologías HADR de SQL Server compatibles con Azure se incluyen:
 - [Creación de reflejo de la base de datos](https://technet.microsoft.com/library/ms189852.aspx)
 - [Trasvase de registros](https://technet.microsoft.com/library/ms187103.aspx)
 - [Copia de seguridad y restauración con el servicio Almacenamiento de blobs de Azure](https://msdn.microsoft.com/library/jj919148.aspx)
-- [Instancias de clúster de conmutación por error AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx) 
+- [Instancias de clúster de conmutación por error AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx)
 
 Es posible combinar las tecnologías para implementar una solución SQL Server que posea alta disponibilidad y, al mismo tiempo, capacidades de recuperación ante desastres. Según la tecnología que se use, una implementación híbrida puede requerir un túnel VPN con la red virtual de Azure. Las secciones siguientes muestran algunas de las arquitecturas de implementación de ejemplo.
 
@@ -137,7 +137,7 @@ Para obtener más información sobre la conectividad del cliente, consulte:
 
 Es recomendable implementar la solución HADR partiendo de la suposición de que podría haber períodos de tiempo con una alta latencia de red entre la red local y Azure. Al implementar réplicas en Azure, debe usar la confirmación asincrónica en lugar de la confirmación sincrónica para el modo de sincronización. Al implementar servidores de creación de reflejo de la base de datos tanto en local como en Azure, use el modo de alto rendimiento en lugar del modo de alta seguridad.
 
-### Compatibilidad con la replicación geográfica
+### Compatibilidad de la replicación geográfica
 
 La replicación geográfica en discos de Azure no admite que el archivo de datos y el archivo de registro de la misma base de datos se almacenen en discos independientes. La GRS replica los cambios en cada disco independiente y asincrónicamente. Este mecanismo garantiza el orden de escritura en un único disco en la copia con replicación geográfica pero no a través de las copias con replicación geográfica de varios discos. Si configura una base de datos para almacenar su archivo de datos y su archivo de registro en discos independientes, los discos recuperados después de un desastre pueden contener una copia más actualizada del archivo de datos que el archivo de registro, lo que interrumpe el registro de escritura previa en SQL Server y las propiedades ACID de las transacciones. Si no tiene la opción de deshabilitar la replicación geográfica en la cuenta de almacenamiento, debe conservar todos los archivos de datos y de registro de una base de datos dada en el mismo disco. Si debe usar más de un disco debido al tamaño de la base de datos, debe implementar una de las soluciones de recuperación de desastres enumeradas anteriormente para garantizar la redundancia de datos.
 
@@ -154,4 +154,4 @@ Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de
 - [Instalación de un nuevo bosque de Active Directory en Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Crear el clúster WSFC para grupos de disponibilidad AlwaysOn en la VM de Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

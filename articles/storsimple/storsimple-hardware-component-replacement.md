@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="01/26/2016"
    ms.author="alkohli" />
 
 # Reemplazo de los componentes de hardware de StorSimple
 
 ## Información general
 
-Los tutoriales de reemplazo de componentes de hardware describen los componentes de hardware de dispositivo StorSimple de Microsoft Azure y los pasos necesarios para quitarlos y reemplazarlos. En este artículo se describen los iconos de seguridad, se proporcionan indicaciones sobre tutoriales detallados y se enumeran los componentes que se pueden reemplazar.
+En los tutoriales de reemplazo de componentes de hardware se describen los componentes de hardware del dispositivo Microsoft Azure StorSimple de la serie 8000 y los pasos necesarios para quitarlos y reemplazarlos. En este artículo se describen los iconos de seguridad, se proporcionan indicaciones sobre tutoriales detallados y se enumeran los componentes que se pueden reemplazar.
 
->[AZURE.IMPORTANT]Antes de intentar quitar o reemplazar cualquier componente de StorSimple, asegúrese de revisar las [convenciones de iconos de seguridad](#safety-icon-conventions) y otras [precauciones de seguridad](storsimple-safety.md).
+>[AZURE.IMPORTANT] Antes de intentar quitar o reemplazar cualquier componente de StorSimple, asegúrese de revisar las [convenciones de iconos de seguridad](#safety-icon-conventions) y otras [precauciones de seguridad](storsimple-safety.md).
  
 ### Convenciones de iconos de seguridad
 
@@ -57,7 +57,7 @@ Al reemplazar un módulo, **NUNCA deje un compartimento vacío en la parte poste
 
 ## Procedimientos de reemplazo de los componentes de hardware
 
-El dispositivo StorSimple de Microsoft Azure consta de varios módulos de complementos en el gabinete principal y EBOD. El modelo 8100 tiene un único gabinete principal, mientras que el modelo 8600 es un dispositivo de dos gabinetes con un gabinete principal y un gabinete EBOD.
+El dispositivo StorSimple de la serie 8000 consta de varios módulos de complementos en el gabinete principal y EBOD. El modelo 8100 tiene un único gabinete principal, mientras que el modelo 8600 es un dispositivo de dos gabinetes con un gabinete principal y un gabinete EBOD.
 
 En las tablas siguientes se resumen los principales componentes de hardware del dispositivo. Haga clic en el vínculo en la columna **Procedimiento de reemplazo** para ir al tutorial asociado.
 
@@ -122,9 +122,9 @@ Las siguientes unidades reemplazables en campo (FRU) están disponibles para el 
 
 - Chasis (incluido el panel de operaciones integradas)
 
-- Módulos de alimentación y refrigeración (PCM) de 764 W de CA
+- PCM de 764 W de CA
 
-- Módulos de alimentación y refrigeración (PCM) de 580 W de CA
+- PCM de 580 W de CA
 
 - Unidad de disco duro con módulo transportador de unidades
 
@@ -142,4 +142,4 @@ Las siguientes unidades reemplazables en campo (FRU) están disponibles para el 
 
 Revise toda [la información de seguridad](storsimple-safety.md) antes de intentar reemplazar un componente de hardware de StorSimple.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

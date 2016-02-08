@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="ronitr"
    manager="jeffreyg"
-   editor="v-romcal"/>
+   editor="jeffreyg"/>
 
 <tags
    ms.service="sql-database"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="12/01/2015"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 # Introducción al enmascaramiento de datos dinámicos de Base de datos SQL (Portal de Azure clásico)
@@ -34,7 +34,7 @@ Por ejemplo, un representante de servicio de un centro de llamadas podría ident
 Configuración de la directiva de enmascaramiento de datos dinámicos en el Portal de Azure clásico en la pestaña Auditoría y seguridad para la base de datos.
 
 
-> [AZURE.NOTE]Para configurar el enmascaramiento de datos dinámicos en el Portal de Azure, consulte [Introducción al enmascaramiento de datos dinámicos de Base de datos SQL (Portal de Azure)](sql-database-dynamic-data-masking-get-started.md).
+> [AZURE.NOTE] Para configurar el enmascaramiento de datos dinámicos en el Portal de Azure, consulte [Introducción al enmascaramiento de datos dinámicos de Base de datos SQL (Portal de Azure)](sql-database-dynamic-data-masking-get-started.md).
 
 
 ### Permisos de enmascaramiento de datos dinámicos
@@ -71,7 +71,7 @@ El enmascaramiento de datos dinámicos puede configurarse mediante el administra
 
 4. Escriba los usuarios SQL o las identidades AAD que deben excluirse del enmascaramiento y tengan acceso a los datos confidenciales sin máscara. Esto debe ser una lista separada por puntos y coma de usuarios. Tenga en cuenta que los usuarios con privilegios de administrador siempre tienen acceso a los datos originales sin máscara.
 
-	>[AZURE.TIP]Para hacer que el nivel de aplicación pueda mostrar datos confidenciales para los usuarios con privilegios de la aplicación, agregue el usuario SQL o identidad AAD que la aplicación usa para consultar la base de datos. Se recomienda que esta lista incluya un número mínimo de usuarios con privilegio para minimizar la exposición de los datos confidenciales.
+	>[AZURE.TIP] Para hacer que el nivel de aplicación pueda mostrar datos confidenciales para los usuarios con privilegios de la aplicación, agregue el usuario SQL o identidad AAD que la aplicación usa para consultar la base de datos. Se recomienda que esta lista incluya un número mínimo de usuarios con privilegio para minimizar la exposición de los datos confidenciales.
 
 	![Panel de navegación](./media/sql-database-dynamic-data-masking-get-started-portal/4_ddm_policy_classic_portal.png)
 
@@ -96,4 +96,4 @@ Consulte [Cmdlets de Base de datos SQL de Azure](https://msdn.microsoft.com/libr
 
 Consulte [Operaciones para Bases de datos SQL de Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

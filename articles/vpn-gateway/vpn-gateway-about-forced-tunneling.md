@@ -1,12 +1,4 @@
-<properties 
-   pageTitle="Configuración de la tunelización forzada para puertas de enlace de VPN de Microsoft Azure | Microsoft Azure"
-   description="Si tiene una red virtual con una puerta de enlace de VPN entre entornos, puede redirigir o "forzar" todo el tráfico enlazado a Internet de nuevo a la ubicación local. "
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carolz"
-   editor=""
-   tags="azure-service-management"/>
+<properties pageTitle="Configuración de la tunelización forzada para puertas de enlace de VPN mediante PowerShell | Microsoft Azure" description="Si tiene una red virtual con una puerta de enlace VPN entre entornos, puede redirigir o «forzar» todo el tráfico enlazado a Internet de nuevo a la ubicación local. Este artículo se aplica a puertas de enlace de VPN creadas mediante el modelo de implementación clásica "services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" tags="azure-service-management"/>
 <tags  
    ms.service="vpn-gateway"
    ms.devlang="na"
@@ -46,7 +38,7 @@ La tunelización forzada en Azure se configura a través de rutas definidas por 
 
 	- **Rutas de redes virtuales locales**: directamente a las máquinas virtuales de destino en la misma red virtual.
 	
-	- **Rutas locales**: a la puerta de enlace de VPN de Azure.
+	- **Rutas locales**: a la puerta de enlace de VPN.
 	
 	- **Ruta predeterminada**: directamente a Internet. Tenga en cuenta que los paquetes destinados a las direcciones IP privadas que no están cubiertos por las dos rutas anteriores se anularán.
 
@@ -56,7 +48,7 @@ La tunelización forzada en Azure se configura a través de rutas definidas por 
 
 - La tunelización forzada debe asociarse a una red virtual que tiene una puerta de enlace de VPN de enrutamiento dinámico (no una puerta de enlace estática). Deberá establecer un "sitio predeterminado" entre los sitios locales entre entornos conectados a la red virtual.
 
-- Tenga en cuenta que la tunelización forzada ExpressRoute no se configura mediante este mecanismo, sino que se habilita mediante el anuncio de una ruta predeterminada a través de las sesiones de emparejamiento BGP de ExpressRoute. Consulte la [Documentación de ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) para más información.
+- Tenga en cuenta que la tunelización forzada ExpressRoute no se configura mediante este mecanismo, sino que se habilita mediante el anuncio de una ruta predeterminada a través de las sesiones de emparejamiento BGP de ExpressRoute. Consulte la [Documentación de ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) para obtener más información.
 
 ## Información general sobre la configuración
 
@@ -106,7 +98,7 @@ En el ejemplo, la red virtual "MultiTier-VNet" tiene tres subredes: *Frontend*, 
 
 - Una red virtual configurada.
 
-- La versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente en la sección **Windows PowerShell** de la [página de descargas](http://azure.microsoft.com/downloads/).
+- La versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente desde la sección **Windows PowerShell** de la [Página de descarga](https://azure.microsoft.com/downloads/).
 
 ## Configuración de la tunelización forzada
 
@@ -165,4 +157,4 @@ A continuación se muestran algunos cmdlets de PowerShell adicionales que pueden
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

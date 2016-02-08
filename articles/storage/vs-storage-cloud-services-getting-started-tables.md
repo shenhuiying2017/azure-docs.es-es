@@ -30,7 +30,7 @@ Para comenzar, necesita crear una tabla en su cuenta de almacenamiento. También
 
 - Vea [Uso del almacenamiento de tablas en .NET](storage-dotnet-how-to-use-tables.md) para más información sobre la manipulación de tablas mediante programación.
 - Vea [Documentación sobre Almacenamiento](https://azure.microsoft.com/documentation/services/storage/) para información general sobre Almacenamiento de Azure.
-- Vea [Documentación sobre Servicios en la nube](http://azure.microsoft.com/documentation/services/cloud-services/) para información general sobre los servicios en la nube de Azure.
+- Vea [Documentación sobre Servicios en la nube](https://azure.microsoft.com/documentation/services/cloud-services/) para información general sobre los servicios en la nube de Azure.
 - Vea [ASP.NET](http://www.asp.net) para más información sobre la programación de aplicaciones ASP.NET.
 
 ## Acceso a tablas en código
@@ -50,7 +50,7 @@ Para obtener acceso a las tablas en los proyectos de servicios en la nube, deber
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage account name>
          _AzureStorageConnectionString"));
-> [AZURE.NOTE]Use todo el código anterior delante del código que aparece en los ejemplos siguientes.
+> [AZURE.NOTE]  Use todo el código anterior delante del código que aparece en los ejemplos siguientes.
 
 3. Obtenga un objeto **CloudTableClient** para hacer referencia a los objetos de tabla de la cuenta de almacenamiento.
 
@@ -168,7 +168,7 @@ Las operaciones de tablas que afectan a las entidades se realizan con el objeto 
 
 ## Inserción de un lote de entidades
 
-Puede insertar varias entidades en una tabla mediante una única operación de escritura. En el ejemplo de código siguiente se crean dos objetos de entidad ("Jeff Smith" y "Ben Smith") que se agregan a un objeto **TableBatchOperation** mediante el método Insert y luego se inicia la operación llamando a **CloudTable.ExecuteBatchAsync**.
+Puede insertar varias entidades en una tabla mediante una única operación de escritura. En el ejemplo de código siguiente se crean dos objetos de entidad ("Jeff Smith" y "Ben Smith") que se agregan a un objeto **TableBatchOperation** mediante el método Insert y, a continuación, se inicia la operación llamando a **CloudTable.ExecuteBatchAsync**.
 
     // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code".
 
@@ -269,4 +269,4 @@ Puede eliminar fácilmente una entidad después de haberla encontrado. El códig
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

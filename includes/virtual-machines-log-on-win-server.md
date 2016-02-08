@@ -8,7 +8,7 @@
 
 6. En la ventana de Seguridad de Windows, escriba las credenciales de la cuenta en la máquina virtual y luego haga clic en **Aceptar**.
 
- 	En la mayoría de los casos, el nombre de usuario y la contraseña de la cuenta local que especificó al crear la máquina virtual. En este caso, el dominio es el nombre de la máquina virtual y se escribe como *nombredevm*&#92;*nombredeusuario*.
+ 	En la mayoría de los casos, las credenciales son el nombre de usuario y la contraseña de la cuenta local que especificó al crear la máquina virtual. En este caso, el dominio es el nombre de la máquina virtual y se escribe como *nombredevm*&#92;*nombredeusuario*.
 	
 	Si la máquina virtual pertenece a un dominio de su organización, asegúrese de que el nombre de usuario incluye el nombre de ese dominio con el formato *Dominio*&#92;*Nombredeusuario*. La cuenta también deberá estar en el grupo de administradores o tener privilegios de acceso remoto a la VM.
 	
@@ -18,4 +18,4 @@
 
 	![Verificar la identidad de la máquina](./media/virtual-machines-log-on-win-server/connectverify.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -26,7 +26,7 @@ Visual Studio Application Insights le permite supervisar la disponibilidad, el r
 ## Creación de recursos en Application Insights
 
 
-En el [portal de Azure](http://portal.azure.com), cree un nuevo recurso de Application Insights. Elija ASP.NET como el tipo de aplicación.
+En el [portal de Azure](https://portal.azure.com), cree un nuevo recurso de Application Insights. Elija ASP.NET como el tipo de aplicación.
 
 ![Haga clic en Propiedades, seleccione la clave y presione ctrl + C.](./media/app-insights-sharepoint/01-new.png)
 
@@ -75,7 +75,7 @@ Inserte un elemento web e incruste el fragmento de código en él.
 
 Vuelva a implementar la aplicación.
 
-Vuelva a la hoja de la aplicación en el [Portal de Azure](http://portal.azure.com).
+Vuelva a la hoja de la aplicación en el [Portal de Azure](https://portal.azure.com).
 
 Los primeros eventos aparecerán en Búsqueda.
 
@@ -91,7 +91,7 @@ Haga clic en cualquier gráfico para ver más detalles: por ejemplo, Vistas de p
 
 ![](./media/app-insights-sharepoint/07-pages.png)
 
-O usuarios:
+O Usuarios:
 
 
 ![](./media/app-insights-sharepoint/08-users.png)
@@ -108,4 +108,4 @@ O usuarios:
 
 <!--Link references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

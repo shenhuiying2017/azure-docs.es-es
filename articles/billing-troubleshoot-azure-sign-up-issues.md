@@ -55,9 +55,9 @@ Sugerencias: Si no tiene una clave OSA, póngase en contacto con uno de los Part
 ## ¿Ya usó una suscripción de Azure en el pasado y ahora desea activar una evaluación gratuita?
 El acuerdo de Condiciones de uso de Azure tiene un límite de una única evaluación gratuita disponible para cualquier usuario que nunca antes haya usado Azure. Si tiene cualquier otro tipo de suscripción de Azure, no podrá activar una evaluación gratuita.
 
-Sugerencias: Si ya activó una suscripción de Azure en el pasado y se produce un error en la activación de la evaluación gratuita, considere la posibilidad de comprar una suscripción de pago por uso. También puede ser elegible para una oferta ventajosa. Obtenga más información en la [página Detalles de las ofertas de Microsoft Azure](http://azure.microsoft.com/support/legal/offer-details/) como alternativa al plan de evaluación gratuita de Azure. Tenga en cuenta que los planes de ofertas y prestaciones requieren requisitos previos específicos.
+Sugerencias: Si ya activó una suscripción de Azure en el pasado y se produce un error en la activación de la evaluación gratuita, considere la posibilidad de comprar una suscripción de pago por uso. También puede ser elegible para una oferta ventajosa. Obtenga más información en la [página Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) como alternativa al plan de evaluación gratuita de Azure. Tenga en cuenta que los planes de ofertas y prestaciones requieren requisitos previos específicos.
 
 ## ¿Sigue sin poder suscribirse?
 [Póngase en contacto con el soporte técnico de Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para que le asistan si sigue experimentando problemas para realizar la suscripción o si el problema que tiene no se trata en este artículo.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

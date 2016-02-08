@@ -37,7 +37,7 @@ El SDK de Mobile Engagement para aplicaciones Windows Universal solo se puede in
 -   Windows Phone 8.1
 -   Windows 10 (familias de escritorio y portátiles)
 
-> [AZURE.NOTE]Si va a desarrollar para Windows Phone Silverlight, vea entonces el [procedimiento de integración de Windows Universal Silverlight](mobile-engagement-windows-phone-integrate-engagement.md).
+> [AZURE.NOTE] Si va a desarrollar para Windows Phone Silverlight, vea entonces el [procedimiento de integración de Windows Universal Silverlight](mobile-engagement-windows-phone-integrate-engagement.md).
 
 ## Instale el SDK de aplicaciones Mobile Engagement Universal
 
@@ -58,8 +58,6 @@ NuGet no implementa automáticamente los recursos SDK en su aplicación UWP toda
 3.  Arrastre y coloque la carpeta **Recursos** del explorador de archivos en la raíz del proyecto en Visual Studio.
 4.  En Visual Studio, seleccione el proyecto y active el icono **Mostrar todos los archivos** en la parte superior del **Explorador de soluciones**.
 5.  Algunos archivos no se incluyen en el proyecto. Para importarlos a la vez, haga clic con el botón derecho en la carpeta **Recursos**, **Excluir del proyecto** y, a continuación, haga clic de nuevo con el botón derecho en la carpeta **Recursos**, **Incluir en el proyecto** para volver a incluir toda la carpeta. Todos los archivos de la carpeta **Recursos** estarán ahora incluidos en su proyecto.
-
-También puede encontrarse en el paquete de Engagement extraído en *$(Solutiondir) \\Packages* o como se define en el archivo *NuGet.config*.
 
 ## Agregar las capacidades
 
@@ -127,7 +125,7 @@ Modifique `App.xaml.cs`:
           InitEngagement(args);
 		}
 
-> [AZURE.IMPORTANT]Se desaconseja encarecidamente agregar la inicialización de Engagement en otro lugar de la aplicación.
+> [AZURE.IMPORTANT] Se desaconseja encarecidamente agregar la inicialización de Engagement en otro lugar de la aplicación.
 
 ## Informes básicos
 
@@ -169,7 +167,7 @@ Modifique el archivo `.xaml.cs` de página:
 		  }
 		}
 
-> [AZURE.IMPORTANT]Si la página invalida el método `OnNavigatedTo`, no olvide llamar a `base.OnNavigatedTo(e)`. De lo contrario, no se informará de la actividad (`EngagementPage` llama a `StartActivity` en su método `OnNavigatedTo`).
+> [AZURE.IMPORTANT] Si la página invalida el método `OnNavigatedTo`, no olvide llamar a `base.OnNavigatedTo(e)`. De lo contrario, no se informará de la actividad (`EngagementPage` llama a `StartActivity` en su método `OnNavigatedTo`).
 
 #### Archivo XAML
 
@@ -232,7 +230,7 @@ Recomendamos que llame a `StartActivity` dentro del método `OnNavigatedTo` de s
 			  EngagementAgent.Instance.StartActivity("MyPage");
 			}
 
-> [AZURE.IMPORTANT]Asegúrese de finalizar la sesión correctamente.
+> [AZURE.IMPORTANT]  Asegúrese de finalizar la sesión correctamente.
 > 
 > El SDK de Windows Universal llama automáticamente al método `EndActivity` cuando se cierra la aplicación. Por lo tanto, es **MUY** recomendable llamar al método `StartActivity` cada vez que cambie la actividad del usuario y no llamar **NUNCA** al método `EndActivity`. Este método envía un mensaje al servidor de Engagement indicando que el usuario actual ha salido de la aplicación, lo que afecta a todos los registros de la aplicación.
 
@@ -248,7 +246,7 @@ Para obtener más información, consulte [Cómo usar la API de etiquetado avanza
 
 Puede deshabilitar la característica de informes automáticos de bloqueo de Engagement. A continuación, cuando se produce una excepción no controlada, Engagement no hará nada.
 
-> [AZURE.WARNING]Si tiene previsto deshabilitar esta característica, tenga en cuenta que cuando se produzca un error no controlado en la aplicación, Engagement no enviará la información del bloqueo **NI** tampoco cerrará la sesión ni los trabajos.
+> [AZURE.WARNING] Si tiene previsto deshabilitar esta característica, tenga en cuenta que cuando se produzca un error no controlado en la aplicación, Engagement no enviará la información del bloqueo **NI** tampoco cerrará la sesión ni los trabajos.
 
 Para deshabilitar los informes automáticos de bloqueo, personalice la configuración según la manera en que la declaró:
 
@@ -279,10 +277,10 @@ El argumento es un valor en **milisegundos**. En cualquier momento, si desea vol
 
 El modo de ráfaga aumenta ligeramente la duración de la batería, pero afecta al monitor de Engagement: la duración de todas las sesiones y trabajos se redondeará al umbral de ráfaga (por lo tanto, es posible que las sesiones y los trabajos más cortos que el umbral de ráfaga no sean visibles). Se recomienda usar un umbral de ráfaga inferior a 30.000 (30 segundos). Tenga en cuenta que los registros guardados se limitan a 300 elementos. Si el envío es demasiado largo, puede perder algunos registros.
 
-> [AZURE.WARNING]El umbral de ráfaga no se puede configurar en un período inferior a un segundo. Si intenta hacerlo, el SDK mostrará un seguimiento con el error y se restablecerá automáticamente en el valor predeterminado; es decir, cero segundos. Esto hará que el SDK informe los registros en tiempo real.
+> [AZURE.WARNING] El umbral de ráfaga no se puede configurar en un período inferior a un segundo. Si intenta hacerlo, el SDK mostrará un seguimiento con el error y se restablecerá automáticamente en el valor predeterminado; es decir, cero segundos. Esto hará que el SDK informe los registros en tiempo real.
 
 [here]: http://www.nuget.org/packages/Capptain.WindowsCS
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

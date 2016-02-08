@@ -27,7 +27,7 @@ En este tutorial, creará canalizaciones de Factoría de datos para evaluar la e
 
 ## Preparación para el tutorial
 1.	Lea [Introducción a Factoría de datos de Azure][adfintroduction] para obtener información general sobre Factoría de datos de Azure y conocer los conceptos de nivel superior.
-2.	Debe tener una suscripción de Azure para realizar este tutorial. Para obtener información acerca de cómo obtener una suscripción, consulte [Opciones de compra](http://azure.microsoft.com/pricing/purchase-options/), [Ofertas para miembros](http://azure.microsoft.com/pricing/member-offers/) o [Prueba gratuita](http://azure.microsoft.com/pricing/free-trial/).
+2.	Debe tener una suscripción de Azure para realizar este tutorial. Para obtener información acerca de cómo obtener una suscripción, consulte [Opciones de compra](https://azure.microsoft.com/pricing/purchase-options/), [Ofertas para miembros](https://azure.microsoft.com/pricing/member-offers/) o [Prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).
 3.	Debe descargar e instalar [Azure PowerShell][download-azure-powershell] en el equipo. Deberá ejecutar cmdlets de Factoría de datos para cargar datos de ejemplo y scripts de Pig y Hive en el almacenamiento de blobs. 
 2.	**(recomendado)** Revise y practique el tutorial del artículo [Introducción a Factoría de datos de Azure][adfgetstarted] para obtener un tutorial sencillo para familiarizarse con el portal y los cmdlets.
 3.	**(recomendado)** Revise y practique el tutorial del artículo [Uso de Pig y Hive con Factoría de datos de Azure][usepigandhive] para obtener un tutorial sobre cómo crear una canalización para desplazar datos desde un origen de datos local a un almacenamiento de blobs de Azure.
@@ -192,7 +192,7 @@ En este paso, creará una factoría de datos de Azure llamada **LogProcessingFac
  
 ## <a name="MainStep3"></a> Paso 3: Creación de servicios vinculados
 
-> [AZURE.NOTE]En este artículo se usa el Portal de Azure clásico, concretamente el Editor de la Factoría de datos, para crear servicios vinculados, tablas y canalizaciones. Consulte el [tutorial Uso de Azure PowerShell][adftutorial-using-powershell] si desea realizar este tutorial con Azure PowerShell.
+> [AZURE.NOTE] En este artículo se usa el Portal de Azure clásico, concretamente el Editor de la Factoría de datos, para crear servicios vinculados, tablas y canalizaciones. Consulte el [tutorial Uso de Azure PowerShell][adftutorial-using-powershell] si desea realizar este tutorial con Azure PowerShell.
 
 En este paso, creará los siguientes servicios vinculados:
 
@@ -206,8 +206,6 @@ En este paso, creará los siguientes servicios vinculados:
 1.	En la hoja **FACTORÍA DE DATOS**, haga clic en la ventana **Crear e implementar** para iniciar el **Editor** para la factoría de datos.
 
 	![Mosaico Crear e implementar][image-author-deploy-tile]
-
-	Consulte el tema [Editor de la Factoría de datos][data-factory-editor] para obtener información general del Editor de la Factoría de datos.
 
 2.  En el **Editor**, haga clic en el botón **Nuevo almacén de datos** de la barra de herramientas y seleccione **Almacenamiento de Azure** en el menú desplegable. Debería ver la plantilla JSON para crear un servicio vinculado de almacenamiento de Azure en el panel derecho.
 	
@@ -421,7 +419,6 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises] p
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[data-factory-editor]: data-factory-editor.md
 
 [adfsamples]: data-factory-samples.md
 [adfgetstarted]: data-factory-get-started.md
@@ -486,4 +483,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises] p
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

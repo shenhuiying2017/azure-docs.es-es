@@ -31,11 +31,11 @@ Si desea obtener más información sobre la integración de aplicaciones SaaS co
 
 Para configurar la integración de Azure AD con Alcumus Info Exchange, necesita los siguientes elementos:
 
-- Una suscripción de [Azure AD](http://azure.microsoft.com/)
+- Una suscripción de [Azure AD](https://azure.microsoft.com/)
 - Una suscripción habilitada para inicio de sesión único en [Alcumus Info Exchange](http://www.alcumusgroup.com/)
 
 
-> [AZURE.NOTE]Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
@@ -99,7 +99,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
  
      3\.1 En el cuadro de texto **URL de respuesta**, escriba la dirección URL de consumidor que configuró el equipo de soporte técnico de Alcumus Info Exchange.
 
-     >[AZURE.NOTE]Si desconoce el valor correcto, póngase en contacto con el equipo de soporte técnico de Alcumus Info Exchange en [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com).
+     >[AZURE.NOTE] Si desconoce el valor correcto, póngase en contacto con el equipo de soporte técnico de Alcumus Info Exchange en [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com).
 
      3\.2. Haga clic en **Siguiente**.
  
@@ -116,7 +116,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 
 ### Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear una usuaria de prueba en el Portal de Azure llamada Britta Simon.<br> En la lista Usuarios, seleccione **Britta Simon**.<br><br>![Creación de un usuario de Azure AD][20]<br>
+El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure llamado Britta Simon.<br> En la lista Usuarios, seleccione **Britta Simon**.<br><br>![Creación de un usuario de Azure AD][20]<br>
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
@@ -140,9 +140,9 @@ El objetivo de esta sección es crear una usuaria de prueba en el Portal de Azur
   4. En la lista **Rol**, seleccione **Usuario**.
   5. Haga clic en **Siguiente**.
 
-7. En la página del cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**. <br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_07.png)
+7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **crear**. <br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_07.png)
  
-8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes: <br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_08.png)
+8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:<br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_08.png)
   1. Anote el valor del campo **Nueva contraseña**.
   2. Haga clic en **Completo**.   
 
@@ -166,7 +166,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 1. En el Portal de Azure, abra la vista de aplicaciones; para ello, en la vista de directorio, haga clic en **Aplicaciones** en el menú de la parte superior. <br><br><br>![Asignar usuario][201]
 2. En la lista de aplicaciones, seleccione **Alcumus Info Exchange**. <br><br>![Asignar usuario][202]
 1. En el menú de la parte superior, haga clic en **Usuarios**.<br> <br><br>![Asignar usuario][203]
-1. En la lista Usuarios, seleccione **Britta Simon**.
+1. En la lista de usuarios, seleccione **Britta Simon**.
 
 2. En la barra de herramientas de la parte inferior, haga clic en **Asignar**. <br><br>![Asignar usuario][205]
 
@@ -204,4 +204,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [205]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_205.png
 [400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_402.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

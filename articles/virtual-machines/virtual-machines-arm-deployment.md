@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/20/2016"
 	ms.author="davidmu"/>
 
 # Implementación de recursos de Azure mediante bibliotecas .NET de proceso, red y almacenamiento
@@ -28,7 +28,7 @@ Este tutorial muestra cómo utilizar las bibliotecas .NET de proceso, red y alma
 Para completar este tutorial, también necesita:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Cuenta de Almacenamiento de Azure](../storage-create-storage-account.md)
+- [Cuenta de Almacenamiento de Azure](../storage/storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
 
 [AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
@@ -73,7 +73,7 @@ Los Paquetes de NuGet son la manera más fácil de instalar las bibliotecas que 
 
 6. Escriba *Microsoft.Azure.Management.Network* en el cuadro de búsqueda, haga clic en **Instalar** para las bibliotecas .NET de red y, luego, siga las instrucciones para instalar el paquete.
 
-7. Escriba *Microsoft.Azure.Management.Storage* en el cuadro de búsqueda, haga clic en **Instalar** para las bibliotecas .NET de red y, luego, siga las instrucciones para instalar el paquete.
+7. Escriba *Microsoft.Azure.Management.Storage* en el cuadro de búsqueda, haga clic en **Instalar** para las bibliotecas .NET de almacenamiento y, luego, siga las instrucciones para instalar el paquete.
 
 8. Escriba *Microsoft.Azure.Management.Resources* en el cuadro de búsqueda y haga clic en **Instalar** para las bibliotecas de administración de recursos.
 
@@ -548,4 +548,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 	![Crear una aplicación de AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

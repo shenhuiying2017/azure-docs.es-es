@@ -44,7 +44,7 @@ Si tiene dudas o problemas relacionados con [Application Insights para Visual St
 #### Solía ver datos, pero ya no sucede esto.
 
 * Compruebe el [blog de estado](http://blogs.msdn.com/b/applicationinsights-status/).
-* ¿Ha alcanzado su cuota mensual de puntos de datos? Abra Configuración/Cuotas y Precios para averiguarlo. Si es así, puede actualizar el plan o pagar para obtener capacidad adicional. Consulte el [esquema de precios](http://azure.microsoft.com/pricing/details/application-insights/).
+* ¿Ha alcanzado su cuota mensual de puntos de datos? Abra Configuración/Cuotas y Precios para averiguarlo. Si es así, puede actualizar el plan o pagar para obtener capacidad adicional. Consulte el [esquema de precios](https://azure.microsoft.com/pricing/details/application-insights/).
 
 
 
@@ -89,7 +89,7 @@ Si usa el método XML, debe reiniciar la aplicación al cambiar el valor.
 
 ## Pantalla de inicio de Azure
 
-*Estoy mirando el [Portal de Azure](http://portal.azure.com). ¿El mapa indica algo sobre mi aplicación?*
+*Estoy mirando el [Portal de Azure](https://portal.azure.com). ¿El mapa indica algo sobre mi aplicación?*
 
 No, este muestra el estado de los servidores de Azure en todo el mundo.
 
@@ -138,4 +138,4 @@ Consulte [Privacidad y retención de los datos][data].
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

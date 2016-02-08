@@ -44,7 +44,7 @@ El primer paso de este proceso es crear una cuenta de Azure. Para ver un tutoria
 
 ## Componentes del servicio de almacenamiento de blobs de Azure
 
-* Cuenta de almacenamiento: la cuenta de almacenamiento es el punto de partida de todos los servicios de almacenamiento. Para obtener acceso a un servicio de almacenamiento de blobs de Azure, primero debe crear una cuenta de almacenamiento de Azure. Para obtener más información acerca del servicio de almacenamiento de blobs de Azure, consulte [Uso del servicio de almacenamiento de blobs de Azure](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)
+* Cuenta de almacenamiento: la cuenta de almacenamiento es el punto de partida de todos los servicios de almacenamiento. Para obtener acceso a un servicio de almacenamiento de blobs de Azure, primero debe crear una cuenta de almacenamiento de Azure. Para obtener más información acerca del servicio de almacenamiento de blobs de Azure, consulte [Uso del servicio de almacenamiento de blobs de Azure](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)
 
 * Contenedor: un contenedor ofrece la agrupación de un conjunto de blobs y puede almacenar un número ilimitado de ellos. Para realizar una copia de seguridad de SQL Server en un servicio BLOB de Azure, debe haber creado un contenedor raíz como mínimo.
 
@@ -72,4 +72,4 @@ El primer paso de este proceso es crear una cuenta de Azure. Para ver un tutoria
 
 [Prácticas recomendadas de copia de seguridad y restauración (servicio de almacenamiento de blobs de Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli"/>
 
 # Implementar la matriz virtual de StorSimple: Preparar el portal (versión preliminar)
 
 ![](./media/storsimple-ova-deploy1-portal-prep/getstarted4.png)
 
-## Introducción 
+## Información general 
 
 Este artículo se aplica a la matiz virtual de Microsoft Azure StorSimple (también conocido como dispositivo virtual StorSimple local o dispositivo virtual StorSimple) 1.1.1.0 (versión preliminar pública) únicamente. Este es el primer artículo de una serie de tutoriales de implementación necesarios para implementar completamente la matriz virtual como servidor de archivos o servidor iSCSI. En este artículo se describe la preparación necesaria para crear y configurar el servicio de StorSimple Manager antes de aprovisionar una matriz virtual. Este artículo también presenta vínculos a una lista de comprobación de configuración de implementación, así como a los requisitos previos de configuración.
 
@@ -40,7 +40,7 @@ El flujo de trabajo de implementación consta de preparar el portal, aprovisiona
 
 Consulte los artículos siguientes en la secuencia recomendada para implementar la matriz virtual de StorSimple.
 
-| **de streaming** | **En este paso** | **Hará esto…** | **Use estos documentos…**|
+| **de streaming** | **En este paso** | **Hará esto…** | **Use estos documentos.**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
 |1\. | **Configurar el Portal de Azure clásico** | Cree y configure el servicio de StorSimple Manager antes de aprovisionar un dispositivo virtual StorSimple. |[Preparar el portal](storsimple-ova-deploy1-portal-prep.md)| 
 |2\. | **Aprovisionar la matriz virtual** | Para Hyper-V, aprovisione y conéctese a un dispositivo virtual StorSimple en un sistema host que ejecute Hyper-V 2008 R2, Hyper-V 2012 o Hyper-V 2012 R2. <br></br> <br></br> Para VMware, aprovisione y conéctese a un dispositivo virtual local de StorSimple en un sistema host que ejecute VMware ESXi 5.5 y versiones posteriores.| [Aprovisionar una matriz virtual en Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Aprovisionar una matriz virtual en VMware](storsimple-ova-deploy2-provision-vmware.md)|
@@ -48,13 +48,13 @@ Consulte los artículos siguientes en la secuencia recomendada para implementar 
 
 #### Vídeos de implementación
 
-| **Para completar este paso…** | **Vea este vídeo**|
+| **Para completar este paso…** | **Vea este vídeo.**|
 |----------------|-------------|
-| Instrucciones paso a paso para empezar a trabajar con la matriz virtual de StorSimple. | [Introducción a la matriz virtual de StorSimple](http://azure.microsoft.com/documentation/videos/get-started-with-the-storsimple-virtual-array)|
-| Instrucciones paso a paso para aprovisionar la matriz virtual de StorSimple en Hyper-V.|[Crear una matriz virtual de StorSimple](http://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-array) |
-|Instrucciones paso a paso para configurar y registrar una matriz virtual de StorSimple.|[Configurar una matriz virtual de StorSimple](http://azure.microsoft.com/documentation/videos/configure-a-storsimple-virtual-array)|
-|Instrucciones paso a paso para crear recursos compartidos, realizar copias de seguridad de recursos compartidos y restaurar datos en una matriz virtual de StorSimple configurada como servidor de archivos.|[Utilizar una matriz virtual de StorSimple](http://azure.microsoft.com/documentation/videos/use-the-storsimple-virtual-array)|
-|Instrucciones paso a paso para la recuperación ante desastres y conmutación por error de una matriz virtual de StorSimple.|[Recuperación ante desastres de una matriz virtual de StorSimple](http://azure.microsoft.com/documentation/videos/storsimple-virtual-array-disaster-recovery)
+| Instrucciones paso a paso para empezar a trabajar con la matriz virtual de StorSimple. | [Introducción a la matriz virtual de StorSimple](https://azure.microsoft.com/documentation/videos/get-started-with-the-storsimple-virtual-array/)|
+| Instrucciones paso a paso para aprovisionar la matriz virtual de StorSimple en Hyper-V.|[Crear una matriz virtual de StorSimple](https://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-array/) |
+|Instrucciones paso a paso para configurar y registrar una matriz virtual de StorSimple.|[Configurar una matriz virtual de StorSimple](https://azure.microsoft.com/documentation/videos/configure-a-storsimple-virtual-array/)|
+|Instrucciones paso a paso para crear recursos compartidos, realizar copias de seguridad de recursos compartidos y restaurar datos en una matriz virtual de StorSimple configurada como servidor de archivos.|[Utilizar una matriz virtual de StorSimple](https://azure.microsoft.com/documentation/videos/use-the-storsimple-virtual-array/)|
+|Instrucciones paso a paso para la recuperación ante desastres y conmutación por error de una matriz virtual de StorSimple.|[Recuperación ante desastres de una matriz virtual de StorSimple](https://azure.microsoft.com/documentation/videos/storsimple-virtual-array-disaster-recovery/)
 
 Ahora puede empezar a configurar el Portal de Azure clásico.
 
@@ -112,48 +112,14 @@ Utilice las siguientes instrucciones paso a paso para preparar su portal para el
 
 Una única instancia del servicio de StorSimple Manager puede administrar 1200 dispositivos StorSimple. Siga estos pasos para crear una nueva instancia del servicio de Administrador de StorSimple. Si tiene un servicio de StorSimple Manager existente para administrar los 1200 dispositivos, omita este paso y vaya al [Paso 2: Obtener la clave de registro del servicio](#step-2-get-the-service-registration-key).
 
-#### Para crear un nuevo servicio
-
-1.  Con sus credenciales de la cuenta de Microsoft, inicie sesión en el Portal de Azure clásico en esta dirección URL: <https://manage.windowsazure.com/>
-
-2.  En el portal, haga clic en **Nuevo > Servicios de datos > StorSimple Manager > Creación rápida**.
-
-3.  En el formulario que aparece, haga lo siguiente:
-
-	1.  Proporcione un **Nombre** único para el servicio. Se trata de un nombre descriptivo que sirve para identificar el servicio. El nombre puede tener entre 2 y 50 caracteres que pueden ser letras, números y guiones. El nombre debe empezar y terminar con una letra o un número.
-
-	2.  Para que un servicio administre un dispositivo virtual StorSimple, desde la lista desplegable de un **Tipo de dispositivos administrados**, elija **Serie de dispositivos virtuales**.
-
-	3.  Proporcione una **Ubicación** para el servicio. La ubicación hace referencia a la región geográfica donde desea implementar el dispositivo.
-
-	 -   Si tiene otras cargas de trabajo en Azure que se van a implementar con el dispositivo StorSimple, se recomienda usar ese centro de datos.
-
-   	 -   El StorSimple Manager y el almacenamiento de Azure pueden estar en dos ubicaciones independientes. En este caso, se le pedirá que cree la cuenta del Administrador de StorSimple y la del Almacenamiento de Azure por separado. Para crear una cuenta de almacenamiento de Azure, vaya al servicio Almacenamiento de Azure en el portal y siga los pasos indicados en la sección [Crear una cuenta de almacenamiento de Azure](storage-create-storage-account.md#create-a-storage-account). Después de crear esta cuenta, agréguela al servicio de StorSimple Manager mediante los pasos indicados en la sección [Configurar una nueva cuenta de almacenamiento para el servicio](#appendix-a-configure-a-new-storage-account-for-the-service).
-   	 
-   	 -   Tenga en cuenta que en la versión preliminar, puede crear el servicio de StorSimple Manager solo en el Oeste de EE. UU. y en Japón Oriental.
-	
-	1.  Elija una **Suscripción** en la lista desplegable. La suscripción está vinculada a la cuenta de facturación. Este campo no está presente cuando tiene una sola suscripción.
-
-	1.  Seleccione **Crear una nueva cuenta de almacenamiento de Azure** para crear automáticamente una cuenta de almacenamiento en el servicio. Esta cuenta de almacenamiento tendrá un nombre especial, como "storsimplebwv8c6dcnf." Si necesita tener sus datos en una ubicación diferente, desactive esta casilla.
-
-	1.  Haga clic en **Crear Administrador de StorSimple** para crear el servicio.
-
-		![](./media/storsimple-ova-deploy1-portal-prep/image1.png)
-
-	Se le dirigirá a la página de aterrizaje del **Servicio**. La creación del servicio tardará unos minutos. Recibirá una notificación apropiada cuando el servicio se cree correctamente.
-
-	![](./media/storsimple-ova-deploy1-portal-prep/image2.png)
-
-	El estado del servicio cambiará a **Activo**.
-
-	![](./media/storsimple-ova-deploy1-portal-prep/image3.png)
+[AZURE.INCLUDE [storsimple-ova-create-new-service](../../includes/storsimple-ova-create-new-service.md)]
 
 > [AZURE.IMPORTANT]
 > 
 > Si no habilitó la creación automática de una cuenta de almacenamiento con el servicio, debe crear al menos una cuenta de almacenamiento después de crear correctamente un servicio.
 > 
 
-> - Si no creó automáticamente una cuenta de almacenamiento, vaya a [Configurar una nueva cuenta de almacenamiento para el servicio](#appendix-a-configure-a-new-storage-account-for-the-service) para obtener instrucciones detalladas.
+> - Si no creó automáticamente una cuenta de almacenamiento, vaya a [Configurar una nueva cuenta de almacenamiento para el servicio](#optional-step-configure-a-new-storage-account-for-the-service) para obtener instrucciones detalladas.
 > 
 
 > - Si habilitó la creación automática de una cuenta de almacenamiento, vaya al [Paso 2: Obtener la clave de registro del servicio](#step-2-get-the-service-registration-key).
@@ -166,16 +132,8 @@ Una vez esté en funcionamiento el servicio de Administrador de StorSimple, nece
 
 Siga estos pasos en el [Portal de Azure clásico](https://manage.windowsazure.com/).
 
-#### Para obtener la clave de registro del servicio de StorSimple
 
-1.  En la parte inferior página del **Servicio StorSimple Manager**, haga clic en **Clave de registro**.
-
-2.  Tendrá que esperar unos minutos mientras se recupera la clave. Aparece el cuadro de diálogo **Clave de registro del servicio**.
-
-
-	1.  Busque la **Clave de registro del servicio**.
-
-	2.  Haga clic en el icono de copia ![](./media/storsimple-ova-deploy1-portal-prep/image6.png) para copiar la clave y guardarla para su uso posterior.
+[AZURE.INCLUDE [storsimple-ova-get-service-registration-key](../../includes/storsimple-ova-get-service-registration-key.md)]
 
 > [AZURE.NOTE]
 > 
@@ -210,22 +168,15 @@ Mire el vídeo para obtener instrucciones paso a paso para empezar a trabajar co
 
 > [AZURE.VIDEO get-started-with-the-storsimple-virtual-array]
 
-## Paso siguiente
-
-El siguiente paso es aprovisionar una máquina virtual para el dispositivo virtual StorSimple. Según el sistema operativo host, consulte las instrucciones detalladas en:
-
--   [Aprovisionamiento de la matriz virtual de StorSimple en Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
-
--   [Aprovisionamiento de la matriz virtual de StorSimple en VMware](storsimple-ova-deploy2-provision-vmware.md)
 
 
-## Apéndice A: Configurar una nueva cuenta de almacenamiento para el servicio
+## Paso opcional: Configurar una cuenta de almacenamiento nueva para el servicio
 
 Se trata de un paso opcional que debe llevar a cabo únicamente si no habilitó la creación automática de una cuenta de almacenamiento con su servicio.
 
-Si necesita crear una cuenta de almacenamiento de Azure en una región distinta, vea [Cómo crear una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account) para obtener instrucciones paso a paso.
+Si necesita crear una cuenta de almacenamiento de Azure en una región distinta, consulte [Cómo crear una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account) para obtener instrucciones detalladas.
 
-Siga estos pasos en el [Portal de Azure clásico](https://manage.windowsazure.com/) en la página Servicio StorSimple Manager para agregar una cuenta de almacenamiento de Microsoft Azure existente.
+Siga estos pasos en el [Portal de Azure clásico](https://manage.windowsazure.com/) en la página del servicio StorSimple Manager para agregar una cuenta de almacenamiento de Microsoft Azure existente.
 
 #### Para agregar una cuenta de almacenamiento
 
@@ -247,4 +198,13 @@ Siga estos pasos en el [Portal de Azure clásico](https://manage.windowsazure.co
 
 1.  La cuenta de almacenamiento recién creada se mostrará en la página **Configurar** bajo **Cuentas de almacenamiento**. Haga clic en **Guardar** para guardar la cuenta de almacenamiento recién creada. Haga clic en **Aceptar** cuando se le pida confirmación.
 
-<!---HONumber=AcomDC_0121_2016-->
+
+## Paso siguiente
+
+El siguiente paso es aprovisionar una máquina virtual para el dispositivo virtual StorSimple. Según el sistema operativo host, consulte las instrucciones detalladas en:
+
+-   [Aprovisionamiento de la matriz virtual de StorSimple en Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
+
+-   [Aprovisionamiento de la matriz virtual de StorSimple en VMware](storsimple-ova-deploy2-provision-vmware.md)
+
+<!---HONumber=AcomDC_0128_2016-->

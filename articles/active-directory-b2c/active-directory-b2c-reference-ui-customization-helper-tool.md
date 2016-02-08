@@ -36,7 +36,7 @@ Deberá [registrar la aplicación](active-directory-b2c-app-registration.md) en 
 
 - Compilar una de las aplicaciones de inicio rápido de Azure AD B2C que aparecen [aquí](active-directory-b2c-overview.md#getting-started).
 - Usar la aplicación de [área de juegos de Azure AD B2C](https://aadb2cplayground.azurewebsites.net) previamente compilada. Si decide usar el área de juegos, debe registrar una aplicación en el inquilino B2C mediante el **URI de redirección** `https://aadb2cplayground.azurewebsites.net/`
-- Use el botón **Ejecutar ahora** en la directiva del [Portal de Azure](https://portal.azure.com).
+- Use el botón **Ejecutar ahora** en la directiva del [Portal de Azure](https://portal.azure.com/).
 
 ## Personalización de la directiva
 
@@ -44,7 +44,7 @@ Para personalizar la apariencia y comportamiento de las directivas, debe crear p
 
 Para los fines de este tutorial, ya hemos creado algún contenido de ejemplo y lo hemos hospedado en el almacenamiento de blobs de Azure. El contenido de ejemplo es una personalización muy básica del tema de nuestra empresa artificial, "Contoso B2C". Para probarlo en su propia directiva, siga estos pasos:
 
-1. Inicie sesión en el inquilino en el [Portal de Azure](https://portal.azure.com) y vaya hasta la hoja de características B2C.
+1. Inicie sesión en el inquilino en el [Portal de Azure](https://portal.azure.com/) y vaya hasta la hoja de características B2C.
 2. Haga clic en **Directivas de registro** y, luego, en la directiva de registro (por ejemplo, "b2c\_1\_sign\_up").
 3. Haga clic en **Personalización de la interfaz de usuario de página** y, luego, en **Página de selección de proveedor de identidades**.
 4. Alterne el conmutador **Usar plantilla personalizada** a **Sí**. En el campo **URI de página personalizada**, escriba `https://contosob2c.blob.core.windows.net/static/Index.html`. Haga clic en **OK**.
@@ -68,7 +68,8 @@ Si desea usar el almacenamiento de blobs de Azure para hospedar el contenido de 
 7. El contenedor que creó aparecerá en la lista de la hoja **Blobs**. Anote la URL del contenedor, por ejemplo, debería ser similar a `https://contoso.blob.core.windows.net/b2c`. Cierre la hoja **Blobs**.
 8. En la hoja de cuenta de almacenamiento, haga clic en **Claves** y anote los valores de los campos **Nombre de cuenta de almacenamiento** y **Clave de acceso principal**.
 
-> [AZURE.NOTE]La **Clave de acceso principal** es una credencial de seguridad importante.
+> [AZURE.NOTE]
+	La **Clave de acceso principal** es una credencial de seguridad importante.
 
 #### Descargue la herramienta auxiliar y los archivos de ejemplo.
 
@@ -90,4 +91,4 @@ Ahora que ha cargado el contenido de ejemplo en su propia cuenta de almacenamien
         
 Ahora puede usar el botón **Ejecutar ahora** o su propia aplicación para ejecutar de nuevo la directiva. El resultado debería ser casi exactamente el mismo, ya que usó el mismo HTML y CSS de ejemplo en ambos casos. Sin embargo, las directivas ahora hacen referencia a su propia instancia de almacenamiento de blobs de Azure, y es libre de editar y volver a cargar los archivos a su gusto. Para obtener más información sobre la personalización del contenido HTML y CSS, consulte el [artículo principal sobre personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
-# Uso del Bus de servicio desde Java con AMQP 1.0
+# uso del Bus de servicio desde Java con AMQP 1.0
 
 [AZURE.INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
-Java Message Service (JMS) es una API estándar que funciona con middleware orientado a mensajes en la plataforma Java. El Bus de servicio de Azure se ha probado con la biblioteca de cliente JMS basada en AMQP 1.0 desarrollada por el proyecto Apache Qpid. Esta biblioteca es compatible con la API de JMS 1.1 completa y puede usarse con cualquier servicio de mensajería compatible con AMQP 1.0. Este escenario también se admite en el Bus de servicio para Windows Server (Bus de servicio local). Para obtener más información, consulte [AMQP de Bus de servicio para Windows Server][].
+Java Message Service (JMS) es una API estándar que funciona con middleware orientado a mensajes en la plataforma Java. El Bus de servicio de Microsoft Azure se ha probado con la biblioteca de cliente JMS basada en AMQP 1.0 desarrollada por el proyecto Apache Qpid. Esta biblioteca es compatible con la API de JMS 1.1 completa y puede usarse con cualquier servicio de mensajería compatible con AMQP 1.0. Este escenario también se admite en el [Bus de servicio para Windows Server](https://msdn.microsoft.com/library/dn282144.aspx) (Bus de servicio local). Para obtener más información, consulte [AMQP de Bus de servicio para Windows Server][].
 
 ## Descarga de la biblioteca de cliente Apache Qpid JMS AMQP 1.0
 
@@ -86,7 +86,7 @@ Donde `[namespace]`, `[username]` y `[password]` tienen los significados siguien
 | `[username]` | El nombre del emisor del Bus de servicio obtenido del [Portal de Azure clásico][]. | | | | |
 | `[password]` | Formulario codificado como URL de la clave del emisor del Bus de servicio obtenido del [Portal de Azure clásico][]. | | | | |
 
-> [AZURE.NOTE]debe codificar la contraseña manualmente como dirección URL. Podrá encontrar una práctica utilidad de codificación de la URL en [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> [AZURE.NOTE] debe codificar la contraseña manualmente como dirección URL. Podrá encontrar una práctica utilidad de codificación de la URL en [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 Por ejemplo, si la información obtenida del portal es la siguiente:
 
@@ -362,25 +362,7 @@ En la tabla siguiente se muestra cómo se asignan los tipos de propiedad de .NET
 
 | Tipo de propiedad de .NET | Tipo de propiedad de JMS | Notas |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | UnsignedByte | - |
-| sbyte | Byte | - |
-| char | Character | - |
-| short | Short | - |
-| ushort | UnsignedShort | - |
-| int | Integer | - |
-| uint | UnsignedInteger | - |
-| long | Long | - |
-| ulong | UnsignedLong | - |
-| float | Float | - |
-| double | Double | - |
-| decimal | BigDecimal | - |
-| bool | Boolean | - |
-| Guid | UUID | - |
-| string | String | - |
-| DateTime | Date | - |
-| DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks asignado al tipo de AMQP:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> |
-| TimeSpan | DescribedType | Timespan.Ticks asignado al tipo de AMQP:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> |
-| Uri | DescribedType | Uri.AbsoluteUri asignado al tipo de AMQP:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
+| byte | UnsignedByte | - | | sbyte | Byte | - | | char | Character | - | | short | Short | - | | ushort | UnsignedShort | - | | int | Integer | - | | uint | UnsignedInteger | - | | long | Long | - | | ulong | UnsignedLong | - | | float | Float | - | | double | Double | - | | decimal | BigDecimal | - | | bool | Boolean | - | | Guid | UUID | - | | string | String | - | | DateTime | Date | - | | DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks asignado al tipo de AMQP:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | | TimeSpan | DescribedType | Timespan.Ticks asignado al tipo de AMQP:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | | Uri | DescribedType | Uri.AbsoluteUri asignado al tipo de AMQP:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### Encabezados estándar
 
@@ -390,32 +372,13 @@ Las tablas siguientes muestran cómo se asignan los encabezados estándar y las 
 
 | JMS | .NET del Bus de servicio | Notas |
 |------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| JMSCorrelationID | Message.CorrelationID | - |
-| JMSDeliveryMode | No está disponible actualmente | El Bus de servicio solo admite mensajes durables; por ejemplo, DeliveryMode.PERSISTENT, independientemente de lo que se especifique. |
-| JMSDestination | Message.To | - |
-| JMSExpiration | Message. TimeToLive | Conversión |
-| JMSMessageID | Message.MessageID | De forma predeterminada, JMSMessageID está codificado en formato binario en el mensaje AMQP. Tras recepción de binary-messageid, la biblioteca de clientes de .NET se convierte en una representación de cadena en función de los valores Unicode de los bytes. Para cambiar la biblioteca JMS a fin de que use identificadores de mensaje de cadena, anexe la cadena "binary-messageid = false" a los parámetros de consulta ConnectionURL de JNDI. Por ejemplo: “amqps://[nombre\_de\_usuario]:[contraseña]@[espacio\_de\_nombres].servicebus.windows.net? binary-messageid=false”. |
-| JMSPriority | No está disponible actualmente | El Bus de servicio no admite prioridad de mensajes. |
-| JMSRedelivered | No está disponible actualmente | - |
-| JMSReplyTo | Message. ReplyTo | - |
-| JMSTimestamp | Message.EnqueuedTimeUtc | Conversión |
-| JMSType | Message.Properties[“jms-type”] | - |
+| JMSCorrelationID | Message.CorrelationID | - | | JMSDeliveryMode | No está disponible actualmente | El Bus de servicio solo admite mensajes durables; por ejemplo, DeliveryMode.PERSISTENT, independientemente de lo que se especifique. | | JMSDestination | Message.To | - | | JMSExpiration | Message. TimeToLive | Conversión | | JMSMessageID | Message.MessageID | De forma predeterminada, JMSMessageID está codificado en formato binario en el mensaje AMQP. Tras recepción de binary-messageid, la biblioteca de clientes de .NET se convierte en una representación de cadena en función de los valores Unicode de los bytes. Para cambiar la biblioteca JMS a fin de que use identificadores de mensaje de cadena, anexe la cadena "binary-messageid = false" a los parámetros de consulta ConnectionURL de JNDI. Por ejemplo: “amqps://[nombre\_de\_usuario]:[contraseña]@[espacio\_de\_nombres].servicebus.windows.net? binary-messageid=false”. | | JMSPriority | No está disponible actualmente | El Bus de servicio no admite prioridad de mensajes. | | JMSRedelivered | No está disponible actualmente | - | | JMSReplyTo | Message. ReplyTo | - | | JMSTimestamp | Message.EnqueuedTimeUtc | Conversión | | JMSType | Message.Properties[“jms-type”] | - |
 
 #### API de .NET del Bus de servicio a JMS
 
 | .NET del Bus de servicio | JMS | Notas |
 |-------------------------|------------------|-------------------------|
-| ContentType | - | No está disponible actualmente |
-| CorrelationId | JMSCorrelationID | - |
-| EnqueuedTimeUtc | JMSTimestamp | Conversión |
-| Label | n/a | No está disponible actualmente |
-| MessageId | JMSMessageID | - |
-| ReplyTo | JMSReplyTo | - |
-| ReplyToSessionId | n/a | No está disponible actualmente |
-| ScheduledEnqueueTimeUtc | n/a | No está disponible actualmente |
-| SessionId | n/a | No está disponible actualmente |
-| TimeToLive | JMSExpiration | Conversión |
-| To | JMSDestination | - |
+| ContentType | - | No está disponible actualmente | | CorrelationId | JMSCorrelationID | - | | EnqueuedTimeUtc | JMSTimestamp | Conversión | | Label | n/a | No está disponible actualmente | | MessageId | JMSMessageID | - | | ReplyTo | JMSReplyTo | - | | ReplyToSessionId | n/a | No está disponible actualmente | | ScheduledEnqueueTimeUtc | n/a | No está disponible actualmente | | SessionId | n/a | No está disponible actualmente | | TimeToLive | JMSExpiration | Conversión | | To | JMSDestination | - |
 
 ## Características no admitidas y restricciones
 
@@ -446,4 +409,4 @@ Existen las restricciones siguientes al usar JMS sobre AMQP 1.0 con el Bus de se
 [Información general sobre AMQP para el Bus de servicio]: service-bus-amqp-overview.md
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

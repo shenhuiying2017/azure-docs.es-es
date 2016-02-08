@@ -57,7 +57,7 @@ Aunque esto permite a los clientes conectarse a través de Internet, esto no imp
 
 	"Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
->[AZURE.NOTE]Es importante tener en cuenta que, cuando se usa esta técnica para comunicarse con SQL Server, todos los datos devueltos se consideran tráfico saliente desde el centro de datos. Está sujeto a los [precios normales de transferencias de datos salientes](http://azure.microsoft.com/pricing/details/data-transfers). Esto ocurre aunque use esta técnica desde otra máquina o servicio en la nube en el mismo centro de datos de Azure, ya que el tráfico sigue pasando por el equilibrador de carga pública de Azure.
+>[AZURE.NOTE] Es importante tener en cuenta que, cuando se usa esta técnica para comunicarse con SQL Server, todos los datos devueltos se consideran tráfico saliente desde el centro de datos. Está sujeto a los [precios normales de transferencias de datos salientes](https://azure.microsoft.com/pricing/details/data-transfers/). Esto ocurre aunque use esta técnica desde otra máquina o servicio en la nube en el mismo centro de datos de Azure, ya que el tráfico sigue pasando por el equilibrador de carga pública de Azure.
 
 ### Conexión a SQL Server en la misma red virtual
 
@@ -100,4 +100,4 @@ Es importante revisar todos los procedimientos recomendados de seguridad para SQ
 
 Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

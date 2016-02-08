@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2015" 
+    ms.date="01/26/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Mindflash
@@ -86,7 +86,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
 5.  Envíe el archivo de metadatos al equipo de soporte técnico de Mindflash.
 
-    >[AZURE.NOTE]La configuración del inicio de sesión único la debe realizar el equipo de soporte técnico de Mindflash. Tan pronto como se complete la configuración, recibirá una notificación.
+    >[AZURE.NOTE] La configuración del inicio de sesión único la debe realizar el equipo de soporte técnico de Mindflash. Tan pronto como se complete la configuración, recibirá una notificación.
 
 6.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
@@ -132,4 +132,4 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

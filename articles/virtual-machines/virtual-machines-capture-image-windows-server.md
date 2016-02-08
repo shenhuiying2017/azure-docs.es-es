@@ -33,9 +33,9 @@ Para seguir estos pasos se supone que ya ha creado un máquina virtual Azure y h
 - [Cree una máquina virtual desde una imagen](virtual-machines-create-custom.md)
 - [Acoplamiento de un disco de datos a una máquina virtual](storage-windows-attach-disk.md)
 
-> [AZURE.WARNING]Este proceso elimina la máquina virtual original después de capturarla.
+> [AZURE.WARNING] Este proceso elimina la máquina virtual original después de capturarla.
 
-Esto no constituye una manera de realizar copias de seguridad de una máquina virtual. Una posible manera de hacerlo es mediante la Copia de seguridad de Azure, que está disponible como vista previa en determinadas regiones. Para obtener más información, consulte [Copia de seguridad de máquinas virtuales de Azure](../backup/backup-azure-vms.md). Hay otras soluciones disponibles de socios certificados. Para averiguar lo que está actualmente disponible, busque Azure Marketplace.
+Antes de capturar una imagen de una máquina virtual de Azure, se recomienda hacer una copia de seguridad de la máquina virtual de destino. Esto se puede hacer mediante Copia de seguridad de Azure. Para obtener más información, consulte [Copia de seguridad de máquinas virtuales de Azure](../backup/backup-azure-vms.md). Hay otras soluciones disponibles de socios certificados. Para averiguar lo que está actualmente disponible, busque Azure Marketplace.
 
 
 ##Captura de la máquina virtual
@@ -90,4 +90,4 @@ La imagen está lista para usarse para crear máquinas virtuales. Para ello, cre
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

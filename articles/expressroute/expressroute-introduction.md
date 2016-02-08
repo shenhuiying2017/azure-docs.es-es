@@ -28,7 +28,7 @@ Microsoft Azure ExpressRoute le permite ampliar sus redes de local en la nube de
 - Conectividad global a los servicios de Microsoft en todas las regiones con el complemento ExpressRoute Premium.
 - Enrutamiento dinámico entre la red y Microsoft a través de protocolos estándar del sector (BGP).
 - Redundancia integrada en todas las ubicaciones de configuración entre pares para una mayor confiabilidad.
-- El tiempo de actividad de conexión [SLA](http://azure.microsoft.com/support/legal/sla/).
+- El tiempo de actividad de conexión [SLA](https://azure.microsoft.com/support/legal/sla/).
 - QoS y compatibilidad para varias clases de servicio para aplicaciones especiales, como Skype Empresarial.
 
 Consulte [P+F de ExpressRoute](expressroute-faqs.md) para obtener más detalles.
@@ -55,7 +55,7 @@ Microsoft usa el protocolo de enrutamiento dinámico estándar del sector (BGP) 
 
 ### Redundancia
 
-Cada circuito ExpressRoute consta de dos conexiones a dos enrutadores de perímetro de Microsoft Enterprise (MSEEs) desde proveedor de conectividad o la red perimetral. Microsoft requiere conexión BGP dual desde el proveedor de conectividad o su sitio, uno a cada MSEE. Si lo desea tiene la opción de no implementar dispositivos redundantes o Ethernet de circuitos en su extremo. Sin embargo, los proveedores de conectividad usan dispositivos redundantes para garantizar que las conexiones se entregan a Microsoft de forma redundante. Una configuración de conectividad redundante de nivel 3 es un requisito para nuestro [SLA](http://azure.microsoft.com/support/legal/sla/) sea válido.
+Cada circuito ExpressRoute consta de dos conexiones a dos enrutadores de perímetro de Microsoft Enterprise (MSEEs) desde proveedor de conectividad o la red perimetral. Microsoft requiere conexión BGP dual desde el proveedor de conectividad o su sitio, uno a cada MSEE. Si lo desea tiene la opción de no implementar dispositivos redundantes o Ethernet de circuitos en su extremo. Sin embargo, los proveedores de conectividad usan dispositivos redundantes para garantizar que las conexiones se entregan a Microsoft de forma redundante. Una configuración de conectividad redundante de nivel 3 es un requisito para nuestro [SLA](https://azure.microsoft.com/support/legal/sla/) sea válido.
 
 ### Conectividad con los Servicios en la nube de Microsoft
 
@@ -124,4 +124,4 @@ Puede elegir el modelo de facturación que mejor le convenga. Elija entre los mo
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

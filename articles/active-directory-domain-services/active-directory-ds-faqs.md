@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Vista previa de Servicios de dominio de Active Directory: preguntas más frecuentes
@@ -38,6 +38,9 @@ PowerShell y la implementación automatizada de Servicios de dominio de Azure AD
 #### ¿Está Servicios de dominio de Azure AD disponible en el nuevo portal de Azure?
 No. Los Servicios de dominio de Azure AD pueden configurarse únicamente en el Portal de administración de Azure anterior (es decir, https://manage.windowsazure.com). Esperamos ampliar la compatibilidad para el nuevo Portal de administración de Microsoft Azure (es decir, https://portal.azure.com) en el futuro.
 
+#### ¿Puedo agregar controladores de dominio a un dominio administrado de Servicios de dominio de Azure AD?
+No. El dominio de Servicios de dominio de Azure AD es un dominio administrado. No es necesario aprovisionar, configurar o administrar controladores de dominio para este dominio, Microsoft proporciona estas actividades de administración como un servicio. Por lo tanto, no podrá agregar controladores de dominio adicionales (ni de lectura y escritura ni de solo lectura) para el dominio administrado.
+
 
 ### Administración y operaciones
 
@@ -49,6 +52,9 @@ No. Puesto que se trata de un servicio administrado, no se le proporcionarán pr
 
 #### ¿Puedo modificar pertenencias a grupos mediante LDAP u otras herramientas administrativas de AD en dominios proporcionados por Servicios de dominio de Azure AD?
 No. Las pertenencias a grupos en dominios ofrecidos por Servicios de dominio de Azure AD no se pueden modificar. Lo mismo se aplica para los atributos de usuario. Sin embargo, puede cambiar las pertenencias a grupos o los atributos de usuario en Azure AD o en el dominio local. Dichos cambios se sincronizarán automáticamente con Servicios de dominio de Azure AD.
+
+#### ¿Puedo extender el esquema del dominio proporcionado por Servicios de dominio de Azure AD?
+No. Microsoft administra el esquema del dominio administrado. No se admiten extensiones de esquema en los Servicios de dominio de Azure AD.
 
 
 ### Facturación y disponibilidad
@@ -68,4 +74,4 @@ Consulte nuestra [página de regiones](active-directory-ds-regions.md) para obte
 #### ¿Cuándo está disponible Servicios de dominio de Azure AD con carácter general?
 Actualmente no podemos compartir escalas de tiempo sobre cuándo estará disponible el servicio con carácter general.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

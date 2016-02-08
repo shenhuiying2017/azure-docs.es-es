@@ -53,7 +53,8 @@ Se puede instalar y configurar la alerta de fraude para que los usuarios puedan 
 6.	En el cuadro de texto **Código para notificar fraudes durante el saludo inicial**, escriba un código de números que se pueda usar durante la comprobación de llamadas. Si un usuario introduce este código más # en lugar de solo el signo #, se notificará una alerta de fraude. 
 7.	Haga clic en Guardar en la parte inferior.
 
->[AZURE.NOTE]El saludo predeterminado de Microsoft indica a los usuarios que presionen 0# para enviar una alerta de fraude. Si utiliza un código distinto de 0, deberá grabar y cargar sus propio saludo personalizado con las instrucciones apropiadas.
+>[AZURE.NOTE]
+El saludo predeterminado de Microsoft indica a los usuarios que presionen 0# para enviar una alerta de fraude. Si utiliza un código distinto de 0, deberá grabar y cargar sus propio saludo personalizado con las instrucciones apropiadas.
 
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)</center>
@@ -80,7 +81,7 @@ Una alerta de fraude se puede notificar de dos maneras. Ya sea a través de la a
 
 ### Para ver el informe de fraude
 
-1. Inicie sesión en [http://azure.microsoft.com](http://azure.microsoft.com)
+1. Inicie sesión en [http://azure.microsoft.com](https://azure.microsoft.com/)
 2. En la parte izquierda, seleccione Active Directory.
 3. En la parte superior, seleccione los proveedores de Multi-Factor Authentication. Aparecerá una lista de los proveedores de Multi-Factor Authentication.
 4. Si tiene más de un proveedor de Multi-Factor Authentication, seleccione aquel en el que desea ver el informe de la alerta de fraude y haga clic en Administrar en la parte inferior de la página. Si sólo tiene uno, haga clic en Administrar. Se abrirá el Portal de administración de Azure Multi-Factor Authentication.
@@ -106,7 +107,7 @@ Una omisión por única vez permite a un usuario autenticarse una sola vez omiti
 
 ### Para ver el informe de omisión por única vez
 
-1. Inicie sesión en [http://azure.microsoft.com](http://azure.microsoft.com)
+1. Inicie sesión en [http://azure.microsoft.com](https://azure.microsoft.com/)
 2. En la parte izquierda, seleccione Active Directory.
 3. En la parte superior, seleccione los proveedores de Multi-Factor Authentication. Aparecerá una lista de los proveedores de Multi-Factor Authentication.
 4. Si tiene más de un proveedor de Multi-Factor Authentication, seleccione aquel en el que desea ver el informe de la alerta de fraude y haga clic en Administrar en la parte inferior de la página. Si sólo tiene uno, haga clic en Administrar. Se abrirá el Portal de administración de Azure Multi-Factor Authentication.
@@ -210,7 +211,7 @@ Fuera de la red corporativa|Para los flujos de explorador es necesaria la autent
 
 En algunas aplicaciones, como Office 2010 o anteriores y Apple Mail no se puede utilizar la autenticación multifactor. Para usar estas aplicaciones, tendrá que utilizar "contraseñas de aplicación" en lugar de la contraseña tradicional. Las contraseñas de aplicación permiten a la aplicación omitir la autenticación multifactor y poder seguir trabajando.
 
->[AZURE.NOTE]Autenticación moderna para los clientes de Office 2013
+>[AZURE.NOTE] Autenticación moderna para los clientes de Office 2013
 >
 > Los clientes de Office 2013 (incluye Outlook) ahora admiten nuevos protocolos de autenticación que pueden habilitarse para admitir Multi-Factor Authentication. Esto significa que una vez habilitada, las contraseñas de aplicación no son necesarias para los clientes de Office 2013. Para obtener más información, consulte [Anuncio de la vista previa pública de la autenticación moderna de Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
@@ -230,7 +231,7 @@ Experiencia de autenticación|Para las aplicaciones basadas en explorador|Para l
 - Actualmente hay un límite de 40 contraseñas por usuario. Para crear una nueva contraseña de aplicación se le pedirá que elimine una de las existentes.
 - Una vez habilitada la autenticación multifactor en una cuenta de usuario, las contraseñas de aplicación pueden usarse con la mayoría de los clientes que no son explorador, como Outlook y Lync, pero no se puede realizar acciones administrativas con contraseñas de aplicación a través de aplicaciones que no son explorador, como Windows PowerShell, incluso si ese usuario tiene una cuenta administrativa. Asegúrese de crear una cuenta de servicio con una contraseña segura para ejecutar scripts de PowerShell y no habilite esa cuenta para la autenticación multifactor.
 
->[AZURE.WARNING]Las contraseñas de aplicación no funcionarán en entornos híbridos donde los clientes se comunican tanto en el entorno local como en los extremos de detección automática en la nube.
+>[AZURE.WARNING]  Las contraseñas de aplicación no funcionarán en entornos híbridos donde los clientes se comunican tanto en el entorno local como en los extremos de detección automática en la nube.
 >
 >Tenga en cuenta que las contraseñas de aplicación no funcionarán en entornos híbridos donde los clientes se comunican tanto en el entorno local como en los extremos de detección automática en la nube, ya que para autenticarse en el entorno local se requieren contraseñas de dominio y contraseñas de aplicación para autenticarse en la nube.
 
@@ -338,7 +339,7 @@ Para asegurarse de que se protegen las cuentas de usuario, debe restaurar Multi-
 - Si su cuenta corporativa se ha visto comprometida
 - Si un dispositivo recordado se ha perdido o ha sido robado
 
-> [AZURE.NOTE]Esta característica se implementa como una caché de cookies del explorador. No funcionará si no están habilitadas las cookies del explorador.
+> [AZURE.NOTE] Esta característica se implementa como una caché de cookies del explorador. No funcionará si no están habilitadas las cookies del explorador.
 
 ### Activación y desactivación de la suspensión de MFA para los dispositivos recordados
 
@@ -351,4 +352,4 @@ Para asegurarse de que se protegen las cuentas de usuario, debe restaurar Multi-
 <li>En la página Configuración del servicio, en administrar la configuración de dispositivo de usuario, seleccione o anule la selección de la opción para **permitir a los usuarios suspender la autenticación multifactor haciendo que se recuerde el dispositivo **.</li>
 ![Suspender dispositivos](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Establezca el número de días que desea permitir la suspensión. El valor predeterminado es 14 días.</li> <li>Haga clic en Guardar.</li> <li>Haga clic en Cerrar.</li>
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

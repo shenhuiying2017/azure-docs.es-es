@@ -4,7 +4,7 @@
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
-   manager="Adinah" 
+   manager="carmon" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 # Cómo administrar registros DNS con PowerShell
@@ -32,9 +32,9 @@ Es importante comprender la diferencia entre los conjuntos de registros de DNS y
 
 Se crean conjuntos de registros mediante el cmdlet New-AzureDnsRecordSet. Deberá especificar el nombre del conjunto de registros, la zona, el período de vida (TTL) y el tipo de registro.
 
->[AZURE.NOTE]El nombre del conjunto de registros debe ser un nombre relativo, sin incluir el nombre de la zona. Por ejemplo, el nombre del conjunto de registros “www” en la zona “contoso.com” creará un conjunto de registros con el nombre completo “www.contoso.com”.
+El nombre del conjunto de registros debe ser un nombre relativo, sin incluir el nombre de la zona. Por ejemplo, el nombre del conjunto de registros “www” en la zona “contoso.com” creará un conjunto de registros con el nombre completo “www.contoso.com”.
 
->Para un conjunto de registros del vértice de la zona, utilice "@" como nombre de conjunto de registro, incluidas las comillas.Para un conjunto de registros del vértice de la zona, utilice "@" como nombre de conjunto de registro, incluidas las comillas. El nombre completo del conjunto de registros es igual al nombre de zona, en este caso "contoso.com".
+Para un conjunto de registros del vértice de la zona, utilice "@" como nombre de conjunto de registro, incluidas las comillas.Para un conjunto de registros del vértice de la zona, utilice "@" como nombre de conjunto de registro, incluidas las comillas. El nombre completo del conjunto de registros es igual al nombre de zona, en este caso "contoso.com".
 
 DNS de Azure es compatible con todos los tipos de registro siguientes: A, AAAA, CNAME, MX, NS, SOA, SRV y TXT. Los conjuntos de registros de tipo SOA se crean automáticamente con cada zona; no se pueden crear por separado.
 
@@ -48,15 +48,15 @@ En el ejemplo anterior, la zona se especifica mediante un objeto de zona, que de
 
 New-AzureDnsRecordSet devuelve un objeto local que representa el conjunto de registros que se crea en DNS de Azure.
 
->[AZURE.NOTE]Los conjuntos de registros CNAME coexisten con otros conjuntos de registros con el mismo nombre. Por ejemplo, no se puede crear un registro CNAME con el nombre relativo "www" y un registro A con el nombre relativo "www" al mismo tiempo. Habida cuenta de que el ápice de zona (nombre = “@”) siempre contiene los conjuntos de registros NS y SOA creados cuando se crea la zona, significa que no puede crear un conjunto de registros CNAME en el ápice de zona. Estas restricciones surgen de los estándares DNS; no son limitaciones de DNS de Azure.
+>[AZURE.IMPORTANT] Los conjuntos de registros CNAME coexisten con otros conjuntos de registros con el mismo nombre. Por ejemplo, no se puede crear un registro CNAME con el nombre relativo "www" y un registro A con el nombre relativo "www" al mismo tiempo. Habida cuenta de que el ápice de zona (nombre = “@”) siempre contiene los conjuntos de registros NS y SOA creados cuando se crea la zona, significa que no puede crear un conjunto de registros CNAME en el ápice de zona. Estas restricciones surgen de los estándares DNS; no son limitaciones de DNS de Azure.
 
 ### Registros de carácter comodín
 
-Azure DNS admite [registros de carácter comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Estos se devuelven en cualquier consulta con un nombre coincidente (a menos que haya una coincidencia más próxima de un conjunto de registros que no sean de caracteres comodín).
+DNS de Azure admite [registros de carácter comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Estos se devuelven en cualquier consulta con un nombre coincidente (a menos que haya una coincidencia más próxima de un conjunto de registros que no sean de caracteres comodín).
 
->[AZURE.NOTE]Para crear un conjunto de registros de carácter comodín, use el nombre de conjunto de registros "*" o un nombre cuya primera etiqueta sea "*", por ejemplo, "*.foo".
+Para crear un conjunto de registros de carácter comodín, use el nombre de conjunto de registros "*" o un nombre cuya primera etiqueta sea "*", por ejemplo, "*.foo".
 
->Los conjuntos de registros de carácter comodín son compatibles con todos los tipos de registro, excepto NS y SOA.
+Los conjuntos de registros de carácter comodín son compatibles con todos los tipos de registro, excepto NS y SOA.
 
 ## Recuperación de un conjunto de registros
 
@@ -169,7 +169,7 @@ El cmdlet Set-AzureDnsRecordSet usa comprobaciones de "etag" para asegurarse de 
 
 ### Modificación de registros SOA
 
->[AZURE.NOTE]No puede agregar ni eliminar registros del conjunto de registros SOA creado automáticamente en el ápice de zona (nombre = “@”), pero puede modificar los parámetros del registro SOA y del TTL del conjunto de registros.
+>[AZURE.NOTE] No puede agregar ni eliminar registros del conjunto de registros SOA creado automáticamente en el ápice de zona (nombre = “@”), pero puede modificar los parámetros del registro SOA y del TTL del conjunto de registros.
 
 En el ejemplo siguiente se muestra cómo cambiar la propiedad “Email” del registro SOA:
 
@@ -179,7 +179,7 @@ En el ejemplo siguiente se muestra cómo cambiar la propiedad “Email” del re
 
 ### Modificación de los registros NS en el ápice de zona
 
->[AZURE.NOTE]No puede agregar, eliminar ni modificar los registros en el conjunto de registros NS creado automáticamente en el ápice de zona (nombre = “@”). El único cambio permitido es modificar el TTL del conjunto de registros.
+>[AZURE.NOTE] No puede agregar, eliminar ni modificar los registros en el conjunto de registros NS creado automáticamente en el ápice de zona (nombre = “@”). El único cambio permitido es modificar el TTL del conjunto de registros.
 
 En el ejemplo siguiente se muestra cómo cambiar la propiedad TTL del conjunto de registros NS:
 
@@ -252,7 +252,7 @@ Puesto que un conjunto de registros CNAME puede contener como máximo un registr
 ## Eliminación de un conjunto de registros
 Pueden eliminarse conjuntos de registros mediante el cmdlet Remove-AzureDnsRecordSet.
 
->[AZURE.NOTE]No se pueden eliminar conjuntos de registros SOA ni NS en el ápice de zona (nombre = “@”) que se crean automáticamente cuando se crea la zona. Se eliminarán automáticamente al eliminar la zona.
+>[AZURE.NOTE] No se pueden eliminar conjuntos de registros SOA ni NS en el ápice de zona (nombre = “@”) que se crean automáticamente cuando se crea la zona. Se eliminarán automáticamente al eliminar la zona.
 
 Utilice una de las dos opciones siguientes para eliminar un conjunto de registros:
 
@@ -287,4 +287,4 @@ El objeto del conjunto de registros también puede canalizarse en lugar de pasar
 [Introducción a la creación de registros y conjuntos de registros](dns-getstarted-create-recordset.md)<BR> [Administración de zonas DNS](dns-operations-dnszones.md)<BR> [Automatización de operaciones con el SDK de .NET](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

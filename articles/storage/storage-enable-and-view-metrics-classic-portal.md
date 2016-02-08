@@ -22,13 +22,13 @@
 
 ## Información general
 
-Las Métricas de almacenamiento no están habilitadas de forma predeterminada para los servicios de almacenamiento. Puede habilitar la supervisión mediante el [Portal de Azure clásico](manage.windowsazure.com), Windows PowerShell o mediante programación a través de una API de almacenamiento.
+Las Métricas de almacenamiento no están habilitadas de forma predeterminada para los servicios de almacenamiento. Puede habilitar la supervisión mediante el [Portal de Azure clásico](https://manage.windowsazure.com), Windows PowerShell o mediante programación a través de una API de almacenamiento.
 
 Al habilitar las Métricas de almacenamiento, debe elegir un período de retención de datos: este período determina el tiempo que el servicio de almacenamiento mantiene las métricas y cobra por el espacio necesario para almacenarlas. Generalmente, usará un período de retención más corto para la métrica por minuto que para la métrica por hora debido al considerable espacio adicional requerido para la métrica por minuto. Debe elegir un período de retención durante el cual tenga suficiente tiempo para analizar los datos y descargar todas las métricas que quiera mantener para los informes o el análisis sin conexión. Recuerde que también se le facturará por la descarga de los datos de métricas desde su cuenta de almacenamiento.
 
 ## Cómo habilitar las Métricas de almacenamiento mediante el Portal de Azure clásico
 
-En el [Portal de Azure clásico](manage.windowsazure.com), puede usar la página Configurar de una cuenta de almacenamiento para así controlar las Métricas de almacenamiento. Para supervisarlas, puede establecer un nivel y un período de retención cuantificado en días para cada blob, tabla y cola. En cada caso, el nivel es uno de los siguientes:
+En el [Portal de Azure clásico](https://manage.windowsazure.com), puede usar la página Configurar de una cuenta de almacenamiento para así controlar las Métricas de almacenamiento. Para supervisarlas, puede establecer un nivel y un período de retención cuantificado en días para cada blob, tabla y cola. En cada caso, el nivel es uno de los siguientes:
 
 - Desactivada: significa que no se recopilan métricas.
 
@@ -211,4 +211,4 @@ La capacidad de las tablas de métricas también es facturable: puede usar las o
 [Habilitar el registro del Análisis de almacenamiento y acceder a los datos del mismo](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

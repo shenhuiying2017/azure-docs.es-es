@@ -37,7 +37,7 @@ Las plantillas del Administrador de recursos de Azure le permiten especificar me
 
 ### Requisitos previos
 
-1. Instale los últimos cmdlets de Azure PowerShell o la CLI de Azure [aquí](http://azure.microsoft.com/downloads).
+1. Instale los últimos cmdlets de Azure PowerShell o la CLI de Azure [aquí](https://azure.microsoft.com/downloads/).
 2. Si las secuencias de comandos se van a ejecutar en una máquina virtual existente, asegúrese de que el agente de máquina virtual está habilitado en la máquina virtual; si no lo está, siga las indicaciones de este [artículo](virtual-machines-extensions-install) para instalar uno.
 3. Cargue las secuencias de comandos que desea ejecutar en la máquina virtual para el almacenamiento de Azure. Las secuencias de comandos pueden proceder de un único contenedor de almacenamiento o de varios.
 4. También pueden cargarse los scripts en una cuenta de Github.
@@ -102,4 +102,4 @@ Consulte los ejemplos siguientes para obtener ejemplos completos de configuraci�
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Extensión del script personalizado en una máquina virtual de Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Extensión de script personalizada en una máquina virtual de Windows</a>.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="powershell"
 	ms.workload="na"
-	ms.date="10/09/2015"
+	ms.date="01/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 #Cambios en los cdmlets de PowerShell de administración del Administrador de recursos de Azure
@@ -91,4 +91,4 @@ Lo anterior filtrará el resultado para mostrar las ubicaciones admitidas solo p
 
 Hemos agregado soporte técnico de la directiva al Administrador de recursos de Azure. Se han agregado los cmdlets de PowerShell para administrar directivas en esta versión. Para obtener más detalles sobre las directivas, vea [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

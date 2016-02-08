@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Uso del Bus de servicio desde .NET con AMQP 1.0
@@ -21,7 +21,7 @@
 
 ## Descargar el SDK del bus de servicio
 
-La compatibilidad con AMQP 1.0 está disponible en el SDK del Bus de servicio versión 2.1 o posterior. Puede descargar el último SDK en [NuGet][].
+La compatibilidad con AMQP 1.0 está disponible en el SDK del Bus de servicio versión 2.1 o posterior. Puede descargar el último Bus de servicio en [NuGet][].
 
 ## Configuración de aplicaciones .NET para usar AMQP 1.0
 
@@ -198,10 +198,9 @@ Las API de .NET exponen varias opciones para controlar el comportamiento del pro
   [Microsoft.ServiceBus.Messaging.BrokeredMessage.RenewLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
-
 [Portal de Azure clásico]: http://manage.windowsazure.com
 [Información general sobre AMQP para el Bus de servicio]: service-bus-amqp-overview.md
 [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP de Bus de servicio para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

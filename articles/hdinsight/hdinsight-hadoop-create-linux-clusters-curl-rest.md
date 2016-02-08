@@ -23,13 +23,13 @@
 
 La API de REST de Azure permite realizar operaciones de administración de servicios hospedados en la plataforma Azure, incluida la creación de recursos como, por ejemplo, clústeres de HDInsight basados en Linux. En este documento, obtendrá información sobre cómo crear plantillas del Administrador de recursos de Azure para configurar un clúster de HDInsight y el almacenamiento asociado y luego usar cURL para implementar la plantilla en la API de REST de Azure para crear un clúster de HDInsight.
 
-> [AZURE.IMPORTANT]Los pasos de este documento usan el número predeterminado de nodos de trabajo (4) para un clúster de HDInsight. Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
+> [AZURE.IMPORTANT] Los pasos de este documento usan el número predeterminado de nodos de trabajo (4) para un clúster de HDInsight. Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
 >
 > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ###Requisitos previos
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __CLI de Azure__ La CLI de Azure se usa para crear una entidad de servicio, que luego se emplea para generar tokens de autenticación para solicitudes a la API de REST de Azure.
 
@@ -37,7 +37,7 @@ La API de REST de Azure permite realizar operaciones de administración de servi
 
 - __cURL__. Esta utilidad está disponible a través del sistema de administración de paquetes, o se puede descargar desde [http://curl.haxx.se/](http://curl.haxx.se/).
 
-    > [AZURE.NOTE]Si usa PowerShell para ejecutar los comandos de este documento, debe quitar primero el alias `curl` que crea de forma predeterminada. Este alias usa Invoke-WebRequest, un cmdlet de PowerShell, en lugar de cURL cuando se usa el comando `curl` desde un símbolo del sistema de PowerShell y devolverá errores para muchos de los comandos que se usan en este documento.
+    > [AZURE.NOTE] Si usa PowerShell para ejecutar los comandos de este documento, debe quitar primero el alias `curl` que crea de forma predeterminada. Este alias usa Invoke-WebRequest, un cmdlet de PowerShell, en lugar de cURL cuando se usa el comando `curl` desde un símbolo del sistema de PowerShell y devolverá errores para muchos de los comandos que se usan en este documento.
     > 
     > Para quitar este alias, use lo siguiente desde el símbolo del sistema de PowerShell:
     >
@@ -263,7 +263,7 @@ Siga los pasos que se documentan en [Conexión a una suscripción de Azure desde
 
 ##Creación de una entidad de servicio
 
-> [AZURE.IMPORTANT]Al seguir los pasos descritos en el artículo vinculado a continuación, debe realizar el cambio siguiente:
+> [AZURE.IMPORTANT] Al seguir los pasos descritos en el artículo vinculado a continuación, debe realizar el cambio siguiente:
 > 
 > * Cuando los pasos indiquen que use un valor de __reader__, deberá utilizar __owner__. Así creará una entidad de servicio que puede realizar cambios a los servicios de su suscripción, lo que es necesario para la creación de un clúster de HDInsight.
 >
@@ -290,7 +290,7 @@ Use lo siguiente para obtener un nuevo token de Azure. Reemplace __TENANTID__, _
 
 Si esta solicitud se realiza correctamente, recibirá una respuesta 200 serie y el cuerpo de respuesta contendrá un documento JSON.
 
-> [AZURE.IMPORTANT]El documento JSON que devuelve la solicitud incluirá un elemento denominado __access\_token__; el valor de este elemento es el token de acceso que hay que usar para la autenticación de las solicitudes que se utilizan en las secciones siguientes de este documento.
+> [AZURE.IMPORTANT] El documento JSON que devuelve la solicitud incluirá un elemento denominado __access\_token__; el valor de este elemento es el token de acceso que hay que usar para la autenticación de las solicitudes que se utilizan en las secciones siguientes de este documento.
 
 ##Crear un grupo de recursos
 
@@ -315,13 +315,13 @@ Use lo siguiente para implementar la configuración del clúster (plantilla y va
 
     curl -X "PUT" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME/providers/microsoft.resources/deployments/DEPLOYMENTNAME?api-version=2015-01-01" \\ -H "Autorización: ACCESSTOKEN de portador" \\ -H "Content-Type: application/json" \\ -d "{establecer la cadena del cuerpo en la plantilla y los parámetros}"
 
-> [AZURE.NOTE]Si guardó el documento JSON que contiene la plantilla y los parámetros en un archivo, puede usar lo siguiente en lugar de '-d. "{plantilla y parámetros}" ':
+> [AZURE.NOTE] Si guardó el documento JSON que contiene la plantilla y los parámetros en un archivo, puede usar lo siguiente en lugar de '-d. "{plantilla y parámetros}" ':
 >
 > ```--data-binary "@/path/to/file.json"```
 
 Si esta solicitud se realiza correctamente, recibirá una respuesta 200 serie y el cuerpo de respuesta contendrá un documento JSON que incluye información sobre la operación de implementación.
 
-> [AZURE.IMPORTANT]Tenga en cuenta que en este momento la solicitud ya se envió pero sin completarse. La implementación puede tardar varios minutos, normalmente unos 15, en completarse.
+> [AZURE.IMPORTANT] Tenga en cuenta que en este momento la solicitud ya se envió pero sin completarse. La implementación puede tardar varios minutos, normalmente unos 15, en completarse.
 
 ##Comprobación del estado de la implementación
 
@@ -355,4 +355,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -39,7 +39,7 @@ git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet.git
 
 ## Registrar una aplicación
 
-En primer lugar, cree una aplicación en el [Portal de registro de aplicaciones](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md). Asegúrese de que:
+En primer lugar, cree una aplicación en el [Portal de registro de aplicaciones](https://apps.dev.microsoft.com), o siga estos [pasos detallados](active-directory-v2-app-registration.md). Asegúrese de que:
 
 - Agrega la plataforma **web** para su aplicación.
 - Escribe el **URI de redireccionamiento** correcto. El valor predeterminado en este ejemplo es `https://localhost:44326/`.
@@ -48,7 +48,7 @@ En primer lugar, cree una aplicación en el [Portal de registro de aplicaciones]
 Anota el valor de **Id. de aplicación** asignado a su aplicación; lo necesitará pronto.
 
 ## Instalación de adal.js
-Para comenzar, vaya al proyecto que ha descargado e instale adal.js. Si tiene [bower](http://bower.io/) instalado, puede ejecutar simplemente este comando. En el caso de errores de coincidencia de la versión de dependencia, elija la versión superior. ```
+Para comenzar, vaya al proyecto que ha descargado e instale adal.js. Si tiene [bower](http://bower.io/) instalado, solo puede ejecutar este comando. Para los errores de coincidencia de la versión de dependencia, elija la versión superior. ```
 bower install adal-angular#experimental
 ```
 
@@ -223,6 +223,6 @@ Para seguir aprendiendo sobre la versión preliminar del modelo de aplicaciones 
 
 - [Ejemplos de Azure en GitHub >>](https://github.com/Azure-Samples)
 - [Azure AD en Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
-- Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+- Documentación de Azure AD en [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

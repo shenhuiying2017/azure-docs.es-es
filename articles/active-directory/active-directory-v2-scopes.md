@@ -20,7 +20,8 @@
 
 Las aplicaciones que se integran con Azure AD siguen un modelo de autorización especial que permite a los usuarios controlar cómo puede tener acceso a sus datos una aplicación. En la versión 2.0 del modelo de aplicaciones se ha actualizado la implementación de este modelo de autorización y se ha cambiado cómo tiene que interactuar una aplicación con Azure AD. En este tema se tratan los conceptos básicos de este modelo de autorización, incluidos los ámbitos, los permisos y el consentimiento.
 
-> [AZURE.NOTE]Esta información se aplica a la vista previa pública de la versión 2.0 del modelo de aplicaciones. Para obtener instrucciones sobre cómo integrar con el servicio de Azure AD disponible con carácter general, consulta la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Esta información se aplica a la vista previa pública de la versión 2.0 del modelo de aplicaciones. Para obtener instrucciones sobre cómo integrar con el servicio de Azure AD disponible con carácter general, consulta la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
 
 ## Ámbitos y permisos
 
@@ -100,20 +101,29 @@ El token de acceso resultante se puede usar en las solicitudes HTTP para el recu
 
 Para conocer más detalles sobre el protocolo OAuth 2.0 y cómo adquirir tokens de acceso, consulta la [referencia del protocolo de la versión 2.0 del modelo de aplicaciones](active-directory-v2-protocols.md).
 
-## OpenId y Offline\_Access
 
-La versión 2.0 del modelo de aplicaciones tiene dos ámbitos bien definidos que no se aplican a un recurso determinado y que son `openid` y `offline_access`.
+## Ámbitos de OpenId Connect
+
+La implementación de la versión 2.0 de OpenID Connect tiene unos cuantos ámbitos bien definidos que no se aplican a ningún recurso determinado: `openid`, `email`, `profile`, y `offline_access`.
 
 #### OpenId
 
-Si una aplicación realiza el inicio de sesión mediante [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow) deberá solicitar el ámbito `openid`. El ámbito `openid` aparecerá en la pantalla de consentimiento de la cuenta profesional como el permiso "Iniciar sesión" y en la pantalla de consentimiento de la cuenta personal de Microsoft como el permiso "Ver el perfil y conectarse a las aplicaciones y servicios con la cuenta de Microsoft". Este permiso permite que una aplicación tenga acceso al extremo de información del usuario de OpenID Connect y, por lo tanto, requiere la aprobación del usuario. El ámbito `openid` también se puede utilizar en el extremo del token de la versión 2.0 para adquirir id\_tokens, que se pueden utilizar para proteger las llamadas HTTP entre distintos componentes de una aplicación.
+Si una aplicación realiza el inicio de sesión mediante [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow) deberá solicitar el ámbito `openid`. El ámbito `openid` aparecerá en la pantalla de consentimiento de la cuenta profesional como el permiso "Iniciar sesión" y en la pantalla de consentimiento de la cuenta personal de Microsoft como el permiso "Ver el perfil y conectarse a las aplicaciones y servicios con la cuenta de Microsoft". Este permiso permite que una aplicación reciba un identificador único para el usuario en forma de notificación `sub`. También ofrece a la aplicación acceso al punto de conexión de la información de usuario. El ámbito `openid` también se puede utilizar en el extremo del token de la versión 2.0 para adquirir id\_tokens, que se pueden utilizar para proteger las llamadas HTTP entre distintos componentes de una aplicación.
+
+#### Email
+
+El ámbito `email` pueden incluirse junto con el ámbito `openid` y con cualquier otro. Proporciona a la aplicación el acceso a la dirección de correo electrónico principal del usuario en forma de notificación `email`. La notificación `email` solo se incluirá en los tokens si una dirección de correo electrónico está asociada a la cuenta de usuario, que no es siempre el caso. Si utiliza el ámbito `email`, la aplicación debe estar preparada para controlar los casos en los que la notificación `email` no exista en el token.
+
+#### Perfil
+
+El ámbito `profile` pueden incluirse junto con el ámbito `openid` y con cualquier otro. Proporciona acceso a la aplicación a una gran cantidad de información sobre el usuario. Esto incluye, pero no se limita a, nombre del usuario, apellido, nombre de usuario preferido, identificador de objeto y demás. Para obtener una lista completa de las notificaciones de perfil disponibles en id\_tokens para un usuario determinado, consulte la [referencia de los tokens de la versión 2.0](active-directory-v2-tokens.md).
 
 #### Offline\_Access
 
-El ámbito `offline_access` permite que la aplicación tenga acceso a recursos en nombre del usuario durante un largo período de tiempo. En la pantalla de consentimiento de la cuenta profesional este ámbito aparecerá como el permiso "Acceso a los datos en cualquier momento". En la pantalla de consentimiento de la cuenta personal de Microsoft este ámbito aparecerá como el permiso "Acceso a tu información en cualquier momento". Cuando un usuario aprueba el ámbito `offline_access`, la aplicación se habilitará para recibir los tokens de actualización del extremo de token de la versión 2.0. Los tokens de actualización son de larga duración y permiten a la aplicación adquirir nuevos tokens de acceso a medida que los antiguos caducan.
+El [ámbito `offline_access`](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) permite que la aplicación tenga acceso a recursos en nombre del usuario durante un largo período de tiempo. En la pantalla de consentimiento de la cuenta profesional este ámbito aparecerá como el permiso "Acceso a los datos en cualquier momento". En la pantalla de consentimiento de la cuenta personal de Microsoft este ámbito aparecerá como el permiso "Acceso a tu información en cualquier momento". Cuando un usuario aprueba el ámbito `offline_access`, la aplicación se habilitará para recibir los tokens de actualización del extremo de token de la versión 2.0. Los tokens de actualización son de larga duración y permiten a la aplicación adquirir nuevos tokens de acceso a medida que los antiguos caducan.
 
-Si tu aplicación no solicita el ámbito `offline_access`, no recibirá tokens de actualización (refresh\_tokens). Esto significa que cuando canjees un código de autorización (authorization\_code) del [flujo del código de autorización de OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), solo recibirás un token de acceso (access\_token) desde el extremo de `/token`. Ese token de acceso seguirá siendo válido durante un breve período de tiempo (normalmente una hora), pero finalmente caducará. En ese momento, la aplicación tendrá que redirigir al usuario de nuevo al extremo de `/authorize` para recuperar un nuevo código de autorización. Durante esta redirección, el usuario puede o no necesitar escribir sus credenciales de nuevo o volver a dar el consentimiento a permisos, según el tipo de aplicación.
+Si tu aplicación no solicita el ámbito `offline_access`, no recibirá tokens de actualización (refresh\_tokens). Esto significa que cuando canjees un código de autorización (authorization\_code) del [flujo del código de autorización de OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), solo recibirás un token de acceso (access\_token) desde el extremo de `/token`. Ese token de acceso seguirá siendo válido durante un breve período de tiempo (normalmente una hora), pero finalmente caducará. En ese momento, la aplicación tendrá que redirigir al usuario de nuevo al extremo de `/authorize` para recuperar un nuevo authorization\_code. Durante esta redirección, es posible o no que el usuario necesite escribir sus credenciales de nuevo o volver a dar el consentimiento a permisos, según el tipo de aplicación.
 
-Para más información sobre cómo obtener y usar tokens de actualización, consulta la [referencia del protocolo de la versión 2.0 del modelo de aplicaciones](active-directory-v2-protocols.md).
+Para más información sobre cómo obtener y usar los tokens de actualización, consulte la [referencia de protocolos de la versión 2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -32,10 +32,9 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 ## Modelo jerárquico de recursos
 Tal y como muestra el siguiente diagrama, el **modelo de recursos** jerárquico de DocumentDB consta de conjuntos de recursos en una cuenta de base de datos, cada uno de ellos direccionable mediante un URI lógico y estable. En este artículo, los conjuntos de recursos se denominan **fuentes**.
 
->[AZURE.NOTE]DocumentDB ofrece un protocolo de TCP sumamente eficaz que también es RESTful en su modelo de comunicación; disponible a través del [SDK de cliente de .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+>[AZURE.NOTE] DocumentDB ofrece un protocolo de TCP sumamente eficaz que también es RESTful en su modelo de comunicación; disponible a través del [SDK de cliente de .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![Modelo jerárquico de recursos de DocumentDB][1]  
-**Modelo jerárquico de recursos**   
+![Modelo jerárquico de recursos de DocumentDB][1] **Modelo jerárquico de recursos**
 
 Para empezar a trabajar con los recursos, debe [crear una cuenta de base de datos para DocumentDB](documentdb-create-account.md) mediante su suscripción a Azure. Una cuenta de base de datos puede constar de un grupo de **bases de datos**, cada una con varias **colecciones**, que a su vez pueden contener **procedimientos almacenados, desencadenadores, UDF, documentos** y **datos adjuntos** relacionados (característica de vista previa). Una base de datos también tiene **usuarios** asociados, cada uno con un conjunto de **permisos** para obtener acceso a las colecciones, procedimientos almacenados, desencadenadores, UDF, documentos o datos adjuntos. Mientras las bases de datos, usuarios, permisos y colecciones son recursos definidos por el sistema con esquemas, documentos y datos adjuntos conocidos con contenido arbitrario JSON definido por el usuario.
 
@@ -56,35 +55,20 @@ Para empezar a trabajar con los recursos, debe [crear una cuenta de base de dato
 ## Recursos del sistema frente a recursos definidos por el usuario
 Los recursos (por ejemplo, las cuentas de bases de datos, las bases de datos, las colecciones, los usuarios, los permisos, los procedimientos almacenados, los desencadenadores y las UDF) tienen todos un esquema fijo y se les denomina "recursos del sistema". En cambio, los recursos como documentos y datos adjuntos no tienen restricciones de esquema y son ejemplos de recursos definidos por el usuario. En DocumentDB, tanto los recursos del sistema como los definidos por el usuario se representan y controlan como JSON compatibles con el estándar. Todos los recursos ya sean definidos por el sistema o el usuario tienen las siguientes propiedades comunes.
 
->[AZURE.NOTE]Tenga en cuenta que todas las propiedades generadas por el sistema en un recurso tienen un prefijo con subrayado (\_) en su representación de JSON.
+>[AZURE.NOTE] Tenga en cuenta que todas las propiedades generadas por el sistema en un recurso tienen un prefijo con subrayado (\_) en su representación de JSON.
 
 
 Propiedad |¿Configurable por el usuario o generado por el sistema?|Propósito
 ---|---|---
-\_rid|Generado por el sistema|Generado por el sistema, identificador único y jerárquico del recurso.
-\_etag|Generado por el sistema|etag del recurso requerido para el control de simultaneidad optimista.
-\_ts|Generado por el sistema|Última actualización de marca de tiempo del recurso.
-\_self|Generado por el sistema|URI direccionable único del recurso.
-id|Configurable por el usuario|Nombre único del recurso definido por el usuario. Si el usuario no especifica un identificador, el sistema generará uno.
+_\_rid|Generado por el sistema|Generado por el sistema, identificador único y jerárquico del recurso. \_etag|Generado por el sistema|etag del recurso requerido para el control de simultaneidad optimista. \_ts|Generado por el sistema|Última actualización de marca de tiempo del recurso. \_self|Generado por el sistema|URI direccionable único del recurso. id|Configurable por el usuario|Nombre único del recurso definido por el usuario. Si el usuario no especifica un identificador, el sistema generará uno.
 
 ### Representación de conexión de los recursos
 DocumentDB no exige ninguna extensión propietaria a la norma JSON ni codificaciones especiales; funciona con documentos JSON según la norma.
  
 ### Direccionamiento de un recurso
-Todos los recursos se pueden diseccionar mediante URI. El valor de la propiedad **\_self** de un recurso representa la URI relativa del recurso. El formato del URI consta de los segmentos de ruta /\<feed\>/{_rid}:
+Todos los recursos se pueden diseccionar mediante URI. El valor de la propiedad **\_self** de un recurso representa la URI relativa del recurso. El formato del URI consta de los segmentos de ruta /<feed>/{\_rid}:
 
-|Valor de \_self |Descriptción
-|-------------------|-----------
-|/dbs |Fuente de las bases de datos de una cuenta de base de datos
-|/dbs/{\_rid-db} |Base de datos con un id. que coincide con el valor de {\_rid-db}
-|/dbs/{\_rid-db}/colls/ |Fuente de colecciones de una base de datos
-|/dbs/{\_rid-db}/colls/{\_rid-coll} |Colección con un id. que coincide con el valor de {\_rid-coll}
-|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs |Fuente de documentos de una colección
-|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs/{\_rid-doc} |Documento con un id. que coincide con el valor de {\_rid-doc}
-|/dbs/{\_rid-db}/users/ |Fuente de usuarios de una base de datos
-|/dbs/{\_rid-db}/users/{\_rid-user} |Usuario con un id. que coincide con el valor de {\_rid-user}
-|/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Fuente de permisos de un usuario
-|/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Permisos con un id. que coincide con el valor de {\_rid-permission}
+|Valor de \_self |Descriptción |-------------------|----------- |/dbs |Fuente de las bases de datos de una cuenta de base de datos |/dbs/{\_rid-db} |Base de datos con un id. que coincide con el valor de {\_rid-db} |/dbs/{\_rid-db}/colls/ |Fuente de colecciones de una base de datos |/dbs/{\_rid-db}/colls/{\_rid-coll} |Colección con un id. que coincide con el valor de {\_rid-coll} |/dbs/{\_rid-db}/colls/{\_rid-coll}/docs |Fuente de documentos de una colección |/dbs/{\_rid-db}/colls/{\_rid-coll}/docs/{\_rid-doc} |Documento con un id. que coincide con el valor de {\_rid-doc} |/dbs/{\_rid-db}/users/ |Fuente de usuarios de una base de datos |/dbs/{\_rid-db}/users/{\_rid-user} |Usuario con un id. que coincide con el valor de {\_rid-user} |/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Fuente de permisos de un usuario |/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Permisos con un id. que coincide con el valor de {\_rid-permission}
   
 Cada recurso tiene un nombre único definido por el usuario que se expone con la propiedad id. Nota: en el caso de los documentos, si el usuario no especifica un identificador, el sistema generará automáticamente un identificador único para el documento. El identificador es una cadena definida por el usuario formada por 256 caracteres como máximo y que es única dentro del contexto de un recurso principal específico. Por ejemplo, el valor de la propiedad del identificador de todos los documentos en una recopilación dada es único, pero no está garantizado para que sea único en otras recopilaciones. De igual manera, el valor de la propiedad del identificador de todos los permisos de un usuario dado es único, pero no está garantizado para que sea único en todos los usuarios. La propiedad \_rid se usa para construir el vínculo direccionable \_self de un recurso.
 
@@ -95,7 +79,7 @@ Los valores de las propiedades \_self y \_rid son representaciones alternativas 
 ## Cuentas de la base de datos
 Puede aprovisionar una o más cuentas de la base de datos de DocumentDB mediante su suscripción a Azure. A cada cuenta de base de datos de nivel Standard se otorgará una capacidad mínima de una colección S1.
 
-Puede [crear y administrar cuentas de base de datos de DocumentDB](documentdb-create-account.md) mediante el Portal de Azure clásico en [http://portal.azure.com/](http://portal.azure.com/). Crear y controlar una cuenta de base de datos requiere acceso administrativo y solo se puede realizar con su suscripción a Azure.
+Puede [crear y administrar cuentas de base de datos de DocumentDB](documentdb-create-account.md) mediante el Portal de Azure clásico en [http://portal.azure.com/](https://portal.azure.com/). Crear y controlar una cuenta de base de datos requiere acceso administrativo y solo se puede realizar con su suscripción a Azure.
 
 ### Propiedades de la cuenta de base de datos
 Como parte del aprovisionamiento y control de una cuenta de base de datos, puede configurar y leer las siguientes propiedades:
@@ -112,8 +96,7 @@ Tenga en cuenta que, además del aprovisionamiento, la configuración y la admin
 ## Bases de datos
 Una base de datos de DocumentDB es un contenedor lógico de una o varias colecciones o usuarios, como se muestra en el diagrama siguiente. Puede crear cualquier número de bases de datos en la cuenta de base de datos de DocumentDB en función de los límites de la oferta.
 
-![Modelo jerárquico de colecciones y cuenta de base de datos][2]  
-**Una base de datos es un contenedor lógico de usuarios y colecciones**
+![Modelo jerárquico de colecciones y cuenta de base de datos][2] **Una base de datos es un contenedor lógico de usuarios y colecciones**
 
 Una base de datos puede contener almacenamiento de documentos prácticamente ilimitado particionado por colecciones, que forman los dominios de transacción para los documentos que las contienen.
 
@@ -155,7 +138,7 @@ Los documentos de una colección pueden tener esquemas arbitrarios y puede consu
 
 El modelo de consulta de DocumentDB intenta lograr un equilibrio entre funcionalidad, eficacia y simplicidad. El motor de la base de datos de DocumentDB compila y ejecuta instrucciones de consultas SQL de forma nativa. Puede consultar una colección mediante las [API REST de Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) o cualquier [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). El SDK de .NET viene con un proveedor LINQ.
 
-> [AZURE.TIP]Puede probar DocumentDB y ejecutar consultas SQL contra nuestro conjunto de datos en el [Área de consultas](https://www.documentdb.com/sql/demo).
+> [AZURE.TIP] Puede probar DocumentDB y ejecutar consultas SQL contra nuestro conjunto de datos en el [Área de consultas](https://www.documentdb.com/sql/demo).
 
 ### Transacciones de documentos múltiples
 Las transacciones de la base de datos proporcionan un modelo de programación seguro y predecible para tratar cambios concurrentes en los datos. En RDBMS, la forma tradicional de escribir lógica empresarial es escribir **procedimientos almacenados** o **desencadenadores** y enviarlos al servidor de la base de datos para la ejecución transaccional. En RDBMS, es necesario el programador de aplicaciones para tratar con dos lenguajes de programación dispares:
@@ -366,7 +349,7 @@ Al ser un servicio de base de datos totalmente abierto, DocumentDB no crea ning�
 Como con el resto de recursos, se pueden crear, reemplazar, eliminar, leer, enumerar y consultar documentos fácilmente mediante las API REST o con cualquier [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). Al eliminar un documento se libera inmediatamente la cuota correspondiente a todos los datos adjuntos anidados. El nivel de coherencia de lectura de documentos sigue la Directiva de coherencia de la cuenta de base de datos. Esta directiva se puede reemplazar en función de la solicitud dependiendo de los requisitos de coherencia de datos de su aplicación. Al consultar documentos, la coherencia de lectura sigue el modo de indexación establecido en la colección. Para ser "coherente", sigue la Directiva de coherencia de la cuenta.
 
 ## Datos adjuntos y multimedia
->[AZURE.NOTE]Los datos adjuntos y recursos multimedia son características de vista previa.
+>[AZURE.NOTE] Los datos adjuntos y recursos multimedia son características de vista previa.
  
 DocumentDB le permite almacenar blobs binarios/multimedia en la misma DocumentDB o en su almacén multimedia remoto. También le permite representar los metadatos de un archivo multimedia en términos de un documento especial llamado dato adjunto. Un dato adjunto en DocumentDB es un documento especial (JSON) que hace referencia al archivo multimedia/blob almacenado en cualquier parte. Un dato adjunto es sencillamente un documento especial que captura los metadatos (por ejemplo, ubicación, autor, etc.) de un archivo multimedia almacenado en un almacenamiento multimedia remoto.
 
@@ -381,7 +364,6 @@ Tenga en cuenta que los ejemplos usan identificadores sencillos para transmitir 
 Para los archivos multimedia gestionados por la Base de datos de documentos, la propiedad \_media del dato adjunto hará referencia al archivo multimedia por su URI. La Base de datos de documentos garantizará la recolección de archivos multimedia no utilizados cuando se anulen todas las referencias pendientes. La Base de datos de documentos genera automáticamente el dato adjunto cuando carga nuevos archivos multimedia y completa \_media para señalar al nuevo archivo multimedia agregado. Si selecciona almacenar el archivo multimedia en un almacén blob remoto que lo gestiona usted (por ejemplo, OneDrive, Azure Storage, DropBox etc), puede seguir utilizando los datos adjuntos para hacer referencia a los archivos multimedia. En este caso, creará los datos adjuntos usted mismo y rellenará la propiedad \_media.
 
 Como con el resto de recursos, se pueden crear, reemplazar, eliminar, leer o enumerar datos adjuntos fácilmente mediante las API REST o con cualquier SDK de cliente. Como con los documentos, el nivel de coherencia de lectura de datos adjuntos sigue la Directiva de coherencia en la cuenta de base de datos. Esta directiva se puede reemplazar en función de la solicitud dependiendo de los requisitos de coherencia de datos de su aplicación. Al consultar datos adjuntos, la coherencia de lectura sigue el modo de indexación establecido en la colección. Para ser "coherente", sigue la Directiva de coherencia de la cuenta.
-
 ## Usuarios
 Un usuario de DocumentDB representa un espacio de nombres lógico para agrupar permisos. Un usuario de DocumentDB puede corresponder a un usuario en un sistema administración de identidades o a un rol de aplicaciones predefinido. Para DocumentDB, un usuario simplemente representa una abstracción para agrupar un conjunto de permisos de una base de datos.
 
@@ -396,8 +378,7 @@ A medida que sus aplicaciones necesiten escalar con el crecimiento de su usuario
 
 Independientemente de la estrategia de partición específica que seleccione, puede modelar a los usuarios reales como usuarios de base de datos de DocumentDB y asociar permisos detallados a cada usuario.
 
-![Colecciones de usuario][3]  
-**Estrategias de partición y modelado de usuarios**
+![Colecciones de usuario][3] **Estrategias de partición y modelado de usuarios**
 
 Como con el resto de recursos, los usuarios de DocumentDB se pueden crear, reemplazar, eliminar, leer o enumerar fácilmente mediante las API REST o con cualquier SDK de cliente. DocumentDB siempre proporciona una alta coherencia para leer o consultar los metadatos de un recurso de usuario. Es importante señalar que eliminar un usuario garantiza automáticamente que no podrá obtener acceso a ningún permiso contenido en el mismo. Incluso aunque DocumentDB reclame la cuota de permisos como parte del usuario eliminado en segundo plano, los permisos eliminados estarán de nuevo disponibles al instante para su uso.
 
@@ -416,4 +397,4 @@ Obtenga más información sobre cómo trabajar con recursos usando comandos HTTP
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

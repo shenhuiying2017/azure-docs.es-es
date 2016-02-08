@@ -47,7 +47,7 @@ En ambos modos de recopilación, pueden especificarse carpetas de recopilación 
 ## Requisitos previos
 
 - Debe tener una cuenta de almacenamiento como extensión para guardar los archivos zip generados.
-- Asegúrese de que está usando los cmdlets de Azure PowerShell V0.8.0 o superior. Para más información, consulte [Descargas de Azure](http://azure.microsoft.com/downloads/).
+- Asegúrese de que está usando los cmdlets de Azure PowerShell V0.8.0 o superior. Para más información, consulte [Descargas de Azure](https://azure.microsoft.com/downloads/).
 
 ## Adición de la extensión
 
@@ -126,7 +126,7 @@ Puede seguir uno de los dos pasos siguientes para agregar AzureLogCollector a un
         $AdditionalDataList+= $a1
               #more locations can be added....
   
-    > [AZURE.NOTE]Puede usar el token `%roleroot%` para especificar la unidad raíz del rol, ya que no usa una unidad fija.
+    > [AZURE.NOTE] Puede usar el token `%roleroot%` para especificar la unidad raíz del rol, ya que no usa una unidad fija.
 
 4. Proporcione el nombre de la cuenta de almacenamiento de Azure y la clave en la que se cargarán los archivos recopilados.
 
@@ -521,4 +521,4 @@ SetAzureVMLogCollector.ps1
 
 Ahora puede examinar o copiar los registros desde una ubicación muy sencilla.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

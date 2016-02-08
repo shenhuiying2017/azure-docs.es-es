@@ -24,7 +24,7 @@
 
 Para registrarse para obtener una suscripción de evaluación gratuita de Azure, debe proporcionar un número de teléfono, una tarjeta de crédito y una cuenta Microsoft. Su cuenta Microsoft es la dirección de correo electrónico que usa, junto con su contraseña, para iniciar sesión en cualquier servicio o programa de Windows Live, como Outlook, Hotmail u OneDrive. Puede configurar una cuenta de Microsoft usando cualquier dirección de correo electrónico que tenga, incluido el correo electrónico de la compañía. Consulte [Preguntas más frecuentes de la cuenta Microsoft](https://www.microsoft.com/es-ES/account/faq.aspx) para más detalles.
 
->[AZURE.NOTE]El número de teléfono y la tarjeta de crédito solo se usan para comprobar su identidad. Aunque no se le cargará a su tarjeta de crédito, Microsoft autorizará la retención de una cantidad mínima para comprobar que la tarjeta de crédito es válida. La retención se liberará tras 3 a 5 días laborables, dependiendo de las directivas de su institución financiera.
+>[AZURE.NOTE] El número de teléfono y la tarjeta de crédito solo se usan para comprobar su identidad. Aunque no se le cargará a su tarjeta de crédito, Microsoft autorizará la retención de una cantidad mínima para comprobar que la tarjeta de crédito es válida. La retención se liberará tras 3 a 5 días laborables, dependiendo de las directivas de su institución financiera.
 
 1. Abra la [página de evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/) y luego seleccione **Probar ahora**.
 2. Inicie sesión con su cuenta Microsoft o en su cuenta profesional o educativa.
@@ -62,7 +62,7 @@ Si compró créditos de Azure bajo licencia Open a un revendedor, siga estos pas
 
 1. Vaya a la [página de resumen de suscripción](https://account.windowsazure.com/subscriptions) en azure.com.
 
-2. Seleccione **Azure bajo licencia Open**. En la página de [clave de licencia de Azure bajo licencia Open](http://azure.microsoft.com/offers/ms-azr-0111p/), puede optar por **activar una suscripción nueva o existente**.
+2. Seleccione **Azure bajo licencia Open**. En la página de [clave de licencia de Azure bajo licencia Open](https://azure.microsoft.com/offers/ms-azr-0111p/), puede optar por **activar una suscripción nueva o existente**.
 
 3. Escriba la clave de producto y active la opción de contrato.
 
@@ -92,4 +92,4 @@ Compruebe en el canal de programa de ventajas si tiene derecho al plan elegido:
 
 - [Portal de Microsoft BizSpark Plus](http://www.microsoft.com/bizspark/plus/default.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

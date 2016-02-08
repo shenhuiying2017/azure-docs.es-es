@@ -50,7 +50,7 @@ Los volúmenes en capas son volúmenes con aprovisionamiento reducido en los que
 
 Puede designar un volumen en capas como volumen de archivo si activa la casilla **Usar este volumen para los datos de archivo a los que accede con menos frecuencia**. Los volúmenes de archivo usan un tamaño de fragmento de desduplicación de 512 KB, mientras que los que no son de archivo emplean un tamaño de 64 KB. El tamaño mayor del fragmento de desduplicación permite al dispositivo transferir a la nube fragmentos de datos más grandes.
 
->[AZURE.NOTE]Los volúmenes de archivo creados con una versión anterior a Update 2 de StorSimple se importarán como volúmenes en capas con la casilla de archivo seleccionada.
+>[AZURE.NOTE] Los volúmenes de archivo creados con una versión anterior a Update 2 de StorSimple se importarán como volúmenes en capas con la casilla de archivo seleccionada.
 
 ### Capacidad aprovisionada
 
@@ -136,13 +136,13 @@ Ya [creó un volumen](storsimple-deployment-walkthrough-u2.md#step-6-create-a-vo
 
 El nuevo volumen ya está listo para usarse.
 
->[AZURE.NOTE]Si crea un volumen anclado localmente e inmediatamente después crea otro, los trabajos de creación de volúmenes se ejecutan de manera secuencial. El primer trabajo de creación de volumen debe finalizar para que el siguiente pueda comenzar.
+>[AZURE.NOTE] Si crea un volumen anclado localmente e inmediatamente después crea otro, los trabajos de creación de volúmenes se ejecutan de manera secuencial. El primer trabajo de creación de volumen debe finalizar para que el siguiente pueda comenzar.
 
 ## Modificar un volumen
 
 Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen acceso al volumen.
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 >
 > - Si modifica el tamaño del volumen en el dispositivo, también deberá cambiar el tamaño del volumen en el host. 
 > - Los pasos del lado host que se describen aquí son para Windows Server 2012 (2012R2). Los procedimientos para Linux u otros sistemas operativos de host serán diferentes. Consulte las instrucciones del sistema operativo del host cuando modifique el volumen del host que esté ejecutando otro sistema operativo. 
@@ -163,7 +163,7 @@ Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen a
 
 5. En **Configuración adicional**, puede modificar el ACR, siempre que el volumen esté sin conexión. Si el volumen está conectado, primero deberá desconectarlo. Consulte los pasos indicados en [Desconectar un volumen](#take-a-volume-offline) antes de modificar el ACR.
 
-    > [AZURE.NOTE]No se puede cambiar la opción **Habilitar una copia de seguridad predeterminada** para el volumen.
+    > [AZURE.NOTE] No se puede cambiar la opción **Habilitar una copia de seguridad predeterminada** para el volumen.
 
 6. Guarde los cambios haciendo clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). El Portal de Azure clásico mostrará un mensaje de actualización del volumen. Presentará en la pantalla un mensaje de confirmación cuando el volumen se haya actualizado correctamente.
 
@@ -174,11 +174,11 @@ Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen a
    3. En la lista de discos, seleccione el volumen que actualizó, haga clic en él con el botón derecho y seleccione **Extender volumen**. Se iniciará el Asistente para extender volúmenes. Haga clic en **Siguiente**.
    4. Complete el asistente aceptando los valores predeterminados que se proporcionan. Cuando el asistente haya finalizado, el volumen debería mostrar el aumento de tamaño.
 
-    >[AZURE.NOTE]Si expande un volumen anclado localmente e inmediatamente después expande otro, los trabajos de expansión de volúmenes se ejecutan de manera secuencial. El primer trabajo de expansión de volumen debe finalizar para que el siguiente pueda comenzar.
+    >[AZURE.NOTE] Si expande un volumen anclado localmente e inmediatamente después expande otro, los trabajos de expansión de volúmenes se ejecutan de manera secuencial. El primer trabajo de expansión de volumen debe finalizar para que el siguiente pueda comenzar.
 
 ![Vídeo disponible](./media/storsimple-manage-volumes-u2/Video_icon.png) **Vídeo disponible**
 
-Para ver un vídeo que muestra cómo expandir un volumen, haga clic [aquí](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
+Para ver un vídeo que muestra cómo expandir un volumen, haga clic [aquí](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
 ## Cambiar el tipo de volumen
 
@@ -189,11 +189,11 @@ Puede cambiar el tipo de volumen en capas por uno anclado localmente y viceversa
 
 Un volumen anclado localmente está aprovisionado por completo cuando se crea. Si va a convertir un volumen en capas en uno anclado localmente, StorSimple comprueba que haya espacio suficiente en el dispositivo antes de iniciar la conversión. Si no tiene suficiente espacio, recibirá un error y se cancelará la operación.
 
-> [AZURE.NOTE]Antes de comenzar la conversión de un volumen en capas en uno anclado localmente, asegúrese de tener en cuenta los requisitos de espacio de las otras cargas de trabajo.
+> [AZURE.NOTE] Antes de comenzar la conversión de un volumen en capas en uno anclado localmente, asegúrese de tener en cuenta los requisitos de espacio de las otras cargas de trabajo.
 
 Puede que desee cambiar un volumen anclado localmente por uno en capas si necesita espacio adicional para aprovisionar otros volúmenes. Al convertir el volumen anclado localmente en un volumen en capas, la capacidad disponible en el dispositivo aumenta en proporción al tamaño de la capacidad liberada. Si los problemas de conectividad impiden la conversión de un volumen local en un volumen en capas, el volumen local exhibirá propiedades de un volumen en capas hasta que finalice la conversión. Esto se debe a que algunos datos podrían haberse escrito en la nube. Estos datos escritos seguirán ocupando espacio local en el dispositivo que no se podrá liberar hasta que la operación se reinicie y finalice.
 
->[AZURE.NOTE]La conversión de un volumen puede tardar algún tiempo y una conversión no se puede cancelar una vez que se ha iniciado. El volumen permanece en línea durante la conversión y puede realizar copias de seguridad, pero no puede expandir ni restaurar el volumen mientras dura la operación.
+>[AZURE.NOTE] La conversión de un volumen puede tardar algún tiempo y una conversión no se puede cancelar una vez que se ha iniciado. El volumen permanece en línea durante la conversión y puede realizar copias de seguridad, pero no puede expandir ni restaurar el volumen mientras dura la operación.
 
 #### Para cambiar el tipo de volumen
 
@@ -237,11 +237,11 @@ Puede que necesite desconectar un volumen si tiene previsto modificarlo o elimin
 
     Una vez desconectado un volumen, pasa a estar disponible la opción **Conectar**.
 
-> [AZURE.NOTE]El comando **Desconectar** envía una solicitud al dispositivo para desconectar el volumen. Si los hosts todavía están usando el volumen las conexiones se interrumpirán, pero la desconexión del volumen no producirá un error.
+> [AZURE.NOTE] El comando **Desconectar** envía una solicitud al dispositivo para desconectar el volumen. Si los hosts todavía están usando el volumen las conexiones se interrumpirán, pero la desconexión del volumen no producirá un error.
 
 ## Eliminar un volumen
 
-> [AZURE.IMPORTANT]Puede eliminar un volumen solo si está desconectado.
+> [AZURE.IMPORTANT] Puede eliminar un volumen solo si está desconectado.
 
 Siga estos pasos para eliminar un volumen.
 
@@ -257,7 +257,7 @@ Siga estos pasos para eliminar un volumen.
 
 5. Cuando se le pida confirmación, haga clic en **Sí**. El volumen se eliminará y la página **Volúmenes** mostrará la lista actualizada de volúmenes dentro del contenedor.
 
-    >[AZURE.NOTE]Si elimina un volumen anclado localmente e inmediatamente después elimina otro, los trabajos de eliminación de volúmenes se ejecutan de manera secuencial. El primer trabajo de eliminación de volumen debe finalizar para que el siguiente pueda comenzar.
+    >[AZURE.NOTE] Si elimina un volumen anclado localmente e inmediatamente después elimina otro, los trabajos de eliminación de volúmenes se ejecutan de manera secuencial. El primer trabajo de eliminación de volumen debe finalizar para que el siguiente pueda comenzar.
  
 ## Supervisar un volumen
 
@@ -285,4 +285,4 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

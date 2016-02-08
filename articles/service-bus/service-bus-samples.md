@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Ejemplos del Bus de servicio
 
-Los ejemplos del Bus de servicio muestran las principales características del Bus de servicio (servicio en la nube) y el Bus de servicio para Windows Server. En este artículo se categorizan y describen los ejemplos disponibles, con vínculos a cada uno.
+Los ejemplos del Bus de servicio muestran las principales características del [Bus de servicio](https://azure.microsoft.com/services/service-bus/) (servicio en la nube) y el [Bus de servicio para Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). En este artículo se categorizan y describen los ejemplos disponibles, con vínculos a cada uno.
 
->[AZURE.NOTE]Los ejemplos del Bus de servicio no se instalan con el SDK. Para obtener los ejemplos, visite la [página de ejemplos del SDK de Azure](https://code.msdn.microsoft.com).
+>[AZURE.NOTE] Los ejemplos del Bus de servicio no se instalan con el SDK. Para obtener los ejemplos, visite la [página de ejemplos del SDK de Azure](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
 
 ## Mensajería asíncrona del Bus de servicio
 
@@ -126,10 +126,10 @@ Los ejemplos siguientes muestran otras características del servicio.
 
 ## Pasos siguientes
 
-Consulte los temas siguientes para más información general del Bus de servicio.
+Consulte los siguientes temas para obtener conceptos generales sobre el Bus de servicio.
 
 - [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
 - [Arquitectura del Bus de servicio](service-bus-architecture.md)
 - [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

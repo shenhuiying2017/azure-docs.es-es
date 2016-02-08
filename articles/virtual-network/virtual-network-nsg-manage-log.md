@@ -25,12 +25,12 @@ Puede usar diferentes tipos de registros en Azure para administrar y solucionar 
 - **Registros de eventos:** puede usar este registro para ver qué reglas de grupos de seguridad de red se aplican a las máquinas virtuales y a los roles de instancia en función de la dirección MAC. El estado de estas reglas se recopila cada 60 segundos. 
 - **Registros de contador:** puede usar este registro para ver cuántas veces se aplica cada regla de grupos de seguridad de red para denegar o permitir el tráfico.
 
->[AZURE.WARNING]Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para entender mejor los dos modelos, consulte el artículo [Descripción de la implementación del Administrador de recursos y la implementación clásica](resource-manager-deployment-model.md).
+>[AZURE.WARNING] Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para entender mejor los dos modelos, consulte el artículo [Descripción de la implementación del Administrador de recursos y la implementación clásica](resource-manager-deployment-model.md).
 
 ##Habilitación del registro
 El registro de auditoría se habilita automáticamente siempre para todos los recursos del Administrador de recursos. Debe habilitar el registro de eventos y de contadores para iniciar la recopilación de los datos disponibles a través de esos registros. Para habilitar el registro, siga estos pasos.
 
-1.  Inicie sesión en el [Portal de vista previa de Azure](http://portal.azure.com). Si aún no tiene un grupo de seguridad de red existente, [cree un grupo de seguridad de red](virtual-networks-create-nsg-arm-ps.md) antes de continuar. 
+1.  Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com). Si aún no tiene un grupo de seguridad de red existente, [cree un grupo de seguridad de red](virtual-networks-create-nsg-arm-ps.md) antes de continuar. 
 
 2.  En el Portal de vista previa, haga clic en **Examinar** >> **Grupos de seguridad de red**.
 
@@ -43,7 +43,7 @@ El registro de auditoría se habilita automáticamente siempre para todos los re
 4. En la hoja **Configuración**, haga clic en **Diagnósticos** y después, en el panel **Diagnósticos**, junto a **Estado**, haga clic en **Activar**.
 5. En la hoja **Configuración**, haga clic en **Cuenta de almacenamiento** y seleccione una cuenta de almacenamiento existente o cree una nueva.  
 
->[AZURE.INFORMATION]Los registros de auditoría no requieren una cuenta de almacenamiento separada. El uso del almacenamiento para el registro de eventos y de reglas supondrán un costo adicional de servicio.
+>[AZURE.INFORMATION] Los registros de auditoría no requieren una cuenta de almacenamiento separada. El uso del almacenamiento para el registro de eventos y de reglas supondrán un costo adicional de servicio.
 
 6. En la lista desplegable situada debajo de **Cuenta de almacenamiento**, seleccione si desea registrar los eventos, los contadores o ambos y, después, haga clic en **Guardar**.
 
@@ -107,11 +107,11 @@ Puede ver y analizar los datos del registro de auditoría mediante el uso de cua
 ##Visualización y análisis del registro de eventos y de contadores 
 Debe conectarse a la cuenta de almacenamiento y recuperar las entradas del registro de JSON para los registros de eventos y de contadores. Cuando descargue los archivos JSON, se pueden convertir a CSV y consultarlos en Excel, PowerBI o cualquier otra herramienta de visualización de datos.
 
->[AZURE.TIP]Si está familiarizado con Visual Studio y con los conceptos básicos de cambiar los valores de constantes y variables de C#, puede usar las [herramientas convertidoras de registros](https://github.com/Azure-Samples/networking-dotnet-log-converter), disponibles en Github.
+>[AZURE.TIP] Si está familiarizado con Visual Studio y con los conceptos básicos de cambiar los valores de constantes y variables de C#, puede usar las [herramientas convertidoras de registros](https://github.com/Azure-Samples/networking-dotnet-log-converter), disponibles en Github.
 
 ##Recursos adicionales
 
 - Entrada de blog [Visualize your Azure Audit Logs with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualizar los registros de auditoría de Azure con Power BI).
 - Entrada de blog [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Ver y analizar registros de auditoría de Azure en Power BI y más).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -31,7 +31,7 @@ Sus comentarios son importantes. Este artículo debería proporcionarle una efic
 
 ## Los componentes de Azure
 
-Azure agrupa los servicios en categorías en el Portal de administración y en varios elementos visuales de ayuda como la [infografía sobre qué es Azure](http://azure.microsoft.com/documentation/infographics/azure/). El Portal de administración es lo que se utiliza para administrar la mayoría de servicios en Azure (pero no todos).
+Azure agrupa los servicios en categorías en el Portal de administración y en varios elementos visuales de ayuda como la [infografía sobre qué es Azure](https://azure.microsoft.com/documentation/infographics/azure/). El Portal de administración es lo que se utiliza para administrar la mayoría de servicios en Azure (pero no todos).
 
 En este artículo se usará **otra organización** para hablar de los servicios basados en una función similar y para llamar a subservicios importantes que forman parte de otros más grandes.
 
@@ -246,7 +246,7 @@ Azure ofrece diversas herramientas para ayudar a los desarrolladores y profesion
 ### SDK de Azure
 En 2008, la primera versión preliminar de Azure solo admitía el desarrollo con .NET. En la actualidad, sin embargo, puede crear aplicaciones de Azure prácticamente con cualquier lenguaje. Microsoft proporciona actualmente SDK específicos del lenguaje para .NET, Java, PHP, Node.js, Ruby y Python. También hay un SDK general de Azure que proporciona compatibilidad básica con cualquier lenguaje, como C++.
 
-Estos SDK le ayudan a crear, implementar y administrar aplicaciones de Azure. Se pueden encontrar en [www.microsoftazure.com](http://azure.microsoft.com/downloads/) o GitHub, y se pueden usar con Visual Studio y Eclipse. Azure ofrece también herramientas de línea de comandos que los desarrolladores pueden utilizar con cualquier editor o entorno de desarrollo, como herramientas para implementar aplicaciones en Azure desde sistemas Linux y Macintosh.
+Estos SDK le ayudan a crear, implementar y administrar aplicaciones de Azure. Se pueden encontrar en [www.microsoftazure.com](https://azure.microsoft.com/downloads/) o GitHub, y se pueden usar con Visual Studio y Eclipse. Azure ofrece también herramientas de línea de comandos que los desarrolladores pueden utilizar con cualquier editor o entorno de desarrollo, como herramientas para implementar aplicaciones en Azure desde sistemas Linux y Macintosh.
 
 Además de ayudarle a crear aplicaciones de Azure, estos SDK también proporcionan bibliotecas de clientes que le ayudan a crear software que utiliza servicios de Azure. Por ejemplo, puede crear una aplicación que lea y escriba blobs de Azure, o crear una herramienta que implemente aplicaciones de Azure a través de la interfaz de administración de Azure.
 
@@ -611,4 +611,4 @@ Ahora que ha captado la idea general, el siguiente paso es programar su primera 
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

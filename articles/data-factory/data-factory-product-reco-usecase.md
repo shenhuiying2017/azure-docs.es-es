@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Caso de uso: recomendaciones de productos 
@@ -36,7 +36,7 @@ En tercer lugar, las recomendaciones deben poder entregarse inmediatamente al us
 
 ## Información general de la solución
 
-Este caso de uso de ejemplo fue resuelto e implementado por usuarios reales de Azure con Factoría de datos de Azure y otros servicios del componente Cortana Analytics, incluidos [HDInsight](http://azure.microsoft.com/services/hdinsight/) y [Power BI](https://powerbi.microsoft.com/) para introducir, preparar, transformar, analizar y publicar los datos finales.
+Este caso de uso de ejemplo fue resuelto e implementado por usuarios reales de Azure con Factoría de datos de Azure y otros servicios del componente Cortana Analytics, incluidos [HDInsight](https://azure.microsoft.com/services/hdinsight/) y [Power BI](https://powerbi.microsoft.com/) para introducir, preparar, transformar, analizar y publicar los datos finales.
 
 El distribuidor en línea usa un almacén de blobs de Azure, un servidor de SQL Sefver local, la Base de datos SQL de Azure y un data mart relacional como opciones de almacenamiento de datos a lo largo del flujo de trabajo. El almacén de blobs contiene información del cliente, los datos de comportamiento de cliente y los datos de información de los productos. Los datos de información de los productos incluyen información de la marca de producto y un catálogo de los producto almacenado localmente en un almacenamiento de datos SQL.
 
@@ -44,9 +44,9 @@ Como se describe en la siguiente ilustración, todos los datos se combinan e int
 
 ![diagrama del caso de uso](./media/data-factory-product-reco-usecase/diagram-1.png)
 
-Diariamente se generan gigabytes de archivos de registro web sin formato desde el sitio web del distribuidor en línea como archivos semiestructurados. Los archivos de registro de web sin formato y la información del catálogo de clientes y productos se introducen periódicamente en una cuenta de almacenamiento de blobs de Azure mediante el movimiento de datos implementado globalmente de Factoría de datos como un servicio. Los archivos de registro sin procesar del día se dividen (por año y mes) en el almacenamiento de blobs de almacenamiento a largo plazo. [HDInsight de Azure](http://azure.microsoft.com/services/hdinsight/) (Hadoop como servicio) se usa para dividir los archivos de registro sin procesar (para obtener una mejor capacidad de administración, disponibilidad y rendimiento) en el almacén de blobs y procesar los registros introducidos a escala con scripts de Hive y Pig . A continuación, los registros web divididos se procesan para extraer las entradas necesarias para un sistema de recomendaciones de aprendizaje automático para generar las recomendaciones de productos personalizadas.
+Diariamente se generan gigabytes de archivos de registro web sin formato desde el sitio web del distribuidor en línea como archivos semiestructurados. Los archivos de registro de web sin formato y la información del catálogo de clientes y productos se introducen periódicamente en una cuenta de almacenamiento de blobs de Azure mediante el movimiento de datos implementado globalmente de Factoría de datos como un servicio. Los archivos de registro sin procesar del día se dividen (por año y mes) en el almacenamiento de blobs de almacenamiento a largo plazo. [HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) (Hadoop como servicio) se usa para dividir los archivos de registro sin procesar (para obtener una mejor capacidad de administración, disponibilidad y rendimiento) en el almacén de blobs y procesar los registros introducidos a escala con scripts de Hive y Pig . A continuación, los registros web divididos se procesan para extraer las entradas necesarias para un sistema de recomendaciones de aprendizaje automático para generar las recomendaciones de productos personalizadas.
 
-El sistema de recomendaciones usado para el aprendizaje automático en este ejemplo es una plataforma de recomendaciones de aprendizaje automático de código abierto de [Apache Mahout](http://mahout.apache.org/). Tenga en cuenta que se puede aplicar cualquier modelo de [Aprendizaje automático de Azure](http://azure.microsoft.com/services/machine-learning/)o personalizado. El modelo Mahout se usa para predecir la similitud entre los elementos en el sitio web del distribuidor de acuerdo con los patrones de uso general y para generar las recomendaciones personalizadas basadas en el usuario específico.
+El sistema de recomendaciones usado para el aprendizaje automático en este ejemplo es una plataforma de recomendaciones de aprendizaje automático de código abierto de [Apache Mahout](http://mahout.apache.org/). Tenga en cuenta que se puede aplicar cualquier modelo de [Aprendizaje automático de Azure](https://azure.microsoft.com/services/machine-learning/)o personalizado. El modelo Mahout se usa para predecir la similitud entre los elementos en el sitio web del distribuidor de acuerdo con los patrones de uso general y para generar las recomendaciones personalizadas basadas en el usuario específico.
 
 Por último, el conjunto de resultados de las recomendaciones de productos personalizadas se mueve a un data mart relacional para su consumo por el sitio web del distribuidor. Otra aplicación también podría acceder al conjunto de resultados directamente desde el almacenamiento de blobs, o bien el conjunto de resultados podría moverse a almacenes adicionales para otros consumidores y casos de uso.
 
@@ -60,4 +60,4 @@ Gracias a esta experiencia de compra personalizada, el distribuidor en línea cr
 
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

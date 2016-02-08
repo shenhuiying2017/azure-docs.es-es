@@ -18,7 +18,7 @@
     
 # Trabajo con datos geoespaciales en Azure DocumentDB
 
-Este artículo es una introducción a la funcionalidad geoespacial en [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/). Después de leer este artículo, podrá responder a las preguntas siguientes:
+Este artículo es una introducción a la funcionalidad geoespacial en [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). Después de leer este artículo, podrá responder a las preguntas siguientes:
 
 - ¿Cómo almaceno los datos espaciales en Azure DocumentDB?
 - ¿Cómo puedo consultar los datos geoespaciales en Azure DocumentDB en SQL y LINQ?
@@ -43,7 +43,7 @@ Un **punto** denota una posición única en el espacio. En los datos geoespacial
        "coordinates":[ 31.9, -4.8 ]
     }
 
->[AZURE.NOTE]La especificación de GeoJSON especifica primero la longitud y segundo la latitud. Al igual que en otras aplicaciones de mapeado, la longitud y la latitud son ángulos y se representan en grados. Los valores de longitud se miden a partir del meridiano cero y están comprendidos entre -180 y 180.0 grados, mientras que los valores de latitud se miden a partir del Ecuador y están comprendidos entre -90,0 y 90,0 grados.
+>[AZURE.NOTE] La especificación de GeoJSON especifica primero la longitud y segundo la latitud. Al igual que en otras aplicaciones de mapeado, la longitud y la latitud son ángulos y se representan en grados. Los valores de longitud se miden a partir del meridiano cero y están comprendidos entre -180 y 180.0 grados, mientras que los valores de latitud se miden a partir del Ecuador y están comprendidos entre -90,0 y 90,0 grados.
 >
 > DocumentDB interpreta las coordenadas tal como están representadas por el sistema de referencia WGS-84. Consulte a continuación para obtener más detalles acerca de los sistemas de coordenadas de referencia.
 
@@ -77,7 +77,7 @@ Además de los puntos, GeoJSON también admite LineStrings y polígonos. Los ele
        ]
     }
 
->[AZURE.NOTE]La especificación de GeoJSON requiere que para que un polígono sea válido, el último par de coordenadas proporcionado tiene que ser el mismo que el primero, para así crear una forma cerrada.
+>[AZURE.NOTE] La especificación de GeoJSON requiere que para que un polígono sea válido, el último par de coordenadas proporcionado tiene que ser el mismo que el primero, para así crear una forma cerrada.
 >
 >El orden de los puntos dentro de un polígono debe especificarse siguiendo el sentido contrario al de las agujas del reloj. Un polígono cuyos puntos se hayan especificado en el sentido de las agujas del reloj representa el inverso de la región dentro de él.
 
@@ -198,7 +198,7 @@ Los argumentos de polígono de ST\_WITHIN solo pueden contener un anillo individ
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]De forma parecida a cómo funcionan los tipos no coincidentes en una consulta de DocumentDB, si el valor de ubicación especificado en cualquier argumento está mal formado o no es válido, se evaluará como **sin definir** y el documento evaluado se omite de los resultados de la consulta. Si la consulta no devuelve resultados, ejecute ST\_ISVALIDDETAILED para depurarla y saber por qué el tipo espacial no es válido.
+>[AZURE.NOTE] De forma parecida a cómo funcionan los tipos no coincidentes en una consulta de DocumentDB, si el valor de ubicación especificado en cualquier argumento está mal formado o no es válido, se evaluará como **sin definir** y el documento evaluado se omite de los resultados de la consulta. Si la consulta no devuelve resultados, ejecute ST\_ISVALIDDETAILED para depurarla y saber por qué el tipo espacial no es válido.
 
 ST\_ISVALID y ST\_ISVALIDDETAILED pueden usarse para comprobar si un objeto espacial es válido. Por ejemplo, la consulta siguiente comprueba la validez de un punto con un valor de latitud fuera del intervalo (-132,8). ST\_ISVALID devuelve solo un valor booleano y ST\_ISVALIDDETAILED devuelve el valor booleano y una cadena que contiene el motivo por el que se considera no válida.
 
@@ -345,7 +345,7 @@ Y aquí vemos cómo puede modificar una colección existente para aprovechar las
         await Task.Delay(TimeSpan.FromSeconds(1));
     }
 
-> [AZURE.NOTE]Si el valor GeoJSON de la ubicación que se encuentra en el documento es incorrecto o no válido, no se indexará para realizar consultas espaciales. Puede validar los valores de ubicación mediante ST\_ISVALID y ST\_ISVALIDDETAILED.
+> [AZURE.NOTE] Si el valor GeoJSON de la ubicación que se encuentra en el documento es incorrecto o no válido, no se indexará para realizar consultas espaciales. Puede validar los valores de ubicación mediante ST\_ISVALID y ST\_ISVALIDDETAILED.
 
 ## Pasos siguientes
 Ahora que ya sabe cómo empezar a trabajar con la compatibilidad geoespacial en DocumentDB, puede:
@@ -355,4 +355,4 @@ Ahora que ya sabe cómo empezar a trabajar con la compatibilidad geoespacial en 
 - Obtener más información en [Base de datos de documentos de consulta](documentdb-sql-query.md).
 - Obtener más información sobre [Directivas de indexación de DocumentDB](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

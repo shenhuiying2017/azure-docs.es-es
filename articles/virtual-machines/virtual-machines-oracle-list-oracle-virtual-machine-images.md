@@ -19,7 +19,7 @@ Para crear máquinas virtuales a partir de imágenes de Oracle, conéctese al [P
 ![](media/virtual-machines-oracle-list-oracle-virtual-machine-images/image1.png)
 
 ##Imágenes de máquina virtuales en Windows
-A continuación se facilita una lista de las imágenes de máquina virtual de Oracle disponibles que se ejecutan en Windows Server en Azure. Estas imágenes son de pago por uso, lo que significa que las tarifas de licencia de Oracle están incluidas en el uso de las imágenes. También puede aportar su propia licencia para ejecutar el software Oracle en Windows o Linux. Aquí encontrará información completa sobre [los precios y licencias para máquinas virtuales de Azure e imágenes de la galería de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software). Haga clic en la pestaña **Oracle** para obtener información detallada sobre los precios específicos de Oracle.
+A continuación se facilita una lista de las imágenes de máquina virtual de Oracle disponibles que se ejecutan en Windows Server en Azure. Estas imágenes son de pago por uso, lo que significa que las tarifas de licencia de Oracle están incluidas en el uso de las imágenes. También puede aportar su propia licencia para ejecutar el software Oracle en Windows o Linux. Aquí encontrará información completa sobre [los precios y licencias para máquinas virtuales de Azure e imágenes de la galería de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software). Haga clic en la pestaña **Oracle** para obtener información detallada sobre los precios específicos de Oracle.
 
 ###Imágenes de máquina virtual de Oracle Database
 - Oracle Database 12c Enterprise Edition en Windows Server 2012
@@ -63,4 +63,4 @@ A continuación se facilita una lista de las imágenes de máquina virtual de Or
 
 [Imágenes de máquina virtual de Oracle: consideraciones variadas](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

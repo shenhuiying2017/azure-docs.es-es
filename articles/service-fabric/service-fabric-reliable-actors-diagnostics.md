@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/15/2015"
+   ms.date="01/26/2016"
    ms.author="abhisram"/>
 
 # Supervisión de diagnósticos y rendimiento para Reliable Actors
@@ -103,7 +103,7 @@ El tiempo de ejecución de Actores confiables publica los siguientes contadores 
 |Método del actor de Service Fabric|Excepciones generadas/seg.|Número de veces que el método de servicio del actor genera una excepción por segundo|
 
 ### Contadores de rendimiento y eventos de simultaneidad
-El tiempo de ejecución de Reliable Actors emite los siguientes eventos relacionados con la [simultaneidad](service-fabric-reliable-actors-introduction.md#concurrency).
+El tiempo de ejecución de Actores confiables emite los siguientes eventos relacionados con la [simultaneidad](service-fabric-reliable-actors-introduction.md#concurrency).
 
 |Nombre del evento|Id. de evento|Level|Palabra clave|Descripción|
 |---|---|---|---|---|
@@ -153,4 +153,4 @@ El tiempo de ejecución de Reliable Actors emite los siguientes eventos relacion
 |ActorActivated|5|Informativo|0x1|Se activó un actor.|
 |ActorDeactivated|6|Informativo|0x1|Se desactivó un actor.|
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

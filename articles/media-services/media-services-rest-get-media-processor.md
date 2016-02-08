@@ -36,14 +36,14 @@ Codificador multimedia de Azure|Le permite ejecutar tareas de codificación con 
 Media Encoder Estándar|Le permite ejecutar tareas de codificación con el Codificador multimedia estándar.|[Codificador multimedia de Azure](media-services-encode-asset.md#media_encoder_standard)
 Flujo de trabajo del Codificador multimedia|Le permite ejecutar tareas de codificación con el flujo de trabajo Premium del Codificador multimedia.|[Flujo de trabajo del Codificador multimedia](media-services-encode-asset.md#media_encoder_premium_wokrflow)
 Azure Media Indexer| Le permite crear archivos multimedia y contenido que se puede buscar, así como generar pistas y palabras clave de subtítulos (CC).|[Indexación de archivos multimedia con Azure Media Indexer](media-services-index-content.md)
-Azure Media Hyperlapse (versión preliminar)|Permite suavizar los “saltos” en el vídeo con estabilización de vídeo. También permite acelerar su contenido en un clip consumible.|		[Azure Media Hyperlapse](http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
+Azure Media Hyperlapse (versión preliminar)|Permite suavizar los “saltos” en el vídeo con estabilización de vídeo. También permite acelerar su contenido en un clip consumible.|		[Azure Media Hyperlapse](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
 Storage Decryption| Le permite descifrar recursos multimedia que se cifraron con el cifrado de almacenamiento.|N/D
-Microsoft Azure Media Packager|Le permite convertir recursos multimedia de .mp4 a un formato de Smooth Streaming. Además, le permite convertir recursos multimedia de Smooth Streaming al formato Apple HTTP Live Streaming (HLS).|[Cadenas preestablecidas de tarea para el Empaquetador multimedia de Azure](http://msdn.microsoft.com/library/hh973635.aspx)
-Microsoft Azure Media Encryptor|Le permite cifrar recursos multimedia con la protección PlayReady.|[Cadenas preestablecidas de tarea para el Empaquetador multimedia de Azure](http://msdn.microsoft.com/library/hh973610.aspx)
+Windows Azure Media Packager|Le permite convertir recursos multimedia de .mp4 a un formato de Smooth Streaming. Además, le permite convertir recursos multimedia de Smooth Streaming al formato Apple HTTP Live Streaming (HLS).|[Cadenas preestablecidas de tarea para el Empaquetador multimedia de Azure](http://msdn.microsoft.com/library/hh973635.aspx)
+Windows Azure Media Encryptor|Le permite cifrar recursos multimedia con la protección PlayReady.|[Cadenas preestablecidas de tarea para el Empaquetador multimedia de Azure](http://msdn.microsoft.com/library/hh973610.aspx)
 
 ##Obtener MediaProcessor
 
->[AZURE.NOTE]Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
+>[AZURE.NOTE] Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
 >
 >Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
 
@@ -103,4 +103,4 @@ Ahora que sabe cómo obtener una instancia de procesador multimedia, consulte el
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

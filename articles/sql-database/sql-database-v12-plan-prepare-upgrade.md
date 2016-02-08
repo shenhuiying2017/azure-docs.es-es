@@ -24,7 +24,7 @@
 En este tema se describen la planificación y los preparativos que deben realizarse para actualizar las bases de datos de SQL de Azure de la versión V11 a la versión V12.
 
 
-Hay un nuevo [Portal de Azure](http://portal.azure.com/) disponible para admitir la actualización a V12.
+Hay un nuevo [Portal de Azure](https://portal.azure.com/) disponible para admitir la actualización a V12.
 
 
 En la tabla siguiente se enumeran otros temas de Ayuda de V12.
@@ -91,7 +91,7 @@ El nivel de precios de servicio Web y Business no se admite en V12.
 Si la base de datos SQL de Azure V11 es una base de datos Web o Business, el proceso de actualización se ofrece para cambiar la base de datos a un nivel compatible. La actualización recomienda un nivel que se ajuste al historial de la carga de trabajo de la base de datos. Sin embargo, puede elegir cualquier nivel compatible que quiera.
 
 
-Los pasos necesarios durante la actualización se pueden reducir mediante el cambio de la base de datos V11 de los niveles Web y Business antes de iniciar la actualización. Puede hacerlo mediante el nuevo [Portal de Azure](http://portal.azure.com/).
+Los pasos necesarios durante la actualización se pueden reducir mediante el cambio de la base de datos V11 de los niveles Web y Business antes de iniciar la actualización. Puede hacerlo mediante el nuevo [Portal de Azure](https://portal.azure.com/).
 
 
 Si no sabe a qué nivel de servicio cambiar, el nivel S2 del nivel Standard puede ser una elección inicial razonable. Cualquier nivel inferior tendrá menos recursos que los niveles Web y Business.
@@ -115,7 +115,7 @@ Si su programa cliente se conecta a Base de datos SQL V12, mientras el cliente s
 - 14000-14999
 
 
-Haga clic [aquí](sql-database-develop-direct-route-ports-adonet-v12.md) para obtener más información sobre los puertos para Base de datos SQL V12. Los puertos son necesarios por las mejoras de rendimiento en Base de datos SQL V12.
+Haga clic [aquí](sql-database-develop-direct-route-ports-adonet-v12.md) para obtener más información acerca de los puertos para Base de datos SQL V12. Los puertos son necesarios por las mejoras de rendimiento en Base de datos SQL V12.
 
 
 ##<a id="limitations"></a>Limitaciones durante la actualización a V12 y después de ella
@@ -127,7 +127,7 @@ Haga clic [aquí](sql-database-develop-direct-route-ports-adonet-v12.md) para ob
 Hay tres portales de Azure, y cada uno tiene distintas capacidades con respecto a Base de datos SQL V12.
 
 
-- [http://portal.azure.com/](http://portal.azure.com/)<br/>Este Portal de Azure es nuevo y aún es una versión preliminar. Este portal aún no está en la disponibilidad general (GA) completa. Este portal:
+- [http://portal.azure.com/](https://portal.azure.com/)<br/>Este Portal de Azure es nuevo y aún es una versión preliminar. Este portal aún no está en la disponibilidad general (GA) completa. Este portal:
  - Puede administrar un servidor y una base de datos V12.
  - Puede actualizar una base de datos de V11 a V12.
 
@@ -155,7 +155,7 @@ En su lugar, puede conectarse con [Visual Studio Community 2013](https://www.vis
 En el Portal de Azure clásico anterior, en la página de la base de datos, puede hacer clic en **Abrir en Visual Studio** para iniciar VS2013 en el equipo para conectarse a Base de datos SQL de Azure.
 
 
-Como alternativa, puede utilizar SQL Server Management Studio (SSMS) 2014 con [CU6](http://support.microsoft.com/kb/3031047/) para conectarse a Base de datos SQL de Azure. En esta publicación de blog:<br/>[Actualizaciones de herramientas de cliente para Base de datos SQL de Azure](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/) encontrará más detalles al respecto.
+Como alternativa, puede utilizar SQL Server Management Studio (SSMS) 2014 con [CU6](http://support.microsoft.com/kb/3031047/) para conectarse a Base de datos SQL de Azure. En esta publicación de blog:<br/>[Actualizaciones de herramientas de cliente para Base de datos SQL de Azure](https://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/) encontrará más detalles al respecto.
 
 
 ### Limitación *durante* la actualización a V12
@@ -166,7 +166,7 @@ La base de datos V11 sigue estando disponible para el acceso a los datos durante
 
 | Limitación | Descripción |
 | :--- | :--- |
-| Duración de la actualización | La duración de la actualización depende del tamaño, edición y número de bases de datos del servidor. El proceso de actualización puede tardar horas, o incluso días, en ejecutarse para los servidores, especialmente para aquellos que tiene bases de datos:<br/><br/>* Con más de 50 GB o <br/>* Sin nivel de servicio Premium <br/><br/>La creación de bases de datos en el servidor durante la actualización también puede aumentar la duración de la actualización. |
+| Duración de la actualización | La duración de la actualización depende del tamaño, edición y número de bases de datos del servidor. El proceso de actualización puede tardar horas, o incluso días, en ejecutarse para los servidores, especialmente para aquellos que tiene bases de datos:<br/><br/>* Con más de 50 GB o <br/>* Sin nivel de servicio Premium <br/><br/>La creación de nuevas bases de datos en el servidor durante la actualización también puede aumentar la duración de la actualización. |
 | Sin replicación geográfica | No se admite la replicación geográfica en un servidor V12 que está implicado actualmente en una actualización desde V11. |
 | La base de datos no está disponible brevemente en la fase final de la actualización a V12 | Las bases de datos que pertenecen a su servidor V11 permanecen disponibles durante el proceso de actualización. Pero la conexión al servidor y las bases de datos no está disponible brevemente en la fase final, cuando el cambio comienza desde la V11 hasta la V12 lista.<br/><br/>El cambio puede tardar entre 40 segundos y 5 minutos. Para la mayoría de los servidores, el cambio se espera completar en 90 segundos. El cambio con el tiempo aumenta para los servidores que tienen un gran número de bases de datos o cuando las bases de datos tienen grandes cargas de trabajo de escritura. |
 
@@ -184,7 +184,7 @@ La base de datos V11 sigue estando disponible para el acceso a los datos durante
 ### Exportación e importación *después de* la actualización a V12
 
 
-Puede exportar o importar una base de datos V12 usando el [Portal de Azure](http://portal.azure.com/). También puede exportar o importar mediante cualquiera de las siguientes herramientas:
+Puede exportar o importar una base de datos V12 usando el [Portal de Azure](https://portal.azure.com/). También puede exportar o importar mediante cualquiera de las siguientes herramientas:
 
 
 - SQL Server Management Studio (SSMS)
@@ -200,7 +200,7 @@ Sin embargo, para utilizar las herramientas, primero debe instalar las actualiza
 - [Marco de trabajo de la aplicación de capa de datos de (DacFx) de febrero de 2015 de Base de datos SQL de Azure V12](http://www.microsoft.com/download/details.aspx?id=45886)
 
 
-> [AZURE.NOTE]Los vínculos anteriores de la herramienta se actualizaron el 2 de marzo de 2015 o después. Se recomienda que utilice estas actualizaciones más recientes de estas herramientas.
+> [AZURE.NOTE] Los vínculos anteriores de la herramienta se actualizaron el 2 de marzo de 2015 o después. Se recomienda que utilice estas actualizaciones más recientes de estas herramientas.
 
 
 #### Exportación automatizada
@@ -247,11 +247,11 @@ Si la actualización falla por algún extraño motivo, la base de datos V11 perm
 ## Vínculos relacionados
 
 
-- [Características de vista previa](http://azure.microsoft.com/services/preview/) de Microsoft Azure
+- [Características de vista previa](https://azure.microsoft.com/services/preview/) de Microsoft Azure
 
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

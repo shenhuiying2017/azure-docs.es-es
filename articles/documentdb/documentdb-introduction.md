@@ -23,8 +23,8 @@ DocumentDB es una base de datos de documentos NoSQL para soluciones de macrodato
 
 Una forma rápida de obtener información sobre esta base de datos de JSON y de verla en acción es seguir estos tres pasos:
 
-1. Ver el vídeo de dos minutos [What is DocumentDB?](http://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) (¿Qué es DocumentDB?), que presenta las ventajas de usar DocumentDB.
-2. Ver el vídeo de tres minutos[Create DocumentDB on Azure](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) (Creación de DocumentDB en Azure), que destaca cómo empezar a trabajar con DocumentDB mediante el Portal de Azure.
+1. Ver el vídeo de dos minutos [What is DocumentDB?](https://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) (¿Qué es DocumentDB?), que presenta las ventajas de usar DocumentDB.
+2. Ver el vídeo de tres minutos[Create DocumentDB on Azure](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) (Creación de DocumentDB en Azure), que destaca cómo empezar a trabajar con DocumentDB mediante el Portal de Azure.
 3. Visite [Query Playground](http://www.documentdb.com/sql/demo) (Área de juegos de consultas), donde puede recorrer distintas actividades para obtener información sobre la sofisticada funcionalidad de consulta disponible en DocumentDB. A continuación, diríjase a la pestaña Sandbox (Espacio aislado) y ejecute consultas SQL personalizadas y experimente con DocumentDB.
 
 A continuación, vuelva a este artículo, donde profudizará y conocerá las respuestas a las preguntas siguientes:
@@ -44,7 +44,7 @@ Una base de datos de JSON, DocumentDB, admite de manera nativa documentos JSON, 
 
 Azure DocumentDB ofrece las siguientes capacidades y ventajas clave:
 
--	**Consultas específicas con sintaxis SQL conocida:**: almacene los diferentes documentos JSON en DocumentDB y consúltelos a través de una sintaxis SQL conocida. DocumentDB utiliza una tecnología de indexación estructurada mediante registros sin bloqueos y sumamente concurrente para indexar automáticamente el contenido de todo documento. Esto permite consultas enriquecidas en tiempo real sin necesidad de especificar consejos de esquemas, índices secundarios o vistas. Obtenga más información en [DocumentDB de consulta](documentdb-sql-query.md). 
+-	**Consultas ad hoc con sintaxis SQL familiares:** almacene los diferentes documentos JSON en DocumentDB y consúltelos a través de una sintaxis SQL conocida. DocumentDB utiliza una tecnología de indexación estructurada mediante registros sin bloqueos y sumamente concurrente para indexar automáticamente el contenido de todo documento. Esto permite consultas enriquecidas en tiempo real sin necesidad de especificar consejos de esquemas, índices secundarios o vistas. Obtenga más información en [DocumentDB de consulta](documentdb-sql-query.md). 
 
 -	**Ejecución de JavaScript en la base de datos**: expresa la lógica de las aplicaciones como procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) con JavaScript estándar. Esto permite que la lógica de su aplicación opere con datos sin preocuparse de la discordancia entre la aplicación y el esquema de la base de datos. DocumentDB proporciona una ejecución transaccional completa de la lógica de aplicaciones de JavaScript directamente dentro del motor de la base de datos. La integración profunda de JavaScript permite la ejecución de las operaciones INSERTAR, REEMPLAZAR, ELIMINAR y SELECCIONAR desde un programa JavaScript como una transacción aislada. Obtenga más información en [Programación de servidor DocumentDB](documentdb-programming.md).
 
@@ -102,13 +102,13 @@ Si ya tiene una cuenta de Azure, puede empezar a trabajar con DocumentDB en el [
 
 Si no tiene una cuenta de Azure, puede:
 
-- Si es la primera vez que usa Azure, regístrese para una [evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/), que le ofrece 30 días y 200 USD para que pruebe todos los servicios de Azure. 
-- Si tiene una suscripción a MSDN, puede recibir [150 USD en créditos gratis de Azure al mes](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usarlos en cualquier servicio de Azure. 
+- Si es la primera vez que usa Azure, regístrese para una [prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/), que le proporciona 30 días y 200 USD para que pruebe todos los servicios de Azure. 
+- Si tiene una suscripción a MSDN, puede recibir [150 USD en créditos gratis de Azure al mes](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usarlos en cualquier servicio de Azure. 
 
-A continuación, cuando esté listo para obtener más información, visite nuestra [ruta de aprendizaje](http://azure.microsoft.com/documentation/learning-paths/documentdb/) para navegar por todos los recursos de aprendizaje disponibles.
+A continuación, cuando esté listo para obtener más información, visite nuestra [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para navegar por todos los recursos de aprendizaje disponibles.
 
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

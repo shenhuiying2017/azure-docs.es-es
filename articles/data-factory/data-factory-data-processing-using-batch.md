@@ -53,7 +53,7 @@ La solución cuenta el número de apariciones de un término de búsqueda ("Micr
 
 ### Requisitos previos
 
-1.  **Suscripción de Azure**. Si carece de suscripción de Azure, puede crear una cuenta de prueba gratuita en tan solo unos minutos. Consulte [Prueba gratuita de un mes](http://azure.microsoft.com/pricing/free-trial/).
+1.  **Suscripción de Azure**. Si carece de suscripción de Azure, puede crear una cuenta de prueba gratuita en tan solo unos minutos. Consulte [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 2.  **Cuenta de almacenamiento de Azure**. En este tutorial, usará una cuenta de almacenamiento de Azure para almacenar los datos. Si no dispone de una, consulte [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account). En la solución de ejemplo, se usa el almacenamiento de blobs.
 
@@ -500,7 +500,7 @@ En el siguiente tutorial, se proporcionan más detalles.
 
 ### Paso 1: Creación de la factoría de datos
 
-1.  Tras iniciar sesión en el [Portal de Azure](http://portal.azure.com/), siga estos pasos:
+1.  Tras iniciar sesión en el [Portal de Azure](https://portal.azure.com/), siga estos pasos:
 
     1.  Haga clic en **NUEVO** en el menú de la izquierda.
 
@@ -707,7 +707,7 @@ En este paso, creará otro conjunto de datos de tipo AzureBlob para representar 
 
 En este paso, creará una canalización con la actividad personalizada que creó antes.
 
-> [AZURE.IMPORTANT]Si no ha cargado **file.txt** a las carpetas de entrada en el contenedor de blobs, hágalo antes de crear la canalización. La propiedad **isPaused** está establecida en false en el código JSON de la canalización, por lo que esta se ejecutará de inmediato, ya que la fecha de inicio (**start**) ya ha pasado.
+> [AZURE.IMPORTANT] Si no ha cargado **file.txt** a las carpetas de entrada en el contenedor de blobs, hágalo antes de crear la canalización. La propiedad **isPaused** está establecida en false en el código JSON de la canalización, por lo que esta se ejecutará de inmediato, ya que la fecha de inicio (**start**) ya ha pasado.
 
 1.  En el Editor de Factoría de datos, haga clic en **Nueva canalización** en la barra de comandos. Si no ve el comando, haga clic en **... (puntos suspensivos)** para verlo.
 
@@ -761,11 +761,11 @@ En este paso, creará una canalización con la actividad personalizada que creó
 
 	-   **AssemblyName** se establece en el nombre del archivo DLL, **MyDotNetActivity.dll**.
 
-	-   **EntryPoint** se establece en establecido en **MyDotNetActivityNS.MyDotNetActivity**. Es básicamente \<espacioDeNombres\>.\<nombreDeClase\> en el código.
+	-   **EntryPoint** se establece en establecido en **MyDotNetActivityNS.MyDotNetActivity**. Es básicamente <espacioDeNombres>.<nombreDeClase> en el código.
 
 	-   **PackageLinkedService** está establecido en **StorageLinkedService**, que apunta al almacenamiento de blobs que contiene el archivo ZIP de la actividad personalizada. Si usa diferentes cuentas de Almacenamiento de Azure para los archivos de entrada y salida y el archivo ZIP de actividad personalizada, tendrá que crear otro servicio vinculado de Almacenamiento de Azure. En este artículo, se da por supuesto que usa la misma cuenta de Almacenamiento de Azure.
 
-	-   **PackageFile** se establece en **customactivitycontainer/MyDotNetActivity.zip**. Está en el formato \<contenedorDelZIP\>/\<nombreDelZIP.zip\>.
+	-   **PackageFile** se establece en **customactivitycontainer/MyDotNetActivity.zip**. Está en el formato <contenedorDelZIP>/<nombreDelZIP.zip>.
 
 	-   La actividad personalizada toma **InputDataset** como entrada y **OutputDataset** como salida.
 
@@ -929,4 +929,4 @@ Después de procesar datos, puede consumirlos con herramientas en línea como **
 
     -   [Introducción a la biblioteca de Lote de Azure para .NET](../batch/batch-dotnet-get-started.md)
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

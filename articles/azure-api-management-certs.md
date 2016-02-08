@@ -21,11 +21,11 @@
 
 Los certificados de administración le permiten autenticar con la API de administración de servicio proporcionada por Azure. Muchos programas y herramientas (como Visual Studio o el SDK de Azure) utilizarán estos certificados para automatizar la configuración y la implementación de varios servicios de Azure. Estos no están relacionados realmente con servicios en la nube.
 
->[AZURE.WARNING]Por lo tanto, tenga cuidado. Estos tipos de certificados permiten a quien se autentica con ellos administrar la suscripción a la que están asociados.
+>[AZURE.WARNING] Por lo tanto, tenga cuidado. Estos tipos de certificados permiten a quien se autentica con ellos administrar la suscripción a la que están asociados.
 
 Para obtener [más](cloud-services/cloud-services-certs-create.md#what-are-management-certificates) información acerca de los certificados de Azure (incluida la creación de un certificado autofirmado) si lo necesita.
 
-También puede usar [Azure Active Directory](http://azure.microsoft.com/documentation/services/active-directory/) para autenticar el código de cliente para fines de automatización.
+También puede usar [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/) para autenticar el código de cliente para fines de automatización.
 
 ## Carga de un certificado de administración
 
@@ -52,4 +52,4 @@ Una vez que tenga un certificado de administración creado, (archivo .cer con so
 
 Ahora que tiene un certificado de administración asociado a una suscripción, puede conectarse mediante programación (después de haber instalado localmente el certificado correspondiente) a la [API de REST de administración de servicios](https://msdn.microsoft.com/library/azure/mt420159.aspx) y automatizar los distintos recursos de Azure que también están asociados a esa suscripción.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

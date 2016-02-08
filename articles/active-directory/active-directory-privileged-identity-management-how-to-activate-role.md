@@ -3,7 +3,7 @@
    description="Obtenga información sobre cómo activar roles para identidades con privilegios con la extensión de Privileged Identity Management de Azure."
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="01/21/2016"
    ms.author="inhenk"/>
 
 # Privileged Identity Management de Azure: Activación y desactivación de un rol
 
 ## Activación o desactivación de un rol
 
-1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Siga los pasos que se indican en [Introducción a Privileged Identity Management de Azure](active-directory-privileged-identity-management-getting-started.md) para colocar PIM de Azure en el panel del portal.
 3. Después de completar los pasos del Asistente para seguridad, verá el menú principal de PIM de Azure.
 4. Haga clic en **Activar mi rol**.
@@ -31,11 +31,13 @@
 9. Haga clic en **Aceptar**. Ahora se activará el rol.
 10. Después de activar un rol, también puede desactivarlo haciendo clic en **Desactivar**. Además, se puede quitar el rol del usuario siguiendo los pasos de [Adición o eliminación de un rol de usuario](active-directory-privileged-identity-management-how-to-add-role-to-user.md).
 
-- Para obtener más información sobre la configuración de activación de roles, vea [Configuración de la activación de roles](active-directory-privileged-identity-management-how-to-configure-role-activation.md)
-- Para obtener más información sobre alertas de seguridad específicas de la configuración de activación de roles, vea [Configuración de alertas de seguridad](active-directory-privileged-identity-management-how-to-configure-security-alerts).
+
+Para obtener más información sobre la configuración de activación de roles, consulte [Configuración de la activación de roles](active-directory-privileged-identity-management-how-to-configure-role-activation.md).
+
+Para obtener más información sobre alertas de seguridad específicas de la configuración de activación de roles, vea [Configuración de alertas de seguridad](active-directory-privileged-identity-management-how-to-configure-security-alerts).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="10/20/2015"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models-both-include](../../includes/learn-about-deployment-models-both-include.md)]
 
-Configure la primera o siguiente granja de servidores de desarrollo/prueba de SharePoint en los servicios de infraestructura de Microsoft Azure, donde puede aprovecharse de la facilidad de configuración y de la capacidad ampliar rápidamente la granja de servidores para incluir la nueva capacidad o la optimización de funcionalidad clave.
+Configure la primera o siguiente granja de servidores de desarrollo, prueba o producción de SharePoint Server 2013 en los servicios de infraestructura de Microsoft Azure, donde puede aprovecharse de la facilidad de configuración y de la capacidad de ampliar rápidamente la granja para incluir la nueva capacidad o la optimización de la funcionalidad clave.
 
-> [AZURE.NOTE]Microsoft ha publicado la versión de vista previa de TI de SharePoint Server 2016. Para facilitar la instalación y prueba de esta vista previa, puede utilizar una imagen de la galería de máquinas virtuales de Azure con la vista previa de TI de SharePoint Server 2016 y sus requisitos previos preinstalados. Para obtener más información, vea [Prueba de la vista previa de TI de SharePoint Server 2016 en Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+> [AZURE.NOTE] Microsoft ha publicado la versión de vista previa de TI de SharePoint Server 2016. Para facilitar la instalación y prueba de esta vista previa, puede utilizar una imagen de la galería de máquinas virtuales de Azure con la vista previa de TI de SharePoint Server 2016 y sus requisitos previos preinstalados. Para obtener más información, vea [Prueba de la vista previa de TI de SharePoint Server 2016 en Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Granja de servidores de desarrollo/prueba básica de SharePoint
 
@@ -33,7 +33,7 @@ Consulte el elemento [Granja de SharePoint 2013 sin alta disponibilidad](https:/
 
 También puede usar una plantilla del Administrador de recursos de Azure. Consulte [Implementación de una granja de tres servidores de SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
-> [AZURE.NOTE]Se quitó el elemento **Granja de servidores SharePoint** en Azure Marketplace del Portal de Azure.
+> [AZURE.NOTE] Se quitó el elemento **Granja de servidores SharePoint** en Azure Marketplace del Portal de Azure.
 
 ## Granja de desarrollo/prueba de SharePoint de alta disponibilidad
 
@@ -43,7 +43,7 @@ Consulte el elemento [Granja de SharePoint 2013 con alta disponibilidad](https:/
 
 También puede usar una plantilla del Administrador de recursos de Azure. Consulte [Implementación de una granja de nueve servidores de SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
 
-> [AZURE.NOTE]Se quitó el elemento **Granja de servidores SharePoint** en Azure Marketplace del Portal de Azure.
+> [AZURE.NOTE] Se quitó el elemento **Granja de servidores SharePoint** en Azure Marketplace del Portal de Azure.
 
 ## Granja de servidores de desarrollo/prueba de nube híbrida
 
@@ -57,16 +57,8 @@ Con la implementación de [SharePoint 2013 con grupos de disponibilidad AlwaysOn
 
 Esta configuración usa el modelo de implementación clásica.
 
-## Recursos adicionales
+## Paso siguiente
 
-[Arquitecturas de Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
+- Descubra configuraciones adicionales de [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) en los servicios de infraestructura de Azure.
 
-[Sitios de Internet de Microsoft Azure mediante SharePoint Server 2013](https://technet.microsoft.com/library/dn635307.aspx)
-
-[Recuperación ante desastres de SharePoint Server 2013 en Microsoft Azure](https://technet.microsoft.com/library/dn635313.aspx)
-
-[Uso de Microsoft Azure Active Directory para la autenticación de SharePoint 2013](https://technet.microsoft.com/library/dn635311.aspx)
-
-[Implementación de la sincronización de directorios de Office 365 (DirSync) en Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -55,11 +55,11 @@ Después de iniciar sesión correctamente, verá información en la pantalla que
 
 ### Selección de su suscripción a Azure
 
-Para seleccionar la suscripción, necesita su id. de suscripción. Puede copiar el identificador de suscripción de la información mostrada en el paso anterior o, si dispone de varias suscripciones y necesita más detalles, puede ejecutar el cmdlet **Get-AzureSubscription** y copiar la información de suscripción que quiera del conjunto de resultados. El siguiente cmdlet usa el identificador de suscripción para establecer la suscripción actual:
+Para seleccionar la suscripción, necesita su id. de suscripción. Puede copiar el identificador de suscripción de la información que se muestra en el paso anterior o, si dispone de varias suscripciones y necesita más detalles, puede ejecutar el cmdlet **Get-AzureRmSubscription** y copiar la información de suscripción que desee del conjunto de resultados. El siguiente cmdlet usa el identificador de suscripción para establecer la suscripción actual:
 
 	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-Después de ejecutar correctamente **Select-AzureRmSubscription**, volverá al símbolo del sistema de PowerShell.
+Después de ejecutar correctamente **Select-AzureRMSubscription** volverá al símbolo del sistema de PowerShell.
 
 
 
@@ -151,7 +151,7 @@ El comando ejecuta el siguiente flujo de trabajo:
 Esta secuencia garantiza que no se producirá ninguna pérdida de datos. Hay un breve período durante el que ambas bases de datos no están disponibles (del orden de 0 a 25 segundos) mientras se cambian los roles. En circunstancias normales, toda la operación debería tardar menos de un minuto en completarse. Para más información, consulte [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
 
 
-> [AZURE.NOTE]Si la base de datos principal no está disponible cuando se emite el comando, se producirá un error con un mensaje que indica que el servidor principal no está disponible. En contadas ocasiones, es posible que la operación no pueda completarse y que aparezca detenida. En este caso, el usuario puede ejecutar el comando de conmutación por error forzada (conmutación por error no planeada) y aceptar la pérdida de datos.
+> [AZURE.NOTE] Si la base de datos principal no está disponible cuando se emite el comando, se producirá un error con un mensaje que indica que el servidor principal no está disponible. En contadas ocasiones, es posible que la operación no pueda completarse y que aparezca detenida. En este caso, el usuario puede ejecutar el comando de conmutación por error forzada (conmutación por error no planeada) y aceptar la pérdida de datos.
 
 
 
@@ -173,7 +173,7 @@ Esta funcionalidad está diseñada para situaciones de recuperación ante desast
 
 Como no se admite la restauración a un momento dado en bases de datos secundarias, si desea recuperar los datos confirmados en la base de datos principal anterior que no se replicaron en la nueva base de datos principal, deberá indicar a CSS que restaure la copia de seguridad de registro conocida de la base de datos.
 
-> [AZURE.NOTE]Si el comando se emite cuando las bases de datos principal y secundaria están en línea, la base de datos principal anterior se convertirá en la nueva secundaria pero no se intentará la sincronización de los datos porque se puede producir pérdida de datos.
+> [AZURE.NOTE] Si el comando se emite cuando las bases de datos principal y secundaria están en línea, la base de datos principal anterior se convertirá en la nueva secundaria pero no se intentará la sincronización de los datos porque se puede producir pérdida de datos.
 
 
 Si la base de datos principal tiene varias bases de datos secundarias, el comando se ejecutará correctamente de forma parcial. La base de datos secundaria en la que se ejecutó el comando se convertirá en la principal. Sin embargo, la base de datos principal anterior seguirá siendo principal, es decir, las dos bases de datos principales terminarán en un estado incoherente y conectadas por un vínculo de replicación suspendido. El usuario tendrá que reparar manualmente esta configuración mediante una API "quitar secundaria" en cualquiera de estas bases de datos principales.
@@ -210,9 +210,9 @@ El comando siguiente recupera el estado del vínculo de replicación entre la ba
 
 ## Recursos adicionales
 
-- [Lo más destacado de las nuevas funcionalidades de replicación geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [Lo más destacado de las nuevas funcionalidades de replicación geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Diseño de aplicaciones de nube para la continuidad del negocio mediante replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

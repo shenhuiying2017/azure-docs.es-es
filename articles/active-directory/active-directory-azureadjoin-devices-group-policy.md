@@ -68,14 +68,17 @@ Los dispositivos unidos a un dominio usarán este objeto para detectar informaci
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
->[AZURE.NOTE]Reemplace [*nombre de la cuenta del conector*] por la cuenta de dominio usada como cuenta del conector de AD.
+>[AZURE.NOTE]
+ Reemplace [*nombre de la cuenta del conector*] por la cuenta de dominio usada como cuenta del conector de AD.
 
->[AZURE.NOTE]El nombre de usuario de la credencial que se escribió cuando se muestra el mensaje emergente Get-Credential, debe tener el formato *user@example.com*.
+>[AZURE.NOTE]
+El nombre de usuario de la credencial que se escribió cuando se muestra el mensaje emergente Get-Credential, debe tener el formato **user@example.com*
 
 ### Configuración de reglas de notificaciones de AD FS
 Este procedimiento permite el registro instantáneo de un equipo en Azure DRS al permitir que los equipos se autentiquen mediante Kerberos o NTLM a través de AD FS. Sin este paso, los equipos llegarán a Azure AD con retraso (en función de los tiempos de sincronización de Azure AD Connect).
 
->[AZURE.NOTE]Si no dispone de AD FS como servidor de federación local, siga las instrucciones de su proveedor para crear las reglas de notificaciones.
+>[AZURE.NOTE]
+Si no dispone de AD FS como servidor de federación local, siga las instrucciones de su proveedor para crear las reglas de notificaciones.
 
 En el servidor de AD FS (o en una sesión conectada al servidor de AD FS) ejecute los siguientes comandos de PowerShell:
 
@@ -109,7 +112,8 @@ En el servidor de AD FS (o en una sesión conectada al servidor de AD FS) ejecut
  
     Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString 
 
->[AZURE.NOTE]Los equipos con Windows 10 se autenticarán con la autenticación integrada de Windows en un punto de conexión activo de WS-Trust hospedado por AD FS. Debe asegurarse de que este punto de conexión esté habilitado. Si usa el proxy de autenticación web, debe asegurarse también de que este punto de conexión se publique a través del proxy. Para ello, compruebe que adfs/services/trust/13/windowstransport se muestra como habilitado en la consola de administración de AD FS en Servicio > Puntos de conexión.
+>[AZURE.NOTE]
+Los equipos con Windows 10 se autenticarán con la autenticación integrada de Windows en un punto de conexión activo de WS-Trust hospedado por AD FS. Debe asegurarse de que este punto de conexión esté habilitado. Si usa el proxy de autenticación web, debe asegurarse también de que este punto de conexión se publique a través del proxy. Para ello, compruebe que adfs/services/trust/13/windowstransport se muestra como habilitado en la consola de administración de AD FS en Servicio > Puntos de conexión.
 
 
 ## Paso 2: Configurar el registro automático de dispositivos mediante la directiva de grupo de Active Directory
@@ -127,7 +131,8 @@ Puede usar una directiva de grupo de Active Directory para configurar sus dispos
  - Una unidad organizativa (OU) específica en AD donde se encontrarán los equipos unidos a un dominio de Windows 10.
  - Un grupo de seguridad específico que contiene equipos unidos a un dominio de Windows 10 que se registrarán automáticamente con Azure AD.
  
->[AZURE.NOTE]Esta plantilla de directiva de grupo ha cambiado su nombre en Windows 10. Si va a ejecutar la herramienta de directiva de grupo desde un equipo con Windows 10, la directiva aparecerá como: <br> **Registrar los equipos asociados a un dominio como dispositivos** y la directiva se encontrará en la siguiente ubicación:<br> ***Configuración de equipos/Directivas/Plantillas administrativas/Componentes de Windows/Registro de dispositivos***.
+>[AZURE.NOTE]
+Esta plantilla de directiva de grupo ha cambiado su nombre en Windows 10. Si va a ejecutar la herramienta de directiva de grupo desde un equipo con Windows 10, la directiva aparecerá como: <br> **Registrar los equipos asociados a un dominio como dispositivos** y la directiva se encontrará en la siguiente ubicación:<br> ***Configuración de equipos/Directivas/Plantillas administrativas/Componentes de Windows/Registro de dispositivos***.
 
  
 ## Información adicional
@@ -137,4 +142,4 @@ Puede usar una directiva de grupo de Active Directory para configurar sus dispos
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

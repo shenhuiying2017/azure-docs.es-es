@@ -72,7 +72,7 @@ Para habilitar la depuración remota, debe implementar una compilación de depur
 
 Puede haber ocasiones en que desee depurar la aplicación de API de manera local; por ejemplo, si las acciones de ida y vuelta desde y hasta el servidor de Azure ralentizan la depuración. En esta sección, se muestra cómo depurar la aplicación de API de manera local mediante la interfaz de usuario de Swagger como el cliente de prueba.
 
-2. En el explorador, vaya al [Portal de vista previa de Azure](https://portal.azure.com). 
+2. En el explorador, vaya al [Portal de vista previa de Azure](https://portal.azure.com/). 
 
 3. Haga clic en el botón **Examinar** de la barra lateral y seleccione **Aplicaciones de API**.
 
@@ -138,4 +138,4 @@ En este tutorial, vio cómo depurar las aplicaciones de API.
 
 Para obtener más información sobre cómo solucionar problemas, consulte [Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md). Debido a que las aplicaciones de API son aplicaciones web que tienen características adicionales para el hospedaje de servicios web, puede utilizar las mismas herramientas de depuración y de solución de problemas para aplicaciones de API que se usan para las aplicaciones web.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

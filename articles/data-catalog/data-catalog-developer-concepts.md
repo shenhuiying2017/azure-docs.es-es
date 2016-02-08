@@ -90,7 +90,7 @@ Como se mencionó en la sección Conceptos clave, el modelo de objetos **Catálo
 
 Estas propiedades se aplican a todos los tipos de recursos de raíz y a todos los tipos de anotación.
 
-> [AZURE.NOTE]Las propiedades cuyos nombres comienzan por un carácter de subrayado doble son tipos de sistema.
+> [AZURE.NOTE] Las propiedades cuyos nombres comienzan por un carácter de subrayado doble son tipos de sistema.
 
 <table><tr><td><b>Nombre de propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>La última vez que se modificó la raíz. Esta la establece el cliente. (El servidor no mantiene este valor).</td></tr><tr><td>__id</td><td>Cadena</td><td>Identificador del elemento (solo lectura). Se garantiza que este identificador es único para el activo de un catálogo.</td></tr><tr><td>__type</td><td>Cadena</td><td>El tipo de recurso (solo lectura)</td></tr><tr><td>__creatorId</td><td>String</td><td>Cadena usada por el creador del recurso para identificar de manera exclusiva el recurso. </td></tr></table>
 
@@ -172,7 +172,7 @@ Existen 3 roles: **Administrador**, **Propietario** y **Colaborador**. Cada rol 
 
 <table><tr><td><b>Rol</b></td><td><b>Ámbito</b></td><td><b>Derechos</b></td></tr><tr><td>Administrador</td><td>Catálogo (es decir, todos los recursos/anotaciones del catálogo)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Propietario</td><td>Cada recurso (es decir, también conocido como elemento raíz)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Colaborador</td><td>Cada recurso y anotación individual</td><td>Read Update Delete ViewRoles Nota: todos los derechos se revocarán si la operación de lectura en el elemento se ha revocado desde el colaborador</td></tr></table>
 
-> [AZURE.NOTE]Los derechos **Read**, **Update**, **Delete** y **ViewRoles** se pueden aplicar a cualquier elemento (recurso o anotación), mientras que **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility** y **ViewPermissions** solo se pueden aplicar al recurso de raíz.
+> [AZURE.NOTE] Los derechos **Read**, **Update**, **Delete** y **ViewRoles** se pueden aplicar a cualquier elemento (recurso o anotación), mientras que **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility** y **ViewPermissions** solo se pueden aplicar al recurso de raíz.
 >
 >El derecho **Delete** se aplica a un elemento, así como a los elementos secundarios o únicos situados debajo de él. Por ejemplo, la eliminación de un recurso también eliminará las anotaciones de ese recurso.
 
@@ -182,7 +182,7 @@ Un permiso es un lista de entradas de control de acceso. Cada entrada de control
 
 Durante la vista previa del **Catálogo de datos de Azure**, solo se admite el derecho **Read** en la lista de permisos para habilitar el escenario que restringe la visibilidad de un recurso.
 
-De forma predeterminada, cualquier usuario autenticado tiene el derecho **Read** para cualquier elemento del catálogo, a menos que la visibilidad esté restringida al conjunto de entidades de los permisos.
+De forma predeterminada, cualquier usuario autenticado tiene derecho **Read** para cualquier elemento del catálogo, a menos que la visibilidad esté restringida al conjunto de entidades de los permisos.
 
 ## API de REST
 
@@ -190,7 +190,7 @@ Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse 
 
 > [AZURE.NOTE]
 >
-> **\_\_permissions** solo se aplica a un elemento de raíz.
+> **__**\_\_permissions** solo se aplica a un elemento de raíz.
 >
 > El rol **Propietario** solo es aplicable a un elemento de raíz.
 >
@@ -257,9 +257,9 @@ Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse 
 	    ]
 	}
 
-> [AZURE.NOTE]En PUT no es necesario especificar una carga de elementos en el cuerpo: PUT puede usarse para actualizar solo roles y permisos.
+> [AZURE.NOTE] En PUT no es necesario especificar una carga de elementos en el cuerpo: PUT puede usarse para actualizar solo roles y permisos.
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

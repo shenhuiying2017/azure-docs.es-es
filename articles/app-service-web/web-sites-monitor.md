@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="01/13/2016"
 	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Supervisión de Aplicaciones web en el Servicio de aplicaciones de Azure
@@ -24,7 +24,7 @@
 
 ##Directiva de retención de métricas
 
->[AZURE.NOTE]La directiva de retención de las métricas de la aplicación varía según la granularidad.
+>[AZURE.NOTE] La directiva de retención de las métricas de la aplicación varía según la granularidad.
 
 - Las métricas de granularidad de **minuto** se conservan durante **24 horas**
 - Las métricas de granularidad de **hora** se conservan durante **7 días**
@@ -54,7 +54,7 @@ En el modo de aplicación web **Estándar** puede recibir alertas basadas en las
 
 Las aplicaciones web pueden configurarse para ejecutarse en modo **Compartido** o **Estándar** en la página de administración **Escala** de la aplicación web en el [Portal clásico](https://manage.windowsazure.com). Cada suscripción a Azure tiene acceso a un conjunto de recursos que tienen como finalidad la ejecución de hasta 100 aplicaciones web por región en el modo **Compartido**. El grupo de recursos disponibles para cada suscripción de aplicaciones web con este fin es compartido por otras aplicaciones web en la misma región geográfica que estén configuradas para ejecutarse en modo **Compartido**. Como estos recursos son compartidos para que los usen otras aplicaciones web, todas las suscripciones tienen límites en el uso que hacen de estos recursos. Los límites que se aplican al uso que una suscripción hace de estos recursos se expresan como cuotas de uso enumeradas en la sección de información general de uso de la página de administración **Panel** de cada aplicación web.
 
->[AZURE.NOTE]Cuando una aplicación web está configurada para ejecutarse en modo **Estándar**, se le asignan recursos dedicados equivalentes a los tamaños de máquina virtual **Pequeña** (valor predeterminado), **Mediana** o **Grande** en la tabla de [Máquina virtual y tamaños de servicio en la nube de Azure][vmsizes]. No hay límites en los recursos que puede utilizar una suscripción para ejecutar aplicaciones web en modo **Estándar**. Sin embargo, la cantidad de aplicaciones web en modo **Estándar** que se pueden crear por región es 500.
+>[AZURE.NOTE] Cuando una aplicación web está configurada para ejecutarse en modo **Estándar**, se le asignan recursos dedicados equivalentes a los tamaños de máquina virtual **Pequeña** (valor predeterminado), **Mediana** o **Grande** en la tabla de [Máquina virtual y tamaños de servicio en la nube de Azure][vmsizes]. No hay límites en los recursos que puede utilizar una suscripción para ejecutar aplicaciones web en modo **Estándar**. Sin embargo, la cantidad de aplicaciones web en modo **Estándar** que se pueden crear por región es 500.
 
 ### Visualización de las cuotas de uso para aplicaciones web configuradas para el modo Compartido ###
 Para determinar el alcance del impacto de una aplicación web en las cuotas de uso de los recursos, siga estos pasos:
@@ -100,7 +100,7 @@ Puede habilitar o deshabilitar los siguientes diagnósticos de aplicación:
 
 Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte [Administración de cuentas de almacenamiento](/manage/services/storage/how-to-manage-a-storage-account/).
 
-> [AZURE.NOTE]El registro de aplicaciones en almacenamiento de tablas o blobs solo es compatible con aplicaciones .NET.
+> [AZURE.NOTE] El registro de aplicaciones en almacenamiento de tablas o blobs solo es compatible con aplicaciones .NET.
 
 Como el registro de aplicaciones en almacenamiento requiere utilizar un cliente de almacenamiento para ver los datos de registro, resulta más útil cuando planea utilizar un servicio o aplicación que comprenda cómo leer y procesar los datos directamente desde el almacenamiento de tablas o blobs de Azure. El registro en el sistema de archivos genera archivos que se pueden descargar en el equipo local a través de FTP u otras utilidades, según se describe más adelante en esta sección.
 
@@ -108,7 +108,7 @@ Como el registro de aplicaciones en almacenamiento requiere utilizar un cliente 
 
 Los diagnósticos también se pueden habilitar desde Azure PowerShell con el cmdlet **Set-AzureWebsite**. Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
-> [AZURE.NOTE]El registro de aplicaciones se basa en la información de registro que genera su aplicación. El método usado para generar información de registro, así como también el formato de la información, es específico para el lenguaje en que está escrita la aplicación. Si desea información específica para el lenguaje sobre el uso del registro de aplicaciones, consulte los siguientes artículos:
+> [AZURE.NOTE] El registro de aplicaciones se basa en la información de registro que genera su aplicación. El método usado para generar información de registro, así como también el formato de la información, es específico para el lenguaje en que está escrita la aplicación. Si desea información específica para el lenguaje sobre el uso del registro de aplicaciones, consulte los siguientes artículos:
 >
 > - **.NET**: [Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 > - **Node.js**: [Depuración de una aplicación Node.js en Sitios web Azure](web-sites-nodejs-debug.md)
@@ -134,7 +134,7 @@ La sección **Diagnósticos del sitio** de la página de administración **Confi
 
 Después de habilitar los diagnósticos para una aplicación web, haga clic en el icono **Guardar** en la parte inferior de la página de administración **Configurar** para aplicar las opciones que definió.
 
-> [AZURE.IMPORTANT]Mensajes de error detallados y Seguimiento de solicitudes con error plantean exigencias importantes sobre una aplicación web. Recomendamos desactivar estas características una vez que haya reproducido los problemas que se están solucionando.
+> [AZURE.IMPORTANT] Mensajes de error detallados y Seguimiento de solicitudes con error plantean exigencias importantes sobre una aplicación web. Recomendamos desactivar estas características una vez que haya reproducido los problemas que se están solucionando.
 
 ### Configuración avanzada ###
 
@@ -173,7 +173,7 @@ Los archivos de registro se pueden descargar mediante el uso de FTP, Azure Power
 
 1. En la **pantalla de inicio** o en el **menú Inicio**, busque **Azure PowerShell**. Haga clic con el botón secundario en la entrada **Azure PowerShell** y seleccione **Ejecutar como administrador**.
 
-	> [AZURE.NOTE]Si **Azure PowerShell** no está instalado, consulte [Introducción a los cmdlets de Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) para obtener información sobre la instalación y configuración.
+	> [AZURE.NOTE] Si **Azure PowerShell** no está instalado, consulte [Introducción a los cmdlets de Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) para obtener información sobre la instalación y configuración.
 
 2. Desde el símbolo del sistema de Azure PowerShell, utilice el siguiente comando para descargar los archivos de registro:
 
@@ -201,7 +201,7 @@ También puede ver una secuencia en vivo de eventos de registro a través del si
 
 Con esto aparecerá información de registros en la sesión de Terminal, sesión Bash, PowerShell o símbolo del sistema desde donde se ejecuta el comando.
 
-> [AZURE.NOTE]Si el comando **azure** no está instalado, consulte [Cómo usar la CLI de Azure](../virtual-machines-command-line-tools.md) para obtener información sobre la instalación y la configuración.
+> [AZURE.NOTE] Si el comando **azure** no está instalado, consulte [Cómo usar la CLI de Azure](../virtual-machines-command-line-tools.md) para obtener información sobre la instalación y la configuración.
 
 ### Lectura de archivos de registro ###
 
@@ -252,7 +252,7 @@ El tiempo activo se supervisa a través de códigos de respuesta de HTTP y el ti
 
 Después de configurar la supervisión de extremo, puede obtener detalles sobre los extremos individuales para ver el estado del tiempo activo y el tiempo de respuesta sobre el intervalo de supervisión desde cada una de las ubicaciones de prueba. También puede configurar una regla de alerta cuando el extremo tarda mucho en responder, por ejemplo.
 
-**Para configurar la supervisión de extremos**:
+**Para configurar la supervisión de extremos:**
 
 1.	Abra **Aplicaciones web**. Haga clic en el nombre de la aplicación web que desea configurar.
 2.	Haga clic en la pestaña **Configurar**.
@@ -263,7 +263,7 @@ Después de configurar la supervisión de extremo, puede obtener detalles sobre 
 7.	De manera opcional, repita los pasos anteriores para crear un segundo extremo.
 8.	Haga clic en **Guardar**. Es posible que los datos de supervisión del extremo web tarden cierto tiempo en estar disponibles en las pestañas **Panel** y **Supervisar**.
 
-	Para crear una regla de correo electrónico, realice las siguientes tareas:
+Para crear una regla de correo electrónico, realice las siguientes tareas:
 
 9.	En la barra del servicio, situada a la izquierda, haga clic en **Servicios de administración**.
 10.	Haga clic en **Agregar regla** en la parte inferior.
@@ -277,9 +277,9 @@ Vea el siguiente vídeo para obtener más información sobre la supervisión de 
 
 - [Scott Guthrie presenta Sitios web Azure y configura la supervisión de extremos](/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
 
-- [Mantener activos Sitios web de Azure y supervisar extremos, con Stefan Schackow (en inglés)](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/).
+- [Mantener activos Sitios web de Azure y supervisar extremos, con Stefan Schackow (en inglés).](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -289,4 +289,4 @@ Vea el siguiente vídeo para obtener más información sobre la supervisión de 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

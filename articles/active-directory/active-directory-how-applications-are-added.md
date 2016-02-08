@@ -91,7 +91,7 @@ Las aplicaciones que agrega usted mismo incluyen:
 ## ¿Cómo se agregan aplicaciones a mi instancia de Azure AD?
 Hay muchas maneras de que una aplicación puede agregarse a Azure AD:
 
-* Adición de una aplicación desde la [Galería de aplicaciones de Azure Active Directory](http://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
+* Adición de una aplicación desde la [Galería de aplicaciones de Azure Active Directory](https://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
 * Registro/inicio de sesión en una aplicación de terceros integrada con Azure Active Directory (por ejemplo: [Smartsheet](https://app.smartsheet.com/b/home) o [DocuSign](https://www.docusign.net/member/MemberLogin.aspx))
     * Durante el registro o inicio de sesión, se les solicitará a los usuarios que proporcionen permiso a la aplicación para obtener acceso a su perfil y otros permisos. La primera persona que dé su consentimiento hará que una entidad de seguridad de servicio que represente la aplicación se agregue al directorio.
 * Registro/inicio de sesión en servicios en línea de Microsoft, como [Office 365](http://products.office.com/)
@@ -146,4 +146,4 @@ Obtenga más información sobre cómo agregar aplicaciones a Azure AD y cómo co
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

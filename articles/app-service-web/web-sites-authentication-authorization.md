@@ -18,13 +18,13 @@
 
 # Usar Active Directory para la autenticación en Servicio de aplicaciones de Azure #
 
-[Aplicaciones web del servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) permite escenarios de aplicaciones de línea de negocio empresariales al admitir el inicio de sesión único (SSO) de usuarios si tienen acceso a la aplicación desde el entorno local o desde Internet pública. Se puede integrar con [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) (AAD) o con un servicio de token seguro (STS) local, como los Servicios de federación de Active Directory (AD FS), para autenticar a los usuarios de Active Directory (AD) internos y autorizarles correctamente.
+[Aplicaciones web del servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) permite escenarios de aplicaciones de línea de negocio empresariales al admitir el inicio de sesión único (SSO) de usuarios si tienen acceso a la aplicación desde el entorno local o desde Internet pública. Se puede integrar con [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) (AAD) o con un servicio de token seguro (STS) local, como los Servicios de federación de Active Directory (AD FS), para autenticar a los usuarios de Active Directory (AD) internos y autorizarles correctamente.
 
 ## Autorización y autenticación perfecta ##
 
-Con unos pocos clics, puede habilitar la autenticación y autorización para su aplicación web. La configuración de estilo de casillas en las aplicaciones web de Azure proporciona el control de acceso básico de la aplicación web de línea de negocio. Para ello, exige HTTPS y la autenticación en un inquilino de Azure AD de su elección antes de conceder a los usuarios acceso al contenido de la aplicación web. Para obtener más información, consulte [Autenticación y autorización de aplicaciones web](http://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/).
+Con unos pocos clics, puede habilitar la autenticación y autorización para su aplicación web. La configuración de estilo de casillas en las aplicaciones web de Azure proporciona el control de acceso básico de la aplicación web de línea de negocio. Para ello, exige HTTPS y la autenticación en un inquilino de Azure AD de su elección antes de conceder a los usuarios acceso al contenido de la aplicación web. Para obtener más información, consulte [Autenticación y autorización de aplicaciones web](https://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/).
 
->[AZURE.NOTE]Esta funcionalidad actualmente está en su versión preliminar.
+>[AZURE.NOTE] Esta funcionalidad actualmente está en su versión preliminar.
 
 ## Implementación manual de la autenticación y la autorización ##
 
@@ -46,10 +46,10 @@ En muchos escenarios, quiere personalizar el comportamiento de la autenticación
 	-	Puede administrar [notificaciones](http://technet.microsoft.com/library/ee913571.aspx) en una base por aplicación.
 	-	Debe tener una solución independiente para tener acceso a datos de AD locales a través del firewall corporativo.
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

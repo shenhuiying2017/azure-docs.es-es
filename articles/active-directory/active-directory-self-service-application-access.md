@@ -20,14 +20,14 @@
 
 Habilitar las funcionalidades de autoservicio para los usuarios finales es un escenario común para TI empresarial. Muchos usuarios, muchas aplicaciones y es posible que la persona mejor informada para tomar decisiones de concesión de acceso no sea el administrador de directorio. A menudo la persona más adecuada para decidir quién puede tener acceso a una aplicación es un responsable de equipo u otro administrador delegado. Pero al final, es el usuario el que utiliza la aplicación y sabe lo que necesitan para poder hacer su trabajo.
 
-El acceso a la aplicación de autoservicio es una característica de [Azure Active Directory Premium](http://azure.microsoft.com/trial/get-started-active-directory/) que permite a los administradores de directorio:
+El acceso a la aplicación de autoservicio es una característica de [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) que permite a los administradores de directorio:
 
 * Permitir a los usuarios solicitar acceso a aplicaciones mediante un icono "Obtener más aplicaciones" en el [Panel de acceso de Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
 * Establecer qué usuarios de las aplicaciones pueden solicitar acceso
 * Establecer si los usuarios necesitan aprobación para poder autoasignarse acceso a una aplicación
 * Establecer quién debe aprobar las solicitudes y administrar el acceso para cada aplicación
 
-Hoy en día se admite esta funcionalidad para todas las aplicaciones preintegradas y personalizadas que admiten el inicio de sesión único basado en contraseña en la [galería de aplicaciones de Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/), incluidas aplicaciones como Salesforce, Dropbox, Google Apps y mucho más. En este artículo se describe cómo:
+Hoy en día se admite esta funcionalidad para todas las aplicaciones preintegradas y personalizadas que admiten el inicio de sesión único basado en contraseña en la [galería de aplicaciones de Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/), incluidas aplicaciones como Salesforce, Dropbox, Google Apps y mucho más. En este artículo se describe cómo:
 
 * Configurar el acceso a aplicaciones de autoservicio para usuarios finales, incluida la configuración de un flujo de trabajo de aprobación opcional. 
 * Delegar la administración del acceso para aplicaciones específicas a las personas más adecuadas de su organización y permitirles utilizar el panel de acceso de Azure AD para aprobar las solicitudes de acceso, asignar el acceso directamente a usuarios seleccionados u, opcionalmente, establecer credenciales para el acceso a aplicaciones cuando está configurado el inicio de sesión único basado en contraseña.
@@ -106,4 +106,4 @@ El icono **Configurar** solo se muestra si el administrador de TI ha configurado
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -34,7 +34,7 @@ El servicio StorSimple Manager se ejecuta en Microsoft Azure y se conecta a vari
 
 #### Para conectarse al servicio
 
-1. Vaya a [http://azure.microsoft.com/](http://azure.microsoft.com/)
+1. Vaya a [http://azure.microsoft.com/](https://azure.microsoft.com/)
 
 1. Con las credenciales de su cuenta Microsoft, inicie sesión en el Portal de Microsoft Azure clásico (situado en la parte superior derecha del panel).
 
@@ -57,15 +57,15 @@ En la tabla siguiente se muestra la jerarquía de navegación de la IU del servi
 |Página de aterrizaje|Páginas de nivel de servicio|Páginas de nivel de dispositivo|Páginas de nivel de dispositivo|
 |---|---|---|---|
 |Servicio StorSimple Manager|Panel del servicio|Panel del dispositivo||
-||Dispositivos →|Supervisión|
-||Catálogo de copias de seguridad|Contenedores de volúmenes→|Volúmenes|
-||Configurar (servicio)|Directivas de copia de seguridad||
-||Trabajos|Configurar (dispositivo)|
-||Alertas|Mantenimiento|
+|Dispositivos →|Supervisión|
+|Catálogo de copias de seguridad|Contenedores de volúmenes→|Volúmenes|
+|Configurar (servicio)|Directivas de copia de seguridad||
+|Trabajos|Configurar (dispositivo)|
+|Alertas|Mantenimiento|
 
 ![Vídeo disponible](./media/storsimple-manager-service-administration/Video_icon.png) **Vídeo disponible**
 
-Para ver un vídeo que le guiará a través de la interfaz de usuario del servicio StorSimple Manager, haga clic [aquí](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
+Para ver un vídeo que le guiará a través de la interfaz de usuario del servicio StorSimple Manager, haga clic [aquí](https://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ## Administrar el dispositivo StorSimple mediante el servicio de Administrador de StorSimple
 
@@ -114,4 +114,4 @@ Si tiene algún problema con la operación diaria de su dispositivo StorSimple o
 
 Si no puede resolver los problemas y necesita crear una solicitud de servicio, póngase en contacto con el [Servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

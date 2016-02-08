@@ -171,7 +171,7 @@ Tenga en cuenta los siguientes puntos a la hora de elegir cómo y dónde impleme
 
 Las tareas en segundo plano se pueden implementar de forma que se las impida implementarse en Aplicaciones web o Servicios en la nube de Azure, o puede que estas opciones no sean convenientes. Entre algunos ejemplos típicos se incluye los servicios de Windows y las utilidades y programas ejecutables de terceros. También se pueden incluir los programas escritos para un entorno de ejecución diferente al que hospeda la aplicación. Por ejemplo, puede ser un programa de Unix o Linux que quiera ejecutar desde una aplicación de Windows o. NET. Puede elegir entre una variedad de sistemas operativos para una máquina virtual de Azure y ejecutar el servicio o ejecutable en esa máquina virtual.
 
-Para ayudarle a elegir cuándo usar Máquinas virtuales, consulte [Comparación entre Servicios de aplicaciones, Servicios en la nube y Máquinas virtuales de Azure](choose-web-site-cloud-service-vm.md). Para obtener información sobre las opciones de Máquinas virtuales, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Para más información sobre los sistemas operativos y las imágenes preconfiguradas disponibles para Máquinas virtuales, consulte [Galería de Máquinas virtuales de Azure](http://azure.microsoft.com/gallery/virtual-machines/).
+Para ayudarle a elegir cuándo usar Máquinas virtuales, consulte [Comparación entre Servicios de aplicaciones, Servicios en la nube y Máquinas virtuales de Azure](choose-web-site-cloud-service-vm.md). Para obtener información sobre las opciones de Máquinas virtuales, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Para más información sobre los sistemas operativos y las imágenes preconfiguradas disponibles para Máquinas virtuales, consulte [Galería de Máquinas virtuales de Azure](https://azure.microsoft.com/gallery/virtual-machines/).
 
 Para iniciar la tarea en segundo plano en una máquina virtual independiente, tiene varias opciones:
 
@@ -191,7 +191,7 @@ Tenga en cuenta los siguientes puntos a la hora de decidir si va a implementar t
 
 ### Más información
 
-- [Máquinas virtuales](http://azure.microsoft.com/services/virtual-machines/) en Azure
+- [Máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/) en Azure
 - [Preguntas más frecuentes sobre Máquinas virtuales de Azure](virtual-machines-questions.md)
 
 ## Consideraciones de diseño
@@ -317,4 +317,4 @@ Las tareas en segundo plano deben ofrecer un rendimiento suficiente como para as
 - [Colas de Azure y colas de Bus de servicio: comparación y diferencias](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Cómo habilitar diagnósticos en un Servicio en la nube](cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

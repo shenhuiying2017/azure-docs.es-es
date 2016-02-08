@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="01/26/2015" 
 	ms.author="ryancraw"/>
 
 # Protección del acceso a los datos de DocumentDB #
@@ -115,7 +115,7 @@ Un recurso de usuario de DocumentDB se asocia a una base de datos de este tipo. 
 
     docUser = await client.CreateUserAsync(database.SelfLink, docUser);
 
-> [AZURE.NOTE]Cada usuario de DocumentDB tiene una propiedad PermissionsLink que se puede usar para recuperar la lista de permisos asociados al usuario.
+> [AZURE.NOTE] Cada usuario de DocumentDB tiene una propiedad PermissionsLink que se puede usar para recuperar la lista de permisos asociados al usuario.
 
 Un recurso de permiso de DocumentDB se asocia a un usuario de dicha base de datos. Cada usuario puede contener cero o más permisos de DocumentDB. Un recurso de permiso proporciona acceso a un token de seguridad que el usuario necesita al intentar obtener acceso a un recurso de aplicación específico. Un recurso de permiso puede proporcionar dos posibles niveles de acceso:
 
@@ -123,7 +123,7 @@ Un recurso de permiso de DocumentDB se asocia a un usuario de dicha base de dato
 - Lectura: el usuario solo puede leer el contenido del recurso, pero no realizar operaciones de escritura, actualización o eliminación en este.
 
 
-> [AZURE.NOTE]Para ejecutar procedimientos almacenados de DocumentDB, el usuario debe tener el permiso Todo en la colección donde se va a ejecutar el procedimiento almacenado.
+> [AZURE.NOTE] Para ejecutar procedimientos almacenados de DocumentDB, el usuario debe tener el permiso Todo en la colección donde se va a ejecutar el procedimiento almacenado.
 
 
 El fragmento de código siguiente muestra cómo crear un recurso de permiso, leer el token de dicho recurso y asociar los permisos al usuario creado anteriormente.
@@ -154,7 +154,7 @@ Para poder obtener fácilmente todos los recursos de permiso asociados a un usua
             
     DocumentClient userClient = new DocumentClient(new Uri(endpointUrl),permList);
 
-> [AZURE.TIP]Los tokens de recursos tienen un intervalo de tiempo válido predeterminado de 1 hora. Sin embargo, la vigencia del token puede especificarse explícitamente hasta un máximo de 5 horas.
+> [AZURE.TIP] Los tokens de recursos tienen un intervalo de tiempo válido predeterminado de 1 hora. Sin embargo, la vigencia del token puede especificarse explícitamente hasta un máximo de 5 horas.
 
 ##<a name="NextSteps"></a>Pasos siguientes
 
@@ -163,4 +163,4 @@ Para poder obtener fácilmente todos los recursos de permiso asociados a un usua
 - Para obtener más información acerca de cómo construir tokens de autorización de DocumentDB, haga clic [aquí](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

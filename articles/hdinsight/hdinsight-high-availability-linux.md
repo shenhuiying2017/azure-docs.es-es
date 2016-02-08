@@ -21,7 +21,7 @@
 
 Los clústeres Hadoop basados en Linux implementados por HDInsight de Azure usan un segundo nodo principal. Esto aumenta la disponibilidad y confiabilidad de los servicios de Hadoop y los trabajos que se ejecutan en Azure.
 
-> [AZURE.NOTE]Los pasos descritos en este documento son específicos de los clústeres de HDInsight basados en Linux. Si usa un clúster basado en Windows, consulte [Disponibilidad y confiabilidad de clústeres Hadoop basados en Windows en HDInsight](hdinsight-high-availability.md) para obtener información específica de Windows.
+> [AZURE.NOTE] Los pasos descritos en este documento son específicos de los clústeres de HDInsight basados en Linux. Si usa un clúster basado en Windows, consulte [Disponibilidad y confiabilidad de clústeres Hadoop basados en Windows en HDInsight](hdinsight-high-availability.md) para obtener información específica de Windows.
 
 ##Descripción de los nodos principales
 
@@ -29,7 +29,7 @@ Algunas implementaciones de Hadoop tienen un único nodo principal que hospeda s
 
 Los clústeres de HDInsight proporcionan un nodo principal secundario, lo que permite a los servicios y componentes principales continuar ejecutándose en el nodo secundario si se produce un error en el principal.
 
-> [AZURE.IMPORTANT]Ambos nodos principales están activos y en ejecución dentro del clúster al mismo tiempo. Algunos servicios, como HDFS o YARN solo están “activos” en un nodo principal en un determinado momento (y “en espera” en el otro nodo principal). Otros servicios como HiveServer2 o MetaStore de Hive están activos en ambos nodos principales al mismo tiempo.
+> [AZURE.IMPORTANT] Ambos nodos principales están activos y en ejecución dentro del clúster al mismo tiempo. Algunos servicios, como HDFS o YARN solo están “activos” en un nodo principal en un determinado momento (y “en espera” en el otro nodo principal). Otros servicios como HiveServer2 o MetaStore de Hive están activos en ambos nodos principales al mismo tiempo.
 
 Los nodos [ZooKeeper](http://zookeeper.apache.org/) (ZK) se usan para la elección del líder de los servicios principales en los nodos principales y para asegurarse de que los servicios, los nodos de datos (trabajo) y las puertas de enlace saben en qué nodo principal está activo un servicio principal.
 
@@ -128,7 +128,7 @@ Cada nodo principal puede tener entradas de registro único, por lo que debe com
 
 ###Ambari
 
-> [AZURE.NOTE]Para acceder a los archivos de registro a través de Ambari se requiere un túnel SSH, ya que los sitios web de los servicios individuales no se exponen públicamente en Internet. Para obtener información sobre cómo usar un túnel SSH, vea [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
+> [AZURE.NOTE] Para acceder a los archivos de registro a través de Ambari se requiere un túnel SSH, ya que los sitios web de los servicios individuales no se exponen públicamente en Internet. Para obtener información sobre cómo usar un túnel SSH, vea [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 En la interfaz de usuario web de Ambari, seleccione el servicio cuyos registros quiere ver (por ejemplo, YARN) y luego use **Vínculos rápidos** para seleccionar el nodo principal en el que quiere ver los registros.
 
@@ -136,7 +136,7 @@ En la interfaz de usuario web de Ambari, seleccione el servicio cuyos registros 
 
 ## Configuración del tamaño del nodo principal ##
 
-El tamaño del nodo principal solo se puede seleccionar durante la creación del clúster. Puede encontrar una lista de los diferentes tamaños de máquina virtual disponibles para HDInsight, incluido el núcleo, la memoria y el almacenamiento local para cada uno, en la [página de precios de HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
+El tamaño del nodo principal solo se puede seleccionar durante la creación del clúster. Puede encontrar una lista de los diferentes tamaños de máquina virtual disponibles para HDInsight, incluido el núcleo, la memoria y el almacenamiento local para cada uno, en la [página de precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 Al crear un nuevo clúster, puede especificar el tamaño de los nodos. A continuación se ofrece información sobre cómo especificar el tamaño mediante el [Portal de Azure][preview-portal], [Azure PowerShell][azure-powershell] y la [CLI de Azure][azure-cli]\:
 
@@ -166,4 +166,4 @@ En este documento ha aprendido cómo proporciona HDInsight de Azure alta disponi
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

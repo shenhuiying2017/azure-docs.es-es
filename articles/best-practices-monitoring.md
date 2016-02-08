@@ -37,7 +37,7 @@ La supervisión permite comprender en profundidad cómo funciona un sistema y es
 - Realizar un seguimiento de los problemas que se producen, desde el informe inicial al análisis de las causas posibles, su rectificación, las actualizaciones de software pertinentes y la implementación.
 - Realizar un seguimiento de las operaciones y depurar las versiones de software.
 
-> [AZURE.NOTE]Esta lista no pretende ser exhaustiva. Este documento se centra en estos escenarios como las situaciones más habituales para realizar una supervisión, pero también puede haber otros que sean menos comunes o específicos en su propio entorno.
+> [AZURE.NOTE] Esta lista no pretende ser exhaustiva. Este documento se centra en estos escenarios como las situaciones más habituales para realizar una supervisión, pero también puede haber otros que sean menos comunes o específicos en su propio entorno.
 
 En las siguientes secciones se describen estas configuraciones con más detalle. La información para cada escenario se describe en el siguiente formato:
 
@@ -108,7 +108,7 @@ Como el sistema se somete a condiciones de carga cada vez mayores a medida que e
 
 El rendimiento del sistema depende de varios factores. Cada factor se mide normalmente mediante indicadores clave de rendimiento (KPI), como el número de transacciones de la base de datos por segundo o el volumen de solicitudes de red que se atienden correctamente en un período de tiempo determinado. Algunos de estos KPI pueden estar disponibles como medidas de rendimiento específicas, mientras que otros pueden derivarse de una combinación de métricas.
 
-> [AZURE.NOTE]La determinación de un buen o mal rendimiento requiere que comprenda el nivel de rendimiento al que el sistema debería ser capaz de funcionar. Esto requiere observar el sistema mientras está funcionando bajo una carga típica y capturar los datos de cada KPI durante un período de tiempo. Esto puede implicar tener que ejecutar el sistema bajo una carga simulada en un entorno de pruebas y recopilar los datos apropiados antes de implementar el sistema en un entorno de producción.
+> [AZURE.NOTE] La determinación de un buen o mal rendimiento requiere que comprenda el nivel de rendimiento al que el sistema debería ser capaz de funcionar. Esto requiere observar el sistema mientras está funcionando bajo una carga típica y capturar los datos de cada KPI durante un período de tiempo. Esto puede implicar tener que ejecutar el sistema bajo una carga simulada en un entorno de pruebas y recopilar los datos apropiados antes de implementar el sistema en un entorno de producción.
 
 > También debe asegurarse de que la supervisión para objetivos de rendimiento no se convierta en una carga injustificada para el sistema. Es posible que pueda ajustar dinámicamente el nivel de detalle de los datos que recopila el proceso de supervisión del rendimiento.
 
@@ -194,7 +194,7 @@ Una característica de la supervisión de seguridad es la variedad de orígenes 
 ## Supervisión del SLA
 Muchos sistemas comerciales que admiten a los clientes de pago ofrecen garantías sobre el rendimiento del sistema en forma de SLA. Básicamente, los SLA especifican que el sistema puede controlar un volumen de trabajo definido en un período de tiempo acordado sin perder la información crítica. La supervisión del SLA se encarga de garantizar que el sistema puede cumplir los SLA medibles.
 
-> [AZURE.NOTE]La supervisión del SLA está estrechamente relacionada con la supervisión del rendimiento, pero mientras que la supervisión del rendimiento se encarga de garantizar que el sistema funciona _de manera óptima_, la supervisión del SLA se rige por una obligación contractual que define lo que significa _de manera óptima_.
+> [AZURE.NOTE] La supervisión del SLA está estrechamente relacionada con la supervisión del rendimiento, pero mientras que la supervisión del rendimiento se encarga de garantizar que el sistema funciona _de manera óptima_, la supervisión del SLA se rige por una obligación contractual que define lo que significa _de manera óptima_.
 
 Los SLA se definen con frecuencia en términos de:
 
@@ -202,7 +202,7 @@ Los SLA se definen con frecuencia en términos de:
 - Rendimiento operativo. A menudo, este aspecto se expresa como una o más marcas principales de límites máximos; como la garantía de que el sistema será capaz de admitir hasta 100.000 solicitudes de usuario simultáneas o controlar 10.000 transacciones de negocio simultáneas.
 - Tiempo de respuesta operativa. El sistema también puede ofrecer garantías relativas a la velocidad a la que se procesan las solicitudes; por ejemplo, que el 99 % de todas las transacciones de negocio se completarán en menos de 2 segundos y que ninguna transacción única tardará más de 10 segundos.
 
-> [AZURE.NOTE]Algunos contratos de sistemas comerciales pueden incluir también SLA relacionados con la asistencia al cliente, como que las solicitudes de asistencia técnica tendrán una respuesta en menos de 5 minutos y que el 99 % de los problemas deben solucionarse por completo en menos de 1 día laborable. Un [seguimiento de problemas](#issue-tracking) eficaz (que se describe más adelante en esta sección) es crucial para cumplir SLA como estos.
+> [AZURE.NOTE] Algunos contratos de sistemas comerciales pueden incluir también SLA relacionados con la asistencia al cliente, como que las solicitudes de asistencia técnica tendrán una respuesta en menos de 5 minutos y que el 99 % de los problemas deben solucionarse por completo en menos de 1 día laborable. Un [seguimiento de problemas](#issue-tracking) eficaz (que se describe más adelante en esta sección) es crucial para cumplir SLA como estos.
 
 ### Requisitos de la supervisión del estado
 En el nivel más alto, un operador debe ser capaz de determinar de un vistazo si el sistema está cumpliendo los SLA acordados o no y, si no es así, analizar en profundidad y examinar los factores subyacentes para determinar los motivos del rendimiento incorrecto.
@@ -218,7 +218,7 @@ Todos estos indicadores deben poder filtrarse para un período de tiempo especif
 
 Una aplicación en la nube probablemente constará de un número de componentes y subsistemas. Un operador debe ser capaz de seleccionar un indicador de alto nivel y ver cómo está compuesto por el estado de los elementos subyacentes. Por ejemplo, si el tiempo de actividad del sistema global cae por debajo de un valor aceptable, un operador debe poder ver en profundidad y determinar qué elementos están contribuyendo a dicho error.
 
-> [AZURE.NOTE]El tiempo de actividad del sistema debe definirse con cuidado. En un sistema que usa redundancia para garantizar la máxima disponibilidad, las instancias individuales de los elementos pueden producir un error, pero el sistema puede seguir siendo funcional. El tiempo de actividad del sistema tal y como lo presenta la supervisión del estado debe indicar el tiempo de actividad agregado de cada elemento y no necesariamente si el sistema realmente se detuvo. Además, es posible aislar los errores, por lo que incluso si un sistema concreto no está disponible, el resto del sistema puede permanecer disponible, aunque con una disminución de la funcionalidad (en un sistema de comercio electrónico, un error en el sistema podría impedir que un cliente realizase pedidos, pero el cliente seguiría pudiendo examinar el catálogo de productos).
+> [AZURE.NOTE] El tiempo de actividad del sistema debe definirse con cuidado. En un sistema que usa redundancia para garantizar la máxima disponibilidad, las instancias individuales de los elementos pueden producir un error, pero el sistema puede seguir siendo funcional. El tiempo de actividad del sistema tal y como lo presenta la supervisión del estado debe indicar el tiempo de actividad agregado de cada elemento y no necesariamente si el sistema realmente se detuvo. Además, es posible aislar los errores, por lo que incluso si un sistema concreto no está disponible, el resto del sistema puede permanecer disponible, aunque con una disminución de la funcionalidad (en un sistema de comercio electrónico, un error en el sistema podría impedir que un cliente realizase pedidos, pero el cliente seguiría pudiendo examinar el catálogo de productos).
 
 Para fines de alertas, el sistema debe ser capaz de generar un evento si cualquiera de los indicadores de alto nivel supera un umbral especificado. Los detalles de nivel inferior de los distintos factores que componen el indicador de alto nivel deben estar disponibles como datos contextuales para el sistema de alertas.
 
@@ -316,7 +316,7 @@ Si un usuario informa de un problema reconocido con una solución conocida en el
 ## Seguimiento de las operaciones y depuración de las versiones de software
 Cuando un usuario informa de un problema, a menudo solo es consciente del efecto inmediato que tiene en sus operaciones, de forma que solo puede informar de los resultados de su propia experiencia a un operador responsable de mantener el sistema. Estas experiencias normalmente son simplemente un síntoma visible de uno o más problemas fundamentales. En muchos casos, será necesario que un analista indague en la cronología de las operaciones subyacentes para establecer la causa raíz del problema (este proceso se conoce como _análisis de causa raíz_).
 
-> [AZURE.NOTE]El análisis de causa raíz puede descubrir las ineficacias en el diseño de una aplicación. En estas situaciones, quizá sea posible modificar los elementos afectados e implementarlos como parte de una versión posterior. Este proceso requiere un control cuidadoso y los componentes actualizados deben supervisarse atentamente.
+> [AZURE.NOTE] El análisis de causa raíz puede descubrir las ineficacias en el diseño de una aplicación. En estas situaciones, quizá sea posible modificar los elementos afectados e implementarlos como parte de una versión posterior. Este proceso requiere un control cuidadoso y los componentes actualizados deben supervisarse atentamente.
 
 ### Requisitos para el seguimiento y la depuración
 Para realizar un seguimiento de los eventos inesperados y otros problemas, es vital que los datos de supervisión ofrezcan suficiente información no solo de los problemas que se produzcan en el nivel superior, sino que también se incluyan suficientes detalles para permitir que un analista llegue a los orígenes de estos problemas y reconstruya la secuencia de eventos que se produjeron. Esta información debe ser suficiente para permitir que un analista diagnostique la causa raíz de los problemas, de forma que un desarrollador pueda realizar las modificaciones necesarias para impedir que se vuelvan a producir.
@@ -346,7 +346,7 @@ La información que usa el proceso de supervisión puede proceder de varios orí
 
 Muchas aplicaciones hacen uso de bibliotecas y marcos de trabajo para realizar tareas comunes como obtener acceso a un almacén de datos o comunicarse a través de una red. Estos marcos pueden configurarse para ofrecer como salida sus propios mensajes de seguimiento e información de diagnóstico sin procesar, como las tasas de transacciones, las transmisiones de datos correctas y erróneas, etc.
 
-> [AZURE.NOTE]Muchos marcos modernos publican automáticamente eventos de seguimiento y rendimiento, y la captura de esta información es solo cuestión de ofrecer un medio para recuperarla y almacenarla donde se pueda procesar y analizar.
+> [AZURE.NOTE] Muchos marcos modernos publican automáticamente eventos de seguimiento y rendimiento, y la captura de esta información es solo cuestión de ofrecer un medio para recuperarla y almacenarla donde se pueda procesar y analizar.
 
 El sistema operativo en que se ejecuta la aplicación puede ser una fuente de información de todo el sistema de bajo nivel, como los contadores de rendimiento que indican las tasas de E/S, la utilización de memoria y el uso de CPU. También se pueden notificar los errores del sistema operativo (por ejemplo, el error al abrir correctamente un archivo).
 
@@ -366,11 +366,11 @@ Además, el código y la infraestructura subyacente pueden generar eventos en pu
 
 - **Supervisión de los usuarios reales**. Este enfoque registra las interacciones entre un usuario y la aplicación y observa el flujo de cada solicitud y respuesta. Esta información puede tener un objetivo doble: se puede utilizar para medir el uso de cada usuario y se puede utilizar para determinar si los usuarios reciben una calidad de servicio adecuada (por ejemplo, tiempos de respuesta rápidos, una latencia baja y que se produzcan unos errores mínimos). Los datos capturados se pueden usar para identificar áreas problemáticas donde se producen errores con más frecuencia y elementos donde el sistema se ralentiza, posiblemente debido a zonas activas en la aplicación o a alguna otra forma de cuello de botella. Si este enfoque se ha implementado cuidadosamente, quizá sea posible reconstruir los flujos de los usuarios a través de la aplicación para fines de depuración y pruebas.
 
-	> [AZURE.IMPORTANT]Los datos capturados mediante la supervisión de los usuarios reales deben considerarse como muy confidenciales, ya que pueden incluir material privado. Si los datos capturados se guardan, se deben almacenar de forma segura. Si se usan los datos para la supervisión del rendimiento o con fines de depuración, toda la información personal que se pueda identificar debe eliminarse primero.
+	> [AZURE.IMPORTANT] Los datos capturados mediante la supervisión de los usuarios reales deben considerarse como muy confidenciales, ya que pueden incluir material privado. Si los datos capturados se guardan, se deben almacenar de forma segura. Si se usan los datos para la supervisión del rendimiento o con fines de depuración, toda la información personal que se pueda identificar debe eliminarse primero.
 
 - **Supervisión de usuarios sintéticos**. En este enfoque, escribe su propio cliente de prueba que simula un usuario y realiza una serie de operaciones configurables pero habituales. Puede realizar un seguimiento del rendimiento del cliente de prueba para ayudar a determinar el estado del sistema. También puede usar varias instancias del cliente de prueba como parte de una operación de prueba de carga para establecer la forma en que el sistema responde en situaciones de estrés y el tipo de resultado de supervisión que se genera en estas condiciones.
 
-	> [AZURE.NOTE]Puede implementar la supervisión de usuarios reales y sintéticos mediante la inclusión de código que realice un seguimiento y controle el tiempo de la ejecución de las llamadas a métodos y otras partes esenciales de una aplicación.
+	> [AZURE.NOTE] Puede implementar la supervisión de usuarios reales y sintéticos mediante la inclusión de código que realice un seguimiento y controle el tiempo de la ejecución de las llamadas a métodos y otras partes esenciales de una aplicación.
 
 - **Generación de perfiles**. Este enfoque está dirigido principalmente a supervisar y mejorar el rendimiento de la aplicación. En lugar de operar en el nivel funcional que emplea la supervisión de los usuarios reales y sintéticos, captura información de nivel inferior cuando se ejecuta la aplicación. La generación de perfiles puede implementarse mediante el muestreo periódico del estado de ejecución de una aplicación (determinar la parte del código que está ejecutando la aplicación en un momento dado en el tiempo) o mediante el uso de instrumentación que inserte sondeos en el código en momentos importantes (por ejemplo, el inicio y el final de una llamada a un método) y registre los métodos que se invocan, en qué momento y el tiempo que tarda cada llamada. Estos datos pueden analizarse para determinar las partes de la aplicación que podrían producir problemas de rendimiento.
 
@@ -386,7 +386,7 @@ Los datos de instrumentación normalmente incluirán información escrita en reg
 
 - El contenido de un registro de seguimiento puede ser el resultado de datos de texto que ha escrito la aplicación, datos binarios creados como resultado de un evento de seguimiento (si la aplicación usa Seguimiento de eventos para Windows, "ETW") o se pueden generar desde los registros del sistema que almacenan los eventos resultantes de partes de la infraestructura, como un servidor web. A menudo, los mensajes de registro de texto están diseñados para ser legibles por las personas, pero también se deben escribir en un formato que permita que un sistema automatizado pueda analizarlos fácilmente. También debe clasificar los registros; no escriba todos los datos de seguimiento en un registro único, use registros independientes para almacenar los resultados de seguimiento de distintos aspectos operativos del sistema. Esto le permite filtrar rápidamente los mensajes de registro mediante la lectura desde el registro adecuado, en lugar de tener que procesar un único archivo largo. Nunca escriba información que tenga requisitos de seguridad diferentes (como información de auditoría y datos de depuración) en el mismo registro.
 
-	> [AZURE.NOTE]Un registro puede implementarse como un archivo en el sistema de archivos o puede contenerse en otro formato, como un blob en un almacenamiento de blobs. La información de registro también se puede mantener en un almacenamiento más estructurado, como las filas de una tabla.
+	> [AZURE.NOTE] Un registro puede implementarse como un archivo en el sistema de archivos o puede contenerse en otro formato, como un blob en un almacenamiento de blobs. La información de registro también se puede mantener en un almacenamiento más estructurado, como las filas de una tabla.
 
 - En general, las métricas simplemente serán una medida o un recuento de algún aspecto o recurso del sistema en un momento determinado con una o varias etiquetas o dimensiones asociadas (a veces se denominan una _muestra_). Una única instancia de una métrica no suele ser útil por separado; en su lugar, las métricas se deben capturar en el tiempo. El aspecto fundamental que se debe tener en cuenta es qué métricas se deben registrar y con qué frecuencia. La generación de datos de métricas con demasiada frecuencia puede suponer una carga adicional significativa en el sistema, mientras que la captura de métricas con poca frecuencia puede provocar que se pierdan las circunstancias que dan lugar a un evento significativo. Las consideraciones variarán de una métrica a otra. Por ejemplo, el uso de CPU en un servidor puede variar considerablemente de un segundo a otro, pero una utilización alta solo se convierte en un problema si persiste un tiempo, durante unos cuantos minutos.
 
@@ -396,7 +396,7 @@ Puede supervisar con facilidad los contadores de rendimiento individuales de niv
 
 Todos los datos de supervisión deben tener una marca de tiempo del mismo tipo. Para mantener la coherencia, registre todas las fechas y horas según la hora universal coordinada. Eso le ayudará a realizar un seguimiento de las secuencias de eventos con más facilidad.
 
-> [AZURE.NOTE]Es posible que no se puedan sincronizar los equipos que funcionan en redes y zonas horarias diferentes; por tanto, no debería depender solo del uso de las marcas de tiempo para hacer una correlación de los datos de instrumentación que abarquen varias máquinas.
+> [AZURE.NOTE] Es posible que no se puedan sincronizar los equipos que funcionan en redes y zonas horarias diferentes; por tanto, no debería depender solo del uso de las marcas de tiempo para hacer una correlación de los datos de instrumentación que abarquen varias máquinas.
 
 ### ¿Qué información deben incluir los datos de instrumentación?
 Al decidir qué datos de instrumentación necesita recopilar, tenga en cuenta los siguientes puntos:
@@ -472,7 +472,7 @@ Un enfoque para implementar el modelo de extracción es usar agentes de supervis
 
 _Ilustración 3: Uso de un agente de supervisión para extraer información y escribir en el almacenamiento compartido_
 
-> [AZURE.NOTE]El uso de un agente de supervisión es ideal para capturar datos de instrumentación que se extraen naturalmente de un origen de datos, como información de las vistas de administración de SQL Server o la longitud de una cola del Bus de servicio de Azure.
+> [AZURE.NOTE] El uso de un agente de supervisión es ideal para capturar datos de instrumentación que se extraen naturalmente de un origen de datos, como información de las vistas de administración de SQL Server o la longitud de una cola del Bus de servicio de Azure.
 
 
 Los datos de telemetría para una aplicación a pequeña escala que se ejecuta en un número limitado de nodos se pueden almacenarse de forma factible en una sola ubicación mediante el enfoque descrito anteriormente. Sin embargo, una aplicación de la nube global, compleja y altamente escalable puede generar con facilidad grandes volúmenes de datos de cientos roles web y de trabajo, particiones de base de datos y otros servicios. Esta avalancha de datos podría sobrecargar fácilmente el ancho de banda de E/S disponible en una única ubicación central. Por lo tanto, la solución de telemetría debe ser escalable para evitar que actúe como un cuello de botella a medida que el sistema se amplíe y lo ideal es incorporar un grado de redundancia para reducir el riesgo de perder información importante de supervisión (por ejemplo, los datos de auditoría o de facturación) si se produce un error en una parte del sistema.
@@ -562,7 +562,7 @@ Tenga en cuenta que para que un sistema de paneles funcione de forma eficaz, deb
 
 Un buen panel no solo muestra información, sino que también ofrece un medio para permitir que un analista plantee preguntas ad hoc sobre esa información. Algunos sistemas ofrecen herramientas de administración que un operador puede usar para realizar estas tareas y explorar los datos subyacentes. Como alternativa, según el repositorio utilizado para almacenar esta información, puede ser posible consultar estos datos directamente o importarlos en herramientas como Microsoft Excel para realizar más análisis e informes.
 
-> [AZURE.NOTE]Debe restringir el acceso a los paneles para el personal autorizado; esta información puede ser confidencial a efectos comerciales. También se deben proteger los datos subyacentes que presenta el panel para impedir que los usuarios los cambien.
+> [AZURE.NOTE] Debe restringir el acceso a los paneles para el personal autorizado; esta información puede ser confidencial a efectos comerciales. También se deben proteger los datos subyacentes que presenta el panel para impedir que los usuarios los cambien.
 
 ### Generación de alertas
 Las alertas son el proceso de análisis de los datos de supervisión e instrumentación y la generación de una notificación si se detecta un evento significativo.
@@ -605,10 +605,10 @@ En muchos casos, los informes se pueden generar mediante procesos por lotes seg�
 - El artículo[Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md) del sitio web de Microsoft.
 - El artículo [Azure: conceptos básicos de la telemetría y solución de problemas](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx) del sitio web de Microsoft.
 - La página [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](cloud-services-dotnet-diagnostics.md) del sitio web de Microsoft.
-- Las páginas [Caché en Redis de Azure](http://azure.microsoft.com/services/cache/), [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) y [HDInsight](http://azure.microsoft.com/services/hdinsight/) del sitio web de Microsoft.
+- Las páginas [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/), [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) y [HDInsight](https://azure.microsoft.com/services/hdinsight/) del sitio web de Microsoft.
 - La página [cómo usar las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md) del sitio web de Microsoft.
 - El artículo [Business Intelligence de SQL Server en Máquinas virtuales de Azure](./virtual-machines/virtual-machines-sql-server-business-intelligence.md) del sitio web de Microsoft.
 - Las páginas [Recibir notificaciones de alerta](insights-receive-alert-notifications.md) y [Seguimiento del estado del servicio](insights-service-health.md) del sitio web de Microsoft.
 - La página de [Application Insights](app-insights-get-started.md) del sitio web de Microsoft.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

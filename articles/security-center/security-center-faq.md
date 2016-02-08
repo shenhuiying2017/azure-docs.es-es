@@ -20,7 +20,7 @@
 
 Estas preguntas más frecuentes responden a preguntas sobre el Centro de seguridad de Azure, un servicio que le ayuda a evitar, detectar y responder a amenazar con mayor visibilidad y control sobre la seguridad de los recursos de Microsoft Azure.
 
-> [AZURE.NOTE]La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure.
+> [AZURE.NOTE] La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure.
 
 ## Preguntas generales
 
@@ -28,7 +28,7 @@ Estas preguntas más frecuentes responden a preguntas sobre el Centro de segurid
 El Centro de seguridad de Azure ayuda a evitar, detectar y responder a amenazas con más visibilidad y control de la seguridad en sus recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
 ### ¿Cómo puedo obtener el Centro de seguridad de Azure?
-El Centro de seguridad de Azure se habilita con la suscripción de Microsoft Azure y es posible tener acceso a él desde el [Portal de Azure](http://azure.microsoft.com/features/azure-portal/). ([Inicie sesión en el portal](https://portal.azure.com), seleccione **Examinar** y desplácese al **Centro de seguridad**). Puede consultar algunas recomendaciones de seguridad en el panel inmediatamente. Esto se debe a que el servicio puede evaluar el estado de seguridad de algunos controles según su configuración en Azure. Para habilitar el conjunto total de funcionalidades de supervisión, recomendaciones y alertas de seguridad, deberá [habilitar la colección de datos](#data-collection).
+El Centro de seguridad de Azure se habilita con la suscripción de Microsoft Azure y es posible tener acceso a él desde el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). ([Inicie sesión en el portal](https://portal.azure.com), seleccione **Examinar** y desplácese al **Centro de seguridad**). Puede consultar algunas recomendaciones de seguridad en el panel inmediatamente. Esto se debe a que el servicio puede evaluar el estado de seguridad de algunos controles según su configuración en Azure. Para habilitar el conjunto total de funcionalidades de supervisión, recomendaciones y alertas de seguridad, deberá [habilitar la colección de datos](#data-collection).
 
 ## Facturación
 
@@ -103,4 +103,4 @@ Las recomendaciones de Lista de control de acceso actualmente se aplican a las m
 ### ¿Las máquinas virtuales de Linux son compatibles?
 El Centro de seguridad de Azure ofrece supervisión de línea base para máquinas virtuales de Linux (solo Ubuntu versiones 12.04, 14.04, 14.10 y 15.04). En el futuro, habrá disponible una supervisión del estado de seguridad y colección de datos/análisis adicionales, además de compatibilidad para otras distribuciones de Linux.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

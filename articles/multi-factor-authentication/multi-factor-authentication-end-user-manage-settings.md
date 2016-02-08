@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Problemas con Azure Multi-Factor Authentication | Microsoft Azure" 
 	description="Este documento ofrecerá a los usuarios información sobre qué hacer si se encuentran con un problema con Azure Multi-Factor Authentication" 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords = "cliente de multi-factor authentication, problema de autenticación, identificador de correlación"
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
@@ -13,11 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # Problemas con Azure Multi-Factor Authentication
->[AZURE.IMPORTANT]Ayúdenos a mejorar esta página. Si no encuentra una respuesta a su problema en esta página, ofrezca comentarios detallados para que agregarla.
+>[AZURE.IMPORTANT]
+Ayúdenos a mejorar esta página. Si no encuentra una respuesta a su problema en esta página, ofrezca comentarios detallados para que agregarla.
 
 La siguiente información le ayudará a resolver algunos de los problemas comunes que podría encontrar.
 
@@ -63,7 +65,8 @@ Luego, seleccione el otro número de teléfono. En este caso, seleccionaría **L
 
 ![Teléfono alternativo](./media/multi-factor-authentication-end-user-manage/altphone2.png)
 
->[AZURE.IMPORTANT]Es importante configurar un número de teléfono de autenticación secundario. Debido a que el número de teléfono principal y la aplicación móvil probablemente se encuentran en el mismo teléfono, el número de teléfono secundario es la única forma que tiene para volver a tener acceso a su cuenta si se le pierde el teléfono o si se lo robaron.
+>[AZURE.IMPORTANT]
+Es importante configurar un número de teléfono de autenticación secundario. Debido a que el número de teléfono principal y la aplicación móvil probablemente se encuentran en el mismo teléfono, el número de teléfono secundario es la única forma que tiene para volver a tener acceso a su cuenta si se le pierde el teléfono o si se lo robaron.
 
 Si no configuró un número de teléfono de autenticación secundario, deberá ponerse en contacto con el administrador para pedirle que borre su configuración, para que, la próxima vez que inicie sesión, se le solicite volver a [configurar la autenticación multifactor](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again).
 
@@ -129,7 +132,8 @@ Luego, seleccione el otro número de teléfono. En este caso, seleccionaría **L
 
 ![Teléfono alternativo](./media/multi-factor-authentication-end-user-manage/altphone2.png)
 
->[AZURE.IMPORTANT]Es importante configurar un número de teléfono de autenticación secundario. Debido a que el número de teléfono principal y la aplicación móvil probablemente se encuentran en el mismo teléfono, el número de teléfono secundario es la única forma que tiene para volver a tener acceso a su cuenta si se le pierde el teléfono o si se lo robaron.
+>[AZURE.IMPORTANT]
+Es importante configurar un número de teléfono de autenticación secundario. Debido a que el número de teléfono principal y la aplicación móvil probablemente se encuentran en el mismo teléfono, el número de teléfono secundario es la única forma que tiene para volver a tener acceso a su cuenta si se le pierde el teléfono o si se lo robaron.
 
 La segunda es ponerse en contacto con el administrador o con la persona que configura mfa por usted. Solo debe hacerlo si no ha configurado un número de teléfono de autenticación secundario. De lo contrario, tendrá que ponerse en contacto con el administrador o la persona que configuró mfa y pedirle que borre su configuración, para que, la próxima vez que inicie sesión, se le solicite volver a [configurar la autenticación multifactor](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again).
 
@@ -168,4 +172,4 @@ Además, puede ponerse en contacto con el administrador o con la persona que con
 
 Por último, asegúrese de dejar algunos comentarios detallados en esta página para que podemos actualizarla y continuar mejorándola proporcionando más información.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

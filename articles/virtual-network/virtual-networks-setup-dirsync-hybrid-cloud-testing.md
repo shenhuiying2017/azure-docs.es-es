@@ -45,7 +45,7 @@ Hay tres fases principales para configurar este entorno de prueba de nube híbri
 2.	Configuración de la versión de prueba de Office 365 FastTrack.
 3.	Configuración del servidor DirSync (DS1).
 
-Si todavía no dispone de una suscripción a Azure, puede registrarse para obtener una evaluación gratuita en [Probar Azure](http://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si todavía no dispone de una suscripción a Azure, puede registrarse para obtener una evaluación gratuita en [Probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Fase 1: configuración del entorno de nube híbrida
 
@@ -55,7 +55,7 @@ Esta es su configuración actual.
 
 ![](./media/virtual-networks-setup-dirsync-hybrid-cloud-testing/CreateDirSyncHybridCloud_1.png)
 
-> [AZURE.NOTE]Asimismo, puede configurar el entorno de prueba de nube híbrida simulada para la fase 1. Consulte [Configuración de un entorno simulado de nube híbrida para hacer pruebas](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) y así obtener más instrucciones.
+> [AZURE.NOTE] Asimismo, puede configurar el entorno de prueba de nube híbrida simulada para la fase 1. Consulte [Configuración de un entorno de nube híbrida para hacer pruebas](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) y así obtener más instrucciones.
 
 ## Fase 2: configuración de la versión de prueba de Office 365 FastTrack
 
@@ -119,7 +119,7 @@ A continuación, habilite la sincronización de directorios de la versión de pr
 1.	En CLIENT1, en la página **Centro de administración de Office 365**, en el panel izquierdo, haga clic en **Usuarios** y, a continuación, en **Usuarios activos**.
 2.	Para la **Sincronización de Active Directory**, haga clic en **Configurar**.
 3.	En la página de configuración y administración de la sincronización de Active Directory, en el paso 3, haga clic en **Activar**.
-4.	Cuando le pregunten **¿Desea activar la sincronización de Active Directory?**, haga clic en **Activar**. Una vez hecho esto, aparecerá el mensaje **Se ha activado la sincronización de Active Directory** en el paso 3.
+4.	Cuando le pregunten **¿Desea activar la sincronización de Active Directory?**, haga clic en **Activar**. Después de hacer esto, verá el mensaje **Se ha activado la sincronización de Active Directory** en el paso 3.
 5.	Deje la página **Configuración y administración de la sincronización de Active Directory** abierta en CLIENT1.
 
 A continuación, inicie sesión en DC1 con la cuenta CORP\\User1 y abra un símbolo del sistema de Windows PowerShell con nivel de administrador. Ejecute estos comandos uno por uno para crear una nueva unidad organizativa denominada contoso\_users y agregue dos cuentas de usuario nuevas para Marci Kaufman y Lynda Meyer.
@@ -185,4 +185,4 @@ Este entorno ya está preparado para realizar pruebas de aplicaciones de Office�
 
 [Instrucciones de implementación de los servicios de infraestructura de Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

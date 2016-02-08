@@ -30,7 +30,7 @@ En este artículo se muestra cómo crear una máquina virtual en el laboratorio 
 
 ## Incorporación de una máquina virtual con artefactos
 
-1. Inicie sesión en el [Portal de vista previa de Azure](http://portal.azure.com).
+1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com).
 
 1. Pulse **Examinar** y luego pulse **Laboratorios de desarrollo y pruebas** en la lista.
 
@@ -98,4 +98,4 @@ Siga estos pasos para ver o modificar los parámetros de los artefactos seleccio
 
 Aprenda cómo [crear artefactos personalizados para la máquina virtual](devtest-lab-artifact-author.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

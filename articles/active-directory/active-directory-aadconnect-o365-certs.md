@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 
@@ -21,11 +21,11 @@
 
 Si recibe un correo electrónico o una notificación de portal que le solicita renovar el certificado de Office 365, este artículo está pensado para ayudarle a resolver el problema y evitar que vuelva a producirse. En este artículo se supone que está usando AD FS como el servidor de federación.
 
->[AZURE.IMPORTANT]Tenga en cuenta que se puede producir un error en la autenticación a través del proxy en Windows Server 2012 o Windows Server 2008 R2 después de realizar una de las siguientes acciones:
+>[AZURE.IMPORTANT] Tenga en cuenta que se puede producir un error en la autenticación a través del proxy en Windows Server 2012 o Windows Server 2008 R2 después de realizar una de las siguientes acciones:
 >
 - El proxy renueva su token de confianza después de la sustitución de certificados en AD FS.
 - Ha reemplazado manualmente sus certificados de AD FS.
->     
+>
 Hay una revisión disponible para corregir este problema. Vea [Authentication through proxy fails in Windows Server 2012 or Windows 2008 R2 SP1](http://support.microsoft.com/kb/3094446) (Se produce un error en la autenticación a través del proxy en Windows Server 2012 o Windows 2008 R2 SP1).
 
 ## Compruebe si tiene que hacer algo
@@ -90,6 +90,6 @@ Ahora deben aparecer dos certificados, uno de los cuales tiene una fecha de NotA
 4.	Si ejecuta estos comandos en un equipo que no sea el servidor de federación principal de AD FS, ejecute Set-MSOLAdfscontext -Computer <AD FS primary server>, donde <AD FS primary server> es el nombre de dominio completo interno del servidor de AD FS principal. Este cmdlet crea un contexto que le permite conectarse a AD FS.
 5.	Ejecute Update-MSOLFederatedDomain –DomainName <domain>. Este cmdlet actualiza la configuración de AD FS en el servicio en la nube y configura la relación de confianza entre los dos.
 
->[AZURE.NOTE]Si necesita admitir varios dominios de nivel superior, por ejemplo, contoso.com y fabrikam.com, debe utilizar el modificador SupportMultipleDomain con cualquier cmdlet. Para obtener más información, vea Compatibilidad con varios dominios de nivel superior. Por último, compruebe que todos los servidores proxy de aplicación web se actualizan con el paquete acumulativo de [Windows Server de mayo de 2014](http://support.microsoft.com/kb/2955164). De lo contrario, es posible que los servidores proxy no se actualicen con el nuevo certificado y se produzca una interrupción del sistema.
+>[AZURE.NOTE] Si necesita admitir varios dominios de nivel superior, por ejemplo, contoso.com y fabrikam.com, debe utilizar el modificador SupportMultipleDomain con cualquier cmdlet. Para obtener más información, vea Compatibilidad con varios dominios de nivel superior. Por último, compruebe que todos los servidores proxy de aplicación web se actualizan con el paquete acumulativo de [Windows Server de mayo de 2014](http://support.microsoft.com/kb/2955164). De lo contrario, es posible que los servidores proxy no se actualicen con el nuevo certificado y se produzca una interrupción del sistema.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

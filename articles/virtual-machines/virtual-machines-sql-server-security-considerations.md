@@ -25,7 +25,7 @@ Este tema incluye las direcciones de seguridad generales que ayudan a establecer
 
 Para obtener más información sobre los procedimientos de seguridad de SQL Server, consulte [Procedimientos recomendados de seguridad en SQL Server 2008 R2: tareas operativas y administrativas](http://download.microsoft.com/download/1/2/A/12ABE102-4427-4335-B989-5DA579A4D29D/SQL_Server_2008_R2_Security_Best_Practice_Whitepaper.docx)
 
-Azure cumple diversos reglamentos y estándares del sector que permiten compilar una solución compatible con SQL Server que se ejecuta en una máquina virtual. Para obtener información acerca del cumplimiento normativo de Azure, consulte [Centro de confianza de Azure](http://azure.microsoft.com/support/trust-center/).
+Azure cumple diversos reglamentos y estándares del sector que permiten compilar una solución compatible con SQL Server que se ejecuta en una máquina virtual. Para obtener información acerca del cumplimiento normativo de Azure, consulte [Centro de confianza de Azure](https://azure.microsoft.com/support/trust-center/).
 
 La siguiente es una lista de recomendaciones de seguridad que deben tenerse en cuenta al configurar y conectarse a la instancia de SQL Server en una máquina virtual de Azure.
 
@@ -62,4 +62,4 @@ Si también está interesado en los procedimientos recomendados de rendimiento, 
 
 Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, consulte [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

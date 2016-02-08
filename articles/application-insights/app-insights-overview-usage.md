@@ -42,7 +42,7 @@ También puede agregar Application Insights al código de servidor [ASP.NET](app
 
 ### Ejecución del proyecto y visualización de los primeros resultados
 
-Ejecute el proyecto en modo de depuración durante unos minutos, a continuación, vaya al [Portal de Azure](http://portal.azure.com) y vaya a los recursos del proyecto en Application Insights.
+Ejecute el proyecto en modo de depuración durante unos minutos, a continuación, vaya al [Portal de Azure](https://portal.azure.com) y vaya a los recursos del proyecto en Application Insights.
 
 ![En Azure, elija Examinar, Application Insights y, después, seleccione su proyecto](./media/app-insights-overview-usage/00-start.png)
 
@@ -279,7 +279,7 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 ## Más información
 
 * [Detección, clasificación y diagnóstico de errores y problemas de rendimiento en su aplicación](app-insights-detect-triage-diagnose.md)
-* [Introducción a Application Insights en muchas plataformas](app-insights-detect-triage-diagnose.md).
+* [Introducción a Application Insights en muchas plataformas.](app-insights-detect-triage-diagnose.md)
 
 
 ## Vídeo
@@ -288,4 +288,4 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

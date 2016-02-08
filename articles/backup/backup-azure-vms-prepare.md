@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Preparación del entorno para realizar copias de seguridad de máquinas virtuales de Azure | Microsoft Azure"
-	description="Asegúrese de que su entorno esté preparado para la copia de seguridad de máquinas virtuales de Azure"
+	description="Asegúrese de que el entorno está preparado para la copia de seguridad de máquinas virtuales en Azure"
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="copias de seguridad; realizar copia de seguridad"/>
 
 <tags
 	ms.service="backup"
@@ -13,12 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="01/22/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
-# Preparación del entorno de copia de seguridad de máquinas virtuales de Azure
-Antes de realizar la copia de seguridad de una máquina virtual (VM) de Azure, debe completar estos requisitos previos para preparar el entorno. Si ya lo hizo, puede comenzar a [crear la copia de seguridad de las máquinas virtuales](backup-azure-vms.md). Si no es así, siga estos pasos para asegurarse de que el entorno esté listo.
 
+# Preparación del entorno de copia de seguridad de máquinas virtuales de Azure
+
+Antes de realizar la copia de seguridad de una máquina virtual (VM) de Azure, debe completar estos requisitos previos. Si ya ha preparado el entorno para las copias de seguridad, puede iniciar [la copia de seguridad de las máquinas virtuales](backup-azure-vms.md). Si no es así, siga estos pasos para asegurarse de que el entorno esté listo.
 
 ## 1\. Almacén de copia de seguridad
 
@@ -79,7 +81,7 @@ Equilibrio entre la facilidad de uso, un control detallado y el costo.
 ### Uso de un proxy HTTP para las copias de seguridad de máquinas virtuales
 Cuando se realiza una copia de seguridad de una máquina virtual, los comandos de administración de instantáneas se envían desde la extensión de copia de seguridad al Almacenamiento de Azure mediante una API de HTTPS. Este tráfico debe enrutarse a la extensión a través del proxy, ya que solo el proxy se configurará para que tenga acceso a la red pública de Internet.
 
->[AZURE.NOTE]No hay ninguna recomendación que deba usarse para el software de proxy. Asegúrese de que selecciona un proxy que sea compatible con los pasos de configuración que se mencionan a continuación.
+>[AZURE.NOTE] No hay ninguna recomendación que deba usarse para el software de proxy. Asegúrese de que selecciona un proxy que sea compatible con los pasos de configuración que se mencionan a continuación.
 
 En el ejemplo siguiente, la máquina virtual de la aplicación debe configurarse para usar la máquina virtual de proxy para todo el tráfico HTTP enlazado a la red pública de Internet. La máquina virtual de proxy debe configurarse para permitir el tráfico entrante desde máquinas virtuales en la red virtual. Y por último, el grupo de seguridad de red (denominado *NSG-lockdown*) necesita una nueva regla de seguridad que permite el tráfico saliente de Internet desde la máquina virtual de proxy.
 
@@ -159,7 +161,7 @@ El agente de la máquina virtual ya está presente en las máquinas virtuales qu
 | Validación de la instalación del agente de máquina virtual | <li>Vaya a la carpeta *C:\\WindowsAzure\\Packages* en la máquina virtual de Azure. <li>El archivo WaAppAgent.exe debe estar ahí.<li> Haga clic con el botón derecho en el archivo, vaya a **Propiedades** y, luego, seleccione la pestaña **Detalles**. En el campo de versión del producto, debe aparecer el valor 2.6.1198.718 o uno superior. | - |
 
 
-Obtenga información acerca del [Agente de máquina virtual](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) y de [cómo instalarlo](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+Obtenga información acerca del [Agente de máquina virtual](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) y de [cómo instalarlo](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
 ### Extensión de copia de seguridad
 
@@ -176,7 +178,7 @@ Si se ejecuta la máquina virtual, se instala la extensión de copia de segurida
 - No se admite la copia de seguridad de máquinas virtuales con una dirección IP reservada y sin puntos de conexión definidos.
 - No se admite el reemplazo de una máquina virtual existente durante la restauración. Primero, elimine la máquina virtual existente y los discos asociados y, a continuación, restaure los datos de copia de seguridad.
 - No se admite la restauración y copia de seguridad entre regiones.
-- Se admite la copia de seguridad de máquinas virtuales mediante el uso del servicio Copia de seguridad de Azure en todas las regiones públicas de Azure (consulte la [lista de comprobación](http://azure.microsoft.com/regions/#services) de las regiones compatibles). Si la región que está buscando no es compatible actualmente, no aparecerá en la lista desplegable durante la creación del almacén.
+- Se admite la copia de seguridad de máquinas virtuales mediante el uso del servicio Copia de seguridad de Azure en todas las regiones públicas de Azure (consulte la [lista de comprobación](https://azure.microsoft.com/regions/#services) de las regiones compatibles). Si la región que está buscando no es compatible actualmente, no aparecerá en la lista desplegable durante la creación del almacén.
 - La copia de seguridad de máquinas virtuales con el servicio Copia de seguridad de Azure solo se admite en determinadas versiones de sistemas operativos:
   - **Linux**: Consulte [la lista de distribuciones aprobadas por Azure](../virtual-machines/virtual-machines-linux-endorsed-distributions.md). Otras distribuciones con la iniciativa "traiga su propio Linux" también deberían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual.
   - **Windows Server**: no se admiten las versiones anteriores a Windows Server 2008 R2.
@@ -195,4 +197,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 - [Copia de seguridad de máquinas virtuales](backup-azure-vms.md)
 - [Administración de copias de seguridad de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

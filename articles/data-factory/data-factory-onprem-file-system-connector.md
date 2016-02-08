@@ -22,7 +22,10 @@ En este artículo se describe cómo se puede usar la actividad de copia de la Fa
 
 La Factoría de datos admite la conexión al sistema de archivos local, y desde este, a través de Data Management Gateway. Consulte el artículo sobre cómo [mover datos entre ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener información acerca de Data Management Gateway, así como instrucciones paso a paso sobre cómo configurar la puerta de enlace.
 
-**Nota:** además de Data Management Gateway, no es necesario instalar otros archivos binarios para la comunicación con el sistema de archivos local, y desde este.
+> [AZURE.NOTE] 
+Además de Data Management Gateway, no es necesario instalar otros archivos binarios para la comunicación con el sistema de archivos local, y desde este.
+> 
+> Vea [Solución de problemas de puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre solución de problemas de conexión o puerta de enlace.
 
 ## Recurso compartido de archivos de Linux 
 
@@ -483,7 +486,7 @@ Formato | Se admiten dos tipos de formatos: **TextFormat** y **AvroFormat**. Deb
 fileFilter | Especifique el filtro que se va a usar para seleccionar un subconjunto de archivos de folderPath, en lugar de todos los archivos. <p>Los valores permitidos son: * (varios caracteres) y ? (un solo carácter).</p><p>Ejemplo 1: "fileFilter": "*. log"</p>Ejemplo 2: "fileFilter": 2014-1-?. txt"</p><p>**Nota**: fileFilter es aplicable a un conjunto de datos de FileShare de entrada</p> | No
 | compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: GZip y Deflate y BZip2 y los niveles admitidos son: óptimo y más rápido. Vea la sección [Compatibilidad de compresión](#compression-support) para más detalles. | No |
 
-> [AZURE.NOTE]filename y fileFilter no pueden usarse simultáneamente.
+> [AZURE.NOTE] filename y fileFilter no pueden usarse simultáneamente.
 
 ### Uso de la propiedad partitionedBy
 
@@ -603,4 +606,4 @@ false | mergeFiles | <p>Para una carpeta de origen Folder1 con la siguiente estr
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

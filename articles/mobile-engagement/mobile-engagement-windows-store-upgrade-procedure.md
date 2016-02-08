@@ -22,6 +22,11 @@ Si ya integró una versión anterior de Engagement en la aplicación, debería t
 
 Es posible que tenga que seguir varios procedimientos si se perdió varias versiones del SDK. Por ejemplo, si migra desde 0.10.1 a 0.11.0, primero debe seguir el procedimiento "de 0.9.0 a 0.10.1" y luego el procedimiento "de 0.10.1 a 0.11.0".
 
+##De 3.2.0 a 3.3.0
+
+### Recursos
+Este paso se refiere solo a los recursos personalizados. Si ha personalizado los recursos proporcionados por el SDK (html, imágenes, superposición), tendrá que hacer una copia de seguridad de estos antes de actualizar y volver a aplicar la personalización en los recursos actualizados.
+
 ##De 3.1.0 a 3.2.0
 
 ### Recursos
@@ -151,7 +156,7 @@ Este paso se refiere solo a los recursos personalizados. Si ha personalizado los
 
 A continuación se describe cómo migrar una integración del SDK desde el servicio Capptain que ofrece Capptain SAS en una aplicación con la tecnología de Azure Mobile Engagement.
 
-> [Azure.IMPORTANT]Capptain y Mobile Engagement no son los mismos servicios, y el procedimiento que se indica a continuación destaca únicamente cómo migrar la aplicación cliente. La migración del SDK en la aplicación NO migrará los datos desde los servidores Capptain a los servidores Mobile Engagement.
+> [Azure.IMPORTANT] Capptain y Mobile Engagement no son los mismos servicios, y el procedimiento que se indica a continuación destaca únicamente cómo migrar la aplicación cliente. La migración del SDK en la aplicación NO migrará los datos desde los servidores Capptain a los servidores Mobile Engagement.
 
 Si va a migrar desde una versión anterior, consulte el sitio web de Capptain para migrar a 1.1.1 en primer lugar luego aplique el siguiente procedimiento.
 
@@ -227,7 +232,7 @@ Una vez completados estos pasos, solo tendrá que reemplazar las referencias de 
 		</engagement:EngagementPage>
 
 4. Cambios de la página de superposición
-	> [AZURE.IMPORTANT]También cambia la superposición Su espacio de nombres nuevo es `Microsoft.Azure.Engagement.Overlay`. Se debe usar tanto en los archivos xaml como los archivos cs. Además `CapptainGrid` se debe denominar `EngagementGrid`, `capptain_notification_content` y `capptain_announcement_content` se denominan `engagement_notification_content` y `engagement_announcement_content`.
+	> [AZURE.IMPORTANT] También cambia la superposición Su espacio de nombres nuevo es `Microsoft.Azure.Engagement.Overlay`. Se debe usar tanto en los archivos xaml como los archivos cs. Además `CapptainGrid` se debe denominar `EngagementGrid`, `capptain_notification_content` y `capptain_announcement_content` se denominan `engagement_notification_content` y `engagement_announcement_content`.
 	
 	Para la superposición:
 	
@@ -289,4 +294,4 @@ Tenga en cuenta que el cambio de nombre también afecta a los métodos invalidad
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

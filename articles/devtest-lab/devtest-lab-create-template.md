@@ -24,9 +24,9 @@ Una vez que haya [creado un laboratorio](devtest-lab-create-lab.md), puede [agre
 
 ## Creación de una plantilla de VM
 
-1. Inicie sesión en el [portal de vista previa de Azure](http://portal.azure.com).
+1. Inicie sesión en el [portal de vista previa de Azure](https://portal.azure.com).
 
-1. Pulse en **Examinar**, y luego pulse en **Laboratorios de desarrollo y pruebas** en la lista.
+1. Pulse **Examinar** y luego pulse **Laboratorios de desarrollo y pruebas** en la lista.
 
 1. En la lista de laboratorios, pulse en el laboratorio que quiera.
 
@@ -86,4 +86,4 @@ Para agregar una nueva imagen de plantilla, deberá tener acceso a un archivo de
 
 Una vez que haya agregado una plantilla de máquina virtual para usarla al crear una máquina virtual, el siguiente paso consiste en [agregar una máquina virtual a su laboratorio de DevTest](devtest-lab-add-vm-with-artifacts).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

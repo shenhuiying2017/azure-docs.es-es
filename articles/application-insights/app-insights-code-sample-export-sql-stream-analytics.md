@@ -17,7 +17,7 @@
  
 # Tutorial: exportación a SQL desde Application Insights mediante Análisis de transmisiones
 
-En este artículo se muestra cómo trasladar los datos de telemetría desde [Application Insights para Visual Studio][start] a una base de datos SQL de Azure mediante la [Exportación continua][export] y el [Análisis de transmisiones de Azure](http://azure.microsoft.com/services/stream-analytics/).
+En este artículo se muestra cómo trasladar los datos de telemetría desde [Application Insights para Visual Studio][start] a una base de datos SQL de Azure mediante la [Exportación continua][export] y el [Análisis de transmisiones de Azure](https://azure.microsoft.com/services/stream-analytics/).
 
 La Exportación continua traslada los datos de telemetría a Almacenamiento de Azure en formato JSON. Analizaremos los objetos JSON mediante Análisis de transmisiones de Azure y crearemos filas en una tabla de base de datos.
 
@@ -35,7 +35,7 @@ Para supervisar la aplicación, se [agrega un SDK de Application Insights][start
 
 Primeros pasos:
 
-1. Obtenga una [cuenta en Microsoft Azure](http://azure.microsoft.com/pricing/).
+1. Obtenga una [cuenta en Microsoft Azure](https://azure.microsoft.com/pricing/).
 2. En el [portal de Azure][portal], agregue un nuevo recurso de Application Insights para su aplicación:
 
     ![Elija Nuevo, Servicios para desarrolladores, Application Insights y elija el tipo de aplicación.](./media/app-insights-code-sample-export-sql-stream-analytics/010-new-asp.png)
@@ -165,7 +165,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/34-create-table.png)
 
-En este ejemplo, usamos datos de vistas de página. Para ver los demás datos disponibles, inspeccione la salida de JSON y vea el [modelo de exportación de datos](app-insights-export-data-model.md).
+En este ejemplo, usamos datos de vistas de página. Para ver los demás datos disponibles, observe el resultado de JSON y consulte el [modelo de exportación de datos](app-insights-export-data-model.md).
 
 ## Creación de una instancia de Análisis de transmisiones de Azure
 
@@ -219,7 +219,7 @@ Confirme el formato de serialización:
 
 Cierre el asistente y espere a que el programa de instalación finalice.
 
->[AZURE.TIP]Use la función Sample para comprobar que estableció correctamente la ruta de acceso de entrada. Si se produce un error: compruebe que hay datos en el almacenamiento para el intervalo de tiempo de muestreo que eligió. Modifique la definición de entrada y compruebe que establece correctamente la cuenta de almacenamiento, el prefijo de ruta de acceso y el formato de fecha.
+>[AZURE.TIP] Use la función Sample para comprobar que estableció correctamente la ruta de acceso de entrada. Si se produce un error: compruebe que hay datos en el almacenamiento para el intervalo de tiempo de muestreo que eligió. Modifique la definición de entrada y compruebe que establece correctamente la cuenta de almacenamiento, el prefijo de ruta de acceso y el formato de fecha.
 
 ## Establecimiento de la consulta
 
@@ -315,4 +315,4 @@ Después de unos minutos, vuelva a las herramientas de administración de SQL Se
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

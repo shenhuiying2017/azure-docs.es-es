@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/15/2016"
+   ms.date="01/26/2016"
    ms.author="jgao"/>
 
 # Administración de Análisis de Azure Data Lake mediante Azure PowerShell
@@ -26,7 +26,7 @@ Aprenda a administrar cuentas, orígenes de datos, usuarios y trabajos de Análi
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure]https://azure.microsoft.com/es-ES/pricing/free-trial/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
 <!-- ################################ -->
@@ -242,7 +242,7 @@ Debe tener una cuenta de Análisis de Data Lake para poder crear un trabajo. Par
 		-Name $jobName `
 		-Script $scriptContents
 
-> [AZURE.NOTE]La prioridad predeterminada de un trabajo es 1000 y el grado predeterminado de paralelismo para un trabajo es 1.
+> [AZURE.NOTE] La prioridad predeterminada de un trabajo es 1000 y el grado predeterminado de paralelismo para un trabajo es 1.
 
 
 ### Cancelación de trabajos
@@ -392,4 +392,4 @@ La siguiente plantilla ARM puede utilizarse para implementar una cuenta de Anál
 	  }
 	}
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

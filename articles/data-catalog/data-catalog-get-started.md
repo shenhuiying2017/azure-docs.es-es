@@ -24,15 +24,15 @@ Este artículo es un tutorial integral de los escenarios y las capacidades de la
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
--	**Una suscripción de Azure**: si no tiene ninguna, puede crear una cuenta de evaluación gratuita en un par de minutos. Consulte el artículo [Evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) para obtener información.
--	**Azure Active Directory**: Catálogo de datos de Azure usa [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) para la administración de identidades y acceso.
+-	**Una suscripción de Azure**: si no tiene ninguna, puede crear una cuenta de evaluación gratuita en un par de minutos. Consulte el artículo [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) para obtener información.
+-	**Azure Active Directory**: Catálogo de datos de Azure usa [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para la administración de identidades y acceso.
 -	**Orígenes de datos**: Catálogo de datos de Azure proporciona capacidades de detección de orígenes de datos, y para continuar con el tutorial debe tener acceso a uno o más orígenes de datos. El tutorial se escribe con las bases de datos de ejemplo de Adventure Works, pero puede usar cualquier origen de datos admitido si prefiere trabajar con datos que sean familiares y relevantes para su rol.
 
 ## Ejercicio 1: Instalación de una base de datos de ejemplo Adventure Works
 
 En este ejercicio, instale el ejemplo de Adventure Works para el Motor de base de datos de SQL Server y SQL Server Analysis Services multidimensionales. Estos ejemplos se usan en los ejercicios siguientes.
 
-> [AZURE.NOTE]Este ejercicio es opcional. Los ejercicios restantes del tutorial se escriben para hacer referencia a las bases de datos de ejemplo de Adventure Works, pero también puede omitir este ejercicio y trabajar con sus propios orígenes de datos en su lugar. A continuación se facilitan los para instalar Adventure Works.
+> [AZURE.NOTE] Este ejercicio es opcional. Los ejercicios restantes del tutorial se escriben para hacer referencia a las bases de datos de ejemplo de Adventure Works, pero también puede omitir este ejercicio y trabajar con sus propios orígenes de datos en su lugar. A continuación se facilitan los para instalar Adventure Works.
 
 ### Instalar las bases de datos de Adventure Works 2014 OLTP y de Almacenamiento de datos
 
@@ -142,7 +142,7 @@ En este ejercicio ha agregado información descriptiva a los recursos de datos r
 
 En este ejercicio trabajará con otro usuario para agregar metadatos a los recursos de datos del catálogo. El enfoque de micromecenazgo de las anotaciones del Catálogo de datos de Azure permite a cualquier usuario agregar etiquetas, descripciones y otros metadatos para que cualquier usuario con una perspectiva de un recurso de datos y su uso pueda tener esa perspectiva capturada y disponible para otros usuarios.
 
-> [AZURE.NOTE]Si no dispone de otro usuario con el que trabajar en este tutorial, no se preocupe. Los usuarios que acceden al catálogo de datos pueden agregar su propio punto de vista cuando lo deseen. Este enfoque de micromecenazgo de los metadatos permite que el contenido del catálogo y la riqueza de los metadatos del catálogo crezcan con el tiempo.
+> [AZURE.NOTE] Si no dispone de otro usuario con el que trabajar en este tutorial, no se preocupe. Los usuarios que acceden al catálogo de datos pueden agregar su propio punto de vista cuando lo deseen. Este enfoque de micromecenazgo de los metadatos permite que el contenido del catálogo y la riqueza de los metadatos del catálogo crezcan con el tiempo.
 
 ### A continuación se indica cómo puede aplicar micromecenazgo a los metadatos sobre recursos de datos
 
@@ -159,7 +159,7 @@ En este ejercicio se han explorado las capacidades del Catálogo de datos de Azu
 En este ejercicio usará el portal **Catálogo de datos de Azure** para conectarse a orígenes de datos con Microsoft Excel.
 
 
-> [AZURE.NOTE]Es importante recordar que **Catálogo de datos de Azure** no da a los usuarios acceso al origen de datos en sí: simplemente facilita a los usuarios detectarlos y comprenderlos. Cuando los usuarios se conectan a un origen de datos, la aplicación cliente que eligen usará sus credenciales de Windows o les pedirán las credenciales según sea necesario. Si no se ha concedido acceso al origen de datos previamente al usuario, deberá concederse acceso a este para que pueda conectarse.
+> [AZURE.NOTE] Es importante recordar que **Catálogo de datos de Azure** no da a los usuarios acceso al origen de datos en sí: simplemente facilita a los usuarios detectarlos y comprenderlos. Cuando los usuarios se conectan a un origen de datos, la aplicación cliente que eligen usará sus credenciales de Windows o les pedirán las credenciales según sea necesario. Si no se ha concedido acceso al origen de datos previamente al usuario, deberá concederse acceso a este para que pueda conectarse.
 
 ### A continuación se indica cómo conectarse a un origen de datos desde Excel
 
@@ -181,7 +181,7 @@ En este ejercicio, se ha conectado a orígenes de datos detectados mediante el C
 
 En este ejercicio usará el portal del **Catálogo de datos de Azure** para quitar los datos de vista previa de los recursos de datos registrados y para eliminar los recursos de datos del catálogo.
 
-> [AZURE.NOTE]El comportamiento predeterminado del catálogo es permitir que cualquier usuario registre cualquier origen de datos y permitir que cualquier usuario elimine cualquier recurso de datos que se haya registrado. Las capacidades de administración incluidas en la **edición Standard del Catálogo de datos de Azure** proporcionan opciones adicionales para la toma de posesión de los recursos y la restricción de quién puede detectar y eliminar los recursos.
+> [AZURE.NOTE] El comportamiento predeterminado del catálogo es permitir que cualquier usuario registre cualquier origen de datos y permitir que cualquier usuario elimine cualquier recurso de datos que se haya registrado. Las capacidades de administración incluidas en la **edición Standard del Catálogo de datos de Azure** proporcionan opciones adicionales para la toma de posesión de los recursos y la restricción de quién puede detectar y eliminar los recursos.
 
 En el **Catálogo de datos de Azure** puede quitar la vista previa de la eliminación del recurso individual o la eliminación de varios recursos.
 
@@ -232,4 +232,4 @@ En este tutorial exploró capacidades esenciales de la vista previa del **Catál
 [12]: ./media/data-catalog-get-started/ownership.png
 [13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

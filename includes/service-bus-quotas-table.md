@@ -1,4 +1,4 @@
-En la siguiente tabla se muestra la información de cuotas específica de la mensajería del bus de servicio. Los límites de Centros de eventos se incluyen en esta tabla, pero para obtener información específica acerca de los Centros de eventos, consulte [Precios de Centros de eventos](http://azure.microsoft.com/pricing/details/event-hubs/). Para obtener información sobre los precios y otras cuotas de Bus de servicio, consulte la información general sobre los [precios de Bus de servicio](http://azure.microsoft.com/pricing/details/service-bus/).
+En la siguiente tabla se muestra la información de cuotas específica de la mensajería del bus de servicio. Los límites de Centros de eventos se incluyen en esta tabla, pero para obtener información específica acerca de los Centros de eventos, consulte [Precios de Centros de eventos](https://azure.microsoft.com/pricing/details/event-hubs/). Para obtener información sobre los precios y otras cuotas de Bus de servicio, consulte la información general sobre los [precios de Bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/).
 
 |Nombre de cuota|Scope|Tipo|Comportamiento cuando se supera|Valor|
 |---|---|---|---|---|
@@ -13,4 +13,4 @@ En la siguiente tabla se muestra la información de cuotas específica de la men
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

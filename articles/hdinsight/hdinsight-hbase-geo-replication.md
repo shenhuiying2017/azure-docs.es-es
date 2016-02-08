@@ -46,9 +46,9 @@ El siguiente diagrama muestra las dos redes virtuales y la conectividad de red q
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Una estación de trabajo con Azure PowerShell**. Vea [Instalar y usar Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para ejecutar scripts de PowerShell, debe ejecutar Azure PowerShell como administrador y establecer la directiva de ejecución en *RemoteSigned*. Consulte Uso del cmdlet Set-ExecutionPolicy.
+- **Una estación de trabajo con Azure PowerShell**. Vea [Instalar y usar Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para ejecutar scripts de PowerShell, debe ejecutar Azure PowerShell como administrador y establecer la directiva de ejecución en *RemoteSigned*. Consulte Uso del cmdlet Set-ExecutionPolicy.
 
 - **Red virtual dos de Azure con conectividad VPN y con DNS configurado**. Para obtener instrucciones, consulte [Configuración de una conexión VPN entre dos redes virtuales de Azure][hdinsight-hbase-replication-vnet] y [Configuración DNS entre dos redes virtuales de Azure][hdinsight-hbase-replication-dns].
 
@@ -192,7 +192,7 @@ Para configurar el reenviador condicional, necesitará saber los sufijos de domi
 4. No cierre la sesión de RDP. La necesitará más adelante en el tutorial.
 5. Repita los mismos pasos para hacer ping en headnode0 en Contoso-HBase-EU desde Contoso-HBase-US.
 
->[AZURE.IMPORTANT]DNS debe funcionar para poder continuar con los pasos siguientes.
+>[AZURE.IMPORTANT] DNS debe funcionar para poder continuar con los pasos siguientes.
 
 ## Habilitación de la replicación entre las tablas de HBase
 
@@ -285,8 +285,8 @@ Puede comprobar que la replicación se está llevando a cabo mediante la explora
 
 En este tutorial, ha aprendido cómo configurar la replicación de HBase entre dos centros de datos. Para obtener más información acerca de HDInsight y HBase, consulte:
 
-- [Página de servicio de HDInsight](http://azure.microsoft.com/services/hdinsight/)
-- [Documentación de HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
+- [Página de servicio de HDInsight](https://azure.microsoft.com/services/hdinsight/)
+- [Documentación de HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [Introducción a HBase Apache en HDInsight][hdinsight-hbase-get-started]
 - [Información general de HBase de HDInsight][hdinsight-hbase-overview]
 - [Aprovisionamiento de clústeres de HBase en Red virtual de Azure][hdinsight-hbase-provision-vnet]
@@ -311,4 +311,4 @@ En este tutorial, ha aprendido cómo configurar la replicación de HBase entre d
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

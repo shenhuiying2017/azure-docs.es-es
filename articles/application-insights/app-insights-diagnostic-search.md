@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="01/26/2016" 
 	ms.author="awills"/>
  
 # Uso de Búsqueda de diagnóstico en Application Insights
@@ -20,6 +20,9 @@
 Búsqueda de diagnóstico es la hoja de [Application Insights][start] que se usa para buscar y explorar elementos de telemetría individuales, como vistas de página, excepciones o solicitudes web. Y puede ver los seguimientos de registros y eventos que haya codificado.
 
 ## ¿Cuando ve Búsqueda de diagnóstico?
+
+
+### En el Portal de Azure
 
 Puede abrir Búsqueda diagnóstico explícitamente:
 
@@ -38,7 +41,21 @@ El cuerpo principal de Búsqueda de diagnóstico es una lista de elementos de te
 Los eventos normalmente aparecen en la búsqueda de diagnóstico antes de que aparezcan en el explorador de métrica. Aunque la hoja se actualiza a intervalos, puede hacer clic en Actualizar si espera un evento determinado.
 
 
-> [AZURE.NOTE]Si la aplicación genera mucha telemetría (y usa la versión del SDK de ASP.NET 2.0.0-beta3 o posterior), el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de únicamente una fracción representativa de eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre ellos. [Más información sobre el muestreo](app-insights-sampling.md).
+### En Visual Studio
+
+Abra la ventana de búsqueda en Visual Studio:
+
+![](./media/app-insights-diagnostic-search/32.png)
+
+La ventana de búsqueda tiene las mismas características que el portal web:
+
+![](./media/app-insights-diagnostic-search/34.png)
+
+
+### Muestreo
+
+Si la aplicación genera muchos datos de telemetría (y está usando la versión 2.0.0-beta3, o una posterior, del SDK de ASP.NET), el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de solamente una fracción representativa de los eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre ellos.
+> [Más información sobre el muestreo](app-insights-sampling.md).
 
 
 ## Inspección de elementos individuales
@@ -203,4 +220,4 @@ Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

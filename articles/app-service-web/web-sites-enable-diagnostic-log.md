@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="01/06/2016"
 	ms.author="cephalin"/>
 
 # Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure
@@ -57,7 +57,7 @@ Para habilitar diagnósticos en el [Portal de Azure](https://portal.azure.com), 
 
 Cuando habilite **Diagnóstico de aplicaciones**, elija también **Nivel**. Esta configuración le permite filtrar la información capturada como **informativo**, **advertencia** o **error**. Si establece esta opción en **detallado**, registrará toda la información generada por la aplicación.
 
-> [AZURE.NOTE]Al contrario de lo que ocurre al cambiar el archivo web.config, habilitar Diagnóstico de aplicaciones o cambiar los niveles del registro de diagnóstico no recicla el dominio de la aplicación en el que esta se ejecuta.
+> [AZURE.NOTE] Al contrario de lo que ocurre al cambiar el archivo web.config, habilitar Diagnóstico de aplicaciones o cambiar los niveles del registro de diagnóstico no recicla el dominio de la aplicación en el que esta se ejecuta.
 
 En el [Portal clásico](https://manage.windowsazure.com), en la pestaña **Configurar** de la aplicación web, puede seleccionar **almacenamiento** o **sistema de archivos** para el **registro de servidor web**. Si selecciona **almacenamiento**, tiene la opción de seleccionar una cuenta de almacenamiento y, a continuación, un contenedor de blobs en el que se escribirán los registros. Todos los demás registros de **diagnósticos del sitio** se escriben solo en el sistema de archivos.
 
@@ -68,7 +68,7 @@ En el [Portal clásico](https://manage.windowsazure.com), la pestaña **Configur
 * **Almacenamiento de blobs**: almacena la información de diagnóstico de aplicaciones en el contenedor de blobs y en la cuenta de almacenamiento de Azure.
 * **Período de retención**: de manera predeterminada, los registros no se eliminan automáticamente del **almacenamiento de blobs**. Seleccione **Establecer retención** y escriba el número de días durante los cuales desea que se conserven los registros si desea que estos se eliminen automáticamente.
 
->[AZURE.NOTE]Si se [regeneran las claves de acceso de su cuenta de almacenamiento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys), deberá restablecer la configuración de registro correspondiente para usar las claves actualizadas. Para ello, siga estos pasos:
+>[AZURE.NOTE] Si se [regeneran las claves de acceso de su cuenta de almacenamiento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys), deberá restablecer la configuración de registro correspondiente para usar las claves actualizadas. Para ello, siga estos pasos:
 >
 > 1. En la pestaña **Configurar**, y establezca la característica de registro correspondiente de **Desactivar**. Guarde la configuración.
 > 2. Vuelva a habilitar el registro en el blob de la cuenta de almacenamiento o en la tabla. Guarde la configuración.
@@ -77,9 +77,9 @@ Al mismo tiempo se puede habilitar cualquier combinación de sistema de archivos
 
 Si bien las tres ubicaciones de almacenamiento ofrecen la misma información básica de los eventos registrados, **table storage** y **blob storage** registran información adicional como el identificador de instancia, el identificador de subproceso y una marca de tiempo más pormenorizada (formato de marca de graduación) que el registro en **file system**.
 
-> [AZURE.NOTE]Solo se puede obtener acceso a la información almacenada en **almacenamiento de tablas** o **almacenamiento de blobs** mediante una aplicación o un cliente de almacenamiento que puedan trabajar directamente con estos sistemas de almacenamiento. Por ejemplo, Visual Studio 2013 contiene un Explorador de almacenamiento que se puede usar para explorar el almacenamiento de tabla o de blobs y HDInsight puede obtener acceso a los datos almacenados en el almacenamiento de blobs. También puede escribir una aplicación que obtiene acceso al almacenamiento de Azure mediante algunos de los [SDK de Azure](/downloads/#).
+> [AZURE.NOTE] Solo se puede obtener acceso a la información almacenada en **almacenamiento de tablas** o **almacenamiento de blobs** mediante una aplicación o un cliente de almacenamiento que puedan trabajar directamente con estos sistemas de almacenamiento. Por ejemplo, Visual Studio 2013 contiene un Explorador de almacenamiento que se puede usar para explorar el almacenamiento de tabla o de blobs y HDInsight puede obtener acceso a los datos almacenados en el almacenamiento de blobs. También puede escribir una aplicación que obtiene acceso al almacenamiento de Azure mediante algunos de los [SDK de Azure](/downloads/#).
 
-> [AZURE.NOTE]Los diagnósticos también se pueden habilitar desde Azure PowerShell con el cmdlet **Set-AzureWebsite**. Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] Los diagnósticos también se pueden habilitar desde Azure PowerShell con el cmdlet **Set-AzureWebsite**. Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ##<a name="download"></a> Descarga de registros
 
@@ -101,7 +101,7 @@ La estructura de directorios en que se almacenan los registros es la siguiente:
 
 Para obtener acceso a la información de diagnóstico mediante FTP, visite el **panel** de la aplicación web en el [Portal clásico](https://manage.windowsazure.com). En la sección **Vista rápida**, haga clic en el vínculo **Registros de diagnóstico de FTP** para obtener acceso a los archivos de registro mediante FTP. La entrada **Usuario de implementación /FTP** enumera el nombre de usuario que debe usarse para obtener acceso al sitio FTP.
 
-> [AZURE.NOTE]Si no se establece la entrada **Usuario de implementación/FTP** o si ha olvidado la contraseña de este usuario, puede crear un nuevo usuario y una nueva contraseña mediante el vínculo **Restablecer credenciales de implementación** en la sección **Vista rápida** del **Panel**.
+> [AZURE.NOTE] Si no se establece la entrada **Usuario de implementación/FTP** o si ha olvidado la contraseña de este usuario, puede crear un nuevo usuario y una nueva contraseña mediante el vínculo **Restablecer credenciales de implementación** en la sección **Vista rápida** del **Panel**.
 
 ### Descarga con Azure PowerShell
 
@@ -111,7 +111,7 @@ Para descargar los archivos de registro, inicie una nueva instancia de Azure Pow
 
 Este comando guardará los registros de la aplicación web que especifica el parámetro **-Name** en un archivo con nombre **logs.zip** en el directorio actual.
 
-> [AZURE.NOTE]Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ### Descarga con la interfaz de la línea de comandos de Azure
 
@@ -121,7 +121,7 @@ Para descargar los archivos de registro mediante la interfaz de la línea de com
 
 Este comando guardará los registros en la aplicación web denominada "webappname" en un archivo con nombre **diagnostics.zip** en el directorio actual.
 
-> [AZURE.NOTE]Si no tiene instalada la interfaz de la línea de comandos de Azure (CLI de Azure) o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo usar la CLI de Azure](../xplat-cli-install.md).
+> [AZURE.NOTE] Si no tiene instalada la interfaz de la línea de comandos de Azure (CLI de Azure) o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo usar la CLI de Azure](../xplat-cli-install.md).
 
 ## Visualización de registros en Application Insights
 
@@ -132,7 +132,7 @@ Visual Studio Application Insights proporciona herramientas para filtrar y busca
 2. Agregue el paquete del agente de escucha.
  * Haga clic con el botón secundario en el proyecto y elija Administrar paquetes de NuGet. Seleccione `Microsoft.ApplicationInsights.TraceListener` [Más información](../application-insights/app-insights-asp-net-trace-logs.md).
 3. Cargue el proyecto y ejecútelo para generar datos de registro.
-4. En el [Portal de Azure](http://portal.azure.com/), busque el nuevo recurso de Application Insights y abra **Buscar**. Verá los datos de registro, junto con la solicitud, el uso y otra telemetría. Es posible que algunos datos de telemetría demoren unos minutos en aparecer: haga clic en Actualizar. [Más información](../application-insights/app-insights-diagnostic-search.md)
+4. En el [Portal de Azure](https://portal.azure.com/), busque el nuevo recurso de Application Insights y abra **Buscar**. Verá los datos de registro, junto con la solicitud, el uso y otra telemetría. Es posible que algunos datos de telemetría demoren unos minutos en aparecer: haga clic en Actualizar. [Más información](../application-insights/app-insights-diagnostic-search.md)
 
 [Obtenga más información acerca del seguimiento del rendimiento con Application Insights](../insights-perf-analytics.md)
 
@@ -140,9 +140,9 @@ Visual Studio Application Insights proporciona herramientas para filtrar y busca
 
 Al implementar una aplicación, suele resultar útil ver la información de registro casi en tiempo real. Para ello, puede transmitir la información de registro al entorno de desarrollo con Azure PowerShell o la interfaz de la línea de comandos de Azure.
 
-> [AZURE.NOTE]Algunos tipos de búfer de registros se escriben en el archivo de registro, lo que puede ocasionar la transmisión de eventos desordenados. Por ejemplo, una entrada de registro de aplicaciones que se genera cuando un usuario visita una página se puede visualizar en la transmisión antes de la entrada de registro HTTP correspondiente para la solicitud de la página.
+> [AZURE.NOTE] Algunos tipos de búfer de registros se escriben en el archivo de registro, lo que puede ocasionar la transmisión de eventos desordenados. Por ejemplo, una entrada de registro de aplicaciones que se genera cuando un usuario visita una página se puede visualizar en la transmisión antes de la entrada de registro HTTP correspondiente para la solicitud de la página.
 
-> [AZURE.NOTE]La transmisión de registros también transmitirá información escrita en cualquier archivo de texto almacenado en la carpeta **D:\\home\\LogFiles\**.
+> [AZURE.NOTE] La transmisión de registros también transmitirá información escrita en cualquier archivo de texto almacenado en la carpeta **D:\\home\\LogFiles\**.
 
 ### Transmisión con Azure PowerShell
 
@@ -162,7 +162,7 @@ Para filtrar tipos de registros específicos, como HTTP, use el parámetro **-Pa
 
 Para ver una lista de rutas de acceso disponibles, use el parámetro -ListPath.
 
-> [AZURE.NOTE]Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ### Transmisión con la interfaz de la línea de comandos de Azure
 
@@ -180,7 +180,7 @@ Para filtrar tipos de registros específicos, como HTTP, use el parámetro **--P
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE]Si no tiene instalada la interfaz de la línea de comandos de Azure o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo utilizar la interfaz de línea de comandos de Azure](../xplat-cli-install.md).
+> [AZURE.NOTE] Si no tiene instalada la interfaz de la línea de comandos de Azure o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo utilizar la interfaz de línea de comandos de Azure](../xplat-cli-install.md).
 
 ##<a name="understandlogs"></a> Información sobre los registros de diagnóstico
 
@@ -239,7 +239,7 @@ Los datos almacenados en un blob serían similares a los siguientes:
 	date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
 	2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
-> [AZURE.NOTE]La primera línea del registro contendrá los encabezados de columna tal y como se representan en este ejemplo.
+> [AZURE.NOTE] La primera línea del registro contendrá los encabezados de columna tal y como se representan en este ejemplo.
 
 ### Seguimiento de solicitudes con error
 
@@ -255,7 +255,7 @@ Los registros de error detallados son documentos HTML que ofrecen información m
 
 A los registros del servidor web se les aplica el [formato de archivo de registro extendido W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Esta información se puede leer con un editor de texto o analizarse con utilidades como el [analizador del registro](http://go.microsoft.com/fwlink/?LinkId=246619).
 
-> [AZURE.NOTE]Los registros generados por aplicaciones web de Azure no admiten los campos __s-computername__, __s-ip__, o __cs-version__.
+> [AZURE.NOTE] Los registros generados por aplicaciones web de Azure no admiten los campos __s-computername__, __s-ip__, o __cs-version__.
 
 ##<a name="nextsteps"></a> Pasos siguientes
 
@@ -263,11 +263,11 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 - [Solución de problemas de aplicaciones web de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [Análisis de registros de aplicación web en HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
-> [AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> [AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obtener una guía del cambio de portal anterior al nuevo, consulte: [Referencia para navegar en el portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

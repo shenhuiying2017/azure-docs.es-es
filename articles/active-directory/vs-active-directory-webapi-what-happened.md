@@ -71,7 +71,7 @@ Se han agregado las siguientes entradas de configuración. ```
 
 Se ha creado una aplicación de Azure AD en el directorio que seleccionó en el asistente.
 
-[Más información acerca de Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 ##Si he activado la *deshabilitación de la autenticación de cuentas de usuario individuales*, ¿qué otros cambios se realizaron en mi proyecto?
 Se han quitado las referencias al paquete NuGet y se han quitado los archivos y se ha realizado una copia de seguridad de los mismos. Según el estado del proyecto, tendrá que quitar referencias o archivos adicionales manualmente o modificar el código, según corresponda.
@@ -114,6 +114,6 @@ Se han agregado las siguientes entradas de configuración adicionales.
 ###Se ha actualizado la aplicación Azure Active Directory
 La aplicación Azure Active Directory se actualizó para incluir el permiso *Leer datos de directorio* y se creó una clave adicional que luego se usó como *ida:Password* en el archivo `web.config`.
 
-[Más información acerca de Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

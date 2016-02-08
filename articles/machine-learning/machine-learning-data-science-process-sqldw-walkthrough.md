@@ -96,7 +96,7 @@ Cree un área de trabajo de Aprendizaje automático de Azure en su suscripción 
 
 Abra una consola de comandos de Windows PowerShell. Ejecute los comandos PowerShell siguientes para descargar los archivos de script SQL de ejemplo que compartimos en Github a un directorio local especificado con el parámetro *-DestDir*. Puede cambiar el valor del parámetro *-DestDir* en cualquier directorio local. Si *-DestDir* no existe, lo creará el script de PowerShell.
 
->[AZURE.NOTE]Es posible que necesite **ejecutar como administrador** el siguiente script de PowerShell si su *DestDir* necesita privilegios de administrador para crear o escribir.
+>[AZURE.NOTE] Es posible que necesite **ejecutar como administrador** el siguiente script de PowerShell si su *DestDir* necesita privilegios de administrador para crear o escribir.
 
 	$source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
 	$ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
@@ -124,9 +124,9 @@ Este archivo de script de PowerShell realiza las tareas siguientes:
 
 Cuando se ejecuta el script de PowerShell por primera vez, se le pedirá que introduzca información desde Almacenamiento de datos SQL de Azure y la cuenta de Almacenamiento de blobs de Azure. Cuando se complete este script de PowerShell al ejecutarse por primera vez, las credenciales indicadas se habrán escrito en el archivo de configuración SQLDW.conf en el directorio de trabajo actual. La ejecución futura de este archivo de script de PowerShell puede leer todos los parámetros necesarios de este archivo de configuración. Si necesita cambiar algunos parámetros, puede elegir escribir los parámetros en la pantalla después del aviso mediante la eliminación de este archivo de configuración y de escribir los valores de parámetros cuando se le solicite o cambiar los valores de parámetros mediante la edición del archivo de configuración.
 
->[AZURE.NOTE]Para evitar conflictos de nombres de esquema con los que ya existe en Almacenamiento de datos SQL de Azure, al leer los parámetros directamente desde el archivo .conf, se agrega un número aleatorio de tres dígitos al nombre del esquema desde el archivo .conf como el nombre de esquema predeterminado para cada ejecución.
+>[AZURE.NOTE] Para evitar conflictos de nombres de esquema con los que ya existe en Almacenamiento de datos SQL de Azure, al leer los parámetros directamente desde el archivo .conf, se agrega un número aleatorio de tres dígitos al nombre del esquema desde el archivo .conf como el nombre de esquema predeterminado para cada ejecución.
 
->[AZURE.NOTE]Según la ubicación geográfica de la cuenta de almacenamiento de blobs privada, el proceso de copiar datos de un blob público a su cuenta de almacenamiento privada puede tardar unos 15 minutos o incluso más tiempo, y el proceso de carga de datos desde la cuenta de almacenamiento al Almacenamiento de datos SQL de Azure podría tardar 20 minutos o más tiempo.
+>[AZURE.NOTE] Según la ubicación geográfica de la cuenta de almacenamiento de blobs privada, el proceso de copiar datos de un blob público a su cuenta de almacenamiento privada puede tardar unos 15 minutos o incluso más tiempo, y el proceso de carga de datos desde la cuenta de almacenamiento al Almacenamiento de datos SQL de Azure podría tardar 20 minutos o más tiempo.
 
 >[Nota de Azure] Si los archivos que se van a copiar desde el almacenamiento de blobs público a la cuenta de almacenamiento de blobs privada ya existen en la cuenta de almacenamiento de blobs privada, AzCopy le preguntará si desea sobrescribirlos. Si no desea sobrescribirlos, escriba **n** cuando se le solicite. Si desea sobrescribir **todos** ellos, escriba **a** cuando se le solicite. También puede escribir **y** para sobrescribirlos individualmente.
 
@@ -632,7 +632,7 @@ Para iniciar el ejercicio de modelado, inicie sesión en el área de trabajo de 
 
 2. Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net).
 
-3. La página principal del Estudio ofrece una gran cantidad de información, vídeos, tutoriales, vínculos a referencias de módulos y otros recursos. Para obtener más información acerca de Aprendizaje automático de Azure, consulte la [documentación de Aprendizaje automático](http://azure.microsoft.com/documentation/services/machine-learning/).
+3. La página principal del Estudio ofrece una gran cantidad de información, vídeos, tutoriales, vínculos a referencias de módulos y otros recursos. Para obtener más información acerca de Aprendizaje automático de Azure, consulte la [documentación de Aprendizaje automático de Azure](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 Un experimento de entrenamiento típico consta de los pasos siguientes:
 
@@ -669,7 +669,7 @@ En la ilustración siguiente se muestra un ejemplo de un experimento de clasific
 
 ![Entrenamiento de Aprendizaje automático de Azure][10]
 
-> [AZURE.IMPORTANT]En los ejemplos de consultas de extracción y muestreo de datos de modelado de las secciones anteriores, **las etiquetas de los tres ejercicios de modelado se incluyen en la consulta**. Un paso importante (requerido) en cada uno de los ejercicios de modelado consiste en **excluir** las etiquetas innecesarias de los otros dos problemas y cualquier otra **fuga de destino**. Por ejemplo, cuando use clasificación binaria, utilice la etiqueta **tipped** y excluya los campos **tip\_class**, **tip\_amount** y **total\_amount**. Estos últimos son fugas de destino ya que implican que se pagó propina.
+> [AZURE.IMPORTANT] En los ejemplos de consultas de extracción y muestreo de datos de modelado de las secciones anteriores, **las etiquetas de los tres ejercicios de modelado se incluyen en la consulta**. Un paso importante (requerido) en cada uno de los ejercicios de modelado consiste en **excluir** las etiquetas innecesarias de los otros dos problemas y cualquier otra **fuga de destino**. Por ejemplo, cuando use clasificación binaria, utilice la etiqueta **tipped** y excluya los campos **tip\_class**, **tip\_amount** y **total\_amount**. Estos últimos son fugas de destino ya que implican que se pagó propina.
 >
 > Para excluir cualquier columnas innecesarias o fugas de destino, puede usar el módulo [Proyectar columnas][project-columns] o el [Editor de metadatos][metadata-editor]. Para obtener más información, consulte las páginas de referencia de [Proyectar columnas][project-columns] y [Editor de metadatos][metadata-editor].
 
@@ -744,4 +744,4 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

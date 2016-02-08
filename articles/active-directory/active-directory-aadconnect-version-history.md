@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/02/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: historial de versiones
@@ -50,7 +50,7 @@ Publicado: noviembre de 2015
 **Nuevas características de la versión preliminar:**
 
 - [Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
-- Compatibilidad para sincronización de contraseñas de [Servicios de dominio de Azure AD](active-directory-ds-getting-started.md).
+- Compatibilidad para sincronización de contraseñas de [Servicios de dominio de Azure AD](active-directory-get-started.md).
 
 **Nuevo escenarios admitido:**
 
@@ -165,7 +165,7 @@ Fecha de publicación: diciembre de 2014
 
 **Nuevas características:**
 
-- Ahora es posible realizar la sincronización de contraseñas con filtrado basado en atributos. Para obtener más información, consulte [Sincronización de contraseñas con filtrado](active-directory-aadconnectsync-configure-filtering.md).
+- Ahora es posible realizar la sincronización de contraseñas con filtrado basado en atributos. Para obtener más detalles, consulte [Sincronización de contraseñas con filtrado](active-directory-aadconnectsync-configure-filtering.md).
 - El atributo msDS-ExternalDirectoryObjectID se reescribe en AD. De esta forma se agrega compatibilidad con las aplicaciones de Office 365 mediante OAuth2 para tener acceso tanto a los buzones en línea como locales en una implementación híbrida de Exchange.
 
 **Problemas de actualización corregidos:**
@@ -209,4 +209,4 @@ Fecha de publicación: septiembre de 2014
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

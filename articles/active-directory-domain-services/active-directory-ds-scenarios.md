@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 
@@ -56,4 +56,10 @@ Algunos puntos importantes que se deben tener en cuenta al considerar este escen
 
 - Asegúrese de que la aplicación usa nombre de usuario y contraseña para la autenticación. Los Servicios de dominio de Azure AD no admiten la autenticación basada en certificado o tarjeta inteligente.
 
-<!---HONumber=AcomDC_1217_2015-->
+
+## Azure RemoteApp
+Azure RemoteApp permite al administrador de Contoso crear una colección unida a un dominio. De esta forma, las aplicaciones remotas atendidas por Azure RemoteApp pueden ejecutarse en equipos unidos a un dominio y tener acceso a otros recursos con la autenticación integrada de Windows. Contoso puede usar los Servicios de dominio de Azure AD para proporcionar un dominio administrado que se emplea en las colecciones unidas a un dominio de Azure RemoteApp.
+
+Para más información sobre este escenario de implementación, consulte el artículo del blog de servicios de escritorio remoto titulado [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx) (Elevación y desplazamiento de las cargas de trabajo con Azure RemoteApp y los Servicios de dominio de Azure AD).
+
+<!---HONumber=AcomDC_0128_2016-->

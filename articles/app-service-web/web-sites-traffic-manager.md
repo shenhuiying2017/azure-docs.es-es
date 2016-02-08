@@ -19,7 +19,7 @@
 
 # Control del tráfico de aplicaciones web de Azure con el Administrador de tráfico de Azure
 
-> [AZURE.NOTE]Este artículo proporciona información resumida acerca del Administrador de tráfico de Microsoft Azure en su relación con Aplicaciones web del Servicio de aplicaciones de Azure. Puede encontrar más información sobre el Administrador de tráfico de Azure en los vínculos que aparecen al final de este artículo.
+> [AZURE.NOTE] Este artículo proporciona información resumida acerca del Administrador de tráfico de Microsoft Azure en su relación con Aplicaciones web del Servicio de aplicaciones de Azure. Puede encontrar más información sobre el Administrador de tráfico de Azure en los vínculos que aparecen al final de este artículo.
 
 ## Introducción
 Puede utilizar el Administrador de tráfico de Azure para controlar la manera en que se distribuyen solicitudes de clientes web a aplicaciones web del Servicio de aplicaciones de Azure. Cuando se agregan extremos de una aplicación web a un perfil del Administrador de tráfico de Azure, este hace un seguimiento del estado de sus aplicaciones web (en ejecución, detenidas o eliminadas) para decidir cuáles de esos extremos debe recibir tráfico.
@@ -60,7 +60,7 @@ Si desea obtener información general de carácter técnico y conceptual del Adm
 
 Para obtener información detallada acerca del equilibrio de carga en el Administrador de tráfico de Azure, consulte [Métodos de equilibrio de carga del Administrador de tráfico](../traffic-manager/traffic-manager-load-balancing-methods.md).
 
-Para obtener más información sobre el uso de Traffic Manager con Sitios web de Azure, consulte las publicaciones del blog [Using Azure Traffic Manager with Azure Web Sites](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) y [Azure Traffic Manager can now integrate with Azure Web Sites](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
+Para obtener más información sobre el uso de Traffic Manager con Sitios web de Azure, consulte las publicaciones del blog [Using Azure Traffic Manager with Azure Web Sites](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) y [Azure Traffic Manager can now integrate with Azure Web Sites](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

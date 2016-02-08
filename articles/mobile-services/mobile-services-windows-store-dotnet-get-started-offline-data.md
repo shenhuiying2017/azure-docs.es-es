@@ -33,7 +33,7 @@ Si prefiere ver un vídeo, el clip que aparece a la derecha muestra los mismos p
 
 En este tutorial, se actualiza el proyecto de aplicación universal del tutorial [Introducción a Servicios móviles] para ofrecer compatibilidad con las características sin conexión de los Servicios móviles de Azure. A continuación, agregará datos en un escenario sin conexión desconectado, sincronizará dichos elementos con la base de datos en línea e iniciará sesión en el [Portal de Azure clásico] para ver los cambios efectuados en los datos al ejecutar la aplicación.
 
->[AZURE.NOTE]Este tutorial está destinado a profundizar en el uso de Azure con los servicios móviles para almacenar y recuperar datos en una aplicación de la Tienda Windows. Si es su primera experiencia con servicios móviles, primero deberá completar el tutorial [Introducción a los servicios móviles].
+>[AZURE.NOTE] Este tutorial está destinado a profundizar en el uso de Azure con los servicios móviles para almacenar y recuperar datos en una aplicación de la Tienda Windows. Si es su primera experiencia con servicios móviles, primero deberá completar el tutorial [Introducción a los servicios móviles].
 
 ##Requisitos previos
 
@@ -44,27 +44,27 @@ Este tutorial requiere lo siguiente:
 * [SDK de servicios móviles de Azure versión 1.3.0 (o posterior)][Mobile Services SDK Nuget]
 * [Almacén de SQLite de servicios móviles de Azure versión 1.0.0 (o posterior)][SQLite store nuget]
 * [SQLite para Windows 8.1](http://www.sqlite.org/download.html)
-* Una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
+* Una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 ## <a name="enable-offline-app"></a>Actualización de la aplicación para que admita características sin conexión
 
 Las características sin conexión de Servicios móviles de Azure permiten interactuar con una base de datos local cuando el usuario se encuentra en un escenario sin conexión con su servicio móvil. Para usar estas características en la aplicación, inicialice `MobileServiceClient.SyncContext` en un almacén local. A continuación, obtenga una referencia a la tabla mediante la interfaz `IMobileServiceSyncTable`. En este tutorial se utiliza SQLite para el almacén local.
 
->[AZURE.NOTE]Puede omitir esta sección y solo obtener el proyecto de ejemplo que ya tiene compatibilidad sin conexión desde el repositorio de muestras de GitHub para Servicios móviles. El proyecto de ejemplo con compatibilidad sin conexión habilitado se encuentra aquí: [Ejemplo sin conexión de lista de tareas].
+>[AZURE.NOTE] Puede omitir esta sección y solo obtener el proyecto de ejemplo que ya tiene compatibilidad sin conexión desde el repositorio de muestras de GitHub para Servicios móviles. El proyecto de ejemplo con compatibilidad sin conexión habilitado se encuentra aquí: [Ejemplo sin conexión de lista de tareas].
 
 1. Instale el tiempo de ejecución de SQLite para Windows 8.1 y Windows Phone 8.1.
 
     * **Tiempo de ejecución de Windows 8.1:** Instalar [SQLite para Windows 8.1].
     * **Windows Phone 8.1:** Instalar [SQLite para Windows Phone 8.1].
 
-    >[AZURE.NOTE]Si utiliza Internet Explorer, es posible que al hacer clic en el vínculo para instalar SQLite se le solicite descargar .vsix como archivo .zip. Guarde el archivo en una ubicación del disco duro con la extensión .vsix en lugar de .zip. A continuación, haga doble clic en el archivo .vsix en el Explorador de Windows para ejecutar la instalación.
+    >[AZURE.NOTE] Si utiliza Internet Explorer, es posible que al hacer clic en el vínculo para instalar SQLite se le solicite descargar .vsix como archivo .zip. Guarde el archivo en una ubicación del disco duro con la extensión .vsix en lugar de .zip. A continuación, haga doble clic en el archivo .vsix en el Explorador de Windows para ejecutar la instalación.
 
 2. En Visual Studio, abra el proyecto que completó en el tutorial [Introducción a los Servicios móviles]. Instale paquete NuGet **WindowsAzure.MobileServices.SQLiteStore** para el tiempo de ejecución de Windows 8.1 y los proyectos de Windows Phone 8.1.
 
     * **Windows 8.1:** En el Explorador de soluciones, haga clic con el botón secundario del mouse en el proyecto de Windows 8.1 y haga clic en **Administrar paquetes de Nuget** para ejecutar el Administrador de paquetes de NuGet. Busque **SQLiteStore** para instalar el paquete `WindowsAzure.MobileServices.SQLiteStore`.
     * **Windows Phone 8.1:** Haga clic con el botón secundario del mouse en el proyecto de Windows Phone 8.1 y haga clic en **Administrar paquetes de Nuget** para ejecutar el Administrador de paquetes de NuGet. Busque **SQLiteStore** para instalar el paquete `WindowsAzure.MobileServices.SQLiteStore`.
 
-    >[AZURE.NOTE]Si la instalación crea una referencia a una versión anterior de SQLite, solo podrá eliminar dicha referencia duplicada.
+    >[AZURE.NOTE] Si la instalación crea una referencia a una versión anterior de SQLite, solo podrá eliminar dicha referencia duplicada.
 
     ![][2]
 
@@ -183,7 +183,7 @@ Las características sin conexión de Servicios móviles de Azure permiten inter
 
     En este ejemplo, recuperamos todos los registros en el `todoTable` remoto, pero también es posible filtrar registros pasando una consulta. El primer parámetro para `PullAsync` es un identificador de consulta que se utiliza en la sincronización incremental, que utiliza la marca de tiempo `UpdatedAt` para obtener únicamente los registros modificados desde la última sincronización. El identificador de la consulta debe ser una cadena descriptiva que sea única para cada consulta lógica en la aplicación. Para la desactivación de la sincronización incremental, pase `null` como identificador de la consulta. Así se recuperarán todos los registros de cada operación de extracción, lo cual es potencialmente ineficaz.
 
-    >[AZURE.NOTE]* Para quitar registros del almacén local del dispositivo cuando se han eliminado de la base de datos del servicio móvil, debe habilitar la [eliminación temporal]. De lo contrario, la aplicación podría llamar periódicamente a `IMobileServiceSyncTable.PurgeAsync()` para purgar el almacén local.
+    >[AZURE.NOTE] * Para quitar registros del almacén local del dispositivo cuando se han eliminado de la base de datos del servicio móvil, debe habilitar la [eliminación temporal]. De lo contrario, la aplicación podría llamar periódicamente a `IMobileServiceSyncTable.PurgeAsync()` para purgar el almacén local.
 
     Tenga en cuenta que `MobileServicePushFailedException` puede producirse por una operación de inserción y una de extracción. Puede producirse una extracción porque la operación de extracción ejecuta internamente una inserción para asegurarse de que todas las tablas junto con las relaciones son coherentes. El siguiente tutorial, [Control de conflictos con compatibilidad sin conexión para servicios móviles], muestra cómo manejar estas excepciones relacionadas con la sincronización.
 
@@ -284,4 +284,4 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 [Portal de Azure clásico]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

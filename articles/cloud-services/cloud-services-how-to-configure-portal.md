@@ -29,11 +29,11 @@ Puede configurar la mayoría de los ajustes más usados para un servicio en la n
 
 También puede habilitar una conexión de Escritorio remoto con uno o todos los roles que se ejecutan en su servicio en la nube. Escritorio remoto le permite tener acceso al escritorio de su aplicación mientras se ejecuta, además de solucionar y diagnosticar problemas. Puede habilitar una conexión de Escritorio remoto con su rol incluso si no configuró el archivo de definición de servicio (.csdef) para el Escritorio remoto durante el desarrollo de la aplicación. No es necesario volver a implementar su aplicación para habilitar una conexión de Escritorio remoto.
 
-Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las actualizaciones de la configuración si tiene al menos dos instancias de rol para cada rol. Esto permite que una máquina virtual procese las solicitudes del cliente mientras la otra se actualiza. Para obtener más información, consulte [Contratos de nivel de servicio](http://azure.microsoft.com/support/legal/sla/).
+Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las actualizaciones de la configuración si tiene al menos dos instancias de rol para cada rol. Esto permite que una máquina virtual procese las solicitudes del cliente mientras la otra se actualiza. Para obtener más información, consulte [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
 
 ## Cambiar un servicio en la nube
 
-1. En el [Portal de Azure](http://portal.azure.com/), vaya al servicio en la nube.
+1. En el [Portal de Azure](https://portal.azure.com/), vaya al servicio en la nube.
 
 2. Haga clic en el icono **Configuración** o el vínculo **Conceptos básicos/Toda la configuración** para abrir la hoja **Configuración**.
 
@@ -53,13 +53,14 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las
     
     ![Botones de instancia del servicio en la nube](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
->[AZURE.NOTE]No se puede cambiar el sistema operativo usado para el servicio en la nube mediante el **Portal de Azure**, solo puede cambiar esta configuración mediante el [Portal de Azure clásico](http://manage.windowsazure.com/). Esto se detalla [aquí](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file).
+>[AZURE.NOTE]
+No se puede cambiar el sistema operativo usado para el servicio en la nube mediante el **Portal de Azure**, solo puede cambiar esta configuración mediante el [Portal de Azure clásico](http://manage.windowsazure.com/). Esto se detalla [aquí](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file).
 
 ## Actualizar un archivo de configuración del servicio en la nube
 
 1. En primer lugar, descargue el archivo de configuración del servicio en la nube existente (.cscfg).
 
-    1. En el [Portal de Azure](http://portal.azure.com/), vaya al servicio en la nube.
+    1. En el [Portal de Azure](https://portal.azure.com/), vaya al servicio en la nube.
 
     2. Haga clic en el icono **Configuración** o el vínculo **Conceptos básicos/Toda la configuración** para abrir la hoja **Configuración**.
 
@@ -94,4 +95,4 @@ El acceso remoto no se puede configurar mediante el **Portal de Azure**, solo pu
 * [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

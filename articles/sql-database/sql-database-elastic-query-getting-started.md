@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/22/2016"
 	ms.author="SilviaDoomra" />
 
 # Introducción a consultas elásticas para particionamiento horizontal
@@ -44,7 +44,7 @@ Aquí se creará un administrador de mapas de particiones junto con varias parti
 ## Creación una base de datos de consulta elástica
 
 1. Abra el [Portal de Azure](https://portal.azure.com) e inicie sesión.
-2. Cree una nueva Base de datos SQL de Azure en el mismo servidor que la configuración de la partición. Utilice el nombre "ElasticDBQuery" para la base de datos. 
+2. Cree una nueva Base de datos SQL de Azure en el mismo servidor que la configuración de la partición. Utilice el nombre "ElasticDBQuery" para la base de datos.
 
 	![Portal de Azure y nivel de precios][3]
 
@@ -129,7 +129,7 @@ Ahora puede usar las funciones de visualización de datos decisivas de Excel. Pu
 ### Coste
 No hay ningún cargo adicional por usar la característica de consulta de base de datos elástica.
 
-Para obtener información sobre los precios, consulte [Detalles de precios de Base de datos SQL](http://azure.microsoft.com/pricing/details/sql-database/).
+Para obtener información sobre los precios, consulte [Detalles de precios de Base de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -142,4 +142,4 @@ Para obtener información sobre los precios, consulte [Detalles de precios de Ba
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

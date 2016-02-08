@@ -39,7 +39,7 @@ Para habilitar una interfaz REST para enviar trabajos al clúster a través de H
 
 Para obtener información detallada sobre los procedimientos, consulte [Instalación de los componentes web de Microsoft HPC Pack](http://technet.microsoft.com/library/hh314627.aspx).
 
->[AZURE.TIP]Algunas plantillas de inicio rápido de Azure instalan y configuran los componentes web automáticamente. Si usa el [script de implementación de IaaS de HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) para crear el clúster, puede instalar y configurar opcionalmente los componentes web como parte de la implementación.
+>[AZURE.TIP] Algunas plantillas de inicio rápido de Azure instalan y configuran los componentes web automáticamente. Si usa el [script de implementación de IaaS de HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md) para crear el clúster, puede instalar y configurar opcionalmente los componentes web como parte de la implementación.
 
 **Para instalar los componentes web**
 
@@ -66,7 +66,7 @@ Para obtener información detallada sobre los procedimientos, consulte [Instalac
 
 4. Cuando se le pida que seleccione un certificado, elija el certificado que corresponda al nombre DNS público del nodo principal. Por ejemplo, si usa el script de implementación IaaS de HPC Pack para crear el clúster, el nombre del certificado tiene el formato CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. Si usa una plantilla de inicio rápido de Azure, el nombre del certificado tiene el formato CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.
 
-    >[AZURE.NOTE]Debe seleccionar este certificado para enviar trabajos posteriormente al nodo principal desde un equipo local. No seleccione ni configure un certificado que corresponda al nombre de equipo del nodo principal del dominio de Active Directory (por ejemplo, CN=*MyHPCHeadNode.HpcAzure.local*).
+    >[AZURE.NOTE] Debe seleccionar este certificado para enviar trabajos posteriormente al nodo principal desde un equipo local. No seleccione ni configure un certificado que corresponda al nombre de equipo del nodo principal del dominio de Active Directory (por ejemplo, CN=*MyHPCHeadNode.HpcAzure.local*).
 
 5. Para configurar el portal web para el envío de trabajos, escriba el siguiente comando:
 
@@ -114,7 +114,7 @@ Para usar las herramientas de cliente de HPC Pack para enviar trabajos a la máq
 
 
 
->[AZURE.SECURITY]Puede ver una advertencia de seguridad, ya que el equipo cliente no reconocerá la entidad de certificación del nodo principal. Para la realización de pruebas puede omitir esta advertencia y completar la importación del certificado.
+>[AZURE.SECURITY] Puede ver una advertencia de seguridad, ya que el equipo cliente no reconocerá la entidad de certificación del nodo principal. Para la realización de pruebas puede omitir esta advertencia y completar la importación del certificado.
 
 ## Paso 3: Ejecutar trabajos de prueba en el clúster
 
@@ -134,7 +134,7 @@ Para comprobar la configuración, intente ejecutar trabajos en el clúster de Az
     job list /scheduler:https://<HeadNodeDnsName>.<region>.cloudapp.azure.com /all
     ```
 
-    >[AZURE.TIP]Use el nombre DNS completo del nodo principal, no la dirección IP, en la dirección URL del programador. Si especifica la dirección IP, verá un mensaje de error similar a "El certificado del servidor debe tener una cadena de confianza válida o colocarse en el almacén raíz de confianza".
+    >[AZURE.TIP] Use el nombre DNS completo del nodo principal, no la dirección IP, en la dirección URL del programador. Si especifica la dirección IP, verá un mensaje de error similar a "El certificado del servidor debe tener una cadena de confianza válida o colocarse en el almacén raíz de confianza".
 
 3. Cuando se le solicite, escriba el nombre de usuario (con el formato &lt;DomainName&gt;\\&lt;UserName&gt;) y la contraseña de administrador de clústeres de HPC u otro usuario de clúster configurado. Puede elegir almacenar las credenciales localmente para realizar más operaciones de trabajo.
 
@@ -188,4 +188,4 @@ Para comprobar la configuración, intente ejecutar trabajos en el clúster de Az
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

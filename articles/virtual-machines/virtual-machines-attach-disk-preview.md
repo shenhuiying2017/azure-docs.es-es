@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="01/21/2016"
 	ms.author="cynthn"/>
 
 # Cómo conectar un disco de datos en el Portal de Azure
@@ -25,23 +25,19 @@ En este artículo se muestra cómo conectar discos nuevos y existentes a una má
 
 - El tamaño de la máquina virtual controla cuántos discos de datos puede conectar. Para obtener más información, consulte [Tamaños de máquinas virtuales](virtual-machines-size-specs.md).
 - Para usar Almacenamiento premium, necesitará una máquina virtual de serie DS o GS. Puede utilizar discos de cuentas de almacenamiento premium y estándar con estas máquinas virtuales. Almacenamiento premium está disponible en determinadas regiones. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage-preview-portal.md)
-- Los discos conectados a las máquinas virtuales son en realidad archivos .vhd en una cuenta de almacenamiento de Azure. Para obtener más información, consulte el artículo [Acerca de los discos y los discos duros virtuales de las máquinas virtuales](virtual-machines-disks-vhds.md).
+- Los discos conectados a las máquinas virtuales son en realidad archivos .vhd en una cuenta de almacenamiento de Azure. Para obtener más información, vea [Acerca de los discos y los discos duros virtuales para máquinas virtuales](virtual-machines-disks-vhds.md).
 - Para un disco nuevo, no es necesario crearlo en primer lugar porque Azure lo crea cuando lo conecta.
-- Para un disco existente, el archivo .vhd debe estar disponible en una cuenta de almacenamiento de Azure. Puede usar uno que ya esté disponible allí si no está conectado a otra máquina virtual o cargar su propio archivo .vhd en la cuenta de almacenamiento.
+- Para un disco existente, el archivo .vhd debe estar disponible en una cuenta de almacenamiento de Azure. Puede usar uno que ya esté disponible allí, si no está conectado a otra máquina virtual, o cargar su propio archivo .vhd en la cuenta de almacenamiento.
 
 ## Búsqueda de la máquina virtual
 
 1. Inicie sesión en el Portal de Azure.
 
-2. En el menú Concentrador, haga clic en **Examinar**.
+2. En el menú del Centro, haga clic en **Máquinas virtuales**.
 
-3. En la hoja de búsqueda, desplácese hacia abajo y haga clic en **Máquinas virtuales**.
+3.	Seleccione la máquina virtual en la lista.
 
-	![Búsqueda de máquinas virtuales](./media/virtual-machines-attach-disk-preview/search-blade-preview-portal.png)
-
-4.	Seleccione la máquina virtual en la lista.
-
-5. A la derecha, en **Essentials**, haga clic en **Toda la configuración** y luego haga clic en **Discos**.
+4. A la derecha, en **Essentials**, haga clic en **Toda la configuración** y luego haga clic en **Discos**.
 
 	![Abrir configuración de disco](./media/virtual-machines-attach-disk-preview/find-disk-settings.png)
 
@@ -73,7 +69,7 @@ Continúe siguiendo las instrucciones para conectar un nuevo disco o un disco ex
 
 5.	En **Adjuntar un disco existente**, el archivo que acaba de seleccionar aparece en **Archivo VHD**. Haga clic en **Aceptar**.
 
-6.	Una vez que Azure adjunta el disco a la máquina virtual, este aparece en la configuración del disco de la máquina virtual en el apartado **Discos de datos**.
+6.	Una vez que Azure adjunta el disco a la máquina virtual,este aparece en la configuración del disco de la máquina virtual en el apartado **Discos de datos**.
 
 ## Pasos siguientes
 
@@ -90,4 +86,4 @@ Una vez que se agrega el disco, debe prepararlo para su uso en el sistema operat
 
 [Acerca de las cuentas de almacenamiento de Azure]: ../storage-whatis-account/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

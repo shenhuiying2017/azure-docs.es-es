@@ -23,7 +23,7 @@ Azure AD B2C admite la autenticación de una gran variedad de arquitecturas de a
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Conceptos básicos
-Cada aplicación que usa Azure AD B2C deberá estar registrada en su [directorio de B2C](active-directory-b2c-get-started.md) mediante el [Portal de Azure](https://portal.azure.com). El proceso de registro de la aplicación recopilará y asignará algunos valores a la aplicación:
+Cada aplicación que usa Azure AD B2C deberá estar registrada en su [directorio B2C](active-directory-b2c-get-started.md) mediante el [Portal de Azure](https://portal.azure.com/). El proceso de registro de la aplicación recopilará y asignará algunos valores a la aplicación:
 
 - Un **Id. de aplicación** que identifica de forma única su aplicación
 - Un **URI de redireccionamiento** que puede utilizarse para dirigir las respuestas de nuevo a la aplicación
@@ -93,7 +93,8 @@ Accept: application/json
 
 La API web puede usar entonces el token para comprobar la identidad del llamador de API y extraer información sobre el llamador de notificaciones que se codifican en el token. Puede obtener información sobre todos los tipos de tokens y notificaciones disponibles para una aplicación en la [referencia de token de Azure AD B2C](active-directory-b2c-reference-tokens.md).
 
-> [AZURE.NOTE]La vista previa de Azure AD B2C solo admite actualmente las API web a las que acceden sus propios clientes conocidos. Por ejemplo, la aplicación completa puede incluir una aplicación iOS, una aplicación Android y una API web back-end. Esta arquitectura es totalmente compatible. Lo que no se admite actualmente es permitir que un cliente de terceros, como otra aplicación de iOS, tenga acceso también a la misma API web. De hecho, cada componente de la aplicación completa debe compartir un Id. de aplicación único.
+> [AZURE.NOTE]
+	La vista previa de Azure AD B2C solo admite actualmente las API web a las que acceden sus propios clientes conocidos. Por ejemplo, la aplicación completa puede incluir una aplicación iOS, una aplicación Android y una API web back-end. Esta arquitectura es totalmente compatible. Lo que no se admite actualmente es permitir que un cliente de terceros, como otra aplicación de iOS, tenga acceso también a la misma API web. De hecho, cada componente de la aplicación completa debe compartir un Id. de aplicación único.
 
 Una API web puede recibir tokens de todos los tipos de clientes, incluidas aplicaciones web, aplicaciones móviles y de escritorio, aplicaciones de una página, demonios del lado del servidor e incluso otras API web. Por ejemplo, veamos el flujo completo de una aplicación web que llama a una API web.
 
@@ -108,7 +109,8 @@ Las aplicaciones instaladas en un dispositivo, como aplicaciones móviles y de e
 
 En este flujo, la aplicación ejecuta [directivas](active-directory-b2c-reference-policies.md) y recibe un authorization\_code de Azure AD después de que el usuario complete la directiva. El authorization\_code representa el permiso de la aplicación para llamar a los servicios back-end en nombre del usuario que ha iniciado sesión actualmente. La aplicación podrá intercambiar el authoriztion\_code en segundo plano por un id\_token y un refresh\_token. La aplicación puede usar el id\_token para autenticar la API web back-end en solicitudes HTTP y el refresh\_token, para obtener id\_tokens nuevos cuando expiren los antiguos.
 
-> [AZURE.NOTE]La vista previa de Azure AD B2C actualmente solo admite la obtención de id\_tokens que se usan para tener acceso a un servicio web back-end de la aplicación. Por ejemplo, la aplicación completa puede incluir una aplicación iOS, una aplicación Android y una API web back-end. Esta arquitectura es totalmente compatible. Lo que no se está admitido actualmente es permitir a la aplicación iOS tener acceso a una API web de terceros mediante access\_tokens de OAuth 2.0. De hecho, cada componente de la aplicación completa debe compartir un Id. de aplicación único.
+> [AZURE.NOTE]
+	La vista previa de Azure AD B2C actualmente solo admite la obtención de id\_tokens que se usan para tener acceso a un servicio web back-end de la aplicación. Por ejemplo, la aplicación completa puede incluir una aplicación iOS, una aplicación Android y una API web back-end. Esta arquitectura es totalmente compatible. Lo que no se está admitido actualmente es permitir a la aplicación iOS tener acceso a una API web de terceros mediante access\_tokens de OAuth 2.0. De hecho, cada componente de la aplicación completa debe compartir un Id. de aplicación único.
 
 ![Imagen de las calles de la aplicación nativa](./media/active-directory-b2c-apps/native.png)
 
@@ -128,4 +130,4 @@ Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de 
 
 Este escenario de API web encadenadas puede admitirse mediante la concesión de credenciales de portador Jwt de OAuth 2.0, también conocido como flujo "en nombre de". Sin embargo, el flujo "en nombre de" no está implementado actualmente en la vista previa de Azure AD B2C.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # Fase 1 de la carga de trabajo de aplicación de línea de negocio: Configuración de Azure
@@ -62,7 +62,7 @@ Elemento | Nombre de subred | Espacio de direcciones de subred | Propósito
 
 **Tabla S: Subredes de la red virtual**
 
-> [AZURE.NOTE]Esta arquitectura predefinida usa una sola subred por motivos de simplicidad. Si desea superponer un conjunto de filtros de tráfico para emular el aislamiento de subred, puede usar los [grupos de seguridad de red](virtual-networks-nsg.md) de Azure.
+> [AZURE.NOTE] Esta arquitectura predefinida usa una sola subred por motivos de simplicidad. Si desea superponer un conjunto de filtros de tráfico para emular el aislamiento de subred, puede usar los [grupos de seguridad de red](virtual-networks-nsg.md) de Azure.
 
 Para los dos servidores DNS locales que desea usar al configurar inicialmente los controladores de dominio de la red virtual, rellene tabla D. Asigne a cada servidor DNS un nombre descriptivo y una dirección IP única. No es necesario que este nombre descriptivo coincida con el nombre de host o el nombre de equipo del servidor DNS. Tenga en cuenta que se muestran dos entradas en blanco, pero puede agregar más. Trabaje con su departamento de TI para determinar esta lista.
 
@@ -87,7 +87,7 @@ Elemento | Espacio de direcciones de la red local
 
 En primer lugar, inicie un símbolo del sistema de Azure PowerShell.
 
-> [AZURE.NOTE]El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> [AZURE.NOTE] El siguiente comando establece el uso de Azure PowerShell 1.0 y versiones posteriores. Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 En primer lugar, inicie un símbolo del sistema de Azure PowerShell e inicie sesión en su cuenta.
 
@@ -220,4 +220,4 @@ Esta es la configuración resultante de la realización correcta de esta fase.
 
 - Para continuar con la configuración de esta carga de trabajo, vaya a la [Fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -26,7 +26,7 @@
 
 El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. Puede procesar uno o varios archivos multimedia en un lote.
 
->[AZURE.IMPORTANT]Al indizar contenido, asegúrese de usar archivos multimedia que tengan una voz muy clara (sin música de fondo, ruido, efectos ni silbido de micrófono). Algunos ejemplos de contenido adecuado son: reuniones, conferencias o presentaciones grabadas. Es posible que el siguiente contenido no sea adecuado para la indización: películas, programas de TV, cualquier elemento con audio y efectos de sonido mezclados o contenido mal gragado con ruido de fondo (silbido).
+>[AZURE.IMPORTANT] Al indizar contenido, asegúrese de usar archivos multimedia que tengan una voz muy clara (sin música de fondo, ruido, efectos ni silbido de micrófono). Algunos ejemplos de contenido adecuado son: reuniones, conferencias o presentaciones grabadas. Es posible que el siguiente contenido no sea adecuado para la indización: películas, programas de TV, cualquier elemento con audio y efectos de sonido mezclados o contenido mal gragado con ruido de fondo (silbido).
 
 
 Un trabajo de indización puede generar las siguientes salidas:
@@ -37,7 +37,7 @@ Un trabajo de indización puede generar las siguientes salidas:
 - Archivo de palabras clave (XML).
 - Archivo blob de indización de audio (AIB) para usar con SQL Server.
 
-	Para obtener más información, consulte [Uso de archivos AIB con Azure Media Indexer y SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+	Para obtener más información, consulte [Uso de archivos AIB con Azure Media Indexer y SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
 
 Este tema muestra cómo crear trabajos de indización para **Indización de un recurso** e **Indización de varios archivos**.
@@ -278,7 +278,7 @@ otros | Errores internos | Póngase en contacto con el equipo de soporte técnic
 
 ## <a id="supported_languages"></a>Idiomas admitidos
 
-Actualmente, se admiten los idiomas inglés y español. Para obtener más información, consulte [la publicación del blog sobre la versión v1.2](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+Actualmente, se admiten los idiomas inglés y español. Para obtener más información, consulte [la publicación del blog sobre la versión v1.2](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 
 ##Rutas de aprendizaje de Servicios multimedia
@@ -293,7 +293,7 @@ Actualmente, se admiten los idiomas inglés y español. Para obtener más inform
 
 ## Vínculos relacionados
 
-[Uso de archivos AIB con el Indizador multimedia de Azure y SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
+[Uso de archivos AIB con el Indizador multimedia de Azure y SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 <!-- Anchors. -->
 
@@ -301,4 +301,4 @@ Actualmente, se admiten los idiomas inglés y español. Para obtener más inform
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

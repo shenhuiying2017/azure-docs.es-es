@@ -27,11 +27,11 @@ La galería de máquinas virtuales de Microsoft Azure incluye imágenes que cont
 
 Hay dos maneras de conceder licencias de SQL Server en máquinas virtuales de Microsoft Azure:
 
-1. Ventajas de la movilidad de licencias que forman parte de Software Assurance. Para obtener más información, consulte [Movilidad de Licencias a través de Software Assurance en Azure](http://azure.microsoft.com/pricing/license-mobility/).
+1. Ventajas de la movilidad de licencias que forman parte de Software Assurance. Para obtener más información, consulte [Movilidad de Licencias a través de Software Assurance en Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
-1. Tarifa de pago por hora de máquinas virtuales de Azure con SQL Server instalado. Vea la sección "SQL Server" en [Precios de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+1. Tarifa de pago por hora de máquinas virtuales de Azure con SQL Server instalado. Vea la sección "SQL Server" en [Precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
-Para obtener más información sobre las licencias y las tarifas actuales, vea [P+F sobre licencias de Máquinas virtuales](http://azure.microsoft.com/pricing/licensing-faq/%20).
+Para obtener más información sobre las licencias y las tarifas actuales, vea [P+F sobre licencias de Máquinas virtuales](https://azure.microsoft.com/pricing/licensing-faq/%20/).
 
 ## Imágenes de SQL Server disponibles en la galería de máquinas virtuales de Azure
 
@@ -100,7 +100,7 @@ En la tabla siguiente se resumen las características de Inteligencia empresaria
 
 	- La política de almacenamiento en caché de unidad para la unidad predeterminada **C**: no es óptima para trabajar con datos.
 	
-	- La unidad **D**: es una unidad temporal que se usa principalmente para el archivo de paginación. La unidad **D**: no se conserva y no se guarda en el almacenamiento de blobs. Las tareas de administración, como un cambio al tamaño de la máquina virtual, restablecen la unidad **D**:. Se recomienda **NO** usar la unidad **D**: para los archivos de bases de datos, incluido tempdb.
+	- La unidad **D**: es una unidad temporal que se usa principalmente para el archivo de paginación. La unidad **D**: no se conserva y no se guarda en el almacenamiento de blobs. Las tareas de administración como un cambio al tamaño de la máquina virtual restablecen la unidad de disco **D**:. Se recomienda **NO** usar la unidad **D**: para los archivos de bases de datos, incluido tempdb.
 
 	Para obtener más información sobre cómo crear y acoplar discos, consulte [Acoplamiento de un disco de datos a una máquina virtual](storage-windows-attach-disk.md).
 
@@ -108,11 +108,11 @@ En la tabla siguiente se resumen las características de Inteligencia empresaria
 
 	![Servicios de SQL Server](./media/virtual-machines-sql-server-business-intelligence/IC650107.gif)
 
-	>[AZURE.NOTE]El motor de base de datos de SQL Server es necesario en escenarios de BI admitidos. En una topología de máquina virtual de servidor único, el motor de base de datos debe ejecutarse en la misma máquina virtual.
+	>[AZURE.NOTE] El motor de base de datos de SQL Server es necesario en escenarios de BI admitidos. En una topología de máquina virtual de servidor único, el motor de base de datos debe ejecutarse en la misma máquina virtual.
 
 	Para obtener más información, vea lo siguiente: [Desinstalar Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) y [Desinstalar una instancia de Analysis Services](https://msdn.microsoft.com/library/ms143687.aspx).
 
-- Consulte **Windows Update** para ver nuevas "Actualizaciones importantes". Las imágenes de máquina virtual de Microsoft Azure se actualizan con frecuencia; sin embargo, puede haber actualizaciones importantes disponibles en **Windows Update** después de la última actualización de la imagen de máquina virtual.
+- Consulte **Windows Update** para ver nuevas "Actualizaciones importantes". Las imágenes de máquina virtual de Microsoft Azure se actualizan con frecuencia; sin embargo, las actualizaciones importantes pueden estar disponibles en **Windows Update** después de la última actualización de la imagen de máquina virtual.
 
 ## Topologías de implementación de ejemplo
 
@@ -152,7 +152,7 @@ Analysis Services, Reporting Services, el motor de base de datos de SQL Server y
 
 La imagen de la galería de máquinas virtuales para SQL Server incluye el modo nativo de Reporting Services instalado, pero el servidor de informes no está configurado. Los pasos de esta sección configuran el servidor de informes de Reporting Services. Para obtener más información sobre cómo configurar el modo nativo de Reporting Services, consulte [Instalar el servidor de informes del modo nativo de Reporting Services (SSRS)](https://msdn.microsoft.com/library/ms143711.aspx).
 
->[AZURE.NOTE]Para consultar contenido similar que usa scripts de Windows PowerShell para configurar el servidor de informes, consulte [Usar PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo](virtual-machines-sql-server-create-native-mode-report-server-powershell.md).
+>[AZURE.NOTE] Para consultar contenido similar que usa scripts de Windows PowerShell para configurar el servidor de informes, consulte [Usar PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo](virtual-machines-sql-server-create-native-mode-report-server-powershell.md).
 
 ### Conectarse a la máquina virtual e iniciar el Administrador de configuración de Reporting Services
 
@@ -170,9 +170,9 @@ Hay dos flujos de trabajo habituales para conectarse a una máquina virtual de A
 		
 		Myservice.cloudapp.net:63133
 		
-		Para obtener más información, consulte [¿Qué es un servicio en la nube?](http://www.windowsazure.com/manage/services/cloud-services/what-is-a-cloud-service/).
+		Para obtener más información, consulte [¿Qué es un servicio en la nube?](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
-**Inicie el Administrador de configuración de Reporting Services**.
+**Inicie el Administrador de configuración de Reporting Services.**
 
 1. En **Windows Server 2012**:
 
@@ -228,7 +228,7 @@ O
 
 1. Compruebe que la opción **Crear una nueva base de datos del servidor de informes** está seleccionada y luego haga clic en Siguiente.
 
-1. Compruebe el **Nombre del servidor** y haga clic en **Probar conexión**.
+1. Compruebe **Nombre del servidor** y haga clic en **Probar conexión**.
 
 1. Si el resultado es **La conexión de prueba se estableció correctamente**, haga clic en **Aceptar** y luego en **Siguiente**.
 
@@ -268,7 +268,7 @@ Si quiere conectarse al Administrador de informes en la máquina virtual desde u
 
 1. Abra el puerto 80 en el firewall de la máquina virtual.
 
-1. Vaya hasta el administrador de informes con el **nombre DNS** de la máquina virtual de Azure como el nombre del servidor en la dirección URL. Por ejemplo:
+1. Examine hasta el administrador de informes con el **nombre DNS** de la máquina virtual de Azure como el nombre del servidor en la dirección URL. Por ejemplo:
 
 	**Administrador de informes**: http://uebi.cloudapp.net/reportserver **Servidor de informes**: http://uebi.cloudapp.net/reports
 
@@ -314,7 +314,7 @@ Para instalar servicios de SQL Server adicionales, como Analysis Services en mod
 
 O ejecute C:\\SQLServer\_12.0\_full\\setup.exe o C:\\SQLServer\_11.0\_full\\setup.exe.
 
->[AZURE.NOTE]La primera vez que ejecute el programa de instalación de SQL Server, se podrá descargar más archivos de instalación y requerir un reinicio de la instalación de SQL Server.
+>[AZURE.NOTE] La primera vez que ejecute el programa de instalación de SQL Server, se podrá descargar más archivos de instalación y requerir un reinicio de la instalación de SQL Server.
 >
 >Si necesita personalizar repetidamente la imagen seleccionada de la máquina virtual de Microsoft Azure, considere la posibilidad de crear su propia imagen de SQL Server. La funcionalidad SysPrep de Analysis Services se habilitó con SQL Server 2012 SP1 CU2. Para obtener más información, consulte [Consideraciones acerca de la instalación de SQL Server con SysPrep](https://msdn.microsoft.com/library/ee210754.aspx).
 
@@ -388,9 +388,7 @@ En esta sección se resumen los extremos de máquina virtual de Microsoft Azure 
 
 	|Port|Tipo|Descripción|
 |---|---|---|
-|**80**|TCP|Acceso remoto al servidor de informes (*).|
-|**1433**|TCP|SQL Server Management Studio (*).|
-|**1434**|UDP|SQL Server Browser. Esto es necesario cuando la máquina virtual se une a un dominio.|
+|**80**|TCP|Acceso remoto al servidor de informes (*).| |**1433**|TCP|SQL Server Management Studio (*).| |**1434**|UDP|SQL Server Browser. Esto es necesario cuando la máquina virtual se une a un dominio.|
 |**2382**|TCP|SQL Server Browser.|
 |**2383**|TCP|Instancia predeterminada de SQL Server Analysis Services e instancias con nombre en clúster.|
 |**Definida por el usuario**|TCP|Cree un puerto de instancia con nombre de Analysis Services estático para un número de puerto que elija y luego desbloquee el número de puerto en el firewall.|
@@ -411,7 +409,7 @@ En el siguiente diagrama se muestran los puertos que se abrirán en el firewall 
 
 - [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md)
 
-- [Máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
+- [Máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 - [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-provision-sql-server.md)
 
@@ -423,14 +421,14 @@ En el siguiente diagrama se muestran los puertos que se abrirán en el firewall 
 
 - [Modelado multidimensional (Tutorial de Adventure Works)](https://technet.microsoft.com/library/ms170208.aspx)
 
-- [Centro de documentación de Azure](http://azure.microsoft.com/documentation/)
+- [Centro de documentación de Azure](https://azure.microsoft.com/documentation/)
 
 - [Usar Power BI en un entorno híbrido](https://msdn.microsoft.com/library/dn798994.aspx)
 
->[AZURE.NOTE] [Envíe comentarios e información de contacto a través de Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
+>[AZURE.NOTE] [Submit feedback and contact information through Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### Contenido de la Comunidad
 
 - [Administración de Base de datos SQL de Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

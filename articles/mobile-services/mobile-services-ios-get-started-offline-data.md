@@ -35,7 +35,7 @@ La sincronización sin conexión tiene varias ventajas:
 * Sincroniza datos en varios dispositivos
 * Detecta los conflictos cuando dos dispositivos modifican el mismo registro
 
-> [AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y acceder a [servicios móviles gratuitos que puede seguir usando incluso después de que finalice dicha evaluación](http://azure.microsoft.com/pricing/details/mobile-services/). Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank").
+> [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y acceder a [servicios móviles gratuitos que puede seguir usando incluso después de que finalice dicha evaluación](https://azure.microsoft.com/pricing/details/mobile-services/). Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank").
 
 Este tutorial está basado en el [Tutorial de introducción a Servicios móviles], que debe completar primero. En primer lugar, revisemos el código relacionado con la sincronización sin conexión en el inicio rápido.
 
@@ -102,7 +102,7 @@ El segundo parámetro para `pullWithQuery` es un identificador de consulta que s
 ```
 
 
->[AZURE.NOTE]Para quitar registros del almacén local del dispositivo cuando se han eliminado de la base de datos del servicio móvil, habilite la [eliminación temporal]. De lo contrario, la aplicación podría llamar periódicamente a `MSSyncTable.purgeWithQuery` para purgar el almacén local.
+>[AZURE.NOTE] Para quitar registros del almacén local del dispositivo cuando se han eliminado de la base de datos del servicio móvil, habilite la [eliminación temporal]. De lo contrario, la aplicación podría llamar periódicamente a `MSSyncTable.purgeWithQuery` para purgar el almacén local.
 
 
 * En **QSTodoService.m**, los métodos `addItem` y `completeItem` invocan a `syncData` después de modificar datos. En **QSTodoListViewController.m**, el método `refresh` también invoca a `syncData` para que la interfaz de usuario muestre los datos más recientes en cada actualización y en el inicio (`init` llama a `refresh`).
@@ -120,7 +120,7 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
       * MS\_TableConfig: para realizar el seguimiento de la hora de la última actualización de la última operación de sincronización para todas las operaciones de extracción
       * TodoItem: para almacenar elementos de lista de tareas. Las columnas de sistema **ms\_createdAt**, **ms\_updatedAt** y **ms\_version** son propiedades del sistema opcionales.
 
->[AZURE.NOTE]El SDK de Servicios móviles reserva los nombres de columna que empiezan por "**`ms_`**". No use este prefijo en elementos distintos de las columnas del sistema. De lo contrario, se modificarán los nombres de columna cuando se use el servicio remoto.
+>[AZURE.NOTE] El SDK de Servicios móviles reserva los nombres de columna que empiezan por "**`ms_`**". No use este prefijo en elementos distintos de las columnas del sistema. De lo contrario, se modificarán los nombres de columna cuando se use el servicio remoto.
 
 - Al utilizar la característica de sincronización sin conexión, debe definir las tablas del sistema, tal como se muestra a continuación.
 
@@ -275,4 +275,4 @@ Para sincronizar el almacén local con el servidor, ha usado `MSSyncTable.pullWi
 
 [Tutorial de introducción a Servicios móviles]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

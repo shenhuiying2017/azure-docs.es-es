@@ -144,7 +144,7 @@ Muy bien, ahora adal.js tiene toda la información que necesita para proteger su
 ...
 ```
 
-Ahora, cuando un usuario haga clic en el vínculo `TodoList`, adal.js le redireccionará automáticamente a Azure AD para iniciar sesión si es necesario. También puede enviar explícitamente solicitudes de inicio y cierre de sesión mediante la invocación de adal.js en sus controladores:
+Ahora, cuando un usuario hace clic en el vínculo `TodoList`, adal.js le redireccionará automáticamente a Azure AD para iniciar sesión si es necesario. También puede enviar explícitamente solicitudes de inicio y cierre de sesión mediante la invocación de adal.js en sus controladores:
 
 ```js
 // app/scripts/homeCtrl.js
@@ -235,6 +235,6 @@ Para seguir aprendiendo sobre la versión preliminar del modelo de aplicaciones 
 
 - [Ejemplos de Azure en GitHub >>](https://github.com/Azure-Samples)
 - [Azure AD en Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
-- Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+- Documentación de Azure AD en [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

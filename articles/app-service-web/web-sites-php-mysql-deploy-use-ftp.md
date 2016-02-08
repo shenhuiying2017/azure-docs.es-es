@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="01/12/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -38,7 +38,7 @@ Mediante este tutorial, se compilará una aplicación web de registro sencilla e
 
 ![Sitio web PHP de Azure][running-app]
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de registrarse para abrir una cuenta, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de registrarse para abrir una cuenta, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 
 ##Creación de una aplicación web y configuración de la publicación FTP
@@ -46,31 +46,27 @@ Mediante este tutorial, se compilará una aplicación web de registro sencilla e
 Siga estos pasos para crear una aplicación web y una base de datos MySQL:
 
 1. Inicie sesión en el [Portal de Azure][management-portal].
-2. Haga clic en el icono **+Nuevo**, situado en la parte inferior izquierda del portal.
+2. Haga clic en el icono **+Nuevo** situado en la parte superior izquierda del Portal de Azure.
 
 	![Crear un sitio web de Azure][new-website]
 
-3. Haga clic en **Web + móvil** y, a continuación, en **Aplicación web + MySQL**.
+3. Escriba **Aplicación web + MySQL** en la búsqueda y haga clic en **Aplicación web + MySQL**.
 
 	![Crear un sitio web personalizado][custom-create]
 
-4. Escriba un nombre válido para el grupo de recursos.
+4. Haga clic en **Crear**. Escriba un nombre de servicio de aplicaciones único, un nombre válido para el grupo de recursos y un nuevo plan de servicio.
 
-    ![Establecer nombre de grupo de recurso][resource-group]
+    ![Definición de un nombre de grupo de recursos][resource-group]
 
-5. Escriba valores para la nueva aplicación web.
-
-     ![Crear una aplicación web][new-web-app]
 
 6. Especifique los valores para la nueva base de datos, incluida la aceptación de los términos legales.
 
 	![Crear una base de datos MySQL][new-mysql-db]
 	
-7. Una vez creada la aplicación web, verá el nuevo grupo de recursos. Haga clic en el nombre de la aplicación web para configurar las opciones.
+7. Una vez creada la aplicación web, verá la nueva hoja de servicio de aplicaciones.
 
-	![Abrir una aplicación web][go-to-webapp]
 
-6. Desplácese hacia abajo hasta que encuentre **Establecer credenciales de implementación**.
+6. Haga clic en **Configuración** > **Credenciales de implementación**.
 
 	![Configurar credenciales de implementación][set-deployment-credentials]
 
@@ -118,7 +114,8 @@ Para compilar y ejecutar la aplicación localmente, siga estos pasos. Tenga en c
 		echo "<h3>Table created.</h3>";
 		?>
 
-	> [AZURE.NOTE]Necesitará actualizar los valores de <code>$user</code> y <code>$pwd</code> con el nombre de usuario y la contraseña de MySQL locales.
+	> [AZURE.NOTE] 
+	Necesitará actualizar los valores de <code>$user</code> y <code>$pwd</code> con el nombre de usuario y la contraseña de MySQL locales.
 
 4. Abra un explorador web y vaya a [http://localhost/registration/createtable.php][localhost-createtable]. Esto creará la tabla `registration_tbl` en la base de datos.
 
@@ -171,7 +168,8 @@ Para compilar y ejecutar la aplicación localmente, siga estos pasos. Tenga en c
 			die(var_dump($e));
 		}
 
-	> [AZURE.NOTE]De nuevo, necesitará actualizar los valores de <code>$user</code> y <code>$pwd</code> con el nombre de usuario y la contraseña de MySQL locales.
+	> [AZURE.NOTE]
+	De nuevo, necesitará actualizar los valores de <code>$user</code> y <code>$pwd</code> con el nombre de usuario y la contraseña de MySQL locales.
 
 7. Después del código de conexión a la base de datos, agregue el código para la inserción de información de registro en la base de datos.
 
@@ -222,11 +220,15 @@ Ahora puede dirigirse a [http://localhost/registration/index.php][localhost-inde
 
 Para conectarse a la base de datos MySQL que se ejecuta en aplicaciones web, necesita información de conexión. Si desea obtener la información de conexión de MySQL, siga estos pasos:
 
+1. En la hoja de la aplicación web del servicio de aplicaciones, haga clic en el vínculo del grupo de recursos:
+
+	![Selección de grupo de recursos][select-resourcegroup]
+
 1. En el grupo de recursos, haga clic en la base de datos:
 
 	![Seleccionar base de datos][select-database]
 
-2. En el resumen de base de datos, elija **Propiedades**.
+2. En el resumen de base de datos, seleccione **Configuración** > **Propiedades**.
 
     ![Seleccionar propiedades][select-properties]
 	
@@ -292,6 +294,7 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [resource-group]: ./media/web-sites-php-mysql-deploy-use-ftp/set_group.png
 [new-web-app]: ./media/web-sites-php-mysql-deploy-use-ftp/create_wa.png
 [select-database]: ./media/web-sites-php-mysql-deploy-use-ftp/select_database.png
+[select-resourcegroup]: ./media/web-sites-php-mysql-deploy-use-ftp/select_resourcegroup.png
 [select-properties]: ./media/web-sites-php-mysql-deploy-use-ftp/select_properties.png
 [note-properties]: ./media/web-sites-php-mysql-deploy-use-ftp/note-properties.png
 
@@ -300,4 +303,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

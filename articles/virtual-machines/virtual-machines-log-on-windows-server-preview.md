@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="01/21/2016"
 	ms.author="cynthn"/>
 
 # Inicio de sesión en una máquina virtual con Windows Server 
@@ -27,15 +27,11 @@ Usará el botón **Conectar** en el Portal de Azure para iniciar una sesión de 
 
 1. Si aún no lo ha hecho, inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
-2.	En el menú Concentrador, haga clic en **Examinar**.
+2.	En el menú del Centro, haga clic en **Máquinas virtuales**.
 
-3.	En la hoja de búsqueda, desplácese hacia abajo y haga clic en **Máquinas virtuales**.
+3.	Seleccione la máquina virtual en la lista.
 
-	![Búsqueda de máquinas virtuales](./media/virtual-machines-log-on-windows-server-preview/search-blade-preview-portal.png)
-
-4.	Seleccione la máquina virtual en la lista.
-
-5. En la hoja de la máquina virtual, haga clic en **Conectar**.
+4. En la hoja de la máquina virtual, haga clic en **Conectar**.
 
 	![Conexión a la máquina virtual](./media/virtual-machines-log-on-windows-server-preview/preview-portal-connect.png)
 
@@ -47,4 +43,4 @@ Usará el botón **Conectar** en el Portal de Azure para iniciar una sesión de 
 
 Si las sugerencias sobre el inicio de sesión no ayudan o no son lo que necesita, consulte [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

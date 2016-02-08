@@ -27,7 +27,7 @@ Para instrucciones detalladas sobre cómo registrar una cuenta de vendedor en Mi
 - Asegúrese de que las partes interesadas en el proceso de publicación de Azure reciban el correo electrónico que vaya a esta dirección. Se debe supervisar y responder para completar el proceso de publicación.
 - Evite asociar la cuenta a una sola persona. Si esa persona dejase la compañía, podría afectar a su capacidad para acceder a información al respecto y publicar las SKU.
 
-> [AZURE.IMPORTANT]No tiene que completar la información bancaria y fiscal de la compañía si solo va a publicar ofertas gratuitas (o de tipo traiga su propia licencia).
+> [AZURE.IMPORTANT] No tiene que completar la información bancaria y fiscal de la compañía si solo va a publicar ofertas gratuitas (o de tipo traiga su propia licencia).
 
 > Debe completar el registro de la empresa para comenzar. Sin embargo, aunque la compañía trabaja en la información bancaria y fiscal de la cuenta de desarrollador de Microsoft, los desarrolladores pueden comenzar a trabajar en la creación de la imagen de máquina virtual en el [portal de publicación](https://publish.windowsazure.com), y luego certificarla y probarla en el entorno de ensayo de Azure. Solo necesitará la aprobación de la cuenta de vendedor completa en el paso final de la publicación de la oferta en Azure Marketplace.
 
@@ -35,10 +35,11 @@ Para instrucciones detalladas sobre cómo registrar una cuenta de vendedor en Mi
 
 
 ## Adquisición de una suscripción de Azure de "pago por uso"
-Se trata de la suscripción que usará para crear las imágenes de máquina virtual y entregarlas a [Azure Marketplace](http://azure.microsoft.com/marketplace). Si no tiene una suscripción existente, inicie sesión aquí en https://account.windowsazure.com/signup?offer=ms-azr-0003p.
+Se trata de la suscripción que usará para crear las imágenes de máquina virtual y entregarlas a [Azure Marketplace](https://azure.microsoft.com/marketplace/). Si no tiene una suscripción existente, inicie sesión aquí en https://account.windowsazure.com/signup?offer=ms-azr-0003p.
 
 ## Países de "Venta-de"
-> [AZURE.WARNING]Para vender sus servicios en Azure Marketplace, es necesario que se asegure de que la entidad registrada procede de uno de los países desde donde está permitida la venta. Esta restricción se debe a motivos de pago e impuestos. Trabajamos activamente para ampliar esta lista de países en un futuro próximo, así pues, manténgase atento. Para la lista completa, vea la sección 1b de la página [Directivas de participación de Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+> [AZURE.WARNING]
+Para vender sus servicios en Azure Marketplace, es necesario que se asegure de que la entidad registrada procede de uno de los países desde donde está permitida la venta. Esta restricción se debe a motivos de pago e impuestos. Trabajamos activamente para ampliar esta lista de países en un futuro próximo, así pues, manténgase atento. Para la lista completa, vea la sección 1b de la página [Directivas de participación de Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 ## Pasos siguientes
 Seguidamente, se indican los requisitos previos técnicos para cada tipo de oferta. Haga clic en el vínculo al artículo correspondiente al tipo de oferta que le gustaría crear en Azure Marketplace.
@@ -50,4 +51,4 @@ Seguidamente, se indican los requisitos previos técnicos para cada tipo de ofer
 ## Consulte también
 - [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

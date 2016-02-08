@@ -23,7 +23,7 @@ Los conjuntos de escala de máquinas virtuales son un recurso de Proceso de Azur
 
 [AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-ps-include.md)]
 
-Para las aplicaciones que necesiten escalar y reducir horizontalmente los recursos de proceso, las operaciones de escala se equilibran implícitamente en dominios de actualización y de error. Para una introducción a los conjuntos de escala de máquinas virtuales, consulte el reciente [anuncio en el blog de Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview).
+Para las aplicaciones que necesiten escalar y reducir horizontalmente los recursos de proceso, las operaciones de escala se equilibran implícitamente en dominios de actualización y de error. Para una introducción a los conjuntos de escala de máquinas virtuales, consulte el reciente [anuncio en el blog de Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/).
 
 Eche un vistazo a estos vídeos para más información sobre los conjuntos de escala de máquinas virtuales:
 
@@ -153,4 +153,4 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 
 **R.** Sí. Un conjunto de escala es de forma implícita un conjunto de disponibilidad con tres dominios de error y cinco dominios de actualización. No es necesario configurar nada en virtualMachineProfile. En futuras versiones, es probable que los conjuntos de escala abarquen varios inquilinos pero, por ahora, un conjunto de escala es un único conjunto de disponibilidad.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

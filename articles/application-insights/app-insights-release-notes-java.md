@@ -16,7 +16,7 @@
 
 # Notas de la versión del SDK de Application Insights para Java
 
-El [SDK de Application Insights para Java](app-insights-java-get-started.md) envía telemetría acerca de la aplicación activa a [Application Insights](http://azure.microsoft.com/services/application-insights/), donde puede analizar su uso y el rendimiento.
+El [SDK de Application Insights para Java](app-insights-java-get-started.md) envía telemetría acerca de la aplicación activa a [Application Insights](https://azure.microsoft.com/services/application-insights/), donde puede analizar su uso y el rendimiento.
 
 #### Para instalar el SDK en su aplicación
 
@@ -73,4 +73,4 @@ Compare los archivos ApplicationInsights.xml antiguo y nuevo. Muchos de los camb
 - Compatible con el seguimiento manual de dependencias mediante una nueva API de método ```trackDependency```.
 - Posibilidad de etiquetar un elemento de telemetría como sintético agregando una propiedad ```SyntheticSource``` al elemento de informe.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

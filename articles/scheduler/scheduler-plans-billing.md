@@ -64,7 +64,7 @@ Aunque puede deshabilitar todos los trabajos de una colección de trabajos en un
 
 ## Precios
 
-Para obtener información detallada sobre los precios, vea [Precios de Programador](http://azure.microsoft.com/pricing/details/scheduler/).
+Para obtener información detallada sobre los precios, vea [Precios de Programador](https://azure.microsoft.com/pricing/details/scheduler/).
 
 ## Otras referencias
  
@@ -75,7 +75,7 @@ Para obtener información detallada sobre los precios, vea [Precios de Programad
 
  [Introducción al Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
 
- [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/dn528946)
+ [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Referencia de cmdlets de PowerShell de Programador de Azure](scheduler-powershell-reference.md)
 
@@ -89,4 +89,4 @@ Para obtener información detallada sobre los precios, vea [Precios de Programad
 
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,7 +20,7 @@
 
 El servicio Búsqueda de Azure es un servicio de búsqueda hospedado en la nube que facilita ofrecer una excelente experiencia de búsqueda. Antes de buscar, deberá rellenar un índice de Búsqueda de Azure con los datos. Si los datos residen en una Base de datos SQL de Azure, el nuevo **indexador de Búsqueda de Azure para la Base de datos SQL de Azure** (o **indexador SQL de Azure**, para abreviar) de Búsqueda de Azure puede automatizar el proceso de indexación. Esto significa que tendrá que escribir menos código y tendrá menos infraestructura para mantener.
 
-Actualmente, los indexadores solo funcionan con la Base de datos SQL de Azure, SQL Server en máquinas virtuales de Azure y [Azure DocumentDB](../documentdb/documentdb-search-indexer.md). En este artículo, nos centraremos en los indizadores que funcionan con la Base de datos SQL de Azure. Si le gustaría consultar soporte técnico para orígenes de datos adicionales, envíe sus comentarios a través del [foro de comentarios de Búsqueda de Azure](http://feedback.azure.com/forums/263029-azure-search).
+Actualmente, los indexadores solo funcionan con la Base de datos SQL de Azure, SQL Server en máquinas virtuales de Azure y [Azure DocumentDB](../documentdb/documentdb-search-indexer.md). En este artículo, nos centraremos en los indizadores que funcionan con la Base de datos SQL de Azure. Si le gustaría consultar soporte técnico para orígenes de datos adicionales, envíe sus comentarios a través del [foro de comentarios de Búsqueda de Azure](https://feedback.azure.com/forums/263029-azure-search/).
 
 Este artículo aborda la forma de usar los indizadores, pero también detalla las características y los comportamientos que solo están disponibles con Bases de datos SQL (por ejemplo, seguimiento de cambios integrado).
 
@@ -279,4 +279,4 @@ R: Sí. El indizador se ejecuta en uno de los nodos del servicio de búsqueda, y
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

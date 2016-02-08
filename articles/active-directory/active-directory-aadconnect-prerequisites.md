@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/12/2016"
+   ms.date="01/21/2016"
    ms.author="andkjell;billmath"/>
 
 # Requisitos previos de Azure AD Connect
@@ -23,7 +23,7 @@ En este tema se describen los requisitos previos y los requisitos de hardware de
 Antes de instalar Azure AD Connect, hay algunas cosas que necesitará.
 
 ### Azure AD
-- Una suscripción de Azure o una [suscripción de prueba de Azure](http://azure.microsoft.com/pricing/free-trial/) Solo es necesario para el acceso al Portal de Azure, no para usar Azure AD Connect. Si usa PowerShell u Office 365 no es necesario utilizar una suscripción de Azure para usar Azure AD Connect. Si tiene una licencia de Office 365 también puede utilizar el portal de Office 365. Con una licencia de Office 365 de pago también puede entrar en el portal de Azure desde el portal de Office 365.
+- Una suscripción de Azure o una [suscripción de prueba de Azure](https://azure.microsoft.com/pricing/free-trial/) Solo es necesario para el acceso al Portal de Azure, no para usar Azure AD Connect. Si usa PowerShell u Office 365 no es necesario utilizar una suscripción de Azure para usar Azure AD Connect. Si tiene una licencia de Office 365 también puede utilizar el portal de Office 365. Con una licencia de Office 365 de pago también puede entrar en el portal de Azure desde el portal de Office 365.
 - [Agregue y compruebe el dominio](active-directory-add-domain.md) que pretende usar en Azure AD. Por ejemplo, si tiene previsto usar contoso.com para los usuarios, asegúrese de que este dominio se ha comprobado y no usa solamente el dominio predeterminado contoso.onmicrosoft.com.
 - De forma predeterminada, un directorio de Azure AD permitirá 50.000 objetos. Al comprobar el dominio, el límite se incrementará a 300 000 objetos. Si todavía necesita más objetos en Azure AD, tiene que abrir una incidencia para aumentar el límite aún más. Si necesita más de 500.000 objetos, necesitará una licencia como Office 365, Azure AD Básico, Azure AD Premium o Enterprise Mobility Suite.
 
@@ -166,4 +166,4 @@ Los requisitos mínimos para equipos que ejecutan AD FS o servidores de aplicaci
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

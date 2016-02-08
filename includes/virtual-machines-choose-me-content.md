@@ -26,7 +26,7 @@ Las máquinas virtuales utilizan discos duros virtuales (VHD) para almacenar el 
 
 <a name="fig_createvms"></a> ![vm\_diagram](./media/virtual-machines-choose-me-content/diagram.png)
 
-**Figura: Máquinas virtuales de Azure proporciona la infraestructura como servicio.**
+**Figura: Máquinas virtuales de Azure proporciona infraestructura como servicio.**
 
 Las máquinas virtuales pueden administrarse mediante un portal basado en explorador, herramientas de línea de comandos con compatibilidad para scripts o directamente a través de la API de REST. Asociados de Microsoft, como RightScale y ScaleXtreme, también proporcionan servicios de administración que se basan en la API de REST.
 
@@ -38,8 +38,8 @@ Además del sistema operativo, las máquinas virtuales ofrecen otras opciones de
 
 Entre otras ventajas que deben tenerse en cuenta con respecto a las máquinas virtuales se incluyen las siguientes:
 
-**Pago por uso**: Azure cobra un precio por hora basado en el tamaño y el sistema operativo de la máquina virtual. En las fracciones de hora, solo se cobra por los minutos de uso. El precio del almacenamiento se calcula y se cobra por separado. Para obtener más información, consulte [Precios de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/).
+**Pago por uso**: Azure cobra un precio por hora basado en el tamaño y el sistema operativo de la máquina virtual. En las fracciones de hora, solo se cobra por los minutos de uso. El precio del almacenamiento se calcula y se cobra por separado. Para obtener más información, consulte [Precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 **Resistencia**: Azure supervisa el hardware físico donde se hospeda cada máquina virtual en ejecución. Si se produce un error en un servidor físico que ejecuta una máquina virtual, Azure lo detecta, mueve la máquina virtual a un nuevo hardware y reinicia la máquina virtual. En ocasiones este proceso se denomina recuperación del servicio. Azure también protege los datos de una máquina virtual, ya que mantiene copias redundantes de los discos duros virtuales en el almacenamiento de blobs.
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

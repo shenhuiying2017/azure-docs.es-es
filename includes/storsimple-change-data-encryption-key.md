@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 12/01/15-->
 
-### Paso 1: autorizar que un dispositivo cambie la clave de cifrado de datos del servicio en el portal de administración
+### Paso 1: Autorizar que un dispositivo cambie la clave de cifrado de datos del servicio en el Portal de Azure clásico.
 
 Normalmente, el administrador de dispositivos solicitará que el administrador de servicios autorice que un dispositivo cambie las claves de cifrado de datos del servicio. A continuación, el administrador de servicios autorizará que el dispositivo cambie la clave.
 
@@ -20,7 +20,8 @@ Para poder autorizar que un dispositivo inicie los cambios de las claves de cifr
 
 - Se puede autorizar un dispositivo cuando algunos de los dispositivos registrados en el servicio hayan sustituido el cifrado, mientras que otros no lo hayan hecho. En tales casos, los dispositivos aptos son los que hayan completado el cambio de claves de cifrado de datos del servicio.
 
-> [AZURE.NOTE]En el Portal de Azure clásico, los dispositivos virtuales de StorSimple no se muestran en la lista de dispositivos que se pueden autorizar para iniciar el cambio de claves.
+> [AZURE.NOTE]
+En el Portal de Azure clásico, los dispositivos virtuales de StorSimple no se muestran en la lista de dispositivos que se pueden autorizar para iniciar el cambio de claves.
 
 Realice los pasos siguientes para seleccionar un dispositivo y autorizarlo para que inicie el cambio de claves de cifrado de datos del servicio.
 
@@ -38,7 +39,7 @@ Realice los pasos siguientes para seleccionar un dispositivo y autorizarlo para 
 
 Este paso se realiza en la interfaz de Windows PowerShell para StorSimple del dispositivo de StorSimple autorizado.
 
-> [AZURE.NOTE]Hasta que se complete la sustitución de claves no se pueden realizar operaciones en el Portal de Azure clásico del servicio StorSimple Manager.
+> [AZURE.NOTE] Hasta que se complete la sustitución de claves no se pueden realizar operaciones en el Portal de Azure clásico del servicio StorSimple Manager.
 
 Si utiliza la consola serie del dispositivo para conectarse a la interfaz de Windows PowerShell, realice los pasos siguientes.
 
@@ -52,7 +53,7 @@ Si utiliza la consola serie del dispositivo para conectarse a la interfaz de Win
 
 3. Una vez que se haya completado correctamente el cmdlet, obtendrá una nueva clave de cifrado de datos del servicio. Copie y guarde esta clave para usarla en el paso 3 de este proceso. Esta clave se utilizará para actualizar todos los dispositivos restantes registrados en el servicio StorSimple Manager.
 
-    > [AZURE.NOTE]Este proceso debe iniciarse en las cuatro horas siguientes a la autorización de un dispositivo de StorSimple.
+    > [AZURE.NOTE] Este proceso debe iniciarse en las cuatro horas siguientes a la autorización de un dispositivo de StorSimple.
 
    A continuación, esta nueva clave se envía al servicio de inserción en todos los dispositivos que están registrados en el servicio. Seguidamente, aparecerá una alerta en el panel del servicio. El servicio deshabilitará todas las operaciones en los dispositivos registrados y, a continuación, el administrador de dispositivos tendrá que actualizar la clave de cifrado de datos del servicio en el resto de dispositivos. Sin embargo, las E/S (hosts que envían datos a la nube) no se interrumpirán.
 
@@ -74,4 +75,4 @@ Realice los pasos siguientes para actualizar el cifrado de datos del servicio en
 
 3. Proporcione la clave de cifrado de datos del servicio que obtuvo en [Paso 2: usar Windows PowerShell para StorSimple para iniciar el cambio de claves de cifrado de datos del servicio](#to-initiate-the-service-data-encryption-key-change).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/18/2015"
+   ms.date="01/22/2016"
    ms.author="larryfr"/>
 
 #Implementación y administración de topologías de Apache Storm en HDInsight basado en Windows
@@ -23,7 +23,7 @@ El panel de Storm permite implementar y ejecutar fácilmente topologías de Apac
 
 El panel de Storm y las características de Storm de las herramientas de HDInsight dependen de la API de REST de Storm, que se puede usar para crear sus propias soluciones de supervisión y administración.
 
-> [AZURE.IMPORTANT]Los pasos de este documento requieren un clúster Storm basado en Windows en HDInsight. Para obtener información sobre el uso de un clúster basado en Linux, consulte [Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
+> [AZURE.IMPORTANT] Los pasos de este documento requieren un clúster Storm basado en Windows en HDInsight. Para obtener información sobre el uso de un clúster basado en Linux, consulte [Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ##Requisitos previos
 
@@ -41,7 +41,7 @@ El panel de Storm y las características de Storm de las herramientas de HDInsig
 
 	* <a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
 
-	> [AZURE.NOTE]Actualmente las herramientas de HDInsight para Visual Studio solo admiten Storm en la versión 3.2 del clúster de HDInsight.
+	> [AZURE.NOTE] Actualmente las herramientas de HDInsight para Visual Studio solo admiten Storm en la versión 3.2 del clúster de HDInsight.
 
 ##Panel de Storm
 
@@ -57,7 +57,7 @@ En el panel de Storm, seleccione el vínculo **IU de Storm**. Se mostrará infor
 
 ![la interfaz de usuario de storm][storm-dashboard-ui]
 
-> [AZURE.NOTE]Con algunas versiones de Internet Explorer, es posible que descubra que la interfaz de usuario de Strom no se actualiza después de visitarla por primera vez. Por ejemplo, puede que no se muestren las topologías nuevas que haya enviado o puede que se muestre una topología como activa, aunque anteriormente la desactivase. Microsoft conoce este problema y está trabajando para conseguir una solución.
+> [AZURE.NOTE] Con algunas versiones de Internet Explorer, es posible que descubra que la interfaz de usuario de Strom no se actualiza después de visitarla por primera vez. Por ejemplo, puede que no se muestren las topologías nuevas que haya enviado o puede que se muestre una topología como activa, aunque anteriormente la desactivase. Microsoft conoce este problema y está trabajando para conseguir una solución.
 
 ####Página principal
 
@@ -129,7 +129,7 @@ Utilice los siguientes pasos para implementar una muestra en el clúster de Stor
 
 1. En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto y seleccione **Enviar a Storm en HDInsight**.
 
-	> [AZURE.NOTE]Si se le solicita, escriba las credenciales de inicio de sesión de su suscripción de Azure. Si tiene más de una suscripción, inicie sesión en la que contenga el clúster de Storm en HDInsight.
+	> [AZURE.NOTE] Si se le solicita, escriba las credenciales de inicio de sesión de su suscripción de Azure. Si tiene más de una suscripción, inicie sesión en la que contenga el clúster de Storm en HDInsight.
 
 2. Seleccione el clúster de Storm en HDInsight desde el menú desplegable **Clúster de Storm** y, después, seleccione **Enviar**. Puede supervisar si el envío es correcto mediante la ventana **Salida**.
 
@@ -137,13 +137,15 @@ Utilice los siguientes pasos para implementar una muestra en el clúster de Stor
 
 	![supervisión de visual studio](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
 
-	> [AZURE.NOTE]También puede ver las **topologías de Storm** en el **Explorador de servidores** expandiendo **Azure** > **HDInsight** y, después, haciendo clic con el botón derecho en un clúster de Storm en HDInsight y seleccionando **Ver topologías de Storm**.
+	> [AZURE.NOTE] También puede ver las **topologías de Storm** en el **Explorador de servidores** expandiendo **Azure** > **HDInsight** y, después, haciendo clic con el botón derecho en un clúster de Storm en HDInsight y seleccionando **Ver topologías de Storm**.
 
-	Use los vínculos de los spouts o bolts para ver información sobre estos componentes. Se abrirá una ventana nueva para cada elemento seleccionado.
+	Seleccione la forma de los spouts o bolts para ver información sobre estos componentes. Se abrirá una ventana nueva para cada elemento seleccionado.
+    
+    > [AZURE.NOTE] El nombre de la topología es el nombre de clase de la topología (en este caso, `HelloWord`) con una marca de tiempo adjunta.
 
 4. Desde la vista **Resumen de la topología**, seleccione **Eliminar** para detener la topología.
 
-	> [AZURE.NOTE]Las topologías de Storm continúan ejecutándose hasta que se detengan o se elimine el clúster.
+	> [AZURE.NOTE] Las topologías de Storm continúan ejecutándose hasta que se detengan o se elimine el clúster.
 
 ##API de REST
 
@@ -159,7 +161,7 @@ El URI base para la API de REST en los clústeres de HDInsight es **https://&lt;
 
 Las solicitudes a la API de REST deben usar la **autenticación básica**; use el nombre y la contraseña de administrador del clúster de HDInsight.
 
-> [AZURE.NOTE]Dado que la autenticación básica se envía mediante texto no cifrado, **siempre** debe usar HTTPS para proteger las comunicaciones con el clúster.
+> [AZURE.NOTE] Dado que la autenticación básica se envía mediante texto no cifrado, **siempre** debe usar HTTPS para proteger las comunicaciones con el clúster.
 
 ###Valores devueltos
 
@@ -179,4 +181,4 @@ Para obtener una lista con más topologías de ejemplo, consulte [Topologías de
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

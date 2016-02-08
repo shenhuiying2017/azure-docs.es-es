@@ -3,7 +3,7 @@
    description="Obtenga información sobre cómo cambiar la configuración predeterminada de identidades con privilegios con la extensión de Privileged Identity Management de Azure."
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="inhenk"/>
+   ms.date="01/21/2016"
+   ms.author="kgremban"/>
 
 # Privileged Identity Management de Azure: Cambio o visualización de la configuración de activación predeterminada de un rol
 
@@ -25,7 +25,7 @@
 4. Haga clic en **Habilitar** o **Deshabilitar** en función de que quiera o no enviar notificaciones sobre la activación a los administradores.
 5. Haga clic en **Habilitar** o **Deshabilitar** en función de que quiera o no permitir que los administradores especifiquen información de incidencias en la solicitud de activación.
 6. Haga clic en **Habilitar** o **Deshabilitar** en función de que quiera o no exigir Multi-Factor Authentication para una solicitud de activación. Para obtener más información sobre cómo usar MFA con PIM, vea [Exigencia de MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
-7. Haga clic en **Habilitar** o **Deshabilitar** para permitir que los administradores globales sean temporales. Para obtener más información sobre este ajuste, vea los temas que aparecen a continuación.
+7. Haga clic en **Habilitar** o **Deshabilitar** para permitir que los administradores globales sean temporales. 
 8. Haga clic en **Guardar**.
 
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
@@ -34,4 +34,4 @@
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

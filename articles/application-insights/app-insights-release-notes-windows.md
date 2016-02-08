@@ -16,7 +16,7 @@
  
 # Notas de la versión del SDK de Application Insights para la Tienda Windows Phone
 
-El [SDK de Application Insights](app-insights-windows-get-started.md) envía telemetría acerca de la aplicación activa a [Application Insights](http://azure.microsoft.com/services/application-insights/), donde puede analizar su uso y el rendimiento.
+El [SDK de Application Insights](app-insights-windows-get-started.md) envía telemetría acerca de la aplicación activa a [Application Insights](https://azure.microsoft.com/services/application-insights/), donde puede analizar su uso y el rendimiento.
 
 
 #### Para instalar el SDK en su aplicación
@@ -95,4 +95,4 @@ Vista previa del 28-04-2015
 
 No existen notas de la versión para versiones anteriores.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

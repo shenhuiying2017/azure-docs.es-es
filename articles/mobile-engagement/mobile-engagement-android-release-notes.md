@@ -19,6 +19,10 @@
 
 #Notas de la versión
 
+##4\.1.4 (01/26/2016)
+
+- Mejoras de estabilidad.
+
 ##4\.1.3 (9/12/2015)
 
 - Mejoras de estabilidad.
@@ -57,4 +61,4 @@
 -   Mejoras de seguridad.
 -   Seguimiento de SmartAd y Google Play eliminados.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

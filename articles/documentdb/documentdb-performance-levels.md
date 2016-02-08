@@ -18,7 +18,7 @@
 
 #Niveles de rendimiento en DocumentDB
 
-Este artículo proporciona información general sobre los niveles de rendimiento en [DocumentDB de Microsoft Azure](http://azure.microsoft.com/services/documentdb/).
+Este artículo proporciona información general sobre los niveles de rendimiento en [DocumentDB de Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
 Después de leer este artículo, podrá responder a las preguntas siguientes:
 
@@ -31,7 +31,7 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 
 Cada colección de DocumentDB creada con una cuenta estándar se aprovisiona con un nivel de rendimiento asociado. Los niveles de rendimiento se designan como S1, S2 o S3, de menor a mayor rendimiento. El nivel de rendimiento de la colección determina la cantidad de recursos de procesamiento de solicitudes reservados para la aplicación. Cada colección incluida en una base de datos puede tener un nivel de rendimiento diferente que permite asignar una mayor capacidad de proceso a las colecciones de acceso frecuente y menos capacidad de proceso a las colecciones que a las que se accede con menos frecuencia. El nivel de rendimiento mínimo para cualquier colección es S1.
 
-Cada nivel de rendimiento tiene asociado un límite de velocidad de la unidad de solicitud (RU). Esta es la capacidad de proceso que se reservará para una colección en función de su nivel de rendimiento, el cual estará disponible para uso exclusivo de esa colección. Se pueden crear colecciones a través del [Portal de Azure clásico](http://portal.azure.com) o de cualquiera de los [SDK de DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Las API de DocumentDB permiten especificar el nivel de rendimiento de una colección.
+Cada nivel de rendimiento tiene asociado un límite de velocidad de la unidad de solicitud (RU). Esta es la capacidad de proceso que se reservará para una colección en función de su nivel de rendimiento, el cual estará disponible para uso exclusivo de esa colección. Se pueden crear colecciones a través del [Portal de Azure clásico](https://portal.azure.com) o de cualquiera de los [SDK de DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Las API de DocumentDB permiten especificar el nivel de rendimiento de una colección.
 
 Nivel de rendimiento de colección|Capacidad de proceso reservada
 ---|---
@@ -41,20 +41,20 @@ S3|2500 RU/s
 
 DocumentDB permite efectuar una amplia gama de operaciones de base de datos, por ejemplo, consultas, consultas con funciones definidas por el usuario (UDF), procedimientos almacenados y desencadenadores. El coste de procesamiento asociado a cada una de estas operaciones variará en función de la CPU, las E/S y la memoria que se necesite para completar la operación. En lugar de pensar en los recursos de hardware y administrarlos, puede considerar que una unidad de solicitud (RU) es como una medida única para los recursos necesarios para realizar varias operaciones de base de datos y dar servicio a una solicitud de la aplicación.
 
-> [AZURE.NOTE]Los niveles de rendimiento se miden en unidades de solicitud. Cada nivel de rendimiento tiene asociada una tasa máxima de unidades de solicitud por segundo. El nivel de rendimiento de una colección se puede ajustar a través de las API o del [Portal de Azure clásico](https://portal.azure.com/).
+> [AZURE.NOTE] Los niveles de rendimiento se miden en unidades de solicitud. Cada nivel de rendimiento tiene asociada una tasa máxima de unidades de solicitud por segundo. El nivel de rendimiento de una colección se puede ajustar a través de las API o del [Portal de Azure clásico](https://portal.azure.com/).
 
 ##Definición de los niveles de rendimiento para las colecciones
 Una vez que se crea una colección, la asignación completa de RU según el nivel de rendimiento designado se reserva para la colección. Por ejemplo, si una colección se establece como S3, la colección será capaz de procesar 2.500 RU por segundo. Cada colección reserva su capacidad de proceso designada y 10 GB de almacenamiento de base de datos. El precio de la colección varía según el nivel elegido rendimiento (S1, S2 o S3). Tenga en cuenta que DocumentDB funciona según la reserva de capacidad: al crear una colección, se reserva una aplicación y se factura según el almacenamiento de base de datos y el rendimiento reservados, con independencia de la cantidad de almacenamiento y del rendimiento que se use activamente.
 
 Una vez creadas las colecciones, puede modificar el nivel de rendimiento a través de los SDK de DocumentDB o desde el Portal de Azure clásico.
 
-> [AZURE.IMPORTANT]Las colecciones estándares de DocumentDB se facturan por horas y cada colección que se cree se facturará por un mínimo de una hora de uso.
+> [AZURE.IMPORTANT] Las colecciones estándares de DocumentDB se facturan por horas y cada colección que se cree se facturará por un mínimo de una hora de uso.
 
 Si ajusta el nivel de rendimiento de una colección para un plazo de una hora, se le facturará por el nivel de rendimiento más alto que se configure durante dicha hora. Por ejemplo, si aumenta el nivel de rendimiento de una colección a las 08:53 horas, se le cobrará el nuevo nivel a partir de las 08:00. Del mismo modo, si disminuye el nivel de rendimiento a las 08:53, la nueva tarifa se aplicará a las 09:00.
 
 Las unidades de solicitud se reservan para cada colección en función del nivel de rendimiento definido. El consumo de las unidades de solicitud se evalúa por cada segundo. Las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada (o nivel de rendimiento) en su colección se limitarán hasta que la frecuencia caiga por debajo del nivel reservado para esa colección. Si su aplicación necesita un nivel mayor de capacidad de proceso, puede aumentar el nivel de rendimiento para cada colección.
 
-> [AZURE.NOTE]Cuando la aplicación supera los niveles de rendimiento de una o varias colecciones, se limitarán las solicitudes para cada colección. Esto significa que algunas solicitudes de aplicación pueden tener éxito mientras que otras quedarán limitadas.
+> [AZURE.NOTE] Cuando la aplicación supera los niveles de rendimiento de una o varias colecciones, se limitarán las solicitudes para cada colección. Esto significa que algunas solicitudes de aplicación pueden tener éxito mientras que otras quedarán limitadas.
 
 ##Trabajo con niveles de rendimiento
 Las colecciones de DocumentDB permiten particionar los datos según los patrones de consulta y los requisitos de rendimiento de la aplicación. Consulte la [documentación sobre particiones de datos](documentdb-partition-data.md) para obtener más información sobre cómo efectuar particiones de datos con DocumentDB. Con la función de indexación automática y de consultas de DocumentDB, es bastante habitual ubicar documentos heterogéneos en la misma colección. Estas son algunas de las consideraciones clave que se deben tener en cuenta a la hora de decidir si hay que utilizar colecciones independientes:
@@ -63,7 +63,7 @@ Las colecciones de DocumentDB permiten particionar los datos según los patrones
 - Transacciones: una colección es el dominio de transacción para los procedimientos almacenados y los desencadenadores. Todas las transacciones tienen como ámbito una sola colección. 
 - Rendimiento: una colección tiene un nivel de rendimiento asociado. Esto garantiza que cada colección tenga un rendimiento predecible mediante RU reservadas. Se pueden asignar datos a colecciones diferentes, con distintos niveles de rendimiento, en función de la frecuencia de acceso.
 
-> [AZURE.IMPORTANT]Es importante tener en cuenta que se aplicarán tarifas estándares completas según el número de colecciones creadas por la aplicación.
+> [AZURE.IMPORTANT] Es importante tener en cuenta que se aplicarán tarifas estándares completas según el número de colecciones creadas por la aplicación.
 
 Es recomendable que la aplicación haga uso de un pequeño número de colecciones a menos que tenga requisitos de almacenamiento o rendimiento elevados. Asegúrese de que ha comprendido bien patrones de aplicación para la creación de nuevas colecciones. Puede optar por reservar la creación de la colección como una acción de administración gestionada fuera de la aplicación. De forma similar, ajustar el nivel de rendimiento para una colección cambiará el precio por hora a la que se factura a la colección. Los niveles de rendimiento de la colección se deben supervisar en caso de que la aplicación los ajuste dinámicamente.
 
@@ -80,7 +80,7 @@ El Portal de Azure clásico es una opción disponible al administrar los niveles
 7. Por último, en la hoja **Colección**, busque el icono **Nivel de precios** del modo **Uso** y haga clic en él.
 8. En la hoja **Elija su nivel de precios**, haga clic en el nivel de rendimiento deseado y, a continuación, en **Seleccionar** en la parte inferior de la hoja. 
 
->[AZURE.NOTE]Cambiar los niveles de rendimiento de una colección puede llevar hasta 2 minutos.
+>[AZURE.NOTE] Cambiar los niveles de rendimiento de una colección puede llevar hasta 2 minutos.
 
 ![Cambio del nivel de precios][1]
 
@@ -113,13 +113,13 @@ Visite [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents
 
 Para obtener más información sobre los precios y la administración de datos con Azure DocumentDB, consulte estos recursos:
  
-- [Precios de DocumentDB](http://azure.microsoft.com/pricing/details/documentdb/)
+- [Precios de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
 - [Administración de la capacidad de DocumentDB](documentdb-manage.md) 
 - [Modelado de datos en DocumentDB](documentdb-modeling-data.md)
 - [Partición de datos en DocumentDB](documentdb-partition-data.md)
 
-Para obtener más información acerca de DocumentDB, consulte la [documentación](http://azure.microsoft.com/documentation/services/documentdb/) de Azure DocumentDB.
+Para obtener más información acerca de DocumentDB, consulte la [documentación](https://azure.microsoft.com/documentation/services/documentdb/) de Azure DocumentDB.
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

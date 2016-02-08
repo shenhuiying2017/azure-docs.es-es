@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="01/25/2016"
    ms.author="mcoskun"/>
 
 # Copia de seguridad y restauración de Reliable Services
@@ -87,7 +87,7 @@ En este caso, el tiempo de ejecución detectaría automáticamente la pérdida d
 
 El autor del servicio debe realizar lo siguiente para recuperar:
 
-- Reemplace **IReliableStateManager** para que devuelva un nuevo **ReliableStateManager** y proporcione una función de devolución de llamada a la que se llame en caso de un evento de pérdida de datos.
+- Reemplace **CreateReliableStateManager** para que devuelva un nuevo **ReliableStateManager** y proporcione una función de devolución de llamada a la que se llame en caso de un evento de pérdida de datos.
 
 - Busque la última copia de seguridad en la ubicación externa que contiene las copias de seguridad del servicio.
 
@@ -118,7 +118,7 @@ protected override async Task<bool> OnDataLossAsync(CancellationToken cancellati
 }
 ```
 
->[AZURE.NOTE]RestorePolicy se establece en Seguro de forma predeterminada. Esto significa que la API **RestoreAsync** generará una excepción ArgumentException si detecta que la carpeta de copia de seguridad contiene un estado igual o más antiguo que el estado contenido en esta réplica. Se puede usar **RestorePolicy.Force** para omitir esta comprobación de seguridad.
+>[AZURE.NOTE] RestorePolicy se establece en Seguro de forma predeterminada. Esto significa que la API **RestoreAsync** generará una excepción ArgumentException si detecta que la carpeta de copia de seguridad contiene un estado igual o más antiguo que el estado contenido en esta réplica. Se puede usar **RestorePolicy.Force** para omitir esta comprobación de seguridad.
 
 ## Eliminación o pérdida del servicio
 
@@ -158,4 +158,4 @@ El Administrador de estado confiable proporciona la capacidad de restaurar desde
 
 En primer lugar, **RestoreAsync** quita todo estado existente en la réplica principal en la que se lo llamó. Después, el Administrador de estado confiable crea todos los objetos confiables que existen en la carpeta de copia de seguridad. A continuación, se indica a los objetos confiables que restauren a partir de sus puntos de control en la carpeta de copia de seguridad. Por último, el Administrador de estado confiable recupera su propio estado de las entradas del registro en la carpeta de copia de seguridad y realiza la recuperación. Como parte del proceso de recuperación, se reproducen en los objetos confiables las operaciones a partir del "punto de partida" que tengan entradas de registro de confirmación en la carpeta de copia de seguridad. Este paso garantiza que el estado recuperado sea coherente.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

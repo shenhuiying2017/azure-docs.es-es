@@ -34,10 +34,10 @@ La operación de recuperación repercute en la aplicación. Este proceso requier
 1. Error de conectividad permanente de la capa de aplicación en la base de datos.
 2. El Portal de Azure clásico muestra una alerta sobre una incidencia en una región con un gran impacto.
 
-> [AZURE.NOTE]Una vez recuperada la base de datos, podrá configurarla para su uso. Para ello, siga los pasos descritos en la guía [Configuración de una base de datos recuperada](#postrecovery).
+> [AZURE.NOTE] Una vez recuperada la base de datos, podrá configurarla para su uso. Para ello, siga los pasos descritos en la guía [Configuración de una base de datos recuperada](#postrecovery).
 
 ## Conmutación por error de la base de datos secundaria de replicación geográfica
-> [AZURE.NOTE]Debe configurarla para obtener una base de datos secundaria que pueda usar para la conmutación por error. La replicación geográfica estándar solo está disponible para las bases de datos Standard y Premium. Obtenga información acerca de [cómo configurar la replicación geográfica](sql-database-business-continuity-design.md)
+> [AZURE.NOTE] Debe configurarla para obtener una base de datos secundaria que pueda usar para la conmutación por error. La replicación geográfica estándar solo está disponible para las bases de datos Standard y Premium. Obtenga información acerca de [cómo configurar la replicación geográfica](sql-database-business-continuity-design.md)
 
 ###Portal de Azure clásico
 Use el Portal de Azure clásico para terminar la relación de copia continua con la base de datos secundaria de replicación geográfica.
@@ -64,7 +64,7 @@ Use REST para iniciar la conmutación por error a una base de datos secundaria m
 
 En el caso de una interrupción en una base de datos, es posible recuperar la base de datos desde la última copia de seguridad con redundancia geográfica mediante la restauración geográfica.
 
-> [AZURE.NOTE]Al recuperar una base de datos se crea una nueva base de datos. Es importante asegurarse de que el servidor en el que va a efectuar la recuperación tenga suficiente capacidad DTU para la nueva base de datos. Puede solicitar un aumento de esta cuota [contactando con el soporte técnico](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+> [AZURE.NOTE] Al recuperar una base de datos se crea una nueva base de datos. Es importante asegurarse de que el servidor en el que va a efectuar la recuperación tenga suficiente capacidad DTU para la nueva base de datos. Puede solicitar un aumento de esta cuota [contactando con el soporte técnico](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portal de Azure clásico
 Para restaurar una Base de datos SQL mediante la restauración geográfica en el Portal de Azure clásico, siga estos pasos.
@@ -131,4 +131,4 @@ Para obtener más información sobre las reglas de alerta de las bases de datos,
 
 Si se requiere una auditoría para tener acceso a una base de datos, será preciso habilitar Auditoría tras la recuperación de la base de datos. Un buen indicador de que es necesaria una auditoría es que las aplicaciones cliente usen cadenas de conexión seguras en un patrón de *.database.secure.windows.net. Para obtener más información, consulte [Introducción a la auditoría de la Base de datos SQL](sql-database-auditing-get-started.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

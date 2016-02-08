@@ -24,7 +24,7 @@
 
 Si no tiene acceso a una aplicación que se ejecuta en una máquina virtual de Azure, en este artículo se describe un enfoque metódico para aislar la causa del problema y corregirlo.
 
-> [AZURE.NOTE]Para obtener ayuda para la conexión a una máquina virtual de Azure, consulte [Solución de problemas de conexiones de escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md) o [Solución de problemas de conexiones Secure Shell (SSH) a una máquina virtual de Azure basada en Linux](virtual-machines-troubleshoot-ssh-connections.md).
+> [AZURE.NOTE]  Para obtener ayuda para la conexión a una máquina virtual de Azure, consulte [Solución de problemas de conexiones de escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md) o [Solución de problemas de conexiones Secure Shell (SSH) a una máquina virtual de Azure basada en Linux](virtual-machines-troubleshoot-ssh-connections.md).
 
 Hay cuatro áreas principales para solucionar el acceso de una aplicación que se ejecuta en una máquina virtual de Azure.
 
@@ -116,8 +116,8 @@ Para obtener más información, consulte [Solución de problemas con la conectiv
 
 Si ha efectuado los pasos anteriores que se indican en este artículo y necesita ayuda adicional para corregir el problema, puede:
 
-- Obtener ayuda de expertos de Azure de todo el mundo. Enviar su problema a los foros de MSDN Azure o de desbordamiento de pila. Para obtener más información, consulte [Foros de Microsoft Azure](http://azure.microsoft.com/support/forums/).
-- Registrar un incidente de soporte técnico de Azure. Vaya al [Sitio del soporte técnico de Azure](http://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico** en **Soporte técnico y facturación**.
+- Obtener ayuda de expertos de Azure de todo el mundo. Enviar su problema a los foros de MSDN Azure o de desbordamiento de pila. Para obtener más información, consulte [Foros de Microsoft Azure](https://azure.microsoft.com/support/forums/).
+- Registrar un incidente de soporte técnico de Azure. Vaya al [Sitio del soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico** en **Soporte técnico y facturación**.
 
 ## Recursos adicionales
 
@@ -125,4 +125,4 @@ Si ha efectuado los pasos anteriores que se indican en este artículo y necesita
 
 [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

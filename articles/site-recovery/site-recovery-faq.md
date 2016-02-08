@@ -88,7 +88,7 @@ Las máquinas virtuales que quiera replicar a Azure deben cumplir con los [Requi
 
 ### ¿Se pueden replicar máquinas virtuales de generación 2 de Hyper-V a Azure?
 
-Sí. Site Recovery convierte de la generación 2 a la generación 1 durante una conmutación por error. En la conmutación por recuperación, la máquina se convierte de nuevo a la generación 2. [Más información](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Sí. Site Recovery convierte de la generación 2 a la generación 1 durante una conmutación por error. En la conmutación por recuperación, la máquina se convierte de nuevo a la generación 2. [Más información](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 ### Si se replica a Azure ¿cómo se paga por las máquinas virtuales de Azure? 
 
@@ -129,28 +129,28 @@ Al replicar máquinas virtuales y servidores físicos entre sitios locales, se a
 
 Necesitará una cuenta de almacenamiento con [almacenamiento con redundancia geográfica estándar](../storage/storage-redundancy.md/#geo-redundant-storage). Solo se admite una [cuenta de almacenamiento premium](../storage/storage-premium-storage-preview-portal/) si está replicando máquinas virtuales de VMware o servidores físicos de Windows/Linux a Azure.
 
-La compatibilidad con el almacenamiento estándar con redundancia local está pendiente, envíe los comentarios que tenga sobre esta característica al [foro de comentarios](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support).
+La compatibilidad con el almacenamiento estándar con redundancia local está pendiente, envíe los comentarios que tenga sobre esta característica al [foro de comentarios](https://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support/).
 
 ### ¿Con qué frecuencia se pueden replicar los datos?
 - **Hyper-V:** las máquinas virtuales de Hyper-V se pueden replicar cada 30 segundos, 5 minutos o 15 minutos. Si ha configurado la replicación de SAN, la replicación debe ser sincrónica.
 - **VMware y servidores físicos:** en este caso no es relevante la frecuencia de replicación. La replicación será continua. 
 
 ### ¿Se puede ampliar la replicación desde el sitio de recuperación existente a otro tercer sitio?
-No se admite la replicación extendida o encadenada. Envíe los comentarios que tenga acerca de esta característica al [foro de comentarios](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+No se admite la replicación extendida o encadenada. Envíe los comentarios que tenga acerca de esta característica al [foro de comentarios](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication/).
 
 
 ### ¿Se puede hacer una replicación sin conexión la primera vez que se replique en Azure? 
 
-No es una opción admitida. Envíenos los comentarios que tenga acerca de esta característica al [foro de comentarios](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+No es una opción admitida. Envíenos los comentarios que tenga acerca de esta característica al [foro de comentarios](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from/).
 
 
 ### ¿Se pueden excluir discos específicos de la replicación?
 
-No es una opción admitida. Envíenos los comentarios que tenga acerca de esta característica al [foro de comentarios](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication).
+No es una opción admitida. Envíenos los comentarios que tenga acerca de esta característica al [foro de comentarios](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication/).
 
 ### ¿Se pueden replicar máquinas virtuales con discos dinámicos?
 
-Los discos dinámicos se admiten al replicar máquinas virtuales de Hyper-V. Sin embargo, no se admiten al replicar máquinas virtuales de VMware o servidores físicos. Envíenos los comentarios que tenga acerca de esta característica al [foro de comentarios](http://feedback.azure.com/forums/256299-site-recovery).
+Los discos dinámicos se admiten al replicar máquinas virtuales de Hyper-V. Sin embargo, no se admiten al replicar máquinas virtuales de VMware o servidores físicos. Envíenos los comentarios que tenga acerca de esta característica al [foro de comentarios](https://feedback.azure.com/forums/256299-site-recovery/).
 
 ### Si se realiza una conmutación por error a Azure, ¿cómo se puede tener acceso a las máquinas virtuales de Azure tras este proceso? 
 
@@ -223,4 +223,4 @@ Sí, es posible replicar máquinas virtuales de Hyper-V y Azure, o entre sitios 
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

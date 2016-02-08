@@ -39,7 +39,7 @@ Cada ASE se configura con 500 Gb de almacenamiento. Este espacio se usa en todas
 
 La base de datos contiene la información que define el entorno, así como los detalles de las aplicaciones que se ejecutan en él. También es parte de la suscripción de Azure y no es algo que puedan manipular directamente los clientes.
 
-La red virtual que se usa con el ASE puede ser una de las que realizó al crear el ASE o alguna que ya tenía antes. Si quiere que el ASE esté en un grupo de recursos distinto del usado para el ASE, deberá crear la red virtual por separado del flujo de creación del entorno. Es una buena idea crear la subred que quiere usar al mismo tiempo ya que crear la subred durante la creación del ASE lo forzará a que esté en el mismo grupo de recursos que la red virtual. Actualmente solo se admiten las redes virtuales "clásicas" V1.
+La red virtual que se usa con el ASE puede ser una de las que realizó al crear el ASE o alguna que ya tenía antes. Si quiere que la red virtual (VNET) se encuentre en un grupo de recursos distinto del usado para el ASE, deberá crearla por separado del flujo de creación del ASE. Es una buena idea crear la subred que quiere usar al mismo tiempo ya que crear la subred durante la creación del ASE lo forzará a que esté en el mismo grupo de recursos que la red virtual. Actualmente solo se admiten las redes virtuales "clásicas" V1.
 
 La interfaz de usuario para administrar y supervisar el entorno del Servicio de aplicaciones está disponible en el Portal de Azure. Si tiene un entorno del Servicio de aplicaciones, es probable que vea el símbolo del Servicio de aplicaciones en la barra lateral. Este símbolo se usa para representar entornos del Servicio de aplicaciones en el Portal de Azure.
 
@@ -200,4 +200,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

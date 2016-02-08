@@ -2,13 +2,14 @@
  pageTitle="Soluciones preconfiguradas de IoT de Azure | Microsoft Azure"
  description="Descripción de las soluciones preconfiguradas de IoT de Azure y de sus arquitecturas con vínculos a recursos adicionales."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -36,8 +37,7 @@ La tabla siguiente muestra cómo se asignan estas soluciones preconfiguradas a l
 
 | Solución | Ingesta de datos | Identidad de dispositivos | Comando y control | Reglas y acciones | Análisis predictivo |
 |------------------------|-----|-----|-----|-----|-----|
-| Supervisión remota | Sí | Sí | Sí | Sí | - |
-| Mantenimiento predictivo | Sí | Sí | Sí | Sí | Sí |
+| Supervisión remota | Sí | Sí | Sí | Sí | - | | Mantenimiento predictivo | Sí | Sí | Sí | Sí | Sí |
 
 ## Información general sobre la solución preconfigurada de supervisión remota
 
@@ -92,7 +92,7 @@ El portal de solución es una interfaz de usuario basada en web que se implement
 - Enviar comandos a dispositivos específicos.
 - Administrar reglas y acciones.
 
-> [AZURE.NOTE]El portal de solución también mantiene sincronizado el [registro de identidades de dispositivos][lnk-identity-registry] del Centro de IoT con el almacén de información de estado de dispositivo más sofisticada de la base de datos de DocumentDB.
+> [AZURE.NOTE] El portal de solución también mantiene sincronizado el [registro de identidades de dispositivos][lnk-identity-registry] del Centro de IoT con el almacén de información de estado de dispositivo más sofisticada de la base de datos de DocumentDB.
 
 En esta solución preconfigurada, el portal de solución forma parte del *back-end de solución de IoT* y de la *conectividad de procesamiento y empresarial* en una [arquitectura de soluciones de IoT][lnk-what-is-azure-iot] típica.
 
@@ -115,4 +115,4 @@ Examine estos recursos para obtener más información sobre las soluciones IoT p
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -39,14 +39,14 @@ Para un sitio web de producción, probablemente quiera que los usuarios vean un 
 
 ## Información general
 
-> [AZURE.NOTE]No intente adquirir un dominio mediante una suscripción que no tenga una tarjeta de crédito activa asociada. Esto podría provocar que se deshabilite la suscripción.
+> [AZURE.NOTE] No intente adquirir un dominio mediante una suscripción que no tenga una tarjeta de crédito activa asociada. Esto podría provocar que se deshabilite la suscripción.
 
-Si no tiene un nombre de dominio para su aplicación web, puede comprar uno fácilmente en el [Portal de Azure](https://portal.azure.com). Durante el proceso de compra puede elegir tener asignados registros DNS del dominio raíz y WWW a su aplicación web de manera automática. También puede administrar su derecho de dominio dentro del Portal de Azure.
+Si no tiene un nombre de dominio para su aplicación web, puede comprar uno fácilmente en el [Portal de Azure](https://portal.azure.com/). Durante el proceso de compra puede elegir tener asignados registros DNS del dominio raíz y WWW a su aplicación web de manera automática. También puede administrar su derecho de dominio dentro del Portal de Azure.
 
 
 Siga los pasos siguientes para adquirir nombres de dominio y asignarlos a su aplicación web.
 
-1. En el explorador, abra el [Portal de Azure](https://portal.azure.com).
+1. En el explorador, abra el [Portal de Azure](https://portal.azure.com/).
 
 2. En la pestaña **Aplicaciones web**, haga clic en el nombre de la aplicación web, seleccione **Configuración** y luego seleccione **Dominios personalizados y SSL**.
 
@@ -64,7 +64,7 @@ Siga los pasos siguientes para adquirir nombres de dominio y asignarlos a su apl
 
   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-3.png)
 
-> [AZURE.NOTE]Es muy importante que rellene todos los campos obligatorios con toda la precisión que sea posible, especialmente la dirección de correo electrónico. En caso de adquirir el dominio sin "Protección de privacidad", puede que se le pida que compruebe su correo electrónico para que se active el dominio. En algunos casos, los datos incorrectos para información de contacto generarán error para adquirir dominios.
+> [AZURE.NOTE] Es muy importante que rellene todos los campos obligatorios con toda la precisión que sea posible, especialmente la dirección de correo electrónico. En caso de adquirir el dominio sin "Protección de privacidad", puede que se le pida que compruebe su correo electrónico para que se active el dominio. En algunos casos, los datos incorrectos para información de contacto generarán error para adquirir dominios.
 
 6. Ahora puede elegir:
 
@@ -76,7 +76,7 @@ Siga los pasos siguientes para adquirir nombres de dominio y asignarlos a su apl
 
   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.5.png)
   
-> [AZURE.NOTE]La opción C configura los enlaces DNS y los enlaces de nombre de host automáticamente para usted. De este modo, se puede acceder a su aplicación web mediante el dominio personalizado en cuanto se complete la compra (demoras de propagación de DNS básicas en algunos casos). En caso de que la aplicación web esté detrás del Administrador de tráfico de Azure, no verá una opción para asignar el dominio raíz, ya que los registros no funcionan con el Administrador de tráfico.
+> [AZURE.NOTE] La opción C configura los enlaces DNS y los enlaces de nombre de host automáticamente para usted. De este modo, se puede acceder a su aplicación web mediante el dominio personalizado en cuanto se complete la compra (demoras de propagación de DNS básicas en algunos casos). En caso de que la aplicación web esté detrás del Administrador de tráfico de Azure, no verá una opción para asignar el dominio raíz, ya que los registros no funcionan con el Administrador de tráfico.
 >
 >Puede asignar siempre los dominios o subdominios adquiridos a través de una aplicación web a otra aplicación web y viceversa. Vea el paso 8 para obtener más detalles.
 
@@ -91,11 +91,11 @@ Siga los pasos siguientes para adquirir nombres de dominio y asignarlos a su apl
 
 	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-6.png)
 
-> [AZURE.NOTE]Puede elegir la opción "Cancelar compra" en un plazo de 5 días para obtener el reembolso completo. Tras cinco días, no podrá elegir "Cancelar compra"; en su lugar, verá una opción para "Eliminar" el dominio. Si se elimina el dominio, se liberará de la suscripción sin reembolso y se convertirá en un dominio disponible.
+> [AZURE.NOTE] Puede elegir la opción "Cancelar compra" en un plazo de 5 días para obtener el reembolso completo. Tras cinco días, no podrá elegir "Cancelar compra"; en su lugar, verá una opción para "Eliminar" el dominio. Si se elimina el dominio, se liberará de la suscripción sin reembolso y se convertirá en un dominio disponible.
 
 Una vez completada la configuración, el nombre de dominio personalizado aparecerá en la sección **Enlaces de nombres de host** de la aplicación web.
 
 En este punto, debería poder escribir el nombre de dominio personalizado en el explorador y ver que le lleva sin problemas a la aplicación web.
  
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0128_2016-->

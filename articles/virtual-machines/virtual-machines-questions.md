@@ -32,7 +32,7 @@ Todos los suscriptores pueden ejecutar software de servidor en una máquina virt
 
 • Para máquinas virtuales de Linux: [Linux en distribuciones aprobadas por Azure](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
-Para imágenes de cliente de Windows, hay disponibles determinadas versiones de Windows 7 y Windows 8.1 para suscriptores de MSDN Azure y suscriptores de pago por uso de desarrollo y prueba de MSDN, para tareas de desarrollo y prueba. Para obtener más información, como por ejemplo instrucciones y limitaciones, consulte [Imágenes de cliente de Windows para los suscriptores de MSDN](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
+Para imágenes de cliente de Windows, hay disponibles determinadas versiones de Windows 7 y Windows 8.1 para suscriptores de MSDN Azure y suscriptores de pago por uso de desarrollo y prueba de MSDN, para tareas de desarrollo y prueba. Para obtener más información, como instrucciones y limitaciones, consulte [Imágenes de cliente de Windows para los suscriptores de MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
 ## ¿Cuánto almacenamiento puedo usar con una máquina virtual?
 
@@ -67,7 +67,7 @@ Necesitará especificar la red a la que desea que pertenezca la máquina virtual
 Deberá establecer una conexión remota para iniciar sesión en la máquina virtual, usando Conexión a Escritorio remoto para una máquina virtual de Windows o un Shell seguro (SSH) para una máquina virtual de Linux. Para obtener instrucciones, consulte:
 
 - [Inicio de sesión en una máquina virtual con Windows Server](virtual-machines-log-on-windows-server.md). Se admite un máximo de 2 conexiones simultáneas, a menos que el servidor está configurado como un host de sesión de servicios de escritorio remoto.  
-- [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md). De forma predeterminada, SSH permite un máximo de 10 conexiones simultáneas. Puede aumentar este número editando el archivo de configuración.
+- [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md) De forma predeterminada, SSH permite un máximo de 10 conexiones simultáneas. Puede aumentar este número editando el archivo de configuración.
 
 Si tiene problemas con el Escritorio remoto o SSH, instale y use la extensión [VMAccess](virtual-machines-extensions-features.md); esta le ayudará a solucionar el problema.
 
@@ -118,7 +118,7 @@ Azure ofrece varias opciones para soluciones antivirus, pero la administración 
 
 - [Instalación y configuración de Endpoint Protection en una máquina virtual de Azure](http://go.microsoft.com/fwlink/p/?LinkId=404207)
 - [Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure](http://go.microsoft.com/fwlink/p/?LinkId=404206)
-- [Implementación de soluciones antimalware en máquinas virtuales de Azure](http://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
+- [Implementación de soluciones antimalware en máquinas virtuales de Azure](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## ¿Qué opciones tengo para la copia de seguridad y la recuperación?
 
@@ -136,7 +136,7 @@ Se le cobrará cuando el estado de la máquina virtual esté en ejecución o det
 - Use el cmdlet Stop-AzureVM, disponible en el módulo de Azure PowerShell.
 - Use la operación de Cerrar rol en la API de REST de administración de servicios y especifique StoppedDeallocated para el elemento PostShutdownAction.
 
-Para obtener más información, consulte [Precios de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/).
+Para obtener más información, consulte [Precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## ¿Reiniciará Azure mi máquina virtual para efectuar tareas de mantenimiento?
 
@@ -146,7 +146,7 @@ Es posible que se produzcan eventos de mantenimiento no planeados cuando Azure d
 
 Para cualquier máquina virtual independiente (es decir, la máquina virtual no forma parte de un conjunto de disponibilidad), Azure envía una notificación al administrador de servicios de la suscripción por correo electrónico al menos una semana antes de efectuar las tareas de mantenimiento planeadas porque las máquinas virtuales pueden reiniciarse durante la actualización. Las aplicaciones que se ejecutan en las máquinas virtuales podrían experimentar tiempos de inactividad.
 
-Asimismo, también puede usar el Portal de Azure clásico o Azure PowerShell para ver los registros de reinicio cuando este se produjo debido a una tarea de mantenimiento planificada. Para obtener más información, consulte [Visualización de registros de reinicio de máquina virtual](http://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+Asimismo, también puede usar el Portal de Azure clásico o Azure PowerShell para ver los registros de reinicio cuando este se produjo debido a una tarea de mantenimiento planificada. Para obtener más información, consulte [Visualización de registros de reinicio de máquina virtual](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 Para proporcionar redundancia, coloque dos o más máquinas virtuales configuradas de manera similar en el mismo conjunto de disponibilidad. Esto ayuda a asegurarse de que haya al menos una máquina virtual esté disponible durante el mantenimiento, sea este planeado o no. Azure garantiza determinados niveles de disponibilidad de la máquina virtual para esta configuración. Para obtener más detalles, consulte [Administración de la disponibilidad de las máquinas virtuales](virtual-machines-manage-availability.md).
 
@@ -158,4 +158,4 @@ Para proporcionar redundancia, coloque dos o más máquinas virtuales configurad
 
 [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -27,7 +27,7 @@ En este tema se describen las numerosas ventajas de la nueva versión V12 de Bas
 Seguimos agregando características a la V12. Por lo tanto, le recomendamos que visite nuestra página web Actualizaciones del servicio para Azure y que use los filtros:
 
 
-- Filtrado a [Servicio de Base de datos SQL](http://azure.microsoft.com/updates/?service=sql-database).
+- Filtrado a [Servicio de Base de datos SQL](https://azure.microsoft.com/updates/?service=sql-database).
 - Filtrado a Disponibilidad general [Anuncios (GA)](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) para características de Base de datos SQL.
 
 
@@ -70,7 +70,7 @@ Si su programa cliente se conecta a Base de datos SQL V12, mientras el cliente s
 - 14000-14999
 
 
-Haga clic [aquí](sql-database-develop-direct-route-ports-adonet-v12.md) para obtener más información sobre los puertos para Base de datos SQL V12. Los puertos son necesarios por las mejoras de rendimiento en Base de datos SQL V12.
+Haga clic [aquí](sql-database-develop-direct-route-ports-adonet-v12.md) para obtener más información acerca de los puertos para Base de datos SQL V12. Los puertos son necesarios por las mejoras de rendimiento en Base de datos SQL V12.
 
 
 ## Mejor compatibilidad para proveedores de SaaS en la nube
@@ -132,7 +132,7 @@ Hay muchas buenas razones por las que los clientes deberían actualizar ahora Ba
 Una forma fácil de ver si tiene una base de datos o un servidor lógico que se ejecuta en una versión anterior del servicio de Base de datos SQL es hacer lo siguiente:
 
 
-1. Vaya al [Portal de Azure](http://portal.azure.com/).
+1. Vaya al [Portal de Azure](https://portal.azure.com/).
 2. Haga clic en **Examinar**.
 3. Haga clic en **Servidores SQL Server**.
 4. El icono al lado del servidor o la base de datos refleja el historial:
@@ -159,6 +159,6 @@ Si aún no está ejecutando en V12, puede actualizar el servidor lógico siguien
 - Para el 31 de julio de 2015, había ascendido ya a Disponibilidad general (GA) en todas las regiones.
 - V12 se lanzó en diciembre de 2014 pero solo en el estado de Vista previa.
 
-[Términos de uso complementarios para versiones de vista previa de Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[Términos de uso complementarios para versiones de vista previa de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

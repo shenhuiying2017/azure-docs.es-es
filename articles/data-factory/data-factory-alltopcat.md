@@ -136,7 +136,6 @@ En este tema se muestran todos los temas que se aplican directamente al servicio
 
 | Título | Descripción |
 | :-- | :-- |
-| [Editor de la Factoría de datos de Azure](data-factory-editor.md) | Describe el Editor de la Factoría de datos de Azure, que permite crear, editar e implementar las definiciones de JSON de servicios vinculados, tablas y canalizaciones mediante una interfaz de usuario ligera basada en web ligera. |
 | [Factoría de datos de Azure: preguntas más frecuentes](data-factory-faq.md) | Preguntas más frecuentes acerca de la factoría de datos de Azure. |
 | [Factoría de datos de Azure: reglas de nomenclatura](data-factory-naming-rules.md) | Describe las reglas de nomenclatura para las entidades de Factoría de datos. |
 | [Notas de la versión de la factoría de datos Azure](data-factory-release-notes.md) | Notas de la versión de la Factoría de datos |
@@ -145,10 +144,10 @@ En este tema se muestran todos los temas que se aplican directamente al servicio
 
 #### Extras
 
-- [Gráfico de la ruta de aprendizaje para Factoría de datos](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
-- [Buscar en la documentación de Microsoft Azure](http://azure.microsoft.com/search/documentation/)
-- [Búsqueda alternativa para la documentación de Microsoft Azure](http://azure.microsoft.com/searchresults/?query=)
-- [Ver las actualizaciones más recientes para el servicio de factoría de datos](http://azure.microsoft.com/updates/?service=data-factory)
-- [Gráficos de la ruta de aprendizaje para los servicios de Microsoft Azure](http://azure.microsoft.com/documentation/learning-paths/)
+- [Gráfico de la ruta de aprendizaje para Factoría de datos](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+- [Buscar en la documentación de Microsoft Azure](https://azure.microsoft.com/search/documentation/)
+- [Búsqueda alternativa para la documentación de Microsoft Azure](https://azure.microsoft.com/searchresults/?query=)
+- [Ver las actualizaciones más recientes para el servicio de factoría de datos](https://azure.microsoft.com/updates/?service=data-factory)
+- [Gráficos de la ruta de aprendizaje para los servicios de Microsoft Azure](https://azure.microsoft.com/documentation/learning-paths/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

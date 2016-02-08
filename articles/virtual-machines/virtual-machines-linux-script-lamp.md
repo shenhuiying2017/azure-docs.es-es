@@ -104,10 +104,10 @@ Puede usar los mismos pasos básicos para implementar aplicaciones más compleja
 
 A continuación, se ofrecen algunos recursos adicionales para la CLI de Azure, Linux y la extensión CustomScript.
 
-[Automatización de las tareas de personalización de VM de Linux con la extensión CustomScript](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
+[Automatización de las tareas de personalización de VM de Linux con la extensión CustomScript](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
 
 [Extensiones de Linux de Azure (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
 [Informática de código abierto y Linux en Azure](virtual-machines-linux-opensource.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

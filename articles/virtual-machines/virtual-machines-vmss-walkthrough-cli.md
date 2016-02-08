@@ -41,7 +41,7 @@ Antes de empezar con los pasos de este tutorial, [instale la CLI de Azure](../xp
 
 1. **Iniciar sesión en Microsoft Azure**: en la interfaz de línea de comandos (Bash, Terminal, símbolo del sistema), asegúrese de que esté en modo de Administrador de recursos escribiendo `azure config mode arm` y luego [inicie sesión con su id. profesional o educativo](../xplat-cli-connect.md#use-the-log-in-method) escribiendo `azure login`. Siga las indicaciones para una experiencia de inicio de sesión interactiva a su cuenta de Azure.
 
-	> [AZURE.NOTE]Si tiene un identificador profesional o educativo y sabe que no tiene habilitada la autenticación en dos fases, puede usar `azure login -u` junto con el identificador profesional o educativo para iniciar una sesión sin una sesión interactiva. Si no tiene un identificador profesional o educativo, puede [crear uno desde su cuenta personal de Microsoft](resource-group-create-work-id-from-personal.md).
+	> [AZURE.NOTE] Si tiene un identificador profesional o educativo y sabe que no tiene habilitada la autenticación en dos fases, puede usar `azure login -u` junto con el identificador profesional o educativo para iniciar una sesión sin una sesión interactiva. Si no tiene un identificador profesional o educativo, puede [crear uno desde su cuenta personal de Microsoft](resource-group-create-work-id-from-personal.md).
 
 2. **Cree un grupo de recursos**: todos los recursos deben implementarse en un grupo de recursos. Para este tutorial, asigne el nombre **vmsstest1** al grupo de recursos.
 
@@ -604,4 +604,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 Consulte la plantilla [Ajustar automáticamente un conjunto de escala de VM que ejecuta una aplicación Ubuntu, Apache o PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) en la que se define una pila LAMP para ejercer la funcionalidad de escala automática de los conjuntos de escala de máquina virtual.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

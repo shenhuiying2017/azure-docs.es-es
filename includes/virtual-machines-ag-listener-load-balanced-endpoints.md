@@ -6,7 +6,7 @@ Tienes que crear un extremo de carga equilibrada para cada máquina virtual que 
 
 1. Comprueba que el **Nombre** y el **Puerto público** del extremo del agente de escucha que quieres utilizar no está ya en uso. En el ejemplo siguiente, el nombre es "MyEndpoint" y el puerto es "1433".
 
-1. En el cliente local, descarga e instala el [último módulo de PowerShell](http://azure.microsoft.com/downloads/).
+1. En el cliente local, descarga e instala el [último módulo de PowerShell](https://azure.microsoft.com/downloads/).
 
 1. Inicie **Azure PowerShell**. Se abrirá una nueva sesión de PowerShell con los módulos de administración de Azure cargados.
 
@@ -18,4 +18,4 @@ Tienes que crear un extremo de carga equilibrada para cada máquina virtual que 
 
 	Una vez que el archivo de configuración de publicación se haya importado, puedes administrar tu suscripción a Azure en la sesión de PowerShell.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

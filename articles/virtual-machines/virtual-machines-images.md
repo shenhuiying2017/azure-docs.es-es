@@ -23,7 +23,7 @@
 
 Para proporcionar una nueva máquina virtual con un sistema operativo en Azure se usan imágenes. Una imagen también pueden tener uno o más discos de datos. Las imágenes están disponibles desde diferentes fuentes:
 
--	Azure ofrece imágenes en [Marketplace](http://azure.microsoft.com/gallery/virtual-machines/). Encontrará versiones recientes de Windows Server y distribuciones del sistema operativo Linux. Algunas imágenes también contienen aplicaciones, como SQL Server. Los suscriptores de Pago por uso de MSDN y Ventajas de MSDN tienen acceso a imágenes adicionales.
+-	Azure ofrece imágenes en [Marketplace](https://azure.microsoft.com/gallery/virtual-machines/). Encontrará versiones recientes de Windows Server y distribuciones del sistema operativo Linux. Algunas imágenes también contienen aplicaciones, como SQL Server. Los suscriptores de Pago por uso de MSDN y Ventajas de MSDN tienen acceso a imágenes adicionales.
 -	La comunidad de código abierto ofrece imágenes a través de [VM Depot](http://vmdepot.msopentech.com/List/Index).
 -	También puede almacenar y usar sus propias imágenes en Azure, bien a través de una captura de una máquina virtual de Azure ya existente para usarla como imagen o a través de la carga de una imagen.
 
@@ -50,7 +50,7 @@ Para obtener ejemplos del uso de las herramientas en una implementación clásic
 -	**Buscar imágenes de máquina virtual**: `Get-AzureVMImage | where {(gm –InputObject $_ -Name DataDiskConfigurations) -ne $null} | Select -Property Label, ImageName` esto funciona mediante el filtrado de la propiedad DataDiskConfiguration, que solo se aplica a imágenes de máquina virtual. Este ejemplo también filtra la salida a sólo el nombre de la imagen y la etiqueta.
 -	**Guardar una imagen generalizada**: `Save-AzureVMImage –ServiceName "myServiceName" –Name "MyVMtoCapture" –OSState "Generalized" –ImageName "MyVmImage" –ImageLabel "This is my generalized image"`
 -	**Guardar una imagen especializada**: `Save-AzureVMImage –ServiceName "mySvc2" –Name "MyVMToCapture2" –ImageName "myFirstVMImageSP" –OSState "Specialized" -Verbose`
->[Azure.Tip]El parámetro OSState es necesario si desea crear una imagen de máquina virtual que incluya los discos de datos, además del disco del sistema operativo. Si no usa el parámetro, el cmdlet crea una imagen de sistema operativo. El valor del parámetro indica si la imagen es generalizada o especializada, en función de si se ha preparado el disco del sistema operativo para su reutilización.
+>[Azure.Tip] El parámetro OSState es necesario si desea crear una imagen de máquina virtual que incluya los discos de datos, además del disco del sistema operativo. Si no usa el parámetro, el cmdlet crea una imagen de sistema operativo. El valor del parámetro indica si la imagen es generalizada o especializada, en función de si se ha preparado el disco del sistema operativo para su reutilización.
 -	**Eliminar una imagen**: `Remove-AzureVMImage –ImageName "MyOldVmImage"`
 
 
@@ -60,4 +60,4 @@ Para obtener ejemplos del uso de las herramientas en una implementación clásic
 
 [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

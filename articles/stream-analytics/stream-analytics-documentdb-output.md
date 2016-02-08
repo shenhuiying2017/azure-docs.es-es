@@ -19,7 +19,7 @@
 
 # Tener como destino DocumentDB de Azure para la salida de JSON de Análisis de transmisiones
 
-El Análisis de transmisiones puede tener como destino [DocumentDB de Azure](http://azure.microsoft.com/services/documentdb/) para la salida de JSON, habilitando el archivado de datos y las consultas de latencia baja en datos de JSON no estructurados. Obtenga información sobre la mejor manera de implementar esta integración.
+El Análisis de transmisiones puede tener como destino [DocumentDB de Azure](https://azure.microsoft.com/services/documentdb/) para la salida de JSON, habilitando el archivado de datos y las consultas de latencia baja en datos de JSON no estructurados. Obtenga información sobre la mejor manera de implementar esta integración.
 
 Aquellos que no estén familiarizados con DocumentDB pueden comenzar por la [ruta de aprendizaje de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
@@ -62,4 +62,4 @@ La creación de DocumentDB como una salida en Análisis de transmisiones genera 
 -   **Clave de partición**: el nombre del campo en los eventos de salida que se usa para especificar la clave de la salida de la creación de particiones entre colecciones. Para una salida de colección sencilla, se puede utilizar cualquier columna de salida arbitraria (por ejemplo, PartitionId).  
 -   **Identificador de documento**: opcional. Nombre del campo de los eventos de salida utilizado para especificar la clave principal en la que se basan las operaciones de inserción o actualización.  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

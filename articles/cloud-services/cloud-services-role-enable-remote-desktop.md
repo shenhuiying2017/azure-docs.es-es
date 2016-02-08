@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="10/14/2015" 
+ms.date="01/19/2016" 
 ms.author="saurabh"/>
 
 # Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure
@@ -20,7 +20,7 @@ ms.author="saurabh"/>
 >[AZURE.SELECTOR]
 - [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
+- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 
 Escritorio remoto le permite tener acceso al escritorio de un rol que se ejecuta en Azure. Puede usar la conexión de Escritorio remoto para solucionar y diagnosticar problemas con su aplicación mientras se ejecuta.
@@ -28,8 +28,8 @@ Escritorio remoto le permite tener acceso al escritorio de un rol que se ejecuta
 Puede habilitar una conexión a Escritorio remoto en el rol durante el desarrollo mediante la inclusión de los módulos de Escritorio remoto en la definición de servicio, o puede habilitar Escritorio remoto a través de la extensión de Escritorio remoto. El método preferido es usar la extensión de Escritorio remoto dado que puede habilitar Escritorio remoto incluso después de que se implementa la aplicación sin tener que volver a implementarla.
 
 
-## Configuración de Escritorio remoto desde el portal
-El portal usa el método de extensión de Escritorio remoto, por lo que puede habilitar Escritorio remoto incluso después de que se implementa la aplicación. En la pagina **Configurar** de su servicio en la nube, puede habilitar Escritorio remoto, cambiar la cuenta de Administrador local usada para conectarse a las máquinas virtuales o el certificado que se usa en la autenticación y definir la fecha de caducidad.
+## Configuración de Escritorio remoto desde el Portal de Azure clásico
+El Portal de Azure clásico usa el método de extensión de Escritorio remoto, por lo que puede habilitar Escritorio remoto incluso después de que se implemente la aplicación. En la pagina **Configurar** de su servicio en la nube, puede habilitar Escritorio remoto, cambiar la cuenta de Administrador local usada para conectarse a las máquinas virtuales o el certificado que se usa en la autenticación y definir la fecha de caducidad.
 
 
 1. Haga clic en **Servicios en la nube**, en el nombre del servicio en la nube y, a continuación, en **Configurar**.
@@ -38,7 +38,7 @@ El portal usa el método de extensión de Escritorio remoto, por lo que puede ha
     
     ![Servicios en la nube remotos](./media/cloud-services-role-enable-remote-desktop/CloudServices_Remote.png)
     
-    > [AZURE.WARNING]se reiniciarán todas las instancias de rol la primera vez que habilite el Escritorio remoto y haga clic en Aceptar (marca de verificación). Para evitar un reinicio, el certificado que se usó para cifrar la contraseña debe instalarse en el rol. Para evitar un reinicio, [cargue un certificado para el servicio en la nube](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service) y, luego, vuelva a este cuadro de diálogo.
+    > [AZURE.WARNING] se reiniciarán todas las instancias de rol la primera vez que habilite el Escritorio remoto y haga clic en Aceptar (marca de verificación). Para evitar un reinicio, el certificado que se usó para cifrar la contraseña debe instalarse en el rol. Para evitar un reinicio, [cargue un certificado para el servicio en la nube](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service) y, luego, vuelva a este cuadro de diálogo.
     
 
 3. En **Roles**, seleccione el rol de servicio que desea actualizar o seleccione **Todos** para todos los roles.
@@ -61,7 +61,7 @@ El portal usa el método de extensión de Escritorio remoto, por lo que puede ha
 ## Acceso remoto en instancias de rol
 Una vez que Escritorio remoto está habilitado en los roles, puede conectarse de forma remota a una instancia de rol a través de varias herramientas.
 
-Para conectarse a una instancia de rol desde el portal:
+Para conectarse a una instancia de rol desde el Portal de Azure clásico:
     
   1.   Haga clic en **Instancias** para abrir la página **Instancias**.
   2.   Seleccione una instancia de rol que tenga el Escritorio remoto configurado.
@@ -147,4 +147,4 @@ El archivo [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscf
 
 [Configuración de servicios en la nube](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

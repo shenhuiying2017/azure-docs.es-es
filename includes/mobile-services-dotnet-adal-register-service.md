@@ -38,4 +38,4 @@ En esta sección registrará su servicio móvil en Azure Active Directory y conf
 <!-- URLs. -->
 [Registro en Azure Active Directory]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

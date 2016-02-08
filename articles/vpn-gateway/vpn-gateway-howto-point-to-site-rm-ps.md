@@ -50,7 +50,7 @@ Utilizaremos los siguientes valores para esta configuración:
 
 ## Antes de comenzar
 
-Compruebe que tiene una suscripción a Azure y que instaló los cmdlets de Azure PowerShell necesarios para esta configuración (1.0.2 o posterior). Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
+Compruebe que tiene una suscripción a Azure y que instaló los cmdlets de Azure PowerShell necesarios para esta configuración (1.0.2 o posterior). Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 	
 **Acerca de la instalación de los módulos de cmdlets de PowerShell**
 
@@ -231,4 +231,4 @@ Puede restablecer un certificado de cliente quitando la huella digital de la lis
 
 Puede agregar una máquina virtual a la red virtual. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-tutorial.md) para ver los pasos.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

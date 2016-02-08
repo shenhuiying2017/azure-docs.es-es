@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Invocar programas MapReduce desde la factoría de datos de Azure
-En este artículo se describe cómo invocar un programa **MapReduce** desde una canalización de la factoría de datos de Azure mediante el uso de la **actividad MapReduce de HDInsight**.
+La actividad MapReduce de HDInsight en una [canalización](data-factory-create-pipelines.md) de Factoría de datos ejecuta programas de MapReduce en [su propio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) clúster de HDInsight o en uno basado en Windows/Linux [a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo [actividades de transformación de datos](data-factory-data-transformation-activities.md), que presenta una descripción general de la transformación de datos y las actividades de transformación admitidas.
 
 ## Introducción 
 Una canalización en una factoría de datos de Azure procesa los datos de los servicios de almacenamiento vinculados mediante el uso de servicios de proceso vinculados. Contiene una secuencia de actividades donde cada actividad realiza una operación de procesamiento específica. En este artículo se describe el uso de la actividad MapReduce de HDInsight.
@@ -131,7 +131,6 @@ A continuación, cree un servicio vinculado para vincular el clúster de HDInsig
 	    }
 	}
 
-
 ### Conjuntos de datos
 
 #### Conjunto de datos de salida
@@ -221,4 +220,4 @@ linkedServiceName | hace referencia al servicio vinculado a HDInsight creado ant
 [Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

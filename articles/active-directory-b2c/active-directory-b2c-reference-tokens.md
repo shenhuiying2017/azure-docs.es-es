@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Vista previa de Azure AD B2C: referencia del token
@@ -68,8 +68,8 @@ Con Azure AD B2C, tendrá un control preciso sobre el contenido de los tokens. P
 | Fecha de expiración | `exp` | `1438539443` | La hora en que el token deja de ser válido, que se representa en tiempo de época. La aplicación tiene que usar esta notificación para comprobar la validez de la duración del token. |
 | No antes de | `nbf` | `1438535543` | Hora a la que el token pasa a ser válido, representada en tiempo de época. Normalmente es la misma que la hora de emisión. La aplicación tiene que usar esta notificación para comprobar la validez de la duración del token. |
 | Versión | `ver` | `1.0` | La versión del id\_token, tal como se define por Azure AD. |
-| Código Hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | El código hash se incluye en los id\_tokens solo cuando se emite el id\_token junto con un código de autorización de OAuth 2.0. Se puede usar para validar la autenticidad de un código de autorización. Consulte la [especificación OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) para obtener más información sobre cómo realizar esta validación. |
-| Hash de Token de acceso | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | El hash de token de acceso se incluye en los id\_tokens solo cuando se emite el id\_token junto con un código de autorización de OAuth 2.0. Se puede usar para validar la autenticidad de un token de acceso. Consulte la [especificación OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) para obtener más información sobre cómo realizar esta validación. |
+| Código Hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | El código hash se incluye en los id\_tokens solo cuando se emite el id\_token junto con un código de autorización de OAuth 2.0. Se puede usar para validar la autenticidad de un código de autorización. Consulta la [especificación OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) para más información sobre cómo realizar esta validación. |
+| Hash de Token de acceso | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | El hash de token de acceso se incluye en los id\_tokens solo cuando se emite el id\_token junto con un código de autorización de OAuth 2.0. Se puede usar para validar la autenticidad de un token de acceso. Consulta la [especificación OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) para más información sobre cómo realizar esta validación. |
 | Valor de seguridad | `nonce` | `12345` | El valor de seguridad es una estrategia para mitigar los ataques de reproducción de los tokens. La aplicación puede especificar un valor de seguridad en una solicitud de autorización mediante el parámetro de consulta `nonce`. El valor que se proporciona en la solicitud se emitirá en la notificación `nonce` del id\_token, sin modificaciones. Esto permite a la aplicación comprobar el valor con respecto al valor que especifica en la solicitud, que asocia la sesión de la aplicación con un id\_token determinado. La aplicación tiene que realizar esta validación durante el proceso de validación del id\_token. |
 | Asunto | `sub` | `Not supported currently. Use oid claim.` | La entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar o volver a usar, por lo que se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando se usa el token para tener acceso a un recurso. Sin embargo, la notificación de asunto no ha implementado todavía en la vista previa de Azure AD B2C. En lugar de usar la notificación de asunto para la autorización, debe configurar las directivas para incluir la notificación `oid` del identificador de objeto y usar su valor para identificar a los usuarios. |
 | Referencia de clase de contexto de autenticación | `acr` | `b2c_1_sign_in` | El nombre de directiva que se usó para adquirir el id\_token. |
@@ -99,7 +99,7 @@ En este momento, la única validación de tokens que deberían realizar tus apli
 Hay muchas bibliotecas de código abierto disponibles para validar los JWT según el lenguaje de preferencia. Se recomienda explorar esas opciones en lugar de implementar su propia lógica de validación. Esta información será útil para averiguar cómo usar adecuadamente dichas bibliotecas.
 
 #### Validación de la firma
-Un JWT contiene tres segmentos, que están separados por el carácter `.`. El primer segmento se conoce como **encabezado**, el segundo como **cuerpo** y el tercero como **firma**. El segmento de firma se puede utilizar para validar la autenticidad del id\_token para que la aplicación pueda confiar en él.
+Un JWT contiene tres segmentos, que están separados por el carácter `.`. El primer segmento se conoce como el **encabezado**, el segundo como el **cuerpo** y el tercero como la **firma**. El segmento de firma se puede utilizar para validar la autenticidad del id\_token para que la aplicación pueda confiar en él.
 
 Los id\_tokens se firman con algoritmos de cifrado asimétrico estándar del sector, como RSA 256. El encabezado del id\_token contiene información sobre el método de cifrado y la clave utilizados para firmar el token:
 
@@ -127,7 +127,7 @@ https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/o
 
 donde `fabrikamb2c.onmicrosoft.com` es el directorio b2c usado para autenticar al usuario y `b2c_1_sign_in` es la directiva que se emplea para adquirir el id\_token. Para determinar qué directiva se usó en la firma de un id\_token (y de dónde obtener los metadatos), tiene dos opciones. En primer lugar, se incluye el nombre de la directiva en la notificación `acr` en id\_token. Se pueden analizar las notificaciones fuera del cuerpo del JWT mediante la descodificación del cuerpo en base 64 y la deserialización de la cadena JSON resultante. La notificación `acr` será el nombre de la directiva que se usó para emitir el id\_token. La otra opción consiste en codificar la directiva en el valor del parámetro `state` al emitir la solicitud y descodificarla para determinar qué directiva se ha usado. Cualquiera de los métodos es perfectamente válido.
 
-El documento de metadatos es un objeto JSON que contiene varias piezas útiles de información, como la ubicación de los diferentes extremos necesarios para realizar la autenticación de OpenID Connect. También incluye un `jwks_uri`, que proporciona la ubicación del conjunto de claves públicas que se usan para los tokens de firma. A continuación se muestra esa ubicación, pero es mejor capturar esa ubicación dinámicamente mediante el documento de metadatos y el análisis de `jwks_uri`:
+El documento de metadatos es un objeto JSON que contiene varias piezas útiles de información, como la ubicación de los diferentes extremos necesarios para realizar la autenticación de OpenID Connect. También incluye un `jwks_uri`, que proporciona la ubicación del conjunto de claves públicas que se usan para los tokens de firma. A continuación se muestra esa ubicación, pero es mejor capturar esa ubicación dinámicamente utilizando el documento de metadatos y analizando el `jwks_uri`:
 
 `https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
 
@@ -155,4 +155,4 @@ Las siguientes vigencias de tokens solo se ofrecen para tu conocimiento, ya que 
 | Tokens de actualización | Hasta 14 días | Un token de actualización solo es válido durante un máximo de 14 días. Sin embargo, el token de actualización puede dejar de ser válido en cualquier momento por varias razones, por lo que tu aplicación tiene que continuar probando y usando un token de actualización hasta que se produzca un error o hasta que la aplicación lo sustituya por un nuevo token de actualización. Un token de actualización también dejará de ser válido si han pasado 90 días desde que el usuario introdujo sus credenciales. |
 | Códigos de autorización | 5 minutos | Los códigos de autorización son de corta duración a propósito, y se deben canjear inmediatamente por access\_tokens, id\_tokens y refresh\_tokens cuando se reciben. |
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

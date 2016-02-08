@@ -25,14 +25,14 @@ Obtenga información sobre las opciones de Big Compute en Azure y elija el enfoq
 
 * [Soluciones HPC y Lote](batch-hpc-solutions.md)
 
-* [Vídeo: Big Compute en la nube con Azure y HPC](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
+* [Vídeo: Big Compute en la nube con Azure y HPC](https://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
 
 
 ## Azure Batch
 
-[Batch](http://azure.microsoft.com/services/batch/) es un servicio de plataforma que facilita el proceso de habilitar para la nube sus aplicaciones y de ejecutar trabajos sin configurar y administrar un clúster y un programador de trabajos. Use el SDK para integrar aplicaciones cliente con Azure Batch a través de una variedad de lenguajes, almacenar datos en Azure y crear canalizaciones de ejecución de trabajos.
+[Batch](https://azure.microsoft.com/services/batch/) es un servicio de plataforma que facilita el proceso de habilitar para la nube sus aplicaciones y de ejecutar trabajos sin configurar y administrar un clúster y un programador de trabajos. Use el SDK para integrar aplicaciones cliente con Azure Batch a través de una variedad de lenguajes, almacenar datos en Azure y crear canalizaciones de ejecución de trabajos.
 
-* [Documentación](http://azure.microsoft.com/documentation/services/batch/)
+* [Documentación](https://azure.microsoft.com/documentation/services/batch/)
 
 * [Referencia de API](https://msdn.microsoft.com/library/azure/dn820177.aspx)
 
@@ -68,9 +68,9 @@ HPC Pack es la solución HPC gratuita de Microsoft que se basa en las tecnologí
 
 Use estas plantillas de inicio rápido de Azure para implementar clústeres de HPC de Linux con herramientas de código abierto.
 
-* [Establecimiento de un clúster SLURM](http://azure.microsoft.com/documentation/templates/slurm/) y [una entrada de blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
+* [Establecimiento de un clúster SLURM](https://azure.microsoft.com/documentation/templates/slurm/) y [una entrada de blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 
-* [Establecimiento de un clúster de par](http://azure.microsoft.com/documentation/templates/torque-cluster/)
+* [Establecimiento de un clúster de par](https://azure.microsoft.com/documentation/templates/torque-cluster/)
 
 ## Microsoft MPI
 
@@ -102,23 +102,23 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-siz
 
 ## Servicios de Azure relacionados
 
-* [Factoría de datos](http://azure.microsoft.com/documentation/services/data-factory/)
+* [Factoría de datos](https://azure.microsoft.com/documentation/services/data-factory/)
 
-* [Aprendizaje automático](http://azure.microsoft.com/documentation/services/machine-learning/)
+* [Aprendizaje automático](https://azure.microsoft.com/documentation/services/machine-learning/)
 
-* [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
+* [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 
-* [Máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
-* [Servicios en la nube](http://azure.microsoft.com/documentation/services/cloud-services/)
+* [Servicios en la nube](https://azure.microsoft.com/documentation/services/cloud-services/)
 
-* [Servicios multimedia](http://azure.microsoft.com/documentation/services/media-services/)
+* [Servicios multimedia](https://azure.microsoft.com/documentation/services/media-services/)
 
 
 
 ## Pasos siguientes
 
-* Para los anuncios más recientes, vea el [blog del equipo de Microsoft HPC y Batch](http://blogs.technet.com/b/windowshpc/) y el [blog de Azure](http://azure.microsoft.com/blog/tag/hpc/).
-* Vea también [Novedades de Batch](http://azure.microsoft.com/updates/?service=batch) o suscríbase a la [fuente RSS](http://azure.microsoft.com/updates/feed/?service=batch).
+* Para los anuncios más recientes, vea el [blog del equipo de Microsoft HPC y Batch](http://blogs.technet.com/b/windowshpc/) y el [blog de Azure](https://azure.microsoft.com/blog/tag/hpc/).
+* Vea también [Novedades de Batch](https://azure.microsoft.com/updates/?service=batch) o suscríbase a la [fuente RSS](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

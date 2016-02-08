@@ -19,7 +19,8 @@
 # Ejecución del script de U-SQL en Análisis de Azure Data Lake desde Factoría de datos de Azure 
 Una canalización en una factoría de datos de Azure procesa los datos de los servicios de almacenamiento vinculados mediante el uso de servicios de proceso vinculados. Contiene una secuencia de actividades donde cada actividad realiza una operación de procesamiento específica. En este artículo se describe la **actividad U-SQL de Análisis de Data Lake** que ejecuta un script de **U-SQL** en un servicio vinculado de proceso de **Análisis de Azure Data Lake**.
 
-> [AZURE.NOTE]Debe crear una cuenta de Análisis de Azure Data Lake antes de crear una canalización con una actividad U-SQL de Análisis de Data Lake. Para obtener más información sobre Análisis de Azure Data Lake, consulte [Introducción al Análisis de Azure Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+> [AZURE.NOTE] 
+Debe crear una cuenta de Análisis de Azure Data Lake antes de crear una canalización con una actividad U-SQL de Análisis de Data Lake. Para obtener más información sobre Análisis de Azure Data Lake, consulte [Introducción al Análisis de Azure Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 >  
 > Revise el [tutorial Compilación de la primera canalización ](data-factory-build-your-first-pipeline.md) para ver los pasos detallados para crear una factoría de datos, servicios vinculados, conjuntos de datos y una canalización. Use los fragmentos de código JSON con el Editor de Factoría de datos, Visual Studio o Azure PowerShell para crear las entidades de Factoría de datos.
 
@@ -63,9 +64,9 @@ El código de autorización que se generó al hacer clic en el botón **Autoriza
 | :-------- | :----------- | 
 | No es usuario de AAD (@hotmail.com, @live.com, etc.) | 12 horas |
 | El usuario de AAD y el origen basado en OAuth están en un [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que no es el de la Factoría de datos del usuario. | 12 horas |
-| El usuario de AAD y el origen basado en OAuth están en el mismo inquilino que la Factoría de datos del usuario. | <p> El máximo es 90 días si el usuario ejecuta segmentos según su origen del servicio vinculado basado en OAuth al menos una vez cada 14 días. </p><p>Durante los 90 días esperados, si el usuario no ha ejecutado ningún segmento basado en dicho origen en 14 días, las credenciales expirarían inmediatamente 14 días después de su último segmento.</p> | 
+| El usuario de AAD y el origen basado en OAuth se encuentran en el mismo inquilino que la Factoría de datos. | 14 días |
 
-Para evitar o resolver este error, será preciso que vuelva a dar la autorización con el botón **Autorizar** cuando el **token expire** y vuelva a implementar el servicio vinculado. También puede generar valores para las propiedades **sessionId** y **authorization** mediante programación, para lo que usará el código de la sección siguiente.
+Para evitar o resolver este error, tendrá que volver a dar la autorización con el botón **Autorizar** cuando el **token expire** y volver a implementar el servicio vinculado. También puede generar valores para las propiedades **sessionId** y **authorization** mediante programación, para lo que usará el código de la sección siguiente.
 
   
 ### Para generar los valores de sessionId y authorization mediante programación 
@@ -93,7 +94,7 @@ Para evitar o resolver este error, será preciso que vuelva a dar la autorizaci�
         }
     }
 
-Para más información sobre las clases de Factoría de datos que se usan en el código, consulte los temas [clase AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService clase](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [AuthorizationSessionGetResponse clase](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
+Para más información sobre las clases de Factoría de datos que se usan en el código, vea los temas [Clase AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Clase AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [Clase AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
  
  
 ## Actividad U-SQL de Análisis de Data Lake 
@@ -163,7 +164,7 @@ degreeOfParallelism | Número máximo de nodos que se usará de forma simultáne
 prioridad | Determina qué trabajos de todos los están en cola deben seleccionarse para ejecutarse primero. Cuanto menor sea el número, mayor será la prioridad. | No 
 parameters | Parámetros del script SQL U | No 
 
-Para ver la definición del script, consulte la [definición del script SearchLogProcessing.txt](#script-definition).
+Para ver la definición del script, vea [Definición del script SearchLogProcessing.txt](#script-definition).
 
 ### Conjuntos de datos de entrada y salida de ejemplo
 
@@ -253,8 +254,8 @@ Vea [Movimiento de datos a y desde el Almacén de Azure Data Lake](data-factory-
 	    TO @out
 	      USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 
-ADF pasa dinámicamente los valores de los parámetros **@in** y **@out** en el script de U-SQL, para lo que usa la sección 'parameters'. Vea la sección 'parameters' anterior en la definición de la canalización.
+ADF pasa dinámicamente los valores de los parámetros **@in** y **@out** en el script de U-SQL anterior, para lo que usa la sección 'parameters'. Vea la sección 'parameters' anterior en la definición de la canalización.
 
 Puede especificar otro degreeOfParallelism de viz. de propiedades, prioridad, etc., también en su definición de la canalización para los trabajos que se ejecutan en el servicio Análisis de Azure Data Lake.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

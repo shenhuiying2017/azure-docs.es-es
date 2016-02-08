@@ -41,6 +41,10 @@ Para planificar la capacidad y entender el impacto de facturación, recomendamos
 
 Cuando esté listo para suscribirse, consulte [Creación de un servicio de búsqueda en el portal](search-create-service-portal.md).
 
+##Análisis de búsqueda
+
+Puede habilitar la recopilación de datos a través de la actividad de búsqueda del usuario para comprender cómo funciona el servicio de búsqueda, los términos que se utilizan y si esos términos devuelven coincidencias. La mejor manera de analizar y visualizar estos datos a través de un paquete de contenido de Power BI. El primer paso es habilitar el análisis de tráfico de búsqueda. Vea [Análisis del tráfico de Búsqueda de Azure](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/) para obtener información sobre el procedimiento.
+
 <a id="sub-2"></a>
 ## Tareas administrativas
 
@@ -105,7 +109,7 @@ Al usar la API del servicio de búsqueda, podrá obtener una recuento de los doc
 +	[Obtención de estadísticas de índice](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Recuento de documentos](http://msdn.microsoft.com/library/dn798924.aspx)
 
-> [AZURE.NOTE]Los comportamientos de Almacenamiento en caché pueden sobrevalorar un límite temporalmente. Por ejemplo, al usarse el servicio compartido, es posible que vea un recuento de documentos sobre el límite máximo de 10.000 documentos. La sobrevaloración es temporal y se detectará en la próxima comprobación de aplicación de límite.
+> [AZURE.NOTE] Los comportamientos de Almacenamiento en caché pueden sobrevalorar un límite temporalmente. Por ejemplo, al usarse el servicio compartido, es posible que vea un recuento de documentos sobre el límite máximo de 10.000 documentos. La sobrevaloración es temporal y se detectará en la próxima comprobación de aplicación de límite.
 
 
 <a id="sub-6"></a>
@@ -145,6 +149,9 @@ No existe un método de detección que indique qué particiones de índice se al
 
 Para ayudar en una futura planificación, es posible que quiera comprobar el espacio de almacenamiento (usando [Obtención de estadísticas de índice](http://msdn.microsoft.com/library/dn798942.aspx)) para ver cuánto usó en realidad.
 
+### Prácticas recomendadas de implementación del servicio y de la escala en varios centros de datos (vídeo)
+
+> [AZURE.VIDEO azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications]
 
 <a id="sub-7"></a>
 ## Inicio o interrupción del servicio
@@ -193,4 +200,4 @@ Los roles proporcionan control de acceso después de crear el servicio. Solo los
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

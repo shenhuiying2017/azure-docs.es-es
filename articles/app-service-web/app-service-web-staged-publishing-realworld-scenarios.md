@@ -245,7 +245,7 @@ Las actualizaciones principales de WordPress no afectan a los archivos `wp-confi
 ```
 
 #### Configuración de un entorno de ensayo
-Suponiendo que ya tenga una aplicación web de WordPress que se ejecuta en Azure Web, inicie sesión en el [Portal de Azure](http://portal.azure.com) y vaya a la aplicación web de WordPress. Si no, puede crear una desde Marketplace. Para obtener más información, haga clic [aquí](web-sites-php-web-site-gallery.md). Haga clic en **Configuración** -> **Espacios de implementación** -> **Agregar** para crear una ranura de implementación con la fase de nombre. Una ranura de implementación es otra aplicación web que comparte los mismos recursos que la aplicación web principal creada anteriormente.
+Suponiendo que ya tenga una aplicación web de WordPress que se ejecuta en Azure Web, inicie sesión en el [Portal de Azure](https://portal.azure.com/) y vaya a la aplicación web de WordPress. Si no, puede crear una desde Marketplace. Para obtener más información, haga clic [aquí](web-sites-php-web-site-gallery.md). Haga clic en **Configuración** -> **Espacios de implementación** -> **Agregar** para crear una ranura de implementación con la fase de nombre. Una ranura de implementación es otra aplicación web que comparte los mismos recursos que la aplicación web principal creada anteriormente.
 
 ![Creación de la ranura de implementación de ensayo](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
 
@@ -287,7 +287,8 @@ Examine y pruebe la aplicación web provisional. Si consideramos un escenario en
 
 ![Vista previa de los cambios de intercambio para WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- >[AZURE.NOTE] Si tiene un escenario en el que solo necesita insertar archivos (sin actualizaciones de la base de datos), entonces **active** la casilla **Configuración de ranuras** de todas las bases de datos relacionadas con la *configuración de aplicaciones* y la *configuración de cadenas de conexión* en la hoja de configuración de la aplicación web, dentro del Portal de Azure, antes de realizar el intercambio. En este caso DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, la configuración predeterminada de cadena de conexión, no se debe mostrar en los cambios de vista previa al realizar un **intercambio**. En este momento, cuando finalice la operación de **intercambio**, la aplicación web de WordPress **SOLO** tendrá los archivos actualizados.
+ >[AZURE.NOTE]
+ Si tiene un escenario en el que solo necesita insertar archivos (sin actualizaciones de la base de datos), entonces **active** la casilla **Configuración de ranuras** de todas las bases de datos relacionadas con la *configuración de aplicaciones* y la *configuración de cadenas de conexión* en la hoja de configuración de la aplicación web, dentro del Portal de Azure, antes de realizar el intercambio. En este caso DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, la configuración predeterminada de cadena de conexión, no se debe mostrar en los cambios de vista previa al realizar un **intercambio**. En este momento, cuando finalice la operación de **intercambio**, la aplicación web de WordPress **SOLO** tendrá los archivos actualizados.
 
 Antes de realizar un intercambio, aquí está la aplicación web de WordPress de producción ![Aplicación web de producción antes del intercambio de ranuras](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
@@ -371,21 +372,14 @@ Para configurarlo, debe actualizar el archivo courier.config en la carpeta **Con
   </repositories>
  ```
 
-En `<repositories>`, introduzca la dirección URL del sitio de producción y la información de usuario. Si está usando el proveedor de pertenencia de Umbraco predeterminado, agregue el identificador del usuario de administración en la sección <user>. Si está usando el proveedor de pertenencia de Umbraco personalizado, use `<login>`,`<password>` para que el módulo Courier2 sepa cómo conectarse al sitio de producción. Para obtener más información, revise la [documentación](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) del módulo Courier.
+Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
-De igual forma, instale el módulo Courier en el sitio de producción y configúrelo para que apunte a la aplicación web de ensayo en su archivo courier.config respectivo, tal como se muestra aquí.
+Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories>
-        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
-        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
-            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
-            <user>0</user>
-           </repository>
-  </repositories>
-```
+  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
 
 Haga clic en la pestaña Courier2 en el panel de aplicaciones web de CMS de Umbraco y seleccione las ubicaciones. Debería ver el nombre del repositorio como se mencionó en `courier.config`. Haga esto tanto en aplicaciones web de producción como de ensayo.
 
@@ -427,7 +421,7 @@ Cuando se haya actualizado el sitio de desarrollo local, publique los cambios en
 
 ![Vista previa de intercambio para la implementación de CMS de Umbraco](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-Las ventajas de intercambiar la aplicación web y la base de datos son las siguientes: 1. Ofrece la posibilidad de revertir a la versión anterior de la aplicación web con otro **intercambio** si hay algún problema con la aplicación. 2. Para realizar una actualización deberá implementar los archivos y la base de datos de la aplicación web de ensayo en la aplicación web y la base de datos de producción. Son muchas las cosas que pueden salir mal al implementar los archivos y las bases de datos. Mediante la característica **Intercambiar** de las ranuras, podemos reducir tanto el tiempo de inactividad durante una actualización como el riesgo de errores que pueden producirse al implementar los cambios. 3. Ofrece la posibilidad de hacer **pruebas A/B** mediante la característica de [pruebas en producción](http://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/).
+Las ventajas de intercambiar la aplicación web y la base de datos son las siguientes: 1. Ofrece la posibilidad de revertir a la versión anterior de la aplicación web con otro **intercambio** si hay algún problema con la aplicación. 2. Para realizar una actualización deberá implementar los archivos y la base de datos de la aplicación web de ensayo en la aplicación web y la base de datos de producción. Son muchas las cosas que pueden salir mal al implementar los archivos y las bases de datos. Mediante la característica **Intercambiar** de las ranuras, podemos reducir tanto el tiempo de inactividad durante una actualización como el riesgo de errores que pueden producirse al implementar los cambios. 3. Ofrece la posibilidad de hacer **pruebas A/B** mediante la característica de [pruebas en producción](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/).
 
 Este ejemplo demuestra la flexibilidad de la plataforma, donde puede compilar módulos personalizados parecidos al módulo Courier de Umbraco para administrar la implementación entre entornos.
 
@@ -438,4 +432,4 @@ Este ejemplo demuestra la flexibilidad de la plataforma, donde puede compilar m�
 
 [How to block web access to non-production deployment slots (Bloqueo del acceso web a ranuras de implementación que no son de producción)](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

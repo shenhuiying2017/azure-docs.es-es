@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
-# Servicios de dominio de Azure AD *(Vista previa)*
+# Servicios de dominio de Azure AD *(vista previa)*
 
-Para obtener información sobre dónde están disponibles los servicios de Azure, consulte [Servicios por región](https://azure.microsoft.com/regions/#services).
+Para saber dónde están disponibles los Servicios de dominio de Azure AD, consulte la página de [servicios de Azure por región](https://azure.microsoft.com/regions/#services/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

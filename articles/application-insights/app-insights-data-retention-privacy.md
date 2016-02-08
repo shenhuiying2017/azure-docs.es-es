@@ -92,7 +92,7 @@ Sí, es posible, solo es preciso escribir un [complemento de procesador de telem
 
 ## ¿Cuánto tiempo se conservan los datos? 
 
-Depende de su [plan de precios](http://azure.microsoft.com/pricing/details/application-insights/).
+Depende de su [plan de precios](https://azure.microsoft.com/pricing/details/application-insights/).
 
 Puntos de datos sin procesar (es decir, elementos que se pueden examinar en búsqueda de diagnóstico): entre 7 y 30 días.
 
@@ -123,7 +123,7 @@ Microsoft usa los datos con el fin exclusivo de proporcionarle el servicio.
 Application Insights es un servicio de Azure en versión de vista previa. Durante la versión de vista previa, trabajamos para conseguir proteger sus datos de acuerdo con las directivas descritas en las [Notas sobre seguridad, privacidad y cumplimiento normativo de Azure](http://go.microsoft.com/fwlink/?linkid=392408).
 
 
-Los datos se almacenan en servidores de Microsoft Azure. En el caso de las cuentas del Portal de Azure, las restricciones se describen en el documento [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance](http://go.microsoft.com/fwlink/?linkid=392408). En el caso de las cuentas del Portal de Visual Studio Team Services, se aplica el documento [Microsoft Visual Studio Online Data Protection](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf).
+Los datos se almacenan en servidores de Microsoft Azure. En el caso de las cuentas del Portal de Azure, las restricciones se describen en el documento [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance](http://go.microsoft.com/fwlink/?linkid=392408). Para las cuentas del portal de Visual Studio Team Services, se aplica el documento [Protección de datos de Visual Studio Team Services](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf).
 
 El acceso a los datos por parte del personal de Microsoft está restringido. El acceso a los datos solo se realiza con su permiso y si es necesario para prestarle soporte en el uso de Application Insights.
 
@@ -264,4 +264,4 @@ Este producto incluye datos GeoLite2 creados por MaxMind, disponible en [http://
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -77,7 +77,7 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo físico de desti
 
 	1. En la lista de contenedores de volúmenes, seleccione los contenedores de volúmenes que desea que conmuten por error.
 
-		>[AZURE.NOTE]**Solo se muestran los contenedores de volúmenes con volúmenes desconectados e instantáneas de nube asociadas.**
+		>[AZURE.NOTE] **Solo se muestran los contenedores de volúmenes con volúmenes desconectados e instantáneas de nube asociadas.**
 
 	1. En **Elegir un dispositivo de destino** para los volúmenes de los contenedores seleccionados, elija un dispositivo de destino en la lista desplegable de dispositivos disponibles. En la lista desplegable solo se muestran los dispositivos con capacidad disponible.
 
@@ -103,7 +103,7 @@ Siga estos pasos si solo dispone de un dispositivo y necesita realizar una conmu
 
 1. Complete primero la configuración mínima del dispositivo en el dispositivo nuevo.
 												
-	>[AZURE.IMPORTANT]**Si no se completa primero la configuración mínima, se producirá un error en la recuperación ante desastres como resultado de un error en la implementación actual. Este comportamiento se solucionará en una versión posterior.**
+	>[AZURE.IMPORTANT] **Si no se completa primero la configuración mínima, se producirá un error en la recuperación ante desastres como resultado de un error en la implementación actual. Este comportamiento se solucionará en una versión posterior.**
 
 1. Seleccione el dispositivo antiguo (estado desconectado) y haga clic en **Conmutación por error**. En el asistente que aparece, conmute por error este dispositivo y especifique el dispositivo de destino como dispositivo recién registrado. Para obtener instrucciones detalladas, consulte [Conmutar por error a otro dispositivo físico](#fail-over-to-another-physical-device).
 
@@ -131,7 +131,7 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorS
 													
 	a. En la lista de contenedores de volúmenes, seleccione los contenedores de volúmenes que desea que conmuten por error.
 
-	>[AZURE.NOTE]**Solo se muestran los contenedores de volúmenes con volúmenes desconectados e instantáneas de nube asociadas.**
+	>[AZURE.NOTE] **Solo se muestran los contenedores de volúmenes con volúmenes desconectados e instantáneas de nube asociadas.**
 
 	b. En **Elegir un dispositivo de destino para los volúmenes de los contenedores seleccionados**, seleccione el dispositivo virtual de StorSimple en la lista desplegable de dispositivos disponibles. En la lista desplegable solo se muestran los dispositivos con capacidad suficiente.
 	
@@ -146,7 +146,7 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorS
 
 ![Vídeo disponible](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Vídeo disponible**
 
-Para ver un vídeo que muestra cómo se puede restaurar un dispositivo físico con conmutación por error en un dispositivo virtual en la nube, haga clic [aquí](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+Para ver un vídeo que muestra cómo se puede restaurar un dispositivo físico con conmutación por error en un dispositivo virtual en la nube, haga clic [aquí](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## Recuperación ante desastres y continuidad empresarial (BCDR)
 
@@ -162,4 +162,4 @@ Si hay dispositivos StorSimple que se registraron justo antes de que ocurra un d
 - Para obtener información sobre cómo usar el servicio del administrador de StorSimple, vaya a [Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -26,7 +26,7 @@ En la [biblioteca de códigos de ejemplo de Azure](https://azure.microsoft.com/d
 
 ## Ejemplos de .NET
 
-Para explorar los ejemplos de .NET, descargue la [biblioteca de cliente de almacenamiento de .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). La biblioteca de cliente de almacenamiento de .NET también está disponible en el [SDK de Azure para .NET](http://azure.microsoft.com/downloads/).
+Para explorar los ejemplos de .NET, descargue la [biblioteca de cliente de almacenamiento de .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). La biblioteca de cliente de almacenamiento de .NET también está disponible en el [SDK de Azure para .NET](https://azure.microsoft.com/downloads/).
 
 * [Introducción de 5 minutos a los blobs, tablas y colas de Azure](storage-getting-started-guide.md)
 * [Administración de simultaneidad con Almacenamiento de Azure: aplicación de ejemplo](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
@@ -85,4 +85,4 @@ Para explorar los ejemplos de C++, descargue la [biblioteca de cliente de almace
 - [Código fuente de la biblioteca de cliente de almacenamiento de C++](https://github.com/Azure/azure-storage-cpp)
 - [Referencia a la biblioteca de clientes de C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

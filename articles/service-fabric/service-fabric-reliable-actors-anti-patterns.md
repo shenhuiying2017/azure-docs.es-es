@@ -30,4 +30,4 @@ Hemos identificado los siguientes obstáculos potenciales que se encuentran los 
 
 * Asignar los modelos de entidad ciegamente. Esto suele pasarle a los desarrolladores que proceden de un universo relacional en el que los problemas se modelan mediante entidades y sus relaciones. Aunque este enfoque sigue siendo útil para entender el dominio del asunto, debe combinarse con un pensamiento orientado a servicios y mezclado con el comportamiento.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Vista previa de Azure AD B2C: Protocolos de autenticación
@@ -23,12 +23,12 @@ Azure AD B2C proporciona identidad como servicio para sus aplicaciones gracias a
 <!-- TODO: Need link to libraries above -->
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-	
-## Conceptos básicos
-Cada aplicación que usa Azure AD B2C deberá estar registrada en su directorio B2C en el [Portal de Azure](https://portal.azure.com). El proceso de registro de la aplicación recopilará y asignará algunos valores a la aplicación:
 
-- Un **Id. de aplicación** que identifica de forma única su aplicación.
-- Un **URI de redirección** o **Identificador de paquete** que puede usarse para dirigir las respuestas de nuevo a la aplicación.
+## Conceptos básicos
+Cada aplicación que usa Azure AD B2C deberá estar registrada en su directorio B2C en el [Portal de Azure](https://portal.azure.com/). El proceso de registro de la aplicación recopilará y asignará algunos valores a la aplicación:
+
+- Un **Id. de aplicación** que identifica de forma única su aplicación
+- Un **URI de redireccionamiento** o **identificador de paquete** que puede utilizarse para dirigir las respuestas de nuevo a la aplicación
 - Algunos otros valores específicos de cada escenario. Para obtener más detalles, obtenga información sobre cómo [registrar una aplicación](active-directory-b2c-app-registration.md).
 
 Una vez registrada, la aplicación se comunica a Azure AD mediante el envío de solicitudes al extremo v2.0:
@@ -43,9 +43,9 @@ En casi todos los flujos de OAuth y OpenID Connect hay cuatro partes implicadas 
 ![Funciones de OAuth 2.0](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
 
 - El **Servidor de autorización** es el extremo Azure AD v2.0. Es responsable de garantizar la identidad del usuario, conceder y revocar el acceso a los recursos y emitir tokens. También se le conoce como proveedor de identidad: controla de forma segura todo lo que tenga que ver con la información del usuario, su acceso y las relaciones de confianza entre las partes de un flujo.
-- El **Propietario del recurso** suele ser el usuario final. Es la parte que posee los datos y tiene la capacidad de permitir que terceros tengan acceso a esos datos o recursos.
-- El **Cliente de OAuth** es su aplicación, identificada por su id. de aplicación. Suele ser la parte con la que interactúa el usuario final y solicita tokens del servidor de autorización. El cliente debe contar con el permiso del propietario del recurso para acceder a este.
-- El **Servidor de recursos** es donde residen el recurso o los datos. Confía en el servidor de autorización para autenticar y autorizar al cliente de OAuth de forma segura y usa access\_tokens de portador para garantizar que se puede conceder el acceso a un recurso.
+- El **propietario del recurso** suele ser el usuario final. Es la parte que posee los datos y tiene la capacidad de permitir que terceros tengan acceso a esos datos o recursos.
+- El **cliente de OAuth** es su aplicación, identificada por su id. de aplicación. Suele ser la parte con la que interactúa el usuario final y solicita tokens del servidor de autorización. El cliente debe contar con el permiso del propietario del recurso para acceder a este.
+- El **servidor de recursos** es donde residen el recurso o los datos. Confía en el servidor de autorización para autenticar y autorizar al cliente de OAuth de forma segura y usa access\_tokens de portador para garantizar que se puede conceder el acceso a un recurso.
 
 ## Directivas
 
@@ -70,4 +70,4 @@ Si está listo para ver algunas solicitudes de ejemplo, comience con uno de los 
 
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

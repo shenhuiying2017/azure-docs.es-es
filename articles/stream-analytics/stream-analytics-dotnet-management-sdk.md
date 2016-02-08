@@ -31,7 +31,7 @@ Análisis de transmisiones de Azure es un servicio totalmente administrado que p
 Antes de empezar este artículo, debe tener lo siguiente:
 
 - Instale Visual Studio 2012 o 2013.
-- Descargue e instale el [SDK de .NET de Azure](http://azure.microsoft.com/downloads/).
+- Descargue e instale el [SDK de .NET de Azure](https://azure.microsoft.com/downloads/).
 - Cree un grupo de recursos de Azure en su suscripción. A continuación se muestra un ejemplo de script de Azure PowerShell. Para obtener información sobre Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md).  
 
 
@@ -366,4 +366,4 @@ Ha aprendido los conceptos básicos del uso de un SDK de .NET para crear y ejecu
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -46,9 +46,9 @@ Hay cinco fases principales para configurar este entorno de prueba de nube híbr
 4.	Creación de la conexión VPN de sitio a sitio.
 5.	Configuración de DC2. 
 
-Si todavía no dispone de una suscripción a Azure, puede registrarse para obtener una evaluación gratuita en [Probar Azure](http://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si todavía no dispone de una suscripción a Azure, puede registrarse para obtener una evaluación gratuita en [Probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
->[AZURE.NOTE]Las máquinas virtuales y las puertas de enlace de redes virtuales en Azure incurren en un coste económico constante cuando se están ejecutando. Este coste se factura en su suscripción de prueba gratuita, de MSDN o de pago. Para reducir el coste de la ejecución de este entorno de prueba cuando no lo esté usando, consulte [Minimización de los costes de este entorno](#costs) en este tema para obtener más información.
+>[AZURE.NOTE] Las máquinas virtuales y las puertas de enlace de redes virtuales en Azure incurren en un coste económico constante cuando se están ejecutando. Este coste se factura en su suscripción de prueba gratuita, de MSDN o de pago. Para reducir el coste de la ejecución de este entorno de prueba cuando no lo esté usando, consulte [Minimización de los costes de este entorno](#costs) en este tema para obtener más información.
 
 Esta configuración requiere una subred de prueba de hasta cuatro equipos conectados directamente a Internet mediante una dirección IP pública. Si no tiene estos recursos, también puede realizar la [Configuración de un entorno de nube híbrida simulado para pruebas](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md). El entorno de prueba de nube híbrida simulada solo requiere una suscripción de Azure.
 
@@ -309,7 +309,7 @@ Su entorno de nube híbrida ya está listo para las pruebas.
 
 Para minimizar el coste de la ejecución de las máquinas virtuales en este entorno, realice las pruebas y las demostraciones necesarias tan pronto como sea posible y, a continuación, elimínelas o apague las máquinas virtuales cuando no las esté utilizando. Por ejemplo, podría utilizar la automatización de Azure y un Runbook para apagar automáticamente las máquinas virtuales en la red virtual Test\_VNET al final de cada día laborable. Para obtener información, consulte [Introducción a la automatización de Azure](../automation-create-runbook-from-samples.md).
 
-La puerta de enlace VPN de Azure se implementa como un conjunto de dos máquinas virtuales de Azure que incurren en un coste económico continuo. Para obtener más información, consulte [Precios: red virtual](http://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar el coste de la puerta de enlace VPN, cree el entorno de prueba y realice las pruebas y demostraciones necesarias tan pronto como sea posible, o elimine la puerta de enlace con estos pasos.
+La puerta de enlace VPN de Azure se implementa como un conjunto de dos máquinas virtuales de Azure que incurren en un coste económico continuo. Para obtener más información, consulte [Precios: red virtual](https://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar el coste de la puerta de enlace VPN, cree el entorno de prueba y realice las pruebas y demostraciones necesarias tan pronto como sea posible, o elimine la puerta de enlace con estos pasos.
 
 1.	En el Portal de administración de Azure en el equipo local, haga clic en **Redes** en el panel izquierdo, haga clic en **TestVNET** y, a continuación, en **Panel**.
 2.	En la barra de tareas, haga clic en **Eliminar puerta de enlace**. Haga clic en **Sí** cuando se le solicite. Espere hasta que se elimine la puerta de enlace y su estado cambie a **No se ha creado la puerta de enlace**.
@@ -329,4 +329,4 @@ A continuación, inicie sesión en RRAS1 como administrador local y ejecute esto
 A continuación, vaya al Portal de administración de Azure en el equipo local y espere hasta que se muestre un estado de la red virtual TestVNET de conectado.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

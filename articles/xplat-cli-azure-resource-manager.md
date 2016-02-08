@@ -27,7 +27,7 @@
 
 Este artículo describe cómo crear y administrar los recursos de Azure con la Interfaz de la línea de comandos de Azure (CLI) para Mac, Linux y Windows con el modo Administrador de recursos de Azure.
 
->[AZURE.NOTE]Para crear y administrar recursos de Azure en la línea de comandos, necesitará una cuenta de Azure ([prueba gratuita aquí](http://azure.microsoft.com/pricing/free-trial/)). También necesitará [instalar la CLI de Azure](xplat-cli-install.md) e [iniciar sesión para usar recursos de Azure asociados a su cuenta](xplat-cli-connect.md). Si ha realizado estas acciones, ya está preparado para comenzar.
+>[AZURE.NOTE] Para crear y administrar recursos de Azure en la línea de comandos, necesitará una cuenta de Azure ([prueba gratuita aquí](https://azure.microsoft.com/pricing/free-trial/)). También necesitará [instalar la CLI de Azure](xplat-cli-install.md) e [iniciar sesión para usar recursos de Azure asociados a su cuenta](xplat-cli-connect.md). Si ha realizado estas acciones, ya está preparado para comenzar.
 
 ## Recursos de Azure
 
@@ -45,7 +45,7 @@ Trabajar con el Administrador de recursos de Azure a través de la CLI de Azure 
 
 Para obtener más información acerca de cómo autenticarse en Microsoft Azure, consulte [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](xplat-cli-connect.md).
 
->[AZURE.NOTE]Cuando use una cuenta profesional o educativa, administrada por Azure Active Directory, también puede utilizar el Control de acceso basado en roles de Azure (RBAC) para administrar el acceso y el uso de recursos de Azure. Para detalles, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
+>[AZURE.NOTE] Cuando use una cuenta profesional o educativa, administrada por Azure Active Directory, también puede utilizar el Control de acceso basado en roles de Azure (RBAC) para administrar el acceso y el uso de recursos de Azure. Para detalles, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
 
 ## Configuración del modo Administrador de recursos de Azure
 
@@ -53,7 +53,7 @@ Dado que el modo Administrador de recursos de Azure no está habilitado de forma
 
 	azure config mode arm
 
->[AZURE.NOTE]Los modos Administrador de recursos de Azure y Administración de servicios de Azure se excluyen mutuamente. Es decir, los recursos creados en un modo no se pueden administrar desde el otro.
+>[AZURE.NOTE] Los modos Administrador de recursos de Azure y Administración de servicios de Azure se excluyen mutuamente. Es decir, los recursos creados en un modo no se pueden administrar desde el otro.
 
 ## Búsqueda de ubicaciones
 
@@ -84,7 +84,7 @@ La creación de una nueva plantilla está fuera del ámbito de este artículo, a
 * Una contraseña = `adminPassword`
 * Un nombre de dominio para la máquina virtual = `dnsLabelPrefix`
 
->[AZURE.TIP]Estos pasos muestran solo una de las formas de usar una plantilla de máquina virtual con la CLI de Azure. Para ver otros ejemplos, consulte [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y CLI de Azure](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
+>[AZURE.TIP] Estos pasos muestran solo una de las formas de usar una plantilla de máquina virtual con la CLI de Azure. Para ver otros ejemplos, consulte [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y CLI de Azure](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
 
 1. Siga el enlace “Aprenda más con GitHub” para descargar los archivos azuredeploy.json y azuredeploy.parameters.json de GitHub en una carpeta de trabajo en el equipo local. (Asegúrese de seleccionar el formato _raw_ de cada archivo en GitHub).
 
@@ -149,7 +149,7 @@ La creación de una nueva plantilla está fuera del ámbito de este artículo, a
 		data:    ubuntuOSVersion        String        14.04.2-LTS
 		info:    group deployment show command OK
 
-	>[AZURE.NOTE]Si se da cuenta de que la configuración no es correcta y necesita detener una implementación de ejecución prolongada, use el comando siguiente.
+	>[AZURE.NOTE] Si se da cuenta de que la configuración no es correcta y necesita detener una implementación de ejecución prolongada, use el comando siguiente.
 	>
 	> `azure group deployment stop "testRG" "testDeploy"`
 	>
@@ -168,13 +168,13 @@ También puede usar una plantilla directamente desde [GitHub](https://github.com
 	azure group deployment create "testDeploy" testResourceGroup --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 Se le pedirá que escriba los parámetros de plantilla necesarios.
 
-> [AZURE.NOTE]Es importante abrir la plantilla de JSON en modo _sin procesar_. La dirección URL que aparece en la barra de direcciones del explorador es diferente de la que aparece en el modo normal. Para abrir el archivo en modo _sin procesar_ mientras lo ve en GitHub, haga clic en **Sin procesar** en la esquina superior derecha.
+> [AZURE.NOTE] Es importante abrir la plantilla de JSON en modo _sin procesar_. La dirección URL que aparece en la barra de direcciones del explorador es diferente de la que aparece en el modo normal. Para abrir el archivo en modo _sin procesar_ mientras lo ve en GitHub, haga clic en **Sin procesar** en la esquina superior derecha.
 
 ## Trabajo con recursos
 
 A pesar de que las plantillas le permiten declarar cambios de configuración en todo el grupo, a veces es necesario trabajar solo con un recurso específico. Puede hacerlo si utiliza los comandos `azure resource`.
 
-> [AZURE.NOTE]Cuando utilice comandos `azure resource` distintos del comando `list`, debe especificar la versión de API del recurso con que está trabajando mediante el parámetro `-o`. Si no está seguro sobre la versión de API que debe utilizar, consulte el archivo de plantilla y busque el campo **apiVersion** correspondiente al recurso.
+> [AZURE.NOTE] Cuando utilice comandos `azure resource` distintos del comando `list`, debe especificar la versión de API del recurso con que está trabajando mediante el parámetro `-o`. Si no está seguro sobre la versión de API que debe utilizar, consulte el archivo de plantilla y busque el campo **apiVersion** correspondiente al recurso.
 
 1. Utilice el comando siguiente para ver todos los recursos de un grupo.
 
@@ -192,7 +192,7 @@ A pesar de que las plantillas le permiten declarar cambios de configuración en 
 
 		azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15" --json
 
-	>[AZURE.NOTE]Puede guardar los datos JSON en archivo si utiliza el carácter &gt; para canalizar la salida al archivo. Por ejemplo:
+	>[AZURE.NOTE] Puede guardar los datos JSON en archivo si utiliza el carácter &gt; para canalizar la salida al archivo. Por ejemplo:
 	>
 	> `azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15" --json > myfile.json`
 
@@ -215,4 +215,4 @@ Para ver información registrada sobre operaciones realizadas en un grupo, utili
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

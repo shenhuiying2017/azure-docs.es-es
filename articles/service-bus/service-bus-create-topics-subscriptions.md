@@ -47,7 +47,7 @@ Con esta configuración, cada mensaje de los terminales de los PDV queda a dispo
 
 ## Visualización del código
 
-En [Creación de aplicaciones que usan colas del Bus de servicio](service-bus-create-queues.md), se describe cómo registrarse en una cuenta de Bus de servicio y crear un espacio de nombres del servicio. Para usar un espacio de nombres de Bus de servicio, una aplicación debe hacer referencia el ensamblado del Bus de servicio, en concreto Microsoft.ServiceBus.dll. La manera más fácil de hacer referencia a las dependencias de Bus de servicio es instalar el [paquete Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) del Bus de servicio. El ensamblado también se puede encontrar como parte del SDK de Azure. La descarga está disponible en la [página de descarga del SDK de Azure](http://azure.microsoft.com/downloads/).
+En [Creación de aplicaciones que usan colas del Bus de servicio](service-bus-create-queues.md), se describe cómo registrarse en una cuenta de Bus de servicio y crear un espacio de nombres del servicio. Para usar un espacio de nombres de Bus de servicio, una aplicación debe hacer referencia el ensamblado del Bus de servicio, en concreto Microsoft.ServiceBus.dll. La manera más fácil de hacer referencia a las dependencias de Bus de servicio es instalar el [paquete Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) del Bus de servicio. El ensamblado también se puede encontrar como parte del SDK de Azure. La descarga está disponible en la [página de descarga del SDK de Azure](https://azure.microsoft.com/downloads/).
 
 ### Creación del tema y las suscripciones
 
@@ -150,4 +150,4 @@ Todas las razones para usar las colas descritas en [Creación de aplicaciones qu
 
 Para más información cómo usar las colas en el escenario minorista de PDV, consulte [Creación de aplicaciones que usan colas de Bus de servicio](service-bus-create-queues.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

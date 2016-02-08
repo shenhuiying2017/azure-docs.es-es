@@ -55,7 +55,7 @@ En la sección siguiente se muestra cómo usar el Bus de servicio para compilar 
 
 ### Registro en una cuenta del Bus de servicio y suscripción
 
-Para empezar a trabajar con el Bus de servicio, se necesita una cuenta de Azure. Si no tiene una, puede registrarse para obtener una versión de evaluación gratuita [aquí](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
+Para empezar a trabajar con el Bus de servicio, se necesita una cuenta de Azure. Si no tiene una, puede registrarse para obtener una versión de evaluación gratuita [aquí](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### Creación de un espacio de nombres de servicio
 
@@ -63,7 +63,7 @@ Una vez que tenga una suscripción, puede crear un nuevo espacio de nombres. Ten
 
 ### Instalación del paquete NuGet.
 
-Para usar el espacio de nombres del servicio Bus de servicio, una aplicación debe hacer referencia el ensamblado del Bus de servicio, en concreto Microsoft.ServiceBus.dll. Este ensamblado forma parte del SDK de Microsoft Azure y la descarga está disponible en la [página de descarga del SDK de Azure](http://azure.microsoft.com/downloads/). Sin embargo, el paquete NuGet de Bus de servicio es la forma más sencilla de obtener la API de Bus de servicio y configurar su aplicación con todas las dependencias del Bus de servicio. Para obtener más información acerca del uso del paquete NuGet y del bus de servicio, consulte [Using the NuGet Service Bus Package](https://msdn.microsoft.com/library/dn741354.aspx).
+Para usar el espacio de nombres del servicio Bus de servicio, una aplicación debe hacer referencia el ensamblado del Bus de servicio, en concreto Microsoft.ServiceBus.dll. Este ensamblado forma parte del SDK de Microsoft Azure y la descarga está disponible en la [página de descarga del SDK de Azure](https://azure.microsoft.com/downloads/). Sin embargo, el paquete NuGet de Bus de servicio es la forma más sencilla de obtener la API de Bus de servicio y configurar su aplicación con todas las dependencias del Bus de servicio. Para obtener más información acerca del uso del paquete NuGet y del bus de servicio, consulte [Using the NuGet Service Bus Package](https://msdn.microsoft.com/library/dn741354.aspx).
 
 ### Creación de la cola
 
@@ -160,4 +160,4 @@ catch (Exception e)
 
 Ahora que ha aprendido los conceptos básicos de las colas, consulte [Creación de aplicaciones que usan temas y suscripciones del Bus de servicio](service-bus-create-topics-subscriptions.md) para continuar este tema sobre las capacidades de publicación/suscripción de la mensajería asincrónica de Bus de servicio.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

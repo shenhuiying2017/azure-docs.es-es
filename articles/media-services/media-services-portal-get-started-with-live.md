@@ -64,7 +64,7 @@ Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
 La asignación de cualquier nueva unidad puede tardar unos 20 minutos en finalizarse.
 
->[AZURE.NOTE]Actualmente, pasar de cualquier valor positivo de unidades de streaming a ninguno puede deshabilitar el streaming hasta una hora.
+>[AZURE.NOTE] Actualmente, pasar de cualquier valor positivo de unidades de streaming a ninguno puede deshabilitar el streaming hasta una hora.
 >
 > Se utiliza el número más elevado de unidades especificadas durante el período de 24 horas al calcular el coste. Para obtener más información acerca del precio, consulte la página sobre [información del precio de Servicios multimedia](http://go.microsoft.com/fwlink/?LinkId=275107).
 
@@ -92,11 +92,11 @@ Para obtener más información sobre las URL de introducción, consulte [Uso de 
 
 ## Configuración de un codificador en directo y de una secuencia en vivo de introducción
 
->[AZURE.NOTE]Este paso requiere la URL de introducción del canal que se mencionó en el paso anterior.
+>[AZURE.NOTE] Este paso requiere la URL de introducción del canal que se mencionó en el paso anterior.
 
-Para obtener información detallada acerca de cómo configurar Wirecast y comenzar la introducción de la secuencia, consulte [Configuración de Wirecast](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+Para obtener información detallada acerca de cómo configurar Wirecast y comenzar la introducción de la secuencia, consulte [Configuración de Wirecast](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
->[AZURE.NOTE]Si por cualquier motivo detiene el codificador y después tiene que reiniciarlo, deberá restablecer el canal haciendo clic en el comando **RESTABLECER** en el Portal de Azure clásico.
+>[AZURE.NOTE] Si por cualquier motivo detiene el codificador y después tiene que reiniciarlo, deberá restablecer el canal haciendo clic en el comando **RESTABLECER** en el Portal de Azure clásico.
 
 
 ## Creación y administración de un programa
@@ -205,11 +205,11 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
 
 
 ## Recursos adicionales
-- [Introducción a streaming en vivo mediante el Portal de Azure clásico](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
+- [Introducción a streaming en vivo mediante el Portal de Azure clásico](https://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
 
 <!-- URLs. -->
 [Azure Classic Portal]: http://manage.windowsazure.com/
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

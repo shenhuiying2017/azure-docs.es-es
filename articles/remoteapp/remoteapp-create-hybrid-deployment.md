@@ -40,7 +40,7 @@ En este tutorial se realizará un recorrido por el proceso de creación de una c
 
 Necesita llevar a cabo los pasos siguientes antes de crear la colección:
 
-- [Suscribirse](http://azure.microsoft.com/services/remoteapp/) a Azure RemoteApp. 
+- [Suscribirse](https://azure.microsoft.com/services/remoteapp/) a Azure RemoteApp. 
 - Cree una cuenta de usuario en Active Directory para usar la cuenta de servicio de Azure RemoteApp. Restrinja los permisos para esta cuenta de forma que solamente pueda unir máquinas al dominio.
 - Recopile información sobre la red local: dirección IP de información y detalles de dispositivos VPN.
 - Instale el módulo de [Azure PowerShell](../install-configure-powershell.md).
@@ -149,4 +149,4 @@ Eso es todo, creó e implementó correctamente su colección híbrida de Azure R
 ### Permítanos ayudarle 
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, a continuación, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

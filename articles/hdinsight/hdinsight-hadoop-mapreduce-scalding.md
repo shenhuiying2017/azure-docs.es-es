@@ -24,7 +24,7 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
 
 ## Requisitos previos
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Un clúster de Hadoop en HDInsight basado en Windows o Linux**. Vea [Aprovisionamiento de Handoop basado en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md) o [Aprovisionamiento de Handoop basado en Windows en HDInsight](hdinsight-provision-clusters.md) para obtener más información.
 
 * **[Maven](http://maven.apache.org/)**
@@ -185,7 +185,7 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
 
 ## Ejecución del trabajo en un clúster basado en Linux
 
-> [AZURE.NOTE]Los pasos siguientes usan SSH y el comando de Hadoop. Para otros métodos de ejecución de trabajos de MapReduce, consulte [Uso de MapReduce en Hadoop en HDInsight](hdinsight-use-mapreduce.md).
+> [AZURE.NOTE] Los pasos siguientes usan SSH y el comando de Hadoop. Para otros métodos de ejecución de trabajos de MapReduce, consulte [Uso de MapReduce en Hadoop en HDInsight](hdinsight-use-mapreduce.md).
 
 1. Use el comando siguiente para cargar el paquete en el clúster de HDInsight:
 
@@ -193,13 +193,13 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
 
     De esta manera, se copiarán los archivos del sistema local al nodo principal.
 
-    > [AZURE.NOTE]Si usó una contraseña para proteger la cuenta SSH, se le preguntará la contraseña. Si usó una clave SSH, es posible que deba usar el parámetro `-i` y la ruta de acceso a la clave privada. Por ejemplo, `scp -i /path/to/private/key target/scaldingwordcount-1.0-SNAPSHOT.jar username@clustername-ssh.azurehdinsight.net:.`
+    > [AZURE.NOTE] Si usó una contraseña para proteger la cuenta SSH, se le preguntará la contraseña. Si usó una clave SSH, es posible que deba usar el parámetro `-i` y la ruta de acceso a la clave privada. Por ejemplo, `scp -i /path/to/private/key target/scaldingwordcount-1.0-SNAPSHOT.jar username@clustername-ssh.azurehdinsight.net:.`
 
 2. Use el siguiente comando para conectarse al nodo principal del clúster:
 
         ssh username@clustername-ssh.azurehdinsight.net
 
-    > [AZURE.NOTE]Si usó una contraseña para proteger la cuenta SSH, se le preguntará la contraseña. Si usó una clave SSH, es posible que deba usar el parámetro `-i` y la ruta de acceso a la clave privada. Por ejemplo, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
+    > [AZURE.NOTE] Si usó una contraseña para proteger la cuenta SSH, se le preguntará la contraseña. Si usó una clave SSH, es posible que deba usar el parámetro `-i` y la ruta de acceso a la clave privada. Por ejemplo, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
 
 3. Una vez conectado al nodo principal, use el siguiente comando para ejecutar el trabajo de recuento de palabras.
 
@@ -229,7 +229,7 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
 
 ## Ejecución del trabajo en un clúster basado en Windows
 
-> [AZURE.NOTE]Los pasos siguientes usan Windows PowerShell. Para otros métodos de ejecución de trabajos de MapReduce, consulte [Uso de MapReduce en Hadoop en HDInsight](hdinsight-use-mapreduce.md).
+> [AZURE.NOTE] Los pasos siguientes usan Windows PowerShell. Para otros métodos de ejecución de trabajos de MapReduce, consulte [Uso de MapReduce en Hadoop en HDInsight](hdinsight-use-mapreduce.md).
 
 1. [Instale y configure Azure PowerShell](../powershell-install-configure.md).
 
@@ -245,7 +245,7 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
 
 		Select-AzureRMSubscription -SubscriptionID <YourSubscriptionId>
 
-    > [AZURE.NOTE]Puede usar `Get-AzureRMSubscription` para obtener una lista de todas las suscripciones asociadas a su cuenta, lo que incluye el id. de suscripción de cada una.
+    > [AZURE.NOTE] Puede usar `Get-AzureRMSubscription` para obtener una lista de todas las suscripciones asociadas a su cuenta, lo que incluye el id. de suscripción de cada una.
 
 4. Use el siguiente script para cargar y ejecutar el trabajo WordCount. Reemplace `CLUSTERNAME` por el nombre de su clúster de HDInsight y asegúrese de que `$fileToUpload` sea la ruta de acceso correcta al archivo __scaldingwordcount-1.0-SNAPSHOT.jar__.
 
@@ -344,4 +344,4 @@ Ahora que sabe usar Scalding para crear trabajos de MapReduce para HDInsight, us
 
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

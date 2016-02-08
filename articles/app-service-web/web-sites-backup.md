@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/07/2015" 
+	ms.date="01/26/2016" 
 	ms.author="cephalin"/>
 
 # Hacer copia de seguridad de una aplicación web en el servicio de aplicaciones de Azure
@@ -35,14 +35,14 @@ Las aplicaciones web pueden copiar la siguiente información:
 
 Esta información se guarda en una copia de seguridad en la cuenta de almacenamiento y el contenedor de Azure que especifique.
 
-> [AZURE.NOTE]Cada copia de seguridad es una copia completa sin conexión de su aplicación, no una actualización incremental.
+> [AZURE.NOTE] Cada copia de seguridad es una copia completa sin conexión de su aplicación, no una actualización incremental.
 
 <a name="requirements"></a>
 ## Requisitos y restricciones
 
 * La característica Copia de seguridad y restauración requiere que el plan Servicio de aplicaciones tenga el nivel estándar o superior. Para obtener más información sobre cómo escalar el plan Servicio de aplicaciones para usar un nivel superior, consulte [Escalado de una aplicación web en el servicio de aplicaciones de Azure](web-sites-scale.md). Tenga en cuenta que el nivel premium permite realizar un mayor número de copias de seguridad diarias que el nivel estándar.
 
-* La característica Copia de seguridad y restauración requiere una cuenta de almacenamiento y el contenedor de Azure que debe pertenecer a la misma suscripción que la aplicación web del que quiere tener una copia de seguridad. Si aún no tiene una cuenta de almacenamiento, para crear una, haga clic en **Cuenta de almacenamiento** en la hoja **Copias de seguridad** del [Portal de Azure](http://portal.azure.com) y elija la **cuenta de almacenamiento** y el **contenedor** en la hoja **Destino**. Para obtener más información sobre las cuentas de almacenamiento de Azure, consulte los [vínculos](#moreaboutstorage) al final de este artículo.
+* La característica Copia de seguridad y restauración requiere una cuenta de almacenamiento y el contenedor de Azure que debe pertenecer a la misma suscripción que la aplicación web del que quiere tener una copia de seguridad. Si aún no tiene una cuenta de almacenamiento, para crear una, haga clic en **Cuenta de almacenamiento** en la hoja **Copias de seguridad** del [Portal de Azure](https://portal.azure.com/) y elija la **cuenta de almacenamiento** y el **contenedor** en la hoja **Destino**. Para obtener más información sobre las cuentas de almacenamiento de Azure, consulte los [vínculos](#moreaboutstorage) al final de este artículo.
 
 * La característica de copia de seguridad y restauración admite hasta 10 GB de contenido de sitio web y base de datos. Si la característica de copia de seguridad no puede continuar porque la carga supera este límite, se indicará un error.
 
@@ -66,7 +66,7 @@ Esta información se guarda en una copia de seguridad en la cuenta de almacenami
 
 	![Selección de la cuenta de almacenamiento](./media/web-sites-backup/03ConfigureDatabase.png)
 
-	> [AZURE.NOTE]Para que una base de datos aparezca en esta lista, su cadena de conexión debe existir en la sección **Cadenas de conexión** de la hoja **Configuración de la aplicación web** del portal.
+	> [AZURE.NOTE] 	Para que una base de datos aparezca en esta lista, su cadena de conexión debe existir en la sección **Cadenas de conexión** de la hoja **Configuración de la aplicación web** del portal.
 
 6. En la hoja **Establecer la configuración de la copia de seguridad**, haga clic en **Guardar**.
 6. En la hoja **Copias de seguridad**, seleccione el **Destino de copia de seguridad**. Debe elegir una cuenta de almacenamiento y un contenedor existentes.
@@ -98,7 +98,7 @@ Puede realizar una copia de seguridad manual en cualquier momento.
 
 	![Selección de la cuenta de almacenamiento](./media/web-sites-backup/03ConfigureDatabase.png)
 
-	> [AZURE.NOTE] Para que una base de datos aparezca en esta lista, su cadena de conexión debe existir en la sección **Cadenas de conexión** de la hoja **Configuración de la aplicación web** del portal.
+	> [AZURE.NOTE] 	Para que una base de datos aparezca en esta lista, su cadena de conexión debe existir en la sección **Cadenas de conexión** de la hoja **Configuración de la aplicación web** del portal.
 
 6. En la hoja **Establecer la configuración de la copia de seguridad**, haga clic en **Guardar**.
 
@@ -107,7 +107,7 @@ Puede realizar una copia de seguridad manual en cualquier momento.
 
 * Asegúrese de que configura las cadenas de conexión para cada una de las bases de datos correctamente en la hoja **Configuración de la aplicación web** en **Configuración** de la aplicación web para que la característica de copia de seguridad y restauración pueda incluir las bases de datos.
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 <a name="partialbackups"></a>
 ## Realización de una copia de seguridad de una parte de la aplicación web
@@ -126,8 +126,7 @@ Para excluir archivos y carpetas de las copias de seguridad, cree u archivo `_ba
 
 Suponga que tiene una aplicación web contiene archivos de registro e imágenes estáticas de los últimos años que nunca van a cambiar. Ya tiene una copia de seguridad completa de la aplicación web que incluye las imágenes anteriores. Ahora me gustaría hacer una copia de seguridad de la aplicación web todos los días, pero no quiere pagar para almacenar los archivos de registro o los archivos de imagen estática que no van a cambiar.
 
-![Carpeta de registros][LogsFolder]
-![Carpeta de imágenes][ImagesFolder]
+![Carpeta de registros][LogsFolder] ![Carpeta de imágenes][ImagesFolder]
 	
 Los pasos siguientes muestran cómo podría excluir estos archivos de la copia de seguridad.
 
@@ -139,11 +138,11 @@ Los pasos siguientes muestran cómo podría excluir estos archivos de la copia d
 		D:\home\site\wwwroot\Images\2014
 		D:\home\site\wwwroot\Images\brand.png
 
-	[AZURE.NOTE]La última línea muestra que puede excluir archivos de individuales, así como carpetas.
+	[AZURE.NOTE] La última línea muestra que puede excluir archivos de individuales, así como carpetas.
 
 2. Cree un archivo llamado `_backup.filter` y ponga la lista anterior en el archivo, pero quite `D:\home`. Enumere un directorio o archivo por línea. Por lo tanto, el contenido del archivo debe ser:
 
-    \site\wwwroot\Logs \LogFiles \site\wwwroot\Images\2013 \site\wwwroot\Images\2014 \site\wwwroot\Images\brand.png
+    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
 
 3. Cargue este archivo en el directorio `D:\home\site\wwwroot` de su sitio con [ftp](web-sites-deploy.md#ftp) o cualquier otro método. Si lo desea, puede crear el archivo directamente en `http://{yourapp}.scm.azurewebsites.net/DebugConsole` e insertar el contenido.
 
@@ -151,7 +150,7 @@ Los pasos siguientes muestran cómo podría excluir estos archivos de la copia d
 
 Ahora, los archivos y carpetas que se especifican en `_backup.filter` se excluirán de la copia de seguridad. En este ejemplo, ya no se realizará la copia de seguridad de los archivos de registro y los archivos de imagen de 2013 y 2014 , ni de brand.png.
 
->[AZURE.NOTE]La restauración de las copias de seguridad parciales del sitio se realizan de la misma manera que se hace para [restaurar una copia de seguridad regular](web-sites-restore.md). El proceso de restauración hará lo correcto.
+>[AZURE.NOTE] La restauración de las copias de seguridad parciales del sitio se realizan de la misma manera que se hace para [restaurar una copia de seguridad regular](web-sites-restore.md). El proceso de restauración hará lo correcto.
 >
 >Cuando se restaura una copia de seguridad completa, se reemplaza todo el contenido en el sitio por lo que haya en la copia de seguridad. Si un archivo está en el sitio pero no en la copia de seguridad, se elimina. Sin embargo, cuando se restaura una copia de seguridad parcial, cualquier contenido que se encuentre en uno de los directorios en la lista negra, o cualquier archivo en la lista negra, permanecerá tal y como está.
 
@@ -163,7 +162,7 @@ Después de realizar una o varias copias de seguridad de la aplicación web, las
 
 La copia de seguridad de la base de datos para la aplicación web se almacena en la raíz del archivo .zip. En bases de datos de SQL, este es un archivo BACPAC (sin extensión de archivo) y se puede importar. Para crear una nueva base de datos SQL basándose en la exportación del BACPAC, vea [Importación de un archivo de BACPAC para crear una nueva base de datos de usuario](http://technet.microsoft.com/library/hh710052.aspx).
 
-> [AZURE.WARNING]La modificación de los archivos del contenedor **websitebackups** puede ocasionar que la base de datos deje de ser válida y, por lo tanto, no se pueda restaurar.
+> [AZURE.WARNING] La modificación de los archivos del contenedor **websitebackups** puede ocasionar que la base de datos deje de ser válida y, por lo tanto, no se pueda restaurar.
 
 <a name="nextsteps"></a>
 ## Pasos siguientes
@@ -190,4 +189,4 @@ Para comenzar con Azure, vea [Evaluación gratuita de Microsoft Azure](/pricing/
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

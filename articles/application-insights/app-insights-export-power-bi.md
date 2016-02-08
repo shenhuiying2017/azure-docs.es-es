@@ -17,17 +17,17 @@
  
 # Usar Análisis de transmisiones para alimentar Power BI desde Application Insights
 
-En este artículo se muestra cómo usar el [Análisis de transmisiones](http://azure.microsoft.com/services/stream-analytics/) para procesar datos [exportados](app-insights-export-telemetry.md) de [Application Insights de Visual Studio ](app-insights-overview.md). Como destino de ejemplo, enviamos los datos a [Microsoft Power BI](https://powerbi.microsoft.com/).
+En este artículo se muestra cómo usar el [Análisis de transmisiones](https://azure.microsoft.com/services/stream-analytics/) para procesar datos [exportados](app-insights-export-telemetry.md) de [Application Insights de Visual Studio ](app-insights-overview.md). Como destino de ejemplo, enviamos los datos a [Microsoft Power BI](https://powerbi.microsoft.com/).
 
 
-> [AZURE.NOTE]La manera más fácil de obtener datos en Power BI de Application Insights es [mediante el adaptador](https://powerbi.microsoft.com/es-ES/documentation/powerbi-content-pack-application-insights/) que encontrará en la Galería de Power BI en Servicios. Lo que se describe en este artículo es actualmente más versátil, pero también es una demostración de cómo usar Análisis de transmisiones con Application Insights.
+> [AZURE.NOTE] La manera más fácil de obtener datos en Power BI de Application Insights es [mediante el adaptador](https://powerbi.microsoft.com/es-ES/documentation/powerbi-content-pack-application-insights/) que encontrará en la Galería de Power BI en Servicios. Lo que se describe en este artículo es actualmente más versátil, pero también es una demostración de cómo usar Análisis de transmisiones con Application Insights.
 
 [Microsoft Power BI](https://powerbi.microsoft.com/) presenta los datos en objetos visuales enriquecidos y variados, con la capacidad de reunir información de varios orígenes.
 
 
 ![Ejemplo de vista en Power BI de los datos de uso de Application Insights](./media/app-insights-export-power-bi/010.png)
 
-El [Análisis de transmisiones](http://azure.microsoft.com/services/stream-analytics/) es un servicio de Azure que funciona como adaptador, procesando continuamente los datos exportados de Application Insights.
+El [Análisis de transmisiones](https://azure.microsoft.com/services/stream-analytics/) es un servicio de Azure que funciona como adaptador, procesando continuamente los datos exportados de Application Insights.
 
 ![Ejemplo de vista en Power BI de los datos de uso de Application Insights](./media/app-insights-export-power-bi/020.png)
 
@@ -51,7 +51,7 @@ Si aún no lo ha intentado, ahora es el momento de empezar. Application Insights
 
 La exportación continua siempre envía los datos a una cuenta de almacenamiento de Azure, por lo que necesitará crear primero el almacenamiento.
 
-1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [Portal de Azure](https://portal.azure.com).
+1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [portal de Azure](https://portal.azure.com).
 
     ![En el portal de Azure, elija Nuevo, Datos, Almacenamiento.](./media/app-insights-export-power-bi/030.png)
 
@@ -139,10 +139,10 @@ En este ejemplo:
 
 * `webapplication27` es el nombre del recurso de Application Insights, **todo en minúsculas**.
 * `1234...` es la clave de instrumentación que copió del recurso de Application Insights, **omitiendo guiones**. 
-* `PageViews` es el tipo de datos que quiere analizar. Los tipos disponibles dependen del filtro definido en la Exportación continua. Examine los datos exportados para ver los demás tipos disponibles y vea el [modelo de datos de exportación](app-insights-export-data-model.md).
+* `PageViews` es el tipo de datos que quiere analizar. Los tipos disponibles dependen del filtro definido en la Exportación continua. Examine los datos exportados para ver los demás tipos disponibles y vea el [modelo de exportación de datos](app-insights-export-data-model.md).
 * `/{date}/{time}` es un patrón escrito literalmente.
 
-> [AZURE.NOTE]Inspeccione el almacenamiento para asegurarse de que obtiene la ruta de acceso correcta.
+> [AZURE.NOTE] Inspeccione el almacenamiento para asegurarse de que obtiene la ruta de acceso correcta.
 
 #### Finalización de la instalación inicial
 
@@ -152,7 +152,7 @@ Confirme el formato de serialización:
 
 Cierre el asistente y espere a que el programa de instalación finalice.
 
-> [AZURE.TIP]Use el comando de ejemplo para descargar algunos datos. Guardarlo como un ejemplo de prueba para depurar la consulta.
+> [AZURE.TIP] Use el comando de ejemplo para descargar algunos datos. Guardarlo como un ejemplo de prueba para depurar la consulta.
 
 ## Establecimiento de la salida
 
@@ -269,4 +269,4 @@ Noam Ben Zeev muestra cómo exportar a Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Más ejemplos y tutoriales](app-insights-code-samples.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

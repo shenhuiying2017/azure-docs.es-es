@@ -24,7 +24,7 @@ Visite [Información general sobre redes virtuales](virtual-networks-overview.md
 
 ### ¿Cómo empiezo?
 
-Visite [la documentación de las redes virtuales](http://azure.microsoft.com/documentation/services/virtual-network/) para comenzar. Esta página tiene vínculos a pasos de configuración comunes, así como información que le ayudará a comprender los aspectos que debe tener en cuenta al diseñar la red virtual.
+Visite [la documentación de las redes virtuales](https://azure.microsoft.com/documentation/services/virtual-network/) para comenzar. Esta página tiene vínculos a pasos de configuración comunes, así como información que le ayudará a comprender los aspectos que debe tener en cuenta al diseñar la red virtual.
 
 ### ¿Qué servicios puedo usar con redes virtuales?
 
@@ -143,7 +143,7 @@ Sí. Puede cambiar la lista de servidores DNS de la red virtual en cualquier mom
 
 Un DNS proporcionado por Azure es un servicio DNS multiempresa ofrecido por Microsoft. Azure registra todas las máquinas virtuales y las instancias de rol en este servicio. Este servicio proporciona la resolución de nombres mediante nombre de host para las máquinas virtuales y las instancias de rol contenidas en el mismo servicio en la nube y mediante FQDN para las máquinas virtuales y las instancias de rol en la misma red virtual.
 
-> [AZURE.NOTE]En la actualidad hay una limitación a los 100 primeros servicios en la nube de la red virtual para la resolución de nombres entre inquilinos mediante DNS proporcionado por Azure. Si usa su propio servidor DNS, esta limitación no es aplicable.
+> [AZURE.NOTE] En la actualidad hay una limitación a los 100 primeros servicios en la nube de la red virtual para la resolución de nombres entre inquilinos mediante DNS proporcionado por Azure. Si usa su propio servidor DNS, esta limitación no es aplicable.
 
 ### ¿Puedo invalidar mi configuración de DNS por máquina virtual o servicio?
 
@@ -193,7 +193,7 @@ No. No debe cambiar ninguna propiedad de la interfaz de las máquinas virtuales.
 
 Nada. Las direcciones IP (tanto la VIP pública como la dirección IP interna) permanecerán con el servicio en la nube o con la máquina virtual.
 
-> [AZURE.NOTE]Si simplemente desea apagar la máquina virtual, no use el Portal de administración para ello. Por el momento, el botón de apagado desasignará la máquina virtual.
+> [AZURE.NOTE] Si simplemente desea apagar la máquina virtual, no use el Portal de administración para ello. Por el momento, el botón de apagado desasignará la máquina virtual.
 
 ### ¿Puedo mover las máquinas virtuales de una subred a otra subred en una red virtual sin volver a implementarla?
 
@@ -224,9 +224,9 @@ Sí. Puede implementar Aplicaciones web dentro de una red virtual con ASE (Entor
 
 - [Creación de Aplicaciones web en un entorno del Servicio de aplicaciones](app-service-web-how-to-create-a-web-app-in-an-ase.md)
 
-- [Integración de la red virtual con Aplicaciones web](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
+- [Integración de la red virtual con Aplicaciones web](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
-- [Uso de la integración de la red virtual y de conexiones híbridas con Aplicaciones web](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
+- [Uso de la integración de la red virtual y de conexiones híbridas con Aplicaciones web](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
 - [Integración de su aplicación web con una red virtual de Azure](web-sites-integrate-with-vnet.md)
 
@@ -266,4 +266,4 @@ Sí. Existen API de REST para administrar redes virtuales y la conectividad entr
 
 Sí. Puede usar herramientas de la línea de comandos y PowerShell para diferentes plataformas. Puede encontrar más información [aquí](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -124,7 +124,7 @@ Los parámetros utilizados son:
 - **-Hostname y -path**: dirección URL completa que Puerta de enlace de aplicaciones invoca para determinar el estado de la instancia. Por ejemplo, si tiene el sitio web http://contoso.com/, el sondeo personalizado se puede configurar para "http://contoso.com/path/custompath.htm" de forma que las comprobaciones del sondeo tengan una respuesta HTTP correcta.
 - **-UnhealthyThreshold**: el número de respuestas HTTP con error que es necesario para marcar la instancia del back-end como *incorrecta*.
 
-
+<BR>
 
 	$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/path.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
@@ -168,7 +168,7 @@ Configure el tamaño de la instancia de la puerta de enlace de aplicaciones.
 	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
 
->[AZURE.NOTE]El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Se puede elegir entre Standard\_Small, Standard\_Medium y Standard\_Large.
+>[AZURE.NOTE]  El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Se puede elegir entre Standard\_Small, Standard\_Medium y Standard\_Large.
 
 ## Creación de una puerta de enlace de aplicaciones mediante New-AzureRmApplicationGateway
 
@@ -197,7 +197,7 @@ En el ejemplo, el sondeo personalizado está configurado para comprobar la direc
 
 ### Paso 3
 
-Agregue el sondeo a la configuración de grupo del back-end y el tiempo de espera mediante **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
+Agregue el sondeo a la configuración y al tiempo de espera del grupo de back-end mediante **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
 
 
 	 $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 120
@@ -227,7 +227,7 @@ Quite la configuración de sondeo de la puerta de enlace de aplicaciones mediant
 
 ### Paso 3
 
-Actualice la configuración de grupo del back-end para quitar el sondeo y el tiempo de espera mediante **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
+Actualice la configuración del grupo de back-end para quitar la configuración de sondeo y tiempo de espera mediante **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
 
 
 	 $getgw=Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
@@ -238,4 +238,4 @@ Guarde la configuración en la puerta de enlace de aplicaciones mediante **Set-A
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

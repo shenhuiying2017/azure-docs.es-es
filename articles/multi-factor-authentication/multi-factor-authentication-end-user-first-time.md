@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Iniciar sesión por primera vez con Azure Multi-Factor Authentication" 
 	description="Esta página describe cuál será la experiencia del usuario la primera vez que se inicia sesión." 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords="cómo usar azure directory, active directory en la nube, tutorial de active directory" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenp" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 # La experiencia de configuración para Azure Multi-Factor Authentication
 
@@ -36,4 +37,4 @@ Método|Descripción
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

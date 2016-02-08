@@ -3,9 +3,9 @@ Necesita una cuenta para implementar aplicaciones en Azure. En este artículo se
 ## Crear una cuenta de Azure
 
 1.  Abra un explorador web y diríjase a <http://azure.microsoft.com>.
-2.  Si dispone de una suscripción a MSDN, diríjase a la página [Beneficios de Azure para suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) y siga los pasos para crear una cuenta mediante la activación de los beneficios para suscriptores de MSDN.
+2.  Si dispone de una suscripción a MSDN, diríjase a la página [Beneficios de Azure para suscriptores de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) y siga los pasos para crear una cuenta mediante la activación de los beneficios para suscriptores de MSDN.
 
-   También puede dirigirse a la página [Creación de una cuenta de evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) y seguir los pasos para crear una cuenta de prueba. Necesitará un número de tarjeta de crédito y un número de teléfono móvil como prueba de identidad. No se le cobrará nada.
+   También puede dirigirse a la página [Creación de una cuenta de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) y seguir los pasos para crear una cuenta de prueba. Necesitará un número de tarjeta de crédito y un número de teléfono móvil como prueba de identidad. No se le cobrará nada.
 
 ## Habilitación de las características de vista previa de Azure
 
@@ -18,4 +18,4 @@ Necesita una cuenta para implementar aplicaciones en Azure. En este artículo se
 [2]: ./media/create-an-azure-account/antares-iaas-preview-05.png
 [3]: ./media/create-an-azure-account/antares-iaas-preview-06.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

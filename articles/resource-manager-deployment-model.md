@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/22/2016"
    ms.author="tomfitz"/>
 
 # Descripción de la implementación del Administrador de recursos y la implementación clásica
@@ -22,19 +22,17 @@ El modelo de implementación del Administrador de recursos proporciona una nueva
 
 También puede conocer el modelo de implementación clásica como modelo de administración de servicios.
 
-En este tema se describen las diferencias entre los dos modelos y algunos de los problemas que pueden surgir al realizar la transición desde el modelo clásico al Administrador de recursos. Ofrece información general de los modelos, pero no cubre en detalle las diferencias en los servicios individuales. Para obtener más detalles acerca de la transición de recursos de procesos, almacenamiento y redes, consulte [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+En este tema se describen las diferencias entre los dos modelos y algunos de los problemas que pueden surgir al realizar la transición desde el modelo clásico al Administrador de recursos. Ofrece información general de los modelos, pero no cubre en detalle las diferencias en los servicios individuales.
 
 Muchos recursos funcionan sin problema tanto en el modelo clásico como en el Administrador de recursos. Estos recursos son totalmente compatibles con el Administrador de recursos incluso si se crean en el modelo clásico. Puede realizar la transición al Administrador de recursos sin ningún problema ni esfuerzo adicional.
 
 Sin embargo, algunos proveedores de recursos ofrecen dos versiones del recurso (una para el modelo clásico y otra para el Administrador de recursos) debido a las diferencias arquitectónicas entre los modelos. Los proveedores de recursos que distinguen entre los dos modelos son:
 
-- Proceso
-- Almacenamiento
-- Red
+- **Proceso**: admite instancias de máquinas virtuales y conjuntos de disponibilidad opcional.
+- **Almacenamiento**: admite cuentas de almacenamiento requeridas que almacenan los discos duros virtuales para máquinas virtuales, incluido su sistema operativo y discos de datos adicionales.
+- **Red**: admite NIC requeridos, direcciones IP de máquinas virtuales y subredes de redes virtuales y equilibradores de carga opcionales, direcciones IP de equilibradores de carga y grupos de seguridad de red.
 
-Para estos tipos de recursos, debe ser consciente de la versión que utiliza, ya que variarán las operaciones admitidas.
-
-Para entender las diferencias arquitectónicas entre los dos modelos, consulte [Arquitectura de administrador de recursos de Azure](virtual-machines/virtual-machines-azure-resource-manager-architecture.md).
+Para estos tipos de recursos, debe ser consciente de la versión que utiliza, ya que variarán las operaciones admitidas. Para obtener más detalles acerca de la transición de recursos de procesos, almacenamiento y redes, consulte [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
 ## Características del Administrador de recursos
 
@@ -46,7 +44,7 @@ Los recursos creados a través del Administrador de recursos comparten las sigui
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Para recursos de proceso, almacenamiento y red, puede usar el Administrador de recursos o la implementación clásica. Select **Administrador de recursos**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -67,7 +65,25 @@ Los recursos creados a través del Administrador de recursos comparten las sigui
 
     ![aplicación web](./media/resource-manager-deployment-model/resource-manager-type.png)
 
+La aplicación que se muestra en el diagrama siguiente muestra cómo los recursos implementados a través del Administrador de recursos están incluidos en un único grupo de recursos.
+
+  ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
+
+Además, hay relaciones entre los recursos de los proveedores de recursos:
+
+- Una máquina virtual depende de una cuenta de almacenamiento específica definida en el SRP para almacenar sus discos en el almacenamiento de blobs (obligatorio).
+- Una máquina virtual hace referencia a una NIC específica definida en el NRP (obligatorio) y un conjunto de disponibilidad definido en el CRP (opcional).
+- Una NIC hace referencia a la dirección IP asignada a la máquina virtual (necesaria), la subred de la red virtual para la máquina virtual (necesaria) y a un grupo de seguridad de red (opcional).
+- Una subred dentro de una red virtual hace referencia a un grupo de seguridad de red (opcional).
+- Una instancia de equilibrador de carga hace referencia al grupo de backend de direcciones IP que incluye la NIC de una máquina virtual (opcional) y hace referencia a una dirección IP pública o privada del equilibrador de carga (opcional).
+
 ## Características de implementación clásica
+
+En Administración de servicios de Azure, los recurss de cálculo, almacenamiento o para hospedar máquinas virtuales son proporcionados por:
+
+- Un servicio de nube requerido que actúa como contenedor para hospedar máquinas virtuales (cálculo). Las máquinas virtuales se proporcionan automáticamente con una tarjeta de interfaz de red (NIC) y una dirección IP asignada por Azure. Además, el servicio de nube contiene una instancia de equilibrador de carga externa, una dirección IP pública y extremos predeterminados para permitir un escritorio remoto y tráfico de PowerShell remoto para máquinas virtuales basadas en Windows y tráfico de Secure Shell (SSH) para máquinas virtuales basadas en Linux.
+- Una cuenta de almacenamiento necesaria que almacena discos duros virtuales para una máquina virtual, incluido el sistema operativo, los discos de datos temporales y adicionales (almacenamiento).
+- Una red virtual opcional que actúa como un contenedor adicional, en el que se puede crear una estructura de subredes y designar la subred en la que se encuentra la máquina virtual (red).
 
 Los recursos creados en el modelo de implementación clásica comparten las siguientes características:
 
@@ -77,7 +93,7 @@ Los recursos creados en el modelo de implementación clásica comparten las sigu
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        O bien, el portal de vista previa y el usuario deben especificar la implementación **clásica** (para cálculo, almacenamiento y redes).
+        Or, the portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -97,13 +113,17 @@ Los recursos creados en el modelo de implementación clásica comparten las sigu
 
 Todavía puede usar el portal para administrar los recursos creados a través de la implementación clásica.
 
+Aquí se encuentran los componentes y sus relaciones para la administración de servicios de Azure.
+
+  ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
+
 ## Ventajas de usar el Administrador de recursos y grupos de recursos
 
 El Administrador de recursos agregó el concepto del grupo de recursos. Cada recurso creado a través del Administrador de recursos existe dentro de un grupo de recursos. El modelo de implementación del Administrador de recursos ofrece varias ventajas:
 
 - Puede implementar, administrar y supervisar todos los servicios para su solución como grupo, en lugar de controlar estos servicios individualmente.
 - Puede implementar la aplicación repetidamente a lo largo del ciclo de vida de esta y tener la seguridad de que los recursos se implementan de forma coherente.
-- Puede utilizar plantillas declarativas para definir la implementación. 
+- Puede utilizar plantillas declarativas para definir la implementación.
 - Puede definir las dependencias entre recursos de modo que se implementen en el orden correcto.
 - Puede aplicar control de acceso a todos los servicios del grupo de recursos al integrarse de forma nativa Control de acceso basado en rol (RBAC) en la plataforma de administración.
 - Puede aplicar etiquetas a los recursos para organizar de manera lógica todos los recursos en su suscripción.
@@ -168,4 +188,4 @@ Para obtener información sobre cómo conectar redes virtuales de diferentes mod
 - Para obtener información sobre cómo crear plantillas de implementación declarativas, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para ver los comandos para implementar una plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

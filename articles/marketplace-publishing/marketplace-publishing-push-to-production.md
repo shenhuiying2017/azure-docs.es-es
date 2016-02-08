@@ -31,9 +31,9 @@ Cuando quede satisfecho con su oferta (es decir, haya probado escenarios de clie
 
   ![dibujo][img-pubportal-publish-pushproduction]
 
-> [AZURE.IMPORTANT]Siempre se puede eliminar la oferta mientras está en estado de **borrador** (es decir, nunca **Enviar a ensayo**, **Enviar a producción**). En la pestaña **Historial**, haga clic en el botón **Descartar borrador** que se encuentra en la parte inferior de la página para eliminar un borrador.
+> [AZURE.IMPORTANT] Siempre se puede eliminar la oferta mientras está en estado de **borrador** (es decir, nunca **Enviar a ensayo**, **Enviar a producción**). En la pestaña **Historial**, haga clic en el botón **Descartar borrador** que se encuentra en la parte inferior de la página para eliminar un borrador.
 
-> Para las imágenes de máquina virtual, la replicación por los centros de datos tarda de 24 a 48 horas. Cuando se complete la replicación, la oferta se mostrará en [Azure Marketplace](http://azure.microsoft.com/marketplace).
+> Para las imágenes de máquina virtual, la replicación por los centros de datos tarda de 24 a 48 horas. Cuando se complete la replicación, la oferta se mostrará en [Azure Marketplace](https://azure.microsoft.com/marketplace/).
 
 ## Pasos siguientes
 Cuando se ponga en marcha la oferta, realice pruebas de los escenarios de cliente para comprobar que todos los contratos y la funcionalidad funcionen correctamente en el entorno de producción, tal como se comprobó y validó en el entorno de ensayo.
@@ -45,4 +45,4 @@ Cuando se ponga en marcha la oferta, realice pruebas de los escenarios de client
 [img-pubportal-menu-publish]: media/marketplace-publishing-push-to-production/pubportal-menu-publish.png
 [img-pubportal-publish-pushproduction]: media/marketplace-publishing-push-to-production/pubportal-publish-pushproduction.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

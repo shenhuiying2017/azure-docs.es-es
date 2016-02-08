@@ -29,7 +29,7 @@ Estos son los requisitos previos para completar el tutorial.
 
 Se recomienda que revise los artículos siguientes:
 
-- [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+- [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo.](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 - [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-manage-channels-overview.md)
  
 
@@ -49,7 +49,7 @@ En el ejemplo de código siguiente se muestra cómo lograr las tareas siguientes
 - Obtener los localizadores de todos los extremos de streaming.
 - Apagar los recursos.
 	
-Para obtener información sobre cómo configurar un codificador en directo, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+Para obtener información sobre cómo configurar un codificador en directo, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 	
 		using System;
 		using System.Collections.Generic;
@@ -385,4 +385,4 @@ Para obtener información sobre cómo configurar un codificador en directo, cons
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,18 +20,18 @@
 
 ## Información general
 
-Puede supervisar su cuenta de almacenamiento en el [Portal de Azure](portal.azure.com). Al configurar la cuenta de almacenamiento para la supervisión a través del portal, Almacenamiento de Azure usa el [análisis del almacenamiento](http://msdn.microsoft.com/library/azure/hh343270.aspx) para realizar un seguimiento de las métricas de la cuenta y registrar los datos de solicitudes.
+Puede supervisar su cuenta de almacenamiento en el [Portal de Azure](https://portal.azure.com). Al configurar la cuenta de almacenamiento para la supervisión a través del portal, Almacenamiento de Azure usa el [análisis del almacenamiento](http://msdn.microsoft.com/library/azure/hh343270.aspx) para realizar un seguimiento de las métricas de la cuenta y registrar los datos de solicitudes.
 
-> [AZURE.NOTE]Existen costos adicionales asociados con el análisis de los datos de supervisión en el [Portal de Azure](portal.azure.com). Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Facturación y análisis de almacenamiento</a>. <br />
+> [AZURE.NOTE] Existen costos adicionales asociados con el análisis de los datos de supervisión en el [Portal de Azure](https://portal.azure.com). Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Facturación y análisis de almacenamiento</a>. <br />
 
-> Almacenamiento de archivos de Azure admite actualmente las métricas del Análisis de almacenamiento, pero aún no admite el registro. Puede habilitar las métricas para el Almacenamiento de archivos de Azure a través del [Portal de Azure](portal.azure.com).
+> Almacenamiento de archivos de Azure admite actualmente las métricas del Análisis de almacenamiento, pero aún no admite el registro. Puede habilitar las métricas para el Almacenamiento de archivos de Azure a través del [Portal de Azure](https://portal.azure.com).
 
 > Para obtener orientación exhaustiva sobre el uso de análisis de almacenamiento y otras herramientas para identificar, diagnosticar y solucionar problemas relacionados con el Almacenamiento de Azure, consulte [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
 
 ## Procedimientos: Configuración de la supervisión para una cuenta de almacenamiento
 
-1. En el [Portal de Azure](portal.azure.com), haga clic en **Almacenamiento** y, luego, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
+1. En el [Portal de Azure](https://portal.azure.com), haga clic en **Almacenamiento** y, luego, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
 
 2. Haga clic en **Configurar** y desplácese hacia abajo hasta la configuración de **supervisión** para los servicios Blob, Tabla y Cola.
 
@@ -55,7 +55,7 @@ Debería empezar a ver los datos de supervisión en el panel y en la página **S
 
 Hasta que no haya configurado la supervisión para una cuenta de almacenamiento, no se recopilarán datos de supervisión y los gráficos de métricas del panel y la página **Supervisión** permanecerán vacíos.
 
-Después de configurar los niveles de supervisión y las directivas de retención, puede elegir las métricas disponibles que desea supervisar en el [Portal de Azure](portal.azure.com) y las métricas que desea mostrar en los gráficos de métricas. En cada nivel de supervisión se muestra un conjunto de métricas predeterminado. Puede usar **Agregar métricas** para agregar o borrar métricas de la lista de métricas.
+Después de configurar los niveles de supervisión y las directivas de retención, puede elegir las métricas disponibles que desea supervisar en el [Portal de Azure](https://portal.azure.com) y las métricas que desea mostrar en los gráficos de métricas. En cada nivel de supervisión se muestra un conjunto de métricas predeterminado. Puede usar **Agregar métricas** para agregar o borrar métricas de la lista de métricas.
 
 Las métricas se almacenan en la cuenta de almacenamiento en cuatro tablas denominadas $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue y $MetricsCapacityBlob. Para obtener más información, vea [Acerca de las métricas del análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh343258.aspx).
 
@@ -64,7 +64,7 @@ Las métricas se almacenan en la cuenta de almacenamiento en cuatro tablas denom
 
 En el panel, puede elegir hasta seis métricas para mostrar en el gráfico de métricas de las nueve métricas disponibles. Para cada servicio (Blob, Tabla y Cola), existen métricas de disponibilidad, porcentajes de éxito y total de solicitudes. Las métricas disponibles en el panel son las mismas para la supervisión mínima y detallada.
 
-1. En el [Portal de Azure](portal.azure.com), haga clic en **Almacenamiento** y, luego, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
+1. En el [Portal de Azure](https://portal.azure.com), haga clic en **Almacenamiento** y, luego, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
 
 2. Para cambiar las métricas que se muestran en el gráfico, realice una de las siguientes acciones:
 
@@ -92,7 +92,7 @@ Utilice los siguientes procedimientos para elegir las métricas de almacenamient
 ## Adición de métricas a la tabla de métricas
 
 
-1. En el [Portal de Azure](portal.azure.com), haga clic en **Almacenamiento** y, luego, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
+1. En el [Portal de Azure](https://portal.azure.com), haga clic en **Almacenamiento** y, luego, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
 
 2. Haga clic en **Supervisar**.
 
@@ -100,7 +100,7 @@ Utilice los siguientes procedimientos para elegir las métricas de almacenamient
 
 	![Visualización de supervisión detallada](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
-	> [AZURE.NOTE]Tenga en cuenta los costes al seleccionar las métricas. Existen costes de transacción y de salida asociados a la actualización de las visualizaciones de la supervisión. Para obtener más información, consulte[ Facturación y análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh360997.aspx).
+	> [AZURE.NOTE] Tenga en cuenta los costes al seleccionar las métricas. Existen costes de transacción y de salida asociados a la actualización de las visualizaciones de la supervisión. Para obtener más información, consulte[ Facturación y análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh360997.aspx).
 
 3. Haga clic en **Agregar métricas**.
 
@@ -113,7 +113,7 @@ Utilice los siguientes procedimientos para elegir las métricas de almacenamient
 	![Barra de desplazamiento de la opción para agregar métricas](./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png)
 
 
-5. Haga clic en la flecha abajo junto a una métrica para expandir una lista de operaciones que la métrica puede incluir. Seleccione todas las operaciones que desee visualizar en la tabla de métricas del [Portal de Azure](portal.azure.com).
+5. Haga clic en la flecha abajo junto a una métrica para expandir una lista de operaciones que la métrica puede incluir. Seleccione todas las operaciones que desee visualizar en la tabla de métricas del [Portal de Azure](https://portal.azure.com).
 
 	En la siguiente ilustración, la métrica AUTHORIZATION ERROR PERCENTAGE se ha expandido.
 
@@ -140,7 +140,7 @@ Utilice los siguientes procedimientos para elegir las métricas de almacenamient
 
 Para cada uno de los servicios de almacenamiento disponibles en su cuenta de almacenamiento (Blob, Tabla y Cola), puede guardar registros de diagnóstico para solicitudes de lectura, solicitudes de escritura y solicitudes de eliminación, así como configurar la directiva de retención de datos para cada uno de los servicios.
 
-1. En el [Portal de Azure](portal.azure.com), haga clic en **Almacenamiento** y, luego, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
+1. En el [Portal de Azure](https://portal.azure.com), haga clic en **Almacenamiento** y, luego, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
 
 2. Haga clic en **Configurar** y use la flecha abajo del teclado para desplazarse hacia abajo hasta **registro**.
 
@@ -157,4 +157,4 @@ Para cada uno de los servicios de almacenamiento disponibles en su cuenta de alm
 
 Los registros de diagnóstico se guardan en un contenedor de blobs denominado $logs en su cuenta de almacenamiento. Para obtener más información acerca del acceso al contenedor $logs, consulte [Acerca del registro del análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh343262.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -346,7 +346,7 @@ Una vez enviada esta solicitud, la respuesta es la siguiente:
 
  [Planes y facturación en Programador de Azure](scheduler-plans-billing.md)
 
- [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/dn528946)
+ [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/mt629143)
 
  [Referencia de cmdlets de PowerShell de Programador de Azure](scheduler-powershell-reference.md)
 
@@ -360,4 +360,4 @@ Una vez enviada esta solicitud, la respuesta es la siguiente:
  
   
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

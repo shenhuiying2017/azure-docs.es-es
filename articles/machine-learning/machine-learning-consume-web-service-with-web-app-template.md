@@ -56,7 +56,7 @@ Una vez que haya implementado el servicio web, puede seguir estos pasos para usa
 
 	![URI de solicitud][image4]
 
-3. Vaya a [Aplicación web Request-Response Service de Aprendizaje automático de Azure](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) y haga clic en **Crear aplicación web**. La plantilla le dirige al Portal de Microsoft Azure clásico donde se crea la nueva aplicación web.
+3. Vaya al [Portal de Azure](https://portal.azure.com), **Inicio de sesión**, haga clic en **Nuevo**, busque y seleccione **Aplicación web Request-Response Service de Aprendizaje automático de Azure** y, a continuación, haga clic en **Crear**.
 
 	- Asigne un nombre único a la aplicación web. La dirección URL de la aplicación web será este nombre seguido de `.azurewebsites.net.`; por ejemplo, `http://carprediction.azurewebsites.net.`
 
@@ -69,7 +69,7 @@ Una vez que haya implementado el servicio web, puede seguir estos pasos para usa
 4. Cuando Azure termine de implementar la aplicación web, haga clic en la **dirección URL** en la página de configuración de la aplicación web en Azure o escriba la dirección URL en un explorador web. Por ejemplo, `http://carprediction.azurewebsites.net.`
 
 5. Cuando se ejecute la aplicación web por primera vez, le pedirá la **dirección URL del mensaje de API** y **clave de API**. Escriba los valores que guardó anteriormente:
-	- **URI de solicitud** de la página de ayuda de la API para obtener la **Dirección URL del mensaje de API**
+	- **URI de solicitud** de la página de ayuda de la API para **URL del mensaje de API**
 	- **Clave de API** desde el panel del servicio web para obtener la **clave de API**.
 
 	Haga clic en **Enviar**.
@@ -78,7 +78,7 @@ Una vez que haya implementado el servicio web, puede seguir estos pasos para usa
 
 6. La aplicación web muestra su página **Configuración de la aplicación web** con la configuración actual del servicio web. Aquí puede realizar cambios en la configuración usada por la aplicación web.
 
-	> [AZURE.NOTE]El cambio de estas opciones solo las cambia para esta aplicación web. No cambia la configuración predeterminada del servicio web. Por ejemplo, si cambia la **Descripción** aquí, no cambia la descripción mostrada en el panel del servicio web en Estudio de aprendizaje automático.
+	> [AZURE.NOTE] El cambio de estas opciones solo las cambia para esta aplicación web. No cambia la configuración predeterminada del servicio web. Por ejemplo, si cambia la **Descripción** aquí no cambia la descripción mostrada en el panel del servicio web en Estudio de aprendizaje automático.
 
 	Cuando termine, haga clic en **Guardar cambios** y, luego, haga clic en **Ir a la página principal**.
 
@@ -97,7 +97,7 @@ Los resultados de un servicio web de ejecución de lotes se almacenan en un cont
 ![Proceso para usar la plantilla web BES][image2]
 
 1. Siga el mismo procedimiento para crear la aplicación web BES que para RRS, excepto:
-	- Obtenga el **URI de solicitud** desde la página de ayuda de la API **BATCH EXECUTION** para el servicio web.
+	- Obtenga el **URI de solicitud** desde la página de ayuda de la API **ejecución por lotes** para el servicio web.
 	- Vaya a [Plantilla de aplicación web Batch Execution Service de Aprendizaje automático de Azure](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) para abrir la plantilla BES en Azure Marketplace y haga clic en **Crear aplicación web**.
 
 2. Para especificar dónde desea que se almacenen los resultados, escriba la información del contenedor de destino en la página principal de la aplicación web. Especifique también dónde puede obtener los valores de entrada la aplicación web, en un archivo local o en un contenedor de almacenamiento de Azure. Haga clic en **Enviar**.
@@ -125,4 +125,4 @@ Para obtener más información sobre...
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

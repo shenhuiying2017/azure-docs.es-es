@@ -28,13 +28,13 @@ Después de leerlo, podrá responder a las siguientes preguntas:
 
 ##<a id="HowDocumentDBIndexingWorks"></a> Funcionamiento de la indexación de DocumentDB
 
-[Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) es una base de datos verdaderamente libre de esquemas creada específicamente para JSON. No espera ni requiere definiciones de esquema o de índice secundario para indexar los datos a escala. Esto permite definir e iterar rápidamente en modelos de datos de aplicación con DocumentDB. A medida que se agregan documentos a una colección, DocumentDB indexará automáticamente las propiedades de los documentos para que estén disponibles para su consulta. La indexación automática permite almacenar documentos que pertenezcan a esquemas completamente arbitrarios sin preocuparse por esquemas o índices secundarios.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) es una base de datos verdaderamente libre de esquemas creada específicamente para JSON. No espera ni requiere definiciones de esquema o de índice secundario para indexar los datos a escala. Esto permite definir e iterar rápidamente en modelos de datos de aplicación con DocumentDB. A medida que se agregan documentos a una colección, DocumentDB indexará automáticamente las propiedades de los documentos para que estén disponibles para su consulta. La indexación automática permite almacenar documentos que pertenezcan a esquemas completamente arbitrarios sin preocuparse por esquemas o índices secundarios.
 
 Con el objetivo de eliminar la discordancia de impedancia entre la base de datos y los modelos de programación de aplicaciones, DocumentDB aprovecha la sencillez de JSON y su falta de una especificación de esquema. No hace suposiciones sobre los documentos y permite que los documentos comprendidos en una colección de DocumentDB varíen de esquema, además de los valores específicos de la instancia. A diferencia de otras bases de datos documentales, el motor de base de datos de DocumentDB funciona directamente en el nivel de gramática JSON, que se mantiene independiente con respecto al concepto de un esquema de documento y desdibuja el límite entre los valores de instancia y de estructura de documentos. Lo que, a su vez, le permite indexar automáticamente documentos sin que sea necesario usar un esquema ni índices secundarios.
 
 La indexación en DocumentDB aprovecha el hecho de que la gramática de JSON permite que los documentos se **representen en forma de árboles**. Para representar un documento JSON como un árbol, es necesario crear un nodo raíz ficticio que actúe como elemento primario para el resto de nodos reales del documento que dependen de dicho nodo ficticio. Cada etiqueta, que incluye los índices de la matriz en un documento JSON, se convierte en un nodo del árbol. La ilustración siguiente muestra un ejemplo de documento JSON y de su representación de árbol correspondiente.
 
->[AZURE.NOTE]Dado que JSON es autodescriptivo, es decir, cada documento incluye el esquema (metadatos) y los datos, por ejemplo, `{"locationId": 5, "city": "Moscow"}`, revela que hay dos propiedades `locationId` y `city`, y que tienen valores de propiedad de cadena y numéricos. DocumentDB puede deducir el esquema de los documentos e indexarlos cuando se insertan o reemplazan, sin que se tenga que definir ningún esquema ni índice secundario.
+>[AZURE.NOTE] Dado que JSON es autodescriptivo, es decir, cada documento incluye el esquema (metadatos) y los datos, por ejemplo, `{"locationId": 5, "city": "Moscow"}`, revela que hay dos propiedades `locationId` y `city`, y que tienen valores de propiedad de cadena y numéricos. DocumentDB puede deducir el esquema de los documentos e indexarlos cuando se insertan o reemplazan, sin que se tenga que definir ningún esquema ni índice secundario.
 
 
 **Documentos JSON en forma de árboles:**
@@ -67,4 +67,4 @@ La indexación de DocumentDB está diseñada en función de la eficacia de almac
 - Más información sobre cómo personalizar el índice de DocumentDB [aquí](documentdb-indexing-policies.md)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

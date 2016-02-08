@@ -54,7 +54,7 @@ Después de realizar la actualización a V12, las [recomendaciones de nivel de s
 
 ## Iniciar la actualización
 
-1. En el [Portal de Azure](http://portal.azure.com/), vaya al servidor que desea actualizar seleccionando **EXAMINAR TODO** > **Servidores SQL** y seleccione el servidor deseado.
+1. En el [Portal de Azure](https://portal.azure.com/), vaya al servidor que desea actualizar seleccionando **EXAMINAR TODO** > **Servidores SQL** y seleccione el servidor deseado.
 2. Seleccione **Última actualización de la Base de datos SQL** y, a continuación, seleccione **Actualizar este servidor**.
 
       ![actualizar el servidor][1]
@@ -111,7 +111,7 @@ Siga las instrucciones del artículo [Crear un grupo de bases de datos elástica
 
 ## Supervisión de las bases de datos después de actualizar a la Base de datos SQL V12
 
->[AZURE.IMPORTANT]Actualice a la última versión de SQL Server Management Studio (SSMS) para aprovechar las nuevas capacidades de v12. [Descargue SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+>[AZURE.IMPORTANT] Actualice a la última versión de SQL Server Management Studio (SSMS) para aprovechar las nuevas capacidades de v12. [Descargue SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 	
 Después de la actualización, es recomendable que supervise la base de datos de forma activa para asegurarse de que todas las aplicaciones se están ejecutando correctamente y que tienen el rendimiento adecuado; de esta manera, podrá optimizar el uso según sea necesario.
 
@@ -169,4 +169,4 @@ Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje d
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -19,7 +19,7 @@
 
 Las operaciones de enumeración son clave para muchos escenarios de desarrollo con el Almacenamiento de Azure. En este artículo se describe cómo enumerar los objetos del Almacenamiento de Azure de manera eficaz con las API de enumeración proporcionadas en la biblioteca de cliente de Almacenamiento de Microsoft Azure para C++.
 
->[AZURE.NOTE]Esta guía tiene como destino la biblioteca de cliente de Almacenamiento de Azure para C++ versión 1.x, que está disponible a través de [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp).
+>[AZURE.NOTE] Esta guía tiene como destino la biblioteca de cliente de Almacenamiento de Azure para C++ versión 1.x, que está disponible a través de [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 La biblioteca de cliente de almacenamiento proporciona una variedad de métodos para enumerar o consultar objetos en Almacenamiento de Azure. En este artículo se tratan los siguientes escenarios:
 
@@ -182,6 +182,6 @@ Para obtener más información sobre el almacenamiento de Azure y la biblioteca 
 -	[Cómo usar el almacenamiento de colas de C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[Documentación de la Biblioteca de cliente de almacenamiento de Azure para la API de C++.](http://azure.github.io/azure-storage-cpp/)
 -	[Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
--	[Documentación de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
+-	[Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

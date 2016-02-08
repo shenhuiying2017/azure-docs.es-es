@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="01/15/2016"
+   ms.date="01/21/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Diferencias de Transact-SQL de Base de datos SQL de Azure
@@ -53,7 +53,8 @@ Base de datos SQL V12 es compatible con algunos pero no todos los argumentos que
 
 - Intercalación de objetos del sistema
 - Conexión relacionada: instrucciones de punto de conexión, ORIGINAL\_DB\_NAME. Autenticación de Windows no está disponible para inicios de sesión o usuarios de bases de datos independientes.
-- Consultas entre bases de datos, encadenamiento de propiedad entre bases de datos, ajuste TRUSTWORTHY
+- Consultas entre bases de datos para las operaciones INSERT, UPDATE y DELETE. (Solo se admiten las consultas entre bases de datos de solo lectura).
+- Encadenamiento de propiedad entre bases de datos, ajuste TRUSTWORTHY
 - Recopilador de datos
 - Diagramas de base de datos
 - Correo electrónico de base de datos
@@ -106,4 +107,4 @@ La referencia de Transact-SQL incluye temas relacionados con las versiones de SQ
 
 En algunos casos, la línea general de un tema se puede utilizar en un producto, pero existen diferencias poco significativas entre los productos. Las diferencias se indican en los puntos medios del tema según corresponda.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

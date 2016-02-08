@@ -33,4 +33,4 @@ Si la aplicación no se puede conectar en absoluto, suele deberse a la configura
 4.	Compruebe el estado del servicio en el panel. Si piensa que hay un interrupción regional, vea [Recuperación tras una interrupción](sql-database-disaster-recovery.md) para los pasos para recuperarse para una región nueva.
 5.	Si los problemas de conectividad continúan, póngase en contacto con el soporte técnico para abrir un caso de soporte técnico.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

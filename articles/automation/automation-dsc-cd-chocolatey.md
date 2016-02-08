@@ -79,7 +79,7 @@ También podemos aplicar el enfoque manual. La estructura de carpetas de un mód
 
 -   Instale el módulo que necesita en su estación de trabajo, como sigue:
     -   Instale [Windows Management Framework, v5](http://aka.ms/wmf5latest). 
-    -   `Install-Module  –ModuleName MODULENAME` <—toma el módulo de la galería de PowerShell. 
+    -   `Install-Module  –ModuleName MODULENAME` <—toma el módulo de la Galería de PowerShell. 
 -   Copie la carpeta del módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` a una carpeta temporal. 
 -   Elimine los ejemplos y la documentación de la carpeta principal. 
 -   Comprima la carpeta principal y asigne al archivo comprimido el mismo nombre que la carpeta. 
@@ -187,4 +187,4 @@ El código fuente completo de este ejemplo de uso se encuentra en [este proyecto
 - [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Incorporación de máquinas para administrarlas con DSC de Automatización de Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="01/21/2016"
    ms.author="tomfitz"/>
 
 # Bloqueos de recursos: esquema de plantilla
@@ -46,15 +46,13 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 | ---- | ---- | -------- | ---------------- | ----------- |
 | type | enum | Sí | Para recursos: <br />**{namespace}/{type}/providers/locks**<br /><br />Para grupos de recursos:<br />**Microsoft.Authorization/locks** | El tipo de recurso que se creará. |
 | apiVersion | enum | Sí | **2015-01-01** | La versión de la API que se usará para crear el recurso. |  
-| name | cadena | Sí | Para recursos:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />Para grupos de recursos:<br />**{lockname}****<br /><br />hasta 64 caracteres<br />No puede incluir <, > %, &, ? ni ningún carácter de control. | Un valor que especifica el recurso que se bloqueará y un nombre para el bloqueo. |
-| dependsOn | array | No | Una lista separada por comas de los nombres de un recurso o de los identificadores únicos de un recurso. | La colección de recursos de la que depende este bloqueo. Si el recurso que bloquea se implementa en la misma plantilla, incluya el nombre de ese recurso en este elemento para garantizar que el recurso se implemente primero. |
-| properties | object | Yes | (se muestra a continuación) | Un objeto que identifica el tipo de bloqueo y notas sobre el bloqueo. | 
+| name | cadena | Sí | Para recursos:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />Para grupos de recursos:<br />**{lockname}****<br /><br />hasta 64 caracteres<br />No puede incluir <, > %, &, ? ni ningún carácter de control. | Un valor que especifica el recurso que se bloqueará y un nombre para el bloqueo. | | dependsOn | array | No | Una lista separada por comas de los nombres de un recurso o de los identificadores únicos de un recurso. | La colección de recursos de la que depende este bloqueo. Si el recurso que bloquea se implementa en la misma plantilla, incluya el nombre de ese recurso en este elemento para garantizar que el recurso se implemente primero. | | properties | object | Yes | (se muestra a continuación) | Un objeto que identifica el tipo de bloqueo y notas sobre el bloqueo. | 
 
 ### properties object
 
 | Nombre | Tipo | Obligatorio | Valores permitidos | Descripción |
 | ------- | ---- | ---------------- | -------- | ----------- |
-| level | enum | Sí | **CannotDelete** <br /> **ReadOnly** | El tipo de bloqueo que se aplicará al ámbito. CanNotDelete permite la modificación, pero evita la eliminación. ReadOnly evita la modificación y la eliminación. |
+| level | enum | Sí | **CannotDelete** | El tipo de bloqueo que se aplicará al ámbito. CanNotDelete permite la modificación pero impide la eliminación. |
 | HDInsight | cadena | No | 512 caracteres | Descripción del bloqueo. |
 
 
@@ -64,13 +62,13 @@ Agrega este recurso a la plantilla para evitar que se realicen acciones especifi
 
 Para crear o eliminar bloqueos de administración, debe tener acceso a las acciones **Microsoft.Authorization/*** o **Microsoft.Authorization/locks/***. De los roles integrados, solo se conceden esas acciones a **Propietario** y **Administrador de acceso de usuario**. Para información sobre el control de acceso basado en roles, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
 
-El bloqueo se aplica al recurso especificado y a cualquier recurso secundario. Si se aplica más de un bloqueo a un recurso, el bloqueo más restrictivo tiene prioridad. Por ejemplo, si aplica ReadOnly en el nivel primario (por ejemplo, el grupo de recursos) y CanNotDelete a un recurso dentro de ese grupo, prevalece el bloqueo más restrictivo (ReadOnly) del elemento primario.
+El bloqueo se aplica al recurso especificado y a cualquier recurso secundario.
 
 Puede quitar un bloqueo con el comando PowerShell **Remove-AzureRmResourceLock** o con la [operación de eliminación](https://msdn.microsoft.com/library/azure/mt204562.aspx) de la API de REST.
 
 ## Ejemplos
 
-El ejemplo siguiente aplica un bloqueo de solo lectura a una aplicación web.
+El ejemplo siguiente aplica un bloqueo de no se puede eliminar a una aplicación web.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -100,7 +98,7 @@ El ejemplo siguiente aplica un bloqueo de solo lectura a una aplicación web.
                 "dependsOn": [ "[variables('siteName')]" ],
                 "properties":
                 {
-                    "level": "ReadOnly",
+                    "level": "CannotDelete",
                     "notes": "my notes"
                 }
              }
@@ -108,7 +106,7 @@ El ejemplo siguiente aplica un bloqueo de solo lectura a una aplicación web.
         "outputs": {}
     }
 
-El próximo ejemplo aplica un bloqueo de solo lectura al grupo de recursos.
+El próximo ejemplo aplica un bloqueo de no se puede eliminar al grupo de recursos.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -122,7 +120,7 @@ El próximo ejemplo aplica un bloqueo de solo lectura al grupo de recursos.
                 "name": "MyGroupLock",
                 "properties":
                 {
-                    "level": "ReadOnly",
+                    "level": "CannotDelete",
                     "notes": "my notes"
                 }
             }
@@ -135,4 +133,4 @@ El próximo ejemplo aplica un bloqueo de solo lectura al grupo de recursos.
 - Para obtener más información sobre la estructura de la plantilla, consulte [Crear plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para obtener más información sobre los bloqueos, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

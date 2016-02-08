@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-En los siguientes comandos de ejemplo de la CLI de Azure se presupone que ya se creó un entorno simple. Si quieres ejecutar los comandos como aparecen en este documento, primero crea el entorno de prueba descrito en [Creación de una red virtual](virtual-networks-create-vnet-arm-cli.md).
+En los siguientes comandos de ejemplo de la CLI de Azure se presupone que ya se creó un entorno simple. Si desea ejecutar los comandos que aparecen en este documento, cree primero el entorno de prueba descrito en [creación de una red virtual](virtual-networks-create-vnet-arm-cli.md).
 
 ## Especificación de una dirección IP privada estática al crear una VM
 Para crear una VM denominada *DNS01* en la subred de *FrontEnd* de una Red virtual denominada *TestVNet* con una IP privada estática de *192.168.1.101*, sigue estos pasos:
@@ -233,7 +233,7 @@ No se puede eliminar una dirección IP privada estática de una NIC de la CLI de
 ## Adición de una dirección IP privada estática a una VM existente
 Para agregar una dirección IP privada estática a la NIC que usó la VM y creada con el script anterior, ejecuta el siguiente comando:
 
-	azure netwrok nic set -g TestRG -n TestNIC2 -a 192.168.1.101
+	azure network nic set -g TestRG -n TestNIC2 -a 192.168.1.101
 
 Resultado esperado:
 
@@ -260,8 +260,8 @@ Resultado esperado:
 
 ## Pasos siguientes
 
-- Encuentra más información sobre las direcciones [IP públicas reservadas](../virtual-networks-reserved-public-ip).
-- Encuentra más información sobre las direcciones [IP públicas a nivel de instancia (ILPIP)](../virtual-networks-instance-level-public-ip).
+- Obtenga más información acerca de las [direcciones IP públicas reservadas](../virtual-networks-reserved-public-ip).
+- Obtenga información sobre las [direcciones IP públicas a nivel de instancia (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Consulta las [API de REST de IP reservadas](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

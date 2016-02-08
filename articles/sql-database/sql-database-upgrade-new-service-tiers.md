@@ -22,7 +22,7 @@
 Las bases de datos SQL [Web o Business de Azure se van a retirar](sql-database-web-business-sunset-faq.md), por lo que llegó el momento de actualizarlas a los [niveles de servicio Basic, Standard, Premium o Elastic](sql-database-service-tiers.md).
 
 
-> [AZURE.IMPORTANT]La actualización de bases de datos Web o Business a un nuevo nivel de servicio no desconecta la base de datos. La base de datos seguirá en línea y disponible durante toda la operación de actualización.
+> [AZURE.IMPORTANT] La actualización de bases de datos Web o Business a un nuevo nivel de servicio no desconecta la base de datos. La base de datos seguirá en línea y disponible durante toda la operación de actualización.
 
 
 Para ayudarle con la actualización, el servicio Base de datos SQL recomienda un nivel de servicio apropiado y un nivel de rendimiento (plan de tarifa) para cada base de datos. Al analizar el uso histórico para de base de datos, el servicio recomienda el nivel que mejor se adapte para ejecutar las cargas de trabajo de la base de datos existente.
@@ -91,7 +91,7 @@ Los niveles de rendimiento y características del nuevo nivel de servicio se res
 |:--|:--|
 |[Niveles de servicio y niveles de rendimiento de la Base de datos SQL de Azure](sql-database-service-tiers.md)| Información general, métricas y capacidades para cada nivel de servicio (y cómo supervisar el uso de la base de datos en el portal clásico y mediante las vistas de administración dinámica). |
 |[Continuidad de negocio de Base de datos SQL de Azure](sql-database-business-continuity.md)|Detalles de las características de recuperación ante desastres y continuidad de negocio (restauración a un momento dado, restauración geográfica, replicación geográfica) disponibles para los diferentes niveles de servicio.|
-|[Precios de base de datos SQL](http://azure.microsoft.com/pricing/details/sql-database/)|Información detallada sobre precios de los diferentes niveles de servicio y niveles de rendimiento.|
+|[Precios de base de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/)|Información detallada sobre precios de los diferentes niveles de servicio y niveles de rendimiento.|
 
 <br>
 
@@ -150,7 +150,7 @@ Para profundizar en los detalles del consumo de recursos de la base de datos, se
 
 Para acceder a los datos sobre el consumo de recursos de la base de datos Web y Business, hay que utilizar la vista [sys.resource\_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) de la base de datos maestra del servidor lógico en el que se encuentra la base de datos actual. Muestra los datos de consumo de recursos en porcentajes del límite del nivel de rendimiento. Esta vista proporciona datos de los últimos 14 días, a intervalos de 5 minutos.
 
-> [AZURE.NOTE]Ahora puede usar la vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) en las bases de datos Web y Business para obtener una vista con mayor granularidad (cada 15 segundos) de los datos de consumo de recursos. sys.dm\_db\_resource\_stats solo conserva datos históricos durante una hora, por lo que puede consultar esta vista de administración dinámica cada hora y almacenar los datos para realizar análisis adicionales.
+> [AZURE.NOTE] Ahora puede usar la vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) en las bases de datos Web y Business para obtener una vista con mayor granularidad (cada 15 segundos) de los datos de consumo de recursos. sys.dm\_db\_resource\_stats solo conserva datos históricos durante una hora, por lo que puede consultar esta vista de administración dinámica cada hora y almacenar los datos para realizar análisis adicionales.
 
 Ejecute la siguiente consulta en la base de datos maestra para recuperar el consumo de DTU medio de una base de datos:
 
@@ -290,7 +290,7 @@ Después de la actualización de la base de datos Web o Business en el nuevo niv
     ORDER BY end_time DESC;
 
  
-La [documentación](http://msdn.microsoft.com/library/dn800981.aspx) adicional contiene detalles sobre cómo usar esta vista de administración dinámica. La [Guía de rendimiento de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn369873.aspx) explica cómo supervisar y ajustar la aplicación.
+La [documentación](http://msdn.microsoft.com/library/dn800981.aspx) adicional contiene detalles sobre cómo usar esta DMV (vista de administración dinámica). La [Guía de rendimiento de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn369873.aspx) explica cómo supervisar y ajustar la aplicación.
 
 
 - **Alertas**: configure "Alertas" en el Portal de Azure clásico para recibir una notificación cuando el consumo de DTU de una base de datos actualizada alcance un determinado nivel. Las alertas de la base de datos pueden configurarse en el Portal de Azure clásico con diferentes métricas de rendimiento como DTU, CPU, E/S y registro. 
@@ -317,4 +317,4 @@ El servicio Base de datos SQL de Azure proporciona herramientas y datos de telem
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

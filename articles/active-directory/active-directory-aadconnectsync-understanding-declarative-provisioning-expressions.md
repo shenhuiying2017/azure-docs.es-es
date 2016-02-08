@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="01/21/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -72,7 +72,7 @@ Un ejemplo que llenará el dominio del atributo de metaverso con el nombre netbi
 Pueden utilizarse los siguientes operadores:
 
 - **Comparación**: <, <=, <>, =, >, >=
-- **Matemático**: +, -, *, -
+- **Matemáticos**: +, -, *, -
 - **Cadena**: & (concatenar)
 - **Lógico**: && (and), || (or)
 - **Orden de evaluación**: ( )
@@ -131,4 +131,4 @@ Para una lista completa de funciones, vea [Azure AD Connect Sync: referencia de 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

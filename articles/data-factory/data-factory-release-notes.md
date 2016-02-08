@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Notas de la versión de la factoría de datos Azure
@@ -287,12 +287,12 @@ Pero, si un segmento anterior se vuelve a ejecutar, no aparecería en la parte s
 -  Puede especificar la codificación para los archivos de texto en un Blob de Azure. Vea la nueva propiedad [encodingName property](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob). 
 - Puede invocar un procedimiento almacenado con parámetros adicionales al copiar en un receptor de SQL.    
 
-Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevos almacenes de datos](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/) para obtener información adicional y ejemplos.
+Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevos almacenes de datos](https://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/) para obtener información adicional y ejemplos.
 
 ## Notas para la versión de 27/02/2015 de la Factoría de datos
 
 ### Nuevas mejoras
-- **Editor de la Factoría de datos de Azure**. El Editor de la Factoría de datos, que forma parte del Portal de Azure, permite crear, editar e implementar archivos JSON que definen servicios vinculados, conjuntos de datos y canalizaciones. El objetivo principal del editor es proporcionar una interfaz de usuario (IU) rápida y ligera para crear artefactos de la Factoría de datos de Azure sin tener que instalar Azure PowerShell y para mejorar el uso de los cmdlets de PowerShell. Consulte la entrada de blog [Editor de la Factoría de datos de Azure: un editor web ligero][adf-editor-blog] para obtener información general rápida y un vídeo sobre el Editor de la Factoría de datos. Consulte el artículo [Editor de la Factoría de datos][adf-editor] para obtener información general del editor.          
+- **Editor de la Factoría de datos de Azure**. El Editor de la Factoría de datos, que forma parte del Portal de Azure, permite crear, editar e implementar archivos JSON que definen servicios vinculados, conjuntos de datos y canalizaciones. El objetivo principal del editor es proporcionar una interfaz de usuario (IU) rápida y ligera para crear artefactos de la Factoría de datos de Azure sin tener que instalar Azure PowerShell y para mejorar el uso de los cmdlets de PowerShell. Consulte la entrada de blog [Editor de la Factoría de datos de Azure: un editor web ligero][adf-editor-blog] para obtener información general rápida y un vídeo sobre el Editor de la Factoría de datos.  
 
 ### Cambios
 
@@ -340,7 +340,6 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
 
 [adf-azure-ml]: data-factory-azure-ml-batch-execution-activity.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
-[adf-editor]: data-factory-editor.md
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
 [adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/
@@ -354,4 +353,4 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

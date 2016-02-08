@@ -80,7 +80,7 @@ Para configurar el entorno de ciencia de datos de Azure:
 
 3. [Aprovisione una máquina virtual de ciencia de datos](machine-learning-data-science-setup-sql-server-virtual-machine.md), que actuará no solo como servidor de SQL Server, sino también como servidor de Blocs de notas de IPython.
 
-	> [AZURE.NOTE]Los scripts y Blocs de notas de IPython de ejemplo se descargarán en la máquina virtual de ciencia de datos durante el proceso de instalación. Cuando se complete el script posterior a la instalación de la máquina virtual, los ejemplos estarán en la biblioteca de documentos de su máquina virtual: - Scripts de ejemplo: `C:\Users<user_name>\Documents\Data Science Scripts` - Blocs de notas de IPython de ejemplo: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` donde `<user_name>` es el nombre de inicio de sesión de Windows de la máquina virtual. Se hará referencia a las carpetas de ejemplo como **Scripts de ejemplo** y **Blocs de notas de IPython de ejemplo**.
+	> [AZURE.NOTE] Los scripts y Blocs de notas de IPython de ejemplo se descargarán en la máquina virtual de ciencia de datos durante el proceso de instalación. Cuando se complete el script posterior a la instalación de la máquina virtual, los ejemplos estarán en la biblioteca de documentos de su máquina virtual: - Scripts de ejemplo: `C:\Users<user_name>\Documents\Data Science Scripts` - Blocs de notas de IPython de ejemplo: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` donde `<user_name>` es el nombre de inicio de sesión de Windows de la máquina virtual. Se hará referencia a las carpetas de ejemplo como **Scripts de ejemplo** y **Blocs de notas de IPython de ejemplo**.
 
 
 Teniendo en cuenta el tamaño del conjunto de datos, la ubicación del origen de datos y el entorno destino de Azure seleccionado, este escenario es similar a [Escenario nº 5: Conjunto de datos grande de archivos locales, con SQL Server en una máquina virtual de Azure como destino](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
@@ -612,7 +612,7 @@ Para iniciar el ejercicio de modelado, inicie sesión en el área de trabajo de 
 
 2. Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net).
 
-3. La página principal del Estudio ofrece una gran cantidad de información, vídeos, tutoriales, vínculos a referencias de módulos y otros recursos. Para obtener más información acerca de Aprendizaje automático de Azure, consulte el [Centro de documentación de Aprendizaje automático de Azure](http://azure.microsoft.com/documentation/services/machine-learning/).
+3. La página principal del Estudio ofrece una gran cantidad de información, vídeos, tutoriales, vínculos a referencias de módulos y otros recursos. Para obtener más información acerca de Aprendizaje automático de Azure, consulte el [Centro de documentación de Aprendizaje automático de Azure](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 Un experimento de entrenamiento típico consta de las siguientes acciones:
 
@@ -649,7 +649,7 @@ En la ilustración siguiente se muestra un ejemplo de un experimento de clasific
 
 ![Entrenamiento de Aprendizaje automático de Azure][10]
 
-> [AZURE.IMPORTANT]En los ejemplos de consultas de extracción y muestreo de datos de modelado de las secciones anteriores, **las etiquetas de los tres ejercicios de modelado se incluyen en la consulta**. Un paso importante (requerido) en cada uno de los ejercicios de modelado consiste en **excluir** las etiquetas innecesarias de los otros dos problemas y cualquier otra **fuga de destino**. Por ejemplo., cuando use clasificación binaria, utilice la etiqueta **tipped** y excluya los campos **tip\_class**, **tip\_amount** y **total\_amount**. Estos últimos son fugas de destino ya que implican que se pagó propina.
+> [AZURE.IMPORTANT] En los ejemplos de consultas de extracción y muestreo de datos de modelado de las secciones anteriores, **las etiquetas de los tres ejercicios de modelado se incluyen en la consulta**. Un paso importante (requerido) en cada uno de los ejercicios de modelado consiste en **excluir** las etiquetas innecesarias de los otros dos problemas y cualquier otra **fuga de destino**. Por ejemplo., cuando use clasificación binaria, utilice la etiqueta **tipped** y excluya los campos **tip\_class**, **tip\_amount** y **total\_amount**. Estos últimos son fugas de destino ya que implican que se pagó propina.
 >
 > Para excluir columnas innecesarias o fugas de destino, puede usar el módulo [Proyectar columnas][project-columns] o el [Editor de metadatos][metadata-editor]. Para obtener más información, consulte las páginas de referencia de [Proyectar columnas][project-columns] y [Editor de metadatos][metadata-editor].
 
@@ -714,4 +714,4 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

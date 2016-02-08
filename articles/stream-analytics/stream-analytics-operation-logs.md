@@ -17,7 +17,7 @@
 	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-# depuración de los trabajos de Análisis de transmisiones mediante registros de operaciones y servicios
+# Depuración de los trabajos de Análisis de transmisiones mediante registros de operaciones y servicios
 
 Todos los servicios de Azure ofrecen mensajes de registro operativo a los usuarios para registrar los detalles relacionados con las operaciones de administración. En el Análisis de transmisiones de Azure, esta información se puede usar para depuración, como ver el estado del trabajo, el progreso del trabajo y los mensajes de error para realizar el seguimiento del progreso de un trabajo con el tiempo, desde el inicio hasta el procesamiento y la salida.
 
@@ -83,7 +83,7 @@ Puede seleccionar cualquiera de los errores y hacer clic en **Detalles** para ob
 
   ![Detalles de la operación](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)
 
-En caso de que necesite ponerse en contacto con [Soporte](http://azure.microsoft.com/support/options/) u ofrecer información al equipo a través del [foro de MSDN](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics), tenga en cuenta los detalles de la operación, específicamente el **Id. de correlación**.
+En caso de que necesite ponerse en contacto con [Soporte](https://azure.microsoft.com/support/options/) u ofrecer información al equipo a través del [foro de MSDN](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics), tenga en cuenta los detalles de la operación, específicamente el **Id. de correlación**.
 
 ## Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
@@ -96,4 +96,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

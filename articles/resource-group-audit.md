@@ -162,4 +162,4 @@ Puede seleccionar cualquier operación para obtener más detalles sobre ella.
 - Para obtener información sobre la concesión del acceso a una entidad de seguridad de servicio, vea [Autenticación de una entidad de seguridad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
 - Para aprender a realizar acciones en un recurso para todos los usuarios, vea [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

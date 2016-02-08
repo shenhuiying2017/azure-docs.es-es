@@ -69,7 +69,7 @@ Para la mayoría de las aplicaciones SaaS, el aprovisionamiento es sólo de sali
 
 **¿Cómo puedo enviar comentarios al equipo de ingeniería?**
 
-Póngase en contacto con nosotros a través del [foro de comentarios de Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+Póngase en contacto con nosotros a través del [foro de comentarios de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ##¿Cómo funciona el aprovisionamiento automático?
 
@@ -104,8 +104,8 @@ Haga clic en una aplicación para ver un tutorial sobre cómo configurar el apro
 
 Para que una aplicación admita el aprovisionamiento automático de usuarios, primero debe proporcionar los extremos necesarios que permitan a los programas externos automatizar la creación, el mantenimiento y la eliminación de usuarios. Por lo tanto, no todas las aplicaciones SaaS son compatibles con esta característica. En el caso de las aplicaciones que sí son compatibles, el equipo de ingeniería de Azure AD podrá crear un conector de aprovisionamiento para esas aplicaciones, y las prioridades para realizar este trabajo se basan en las necesidades de los clientes actuales y potenciales.
 
-Si desea ponerse en contacto con el equipo de ingeniería de Azure AD para solicitar soporte técnico para el aprovisionamiento de aplicaciones adicionales, envíe un mensaje a través del [foro de comentarios de Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+Si desea ponerse en contacto con el equipo de ingeniería de Azure AD para solicitar soporte técnico para el aprovisionamiento de aplicaciones adicionales, envíe un mensaje a través del [foro de comentarios de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

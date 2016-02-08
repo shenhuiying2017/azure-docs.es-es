@@ -46,7 +46,7 @@ Para hacer una copia de seguridad de una máquina virtual, primero se necesita u
 
 Una vez tomada la instantánea, los datos se transfieren por el servicio de Copia de seguridad de Azure al almacén de copia de seguridad. El servicio se encarga de identificar y transferir solo los bloques que han cambiado desde la última copia de seguridad, lo que hace que el almacenamiento de copias de seguridad y la red sean eficaces. Una vez completada la transferencia de datos, se elimina la instantánea y se crea un punto de recuperación. Este punto de recuperación se puede ver en el Portal de administración de Azure.
 
->[AZURE.NOTE]Para las máquinas virtuales de Linux, solo es posible la copia de seguridad coherente con archivos.
+>[AZURE.NOTE] Para las máquinas virtuales de Linux, solo es posible la copia de seguridad coherente con archivos.
 
 ## Requisitos previos
 Prepare Copia de seguridad de Azure para crear copias de seguridad de los datos de DPM de la manera siguiente:
@@ -90,6 +90,6 @@ No se admiten los siguientes:
 - Flujo comprimido
 - Flujo disperso
 
->[AZURE.NOTE]A partir de System Center 2012 DPM con SP1 en adelante, puede realizar una copia de seguridad de las cargas protegidas por DPM en Azure con Copia de seguridad de Microsoft Azure.
+>[AZURE.NOTE] A partir de System Center 2012 DPM con SP1 en adelante, puede realizar una copia de seguridad de las cargas protegidas por DPM en Azure con Copia de seguridad de Microsoft Azure.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

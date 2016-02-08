@@ -26,7 +26,7 @@ El Laboratorio de desarrollo y pruebas permite especificar directivas de clave q
 
 Para ver (y cambiar) las directivas para un laboratorio, siga estos pasos:
 
-1. Inicie sesión en el [Portal de vista previa de Azure](http://portal.azure.com).
+1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com).
 
 1. Pulse **Examinar** y luego pulse **Laboratorios de desarrollo y pruebas** en la lista.
 
@@ -100,4 +100,4 @@ La directiva de apagado automático ayuda a minimizar la pérdida del laboratori
 
 1. Pulse **Guardar**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

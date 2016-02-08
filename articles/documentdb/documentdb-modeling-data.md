@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Modelado de datos en Azure DocumentDB | Microsoft Azure" 
-	description="Aprenda a modelar datos para una base de datos de documentos NoSQL como Azure DocumentDB" 
+	description="Más información sobre el modelado de datos para DocumentDB, una base de datos de documentos NoSQL." 
+	keywords="modelado de datos"
 	services="documentdb" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
@@ -87,7 +88,7 @@ Por lo general, use los modelos de datos de incrustación cuando:
 - Existen datos incrustados que no crecerán **sin límites**.
 - Existen datos incrustados que se **integran** en los datos en un documento.
 
-> [AZURE.NOTE]Los modelos de datos desnormalizados normalmente proporcionan un mejor rendimiento de **lectura**.
+> [AZURE.NOTE] Los modelos de datos desnormalizados normalmente proporcionan un mejor rendimiento de **lectura**.
 
 ###Cuándo no se debe incrustar
 
@@ -113,7 +114,7 @@ Seleccione este fragmento JSON.
 
 Este podría el aspecto de una entidad de publicación con comentarios incrustados si se ha modelado un sistema, CMS o blog normales. El problema con este ejemplo es que la matriz de comentarios **no está limitada**, lo que significa que no hay ningún límite (práctico) para el número de comentarios que puede tener cualquier publicación única. Esto será un problema, ya que el tamaño del documento puede aumentar notablemente.
 
-> [AZURE.TIP]Los documentos de DocumentDB tienen un tamaño máximo. Para obtener más información sobre esto, consulte [Límites de DocumentDB](documentdb-limits.md).
+> [AZURE.TIP] Los documentos de DocumentDB tienen un tamaño máximo. Para obtener más información sobre esto, consulte [Límites de DocumentDB](documentdb-limits.md).
 
 Puesto que el tamaño del documento aumenta la capacidad de transmisión de los datos a través de la conexión, así como la lectura y actualización del documento, a escala, se producirá un impacto en ellos.
 
@@ -220,7 +221,7 @@ En el siguiente JSON hemos optado por utilizar el ejemplo de una cartera de acci
 
 Sin embargo, una desventaja de este enfoque inmediato es si la aplicación es necesaria para mostrar información sobre cada acción que se mantiene al mostrar la cartera de una persona; en este caso necesitaría realizar varios viajes a la base de datos para cargar la información de cada documento de acciones. Aquí hemos tomado una decisión de mejorar la eficacia de las operaciones de escritura, que se producen con frecuencia a lo largo del día, pero a su vez, se comprometen las operaciones de lectura que potencialmente tienen un menor impacto en el rendimiento de este sistema en particular.
 
-> [AZURE.NOTE]Los modelos de datos normalizados **pueden requerir varios viajes de ida y vuelta** al servidor.
+> [AZURE.NOTE] Los modelos de datos normalizados **pueden requerir varios viajes de ida y vuelta** al servidor.
 
 ### ¿Qué sucede con las claves externas?
 Puesto que actualmente no hay ningún concepto de restricción, clave externa o de otra índole, las relaciones entre documentos que tienen en los documentos son efectivamente "puntos débiles" y la base de datos no los comprobará. Si desea asegurarse de que los datos a los que hace referencia un documento existen realmente, debe hacerlo en la aplicación o mediante el uso de desencadenadores de servidor o procedimientos almacenados en DocumentDB.
@@ -233,7 +234,7 @@ Por lo general, se deben utilizar modelos de datos normalizados cuando:
 - Los datos relacionados **cambian con frecuencia**.
 - Puede **cancelarse el límite** de los datos de referencia.
 
-> [AZURE.NOTE]Normalmente, la normalización proporciona un mejor rendimiento de **escritura**.
+> [AZURE.NOTE] Normalmente, la normalización proporciona un mejor rendimiento de **escritura**.
 
 ###¿Dónde coloco la relación?
 El crecimiento de la relación le ayudará a determinar en qué documento almacenar la referencia.
@@ -383,13 +384,13 @@ Lo más importante de este artículo es comprender que el modelado de datos en u
 
 Como no hay ninguna manera única de representar un elemento de datos en una pantalla, no hay una única forma de modelar los datos. Necesita comprender la aplicación y saber cómo producirá, consumirá y procesará los datos. A continuación, mediante la aplicación de algunas directrices presentadas aquí, puede crear un modelo que aborde las necesidades inmediatas de la aplicación. Cuando las aplicaciones necesitan cambiar, puede aprovechar la flexibilidad de una base de datos sin esquemas para adoptar ese cambio y que el modelo de datos evolucione con facilidad.
 
-Para obtener más información acerca de Azure DocumentDB,consulte la página de [documentación](https://azure.microsoft.com/documentation/services/documentdb/) del servicio.
+Para más información sobre Azure DocumentDB, vea la página de [documentación](https://azure.microsoft.com/documentation/services/documentdb/) del servicio.
 
 Para obtener información sobre el ajuste de índices en Azure DocumentDB, consulte el artículo sobre [directivas de indexación](documentdb-indexing-policies.md).
 
 Para comprender cómo particionar los datos en varias particiones, consulte [Partición de datos en DocumentDB](documentdb-partition-data.md).
 
-Y por último, para obtener información sobre el particionamiento y el modelado de datos para aplicaciones de varios inquilinos, consulte [Escalación de una aplicación de varios inquilinos con Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
+Y por último, para obtener información sobre el particionamiento y el modelado de datos en aplicaciones multiempresa, consulte [Scaling a Multi-Tenant Application with Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx) (Escalación de una aplicación multiempresa con Azure DocumentDB).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

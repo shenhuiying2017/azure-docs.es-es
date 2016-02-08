@@ -57,7 +57,7 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 
 * [Cómo implementar trabajos web de Azure con Visual Studio](websites-dotnet-deploy-webjobs.md)
 * [Implementación de WebJobs mediante el Portal de Azure](web-sites-create-web-jobs.md)
-* [Habilitación de la línea de comandos o entrega continua de WebJobs de Azure](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
+* [Habilitación de la línea de comandos o entrega continua de WebJobs de Azure](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Implementación de Git de una aplicación de consola .NET en Azure usando WebJobs](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Deploying an F# WebJob to Azure (Implementación de un WebJob de F# en Azure)](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
 * [Deploying custom services as Azure Webjobs (Implementación de servicios personalizados como Webjobs de Azure](http://withouttheloop.com/articles/2015-06-23-deploying-custom-services-as-azure-webjobs/)
@@ -98,7 +98,7 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 * [Entrada de blog sobre disponibilidad general de WebJobs de Azure por Magnus Mårtensson](http://magnusmartensson.com/azure-webjobs-ga)
 * [Ejecución de WebJobs de PowerShell en Sitios web de Azure](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [Recepción de notificación cuando se completen los WebJobs desencadenados en Azure](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
-* [Directiva sencilla de retención de copia de seguridad de sitio web con WebJobs](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
+* [Directiva sencilla de retención de copia de seguridad de sitio web con WebJobs](https://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
 * [Sitios web y Servicios en la nube de Microsoft Azure lentos en la primera solicitud](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/). Muestra cómo utilizar WebJobs para simular la característica AlwaysOn que solo está disponible para el nivel Estándar de precios.
 * [Cierre estable de WebJobs](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl). Para obtener información sobre el cierre estable de SDK de WebJobs, consulte [Cierre estable](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful).
 * [Automatización de las copias de seguridad con Azure WebJobs y AzCopy](http://markjbrown.com/azure-webjobs-azcopy/)
@@ -135,8 +135,8 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 * [StackOverflow para el SDK de WebJobs](http://stackoverflow.com/questions/tagged/azure-webjobssdk)
 * [Foro de Azure y ASP.NET](http://forums.asp.net/1247.aspx)
 * [Foro de aplicaciones web del Servicio de aplicaciones de Azure](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
-* [Sitio para el usuario de Aplicaciones web de Azure](http://feedback.azure.com/forums/169385-websites)
+* [Sitio para el usuario de Aplicaciones web de Azure](https://feedback.azure.com/forums/169385-websites/)
 * [Twitter](http://twitter.com/). Utilice el hashtag #AzureWebJobs.
 * [Report a WebJobs bug or issue (Notificar un problema o error de WebJobs)](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

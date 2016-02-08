@@ -109,7 +109,7 @@ XUF99EW9OIQOMV7Q7 | Berlina familiar
 
 [Solución de simulador telemático de vehículo de Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075)
 
-[Centro de eventos de Azure](http://azure.microsoft.com/services/event-hubs/)
+[Centro de eventos de Azure](https://azure.microsoft.com/services/event-hubs/)
 
 [Factoría de datos de Azure](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
@@ -163,7 +163,7 @@ Una vez que la canalización se ejecuta correctamente y se marca el conjunto de 
 
 
 ## Preparación
->[AZURE.ALERT]Este paso de la solución solo es aplicable al procesamiento por lotes.
+>[AZURE.ALERT] Este paso de la solución solo es aplicable al procesamiento por lotes.
 
 El conjunto de datos semiestructurado sin procesar de señales y diagnóstico de vehículo se particiona en el paso de preparación de datos en un formato de año y mes para una consulta eficiente y un almacenamiento escalable a largo plazo (es decir, permite una conmutación por error de una cuenta de blob a la siguiente a medida que se llena la primera). Los datos de salida (etiquetados *PartitionedCarEventsTable*) se guardarán durante un largo período como formulario de datos fundacionales (sin procesamiento alguno) en el "Data Lake" del cliente. Normalmente se podrían descartar los datos de entrada para esta canalización, ya que los datos de salida mantienen la máxima fidelidad a la entrada, simplemente se almacenan (se particionan) para su uso posterior.
 
@@ -396,7 +396,7 @@ Haga clic en la [descarga de RealtimeDashboardApp](http://go.microsoft.com/fwlin
 
 *Ilustración 19: RealtimeDashboardApp: Inicio de sesión en Power BI*
 
->[AZURE.NOTE]Nota: Si desea vaciar el conjunto de datos Power BI, ejecute RealtimeDashboardApp con el parámetro "flushdata":
+>[AZURE.NOTE] Nota: Si desea vaciar el conjunto de datos Power BI, ejecute RealtimeDashboardApp con el parámetro "flushdata":
 
 	RealtimeDashboardApp.exe -flushdata
 
@@ -706,4 +706,4 @@ Haga clic aquí para obtener instrucciones detalladas sobre cómo configurar los
 
 Este documento contiene un desglose detallado de la solución de análisis de telemetría de vehículos. Se presenta un patrón de arquitectura lambda para análisis en tiempo real y de procesamiento por lotes con predicciones y acciones. Este patrón se aplica a una amplia gama de casos de uso que requieren análisis con ruta de acceso activa (en tiempo real) y la ruta de acceso frío (lote).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

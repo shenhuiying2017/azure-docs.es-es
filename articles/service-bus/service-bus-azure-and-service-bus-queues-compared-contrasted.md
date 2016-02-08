@@ -23,9 +23,9 @@ En este artículo se analizan las diferencias y similitudes entre los dos tipos 
 
 Microsoft Azure admite dos tipos de mecanismos de cola: **colas de Azure** y **colas de Service Bus**.
 
-**Colas de Azure**, que forman parte de la infraestructura de [almacenamiento de Azure](http://azure.microsoft.com/services/storage/), ofrecen una interfaz de Get/Put/Peek sencilla basada en REST, que ofrece una mensajería confiable y persistente dentro de los servicios y entre ellos.
+**Colas de Azure**, que forman parte de la infraestructura de [almacenamiento de Azure](https://azure.microsoft.com/services/storage/), ofrecen una interfaz de Get/Put/Peek sencilla basada en REST, que ofrece una mensajería confiable y persistente dentro de los servicios y entre ellos.
 
-Las **colas de Service Bus** forman parte de una infraestructura de [mensajería de Azure](http://azure.microsoft.com/services/service-bus/) más amplia que admite la puesta en cola, así como la publicación/suscripción, la comunicación remota de servicio web y los patrones de integración. Para obtener más información sobre las colas de Bus de servicio, temas/suscripciones y retransmisiones, consulte [Introducción de la mensajería del Bus de servicio](service-bus-messaging-overview.md).
+Las **colas de Service Bus** forman parte de una infraestructura de [mensajería de Azure](https://azure.microsoft.com/services/service-bus/) más amplia que admite la puesta en cola, así como la publicación/suscripción, la comunicación remota de servicio web y los patrones de integración. Para obtener más información sobre las colas de Bus de servicio, temas/suscripciones y retransmisiones, consulte [Introducción de la mensajería del Bus de servicio](service-bus-messaging-overview.md).
 
 Aunque ambas tecnologías de cola existen de manera simultánea, las colas de Azure se presentaron en primer lugar, como un mecanismo de almacenamiento de cola dedicado creado a partir de los servicios de almacenamiento de Azure. Las colas de Service Bus se generan además de la infraestructura de "mensajería asíncrona" más amplia diseñada para integrar aplicaciones o componentes de aplicación que pueden abarcar varios protocolos de comunicación, contratos de datos, dominios de confianza y/o entornos de red.
 
@@ -204,8 +204,7 @@ En esta sección se comparan algunas de las características de administración 
 |Criterios de comparación|Colas de Azure|Colas del Bus de servicio|
 |---|---|---|
 |Protocolo de administración|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**|
-|Protocolo de tiempo de ejecución|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 estándar (TCP con TLS)**|
-| API administrada de .NET|**Sí**<br/><br/>(API de cliente de almacenamiento administrada de .NET)|**Sí**<br/><br/>(API de mensajería asíncrona administrada de .NET)|
+|Protocolo de tiempo de ejecución|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 estándar (TCP con TLS)**| | API administrada de .NET|**Sí**<br/><br/>(API de cliente de almacenamiento administrada de .NET)|**Sí**<br/><br/>(API de mensajería asíncrona administrada de .NET)|
 |C++ nativo|**Sí**|**No**|
 |API de Java|**Sí**|**Sí**|
 |API de PHP|**Sí**|**Sí**|
@@ -289,7 +288,7 @@ En esta sección se comparan las colas de Azure y las de Service Bus desde una p
 
 - Dada la compatibilidad del sondeo prolongado, el uso de la colas de Service Bus puede ser rentable en situaciones en las que se necesita la entrega de baja latencia.
 
->[AZURE.NOTE]Todos los costes están sujetos a cambios. Esta tabla refleja los precios actuales en el momento de redactar este artículo y no incluye ninguna oferta promocional que pueda haber disponible actualmente. Para obtener información actualizada sobre los precios de Azure, vea la página [Precios de Azure](http://azure.microsoft.com/pricing/). Para obtener más información sobre los precios de Bus de servicio, vea [Precios de Bus de servicio](http://azure.microsoft.com/pricing/details/service-bus/).
+>[AZURE.NOTE] Todos los costes están sujetos a cambios. Esta tabla refleja los precios actuales en el momento de redactar este artículo y no incluye ninguna oferta promocional que pueda haber disponible actualmente. Para obtener información actualizada sobre los precios de Azure, vea la página [Precios de Azure](https://azure.microsoft.com/pricing/). Para obtener más información sobre los precios de Bus de servicio, vea [Precios de Bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Conclusión
 
@@ -315,4 +314,4 @@ En los artículos siguientes se ofrece más orientación e información acerca d
 [Portal de Azure clásico]: http://manage.windowsazure.com
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

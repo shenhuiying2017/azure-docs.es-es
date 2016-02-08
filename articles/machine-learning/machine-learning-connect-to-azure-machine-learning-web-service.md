@@ -25,9 +25,9 @@ La experiencia del desarrollador de Aprendizaje automático de Azure es una API 
 Para obtener información sobre cómo crear e implementar un servicio web de Aprendizaje automático de Azure con Estudio:
 
 - [Implementación de un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md)
-- [Introducción a Estudio de aprendizaje automático](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
+- [Introducción a Estudio de aprendizaje automático](https://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Vista previa de Aprendizaje automático de Azure](https://studio.azureml.net/)
-- [Centro de documentación de Aprendizaje automático](http://azure.microsoft.com/documentation/services/machine-learning/)
+- [Centro de documentación de Aprendizaje automático](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 ## Servicio web de Aprendizaje automático de Azure ##
 
@@ -103,4 +103,4 @@ Para conectarse a un servicio web de Aprendizaje automático de Azure, use la bi
 2. Asigne una clave de API con la clave de un servicio web. Consulte cómo obtener una clave de autorización de Aprendizaje automático de Azure.
 3. Asigne la URI de servicio a la URI de solicitud. Consulte cómo obtener un URI de solicitud.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

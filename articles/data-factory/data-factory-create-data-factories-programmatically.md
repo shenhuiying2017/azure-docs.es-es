@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Crear, supervisar y administrar factorías de datos de Azure mediante el SDK de .NET de la factoría de datos
@@ -86,7 +86,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 
         DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
 
-	> [AZURE.NOTE]Reemplace el **resourcegroupname** por el nombre de su grupo de recursos de Azure. Puede crear un grupo de recursos con el cmdlet [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx).
+	> [AZURE.NOTE] Reemplace el **resourcegroupname** por el nombre de su grupo de recursos de Azure. Puede crear un grupo de recursos con el cmdlet [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx).
 
 7. Agregue el siguiente código que crea una **factoría de datos** en el método **Main**.
 
@@ -106,7 +106,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 
 8. Agregue el siguiente código que crea un **servicio vinculado** al método **Main**.
 
-	> [AZURE.NOTE]Use el **nombre de cuenta** y la **clave de cuenta** de su cuenta de almacenamiento de Azure para la **ConnectionString**.
+	> [AZURE.NOTE] Use el **nombre de cuenta** y la **clave de cuenta** de su cuenta de almacenamiento de Azure para la **ConnectionString**.
 
         // create a linked service
         Console.WriteLine("Creating a linked service");
@@ -379,7 +379,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 
 
 
-> [AZURE.NOTE]El código de ejemplo anterior inicia un cuadro de diálogo para que escriba las credenciales de Azure. Si necesita iniciar sesión mediante programación sin usar un cuadro de diálogo, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
+> [AZURE.NOTE] El código de ejemplo anterior inicia un cuadro de diálogo para que escriba las credenciales de Azure. Si necesita iniciar sesión mediante programación sin usar un cuadro de diálogo, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
 
 
 [data-factory-introduction]: data-factory-introduction.md
@@ -392,4 +392,4 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

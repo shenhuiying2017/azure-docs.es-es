@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 #Compatibilidad con varios dominios
@@ -50,8 +50,8 @@ Así pues, en PowerShell, si se agrega fabrikam.com con el parámetro SupportMul
 se obtendrá la siguiente configuración en Azure AD:
 
 - DomainName: fabrikam.com
-- IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://fabrikam.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 
 Tenga en cuenta que, aunque IssuerURI se ha establecido en un valor basado en el dominio (siendo, por tanto, único), los valores de dirección URL del punto de conexión siguen configurados para apuntar al servicio de federación en fs.contoso100.com, del mismo modo que para el dominio contoso.com original. Por lo tanto, todos los dominios seguirán apuntando al mismo sistema de AD FS.
 
@@ -74,11 +74,11 @@ Consulte a continuación todos los pasos para pasar de un solo dominio a varios 
 Una vez hecho esto, tendremos la configuración de dos dominios en Azure AD:
 
 - DomainName: contoso.com
-- IssuerURI: http://contoso.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://contoso.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 - DomainName: fabrikam.com
-- IssuerURI: http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI: http://fabrikam.com/adfs/services/trust
+- PassiveClientSignInUrl: https://fs.contoso100.com/adfs/ls/
 
 Ahora funcionará el inicio de sesión federado para los usuarios de los dominios contoso.com y fabrikam.com. Solo hay un problema: el inicio de sesión para los usuarios de subdominios.
 
@@ -91,4 +91,4 @@ Debe configurar la regla de notificaciones personalizada para eliminar cualquier
 
 Entonces, en resumen, puede tener varios dominios con nombres dispares, así como subdominios, todos ellos federados al mismo servidor de AD FS. A fin de establecer correctamente los valores Emisor para todos los usuarios, solo serán necesarios algunos pasos adicionales.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

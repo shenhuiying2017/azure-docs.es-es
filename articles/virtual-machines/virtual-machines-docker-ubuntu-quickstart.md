@@ -25,13 +25,11 @@ La forma más rápida de empezar a usar [Docker] es ir a Azure Marketplace y cre
 
 Puede conectarse inmediatamente a la máquina virtual mediante SSH y empezar a trabajar con Docker directamente sin hacer nada más.
 
-> [AZURE.NOTE]La máquina virtual creada con la plantilla de Azure Marketplace no aloja la API remota de Docker para la administración de un cliente remoto de docker. Para habilitar el control del host de Docker en esta máquina virtual de forma remota, consulte [Docker en ejecución con HTTPS](https://docs.docker.com/articles/https/) o siga los pasos de [Uso de la extensión de la máquina virtual de Docker desde el Portal de Azure clásico](virtual-machines-docker-with-portal.md) o [Uso de la extensión de la máquina virtual de Docker desde la CLI de Azure](virtual-machines-docker-with-xplat-cli.md). 
-<!-- -->
-Si desea automatizar la VM Docker de Azure desde Windows, puede [instalar el cuadro de herramientas de Docker](https://docs.docker.com/installation/windows/) u obtener Docker.exe [desde Chocolatey](https://chocolatey.org/packages/docker).
+> [AZURE.NOTE]La máquina virtual creada con la plantilla de Azure Marketplace no aloja la API remota de Docker para la administración de un cliente remoto de docker. Para habilitar el control del host de Docker en esta máquina virtual de forma remota, consulte [Docker en ejecución con HTTPS](https://docs.docker.com/articles/https/) o siga los pasos de [Uso de la extensión de la máquina virtual de Docker desde el Portal de Azure clásico](virtual-machines-docker-with-portal.md) o [Uso de la extensión de la máquina virtual de Docker desde la CLI de Azure](virtual-machines-docker-with-xplat-cli.md). <!-- --> Si desea automatizar la VM Docker de Azure desde Windows, puede [instalar el cuadro de herramientas de Docker](https://docs.docker.com/installation/windows/) u obtener Docker.exe [desde Chocolatey](https://chocolatey.org/packages/docker).
 
 ## Inicio de sesión en el Portal
 
-Esta parte es fácil, a menos que no disponga de una cuenta de Azure. [Obtenga una también con facilidad.](http://azure.microsoft.com/pricing/free-trial/)
+Esta parte es fácil, a menos que no disponga de una cuenta de Azure. [Obtenga una también con facilidad.](https://azure.microsoft.com/pricing/free-trial/)
 
 ## Creación de una máquina virtual con la imagen de Docker de Canonical y MSOpenTech
 
@@ -67,9 +65,9 @@ Y empezar a emitir comandos Docker, sin olvidar que en esta máquina virtual de 
 Va a comenzar a usar [Docker].
 
 <!--Anchors-->
-[Inicio de sesión en el Portal]: #logon
-[Creación de una máquina virtual con la imagen de Docker de Canonical y MSOpenTech]: #createvm
-[Conexión con SSH y a disfrutar]: #havingfun
+[Log on to the Portal]: #logon
+[Create a VM with the Docker Image from Canonical and MSOpenTech]: #createvm
+[Connect with SSH and Have Fun]: #havingfun
 [Next steps]: #next-steps
 
 
@@ -80,4 +78,4 @@ Va a comenzar a usar [Docker].
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

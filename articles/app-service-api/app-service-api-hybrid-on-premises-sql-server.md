@@ -24,7 +24,7 @@ Las conexiones híbridas puede conectar Aplicaciones de API del [Servicio de apl
 
 En este tutorial, aprenderá a crear una aplicación de API del Servicio de aplicaciones en la [vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) que se conecta a una base de datos SQL Server local mediante la nueva característica de conexión híbrida. En el tutorial se asume que no tiene ninguna experiencia anterior con Azure o SQL Server.
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Requisitos previos
 
@@ -75,7 +75,7 @@ Si ya tiene SQL Server instalado en una configuración y en un entorno que cumpl
 <a name="InstallSQL"></a>
 ## Instalación de SQL Server Express, habilitación de TCP/IP y creación de una base de datos SQL Server local
 
-En esta sección se muestra cómo instalar SQL Server Express, habilitar TCP/IP y crear una base de datos de forma que la aplicación de API funcione con el [portal de vista previa de Azure](https://portal.azure.com).
+En esta sección se muestra cómo instalar SQL Server Express, habilitar TCP/IP y crear una base de datos de forma que la aplicación de API funcione con el [portal de vista previa de Azure](https://portal.azure.com/).
 
 <a name="InstallSQLDB"></a>
 ### Instalación de SQL Server Express
@@ -202,7 +202,7 @@ En esta sección se ofrece información detallada sobre cómo crear la aplicaci�
 
 10. Reemplace el código de este archivo `SpeakersController.cs` por el código siguiente. Asegúrese de especificar sus propios valores para los marcadores de posición &lt;serverName> y &lt;password> en `connectionString`. El valor &lt;serverName> es el nombre de máquina en que se encuentra SQL Server, y el valor &lt;password> es el que se establece al instalar y configurar SQL Server.
 
-	> [AZURE.NOTE]El siguiente fragmento de código incluye información de contraseña. Esto se hace para simplificar la demostración. En un entorno de producción real, no debería almacenar las credenciales en el código. En su lugar, consulte las [Prácticas recomendadas para implementar las contraseñas y otros datos confidenciales en ASP.NET y Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+	> [AZURE.NOTE] El siguiente fragmento de código incluye información de contraseña. Esto se hace para simplificar la demostración. En un entorno de producción real, no debería almacenar las credenciales en el código. En su lugar, consulte las [Prácticas recomendadas para implementar las contraseñas y otros datos confidenciales en ASP.NET y Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 		using System;
 		using System.Collections.Generic;
@@ -332,7 +332,7 @@ Ahora que ha probado la aplicación localmente, es hora de implementarla en Azur
 	- Si tiene varias suscripciones de Azure, seleccione la que desee usar.
 	- En el **Plan del Servicio de aplicaciones**, seleccione de entre los planes del Servicio de aplicaciones o elija **Crear nuevo plan del Servicio de aplicaciones** y escriba el nombre de un nuevo plan. 
 	- En **Grupo de recursos**, seleccione de entre los grupos de recursos existentes o elija **Crear nuevo grupo de recursos** y escriba un nombre. El nombre debe ser único; considere la posibilidad de usar el nombre de la aplicación como un prefijo y anexe información personal como el identificador de Microsoft (sin el signo @).  
-	- En **Nivel de acceso**, seleccione **Disponible para cualquier persona**. Con esta opción, la API será totalmente pública, lo cual está bien para este tutorial. Puede restringir el acceso más adelante a través del [Portal de vista previa de Azure](https://portal.azure.com).
+	- En **Nivel de acceso**, seleccione **Disponible para cualquier persona**. Con esta opción, la API será totalmente pública, lo cual está bien para este tutorial. Puede restringir el acceso más adelante a través del [Portal de vista previa de Azure](https://portal.azure.com/).
 	- Seleccione una región.
 
 	Haga clic en **Aceptar** para crear la aplicación de API en su suscripción.
@@ -355,7 +355,7 @@ En la ventana **Actividad del Servicio de aplicaciones de Azure** se muestra el 
 
 ## Creación de una conexión híbrida y un servicio de BizTalk ##
 
-1. En el explorador, vaya al [Portal de vista previa de Azure](https://portal.azure.com). 
+1. En el explorador, vaya al [Portal de vista previa de Azure](https://portal.azure.com/). 
 
 2. Haga clic en la opción **Examinar todo** a la izquierda.
 
@@ -432,4 +432,4 @@ Ahora que la infraestructura de la conexión híbrida se ha completado, es el mo
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

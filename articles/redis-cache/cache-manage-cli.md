@@ -28,7 +28,7 @@ La CLI de Azure es una excelente manera de administrar la infraestructura de Azu
 
 Para crear y administrar instancias de Caché en Redis de Azure mediante la CLI de Azure, debe realizar los pasos siguientes.
 
--	Debe tener una cuenta de Azure. En caso de no tener ninguna, puede crear una [cuenta de evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) en tan solo unos momentos.
+-	Debe tener una cuenta de Azure. En caso de no tener ninguna, puede crear una [cuenta de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos momentos.
 -	[Instalación de la CLI de Azure](../xplat-cli-install.md).
 -	Conecte su instalación de CLI de Azure con una cuenta personal de Azure o con una cuenta de Azure profesional o educativa, e inicie sesión desde la CLI de Azure mediante el comando `azure login`. Para comprender las diferencias y elegir, consulte [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md).
 -	Antes de ejecutar cualquiera de los comandos siguientes, cambie la CLI de Azure al modo de Administrador de recursos mediante la ejecución del comando `azure config mode arm`. Para obtener más información, consulte [Configuración del modo Administrador de recursos de Azure](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
@@ -152,7 +152,7 @@ Para enumerar todas las memorias caché en Redis incluidas en su suscripción o 
 
 	azure rediscache list [options]
 
-Para más información sobre este comando, ejecute el comando `azure rediscache list -h`.
+Para obtener más información sobre este comando, ejecute el comando `azure rediscache list -h`.
 
 	C:\>azure rediscache list -h
 	help:    List all Redis Caches within your Subscription or Resource Group
@@ -200,7 +200,7 @@ Para cambiar la configuración de una caché en Redis existente, use el comando 
 
 	azure rediscache set [--name <name> --resource-group <resource-group> --redis-configuration <redis-configuration>/--redis-configuration-file <redisConfigurationFile>]
 
-Para más información sobre este comando, ejecute el comando `azure rediscache set -h`.
+Para obtener más información sobre este comando, ejecute el comando `azure rediscache set -h`.
 
 	C:\>azure rediscache set -h
 	help:    Change settings of an existing Redis Cache
@@ -253,7 +253,7 @@ Para enumerar las claves Principal y Secundaria de una caché en Redis existente
 
 	azure rediscache list-keys [--name <name> --resource-group <resource-group>]
 
-Para más información sobre este comando, ejecute el comando `azure rediscache list-keys -h`.
+Para obtener más información sobre este comando, ejecute el comando `azure rediscache list-keys -h`.
 
 	C:\>azure rediscache list-keys -h
 	help:    Lists Primary and Secondary key of an existing Redis Cache
@@ -271,4 +271,4 @@ Para más información sobre este comando, ejecute el comando `azure rediscache 
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

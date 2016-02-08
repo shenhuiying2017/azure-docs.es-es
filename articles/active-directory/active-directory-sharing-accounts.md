@@ -55,7 +55,7 @@ Entre las características de Azure AD que permiten el uso compartido de las cue
 - [Panel/informes de uso de aplicaciones](active-directory-passwords-get-insights.md)
 - Portales de acceso para usuarios finales
 - [Proxy de aplicaciones](active-directory-application-proxy-get-started.md)
-- [Active Directory Marketplace](http://azure.microsoft.com/marketplace/active-directory/all/)
+- [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## Uso compartido de una cuenta
 Para usar Azure AD para compartir una cuenta, debe:
@@ -72,4 +72,4 @@ Puede hacer que su cuenta compartida sea más segura con Multi-Factor Authentica
 - [Protección de aplicaciones con acceso condicional](active-directory-conditional-access.md)
 - [Administración de grupos de autoservicio/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

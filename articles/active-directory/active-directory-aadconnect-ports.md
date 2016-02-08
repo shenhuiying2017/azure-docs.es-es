@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Puertos de Azure AD Connect"
+	pageTitle="Azure AD Connect: Puertos | Microsoft Azure"
 	description="Esta página es una página de referencia técnica para puertos que deben estar abiertos para Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # La identidad híbrida requería puertos y protocolos
@@ -79,4 +79,4 @@ En esta tabla se describen los puertos y protocolos que son necesarios para la c
 ### 6b: Puntos de conexión para el agente de Azure AD Connect Health para (AD FS/sincronización) y Azure AD
 Para una lista de puntos de conexión, vea [la sección Requisitos para el agente de Azure AD Connect Health](active-directory-aadconnect-health.md#requirements).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

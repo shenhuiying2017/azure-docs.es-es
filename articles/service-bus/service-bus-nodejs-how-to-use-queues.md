@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # Utilización de las colas del Bus de servicio
@@ -26,7 +26,7 @@ Este artículo describe cómo usar las colas del Bus de servicio. Los ejemplos e
 
 ## Creación de una aplicación Node.js
 
-Cree una aplicación Node.js vacía. Para obtener instrucciones sobre cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure][] o [Servicio en la nube Node.js][] (con Windows PowerShell).
+Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure][] o [Servicio en la nube Node.js][] (con Windows PowerShell).
 
 ## Configuración de la aplicación para usar el Bus de servicio
 
@@ -52,7 +52,7 @@ Para utilizar el Bus de servicio de Azure, descargue y use el paquete Azure para
 		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 	```
 
-3. Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado la carpeta **node\_modules**. Dentro de dicha carpeta, busque el paquete **azure**, que contiene las bibliotecas necesarias para obtener acceso a las colas del bus de servicio.
+3. Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado la carpeta **node\_modules**. Dentro de esa carpeta, busque el paquete **azure**, que contiene las bibliotecas necesarias para obtener acceso a las colas del Bus de servicio.
 
 ### Importación del módulo
 
@@ -88,7 +88,7 @@ serviceBusService.createQueueIfNotExists('myqueue', function(error){
 });
 ```
 
-**createServiceBusService** también admite opciones adicionales, que permiten invalidar la configuración de cola predeterminada, como el período de vida de los mensajes o el tamaño máximo de la cola. En el siguiente ejemplo se establece el tamaño máximo de las colas en 5 GB y el valor del período de vida (TTL) en 1 minuto:
+**createServiceBusService** también admite opciones adicionales, que permiten sobrescribir la configuración de cola predeterminada, como el tiempo que dura la transmisión de un mensaje o el tamaño máximo de la cola. En el siguiente ejemplo se establece el tamaño máximo de las colas en 5 GB y el valor del período de vida (TTL) en 1 minuto:
 
 ```
 var queueOptions = {
@@ -111,7 +111,7 @@ Las operaciones de filtrado opcionales pueden aplicarse a las tareas realizadas 
 function handle (requestOptions, next)
 ```
 
-Después de realizar su preprocesamiento en las opciones de solicitud, el método tiene que llamar a `next` y pasar una devolución de llamada con la signatura siguiente:
+Después de realizar el preprocesamiento en las opciones de solicitud, el método tiene que llamar a `next`, pasando una devolución de llamada con la firma siguiente:
 
 ```
 function (returnObject, finalCallback, next)
@@ -202,4 +202,4 @@ Para obtener más información, consulte los recursos siguientes.
   [Colas de Bus de servicio y colas de Azure]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

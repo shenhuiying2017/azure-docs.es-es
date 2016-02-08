@@ -90,8 +90,8 @@ Cuando haya terminado con el cuadro de diálogo, Visual Studio agrega referencia
 
      - [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-     - [Almacenamiento en azure.microsoft.com](http://azure.microsoft.com/services/storage)
+     - [Almacenamiento en azure.microsoft.com](https://azure.microsoft.com/services/storage/)
 
-     - [Documentación de almacenamiento en azure.microsoft.com](http://azure.microsoft.com/documentation/services/storage/)
+     - [Documentación de almacenamiento en azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->
