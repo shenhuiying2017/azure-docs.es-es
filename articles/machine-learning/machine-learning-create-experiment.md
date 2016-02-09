@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/03/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 # Tutorial de Aprendizaje automático: Creación del primer experimento en Estudio de aprendizaje automático de Azure
@@ -29,7 +29,7 @@ Abra Estudio de aprendizaje automático de Azure en [https://studio.azureml.net]
 
 Para obtener más información sobre Estudio de aprendizaje automático, consulte [¿Qué es el Estudio de aprendizaje automático?](machine-learning-what-is-ml-studio.md)
 
->[AZURE.TIP]Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, consulte [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP] Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, consulte [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
 
 
 ## Cinco pasos para crear un experimento
@@ -58,7 +58,7 @@ Hay una serie de conjuntos de datos de ejemplo incluidos en Estudio de aprendiza
 
 1. Inicie un experimento nuevo haciendo clic en **+NUEVO** en la parte inferior de la ventana de Estudio de aprendizaje automático, seleccione **EXPERIMENTO** y luego **Experimento en blanco**. Seleccione el nombre del experimento predeterminado en la parte superior del lienzo y cámbielo por uno significativo, por ejemplo, **Predicción del precio de automóviles**.
 
-2. A la izquierda del lienzo de experimentos, hay una paleta de conjuntos de datos y módulos. Escriba **automóvil** en el cuadro de búsqueda de la parte superior de esta paleta para encontrar el conjunto de datos llamado **Datos de precios de automóviles (sin formato)**.
+2. A la izquierda del lienzo de experimentos, hay una paleta de conjuntos de datos y módulos. Escriba **automobile** en el cuadro de búsqueda de la parte superior de esta paleta para encontrar el conjunto de datos llamado **Automobile price data (Raw)** (Datos de precios de automóviles (sin formato)).
 
 	![Palette search][screen1a]
 
@@ -76,13 +76,13 @@ Cierre la ventana de visualización haciendo clic en la "**x**" en la esquina su
 
 Normalmente, un conjunto de datos requiere algún procesamiento previo antes de que se pueda analizar. Es posible que haya observado los valores que faltan en las columnas de varias filas. Estos valores que faltan se deben limpiar para que el modelo pueda analizar los datos de manera adecuada. En nuestro caso, quitaremos todas las filas que tengan valores ausentes. Además, la columna **normalized-losses** tiene una gran proporción de valores que faltan, por lo que excluiremos esa columna del modelo por completo.
 
-> [AZURE.TIP]Limpiar los valores que faltan de los datos de entrada es un requisito previo para usar la mayoría de los módulos.
+> [AZURE.TIP] Limpiar los valores que faltan de los datos de entrada es un requisito previo para usar la mayoría de los módulos.
 
 En primer lugar, eliminaremos la columna **normalized-losses** y luego las filas que tienen datos que faltan.
 
 1. Escriba **columnas del proyecto** en el cuadro de búsqueda, en la parte superior de la paleta del módulo, para encontrar el módulo [Columnas del proyecto][project-columns]; arrástrelo después hasta el lienzo de experimentos y conéctelo al puerto de salida del conjunto de datos **Datos de precios de automóviles (sin formato)**. Este módulo nos permite seleccionar las columnas de datos que queremos incluir o excluir del modelo.
 
-2. Seleccione el módulo [Columnas del proyecto][project-columns] y haga clic en **Iniciar el selector de columnas** en el panel **Propiedades**.
+2. Seleccione el módulo [Proyectar columnas][project-columns] y haga clic en **Iniciar el selector de columnas** en el panel de **propiedades**.
 
 	- Asegúrese de que **Todas las columnas** esté seleccionado en la lista desplegable del filtro **Comenzar con**. Esto indica a [Proyectar columnas][project-columns] que pase todas las columnas (excepto las que se van a excluir).
 	- En la siguiente fila, seleccione **Excluir** y **nombres de columna** y luego haga clic en el cuadro de texto. A continuación, se mostrará una lista de columnas. Seleccione **normalized-losses** y se agregará al cuadro de texto.
@@ -94,7 +94,7 @@ En primer lugar, eliminaremos la columna **normalized-losses** y luego las filas
 
     ![Project Columns properties][screen4]
 
-    > [AZURE.TIP]Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Proyectar columnas][project-columns] y escriba el comentario "Excluir normalized-losses".
+    > [AZURE.TIP] Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Proyectar columnas][project-columns] y escriba el comentario "Excluir normalized-losses".
 
 3. Arrastre el módulo [Limpiar valores que faltan][clean-missing-data] al lienzo de experimentos y conéctelo al módulo [Proyectar columnas][project-columns]. En el panel **Propiedades**, seleccione **Quitar la fila entera** en **Modo de limpieza** para limpiar los datos eliminando las filas que tienen valores que faltan. Haga doble clic en el módulo y escriba el comentario "Quitar las filas sin valor".
 
@@ -124,7 +124,7 @@ Creemos un modelo que use un subconjunto de las funciones de nuestro conjunto de
 
 3. En el selector de columnas, seleccione **Sin columnas** en **Comenzar con** y luego seleccione **Incluir** y **nombres de columna** en la fila de filtro. Escriba nuestra lista de nombres de columnas. Esto indica al módulo que pase solo las columnas que le especificamos.
 
-	> [AZURE.TIP]Como hemos ejecutado el experimento, las definiciones de columna de nuestros datos han pasado del conjunto de datos original al módulo [Limpiar datos que faltan][clean-missing-data]. Cuando conecta [Proyectar columnas][project-columns] a [Limpiar datos que faltan][clean-missing-data], el módulo [Proyectar columnas][project-columns] descubre las definiciones de columna de nuestros datos. Cuando hace clic en el cuadro **nombres de columna**, se muestra una lista de columnas y puede seleccionar las que quiera agregar a la lista.
+	> [AZURE.TIP] Como hemos ejecutado el experimento, las definiciones de columna de nuestros datos han pasado del conjunto de datos original al módulo [Limpiar datos que faltan][clean-missing-data]. Cuando conecta [Proyectar columnas][project-columns] a [Limpiar datos que faltan][clean-missing-data], el módulo [Proyectar columnas][project-columns] descubre las definiciones de columna de nuestros datos. Cuando hace clic en el cuadro **nombres de columna**, se muestra una lista de columnas y puede seleccionar las que quiera agregar a la lista.
 
 4. Haga clic en el botón de marca de verificación (Aceptar).
 
@@ -142,7 +142,7 @@ Queremos predecir el precio de un automóvil, que puede ser cualquier valor, as�
 
 1. Podemos usar nuestros datos para el entrenamiento y la prueba si los dividimos en conjuntos diferentes para entrenamiento y prueba. Seleccione y arrastre el módulo [Dividir datos][split] al lienzo de experimentos y conéctelo a la salida del último módulo [Columnas del proyecto][project-columns]. Establezca **Fracción de filas del primer conjunto de datos de salida** en 0,75. De esta forma, usaremos el 75 % de los datos para entrenar el modelo y retendremos el 25 % para prueba.
 
-	> [AZURE.TIP]Al cambiar el parámetro **Valor de inicialización aleatorio**, puede producir muestras aleatorias diferentes para entrenamiento y prueba. Este parámetro controla la inicialización del generador de números pseudoaleatorios.
+	> [AZURE.TIP] Al cambiar el parámetro **Valor de inicialización aleatorio**, puede producir muestras aleatorias diferentes para entrenamiento y prueba. Este parámetro controla la inicialización del generador de números pseudoaleatorios.
 
 2. Ejecute el experimento. De esta forma, los módulos [Columnas del proyecto][project-columns] y [Dividir datos][split] pasan las definiciones de columna a los módulos que se agregarán a continuación.
 
@@ -150,7 +150,7 @@ Queremos predecir el precio de un automóvil, que puede ser cualquier valor, as�
 
 	En este experimento de ejemplo, seleccione el módulo [Regresión lineal][linear-regression] en la categoría **Regresión** (también puede encontrar el módulo si escribe "regresión lineal" en el cuadro de búsqueda de la paleta) y arrástrelo al lienzo de experimentos.
 
-4. Busque y arrastre el módulo [Entrenar modelo][train-model] al lienzo del experimento. Conecte el puerto de entrada izquierdo a la salida del módulo [Regresión lineal][linear-regression]. Conecte el puerto de entrada derecho a la salida de datos de entrenamiento (puerto izquierdo) del módulo [Dividir datos][split].
+4. Busque y arrastre el módulo [Train Module][train-model] (Entrenar modelo) al lienzo del experimento. Conecte el puerto de entrada izquierdo a la salida del módulo [Regresión lineal][linear-regression]. Conecte el puerto de entrada derecho a la salida de datos de entrenamiento (puerto izquierdo) del módulo [Dividir datos][split].
 
 5. Seleccione el módulo [Entrenar modelo][train-model], haga clic en **Iniciar el selector de columnas** en el panel **Propiedades** y luego seleccione la columna **precio**. Este es el valor que nuestro modelo va a predecir.
 
@@ -176,7 +176,7 @@ Ahora que hemos entrenado el modelo usando el 75 % de nuestros datos, podemos us
 
 4. Ejecute el experimento.
 
-Para ver la salida del módulo [Evaluar modelo][evaluate-model], haga clic en el puerto de salida y seleccione **Visualizar**. Se muestran las siguientes estadísticas para nuestro modelo:
+Para ver la salida del módulo [Evaluate Model][evaluate-model] (Evaluar modelo), haga clic en el puerto de salida y seleccione **Visualize** (Visualizar). Se muestran las siguientes estadísticas para nuestro modelo:
 
 - **Desviación media** (MAE): la media de errores absolutos (un *error* es la diferencia entre el valor de predicción y el valor real).
 - **Raíz cuadrada de errores** (RMSE): la raíz cuadrada de la media de errores al cuadrado de las predicciones realizadas sobre el conjunto de datos de prueba.
@@ -196,7 +196,7 @@ El experimento final se debería parecer a este:
 
 Ahora que ha completado un primer tutorial de Aprendizaje automático y que tiene el experimento configurado, puede recorrerlo en iteración para intentar mejorar el modelo. Por ejemplo, puede cambiar las características que usa en la predicción. O bien, puede modificar las propiedades del algoritmo [Regresión lineal][linear-regression] o probar un algoritmo completamente diferente. Incluso puede agregar varios algoritmos de Aprendizaje automático a la vez al experimento y comparar los dos mediante el módulo [Evaluar modelo][evaluate-model].
 
-> [AZURE.TIP]Use el botón **GUARDAR COMO** en el lienzo de experimentos para copiar cualquier iteración del experimento. Puede ver todas las iteraciones del experimento haciendo clic en **VER HISTORIAL DE EJECUCIÓN** en el lienzo. Consulte [Administración de iteraciones de experimentos en Estudio de aprendizaje automático de Azure][runhistory] para obtener más detalles.
+> [AZURE.TIP] Use el botón **GUARDAR COMO** en el lienzo de experimentos para copiar cualquier iteración del experimento. Puede ver todas las iteraciones del experimento haciendo clic en **VER HISTORIAL DE EJECUCIÓN** en el lienzo. Consulte [Administración de iteraciones de experimentos en Estudio de aprendizaje automático de Azure][runhistory] para obtener más detalles.
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
@@ -234,4 +234,4 @@ Si desea un tutorial más amplio y detallado de las técnicas de modelado predic
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -82,7 +82,8 @@ Si desea implementar la asignación de redes, necesitará lo siguiente:
 
 
 2. Expanda
-3. *Servicios de datos*, luego *Servicios de recuperación* y haga clic en *Almacén de Site Recovery*.*
+3. *Servicios de datos*, luego *Servicios de recuperación* y haga clic en *Almacén de Site Recovery*.
+*
 3. Haga clic en *Crear nuevo* y, a continuación, en *Creación rápida*.
 
 
@@ -123,15 +124,26 @@ Generación de una clave de registro en el almacén. Después de descargar el pr
 	![Microsoft Updates](./media/site-recovery-vmm-to-azure/VMMASRInstallMUScreen.png)
 
 
-1.  La ubicación de instalación está establecida en **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Haga clic en el botón Instalar para iniciar la instalación del proveedor. ![InstallLocation](./media/site-recovery-vmm-to-azure/VMMASRInstallLocationScreen.png)
+1.  La ubicación de instalación está establecida en **<SystemDrive>\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin**. Haga clic en el botón Instalar para iniciar la instalación del proveedor. 
+	![InstallLocation](./media/site-recovery-vmm-to-azure/VMMASRInstallLocationScreen.png)
 
 
 
-1. Una vez instalado el proveedor, haga clic en el botón "Registrar" para registrar el servidor en el almacén. ![InstallComplete](./media/site-recovery-vmm-to-azure/VMMASRInstallComplete.png)
+1. Una vez instalado el proveedor, haga clic en el botón "Registrar" para registrar el servidor en el almacén. 
+![InstallComplete](./media/site-recovery-vmm-to-azure/VMMASRInstallComplete.png)
 
 5. En **Conexión a Internet**, especifique cómo se conecta a Internet el proveedor que se ejecuta en el servidor VMM. Seleccione *Utilizar la configuración proxy del sistema predeterminado* para usar la configuración predeterminada de conexión a Internet establecida en el servidor.
 
-	![Configuración de Internet](./media/site-recovery-vmm-to-azure/VMMASRRegisterProxyDetailsScreen.png) - Si desea usar un proxy personalizado, debe configurarlo antes de instalar el proveedor. Al configurar las opciones del proxy personalizado, se ejecuta una prueba para comprobar la conexión del proxy. (Si usa un proxy personalizado o el proxy predeterminado requiere autenticación, tendrá que especificar los detalles del proxy, incluida la dirección y el puerto del mismo). Debe poder obtener acceso a las siguientes direcciones URL desde los hosts de Hyper-v y del servidor VMM: *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Permita las direcciones IP descritas en [Intervalos de direcciones IP del centro de datos de Azure](http://go.microsoft.com/fwlink/?LinkId=511094) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
+	![Configuración de Internet](./media/site-recovery-vmm-to-azure/VMMASRRegisterProxyDetailsScreen.png) 
+	- Si desea usar un proxy personalizado, debe configurarlo antes de instalar el proveedor. Al configurar las opciones del proxy personalizado, se ejecuta una prueba para comprobar la conexión del proxy. 
+	- (Si usa un proxy personalizado o el proxy predeterminado requiere autenticación, tendrá que especificar los detalles del proxy, incluida la dirección y el puerto del mismo). 
+	- Debe poder obtener acceso a las siguientes direcciones URL desde los hosts de Hyper-v y del servidor VMM: 
+		- *.hypervrecoverymanager.windowsazure.com 
+		- *.accesscontrol.windows.net 
+		- *.backup.windowsazure.com 
+		- *.blob.core.windows.net 
+		- *.store.core.windows.net 
+	- Permita las direcciones IP descritas en [Intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
 
 	- Si utiliza un proxy personalizado, se creará una cuenta de ejecución de VMM (DRAProxyAccount) mediante el uso automático de las credenciales de proxy especificadas. Configure el servidor proxy para que esta cuenta pueda autenticarse correctamente. La configuración de la cuenta de ejecución de VMM puede modificarse en la consola VMM. Para ello, abra el área de trabajo Configuración, expanda Seguridad, haga clic en Cuentas de ejecución y, a continuación, modifique la contraseña de DRAProxyAccount. Deberá reiniciar el servicio VMM para que esta configuración surta efecto.
 
@@ -147,7 +159,8 @@ Generación de una clave de registro en el almacén. Después de descargar el pr
 
 8. En **Nombre del servidor**, especifique un nombre descriptivo para identificar el servidor VMM en el almacén. En una configuración de clúster, especifique el nombre del rol de clúster VMM.
 
-8. En la sincronización de **Metadatos de la nube inicial** seleccione si desea sincronizar los metadatos de todas las nubes en el servidor VMM con el almacén. Esta acción solo se debe ejecutar una vez en cada servidor. Si no desea sincronizar todas las nubes, puede dejar este valor sin marcar y sincronizar cada nube individualmente en las propiedades de la nube de la consola VMM. ![Registro de servidor](./media/site-recovery-vmm-to-azure/VMMASRRegisterFriendlyName.png)
+8. En la sincronización de **Metadatos de la nube inicial** seleccione si desea sincronizar los metadatos de todas las nubes en el servidor VMM con el almacén. Esta acción solo se debe ejecutar una vez en cada servidor. Si no desea sincronizar todas las nubes, puede dejar este valor sin marcar y sincronizar cada nube individualmente en las propiedades de la nube de la consola VMM. 
+	![Registro de servidor](./media/site-recovery-vmm-to-azure/VMMASRRegisterFriendlyName.png)
 
 
 8. Haga clic en *Next* para finalizar el proceso. Después del registro, la Recuperación del sitio de Azure recupera los metadatos del servidor VMM. El servidor se muestra en la pestaña *Servidores VMM* de la página **Servidores** del almacén.
@@ -367,4 +380,4 @@ Para ejecutar un conmutación por error de prueba, realice lo siguiente:
 
 <LI>Si tiene preguntas, visite el <a href="http://go.microsoft.com/fwlink/?LinkId=313628">foro de Servicios de recuperación de Azure</a>.</LI> </UL>
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

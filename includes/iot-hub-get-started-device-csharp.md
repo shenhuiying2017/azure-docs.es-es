@@ -8,7 +8,7 @@ En esta sección, creará una aplicación de consola de Windows que simula un di
 
 2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **SimulatedDevice** y, a continuación, seleccione **Administrar paquetes de NuGet**.
 
-3. En la ventana **Administrador de paquetes de NuGet**, asegúrese de que la opción **Incluir versión preliminar** está activada. Busque **Microsoft Azure Devices Client**, haga clic en **Instalar** y acepte los términos de uso.
+3. En la ventana **Administrador de paquetes NuGet**, busque **Microsoft Azure Devices Client**, haga clic en **Instalar** y acepte los términos de uso.
 
 	De esta forma, se descarga, instala y agrega una referencia al [paquete de NuGet del SDK de dispositivo de IoT de Azure][lnk-device-nuget].
 
@@ -63,14 +63,14 @@ En esta sección, creará una aplicación de consola de Windows que simula un di
   De forma predeterminada, el método **Create** crea un **DeviceClient** que usa el protocolo AMQP para comunicarse con el Centro de IoT. Para usar el protocolo HTTPS, use la invalidación del método **Create** que permite especificar el protocolo. Si decide usar el protocolo HTTPS, debe agregar también el paquete de NuGet **Microsoft.AspNet.WebApi.Client** al proyecto para incluir el espacio de nombres **System.Net.Http.Formatting**.
 
 
-> [AZURE.NOTE]Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Control de errores transitorios][lnk-transient-faults].
+> [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Control de errores transitorios][lnk-transient-faults].
 
 <!-- Links -->
 
 [lnk-device-nuget]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
-[lnk-transient-faults]: https://msdn.microsoft.com/es-ES/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

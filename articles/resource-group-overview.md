@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # Información general del Administrador de recursos de Azure
@@ -87,7 +87,7 @@ Para más información acerca del uso de una plantilla para la implementación, 
 
 Para obtener instrucciones sobre cómo estructurar las plantillas, consulte [Procedimientos recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
 
-Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments.md).
 
 ## Etiquetas
 
@@ -119,7 +119,7 @@ El Administrador de recursos proporciona operaciones totalmente compatibles a tr
 
 Para obtener información sobre PowerShell, consulte [Uso de Azure PowerShell con Administrador de recursos](./powershell-azure-resource-manager.md) y [Cmdlets de Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
-Para obtener información sobre CLI de Azure, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con administración de recursos de Azure](./virtual-machines/xplat-cli-azure-resource-manager.md)).
+Para obtener información sobre CLI de Azure, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con administración de recursos de Azure](./xplat-cli-azure-resource-manager.md)).
 
 Para obtener información acerca de la API de REST, consulte [Referencia de la API de REST del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
@@ -138,4 +138,4 @@ La siguiente es una demostración de esta introducción.
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

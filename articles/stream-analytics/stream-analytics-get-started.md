@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="12/04/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok" />
 
 
@@ -130,7 +130,7 @@ Análisis de secuencias admite un modelo de consulta declarativo sencillo para d
 Para validar la consulta con datos de trabajo reales, puede usar la característica **Datos de ejemplo** para extraer los eventos del streaming y crear un archivo .JSON de los eventos para las pruebas. Los pasos siguientes muestran cómo hacerlo y también hemos proporcionado un archivo de ejemplo [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) con fines de prueba.
 
 1.	Seleccione la entrada del Centro de eventos y haga clic en **Datos de ejemplo** en la parte inferior de la página.
-2.	En el cuadro de diálogo que aparece, especifique una **Hora de inicio** para empezar a recopilar datos y una **Duración** para indicar la cantidad de datos adicionales que se consumirán.
+2.	En el cuadro de diálogo que aparece, especifique una **Hora de inicio** para empezar a recopilar datos y una **Duración** para indicar la cantidad de datos adicionales que se consumirá.
 3.	Haga clic en el botón de comprobación para empezar a muestrear datos de la entrada. El archivo de datos puede tardar un minuto o dos en crearse. Una vez finalizado el proceso, haga clic en **Detalles**, descargue el archivo .JSON que se genera y guárdelo.
 
 	![Descargar y guardar datos procesados en un archivo JSON](./media/stream-analytics-get-started/stream-analytics-download-save-json-file.png)
@@ -237,7 +237,7 @@ Si todavía no tiene un contenedor para el almacenamiento de blobs, siga estos p
 Puesto que ya se han especificado la entrada, la consulta y la salida del trabajo, estamos preparados para iniciar el trabajo de Análisis de transmisiones para la detección de fraudes en tiempo real.
 
 1.	Desde **PANEL** del trabajo, haga clic en **INICIAR** en la parte inferior de la página.
-2.	En el cuadro de diálogo que aparece, seleccione **HORA DE INICIO DEL TRABAJO** y después haga clic en el botón de comprobación en la parte inferior del cuadro de diálogo. El estado del trabajo cambiará a **Iniciando** y en breve pasará a **En ejecución**.
+2.	En el cuadro de diálogo que aparece, seleccione **HORA DE INICIO DEL TRABAJO** y luego haga clic en el botón de comprobación en la parte inferior del cuadro de diálogo. El estado del trabajo cambiará a **Iniciando** y en breve pasará a **En ejecución**.
 
 ## Consulta de la salida de la detección de fraudes
 
@@ -257,4 +257,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -18,7 +18,7 @@
 
 # Configuración de conexiones de ExpressRoute y VPN de sitio a sitio para que coexistan para una red virtual
 
-Tener la capacidad de configurar VPN de sitio a sitio y ExpressRoute tiene varias ventajas. Puede configurar una VPN de sitio a sitio como una ruta de acceso seguro de conmutación por error para ExressRoute o usar VPN de sitio a sitio para conectarse a sitios que no forman parte de la red, pero que se conectan a través de ExpressRoute. En este artículo trataremos los pasos para configurar ambos escenarios. Este artículo se aplica a conexiones creadas con el modelo de implementación clásico.
+Tener la capacidad de configurar VPN de sitio a sitio y ExpressRoute tiene varias ventajas. Puede configurar una VPN de sitio a sitio como una ruta de acceso seguro de conmutación por error para ExressRoute o usar VPN de sitio a sitio para conectarse a sitios que no forman parte de la red, pero que se conectan a través de ExpressRoute. En este artículo trataremos los pasos para configurar ambos escenarios. Actualmente solo se puede crear esta configuración mediante el modelo de implementación clásica. Cuando tengamos documentación aplicable al modelo de implementación del Administrador de recursos, nos vincularemos a ella desde aquí.
 
 >[AZURE.IMPORTANT] Es importante saber que, actualmente, Azure funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
 
@@ -211,4 +211,4 @@ Si tiene una red virtual conectada a través de una conexión VPN de sitio a sit
 
 Para más información sobre ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -41,8 +41,8 @@ El fragmento de código siguiente crea un método que pasa una entrada de cadena
 			sp.Filter = filter;
 		}
 	
-		DocumentSearchResponse<Hotel> response = indexClient.Documents.Search<Hotel>(searchText, sp);
-		foreach (SearchResult<Hotel> result in response)
+		DocumentSearchResult<Hotel> documentSearchResult = indexClient.Documents.Search<Hotel>(searchText, sp);
+		foreach (SearchResult<Hotel> result in documentSearchResult.Results)
 		{
 			Console.WriteLine(result.Document);
 		}
@@ -63,4 +63,4 @@ En la primera llamada estamos buscando todos los documentos que contienen los t�
 
 La segunda llamada usa una expresión OData $filter, categoría igual a 'Lujo'. Esto restringe la búsqueda de forma que devuelva solo aquellos documentos en los que el campo de categoría coincida exactamente con la cadena "Lujo". Puede encontrar ejemplos adicionales sobre la sintaxis de OData en [Sintaxis de expresiones de OData para Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

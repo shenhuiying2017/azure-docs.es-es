@@ -42,7 +42,7 @@ Aprenderá a realizar los siguientes procedimientos:
 * Cómo usar el **Explorador de servidores** de Visual Studio para abrir archivos remotos e iniciar una sesión de depuración remota. 
 * Uso del [Portal de Azure](/overview/preview-portal/) para supervisar y administrar la aplicación web.
 
-> [AZURE.NOTE]Este tutorial trata del uso de ASP.NET con el Servicio de aplicaciones de Azure; no enseña cómo desarrollar una aplicación web ASP.NET. Para ver una introducción a ASP.NET MVC 5, consulte [Introducción a ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) en el sitio de [ASP.NET](http://asp.net/). Para obtener vínculos a otros artículos con información más detallada sobre cómo usar el Servicio de aplicaciones de Azure, consulte la sección [Pasos siguientes](#next-steps).
+> [AZURE.NOTE] Este tutorial trata del uso de ASP.NET con el Servicio de aplicaciones de Azure; no enseña cómo desarrollar una aplicación web ASP.NET. Para ver una introducción a ASP.NET MVC 5, consulte [Introducción a ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) en el sitio de [ASP.NET](http://asp.net/). Para obtener vínculos a otros artículos con información más detallada sobre cómo usar el Servicio de aplicaciones de Azure, consulte la sección [Pasos siguientes](#next-steps).
 > 
 > Ayúdenos a conformar el ámbito y el enfoque de este tutorial, si hay otros temas que le gustaría ver cubiertos aquí o en un tutorial de introducción, déjenos un comentario en [Comentarios](#comments) al final del tutorial.
 
@@ -101,7 +101,7 @@ En el diagrama se muestra lo que se hace en los pasos de creación e implementac
 
 	La aplicación de ejemplo que va a crear no permitirá a los usuarios iniciar sesión. La sección [Pasos siguientes](#next-steps) contiene un vínculo a un tutorial que implementa la autenticación y la autorización.
 
-5. En el cuadro de diálogo **Nuevo proyecto de ASP.NET**, no cambie la configuración en **Microsoft Azure** y haga clic en **Aceptar**.
+5. En el cuadro de diálogo **Nuevo proyecto de ASP.NET**, no altere la configuración en **Microsoft Azure** y después haga clic en **Aceptar**.
 
 	![Cuadro de diálogo Nuevo proyecto de ASP.NET](./media/web-sites-dotnet-get-started/GS13newaspnetprojdb.png)
 
@@ -167,7 +167,7 @@ En esta sección implementará el proyecto web en la aplicación web, como se mu
 
 	![Elija Publicar](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	En unos segundos aparecerá el Asistente para **publicación web**. El asistente abre un *perfil de publicación* que incluye la configuración para implementar el proyecto web en la nueva aplicación web. Si desea realizar la implementación en otra aplicación web distinta, puede hacer clic en la pestaña **Perfil** para crear un perfil diferente. Para este tutorial, aceptará la configuración que se implementa en la aplicación web que creó anteriormente.
+	En unos segundos aparecerá el Asistente para **publicación web**. El asistente abre un *perfil de publicación* que incluye la configuración para implementar el proyecto web en la nueva aplicación web. Si desea realizar la implementación en otra aplicación web distinta, puede hacer clic en la pestaña **Perfil** ficha para crear un perfil diferente. Para este tutorial, aceptará la configuración que se implementa en la aplicación web que creó anteriormente.
 
 8. En la pestaña **Conexión** del Asistente para **publicación web**, haga clic en **Siguiente**.
 
@@ -199,7 +199,7 @@ En esta sección implementará el proyecto web en la aplicación web, como se mu
 
 13. Mantenga esta ventana del explorador abierta para su uso en la sección siguiente.
 
-**Sugerencia:** puede habilitar la barra de herramientas **Publicación en Web con un solo clic** para agilizar la implementación. Haga clic en **Vista > Barras de herramientas** y seleccione **Publicación en Web con un solo clic**. Puede usar la barra de herramientas para seleccionar un perfil, hacer clic en un botón para publicar o hacer clic en un botón para abrir el asistente para **Publicación web**.
+**Sugerencia:** puede habilitar la barra de herramientas **Publicación en Web con un solo clic** para agilizar la implementación. Haga clic en **Vista > Barras de herramientas** y seleccione **Publicación en Web con un solo clic**. Puede usar la barra de herramientas para seleccionar un perfil, hacer clic en un botón para publicar o hacer clic en un botón para abrir el asistente para **publicación web**.
 
 ![Barra de herramientas Publicación en Web con un solo clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
@@ -271,7 +271,7 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 
 * Otros métodos de implementar un proyecto web
 
-	Para más información sobre otras formas de implementar proyectos web en aplicaciones web, ya sea con Visual Studio o mediante la [automatización de la implementación](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) desde un [sistema de control de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Documentación de implementación del Servicio de aplicaciones de Azure](web-sites-deploy.md).
+	Para obtener información sobre otras formas de implementar proyectos web en aplicaciones web, ya sea con Visual Studio o con [automatización de la implementación](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) desde un [sistema de control de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Implementación de una aplicación web de Azure](web-sites-deploy.md).
 
 	Visual Studio también puede generar scripts de Windows PowerShell que puede usar para automatizar la implementación. Para obtener más información, consulte [Automatizar todo (creación de aplicaciones en la nube para el mundo real con Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
@@ -288,7 +288,7 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 
 * Cómo agregar características en tiempo real (por ejemplo, chat)
 
-	Si la aplicación web va a incluir características en tiempo real (como un servicio de chat, un juego o un tablero de cotizaciones), puede optimizar el rendimiento mediante [ASP.NET SignalR](http://www.asp.net/signalr) con el método de transporte [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/). Para obtener más información, consulte [Uso de SignalR con aplicaciones web de Azure](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites).
+	Si la aplicación web va a incluir características en tiempo real (como un servicio de chat, un juego o un tablero de cotizaciones), se puede optimizar el rendimiento usando [ASP.NET SignalR](http://www.asp.net/signalr) con el método de transporte [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/). Para obtener más información, consulte [Uso de SignalR con aplicaciones web de Azure](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites).
 
 * Selección entre Servicio de aplicaciones, Servicios en la nube y Máquinas virtuales de Azure para aplicaciones web
 
@@ -296,9 +296,9 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 
 * [Cómo elegir o crear un plan del Servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-* [Cómo elegir o crear un grupo de recursos](../azure-preview-portal-using-resource-groups.md)
+* [Cómo elegir o crear un grupo de recursos](../azure-portal/resource-group-portal.md)
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web al Servicio de aplicaciones, consulte [Servicio de aplicaciones de Azure y los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -38,7 +38,7 @@ La aplicación usa el[ patrón de trabajo centrado en colas](http://www.asp.net/
 
 ## Arquitectura alternativa: sitios web y WebJobs
 
-En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en un [sitio web de Azure](/services/web-sites/) y usar la característica [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (actualmente en vista previa) para el back-end. Para ver un tutorial en el que se utiliza WebJobs, consulte [Introducción al SDK de Trabajos web de Azure](../websites-dotnet-webjobs-sdk-get-started.md). Para obtener información sobre cómo elegir los servicios que mejor se adapten a su escenario, consulte [Comparación entre Sitios web, Servicios en la nube y Máquinas virtuales de Azure](../choose-web-site-cloud-service-vm.md).
+En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en un [sitio web de Azure](/services/web-sites/) y usar la característica [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (actualmente en vista previa) para el back-end. Para ver un tutorial en el que se utiliza WebJobs, consulte [Introducción al SDK de Trabajos web de Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md). Para obtener información sobre cómo elegir los servicios que mejor se adapten a su escenario, consulte [Comparación entre Sitios web, Servicios en la nube y Máquinas virtuales de Azure](../app-service-web/choose-web-site-cloud-service-vm.md).
 
 ## Temas que se abordarán
 
@@ -88,7 +88,7 @@ Cuando un usuario carga una imagen, el front-end que se ejecuta en un rol web al
 
 3. En el **Explorador de soluciones**, asegúrese de que **ContosoAdsCloudService** se encuentra seleccionado como proyecto de inicio.
 
-2. Si está usando Visual Studio 2015, cambie la cadena de conexión de SQL Server en el archivo *Web.config* de la aplicación del proyecto ContosoAdsWeb y en el archivo *ServiceConfiguration.Local.cscfg* del proyecto ContosoAdsCloudService. En cada caso, cambie "(localdb) \\v11.0" por "(localdb) \\MSSQLLocalDB".
+2. Si está usando Visual Studio 2015, cambie la cadena de conexión de SQL Server en el archivo *Web.config* de la aplicación del proyecto ContosoAdsWeb y en el archivo *ServiceConfiguration.Local.cscfg* del proyecto ContosoAdsCloudService. En cada caso, cambie "(localdb) \v11.0" por "(localdb) \MSSQLLocalDB".
 
 1. Presione CTRL+F5 para ejecutar la aplicación.
 
@@ -219,7 +219,7 @@ El proyecto web y el proyecto de rol de trabajo tienen cada uno su propia cadena
 
 Usará una [transformación Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) para el rol web y una configuración de entorno de servicio en la nube para el rol de trabajo.
 
->[AZURE.NOTE]En esta sección y en la siguiente almacenará credenciales en archivos de proyecto. [No almacene información confidencial en repositorios de código fuente público.](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets)
+>[AZURE.NOTE] En esta sección y en la siguiente almacenará credenciales en archivos de proyecto. [No almacene información confidencial en repositorios de código fuente público.](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets)
 
 1. En el proyecto ContosoAdsWeb, abra el archivo de transformación *Web.Release.config* del archivo *Web.config* de la aplicación, elimine el bloque de comentario que contiene un elemento `<connectionStrings>` y pegue el siguiente código en su lugar.
 
@@ -347,7 +347,7 @@ La opción `<Instances>` especifica el número de máquinas virtuales en las que
 
 9. Ahora puede probar la aplicación creando, viendo y editando algunos anuncios, tal y como hizo cuando ejecutó la aplicación localmente.
 
->[AZURE.NOTE]Cuando termine la prueba, elimine o detenga el servicio en la nube. Aunque no utilice el servicio en la nube, se acumularán cargos porque se reservan recursos de máquina virtual para él. Y si lo deja ejecutando, cualquiera que encuentre su dirección URL puede crear y ver anuncios. En el [Portal de Azure clásico](http://manage.windowsazure.com), vaya a la pestaña **Panel** correspondiente a su servicio en la nube y haga clic en el botón **Eliminar** que se encuentra en la parte inferior de la página. Si lo que desea es evitar temporalmente que otros accedan al sitio, haga clic en **Detener**. En ese caso, los cargos seguirán acumulándose. Puede seguir un procedimiento similar para eliminar la base de datos SQL y la cuenta de almacenamiento cuando ya no las necesite.
+>[AZURE.NOTE] Cuando termine la prueba, elimine o detenga el servicio en la nube. Aunque no utilice el servicio en la nube, se acumularán cargos porque se reservan recursos de máquina virtual para él. Y si lo deja ejecutando, cualquiera que encuentre su dirección URL puede crear y ver anuncios. En el [Portal de Azure clásico](http://manage.windowsazure.com), vaya a la pestaña **Panel** correspondiente a su servicio en la nube y haga clic en el botón **Eliminar** que se encuentra en la parte inferior de la página. Si lo que desea es evitar temporalmente que otros accedan al sitio, haga clic en **Detener**. En ese caso, los cargos seguirán acumulándose. Puede seguir un procedimiento similar para eliminar la base de datos SQL y la cuenta de almacenamiento cuando ya no las necesite.
 
 ## Creación de la aplicación desde cero
 
@@ -471,10 +471,10 @@ Para agregar archivos a un proyecto o carpeta, haga clic con el botón derecho e
 
 3. En el proyecto ContosoAdsWeb, agregue los siguientes archivos desde el proyecto descargado.
 	- *Global.asax.cs*.  
-	- En la carpeta *Views\\Shared*: <em>\_Layout.cshtml</em>.
-	- En la carpeta *Views\\Home*: *Index.cshtml*.
+	- En la carpeta *Views\Shared*: <em>\_Layout.cshtml</em>.
+	- En la carpeta *Views\Home*: *Index.cshtml*.
 	- En la carpeta *Controllers*: *AdController.cs*.
-	- En la carpeta *Views\\Ad* (cree primero la carpeta): cinco archivos *.cshtml*.
+	- En la carpeta *Views\Ad* (cree primero la carpeta): cinco archivos *.cshtml*.
 
 3. En el proyecto ContosoAdsWorker, agregue *WorkerRole.cs* desde el proyecto descargado.
 
@@ -579,9 +579,9 @@ El código similar obtiene una referencia a la cola *images* y crea una nueva co
 
 El archivo *\_Layout.cshtml* establece el nombre de aplicación en el encabezado y pie de página y crea una entrada de menú "Ads".
 
-### ContosoAdsWeb - Views\\Home\\Index.cshtml
+### ContosoAdsWeb - Views\Home\Index.cshtml
 
-El archivo *Views\\Home\\Index.cshtml* muestra vínculos de categoría en la página principal. Los vínculos pasan el valor entero de la enumeración `Category` en una variable de cadena de consulta a la página de índice de anuncios.
+El archivo *Views\Home\Index.cshtml* muestra vínculos de categoría en la página principal. Los vínculos pasan el valor entero de la enumeración `Category` en una variable de cadena de consulta a la página de índice de anuncios.
 
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -670,7 +670,7 @@ En el siguiente ejemplo se muestra el código que elimina blobs cuando elimina u
 		    await blobToDelete.DeleteAsync();
 		}
 
-### ContosoAdsWeb - Views\\Ad\\Index.cshtml y Details.cshtml
+### ContosoAdsWeb - Views\Ad\Index.cshtml y Details.cshtml
 
 El archivo *Index.cshtml* muestra miniaturas con otros datos de anuncio.
 
@@ -680,7 +680,7 @@ El archivo *Details.cshtml* muestra la imagen a tamaño completo.
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\\Ad\\Create.cshtml y Edit.cshtml
+### ContosoAdsWeb - Views\Ad\Create.cshtml y Edit.cshtml
 
 Los archivos *Create.cshtml* y *Edit.cshtml* especifican codificación de formularios que permite al controlador obtener el objeto `HttpPostedFileBase`.
 
@@ -769,7 +769,7 @@ Algunas veces, el contenido de un mensaje de cola causa un error de procesamient
 
 Este código lee la base de datos para obtener la dirección URL de la imagen, convierte la imagen en una miniatura, guarda la miniatura en un blob, actualiza la base de datos con la dirección URL del blob de la miniatura y elimina el mensaje de cola.
 
->[AZURE.NOTE]El código del método `ConvertImageToThumbnailJPG` usa clases del espacio de nombres System.Drawing por simplicidad. Sin embargo, las clases de este espacio de nombres se diseñaron para usarse con Windows Forms. No se admiten para usarse en un servicio de Windows o ASP.NET. Para obtener más información acerca de las opciones de procesamiento de imagen, consulte [Dynamic Image Generation](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) (Generación de imagen dinámica) y [Deep Inside Image Resizing](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na) (Cambio de tamaño de imagen profunda).
+>[AZURE.NOTE] El código del método `ConvertImageToThumbnailJPG` usa clases del espacio de nombres System.Drawing por simplicidad. Sin embargo, las clases de este espacio de nombres se diseñaron para usarse con Windows Forms. No se admiten para usarse en un servicio de Windows o ASP.NET. Para obtener más información acerca de las opciones de procesamiento de imagen, consulte [Dynamic Image Generation](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) (Generación de imagen dinámica) y [Deep Inside Image Resizing](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na) (Cambio de tamaño de imagen profunda).
 
 ## Solución de problemas
 
@@ -815,4 +815,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Administración de servicios en la nube](cloud-services-how-to-manage.md)
 * [Almacenamiento de Azure](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

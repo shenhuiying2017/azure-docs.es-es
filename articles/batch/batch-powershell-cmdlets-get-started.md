@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="01/21/2015"
+   ms.date="01/21/2016"
    ms.author="danlep"/>
 
 # Introducción a los cmdlets de lotes PowerShell de Azure
@@ -44,7 +44,7 @@ Para obtener una lista completa de los cmdlets de Lote y la sintaxis detallada d
 New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-A continuación, cree una nueva cuenta de Lote en el grupo de recursos, especificando también un nombre de cuenta para <*account\_name*> y la ubicación en la que está disponible el servicio de Lote. La creación de la cuenta puede tardar varios minutos en completarse. Por ejemplo:
+A continuación, cree una nueva cuenta de Lote en el grupo de recursos, especificando también un nombre de cuenta para <*account_name*> y la ubicación en la que está disponible el servicio de Lote. La creación de la cuenta puede tardar varios minutos en completarse. Por ejemplo:
 
 ```
 New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -166,4 +166,4 @@ Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $con
 * [Referencia de cmdlets de Lote de Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Consulta eficaz del servicio Lote](batch-efficient-list-queries.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

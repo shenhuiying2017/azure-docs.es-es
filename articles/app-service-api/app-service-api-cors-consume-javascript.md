@@ -18,8 +18,6 @@
 
 # Consumo de una aplicación de API desde JavaScript con CORS
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
-
 ## Información general
 
 Este artículo contiene dos secciones:
@@ -240,4 +238,4 @@ Los pasos siguientes resumen el proceso para habilitar la compatibilidad con Web
 
 En este tutorial se ha explicado cómo habilitar la compatibilidad con CORS del Servicio de aplicaciones para que el código JavaScript de cliente pueda llamar a una API de un dominio diferente. En el siguiente artículo de la serie de introducción a Aplicaciones de API, obtendrá información sobre [la autenticación de aplicaciones de API del Servicio de aplicaciones](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

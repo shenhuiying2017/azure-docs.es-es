@@ -14,21 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/02/2015"
+	ms.date="01/29/2016"
 	ms.author="jgao"/>
 
 
 
-# Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight (Windows)
+# Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight basado en Windows
 
 [AZURE.INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
-
 Aprenda a crear un clúster de HBase en HDInsight, a crear tablas de HBase y a consultar las tablas mediante Apache Hive. Para obtener información general de HBase, vea [Información general de HBase de HDInsight][hdinsight-hbase-overview].
 
-> [AZURE.NOTE] La información contenida en este documento es específica de los clústeres de HDInsight basados en Windows. Para obtener información sobre el uso de clústeres basados en Linux, vea [Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight (Linux)](hdinsight-hbase-tutorial-get-started-linux.md).
->
-> HBase (versión 0.98.0) en HDInsight basado en Windows solo está disponible para su uso con clústeres de HDInsight 3.1 (basados en Apache Hadoop y YARN 2.4.0). Para obtener información de la versión, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight][hdinsight-versions].
+La información contenida en este documento es específica de los clústeres de HDInsight basados en Windows. Para más información acerca de los clústeres basados en Windows, utilice el Selector de pestañas de la parte superior de la página para cambiar.
+
+> [AZURE.NOTE] HBase (versión 0.98.0) en HDInsight basado en Windows solo está disponible para su uso con clústeres de HDInsight 3.1 (basados en Apache Hadoop y YARN 2.4.0). Para obtener información de la versión, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight][hdinsight-versions].
 
 ###Requisitos previos
 
@@ -67,7 +66,8 @@ Antes de empezar este tutorial de HBase, debe contar con lo siguiente:
 
 >[AZURE.NOTE] Después de eliminar un clúster de HBase, puede crear otro clúster de HBase con el mismo contenedor de blobs predeterminado y la misma cuenta de almacenamiento. El nuevo clúster seleccionará las tablas de HBase que creó en el clúster original.
 
-## Usar el shell de HBase
+## Creación de tablas e inserción de datos
+
 Actualmente, hay dos formas de tener acceso a HBase. En esta sección se trata el uso del shell de HBase. En la sección siguiente se describe el uso del SDK de .NET.
 
 Para la mayoría de las personas, los datos aparecen en formato tabular:
@@ -331,4 +331,4 @@ Para más información, consulte:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

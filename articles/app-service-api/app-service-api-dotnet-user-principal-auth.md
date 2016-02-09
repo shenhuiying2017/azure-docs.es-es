@@ -18,7 +18,7 @@
 
 # Autenticación de usuario para aplicaciones de API en el Servicio de aplicaciones de Azure
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/app-service-api-auth-selector.md)]
 
 ## Información general
 
@@ -110,7 +110,7 @@ Si no ha realizado el primer y segundo tutoriales, y desea seguir este, antes as
 
 3. Implementación del proyecto ToDoListAPI en una nueva aplicación de API
 
-	a. En el proyecto ToDoListAPI, abra *Controllers\\ToDoListController.cs* y cambie `http://localhost:45914` a `https://{your ToDoListDataAPI app name}.azurewebsites.net`.
+	a. En el proyecto ToDoListAPI, abra *Controllers\ToDoListController.cs* y cambie `http://localhost:45914` a `https://{your ToDoListDataAPI app name}.azurewebsites.net`.
 
 	b. Para implementar el proyecto ToDoListAPI, use el mismo procedimiento que realizó para el proyecto ToDoListDataAPI. No olvide cambiar el tipo a **Aplicación de API**.
 
@@ -391,4 +391,4 @@ Si la aplicación se ejecuta correctamente sin autenticación y luego no funcion
 
 En este tutorial ha aprendido a utilizar la autenticación del Servicio de aplicaciones para una aplicación de API y a llamar a la aplicación de API mediante la biblioteca de ADAL JS. En el siguiente tutorial aprenderá a [acceder de forma segura a la aplicación de API en escenarios de servicio a servicio](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -16,13 +16,13 @@ En esta sección, creará una aplicación de consola de Java que crea una nueva 
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.0-preview.9</version>
+      <version>1.0.0</version>
     </dependency>
     ```
     
 4. Guarde y cierre el archivo pom.xml.
 
-5. Mediante un editor de texto, abra el archivo create-device-identity\\src\\main\\java\\com\\mycompany\\app\\App.java.
+5. Mediante un editor de texto, abra el archivo create-device-identity\src\main\java\com\mycompany\app\App.java.
 
 6. Agregue las siguientes instrucciones **import** al archivo:
 
@@ -110,7 +110,7 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
 
 4. Guarde y cierre el archivo pom.xml.
 
-5. Con un editor de texto, abra el archivo read-d2c-messages\\src\\main\\java\\com\\mycompany\\app\\App.java.
+5. Con un editor de texto, abra el archivo read-d2c-messages\src\main\java\com\mycompany\app\App.java.
 
 6. Agregue las siguientes instrucciones **import** al archivo:
 
@@ -228,4 +228,4 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
 [lnk-event-hubs-overview]: event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

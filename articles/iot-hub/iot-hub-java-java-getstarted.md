@@ -22,7 +22,7 @@
 
 ## Introducción
 
-El Centro de IoT de Azure es un servicio totalmente administrado que permite una comunicación bidireccional confiable y segura entre millones de dispositivos IoT y un back-end de la solución. Uno de los mayores desafíos que plantean los proyectos de IoT es cómo conectar dispositivos al back-end de la solución de manera segura y confiable. Para abordar este desafío, el Centro de IoT:
+El Centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y un back-end de soluciones. Uno de los mayores desafíos que plantean los proyectos de IoT es cómo conectar dispositivos al back-end de la solución de manera segura y confiable. Para abordar este desafío, el Centro de IoT:
 
 - Ofrece una mensajería confiable de gran escala de dispositivo a nube y de nube a dispositivo.
 - Habilita las comunicaciones seguras con las credenciales de seguridad de cada dispositivo y el control de acceso.
@@ -40,7 +40,7 @@ Al final de este tutorial tendrá tres aplicaciones de consola de Java:
 * **read-d2c-messages**, que muestra los datos de telemetría enviados por el dispositivo simulado.
 * **simulated-device**, que se conecta con el Centro de IoT con la identidad de dispositivo creada anteriormente y envía un mensaje de telemetría cada segundo.
 
-> [AZURE.NOTE] El artículo [SDK de Centro de IoT][lnk-hub-sdks] proporciona información sobre los distintos SDK que puede usar para crear dos aplicaciones que se ejecuten en los dispositivos y en el back-end de la solución.
+> [AZURE.NOTE] El artículo [SDK de Centro de IoT][lnk-hub-sdks] proporciona información acerca de los SDK que puede usar para crear dos aplicaciones para ejecutarse en dispositivos y en el back-end de la solución.
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -141,4 +141,4 @@ En este tutorial, configuró un nuevo Centro de IoT en el portal y después cre�
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

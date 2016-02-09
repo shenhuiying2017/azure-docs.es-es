@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/06/2016"
+	ms.date="02/02/2016"
 	ms.author="daleche"/>
 
 
@@ -28,11 +28,16 @@ En este artículo se describe cómo evitar, solucionar, diagnosticar y mitigar l
 
 Un error transitorio es un error que tiene una causa subyacente que pronto se solucionará automáticamente. Una causa ocasional de errores transitorios se produce cuando el sistema de Azure rápidamente desplaza recursos de hardware para equilibrar mejor la carga de varias cargas de trabajo. Durante este período de tiempo de reconfiguración, puede tener problemas de conexión con Base de datos SQL de Azure.
 
-Si su programa cliente utiliza ADO.NET, se notifican al programa los errores transitorios a través del inicio de una excepción **SqlException**. La propiedad **Number** se puede comparar con la lista de errores transitorios, que se encuentra cerca de la parte superior del tema: [Mensajes de error para los programas de cliente de Base de datos SQL](sql-database-develop-error-messages.md).
+Si su programa cliente utiliza ADO.NET, se notifican al programa los errores transitorios a través del inicio de una excepción **SqlException**. La propiedad **Number** se puede comparar con la lista de errores transitorios, que se encuentra cerca de la parte superior del tema: 
+[Mensajes de error para los programas de cliente de Base de datos SQL](sql-database-develop-error-messages.md).
 
 ### Comparación de conexión y comando
 
-Volverá a intentar la conexión SQL o la establecerá de nuevo dependiendo de lo siguiente: * **Se produce un error transitorio durante un intento de conexión**: se debe reintentar la conexión después de esperar varios segundos. * **Se produce un error transitorio durante un comando de consulta SQL**: el comando no se debe reintentar inmediatamente. Por el contrario, después de un retraso, hay que establecer de nuevo la conexión. Y se vuelve a probar el comando.
+Vuelva a intentar la conexión de SQL o establézcala de nuevo, dependiendo de lo siguiente:
+
+* **Se produce un error transitorio durante un intento de conexión**: se debe reintentar la conexión después de varios segundos.
+
+* **Se produce un error transitorio durante un comando de consulta SQL**: no hay que reintentar el comando inmediatamente. Por el contrario, después de un retraso, hay que establecer de nuevo la conexión. Y se vuelve a probar el comando.
 
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
@@ -106,19 +111,31 @@ Una forma de probar la lógica de reintento es desconectar el equipo cliente de 
 Como parte del primer intento de reintento, el programa puede corregir el error ortográfico y, a continuación, intenta conectarse.
 
 
-Para facilitar esta práctica, desconecte el equipo de la red antes de iniciar el programa. El programa reconoce entonces un parámetro de tiempo de ejecución que hace que el programa: 1. Agregue temporalmente 11001 a la lista de errores para considerarlo como transitorio. 2. Intente su primera conexión como de costumbre. 3. Una vez capturado el error, quite 11001 de la lista. 4. Muestre un mensaje que indique al usuario que conecte el equipo a la red. Pause la ejecución mediante el método **Console.ReadLine** o un cuadro de diálogo con un botón Aceptar. El usuario presiona la tecla Entrar después de que se conecte el equipo a la red. 5. Nuevo intento de conexión, se espera una realización correcta.
+Para facilitar esta práctica, desconecte el equipo de la red antes de iniciar el programa. El programa reconoce entonces un parámetro de tiempo de ejecución que hace que el programa: 
+1. Agregue temporalmente 11001 a la lista de errores para considerarlo como transitorio. 
+2. Intente su primera conexión como de costumbre. 
+3. Una vez capturado el error, quite 11001 de la lista. 
+4. Muestre un mensaje que indique al usuario que conecte el equipo a la red. Pause la ejecución mediante el método **Console.ReadLine** o un cuadro de diálogo con un botón Aceptar. El usuario presiona la tecla Entrar después de que se conecte el equipo a la red. 
+5. Nuevo intento de conexión, se espera una realización correcta.
 
 
 ### Realización de la prueba escribiendo mal el nombre de la base de datos al conectarse
 
 
-El programa deliberadamente escribe mal el nombre de usuario antes del primer intento de conexión. El error será:- **SqlException.Number** = 18456 - Mensaje: "Error de inicio de sesión para el usuario 'WRONG\_MyUserName'".
+El programa deliberadamente escribe mal el nombre de usuario antes del primer intento de conexión. El error será:
+- **SqlException.Number** = 18456 
+- Mensaje: "Error de inicio de sesión para el usuario 'WRONG_MyUserName'".
 
 
 Como parte del primer intento de reintento, el programa puede corregir el error ortográfico y, a continuación, intenta conectarse.
 
 
-Para facilitar esta práctica, el programa puede reconocer un parámetro de tiempo de ejecución que hace que el programa: 1. Agregue temporalmente 18456 a la lista de errores para considerarlo como transitorio. 2. Agregue deliberadamente 'WRONG\_' al nombre de usuario. 3. Una vez capturado el error, quite 18456 de la lista. 4. Quite 'WRONG\_' del nombre de usuario. 5. Nuevo intento de conexión, se espera una realización correcta.
+Para facilitar esta práctica, el programa puede reconocer un parámetro de tiempo de ejecución que hace que el programa: 
+1. Agregue temporalmente 18456 a la lista de errores para considerarlo como transitorio. 
+2. Agregue deliberadamente 'WRONG_' al nombre de usuario. 
+3. Una vez capturado el error, quite 18456 de la lista. 
+4. Quite 'WRONG_' del nombre de usuario. 
+5. Nuevo intento de conexión, se espera una realización correcta.
 
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
@@ -215,7 +232,8 @@ Por ejemplo, cuando el programa cliente está hospedado en un equipo con Windows
 Si el programa cliente se hospeda en una máquina virtual (VM) de Azure, debe leer:<br/>[Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
-Para obtener información general acerca de la configuración de puertos y la dirección IP, consulte: [Firewall de Base de datos SQL de Azure](sql-database-firewall-configure.md).
+Para obtener información general acerca de la configuración de puertos y la dirección IP, consulte: 
+[Firewall de Base de datos SQL de Azure](sql-database-firewall-configure.md).
 
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
@@ -226,7 +244,9 @@ Para obtener información general acerca de la configuración de puertos y la di
 Si el programa utiliza clases ADO.NET como **System.Data.SqlClient.SqlConnection** para conectarse a Base de datos SQL de Azure, le recomendamos que use .NET Framework 4.6.1 o una versión posterior.
 
 
-ADO.NET 4.6.1: agrega compatibilidad al protocolo TDS 7.4. Esto incluye mejoras de conexión más allá de las que ofrecía 4.0. - Admite la agrupación de conexiones. Esto incluye una comprobación eficaz de que el objeto de conexión que ofrece el programa está funcionando.
+ADO.NET 4.6.1: 
+- Agrega compatibilidad al protocolo TDS 7.4. Esto incluye mejoras de conexión más allá de las que ofrecía 4.0. 
+- Admite la agrupación de conexiones. Esto incluye una comprobación eficaz de que el objeto de conexión que ofrece el programa está funcionando.
 
 
 Cuando se usa un objeto de conexión desde un grupo de conexiones, se recomienda que el programa cierre temporalmente la conexión cuando no la está usando inmediatamente. Volver a abrir una conexión no es tan costoso como crear una nueva conexión.
@@ -264,7 +284,7 @@ En Windows la utilidad [PortQry.exe](http://www.microsoft.com/download/details.a
 
 
 ```
-[C:\Users\johndoe]
+[C:\Users\johndoe\]
 >> portqry.exe -n johndoesvr9.database.windows.net -p tcp -e 1433
 
 Querying target system called:
@@ -276,7 +296,7 @@ Name resolved to 23.100.117.95
 querying...
 TCP port 1433 (ms-sql-s service): LISTENING
 
-[C:\Users\johndoe]
+[C:\Users\johndoe\]
 >>
 ```
 
@@ -305,8 +325,8 @@ Presentamos algunas instrucciones SELECT de Transact-SQL que consultan los regis
 
 | Consulta de un registro | Descripción |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La vista [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) ofrece información sobre eventos individuales, incluidos aquellos que pueden causar errores transitorios o problemas de conectividad.<br/><br/>Lo ideal es poder correlacionar los valores de **start\_time** o **end\_time** con información sobre cuándo el programa cliente experimentó los problemas.<br/><br/>**SUGERENCIA:** Tiene que conectarse a la base de datos **principal** para su ejecución. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | La vista [sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) ofrece recuentos agregados de los tipos de eventos, para realizar diagnósticos adicionales.<br/><br/>**SUGERENCIA:** Tiene que conectarse a la base de datos **principal** para su ejecución. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La vista [sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) ofrece información sobre eventos individuales, incluidos aquellos que pueden causar errores transitorios o problemas de conectividad.<br/><br/>Lo ideal es poder correlacionar los valores de **start_time** o **end_time** con información sobre cuándo el programa cliente experimentó los problemas.<br/><br/>**SUGERENCIA:** Tiene que conectarse a la base de datos **principal** para su ejecución. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | La vista [sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) ofrece recuentos agregados de los tipos de eventos, para realizar diagnósticos adicionales.<br/><br/>**SUGERENCIA:** Tiene que conectarse a la base de datos **principal** para su ejecución. |
 
 
 ### Diagnóstico: Buscar eventos de problema en el registro de la Base de datos SQL
@@ -341,7 +361,7 @@ ORDER BY
 ```
 
 
-#### Algunas filas devueltas de sys.fn\_xe\_telemetry\_blob\_target\_read\_file
+#### Algunas filas devueltas de sys.fn_xe_telemetry_blob_target_read_file
 
 
 Después se muestra el aspecto de una fila devuelta. Los valores nulos que se muestran no suelen ser nulos en las demás filas.
@@ -362,7 +382,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 Enterprise Library 6 (EntLib60) es un marco de clases de .NET que ayuda a implementar a clientes sólidos de servicios en la nube, uno de los cuales es el servicio de Base de datos SQL de Azure. Puede buscar temas dedicados a cada área en la que puede ayudar EntLib60 en:- [Enterprise Library 6: abril de 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)-
 
 
-La lógica de reintento para tratar errores transitorios es un área en la que EntLib60 le puede ayudar: [4 - La perseverancia, el secreto de todos los triunfos: uso del bloque de aplicación de control de errores transitorios](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
+La lógica de reintento para tratar errores transitorios consiste en un área en la que EntLib60 le puede ayudar: [4 - Perseverance, Secret of All Triumphs: Using the Transient Fault Handling Application Block (4 - La perseverancia, el secreto de todos los triunfos: uso del bloque de aplicación de control de errores transitorios)](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
 Un breve ejemplo de código C# que usa EntLib60 en su lógica de reintento está disponible en: [Ejemplo de código: lógica de reintento de Enterprise Library 6, en C# para conectarse a Base de datos SQL](sql-database-develop-entlib-csharp-retry-windows.md)
@@ -403,7 +423,7 @@ Estos son vínculos a información sobre EntLib60:
 
 - Descarga gratis del libro [Developer's Guide to Microsoft Enterprise Library, 2nd Edition](http://www.microsoft.com/download/details.aspx?id=41145) (Guía del desarrollador para Microsoft Enterprise Library, 2ª edición).
 
-- Procedimientos recomendados: [Orientación general sobre reintentos](best-practices-retry-general.md) tiene una excelente explicación detallada de la lógica de reintento.
+- Procedimientos recomendados: [Orientación general sobre reintentos](../best-practices-retry-general.md) tiene una excelente explicación detallada de la lógica de reintento.
 
 - Descarga de NuGet de [Enterprise Library: Bloque de aplicación de control de errores transitorios 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
@@ -506,4 +526,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* es una biblioteca de reintentos de uso general con licencia de Apache 2.0, escrita en **Python**, para simplificar la tarea de agregar comportamiento de reintento a prácticamente todo.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

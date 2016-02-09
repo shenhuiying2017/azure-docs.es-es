@@ -18,7 +18,7 @@
 
 # Autenticación y autorización para Aplicaciones de API en el Servicio de aplicaciones de Azure
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/app-service-api-auth-selector.md)]
 
 ## Información general 
 
@@ -53,16 +53,14 @@ El Servicio de aplicaciones puede impedir que las solicitudes anónimas de HTTP 
 
 1. Permitir que solo lleguen a la aplicaciones de API las solicitudes autenticadas.
 
-	Si se recibe una solicitud anónima de un explorador, Servicio de aplicaciones la redirigirá a una página de inicio de sesión.
+	Si se recibe una solicitud anónima desde un explorador, el Servicio de aplicaciones le redirigirá a una página de inicio de sesión para el proveedor de autenticación (Azure AD, Google, Twitter, etc.) que elija.
 
-	Si sabe de antemano qué proveedor de autenticación (Google, Twitter, etc.) desea utilizar, puede configurar el Servicio de aplicaciones para que controle el proceso de inicio de sesión. Como alternativa, se puede especificar la dirección URL propia a la que el Servicio de aplicaciones redirigirá las solicitudes anónimas. Posteriormente, se puede permitir a los usuarios elegir el proveedor de autenticación.
-
-	Con esta opción, no es preciso escribir código de autenticación en la aplicación y la autorización se simplifica, ya que las notificaciones más importantes se proporcionan en los encabezados HTTP.
+	Con esta opción, no es preciso escribir código de autenticación en la aplicación y el código de autorización se simplifica, ya que las notificaciones más importantes se proporcionan en los encabezados HTTP.
 
 2. Permitir que todas las solicitudes lleguen a la aplicación de API, pero validar las solicitudes autenticadas y pasar la información de autenticación en los encabezados HTTP.
 
-	Esta opción proporciona más flexibilidad en el tratamiento de las solicitudes anónimas y facilita la escritura de código que necesite acceso a las notificaciones más comunes. A diferencia de la opción 1, para evitar que usuarios anónimos usen la API es preciso escribir código.
-
+	Esta opción le proporciona más flexibilidad en el tratamiento de solicitudes anónimas, pero tendrá que escribir código si desea impedir que los usuarios anónimos utilicen la API. Puesto que las notificaciones más populares se pasan en los encabezados de solicitudes HTTP, el código de autorización es relativamente sencillo.
+	
 3. Permitir que todas las solicitudes lleguen a la API, no realizar acciones relativas a la información de autenticación de las solicitudes.
 
 	Esta opción deja las tareas de autenticación y autorización totalmente en manos del código de la aplicación.
@@ -71,7 +69,7 @@ En el [Portal de Azure](https://portal.azure.com/), seleccione la opción que de
 
 ![](./media/app-service-api-authentication/authblade.png)
 
-Para las opciones 1 y 2, active **Autenticación de Servicio de aplicaciones** y en la lista desplegable **Acción que se realiza cuando la solicitud no está autenticada** elija **Iniciar sesión** o **Permitir solicitud (ninguna acción)**. Si elige **Iniciar sesión**, tendrá que elegir un proveedor de autenticación y configurarlo.
+Para las opciones 1 y 2, active **Autenticación de Servicio de aplicaciones** y en la lista desplegable **Acción necesaria cuando la solicitud no está autenticada** elija **Iniciar sesión** o **Permitir solicitud (ninguna acción)**. Si elige **Iniciar sesión**, tendrá que elegir un proveedor de autenticación y configurarlo.
 
 ![](./media/app-service-api-authentication/actiontotake.png)
 
@@ -95,7 +93,7 @@ Para más información sobre cómo controlar la autenticación desde clientes m�
 
 Para más información sobre la autenticación y la autorización del Servicio de aplicaciones de Azure, consulte los siguientes recursos:
 
-* [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/) (Expansión de la autenticación/autorización del Servicio de aplicaciones)
+* [Expanding App Service authentication / authorization (Expansión de la autenticación/autorización del Servicio de aplicaciones)](/blog/announcing-app-service-authentication-authorization/)
 * [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (Cómo configurar la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory), con vínculos a otros proveedores de autenticación en la parte superior de la página. 
 
 Para obtener más información sobre OAuth 2.0, OpenID Connect y JSON Web Tokens (JWT), consulte los siguientes recursos.
@@ -118,4 +116,4 @@ Si sigue la secuencia de tutoriales de introducción a ASP.NET y Aplicaciones de
 
 Para más información acerca del uso de Java y Node en el Servicio de aplicaciones de Azure, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/) y el [Centro para desarrolladores de Java](/develop/java/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

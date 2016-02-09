@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/01/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Conexión a Almacenamiento de datos SQL con Visual Studio
@@ -26,7 +26,7 @@ Este tutorial muestra cómo conectarse a una base de datos de Almacenamiento de 
 
 ## Requisitos previos
 
-+ Base de datos de ejemplo AdventureWorksDW en Almacenamiento de datos SQL. Para crearla, consulte [Creación de una base de datos de Almacenamiento de datos SQL](sql-data-warehouse-get-started-create.md). 
++ Base de datos de ejemplo AdventureWorksDW en Almacenamiento de datos SQL. Para crearla, consulte [Creación de una base de datos de Almacenamiento de datos SQL](sql-data-warehouse-get-started-provision.md). 
 + SQL Server Data Tools para Visual Studio Para ver instrucciones y opciones de instalación, consulte [Instalación de Visual Studio y SSDT](sql-data-warehouse-install-visual-studio.md)
 
 ## Paso 1: Búsqueda del nombre completo de Azure SQL Server
@@ -108,4 +108,4 @@ Ahora que puede conectarse y realizar consultas, pruebe a [visualizar los datos 
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

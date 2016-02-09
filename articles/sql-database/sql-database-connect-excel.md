@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="02/04/2016"
 	ms.author="joseidz"/>
 
 
@@ -44,9 +44,9 @@ También necesitará una copia de Excel. Este artículo usa [Microsoft Excel 201
 
 3.	En el cuadro de diálogo **Conectar con el servidor de la base de datos**, escriba el **nombre del servidor** que hospeda el servidor lógico al que quiere conectarse con el formato **<*nombreDeServidor*>.database.windows.net**. Por ejemplo, **adventureserver.database.windows.net**.
 
-4.	En la sección **Credenciales de inicio de sesión**, haga clic en **Usar el nombre de usuario y la contraseña siguientes**, escriba el **nombre de usuario** y la **contraseña** que configuró para el servidor de Base de datos SQL cuando lo creó y, finalmente, haga clic en **Siguiente**.
+4.	En la sección **Credenciales de inicio de sesión**, haga clic en **Usar el nombre de usuario y la contraseña siguientes**, escriba el **Nombre de usuario** y la **Contraseña** que haya configurado para el servidor de Base de datos SQL cuando la creó y, finalmente, haga clic en **Siguiente**.
 
-	> [AZURE.TIP]Los complementos de Excel [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102) y [Power Query](https://www.microsoft.com/download/details.aspx?id=39379) ofrecen experiencias similares.
+	> [AZURE.TIP] Los complementos de Excel [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102) y [Power Query](https://www.microsoft.com/download/details.aspx?id=39379) ofrecen experiencias similares.
 
 5. En el cuadro de diálogo **Seleccionar base de datos y tabla**, seleccione la base de datos **AdventureWorks** en el menú desplegable y seleccione **vGetAllCategories** en la lista de tablas y vistas; y, a continuación, haga clic en **Siguiente**.
 
@@ -58,7 +58,7 @@ También necesitará una copia de Excel. Este artículo usa [Microsoft Excel 201
 
 	![Importación de datos en Excel: en el cuadro de diálogo Importar datos, seleccione Gráfico dinámico.][2]
 
-8. En el cuadro de diálogo **Campos de gráfico dinámico**, seleccione la configuración siguiente para crear un informe del número de productos por categoría.
+8. En el cuadro de diálogo **Campos de gráfico dinámico**, seleccione la configuración siguiente para crear un informe del recuento de productos por categoría.
 
 	![Configuración de informe de base de datos.][3]
 
@@ -77,4 +77,4 @@ Si es un desarrollador de software como servicio (SaaS), obtenga información so
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

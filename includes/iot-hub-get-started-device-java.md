@@ -16,7 +16,7 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.0-preview.9</version>
+      <version>1.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -27,7 +27,7 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
 
 4. Guarde y cierre el archivo pom.xml.
 
-5. Con un editor de texto, abra el archivo simulated-device\\src\\main\\java\\com\\mycompany\\app\\App.java.
+5. Con un editor de texto, abra el archivo simulated-device\src\main\java\com\mycompany\app\App.java.
 
 6. Agregue las siguientes instrucciones **import** al archivo:
 
@@ -156,6 +156,6 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
 > [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Control de errores transitorios][lnk-transient-faults].
 
 <!-- Links -->
-[lnk-transient-faults]: https://msdn.microsoft.com/es-ES/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

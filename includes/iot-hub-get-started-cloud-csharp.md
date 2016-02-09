@@ -8,7 +8,7 @@ En esta sección, creará una aplicación de consola de Windows que crea una nue
 
 2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **CreateDeviceIdentity** y, a continuación, seleccione **Administrar paquetes de NuGet**.
 
-3. En la ventana **Administrador de paquetes de NuGet**, asegúrese de que la opción **Incluir versión preliminar** está activada. Luego busque **Dispositivos de Microsoft Azure**, haga clic en **Instalar** para instalar el paquete **Microsoft.Azure.Devices** y acepte los términos de uso.
+3. En la ventana **Administrador de paquetes NuGet**, busque **Microsoft Azure Devices**, haga clic en **Instalar** para instalar el paquete de **Microsoft.Azure.Devices** y acepte los términos de uso.
 
 	![][11]
 
@@ -53,7 +53,7 @@ En esta sección, creará una aplicación de consola de Windows que crea una nue
 
     ![][12]
 
-> [AZURE.NOTE]El registro de identidades del Centro de IoT solo almacena las identidades de dispositivo para permitir el acceso seguro al centro. Almacena las claves y los identificadores de dispositivo para usarlos como credenciales de seguridad, y un indicador de habilitado o deshabilitado que permite deshabilitar el acceso a un dispositivo individual. Si la aplicación necesita almacenar otros metadatos específicos del dispositivo, debe usar un almacén específico de la aplicación. Consulte [Guía para desarrolladores del Centro de IoT][lnk-devguide-identity] para más información.
+> [AZURE.NOTE] El registro de identidades del Centro de IoT solo almacena las identidades de dispositivo para permitir el acceso seguro al centro. Almacena las claves y los identificadores de dispositivo para usarlos como credenciales de seguridad, y un indicador de habilitado o deshabilitado que permite deshabilitar el acceso a un dispositivo individual. Si la aplicación necesita almacenar otros metadatos específicos del dispositivo, debe usar un almacén específico de la aplicación. Consulte [Guía para desarrolladores del Centro de IoT][lnk-devguide-identity] para más información.
 
 ## Recepción de mensajes de dispositivo a nube
 
@@ -65,7 +65,7 @@ En esta sección, creará una aplicación de consola de Windows que lee los mens
 
 2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **ReadDeviceToCloudMessages** y luego haga clic en **Administrar paquetes de NuGet**.
 
-3. En la ventana **Administrador de paquetes de NuGet**, asegúrese de que la opción **Incluir versión preliminar** está activada. Luego busque **WindowsAzure.ServiceBus**, haga clic en **Instalar** y acepte los términos de uso.
+3. En la ventana **Administrador de paquetes NuGet**, busque **WindowsAzure.ServiceBus**, haga clic en **Instalar** y acepte los términos de uso.
 
     De esta forma, se descarga, se instala y se agrega una referencia al [Bus de servicio de Azure][lnk-servicebus-nuget].
 
@@ -94,7 +94,7 @@ En esta sección, creará una aplicación de consola de Windows que lee los mens
             }
         }
 
-    Este método usa una instancia de **EventHubReceiver** para recibir mensajes de todas las particiones de recepción de dispositivo a nube del Centro de IoT. Observe cómo pasar un parámetro `DateTime.Now` al crear el objeto **EventHubReceiver** para que solo reciba los mensajes enviados después de iniciarse. Esto es útil en un entorno de prueba, porque puede ver el conjunto actual de mensajes, pero en un entorno de producción el código debe asegurarse de que se procesan todos los mensajes. Consulte el [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-processd2c-tutorial] para obtener más información.
+    Este método usa una instancia de **EventHubReceiver** para recibir mensajes de todas las particiones de recepción de dispositivo a nube del Centro de IoT. Observe cómo pasar un parámetro `DateTime.Now` al crear el objeto **EventHubReceiver** para que solo reciba los mensajes enviados después de iniciarse. Esto es útil en un entorno de prueba, por que puede ver el conjunto actual de mensajes, pero en un entorno de producción el código debe asegurarse de que se procesan todos los mensajes. Consulte el [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-processd2c-tutorial] para obtener más información.
 
 7. Por último, agregue las líneas siguientes al método **Main**:
 
@@ -125,4 +125,4 @@ En esta sección, creará una aplicación de consola de Windows que lee los mens
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

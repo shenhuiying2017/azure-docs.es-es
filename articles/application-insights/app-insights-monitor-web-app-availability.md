@@ -129,7 +129,7 @@ Para crear una prueba de varios pasos, grabe el escenario con Visual Studio y, a
 
 Tenga en cuenta que no puede usar funciones codificadas en las pruebas: los pasos del escenario deben incluirse como un script en el archivo .webtest.
 
-#### 1\. Grabar un escenario
+#### 1. Grabar un escenario
 
 Utilice Visual Studio Enterprise o Ultimate para grabar una sesión web.
 
@@ -160,7 +160,7 @@ Utilice Visual Studio Enterprise o Ultimate para grabar una sesión web.
     ![En Visual Studio, abra el archivo .webtest y haga clic en Ejecutar.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 
-#### 2\. Cargar la prueba web en Application Insights
+#### 2. Cargar la prueba web en Application Insights
 
 1. En el portal de Application Insights, cree una nueva prueba web.
 
@@ -207,6 +207,20 @@ Los complementos de prueba web proporcionan la manera de hacerlo.
 
 Ahora puede cargar la prueba en el portal. Utilizará los valores dinámicos en cada ejecución de la prueba.
 
+## Inicio de sesión de OAuth
+
+Si los usuarios inician sesión en la aplicación con su contraseña de OAuth (por ejemplo, Microsoft, Google o Facebook), puede simular el inicio de sesión en su prueba web de varios pasos mediante el complemento SAML.
+
+![Prueba web de ejemplo para OAuth](./media/app-insights-monitor-web-app-availability/81.png)
+
+La prueba de ejemplo realiza estos pasos:
+
+1. Pide a la aplicación web sometida a prueba la dirección del punto de conexión de OAuth.
+2. Inicia sesión mediante el complemento SAML.
+3. Realiza el resto de la prueba en el estado conectado.
+
+El complemento SAML establece una variable `Assert` que se utiliza en el paso 2.
+
 ## <a name="edit"></a> Modificación o deshabilitación de una prueba
 
 Abra una prueba individual para editarla o deshabilitarla.
@@ -249,4 +263,4 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->
