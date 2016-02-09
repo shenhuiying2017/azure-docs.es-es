@@ -110,7 +110,7 @@ Si no ha realizado el primer y segundo tutoriales, y desea seguir este, antes as
 
 3. Implementación del proyecto ToDoListAPI en una nueva aplicación de API
 
-	a. En el proyecto ToDoListAPI, abra *Controllers\\ToDoListController.cs* y cambie `http://localhost:45914` a `https://{your ToDoListDataAPI app name}.azurewebsites.net`.
+	a. En el proyecto ToDoListAPI, abra *Controllers\ToDoListController.cs* y cambie `http://localhost:45914` a `https://{your ToDoListDataAPI app name}.azurewebsites.net`.
 
 	b. Para implementar el proyecto ToDoListAPI, use el mismo procedimiento que realizó para el proyecto ToDoListDataAPI. No olvide cambiar el tipo a **Aplicación de API**.
 

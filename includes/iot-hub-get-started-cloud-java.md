@@ -22,7 +22,7 @@ En esta sección, creará una aplicación de consola de Java que crea una nueva 
     
 4. Guarde y cierre el archivo pom.xml.
 
-5. Mediante un editor de texto, abra el archivo create-device-identity\\src\\main\\java\\com\\mycompany\\app\\App.java.
+5. Mediante un editor de texto, abra el archivo create-device-identity\src\main\java\com\mycompany\app\App.java.
 
 6. Agregue las siguientes instrucciones **import** al archivo:
 
@@ -110,7 +110,7 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
 
 4. Guarde y cierre el archivo pom.xml.
 
-5. Con un editor de texto, abra el archivo read-d2c-messages\\src\\main\\java\\com\\mycompany\\app\\App.java.
+5. Con un editor de texto, abra el archivo read-d2c-messages\src\main\java\com\mycompany\app\App.java.
 
 6. Agregue las siguientes instrucciones **import** al archivo:
 

@@ -82,7 +82,7 @@ private const string StorageAccountName = "";
 private const string StorageAccountKey  = "";
 ```
 
-Las credenciales de las cuenta de Lote y de Almacenamiento se pueden encontrar en la hoja de cuentas de cada servicio en el [Portal de Azure][azure_portal]\:
+Las credenciales de las cuenta de Lote y de Almacenamiento se pueden encontrar en la hoja de cuentas de cada servicio en el [Portal de Azure][azure_portal]:
 
 ![Credenciales de Lote en el portal][9] ![Credenciales de Almacenamiento en el portal][10]<br/>
 
@@ -240,7 +240,7 @@ Las firmas de acceso compartido son cadenas que, cuando se incluyen como parte d
 
 ![Crear un grupo de Lote][3] <br/>
 
-Después de cargar los archivos de datos y de aplicación en la cuenta de Almacenamiento, *DotNetTutorial* inicia su interacción con el servicio Lote mediante la biblioteca .NET de Lote. Para ello, primero se crea una clase [BatchClient][net_batchclient]\:
+Después de cargar los archivos de datos y de aplicación en la cuenta de Almacenamiento, *DotNetTutorial* inicia su interacción con el servicio Lote mediante la biblioteca .NET de Lote. Para ello, primero se crea una clase [BatchClient][net_batchclient]:
 
 ```
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
@@ -341,7 +341,7 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
     foreach (ResourceFile inputFile in inputFiles)
     {
         string taskId = "topNtask" + inputFiles.IndexOf(inputFile);
-        string taskCommandLine = String.Format("cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 "{1}"", inputFile.FilePath, outputContainerSasUrl);
+        string taskCommandLine = String.Format("cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 \"{1}\"", inputFile.FilePath, outputContainerSasUrl);
 
         CloudTask task = new CloudTask(taskId, taskCommandLine);
         task.ResourceFiles = new List<ResourceFile> { inputFile };

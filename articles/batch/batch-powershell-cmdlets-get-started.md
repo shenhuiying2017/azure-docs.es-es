@@ -44,7 +44,7 @@ Para obtener una lista completa de los cmdlets de Lote y la sintaxis detallada d
 New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-A continuación, cree una nueva cuenta de Lote en el grupo de recursos, especificando también un nombre de cuenta para <*account\_name*> y la ubicación en la que está disponible el servicio de Lote. La creación de la cuenta puede tardar varios minutos en completarse. Por ejemplo:
+A continuación, cree una nueva cuenta de Lote en el grupo de recursos, especificando también un nombre de cuenta para <*account_name*> y la ubicación en la que está disponible el servicio de Lote. La creación de la cuenta puede tardar varios minutos en completarse. Por ejemplo:
 
 ```
 New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup

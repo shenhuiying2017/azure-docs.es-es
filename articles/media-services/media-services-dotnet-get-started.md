@@ -153,7 +153,7 @@ La asignación de cualquier nueva unidad puede tardar unos 20 minutos en finaliz
 		using Microsoft.WindowsAzure.MediaServices.Client;
 		
 
-6. Cree una carpeta nueva en el directorio de proyectos y copie el archivo .mp4 o .wmv que desea codificar y transmítalo o descárguelo progresivamente. En este ejemplo, se usa la ruta de acceso "C:\\VideoFiles".
+6. Cree una carpeta nueva en el directorio de proyectos y copie el archivo .mp4 o .wmv que desea codificar y transmítalo o descárguelo progresivamente. En este ejemplo, se usa la ruta de acceso "C:\VideoFiles".
 
 ##Conexión a la cuenta de Servicios multimedia
 

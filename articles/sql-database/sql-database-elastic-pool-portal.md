@@ -173,7 +173,8 @@ Después de crear un grupo, podrá:
 
 Al seleccionar un grupo existente, podrá ver la utilización de recursos del grupo. Haga clic en el gráfico **Utilización de recursos** para abrir la hoja **Métrica**, donde podrá personalizar el gráfico y configurar alertas.
 
-![Supervisión de grupos elásticos][4] ![Utilización de recursos][6]
+![Supervisión de grupos elásticos][4] 
+![Utilización de recursos][6]
 
 Haga clic en **Editar gráfico** para agregar parámetros para ver fácilmente los datos de telemetría del grupo.
 

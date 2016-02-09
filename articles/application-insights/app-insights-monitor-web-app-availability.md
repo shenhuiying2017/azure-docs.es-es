@@ -129,7 +129,7 @@ Para crear una prueba de varios pasos, grabe el escenario con Visual Studio y, a
 
 Tenga en cuenta que no puede usar funciones codificadas en las pruebas: los pasos del escenario deben incluirse como un script en el archivo .webtest.
 
-#### 1\. Grabar un escenario
+#### 1. Grabar un escenario
 
 Utilice Visual Studio Enterprise o Ultimate para grabar una sesión web.
 
@@ -160,7 +160,7 @@ Utilice Visual Studio Enterprise o Ultimate para grabar una sesión web.
     ![En Visual Studio, abra el archivo .webtest y haga clic en Ejecutar.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 
-#### 2\. Cargar la prueba web en Application Insights
+#### 2. Cargar la prueba web en Application Insights
 
 1. En el portal de Application Insights, cree una nueva prueba web.
 
