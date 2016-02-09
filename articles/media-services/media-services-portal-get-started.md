@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/05/2015"
+	ms.date="01/28/2016"
 	ms.author="juliako"/>
 
 
@@ -25,7 +25,8 @@
 
 Este tutorial le indica los pasos necesarios para implementar una aplicación básica de entrega de contenido de vídeo bajo demanda (VoD) mediante el Portal de Azure clásico.
 
-> [AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Evaluación gratuita de Azure</a>.
+> [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+
 
 Este tutorial incluye las siguientes tareas:
 
@@ -91,7 +92,7 @@ Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
 	La asignación de cualquier nueva unidad puede tardar unos 20 minutos en finalizarse.
 
-	>[AZURE.NOTE]Actualmente, pasar de cualquier valor positivo de unidades de streaming a ninguno puede deshabilitar el streaming hasta una hora.
+	>[AZURE.NOTE] Actualmente, pasar de cualquier valor positivo de unidades de streaming a ninguno puede deshabilitar el streaming hasta una hora.
 	>
 	> Se utiliza el número más elevado de unidades especificadas durante el período de 24 horas al calcular el coste. Para obtener más información acerca del precio, consulte la página sobre [información del precio de Servicios multimedia](http://go.microsoft.com/fwlink/?LinkId=275107).
 
@@ -120,6 +121,7 @@ Si el valor del tamaño de archivo no se actualiza después de que se detenga el
 ## Codificar contenido
 
 ### Información general
+
 Para entregar vídeo digital a través de Internet, debe comprimir los archivos multimedia. Servicios multimedia proporciona un codificador multimedia que le permite especificar cómo desea que su contenido se codifique (por ejemplo, los códecs que se van a usar, el formato de archivo, la resolución y la velocidad de bits).
 
 Cuando se trabaja con Servicios multimedia de Azure, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Con el streaming de velocidad de bits adaptable, el cliente puede cambiar a una secuencia de velocidad de bits mayor o menor que el vídeo mostrado, según el ancho de banda actual de la red, el uso de CPU y otros factores. Servicios multimedia admite las siguientes tecnologías de streaming adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access).
@@ -140,21 +142,12 @@ Tenga en cuenta que además de poder usar las capacidades de empaquetado dinámi
 En esta sección se describen los pasos que puede seguir para codificar el contenido con Codificador multimedia de Azure mediante el Portal de Azure clásico.
 
 1.  Seleccione el archivo que desea codificar. Si se admite la codificación para este tipo de archivo, se habilitará el botón **PROCESO** en la parte inferior de la página CONTENIDO.
-4. En el cuadro de diálogo **Proceso**, seleccione el procesador **Codificador multimedia de Azure**.
+4. En el cuadro de diálogo **Proceso**, seleccione el procesador **Estándar de codificador multimedia**.
 5. Elija una de las **configuraciones de codificación**.
 
 	![Process2][process2]
 
-	En el tema [Cadenas preestablecidas de tareas para Codificador multimedia de Azure](https://msdn.microsoft.com/library/azure/dn619392.aspx) se explica lo que significa cada valor preestablecido de las categorías **Valores preestablecidos para streaming adaptable (empaquetado dinámico)**, **Valores preestablecidos para la descarga progresiva** y **Valores preestablecidos heredados para streaming adaptable**.
-
-	Las **otras** configuraciones se describen a continuación:
-
-	+ **Codificación con protección de contenido PlayReady**. Este valor preestablecido produce un activo codificado con protección de contenido PlayReady.  
-
-		De forma predeterminada, se usa el servicio de licencias PlayReady de Servicios multimedia. Para especificar algún otro servicio del que los clientes pueden obtener una licencia para reproducir el contenido cifrado de PlayReady, use las API de REST o del SDK de Servicios multimedia para .NET. Para obtener más información, consulte [Uso de cifrado estático para proteger su contenido]() y establezca la propiedad **licenseAcquisitionUrl** en el valor preestablecido de Media Encryptor. Como alternativa, puede usar el cifrado dinámico y establecer la propiedad **PlayReadyLicenseAcquisitionUrl** tal y como se describe en [Uso del cifrado dinámico de PlayReady y del servicio de entrega de licencias](http://go.microsoft.com/fwlink/?LinkId=507720).
-	+ **Reproducción en PC/Mac (a través de Flash/Silverlight)**. Este valor predefinido produce un recurso de transmisión suave con las siguientes características: 44,1 kHz 16 bits/CBR de audio estéreo de ejemplo con codificación a 96 kbps mediante AAC y CBR de vídeo de 720p con codificación con una velocidad de bits de 6 de 3400 kbps a 400 kbps mediante el perfil principal H.264 y GOP de dos segundos.
-	+ **Reproducción a través de HTML5 (IE/Chrome/Safari)**. Este valor predefinido produce un archivo MP4 único con las siguientes características: 44,1 kHz 16 bits/CBR de audio estéreo de ejemplo con una codificación a 128 kbps mediante AAC y CBR de vídeo de 720p con una codificación a 4500 kbps mediante el perfil principal H.264.
-	+ **Reproducción en dispositivos iOS y PC/Mac**. Este valor preestablecido produce un recurso con las mismas características que el recurso de Smooth Streaming (descrito anteriormente), pero en un formato que puede usarse para proporcionar secuencias HLS de Apple en dispositivos iOS.
+	El tema [Task Preset Strings for Media Encoder Standard](https://msdn.microsoft.com/es-ES/library/mt269960) (Cadenas preestablecidas de tareas para Estándar de codificador multimedia) explica el significado de cada cadena preestablecida.
 
 5. A continuación, especifique el nombre descriptivo del contenido de salida o acepte el valor predeterminado. A continuación, haga clic en el botón de comprobación para iniciar la operación de codificación y podrá realizar un seguimiento del progreso desde la parte inferior del portal.
 6. Seleccione **Aceptar**.
@@ -193,7 +186,7 @@ Para generar una dirección URL de streaming de MPEG DASH, anexe (format=mpd-tim
 
 Los localizadores tienen fecha de caducidad. Al usar el portal para publicar sus recursos, se crean los localizadores con una fecha de caducidad de 100 años.
 
->[AZURE.NOTE]Si usó el portal para crear localizadores antes de marzo de 2015, se crearon localizadores con una fecha de caducidad de dos años.
+>[AZURE.NOTE] Si usó el portal para crear localizadores antes de marzo de 2015, se crearon localizadores con una fecha de caducidad de dos años.
 
 Para actualizar la fecha de caducidad de un localizador, use las API de [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o de [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Tenga en cuenta que, cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
 
@@ -260,4 +253,4 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

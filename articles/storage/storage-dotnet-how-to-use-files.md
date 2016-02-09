@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="01/24/2015"
+      ms.date="02/03/2015"
       ms.author="robinsh" />
 
 # Introducción a Almacenamiento de archivos de Azure en Windows
@@ -29,7 +29,7 @@ Puede crear recursos compartidos de archivos de Azure mediante el [Portal de Azu
 
 Para más información sobre Almacenamiento de archivos con Linux, consulte [Uso de Almacenamiento de archivos de Azure con Linux](storage-how-to-use-files-linux.md).
 
-Para más información acerca de los objetivos de rendimiento y escalabilidad de Almacenamiento de archivos, consulte [Objetivos de escalabilidad y rendimiento del Almacenamiento de Azure](storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts).
+Para más información acerca de los objetivos de rendimiento y escalabilidad de Almacenamiento de archivos, consulte [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files).
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -138,7 +138,7 @@ Abra una ventana de Azure PowerShell haciendo clic en **Inicio** y escribiendo *
 
 ### Creación de un contexto para la cuenta y clave de almacenamiento
 
-Ahora, cree el contexto de la cuenta de almacenamiento. El contexto encapsula el nombre y la clave de cuenta de almacenamiento. Para instrucciones sobre la copia de la clave de cuenta desde el [Portal de Azure](https://portal.azure.com), consulte [Acerca de las cuentas de almacenamiento de Azure](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Ahora, cree el contexto de la cuenta de almacenamiento. El contexto encapsula el nombre y la clave de cuenta de almacenamiento. Para obtener instrucciones sobre la copia de la clave de cuenta desde el [Portal de Azure](https://portal.azure.com), consulte la sección [Visualización y copia de las claves de acceso de almacenamiento](storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 Sustituya `storage-account-name` y `storage-account-key` por el nombre y clave de su cuenta de almacenamiento en el siguiente ejemplo.
 
@@ -425,7 +425,7 @@ Para obtener más información sobre la creación y uso de firmas de acceso comp
 
 A partir de la versión 5.x de la biblioteca de cliente de almacenamiento de Azure, puede copiar un archivo en otro, un archivo en un blob o un blob en un archivo. En las siguientes secciones, mostramos cómo realizar estas operaciones de copia mediante programación.
 
-También puede usar AzCopy para copiar un archivo en otro o para copiar un blob en un archivo o viceversa. Para más información sobre la copia de archivos con AzCopy, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy-preview-version-only).
+También puede usar AzCopy para copiar un archivo en otro o para copiar un blob en un archivo o viceversa. Para más información sobre la copia de archivos con AzCopy, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy).
 
 > [AZURE.NOTE] Si va a copiar un blob en un archivo, o un archivo en un blob, debe usar una firma de acceso compartido (SAS) para autenticar el objeto de origen, incluso si está copiando en la misma cuenta de almacenamiento.
 
@@ -586,11 +586,11 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 
 ### Artículos y vídeos conceptuales
 
-- [Almacenamiento de archivos de Azure: un sistema de archivos SMB en la nube sin dificultades para Windows y Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+- [Almacenamiento de archivos de Azure: un sistema de archivos SMB en la nube sin dificultades para Windows y Linux
+- https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [Uso del almacenamiento de archivos de Azure con Linux](storage-how-to-use-files-linux.md)
-- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 
-### Herramientas de soporte técnico para Almacenamiento de archivos
+### Compatibilidad de herramientas con el almacenamiento de archivos
 
 - [Usar Azure PowerShell con Almacenamiento de Azure](storage-powershell-guide-full.md)
 - [Uso de AzCopy con Almacenamiento de Microsoft Azure](storage-use-azcopy.md)
@@ -603,10 +603,9 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 
 ### Publicaciones de blog
 
-- [El almacenamiento de archivos de Azure ya está disponible de manera general](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Profundización en el almacenamiento de archivos de Azure](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
+- [El almacenamiento de archivos de Azure ya está disponible de manera general](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+- [Almacenamiento de archivos dentro de Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/) 
 - [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
-- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

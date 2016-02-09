@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/06/2016"
+	ms.date="02/02/2016"
 	ms.author="daleche"/>
 
 
@@ -32,7 +32,11 @@ Si su programa cliente utiliza ADO.NET, se notifican al programa los errores tra
 
 ### Comparación de conexión y comando
 
-Volverá a intentar la conexión SQL o la establecerá de nuevo dependiendo de lo siguiente: * **Se produce un error transitorio durante un intento de conexión**: se debe reintentar la conexión después de esperar varios segundos. * **Se produce un error transitorio durante un comando de consulta SQL**: el comando no se debe reintentar inmediatamente. Por el contrario, después de un retraso, hay que establecer de nuevo la conexión. Y se vuelve a probar el comando.
+Vuelva a intentar la conexión de SQL o establézcala de nuevo, dependiendo de lo siguiente:
+
+* **Se produce un error transitorio durante un intento de conexión**: se debe reintentar la conexión después de varios segundos.
+
+* **Se produce un error transitorio durante un comando de consulta SQL**: no hay que reintentar el comando inmediatamente. Por el contrario, después de un retraso, hay que establecer de nuevo la conexión. Y se vuelve a probar el comando.
 
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
@@ -362,7 +366,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 Enterprise Library 6 (EntLib60) es un marco de clases de .NET que ayuda a implementar a clientes sólidos de servicios en la nube, uno de los cuales es el servicio de Base de datos SQL de Azure. Puede buscar temas dedicados a cada área en la que puede ayudar EntLib60 en:- [Enterprise Library 6: abril de 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)-
 
 
-La lógica de reintento para tratar errores transitorios es un área en la que EntLib60 le puede ayudar: [4 - La perseverancia, el secreto de todos los triunfos: uso del bloque de aplicación de control de errores transitorios](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
+La lógica de reintento para tratar errores transitorios consiste en un área en la que EntLib60 le puede ayudar: [4 - Perseverance, Secret of All Triumphs: Using the Transient Fault Handling Application Block (4 - La perseverancia, el secreto de todos los triunfos: uso del bloque de aplicación de control de errores transitorios)](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
 Un breve ejemplo de código C# que usa EntLib60 en su lógica de reintento está disponible en: [Ejemplo de código: lógica de reintento de Enterprise Library 6, en C# para conectarse a Base de datos SQL](sql-database-develop-entlib-csharp-retry-windows.md)
@@ -403,7 +407,7 @@ Estos son vínculos a información sobre EntLib60:
 
 - Descarga gratis del libro [Developer's Guide to Microsoft Enterprise Library, 2nd Edition](http://www.microsoft.com/download/details.aspx?id=41145) (Guía del desarrollador para Microsoft Enterprise Library, 2ª edición).
 
-- Procedimientos recomendados: [Orientación general sobre reintentos](best-practices-retry-general.md) tiene una excelente explicación detallada de la lógica de reintento.
+- Procedimientos recomendados: [Orientación general sobre reintentos](../best-practices-retry-general.md) tiene una excelente explicación detallada de la lógica de reintento.
 
 - Descarga de NuGet de [Enterprise Library: Bloque de aplicación de control de errores transitorios 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
@@ -506,4 +510,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* es una biblioteca de reintentos de uso general con licencia de Apache 2.0, escrita en **Python**, para simplificar la tarea de agregar comportamiento de reintento a prácticamente todo.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

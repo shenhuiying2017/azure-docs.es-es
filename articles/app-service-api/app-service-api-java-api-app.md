@@ -150,7 +150,7 @@ Esta demostración comenzará con un cuerpo JSON de Swagger que se pegará en el
 ## Edición del código para agregar la implementación de API
 En esta sección va a reemplazar la implementación del lado servidor del código generado por el código personalizado. El nuevo código devolverá una listaDeMatrices de entidades de contactos para el cliente que realiza la llamada.
 
-1. Abra el archivo de modelo *Contact.java*, ubicado en la carpeta *src/gen/java/swagger/model*, mediante [código de Visual Studio](https://code.visualstudio.com) o en el editor de texto de su elección. 
+1. Abra el archivo de modelo *Contact.java*, ubicado en la carpeta *src/gen/java/io/swagger/model*, mediante [código de Visual Studio](https://code.visualstudio.com) o en el editor de texto de su elección. 
 
     ![Abrir archivo de modelo de contacto](media/app-service-api-java-api-app/open-contact-model-file.png)
 
@@ -163,7 +163,7 @@ En esta sección va a reemplazar la implementación del lado servidor del códig
 			this.emailAddress = email;
 		}
 
-1. Abra el archivo de implementación del servicio *ContactsApiServiceImpl.java*, ubicado en la carpeta *src/main/java/swagger/api/impl*, mediante [código de Visual Studio](https://code.visualstudio.com) o en el editor de texto de su elección.
+1. Abra el archivo de implementación del servicio *ContactsApiServiceImpl.java*, ubicado en la carpeta *src/main/java/io/swagger/api/impl*, mediante [código de Visual Studio](https://code.visualstudio.com) o en el editor de texto de su elección.
 
     ![Abrir archivo de código de servicio de contacto](media/app-service-api-java-api-app/open-contact-service-code-file.png)
 
@@ -295,4 +295,4 @@ Para sacar más partido a este ejemplo, aprenda más sobre el [SDK de almacenami
 
 Para obtener más información sobre del uso de Java en Azure, consulte el [Centro para desarrolladores de Java](/develop/java/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

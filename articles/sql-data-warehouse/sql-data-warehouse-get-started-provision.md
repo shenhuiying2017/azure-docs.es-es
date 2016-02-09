@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/01/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Creación de Almacenamiento de datos SQL
@@ -31,7 +31,7 @@ En este tutorial, aprenderá lo siguiente:
 - Crear un servidor que hospedará la base de datos.
 - Crear una base de datos que contenga la base de datos de ejemplo AdventureWorksDW.
 
-Si intenta migrar una base de datos a Almacenamiento de datos SQL, consulte [Información general sobre migración](./sql-data-warehouse-get-started-overview-migrate.md) o use la [utilidad de migración](./sql-data-warehouse-migrate-migration-utility.md).
+Si intenta migrar una base de datos a Almacenamiento de datos SQL, consulte [Información general sobre migración](./sql-data-warehouse-overview-migrate.md) o use la [utilidad de migración](./sql-data-warehouse-migrate-migration-utility.md).
 
 Para cargar datos en Almacenamiento de datos SQL, consulte la [información general sobre la carga](./sql-data-warehouse-overview-load.md).
 
@@ -54,12 +54,12 @@ Para cargar datos en Almacenamiento de datos SQL, consulte la [información gene
 
 En la base de datos SQL y Almacenamiento de datos SQL, cada base de datos se asigna a un servidor y cada servidor se asigna a una ubicación geográfica. El servidor se llama a un servidor SQL lógico.
 
-> [AZURE.NOTE]<a name="note"></a>Un servidor SQL lógico: 
+> [AZURE.NOTE] <a name="note"></a>Un SQL Server lógico:
   >
-  > + proporciona una manera coherente de configurar varias bases de datos dentro de la misma ubicación geográfica. 
-  > + No es un hardware físico como sucede en un servidor local. Forma parte del software de servicio. Por eso lo llamamos un *servidor lógico*. 
-  > + Puede hospedar varias bases de datos sin que ello afecte a su rendimiento. 
-  > + Usa una *s* minúscula en el nombre. Un **s**ervidor SQL es un servidor lógico de Azure, mientras que SQL **S**server es un producto de base de datos local de Microsoft.
+  > + Proporciona una manera coherente de configurar varias bases de datos dentro de la misma ubicación geográfica.
+  > + No es un hardware físico como sucede en un servidor local. Forma parte del software de servicio. Por ello se llama *servidor lógico*.
+  > + Puede hospedar varias bases de datos sin afectar a su rendimiento.
+  > + Utiliza una *s* minúscula en su nombre. Un **s**ervidor SQL es un servidor lógico de Azure, mientras que SQL **S**server es un producto de la base de datos local de Microsoft.
 
 1. Haga clic en **Servidor** > **Crear un nuevo servidor**. No se aplica ningún cargo por el servidor. Si ya dispone de un servidor SQL lógico V12 que desee usar, elija el servidor existente y vaya al paso siguiente. 
 
@@ -123,7 +123,7 @@ Para conectarse al servidor desde la dirección IP actual, agregue su dirección
 
 1. Crear una regla de firewall con un intervalo de direcciones IP. Puede hacerlo ahora o más tarde.
 
-	>[AZURE.IMPORTANT]Probablemente su dirección IP cambie de vez en cuando, y es posible que no pueda tener acceso al servidor hasta que cree una nueva regla de firewall. Para garantizar un acceso constante, se recomienda agregar un intervalo de direcciones IP. Para obtener información adicional, consulte [Configuración del firewall en la Base de datos SQL mediante el Portal de Azure clásico](../sql-database/sql-database-configure-firewall-settings.md).
+	>[AZURE.IMPORTANT] Probablemente su dirección IP cambie de vez en cuando, y es posible que no pueda tener acceso al servidor hasta que cree una nueva regla de firewall. Para garantizar un acceso constante, se recomienda agregar un intervalo de direcciones IP. Para obtener información adicional, consulte [Configuración del firewall en la Base de datos SQL mediante el Portal de Azure clásico](../sql-database/sql-database-configure-firewall-settings.md).
 
     Para crear una regla, escriba un nombre y el intervalo de direcciones IP, y haga clic en **Guardar**.
 
@@ -135,4 +135,4 @@ Una vez configurado el firewall, podrá establecer conexiones desde su escritori
 
 Ahora que ha creado una base de datos de ejemplo para Almacenamiento de datos SQL, está listo para [conectarla](./sql-data-warehouse-get-started-connect.md) a la base de datos.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->
