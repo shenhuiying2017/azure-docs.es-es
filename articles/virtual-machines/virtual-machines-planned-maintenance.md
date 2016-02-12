@@ -44,7 +44,7 @@ Se aplican actualizaciones de instancias múltiples (parar máquinas virtuales e
 
 Hay dos tipos de configuraciones de máquinas virtuales: instancias múltiples y una sola instancia. En una configuración de instancias múltiples, las máquinas virtuales similares se colocan en un conjunto de disponibilidad.
 
-La configuración de instancias múltiples proporciona redundancia y se recomienda para garantizar la disponibilidad de la aplicación. Todas las máquinas virtuales del conjunto de disponibilidad deben ser prácticamente idénticas y prestar el mismo servicio a la aplicación.
+La configuración de instancias múltiples proporciona redundancia entre equipos físicos, potencia y red, y se recomienda para garantizar la disponibilidad de la aplicación. Todas las máquinas virtuales del conjunto de disponibilidad deben prestar el mismo servicio a la aplicación.
 
 Para obtener más información sobre la configuración de las máquinas virtuales para ofrecer alta disponibilidad, vea [Administración de la disponibilidad de las máquinas virtuales](virtual-machines-manage-availability.md).
 
@@ -55,7 +55,7 @@ Para obtener más información sobre los contratos de nivel de servicio, vea la 
 
 ## Actualizaciones de una configuración de instancias múltiples
 
-Durante el mantenimiento planeado, la plataforma Azure actualizará primero el conjunto de máquinas virtuales que se hospedan en una configuración de instancias múltiples. Esto provoca un reinicio de estas máquinas virtuales.
+Durante el mantenimiento planeado, la plataforma Azure actualizará primero el conjunto de máquinas virtuales que se hospedan en una configuración de instancias múltiples. Esto hace que estas máquinas virtuales se reinicien con aproximadamente 15 minutos de inactividad.
 
 En una configuración de instancias múltiples, las máquinas virtuales se actualizan de forma que conservan la disponibilidad durante todo el proceso, suponiendo que cada máquina realiza una función similar a las otras que forman parte del conjunto.
 
@@ -65,7 +65,7 @@ Para obtener más información sobre dominios de actualización y dominios de er
 
 Para evitar que los dominios de actualización se queden sin conexión al mismo tiempo, al realizar el mantenimiento, se cierra cada máquina virtual en un dominio de actualización, se aplica la actualización a los equipos host, se reinician las máquinas virtuales y se pasa al siguiente dominio de actualización. El evento de mantenimiento planeado termina cuando todos los dominios de actualización se han actualizado.
 
-El orden en el que los dominios de actualización se reinician no puede llevarse a cabo secuencialmente durante un mantenimiento planeado, sino que solamente se reiniciará un dominio de actualización simultáneamente. Actualmente, Azure ofrece una notificación de mantenimiento planeado para máquinas virtuales con 48 horas de antelación en la configuración de instancias múltiples.
+El orden en el que los dominios de actualización se reinician no puede llevarse a cabo secuencialmente durante un mantenimiento planeado, sino que solamente se reiniciará un dominio de actualización simultáneamente. Actualmente, Azure ofrece una notificación de mantenimiento planeado para máquinas virtuales con una semana de antelación en la configuración de instancias múltiples.
 
 Después de restaurar una máquina virtual, aquí se muestra un ejemplo de lo que puede mostrar el Visor de eventos de Windows:
 
@@ -83,20 +83,20 @@ Una vez completadas las actualizaciones de instancias múltiples, Azure realizar
 
 Tenga en cuenta que, aunque solamente tenga una instancia ejecutándose en un conjunto de disponibilidad, la plataforma Azure seguirá tratándola como una actualización de instancias múltiples.
 
-Las máquinas virtuales con una configuración de una sola instancia se actualizan cerrándolas, aplicando la actualización a la máquina host y reiniciando las máquinas virtuales. Estas actualizaciones se ejecutan en todas las máquinas virtuales de una región en una sola ventana de mantenimiento.
+Las máquinas virtuales con una configuración de una sola instancia se actualizan cerrándolas, aplicando la actualización a la máquina host y reiniciando las máquinas virtuales, con 15 minutos de inactividad aproximadamente. Estas actualizaciones se ejecutan en todas las máquinas virtuales de una región en una sola ventana de mantenimiento.
 
 Este evento de mantenimiento planeado afectará a la disponibilidad de la aplicación para este tipo de configuración de máquina virtual. Azure ofrece una notificación de mantenimiento planeado para máquinas virtuales con 1 semana de antelación en la configuración de una instancia.
 
 ### Notificación por correo electrónico
 
-Solo en el caso de las configuraciones de máquinas virtuales de una instancia o de instancias múltiples, Azure envía con antelación una comunicación por correo electrónico para avisarle del próximo mantenimiento planeado (1 semana de antelación para una instancia y 48 horas de antelación para instancias múltiples). Este correo electrónico se enviará a las cuentas de correo electrónico del administrador y coadministrador de cuenta proporcionadas en la suscripción. A continuación se muestra un ejemplo de este tipo de correo electrónico:
+Solo en el caso de las configuraciones de máquinas virtuales de una instancia o de instancias múltiples, Azure envía con antelación una comunicación por correo electrónico para avisarle del próximo mantenimiento planeado (una semana de antelación). Este correo electrónico se enviará a las cuentas de correo electrónico del administrador y coadministrador de cuenta proporcionadas en la suscripción. A continuación se muestra un ejemplo de este tipo de correo electrónico:
 
 <!--Image reference-->
 ![][image1]
 
 ## Pares de región
 
-Azure organiza un conjunto de pares de región. Azure no implementará ninguna actualización en regiones emparejadas simultáneamente durante un mantenimiento planeado de máquinas virtuales con configuraciones de una instancia.
+Al ejecutar el mantenimiento, Azure solo actualizará las instancias de máquina virtual en una sola región de su pareja. Por ejemplo, al actualizar las máquinas virtuales de la zona centro-norte de EE. UU., Azure no actualizará las máquinas virtuales de centro-sur de EE. UU. al mismo tiempo. Se programarán a una hora independiente, lo que permitirá la conmutación por error o el equilibrio de carga entre regiones. Sin embargo, otras regiones como Europa del Norte pueden estar en mantenimiento al mismo tiempo que el Este de EE. UU.
 
 Consulte la tabla siguiente para obtener información sobre los pares de región actuales:
 
@@ -113,8 +113,6 @@ Sur de Brasil | Centro-Sur de EE. UU
 Sudeste de Australia | Australia Oriental
 Gobierno de EE. UU. - Iowa | Gobierno de EE. UU. - Virginia
 
-Por ejemplo, durante un mantenimiento planeado, Azure no implementará ninguna actualización en el Oeste de EE. UU. si el Este de EE. UU. está en mantenimiento al mismo tiempo. Sin embargo, otras regiones como Europa del Norte pueden estar en mantenimiento al mismo tiempo que el Este de EE. UU.
-
 <!--Anchors-->
 [image1]: ./media/virtual-machines-planned-maintenance/vmplanned1.png
 [image2]: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png
@@ -126,4 +124,4 @@ Por ejemplo, durante un mantenimiento planeado, Azure no implementará ninguna a
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

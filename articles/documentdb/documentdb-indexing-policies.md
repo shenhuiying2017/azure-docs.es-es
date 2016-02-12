@@ -14,19 +14,18 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="10/05/2015" 
+    ms.date="02/03/2016" 
     ms.author="arramac"/>
 
 
 # Directivas de indexación de DocumentDB
 
-Aunque muchos clientes prefieren dejar que DocumentDB controle automáticamente [todos los aspectos de la indexación ](documentdb-indexing.md), esta aplicación también permite especificar una **directiva de indexación** personalizada para las colecciones durante la creación. Las directivas de indexación en DocumentDB son más flexibles y potentes que los índices secundarios que se ofrecen en otras plataformas de indexación de bases de datos, ya que le permiten diseñar y personalizar la forma del índice sin sacrificar la flexibilidad del esquema. Para entender cómo funciona la indexación en DocumentDB, debe comprender que, mediante la administración de una directiva de indexación, puede lograr un equilibrio específico entre la sobrecarga de almacenamiento, el rendimiento de escritura y de consulta, y la coherencia de consultas del índice.
+Aunque muchos clientes prefieren dejar que DocumentDB controle automáticamente [todos los aspectos de la indexación ](documentdb-indexing.md), DocumentDB también permite especificar una **directiva de indexación** personalizada para las colecciones durante la creación. Las directivas de indexación en DocumentDB son más flexibles y potentes que los índices secundarios que se ofrecen en otras plataformas de base de datos, ya que le permiten diseñar y personalizar la forma del índice sin sacrificar la flexibilidad del esquema. Para entender cómo funciona la indexación en DocumentDB, debe comprender que, mediante la administración de una directiva de indexación, puede lograr un equilibrio específico entre la sobrecarga de almacenamiento, el rendimiento de escritura y de consulta, y la coherencia de consultas del índice.
 
 En este artículo, echamos un vistazo más detenido a las directivas de indexación de DocumentDB, la personalización de la directiva de indexación y las ventajas y desventajas asociadas.
 
 Después de leer este artículo, podrá responder a las preguntas siguientes:
 
-- ¿Cómo admite DocumentDB la indexación automática de forma predeterminada?
 - ¿Cómo puedo reemplazar las propiedades para incluirlas o excluirlas de la indexación?
 - ¿Cómo puedo configurar el índice para las actualizaciones finales?
 - ¿Cómo puedo configurar la indexación para realizar consultas Order By o intervalo?
@@ -59,7 +58,7 @@ En el siguiente fragmento de código de .NET se muestra cómo establecer una dir
     await client.CreateDocumentCollectionAsync(database.SelfLink, collection);   
 
 
->[AZURE.NOTE]El esquema JSON de la directiva de indexación ha cambiado con el lanzamiento de la API de REST versión 2015-06-03 para admitir índices de intervalo en cadenas. El SDK de .NET 1.2.0 y los SDK de Java, Python y Node.js 1.1.0 admiten el nuevo esquema de directiva. Los SDK anteriores usan la API de REST versión 2015-04-08 y admiten el esquema anterior de la directiva de indexación.
+>[AZURE.NOTE] El esquema JSON de la directiva de indexación ha cambiado con el lanzamiento de la API de REST versión 2015-06-03 para admitir índices de intervalo en cadenas. El SDK de .NET 1.2.0 y los SDK de Java, Python y Node.js 1.1.0 admiten el nuevo esquema de directiva. Los SDK anteriores usan la API de REST versión 2015-04-08 y admiten el esquema anterior de la directiva de indexación.
 >
 >De forma predeterminada, DocumentDB indexa todas las propiedades de cadena en los documentos de forma coherente con un índice Hash y las propiedades numéricas con un índice de intervalo.
 
@@ -71,9 +70,9 @@ DocumentDB admite tres modos de indexación que se pueden configurar mediante la
 
 **Diferida**: para permitir el rendimiento máximo de ingesta de documentos, se puede configurar una colección DocumentDB con coherencia diferida; lo que significa que las consultas terminan siendo coherentes. El índice se actualiza de forma asincrónica cuando una colección DocumentDB está inactiva, es decir, cuando la capacidad de rendimiento de la colección no se usa por completo para atender las solicitudes de usuario. Para cargas de trabajo de tipo "introducir ahora, consultar más adelante" que requieran ingesta de documentos sin obstáculos, es posible que el modo de indexación "diferido" sea el adecuado.
 
-**Ninguna**: una colección marcada con el modo de indexación de "Ninguna" no tiene ningún índice asociado. La configuración de la directiva de indexación con "Ninguna" tiene el efecto secundario de quitar cualquier índice existente.
+**Ninguna**: una colección marcada con el modo de indexación de "Ninguna" no tiene ningún índice asociado. Esto se suele usar si DocumentDB se emplea como almacenamiento de clave-valor y solo se puede acceder a los documentos mediante su propiedad de identificador.
 
->[AZURE.NOTE]La configuración de la directiva de indexación con "Ninguna" tiene el efecto secundario de quitar cualquier índice existente. Úsela si los patrones de acceso solo requieren "id" o "vinculación automática".
+>[AZURE.NOTE] La configuración de la directiva de indexación con "Ninguna" tiene el efecto secundario de quitar cualquier índice existente. Úsela si los patrones de acceso solo requieren "id" o "vinculación automática".
 
 El siguiente programa de ejemplo muestra cómo crear una colección de DocumentDB mediante el SDK de .NET con la indización automática coherente en todas las inserciones de documentos.
 
@@ -168,7 +167,7 @@ La siguiente tabla muestra la coherencia de las consultas basadas en el modo de 
     </tbody>
 </table>
 
-De forma predeterminada, se devuelve un error para todas las consultas si la colección está configurada con el modo de indexación Ninguna para indicar que podría ser necesario realizar un examen para atender la consulta. Estas consultas se pueden realizar sin un índice de intervalo mediante el uso del encabezado `x-ms-documentdb-enable-scans` en la API de REST o la opción de solicitud `EnableScanInQuery` mediante .NET SDK. Por ejemplo, algunas consultas que usan ORDER BY no se permitirán con Ninguna ni siquiera con `EnableScanInQuery`.
+DocumentDB devuelve un error para las consultas realizadas en colecciones con el modo de indexación Ninguno. Será posible seguir ejecutando consultas como exámenes a través del encabezado `x-ms-documentdb-enable-scans` explícito en la API de REST o la opción `EnableScanInQuery` mediante el SDK de .NET. Algunas funciones de consulta, como ORDER BY, no se admiten como exámenes con `EnableScanInQuery`.
 
 La siguiente tabla muestra la coherencia de las consultas basadas en el modo de indexación (Coherente, Diferida y Ninguna) cuando se especifica EnableScanInQuery.
 
@@ -440,7 +439,7 @@ Estos son los patrones comunes para especificar las rutas de acceso del índice:
     </tbody>
 </table>
 
->[AZURE.NOTE]Al configurar las rutas de acceso de índice personalizado, es necesario especificar la regla de indexación predeterminada para el árbol de todo el documento indicada mediante la ruta de acceso especial "/".
+>[AZURE.NOTE] Al configurar las rutas de acceso de índice personalizado, es necesario especificar la regla de indexación predeterminada para el árbol de todo el documento indicada mediante la ruta de acceso especial "/".
 
 En el ejemplo siguiente se configura una ruta de acceso específica con indexación de intervalo y un valor de precisión personalizado de 20 bytes:
 
@@ -547,7 +546,7 @@ Se aplican las mismas reglas para las consultas espaciales. De forma predetermin
 
 La precisión de índice permite lograr un equilibrio entre la sobrecarga de almacenamiento de índices y el rendimiento de las consultas. Para los números, se recomienda usar la configuración de precisión predeterminada de -1 (“máxima”). Puesto que los números son 8 bytes en JSON, esto es equivalente a una configuración de 8 bytes. La selección de un valor inferior para la precisión, como 1-7, significa que los valores de algunos intervalos se asignan a la misma entrada de índice. Por lo tanto, se reducirá el espacio de almacenamiento del índice, pero la ejecución de la consulta podría tener que procesar más documentos y, por tanto, consumir más rendimiento, es decir, solicitar unidades.
 
-La configuración de la precisión del índice resulta más útil con intervalos de cadena. Dado que las cadenas pueden ser de cualquier longitud arbitraria, la elección de la precisión del índice puede afectar al rendimiento de las consultas de intervalo de cadena, así como a la cantidad de espacio de almacenamiento del índice requerido. Los índices de intervalo de cadena pueden configurarse con 1-100 o -1 (“máxima”). Si desea realizar consultas por Order By en las propiedades de cadena, debe especificar una precisión de -1 para las rutas de acceso correspondientes.
+La configuración de la precisión del índice tiene una aplicación más práctica con intervalos de cadena. Dado que las cadenas pueden ser de cualquier longitud arbitraria, la elección de la precisión del índice puede afectar al rendimiento de las consultas de intervalo de cadena, así como a la cantidad de espacio de almacenamiento del índice requerido. Los índices de intervalo de cadena pueden configurarse con 1-100 o -1 (“máxima”). Si desea realizar consultas por Order By en las propiedades de cadena, debe especificar una precisión de -1 para las rutas de acceso correspondientes.
 
 Los índices espaciales siempre usan la precisión de índice predeterminada para los puntos y no puede invalidarse.
 
@@ -569,7 +568,7 @@ En el ejemplo siguiente se muestra cómo aumentar la precisión de los índices 
     await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
 
 
-> [AZURE.NOTE]DocumentDB devuelve un error cuando una consulta usa Order By, pero no tiene un índice de intervalo en la ruta de acceso consultada con la precisión máxima.
+> [AZURE.NOTE] DocumentDB devuelve un error cuando una consulta usa Order By, pero no tiene un índice de intervalo en la ruta de acceso consultada con la precisión máxima.
 
 De forma similar las rutas de acceso se pueden excluir completamente de la indexación. En el ejemplo siguiente se muestra cómo excluir una sección completa de los documentos (también conocida como subárbol) de la indexación usando el comodín "*".
 
@@ -663,7 +662,7 @@ Puede quitar el índice de una colección moviendo al modo de indexación Ningun
 - Selección manual de las propiedades que se van a indexar y cambiarlas con el tiempo
 - Optimización de la precisión de indexación para mejorar el rendimiento de las consultas o reducir el almacenamiento usado
 
->[AZURE.NOTE]Para modificar la directiva de indexación con ReplaceDocumentCollectionAsync, necesita la versión >= 1.3.0 de .NET SDK
+>[AZURE.NOTE] Para modificar la directiva de indexación con ReplaceDocumentCollectionAsync, necesita la versión >= 1.3.0 de .NET SDK
 >
 > Para que la transformación del índice se complete correctamente, debe asegurarse de que haya suficiente espacio libre de almacenamiento disponible en la colección. Si la colección alcanza su cuota de almacenamiento, se pausará la transformación del índice. La transformación del índice se reanudará automáticamente una vez que haya espacio de almacenamiento disponible, por ejemplo, si elimina algunos documentos.
 
@@ -671,7 +670,7 @@ Puede quitar el índice de una colección moviendo al modo de indexación Ningun
 
 Las API de DocumentDB proporcionan información acerca de las métricas de rendimiento, como el almacenamiento de índice usado y el costo del rendimiento (unidades de solicitud) para cada operación. Esta información puede usarse para comparar varias directivas de indexación y para optimizar el rendimiento.
 
-Para comprobar la cuota de almacenamiento y el uso de una colección, ejecute una solicitud HEAD o GET en el recurso de colección e inspeccione la cuota x-ms-request y los encabezados x-ms-request-usage. En .NET SDK, las propiedades [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) y [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) de [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) contienen los valores correspondientes.
+Para comprobar la cuota de almacenamiento y el uso de una colección, ejecute una solicitud HEAD o GET en el recurso de colección e inspeccione la cuota x-ms-request y los encabezados x-ms-request-usage. En el SDK de .NET, las propiedades [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) y [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) de [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) contienen los valores correspondientes.
 
      // Measure the document size usage (which includes the index size) against   
      // different policies.        
@@ -769,4 +768,4 @@ Siga los vínculos que aparecen a continuación para obtener ejemplos de adminis
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

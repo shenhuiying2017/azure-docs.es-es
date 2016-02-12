@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/23/2015"
+	ms.date="02/03/2016"
 	ms.author="bwren" />
 
 
@@ -108,4 +108,4 @@ Puede enviar solicitudes a [Voz de usuario](https://feedback.azure.com/forums/24
 - [Creación o importación de un runbook en Automatización de Azure](automation-creating-importing-runbook.md)
 - [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

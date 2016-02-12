@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/19/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Publicar un servicio en la nube mediante Azure Tools
@@ -21,7 +21,7 @@ Con Azure Tools para Microsoft Visual Studio, puede publicar su aplicación de A
 
 Para poder publicar una aplicación de Azure, debe tener una suscripción de Azure. También debe configurar un servicio en la nube y una cuenta de almacenamiento para que la use la aplicación. Puede establecerlas en el [Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
->[AZURE.IMPORTANT]Al publicar, puede seleccionar el entorno de implementación de su servicio en la nube. También debe seleccionar una cuenta de almacenamiento que se usará para almacenar el paquete de aplicación para la implementación. Después de la implementación, el paquete de aplicación se quita de la cuenta de almacenamiento. Para obtener más información sobre cómo configurar estos servicios, consulte [Configurar servicios necesarios para publicar un servicio en la nube desde Visual Studio](vs-azure-tools-setting-up-services-required-to-publish-a-cloud-service-from-visual-studio.md).
+>[AZURE.IMPORTANT] Al publicar, puede seleccionar el entorno de implementación de su servicio en la nube. También debe seleccionar una cuenta de almacenamiento que se usará para almacenar el paquete de aplicación para la implementación. Después de la implementación, el paquete de aplicación se quita de la cuenta de almacenamiento.
 
 Cuando desarrolla y prueba una aplicación de Azure, puede usar Web Deploy para publicar los cambios de sus roles web incrementalmente. Después de publicar su aplicación en un entorno de implementación, Web Deploy le permite implementar los cambios directamente en la máquina virtual que está ejecutando el rol web. No tiene que empaquetar y publicar toda la aplicación de Azure cada vez que desee actualizar su rol web para probar los cambios. Con este enfoque puede tener los cambios del rol web disponibles en la nube para pruebas sin tener que esperar a publicar la aplicación en un entorno de implementación.
 
@@ -61,7 +61,7 @@ Cuando publica su aplicación de Azure, puede realizar una de las siguientes tar
 
 1. (Opcional) Para cancelar el proceso de implementación, en el menú contextual del elemento de línea del registro de actividad seleccione **Cancelar y quitar**. Esto detiene el proceso de implementación y elimina el entorno de implementación de Azure.
 
-    >[AZURE.NOTE]Para quitar este entorno de implementación una vez implementado, debe usar el Portal de administración de Azure.
+    >[AZURE.NOTE] Para quitar este entorno de implementación una vez implementado, debe usar el Portal de administración de Azure.
 
 1. (Opcional) Después de iniciarse las instancias del rol, Visual Studio muestra automáticamente el entorno de implementación en el nodo **Servicios en la nube** en el Explorador de servidores. Desde aquí puede ver el estado de las instancias de rol individuales. Consulte [Administración de recursos de Azure con Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md). La siguiente ilustración muestra las instancias del rol mientras todavía están en el estado Inicializando:
 
@@ -97,7 +97,7 @@ En el siguiente procedimiento se supone que usa el asistente **Publicar aplicaci
 
     El servicio en la nube se publicará. La máquina virtual que se crea tiene conexiones remotas habilitadas para IIS para que Web Deploy se pueda usar a fin de actualizar sus roles web sin volver a publicarlos.
 
-    >[AZURE.NOTE]Si tiene configurada más de una instancia para un rol web, aparece un mensaje de advertencia que indica que cada rol web solo se limitará a una instancia en el paquete que se crea para publicar su aplicación. Haga clic en Aceptar para continuar. Como se indica en la sección Requisitos, puede tener más de un rol web, pero solo una instancia de cada rol.
+    >[AZURE.NOTE] Si tiene configurada más de una instancia para un rol web, aparece un mensaje de advertencia que indica que cada rol web solo se limitará a una instancia en el paquete que se crea para publicar su aplicación. Haga clic en Aceptar para continuar. Como se indica en la sección Requisitos, puede tener más de un rol web, pero solo una instancia de cada rol.
 
 ### Para actualizar su rol web usando Web Deploy
 
@@ -131,7 +131,7 @@ En el siguiente procedimiento se supone que usa el asistente **Publicar aplicaci
 
   1. Para agregar un certificado SSL, abra el servicio de administración en el Administrador de IIS. En el Administrador de IIS, habilite SSL abriendo el vínculo **Enlaces** en el panel **Acción**. Aparecerá el cuadro de diálogo **Agregar enlace de sitio**. Elija **Agregar** y, después, seleccione HTTPS en la lista desplegable **Tipo**. En la lista de **certificados SSL**, elija el certificado SSL que obtuvo firmado por una entidad de certificación y que cargó en el Portal de administración de Azure. Para obtener más información, consulte [Configurar los valores de conexión para el servicio de administración](http://go.microsoft.com/fwlink/?LinkId=215824).
 
-      >[AZURE.NOTE]Si agrega un certificado SSL de confianza, el triángulo de advertencia amarillo ya no aparece en el **Asistente para publicación**.
+      >[AZURE.NOTE] Si agrega un certificado SSL de confianza, el triángulo de advertencia amarillo ya no aparece en el **Asistente para publicación**.
 
 ## Incluir archivos en el paquete de servicio
 
@@ -173,4 +173,4 @@ Puede que deba incluir archivos específicos en su paquete de servicio para que 
 
 Para obtener más información sobre la publicación en Azure desde Visual Studio, consulte [Asistente Publicar aplicaciones de Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

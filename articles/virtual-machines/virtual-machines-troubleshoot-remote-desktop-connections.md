@@ -165,10 +165,10 @@ Si ninguno de estos errores se produjo y todavía no se pudo conectar a la VM a 
 
 [Cómo restablecer una contraseña o el servicio de Escritorio remoto para máquinas virtuales de Windows](virtual-machines-windows-reset-password.md)
 
-[Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
+[Instalación y configuración de Azure PowerShell](../powershell-install-configure.md)
 
 [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

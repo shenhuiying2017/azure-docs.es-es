@@ -17,6 +17,7 @@
 	ms.date="11/16/2015"
 	ms.author="cynthn"/>
 
+	
 # Preguntas más frecuentes sobre Máquinas virtuales de Azure con el modelo de implementación clásica
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
@@ -158,4 +159,4 @@ Para proporcionar redundancia, coloque dos o más máquinas virtuales configurad
 
 [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

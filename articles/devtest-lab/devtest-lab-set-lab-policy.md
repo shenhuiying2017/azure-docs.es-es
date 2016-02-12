@@ -1,20 +1,20 @@
 <properties
-pageTitle="Definición de directivas de laboratorio | Microsoft Azure"
-description="Obtenga información acerca de cómo definir directivas de laboratorio como tamaños de máquina virtual, máximo de máquinas virtuales por usuario y automatización de apagado."
-services="devtest-lab,virtual-machines"
-documentationCenter="na"
-authors="tomarcher"
-manager="douge"
-editor=""/>
+	pageTitle="Definición de directivas de laboratorio | Microsoft Azure"
+	description="Obtenga información acerca de cómo definir directivas de laboratorio como tamaños de máquina virtual, máximo de máquinas virtuales por usuario y automatización de apagado."
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-ms.service="devtest-lab"
-ms.workload="na"
-ms.tgt_pltfrm="na"
-ms.devlang="na"
-ms.topic="article"
-ms.date="11/01/2015"
-ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/03/2016"
+	ms.author="tarcher"/>
 
 # Definición de directivas de laboratorio
 
@@ -100,4 +100,4 @@ La directiva de apagado automático ayuda a minimizar la pérdida del laboratori
 
 1. Pulse **Guardar**.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

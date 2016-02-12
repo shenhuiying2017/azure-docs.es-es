@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 # ¿Qué es Estudio de aprendizaje automático de Azure?
@@ -31,7 +31,7 @@ Para desarrollar un modelo de análisis predictivo, normalmente se utilizan dato
 
 **Estudio de aprendizaje automático de Azure** le proporciona un área de trabajo visual e interactiva para generar, probar e iterar con toda facilidad sobre un modelo de análisis predictivo. Se arrastran y colocan ***conjuntos de datos*** y ***módulos*** de análisis en un ***lienzo*** interactivo, conectándolos todos para formar un ***experimento*** que se ***ejecuta*** en Estudio de aprendizaje automático. Para iterar su diseño de modelo, se puede ***editar*** el experimento, ***guardar*** una copia si así se desea y ejecutarlo de nuevo. Cuando esté listo, puede convertir el ***experimento de entrenamiento*** en un ***experimento predictivo***, y luego ***publicarlo*** como ***servicio web*** para que otros usuarios puedan acceder al modelo.
 
->[AZURE.TIP]Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, consulte [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP] Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, consulte [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
 
 No se requiere ningún tipo de programación, basta con conectar visualmente conjuntos de datos y módulos para construir el modelo de análisis predictivo.
 
@@ -93,7 +93,7 @@ Para obtener una lista de conjuntos de datos de ejemplo incluidos en Estudio de 
 Un módulo es un algoritmo que puede aplicar sobre sus datos. Estudio de aprendizaje automático cuenta con diversos módulos que van desde las funciones de incorporación de datos hasta procesos de entrenamiento, puntuación y validación. A continuación se muestran algunos ejemplos de los módulos incluidos:
 
 - [Convertir a ARFF][convert-to-arff]\: convierte un conjunto de datos serializados de .NET a formato ARFF.
-- [Estadísticas elementales][elementary-statistics]\: calcula estadísticas elementales como la media, la desviación estándar, etc.
+- [Estadísticas elementales sobre procesos][elementary-statistics]\: calcula estadísticas elementales como la media, la desviación estándar, etc.
 - [Regresión lineal][linear-regression]\: crea un modelo de regresión lineal basado en un descenso de gradiente en línea.
 - [Puntuar modelo][score-model]\: puntúa un modelo entrenado de clasificación o regresión.
 
@@ -115,4 +115,4 @@ Cuando el modelo de análisis predictivo esté listo, puede implementarlo como s
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

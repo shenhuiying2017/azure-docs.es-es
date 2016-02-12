@@ -12,17 +12,17 @@
 
 	- El **nombre de máquina virtual** solo puede contener letras, números y guiones. También debe empezar por una letra y terminar por una letra o un número.
 	- **Nuevo nombre de usuario** se refiere a la cuenta administrativa que se usa para administrar el servidor. La contraseña debe tener entre 8 y 123 caracteres y al menos tres de los siguientes valores: una minúscula, una mayúscula, un número y un carácter especial. **Necesitará el nombre de usuario y la contraseña para iniciar sesión en la máquina virtual**.
-	- El tamaño de la máquina virtual afecta al coste de usarla, así como a algunas opciones de configuración como el número de discos de datos que se pueden acoplar. Para más información, consulta el tema [Tamaños de máquinas virtuales](../articles/virtual-machines-size-specs.md).
+	- El tamaño de la máquina virtual afecta al coste de usarla, así como a algunas opciones de configuración como el número de discos de datos que se pueden acoplar. Para más información, consulta el tema [Tamaños de máquinas virtuales](virtual-machines-size-specs.md).
 
 6. La tercera pantalla permite configurar los recursos relacionados con las redes, el almacenamiento y la disponibilidad. A continuación se incluyen algunas sugerencias:
 
-	- El **Nombre DNS de servicio en la nube** es el nombre DNS global que forma parte del URI que se usa para establecer contacto con la máquina virtual. Tendrá que proponer su propio nombre de servicio en la nube porque debe ser único en Azure. Los servicios en la nube tienen importancia en los escenarios que usan [varias máquinas virtuales](../articles/cloud-services-connect-virtual-machine.md).
+	- El **Nombre DNS de servicio en la nube** es el nombre DNS global que forma parte del URI que se usa para establecer contacto con la máquina virtual. Tendrá que proponer su propio nombre de servicio en la nube porque debe ser único en Azure. Los servicios en la nube tienen importancia en los escenarios que usan [varias máquinas virtuales](cloud-services-connect-virtual-machine.md).
 
 	- En** Región/Grupo de afinidad/Red virtual**, use una región que sea adecuada para su ubicación. También puede optar por especificar una red virtual en su lugar.
 
 	>[AZURE.NOTE] Si desea que una máquina virtual use una red virtual, **debe** especificar la red virtual cuando cree la máquina virtual. No puede incorporar una máquina virtual a una red virtual después de crear la VM. Para obtener más información, consulte [Información general sobre redes virtuales de Azure](virtual-networks-overview.md).
 	>
-	> Para obtener información detallada sobre la configuración de puntos de conexión, consulte [Configuración de puntos de conexión en una máquina virtual](../articles/virtual-machines-set-up-endpoints.md).
+	> Para obtener información detallada sobre la configuración de extremos, consulte [Configuración de extremos en una máquina virtual](virtual-machines-set-up-endpoints.md).
 
 7. la cuarta pantalla de configuración le permite instalar el agente de máquina virtual y configurar algunas de las extensiones disponibles.
 
@@ -32,4 +32,4 @@
 
 	![Configure el agente de máquina virtual y los puntos de conexión de la máquina virtual](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

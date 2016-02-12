@@ -13,12 +13,24 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="01/20/2016"
+ ms.date="02/03/2016"
  ms.author="elioda"/>
 
 # Alta disponibilidad y recuperación ante desastres del Centro de IoT
 
 Como un servicio de Azure, el Centro de IoT proporciona alta disponibilidad (HA) usando redundancias en la región de Azure, sin que la solución tenga que realizar ningún trabajo adicional. Además, Azure ofrece una serie de características que ayudan a crear soluciones con funcionalidad de recuperación ante desastres o disponibilidad entre regiones, si es necesario. Debe diseñar y preparar las soluciones para que aprovechen estas características de recuperación ante desastres si desea proporcionar alta disponibilidad global entre regiones para dispositivos o usuarios. En el artículo [Orientación técnica de la continuidad del negocio de Azure][], se describen las características integradas de Azure para la continuidad empresarial y la recuperación ante desastres. El documento [Consideraciones sobre la alta disponibilidad y la recuperación ante desastres para las aplicaciones de Azure][] proporciona una guía de arquitectura enfocada a estrategias para que las aplicaciones de Azure logren alta disponibilidad y recuperación ante desastres.
+
+## Recuperación ante desastres de Centro de IoT de Azure
+Además de la alta disponibilidad dentro de una región, Centro de IoT implementa mecanismos de conmutación por error para recuperación ante desastres que no requieren intervención del usuario. La recuperación ante desastres del Centro de IoT se inicia automáticamente y tiene un objetivo de tiempo de recuperación (RTO) de 2 a 26 horas y los siguientes objetivos de punto de recuperación (RPO).
+
+| Funcionalidad | RPO |
+| ------------- | --- |
+| Disponibilidad de servicio para las operaciones de registro y comunicación | Posible pérdida de CName |
+| Datos de identidad en el registro de identidad del dispositivo | Pérdida de datos de 0-5 minutos |
+| Mensajes de dispositivo a nube | Se pierden todos los mensajes no leídos |
+| Mensajes de supervisión de operaciones | Se pierden todos los mensajes no leídos |
+| Mensajes de nube a dispositivo | Pérdida de datos de 0-5 minutos |
+| Cola de comentarios de nube a dispositivo | Se pierden todos los mensajes no leídos |
 
 ## Conmutación por error regional con el Centro de IoT
 
@@ -28,7 +40,7 @@ En un modelo de conmutación por error regional, el back-end de la solución se 
 
 A grandes rasgos, para implementar un modelo de conmutación por error regional con un Centro de IoT, necesitará la siguiente.
 
-* **Un Centro de IoT secundario y lógica de enrutamiento de dispositivo**: si se produce una interrupción del servicio en la región primaria, los dispositivos deben empezar a conectarse a la región secundaria. Como se conoce el estado de la mayoría de los servicios implicados, es habitual que los administradores de la solución desencadenen el proceso de conmutación por error entre regiones. La mejor forma de comunicar el nuevo punto de conexión a los dispositivos, sin perder el control del proceso, es hacer que comprueben periódicamente un servicio de *conserje* para el punto de conexión activo actual. El servicio de conserje puede ser una aplicación web simple que se replica y se mantiene accesible mediante técnicas de redirección de DNS (por ejemplo, con el [Administrador de tráfico de Azure][]).
+* **Un Centro de IoT secundario y lógica de enrutamiento de dispositivo**: si se produce una interrupción del servicio en la región primaria, los dispositivos deben empezar a conectarse a la región secundaria. Como se conoce el estado de la mayoría de los servicios implicados, es habitual que los administradores de la solución desencadenen el proceso de conmutación por error entre regiones. La mejor forma de comunicar el nuevo extremo a los dispositivos, sin perder el control del proceso, es hacer que comprueben periódicamente un servicio de *conserje* para el extremo activo actual. El servicio de conserje puede ser una aplicación web simple que se replica y se mantiene accesible mediante técnicas de redirección de DNS (por ejemplo, con el [Administrador de tráfico de Azure][]).
 * **Replicación del registro de identidades**: para que el Centro de IoT secundario pueda usarse, debe contener todas las identidades de dispositivo que se pueden conectar a la solución. La solución debe conservar copias de seguridad de replicación geográfica de las identidades de dispositivo y cargarlas en el Centro de IoT secundario antes de cambiar el punto de conexión activo de los dispositivos. La funcionalidad de exportación de identidades de dispositivo del Centro de IoT resulta muy útil en este contexto. Para obtener más información, consulte [Guía para desarrolladores del Centro de IoT: Registro de identidades][].
 * **Lógica de combinación**: cuando la región primaria vuelve a estar disponible, todos los estados y datos que se crearon en el sitio secundario deben volver a migrarse a la región primaria. Esto tiene que ver principalmente con las identidades de dispositivo y los metadatos de aplicación, que deben combinarse con el Centro de IoT principal y con otros almacenes específicos de la aplicación en la región primaria. Para simplificar este paso, generalmente se recomienda usar operaciones idempotentes. Esto minimiza los efectos secundarios, no solo una posible distribución uniforme de eventos, sino también duplicados o entrega desordenada de eventos. Además, la lógica de aplicación debe diseñarse para que tolere posibles incoherencias o un estado "algo" desactualizado. Esto se debe al tiempo adicional que tarda el sistema en "reparar" según los objetivos de punto de recuperación (RPO). El siguiente artículo proporciona más información sobre este tema: [Failsafe: instrucciones para crear arquitecturas de nube resistentes][].
 
@@ -48,4 +60,4 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

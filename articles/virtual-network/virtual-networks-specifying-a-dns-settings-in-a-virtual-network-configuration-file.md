@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -19,7 +19,7 @@
 
 Un archivo de configuración de red tiene dos elementos que puede utilizar para especificar la configuración del sistema de nombres de dominio (DNS): **DnsServers** y **DnsServerRef**. Puede agregar una lista de los servidores DNS especificando sus direcciones IP y nombres de referencia en el elemento **DnsServers**. Asimismo, puede usar un elemento **DnsServerRef** para especificar qué entradas del servidor DNS desde el elemento DnsServers se usan en diferentes sitios de red de la red virtual.
 
->[AZURE.IMPORTANT]Para obtener más información sobre cómo configurar el archivo de configuración de red, consulte [Configuración de una red virtual mediante un archivo de configuración de red](virtual-networks-using-network-configuration-file.md). Para obtener más información acerca de cada elemento de un archivo de configuración de red, consulte [Esquema de configuración de redes virtuales de Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+>[AZURE.IMPORTANT] Para obtener más información sobre cómo configurar el archivo de configuración de red, consulte [Configuración de una red virtual mediante un archivo de configuración de red](virtual-networks-using-network-configuration-file.md). Para obtener más información acerca de cada elemento de un archivo de configuración de red, consulte [Esquema de configuración de redes virtuales de Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 El archivo de configuración de red puede contener los siguientes elementos. El título de cada elemento se vincula a una página que proporciona información adicional acerca de la configuración del valor de elemento.
 
@@ -33,7 +33,7 @@ El archivo de configuración de red puede contener los siguientes elementos. El 
       </DnsServers>
     </Dns>
 
->[AZURE.WARNING]El atributo **nombre** en el elemento **DnsServer** solo se usa como referencia del elemento **DnsServerRef**. No representa el nombre de host del servidor DNS. Cada valor del atributo **DnsServer** debe ser único en toda la suscripción de Microsoft Azure
+>[AZURE.WARNING] El atributo **nombre** en el elemento **DnsServer** solo se usa como referencia del elemento **DnsServerRef**. No representa el nombre de host del servidor DNS. Cada valor del atributo **DnsServer** debe ser único en toda la suscripción de Microsoft Azure
 
 [Elemento Sitios de red virtual](http://go.microsoft.com/fwlink/?LinkId=248093)
 
@@ -43,7 +43,7 @@ El archivo de configuración de red puede contener los siguientes elementos. El 
 	  <DnsServerRef name="ID3" />
 	</DnsServersRef>
 
->[AZURE.NOTE]Para especificar la configuración del elemento Sitios de red virtual, debe definirse previamente en el elemento DNS. El *nombre* DnsServerRef del elemento Sitios de red virtual debe hacer referencia a un valor de nombre especificado en el elemento DNS del *nombre* DnsServer.
+>[AZURE.NOTE] Para especificar la configuración del elemento Sitios de red virtual, debe definirse previamente en el elemento DNS. El *nombre* DnsServerRef del elemento Sitios de red virtual debe hacer referencia a un valor de nombre especificado en el elemento DNS del *nombre* DnsServer.
 
 ## Pasos siguientes
 
@@ -53,4 +53,4 @@ El archivo de configuración de red puede contener los siguientes elementos. El 
 
 [Esquema de configuración del servicio de Azure](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

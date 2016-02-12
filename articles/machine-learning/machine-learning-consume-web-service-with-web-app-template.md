@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="02/03/2016"
 	ms.author="garye;raymondl"/>
 
 # Consumo de un servicio web de Aprendizaje automático de Azure con una plantilla de aplicación web
@@ -56,7 +56,7 @@ Una vez que haya implementado el servicio web, puede seguir estos pasos para usa
 
 	![URI de solicitud][image4]
 
-3. Vaya al [Portal de Azure](https://portal.azure.com), **Inicio de sesión**, haga clic en **Nuevo**, busque y seleccione **Aplicación web Request-Response Service de Aprendizaje automático de Azure** y, a continuación, haga clic en **Crear**.
+3. Vaya al [Portal de Azure](https://portal.azure.com), **Inicio de sesión**, haga clic en **Nuevo**, busque y seleccione **Aplicación web Request-Response Service de Aprendizaje automático de Azure** y luego haga clic en **Crear**.
 
 	- Asigne un nombre único a la aplicación web. La dirección URL de la aplicación web será este nombre seguido de `.azurewebsites.net.`; por ejemplo, `http://carprediction.azurewebsites.net.`
 
@@ -86,7 +86,7 @@ Una vez que haya implementado el servicio web, puede seguir estos pasos para usa
 
 Si desea volver a la página **Configuración**, vaya a la página `setting.aspx` de la aplicación web. Por ejemplo: `http://carprediction.azurewebsites.net/setting.aspx.` le pedirá que vuelva a escribir la clave de API, lo que es necesario para tener acceso a la página y actualizar la configuración.
 
-Puede detener, reiniciar o eliminar la aplicación web en el Portal de Azure clásico como cualquier otra aplicación web. Mientras se esté ejecutando, puede ir a la dirección web de inicio y escribir los nuevos valores.
+Puede detener, reiniciar o eliminar la aplicación web en el Portal de Azure como cualquier otra aplicación web. Mientras se esté ejecutando, puede ir a la dirección web de inicio y escribir los nuevos valores.
 
 ## Uso de la plantilla Batch Execution Service (BES)
 
@@ -125,4 +125,4 @@ Para obtener más información sobre...
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas
@@ -180,23 +180,8 @@ Se trata de la configuración actual.
  
 Este entorno ya está preparado para implementar su aplicación basada en web en LOB1 y probar la funcionalidad y el rendimiento de la subred de la red corporativa.
 
-## Recursos adicionales
+## Pasos siguientes
 
-[Planos y diagramas de arquitectura de software de Microsoft](http://msdn.microsoft.com/dn630664)
+- Configure el [entorno de producción](../virtual-machines/virtual-machines-workload-high-availability-LOB-application-overview.md).
 
-[Plataforma de servidor web de hospedaje sencillo (IIS)](http://technet.microsoft.com/library/hh831818)
-
-[Configuración de un entorno de nube híbrida para pruebas](virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[Configuración de un entorno de nube híbrida simulado para pruebas](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Entornos de prueba de nube híbrida de Azure](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Instrucciones de implementación de los servicios de infraestructura de Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

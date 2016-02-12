@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/23/2015"
+   ms.date="02/02/2015"
    ms.author="tomfitz"/>
 
 # Implementación de una aplicación con la plantilla del Administrador de recursos de Azure
 
 En este tema se explica cómo utilizar las plantillas de Administrador de recursos de Azure para implementar su aplicación en Azure. Se muestra cómo implementar la aplicación mediante el uso de PowerShell de Azure, CLI de Azure, API de REST o el Portal de Azure.
 
-Para ver una introducción al Administrador de recursos, vea [Información general del Administrador de recursos de Azure](../resource-group-overview.md). Para obtener más información sobre la creación de plantillas, vea [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
+Para ver una introducción al Administrador de recursos, vea [Información general del Administrador de recursos de Azure](./resource-group-overview.md). Para obtener más información sobre la creación de plantillas, vea [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 
 Al implementar una aplicación con una plantilla, puede proporcionar valores de parámetros para personalizar cómo se crean los recursos. Especifique los valores para estos parámetros, ya sea en línea o en un archivo de parámetros.
 
@@ -274,12 +274,12 @@ El tamaño del archivo de parámetros no puede ser superior a 64 KB.
 Para definir parámetros de plantilla, consulte [Creación de plantillas](resource-group-authoring-templates.md/#parameters). Para obtener más información acerca de la referencia de KeyVault para pasar valores seguros, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
 
 ## Pasos siguientes
-- Para un ejemplo de cómo implementar los recursos a través de la biblioteca cliente .NET, vea [Implementación de recursos mediante bibliotecas de .NET y una plantilla](arm-template-deployment.md).
+- Para un ejemplo de cómo implementar los recursos a través de la biblioteca cliente .NET, vea [Implementación de recursos mediante bibliotecas de .NET y una plantilla](./virtual-machines/arm-template-deployment.md).
 - Para un ejemplo en profundidad de la implementación de una aplicación, vea [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
-- Para ver instrucciones sobre cómo implementar la solución en diferentes entornos, consulte [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- Para ver instrucciones sobre cómo implementar la solución en diferentes entornos, consulte [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments.md).
 - Para información sobre las secciones de la plantilla del Administrador de recursos de Azure, vea [Creación de plantillas](resource-group-authoring-templates.md).
 - Para obtener una lista de las funciones que puede usar en una plantilla del Administrador de recursos de Azure, vea [Funciones de plantillas](resource-group-template-functions.md).
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

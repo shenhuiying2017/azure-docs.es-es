@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Tutorial: Integración de Google Apps con Azure Active Directory | Microsoft Azure"
-   description="Aprenda cómo usar Google Apps con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="Tutorial: Integración de Azure Active Directory con Google Apps | Microsoft Azure"
+    description="Aprenda cómo usar Google Apps con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="11/01/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #Tutorial: Integración de Google Apps con Azure Active Directory
 
@@ -70,7 +70,7 @@ Habilitación del inicio de sesión único en Google Apps en 2 minutos:
 
 	![Selección del inicio de sesión único e Azure AD][7]
 
-	> [AZURE.NOTE]Para obtener más información sobre las diferentes opciones de inicio de sesión único, [haga clic aquí](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Para conocer más acerca de los diferentes opciones de inicio de sesión único, [haga clic aquí](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
 3. En la página **Configuración de las opciones de la aplicación**, en el campo **URL de inicio de sesión**, escriba la dirección URL del inquilino de Google Apps con el formato siguiente:`https://mail.google.com/a/<yourdomain>`
 
@@ -80,7 +80,7 @@ Habilitación del inicio de sesión único en Google Apps en 2 minutos:
 
 	![Escriba el nombre de dominio y presione Configurar.](./media/active-directory-saas-google-apps-tutorial/ga-auto-config.png)
 
-	> [AZURE.NOTE]Si prefiere configurar el inicio de sesión único manualmente, consulte [Paso opcional: configuración manual del inicio de sesión único](#optional-step-manually-configure-single-sign-on)
+	> [AZURE.NOTE] Si prefiere configurar el inicio de sesión único manualmente, consulte [Paso opcional: configuración manual del inicio de sesión único](#optional-step-manually-configure-single-sign-on)
 
 5. Inicie sesión en su cuenta de administrador de Google Apps. A continuación, haga clic en **Permitir** para permitir que Azure Active Directory realice cambios en la configuración de su suscripción de Google Apps.
 
@@ -106,7 +106,7 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
 
 	![Selección del inicio de sesión único e Azure AD][7]
 
-	> [AZURE.NOTE]Para obtener más información sobre las diferentes opciones de inicio de sesión único, [haga clic aquí](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Para conocer más acerca de los diferentes opciones de inicio de sesión único, [haga clic aquí](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
 3. En la página **Configuración de las opciones de la aplicación**, en el campo **URL de inicio de sesión**, escriba la dirección URL del inquilino de Google Apps con el formato siguiente:`https://mail.google.com/a/<yourdomain>`
 
@@ -116,11 +116,11 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
 
 	![Elija la configuración manual.](./media/active-directory-saas-google-apps-tutorial/ga-auto-skip.PNG)
 
-4. En la página **Configuración de inicio de sesión único en Google Apps**, haga clic en **Descargar certificado** y después guarde el archivo de certificado localmente en el equipo.
+4. En la página **Configuración de inicio de sesión único en Google Apps**, haga clic en **Descargar certificado** y, a continuación, guarde el archivo de certificado localmente en el equipo.
 
 	![Descargue el certificado.][9]
 
-5. Abra una nueva pestaña en el explorador e inicie sesión en la [Consola de administración de Google Apps](http://admin.google.com/) con su cuenta de administrador.
+5. Abra una nueva pestaña en el explorador e inicie sesión en la [consola de administración de Google Apps](http://admin.google.com/) con su cuenta de administrador.
 
 6. Haga clic en **Seguridad**. Si no ve el vínculo, puede estar oculto debajo del menú **Más controles** en la parte inferior de la pantalla.
 
@@ -158,7 +158,7 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
 
 ##Paso 3: Habilitación del aprovisionamiento automático de usuarios
 
-> [AZURE.NOTE]Otra opción viable para la automatización del aprovisionamiento de usuarios en Google Apps es usar [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en), que aprovisiona las identidades de Active Directory locales en Google Apps. En cambio, la solución en este tutorial realiza el aprovisionamiento de los usuarios de Azure Active Directory (nube) y a los grupos habilitados para correo en Google Apps.
+> [AZURE.NOTE] Otra opción viable para la automatización del aprovisionamiento de usuarios en Google Apps es usar [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en), que aprovisiona las identidades de Active Directory locales en Google Apps. En cambio, la solución en este tutorial realiza el aprovisionamiento de los usuarios de Azure Active Directory (nube) y a los grupos habilitados para correo en Google Apps.
 
 1. Inicie sesión en la [Consola de administración de Google Apps](http://admin.google.com/) con su cuenta de administrador y haga clic en **Seguridad**. Si no ve el vínculo, puede estar oculto debajo del menú **Más controles** en la parte inferior de la pantalla.
 
@@ -172,7 +172,7 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
 
 	![Haga clic en la referencia de la API.][16]
 
-	> [AZURE.IMPORTANT]El nombre en Active Directory de todos los usuarios desee aprovisionar en Google Apps *debe* estar enlazado con un dominio personalizado. Por ejemplo, Google Apps no aceptará los nombres de usuario parecidos a bob@contoso.onmicrosoft.com, mientras que bob@contoso.com se aceptará. Puede cambiar el dominio de un usuario existente editando sus propiedades en Azure AD. A continuación, se incluyen instrucciones sobre cómo establecer un dominio personalizado para Azure Active Directory y Google Apps.
+	> [AZURE.IMPORTANT] El nombre en Active Directory de todos los usuarios desee aprovisionar en Google Apps *debe* estar enlazado con un dominio personalizado. Por ejemplo, Google Apps no aceptará los nombres de usuario parecidos a bob@contoso.onmicrosoft.com, mientras que bob@contoso.com se aceptará. Puede cambiar el dominio de un usuario existente editando sus propiedades en Azure AD. A continuación, se incluyen instrucciones sobre cómo establecer un dominio personalizado para Azure Active Directory y Google Apps.
 
 4. Si no ha agregado un nombre de dominio personalizado para Azure Active Directory todavía, siga estos pasos:
 
@@ -186,7 +186,7 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
 
 		![Escriba el nombre de dominio.][18]
 
-	- Haga clic en **Siguiente** para ir a la página de comprobación. Para comprobar que es propietario de este dominio, debe editar los registros DNS del dominio según los valores proporcionados en esta página. Puede optar por realizar la comprobación con **registros MX** o **registros TXT** según lo que seleccione en la opción **Tipo de registro**. Para obtener instrucciones detalladas sobre cómo comprobar nombres de dominio con Azure AD, consulte [Incorporación de su propio nombre de dominio a Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
+	- Haga clic en **Siguiente** para ir a la página de comprobación. Para comprobar que es propietario de este dominio, debe editar los registros DNS del dominio según los valores proporcionados en esta página. Puede optar por realizar la comprobación con **registros MX** o **registros TXT** según lo que seleccione en la opción **Tipo de registro**. Para obtener instrucciones detalladas sobre cómo comprobar el nombre de dominio con Azure AD, vea [Incorporación de su propio nombre de dominio a Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
 
 		![Compruebe el nombre de dominio.][19]
 
@@ -198,7 +198,7 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
 
 		![Haga clic en Dominios][20]
 
-	- Haga clic en **Añadir un dominio o un alias de dominio**.
+	- Haga clic en **Agregar un dominio o un alias de dominio**.
 
 		![Adición de un nuevo dominio][21]
 
@@ -210,17 +210,17 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
 
 	- Repita los pasos anteriores para todos los dominios adicionales que se va a agregar a Google Apps.
 
-	> [AZURE.WARNING]Si cambia el dominio principal del inquilino de Google Apps y ya ha configuran el inicio de sesión único con Azure AD, tendrá que repetir el paso 3 en [Paso dos: habilitación del inicio de sesión único](#step-two-enable-single-sign-on).
+	> [AZURE.WARNING] Si cambia el dominio principal del inquilino de Google Apps y ya ha configuran el inicio de sesión único con Azure AD, tendrá que repetir el paso 3 en [Paso dos: habilitación del inicio de sesión único](#step-two-enable-single-sign-on).
 
 6. En la [Consola de administración de Google Apps](http://admin.google.com/), haga clic en **Funciones de administrador**.
 
 	![Haga clic en Google Apps][26]
 
-7. Determine qué cuenta de administrador le gustaría usar para administrar el aprovisionamiento de usuarios. Para el **rol de administrador** de esa cuenta, edite los **privilegios** de dicho rol. Asegúrese de que tiene todos los **privilegios de la API de administración** habilitados para que esta cuenta pueda usarse para el aprovisionamiento.
+7. Determine qué cuenta de administrador le gustaría usar para administrar el aprovisionamiento de usuarios. Para el **rol administrativo** de esa cuenta, edite los **privilegios** para ese rol. Asegúrese de que tiene todos los **privilegios de la API de administración** habilitados para que esta cuenta pueda usarse para el aprovisionamiento.
 
 	![Haga clic en Google Apps][27]
 
-	> [AZURE.NOTE]Si va a configurar un entorno de producción, la práctica recomendada es crear una nueva cuenta de administrador en Google Apps específicamente para este paso. Esta cuenta debe tener asociada a ella un rol de administrador que tenga los privilegios necesarios de la API.
+	> [AZURE.NOTE] Si va a configurar un entorno de producción, la práctica recomendada es crear una nueva cuenta de administrador en Google Apps específicamente para este paso. Esta cuenta debe tener asociada a ella un rol de administrador que tenga los privilegios necesarios de la API.
 
 8. En Azure Active Directory, haga clic en **Aplicaciones** en el menú de nivel superior y, a continuación, haga clic en **Google Apps**.
 
@@ -248,7 +248,7 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
 
 	![Haga clic en Asignar usuarios][29]
 
-3. Seleccione el usuario de prueba y haga clic en el botón **Asignar** de la parte inferior de la pantalla:
+3. Seleccione el usuario de prueba y haga clic en el botón **Asignar** situado en la parte inferior de la pantalla:
 
  - Si no lo ha habilitado el aprovisionamiento automático de usuarios, verá el mensaje siguiente de confirmación:
 
@@ -292,4 +292,4 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

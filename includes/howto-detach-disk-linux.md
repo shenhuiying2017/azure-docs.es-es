@@ -3,7 +3,7 @@
 
 Cuando ya no necesite un disco de datos que se encuentra conectado a una máquina virtual, puede desconectarlo fácilmente. Esto quita el disco de la máquina virtual, pero no lo quita del almacenamiento. Si desea volver a usar los datos existentes en el disco, puede acoplarlo de nuevo a la misma máquina virtual (o a otra).
 
-> [AZURE.NOTE]Una máquina virtual en Azure utiliza distintos tipos de discos, como un disco del sistema operativo, un disco temporal local y discos de datos opcionales. Se recomienda utilizar discos de datos para almacenar datos para una máquina virtual. Para obtener más información, vea [Acerca de los discos y discos duros virtuales para máquinas virtuales](../../virtual-machines-disks-vhds.md). No es posible desconectar un disco del sistema operativo a menos que también elimine la máquina virtual.
+> [AZURE.NOTE] Una máquina virtual en Azure utiliza distintos tipos de discos, como un disco del sistema operativo, un disco temporal local y discos de datos opcionales. Se recomienda utilizar discos de datos para almacenar datos para una máquina virtual. Para obtener más información, vea [Acerca de los discos y discos duros virtuales para máquinas virtuales](virtual-machines-disks-vhds.md). No es posible desconectar un disco del sistema operativo a menos que también elimine la máquina virtual.
 
 ## Buscar el disco
 
@@ -60,4 +60,4 @@ Cuando hayas encontrado el número LUN del disco, podrás desacoplarlo:
 
 El disco desacoplado permanece en el almacenamiento pero ya no estará acoplado a una máquina virtual.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

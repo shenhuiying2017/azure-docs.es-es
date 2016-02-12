@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="11/02/2015" 
+	ms.topic="article" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Creación y supervisión de una factoría de datos mediante Visual Studio
@@ -35,7 +35,9 @@ En este tutorial hará lo siguiente mediante Visual Studio 2013:
 ## Creación e implementación de las entidades de Factoría de datos con Visual Studio 
 
 ### Requisitos previos
-Debe tener instalado en el equipo lo siguiente: - Visual Studio 2013 - Descargue el SDK de Azure para Visual Studio 2013. Vaya a la [Página de descargas de Azure](https://azure.microsoft.com/downloads/) y haga clic en **Instalación de VS 2013**en la sección **.NET**.
+Debe tener instalado en el equipo lo siguiente: 
+- Visual Studio 2013 
+- Descargue el SDK de Azure para Visual Studio 2013. Vaya a la [Página de descargas de Azure](https://azure.microsoft.com/downloads/) y haga clic en **Instalación de VS 2013**en la sección **.NET**.
 
 ### Tutorial
 
@@ -239,4 +241,4 @@ Para actualizar las herramientas de Factoría de datos de Azure para Visual Stud
 
 Consulte [Supervisión de los conjuntos de datos y la canalización](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) para obtener instrucciones sobre cómo usar el Portal de Azure para supervisar la canalización y los conjuntos de datos creados en este tutorial.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

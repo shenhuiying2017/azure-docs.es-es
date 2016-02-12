@@ -30,19 +30,19 @@ De forma similar, las API de REST para **Base de datos de SQL Azure** también p
 2. Para ejecutar el módulo, en la ventana de inicio, escriba **Microsoft Azure PowerShell**.
 3. Si no ha agregado todavía su cuenta a la máquina, ejecute el siguiente cmdlet. (Para obtener más información, consulte [Instalación y configuración de Azure PowerShell]():
 
-```
-Add-AzureAccount
-```
+	```
+	Login-AzureRmAccount
+	```
 
 3. Seleccione la suscripción para la base de datos que desea suspender o reanudar. Esta acción selecciona la suscripción llamada "MySubscription".
 
-```
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
-```
+	```
+	Select-AzureRmSubscription -SubscriptionName "MySubscription"
+	```
 
 ## Suspend-AzureRmSqlDatabase
 
-Para la referencia de comandos, consulte [Suspend-AzureRmSQLDatabase](https://msdn.microsoft.com/library/mt619337.aspx).
+Para la referencia de comandos, vea [Suspend-AzureRmSQLDatabase](https://msdn.microsoft.com/library/mt619337.aspx).
 
 ### Ejemplo 1: Pausar una base de datos por su nombre en un servidor
 
@@ -64,7 +64,7 @@ $resultDatabase
 
 ## Resume-AzureSqlDatabase
 
-Para la referencia de comandos, consulte [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx).
+Para la referencia de comandos, vea [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx).
 
 ### Ejemplo 1: Reanudar una base de datos por su nombre en un servidor
 
@@ -113,7 +113,7 @@ $retorePoints
 ```
 
 
-> [AZURE.NOTE]Tenga en cuenta que si el servidor es foo.database.windows.net, use "foo" como -ServerName en los cmdlets de powershell.
+> [AZURE.NOTE] Tenga en cuenta que si el servidor es foo.database.windows.net, use "foo" como -ServerName en los cmdlets de powershell.
 
 
 ## Pasos siguientes
@@ -133,4 +133,4 @@ Para obtener más información de referencia, vea [Información general de refer
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

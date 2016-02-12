@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/22/2016"
+   ms.date="01/29/2016"
    ms.author="yurid"/>
 
 #Supervisión del estado de seguridad en el Centro de seguridad de Azure
@@ -41,7 +41,7 @@ Las directivas de seguridad habilitadas afectarán los tipos de controles que se
 ###Máquina virtual
 Cuando hace clic en **Máquinas virtuales** en el icono **Estado de los recursos**, se abrirá la hoja **Máquinas virtuales** con más detalles sobre los pasos de incorporación y prevención, además de una lista de las VM que supervisa el Centro de seguridad de Azure, tal como aparece a continuación:
 
-![Actualización del sistema faltante por VM](./media/security-center-monitoring/security-center-monitoring-fig2-new.png)
+![Actualización del sistema faltante por VM](./media/security-center-monitoring/security-center-monitoring-fig2-2-new.png)
 
 Cuando se abra esta hoja, verá tres secciones:
 
@@ -60,7 +60,7 @@ Esta sección muestra la cantidad total de máquinas virtuales que se inicializa
 ####Recomendaciones sobre máquinas virtuales
 Esta sección contiene un conjunto de recomendaciones para cada máquina virtual supervisada por el centro de seguridad de Azure. La primera columna contiene la descripción de la recomendación, la segunda la cantidad total de máquinas virtuales que se ven afectadas por esas recomendaciones y la tercera columna muestra la gravedad, tal como se muestra a continuación:
 
-![Recomendaciones de máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig4-new.png)
+![Recomendaciones de máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig4-2-new.png)
 
 Cada recomendación tiene un conjunto de acciones que se pueden realizar una vez que haga clic en ella. Por ejemplo, si hace clic en **Actualizaciones faltantes del sistema**, se abrirá la hoja **Actualizaciones faltantes del sistema** con la lista de VM donde faltan revisiones y el nivel de gravedad de cada una, tal como se muestra a continuación:
 
@@ -173,4 +173,4 @@ En este documento, aprendió a usar las funcionalidades de supervisión en el Ce
 - [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): Encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 # Administrar iteraciones de experimentos en Estudio de aprendizaje automático de Azure
@@ -24,7 +24,7 @@ El desarrollo de un modelo de análisis predictivo es un proceso iterativo: a me
 
 Puede revisar las ejecuciones anteriores de sus experimentos en cualquier momento con el fin de cuestionar, volver a plantear y, en última instancia, confirmar o refinar suposiciones anteriores. Cuando se ejecuta un experimento, el Estudio de aprendizaje automático conserva un historial de la ejecución, incluidos el conjunto de datos, el módulo y las conexiones y los parámetros de puertos. Este historial también captura los resultados, información de tiempo de ejecución (como el inicio y las detenciones), los mensajes de registro y el estado de ejecución. Puede volver atrás en cualquiera de estas ejecuciones en cualquier momento para revisar la cronología de su experimento y los resultados intermedios. Incluso puede usar una ejecución anterior de su experimento para iniciar en una nueva fase de consulta y detección en su ruta de acceso para la creación de soluciones simples, complejas o incluso de modelado de conjuntos.
 
-> [AZURE.NOTE]Al ver una ejecución anterior de un experimento, esa versión del experimento está bloqueada y no se puede editar. Sin embargo, puede guardar una copia haciendo clic en **GUARDAR COMO** y proporcionar un nombre nuevo para la copia. Estudio de aprendizaje automático abrirá la nueva copia, que podrá editar y ejecutar. Esta copia del experimento está disponible en la lista **EXPERIMENTOS** junto con los demás experimentos.
+> [AZURE.NOTE] Al ver una ejecución anterior de un experimento, esa versión del experimento está bloqueada y no se puede editar. Sin embargo, puede guardar una copia haciendo clic en **GUARDAR COMO** y proporcionar un nombre nuevo para la copia. Estudio de aprendizaje automático abrirá la nueva copia, que podrá editar y ejecutar. Esta copia del experimento está disponible en la lista **EXPERIMENTOS** junto con los demás experimentos.
 
 ## Ver la ejecución previa
 
@@ -51,7 +51,7 @@ Si hace clic en **VER HISTORIAL DE EJECUCIONES**, verá una lista de todas estas
 
 Haga clic en cualquiera de estas ejecuciones para ver una instantánea del experimento en el momento en que se ejecutó. La configuración, los valores de parámetro, los comentarios y los resultados se conservan para darle un registro completo de esa ejecución del experimento.
 
-> [AZURE.TIP]Para documentar las iteraciones del experimento, puede modificar el título cada vez que lo ejecuta, puede actualizar el **Resumen** del experimento en el panel de propiedades y puede agregar o actualizar comentarios en módulos individuales para registrar los cambios. El título, el resumen y los comentarios del módulo se guardan con cada ejecución del experimento.
+> [AZURE.TIP] Para documentar las iteraciones del experimento, puede modificar el título cada vez que lo ejecuta, puede actualizar el **Resumen** del experimento en el panel de propiedades y puede agregar o actualizar comentarios en módulos individuales para registrar los cambios. El título, el resumen y los comentarios del módulo se guardan con cada ejecución del experimento.
 
 La lista de experimentos de la pestaña **EXPERIMENTOS** de Estudio de aprendizaje automático muestra siempre la versión más reciente de un experimento. Si abre una ejecución anterior del experimento (mediante **Ejecución anterior** o **VER HISTORIAL DE EJECUCIÓN**), puede volver a la versión de borrador haciendo clic en **VER HISTORIAL DE EJECUCIÓN** y seleccionando la iteración que con un **ESTADO** **Modificable**.
 
@@ -84,4 +84,4 @@ Ahora puede continuar para modificar y ejecutar esta versión del experimento, c
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

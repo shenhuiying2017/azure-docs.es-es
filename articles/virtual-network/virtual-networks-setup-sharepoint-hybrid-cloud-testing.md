@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas
@@ -195,23 +195,8 @@ Se trata de la configuración actual.
  
 Su granja de intranet de SharePoint en un entorno de nube híbrida ya está lista para realizar pruebas.
 
-## Recursos adicionales
+## Pasos siguientes
 
-[SharePoint en los servicios de infraestructura de Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+- Configure la [carga de trabajo de producción](../virtual-machines/virtual-machines-workload-intranet-sharepoint-overview.md).
 
-[Granja de servidores SharePoint](../virtual-machines/virtual-machines-sharepoint-farm-azure-preview.md)
-
-[Configuración de un entorno de nube híbrida para pruebas](virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[Configuración de un entorno de nube híbrida simulado para pruebas](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Entornos de prueba de nube híbrida de Azure](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Instrucciones de implementación de los servicios de infraestructura de Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

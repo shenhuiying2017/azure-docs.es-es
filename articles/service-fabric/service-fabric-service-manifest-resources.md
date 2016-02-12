@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="01/26/2016"
    ms.author="sumukhs"/>
 
 # Especificación de los recursos en un manifiesto de servicio
@@ -92,7 +92,7 @@ Service Fabric hace ACL automáticamente en los puntos de conexión HTTP.
 
 El protocolo HTTPS ofrece autenticación de servidor y también se usa para cifrar la comunicación entre cliente y servidor. Para habilitar esta opción en su servicio Service Fabric, al definir el servicio, especifique el protocolo en la sección *Recursos -> Puntos de conexión -> Punto de conexión* del manifiesto de servicio, como se mostró anteriormente para el punto de conexión *ServiceEndpoint3*.
 
->[AZURE.NOTE]No se puede cambiar el protocolo de un servicio durante la actualización de la aplicación, porque esto supondría un cambio importante.
+>[AZURE.NOTE] No se puede cambiar el protocolo de un servicio durante la actualización de la aplicación, porque esto supondría un cambio importante.
 
 
 Este es un ejemplo ApplicationManifest que debe establecer para HTTPS. (Necesitará proporcionar la huella digital para el certificado). EndpointRef es una referencia a EndpointResource en ServiceManifest, para la que establece el protocolo HTTPS. Puede agregar más de un certificado Endpointcertificates.
@@ -137,4 +137,4 @@ Este es un ejemplo ApplicationManifest que debe establecer para HTTPS. (Necesita
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

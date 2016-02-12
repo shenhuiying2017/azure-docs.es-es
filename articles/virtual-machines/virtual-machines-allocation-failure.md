@@ -14,18 +14,18 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="kenazk"/>
+	ms.date="02/02/2016"
+	ms.author="cjiang"/>
 
 
 
 # Solución de problemas de errores de asignación al crear, reiniciar o cambiar el tamaño de una VM en Azure
 
-Cuando se crea o se cambia el tamaño de una VM (máquina virtual), o bien se reinician las detenidas (desasignadas), Microsoft Azure asigna recursos de proceso a la suscripción. En ocasiones, es posible que reciba errores a realizar estas operaciones incluso antes de llegar a los límites de la suscripción de Azure. En este artículo se explican las causas de algunos de los errores de asignación más comunes y se sugieren posibles soluciones. La información también puede ser útil si tiene pensado realizar la implementación de sus servicios.
+Cuando se crea o se cambia el tamaño de una VM (máquina virtual), o bien se reinician las detenidas (desasignadas), Microsoft Azure asigna recursos de proceso a la suscripción. En ocasiones, es posible que reciba errores al realizar estas operaciones incluso antes de llegar a los límites de la suscripción de Azure. En este artículo se explican las causas de algunos de los errores de asignación más comunes y se sugieren posibles soluciones. La información también puede ser útil si tiene pensado realizar la implementación de sus servicios.
+
+En la sección "Pasos generales para solucionar problemas" se describen los pasos necesarios para resolver problemas habituales. En la sección “Pasos de la solución de problemas detallada” se ofrecen los pasos de resolución por mensaje de error específico. Antes de empezar, le ofrecemos información de contexto que explica cómo funciona la asignación y por qué se producen errores de asignación.
 
 Si su problema con Azure no se trata en este artículo, visite los [foros de Azure en MSDN y Stack Overflow](https://azure.microsoft.com/support/forums/). Puede registrar su problema en estos foros o en @AzureSupport en Twitter. También puede presentar una solicitud de soporte técnico de Azure, para ello seleccione **Obtener soporte técnico** en el sitio de [Soporte técnico de Azure](https://azure.microsoft.com/support/options/).
-
-La sección "Solución de problemas de errores de asignación comunes" de este artículo muestra los pasos necesarios para resolver problemas habituales. La sección "Solución de problemas de escenarios de errores de asignación específicos" ofrece los pasos para resolver mensajes de error específicos. Antes de empezar, le ofrecemos información de contexto que explica cómo funciona la asignación y por qué se producen errores de asignación.
 
 ## Información de contexto
 ### Cómo funciona la asignación
@@ -72,7 +72,7 @@ Dos escenarios comunes de error están relacionados con los grupos de afinidad. 
 
 En el diagrama 5 a continuación se presenta la taxonomía de los escenarios de asignación (anclados). ![Taxonomía de asignaciones ancladas](./media/virtual-machines-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] El error que se muestra en cada escenario de asignación está en forma abreviada. Para ver las cadenas de error detalladas, consulte el [Apéndice](#appendix).
+> [AZURE.NOTE] El error que se muestra en cada escenario de asignación está en forma abreviada. Consulte la [Búsqueda de cadenas de error] (#Búsqueda de cadenas de error) para obtener cadenas de error detalladas.
 
 #### Escenario de asignación: cambio del tamaño de una VM o incorporación de VM o instancias de rol a un servicio en la nube existente.
 **Error**
@@ -119,7 +119,7 @@ Si es aceptable el uso de una dirección IP virtual diferente, elimine las VM or
 #### Escenario de asignación: implementaciones de ensayo o producción (solo plataforma como servicio).
 **Error**
 
-New\_General o New\_VMSizeNotSupported
+New\_General* o New\_VMSizeNotSupported*
 
 **Causa de anclaje del clúster**
 
@@ -132,7 +132,7 @@ Elimine la primera implementación y el servicio en la nube original y vuelva im
 #### Escenario de asignación: grupo de afinidad (proximidad de la VM o el servicio)
 **Error**
 
-New\_General o New\_VMSizeNotSupported
+New\_General* o New\_VMSizeNotSupported*
 
 **Causa de anclaje del clúster**
 
@@ -145,9 +145,9 @@ Si no es necesario un grupo de afinidad, no lo use, o bien intente agrupar los r
 #### Escenario de asignación: red virtual basada en un grupo de afinidad
 **Error**
 
-New\_General o New\_VMSizeNotSupported
+New\_General* o New\_VMSizeNotSupported*
 
-**Causa de anclaje del clúster**
+<**Causa de anclaje del clúster**
 
 Antes de que se presentaran las redes virtuales regionales, era necesario asociar una red virtual a un grupo de afinidad. Como consecuencia, los recursos de proceso colocados en un grupo de afinidad se rigen por las mismas restricciones que se han descrito en la sección anterior "Escenario de asignación: grupo de afinidad (proximidad de la VM o el servicio)". Es decir, los recursos de proceso están asociados a un clúster.
 
@@ -171,7 +171,7 @@ En general, mientras el error no indique que "no se admite el tamaño de VM soli
 #### Escenario de asignación: cambio del tamaño de una VM o incorporación de VM o instancias de rol a un conjunto de disponibilidad existente.
 **Error**
 
-Upgrade\_VMSizeNotSupported o GeneralError
+Upgrade\_VMSizeNotSupported* o GeneralError*
 
 **Causa de anclaje del clúster**
 
@@ -209,8 +209,7 @@ La desasignación completa indica que detuvo (desasignó) todas las VM de un con
 
 Seleccione un nuevo tamaño de VM para asignar. Si esto no funciona, vuelva a intentarlo más tarde.
 
-## Anexo
-### Búsqueda de cadenas de error
+## Búsqueda de cadenas de error
 **New\_VMSizeNotSupported***
 
 El tamaño de VM (o la combinación de tamaños de VM) que se necesita en esta implementación no se puede aprovisionar debido a restricciones en las solicitudes de implementación. Si es posible, intente relajar las restricciones como los enlaces de red virtual, intente realizar la implementación en un servicio hospedado que no tenga ninguna otra implementación y en otro grupo de afinidad o sin grupo de afinidad, o bien intente realizar la implementación en otra región.
@@ -227,4 +226,4 @@ No se puede actualizar la implementación. Es posible que el tamaño de la máqu
 
 "Se produjo un error interno en el servidor. Vuelva a intentar realizar la solicitud" o "Error al producir una asignación para el servicio".
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

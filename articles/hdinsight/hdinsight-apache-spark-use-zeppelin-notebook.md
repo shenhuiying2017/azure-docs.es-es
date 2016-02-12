@@ -212,7 +212,7 @@ Después de haber configurado la tunelización SSH, puede usar los pasos siguien
 		http://hn0-myspar:9995
 
 	* **hn0** denota headnode0 (nodo principal 0).
-	* **myspar** son las cinco primeras letras del clúster Spark.
+	* **myspar** son las seis primeras letras del nombre del clúster Spark.
 	* **9995** es el puerto donde se puede acceder al cuaderno de Zeppelin.
 
 2. Cree un nuevo notebook. En el panel de encabezado, haga clic en **Notebook** y luego en **Create New Note** (Crear nota).
@@ -330,4 +330,4 @@ Después de haber configurado la tunelización SSH, puede usar los pasos siguien
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="02/01/2016"
 	ms.author="garye"/>
 
 # Implementar un servicio web de Aprendizaje automático de Azure
@@ -50,7 +50,7 @@ El proceso de creación y administración de experimentos de entrenamiento se tr
 
 - [Creación de un experimento sencillo en el Estudio de aprendizaje automático de Azure](machine-learning-create-experiment.md)
 - [Desarrollo de una solución predictiva con Aprendizaje automático de Azure](machine-learning-walkthrough-develop-predictive-solution.md)
-- [Importar datos de entrenamiento en Estudio de aprendizaje automático de Azure](machine-learning-import-data.md)
+- [Importar datos de entrenamiento en Estudio de aprendizaje automático de Azure](machine-learning-data-science-import-data.md)
 - [Administrar iteraciones de experimentos en Estudio de aprendizaje automático de Azure](machine-learning-manage-experiment-iterations.md)
 
 ## Convertir un experimento de entrenamiento en experimento predictivo
@@ -96,7 +96,8 @@ Para obtener más información sobre el acceso a un servicio web de Aprendizaje 
 
 En el Portal de Azure clásico, puede administrar los servicios web haciendo clic en el servicio **Aprendizaje automático**, abriendo el área de trabajo de Aprendizaje automático y, a continuación, abriendo el servicio web desde la pestaña **SERVICIOS WEB**. Desde esta página, puede supervisar el servicio web, actualizarlo y eliminarlo. También puede agregar un segundo extremo para el servicio web además del extremo predeterminado que se crea cuando se implementa.
 
-Para más información, vea [Administrar un área de trabajo de Aprendizaje automático de Azure](machine-learning-manage-workspace.md). <!-- When this article gets published, fix the link and uncomment
+Para más información, vea [Administrar un área de trabajo de Aprendizaje automático de Azure](machine-learning-manage-workspace.md). 
+<!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 
@@ -107,8 +108,8 @@ Puede realizar cambios en el servicio web, como actualizar el modelo con datos d
 
 Para actualizar el servicio web, abra el experimento predictivo original que usó para implementar el servicio web y haga una copia modificable haciendo clic en **GUARDAR COMO**. Realice los cambios y haga clic en **Publicar servicio web**. Puesto que ya ha publicado este experimento antes, Estudio de aprendizaje automático le preguntará si desea sobrescribir el servicio existente. Si hace clic en **SÍ**, el servicio web existente se detendrá y el nuevo experimento predictivo se implementará en su lugar.
 
-> [AZURE.NOTE]Si ha realizado cambios de configuración en el servicio web original, como, por ejemplo, escribir un nuevo nombre para mostrar o una descripción, necesitará escribir esos valores de nuevo.
+> [AZURE.NOTE] Si ha realizado cambios de configuración en el servicio web original, como, por ejemplo, escribir un nuevo nombre para mostrar o una descripción, necesitará escribir esos valores de nuevo.
 
 Una opción para actualizar el servicio web es volver a entrenar el modelo mediante programación. Para obtener más información, consulte [Volver a entrenar modelos de aprendizaje automático mediante programación](machine-learning-retrain-models-programmatically.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

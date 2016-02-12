@@ -39,7 +39,7 @@ Estos son los componentes implicados en una conexión RDP:
 Antes de continuar, podría resultar útil revisar mentalmente qué ha cambiado desde la última conexión correcta de Escritorio remoto a la máquina virtual. Por ejemplo:
 
 - Si la dirección IP pública de la máquina virtual o del servicio en la nube que contiene la máquina virtual (también denominada dirección IP virtual o [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) ha cambiado, el error de RDP podría deberse a que la memoria caché del cliente DNS sigue teniendo la *dirección IP antigua* registrada para el nombre DNS. Vacíe la memoria caché del cliente DNS e intente conectar la máquina virtual de nuevo. O bien, intente conectarse directamente con la VIP nueva.
-- Si está utilizando una aplicación de terceros para administrar las conexiones a Escritorio remoto en lugar de utilizar alguno de los portales de Azure, asegúrese de que la configuración de la aplicación incluye el puerto TCP correcto para el tráfico de Escritorio remoto. Puede comprobar este puerto para una máquina virtual clásica en el [Portal de Azure](portal.azure.com), haciendo clic en Configuración de la máquina virtual > Puntos de conexión.
+- Si está utilizando una aplicación de terceros para administrar las conexiones a Escritorio remoto en lugar de utilizar alguno de los portales de Azure, asegúrese de que la configuración de la aplicación incluye el puerto TCP correcto para el tráfico de Escritorio remoto. Puede comprobar este puerto para una máquina virtual clásica en el [Portal de Azure](https://portal.azure.com), haciendo clic en Configuración de la máquina virtual > Puntos de conexión.
 
 
 ## Pasos previos
@@ -135,7 +135,7 @@ Pruebe de nuevo la conexión desde su equipo. Si todavía no puede conectarse me
 
 Para las máquinas virtuales creadas con el modelo de implementación clásico, puede utilizar una sesión remota de Azure PowerShell para la máquina virtual de Azure. En primer lugar, deberá instalar un certificado para el servicio en la nube de hospedaje de la máquina virtual. Vaya a [Configurar el acceso remoto seguro de PowerShell a máquinas virtuales de Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) y descargue el archivo de script **InstallWinRMCertAzureVM.ps1** en el equipo local.
 
-A continuación, instale Azure PowerShell si todavía no lo ha hecho. Consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md).
+A continuación, instale Azure PowerShell si todavía no lo ha hecho. Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 Después, abra un símbolo del sistema de Azure PowerShell y cambie la carpeta actual a la ubicación del archivo de script **InstallWinRMCertAzureVM.ps1**. Para ejecutar un script de Azure PowerShell, debe establecer la directiva de ejecución correcta. Ejecute el comando **Get-ExecutionPolicy** para determinar el nivel de directiva actual. Para obtener información sobre cómo establecer el nivel adecuado, vea [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
@@ -195,4 +195,4 @@ Compruebe que el punto de conexión de Escritorio remoto para la máquina virtua
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

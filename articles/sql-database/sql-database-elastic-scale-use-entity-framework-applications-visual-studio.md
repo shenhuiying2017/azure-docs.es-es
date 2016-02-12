@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="torsteng;sidneyh"/>
 
 # Biblioteca de cliente de base de datos elástica con Entity Framework 
@@ -264,15 +264,15 @@ Se podría haber usado la versión del constructor heredado de la clase base. Pe
 
 Los métodos descritos en este documento implican un par de limitaciones:
 
-* Las aplicaciones de EF que usen **LocalDb** deben migrar en primer lugar a una base de datos de SQL Server normal antes de usar la biblioteca de cliente de Base de datos elástica. El escalado horizontal de una aplicación mediante particionamiento con escala elástica no es posible con **LocalDb**. Tenga en cuenta que los desarrolladores pueden seguir usando **LocalDb**. 
+* Las aplicaciones de EF que usen **LocalDb** deben migrar en primer lugar a una base de datos de SQL Server normal antes de usar la biblioteca de cliente de Base de datos elástica. El escalado horizontal de una aplicación mediante particionamiento con Escalado elástico no es posible con **LocalDb**. Tenga en cuenta que los desarrolladores pueden seguir usando **LocalDb**. 
 
 * Los cambios efectuados en la aplicación que implican cambios en el esquema de base de datos deben pasar por migraciones de EF en todas las particiones. El código de ejemplo de este documento no muestra cómo hacerlo. Considere el uso de Update-Database con un parámetro ConnectionString para iterar en todas las particiones; o extraiga el script T-SQL para la migración pendiente usando Update-Database con la opción –Script y aplique el script T-SQL en sus particiones.
 
 * Dada una solicitud, se supone que todo el procesamiento de la base de datos está contenido en una sola partición que se identifica con la clave de particionamiento especificada por la solicitud. Sin embargo, esta suposición no siempre es cierta. Por ejemplo, cuando no se puede disponer de una clave de particionamiento. Para solucionar este problema, la biblioteca cliente proporciona la clase **MultiShardQuery** que implementa una abstracción de conexión para realizar consultas en varias particiones. No es el objetivo de este documento tratar sobre el uso de **MultiShardQuery** junto con EF.
 
-## Conclusiones 
+## Conclusión
 
-Las aplicaciones de Entity Framework pueden beneficiarse fácilmente de las herramientas de bases de datos elásticas en Base de datos SQL de Azure. Con los pasos descritos en este documento, las aplicaciones de EF pueden usar la funcionalidad de enrutamiento dependiente de datos de la biblioteca de cliente de Base de datos elástica mediante la refactorización de constructores de las subclases **DbContext** que se usan en la aplicación de EF. Esto limita los cambios necesarios en los lugares donde ya existen clases **DbContext**. Además, las aplicaciones de EF pueden seguir aprovechando la implementación automática de esquemas mediante la combinación de los pasos que invocan las migraciones de EF necesarias con el registro de nuevas particiones y asignaciones en el mapa de particiones.
+Con los pasos descritos en este documento, las aplicaciones de EF pueden utilizar la funcionalidad de enrutamiento dependiente de datos de la biblioteca cliente de bases de datos elásticas mediante la refactorización de constructores de las subclases **DbContext** que se usan en la aplicación de EF. Esto limita los cambios necesarios en los lugares donde ya existen clases **DbContext**. Además, las aplicaciones de EF pueden seguir aprovechando la implementación automática de esquemas mediante la combinación de los pasos que invocan las migraciones de EF necesarias con el registro de nuevas particiones y asignaciones en el mapa de particiones.
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -281,4 +281,4 @@ Las aplicaciones de Entity Framework pueden beneficiarse fácilmente de las herr
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

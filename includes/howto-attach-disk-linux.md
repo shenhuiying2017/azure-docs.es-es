@@ -1,5 +1,5 @@
 
-Para obtener más detalles acerca de los discos, consulte [Acerca de los discos y discos duros virtuales para máquinas virtuales](../articles/virtual-machines-disks-vhds.md).
+Para obtener más detalles acerca de los discos, consulte [Acerca de los discos y discos duros virtuales para máquinas virtuales](virtual-machines-disks-vhds.md).
 
 <a id="attachempty"></a>
 ## Acoplamiento de un disco vacío
@@ -62,7 +62,7 @@ El acoplamiento de un disco existente requiere que disponga de un .vhd disponibl
 		uploaded successfully
 		info:    vm disk create command OK
 
-	También puedes usar el comando `azure vm disk upload` para cargar un VHD a una cuenta de almacenamiento específica. [Aquí](../virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks) puedes obtener más información sobre los comandos para administrar los discos de datos de tu máquina virtual de Azure.
+	También puedes usar el comando `azure vm disk upload` para cargar un VHD a una cuenta de almacenamiento específica. [Aquí](virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks) puedes obtener más información sobre los comandos para administrar los discos de datos de tu máquina virtual de Azure.
 
 5.  Escribe el siguiente comando para adjuntar el VHD cargado que quieras a la máquina virtual:
 
@@ -90,6 +90,7 @@ El acoplamiento de un disco existente requiere que disponga de un .vhd disponibl
 		info:    vm disk list command OK
 
 
-> [AZURE.NOTE]Después de conectar un disco de datos, tendrá que iniciar sesión en la máquina virtual e inicializar el disco para que la máquina virtual pueda usar el disco para el almacenamiento.
+> [AZURE.NOTE]
+Después de conectar un disco de datos, tendrá que iniciar sesión en la máquina virtual e inicializar el disco para que la máquina virtual pueda usar el disco para el almacenamiento.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

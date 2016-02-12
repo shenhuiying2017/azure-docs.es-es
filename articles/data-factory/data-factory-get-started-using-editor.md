@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="11/02/2015" 
+	ms.topic="article" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Crear una canalización con la actividad de copia mediante el editor de la factoría de datos
@@ -37,7 +37,7 @@ Paso | Descripción
 [Paso 5: Supervisar intervalos y canalizaciones](#MonitorDataSetsAndPipeline) | En este paso, va a supervisar los sectores de las tablas de entrada y salida con el Portal de Azure.
  
 
-## <a name="CreateDataFactory"></a>Paso 1: Crear una factoría de datos de Azure
+## <a name="CreateDataFactory"></a>Paso 1: Creación de una Factoría de datos de Azure
 En este paso, utilice el Portal de Azure para crear una factoría de datos de Azure llamada **ADFTutorialDataFactory**.
 
 1.	Tras iniciar sesión en el [Portal de Azure][azure-portal], haga clic en **NUEVO** en la esquina inferior izquierda, seleccione **Análisis de datos** en la hoja **Crear** y haga clic en **Factoría de datos** en la hoja **Análisis de datos**. 
@@ -459,4 +459,4 @@ Para realizar este tutorial con PowerShell de Azure, consulte [Creación y super
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

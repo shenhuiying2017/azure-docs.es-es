@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="01/26/2016"
 	ms.author="mmercuri"/>
 
 # Uso compartido del estado en las plantillas del Administrador de recursos de Azure
@@ -389,4 +389,4 @@ Dentro de la plantilla principal, puede usar esos datos con la sintaxis siguient
 - [Creación de plantillas de Administrador de recursos de Azure](resource-group-authoring-templates.md)
 - [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

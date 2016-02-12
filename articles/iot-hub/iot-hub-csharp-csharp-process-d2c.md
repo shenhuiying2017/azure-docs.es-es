@@ -20,7 +20,7 @@
 
 ## Introducción
 
-El Centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos IoT y el back-end de una aplicación. Otros tutoriales ([Introducción al Centro de IoT] y [Envío de mensajes de nube a dispositivo con el Centro de IoT]) muestran cómo usar la funcionalidad básica de mensajería de dispositivo a nube y viceversa del Centro de IoT.
+El centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y una aplicación back-end. Otros tutoriales ([Introducción al Centro de IoT] y [Envío de mensajes de nube a dispositivo con el Centro de IoT]) muestran cómo usar la funcionalidad básica de mensajería de dispositivo a nube y viceversa del Centro de IoT.
 
 Este tutorial se basa en el código que se muestra en el tutorial [Introducción al Centro de IoT] y muestra dos patrones escalables que se pueden usar para procesar mensajes del dispositivo a la nube:
 
@@ -99,6 +99,7 @@ Información adicional sobre el centro de IoT:
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
+[control de errores transitorios]: https://msdn.microsoft.com/es-ES/library/hh680901(v=pandp.50).aspx
 
 [Guía del desarrollador del Centro de IoT de Azure]: https://azure.microsoft.com/es-ES/documentation/articles/iot-hub-devguide/#d2c
 
@@ -107,7 +108,9 @@ Información adicional sobre el centro de IoT:
 
 
 
+[Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Envío de mensajes de nube a dispositivo con el Centro de IoT]: iot-hub-csharp-csharp-c2d.md
+[Procesamiento de mensajes de dispositivo a nube]: iot-hub-csharp-csharp-process-d2c.md
 [Carga de archivos desde dispositivos]: iot-hub-csharp-csharp-file-upload.md
 
 [Información general sobre el centro de IoT]: iot-hub-what-is-iot-hub.md
@@ -118,4 +121,4 @@ Información adicional sobre el centro de IoT:
 [Centro para desarrolladores de Azure]: https://azure.microsoft.com/develop/iot
 [Centro para desarrolladores de IoT de Azure]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

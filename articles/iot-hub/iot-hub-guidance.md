@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/10/2015"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 # Diseño de la solución
@@ -52,7 +52,7 @@ Una puerta de enlace de campo es diferente de un dispositivo de enrutamiento de 
 - Transformar los datos de telemetría para facilitar el procesamiento en el back-end de solución.
 - Realizar la conversión del protocolo para que los dispositivos puedan comunicarse con el Centro de IoT, incluso cuando no usan los protocolos de transporte que este admite.
 
-> [AZURE.NOTE]Aunque normalmente se implementa una puerta de enlace de campo local en sus dispositivos, en algunos casos podría implementar una [puerta de enlace de protocolo][lnk-gateway] en la nube.
+> [AZURE.NOTE] Aunque normalmente se implementa una puerta de enlace de campo local en sus dispositivos, en algunos casos podría implementar una [puerta de enlace de protocolo][lnk-gateway] en la nube.
 
 ### Tipos de puertas de enlace de campo
 
@@ -63,6 +63,8 @@ Una puerta de enlace de campo puede ser *transparente* u *opaca*:
 | Identidades que se almacenan en el registro de identidades del Centro de IoT | Identidades de todos los dispositivos conectados | Solo la identidad de la puerta de enlace de campo |
 | El Centro de IoT puede proporcionar [protección contra la suplantación de identidad del dispositivo][lnk-devguide-antispoofing] | Sí | No |
 | [Limitaciones y cuotas][lnk-throttles-quotas] | Se aplican a cada dispositivo | Se aplican a la puerta de enlace de campo |
+
+> [AZURE.IMPORTANT]  Cuando se utiliza un patrón de puerta de enlace opaco, todos los dispositivos que se conectan a través de dicha puerta de enlace comparten la misma cola de nube a dispositivo, que puede contener como máximo 50 mensajes. Se supone que el patrón de puerta de enlace opaco debe utilizarse únicamente cuando muy pocos dispositivos se conectan a través de cada puerta de enlace de campo y su tráfico de nube a dispositivo es bajo.
 
 ### Otras consideraciones
 
@@ -83,7 +85,7 @@ Estos son los pasos principales del modelo de servicio de tokens:
 3. El servicio de token devuelve un token. El token se crea según la [sección de seguridad de la Guía del desarrollador del Centro de IoT][lnk-devguide-security] utilizando `/devices/{deviceId}` como `resourceURI`, con `deviceId` como el dispositivo que se autentica. El servicio de token usa la directiva de acceso compartido para construir el token.
 4. El dispositivo usa el token directamente con el Centro de IoT.
 
-> [AZURE.NOTE]Puede usar la clase .NET [SharedAccessSignatureBuilder][lnk-dotnet-sas] o la clase de Java [IotHubServiceSasToken][lnk-java-sas] para crear un token en el servicio correspondiente.
+> [AZURE.NOTE] Puede usar la clase .NET [SharedAccessSignatureBuilder][lnk-dotnet-sas] o la clase de Java [IotHubServiceSasToken][lnk-java-sas] para crear un token en el servicio correspondiente.
 
 El servicio de token puede establecer la caducidad de los tokens como desee. Cuando expira el token, el Centro de IoT interrumpe la conexión de dispositivo. A continuación, el dispositivo debe solicitar un nuevo token al servicio de token. Si usa un tiempo de expiración corto, aumentará la carga tanto en el dispositivo como en el servicio de token.
 
@@ -92,6 +94,14 @@ Para que un dispositivo se conecte al centro, deberá agregarlo al registro de i
 ### Comparación con una puerta de enlace personalizada
 
 El modelo de servicio de token es el método recomendado para implementar un esquema de autenticación o registro de identidades personalizado en el Centro de IoT. Se recomienda porque el Centro de IoT sigue controlando la mayoría del tráfico de la solución. Hay casos, sin embargo, en los que el esquema de autenticación personalizado está tan imbricado con el protocolo que se necesita un servicio que procese todo el tráfico (*puerta de enlace personalizada*). Un ejemplo de esto es la [seguridad de la capa de transporte (TLS) y las claves previamente compartidas (PSK)][lnk-tls-psk]. Consulte el tema [Puerta de enlace de protocolos][lnk-gateway] para más información.
+
+## Latido de dispositivo <a id="heartbeat"></a>
+
+El [registro de la identidad de Centro de IoT][lnk-devguide-identityregistry] contiene un campo llamado **connectionState**. Solo debe utilizar el campo **connectionState** durante el desarrollo y la depuración, las soluciones de IoT no deben consultar el campo en tiempo de ejecución (por ejemplo, para comprobar si un dispositivo está conectado con el fin de decidir si enviar un mensaje de nube a dispositivo o un SMS). Si la solución de IoT necesita saber si un dispositivo está conectado (ya sea en tiempo de ejecución, o con más precisión que la ofrecida por la propiedad **connectionState**), debe implementar el *patrón de latido*.
+
+En el patrón de latido, el dispositivo envía mensajes de dispositivo a la nube al menos una vez en un período de tiempo predeterminado (por ejemplo, al menos una vez cada hora). Esto significa que incluso si un dispositivo no tiene ningún dato que enviar, seguirá enviando un mensaje de dispositivo a la nube vacío (normalmente con una propiedad que lo identifica como un latido). En el lado del servicio, la solución mantiene un mapa con el último latido recibido para cada dispositivo, y supone que hay un problema con un dispositivo si no recibe un mensaje de latido en el tiempo esperado.
+
+Una implementación más compleja podría incluir la información de [supervisión de operaciones][lnk-devguide-opmon] para identificar los dispositivos que están intentando conectarse o comunicarse sin éxito. Al implementar el patrón de latidos, asegúrese de comprobar [las cuotas y limitaciones de Centro de IoT][].
 
 ## Pasos siguientes
 
@@ -104,6 +114,7 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
 [lnk-device-management]: iot-hub-device-management.md
+[lnk-devguide-opmon]: iot-hub-operations-monitoring.md
 
 [lnk-device-sdks]: iot-hub-sdks-summary.md
 [lnk-devguide-security]: iot-hub-devguide.md#security
@@ -118,5 +129,6 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
+[las cuotas y limitaciones de Centro de IoT]: iot-hub-devguide.md#throttling
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

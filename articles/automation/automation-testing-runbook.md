@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/23/2015"
+	ms.date="02/03/2016"
 	ms.author="bwren" />
 
 # Prueba de un runbook en Automatización de Azure
@@ -55,4 +55,4 @@ En el portal de Azure solo se puede trabajar con [runbooks de Flujo de trabajo d
 - [Edición de runbooks de texto en Automatización de Azure](automation-edit-textual-runbook.md)
 - [Salidas de runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="01/21/2016"
+   ms.date="01/29/2016"
    ms.author="brjohnst"/>
 
 # Cómo usar Búsqueda de Azure desde una aplicación .NET
@@ -39,7 +39,7 @@ Estas son otras características no admitidas en este SDK:
 
 ## Actualización a la versión más reciente del SDK
 
-Si ya está utilizando una versión anterior del SDK de .NET de Búsqueda de Azure y desea actualizar a la nueva versión de vista previa 1.0.1, [este artículo](search-dotnet-sdk-migration.md) explica cómo.
+Si ya utiliza una versión anterior del SDK de .NET para Búsqueda de Azure y desea actualizar a la nueva versión preliminar 1.0, en [este artículo](search-dotnet-sdk-migration.md) se explica cómo.
 
 ## Requisitos para el SDK
 
@@ -84,10 +84,10 @@ La aplicación de ejemplo que vamos a explorar crea un nuevo índice denominado 
         CreateHotelsIndex(serviceClient);
 
         SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
-            
+
         Console.WriteLine("{0}", "Uploading documents...\n");
         UploadDocuments(indexClient);
-            
+
         Console.WriteLine("{0}", "Searching documents 'fancy wifi'...\n");
         SearchDocuments(indexClient, searchText: "fancy wifi");
 
@@ -187,8 +187,8 @@ A continuación, `Main` crea un nuevo índice "hotels" mediante una llamada a es
         var definition = new Index()
         {
             Name = "hotels",
-            Fields = new[] 
-            { 
+            Fields = new[]
+            {
                 new Field("hotelId", DataType.String)                       { IsKey = true },
                 new Field("hotelName", DataType.String)                     { IsSearchable = true, IsFilterable = true },
                 new Field("baseRate", DataType.Double)                      { IsFilterable = true, IsSortable = true },
@@ -216,20 +216,20 @@ El siguiente paso en `Main` consiste en rellenar el índice recién creado. Esto
             new Hotel[]
             {
                 new Hotel()
-                { 
-                    HotelId = "1058-441", 
-                    HotelName = "Fancy Stay", 
-                    BaseRate = 199.0, 
-                    Category = "Luxury", 
-                    Tags = new[] { "pool", "view", "concierge" }, 
-                    ParkingIncluded = false, 
-                    LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero), 
-                    Rating = 5, 
+                {
+                    HotelId = "1058-441",
+                    HotelName = "Fancy Stay",
+                    BaseRate = 199.0,
+                    Category = "Luxury",
+                    Tags = new[] { "pool", "view", "concierge" },
+                    ParkingIncluded = false,
+                    LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero),
+                    Rating = 5,
                     Location = GeographyPoint.Create(47.678581, -122.131577)
                 },
                 new Hotel()
-                { 
-                    HotelId = "666-437", 
+                {
+                    HotelId = "666-437",
                     HotelName = "Roach Motel",
                     BaseRate = 79.99,
                     Category = "Budget",
@@ -239,9 +239,9 @@ El siguiente paso en `Main` consiste en rellenar el índice recién creado. Esto
                     Rating = 1,
                     Location = GeographyPoint.Create(49.678581, -122.131577)
                 },
-                new Hotel() 
-                { 
-                    HotelId = "970-501", 
+                new Hotel()
+                {
+                    HotelId = "970-501",
                     HotelName = "Econo-Stay",
                     BaseRate = 129.99,
                     Category = "Budget",
@@ -252,8 +252,8 @@ El siguiente paso en `Main` consiste en rellenar el índice recién creado. Esto
                     Location = GeographyPoint.Create(46.678581, -122.131577)
                 },
                 new Hotel()
-                { 
-                    HotelId = "956-532", 
+                {
+                    HotelId = "956-532",
                     HotelName = "Express Rooms",
                     BaseRate = 129.99,
                     Category = "Budget",
@@ -263,9 +263,9 @@ El siguiente paso en `Main` consiste en rellenar el índice recién creado. Esto
                     Rating = 4,
                     Location = GeographyPoint.Create(48.678581, -122.131577)
                 },
-                new Hotel() 
-                { 
-                    HotelId = "566-518", 
+                new Hotel()
+                {
+                    HotelId = "566-518",
                     HotelName = "Surprisingly Expensive Suites",
                     BaseRate = 279.99,
                     Category = "Luxury",
@@ -349,7 +349,7 @@ Esta posibilidad de usar sus propias clases como documentos funciona en ambas di
 > [AZURE.NOTE] El SDK de Búsqueda de Azure para .NET también admite documentos de tipo dinámico mediante la clase `Document`, que es una asignación clave/valor de nombres de campo a valores de campo. Esto es útil en escenarios en los que no se conoce el esquema del índice en el momento del diseño o en los que resulte inconveniente enlazar a clases de modelo específicas. Todos los métodos del SDK que se ocupan de los documentos tienen sobrecargas que funcionan con la clase `Document`, así como sobrecargas de asignación rigurosa que aceptan un parámetro de tipo genérico. En el código de ejemplo de este tutorial solo se utilizan las últimas. Puede encontrar más información acerca de la clase `Document` [aquí](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx).
 
 **Nota importante acerca de los tipos de datos**
- 
+
 Al diseñar sus propias clases de modelo para asignar a un índice de Búsqueda de Azure, es recomendable declarar las propiedades de tipos de valor como `bool` y `int` que aceptan valores NULL (por ejemplo: `bool?` en lugar de `bool`). Si usa un tipo de modelo con una propiedad que no acepta valores NULL, tendrá que **garantizar** que ningún documento del índice contiene un valor NULL para el campo correspondiente. Ni el SDK ni el servicio Búsqueda de Azure le permitirá aplicar esto.
 
 Esto no es solo una inquietud hipotética: imagine un escenario donde agregar un nuevo campo a un índice existente que es de tipo `Edm.Int32`. Después de actualizar la definición del índice, todos los documentos tendrán un valor null para ese campo nuevo (ya que todos los tipos aceptan valores NULL en Búsqueda de Azure). Si después utiliza una clase de modelo con una propiedad `int` que no acepta valores NULL para ese campo, obtendrá `JsonSerializationException` así al intentar recuperar documentos:
@@ -364,9 +364,9 @@ El último paso de la aplicación de ejemplo es buscar algunos documentos en el 
 
     private static void SearchDocuments(SearchIndexClient indexClient, string searchText, string filter = null)
     {
-        // Execute search based on search text and optional filter 
+        // Execute search based on search text and optional filter
         var sp = new SearchParameters();
-            
+
         if (!String.IsNullOrEmpty(filter))
         {
             sp.Filter = filter;
@@ -457,10 +457,10 @@ Program.cs:
                 CreateHotelsIndex(serviceClient);
 
                 SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
-            
+
                 Console.WriteLine("{0}", "Uploading documents...\n");
                 UploadDocuments(indexClient);
-            
+
                 Console.WriteLine("{0}", "Searching documents 'fancy wifi'...\n");
                 SearchDocuments(indexClient, searchText: "fancy wifi");
 
@@ -484,8 +484,8 @@ Program.cs:
                 var definition = new Index()
                 {
                     Name = "hotels",
-                    Fields = new[] 
-                    { 
+                    Fields = new[]
+                    {
                         new Field("hotelId", DataType.String)                       { IsKey = true },
                         new Field("hotelName", DataType.String)                     { IsSearchable = true, IsFilterable = true },
                         new Field("baseRate", DataType.Double)                      { IsFilterable = true, IsSortable = true },
@@ -507,20 +507,20 @@ Program.cs:
                     new Hotel[]
                     {
                         new Hotel()
-                        { 
-                            HotelId = "1058-441", 
-                            HotelName = "Fancy Stay", 
-                            BaseRate = 199.0, 
-                            Category = "Luxury", 
-                            Tags = new[] { "pool", "view", "concierge" }, 
-                            ParkingIncluded = false, 
-                            LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero), 
-                            Rating = 5, 
+                        {
+                            HotelId = "1058-441",
+                            HotelName = "Fancy Stay",
+                            BaseRate = 199.0,
+                            Category = "Luxury",
+                            Tags = new[] { "pool", "view", "concierge" },
+                            ParkingIncluded = false,
+                            LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero),
+                            Rating = 5,
                             Location = GeographyPoint.Create(47.678581, -122.131577)
                         },
                         new Hotel()
-                        { 
-                            HotelId = "666-437", 
+                        {
+                            HotelId = "666-437",
                             HotelName = "Roach Motel",
                             BaseRate = 79.99,
                             Category = "Budget",
@@ -530,9 +530,9 @@ Program.cs:
                             Rating = 1,
                             Location = GeographyPoint.Create(49.678581, -122.131577)
                         },
-                        new Hotel() 
-                        { 
-                            HotelId = "970-501", 
+                        new Hotel()
+                        {
+                            HotelId = "970-501",
                             HotelName = "Econo-Stay",
                             BaseRate = 129.99,
                             Category = "Budget",
@@ -543,8 +543,8 @@ Program.cs:
                             Location = GeographyPoint.Create(46.678581, -122.131577)
                         },
                         new Hotel()
-                        { 
-                            HotelId = "956-532", 
+                        {
+                            HotelId = "956-532",
                             HotelName = "Express Rooms",
                             BaseRate = 129.99,
                             Category = "Budget",
@@ -554,9 +554,9 @@ Program.cs:
                             Rating = 4,
                             Location = GeographyPoint.Create(48.678581, -122.131577)
                         },
-                        new Hotel() 
-                        { 
-                            HotelId = "566-518", 
+                        new Hotel()
+                        {
+                            HotelId = "566-518",
                             HotelName = "Surprisingly Expensive Suites",
                             BaseRate = 279.99,
                             Category = "Luxury",
@@ -585,9 +585,9 @@ Program.cs:
 
             private static void SearchDocuments(SearchIndexClient indexClient, string searchText, string filter = null)
             {
-                // Execute search based on search text and optional filter 
+                // Execute search based on search text and optional filter
                 var sp = new SearchParameters();
-            
+
                 if (!String.IsNullOrEmpty(filter))
                 {
                     sp.Filter = filter;
@@ -645,4 +645,4 @@ Hotel.cs:
 
 También puede encontrar el código fuente de ejemplo completo [en GitHub](http://aka.ms/search-dotnet-howto).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

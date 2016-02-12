@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/05/2016"
+   ms.date="02/01/2016"
    ms.author="curtand;kenhoff"/>
 
 # Introducción a los informes de Azure Active Directory
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD) incluye informes de seguridad, actividad y aud
 
 - Informe de auditoría de directorio
 
-> [AZURE.TIP]Para obtener más documentación sobre informes de Azure AD, vea [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
+> [AZURE.TIP] Para obtener más documentación sobre informes de Azure AD, vea [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
 
 
 
@@ -71,7 +71,7 @@ Puede encontrar el inicio de sesión procesado más reciente examinando el texto
 
 ![Texto de ayuda en la parte superior de cada informe](./media/active-directory-reporting-getting-started/reportingWatermark.PNG)
 
-> [AZURE.TIP]Para obtener más documentación sobre informes de Azure AD, vea [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
+> [AZURE.TIP] Para obtener más documentación sobre informes de Azure AD, vea [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
 
 
 
@@ -92,7 +92,7 @@ Si es la primera vez que visualiza los informes, deberá aceptar un cuadro de di
 
 ### Exploración de cada informe
 
-Vaya a cada informe para ver los datos recopilados y los inicios de sesión procesados. Puede encontrar una [lista de todos los informes aquí](active-directory-reporting-what-it-is.md).
+Vaya a cada informe para ver los datos recopilados y los inicios de sesión procesados. Puede encontrar una [lista de todos los informes aquí](active-directory-reporting-guide.md).
 
 ![Todos los informes](./media/active-directory-reporting-getting-started/reportsMain.png)
 
@@ -104,7 +104,7 @@ Para descargar cualquier informe como CSV, vaya hasta el informe y haga clic en 
 
 ![Botón Descargar](./media/active-directory-reporting-getting-started/downloadButton.png)
 
-> [AZURE.TIP]Para obtener más documentación sobre informes de Azure AD, vea [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
+> [AZURE.TIP] Para obtener más documentación sobre informes de Azure AD, vea [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
 
 
 
@@ -134,7 +134,7 @@ Haga clic en el botón "Habilitar MFA" en la parte inferior de la pantalla.
 
 ![Botón Multi-Factor Authentication en la parte inferior de la pantalla](./media/active-directory-reporting-getting-started/mfaButton.png)
 
-> [AZURE.TIP]Para obtener más documentación sobre informes de Azure AD, vea [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
+> [AZURE.TIP] Para obtener más documentación sobre informes de Azure AD, vea [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
 
 
 
@@ -154,6 +154,6 @@ Consulte [Introducción a la API de informes](active-directory-reporting-api-get
 
 Envíe un correo electrónico a [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) para trasmitir sus comentarios, solicitar ayuda o plantear las preguntas que tenga.
 
-> [AZURE.TIP]Para obtener más documentación sobre informes de Azure AD, vea [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
+> [AZURE.TIP] Para obtener más documentación sobre informes de Azure AD, vea [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

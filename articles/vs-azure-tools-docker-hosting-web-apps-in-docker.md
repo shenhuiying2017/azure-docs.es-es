@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/18/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Hospedaje de Aplicaciones web en Docker
@@ -31,7 +31,7 @@ En estos procedimientos, creará un nuevo proyecto de aplicación web ASP.NET 5,
 
 1. Cree un nuevo proyecto de aplicación web ASP.NET. En el menú principal, elija **Archivo**, **Nuevo proyecto**. En **C#**, **Web**, elija **Aplicación web ASP.NET**.
 
-1. En la lista **Plantillas de vista previa de ASP.NET 5**, elija **Sitio Web**.
+1. En la lista de **plantillas de vista previa de ASP.NET 5**, elija **Sitio web**.
 
 1. Puesto que la aplicación web se hospedará y ejecutará en Docker, desactive la casilla **Hospedar en la nube** si está activada y luego elija el botón **Aceptar**.
 
@@ -112,7 +112,7 @@ En el procedimiento anterior tubo que crear una máquina virtual de Docker hospe
 
 ### Cómo proporcionar un host de Docker personalizado
 
-1. En el cuadro de diálogo **Seleccionar máquina virtual de Docker**, seleccione la casilla **Host de Docker personalizado**.
+1. En el cuadro de diálogo **Seleccionar máquina virtual de Docker** cuadro de diálogo, seleccione la casilla **Host de Docker personalizado**.
 
     ![][5]
 
@@ -163,7 +163,7 @@ El siguiente procedimiento es para la comunicación con un host de Docker que se
 
 Ahora que tiene un host de Docker, puede emitir comandos de Docker en él. Para obtener más información sobre Docker, consulte la [documentación de Docker](https://docs.docker.com/) y el [tutorial en línea de Docker](https://www.docker.com/tryit/).
 
-Para obtener información acerca del uso de la extensión de la máquina virtual de Docker para Linux en Azure, consulte [Extensión de máquina virtual Docker para Linux en Azure](virtual-machines-docker-vm-extension.md).
+Para obtener información acerca del uso de la extensión de la máquina virtual de Docker para Linux en Azure, consulte [Extensión de máquina virtual Docker para Linux en Azure](/virtual-machines/virtual-machines-docker-vm-extension.md).
 
 Para obtener información sobre los problemas con el uso de Docker en Visual Studio, consulte [Solución de problemas de Docker](vs-azure-tools-docker-troubleshooting-docker-errors.md).
 
@@ -177,4 +177,4 @@ Para obtener información sobre los problemas con el uso de Docker en Visual Stu
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

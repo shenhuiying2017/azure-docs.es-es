@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 
 # Creación de particiones de datos en DocumentDB con el SDK de .NET
 
-Azure DocumentDB es un servicio de base de datos de documentos que le permite escalar fácilmente su cuenta a través del aprovisionamiento de colecciones utilizando los [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) y las [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) (proceso también conocido como **sharding o particionamiento**). Para que sea más fácil desarrollar aplicaciones con particiones y reducir la cantidad de código reutilizable necesario para las tareas de creación de particiones, hemos agregado una funcionalidad en el SDK de .NET que simplifica la creación de aplicaciones que se escalan horizontalmente entre varias particiones.
+Azure DocumentDB es un servicio de base de datos de documentos que le permite escalar fácilmente su cuenta a través del aprovisionamiento de colecciones utilizando los [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) y las [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) (proceso también conocido como **sharding o particionamiento**). Para que sea más fácil desarrollar aplicaciones con particiones y reducir la cantidad de código reutilizable necesario para las tareas de creación de particiones, hemos agregado una funcionalidad en el SDK de .NET., Node.js y Java que simplifica la creación de aplicaciones que se escalan horizontalmente entre varias particiones.
 
 En este artículo, nos fijaremos en las clases e interfaces del SDK de .NET y en su uso para desarrollar aplicaciones con particiones.
 
@@ -141,10 +141,6 @@ DocumentDB admite la creación de particiones de cliente debido a un par de moti
 - Es muy difícil abstraer el concepto de una colección a partir de desarrolladores sin poner en peligro una de las tres garantías de consultas/indizado coherente, alta disponibilidad y transacción ACID. 
 - Las bases de datos de documentos a menudo requieren flexibilidad en cuanto a la definición de estrategias para la creación de particiones, lo cual es posible que resulte difícil de asumir en un enfoque del lado servidor. 
 
-**¿Por qué la creación de particiones no se admite en otras plataformas (Node.js, Java o Python)?**
-
-Aplicaremos gradualmente la compatibilidad con la creación de particiones en otras plataformas en función de los comentarios recibidos de los usuarios del SDK de .NET.
-
 **¿Cómo se puede agregar una colección a mi esquema de creación de particiones o quitarla del mismo?**
 
 Eche un vistazo a la implementación de DocumentClientHashPartitioningManager en el proyecto de ejemplos para obtener un ejemplo de cómo puede implementar la nueva creación de particiones.
@@ -167,4 +163,4 @@ Puede encadenar PartitionResolvers implementando su propio valor de IPartitionRe
 * [Blog de DocumentDB sobre sugerencias de rendimiento](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

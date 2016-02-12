@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/06/2016"
-    ms.author="sidneyh;torsteng" />
+    ms.date="01/28/2016"
+    ms.author="torsteng;sidneyh" />
 
 # Consultas de bases de datos elásticas para particionamiento horizontal
 
@@ -200,7 +200,7 @@ La consulta elástica también incluye un procedimiento almacenado que proporcio
 * Nombre de la base de datos del mapa de particiones (nvarchar): nombre de la base de datos del mapa de particiones. 
 * Nombre del usuario (nvarchar): nombre del usuario para iniciar sesión en la base de datos del mapa de particiones. 
 * Contraseña (nvarchar): contraseña del usuario. 
-* Nombre del mapa de particiones (nvarchar): nombre del mapa de particiones que se va a usar para la consulta. 
+* Nombre del mapa de particiones (nvarchar): nombre del mapa de particiones que se va a usar para la consulta. El nombre se encuentra en la tabla \_ShardManagement.ShardMapsGlobal, que es el nombre predeterminado que se utiliza al crear bases de datos con la aplicación de ejemplo que se encuentra en [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md). El nombre predeterminado que se encuentra en la aplicación es "CustomerIDShardMap".
 *  Consulta: la consulta T-SQL que se va a ejecutar en cada partición. 
 *  Declaración de parámetro (nvarchar) - opcional: cadena con definiciones de tipos de datos de los parámetros usados en el parámetro Query (como sp\_executesql). 
 *  Lista de valores de los parámetros - opcional: lista separada por comas de valores de los parámetros (por ejemplo, sp\_executesql)  
@@ -212,7 +212,7 @@ Tenga en cuenta que se usan las mismas credenciales para conectarse a la base de
 Ejemplo:
 
 	sp_execute_fanout 
-		’myserver.database.windows.net', 
+		N'myserver.database.windows.net', 
 		N'ShardMapDb', 
 		N'myuser', 
 		N'MyPwd', 
@@ -241,4 +241,4 @@ Use cadenas de conexión de SQL Server normales para conectar su aplicación, su
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

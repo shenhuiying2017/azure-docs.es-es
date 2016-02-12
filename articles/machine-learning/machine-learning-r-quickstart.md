@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="02/04/2016"
 	ms.author="larryfr"/>
 
 # Tutorial rápido para el lenguaje de programación R para Aprendizaje automático de Azure
@@ -188,7 +188,7 @@ Ahora que tenemos algunos datos en Estudio de aprendizaje automático, debemos c
 
 - Conecte el resultado del **conjunto de datos csdairydata.csv** a la entrada situada más a la izquierda (**Dataset1**) del módulo [Ejecutar script R][execute-r-script].
 
-- **¡Recuerde hacer clic en 'Guardar'!**.
+- **¡Recuerde hacer clic en 'Guardar'!.**
 
 En este punto el experimento debería tener un aspecto similar al de la ilustración 3.
 
@@ -238,13 +238,24 @@ El paquete de script permite pasar el contenido de un archivo zip al módulo [Ej
 	source("src/yourfile.R") # Reads a zipped R script
 	load("src/yourData.rdata") # Reads a zipped R data file
 
-> [AZURE.NOTE]Aprendizaje automático de Azure trata los archivos del archivo zip como si se encontrasen en el directorio src/, por lo que necesitará agregar el nombre del directorio como prefijo a los nombres de archivo.
+> [AZURE.NOTE] Aprendizaje automático de Azure trata los archivos del archivo zip como si se encontrasen en el directorio src/, por lo que necesitará agregar el nombre del directorio como prefijo a los nombres de archivo. Por ejemplo, si el archivo zip contiene los archivos `yourfile.R` y `yourData.rdata` en la raíz del archivo zip, los tratará como `src/yourfile.R` y `src/yourData.rdata` al utilizar `source` y `load`.
 
 Ya se ha explicado el proceso de carga de conjuntos de datos en [Carga del conjunto de datos](#loading). Una vez creado y probado el script de código R que se muestra en la sección anterior, haga lo siguiente:
 
-1. Guarde el script de código R en un archivo .R. Llamaré a mi archivo de script "simpleplot.R".  
+1. Guarde el script de código R en un archivo .R. Llamaré a mi archivo de script "simpleplot.R". Este es el contenido.
 
-2.  Cree un archivo zip y copie el script en el archivo zip.
+        ## Only one of the following two lines should be used
+        ## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
+        ## If in RStudio, use the second line with read.csv()
+        cadairydata <- maml.mapInputPort(1)
+        # cadairydata  <- read.csv("cadairydata.csv", header = TRUE, stringsAsFactors = FALSE)
+        str(cadairydata)
+        pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata)
+        ## The following line should be executed only when running in
+        ## Azure Machine Learning Studio
+        maml.mapOutputPort('cadairydata')
+
+2.  Cree un archivo zip y copie el script en el archivo zip. En Windows, puede hacer clic con el botón derecho en el archivo; luego seleccione __Enviar a__ y __Carpeta comprimida__. Esto creará un nuevo archivo zip que contiene el archivo "simpleplot.R".
 
 3.	Agregue el archivo al **conjunto de datos** en Estudio de aprendizaje automático y especifique el tipo como **zip**. Ahora debería ver el archivo zip en los conjuntos de datos.
 
@@ -252,7 +263,7 @@ Ya se ha explicado el proceso de carga de conjuntos de datos en [Carga del conju
 
 5.	Conecte la salida del icono de **datos del zip** a la entrada **Paquete de script** del módulo [Ejecutar código de R][execute-r-script].
 
-6.	Escriba la función `source()` con el nombre del archivo zip en la ventana de código para el módulo [Ejecutar código de R][execute-r-script]. En mi caso escribí `source("src/SimplePlot.R")`.
+6.	Escriba la función `source()` con el nombre del archivo zip en la ventana de código para el módulo [Ejecutar código de R][execute-r-script]. En mi caso escribí `source("src/simpleplot.R")`.
 
 7.	Asegúrese de hacer clic en **Guardar**.
 
@@ -279,7 +290,7 @@ Ejecute el experimento haciendo clic en el botón **Ejecutar**. Cuando finalice 
     [ModuleOutput]  "ColumnTypes":System.Int32,3,System.Double,5,System.String,1
     [ModuleOutput] }
 
-Al hacer doble clic en la página se cargarán datos adicionales, que tendrán un aspecto similar al siguiente.
+Más abajo en la página se especifica información más detallada sobre las columnas, con un aspecto similar al siguiente.
 
 	[ModuleOutput] [1] "Loading variable port1..."
 	[ModuleOutput]
@@ -305,7 +316,7 @@ Al hacer doble clic en la página se cargarán datos adicionales, que tendrán u
 
 Estos resultados son los esperados e incluyen 228 observaciones y 9 columnas en el marco de datos. Pueden verse los nombres de columna, el tipo de datos de código R y un ejemplo de cada columna.
 
-> [AZURE.NOTE]Este mismo resultado impreso está disponible desde el resultado del dispositivo R del módulo [Ejecutar script de R][execute-r-script]. Abordaremos las salidas del módulo [Ejecutar script de R][execute-r-script] en la sección siguiente.
+> [AZURE.NOTE] Este mismo resultado impreso está disponible desde el resultado del dispositivo R del módulo [Ejecutar script de R][execute-r-script]. Abordaremos las salidas del módulo [Ejecutar script de R][execute-r-script] en la sección siguiente.
 
 ####Dataset2
 
@@ -462,7 +473,7 @@ Las tramas de datos R incluyen capacidades de filtrado eficaces. Es posible obte
 
 En nuestro conjunto de datos, es necesario crear un bit de filtrado. Si observamos las columnas de la trama de datos cadairydata, podemos ver que hay dos columnas innecesarias. La primera columna contiene solo un número de fila, que no es muy útil. La segunda columna, Year.Month, contiene información redundante. Estas dos columnas se pueden excluir fácilmente mediante el código R siguiente.
 
-> [AZURE.NOTE]De ahora en adelante en esta sección, solo mostraré el código adicional que voy a agregar en el módulo [Ejecutar script de R][execute-r-script]. Voy a agregar cada nueva línea **antes** de la función `str()`. Esta función se utiliza para comprobar los resultados en Estudio de aprendizaje automático de Azure.
+> [AZURE.NOTE] De ahora en adelante en esta sección, solo mostraré el código adicional que voy a agregar en el módulo [Ejecutar script de R][execute-r-script]. Voy a agregar cada nueva línea **antes** de la función `str()`. Esta función se utiliza para comprobar los resultados en Estudio de aprendizaje automático de Azure.
 
 Voy a agregar la siguiente línea a mi código R en el módulo [Ejecutar script de R][execute-r-script].
 
@@ -1347,4 +1358,4 @@ Algunos recursos excelentes en Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

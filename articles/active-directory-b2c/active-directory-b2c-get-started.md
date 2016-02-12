@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Creación de un directorio de Azure AD B2C
@@ -24,7 +24,7 @@ Para empezar a usar Azure Active Directory (AD) B2C, siga los 3 pasos que se des
 
 ## Paso 1: Registrarse para obtener una suscripción de Azure
 
-Si ya tiene una suscripción de Azure, vaya al paso siguiente. Si no es así, regístrese para [una suscripción de Azure](sign-up-organization.md) y obtenga acceso a Azure AD B2C.
+Si ya tiene una suscripción de Azure, vaya al paso siguiente. Si no es así, regístrese para [una suscripción de Azure](../active-directory/sign-up-organization.md) y obtenga acceso a Azure AD B2C.
 
 > [AZURE.NOTE]
 La vista previa de Azure AD B2C es actualmente de uso gratuito pero limitado (hasta 50 000 usuarios por directorio). Se necesita una suscripción de Azure para tener acceso al [Portal de Azure clásico](http://manage.windowsazure.com/).
@@ -74,4 +74,4 @@ Use los pasos siguientes para crear un nuevo inquilino de Azure AD B2C. Actualme
 
 Para continuar, [registre una aplicación con Azure AD B2C y cree una aplicación de inicio rápido](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

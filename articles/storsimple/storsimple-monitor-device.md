@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="01/29/2016"
    ms.author="alkohli" />
 
 # Uso del servicio StorSimple Manager para supervisar el dispositivo StorSimple. 
@@ -45,6 +45,7 @@ Para el mismo dispositivo, se ha tomado una instantánea en la nube para datos d
 
 **El uso de la capacidad** realiza un seguimiento de las métricas relacionadas con la cantidad de espacio de almacenamiento de datos usado por los volúmenes, contenedores de volúmenes o dispositivos. Puede crear informes basados en la utilización de la capacidad del almacenamiento principal, el almacenamiento en la nube o el almacenamiento del dispositivo. La utilización de la capacidad se puede medir para un volumen específico, un contenedor de volúmenes específico o todos los contenedores de volúmenes.
 
+
 La capacidad de almacenamiento principal, en la nube y del dispositivo puede describirse como sigue:
 
 ###Uso de la capacidad del almacenamiento principal
@@ -74,6 +75,10 @@ Los gráficos siguientes muestran el uso de la capacidad de almacenamiento princ
 ![Uso de la capacidad principal antes de instantánea en la nube](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
 
 ![Uso de la capacidad principal después de la instantánea en la nube](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
+
+Si ejecuta la actualización 2 o posterior, puede desglosar la utilización de la capacidad de almacenamiento principal por volumen individual, todos los volúmenes, todos los volúmenes en capas y todos los volúmenes locales, como se muestra a continuación. Al desglosar por todos los volúmenes locales, podrá averiguar rápidamente cuánto volumen se utiliza de la capa local.
+
+![Utilización de la capacidad principal de todos los volúmenes locales](./media/storsimple-monitor-device/localvolumes.png)
 
 
 ###Uso de la capacidad de almacenamiento en la nube
@@ -121,4 +126,4 @@ Los gráficos siguientes muestran el rendimiento de la red para Data 0 y Data 4,
 
 - Obtenga información sobre cómo [usar el servicio Administrador de StorSimple para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

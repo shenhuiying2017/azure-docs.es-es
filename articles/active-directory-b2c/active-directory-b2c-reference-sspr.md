@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Configuración del autoservicio de restablecimiento de contraseña para los consumidores
@@ -34,6 +34,7 @@ Esta característica permite a los consumidores (que se registraron para obtener
 
 Para probar, use la característica "Ejecutar ahora" en cualquier directiva de inicio de sesión (que tenga las cuentas locales como proveedor de identidades). En la página de inicio de sesión de la cuenta local (donde escribe la dirección de correo electrónico y la contraseña o el nombre de usuario y la contraseña), haga clic en **¿No puede acceder a su cuenta?** para comprobar la experiencia del consumidor.
 
-> [AZURE.NOTE]Las páginas de autoservicio de restablecimiento de contraseña se pueden personalizar con la [característica de personalización de marca de la empresa](active-directory-add-company-branding.md).
+> [AZURE.NOTE]
+Las páginas de autoservicio de restablecimiento de contraseña se pueden personalizar con la [característica de personalización de marca de la empresa](../active-directory/active-directory-add-company-branding.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

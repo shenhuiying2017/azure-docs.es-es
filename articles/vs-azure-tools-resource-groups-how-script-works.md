@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/17/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher" />
 
 # Información general sobre el script de implementación del proyecto de grupo de recursos de Azure
@@ -35,7 +35,7 @@ Dado que no todas las implementaciones de plantilla necesitan tener artefactos a
 
 A continuación se describe lo que hacen secciones seleccionadas del script de PowerShell de Azure Deploy-AzureResourceGroup.ps1.
 
->[AZURE.NOTE]La descripción corresponde a la versión 1.0 del script Deploy-AzureResourceGroup.ps1.
+>[AZURE.NOTE] La descripción corresponde a la versión 1.0 del script Deploy-AzureResourceGroup.ps1.
 
 1.	Declarar los parámetros necesarios para el proyecto de implementación del Administrador de recursos de Azure. Algunos parámetros tienen valores predeterminados que se establecieron cuando se creó el proyecto. Puede cambiar estos valores predeterminados o agregar valores de parámetro distintos antes de ejecutar el script.
 
@@ -209,7 +209,7 @@ A continuación se describe lo que hacen secciones seleccionadas del script de P
 
     ![][3]
 
-	>[AZURE.NOTE]Si alguno de los parámetros requeridos necesita valores, este cuadro de diálogo aparece automáticamente al implementar.
+	>[AZURE.NOTE] Si alguno de los parámetros requeridos necesita valores, este cuadro de diálogo aparece automáticamente al implementar.
 
     ![][4]
 
@@ -264,4 +264,4 @@ Para obtener más información sobre el Administrador de recursos de Azure, cons
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

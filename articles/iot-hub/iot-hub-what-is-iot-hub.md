@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/09/2015"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 # ¿Qué es el centro de IoT de Azure?
@@ -24,6 +24,7 @@ El Centro de IoT de Azure es un servicio totalmente administrado que permite la 
 
 - Ofrece una mensajería confiable de dispositivo a nube y de nube a dispositivo a escala.
 - Habilita las comunicaciones seguras con las credenciales de seguridad de cada dispositivo y el control de acceso.
+- Proporciona una supervisión exhaustiva para la conectividad de dispositivos y los eventos de administración de identidad de dispositivos.
 - Incluye bibliotecas de dispositivos para las plataformas y los lenguajes más populares.
 
 ![El centro de IoT como puerta de enlace de nube][img-architecture]
@@ -48,9 +49,11 @@ El Centro de IoT de Azure aborda las dificultades de conectividad de dispositivo
 
 -   **Autenticación por dispositivo y conectividad segura**. Puede aprovisionar cada dispositivo con su propia clave de seguridad para permitirle conectarse al Centro de IoT. El [registro de identidades del Centro de IoT][lnk-devguide-identityregistry] almacena identidades y claves en una solución. Un back-end de soluciones puede crear listas blancas y negras de dispositivos individuales, lo que permite controlar por completo el acceso a los dispositivos.
 
+-   **Supervisión de operaciones de conectividad del dispositivo**. Puede recibir registros de operación detallados sobre operaciones de administración de identidad de dispositivos y eventos de conectividad de dispositivos. Esto permite que la solución de IoT identifique fácilmente los problemas de conectividad, como los dispositivos que intentan conectarse con credenciales incorrectas, envían mensajes con demasiada frecuencia o rechazan todos los mensajes de la nube al dispositivo.
+
 -   **Amplio conjunto de bibliotecas de dispositivos**. Los SDK de dispositivos de IoT de Azure están disponibles y son compatibles con una amplia gama de lenguajes y plataformas: C para muchas distribuciones de Linux, Windows y sistemas operativos en tiempo real. Los SDK de dispositivos IoT de Azure admiten lenguajes administrados como C#, Java y JavaScript.
 
--   **Extensibilidad y protocolos de IoT**. Si la solución no puede hacer uso de las bibliotecas de dispositivos, el Centro de IoT de Azure expone un protocolo público que permite a los dispositivos usar los protocolos HTTP 1.1 y AMQP 1.0 de forma nativa. También puede ampliar el Centro de IoT para ofrecer compatibilidad con MQTT v3.1.1 con el componente de código abierto de [puerta de enlace de protocolo de IoT de Azure][protocol-gateway]. Puede ejecutar la puerta de enlace de protocolo de IoT de Azure en la nube o de manera local. También puede ampliarlo para admitir protocolos personalizados.
+-   **Extensibilidad y protocolos de IoT**. Si la solución no puede hacer uso de las bibliotecas de dispositivos, el Centro de IoT expone un protocolo público que permite a los dispositivos usar los protocolos MQTT v3.1.1, HTTP 1.1 o AMQP 1.0 de forma nativa. También puede ampliar el Centro de IoT para ofrecer compatibilidad para el protocolo personalizado mediante la personalización de la [puerta de enlace de protocolos de IoT de Azure][protocol-gateway]. Puede ejecutar la puerta de enlace de protocolo de IoT de Azure en la nube o de manera local.
 
 -   **Escalabilidad.** El centro de IoT de Azure se puede escalar a millones de dispositivos conectados de manera simultánea y a millones de eventos por segundo.
 
@@ -109,4 +112,4 @@ Para obtener más información sobre el Centro de IoT de Azure, consulte estos v
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

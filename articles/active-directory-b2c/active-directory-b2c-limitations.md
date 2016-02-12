@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: limitaciones y restricciones
@@ -28,7 +28,7 @@ Si se encuentra con problemas durante la [creación de un inquilino de Azure AD 
 
 ## Problemas de personalización de marca en el mensaje de confirmación
 
-El correo electrónico de comprobación predeterminado contiene información de personalización de marca de "Microsoft". Lo quitaremos en el futuro. Por ahora, puede quitarlo mediante la [característica de personalización de marca corporativa](./active-directory/active-directory-add-company-branding.md).
+El correo electrónico de comprobación predeterminado contiene información de personalización de marca de "Microsoft". Lo quitaremos en el futuro. Por ahora, puede quitarla mediante la [característica de personalización de marca de empresa](../active-directory/active-directory-add-company-branding.md).
 
 ## Compatibilidad para las aplicaciones de producción
 
@@ -68,7 +68,7 @@ La vista previa de Azure AD B2C admite OpenID Connect y OAuth 2.0. Sin embargo, 
 
 ## Restricción de los tokens
 
-Muchos de los tokens emitidos por la vista previa de Azure AD B2C se implementan como tokens web JSON o JWT. Sin embargo, no toda la información incluida en JWT (conocida como "notificaciones") es como debería ser o falta. Entre los ejemplos se incluyen las notificaciones "sub" y "preferred\_username". Debería esperar que las cosas cambien bastante durante la vista previa. Para comprender mejor los tokens emitidos actualmente por el servicio de Azure AD B2C, lea nuestra [referencia de token](active-directory-b2c-tokens.md).
+Muchos de los tokens emitidos por la vista previa de Azure AD B2C se implementan como tokens web JSON o JWT. Sin embargo, no toda la información incluida en JWT (conocida como "notificaciones") es como debería ser o falta. Entre los ejemplos se incluyen las notificaciones "sub" y "preferred\_username". Debería esperar que las cosas cambien bastante durante la vista previa. Para comprender mejor los tokens emitidos actualmente por el servicio de Azure AD B2C, lea nuestra [referencia de token](active-directory-b2c-reference-tokens.md).
 
 ## Problemas con Administración de usuarios en el Portal de Azure clásico
 
@@ -96,4 +96,4 @@ Actualmente no se puede comprobar un dominio correctamente en el [Portal de Azur
 
 Cuando acceda a la hoja de configuración B2C en el Portal de Azure, verá un mensaje de advertencia en Notificaciones (en la esquina superior derecha) que dice: "No tiene ninguna suscripción en el directorio <B2CTenantName>. Tiene otros directorios a los que puede cambiar", donde <B2CTenantName> es el nombre del inquilino de B2C. Puede omitir este mensaje de forma segura y seguir accediendo a sus características B2C. Estamos trabajando con el equipo del Portal de Azure en una solución para este problema.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

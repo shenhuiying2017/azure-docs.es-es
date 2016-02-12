@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/06/2016"
+   ms.date="02/01/2016"
    ms.author="jonor;sivae"/>
 
 # Servicios en la nube de Microsoft y seguridad de red
@@ -334,7 +334,7 @@ En el firewall, deberán crearse reglas de reenvío. Dado que el firewall bloque
  
 ![Vista lógica de las reglas de firewall][10]
 
->[AZURE.NOTE] Según el dispositivo virtual de red usado, los puertos de administración varían. En este ejemplo se hace referencia a un Barracuda NG Firewall que usa los puertos 22, 801 y 807. Consulte la documentación del proveedor del dispositivo para buscar los puertos exactos usados para la administración del dispositivo que se va a usar.
+>[AZURE.NOTE] Según el dispositivo virtual de red usado, los puertos de administración varían. En este ejemplo se hace referencia a un Barracuda NextGen Firewall que utiliza los puertos 22, 801 y 807. Consulte la documentación del proveedor del dispositivo para buscar los puertos exactos usados para la administración del dispositivo que se va a usar.
 
 #### Descripción de reglas de firewall
 En el diagrama lógico anterior, no se muestra la subred de seguridad debido a que el firewall es el único recurso de la subred y este diagrama muestra las reglas de firewall y cómo permiten o deniegan lógicamente los flujos de tráfico, no la ruta enrutada real. Además, los puertos externos seleccionados para el tráfico RDP están en un intervalo más alto (8014 – 8026) y se han seleccionado para que se correspondan en cierto modo con los dos últimos octetos de la dirección IP local y facilitar así su legibilidad (por ejemplo, la dirección de servidor local 10.0.1.4 está asociada al puerto externo 8014); sin embargo, podría usarse cualquier puerto superior que no planteara conflictos.
@@ -511,4 +511,4 @@ Pronto estarán disponible y enlazados desde esta página.
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

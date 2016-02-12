@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 #Generación de recomendaciones de películas mediante Apache Mahout con Hadoop en HDInsight
@@ -23,7 +23,7 @@
 
 Aprenda a usar la biblioteca de aprendizaje automático de [Apache Mahout](http://mahout.apache.org) con HDInsight de Azure para generar recomendaciones de películas con HDInsight.
 
-> [AZURE.NOTE]Los pasos de este documento requieren un cliente Windows y un clúster de HDInsight basado en Windows. Para obtener información sobre el uso de Mahout en un cliente Linux, OS X de Unix, con un clúster de HDInsight basado en Linux, consulte [Generate movie recommendations by using Apache Mahout with Linux-based Hadoop in HDInsight (Generación de recomendaciones de película a través de Apache Mahout con Hadoop basado en Linux en HDInsight)](hdinsight-hadoop-mahout-linux-mac.md)
+> [AZURE.NOTE] Los pasos de este documento requieren un cliente Windows y un clúster de HDInsight basado en Windows. Para obtener información sobre el uso de Mahout en un cliente Linux, OS X de Unix, con un clúster de HDInsight basado en Linux, consulte [Generate movie recommendations by using Apache Mahout with Linux-based Hadoop in HDInsight (Generación de recomendaciones de película a través de Apache Mahout con Hadoop basado en Linux en HDInsight)](hdinsight-hadoop-mahout-linux-mac.md)
 
 
 ##<a name="learn"></a>Qué aprenderá
@@ -36,7 +36,7 @@ Mahout es una biblioteca de [aprendizaje automático][ml] para Apache Hadoop. Ma
 
 * Cómo instalar Mahout en clústeres de HDInsight 3.0 y HDInsight 2.0
 
-	> [AZURE.NOTE]Mahout se proporciona con la versión 3.1 de HDInsight de los clústeres. Si va a usar una versión anterior de HDInsight, vea [Instalación de Mahout](#install) antes de continuar.
+	> [AZURE.NOTE] Mahout se proporciona con la versión 3.1 de HDInsight de los clústeres. Si va a usar una versión anterior de HDInsight, vea [Instalación de Mahout](#install) antes de continuar.
 
 ##requisitos previos
 
@@ -46,7 +46,7 @@ Mahout es una biblioteca de [aprendizaje automático][ml] para Apache Hadoop. Ma
 
 ##<a name="recommendations"></a>Generación de recomendaciones mediante Windows PowerShell
 
-> [AZURE.NOTE]Aunque el trabajo usado en esta sección funciona con Windows PowerShell, muchas de las clases proporcionadas con Mahout no funcionan actualmente con Windows PowerShell y se deben ejecutar mediante la línea de comandos de Hadoop. Para obtener una lista de las clases que no funcionan con Windows PowerShell, consulte la sección [Solución de problemas](#troubleshooting).
+> [AZURE.NOTE] Aunque el trabajo usado en esta sección funciona con Windows PowerShell, muchas de las clases proporcionadas con Mahout no funcionan actualmente con Windows PowerShell y se deben ejecutar mediante la línea de comandos de Hadoop. Para obtener una lista de las clases que no funcionan con Windows PowerShell, consulte la sección [Solución de problemas](#troubleshooting).
 >
 > Para ver un ejemplo del uso de la línea de comandos de Hadoop para ejecutar trabajos de Mahout, consulte [Clasificación de datos mediante la línea de comandos de Hadoop](#classify).
 
@@ -186,7 +186,7 @@ Use el siguiente script de Windows PowerShell para ejecutar un trabajo que usa e
             -HttpCredential $creds `
             -DisplayOutputType StandardError
 
-> [AZURE.NOTE]Los trabajos de Mahout no eliminan los datos temporales creados durante el procesamiento del trabajo. El parámetro `--tempDir` se especifica en el trabajo de ejemplo para aislar los archivos temporales en un directorio específico.
+> [AZURE.NOTE] Los trabajos de Mahout no eliminan los datos temporales creados durante el procesamiento del trabajo. El parámetro `--tempDir` se especifica en el trabajo de ejemplo para aislar los archivos temporales en un directorio específico.
 
 El trabajo de Mahout no devuelve la salida a STDOUT. En su lugar, lo almacena en el directorio de salida especificado como __part-r-00000__. El script descarga este archivo en __output.txt__ en el directorio actual de la estación de trabajo.
 
@@ -412,7 +412,7 @@ Uno de los métodos de clasificación disponibles con Mahout es compilar un [bos
 
   Este trabajo también genera un archivo ubicado en __wasb:///example/data/predictions/KDDTest+.arff.out__. Sin embargo, este archivo no es legible por el ojo humano.
 
-> [AZURE.NOTE]Los trabajos de Mahout no sobrescriben archivos. Si desea ejecutar estos trabajos de nuevo, debe eliminar los archivos creados por trabajos anteriores.
+> [AZURE.NOTE] Los trabajos de Mahout no sobrescriben archivos. Si desea ejecutar estos trabajos de nuevo, debe eliminar los archivos creados por trabajos anteriores.
 
 ##<a name="troubleshooting"></a>Solución de problemas
 
@@ -511,9 +511,9 @@ Para ejecutar los trabajos que usan estas clases, conéctese al clúster de HDIn
 
 Ahora que ha aprendido a usar a Mahout, descubra otras formas de trabajar con datos en HDInsight:
 
-* [Hive con HDInsight](../hadoop-use-hive.md)
-* [Pig con HDInsight](../hadoop-use-pig.md)
-* [MapReduce con HDInsight](../hadoop-use-mapreduce.md)
+* [Hive con HDInsight](hdinsight-use-hive.md)
+* [Pig con HDInsight](hdinsight-use-pig.md)
+* [MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [aps]: ../powershell-install-configure.md
@@ -530,4 +530,4 @@ Ahora que ha aprendido a usar a Mahout, descubra otras formas de trabajar con da
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

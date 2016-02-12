@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/01/2015"
+   ms.date="02/03/2016"
    ms.author="bwren" />
 
 # Aprendizaje del flujo de trabajo de Windows PowerShell
@@ -249,4 +249,4 @@ Para obtener más información acerca de los puntos de control, consulte [Adici�
 
 - [Introducción al flujo de trabajo de Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

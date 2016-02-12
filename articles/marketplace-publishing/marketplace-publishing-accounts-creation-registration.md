@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/07/2016"
+   ms.date="01/25/2016"
    ms.author="hascipio"/>
 
 # Crear una cuenta de desarrollador de Microsoft
@@ -24,7 +24,7 @@ Este artículo le guía a través del proceso necesario de creación y registro 
 
 La dirección que constituye el nombre de usuario debe estar en su dominio y estar controlada por su equipo de TI (por ejemplo, publishing@example.com). Los pagos, la información fiscal y los informes se tramitarán con esta cuenta.
 
-  >[AZURE.WARNING] No se admiten palabras como "Azure" y "Microsoft" en el registro de la cuenta Microsoft. Evite el uso de estas palabras para completar el proceso de creación y registro de cuentas.
+  > [AZURE.WARNING] No se admiten palabras como "Azure" y "Microsoft" en el registro de la cuenta Microsoft. Evite el uso de estas palabras para completar el proceso de creación y registro de cuentas.
 
 ### Instrucciones
 
@@ -93,7 +93,7 @@ El Centro para desarrolladores de Microsoft se usa para registrar la informació
 
 10. Escriba la información de pago para pagar su cuenta. Si tiene un código de promoción que cubre el costo de registro, puede indicarlo aquí. De lo contrario, proporcione su información de tarjeta de crédito (o PayPal en mercados admitidos). Cuando haya terminado, haga clic en **Siguiente** para pasar a la **"Pantalla de revisión"**.
 
-11. Revise la información de la cuenta y confirme que todo es correcto. A continuación, lea y acepte los términos y condiciones del **Contrato del publicador de Microsoft Azure Marketplace**. Active la casilla para indicar que ha leído y aceptado estos términos.
+11. Revise la información de la cuenta y confirme que todo es correcto. A continuación, lea y acepte los términos y condiciones del [Contrato del publicador de Microsoft Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=699560). Active la casilla para indicar que ha leído y aceptado estos términos.
 
 12. Haga clic en **Finalizar** para confirmar el registro. Le enviaremos un mensaje de confirmación a su dirección de correo electrónico de desarrollador.
 
@@ -143,9 +143,9 @@ El portal de publicación de Azure se usa para publicar y administrar sus oferta
 
 2.	Vaya a [http://publish.windowsazure.com](http://publish.windowsazure.com).
 
-3.	Inicie sesión con su cuenta Microsoft de registro de la compañía (es decir, marketplace@example.com) y, si es necesario, agregue coadministradores.
+3.	Inicie sesión con su cuenta Microsoft de registro de la compañía (es decir, marketplace@example.com)) y, si es necesario, agregue coadministradores.
 
-  >[AZURE.TIP] Las directivas de participación se describen en el [sitio web de Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+  > [AZURE.TIP] Las directivas de participación se describen en el [sitio web de Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
   > Si tiene problemas para completar el registro en el Centro para desarrolladores, abra una incidencia de soporte técnico tal como se indica a continuación: 1. Póngase en contacto con [Soporte técnico](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=es-ES&pesid=15635&ccsid=635847950577064286). 2. Elija **Centro de desarrolladores**. 3. Elija **Perfil**. 4. Elija un método de contacto.
 
@@ -194,4 +194,4 @@ Ahora que ya se creó y se registró la cuenta, haga clic en el tipo de artefact
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

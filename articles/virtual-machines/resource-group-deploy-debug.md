@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="01/06/2016"
+   ms.date="01/28/2016"
    ms.author="tomfitz;rasquill"/>
 
 # Solución de problemas de implementaciones de grupo de recursos en Azure
@@ -23,7 +23,7 @@ Cuando se produce un problema durante la implementación, necesita descubrir qu�
 
 Este tema se centra principalmente en el uso de comandos de implementación para solucionar problemas de implementaciones. Para obtener información sobre el uso de los registros de auditoría para realizar el seguimiento de todas las operaciones en los recursos, consulte [Operaciones de auditoría con el Administrador de recursos](../resource-group-audit.md).
 
-En este tema se muestra cómo recuperar información de solución de problemas a través de Azure PowerShell, CLI de Azure y API de REST. Para obtener información sobre el uso del Portal de vista previa para solucionar problemas de implementación, consulte [Uso del Portal de Azure para administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
+En este tema se muestra cómo recuperar información de solución de problemas a través de Azure PowerShell, CLI de Azure y API de REST. Para obtener información sobre el uso del portal para solucionar problemas de implementación, consulte [Uso del Portal de Azure para administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
 
 En este tema también se describen las soluciones a los errores comunes que los usuarios encuentran.
 
@@ -160,7 +160,7 @@ La API de REST de Administrador de recursos proporciona identificadores URI para
 
 La implementación producirá un error si las credenciales de Azure expiraron o si no se suscribió a su cuenta de Azure. Las credenciales pueden expirar si la sesión está abierta demasiado tiempo. Puede actualizar las credenciales con las siguientes opciones:
 
-- Para PowerShell, use el cmdlet **Login-AzureRmAccount** (o **Add-AzureAccount** para las versiones de PowerShell anteriores a la versión de vista previa 1.0 de PowerShell). Las credenciales de un archivo de configuración de publicación no son suficientes para los cmdlets del módulo AzureResourceManager.
+- Para PowerShell, use el cmdlet **Login-AzureRmAccount**. Las credenciales de un archivo de configuración de publicación no son suficientes para los cmdlets del módulo AzureResourceManager.
 - Para CLI de Azure, use **azure login**. Para obtener ayuda con errores de autenticación, asegúrese de que ha [configurado correctamente la CLI de Azure](../xplat-cli-connect.md).
 
 ## Comprobación del formato de plantillas y parámetros
@@ -169,12 +169,12 @@ Si el archivo de plantilla o de parámetro no está en el formato correcto, se p
 
 ### PowerShell
 
-Para PowerShell, use **Test-AzureRmResourceGroupDeployment** (o **Test-AzureResourceGroupTemplate** para las versiones de PowerShell anteriores a la versión de vista previa 1.0).
+Para PowerShell, use **Test-AzureRmResourceGroupDeployment**.
 
     PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
     VERBOSE: 12:55:32 PM - Template is valid.
 
-### Azure CLI
+### CLI de Azure
 
 Para CLI de Azure, use **azure group template validate <resource group>**
 
@@ -201,7 +201,7 @@ Al especificar la ubicación para un recurso, debe usar una de las ubicaciones q
 
 ### PowerShell
 
-Para las versiones de PowerShell anteriores a la versión de vista previa 1.0, puede consultar la lista completa de recursos y ubicaciones con el comando **Get-AzureLocation**.
+Para las versiones de PowerShell anteriores a la versión 1.0, puede consultar la lista completa de recursos y ubicaciones con el comando **Get-AzureLocation**.
 
     PS C:\> Get-AzureLocation
 
@@ -222,7 +222,7 @@ Puede especificar un determinado tipo de recurso con:
                                                                 North Europe, West Europe, East Asia, Southeast Asia,
                                                                 Japan East, Japan West
 
-Para la versión de vista previa 1.0 de PowerShell, use **Get-AzureRmResourceProvider** para obtener ubicaciones admitidas.
+Para la versión 1.0 de PowerShell, use **Get-AzureRmResourceProvider** para obtener ubicaciones admitidas.
 
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
 
@@ -275,7 +275,7 @@ Sin embargo, Azure Active Directory permite al usuario o al administrador contro
 
 También puede tener problemas cuando una implementación llega a cuota predeterminada, que podría haberse establecido por grupo de recursos, suscripciones, cuentas, etc. Confirme que dispone de los recursos disponibles para implementar correctamente. Para obtener información completa de las cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 
-Para examinar las cuotas de su propia suscripción para núcleos, debería usar el comando `azure vm list-usage` en la CLI de Azure y el cmdlet **Get-AzureVMUsage** de PowerShell. A continuación se muestra el comando en la CLI de Azure y la cuota de núcleos para una cuenta de evaluación gratuita es 4:
+Para examinar las cuotas de su propia suscripción para núcleos, debería usar el comando `azure vm list-usage` en la CLI de Azure y el cmdlet **Get-AzureRmVMUsage** de PowerShell. A continuación se muestra el comando en la CLI de Azure y la cuota de núcleos para una cuenta de evaluación gratuita es 4:
 
     azure vm list-usage
     info:    Executing command vm list-usage
@@ -293,25 +293,25 @@ Si tuviera que intenta implementar una plantilla que crea más de 4 núcleos en 
 
 En estos casos, debe ir al portal y archivar un problema de soporte técnico para aumentar su cuota para la región en la que desea realizar la implementación.
 
-> [AZURE.NOTE]Recuerde que para los grupos de recursos, la cuota para cada región individual, no para toda la suscripción. Si necesita implementar 30 núcleos en el oeste de Estados Unidos, debe pedir 30 núcleos de administrador de recursos en el oeste de Estados Unidos. Si necesita implementar 30 núcleos en cualquiera de las regiones para las que tiene acceso, debe pedir 30 núcleos de administrador de recursos en todas las regiones.
-<!-- -->
-Para ser específicos sobre núcleos, por ejemplo, puede comprobar las regiones para las que debe solicitar la cantidad adecuada de cuota mediante el comando siguiente, que se canaliza en **jq** para el análisis de json. El proveedor de Azure de 
-<!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
-        {
-          "name": "virtualMachines",
-          "apiVersions": [
-            "2015-05-01-preview",
-            "2014-12-01-preview"
-          ],
-          "locations": [
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "Southeast Asia"
-          ]
-        }
+> [AZURE.NOTE] Recuerde que para los grupos de recursos, la cuota para cada región individual, no para toda la suscripción. Si necesita implementar 30 núcleos en el oeste de Estados Unidos, debe pedir 30 núcleos de administrador de recursos en el oeste de Estados Unidos. Si necesita implementar 30 núcleos en cualquiera de las regiones para las que tiene acceso, debe pedir 30 núcleos de administrador de recursos en todas las regiones. 
+<!-- --> 
+Para ser específicos sobre núcleos, por ejemplo, puede comprobar las regiones para las que debe solicitar la cantidad adecuada de cuota mediante el comando siguiente, que se canaliza en **jq** para el análisis de json. El proveedor de Azure de
+ <!-- -->
+ 	 muestra Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' 
+	 { 
+	   "name": "virtualMachines", 
+	   "apiVersions": [ 
+	   "2015-05-01-preview", 
+	   "2014-12-01-preview" 
+	   ], 
+	    "locations": [
+	    "Este de Estados Unidos", 
+	    "Oeste de Estados Unidos", 
+	    "Europa occidental", 
+	    "Asia oriental", 
+	    "Sudeste de Asia" 
+	   ] 
+         }
 
 
 ## Comprobación del registro del proveedor de recursos
@@ -320,7 +320,7 @@ Los recursos son administrados por los proveedores de recursos, y es posible que
 
 ### PowerShell
 
-Para obtener una lista de proveedores de recursos y su estado de registro, use **Get-AzureProvider** para las versiones de PowerShell anteriores a la versión de vista previa 1.0.
+Para obtener una lista de proveedores de recursos y su estado de registro, use **Get-AzureProvider** para las versiones de PowerShell anteriores a la versión 1.0.
 
     PS C:\> Get-AzureProvider
 
@@ -333,7 +333,7 @@ Para obtener una lista de proveedores de recursos y su estado de registro, use *
 
 Para registrar un proveedor, use **Register-AzureProvider**.
 
-Para la versión de vista previa 1.0 de PowerShell, use **Get-AzureRmResourceProvider**.
+Para la versión 1.0 de PowerShell, use **Get-AzureRmResourceProvider**.
 
     PS C:\> Get-AzureRmResourceProvider -ListAvailable
 
@@ -435,4 +435,4 @@ Para dominar la creación de plantillas, lea [Creación de plantillas del Admini
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

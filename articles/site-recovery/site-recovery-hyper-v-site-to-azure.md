@@ -62,7 +62,7 @@ Como parte de la implementación de Azure Site Recovery, instalará el proveedor
 	- *.blob.core.windows.net
 	- *.store.core.windows.net
 	
-- Además, permita las direcciones IP que se describen en [Intervalos de direcciones IP de los centros de datos de Azure](https://www.microsoft.com/es-ES/download/details.aspx?id=41653) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
+- Además, permita las direcciones IP que se describen en [Intervalos de direcciones IP de los centros de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
 
 
 En el gráfico siguiente se muestran canales y puertos de comunicación diferentes que usa Site Recovery para la orquestación y la replicación.
@@ -292,4 +292,4 @@ Ejecute la conmutación por error de prueba de la manera siguiente:
 
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) acerca de la conmutación por error.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

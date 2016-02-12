@@ -24,7 +24,7 @@ La **Hoja de referencia rápida de algoritmos de aprendizaje automático de Micr
 
 [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/) incluye un gran número de algoritmos de aprendizaje automático para sus soluciones de análisis predictivo. Estos algoritmos se incluyen en las categorías generales de aprendizaje automático de ***regresión***, ***clasificación***, ***agrupación en clústeres*** y ***detección de anomalías***. Cada una de ellas está diseñada para resolver un tipo de problema de aprendizaje automático diferente.
 
-> [AZURE.NOTE]Para obtener una guía detallada del uso de esta hoja de referencia rápida, consulte el artículo [Selección de algoritmos para Aprendizaje automático de Microsoft Azure](machine-learning-algorithm-choice.md).
+> [AZURE.NOTE] Para obtener una guía detallada del uso de esta hoja de referencia rápida, consulte el artículo [Selección de algoritmos para Aprendizaje automático de Microsoft Azure](machine-learning-algorithm-choice.md).
 
 ## Descargue la hoja de referencia rápida de algoritmos de aprendizaje automático
 
@@ -79,7 +79,7 @@ Descargue la hoja de referencia rápida de algoritmos de aprendizaje automático
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
 <img src="C:\Users\garye\azure-content-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
 </a>
--->
+--> \\
 
 <!-- Module References -->
 [a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
@@ -87,4 +87,4 @@ Descargue la hoja de referencia rápida de algoritmos de aprendizaje automático
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

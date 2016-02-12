@@ -24,9 +24,11 @@ Sin embargo, los servicios tienen muchas diferencias que se detallan en la tabla
 
 | Ámbito | Centro de IoT | Centros de eventos |
 | ---- | ------- | ---------- |
-| Patrones de comunicación | Habilita la entrada de eventos de dispositivo a nube y mensajería de nube a dispositivo. | Solo se habilita la entrada de eventos (normalmente se consideran escenarios dispositivo a nube). |
-| Seguridad | Ofrece identidad por dispositivo y control de acceso revocable. Vea la [sección de seguridad de la Guía del desarrollador del Centro de IoT]. | Ofrece [directivas de acceso compartido][Event Hub - security] para todo los Centros de eventos, con soporte para revocación limitada mediante [directivas de publicador][Event Hub publisher policies]. En el contexto de las soluciones IoT, a menudo debe implementar una solución personalizada para admitir las credenciales por dispositivo y las medidas contra la suplantación de identidad. |
-| Scale | Está optimizado para admitir millones de dispositivos conectados al mismo tiempo. | Pueden admitir un número más reducido de conexiones simultáneas: hasta 5000 conexiones AMQP, según las [cuotas de Bus de servicio de Azure][]. Por otro lado, los Centros de eventos permiten especificar la partición para cada mensaje enviado. |
+| Patrones de comunicación | Habilita la mensajería de dispositivo a nube y de nube a dispositivo. | Solo se habilita la entrada de eventos (normalmente se consideran escenarios dispositivo a nube). |
+| Compatibilidad con protocolos de dispositivo | Admite AMQP, AMQP sobre WebSockets, MQTT y HTTP/1. Además el Centro de IoT funciona con la [Puerta de enlace de protocolos de IoT de Azure][lnk-azure-protocol-gateway], una implementación de puerta de enlace de protocolos personalizable para admitir protocolos personalizados. | Admite AMQP, AMQP sobre WebSockets y HTTP/1. |
+| Seguridad | Ofrece identidad por dispositivo y control de acceso revocable. Vea la [sección de seguridad de la Guía del desarrollador del Centro de IoT]. | Ofrece [directivas de acceso compartido][Event Hub - security] para todo los Centros de eventos, con soporte para revocación limitada mediante [directivas de publicador][Event Hub publisher policies]. A menudo se requiere de las soluciones de IoT que implementen una solución personalizada para admitir las credenciales por dispositivo y las medidas contra la suplantación de identidad. |
+| Supervisión de operaciones | Permite a las soluciones de IoT suscribirse a un amplio conjunto de eventos de conectividad y administración de identidad del dispositivo, como errores de autenticación de dispositivos individuales, establecimientos de limitaciones y excepciones de formato incorrecto. Estos eventos permiten identificar rápidamente problemas de conectividad en los dispositivos individuales. | Muestra solo las métricas agregadas. |
+| Escala | Está optimizado para admitir millones de dispositivos conectados al mismo tiempo. | Pueden admitir un número más reducido de conexiones simultáneas: hasta 5000 conexiones AMQP, según las [cuotas de Bus de servicio de Azure][]. Por otro lado, los Centros de eventos permiten especificar la partición para cada mensaje enviado. |
 | SDK de dispositivo | Ofrece [SDK de dispositivo][Azure IoT Hub SDKs] para una gran variedad de plataformas y lenguajes. | Es compatible con .NET, C. También ofrece interfaces de envío HTTP y AMQP. |
 
 En resumen, aunque el único uso sea la entrada de telemetría de dispositivo a nube, el Centro de IoT ofrece un servicio que está diseñado específicamente para la conectividad de dispositivos IoT. Continuará expandiendo las propuestas de valor para estos escenarios con características específicas de IoT. Los Centros de eventos están diseñados para la entrada de eventos a gran escala, tanto en escenarios de conexión entre centros de datos como dentro del propio centro de datos.
@@ -48,5 +50,6 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [Azure IoT Hub SDKs]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
+[lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/01/2016" 
 	ms.author="sidneyh"/>
 
 # Preguntas frecuentes de herramientas de Base de datos elástica 
@@ -56,4 +56,4 @@ No. En el caso de las operaciones de **división**, la base de datos de destino 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

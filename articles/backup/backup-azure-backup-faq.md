@@ -1,10 +1,10 @@
 <properties
    pageTitle="P+F de Copia de seguridad de Azure | Microsoft Azure"
-   description="Preguntas más frecuentes sobre la Solución de Copia de seguridad de Azure: agente de copia de seguridad, copia de seguridad y retención, recuperación, seguridad y otras preguntas comunes sobre el servicio de Copia de seguridad de Azure."
+   description="Respuestas a las preguntas más frecuentes sobre agente de copia de seguridad, copia de seguridad y retención, recuperación, seguridad y otras preguntas comunes sobre la solución de Copia de seguridad de Azure."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
-   manager="shreeshd"
+   manager="jwhit"
    editor=""
    keywords="solución de copia de seguridad; servicio de copia de seguridad"/>
 
@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/26/2016"
+	 ms.date="01/28/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # P+F de servicio de Copia de seguridad de Azure
@@ -183,4 +183,4 @@ El tamaño de origen de datos se mide según se menciona a continuación
 
 Una vez que las copias de seguridad se realizan correctamente con la nueva ubicación de caché, puede quitar la carpeta de la memoria caché original.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

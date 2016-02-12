@@ -33,7 +33,7 @@ Deberá usar la protección integrada si su aplicación cumple los criterios sig
 2. La tasa de cambio de los datos es baja (por ejemplo de transacciones por cada hora). El RPO de 1 hora no dará como resultado pérdidas de datos masivas.
 3. La aplicación es sensible a los costes, por lo que el coste adicional de la replicación geográfica no está justificado. 
 
-> [AZURE.NOTE]La restauración geográfica no asigna previamente la capacidad informática a ninguna región en particular para restaurar bases de datos activas de la copia de seguridad durante la interrupción. El servicio administrará la carga de carga de trabajo asociada a las solicitudes de restauración geográfica de forma que se minimice el impacto en las bases de datos existentes en dicha región, por lo que sus demandas de capacidad tendrán prioridad. Por lo tanto, el tiempo de recuperación de la base de datos dependerá del número de bases de datos que se recuperarán en la misma región de manera simultánea.
+> [AZURE.NOTE] La restauración geográfica no asigna previamente la capacidad informática a ninguna región en particular para restaurar bases de datos activas de la copia de seguridad durante la interrupción. El servicio administrará la carga de carga de trabajo asociada a las solicitudes de restauración geográfica de forma que se minimice el impacto en las bases de datos existentes en dicha región, por lo que sus demandas de capacidad tendrán prioridad. Por lo tanto, el tiempo de recuperación de la base de datos dependerá del número de bases de datos que se recuperarán en la misma región de manera simultánea.
 
 ##Cuándo se debe usar la replicación geográfica
 
@@ -45,23 +45,23 @@ Deberá usar la replicación geográfica si su aplicación cumple los criterios 
 2. La tasa de cambio de los datos es alta (por ejemplo de transacciones por cada minuto o segundo). El RPO de 1 hora asociado a la protección predeterminada probablemente tendrá como resultado una pérdida de datos inaceptable.
 3. El coste asociado al uso de la replicación geográfica es significativamente menor que el de la responsabilidad financiera potencial y la pérdida de negocio.
 
-> [AZURE.NOTE]La replicación geográfica no es compatible si su aplicación usa bases de datos de nivel básico.
+> [AZURE.NOTE] La replicación geográfica no es compatible si su aplicación usa bases de datos de nivel básico.
 
 ##Cuándo elegir la replicación geográfica estándar vs la replicación geográfica activa
 
 Las bases de datos de nivel Standard no admiten la opción de usar la replicación geográfica activa, por lo que si su aplicación usa bases de datos Standard y cumple los criterios anteriores, deberá usar la replicación geográfica estándar. Por el contrario, con las bases de datos Premium, se pueden elegir cualquiera de las opciones. La replicación geográfica estándar se ha diseñado como una solución de recuperación ante desastres más sencilla y menos costosa. Resulta especialmente adecuada para aplicaciones que usan la replicación solo para la protección frente a eventos imprevistos como, por ejemplo, las interrupciones. Para realizar la recuperación con la replicación geográfica estándar, solo podrá usar la región emparejada de recuperación ante desastres y tan solo podrá crear una base de datos secundaria por cada base de datos principal que tenga. Es posible que una base de datos secundaria adicional sea necesaria para el escenario de actualización de la aplicación. Por ello, si este escenario es fundamental para su aplicación, deberá habilitar la replicación geográfica activa. Vea la sección [Actualización de la aplicación sin tiempo de inactividad](sql-database-business-continuity-application-upgrade.md) para obtener más detalles.
 
-> [AZURE.NOTE]La replicación geográfica activa también admite el acceso de solo lectura a la base de datos secundaria, lo que proporciona capacidad adicional para las cargas de trabajo de solo lectura.
+> [AZURE.NOTE] La replicación geográfica activa también admite el acceso de solo lectura a la base de datos secundaria, lo que proporciona capacidad adicional para las cargas de trabajo de solo lectura.
 
 ##Cómo habilitar la replicación geográfica
 
 Puede habilitar la replicación geográfica mediante el Portal de Azure clásico, mediante una llamada a la API de REST o mediante el comando de PowerShell.
 
-###Portal de Azure clásico
+###Portal de Azure
 
 [AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
 
-1. Inicie sesión en el [Portal de Azure clásico](https://portal.Azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.Azure.com).
 2. En el lado izquierdo de la pantalla, seleccione **EXAMINAR** y, a continuación, seleccione **Bases de datos SQL**.
 3. Desplácese hasta la hoja de su base de datos, seleccione el **Mapa de replicación geográfica** y haga clic en **Configurar replicación geográfica**.
 4. Desplácese hasta la hoja de replicación geográfica. Seleccione la región de destino. 
@@ -69,7 +69,7 @@ Puede habilitar la replicación geográfica mediante el Portal de Azure clásico
 6. Seleccione el tipo de base de datos secundaria (*legible* o *no legible*).
 7. Haga clic en **Crear** para completar la configuración.
 
-> [AZURE.NOTE]La región emparejada de recuperación ante desastres de la hoja de replicación geográfica se marcará como *Recomendada*. Si usa una base de datos de nivel Premium, podrá elegir una región diferente. Si está usando una base de datos Standard, no podrá cambiar esta opción. La base de datos Premium ofrece la opción de especificar el tipo de base de datos secundaria (*legible* o *no legible*). La base de datos Standard solo permite seleccionar una base de datos secundaria *no legible*.
+> [AZURE.NOTE] La región emparejada de recuperación ante desastres de la hoja de replicación geográfica se marcará como *Recomendada*. Si usa una base de datos de nivel Premium, podrá elegir una región diferente. Si está usando una base de datos Standard, no podrá cambiar esta opción. La base de datos Premium ofrece la opción de especificar el tipo de base de datos secundaria (*legible* o *no legible*). La base de datos Standard solo permite seleccionar una base de datos secundaria *no legible*.
 
 
 ###PowerShell
@@ -98,4 +98,4 @@ Esta API es asincrónica. Cuando vuelva, use la API [Obtener vínculo de replica
 
 Al diseñar la aplicación para la continuidad del negocio, debe tener en cuenta varias opciones de configuración. La elección dependerá de la topología de la implementación de la aplicación y de las partes de las aplicaciones que sean más vulnerables a las interrupciones. Consulte [Diseño de soluciones de nube para la recuperación ante desastres mediante la replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md), para obtener más instrucciones.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

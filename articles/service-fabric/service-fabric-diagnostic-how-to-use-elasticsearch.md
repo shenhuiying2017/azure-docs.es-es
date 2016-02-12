@@ -24,10 +24,10 @@ El tiempo de ejecución de Service Fabric usa ETW para producir información de 
 
 Para que los seguimientos aparezcan en ElasticSearch, deben capturarse en los nodos de clúster de Service Fabric en tiempo real (mientras se ejecuta la aplicación) y enviarse al punto de conexión de ElasticSearch. Hay dos opciones principales para la captura de seguimientos:
 
-+ **Captura de seguimientos en proceso**  
++ **Captura de seguimientos en proceso**
 La aplicación o, más concretamente, el proceso de servicio es responsable de enviar los datos de diagnóstico al almacén de seguimientos (ElasticSearch).
 
-+ **Captura de seguimientos fuera de proceso**  
++ **Captura de seguimientos fuera de proceso**
 Un agente independiente captura los seguimientos de los procesos del servicio y los envía al almacén de seguimientos.
 
 En el resto del artículo se describe cómo configurar ElasticSearch en Azure, se analizan los pros y los contras de ambas opciones de captura y se explica cómo configurar un servicio de Service Fabric para enviar datos a ElasticSearch.
@@ -248,4 +248,4 @@ Eso es todo. Ahora, cada vez que se ejecute el servicio, empezará a enviar segu
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

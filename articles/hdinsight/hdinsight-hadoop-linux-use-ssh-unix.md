@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/22/2016"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 #Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X
@@ -107,7 +107,7 @@ Con esto se crea un inicio de sesión para el usuario especificado, mediante la 
 
 ###Interfaz de la línea de comandos de Azure para Mac, Linux y Windows
 
-Puede utilizar [CLI de Azure para Mac, Linux y Windows](../xplat-cli.md) con el fin de crear un clúster nuevo con el comando `azure hdinsight cluster create`.
+Puede utilizar [CLI de Azure para Mac, Linux y Windows](../xplat-cli-install.md) con el fin de crear un clúster nuevo con el comando `azure hdinsight cluster create`.
 
 Para obtener más información acerca del uso de este comando, consulte [Aprovisionamiento de clústeres de Hadoop Linux en HDInsight con opciones personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -238,4 +238,4 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

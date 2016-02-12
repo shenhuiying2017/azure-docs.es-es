@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/01/2016"
 	ms.author="piyushjo" />
 
 
@@ -35,7 +35,7 @@ Haga clic para ver el [contenido del SDK](mobile-engagement-android-sdk-content.
 
 ##Notas de la versión
 
-##4\.1.4 (01/26/2016)
+##4\.1.5 (02/01/2016)
 
 - Mejoras de estabilidad.
 
@@ -52,4 +52,4 @@ Para la versión anterior, consulte las [notas de la versión completas](mobile-
 
 Si ya ha integrado una versión anterior de nuestro SDK en su aplicación, consulte [Procedimientos de actualización](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

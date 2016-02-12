@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="01/21/2015"
+ ms.date="01/21/2016"
  ms.author="danlep"/>
 
 # Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI
@@ -32,7 +32,7 @@ En este artículo se muestra cómo configurar un clúster de Linux RDMA en Azure
 
 A continuación se facilitan métodos que puede usar para crear un clúster de Linux RDMA con o sin un programador de trabajos.
 
-* **HPC Pack**: cree un clúster de Microsoft HPC Pack en Azure y agregue nodos de proceso que ejecuten distribuciones de Linux compatibles. Algunos nodos de Linux pueden configurarse para tener acceso a la red RDMA. Consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-cluster.md)
+* **HPC Pack**: cree un clúster de Microsoft HPC Pack en Azure y agregue nodos de proceso que ejecuten distribuciones de Linux compatibles. Algunos nodos de Linux pueden configurarse para tener acceso a la red RDMA. Consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-cluster-hpcpack.md)
 
 * **Scripts de CLI de Azure**: como se muestra en los pasos del resto del artículo, use la [Interfaz de la línea de comandos de Azure](../xplat-cli-install.md) (CLI) para Mac, Linux y Windows para crear los scripts de implementación de una red virtual y los demás componentes necesarios para crear un clúster de Linux. La CLI en modo de implementación (Administración de servicios) clásico crea los nodos del clúster en serie, por lo que si va a implementar muchos nodos de proceso, es posible que se tarden varios minutos en completar la implementación.
 
@@ -426,4 +426,4 @@ Debería ver un resultado similar al siguiente en un clúster de trabajo con dos
 
 * Consulte la [documentación de la biblioteca de Intel MPI](https://software.intel.com/es-ES/articles/intel-mpi-library-documentation/) para obtener orientación sobre Intel MPI.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

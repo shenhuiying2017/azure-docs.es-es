@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2016" 
-	ms.author="jgao"/>
+	ms.date="02/01/2016" 
+	ms.author="nitinme"/>
 
 # Problemas conocidos de Apache Spark en HDInsight de Azure (Linux)
 
@@ -54,6 +54,23 @@ El servidor de historial de Spark no se inicia automáticamente después de crea
 
 Inicie el servidor de historial manualmente desde Ambari.
 
+##Error al cargar un bloc de notas con un tamaño mayor a 2 MB
+
+**Síntoma:**
+
+Es posible que aparezca un error **`Error loading notebook`** al cargar blocs de notas que tengan un tamaño mayor a 2 MB.
+
+**Mitigación:**
+
+El hecho de recibir este error no implica que los datos estén dañados o perdidos. Los blocs de notas están todavía en el disco en `/var/lib/jupyter`, y puede ejecutar SSH en el clúster para tener acceso a ellos. Puede copiar los blocs de notas del clúster en el equipo local (mediante SCP o WinSCP) como copia de seguridad para evitar la pérdida de datos importantes del bloc de notas. A continuación, puede aplicar túneles SSH al nodo principal del puerto 8001 para tener acceso a Jupyter sin pasar por la puerta de enlace. Desde ahí, puede borrar la salida del bloc de notas y volver a guardarla para minimizar el tamaño del bloc de notas.
+
+Para evitar que este error ocurra en el futuro, debe seguir algunos procedimientos recomendados:
+
+* Es importante mantener reducido el tamaño del bloc de notas. Las salidas de los trabajos de Spark que se envían a Jupyter de vuelta se conservan en el bloc de notas. Es una práctica recomendada con Jupyter en general evitar la ejecución de `.collect()` en RDD o tramas de datos de gran tamaño; en su lugar, si desea inspeccionar el contenido de un RDD, considere la posibilidad de ejecutar `.take()` o `.sample()` para que la salida no sea demasiado grande.
+* Además, cuando guarde un bloc de notas, desactive todas las celdas de la salida para reducir el tamaño.
+
+
+
 ##El primer inicio del cuaderno tarda más de lo esperado 
 
 **Síntoma:**
@@ -63,16 +80,6 @@ La primera instrucción del cuaderno de Jupyter con la instrucción mágica de S
 **Mitigación:**
  
 Ninguna solución alternativa. A veces tarda un minuto.
-
-##No se pueden personalizar las configuraciones de núcleos y memoria
-
-**Síntoma:**
- 
-No se pueden especificar configuraciones de núcleos y memoria diferentes a las predeterminadas de los kernels Spark y Pyspark.
-
-**Mitigación:**
- 
-Esta característica estará disponible próximamente.
 
 ##Tiempo de espera del cuaderno de Jupyter en la creación de la sesión
 
@@ -121,6 +128,16 @@ Este problema se abordará en una versión posterior.
 
     Se produce un error en la primera celda para registrar el método sc.stop() al que hay que llamar cuando el cuaderno existe. En determinadas circunstancias, esto podría ocasionar pérdidas de recursos en Spark. Para evitar esta situación, asegúrese de ejecutar import atexit; atexit.register(lambda: sc.stop()) en dichos cuadernos antes de detenerlos. Si accidentalmente ha experimentado una pérdida de recursos, siga las instrucciones anteriores para terminar las aplicaciones de YARN con pérdidas.
      
+##No se pueden personalizar las configuraciones de núcleos y memoria
+
+**Síntoma:**
+ 
+No se pueden especificar configuraciones de núcleos y memoria diferentes a las predeterminadas de los kernels Spark y Pyspark.
+
+**Mitigación:**
+ 
+Esta característica estará disponible próximamente.
+
 ## Problemas con permisos en el directorio de registros de Spark 
 
 **Síntoma:**
@@ -139,4 +156,4 @@ Cuando hdiuser envía un trabajo con spark-submit, hay un error java.io.FileNotF
 - [Introducción a Apache Spark en HDInsight de Azure (Linux)](hdinsight-apache-spark-overview.md)
 - [Introducción: aprovisionamiento de Apache Spark en Azure HDInsight (Linux) y ejecución de consultas interactivas mediante Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

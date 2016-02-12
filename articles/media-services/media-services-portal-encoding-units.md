@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/29/2016"
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@
 
 ## Información general
 
-Una cuenta de Servicios multimedia está asociada con un tipo de unidad reservada que determina la rapidez con la que se procesan las tareas de procesamiento multimedia. Puede elegir uno de los siguientes tipos de unidad reservada: **Basic**, **Standard** o **Premium**. Por ejemplo, el mismo trabajo de codificación se ejecuta más rápido cuando se usa el tipo de unidad reservada **Standard** en comparación con el tipo **Basic**. Para obtener más información, consulte el blog [Encoding Reserved Unit Types](https://azure.microsoft.com/blog/author/milanga/) (Codificación de tipos de unidad reservada).
+Una cuenta de Servicios multimedia está asociada con un tipo de unidad reservada que determina la rapidez con la que se procesan las tareas de procesamiento multimedia. Puede elegir uno de los siguientes tipos de unidad reservada: **S1**, **S2** o **S3**. Por ejemplo, el mismo trabajo de codificación se ejecuta más rápido cuando se usa el tipo de unidad reservada **S2** en comparación con el tipo **S1**. Para obtener más información, consulte el blog [Encoding Reserved Unit Types](https://azure.microsoft.com/blog/author/milanga/) (Codificación de tipos de unidad reservada).
 
 Además de especificar el tipo de unidad reservada, puede especificar el aprovisionamiento de su cuenta con unidades reservadas de codificación. El número de unidades reservadas de codificación aprovisionadas determina el número de tareas multimedia que se pueden procesar de forma simultánea en una cuenta determinada. Por ejemplo, si la cuenta tiene cinco unidades reservadas, se ejecutarán simultáneamente cinco tareas multimedia siempre que haya tareas para procesar. Las tareas restantes esperarán en la cola y se elegirán para el procesamiento secuencialmente tan pronto como finalice la tarea en ejecución. Si una cuenta no tiene ninguna unidad reservada aprovisionada, las tareas se elegirán de manera secuencial. En este caso, el tiempo de espera entre la finalización de una tarea y el inicio de la siguiente dependerá de la disponibilidad de los recursos del sistema.
 
@@ -40,7 +40,7 @@ Para cambiar el tipo de unidad reservada y el número de unidades reservadas de 
 
 2. Seleccione la página **CODIFICACIÓN**.
 
-	Para cambiar el **TIPO DE UNIDAD RESERVADA**, presione BASIC, STANDARD o PREMIUM.
+	Para cambiar el **TIPO DE UNIDAD RESERVADA**, presione S1, S2 o S3.
 
 	Para cambiar el número de unidades reservadas para el tipo de unidad reservada seleccionada, use el control deslizante **CODIFICACIÓN**.
 
@@ -70,4 +70,4 @@ Para obtener información sobre las cuotas y limitaciones y sobre cómo abrir un
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

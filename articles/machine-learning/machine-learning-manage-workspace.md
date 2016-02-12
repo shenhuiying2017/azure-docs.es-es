@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 
@@ -29,12 +29,12 @@ Mediante el Portal de Azure clásico, puede administrar las áreas de trabajo de
 
 Además, la pestaña Panel muestra una descripción general del uso del área de trabajo y una vista rápida de la información que contiene.
 
-> [AZURE.TIP]En Estudio de aprendizaje automático de Azure, en la pestaña **Servicios web**, puede agregar, actualizar o eliminar un servicio web de Aprendizaje automático.
+> [AZURE.TIP] En Estudio de aprendizaje automático de Azure, en la pestaña **Servicios web**, puede agregar, actualizar o eliminar un servicio web de Aprendizaje automático.
 
 Para administrar un área de trabajo:
 
-1.	Inicie sesión en su cuenta de Microsoft Azure (use la cuenta que está asociada a la suscripción de Azure).
-2.	En el panel de servicios de Microsoft Azure del [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en **Aprendizaje automático**.
+1.	Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) con su cuenta de Microsoft Azure (use la cuenta que está asociada a la suscripción de Azure).
+2.	En el panel de servicios de Microsoft Azure, haga clic en **APRENDIZAJE AUTOMÁTICO**.
 3.	Haga clic en el área de trabajo que desea administrar.
 
 La página del área de trabajo tiene tres pestañas:
@@ -54,7 +54,7 @@ En el panel, puede ver el uso general del área de trabajo y obtener una vista r
 - **Información general del uso**: muestra el almacenamiento de Azure que usa el área de trabajo.
 - **Vista rápida**: proporciona un resumen de la información del área de trabajo y vínculos útiles.
 
-> [AZURE.NOTE]El vínculo **Iniciar sesión en estudio de aprendizaje automático** permite abrir Estudio de aprendizaje automático mediante la cuenta Microsoft con la que haya iniciado la sesión actual. La cuenta de Microsoft que usó para iniciar sesión en el Portal de Azure clásico para crear un área de trabajo no tiene automáticamente permiso para abrir el área de trabajo. Para abrir un área de trabajo, debe iniciar sesión en la cuenta de Microsoft que se definió como propietaria del área de trabajo. También puede hacerlo si recibe una invitación del propietario para unirse al área de trabajo.
+> [AZURE.NOTE] El vínculo **Iniciar sesión en estudio de aprendizaje automático** permite abrir Estudio de aprendizaje automático mediante la cuenta Microsoft con la que haya iniciado la sesión actual. La cuenta de Microsoft que usó para iniciar sesión en el Portal de Azure clásico para crear un área de trabajo no tiene automáticamente permiso para abrir el área de trabajo. Para abrir un área de trabajo, debe iniciar sesión en la cuenta de Microsoft que se definió como propietaria del área de trabajo. También puede hacerlo si recibe una invitación del propietario para unirse al área de trabajo.
 
 
 ## Concesión o suspensión del acceso de los usuarios ##
@@ -81,7 +81,7 @@ Un servicio web puede tener uno o varios extremos definidos.
 
 - Para eliminar un extremo (no se puede eliminar el extremo "predeterminado"), haga clic en cualquier parte en la fila del extremo (excepto en el nombre) y haga clic en **Eliminar extremo** en la parte inferior de la página. De esta manera, se elimina el extremo del servicio web.
 
-    > [AZURE.NOTE]Si una aplicación está utilizando el extremo del servicio web cuando se elimina dicho extremo, la aplicación recibirá un error la próxima vez que intente acceder al servicio.
+    > [AZURE.NOTE] Si una aplicación está utilizando el extremo del servicio web cuando se elimina dicho extremo, la aplicación recibirá un error la próxima vez que intente acceder al servicio.
 
 Haga clic en el nombre de un extremo de servicio web para abrirlo. El gráfico de uso muestra los recursos de proceso y de predicción que está utilizando el extremo del servicio web. Puede cambiar la vista para mostrar valores relativos o absolutos, y puede cambiar el período de tiempo que se muestra en el gráfico.
 
@@ -94,4 +94,4 @@ Haga clic en la pestaña **CONFIGURAR** para modificar la descripción, controla
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

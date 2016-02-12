@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2016"
+   ms.date="01/27/2016"
    ms.author="tomfitz"/>
 
 # Creación de aplicación de Active Directory y entidad de servicio mediante el portal
@@ -112,7 +112,7 @@ Si la aplicación tiene acceso a recursos en nombre del usuario que ha iniciado 
 
 1. Seleccione **Agregar aplicación**.
 
-2. En la lista, seleccione **API de administración de servicios de Windows Azure**.
+2. En la lista, seleccione **API de administración de servicios de Azure**.
 
       ![seleccionar aplicación](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -167,12 +167,12 @@ En primer lugar, debe instalar la biblioteca de autenticación de Active Directo
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
     PM> Update-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Safe
 
-Para iniciar sesión con el id. y el secreto de la aplicación, use el método siguiente para recuperar el token.
+Para iniciar sesión con el id. y el secreto de cliente, utilice el método siguiente para recuperar el token.
 
     public static string GetAccessToken()
     {
         var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
-        var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
+        var credential = new ClientCredential(clientId: "{client id}", clientSecret: "{application password}");
         var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
 
         if (result == null) {
@@ -189,7 +189,7 @@ Para iniciar sesión en nombre del usuario, use el método siguiente para recupe
     public static string GetAcessToken()
     {
         var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
-        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", {application id}, new Uri({redirect uri});
+        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", {client id}, new Uri({redirect uri});
 
         if (result == null) {
             throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -229,4 +229,4 @@ Puede pasar el token en el encabezado de la solicitud con el código siguiente:
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

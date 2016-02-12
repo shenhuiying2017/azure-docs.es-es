@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/15/2016"
+ms.date="02/01/2016"
 ms.author="larryfr"/>
 
 #Uso de firmas de acceso compartido de Almacenamiento de Azure para restringir el acceso a datos con HDInsight
@@ -34,7 +34,7 @@ Las firmas de acceso compartido (SAS) son una característica de las cuentas de 
 
 * Un clúster de HDInsight basado en Linux o [Azure PowerShell][powershell]\: si ya tiene un clúster basado en Linux, puede usar Ambari para agregar una firma de acceso compartido al clúster. Si no es así, puede usar Azure PowerShell para crear un nuevo clúster y agregar una firma de acceso compartido durante la creación de este.
 
-* Los archivos de ejemplo de [https://github.com/Blackmist/hdinsight-azure-storage-sas](https://github.com/Blackmist/hdinsight-azure-storage-sas). Este repositorio tiene lo siguiente:
+* Los archivos de ejemplo de [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Este repositorio tiene lo siguiente:
 
     * Un proyecto de Visual Studio que puede crear un contenedor de almacenamiento, una directiva almacenada y una SAS para su uso con HDInsight.
     
@@ -60,7 +60,7 @@ La diferencia entre las dos formas es importante para un escenario principal: re
 
 4. Se vuelve a generar la clave de cuenta que se usó para crear la SAS. Tenga en cuenta que la realización de este procedimiento provocará que todos los componentes de la aplicación que usen esa clave de cuenta no puedan autenticarse hasta que se actualicen para usar la otra clave de cuenta válida o la clave de cuenta que se acaba de volver a generar.
 
-> [AZURE.IMPORTANT]Los URI de firma de acceso compartido están asociados a la clave de la cuenta que se utiliza para crear la firma y a la directiva de acceso almacenada correspondiente (en su caso). Si no se especifica una directiva de acceso almacenada, la única forma de revocar una firma de acceso compartido es cambiar la clave de la cuenta.
+> [AZURE.IMPORTANT] Los URI de firma de acceso compartido están asociados a la clave de la cuenta que se utiliza para crear la firma y a la directiva de acceso almacenada correspondiente (en su caso). Si no se especifica una directiva de acceso almacenada, la única forma de revocar una firma de acceso compartido es cambiar la clave de la cuenta.
 
 Se recomienda usar siempre las directivas de acceso almacenadas, para que pueda revocar las firmas o ampliar la fecha de caducidad según sea necesario. Los pasos descritos en este documento utilizan directivas de acceso almacenadas para generar las SAS.
 
@@ -68,7 +68,7 @@ Para más información sobre firmas de acceso compartido, consulte [Firmas de ac
 
 ##Creación de una directiva almacenada y generación de una SAS
 
-Ahora, debe crear una directiva almacenada mediante programación. Puede encontrar tanto el ejemplo de C# como el de Python para la creación de una directiva almacenada y una SAS en [https://github.com/Blackmist/hdinsight-azure-storage-sas](https://github.com/Blackmist/hdinsight-azure-storage-sas).
+Ahora, debe crear una directiva almacenada mediante programación. Puede encontrar el ejemplo de C# y Python de creación de una directiva almacenada y SAS en [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature).
 
 ###Creación de una directiva almacenada y una SAS mediante C#
 
@@ -169,7 +169,7 @@ Se incluye un ejemplo de creación de un clúster de HDInsight que usa la SAS en
     
     Si está creando un clúster basado en Linux, se le solicitará también un nombre de cuenta de usuario SSH y una contraseña. Esto se utiliza para el inicio de sesión remota al clúster.
     
-    > [AZURE.IMPORTANT]Cuando se le pida el nombre de usuario SSH o HTTP/s y la contraseña, debe proporcionar una contraseña que cumpla los criterios siguientes:
+    > [AZURE.IMPORTANT] Cuando se le pida el nombre de usuario SSH o HTTP/s y la contraseña, debe proporcionar una contraseña que cumpla los criterios siguientes:
     >
     > - Debe tener como mínimo 10 caracteres.
     > - Debe contener al menos un dígito.
@@ -201,7 +201,7 @@ Si tiene un clúster existente basado en Linux, puede agregar las SAS para la co
 
     Haga clic en __OK__ (Aceptar) cuando se hayan completado los cambios.
 
-    > [AZURE.IMPORTANT]Esto guarda los cambios de configuración pero debe reiniciar varios servicios para que el cambio surta efecto.
+    > [AZURE.IMPORTANT] Esto guarda los cambios de configuración pero debe reiniciar varios servicios para que el cambio surta efecto.
 
 6. En la interfaz de usuario web Ambari, seleccione __HDFS__ en la lista de la izquierda y, a continuación, seleccione __Restart All__ (Reiniciar todos) en la lista desplegable __Service Actions__ (Acciones del servicio) de la derecha. Cuando se le solicite, seleccione __Turn on maintenance mode__ (Activar modo de mantenimiento) y, a continuación, "Confirm Restart All" ("Confirmar reiniciar todo").
 
@@ -290,4 +290,4 @@ Ahora que ha aprendido a agregar almacenamiento de acceso limitado al clúster d
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Introducción al Almacenamiento de colas de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)
 
 ## Información general
 
-En este artículo se describe cómo empezar a usar el Almacenamiento en cola de Azure en un proyecto de WebJobs de Azure de Visual Studio después de crear una cuenta de almacenamiento de Azure o hacer referencia a ella con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio. Al agregar una cuenta de almacenamiento a un proyecto de WebJobs con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, se instalan los paquetes de NuGet de Almacenamiento de Azure adecuados, se agregan las referencias de .NET adecuadas al proyecto y se actualizan las cadenas de conexión para la cuenta de almacenamiento en el archivo App.config.
+En este artículo se describe cómo empezar a usar el Almacenamiento de colas de Azure en un proyecto de WebJobs de Azure de Visual Studio después de crear una cuenta de almacenamiento de Azure o hacer referencia a ella con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio. Al agregar una cuenta de almacenamiento a un proyecto de WebJobs con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, se instalan los paquetes de NuGet de Almacenamiento de Azure adecuados, se agregan las referencias de .NET adecuadas al proyecto y se actualizan las cadenas de conexión para la cuenta de almacenamiento en el archivo App.config.
 
 En este artículo se ofrecen ejemplos de código C# que muestran cómo usar la versión 1.x del SDK de WebJobs de Azure con el servicio Almacenamiento de colas de Azure.
 
@@ -198,7 +198,7 @@ El siguiente ejemplo de código no asincrónico crea un mensaje en cola nuevo en
 		    outputQueueMessage = queueMessage;
 		}
 
-### Mensajes en cola POCO [(objeto CRL estándar](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### Mensajes en cola POCO [ (objeto CRL estándar](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 
 Para crear un mensaje en cola que contiene un objeto POCO en lugar de una cadena, pase el tipo POCO como un parámetro de salida al constructor de atributo **Queue**.
 
@@ -259,7 +259,7 @@ La interfaz **IBinder** también puede usarse con los atributos **Table** y **Bl
 
 ## Lectura y escritura de blobs y tablas al procesar un mensaje de cola
 
-Los atributos **Blob** y **Table** permiten leer y escribir los blobs y tablas. Los ejemplos en esta sección se aplican a los blobs. Para los ejemplos de código que muestran cómo desencadenar procesos cuando se crean o actualizan los blobs, consulte [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), y para obtener ejemplos de código que leen y escriben las tablas, vea [Cómo usar el almacenamiento de tablas Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
+Los atributos **Blob** y **Table** permiten leer y escribir los blobs y tablas. Los ejemplos en esta sección se aplican a los blobs. Para los ejemplos de código que muestran cómo desencadenar procesos cuando se crean o actualizan los blobs, consulte [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](/app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), y para obtener ejemplos de código que leen y escriben las tablas, vea [Cómo usar el almacenamiento de tablas Azure con el SDK de WebJobs](/app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
 
 ### Mensajes en cola de cadena que desencadenan operaciones de blob
 
@@ -543,4 +543,4 @@ Y en una tabla de Azure los registros **Console.Out** y **Console.Error** tienen
 
 En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con colas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

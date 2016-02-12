@@ -31,7 +31,7 @@ Este entorno creado automáticamente consta de tres servidores en una red virtua
 
 Consulte el elemento [Granja de SharePoint 2013 sin alta disponibilidad](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) en Azure Marketplace del Portal de Azure. Esto crea una granja de servidores de desarrollo y prueba básica para un sitio web de SharePoint a través de Internet. Para obtener detalles adicionales, consulte [Creación de granjas de servidores de SharePoint](virtual-machines-sharepoint-farm-azure-preview.md).
 
-También puede usar una plantilla del Administrador de recursos de Azure. Consulte [Implementación de una granja de tres servidores de SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
+También puede usar una plantilla del Administrador de recursos de Azure. Vea [SharePoint](virtual-machines-app-frameworks.md).
 
 > [AZURE.NOTE] Se quitó el elemento **Granja de servidores SharePoint** en Azure Marketplace del Portal de Azure.
 
@@ -61,4 +61,4 @@ Esta configuración usa el modelo de implementación clásica.
 
 - Descubra configuraciones adicionales de [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) en los servicios de infraestructura de Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

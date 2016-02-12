@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/15/2015"
+   ms.date="02/02/2016"
    ms.author="jesseb"/>
 
 
 # Información sobre cómo la serialización afecta a una actualización de aplicación
 
-En una [actualización de la aplicación gradual](service-fabric-application-upgrade.md), la actualización se aplica a un subconjunto de nodos, un dominio de actualización a la vez. Durante este proceso, algunos dominios de actualización se incluirán en la versión más reciente de su aplicación, mientras que otros estarán en la versión anterior. En este momento, la nueva versión de su aplicación debe poder leer la versión anterior de sus datos, mientras que la versión anterior debe poder leer la nueva versión. Si el formato de datos no es compatible con las versiones anteriores y nuevas, es posible que se produzca un error en la actualización o se pierdan datos. En este artículo se analiza qué constituye su formato de datos y ofrece prácticas recomendadas para garantizar que sus datos sean compatibles con las versiones anteriores y nuevas.
+En una [actualización de la aplicación gradual](service-fabric-application-upgrade.md), la actualización se aplica a un subconjunto de nodos, un dominio de actualización a la vez. Durante este proceso, algunos dominios de actualización se incluirán en la versión más reciente de su aplicación, mientras que otros estarán en la versión anterior. Durante el lanzamiento, la nueva versión de la aplicación debe poder leer la versión anterior de sus datos, mientras que la versión anterior debe poder leer la nueva versión. Si el formato de datos no es compatible con las versiones anteriores y nuevas, es posible que se produzca un error en la actualización, o lo que es peor, que se pierdan o dañen datos. En este artículo se analiza qué constituye su formato de datos y ofrece prácticas recomendadas para garantizar que sus datos sean compatibles con las versiones anteriores y nuevas.
 
 
 ## ¿Qué conforma su formato de datos?
@@ -47,7 +47,7 @@ Durante una actualización gradual, hay dos escenarios principales donde el seri
 1. Una vez que un nodo se actualice y empiece a crear copias de seguridad, el nuevo serializador cargará los datos que la versión anterior conservó en el disco.
 2. Durante la actualización gradual, el clúster puede contener una mezcla de las versiones anteriores y nuevas de su código. Como las réplicas se pueden incluir en distintos dominios de actualización y las réplicas envían datos entre sí, la versión nueva como la anterior de los datos se pueden encontrar en la versión nueva o la anterior del serializador.
 
-> [AZURE.NOTE]La "nueva versión" y "versión anterior" aquí hacen referencia a la versión de su código en ejecución. El "nuevo serializador" hace referencia al código del serializador que se ejecuta en la nueva versión de su aplicación. Los "nuevos datos" hacen referencia a la clase de C# serializada de la nueva versión de su aplicación.
+> [AZURE.NOTE] La "nueva versión" y "versión anterior" aquí hacen referencia a la versión de su código en ejecución. El "nuevo serializador" hace referencia al código del serializador que se ejecuta en la nueva versión de su aplicación. Los "nuevos datos" hacen referencia a la clase de C# serializada de la nueva versión de su aplicación.
 
 Las dos versiones del formato de código y datos deben ser compatibles con las versiones anteriores y nuevas. Si no son compatibles, es posible que se produzca un error en la actualización o se pierdan datos. Es posible que se produzca un error en la actualización porque el código o serializador puede producir excepciones o un error cuando encuentra la otra versión. Es posible que se pierdan datos si, por ejemplo, se agregó una nueva propiedad, pero el serializador anterior la descarta durante la deserialización.
 
@@ -58,10 +58,10 @@ El contrato de datos es la solución recomendada para garantizar que sus datos s
 
 [Actualización de la aplicación de Service Fabric con Visual Studio](service-fabric-application-upgrade.md)
 
-[Actualización de aplicaciones de Service Fabric con PowerShell](service-fabric-application-upgrade-powershell.md)
+[Actualización de aplicaciones de Service Fabric con PowerShell](service-fabric-automate-powershell.md)
 
 [Parámetros de actualización](service-fabric-application-upgrade-parameters.md)
 
 [Actualización manual y actualización con un paquete de diferencias](service-fabric-application-upgrade-advanced.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

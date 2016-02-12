@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/19/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Configuración de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure
 
-Cuando tenga que solucionar problemas de un servicio en la nube o una máquina virtual de Azure, puede configurar diagnósticos de Azure con mayor facilidad mediante Visual Studio. El diagnóstico de Azure captura los datos del sistema y los datos de registro en las máquinas virtuales y las instancias de máquina virtual que ejecutan el servicio en la nube y transfiere datos a la cuenta de almacenamiento que elija. Vea [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-enable-diagnostic-log.md) para obtener más información sobre el registro de diagnóstico de Azure.
+Cuando tenga que solucionar problemas de un servicio en la nube o una máquina virtual de Azure, puede configurar diagnósticos de Azure con mayor facilidad mediante Visual Studio. El diagnóstico de Azure captura los datos del sistema y los datos de registro en las máquinas virtuales y las instancias de máquina virtual que ejecutan el servicio en la nube y transfiere datos a la cuenta de almacenamiento que elija. Vea [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure](/app-service-web/web-sites-enable-diagnostic-log.md) para obtener más información sobre el registro de diagnóstico de Azure.
 
 En este tema se muestra cómo habilitar y configurar el diagnóstico de Azure en Visual Studio, tanto antes como después de la implementación, así como en máquinas virtuales de Azure. También muestra cómo seleccionar los tipos de información de diagnóstico que sé recopilarán y cómo ver la información que se recopila.
 
@@ -133,7 +133,7 @@ En Visual Studio, puede elegir recopilar datos de diagnóstico para máquinas vi
 
     ![Instalación de una extensión de máquina virtual de Azure](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766024.png)
 
-    >[AZURE.NOTE]Hay otras extensiones de diagnóstico disponibles para las máquinas virtuales. Para obtener más información, vea Características y extensiones de máquina virtual de Azure.
+    >[AZURE.NOTE] Hay otras extensiones de diagnóstico disponibles para las máquinas virtuales. Para obtener más información, vea Características y extensiones de máquina virtual de Azure.
 
 1. Elija el botón **Agregar** para agregar la extensión y ver el cuadro de diálogo **Configuración de diagnóstico**.
 
@@ -221,7 +221,7 @@ Los eventos se capturan de los orígenes de eventos y manifiestos de eventos que
 
   ![Registros de ETW](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766025.png)
 
-  El marco de trabajo de ETW se admite en ASP.NET a través de clases en el espacio de nombres [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110). El espacio de nombres de Microsoft.WindowsAzure.Diagnostics, que se hereda de las clases [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) estándar y las extiende , habilita el uso de [System.Diagnostics.aspx] (https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) como un marco de registro en el entorno de Azure. Para obtener más información, vea [Tomar el control del registro y el seguimiento en Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) y [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](cloud-services-dotnet-diagnostics.md).
+  El marco de trabajo de ETW se admite en ASP.NET a través de clases en el espacio de nombres [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110). El espacio de nombres de Microsoft.WindowsAzure.Diagnostics, que se hereda de las clases [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) estándar y las extiende , habilita el uso de [System.Diagnostics.aspx] (https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) como un marco de registro en el entorno de Azure. Para obtener más información, vea [Tomar el control del registro y el seguimiento en Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) y [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](/cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ### Volcados de memoria
 
@@ -357,4 +357,4 @@ En la ventana **Propiedades**, establezca la propiedad **Copiar en el directorio
 
 Para obtener más información sobre el registro de diagnósticos de Azure, consulte [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](cloud-services-dotnet-diagnostics.md) y [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

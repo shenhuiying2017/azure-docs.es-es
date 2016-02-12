@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="02/02/2016"
    ms.author="jgao"/>
 
 # Crear clústeres de Hadoop en HDInsight con plantillas del Administrador de recursos de Azure (Windows)
@@ -128,7 +128,7 @@ En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight
 
 - Para obtener un ejemplo de cómo implementar los recursos a través de la biblioteca cliente .NET, vea [Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla](arm-template-deployment.md).
 - Para obtener un ejemplo en profundidad de la implementación de una aplicación, vea [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-deploy-complex-application-predictably.md).
-- Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments.md).
 - Para obtener información sobre las secciones de la plantilla del Administrador de recursos de Azure, vea [Creación de plantillas](resource-group-authoring-templates.md).
 - Para obtener una lista de las funciones que puede usar en una plantilla del Administrador de recursos de Azure, vea [Funciones de plantillas](resource-group-template-functions.md).
 
@@ -444,4 +444,4 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
 	  }
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016"  
+	ms.date="02/02/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC con varios DRM y control de acceso: diseño e implementación de referencia en Azure y Servicios multimedia de Azure
@@ -40,13 +40,13 @@ En este artículo se tratan los siguientes temas:
 	- [¿Y qué pasa con el streaming en vivo?](media-services-cenc-with-multidrm-access-control.md#what-about-live-streaming)
 	- [¿Y qué sucede con los servidores de licencias que están fuera de Servicios multimedia de Azure?](media-services-cenc-with-multidrm-access-control.md#what-about-license-servers-outside-of-azure-media-services)
 	- [¿Y si quiero usar un STS personalizado?](media-services-cenc-with-multidrm-access-control.md#what-if-i-want-to-use-a-custom-sts)
-	- [Nota técnica](media-services-cenc-with-multidrm-access-control.md#tech-note)
 - [Finalización del sistema y prueba](media-services-cenc-with-multidrm-access-control.md#the-completed-system-and-test)
 	- [Inicio de sesión de usuario](media-services-cenc-with-multidrm-access-control.md#user-login)
 	- [Uso de extensiones multimedia cifradas para PlayReady](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensipons-for-playready)
 	- [Uso de EME para Widevine](media-services-cenc-with-multidrm-access-control.md#using-eme-for-widevine)
 	- [Usuarios no autorizados](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
 	- [Ejecución del servicio de token seguro personalizado](media-services-cenc-with-multidrm-access-control.md#running-custom-secure-token-service)
+- [Resumen](media-services-cenc-with-multidrm-access-control.md#summary)
 
 ##Introducción
 
@@ -62,7 +62,7 @@ Las ventajas de CENC con varios DRM son las siguientes:
 1. Reduce el costo de administrar los activos cifrados dado que solo se necesita una copia de ellos.
 1. Elimina el costo de licencia de clientes DRM dado que el cliente DRM nativo suele ser gratuito en su plataforma nativa.
 
-Microsoft ha sido un promotor activo de DASH y CENC junto con algunos de los principales reproductores del sector. Servicios multimedia de Microsoft Azure ha estado ofreciendo soporte técnico para DASH y CENC. Para conocer los anuncios recientes, consulte los blogs de Mingfei: [Announcing Google Widevine license delivery services public preview in Azure Media Services](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/) (Anuncio de la versión preliminar de los servicios de entrega de licencias de Google Widevine) y [Azure Media Services adds Google Widevine packaging for delivering multi-DRM stream](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) (Servicios multimedia de Azure agregan el paquete Google Widevine para la entrega de transmisiones de varios DRM).
+Microsoft ha sido un promotor activo de DASH y CENC junto con algunos de los principales reproductores del sector. Servicios multimedia de Microsoft Azure ha estado ofreciendo soporte técnico para DASH y CENC. Para conocer los anuncios recientes, consulte los blogs de Mingfei: [Announcing Google Widevine license delivery services in Azure Media Services](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/) (Anuncio de los servicios de entrega de licencias de Google Widevine) y [Azure Media Services adds Google Widevine packaging for delivering multi-DRM stream](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) (Servicios multimedia de Azure agregan el paquete Google Widevine para la entrega de transmisiones de varios DRM).
 
 ### Información general de este artículo
 
@@ -406,7 +406,7 @@ Hay dos tipos de claves de seguridad:
 1.	Clave simétrica: se utiliza la misma clave para generar y comprobar un token de JWT.
 2.	Clave asimétrica: se utiliza un par de claves pública/privada de un certificado X509 junto con la clave privada para cifrar o generar un token de JWT, y la clave pública para comprobar el token.
 
-###Nota técnica
+####Nota técnica
 
 Si utiliza .NET Framework o C# como plataforma de desarrollo, el certificado X509 usado en la clave de seguridad asimétrica debe tener una longitud de clave de al menos 2048. Se trata de un requisito de la clase System.IdentityModel.Tokens.X509AsymmetricSecurityKey en .NET Framework. De lo contrario, se producirá la siguiente excepción:
 
@@ -520,6 +520,6 @@ En este documento, hemos examinado el CENC con varios DRM nativos y el control d
 
 ###Agradecimientos 
 
-William Zhang, Mingfei Yan, Kilroy Hughes, Roland Le Franc, Julia Kornich
+William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -27,6 +27,6 @@ El archivo de credenciales de almacén se descarga a través de un canal seguro 
 - Asegúrese de que las credenciales de almacén se guardan en una ubicación a la que se puede obtener acceso desde la máquina. Si se almacenan en un recurso compartido/SMB de archivo, compruebe los permisos de acceso.
 - El archivo de credenciales de almacén se utiliza solo durante el flujo de trabajo de registro.
 - El archivo de credenciales de almacén caduca después de 48 horas y puede descargarse desde el portal.
-- Para cualquier pregunta sobre el flujo de trabajo, vea las [Preguntas más frecuentes](backup-azure-backup-faq.md) sobre la Copia de seguridad de Azure.
+- Consulte las P+F de Copia de seguridad de Azure (](../articles/backup/backup-azure-backup-faq.md) si tiene preguntas relacionadas con el flujo de trabajo.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

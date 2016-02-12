@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="02/03/2016"
 	ms.author="jeffreyg; ronitr"/>
  
 # Introducción a la auditoría de bases de datos SQL
@@ -178,4 +178,4 @@ Existen varios cmdlets de PowerShell que puede usar para configurar la auditorí
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

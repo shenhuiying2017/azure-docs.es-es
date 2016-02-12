@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Limitaciones actuales de vista previa para la colaboración B2B de Azure Active Directory (Azure AD)
+# Vista previa de la colaboración B2B de Azure AD: limitaciones de la vista previa actual
 
 - Autenticación multifactor (MFA) no admitida en los usuarios externos. Por ejemplo, si Contoso tiene MFA, pero la organización del partner no la tiene, no se les podrá conceder a los usuarios de la organización del partner MFA mediante la colaboración de B2B.
 - Las invitaciones solo son posibles a través de CSV; no se admiten invitaciones individuales y acceso a la API.
@@ -37,4 +37,4 @@ Examine nuestros otros artículos sobre colaboración de Azure B2B:
 - [Formato de token de usuario externo](active-directory-b2b-references-external-user-token-format.md)
 - [Cambios de atributo de objeto de usuario externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

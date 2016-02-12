@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/13/2015"
+   ms.date="01/26/2016"
    ms.author="rsinha"/>
 
 # Información general sobre Testability
@@ -115,4 +115,4 @@ Para crear verdaderos servicios de escala en la nube, es fundamental asegurarse,
   - [Simulación de errores durante las cargas de trabajo del servicio](service-fabric-testability-workload-tests.md)
   - [Errores de comunicación entre servicios](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -61,9 +61,7 @@ Antes de comenzar con la configuración, comprueba que dispones de los elementos
 
 - Una suscripción de Azure. Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-- Cmdlets de Azure PowerShell (1.0 o posterior). Puede descargar e instalar esta versión desde la sección Windows PowerShell de la [página de descargas](https://azure.microsoft.com/downloads/). Esta documentación se escribió para PowerShell 1.0 o posterior. Los cmdlets necesarios para esta configuración no están presentes en las versiones anteriores.
-
-- Si no está familiarizado con el Administrador de recursos de Azure y PowerShell, consulte [este artículo](../articles/powershell-azure-resource-manager.md) para más información.
+- Cmdlets de Azure PowerShell (1.0 o posterior). Los cmdlets necesarios para esta configuración no están presentes en las versiones anteriores a la 1.0. Puede descargar e instalar esta versión desde la sección Windows PowerShell de la [página de descargas](https://azure.microsoft.com/downloads/). Si no está familiarizado con la instalación y configuración de PowerShell, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener más información.
 
 ### Pasos de configuración
 
@@ -136,4 +134,4 @@ Antes de comenzar con la configuración, comprueba que dispones de los elementos
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

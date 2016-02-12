@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/09/2015"   
+	ms.date="01/29/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Estas notas de la versión resumen los cambios realizados desde las versiones an
 
 - [Problemas actualmente conocidos](#issues)
 - [Historial de versiones de API de REST](#rest_version_history)
+- [Versión de enero de 2016](#jan_changes_16)
 - [Versión de diciembre de 2015](#dec_changes_15)
 - [Versión de noviembre de 2015](#nov_changes_15)
 - [Versión de octubre de 2015](#oct_changes_15)
@@ -76,6 +77,13 @@ Los objetos de Servicios multimedia del SDK no se pueden serializar y, como resu
 ##<a id="rest_version_history"></a>Historial de versiones de API de REST
 
 Para obtener información sobre el historial de versiones de la API de REST de Servicios multimedia, consulte [Referencia de la API de REST de Servicios multimedia de Azure].
+
+
+##<a id="jan_changes_16"></a>Versión de enero de 2016
+
+El nombre de las unidades reservadas de codificación se cambia para reducir la confusión con los nombres de codificador.
+
+Los nombres de las unidades reservadas de codificación Básica, Estándar y Premium se cambian por unidades reservadas S1, S2 y S3, respectivamente. Los clientes que usan unidades reservadas de codificación Básica ahora verán S1 como etiqueta en el Portal de Azure (y en la factura), mientras que para las ediciones Estándar y Premium aparecerán las etiquetas S2 y S3, respectivamente.
 
 ##<a id="dec_changes_15"></a>Versión de diciembre de 2015
 
@@ -634,4 +642,4 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [Control de notificaciones de trabajo de Servicios multimedia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

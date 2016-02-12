@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/01/2016" 
 	ms.author="sdanie"/>
 
 # Administración de Caché en Redis de Azure con Azure PowerShell
@@ -56,9 +56,49 @@ Para obtener ayuda detallada con cualquier cmdlet que aparezca en este tutorial,
 
 	Get-Help <cmdlet-name> -Detailed
 
-Por ejemplo, para ayuda para el cmdlet `New-AzureRmRedisCache`, escriba:
+Por ejemplo, para obtener ayuda para el cmdlet `New-AzureRmRedisCache`, escriba:
 
 	Get-Help New-AzureRmRedisCache -Detailed
+
+## Conexión a la nube de Azure Government o a la nube de China de Azure
+
+De forma predeterminada, el entorno de Azure es `AzureCloud`, que representa la instancia de nube de Azure global. Para conectarse a una instancia diferente, utilice el comando `Add-AzureRmAccount` con el conmutador de línea de comandos `-Environment` o -`EnvironmentName` con el nombre de entorno o el entorno deseado.
+
+Para ver la lista de entornos disponibles, ejecute el cmdlet `Get-AzureRmEnvironment`.
+
+### Conexión a la nube de Azure Government
+
+Para conectarse a la nube de Azure Government, utilice uno de los siguientes comandos.
+
+	Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+
+o
+
+	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+
+Para crear una memoria caché en la nube de Azure Government, utilice una de las siguientes ubicaciones.
+
+-	USGov Virginia
+-	USGov Iowa
+
+Para obtener más información acerca de la nube de Azure Government, consulte [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) y la [Guía para desarrolladores de Microsoft Azure Government](azure-government-developer-guide.md).
+
+### Para conectarse a la nube de China de Azure
+
+Para conectarse a la nube de China de Azure, use uno de los siguientes comandos.
+
+	Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+
+o
+
+	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+
+Para crear una caché en la nube de China de Azure, use una de las siguientes ubicaciones.
+
+-	Este de China
+-	Norte de China
+
+Para obtener más información acerca de la nube de China de Azure, consulte [AzureChinaCloud for Azure operated by 21Vianet in China (Nube de China de Azure operada por 21Vianet en China)](http://www.windowsazure.cn/).
 
 ## Propiedades utilizadas para Caché en Redis de Azure con PowerShell
 
@@ -85,7 +125,7 @@ La tabla siguiente contiene las propiedades y las descripciones de los parámetr
 
 Se crean nuevas instancias de caché en Redis de Azure mediante el cmdlet [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx).
 
->[AZURE.IMPORTANT]La primera vez que crea una caché en Redis en una suscripción mediante el portal de Azure, el portal registra el espacio de nombres `Microsoft.Cache` para esa suscripción. Si intenta crear la primera caché en Redis en una suscripción mediante PowerShell, primero debe registrar ese espacio de nombres mediante el comando siguiente; en caso contrario los cmdlets como `New-AzureRmRedisCache` y `Get-AzureRmRedisCache` producirán un error.
+>[AZURE.IMPORTANT] La primera vez que crea una caché en Redis en una suscripción mediante el portal de Azure, el portal registra el espacio de nombres `Microsoft.Cache` para esa suscripción. Si intenta crear la primera caché en Redis en una suscripción mediante PowerShell, primero debe registrar ese espacio de nombres mediante el comando siguiente; en caso contrario los cmdlets como `New-AzureRmRedisCache` y `Get-AzureRmRedisCache` producirán un error.
 >
 >`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
@@ -250,7 +290,7 @@ Se puede usar `Set-AzureRmRedisCache` para escalar una instancia de caché en Re
 >[AZURE.NOTE]El escalado de una caché con PowerShell está sujeto a los mismos límites y directrices que el escalado de una caché desde el portal de Azure. Puede escalar a un nivel de precios diferente con las siguientes restricciones.
 >
 >-	No puede escalar a una memoria caché de nivel **Premium** o desde esta.
->-	No puede escalar de una memoria caché **Standard** a una **Basic**.
+>-	No puede escalar desde una memoria caché **Estándar** a una **Básica**.
 >-	Puede escalar desde una memoria caché **Basic** a una memoria caché **Standard**, pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
 >-	No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)**.
 >
@@ -569,4 +609,4 @@ Para obtener más información acerca de Windows PowerShell con Azure, consulte 
 - [Blog de Windows PowerShell](http://blogs.msdn.com/powershell): obtenga información acerca de las nuevas características de Windows PowerShell.
 - [Blog ¡Hola, chicos del scripting!](http://blogs.technet.com/b/heyscriptingguy/): Obtenga sugerencias y trucos del mundo real de la comunidad de Windows PowerShell.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

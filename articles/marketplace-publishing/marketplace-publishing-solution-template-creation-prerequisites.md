@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="01/28/2016"
    ms.author="hascipio; v-divte" />
 
 # Requisitos previos técnicos para la creación de una plantilla de soluciones para Azure Marketplace
@@ -29,9 +29,9 @@ Debe decidir los bloques de creación de la solución antes de continuar con la 
   - [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## Pasos siguientes
-Ahora que ha revisado los requisitos previos y completado las tareas necesarias, puede continuar con la creación de su oferta de plantilla de soluciones como se detalla en la [Guía para crear una plantilla de soluciones](marketplace-publishing-solution-template-creation.md). Para obtener información sobre prácticas recomendadas, consulte [Procedimientos recomendados para la creación de una plantilla de soluciones](marketplace-publishing-solution-template-best-practices.md). Para volver a la página principal de las tareas del publicador, consulte [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md).
+Ahora que ha revisado los requisitos previos y completado las tareas necesarias, puede continuar con la creación de su oferta de plantilla de soluciones como se detalla en la [Guía para crear una plantilla de soluciones](marketplace-publishing-solution-template-creation.md). Para volver a la página principal de las tareas del publicador, consulte [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md).
 
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

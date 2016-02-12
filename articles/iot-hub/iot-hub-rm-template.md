@@ -24,7 +24,7 @@
 
 Puede usar el Administrador de recursos de Azure para crear y administrar los centros de IoT de Azure mediante programación. En este tutorial se muestra cómo usar una plantilla del administrador de recursos para crear un centro de IoT desde un programa de C#.
 
-> [AZURE.NOTE]Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../resource-manager-deployment-model.md). Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos.
+> [AZURE.NOTE] Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../resource-manager-deployment-model.md). Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos.
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -40,7 +40,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 2. En el Explorador de soluciones, haga clic con el botón secundario en su proyecto y luego haga clic en **Administrar paquetes de NuGet**.
 
-3. En el Administrador de paquetes de NuGet, compruebe **Incluir versión preliminar** y busque **Microsoft.Azure.Management.Resources**. Seleccione la versión **2.18.11-preview**. Haga clic en **Instalar**, en **Revisar cambios**, haga clic en **Aceptar** y, luego, en **Acepto** para aceptar las licencias.
+3. En el Administrador de paquetes de NuGet, busque **Microsoft.Azure.Management.Resources**. Seleccione la versión **2.18.11-preview**. Haga clic en **Instalar**, en **Revisar cambios**, haga clic en **Aceptar** y, luego, en **Acepto** para aceptar las licencias.
 
 4. En el Administrador de paquetes de NuGet, busque **Microsoft.IdentityModel.Clients.ActiveDirectory**. Seleccione la versión **2.19.208020213**. Haga clic en **Instalar**, en **Revisar cambios**, haga clic en **Aceptar** y, luego, en **Acepto** para aceptar la licencia.
 
@@ -177,7 +177,7 @@ Ahora puede completar la aplicación llamando a los métodos **CreateIoTHub** y 
 
 4. Para comprobar que su aplicación ha agregado el nuevo centro de IoT, visite el [portal][lnk-azure-portal] y vea la lista de recursos o use el cmdlet de PowerShell **Get-AzureRmResource**.
 
-> [AZURE.NOTE]Esta aplicación de ejemplo agrega un centro de IoT estándar S1 por el que se le cobrará. Puede eliminar el centro de IoT a través del [portal][lnk-azure-portal] o mediante el cmdlet **Remove-AzureRmResource** de PowerShell cuando haya terminado.
+> [AZURE.NOTE] Esta aplicación de ejemplo agrega un centro de IoT estándar S1 por el que se le cobrará. Puede eliminar el centro de IoT a través del [portal][lnk-azure-portal] o mediante el cmdlet **Remove-AzureRmResource** de PowerShell cuando haya terminado.
 
 ## Pasos siguientes
 
@@ -191,4 +191,4 @@ Ahora puede completar la aplicación llamando a los métodos **CreateIoTHub** y 
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/04/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"/>
 
 
@@ -201,7 +201,7 @@ Siga estos pasos para crear un contenedor para el almacenamiento de blobs, si a�
 	* **SUSCRIPCIÓN**: si el almacenamiento de blobs que creó está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione **Usar cuenta de almacenamiento de la suscripción actual**. Si el almacenamiento está en otra suscripción, seleccione **Utilizar almacenamiento de otra suscripción** y especifique manualmente la información de **CUENTA DE ALMACENAMIENTO**, **CLAVE DE LA CUENTA DE ALMACENAMIENTO**, **CONTENEDOR**.
 	* **CUENTA DE ALMACENAMIENTO**: seleccione el nombre de la cuenta de almacenamiento
 	* **CONTENEDOR**: seleccione el nombre del contenedor
-	* **PREFIJO DE NOMBRE DE ARCHIVO**: escriba un prefijo de archivo que se usará al escribir la salida del blob
+	* **PREFIJO DE NOMBRE DE ARCHIVO**: escriba un prefijo de archivo que se utilizará al escribir la salida de blob
 
 4.	Haga clic con el botón secundario.
 5.	Especifique los siguientes valores:
@@ -236,4 +236,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

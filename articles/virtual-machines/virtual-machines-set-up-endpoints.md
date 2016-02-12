@@ -19,7 +19,8 @@
 
 # Configurar los puntos de conexión en una máquina virtual de Azure clásica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo del Administrador de recursos. Para una implementación del Administrador de recursos, consulte [Introducción a la configuración de un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure](../load-balancer/load-balancer-arm-powershell.md) y [Acerca de los grupos de seguridad de red](virtual-networks-nsg.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 Todas las máquinas virtuales que se crean en Azure con el modelo de implementación clásico pueden comunicarse automáticamente a través de un canal de red privada con otras máquinas virtuales del mismo servicio en la nube o de la misma red virtual. Sin embargo, los equipos en Internet o en otras redes virtuales necesitan extremos para dirigir el tráfico de red entrante a una máquina virtual.
 
@@ -34,9 +35,9 @@ Se proporcionan los valores predeterminados para el protocolo IP y los puertos T
 
 Tras la creación de un extremo, puede utilizar una lista de control de acceso (ACL) para definir reglas que permitan o denieguen el tráfico entrante al puerto público del extremo, en función de su dirección IP de origen. Sin embargo, si la máquina virtual está en una red virtual de Azure, debería usar grupos de seguridad de red en su lugar. Para obtener más información, consulte [Información sobre los grupos de seguridad de red](virtual-networks-nsg.md).
 
-> [AZURE.NOTE] La configuración del firewall de las máquinas virtuales de Azure se realiza automáticamente para los puertos asociados a Escritorio remoto y shell seguro (SSH), y en la mayoría de los casos para la comunicación remota de Windows PowerShell. Para los puertos especificados para todos los demás extremos, no se realiza ninguna configuración automáticamente en el firewall de la máquina virtual. Cuando se crea un extremo para la máquina virtual, deberá asegurarse de que el firewall de la máquina virtual también permite el tráfico para el protocolo y el puerto privado correspondiente a la configuración del extremo.
+> [AZURE.NOTE]La configuración del firewall de las máquinas virtuales de Azure se realiza automáticamente para los puertos asociados a Escritorio remoto y shell seguro (SSH), y en la mayoría de los casos para la comunicación remota de Windows PowerShell. Para los puertos especificados para todos los demás extremos, no se realiza ninguna configuración automáticamente en el firewall de la máquina virtual. Cuando se crea un extremo para la máquina virtual, deberá asegurarse de que el firewall de la máquina virtual también permite el tráfico para el protocolo y el puerto privado correspondiente a la configuración del extremo.
 
-##Creación de un extremo
+## Creación de un extremo
 
 1.	Si no lo ha hecho todavía, inicie sesión en el Portal de Azure clásico.
 2.	Haga clic en **Máquinas virtuales** y haga clic en el nombre de la máquina virtual que desea configurar.
@@ -62,7 +63,7 @@ El nuevo punto de conexión se mostrará en la página **Puntos de conexión**.
 
 Para usar un cmdlet de Azure PowerShell para configurar esta opción, consulte [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx). Si usa la CLI de Azure en modo de Administración de servicio, use el comando **azure vm endpoint create**.
 
-##Administración de la ACL en un extremo
+## Administración de la ACL en un extremo
 
 Para definir el conjunto de equipos que pueden enviar tráfico, la ACL en un extremo puede restringir el tráfico en función de la dirección IP de origen. Siga estos pasos para agregar, modificar o quitar una ACL en un extremo.
 
@@ -88,8 +89,9 @@ Las reglas se evalúan en orden, comenzando por la primera regla y terminando po
 
 Para usar un cmdlet de Azure PowerShell para configurar esto, vea [Administración de las listas de control de acceso (ACL) de los puntos de conexión mediante PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
+
 ## Recursos adicionales
 
-[Equilibrio de carga para servicios de infraestructura de Azure](virtual-machines-load-balance.md)
+[Introducción a la creación de un equilibrador de carga orientado a Internet en el Administrador de recursos con PowerShell](load-balancer-get-started-internet-arm-ps.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

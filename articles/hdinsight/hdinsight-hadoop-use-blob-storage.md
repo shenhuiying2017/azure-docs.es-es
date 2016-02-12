@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/29/2016"
 	ms.author="jgao"/>
 
 
@@ -27,7 +27,7 @@ El almacenamiento de blobs de Azure es una solución de almacenamiento sólida y
 
 Almacenar los datos en un almacenamiento de blobs hace que elimine de forma segura los clústeres de HDInsight que se usan para los cálculos sin perder los datos del usuario.
 
-> [AZURE.NOTE]La sintaxis **asv://* no se admite en los clústeres de HDInsight versión 3.0. Es decir, que los trabajos enviados a un clúster de HDInsight versión 3.0 y que usen explícitamente la sintaxis **asv://* tendrán errores. Debería usarse la sintaxis **wasb://* en lugar de la anterior. Además, los trabajos enviados a cualquier clúster de HDInsight versión 3.0 que se hayan creado con una tienda de metadatos existente que contenga referencias explícitas a recursos con la sintaxis asv:// tendrán errores. Estas tiendas de metadatos tendrán que volver a crearse usando la sintaxis wasb:// para recursos de dirección.
+> [AZURE.NOTE]	La sintaxis **asv://* no se admite en los clústeres de HDInsight versión 3.0. Es decir, que los trabajos enviados a un clúster de HDInsight versión 3.0 y que usen explícitamente la sintaxis **asv://* tendrán errores. Debería usarse la sintaxis **wasb://* en lugar de la anterior. Además, los trabajos enviados a cualquier clúster de HDInsight versión 3.0 que se hayan creado con una tienda de metadatos existente que contenga referencias explícitas a recursos con la sintaxis asv:// tendrán errores. Estas tiendas de metadatos tendrán que volver a crearse usando la sintaxis wasb:// para recursos de dirección.
 
 > Actualmente HDInsight solo es compatible con blobs en bloques.
 
@@ -58,7 +58,8 @@ Además de esta cuenta de almacenamiento, puede agregar otras más desde la mism
 
 - **Los contenedores o blobs públicos de las cuentas de almacenamiento que NO están conectados a un clúster:** tiene permiso de solo lectura a los blobs de los contenedores.
 
-	> [AZURE.NOTE]> Los contenedor públicos le permiten obtener una lista de todos los blobs disponibles del contenedor en cuestión y obtener sus metadatos. Los blobs públicos le permiten acceder a los blobs solo si conoce la URL exacta. Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Restringir acceso a contenedores y blobs</a>.
+	> [AZURE.NOTE]
+        > Los contenedor públicos le permiten obtener una lista de todos los blobs disponibles del contenedor en cuestión y obtener sus metadatos. Los blobs públicos le permiten acceder a los blobs solo si conoce la URL exacta. Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Restringir acceso a contenedores y blobs</a>.
 
 - **Contenedores privados de las cuentas de almacenamiento que no están conectados a un clúster:** no puede tener acceso a los blobs de los contenedores a menos que defina la cuenta de almacenamiento al enviar los trabajos de WebHCat. Esto se explica posteriormente en este artículo.
 
@@ -106,7 +107,7 @@ Si ha [instalado y configurado la CLI Azure](../xplat-cli-install.md), se puede 
 
 	azure storage account create <storageaccountname> --type LRS
 
-> [AZURE.NOTE]El parámetro `--type` indica cómo se replicará la cuenta de almacenamiento. Para obtener más información, vea [Replicación de almacenamiento de Azure](../storage/storage-redundancy.md). No utilice ZRS, ya que no es compatible con el blob en páginas, el archivo, la tabla o la cola.
+> [AZURE.NOTE] El parámetro `--type` indica cómo se replicará la cuenta de almacenamiento. Para obtener más información, vea [Replicación de almacenamiento de Azure](../storage/storage-redundancy.md). No utilice ZRS, ya que no es compatible con el blob en páginas, el archivo, la tabla o la cola.
 
 Se le pedirá que especifique la región geográfica en la que se encontrará la cuenta de almacenamiento. Debe crear la cuenta de almacenamiento en la misma región en la que planea crear el clúster de HDInsight.
 
@@ -150,7 +151,7 @@ El esquema URI para obtener acceso a los archivos del almacenamiento de blobs de
 	wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
 
-> [AZURE.NOTE]La sintaxis para enviar los archivos al emulador de almacenamiento (que se ejecuta en el emulador de HDInsight) es <i>wasb://&lt;ContainerName&gt;@storageemulator</i>.
+> [AZURE.NOTE] La sintaxis para enviar los archivos al emulador de almacenamiento (que se ejecuta en el emulador de HDInsight) es <i>wasb://&lt;ContainerName&gt;@storageemulator</i>.
 
 
 
@@ -164,14 +165,14 @@ Si no se ha especificado ningún valor en &lt;BlobStorageContainerName&gt; ni en
 	wasb:///example/jars/hadoop-mapreduce-examples.jar
 	/example/jars/hadoop-mapreduce-examples.jar
 
-> [AZURE.NOTE]El nombre del archivo es <i>hadoop-examples.jar</i> en las versiones 2.1 y 1.6 de los clústeres de HDInsight.
+> [AZURE.NOTE] El nombre del archivo es <i>hadoop-examples.jar</i> en las versiones 2.1 y 1.6 de los clústeres de HDInsight.
 
 
 La &lt;ruta&gt; es el nombre de la ruta HDFS del archivo o el directorio. Dado que los contenedores del almacenamiento de blobs de Azure son solamente almacenes de pares clave-valor, no hay ningún sistema de archivos jerárquico real. Un carácter de barra inclinada ( / ) dentro de la clave de blob se interpreta como separador de directorios. Por ejemplo, el nombre del blob para *hadoop-mapreduce-examples.jar* es:
 
 	example/jars/hadoop-mapreduce-examples.jar
 
-> [AZURE.NOTE]Al trabajar con blobs fuera de HDInsight, la mayoría de las utilidades no reconocen el formato WASB y en su lugar, espera un formato básico de ruta de acceso, como `example/jars/hadoop-mapreduce-examples.jar`.
+> [AZURE.NOTE] Al trabajar con blobs fuera de HDInsight, la mayoría de las utilidades no reconocen el formato WASB y en su lugar, espera un formato básico de ruta de acceso, como `example/jars/hadoop-mapreduce-examples.jar`.
 
 ## Acceso a blobs mediante la CLI de Azure
 
@@ -197,7 +198,7 @@ Use el siguiente comando para mostrar los cmdlets relacionados con blobs:
 
 ## Acceso a blobs mediante Azure PowerShell
 
-> [AZURE.NOTE]Los comandos de esta sección proporcionan un ejemplo básico de uso de PowerShell para acceder a los datos almacenados en blobs. Para obtener un ejemplo más completo que se personaliza para trabajar con HDInsight, vea las [Herramientas de HDInsight](https://github.com/Blackmist/hdinsight-tools).
+> [AZURE.NOTE] Los comandos de esta sección proporcionan un ejemplo básico de uso de PowerShell para acceder a los datos almacenados en blobs. Para obtener un ejemplo más completo que se personaliza para trabajar con HDInsight, vea las [Herramientas de HDInsight](https://github.com/Blackmist/hdinsight-tools).
 
 Utilice el comando siguiente para incluir los cmdlets relacionados con el blob:
 
@@ -299,4 +300,4 @@ Para más información, consulte:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

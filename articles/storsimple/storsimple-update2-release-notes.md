@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="02/01/2016"
    ms.author="v-sharos" />
 
 # Notas de la versión de la actualización 2 de la serie StorSimple 8000  
@@ -21,7 +21,7 @@
 
 Las siguientes notas de la versión describen las características nuevas e identifican los problemas críticos abiertos de la actualización 2 de la serie StorSimple 8000. También contienen una lista de las actualizaciones de software, controlador y firmware de StorSimple incluidas en esta versión.
 
-La actualización 2 puede aplicarse a cualquier dispositivo de StorSimple que ejecute software de versión (GA) o las actualizaciones de la 0.1 a la 1.2.
+La actualización 2 puede aplicarse a cualquier dispositivo de StorSimple que ejecute software de versión (GA) o las actualizaciones de la 0.1 a la 1.2. La versión de dispositivo asociada a la actualización 2 es 6.3.9600.17673.
 
 Revise la información contenida en las notas de la versión antes de implementar la actualización de la solución de StorSimple.
 
@@ -76,7 +76,7 @@ En las tablas siguientes se ofrece un resumen de los problemas corregidos en la 
 
 En la tabla siguiente se proporciona un resumen de los problemas conocidos de esta versión.
 
-| N.º | Característica | Problema | Comentarios/solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
+| N.º | Característica | Problema | Comentarios / solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
 | 1 | Cuórum de disco | En raras ocasiones, si se desconecta la mayoría de los discos en el revestimiento de EBOD de un dispositivo 8600 y no se produce un cuórum de disco, el grupo de almacenamiento se desconectará. Seguirá desconectado incluso si se vuelven a conectar los discos. | Necesitará reiniciar el dispositivo. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft para conocer los pasos siguientes. | Sí | No |
 | 2 | Identificador de controlador incorrecto | Cuando se realiza un reemplazo de controlador, el controlador 0 puede aparecer como controlador 1. Durante el reemplazo de controlador, cuando se carga la imagen desde el nodo del mismo nivel, el identificador de controlador puede mostrarse inicialmente como el identificador del controlador del mismo nivel. En raras ocasiones, este comportamiento también puede aparecer después del reinicio del sistema. | No se requiere ninguna acción del usuario. La situación se solucionará una vez completado el reemplazo del controlador. | Sí | No |
@@ -113,4 +113,8 @@ Esta versión actualiza el controlador y el firmware del disco en el dispositivo
 
 No se puede aplicar esta actualización al dispositivo virtual. Deben crearse nuevos dispositivos virtuales.
 
-<!---HONumber=AcomDC_0121_2016-->
+## Paso siguiente
+
+Obtenga información sobre cómo [instalar la actualización 2](storsimple-install-update-2.md) en el dispositivo de StorSimple.
+
+<!---HONumber=AcomDC_0204_2016-->

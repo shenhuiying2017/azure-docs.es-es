@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="dastrock"/>
 
 # Vista previa de Azure AD B2C: Protocolos de autenticación
@@ -23,9 +23,9 @@ Azure AD B2C proporciona identidad como servicio para sus aplicaciones gracias a
 <!-- TODO: Need link to libraries above -->
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-
+	
 ## Conceptos básicos
-Cada aplicación que usa Azure AD B2C deberá estar registrada en su directorio B2C en el [Portal de Azure](https://portal.azure.com/). El proceso de registro de la aplicación recopilará y asignará algunos valores a la aplicación:
+Cada aplicación que usa Azure AD B2C deberá estar registrada en su directorio B2C en el [Portal de Azure](https://portal.azure.com). El proceso de registro de la aplicación recopilará y asignará algunos valores a la aplicación:
 
 - Un **Id. de aplicación** que identifica de forma única su aplicación
 - Un **URI de redireccionamiento** o **identificador de paquete** que puede utilizarse para dirigir las respuestas de nuevo a la aplicación
@@ -68,6 +68,4 @@ Si está listo para ver algunas solicitudes de ejemplo, comience con uno de los 
 - Obtención de tokens mediante un nombre de usuario y una contraseña con el flujo de credenciales de contraseña del propietario de recursos de OAuth 2.0 (próximamente)
 - Obtención de tokens en una API web con el flujo "en nombre de" de OAuth 2.0 (próximamente)
 
-<!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

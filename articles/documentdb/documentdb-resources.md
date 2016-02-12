@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/29/2015" 
 	ms.author="anhoh"/>
 
 # Modelo jerárquico de recursos y conceptos de DocumentDB
@@ -34,8 +34,7 @@ Tal y como muestra el siguiente diagrama, el **modelo de recursos** jerárquico 
 
 >[AZURE.NOTE] DocumentDB ofrece un protocolo de TCP sumamente eficaz que también es RESTful en su modelo de comunicación; disponible a través del [SDK de cliente de .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![Modelo jerárquico de recursos de DocumentDB][1] 
-**Modelo jerárquico de recursos**
+![Modelo jerárquico de recursos de DocumentDB][1] **Modelo jerárquico de recursos**
 
 Para empezar a trabajar con los recursos, debe [crear una cuenta de base de datos para DocumentDB](documentdb-create-account.md) mediante su suscripción a Azure. Una cuenta de base de datos puede constar de un grupo de **bases de datos**, cada una con varias **colecciones**, que a su vez pueden contener **procedimientos almacenados, desencadenadores, UDF, documentos** y **datos adjuntos** relacionados (característica de vista previa). Una base de datos también tiene **usuarios** asociados, cada uno con un conjunto de **permisos** para obtener acceso a las colecciones, procedimientos almacenados, desencadenadores, UDF, documentos o datos adjuntos. Mientras las bases de datos, usuarios, permisos y colecciones son recursos definidos por el sistema con esquemas, documentos y datos adjuntos conocidos con contenido arbitrario JSON definido por el usuario.
 
@@ -71,7 +70,7 @@ id|Configurable por el usuario|Nombre único del recurso definido por el usuario
 DocumentDB no exige ninguna extensión propietaria a la norma JSON ni codificaciones especiales; funciona con documentos JSON según la norma.
  
 ### Direccionamiento de un recurso
-Todos los recursos se pueden diseccionar mediante URI. El valor de la propiedad **\_self** de un recurso representa la URI relativa del recurso. El formato del URI consta de los segmentos de ruta /\<feed\>/{_rid}:
+Todos los recursos se pueden diseccionar mediante URI. El valor de la propiedad **\_self** de un recurso representa la URI relativa del recurso. El formato del URI consta de los segmentos de ruta /<feed>/{\_rid}:
 
 |Valor de \_self |Descriptción
 |-------------------|-----------
@@ -95,7 +94,7 @@ Los valores de las propiedades \_self y \_rid son representaciones alternativas 
 ## Cuentas de la base de datos
 Puede aprovisionar una o más cuentas de la base de datos de DocumentDB mediante su suscripción a Azure. A cada cuenta de base de datos de nivel Standard se otorgará una capacidad mínima de una colección S1.
 
-Puede [crear y administrar cuentas de base de datos de DocumentDB](documentdb-create-account.md) mediante el Portal de Azure clásico en [http://portal.azure.com/](https://portal.azure.com/). Crear y controlar una cuenta de base de datos requiere acceso administrativo y solo se puede realizar con su suscripción a Azure.
+Puede [crear y administrar cuentas de base de datos de DocumentDB](documentdb-create-account.md) mediante el Portal de Azure en [http://portal.azure.com/](https://portal.azure.com/). Crear y controlar una cuenta de base de datos requiere acceso administrativo y solo se puede realizar con su suscripción a Azure.
 
 ### Propiedades de la cuenta de base de datos
 Como parte del aprovisionamiento y control de una cuenta de base de datos, puede configurar y leer las siguientes propiedades:
@@ -107,7 +106,7 @@ Clave principal y clave secundaria|Las claves principales y secundarias proporci
 MaxMediaStorageUsageInMB (LECTURA)|Cantidad máxima de almacenamiento multimedia disponible para la cuenta de base de datos
 MediaStorageUsageInMB (LECTURA)|Uso actual de almacenamiento multimedia para la cuenta de base de datos
 
-Tenga en cuenta que, además del aprovisionamiento, la configuración y la administración de su cuenta de base de datos desde el Portal de Azure clásico, también puede crear y administrar mediante programación cuentas de base de datos de DocumentDB mediante las [API REST de Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx), así como los [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Tenga en cuenta que, además del aprovisionamiento, la configuración y la administración de su cuenta de base de datos desde el Portal de Azure, también puede crear y administrar mediante programación cuentas de base de datos de DocumentDB mediante las [API REST de Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx), así como los [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ## Bases de datos
 Una base de datos de DocumentDB es un contenedor lógico de una o varias colecciones o usuarios, como se muestra en el diagrama siguiente. Puede crear cualquier número de bases de datos en la cuenta de base de datos de DocumentDB en función de los límites de la oferta.
@@ -144,7 +143,7 @@ La directiva de indexación de cada colección le permite realizar equilibrios e
 -	Seleccione si incluir o excluir rutas o patrones específicos del índice en sus documentos. Puede lograr esto configurando includedPaths y excludedPaths en el indexingPolicy de una colección, respectivamente. También puede configurar los equilibrios de almacenamiento y rendimiento para un intervalo y hash de consultas de patrones de ruta específicos. 
 -	Seleccione entre actualizaciones de índice sincrónica (consistente) y asincrónica (diferida). De forma predeterminada, el índice se actualiza de forma sincrónica con cada inserción, reemplazo o eliminación de un documento de la colección. Esto permite a las consultas respetar el mismo nivel de coherencia que el de las lecturas de documentos. Aunque DocumentDB está optimizada para escrituras y admite volúmenes sostenidos de escrituras de documentos junto con un mantenimiento sincrónico de índices y un servicio de consultas coherentes, se pueden configurar determinadas colecciones para actualizar el índice de manera diferida. La indexación diferida aumenta más el rendimiento de escritura y es ideal para casos de ingesta en bloque de colecciones principales con mucha carga de lectura.
 
-La directiva de indexación puede cambiarse ejecutando un comando PUT en la colección. Esto se puede hacer mediante el [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx), el [Portal de Azure clásico](https://portal.azure.com) o la [API de REST de Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+La directiva de indexación puede cambiarse ejecutando un comando PUT en la colección. Esto se puede hacer mediante el [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx), el [Portal de Azure](https://portal.azure.com) o la [API de REST de Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### Consulta de una colección
 Los documentos de una colección pueden tener esquemas arbitrarios y puede consultar documentos de una colección sin proporcionar por adelantando ningún esquema o índice secundario. Puede consultar la colección usando la [sintaxis SQL de DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx), que proporciona numerosos operadores jerárquicos y relacionales y una gran extensibilidad mediante las UDF basadas en JavaScript. La gramática de JSON permite el modelado de documentos JSON como árboles con etiquetas como los nodos del árbol. Esto lo aprovechan tanto las técnicas de indexación automática de DocumentDB como el dialecto de SQL de DocumentDB. El lenguaje de consulta de DocumentDB consta de tres aspectos principales:
@@ -415,4 +414,4 @@ Obtenga más información sobre cómo trabajar con recursos usando comandos HTTP
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

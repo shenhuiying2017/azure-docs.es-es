@@ -31,7 +31,7 @@ Puede restaurar un volumen a partir de una copia de seguridad local o en la nube
 
 Antes de iniciar una operación de restauración, debe ser consciente de las acciones siguientes:
 
-- **Debe desconectar el volumen**: desconecte el volumen en el host y en el dispositivo antes de iniciar la operación de restauración. Aunque la operación de restauración pone el volumen automáticamente en línea en el dispositivo, debe poner el dispositivo en línea manualmente en el host. Puede poner el volumen en línea en el host tan pronto como el volumen está conectado en el dispositivo. (No es necesario esperar a que termine la operación de restauración). Para conocer los procedimientos, vaya a [Desconectar un volumen](storsimple-manage-volumes.md#take-a-volume-offline)
+- **Debe desconectar el volumen**: desconecte el volumen en el host y en el dispositivo antes de iniciar la operación de restauración. Aunque la operación de restauración pone el volumen automáticamente en línea en el dispositivo, debe poner el dispositivo en línea manualmente en el host. Puede poner el volumen en línea en el host tan pronto como el volumen está conectado en el dispositivo. (No es necesario esperar a que termine la operación de restauración). Para conocer los procedimientos, vaya a [Desconectar un volumen](storsimple-manage-volumes-u2.md#take-a-volume-offline).
 
 - **El tipo de volumen después de la restauración**: los volúmenes eliminados se restauran en función del tipo de instantánea; es decir, los volúmenes anclados localmente se restauran como volúmenes anclados localmente y los volúmenes en capas, como volúmenes en capas.
 
@@ -45,7 +45,7 @@ Antes de iniciar una operación de restauración, debe ser consciente de las acc
 
 - **Puede realizar una copia de seguridad mientras se restaura un volumen local**: para conocer los procedimientos, vaya a [Usar el servicio de Administrador de StorSimple para administrar directivas de copia de seguridad](storsimple-manage-backup-policies.md).
 
-- **Puede cancelar una operación de restauración**: si se cancela el trabajo de restauración, el volumen se revertirá al estado en que estaba antes de iniciar la operación de restauración. Para conocer los procedimientos, vaya a [Cancelar un trabajo](storsimple-manage-jobs.md#cancel-a-job).
+- **Puede cancelar una operación de restauración**: si se cancela el trabajo de restauración, el volumen se revertirá al estado en que estaba antes de iniciar la operación de restauración. Para conocer los procedimientos, vaya a [Cancelar un trabajo](storsimple-manage-jobs-u2.md#cancel-a-job).
 
 ## Cómo usar el catálogo de copias de seguridad
 
@@ -113,6 +113,6 @@ Para completar correctamente la operación de restauración, desconecte el volum
 
 - Obtenga información sobre cómo [Administrar volúmenes de StorSimple](storsimple-manage-volumes-u2.md).
 
-- Obtenga información sobre cómo [usar el servicio del administrador de StorSimple para administrar el dispositivo StorSimple](storsimple-manager-service-administration-u2.md).
+- Obtenga información sobre cómo [usar el servicio del administrador de StorSimple para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

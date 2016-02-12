@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="01/07/2016"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 # Guía del desarrollador del Centro de IoT de Azure
 
-Centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos IoT y el back-end de una aplicación.
+El centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y una aplicación back-end.
 
 El Centro de IoT de Azure permite:
 
@@ -44,29 +44,31 @@ Esta es una descripción de los puntos de conexión:
 
 * **Proveedor de recursos**: el proveedor de recursos de Centro de IoT muestra una interfaz del [Administrador de recursos de Azure][lnk-arm] que permite a los propietarios de la suscripción de Azure crear Centros de IoT, actualizar las propiedades del Centro de IoT y eliminar Centros de IoT. Las propiedades del Centro de IoT controlan las directivas de seguridad de nivel de centro a diferencia del control de acceso de nivel de dispositivo (consulte [Control de acceso](#accesscontrol) a continuación) y las opciones funcionales para la mensajería de nube a dispositivo y de dispositivo a la nube. El proveedor de recursos también permite [exportar identidades de dispositivo](#importexport).
 * **Administración de identidades de dispositivo**: cada Centro de IoT muestra un conjunto de puntos de conexión HTTP REST para administrar identidades del dispositivo (crear, recuperar, actualizar y eliminar). Las identidades del dispositivo se usan para autenticación de dispositivos y control de acceso. Consulte [Registro de identidad del dispositivo](#device-identity-registry) para obtener más información.
-* **Puntos de conexión de dispositivos**: para cada dispositivo aprovisionado en el registro de identidad del dispositivo, Centro de IoT muestra un conjunto de puntos de conexión que puede usar el dispositivo para enviar y recibir mensajes. Estos puntos de conexión se exponen actualmente usando los protocolos HTTP y [AMQP][lnk-amqp]\:
+* **Puntos de conexión de dispositivos**: para cada dispositivo aprovisionado en el registro de identidad del dispositivo, Centro de IoT muestra un conjunto de puntos de conexión que puede usar el dispositivo para enviar y recibir mensajes.
     - *Envío de mensajes de dispositivo a nube*. Use este punto de conexión para enviar mensajes de dispositivo a la nube. Para obtener más información, consulte [Mensajería de dispositivo a nube](#d2c).
     - *Recepción de mensajes de nube a dispositivo*. El dispositivo usa ese punto de conexión para recibir mensajes de nube a dispositivos dirigidos. Para obtener más información, consulte [Mensajería de nube a dispositivo](#c2d).
-* **Puntos de conexión de servicio**: cada Centro de IoT muestra un conjunto de puntos de conexión que usa el back-end de aplicaciones para comunicarse con los dispositivos. Estos puntos de conexión se exponen actualmente usando solo el protocolo [AMQP][lnk-amqp].
+
+    Estos extremos se exponen mediante los protocolos HTTP, [MQTT][lnk-mqtt] y [AMQP][lnk-amqp]. Tenga en cuenta que AMQP también está disponible sobre [WebSockets][lnk-websockets] en el puerto 443.
+* **Puntos de conexión de servicio**: cada Centro de IoT muestra un conjunto de puntos de conexión que el back-end de aplicaciones puede usar para comunicarse con los dispositivos. Estos extremos se exponen actualmente usando solo el protocolo [AMQP][lnk-amqp].
     - *Recepción de mensajes de dispositivo a nube*. Este punto de conexión es compatible con los [Centros de eventos de Azure][lnk-event-hubs] y puede usarse para leer todos los mensajes de dispositivo a la nube enviados por los dispositivos. Para obtener más información, consulte [Mensajería de dispositivo a nube](#d2c).
     - *Envío de mensajes de nube a dispositivo y recepción de confirmaciones de entrega*. Estos puntos de conexión permiten al back-end de aplicaciones enviar mensajes confiables de nube a dispositivo y recibir las confirmaciones de entrega o expiración correspondientes. Para obtener más información, consulte [Mensajería de nube a dispositivo](#c2d).
 
-El artículo [API y SDK del Centro de IoT][lnk-apis-sdks] describe las distintas formas a las que se puede acceder a estos puntos de conexión.
+El artículo [IoT Hub APIs and SDKs (API y SDK del Centro de IoT)][lnk-apis-sdks] describe las distintas formas a las que se puede acceder a estos puntos de conexión.
 
-Finalmente, es importante tener en cuenta que todos los puntos de conexión de Centro de IoT usan el protocolo [TLS][lnk-tls] y ningún punto de conexión se expone en canales sin cifrar o no seguros.
+Finalmente, es importante tener en cuenta que todos los puntos de conexión del Centro de IoT usan el protocolo [TLS][lnk-tls] y ningún punto de conexión se expone en canales sin cifrar o no seguros.
 
-### Cómo interpretar los puntos de conexión compatibles con los centros de eventos. <a id="eventhubcompatible"></a>
+### Cómo interpretar los extremos compatibles con los centros de eventos. <a id="eventhubcompatible"></a>
 
-Cuando se usa el [SDK de Bus de servicio de Azure para .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) o el [host del procesador de eventos de Centros de eventos][] descrito en el blog, puede usar cualquier cadena de conexión de Centro de IoT con los permisos correctos y después usar **messages/events** como nombre del Centro de eventos.
+Cuando se usa el [SDK de Bus de servicio de Azure para .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) o el [host del procesador de eventos de Centros de eventos][], puede usar cualquier cadena de conexión de Centro de IoT con los permisos correctos y después usar **messages/events** como nombre del Centro de eventos.
 
 Cuando se usan SDK (o integraciones de productos) que no detectan el Centro de IoT, tiene que recuperar un punto de conexión y un nombre de centro de eventos compatibles con los centros de eventos en la configuración del Centro de IoT en el [portal de Azure][]\:
 
 1. En la hoja del Centro de IoT, haga clic en **Configuración** y después e **Mensajería**,
-2. En la sección **Configuración de dispositivo a la nube**, encontrará un cuadro **Punto de conexión compatible con Centro de eventos**, **Nombre compatible con Centro de eventos** y **Particiones**.
+2. En la sección **Configuración de dispositivo a la nube**, encontrará los valores **Punto de conexión compatible con Centro de eventos**, **Nombre compatible con Centro de eventos** y **Particiones**.
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] En ocasiones, el SDK requiere un valor de **nombre de host** o **espacio de nombres**. En ese caso, quite el esquema de **Punto de conexión compatible con Centro de eventos**. Por ejemplo, si el punto de conexión compatible con el centro de eventos es ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el **nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net** y el **espacio de nombres** sería **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] En ocasiones, el SDK requiere un valor de **nombre de host** o **espacio de nombres**. En ese caso, quite el esquema de **Punto de conexión compatible con Centro de eventos**. Por ejemplo, si el punto de conexión compatible con el Centro de eventos es ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el **nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net** y el **espacio de nombres** sería **iothub-ns-myiothub-1234**.
 
 Luego, puede usar cualquier directiva de seguridad de acceso compartido que tenga permisos **ServiceConnect** para conectarse al Centro de eventos especificado.
 
@@ -84,11 +86,11 @@ La siguiente es una lista de los SDK e integraciones que puede usar con los punt
 
 ## Registro de identidad del dispositivo
 
-Cada Centro de IoT tiene un registro de identidad del dispositivo que se usa para crear recursos de cada dispositivo en el servicio, como una cola que contiene los mensajes de nube a dispositivo en curso, y permite el acceso a los puntos de conexión accesibles desde el dispositivo, tal como se explica en la sección [Control de acceso](#accesscontrol).
+Cada Centro de IoT tiene un registro de identidad del dispositivo que se usa para crear recursos de cada dispositivo en el servicio, como una cola que contiene los mensajes de nube a dispositivo en curso, y para permitir el acceso a los puntos de conexión accesibles desde el dispositivo, tal como se explica en la sección [Control de acceso](#accesscontrol).
 
 En un nivel superior, el registro de identidad del dispositivo es una colección de recursos de identidad de dispositivos compatible con REST. Las secciones siguientes detallan las propiedades de los recursos de identidad del dispositivo y las operaciones que el registro permite en las identidades.
 
-> [AZURE.NOTE] Consulte [API y SDK del Centro de IoT][lnk-apis-sdks] para obtener más información sobre el protocolo HTTP y los SDK que puede usar para interactuar con el registro de identidad del dispositivo.
+> [AZURE.NOTE] Consulte [IoT Hub APIs and SDKs (API y SDK del Centro de IoT)][lnk-apis-sdks] para obtener más información sobre el protocolo HTTP y los SDK que puede usar para interactuar con el registro de identidad del dispositivo.
 
 ### Propiedades de identidad del dispositivo <a id="deviceproperties"></a>
 
@@ -101,10 +103,10 @@ Las identidades de dispositivos se representan como documentos JSON con las prop
 | ETag | requerido, de solo lectura | Una cadena que representa un valor de etag débil para la identidad del dispositivo, como por [RFC7232][lnk-rfc7232].|
 | auth | opcional | Un objeto compuesto que contiene material de seguridad e información de autenticación. |
 | auth.symkey | opcional | Un objeto compuesto que contiene una clave principal y una secundaria, almacenadas en formato base64. |
-| status | requerido | Puede ser **Habilitado** o **Deshabilitado**. Si está **habilitado**, el dispositivo se puede conectar. Si está **deshabilitado**, este dispositivo no puede acceder a ningún punto de conexión accesible desde el dispositivo. |
+| status | requerido | Puede ser **Habilitado** o **Deshabilitado**. Si está **habilitado**, el dispositivo se puede conectar. Si está **deshabilitado**, este dispositivo no puede acceder a ningún extremo accesible desde el dispositivo. |
 | statusReason | opcional | Una cadena de 128 caracteres que almacena el motivo del estado de la identidad del dispositivo. Se permiten todos los caracteres UTF-8. |
 | statusUpdateTime | solo lectura | Fecha y hora de la última actualización del estado. |
-| connectionState | solo lectura | **Conectado** o **Desconectado**, representa la vista del Centro de IoT del estado de conexión del dispositivo. |
+| connectionState | solo lectura | **Conectado** o **Desconectado**, representa la vista del Centro de IoT del estado de conexión del dispositivo. **Importante**: Este campo debe usarse solo para fines de desarrollo o depuración. El estado de conexión se actualiza solo para dispositivos que usen AMQP o MQTT. Además, se basa en pings de nivel de protocolo (pings MQTT o pings AMQP) y puede tener un retraso de 5 minutos como máximo. Por estos motivos es posible que haya falsos positivos, como el caso de los dispositivos que se notifican como conectados pero que en realidad están desconectados. |
 | connectionStateUpdatedTime | solo lectura | Fecha y hora de la última vez que se actualizó el estado de conexión. |
 | lastActivityTime | solo lectura | Fecha y hora de la última vez que el dispositivo se conectó, recibió o envió un mensaje. |
 
@@ -119,27 +121,35 @@ El registro de identidad del dispositivo del Centro de IoT muestra las operacion
 * Recuperar la identidad del dispositivo mediante el identificador
 * Eliminar la identidad del dispositivo
 * Enumerar hasta 1.000 identidades
+* Exportar todas las identidades al almacenamiento de blobs
+* Importar las identidades desde el almacenamiento de blobs
 
 Todas estas operaciones permiten usar la simultaneidad optimista, tal como se especifica en [RFC7232][lnk-rfc7232].
 
 > [AZURE.IMPORTANT] La única manera de recuperar todas las identidades en un registro de identidades de un centro es usar la funcionalidad [Exportar](#importexport).
 
-El registro de identidad del dispositivo de Centro de IoT: - No contiene los metadatos de la aplicación. - Se puede acceder a él como un diccionario mediante **deviceId** como clave. - No admite consultas expresivas.
+Un registro de identidad de dispositivo de Centro de IoT:
+
+- No contiene los metadatos de la aplicación.
+- Es accesible como un diccionario utilizando **deviceId** como clave.
+- No admite consultas expresivas.
 
 Una solución de IoT normalmente tiene un almacén independiente específico de la solución que contiene los metadatos específicos de la aplicación. Por ejemplo, el almacén específico de la solución en una solución de un edificio inteligente puede registrar la sala en la que se implementa un sensor de temperatura.
+
+> [AZURE.IMPORTANT] Solo debe utilizar el registro de identidad del dispositivo para las operaciones de aprovisionamiento y administración de dispositivos. Las operaciones de alto rendimiento en tiempo de ejecución no deben depender de la realización de operaciones en el registro de identidad del dispositivo. Por ejemplo, comprobar el estado de conexión de un dispositivo antes de enviar un comando no es un modelo compatible. Asegúrese de comprobar las [tasas de limitación](#throttling) para el registro de identidad del dispositivo y el patrón del [latido de dispositivo][lnk-guidance-heartbeat].
 
 ### Deshabilitación de dispositivos
 
 Puede deshabilitar los dispositivos actualizando la propiedad **status** de una identidad en el registro. Normalmente se usa en dos escenarios:
 
-- Durante el proceso de orquestación de aprovisionamiento. Para más información, consulte [Diseño de la solución - Aprovisionamiento de dispositivos][lnk-guidance-provisioning].
+- Durante el proceso de orquestación de aprovisionamiento. Para obtener más información, consulte [Diseño de la solución - Aprovisionamiento de dispositivos][lnk-guidance-provisioning].
 - Si por cualquier motivo considera que un dispositivo está en peligro o no está autorizado.
 
 ### Exportación de identidades de dispositivos <a id="importexport"></a>
 
-Las exportaciones son trabajos de larga duración que usan un contenedor de blobs proporcionado por el cliente para leer y escribir los datos de identidad del dispositivo.
+Las exportaciones son trabajos de ejecución prolongada que usan un contenedor de blobs proporcionado por el cliente para guardar los datos de la identidad del dispositivo leídos del registro de identidad.
 
-Puede exportar identidades de dispositivos de forma masiva desde el registro de identidades de un Centro de IoT, mediante el uso de operaciones asincrónicas en el [punto de conexión de proveedor de recursos del Centro de IoT](#endpoints).
+Puede exportar identidades de dispositivos de forma masiva desde el registro de identidad de un Centro de IoT mediante el uso de operaciones asincrónicas en el [punto de conexión de proveedor de recursos del Centro de IoT](#endpoints).
 
 Estas son las operaciones que se pueden realizar en los trabajos de exportación:
 
@@ -151,7 +161,9 @@ Estas son las operaciones que se pueden realizar en los trabajos de exportación
 
 Para obtener información detallada sobre la importación y exportación de API, consulte [Centro de IoT de Azure: API de proveedor de recursos][lnk-resource-provider-apis].
 
-#### Trabajos
+Para obtener más información acerca de la ejecución de trabajos de importación y exportación, consulte [Bulk management of IoT Hub device identities (Administración de identidades de dispositivos de Centro de IoT de forma masiva)][lnk-bulk-identity].
+
+### Trabajos de exportación
 
 Todos los trabajos de exportación tienen las siguientes propiedades:
 
@@ -160,26 +172,79 @@ Todos los trabajos de exportación tienen las siguientes propiedades:
 | jobId | generadas por el sistema, omitidas durante la creación | |
 | creationTime | generadas por el sistema, omitidas durante la creación | |
 | endOfProcessingTime | generadas por el sistema, omitidas durante la creación | |
-| type | solo lectura | **Exportación** |
+| type | solo lectura | **ExportDevices** |
 | status | generadas por el sistema, omitidas durante la creación | **En cola**, **Iniciado**, **Completado**, **Con error** |
 | progreso | generadas por el sistema, omitidas durante la creación | Valor entero del porcentaje de finalización. |
 | outputBlobContainerURI | necesarias para todos los trabajos | Identificador URI de Firma de acceso compartido de blob con acceso de escritura a un contenedor de blobs (consulte [Firmas de acceso compartido, Parte 2: Creación y uso de una firma de acceso compartido con el servicio BLOB][lnk-createuse-sas]). Se usa para mostrar el estado del trabajo y los resultados. |
-| includeKeysInExport | opcional | Si es **true**, las claves se incluyen en la exportación; si no, las claves se exportan como **null**. El valor predeterminado es **false**. |
+| excludeKeysInExport | opcional | Si es **false**, las claves se incluyen en la exportación; si no, las claves se exportan como **null**. El valor predeterminado es **false**. |
 | failureReason | generadas por el sistema, omitidas durante la creación | Si el estado es **Con error**, una cadena contiene el motivo. |
-
-#### Trabajos de exportación
 
 Los trabajos de exportación toman un URI de Firma de acceso compartido de blob como parámetro. Esto concede acceso de escritura a un contenedor de blobs para habilitar el trabajo y generar sus resultados.
 
-El trabajo escribe los resultados de salida en el contenedor de blobs especificado en un archivo denominado **job\_{job\_id}\_devices.txt**. Este archivo contiene identidades de dispositivos serializadas como JSON, tal como se especifica en [Propiedades de identidad del dispositivo](#deviceproperties). Los materiales de seguridad se establecen en **null** en caso de que **includeKeysInExport** se establezca en **false**.
+El trabajo escribe los resultados de salida en el contenedor de blobs especificado en un archivo denominado **devices.txt**. Este archivo contiene identidades de dispositivos serializadas como JSON, tal como se especifica en [Propiedades de identidad del dispositivo](#deviceproperties). El valor de autenticación se establece en **null** para cada dispositivo en el archivo **devices.txt** si el parámetro **excludeKeysInExport** está establecido en **true**.
 
 **Ejemplo**:
 
 ```
-{"deviceId":"devA","auth":{"symKey":{"primaryKey":"123"}},"status":"enabled"}
-{"deviceId":"devB","auth":{"symKey":{"primaryKey":"234"}},"status":"enabled"}
-{"deviceId":"devC","auth":{"symKey":{"primaryKey":"345"}},"status":"enabled"}
-{"deviceId":"devD","auth":{"symKey":{"primaryKey":"456"}},"status":"enabled"}
+{"id":"devA","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
+{"id":"devB","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
+{"id":"devC","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
+```
+
+### Importación de identidades de dispositivos
+
+Las importaciones son trabajos de ejecución prolongada que usan los datos de un contenedor de blobs proporcionado por el cliente para escribir datos de identidad del dispositivo en el registro de identidad del dispositivo.
+
+Puede importar identidades de dispositivos de forma masiva a un registro de identidades de un Centro de IoT, mediante el uso de operaciones asincrónicas en el [punto de conexión de proveedor de recursos del Centro de IoT](#endpoints).
+
+Estas son las operaciones que se pueden realizar en los trabajos de importación:
+
+* Crear un trabajo de importación
+* Recuperar el estado de un trabajo en ejecución
+* Cancelar un trabajo en ejecución
+
+> [AZURE.NOTE] Cada concentrador puede tener solo un único trabajo de ejecución en un momento dado.
+
+Para obtener información detallada sobre la importación y exportación de API, consulte [Centro de IoT de Azure: API de proveedor de recursos][lnk-resource-provider-apis].
+
+Para obtener más información acerca de la ejecución de trabajos de importación y exportación, consulte [Bulk management of IoT Hub device identities (Administración de identidades de dispositivos de Centro de IoT de forma masiva)][lnk-bulk-identity].
+
+### Trabajos de importación
+
+Todos los trabajos de importación tienen las siguientes propiedades:
+
+| Propiedad | Opciones | Descripción |
+| -------- | ------- | ----------- |
+| jobId | generadas por el sistema, omitidas durante la creación | |
+| creationTime | generadas por el sistema, omitidas durante la creación | |
+| endOfProcessingTime | generadas por el sistema, omitidas durante la creación | |
+| type | solo lectura | **ImportDevices** |
+| status | generadas por el sistema, omitidas durante la creación | **En cola**, **Iniciado**, **Completado**, **Con error** |
+| progreso | generadas por el sistema, omitidas durante la creación | Valor entero del porcentaje de finalización. |
+| outputBlobContainerURI | necesarias para todos los trabajos | Identificador URI de Firma de acceso compartido de blob con acceso de escritura a un contenedor de blobs (consulte [Firmas de acceso compartido, Parte 2: Creación y uso de una firma de acceso compartido con el servicio BLOB][lnk-createuse-sas]). Se usa para mostrar el estado del trabajo. |
+| inputBlobContainerURI | requerido | Identificador URI de Firma de acceso compartido de blob con acceso de lectura a un contenedor de blobs (consulte [Firmas de acceso compartido, Parte 2: Creación y uso de una firma de acceso compartido con el servicio BLOB][lnk-createuse-sas]). El trabajo lee la información del dispositivo para importar desde este blob. |
+| failureReason | generadas por el sistema, omitidas durante la creación | Si el estado es **Con error**, una cadena contiene el motivo. |
+
+Los trabajos de importación toman dos URI de firma de acceso compartido de blob como parámetros. Uno concede acceso de escritura a un contenedor de blobs para permitir al trabajo generar su estado, el otro concede acceso de lectura a un contenedor de blobs para permitir al trabajo leer sus datos de entrada.
+
+El trabajo lee los datos de entrada desde el contenedor de blobs especificado en un archivo denominado **devices.txt**. Este archivo contiene identidades de dispositivos serializadas como JSON, tal como se especifica en [Propiedades de identidad del dispositivo](#deviceproperties). Puede invalidar el comportamiento de importación predeterminado para cada dispositivo agregando una propiedad **importMode**. Esta propiedad puede tomar uno de los siguientes valores:
+
+| importMode | Descripción |
+| -------- | ----------- |
+| **createOrUpdate** | Si no existe un dispositivo con el **id** especificado, este se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados con independencia del valor **ETag**. |
+| **create** | Si no existe un dispositivo con el **id** especificado, este se registra por primera vez. <br/>Si el dispositivo ya existe, se escribe un error en el archivo de registro. |
+| **update** | Si ya existe un dispositivo con el **id** especificado, la información existente se sobrescribe con los datos de entrada proporcionados con independencia del valor **ETag**. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. |
+| **updateIfMatchETag** | Si ya existe un dispositivo con el **id** especificado, la información existente se sobrescribe con los datos de entrada proporcionados solo si hay una coincidencia con **ETag**. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. <br/>Si no existe la coincidencia con **ETag**, se escribe un error en el archivo de registro. |
+| **createOrUpdateIfMatchETag** | Si no existe un dispositivo con el **id** especificado, este se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados solo si hay una coincidencia con **ETag**. <br/>Si no existe la coincidencia con **ETag**, se escribe un error en el archivo de registro. |
+| **delete** | Si ya existe un dispositivo con el **id** especificado, este se elimina con independencia del valor **ETag**. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. |
+| **deleteIfMatchETag** | Si ya existe un dispositivo con el **id** especificado, este se elimina solo si hay una coincidencia con **ETag**. Si el dispositivo no existe, se escribe un error en el archivo de registro. <br/>Si no existe la coincidencia con ETag, se escribe un error en el archivo de registro. |
+
+**Ejemplo**:
+
+```
+{"id":"devA","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"delete"}
+{"id":"devB","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"createOrUpdate"}
+{"id":"devC","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"create"}
 ```
 
 ## Seguridad <a id="security"></a>
@@ -205,7 +270,7 @@ Puede conceder los permisos de las maneras siguientes:
     - *registryRead*: directiva con el permiso **RegistryRead**
     - *registryReadWrite*: directiva con los permisos **RegistryRead** y **RegistryWrite**
 
-* **Credenciales de seguridad de cada dispositivo**. Cada Centro de IoT contiene un [registro de identidad del dispositivo](#device-identity-registry). Para cada dispositivo de este registro, puede configurar credenciales de seguridad que concedan permisos **DeviceConnect** orientados a los puntos de conexión del dispositivo correspondiente.
+* **Credenciales de seguridad de cada dispositivo**. Cada Centro de IoT contiene un [registro de identidad del dispositivo](#device-identity-registry). Para cada dispositivo de este registro, puede configurar credenciales de seguridad que concedan permisos **DeviceConnect** orientados a los extremos del dispositivo correspondiente.
 
 **Ejemplo**. En una solución típica de IoT:-El componente de administración de dispositivos usa la directiva *registryReadWrite*. - El componente de procesador de eventos usa la directiva *service*. - El componente de lógica de negocios de dispositivos en tiempo de ejecución usa la directiva *service*. - Los dispositivos individuales se conectan mediante las credenciales almacenadas en el registro de identidad de Centro de IoT.
 
@@ -237,9 +302,15 @@ Estos son los valores esperados:
 
 **Nota sobre el prefijo**: el prefijo URI se calcula por segmento y no por carácter. Por ejemplo `/a/b` es un prefijo de `/a/b/c` pero `/a/bc`.
 
+Puede encontrar las implementaciones del algoritmo de firma en el dispositivo IoT y los SDK del servicio:
+
+* [SDK de servicios IoT para Java](https://github.com/Azure/azure-iot-sdks/tree/master/java/service/iothub-service-sdk/src/main/java/com/microsoft/azure/iot/service/auth)
+* [SDK de dispositivos IoT para Java](https://github.com/Azure/azure-iot-sdks/tree/master/java/device/iothub-java-client/src/main/java/com/microsoft/azure/iothub/auth)
+* [SDK de dispositivos y servicios IoT para Node.js](https://github.com/Azure/azure-iot-sdks/blob/master/node/common/core/lib/shared_access_signature.js)
+
 #### Detalles específicos de protocolo
 
-Cada protocolo admitido, como HTTP y AMQP, transporta tokens de diferentes maneras.
+Cada uno de los protocolos admitidos, como AMQP, MQTT y HTTP, transporta tokens de diferentes maneras.
 
 HTTP implementa la autenticación mediante la inclusión de un token válido en el encabezado de solicitud **Authorization**. Un parámetro de consulta llamado **Authorization** también puede transportar el token.
 
@@ -249,10 +320,12 @@ En el caso de la seguridad basada en notificaciones AMQP, la norma especifica c�
 
 Para SASL PLAIN, el **nombre de usuario** puede ser:
 
-* `{policyName}&commat;sas.root.{iothubName}` en el caso de los tokens de nivel de centro.
+* `{policyName}@sas.root.{iothubName}` en el caso de los tokens de nivel de centro.
 * `{deviceId}` en el caso de los tokens con ámbito de dispositivo.
 
 En ambos casos el campo de contraseña contiene el token, tal como se describe en la sección [Formato de tokens](#tokenformat).
+
+Al utilizar MQTT, el paquete CONNECT tiene deviceId como ClientId, {iothubhostname}/{deviceId} en el campo Nombre de usuario y un token SAS en el campo Contraseña. {iothubhostname} debe ser el CName completo del Centro de IoT (por ejemplo, contoso.azure-devices.net).
 
 > [AZURE.NOTE] Los [SDK del Centro de IoT de Azure][lnk-apis-sdks] generan tokens automáticamente cuando se conectan al servicio. En algunos casos, los SDK no admiten todos los protocolos o todos los métodos de autenticación.
 
@@ -265,9 +338,9 @@ Cuando se usa SASL PLAIN, un cliente que se conecta a un Centro de IoT puede usa
 
 ### Control de las credenciales de nivel de centro
 
-Puede restringir el ámbito de las directivas de seguridad de nivel de centro mediante la creación de tokens con un URI de recurso restringido. Por ejemplo, el punto de conexión para enviar mensajes de dispositivo a la nube desde un dispositivo es **/devices/{deviceId}/events**. También puede usar una directiva de acceso compartido de nivel de centro con permisos **DeviceConnect** para firmar un token cuyo resourceURI sea **/devices/{deviceId}/events**, de forma que se crea un token que solo se puede usar para enviar dispositivos en nombre del dispositivo **deviceId**.
+Puede restringir el ámbito de las directivas de seguridad de nivel de centro mediante la creación de tokens con un URI de recurso restringido. Por ejemplo, el punto de conexión para enviar mensajes de dispositivo a la nube desde un dispositivo es **/devices/{deviceId}/events**. También puede usar una directiva de acceso compartido de nivel de centro con permisos **DeviceConnect** para firmar un token cuyo resourceURI sea **/devices/{deviceId}**, de forma que se crea un token que solo se puede usar para enviar dispositivos en nombre del dispositivo **deviceId**.
 
-Se trata de un mecanismo similar a la [directiva de edición de Centros de eventos][lnk-event-hubs-publisher-policy] y permite que se implementen métodos de autenticación personalizados, tal como se explica en la sección de seguridad de [Diseño de la solución][lnk-guidance-security].
+Se trata de un mecanismo similar a la [directiva de publicador de Centros de eventos][lnk-event-hubs-publisher-policy] y permite que se implementen métodos de autenticación personalizados, tal como se explica en la sección de seguridad de [Diseño de la solución][lnk-guidance-security].
 
 ## Mensajería
 
@@ -305,17 +378,25 @@ Es el conjunto de propiedades del sistema en los mensajes del Centro de IoT.
 
 ### Elección del protocolo de comunicación <a id="amqpvshttp"></a>
 
-El Centro de IoT admite los protocolos [AMQP][lnk-amqp] y HTTP/1 para las comunicaciones del dispositivo. A continuación se muestra una lista de las consideraciones con respecto a sus usos.
+Centro de IoT admite los protocolos [AMQP][lnk-amqp], AMQP sobre WebSockets, MQTT, y HTTP/1 para las comunicaciones del dispositivo. A continuación se muestra una lista de las consideraciones con respecto a sus usos.
 
-* **Patrón de nube a dispositivo**. HTTP/1 no cuenta con una forma eficaz de implementar la inserción de servidor. Por lo tanto, cuando se usa HTTP/1, los dispositivos sondean los mensajes de nube a dispositivo en el Centro de IoT. Esto resulta muy ineficaz tanto para el dispositivo como para el Centro de IoT. Las directrices actuales, cuando se usa HTTP/1, consisten e establecer un intervalo de sondeo para cada dispositivo de menos de una vez cada 25 minutos. Por otro lado, AMQP admite la inserción de servidor al recibir mensajes de nube a dispositivo, lo que permite inserciones inmediatas de mensajes desde el Centro de IoT al dispositivo. Si le preocupa la latencia de entrega, es mucho mejor usar el protocolo AMQP. Por otro lado, para los dispositivos apenas conectados, HTTP/1 funciona también.
-* **Puertas de enlace de campo**. Dadas las limitaciones de HTTP/1 con respecto a la inserción de servidor, no resulta adecuado su uso en [escenarios de puerta de enlace de campo][lnk-azure-gateway-guidance].
-* **Dispositivos con bajos recursos**. Las bibliotecas HTTP/1 son mucho menores que las de AMQP. Como tales, si el dispositivo tiene pocos recursos (por ejemplo, menos de 1 MB de RAM), HTTP/1 puede ser la única implementación de protocolo disponible.
-* **Cruce seguro de red**. El estándar AMQP escucha en el puerto 5672. Esto podría producir problemas en las redes que están cerradas para los protocolos que no son HTTP.
-* **Tamaño de carga**. AMQP es un protocolo binario, que es mucho más compacto que HTTP/1.
+* **Patrón de nube a dispositivo**. HTTP/1 no cuenta con una forma eficaz de implementar la inserción de servidor. Por lo tanto, cuando se usa HTTP/1, los dispositivos sondean los mensajes de nube a dispositivo en el Centro de IoT. Esto resulta muy ineficaz tanto para el dispositivo como para el Centro de IoT. Las directrices actuales, cuando se utiliza HTTP/1, indican que cada dispositivo sondee cada 25 minutos o más. Por otro lado, AMQP y MQTT admiten la inserción de servidor al recibir mensajes de nube a dispositivo, lo que permite inserciones inmediatas de mensajes desde el Centro de IoT al dispositivo. Si le preocupa la latencia de entrega, es mucho mejor usar el protocolo AMQP o MQTT. Por otro lado, para los dispositivos apenas conectados, HTTP/1 funciona también.
+* **Puertas de enlace de campo**. Cuando se utiliza HTTP/1 y MQTT, no puede conectar varios dispositivos (cada uno con sus propias credenciales por dispositivo) con la misma conexión TLS. Se supone que estos protocolos no son óptimos al implementar [escenarios de puerta de enlace de campo][lnk-azure-gateway-guidance], puesto que requieren una conexión TLS entre la puerta de enlace de campo y el Centro de IoT para cada dispositivo conectado a la puerta de enlace de campo.
+* **Dispositivos con bajos recursos**. Las bibliotecas MQTT y HTTP/1 tienen una superficie menor que las bibliotecas AMQP. Por ello, si el dispositivo tiene pocos recursos (por ejemplo, menos de 1 MB de RAM), estos protocolos pueden ser la única implementación de protocolo disponible.
+* **Cruce seguro de red**. El estándar MQTT escucha en el puerto 8883. Esto podría producir problemas en las redes que están cerradas para los protocolos que no son HTTP. HTTP y AMQP (sobre WebSockets) están disponibles para usarse en este escenario.
+* **Tamaño de carga**. AMQP y MQTT son protocolos binarios, que son mucho más compactos que HTTP/1.
 
-En un nivel superior, debe usar AMQP siempre que sea posible y use solo HTTP/1 si los recursos del dispositivo o la configuración de red no admiten AMQP. Además, cuando se usa HTTP/1, la frecuencia de sondeo debe establecerse a menos de una vez cada 25 minutos para cada dispositivo. Ciertamente, durante el desarrollo, es aceptable disponer de frecuencias de sondeo más frecuentes.
+En un nivel alto, debe usar AMQP (o AMQP sobre WebSockets) siempre que sea posible y utilizar solo MQTT cuando las restricciones de recursos impidan el uso de AMQP. HTTP/1 debe usarse solo si el recorrido por la red y la configuración de red impiden el uso de MQTT y AMQP. Además, cuando se utiliza HTTP/1, cada dispositivo debe sondear para ver si hay mensajes de la nube a dispositivo cada 25 minutos o más.
 
-Como consideración final, es importante hacer referencia a la [puerta de enlace del protocolo de IoT de Azure][lnk-azure-protocol-gateway], que le permite implementar una puerta de enlace MQTT de alto rendimiento que interactúa directamente con el Centro de IoT. El protocolo MQTT admite la inserción de servidor (lo que permite la entrega inmediata de mensajes de nube a dispositivo al dispositivo) y está disponible para dispositivos con muy pocos recursos. La principal desventaja de este enfoque es el requisito de autohospedar y administrar una puerta de enlace de protocolo.
+> [AZURE.NOTE] Ciertamente, durante el desarrollo, es aceptable sondear con una frecuencia mayor de 25 minutos.
+
+#### Notas sobre la compatibilidad con MQTT
+Centro de IoT implementa el protocolo MQTT v3.1.1 con las siguientes limitaciones y comportamiento específico:
+
+  * **QoS 2 no se admite**: cuando un cliente de dispositivo publica un mensaje con **QoS 2**, Centro de IoT cierra la conexión de red. Cuando un cliente de dispositivo se suscribe a un tema con **QoS 2**, Centro de IoT concede el máximo QoS de nivel 1 en el paquete **SUBACK**.
+  * **Conservar**: si un cliente de dispositivo publica un mensaje con el indicador RETAIN establecido en 1, el Centro de IoT agrega la propiedad de aplicación **x-opt-retain** al mensaje. Esto significa que el Centro de IoT no conserva el mensaje, sino que lo pasa a la aplicación de back-end.
+
+Como consideración final, debe revisar la [Puerta de enlace del protocolos de IoT de Azure][lnk-azure-protocol-gateway], que le permite implementar una puerta de enlace de protocolo personalizado de alto rendimiento que interactúa directamente con el Centro de IoT. La puerta de enlace de protocolos de IoT de Azure le permite personalizar el protocolo del dispositivo para dar cabida a las implementaciones de MQTT de Brownfield u otros protocolos personalizados. La desventaja de este planteamiento es el requisito de autohospedar y operar una puerta de enlace de protocolo personalizado.
 
 ### Dispositivo a nube <a id="d2c"></a>
 
@@ -334,7 +415,7 @@ Sin embargo, hay algunas diferencias importantes entre los mensajes de dispositi
 
 * Como se explica en la sección [Seguridad](#security), el Centro de IoT permite la autenticación por dispositivo y el control de acceso.
 * El Centro de IoT permite millones de dispositivos conectados simultáneamente (consulte [Cuotas y limitación](#throttling)), mientras que los centros de eventos se limitan a 5000 conexiones AMQP por espacio de nombres.
-* Centro de IoT no admite la partición arbitraria con un dispositivo **PartitionKey**. Los mensajes de dispositivo a la nube se dividen en función de su **deviceId** de origen.
+* Centro de IoT no admite la partición arbitraria con un valor **PartitionKey**. Los mensajes de dispositivo a la nube se dividen en función de su **deviceId** de origen.
 * El escalado de un Centro de IoT es ligeramente diferente en el caso de los centros de eventos. Para obtener más información, consulte [Escalado de un Centro de IoT][lnk-guidance-scale].
 
 Tenga en cuenta que esto no significa que puede sustituir Centro de IoT en Centros de eventos en todas las situaciones. Por ejemplo, en algunos cálculos de procesamiento de eventos, podría ser necesario volver a crear particiones de eventos con respecto a un campo o propiedad diferentes antes de analizar los flujos de datos. En esta situación, puede usar un Centro de eventos para desacoplar las dos partes de la canalización de procesamiento de la transmisión.
@@ -345,9 +426,9 @@ Para obtener información detallada sobre cómo usar la mensajería de dispositi
 
 #### Tráfico sin telemetría
 
-En muchos casos, además de los puntos de datos de telemetría, los dispositivos también envían mensajes y solicitudes *interactivos* que requieren la ejecución y el control de la capa de lógica de negocio de la aplicación. Por ejemplo, alertas críticas que deben desencadenar una acción específica en el back-end o respuestas de dispositivo a los comandos enviados desde el back-end.
+En muchos casos, además de los puntos de datos de telemetría, los dispositivos también envían mensajes y solicitudes que requieren la ejecución y el control de la capa de lógica de negocio de la aplicación. Por ejemplo, alertas críticas que deben desencadenar una acción específica en el back-end o respuestas de dispositivo a los comandos enviados desde el back-end.
 
-Consulte [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-guidance-d2c-processing] para más información sobre la mejor manera de procesar este tipo de mensajes.
+Consulte [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-guidance-d2c-processing] para obtener más información sobre la mejor manera de procesar este tipo de mensajes.
 
 #### Opciones de configuración de dispositivo a nube <a id="d2cconfiguration"></a>
 
@@ -400,13 +481,13 @@ En el diagrama siguiente se detalla el gráfico de estado del ciclo de vida de u
 
 Cuando el servicio envía un mensaje, se considera que está *en cola*. Cuando un dispositivo desea *recibir* un mensaje, Centro de IoT *bloquea* el mensaje (establece el estado en **Invisible**), con el fin de permitir a otros subprocesos del mismo dispositivo empezar a recibir otros mensajes. Cuando el subproceso de un dispositivo haya finalizado el procesamiento, lo notifica a Centro de IoT *finalizando* el mensaje.
 
-Un dispositivo también puede:- *Rechazar* el mensaje, que provoca que el Centro de IoT lo establezca en el estado **Deadlettered**. - *Abandonar* el mensaje, que causa que el Centro de IoT vuelva a colocar el mensaje en la cola con el estado establecido en **Enqueued**.
+Un dispositivo también puede:- *Rechazar* el mensaje, que provoca que el Centro de IoT lo establezca en el estado **Procesado como devuelto**. - *Abandonar* el mensaje, que causa que el Centro de IoT vuelva a colocar el mensaje en la cola con el estado establecido en **En cola**.
 
-Podría producirse un error en el subproceso al procesar un mensaje sin notificar a Centro de IoT. En este caso, los mensajes pasan automáticamente del estado **Invisible** al estado **Enqueued** después de un *tiempo de espera de visibilidad (o bloqueo)* con un valor predeterminado de un minuto. Un mensaje puede pasar entre los estados **Enqueued** e **Invisible** durante un número de veces especificado en la propiedad *max delivery count* en el Centro de IoT. Después de ese número de transiciones, el Centro de IoT establece el estado del mensaje en **Deadlettered**. De igual forma, el Centro de IoT establece el estado de un mensaje en **Deadlettered** después de su fecha de expiración (consulte [Período de vida](#ttl)).
+Podría producirse un error en el subproceso al procesar un mensaje sin notificar a Centro de IoT. En este caso, los mensajes pasan automáticamente del estado **Invisible** al estado **En cola** después de un *tiempo de espera de visibilidad (o bloqueo)* con un valor predeterminado de un minuto. Un mensaje puede pasar entre los estados **En cola** e **Invisible** durante un número especificado de veces en la propiedad *max delivery count* en un Centro de IoT. Después de ese número de transiciones, Centro de IoT establece el estado del mensaje **Procesado como correo devuelto**. De igual forma, Centro de IoT establece el estado de un mensaje en **Procesado como correo devuelto** después de su fecha de expiración (consulte [Período de vida](#ttl)).
 
 Para ver un tutorial sobre los mensajes de nube a dispositivo, consulte [Introducción a los mensajes de nube a dispositivo del Centro de IoT de Azure][lnk-getstarted-c2d-tutorial]. Para consultar temas de referencia sobre cómo las diferentes API y SDK exponen la funcionalidad de dispositivo de nube, vea [API y SDK del Centro de IoT][lnk-apis-sdks].
 
-> [AZURE.NOTE] Normalmente los mensajes de nube a dispositivo se completan siempre que la pérdida del mensaje no afecte a la lógica de aplicación. Esto podría suceder en varios escenarios diferentes. Por ejemplo, el contenido del mensaje se conservó correctamente en el almacenamiento local, o bien una operación se ejecutó correctamente o el mensaje transporta información temporal cuya pérdida no afecta a la funcionalidad de la aplicación. A veces, en el caso de tareas de larga ejecución, puede completar el mensaje de nube a dispositivo después de que persistió la descripción de la tarea en el almacenamiento local y, luego, notificar el back-end de aplicaciones con uno o varios mensajes de dispositivo a la nube en diferentes fases del progreso de la tarea.
+> [AZURE.NOTE] Normalmente los mensajes de nube a dispositivo se completan siempre que la pérdida del mensaje no afecte a la lógica de aplicación. Esto podría suceder en varios escenarios diferentes. Por ejemplo, el contenido del mensaje se conservó correctamente en el almacenamiento local, o bien una operación se ejecutó correctamente o el mensaje transporta información temporal cuya pérdida no afecta a la funcionalidad de la aplicación. A veces, en el caso de tareas de ejecución prolongada, puede completar el mensaje de nube a dispositivo después de que persistió la descripción de la tarea en el almacenamiento local y, luego, notificar al back-end de aplicaciones con uno o varios mensajes de dispositivo a la nube en diferentes fases de progreso de la tarea.
 
 #### Período de vida <a id="ttl"></a>
 
@@ -416,8 +497,8 @@ Cada mensaje de nube a dispositivo tiene una fecha de expiración. La puede esta
 
 Cuando envía un mensaje de nube a dispositivo, el servicio puede solicitar la entrega de los comentarios de cada mensaje en relación con el estado final de ese mensaje.
 
-- Si establece la propiedad **Ack** en **positive**, Centro de IoT genera un mensaje de comentarios únicamente si el mensaje de nube a dispositivo alcanza el estado **Completed**.
-- Si establece la propiedad **Ack** en **negative**, Centro de IoT genera un mensaje de comentarios únicamente si el mensaje de nube a dispositivo alcanza el estado **Deadletterd**.
+- Si establece la propiedad **Ack** en **positive**, Centro de IoT genera un mensaje de comentarios únicamente si el mensaje de nube a dispositivo alcanza el estado **Completado**.
+- Si establece la propiedad **Ack** en **negative**, Centro de IoT genera un mensaje de comentarios únicamente si el mensaje de nube a dispositivo alcanza el estado **Procesado como correo devuelto**.
 - Al establecer la propiedad **Ack** en **full**, Centro de IoT genera un mensaje de comentarios en cualquier caso.
 
 Como se explica en [Puntos de conexión](#endpoints), Centro de IoT ofrece comentarios a través de un punto de conexión orientado a servicios (**/messages/servicebound/feedback**) como mensajes. La semántica de recepción de los comentarios es la misma que para los mensajes de nube a dispositivo que tienen el mismo [ciclo de vida del mensaje](#message lifecycle). Siempre que sea posible, los comentarios del mensaje se realizan por lotes en un único mensaje, con el formato siguiente.
@@ -475,13 +556,9 @@ Cada Centro de IoT muestra las siguientes opciones de configuración para la men
 
 Cada suscripción de Azure puede tener como máximo 10 Centros de IoT.
 
-Cada Centro de IoT se aprovisionó con un determinado número de unidades en una unidad de almacenamiento específico (para obtener más información, consulte [Centro de IoT Precios][lnk-pricing]). La unidad de almacenamiento y el número de unidades determinan la cuota máxima de diaria de mensajes que se pueden enviar, así como el número máximo de identidades del dispositivo en el registro de identidad. El número identidades en el registro limita el número de dispositivos conectados de forma simultánea.
+Cada Centro de IoT se aprovisionó con un determinado número de unidades en una unidad de almacenamiento específico (para obtener más información, consulte [Centro de IoT Precios][lnk-pricing]). El valor de SKU y el número de unidades determinan la cuota diaria máxima de mensajes que puede enviar.
 
-La SKU también determina los valores de limitación que aplica Centro de IoT a las operaciones.
-
-### Cuota de registro de identidad del dispositivo
-
-El Centro de IoT permite a lo sumo 1100 actualizaciones del dispositivo (crear, actualizar y eliminar) por unidad (con independencia de la unidad de almacenamiento) por día.
+El valor de SKU también determina los valores de limitación que aplica el Centro de IoT a las operaciones.
 
 ### Limitaciones de operación
 
@@ -491,12 +568,15 @@ A continuación se muestra la lista de las limitaciones aplicadas. Los valores h
 
 | Limitación | Valor por centro |
 | -------- | ------------- |
-| Las operaciones de registro de identidades (crear, recuperar, enumerar, actualizar y eliminar), importación y exportación masiva o individual | 100/min/unidad, hasta 5.000/min |
-| Conexiones de dispositivos | 100/s/unidad |
+| Operaciones de registro de identidad (crear, recuperar, enumerar, actualizar y eliminar) | 100/min/unidad, hasta 5.000/min |
+| Conexiones de dispositivos | 120/seg/unidad (para S2), 12/seg/unidad (para S1). Mínimo de 100/s. |
 | Envíos de dispositivo a nube | 120/seg/unidad (para S2), 12/seg/unidad (para S1). Mínimo de 100/s. |
-| Operaciones de nube a dispositivo (envíos, recepciones, comentarios) | 100/min/unidad |
+| Envíos de nube a dispositivo | 100/min/unidad |
+| Recepciones de nube a dispositivo | 1000/min/unidad |
 
 **Nota**. En cualquier momento, es posible aumentar las cuotas o las limitaciones si aumenta el número de unidades aprovisionadas en un Centro de IoT.
+
+**Importante**: Las operaciones de registro de identidad están diseñadas para el uso en tiempo de ejecución en escenarios de aprovisionamiento y administración de dispositivos. La lectura o actualización de un gran número de identidades de dispositivos se admite a través de [trabajos de importación y exportación](#importexport).
 
 ## Pasos siguientes
 
@@ -524,6 +604,7 @@ Ahora que vio información general sobre el desarrollo del Centro de IoT, siga e
 [lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
 [lnk-guidance-scale]: iot-hub-scaling.md
 [lnk-guidance-security]: iot-hub-guidance.md#customauth
+[lnk-guidance-heartbeat]: iot-hub-guidance.md#heartbeat
 
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
@@ -531,6 +612,8 @@ Ahora que vio información general sobre el desarrollo del Centro de IoT, siga e
 [lnk-getstarted-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 
 [lnk-amqp]: https://www.amqp.org/
+[lnk-mqtt]: http://mqtt.org/
+[lnk-websockets]: https://tools.ietf.org/html/rfc6455
 [lnk-arm]: ../resource-group-overview.md
 [lnk-azure-resource-manager]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 [lnk-cbs]: https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc
@@ -545,5 +628,6 @@ Ahora que vio información general sobre el desarrollo del Centro de IoT, siga e
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
+[lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

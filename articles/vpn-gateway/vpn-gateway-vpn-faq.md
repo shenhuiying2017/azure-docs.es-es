@@ -242,7 +242,7 @@ Para el tráfico entre distintas redes virtuales de Azure, se cobra solo por el 
 
 ### ¿Puedo conectar una red virtual con VPN sobre IPsec a mi circuito de ExpressRoute?
 
-Sí, este procedimiento se admite. Para más información, consulte [Configurar conexiones VPN ExpressRoute y sitio a sitio que coexistan](../expressroute/expressroute-coexist.md).
+Sí, este procedimiento se admite. Para más información, consulte [Configurar conexiones VPN ExpressRoute y sitio a sitio que coexistan](../expressroute/expressroute-howto-coexist-classic.md).
 
 ## Conectividad entre entornos y máquinas virtuales
 
@@ -267,4 +267,4 @@ Puede ver más información sobre las puertas de enlace de VPN en la [Página de
 
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

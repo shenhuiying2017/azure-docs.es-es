@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="dastrock"/>
 
 # Vista previa de Azure AD B2C: Flujo de código de autorización de OAuth 2.0
@@ -26,7 +26,7 @@ La concesión de un código de autorización de OAuth 2.0 se puede usar en aplic
 
 El flujo de código de autorización de OAuth 2.0 se describe en la [sección 4.1 de la especificación OAuth 2.0](http://tools.ietf.org/html/rfc6749). Se puede usar para realizar la autenticación y la autorización en la mayoría de los tipos de aplicación, incluidas las [aplicaciones web](active-directory-b2c-apps.md#web-apps) y las [aplicaciones instaladas de forma nativa](active-directory-b2c-apps.md#mobile-and-native-apps). Permite que las aplicaciones adquieran de forma segura **access\_tokens** que se puedan usar para acceder a los recursos protegidos mediante un [servidor de autorización](active-directory-b2c-reference-protocols.md#the-basics). Esta guía se centra en un tipo determinado de flujo de código de autorización de OAuth 2.0: los **clientes públicos**. Un cliente público es cualquier aplicación cliente que no es de confianza para mantener la integridad de una contraseña secreta de forma segura. Esto incluye aplicaciones móviles, aplicaciones de escritorio y prácticamente cualquier aplicación que se ejecute en un dispositivo y necesite obtener access\_tokens. Si desea agregar la administración de identidades a una aplicación web mediante Azure AD B2C, debe usar [OpenID Connect](active-directory-b2c-reference-oidc.md) en lugar de OAuth 2.0.
 
-Azure AD B2C extiende los flujos de OAuth 2.0 estándar para realizar algo más que una autorización y autenticación simples. Presenta el [**parámetro de directiva**](active-directory-b2c-reference-poliices.md), que le permite usar OAuth 2.0 para agregar experiencias de usuario a su aplicación como registro, inicio de sesión y administración de perfiles. Aquí le mostraremos cómo usar OAuth 2.0 y las directivas para implementar cada una de estas experiencias en sus aplicaciones nativas y obtener access\_tokens para tener acceso a las API web.
+Azure AD B2C extiende los flujos de OAuth 2.0 estándar para realizar algo más que una autorización y autenticación simples. Presenta el [**parámetro de directiva**](active-directory-b2c-reference-policies.md), que le permite usar OAuth 2.0 para agregar experiencias de usuario a su aplicación como registro, inicio de sesión y administración de perfiles. Aquí le mostraremos cómo usar OAuth 2.0 y las directivas para implementar cada una de estas experiencias en sus aplicaciones nativas y obtener access\_tokens para tener acceso a las API web.
 
 Las siguientes solicitudes HTTP de ejemplo usarán nuestro directorio de ejemplo de B2C, **fabrikamb2c.onmicrosoft.com**, así como nuestras directivas y la aplicación de ejemplo. Puede probar las solicitudes por usted mismo con estos valores, o bien puede reemplazarlos por los suyos propios. Obtenga más información acerca de cómo [obtener su propio directorio de B2C, aplicación y directivas](#use-your-own-b2c-directory).
 
@@ -74,7 +74,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parámetro | | Descripción |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client\_id | requerido | El identificador de aplicación que el [Portal de Azure](https://portal.azure.com/) asignó a la aplicación. |
+| client\_id | requerido | El identificador de aplicación que el [Portal de Azure](https://portal.azure.com) asignó a la aplicación. |
 | response\_type | requerido | Debe incluir `code` para el flujo de código de autorización. |
 | redirect\_uri | requerido | El redirect\_uri de su aplicación, a donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los redirect\_uris que registró en el portal, con la excepción de que debe estar codificado como URL. |
 | ámbito | requerido | Una lista de ámbitos separada por espacios. Un valor de ámbito único indica a Azure AD los dos permisos que se solicitan. El ámbito `openid` indica un permiso para iniciar sesión para el usuario y obtener datos sobre el usuario en forma de **id\_tokens** (más información sobre esto más adelante). El ámbito `offline_access` indica que la aplicación necesitará un **refresh\_token** para un acceso de larga duración a los recursos. |
@@ -134,7 +134,7 @@ Content-Type: application/json
 | Parámetro | | Descripción |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | requerido | La directiva usada para adquirir el código de autorización. No se puede usar una directiva diferente en esta solicitud. **Tenga en cuenta que este parámetro se agrega a la cadena de consulta** pero no al cuerpo de POST. |
-| client\_id | requerido | El identificador de aplicación que el [Portal de Azure](https://portal.azure.com/) asignó a la aplicación. |
+| client\_id | requerido | El identificador de aplicación que el [Portal de Azure](https://portal.azure.com) asignó a la aplicación. |
 | grant\_type | requerido | Debe ser `authorization_code` para el flujo de código de autorización. |
 | ámbito | requerido | Una lista de ámbitos separada por espacios. Un valor de ámbito único indica a Azure AD los dos permisos que se solicitan. El ámbito `openid` indica un permiso para iniciar sesión para el usuario y obtener datos sobre el usuario en forma de **id\_tokens**. Se puede usar para obtener tokens para la propia API web back-end de la aplicación, representada por el mismo Id. de aplicación que el cliente. El ámbito `offline_access` indica que la aplicación necesitará un **refresh\_token** para un acceso de larga duración a los recursos. |
 | código | requerido | El authorization\_code que adquirió en el primer segmento del flujo. |
@@ -211,7 +211,7 @@ Content-Type: application/json
 | Parámetro | | Descripción |
 | ----------------------- | ------------------------------- | -------- |
 | p | requerido | La directiva usada para adquirir el código de actualización original. No se puede usar una directiva diferente en esta solicitud. **Tenga en cuenta que este parámetro se agrega a la cadena de consulta** pero no al cuerpo de POST. |
-| client\_id | requerido | El identificador de aplicación que el [Portal de Azure](https://portal.azure.com/) asignó a la aplicación. |
+| client\_id | requerido | El identificador de aplicación que el [Portal de Azure](https://portal.azure.com) asignó a la aplicación. |
 | grant\_type | requerido | Debe ser `refresh_token` para este segmento del flujo de código de autorización. |
 | ámbito | requerido | Una lista de ámbitos separada por espacios. Un valor de ámbito único indica a Azure AD los dos permisos que se solicitan. El ámbito `openid` indica un permiso para iniciar sesión para el usuario y obtener datos sobre el usuario en forma de **id\_tokens**. Se puede usar para obtener tokens para la propia API web back-end de la aplicación, representada por el mismo Id. de aplicación que el cliente. El ámbito `offline_access` indica que la aplicación necesitará un **refresh\_token** para un acceso de larga duración a los recursos. |
 | redirect\_uri | requerido | El redirect\_uri de la aplicación en la que recibió el authorization\_code. |
@@ -257,11 +257,11 @@ Las respuestas de error tendrán un aspecto similar al siguiente:
 | error\_description | Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |
 
 
-<!--
+<!-- 
 
 Here is the entire flow for a native  app; each request is detailed in the sections below:
 
-![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png)
+![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png) 
 
 -->
 
@@ -273,4 +273,4 @@ Si desea probar estas solicitudes por sí mismo, primero debe realizar estos tre
 - [Crear una aplicación](active-directory-b2c-app-registration.md) para obtener un Id. de aplicación y un redirect\_uri. Es posible que desee incluir un **cliente nativo** en la aplicación.
 - [Crear directivas](active-directory-b2c-reference-policies.md) para obtener los nombres de las directivas.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

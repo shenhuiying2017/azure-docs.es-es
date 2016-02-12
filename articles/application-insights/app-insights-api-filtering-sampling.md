@@ -80,7 +80,7 @@ Esta técnica le ofrece un control más directo sobre lo que se incluirá en la 
 
 Para filtrar la telemetría, escriba un procesador de telemetría y regístrelo con el SDK. Toda la telemetría pasa por el procesador. Puede optar por no incluirlo en la transmisión o por agregar propiedades. Esto incluye la telemetría de los módulos estándar como el recopilador de solicitudes HTTP y el recopilador de dependencia, así como la telemetría que haya escrito. Por ejemplo, puede filtrar para dejar fuera la telemetría acerca de las solicitudes de robots o las llamadas de dependencia correctas.
 
-> [AZURE.WARNING]El filtrado de la telemetría enviada desde el SDK usando procesadores puede sesgar las estadísticas que se ven en el portal, y dificultar el seguimiento de elementos relacionados.
+> [AZURE.WARNING] El filtrado de la telemetría enviada desde el SDK usando procesadores puede sesgar las estadísticas que se ven en el portal, y dificultar el seguimiento de elementos relacionados.
 > 
 > En su lugar, puede efectuar un [muestreo](#sampling).
 
@@ -154,7 +154,7 @@ Para filtrar la telemetría, escriba un procesador de telemetría y regístrelo 
 
 Puede pasar valores de cadena desde el archivo .config proporcionando propiedades con nombre públicas en la clase.
 
-> [AZURE.WARNING]Tenga cuidado para que el nombre de tipo y los nombres de propiedad del archivo .config coincidan con los nombres de clase y propiedad del código. Si el archivo .config hace referencia a un tipo o propiedad que no existe, el SDK puede producir un error de forma silenciosa al enviar cualquier telemetría.
+> [AZURE.WARNING] Tenga cuidado para que el nombre de tipo y los nombres de propiedad del archivo .config coincidan con los nombres de clase y propiedad del código. Si el archivo .config hace referencia a un tipo o propiedad que no existe, el SDK puede producir un error de forma silenciosa al enviar cualquier telemetría.
 
  
 **Alternativamente,** se puede inicializar el filtro en el código. En una clase de inicialización adecuada (por ejemplo AppStart de Global.asax.cs) inserte el procesador en la cadena:
@@ -217,7 +217,7 @@ public void Process(ITelemetry item)
 
 Si solo desea diagnosticar las llamadas que son lentas, descarte las rápidas.
 
-> [AZURE.NOTE]Esto sesgará las estadísticas que se ve en el portal. El gráfico de dependencias será como si las llamadas de dependencia fuesen todos errores.
+> [AZURE.NOTE] Esto sesgará las estadísticas que se ve en el portal. El gráfico de dependencias será como si las llamadas de dependencia fuesen todos errores.
 
 ``` C#
 
@@ -358,7 +358,7 @@ Inserte un inicializador de telemetría inmediatamente después del código de i
     </script>
 ```
 
-Para obtener un resumen de las propiedades no personalizadas disponibles en telemetryItem, consulte el [modelo de datos](app-insights-export-data-model.md/#lttelemetrytypegt).
+Para obtener un resumen de las propiedades no personalizadas disponibles en telemetryItem, consulte el [modelo de datos](app-insights-export-data-model.md#lttelemetrytypegt).
 
 Puede agregar tantos inicializadores como desee.
 
@@ -404,4 +404,4 @@ Puede agregar tantos inicializadores como desee.
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

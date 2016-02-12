@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 #Giro de las credenciales de inicio de sesión para entradas y salidas de los trabajos de Análisis de transmisiones
@@ -58,7 +58,7 @@ Para otras entradas/salidas, vaya a la Parte 2.
 
 ###Base de datos SQL
 
->[AZURE.NOTE]Nota: deberá conectarse al servicio de base de datos SQL. Vamos a mostrar cómo hacerlo con la experiencia de administración en el Portal de administración de Azure, pero también puede utilizar alguna herramienta de cliente como SQL Server Management Studio.
+>[AZURE.NOTE] Nota: deberá conectarse al servicio de base de datos SQL. Vamos a mostrar cómo hacerlo con la experiencia de administración en el Portal de administración de Azure, pero también puede utilizar alguna herramienta de cliente como SQL Server Management Studio.
 
 1.  Vaya a la extensión de bases de datos SQL en el Portal de administración de Azure: ![graphic14][graphic14]
 2.  Busque la base de datos SQL utilizada por su trabajo y **haga clic en el vínculo del servidor** en la misma línea: ![graphic15][graphic15]
@@ -194,4 +194,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

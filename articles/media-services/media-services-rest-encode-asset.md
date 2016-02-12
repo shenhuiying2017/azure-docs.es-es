@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Codificación de un recurso mediante el Codificador multimedia de Azure" 
-	description="Aprenda a usar el codificador multimedia de Azure para codificar contenido multimedia en Servicios multimedia. Los ejemplos de código usan la API de REST." 
+	pageTitle="Codificación de un recurso mediante Codificador multimedia estándar" 
+	description="Aprenda a usar el Estándar de codificador multimedia para codificar contenido multimedia en Servicios multimedia. Los ejemplos de código usan la API de REST." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="01/28/2016" 
 	ms.author="juliako"/>
 
 
-#Codificación de un recurso mediante el Codificador multimedia de Azure
+#Codificación de un recurso mediante Codificador multimedia estándar
 
 
 > [AZURE.SELECTOR]
@@ -28,7 +28,7 @@
 ##Información general
 Para entregar vídeo digital a través de Internet, debe comprimir los archivos multimedia. Los archivos de vídeo digital son bastante grandes y pueden ser demasiado pesados para entregarlos a través de Internet o para que los dispositivos de sus clientes los muestren correctamente. La codificación es el proceso de compresión de vídeo y audio para que los clientes puedan ver el contenido multimedia.
 
-Los trabajos de codificación son una de las operaciones de procesamiento más habituales en los Servicios multimedia. Los trabajos de codificación se crean para convertir archivos multimedia de una codificación a otra. Al codificar, puede usar el Codificador multimedia integrado de Servicios multimedia. También puede usar un codificador proporcionado por un socio de Servicios multimedia; los codificadores de terceros están disponibles a través de Azure Marketplace. Puede especificar los detalles de las tareas de codificación mediante cadenas preestablecidas definidas para el codificador o mediante archivos de configuración preestablecidos. Para ver los tipos de valores preestablecidos disponibles, consulte [Valores preestablecidos de tarea para los Servicios multimedia de Azure](https://msdn.microsoft.com/library/azure/dn619392.aspx). Si usó un codificador de terceros, debe [validar los archivos](https://msdn.microsoft.com/library/azure/dn750842.aspx).
+Los trabajos de codificación son una de las operaciones de procesamiento más habituales en los Servicios multimedia. Los trabajos de codificación se crean para convertir archivos multimedia de una codificación a otra. Al codificar, puede usar el Codificador multimedia integrado de Servicios multimedia. También puede usar un codificador proporcionado por un socio de Servicios multimedia; los codificadores de terceros están disponibles a través de Azure Marketplace. Puede especificar los detalles de las tareas de codificación mediante cadenas preestablecidas definidas para el codificador o mediante archivos de configuración preestablecidos. Para consultar los tipos de valores preestablecidos disponibles, vea [Task Presets for Media Services Standard](https://msdn.microsoft.com/es-ES/library/mt269960) (Valores preestablecidos de tareas para la edición Estándar de Servicios multimedia). Si usó un codificador de terceros, debe [validar los archivos](https://msdn.microsoft.com/library/azure/dn750842.aspx).
 
 
 Cada trabajo puede tener una o más tareas según el tipo de procesamiento que desee llevar a cabo. A través de la API de REST, puede crear trabajos y sus tareas relacionadas en una de las dos maneras siguientes:
@@ -37,7 +37,7 @@ Cada trabajo puede tener una o más tareas según el tipo de procesamiento que d
 - mediante el procesamiento por lotes de OData.
   
 
-Se recomienda codificar siempre los archivos intermedios en un conjunto de archivos MP4 de velocidad de bits adaptable y, a continuación, convertirlo al formato deseado con el [empaquetado dinámico](https://msdn.microsoft.com/library/azure/jj889436.aspx). Para aprovechar al máximo el empaquetado dinámico, primero debe obtener al menos una unidad de streaming a petición para el extremo de streaming desde el que va a entregar el contenido. Para obtener más información, consulte [Escalación de Servicios multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
+Se recomienda codificar siempre los archivos intermedios en un conjunto de archivos MP4 de velocidad de bits adaptable y, a continuación, convertirlo al formato deseado con el [empaquetado dinámico](media-services-dynamic-packaging-overview.md). Para aprovechar al máximo el empaquetado dinámico, primero debe obtener al menos una unidad de streaming a petición para el extremo de streaming desde el que va a entregar el contenido. Para obtener más información, consulte [Escalación de Servicios multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
 
 Si el recurso de salida tiene el almacenamiento cifrado, asegúrese de configurar la directiva de entrega de recursos. Para más información, consulte [Configuración de la directiva de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
 
@@ -46,14 +46,14 @@ Si el recurso de salida tiene el almacenamiento cifrado, asegúrese de configura
 
 ##Creación de un trabajo con una sola tarea de codificación 
 
->[AZURE.NOTE]Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
+>[AZURE.NOTE] Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
 >
 >Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
 
 >Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 especificando otro URI de Servicios multimedia. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect_programmatically.md).
 
 
-En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conjunto de tareas para codificar un vídeo con una resolución y calidad específicas. Al codificar con el Codificador multimedia de Azure, puede usar los valores preestablecidos de configuración de tarea especificados [aquí](https://msdn.microsoft.com/library/azure/dn619389.aspx).
+En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conjunto de tareas para codificar un vídeo con una resolución y calidad específicas. Al codificar con el Estándar de codificador multimedia, puede usar los valores preestablecidos de configuración de tarea especificados [aquí](https://msdn.microsoft.com/es-ES/library/mt269960).
 	
 Solicitud:
 
@@ -68,7 +68,7 @@ Solicitud:
 	Host: media.windows.net
 
 	
-	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Broadband 720p", "MediaProcessorId" : "nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",  "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
+	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Multiple Bitrate 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",  "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
 
 Respuesta:
 	
@@ -99,7 +99,7 @@ En el ejemplo siguiente se muestra cómo establecer el atributo assetName:
 
 En muchos escenarios de aplicaciones, los desarrolladores desean crear una serie de tareas de procesamiento. En Servicios multimedia, puede crear una serie de tareas encadenadas. Cada tarea realiza distintos pasos de procesamiento diferentes y puede usar diferentes procesadores multimedia. Las tareas encadenadas pueden entregar un recurso de una tarea a otra, realizando una secuencia lineal de tareas en el recurso. Sin embargo, no es necesario que las tareas realizadas en un trabajo estén en una secuencia. Al crear una tarea encadenada, los objetos **ITask** encadenados se crean en un solo objeto **IJob**.
 
->[AZURE.NOTE]Actualmente hay un límite de 30 tareas por trabajo. Si necesita encadenar más de 30 tareas, cree más de un trabajo para incluir las tareas.
+>[AZURE.NOTE] Actualmente hay un límite de 30 tareas por trabajo. Si necesita encadenar más de 30 tareas, cree más de un trabajo para incluir las tareas.
 
 
 	POST https://media.windows.net/api/Jobs HTTP/1.1
@@ -123,12 +123,12 @@ En muchos escenarios de aplicaciones, los desarrolladores desean crear una serie
 	   "Tasks":[  
 	      {  
 	         "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
-	         "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
+	         "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
 	         "TaskBody":"<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
 	      },
 	      {  
 	         "Configuration":"H264 Smooth Streaming 720p",
-	         "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
+	         "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
 	         "TaskBody":"<?xml version="1.0" encoding="utf-16"?><taskBody><inputAsset>JobOutputAsset(0)</inputAsset><outputAsset>JobOutputAsset(1)</outputAsset></taskBody>"
 	      }
 	   ]
@@ -195,7 +195,7 @@ En el ejemplo siguiente se muestra cómo usar el procesamiento por lotes de ODat
 	
 	{  
 	   "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
-	   "MediaProcessorId":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609",
+	   "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
 	   "TaskBody":"<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="Custom output name">JobOutputAsset(0)</outputAsset></taskBody>"
 	}
 
@@ -209,7 +209,7 @@ En el ejemplo siguiente se muestra cómo usar el procesamiento por lotes de ODat
 
 Cuando se procesan varios recursos usando un conjunto común de tareas, las plantillas de trabajo son útiles para especificar los valores preestablecidos de las tareas predeterminadas, el orden de las tareas y así sucesivamente.
 
-En el ejemplo siguiente se muestra cómo crear una plantilla de trabajo con una plantilla de tarea definida en línea. La plantilla de tarea usa Azure Media Encoder como procesador multimedia para codificar el archivo de recursos; sin embargo, también se pueden usar otros procesadores multimedia.
+En el ejemplo siguiente se muestra cómo crear una plantilla de trabajo con una plantilla de tarea definida en línea. La plantilla de tarea usa Estándar de codificador multimedia como procesador multimedia para codificar el archivo de recursos; sin embargo, también se pueden usar otros procesadores multimedia.
 
 
 	POST https://media.windows.net/API/JobTemplates HTTP/1.1
@@ -222,7 +222,7 @@ En el ejemplo siguiente se muestra cómo crear una plantilla de trabajo con una 
 	Host: media.windows.net
 
 	
-	{"Name" : "NewJobTemplate25", "JobTemplateBody" : "<?xml version="1.0" encoding="utf-8"?><jobTemplate><taskBody taskTemplateId="nb:ttid:UUID:071370A3-E63E-4E81-A099-AD66BCAC3789"><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody></jobTemplate>", "TaskTemplates" : [{"Id" : "nb:ttid:UUID:071370A3-E63E-4E81-A099-AD66BCAC3789", "Configuration" : "H264 Smooth Streaming 720p", "MediaProcessorId" : "nb:mpid:UUID:2e7aa8f3-4961-4e0c-b4db-0e0439e524f5", "Name" : "SampleTaskTemplate2", "NumberofInputAssets" : 1, "NumberofOutputAssets" : 1}] }
+	{"Name" : "NewJobTemplate25", "JobTemplateBody" : "<?xml version="1.0" encoding="utf-8"?><jobTemplate><taskBody taskTemplateId="nb:ttid:UUID:071370A3-E63E-4E81-A099-AD66BCAC3789"><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody></jobTemplate>", "TaskTemplates" : [{"Id" : "nb:ttid:UUID:071370A3-E63E-4E81-A099-AD66BCAC3789", "Configuration" : "H264 Smooth Streaming 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56", "Name" : "SampleTaskTemplate2", "NumberofInputAssets" : 1, "NumberofOutputAssets" : 1}] }
  
 
 >[AZURE.NOTE]A diferencia de otras entidades de Servicios multimedia, debe definir un nuevo identificador GUID para cada plantilla de tarea y colocarlo en el identificador de la plantilla de tarea y en la propiedad Id en el cuerpo de la solicitud. El esquema de identificación de contenido debe seguir el esquema descrito en Identificación de entidades de Servicios multimedia de Azure. Además, las plantillas de trabajo no se pueden actualizar. Por el contrario, debe crear una nueva con los cambios actualizados.
@@ -275,4 +275,4 @@ Ahora que sabe cómo crear un trabajo para codificar un recurso, vaya al tema [C
 
 [Obtención de una instancia de procesador multimedia](media-services-rest-get-media-processor.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

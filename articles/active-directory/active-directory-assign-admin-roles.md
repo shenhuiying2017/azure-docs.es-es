@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 # Asignación de roles de administrador en Azure Active Directory (Azure AD)
@@ -28,9 +28,8 @@ Los roles de administrador disponibles son los siguientes:
 - **Administrador global**: tiene acceso a todas las características administrativas. La persona que se suscribe a la cuenta de Azure se convierte en un administrador global. Los administradores globales son los únicos que pueden asignar otros roles de administrador. Puede haber más de un administrador global en su empresa.
 - **Administrador de contraseñas**: restablece las contraseñas, administra las solicitudes de servicio y supervisa el estado del servicio. Los administradores de contraseñas pueden restablecer contraseñas solo para los usuarios y otros administradores de contraseñas.
 - **Administrador de servicios**: administra las solicitudes de servicio y supervisa el estado del servicio.
-
-    > [AZURE.NOTE]
-    > Para asignar el rol de administrador de servicios a un usuario, el administrador global debe asignar primero permisos administrativos al usuario en el servicio, como Exchange Online, y después asignar el rol de administrador de servicios al usuario en el portal de Azure clásico.
+> [AZURE.NOTE]
+Para asignar el rol de administrador de servicios a un usuario, el administrador global debe asignar primero permisos administrativos al usuario en el servicio, como Exchange Online, y después asignar el rol de administrador de servicios al usuario en el portal de Azure clásico.
 
 - **Administrador de usuarios**: restablece las contraseñas, supervisa el estado del servicio y administra cuentas de usuario, grupos de usuarios y solicitudes de servicio. Existen algunas limitaciones en los permisos de un administrador de usuarios. Por ejemplo, este no puede eliminar a un administrador global ni puede crear otros administradores. Tampoco puede restablecer las contraseñas de los administradores de facturación, globales y de servicio.
 
@@ -70,21 +69,21 @@ Puede hacer | No puede hacer
 
 El administrador global tiene acceso a todos los roles administrativos. De forma predeterminada, a la persona que se suscribe a una suscripción de Azure se le asigna el rol de administrador global para el directorio. Los administradores globales son los únicos que pueden asignar otros roles de administrador.
 
-## Asignación o eliminación de roles de administrador 
+## Asignación o eliminación de roles de administrador
 
 
 1. En el Portal de Azure clásico, haga clic en **Active Directory** y luego en el nombre del directorio de su organización.
 2. En la página **Usuarios**, haga clic en el nombre para mostrar del usuario que desee editar.
 3. En la lista **Rol organizativo**, seleccione el rol de administrador que quiera asignar a este usuario o **Usuario** si quiere quitar un rol de administrador existente.
 4. En el cuadro **Dirección de correo electrónico alternativa**, escriba una dirección de correo electrónico. Esta dirección de correo electrónico se usa para notificaciones importantes, incluido el restablecimiento automático de contraseña, por lo que el usuario debe poder tener acceso a la cuenta de correo electrónico independientemente de si tiene acceso a Azure.
-5. Seleccione **Permitir** o **Bloquear** para especificar si se permite al usuario iniciar sesión y tener acceso a servicios. 
+5. Seleccione **Permitir** o **Bloquear** para especificar si se permite al usuario iniciar sesión y tener acceso a servicios.
 6. Especifique una ubicación en la lista desplegable **Ubicación de uso**.
 7. Cuando haya terminado, haga clic en **Guardar**.
 
 ## Pasos siguientes
 
-- [Administrar usuarios](../active-directory-manage-users.md)
+- [Administrar usuarios](../active-directory-create-users.md)
 - [Administrar contraseñas](active-directory-manage-passwords.md)
 - [Administrar grupos](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

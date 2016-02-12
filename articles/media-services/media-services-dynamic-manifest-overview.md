@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/18/2015" 
+	ms.date="01/28/2016" 
 	ms.author="juliako"/>
 
 #Filtros y manifiestos dinámicos
@@ -120,7 +120,7 @@ Con el manifiesto dinámico, puede crear perfiles de dispositivo como móvil, co
  
 ![Ejemplo de filtrado de representaciones][renditions2]
 
-En el ejemplo siguiente, se usó el Codificador multimedia de Azure para codificar un recurso intermedio en siete representaciones de vídeo MP4 ISO (de 180p a 1080p). El activo codificado puede empaquetarse dinámicamente en cualquiera de los siguientes protocolos de transmisión: HLS, Smooth, MPEG DASH y HDS. En la parte superior del diagrama, se muestra el manifiesto HLS para el activo sin filtros (contiene las siete representaciones). En la parte inferior izquierda, se muestra el manifiesto HLS al que se aplicó un filtro denominado "ott". El filtro de "ott" especifica la eliminación de todas las velocidades de bits por debajo de 1 Mbps, lo que dio lugar a que se quitaran los dos niveles de calidad inferiores en la respuesta. En la parte inferior derecha se muestra el manifiesto HLS al que se aplicó un filtro denominado "móvil". El filtro "móvil" especifica la eliminación de las representaciones donde la resolución es mayor que 720p, lo que hizo que se quitaran las dos representaciones de 1080p.
+En el ejemplo siguiente, se usó un codificador para codificar un recurso intermedio en siete representaciones de vídeo MP4 ISO (de 180p a 1080p). El activo codificado puede empaquetarse dinámicamente en cualquiera de los siguientes protocolos de transmisión: HLS, Smooth, MPEG DASH y HDS. En la parte superior del diagrama, se muestra el manifiesto HLS para el activo sin filtros (contiene las siete representaciones). En la parte inferior izquierda, se muestra el manifiesto HLS al que se aplicó un filtro denominado "ott". El filtro de "ott" especifica la eliminación de todas las velocidades de bits por debajo de 1 Mbps, lo que dio lugar a que se quitaran los dos niveles de calidad inferiores en la respuesta. En la parte inferior derecha se muestra el manifiesto HLS al que se aplicó un filtro denominado "móvil". El filtro "móvil" especifica la eliminación de las representaciones donde la resolución es mayor que 720p, lo que hizo que se quitaran las dos representaciones de 1080p.
 
 ![Filtrado de representaciones][renditions1]
 
@@ -236,4 +236,4 @@ Para obtener más información, consulte [este blog](https://azure.microsoft.com
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -67,7 +67,7 @@ Elija una imagen basada en el sistema operativo que desea ejecutar. Azure y sus 
 [Creación de una máquina virtual de Windows con el Administrador de recursos de Azure y PowerShell]: virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
 [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y PowerShell]: virtual-machines-deploy-rmtemplates-powershell.md
 [Crear una máquina virtual de Windows con el Administrador de recursos y PowerShell]: virtual-machines-create-windows-powershell-resource-manager.md
-[Creación de una máquina virtual Windows con una plantilla del Administrador de recursos y PowerShell]: virtual-machines-create-windows-powershell-resource-manager-template-simple.md
+[Creación de una máquina virtual Windows con una plantilla del Administrador de recursos y PowerShell]: virtual-machines-create-windows-powershell-resource-manager-template.md
 
 
 [Seleccione y navegue por imágenes de máquina virtual de Azure con PowerShell y la CLI de Azure]: resource-groups-vm-searching.md
@@ -79,4 +79,4 @@ Elija una imagen basada en el sistema operativo que desea ejecutar. Azure y sus 
 
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

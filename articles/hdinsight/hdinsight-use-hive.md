@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/03/2015"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 # Usar Hive y HiveQL con Hadoop en HDInsight para analizar un archivo log4j de Apache de muestra
@@ -62,7 +62,7 @@ Este ejemplo usa un archivo de ejemplo *log4j*, que se almacena en **/example/da
 
 En el ejemplo anterior, el nivel de registro es ERROR.
 
-> [AZURE.NOTE]También puede generar un archivo log4j con la utilidad de registro [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) y luego cargarlo en el contenedor de blobs. Consulte [Carga de datos en HDInsight](hdinsight-upload-data.md) para obtener instrucciones. Para obtener más información sobre el uso del almacenamiento de blobs de Azure con HDInsight, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](../hdinsight-use-blob-storage.md).
+> [AZURE.NOTE] También puede generar un archivo log4j con la utilidad de registro [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) y luego cargarlo en el contenedor de blobs. Consulte [Carga de datos en HDInsight](hdinsight-upload-data.md) para obtener instrucciones. Para obtener más información sobre el uso del almacenamiento de blobs de Azure con HDInsight, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 Los datos de ejemplo se almacenan en el almacenamiento de blobs de Azure, que HDInsight usa como el sistema de archivos predeterminado. HDInsight puede acceder a archivos almacenados en blobs mediante el prefijo **wasb**. Por ejemplo, para tener acceso al archivo sample.log, use la siguiente sintaxis:
 
@@ -70,7 +70,7 @@ Los datos de ejemplo se almacenan en el almacenamiento de blobs de Azure, que HD
 
 Dado que el almacenamiento de blobs de Azure es el almacenamiento predeterminado para HDInsight, también puede acceder al archivo mediante **/example/data/sample.log** desde HiveQL.
 
-> [AZURE.NOTE]La sintaxis, ****wasb:///**, se usa para acceder a los archivos almacenados en el contenedor de almacenamiento predeterminado del clúster de HDInsight. Si especificó cuentas de almacenamiento adicionales cuando aprovisionó el clúster y desea acceder a los archivos almacenados en estas cuentas, puede acceder a los datos especificando el nombre de contenedor y la dirección de las cuentas de almacenamiento, por ejemplo: ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE] La sintaxis, ****wasb:///**, se usa para acceder a los archivos almacenados en el contenedor de almacenamiento predeterminado del clúster de HDInsight. Si especificó cuentas de almacenamiento adicionales cuando aprovisionó el clúster y desea acceder a los archivos almacenados en estas cuentas, puede acceder a los datos especificando el nombre de contenedor y la dirección de las cuentas de almacenamiento, por ejemplo: ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
 ##<a id="job"></a>Trabajo de ejemplo: proyectar columnas en datos delimitados
 
@@ -91,7 +91,7 @@ En el ejemplo anterior, las instrucciones de HiveQL realizan las acciones siguie
 * **SELECT**: selecciona un número de todas las filas donde la columna **t4** contiene el valor **[ERROR]**. Esto debe devolver un valor de **3** porque hay tres filas que contienen este valor.
 * **INPUT\_\_FILE\_\_NAME LIKE '%.log'**: indica a Hive que solo deberíamos devolver datos de archivos que terminan en .log. Esto restringe la búsqueda al archivo sample.log que contiene los datos y le impide que devuelva datos de otros archivos de datos de ejemplo que no coinciden con el esquema que hemos definido.
 
-> [AZURE.NOTE]Las tablas externas se deben usar cuando espera que un origen externo, como por ejemplo un proceso de carga de datos automático, u otra operación MapReduce, actualice los datos subyacentes, pero siempre desea que las consultas de Hive usen los datos más recientes.
+> [AZURE.NOTE] Las tablas externas se deben usar cuando espera que un origen externo, como por ejemplo un proceso de carga de datos automático, u otra operación MapReduce, actualice los datos subyacentes, pero siempre desea que las consultas de Hive usen los datos más recientes.
 >
 > La eliminación de una tabla externa **no** elimina los datos, solamente la definición de tabla.
 
@@ -108,13 +108,13 @@ Estas instrucciones realizan las acciones siguientes:
 * **STORED AS ORC**: almacena los datos en el formato Optimized Row Columnar (ORC). Se trata de un formato altamente optimizado y eficiente para almacenar datos de Hive.
 * **INSERT OVERWRITE ... SELECT**: selecciona filas de la tabla **log4jLogs** que contiene **[ERROR]** y luego inserta los datos en la tabla **errorLogs**.
 
-> [AZURE.NOTE]A diferencia de las tablas externas, la eliminación de una tabla interna también eliminará los datos subyacentes.
+> [AZURE.NOTE] A diferencia de las tablas externas, la eliminación de una tabla interna también eliminará los datos subyacentes.
 
 ##<a id="usetez"></a>Use Apache Tez para un mejor rendimiento
 
 [Apache Tez](http://tez.apache.org) es un marco que permite que aplicaciones con uso intensivo de datos, como Hive, se ejecuten con mucha más eficacia a escala. En la última versión de HDInsight, Hive admite la ejecución en Tez. Tez está habilitado de manera predeterminada para los clústeres de HDInsight basados en Linux.
 
-> [AZURE.NOTE]Tez actualmente está desactivado de forma predeterminada para clústeres de HDInsight basados en Windows y debe estar habilitado. Para aprovechar Tez, debe establecerse el siguiente valor en una consulta de Hive:
+> [AZURE.NOTE] Tez actualmente está desactivado de forma predeterminada para clústeres de HDInsight basados en Windows y debe estar habilitado. Para aprovechar Tez, debe establecerse el siguiente valor en una consulta de Hive:
 >
 > ```set hive.execution.engine=tez;```
 >
@@ -161,8 +161,6 @@ Ahora que aprendió qué es Hive y cómo usarlo con Hadoop en HDInsight, use los
 
 [check]: ./media/hdinsight-use-hive/hdi.checkmark.png
 
-[1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
-
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -184,12 +182,12 @@ Ahora que aprendió qué es Hive y cómo usarlo con Hadoop en HDInsight, use los
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
 [Powershell-install-configure]: ../install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
@@ -201,4 +199,4 @@ Ahora que aprendió qué es Hive y cómo usarlo con Hadoop en HDInsight, use los
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->
