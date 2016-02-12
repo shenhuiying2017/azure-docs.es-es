@@ -28,7 +28,8 @@ Para ver o descargar su factura:
 
 1. Inicie sesión en el Portal de cuentas de Azure con su identificador de organización.
 2. Haga clic en **Marketplace**. La lista que aparece es una lista completa de todos los pedidos de Marketplace que se han realizado mediante su cuenta de Azure. Observe que los pedidos se agrupan mediante el nombre y el identificador de la suscripción primaria de Azure. ![Pedidos de Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
-3. Al hacer clic en cualquiera de los pedidos mostrados podrá ver la información de resumen general de ese pedido para el ciclo de facturación actual. Puede encontrar una explicación de los distintos modelos de precios en la sección de [preguntas más frecuentes de Marketplace](https://azure.microsoft.com/marketplace/faq/). ![Resumen del pedido](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+3. Al hacer clic en cualquiera de los pedidos mostrados podrá ver la información de resumen general de ese pedido para el ciclo de facturación actual. Puede encontrar una explicación de los distintos modelos de precios en la sección de [preguntas más frecuentes de Marketplace]( https://azure.microsoft.com/marketplace/faq/).
+![Resumen del pedido](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
 La vista de resumen contiene la siguiente información para cada pedido: precio, ciclo de facturación, fecha de compra, suscripción primaria asociada, divisa de facturación
 
