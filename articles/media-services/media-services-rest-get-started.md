@@ -149,9 +149,9 @@ En el ejemplo siguiente se muestra la respuesta HTTP que contiene el token de ac
 	
 
 >[AZURE.NOTE]
-Se recomienda almacenar en memoria caché los valores "access\_token" y "expires\_in" en un almacenamiento externo. Los datos del token se pueden recuperar más tarde desde el almacenamiento y se pueden reutilizar en las llamadas de API de REST de Servicios multimedia. Esto es especialmente útil para escenarios en que el token se puede compartir de forma segura entre varios procesos o equipos.
+Se recomienda almacenar en memoria caché los valores "access_token" y "expires_in" en un almacenamiento externo. Los datos del token se pueden recuperar más tarde desde el almacenamiento y se pueden reutilizar en las llamadas de API de REST de Servicios multimedia. Esto es especialmente útil para escenarios en que el token se puede compartir de forma segura entre varios procesos o equipos.
 
-Asegúrese de supervisar el valor "expires\_in" del token de acceso y actualice las llamadas de API de REST con nuevos tokens según sea necesario.
+Asegúrese de supervisar el valor "expires_in" del token de acceso y actualice las llamadas de API de REST con nuevos tokens según sea necesario.
 
 ###Conexión al URI de Servicios multimedia
 
@@ -500,7 +500,8 @@ Ahora que ha cargado el archivo, actualice la información de tamaño de FileAss
 
 **Respuesta HTTP**
 
-Si se realiza correctamente, se devuelve lo siguiente: HTTP/1.1 204 No Content
+Si se realiza correctamente, se devuelve lo siguiente: 
+	HTTP/1.1 204 No Content
 
 ## Eliminación de Locator y AccessPolicy 
 
@@ -726,7 +727,7 @@ El código siguiente solicita el identificador del codificador.
 
 Cada trabajo puede tener una o más tareas según el tipo de procesamiento que desee llevar a cabo. A través de la API de REST, puede crear trabajos y sus tareas relacionadas en una de las dos maneras siguientes: las tareas se pueden definir en línea a través de la propiedad de navegación Tasks en entidades Job o de procesamiento por lotes de OData. El SDK de Servicios multimedia usa el procesamiento por lotes; sin embargo, para la legibilidad de los ejemplos de código de este tema, las tareas se definen en línea. Para obtener información sobre el procesamiento por lotes, consulte [Procesamiento por lotes del protocolo Open Data (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conjunto de tareas para codificar un vídeo con una resolución y calidad específicas. La siguiente sección de la documentación contiene la lista de todos los [valores preestablecidos de tarea](https://msdn.microsoft.com/es-ES/library/mt269960) admitidos por el procesador del Estándar de codificador multimedia.
+En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conjunto de tareas para codificar un vídeo con una resolución y calidad específicas. La siguiente sección de la documentación contiene la lista de todos los [valores preestablecidos de tarea](https://msdn.microsoft.com/library/mt269960) admitidos por el procesador del Estándar de codificador multimedia.
 
 **Solicitud HTTP**
 	
@@ -1067,12 +1068,12 @@ Si se realiza correctamente, se devuelve la respuesta siguiente:
 	         }
 	      },
 	      "Id":"nb:lid:UUID:8e5a821d-2194-4d00-8884-adf979856874",
-	      "ExpirationDateTime":"\/Date(1337049393000)\/",
+	      "ExpirationDateTime":"/Date(1337049393000)/",
 	      "Type":1,
 	      "Path":"https://storagetestaccount001.blob.core.windows.net/asset-71d2dd33-efdf-ec43-8ea1-136a110bd42c?st=2012-05-14T21%3A36%3A33Z&se=2012-05-15T02%3A36%3A33Z&sr=c&si=8e5a821d-2194-4d00-8884-adf979856874&sig=y75dViDpC5V8WutrXM%2B%2FGpR3uOtqmlISiNlHU1YUBOg%3D",
 	      "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
 	      "AssetId":"nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c",
-	      "StartTime":"\/Date(1337031393000)\/"
+	      "StartTime":"/Date(1337031393000)/"
 	   }
 	}
 
@@ -1160,12 +1161,12 @@ Si se realiza correctamente, se devuelve la respuesta siguiente:
 	         }
 	      },
 	      "Id":"nb:lid:UUID:52034bf6-dfae-4d83-aad3-3bd87dcb1a5d",
-	      "ExpirationDateTime":"\/Date(1337049395000)\/",
+	      "ExpirationDateTime":"/Date(1337049395000)/",
 	      "Type":2,
 	      "Path":"http://wamsbayclus001rest-hs.net/52034bf6-dfae-4d83-aad3-3bd87dcb1a5d/",
 	      "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
 	      "AssetId":"nb:cid:UUID:eb5540a2-116e-4d36-b084-7e9958f7f3c3",
-	      "StartTime":"\/Date(1337031395000)\/"
+	      "StartTime":"/Date(1337031395000)/"
 	   }
 	}
 

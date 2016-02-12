@@ -155,7 +155,8 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 7. En la página del cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**. <br><br>![Qué es Azure AD Connect][105]  
 8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes: <br><br>![Qué es Azure AD Connect][106]   
 
-    a. Anote el valor del campo **Nueva contraseña**. b. Haga clic en **Completo**.
+    a. Anote el valor del campo **Nueva contraseña**. 
+    b. Haga clic en **Completo**.
   
  
 ### Creación de un usuario de prueba de Halogen Software
@@ -166,7 +167,12 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 1. Inicie sesión en su aplicación de **Halogen Software** como administrador.
 2. Haga clic en la pestaña **Centro de usuarios** y, luego, haga clic en **Crear usuario**. <br><br>![Qué es Azure AD Connect][300]  
-3. En la página del cuadro de diálogo **Nuevo usuario**, realice los pasos siguientes: <br><br>![Qué es Azure AD Connect][301] a. En el cuadro de texto **Nombre**, escriba **Britta**. b. En el cuadro de texto **Apellidos**, escriba **Simon**. c. En el cuadro de texto **Nombre de usuario**, escriba el **nombre de usuario de Britta Simon en el portal de Azure AD**. d. En el cuadro de texto **Contraseña**, escriba una contraseña para Britta. e. Haga clic en **Guardar**.
+3. En la página del cuadro de diálogo **Nuevo usuario**, realice los pasos siguientes: <br><br>![Qué es Azure AD Connect][301] 
+ a. En el cuadro de texto **Nombre**, escriba **Britta**. 
+ b. En el cuadro de texto **Apellidos**, escriba **Simon**. 
+ c. En el cuadro de texto **Nombre de usuario**, escriba el **nombre de usuario de Britta Simon en el portal de Azure AD**. 
+ d. En el cuadro de texto **Contraseña**, escriba una contraseña para Britta. 
+ e. Haga clic en **Guardar**.
 
 
 ### Asignación del usuario de prueba de Azure AD

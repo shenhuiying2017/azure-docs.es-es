@@ -56,11 +56,11 @@ Como parte de la implementación de Azure Site Recovery, instalará el proveedor
 - Se recomienda que siempre ejecute las versiones más recientes del proveedor y del agente. Puede encontrarlas en el portal de Site Recovery.
 - Todos los servidores de Hyper-V de un almacén deben tener las mismas versiones del proveedor y del agente.
 - El proveedor que se ejecuta en el servidor conecta con Site Recovery a través de Internet. Dicha conexión se puede realizar sin un proxy, con la configuración de proxy actualmente definida en el servidor de Hyper-V o con la configuración de proxy personalizada que defina durante la instalación del proveedor. Debe asegurarse de que el servidor proxy que desea utilizar pueda tener acceso a estas direcciones URL para conectarse a Azure:
-	- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
 	
 - Además, permita las direcciones IP que se describen en [Intervalos de direcciones IP de los centros de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
 

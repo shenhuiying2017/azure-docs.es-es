@@ -485,7 +485,7 @@ Para acceder a la interfaz de usuario web de Oozie, use los pasos siguientes:
 
 	![imagen de los menús](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
 
-4. La interfaz de usuario web de Oozie muestra de forma predeterminada los trabajos del flujo de trabajo en ejecución. Para ver todos los trabajos del flujo de trabajo, seleccione **All Jobs**.
+4. La interfaz de usuario web de Oozie muestra de forma predeterminada los trabajos del flujo de trabajo en ejecución. Para ver todos los trabajos del flujo de trabajo, seleccione **Todos los trabajos**.
 
 	![Todos los trabajos mostrados](./media/hdinsight-use-oozie-linux-mac/ooziejobs.png)
 
@@ -495,7 +495,7 @@ Para acceder a la interfaz de usuario web de Oozie, use los pasos siguientes:
 
 6. En la pestaña Job Info (Información de trabajo), puede ver información básica de trabajo, así como las acciones individuales dentro del trabajo. En las pestañas en la parte superior puede ver la definición de trabajo, la configuración del trabajo, el registro del trabajo o un grafo acíclico dirigido (DAG) del trabajo.
 
-	* **Job Log**: seleccione el botón **GetLogs** para obtener todos los registros del trabajo o use el campo **Enter Search Filter** para filtrar los registros.
+	* **Registro de trabajo**: seleccione el botón **GetLogs** para obtener todos los registros del trabajo o use el campo **Especificar filtro de búsqueda** para filtrar los registros.
 
 		![Registro de trabajo](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
@@ -503,7 +503,7 @@ Para acceder a la interfaz de usuario web de Oozie, use los pasos siguientes:
 
 		![DAG del trabajo](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
-7. Si selecciona una de las acciones en la pestaña **Job Info**, aparecerá información de la acción. Por ejemplo, seleccione la acción **RunHiveScript**.
+7. Si selecciona una de las acciones en la pestaña **Información de trabajo**, aparecerá información de la acción. Por ejemplo, seleccione la acción **RunHiveScript**.
 
 	![Información de acción](./media/hdinsight-use-oozie-linux-mac/action.png)
 
@@ -596,13 +596,13 @@ Para definir una programación para el flujo de trabajo, siga estos pasos:
 
 	![pestaña de trabajos de coordinador](./media/hdinsight-use-oozie-linux-mac/coordinatorjob.png)
 
-	Observe la entrada **Next Materialization**; indica cuándo será la siguiente ejecución del trabajo.
+	Observe la entrada **Siguiente materialización**; indica cuándo será la siguiente ejecución del trabajo.
 
 8. De igual forma que la tarea de flujo de trabajo anterior, si se selecciona la entrada de trabajo en la interfaz de usuario web, se mostrará información sobre el trabajo:
 
 	![información de trabajos de coordinador](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
-	Tenga en cuenta que esto solo muestra ejecuciones correctas del trabajo, no acciones individuales dentro del flujo de trabajo programado. Para ver eso, seleccione una de las entradas **Action**. Se mostrará información similar a la recuperada para el trabajo de flujo de trabajo anterior.
+	Tenga en cuenta que esto solo muestra ejecuciones correctas del trabajo, no acciones individuales dentro del flujo de trabajo programado. Para ver eso, seleccione una de las entradas **Acción**. Se mostrará información similar a la recuperada para el trabajo de flujo de trabajo anterior.
 
 	![Información de acción](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
@@ -612,7 +612,7 @@ Para solucionar problemas con trabajos de Oozie, la interfaz de usuario de Oozie
 
 1. Ver el trabajo en la interfaz de usuario web de Oozie.
 
-2. Si hay un error en una acción determinada, seleccione la acción para ver si el campo **Error Message** ofrece más información sobre el error.
+2. Si hay un error en una acción determinada, seleccione la acción para ver si el campo **Mensaje de error** ofrece más información sobre el error.
 
 3. Si está disponible, use la dirección URL de la acción para ver más detalles (por ejemplo, registros de JobTracker) para la acción.
 
@@ -630,7 +630,7 @@ Las siguientes son errores específicos que pueden surgir y cómo resolverlos.
 
 ###JA002: Oozie no tiene permiso para suplantar &lt;USUARIO>
 
-**Síntomas**: el estado del trabajo cambiará a **SUSPENDED** (Suspendido). Los detalles del trabajo mostrarán el estado de RunHiveScript como **START\_MANUAL**. Si se selecciona la acción, se mostrará el mensaje de error siguiente:
+**Síntomas**: el estado del trabajo cambiará a **Suspendido**. Los detalles del trabajo mostrarán el estado de RunHiveScript como **START\_MANUAL**. Si se selecciona la acción, se mostrará el mensaje de error siguiente:
 
 	JA002: User: oozie is not allowed to impersonate <USER>
 
@@ -644,7 +644,7 @@ Las siguientes son errores específicos que pueden surgir y cómo resolverlos.
 
 ###ERROR del selector (Sqoop)
 
-**Síntomas**: el estado del trabajo cambiará a **KILLED** (Cerrado). Los detalles del trabajo mostrarán el estado de RunSqoopExport como **ERROR**. Si se selecciona la acción, se mostrará el mensaje de error siguiente:
+**Síntomas**: el estado del trabajo cambiará a **Cerrado**. Los detalles del trabajo mostrarán el estado de RunSqoopExport como **ERROR**. Si se selecciona la acción, se mostrará el mensaje de error siguiente:
 
 	Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
 
