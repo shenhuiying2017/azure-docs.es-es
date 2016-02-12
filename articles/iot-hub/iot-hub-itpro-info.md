@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="12/15/2015"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 # Configuración y administración del acceso al Centro de IoT
@@ -22,12 +22,14 @@ En este artículo se ofrece información que ayuda a los profesionales de TI a c
 
 ## Conectividad de red
 
-Los dispositivos se comunican con el Centro de IoT en Azure mediante los protocolos de la AMQP o HTTPS. Normalmente, la elección del protocolo se basa en los requisitos específicos de la solución. En la tabla siguiente se indican los puertos de salida que deben estar abiertos para que un dispositivo pueda usar un protocolo concreto:
+Los dispositivos pueden comunicarse con el Centro de IoT en Azure mediante una variedad de protocolos. Normalmente, la elección del protocolo se basa en los requisitos específicos de la solución. En la tabla siguiente se indican los puertos de salida que deben estar abiertos para que un dispositivo pueda usar un protocolo concreto:
 
 | Protocolo | Puertos |
 | -------- | ------- |
 | HTTPS | 443 |
 | AMQP | 5671 |
+| AMQP sobre WebSockets | 443 |
+| MQTT | 8883 |
 
 Una vez creado un Centro de IoT en una región de Azure, el centro mantendrá la misma dirección IP durante toda su existencia. Sin embargo, en un escenario de recuperación ante desastres, si Microsoft mueve el Centro de IoT a una unidad de escalado diferente, se le asignará una nueva dirección IP.
 
@@ -49,4 +51,4 @@ Este artículo contiene información específica para que los desarrolladores y 
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

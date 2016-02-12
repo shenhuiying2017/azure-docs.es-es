@@ -131,7 +131,7 @@ Segmentos diarios que comienzan a las 6 a.m., en lugar de a medianoche, que es e
 
 	"availability":
 	{
-		"frequency": "Daily",
+		"frequency": "Day",
 		"interval": "1",
 		"offset": "06:00:00"
 	}
@@ -208,4 +208,4 @@ Si necesita ejecutar una canalización mensualmente en una fecha y hora específ
 	  }
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

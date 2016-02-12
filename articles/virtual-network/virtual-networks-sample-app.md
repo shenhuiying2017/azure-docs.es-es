@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/20/2016"
+   ms.date="02/01/2016"
    ms.author="jonor"/>
 
 # Aplicación de ejemplo para su uso con entornos de límite de seguridad
@@ -148,7 +148,7 @@ Este script configura el back-end para esta aplicación simple. Este script har�
 4.	Establecer permisos en los directorios y el archivo en Anónimo para permitir el acceso
 5.	Desactivar la seguridad mejorada de Internet Explorer para permitir una exploración más fácil desde este servidor 
 
->[AZURE.IMPORTANT]**Procedimiento recomendado**: no desactive nunca la seguridad mejorada de Internet Explorer en un servidor de producción; además, no es aconsejable explorar la Web desde un servidor de producción. Asimismo, la apertura de recursos compartidos de archivos para el acceso anónimo no es la mejor opción, pero aquí se realiza para simplificar el proceso.
+>[AZURE.IMPORTANT] **Procedimiento recomendado**: no desactive nunca la seguridad mejorada de Internet Explorer en un servidor de producción; además, no es aconsejable explorar la Web desde un servidor de producción. Asimismo, la apertura de recursos compartidos de archivos para el acceso anónimo no es la mejor opción, pero aquí se realiza para simplificar el proceso.
 
 Este script de PowerShell debe ejecutarse localmente mientras RDP tiene lugar en AppVM01. Es necesario que PowerShell se ejecute como administrador para garantizar la correcta ejecución.
 	
@@ -188,4 +188,4 @@ No hay ningún script incluido en esta aplicación de ejemplo para configurar el
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

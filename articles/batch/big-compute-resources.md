@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Big Compute: Recursos técnicos para informática de alto rendimiento (HPC) y computación por lotes | Microsoft Azure"
-   description="Enumera los recursos técnicos para ayudarle a ejecutar cargas de trabajo de HPC, por lotes y en paralelo a gran escala en Azure."
+   pageTitle="Recursos para cargas de trabajo de lotes y HPC en la nube | Microsoft Azure"
+   description="Enumera los recursos técnicos para ayudarle a ejecutar cargas de trabajo por lotes, a gran escala en paralelo y de computación de alto rendimiento (HPC) en Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
    authors="dlepow"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="09/29/2015"
+   ms.date="01/26/2016"
    ms.author="danlep"/>
 
 # Big Compute en Azure: Recursos técnicos para informática de alto rendimiento (HPC) y computación por lotes
@@ -34,11 +34,11 @@ Obtenga información sobre las opciones de Big Compute en Azure y elija el enfoq
 
 * [Documentación](https://azure.microsoft.com/documentation/services/batch/)
 
-* [Referencia de API](https://msdn.microsoft.com/library/azure/dn820177.aspx)
+* Lote de [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) y Referencia de API de [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
 
 * [Tutorial: Introducción a la biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md)
 
-* [Foro de Lote](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
+* [Foro de Lote](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=azurebatch)
 
 * [Vídeos de Lote](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -50,7 +50,7 @@ Implemente o amplíe su clúster de Windows o Linux HPC existente para ejecutar 
 
 HPC Pack es la solución HPC gratuita de Microsoft que se basa en las tecnologías de Microsoft Azure y Windows Server, capaz de ejecutar cargas de trabajo HPC de Windows y Linux.
 
-* [Descargar HPC Pack 2012 R2 Update 3](https://www.microsoft.com/es-ES/download/details.aspx?id=49922)
+* [Descargar HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49922)
 
 * [Documentación](https://technet.microsoft.com/library/jj899572.aspx)
 
@@ -62,7 +62,7 @@ HPC Pack es la solución HPC gratuita de Microsoft que se basa en las tecnologí
 * [Irrumpir en Lote de Azure con HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
 
-* [Foros de Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
+* [Foros de Windows HPC](https://social.microsoft.com/Forums/es-ES/home?category=windowshpc)
 
 ### Soluciones de clúster de Linux y OSS
 
@@ -81,12 +81,12 @@ Use estas plantillas de inicio rápido de Azure para implementar clústeres de H
 
 * [Referencia de MS-MPI](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [Foro de MPI](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
+* [Foro de MPI](https://social.microsoft.com/Forums/es-ES/home?forum=windowshpcmpi)
 
 
 ## Instancias intensivas de proceso
 
-Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-size-specs.md), que incluye las [instancias A8, A9, A10 y A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) de proceso intensivo, para ejecutar las cargas de trabajo HPC de Linux y Windows.
+Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-size-specs.md), que incluye las instancias de proceso intensivo [A8 y A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md), con capacidad para conectarse con una red RDMA back-end para ejecutar las cargas de trabajo HPC de Linux y Windows.
 
 * [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
@@ -94,7 +94,7 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-siz
 
 ## Proyectos de arquitectura
 
-* Lote de Microsoft Azure y Factoría de datos de Azure: la arquitectura para procesamiento de datos a gran escala ([PDF](http://go.microsoft.com/fwlink/?linkid=717686) y [artículo](../data-factory/data-factory-data-processing-using-batch.md)) muestra cómo la Factoría de datos organiza el procesamiento y el movimiento de los datos y cómo Lote de Azure procesa los datos en paralelo.
+* [Orquestación de HPC y de datos mediante Lote y Factoría de datos de Azure](http://go.microsoft.com/fwlink/?linkid=717686) (archivoPDF) y [artículo](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## Ejemplos y demos
 
@@ -121,4 +121,4 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-siz
 * Para los anuncios más recientes, vea el [blog del equipo de Microsoft HPC y Batch](http://blogs.technet.com/b/windowshpc/) y el [blog de Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Vea también [Novedades de Batch](https://azure.microsoft.com/updates/?service=batch) o suscríbase a la [fuente RSS](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

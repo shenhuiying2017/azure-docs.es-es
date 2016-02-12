@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Ampliación de los grupos de disponibilidad AlwaysOn locales a Azure | Microsoft Azure"
 	description="Este tutorial utiliza los recursos creados con el modelo de implementación clásica y describe cómo utilizar el Asistente para agregar réplica en SQL Server Management Studio (SSMS) para agregar una réplica del grupo de disponibilidad AlwaysOn en Azure."
 	services="virtual-machines"
@@ -8,13 +8,13 @@
 	editor="monicar"
 	tags="azure-service-management"/>
 
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Ampliación de los grupos de disponibilidad AlwaysOn locales a Azure
@@ -65,7 +65,7 @@ En esta sección se muestra cómo usar el **Asistente para agregar una réplica 
 |**Nombre de usuario de máquina virtual**|Especifique un nombre de usuario que se convertirá en la cuenta de administrador en la máquina virtual|
 |**Contraseña de administrador de VM**|Especifique una contraseña para la nueva cuenta|
 |**Confirm Password**|Confirme la contraseña de la nueva cuenta|
-|**Red virtual**|Especifique la red virtual de Azure que debe usar la nueva máquina virtual. Para obtener más información sobre las redes virtuales, consulte [Información general sobre redes virtuales](..\virtual-network\virtual-networks-overview.md).|
+|**Red virtual**|Especifique la red virtual de Azure que debe usar la nueva máquina virtual. Para obtener más información sobre las redes virtuales, consulte [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).|
 |**Subred de red virtual**|Especifique la subred de red virtual que debe usar la nueva máquina virtual|
 |**Dominio**|Confirme que el valor previamente rellenado para el dominio es correcto|
 |**Nombre de usuario del dominio**|Especifique una cuenta que esté en el grupo de administradores local en los nodos de clúster local|
@@ -91,7 +91,7 @@ En esta sección se muestra cómo usar el **Asistente para agregar una réplica 
 
 1. Comienza el proceso de aprovisionamiento. Cuando el asistente finalice correctamente, haga clic en **Cerrar** para salir del asistente.
 
->[AZURE.NOTE] El Asistente para agregar una réplica de Azure crea un archivo de registro en <Users><nombre de usuario>\\AppData\\Local\\SQL Server\\AddReplicaWizard. Este archivo de registro puede usarse para solucionar problemas de las implementaciones de réplicas de Azure incorrectas. Si el asistente no puede ejecutar alguna acción, todas las operaciones anteriores se revierten, incluida la eliminación de la máquina virtual aprovisionada.
+>[AZURE.NOTE] El Asistente para agregar una réplica de Azure crea un archivo de registro en Usuarios\\Nombre de usuario\\AppData\\Local\\SQL Server\\AddReplicaWizard. Este archivo de registro puede usarse para solucionar problemas de las implementaciones de réplicas de Azure incorrectas. Si el asistente no puede ejecutar alguna acción, todas las operaciones anteriores se revierten, incluida la eliminación de la máquina virtual aprovisionada.
 
 ## Creación del agente de escucha del grupo de disponibilidad
 
@@ -103,4 +103,4 @@ Además de usar el **Asistente para agregar una réplica de Azure** para ampliar
 
 Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

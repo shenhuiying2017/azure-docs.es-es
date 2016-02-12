@@ -43,9 +43,9 @@ Actualmente hay unas pocas limitaciones de compatibilidad de ARM con el Administ
 
 - Los perfiles de Administrador de tráfico creados con la API de administración de servicios (ASM), las herramientas y el Portal "clásico" no están disponibles a través de ARM y viceversa. Actualmente no se admite la migración de perfiles de las API de ASM a las de ARM, excepto eliminar el perfil y volverlo a crear.
 
-
 - Se admiten puntos de conexión "Anidados" a través de la API de ARM, PowerShell de ARM y la CLI de Azure de modo ARM. Actualmente, no se admiten en el portal de Azure (que también utiliza la API de ARM).
 
+- Los puntos de conexión del Administrador de tráfico del tipo “AzureEndpoints”, al hacer referencia a una aplicación web, solo pueden referirse a la [ranura de aplicación web](../app-service-web/web-sites-staged-publishing.md) predeterminada (producción). Todavía no se admiten las ranuras personalizadas. Como alternativa, se pueden configurar ranuras personalizadas mediante el tipo “ExternalEndpoints”.
 
 ## Configuración de Azure PowerShell
 
@@ -285,4 +285,4 @@ Se puede canalizar igualmente esta secuencia:
 [Consideraciones de rendimiento sobre el Administrador de tráfico](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

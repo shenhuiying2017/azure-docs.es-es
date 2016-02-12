@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="02/01/2016"
    ms.author="v-darmi"/>
 
 
@@ -21,7 +21,7 @@
 
 Las directivas disponibles en el servicio de administración de API de Azure pueden llevar a cabo una gran variedad de trabajo útil basado exclusivamente en la solicitud entrante, la respuesta saliente y la información de configuración básica. Pero la interacción con servicios externos de las directivas de Administración de API brinda muchas más oportunidades.
 
-Anteriormente hemos visto cómo podemos interactuar con el [servicio del Centro de eventos de Azure con fines de registro, supervisión y análisis](api-management-sample-logtoeventhub.md). En este artículo encontrará las directivas que permiten interactuar con cualquier servicio basado en HTTP externo. Dichas directivas se pueden usar para desencadenar eventos remotos o recuperar información que se utilizará para manipular en cierto modo la solicitud y respuesta originales.
+Anteriormente hemos visto cómo podemos interactuar con el [servicio del Centro de eventos de Azure con fines de registro, supervisión y análisis](api-management-log-to-eventhub-sample.md). En este artículo encontrará las directivas que permiten interactuar con cualquier servicio basado en HTTP externo. Dichas directivas se pueden usar para desencadenar eventos remotos o recuperar información que se utilizará para manipular en cierto modo la solicitud y respuesta originales.
 
 ## Send-One-Way-Request
 Es posible que la interacción externa más sencilla sea el estilo de fire and forget de solicitud que permite que se notifique a un servicio externo de algún tipo de evento importante. Se puede usar la directiva de flujo de control `choose` para detectar cualquier tipo de condición que suscite interés y después, si se cumple esta, se puede realizar una solicitud HTTP externa mediante la directiva [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest). Podría tratarse de una solicitud para un sistema de mensajería como Hipchat o Slack o una API de Correo como SendGrid o MailChimp, o bien para incidentes de soporte técnico críticos como PagerDuty. Todos estos sistemas de mensajería tienen API HTTP sencillas que se pueden invocar fácilmente.
@@ -269,4 +269,4 @@ Para más información sobre las directivas [send-one-way-request](https://msdn.
 
 > [AZURE.VIDEO send-request-and-return-response-policies]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

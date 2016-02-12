@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/01/2016"
 	ms.author="billmath"/>
 
 # La identidad híbrida requería puertos y protocolos
@@ -46,7 +46,13 @@ En esta tabla se describen los puertos y protocolos que son necesarios para la c
 Para una lista de puertos de Office 365 y direcciones IP, vea [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) (Direcciones URL de Office 365 y rangos de direcciones IP).
 
 ## Tabla 3: Azure AD Connect y servidores de federación/WAP
-En esta tabla se describen los puertos y protocolos que son necesarios para la comunicación entre el servidor de Azure AD Connect y servidores de federación/WAP. Próximamente.
+En esta tabla se describen los puertos y protocolos que son necesarios para la comunicación entre el servidor de Azure AD Connect y servidores de federación/WAP.
+
+| Protocolo |Puertos |Descripción
+| --------- | --------- |--------- |
+| HTTP|80 (TCP/UDP)|Se usa para descargar CRL (listas de revocación de certificados) para comprobar certificados SSL.
+|HTTPS|443 (TCP/UDP)|Se usa para sincronizar con Azure AD.
+|WinRM|5985| Agente de escucha de WinRM
 
 ## Tabla 4: Servidores de federación y WAP
 En esta tabla se describen los puertos y protocolos que son necesarios para la comunicación entre los servidores de federación y los servidores WAP.
@@ -77,6 +83,6 @@ En esta tabla se describen los puertos y protocolos que son necesarios para la c
 |Bus de servicio|5671 (TCP/UDP)|
 
 ### 6b: Puntos de conexión para el agente de Azure AD Connect Health para (AD FS/sincronización) y Azure AD
-Para una lista de puntos de conexión, vea [la sección Requisitos para el agente de Azure AD Connect Health](active-directory-aadconnect-health.md#requirements).
+Para una lista de puntos de conexión, consulte [la sección Requisitos para el agente de Azure AD Connect Health](active-directory-aadconnect-health.md#requirements)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

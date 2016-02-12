@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/19/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Configuración de los roles para un servicio en la nube de Azure con Visual Studio
@@ -51,7 +51,7 @@ Puede configurar un servicio en la nube de Azure desde el Explorador de solucion
 
     Si desea realizar cambios en todas las configuraciones del servicio para este rol, puede elegir **Todas las configuraciones**.
 
-    >[AZURE.IMPORTANT]Si elige una configuración de servicio específica, algunas propiedades están deshabilitadas porque solo se pueden establecer para todas las configuraciones. Para editar estas propiedades, debe elegir Todas las configuraciones.
+    >[AZURE.IMPORTANT] Si elige una configuración de servicio específica, algunas propiedades están deshabilitadas porque solo se pueden establecer para todas las configuraciones. Para editar estas propiedades, debe elegir Todas las configuraciones.
 
     Ahora puede elegir una pestaña para actualizar cualquier propiedad habilitada en esa vista.
 
@@ -65,11 +65,11 @@ Para mejorar el rendimiento de su servicio en la nube, puede cambiar el número 
 
 1. En la lista **Configuración del servicio**, elija la configuración del servicio que quiera actualizar.
 
-    >[AZURE.NOTE]Puede establecer el recuento de instancias para una configuración de servicio específico o para todas las configuraciones de servicio.
+    >[AZURE.NOTE] Puede establecer el recuento de instancias para una configuración de servicio específico o para todas las configuraciones de servicio.
 
 1. En el cuadro de texto **Recuento de instancias**, escriba el número de instancias que quiere iniciar para este rol.
 
-    >[AZURE.NOTE]Cada instancia se ejecuta en una máquina virtual independiente al publicar su servicio en la nube en Azure.
+    >[AZURE.NOTE] Cada instancia se ejecuta en una máquina virtual independiente al publicar su servicio en la nube en Azure.
 
 1. Elija el botón **Guardar** en la barra de herramientas para guardar estos cambios en el archivo de configuración de servicio.
 
@@ -77,7 +77,7 @@ Para mejorar el rendimiento de su servicio en la nube, puede cambiar el número 
 
 Puede agregar, quitar o modificar cadenas de conexión para sus configuraciones de servicio. Es posible que quiera diferentes cadenas de conexión para distintas configuraciones del servicio. Por ejemplo, es posible que quiera una cadena de conexión local para una configuración de servicio local que tiene un valor de `UseDevelopmentStorage=true`. También puede que desee configurar una configuración de servicio en la nube que use una cuenta de almacenamiento de Azure.
 
->[AZURE.CAUTION]Al especificar la información de la clave de la cuenta de almacenamiento de Azure para una cadena de conexión de la cuenta de almacenamiento, esta información se almacena localmente en el archivo de configuración de servicio. Sin embargo, esta información no se almacena actualmente como texto cifrado.
+>[AZURE.CAUTION] Al especificar la información de la clave de la cuenta de almacenamiento de Azure para una cadena de conexión de la cuenta de almacenamiento, esta información se almacena localmente en el archivo de configuración de servicio. Sin embargo, esta información no se almacena actualmente como texto cifrado.
 
 Si usa un valor diferente para cada configuración de servicio, no tendrá que usar cadenas de conexión diferentes en su servicio en la nube ni modificar su código al publicar su servicio en la nube en Azure. Puede usar el mismo nombre para la cadena de conexión en el código y el valor será diferente, en función de la configuración del servicio que selecciona al crear su servicio en la nube o al publicarlo.
 
@@ -87,7 +87,7 @@ Si usa un valor diferente para cada configuración de servicio, no tendrá que u
 
 1. En la lista **Configuración del servicio**, elija la configuración del servicio que quiera actualizar.
 
-    >[AZURE.NOTE]Puede actualizar las cadenas de conexión para una configuración de servicio específica, pero si necesita agregar o eliminar una cadena de conexión, debe seleccionar Todas las configuraciones.
+    >[AZURE.NOTE] Puede actualizar las cadenas de conexión para una configuración de servicio específica, pero si necesita agregar o eliminar una cadena de conexión, debe seleccionar Todas las configuraciones.
 
 1. Para agregar una cadena de conexión, elija el botón **Agregar configuración**. Se agrega una nueva entrada a la lista.
 
@@ -147,7 +147,7 @@ Al usar un valor diferente para cada configuración de servicio, no tendrá que 
 
 1. En la lista **Configuración del servicio**, elija la configuración del servicio que quiera actualizar.
 
-    >[AZURE.NOTE]Puede actualizar las cadenas para una configuración de servicio específico, pero si necesita agregar o eliminar una cadena, debe seleccionar **Todas las configuraciones**.
+    >[AZURE.NOTE] Puede actualizar las cadenas para una configuración de servicio específico, pero si necesita agregar o eliminar una cadena, debe seleccionar **Todas las configuraciones**.
 
 1. Para agregar una cadena, elija el botón **Agregar configuración**. Se agrega una nueva entrada a la lista.
 
@@ -171,7 +171,7 @@ Al usar un valor diferente para cada configuración de servicio, no tendrá que 
     using Microsoft.WindowsAzure.ServiceRuntime;
     ```
 
-1. Agregue el código siguiente al método `Button1_Click` para tener acceso a esta cadena de la misma manera que lo haría para una cadena de conexión. El código puede realizar algún código concreto en función del valor de la cadena de configuración para el archivo de configuración de servicio que se usa.
+1. Agregue el código siguiente al método `Button1_Click` para acceder a esta cadena de la misma manera que lo haría para una cadena de conexión. El código puede realizar algún código concreto en función del valor de la cadena de configuración para el archivo de configuración de servicio que se usa.
 
     ```
     var settingValue = RoleEnvironment.GetConfigurationSettingValue("MySetting");
@@ -183,7 +183,7 @@ Al usar un valor diferente para cada configuración de servicio, no tendrá que 
 
 ## Administrar el almacenamiento local para cada instancia de rol
 
-Puede agregar almacenamiento del sistema de archivos local para cada instancia de un rol. Puede almacenar los datos locales aquí a los que no necesitan obtener acceso otros roles. Los datos que no tenga que guardar en tabla, blob o almacenamiento de base de datos SQL pueden almacenarse aquí. Por ejemplo, podría usar este almacenamiento local para almacenar datos en caché que deben volver a usarse. No se puede tener acceso a estos datos almacenados por otras instancias de un rol. Para obtener más información sobre los recursos de almacenamiento local, vea [Configurar los recursos de almacenamiento local](cloud-services-configure-local-storage-resources.md).
+Puede agregar almacenamiento del sistema de archivos local para cada instancia de un rol. Puede almacenar los datos locales aquí a los que no necesitan obtener acceso otros roles. Los datos que no tenga que guardar en tabla, blob o almacenamiento de base de datos SQL pueden almacenarse aquí. Por ejemplo, podría usar este almacenamiento local para almacenar datos en caché que deben volver a usarse. No se puede tener acceso a estos datos almacenados por otras instancias de un rol. Para obtener más información sobre los recursos de almacenamiento local, vea [Configurar los recursos de almacenamiento local](/cloud-services/cloud-services-configure-local-storage-resources.md).
 
 Los valores de almacenamiento local se aplican a todas las configuraciones de servicio. Solo puede agregar, quitar o modificar el almacenamiento local para todas las configuraciones de servicio.
 
@@ -253,7 +253,7 @@ Los valores de almacenamiento local se aplican a todas las configuraciones de se
 
 Puede recopilar datos de diagnóstico para el servicio en la nube de Azure. Estos datos se agregan a una cuenta de almacenamiento. Es posible que quiera diferentes cadenas de conexión para distintas configuraciones del servicio. Por ejemplo, es posible que quiera una cuenta de almacenamiento local para una configuración de servicio local que tiene un valor de UseDevelopmentStorage=true. También puede que desee configurar una configuración de servicio en la nube que use una cuenta de almacenamiento de Azure. Para obtener más información sobre los diagnósticos de Azure, consulte Recopilar datos de registro mediante Diagnósticos de Azure.
 
->[AZURE.NOTE]La configuración del servicio local ya está configurada para usar los recursos locales. Si usa la configuración del servicio en la nube para publicar su servicio en la nube de Azure, la cadena de conexión que especifique al publicar también se utiliza para la cadena de conexión de diagnóstico a menos que haya especificado una cadena de conexión. Si empaqueta su servicio en la nube con Visual Studio, no se cambia la cadena de conexión en la configuración del servicio.
+>[AZURE.NOTE] La configuración del servicio local ya está configurada para usar los recursos locales. Si usa la configuración del servicio en la nube para publicar su servicio en la nube de Azure, la cadena de conexión que especifique al publicar también se utiliza para la cadena de conexión de diagnóstico a menos que haya especificado una cadena de conexión. Si empaqueta su servicio en la nube con Visual Studio, no se cambia la cadena de conexión en la configuración del servicio.
 
 ### Para recopilar diagnóstico del servicio en la nube
 
@@ -261,7 +261,7 @@ Puede recopilar datos de diagnóstico para el servicio en la nube de Azure. Esto
 
 1. En la lista **Configuración del servicio**, elija la configuración del servicio que quiere actualizar o elija **Todas las configuraciones**.
 
-    >[AZURE.NOTE]Puede actualizar la cuenta de almacenamiento para una configuración de servicio específica, pero si quiere habilitar o deshabilitar los diagnósticos, debe elegir Todas las configuraciones.
+    >[AZURE.NOTE] Puede actualizar la cuenta de almacenamiento para una configuración de servicio específica, pero si quiere habilitar o deshabilitar los diagnósticos, debe elegir Todas las configuraciones.
 
 1. Para habilitar los diagnósticos, active la casilla **Habilitar diagnósticos**.
 
@@ -293,7 +293,7 @@ Puede recopilar datos de diagnóstico para el servicio en la nube de Azure. Esto
 
 ## Cambiar el tamaño de la máquina virtual que se usa para cada rol
 
-Puede establecer el tamaño de la máquina virtual para cada rol. Solo puede establecer este tamaño para todas las configuraciones de servicio. Si selecciona un tamaño de máquina menor, se asignarán menos núcleos de CPU, memoria y almacenamiento en disco local. El ancho de banda asignado también es menor. Para obtener más información sobre estos tamaños y los recursos asignados, vea [Tamaños para los Servicios en la nube](cloud-services-sizes-specs.md).
+Puede establecer el tamaño de la máquina virtual para cada rol. Solo puede establecer este tamaño para todas las configuraciones de servicio. Si selecciona un tamaño de máquina menor, se asignarán menos núcleos de CPU, memoria y almacenamiento en disco local. El ancho de banda asignado también es menor. Para obtener más información sobre estos tamaños y los recursos asignados, vea [Tamaños para los Servicios en la nube](/cloud-services/cloud-services-sizes-specs.md).
 
 Los recursos necesarios para cada máquina virtual en Azure afectan al costo de ejecutar su servicio en la nube en Azure. Para obtener más información sobre la facturación de Azure, vea [Comprender la factura de Microsoft Azure](billing-understand-your-bill.md).
 
@@ -315,11 +315,11 @@ Para mejorar la seguridad de su servicio en la nube de Azure, puede crear extrem
 
 También puede agregar extremos que se pueden usar interna o externamente. Los extremos externos se denominan extremos de entrada. Un extremo de entrada permite otro punto de acceso a los usuarios para su servicio en la nube. Si tiene un servicio WCF, es posible que quiera exponer un extremo interno para que un rol web tenga acceso a este servicio.
 
->[AZURE.IMPORTANT]Solo puede actualizar extremos para todas las configuraciones de servicio.
+>[AZURE.IMPORTANT] Solo puede actualizar extremos para todas las configuraciones de servicio.
 
 Si agrega extremos HTTPS, debe usar un certificado SSL. Para ello, puede asociar certificados a su rol para todas las configuraciones de servicio y usarlos para sus extremos.
 
->[AZURE.IMPORTANT]Estos certificados no se empaquetan con su servicio. Debe cargar sus certificados en Azure a través del portal de administración de la plataforma Azure.
+>[AZURE.IMPORTANT] Estos certificados no se empaquetan con su servicio. Debe cargar sus certificados en Azure a través del portal de administración de la plataforma Azure.
 
 Cualquier certificado de administración que asocie a sus configuraciones de servicio solo se aplicarán cuando se ejecute su servicio en la nube en Azure. Cuando su servicio en la nube se ejecute en el entorno de desarrollo local, se usará un certificado estándar administrado por el emulador de proceso de Azure.
 
@@ -329,7 +329,7 @@ Cualquier certificado de administración que asocie a sus configuraciones de ser
 
 1. En la lista **Configuración de servicio**, elija **Todas las configuraciones**.
 
-    >[AZURE.NOTE]Para agregar o quitar certificados, debe seleccionar Todas las configuraciones. Puede actualizar el nombre y la huella digital de una configuración de servicio concreta si es necesario.
+    >[AZURE.NOTE] Para agregar o quitar certificados, debe seleccionar Todas las configuraciones. Puede actualizar el nombre y la huella digital de una configuración de servicio concreta si es necesario.
 
 1. Para agregar un certificado para este rol, elija el botón **Agregar certificado**. Se agrega una nueva entrada a la lista.
 
@@ -343,7 +343,7 @@ Cualquier certificado de administración que asocie a sus configuraciones de ser
 
 1. Elija el certificado que quiera usar en la lista y luego elija el botón **Aceptar**.
 
-    >[AZURE.NOTE]Al agregar un certificado del almacén de certificados, cualquier certificado intermedio se agrega automáticamente a la configuración. Estos certificados intermedios también se deben cargar en Azure para configurar el servicio correctamente para SSL.
+    >[AZURE.NOTE] Al agregar un certificado del almacén de certificados, cualquier certificado intermedio se agrega automáticamente a la configuración. Estos certificados intermedios también se deben cargar en Azure para configurar el servicio correctamente para SSL.
 
 1. Para eliminar un certificado, seleccione el certificado y luego presione el botón **Quitar certificado**.
 
@@ -369,11 +369,11 @@ Cualquier certificado de administración que asocie a sus configuraciones de ser
 
 1. Si el extremo requiere el protocolo https, en la lista **Nombre del certificado SSL**, elija un certificado para usarlo.
 
-    >[AZURE.NOTE]En esta lista se muestran los certificados que se han agregado para este rol en la pestaña **Certificados**.
+    >[AZURE.NOTE] En esta lista se muestran los certificados que se han agregado para este rol en la pestaña **Certificados**.
 
 1. Elija el botón **Guardar** en la barra de herramientas para guardar estos cambios en los archivos de configuración de servicio.
 
 ## Pasos siguientes
 Para obtener más información sobre los proyectos de Azure en Visual Studio, consulte [Configurar un proyecto de Azure](vs-azure-tools-configuring-an-azure-project.md). Para obtener más información sobre el esquema del servicio en la nube, consulte [Referencia de esquema](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

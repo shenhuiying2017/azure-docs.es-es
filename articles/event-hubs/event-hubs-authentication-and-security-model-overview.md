@@ -25,7 +25,7 @@ El modelo de seguridad de los Centros de eventos cumple los siguientes requisito
 
 ## Autenticación de dispositivos
 
-El modelo de seguridad de los Centros de eventos se basa en una combinación de tokens de [firma de acceso compartido (SAS)](service-bus-shared-access-signature-authentication.md) y publicadores de eventos. Un publicador de eventos define un extremo virtual para un Centro de eventos. El publicador solo puede usarse para enviar mensajes a un Centro de eventos. No es posible recibir mensajes desde un publicador.
+El modelo de seguridad de los Centros de eventos se basa en una combinación de tokens de [firma de acceso compartido (SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) y publicadores de eventos. Un publicador de eventos define un extremo virtual para un Centro de eventos. El publicador solo puede usarse para enviar mensajes a un Centro de eventos. No es posible recibir mensajes desde un publicador.
 
 Normalmente, un Centro de eventos emplea un publicador por dispositivo. Todos los mensajes que se envíen a cualquiera de los publicadores de un Centro de eventos se ponen en cola dentro de ese Centro de eventos. Los publicadores permiten un control de acceso y limitación avanzados.
 
@@ -154,4 +154,4 @@ Para obtener más información sobre los Centros de eventos, visite los siguient
 [solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

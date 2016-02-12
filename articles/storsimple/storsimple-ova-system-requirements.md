@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/07/2015"
+   ms.date="01/07/2016"
    ms.author="alkohli"/>
 
 # Requisitos del sistema de la matriz virtual de StorSimple (vista previa)
@@ -102,4 +102,4 @@ La siguiente tabla enumera los puertos que deben abrirse en el firewall para per
 
 -   [Prepare el portal para implementar la matriz virtual de StorSimple](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

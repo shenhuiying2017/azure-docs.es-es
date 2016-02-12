@@ -98,7 +98,7 @@ Aquí hay más información sobre servicios de proceso, datos, redes y otros ser
 
 ### Servicios de proceso
 
-Servicios de proceso de Azure son el núcleo de una solución Big Compute y los diversos servicios de proceso ofrecen ventajas para diferentes escenarios. En un nivel básico, estos servicios ofrecen modos distintos para que las aplicaciones se ejecuten en instancias de proceso basadas en máquinas virtuales que Azure proporciona mediante tecnología Windows Server Hyper-V. Estas instancias pueden ejecutar una amplia variedad de herramientas y sistemas operativos Linux y Windows estándar y personalizados. Azure le ofrece [tamaños de instancia](../virtual-machines/virtual-machines-sizes-specs.md) con diferentes configuraciones de núcleos de CPU, memoria, capacidad de disco y otras características. Según sus necesidades puede escalar las instancias a miles de núcleos y, a continuación, reducirlas cuando se necesiten menos recursos.
+Servicios de proceso de Azure son el núcleo de una solución Big Compute y los diversos servicios de proceso ofrecen ventajas para diferentes escenarios. En un nivel básico, estos servicios ofrecen modos distintos para que las aplicaciones se ejecuten en instancias de proceso basadas en máquinas virtuales que Azure proporciona mediante tecnología Windows Server Hyper-V. Estas instancias pueden ejecutar una amplia variedad de herramientas y sistemas operativos Linux y Windows estándar y personalizados. Azure le ofrece [tamaños de instancia](../virtual-machines/virtual-machines-size-specs.md) con diferentes configuraciones de núcleos de CPU, memoria, capacidad de disco y otras características. Según sus necesidades puede escalar las instancias a miles de núcleos y, a continuación, reducirlas cuando se necesiten menos recursos.
 
 >[AZURE.NOTE] Puede aprovechar las instancias A8-A11 para mejorar el rendimiento de algunas cargas de trabajo HPC, incluidas las aplicaciones MPI paralelas que requieren una red de aplicaciones de baja latencia y alto rendimiento. Consulte [Sobre las instancias informáticas intensivas A8, A9, A10 y A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).
 
@@ -155,4 +155,4 @@ Es posible que la solución Big Compute necesite otros servicios de Azure para c
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

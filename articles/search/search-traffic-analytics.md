@@ -14,7 +14,7 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="12/17/2015" 
+	ms.date="01/26/2016" 
 	ms.author="betorres"
 />
 
@@ -27,7 +27,7 @@ Análisis de tráfico de búsqueda es una característica de Búsqueda de Azure 
 ## Habilitación de Análisis de tráfico de búsqueda
 
 ### 1\. Uso del portal
-Abra el servicio de Búsqueda de Azure en el [Portal de Azure](https://portal.azure.com). En Configuración, encontrará la opción Análisis de tráfico de búsqueda.
+Abra el servicio de Búsqueda de Azure en el [Portal de Azure](http://portal.azure.com). En Configuración, encontrará la opción Análisis de tráfico de búsqueda.
 
 ![][1]
 
@@ -131,26 +131,32 @@ Métricas disponibles:
 
 Los datos están en su propia cuenta de almacenamiento. Le animamos a explorar estos datos de la manera más adecuada para su caso.
 
-Como punto de partida, recomendamos usar [Power BI Desktop](https://powerbi.microsoft.com/es-ES/desktop) para explorar y visualizar los datos. Puede conectarse fácilmente a su cuenta de Almacenamiento de Azure y comenzar rápidamente a analizar los datos.
+Como punto de partida, se recomienda usar [Power BI](https://powerbi.microsoft.com) para explorar y visualizar los datos. Puede conectarse fácilmente a su cuenta de Almacenamiento de Azure y comenzar rápidamente a analizar los datos.
 
-Consulte la siguiente consulta de ejemplo que le permitirá crear sus propios informes en Power BI Desktop.
+#### Power BI en línea
 
-### Instrucciones
+[Paquete de contenido de Power BI](https://app.powerbi.com/getdata/services/azure-search): cree un panel de Power BI y un conjunto de informes de Power BI que muestren los datos automáticamente y proporcionen información visual sobre el servicio de búsqueda. Vea la [página de ayuda sobre el paquete de contenido](https://powerbi.microsoft.com/es-ES/documentation/powerbi-content-pack-azure-search/).
+
+![][3]
+
+#### Power BI Desktop
+
+[Power BI Desktop](https://powerbi.microsoft.com/es-ES/desktop): explore los datos y cree sus propias visualizaciones de los datos. Se proporciona una consulta de inicio a continuación para ayudarle.
 
 1. Abrir un nuevo informe de Power BI Desktop
 2. Seleccione Obtener datos -> Más...
 
-	![][3]
+	![][4]
 
 3. Seleccione Almacenamiento de blobs de Microsoft Azure y Connect
 
-	![][4]
+	![][5]
 
 4. Especifique el nombre y la clave de cuenta de la cuenta de almacenamiento
 5. Seleccione "insight-logs-operationlogs" y "insights-metrics-pt1m" y luego haga clic en Editar.
 6. Se abrirá el Editor de consultas , asegúrese de que "insight-logs-operationlogs" está seleccionado a la izquierda. Ahora abra el Editor avanzado seleccionando Ver -> Editor avanzado
 
-	![][5]
+	![][6]
 
 7. Mantenga las 2 primeros líneas y reemplace el resto por la consulta siguiente:
 
@@ -217,8 +223,9 @@ Obtenga más información sobre cómo crear informes increíbles. Consulte [Intr
 
 [1]: ./media/search-traffic-analytics/SettingsBlade.png
 [2]: ./media/search-traffic-analytics/DiagnosticsBlade.png
-[3]: ./media/search-traffic-analytics/GetData.png
-[4]: ./media/search-traffic-analytics/BlobStorage.png
-[5]: ./media/search-traffic-analytics/QueryEditor.png
+[3]: ./media/search-traffic-analytics/Dashboard.png
+[4]: ./media/search-traffic-analytics/GetData.png
+[5]: ./media/search-traffic-analytics/BlobStorage.png
+[6]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

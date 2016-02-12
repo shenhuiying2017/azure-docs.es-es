@@ -43,7 +43,7 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 
 2. **Obtenga la lista de proveedores, ubicaciones y anchos de banda admitidos.**
 
-	Antes de crear un circuito ExpressRoute, necesitará una lista de proveedores de conectividad, ubicaciones admitidas y opciones de ancho de banda. El cmdlet de PowerShell *Get-AzureDedicatedCircuitServiceProvider* devuelve esta información que se usará más adelante en otros pasos.
+	Antes de crear un circuito ExpressRoute, necesitará una lista de proveedores de conectividad, ubicaciones admitidas y opciones de ancho de banda. El cmdlet de PowerShell *Get-AzureDedicatedCircuitServiceProvider* devuelve esta información que se usará más adelante en otros pasos. Cuando se ejecuta el cmdlet, el resultado tendrá un aspecto similar al siguiente ejemplo.
 
 		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
@@ -197,7 +197,7 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 
 7. **Vincule una red virtual a un circuito ExpressRoute.**
 
-	A continuación, vincule una red virtual al circuito ExpressRoute. Consulte [Vinculación de circuitos ExpressRoute a redes virtuales](expressroute-howto-linkvnet-classic.md) para instrucciones paso a paso. Si necesita crear una red virtual para ExpressRoute, consulte [Creación de una red virtual para ExpressRoute](expressroute-howto-createvnet-classic.md) para instrucciones.
+	A continuación, vincule una red virtual al circuito ExpressRoute. Consulte [Vinculación de circuitos ExpressRoute a redes virtuales](expressroute-howto-linkvnet-classic.md) para instrucciones paso a paso. Si necesita crear una red virtual con el modelo de implementación clásica de ExpressRoute, consulte [Configurar una red virtual en ExpressRoute](expressroute-howto-vnet-portal-classic.md) para obtener instrucciones.
 
 ##  Obtención del estado de un circuito ExpressRoute
 
@@ -328,4 +328,4 @@ Si el proveedor de servicios ha desaprovisionado el circuito (el estado de aprov
 
 - [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

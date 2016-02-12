@@ -26,7 +26,7 @@ En este artículo se muestra cómo usar la [imagen de máquina virtual de Micros
 
 ![Nodo principal de HPC Pack][headnode]
 
->[AZURE.NOTE]Actualmente, la imagen de máquina virtual de HPC Pack se basa en Windows Server 2012 R2 Datacenter con HPC Pack 2012 R2 Update 2 preinstalado. Microsoft SQL Server 2014 Express también está preinstalado.
+>[AZURE.NOTE] Actualmente, la imagen de máquina virtual de HPC Pack se basa en Windows Server 2012 R2 Datacenter con HPC Pack 2012 R2 Update 2 preinstalado. Microsoft SQL Server 2014 Express también está preinstalado.
 
 
 Para una implementación de producción de un clúster de HPC Pack en Azure, se recomienda un método de implementación automatizado, como el [script de implementación de HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md) o una [plantilla de inicio rápido](https://azure.microsoft.com/documentation/templates/) de Administrador de recursos de Azure.
@@ -42,7 +42,7 @@ Para una implementación de producción de un clúster de HPC Pack en Azure, se 
 Estos son los pasos de nivel superior para crear una máquina virtual de Azure para el nodo principal de HPC Pack. Puede usar una variedad de herramientas de Azure para realizar estos pasos en el modelo de implementación clásico (administración de servicios) de Azure.
 
 
-1. Si planea crear una red virtual para la máquina virtual del nodo principal, consulte [Creación de una red virtual (clásica) usando el Portal de Azure](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md).
+1. Si planea crear una red virtual para la máquina virtual del nodo principal, consulte [Creación de una red virtual (clásica) usando el Portal de Azure](../virtual-networks/virtual-networks-create-vnet-classic-portal.md).
 
     **Consideraciones**
 
@@ -102,4 +102,4 @@ Estos son los pasos de nivel superior para crear una máquina virtual de Azure p
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

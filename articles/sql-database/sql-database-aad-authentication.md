@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="12/09/2015"
+   ms.date="02/01/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Conexión a Base de datos SQL mediante autenticación de Azure Active Directory
@@ -65,7 +65,7 @@ Para crear un usuario de la base de datos independiente en la Base de datos SQL 
 
 ## Características y limitaciones de Azure AD
 
-Es posible aprovisionar los siguientes miembros de Azure Active Directory en Azure SQL Server: - miembros nativos (un miembro creado en Azure AD en el dominio administrado o en un dominio de cliente). Para más información, consulte [Incorporación de su propio nombre de dominio a Azure AD](active-directory-add-domain.md); - miembros de dominio federado (un miembro creado en Azure AD con un dominio federado). Para obtener más información, consulte [Microsoft Azure ahora admite la federación con Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/); - miembros importados desde otros directorios de Azure Active Directory que son miembros del dominio nativo o federado; - grupos de Active Directory creados como grupos de seguridad.
+Es posible aprovisionar los siguientes miembros de Azure Active Directory en Azure SQL Server: - miembros nativos (un miembro creado en Azure AD en el dominio administrado o en un dominio de cliente). Para más información, consulte [Incorporación de su propio nombre de dominio a Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/); - miembros de dominio federado (un miembro creado en Azure AD con un dominio federado). Para obtener más información, consulte [Microsoft Azure ahora admite la federación con Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/); - miembros importados desde otros directorios de Azure Active Directory que son miembros del dominio nativo o federado; - grupos de Active Directory creados como grupos de seguridad.
 
 No se admiten las cuentas de Microsoft (por ejemplo, outlook.com, hotmail.com, live.com) ni otras cuentas de invitado (por ejemplo, gmail.com, yahoo.com). Si puede iniciar sesión en [https://login.live.com](https://login.live.com) con la cuenta y la contraseña, está usando una cuenta de Microsoft que no se admite para la autenticación de Azure AD para la Base de datos SQL de Azure.
 
@@ -86,8 +86,9 @@ Cree un Azure Active Directory y rellénelo con usuarios y grupos. Esto incluye:
 
 - Crear el dominio administrado de Azure AD de dominio inicial.
 - Federar Servicios de dominio de Active Directory local con Azure Active Directory.
+- Con la herramienta **AD FS**, en la sección **Servicio**, **Puntos de conexión**, habilite **WS-Trust 1.3** para la ruta de acceso a la dirección URL **/adfs/services/trust/13/windowstransport**.
 
-Para obtener más información, consulte [Incorporación de su propio nombre de dominio a Azure AD](active-directory-add-domain.md), [Microsoft Azure ahora admite la federación con Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administración de su directorio de Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) y [Administrar Azure AD mediante Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+Para obtener más información, consulte [Incorporación de su propio nombre de dominio a Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/), [Microsoft Azure ahora admite la federación con Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administración de su directorio de Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) y [Administrar Azure AD mediante Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 ## 2\. Asegurarse de que la base de datos está en Base de datos SQL de Azure V12.
 
@@ -199,8 +200,7 @@ En el ejemplo siguiente se devuelve información sobre el administrador actual d
 Get-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
 ```
 
-En el ejemplo siguiente, se quita un administrador de Azure AD: 
-```
+En el ejemplo siguiente, se quita un administrador de Azure AD: ```
 Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 
@@ -244,7 +244,7 @@ Use este método al conectarse con un nombre de entidad de seguridad de Azure AD
 Use este método si tiene la sesión iniciada en Windows con las credenciales de un dominio que no está federado con Azure, o cuando utiliza la autenticación de Azure AD mediante Azure AD basado en el dominio inicial o del cliente.
 
 1. Inicie Management Studio y, en el cuadro de diálogo **Conectarse al motor de base de datos** (o **Conectarse al servidor**), en el cuadro **Autenticación**, seleccione **Autenticación de contraseña de Active Directory**.
-2. En el cuadro **Nombre de usuario**, escriba el nombre de usuario de Azure Active Directory en el formato **username@domain.com**. Debe tratarse de una cuenta de Azure Active Directory o una cuenta de un dominio federado con el directorio de Azure Active Directory.
+2. En el cuadro **Nombre de usuario**, escriba el nombre de usuario de Azure Active Directory en el formato ****username@domain.com**. Debe tratarse de una cuenta de Azure Active Directory o una cuenta de un dominio federado con el directorio de Azure Active Directory.
 3. En el cuadro **Contraseña**, escriba la contraseña de usuario de la cuenta de Azure Active Directory o la de la cuenta de dominio federado.
 4. Haga clic en el botón **Opciones** y, en la página **Propiedades de conexión**, en el cuadro **Conectarse a una base de datos**, escriba el nombre de la base de datos de usuarios a la que quiere conectarse.
 
@@ -314,6 +314,7 @@ Para ejemplos de código específicos y que estén relacionados con la autentica
 
 [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
 
+
 <!--Image references-->
 
 [1]: ./media/sql-database-aad-authentication/1aad-auth-diagram.png
@@ -327,4 +328,4 @@ Para ejemplos de código específicos y que estén relacionados con la autentica
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

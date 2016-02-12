@@ -1,7 +1,7 @@
 <a name="tellmecs"></a>
 ## Información sobre los servicios en la nube
 
-Los servicios en la nube son un ejemplo de plataforma como-servicio (PaaS). Como [Servicios de aplicaciones](app-service-web-overview.md), esta tecnología está diseñada para ser compatible con aplicaciones escalables, confiables y económicas de operar. Al igual que un [Servicios de aplicaciones](app-service-web-overview.md) se hospedan en máquinas virtuales, así que también son servicios en la nube; sin embargo, se tiene más control sobre las máquinas virtuales. Puede instalar su propio software en máquinas virtuales de Servicio en la nube y tener acceso remoto a ellas.
+Los servicios en la nube son un ejemplo de plataforma como-servicio (PaaS). Como [Servicio de aplicaciones](../articles/app-service-web/app-service-web-overview.md), esta tecnología está diseñada para ser compatible con aplicaciones escalables, confiables y económicas de operar. Al igual que un Servicio de aplicaciones, se hospedan en máquinas virtuales, así que también son servicios en la nube; sin embargo, se tiene más control sobre las máquinas virtuales. Puede instalar su propio software en máquinas virtuales de Servicio en la nube y tener acceso remoto a ellas.
 
 ![cs\_diagram](./media/cloud-services-choose-me-content/diagram.png)
 
@@ -14,7 +14,7 @@ Cualquier combinación de estas dos opciones ligeramente diferentes de hospedaje
 * **Rol web** se ejecuta Windows Server con la aplicación web que se implementa automáticamente en IIS.
 * **Rol de trabajo** se ejecuta Windows Server sin IIS.
 
-Por ejemplo, una aplicación simple podría utilizar solo un rol web, mientras que una aplicación más compleja podría utilizar un rol web para manejar solicitudes entrantes provenientes de los usuarios y luego transmitir el trabajo que crean esas solicitudes a un rol de trabajo para su procesamiento (esta comunicación podría utilizar [Bus de servicio](../articles/service-bus/fundamentals-service-bus-hybrid-solutions.md) o [colas de Azure](../articles/storage/storage-introduction.md)).
+Por ejemplo, una aplicación simple podría utilizar solo un rol web, mientras que una aplicación más compleja podría utilizar un rol web para manejar solicitudes entrantes provenientes de los usuarios y luego transmitir el trabajo que crean esas solicitudes a un rol de trabajo para su procesamiento (esta comunicación podría utilizar [Bus de servicio](../articles/service-bus/service-bus-fundamentals-hybrid-solutions.md) o [colas de Azure](../articles/storage/storage-introduction.md)).
 
 Como sugiere la ilustración anterior, todas las máquinas virtuales de una sola aplicación se ejecutan en el mismo servicio en la nube. Debido a esto, los usuarios tienen acceso a la aplicación a través de una dirección IP pública única y se realiza automáticamente el equilibrio de carga de las solicitudes en todas las máquinas virtuales de la aplicación. La plataforma [escalará e implementará](../articles/cloud-services/cloud-services-how-to-scale.md) las máquinas virtuales en una aplicación de Servicios en la nube para así evitar un único punto de errores de hardware.
 
@@ -30,4 +30,4 @@ Servicios en la nube también brinda supervisión. Al igual que con Máquinas vi
 
 La naturaleza de PaaS de Servicios en la nube tiene también otras implicaciones. Una de las más importantes es que las aplicaciones creadas sobre la base de esta tecnología deben estar escritas para ejecutarse correctamente en caso de cualquier error en instancia de rol web o de trabajo. Para lograrlo, una aplicación de Servicios en la nube no debiera mantener estado en el sistema de archivos de sus propias máquinas virtuales. A diferencia de las máquinas virtuales creadas con Máquinas virtuales de Azure, las escrituras que se realizan en las máquinas virtuales de Servicios en la nube no son permanentes; no hay nada parecido a un disco de datos de Máquinas virtuales. En lugar de eso, una aplicación de Servicios en la nube debe escribir explícitamente todo estado en la base de datos de SQL, blogs, tablas u algún otro tipo de almacenamiento externo. Cuando se crean aplicaciones de esta manera, estas resultan más fáciles de escalar y son más resistentes ante los errores, ambos objetivos importantes de Servicios en la nube.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

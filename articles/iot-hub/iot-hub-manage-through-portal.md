@@ -52,7 +52,7 @@ Puede elegir entre tres planes: **Gratis**, **Estándar 1 ** y **Estándar 2**. 
 
 ![][4]
 
-> [AZURE.NOTE]El Centro de IoT solo permite un único centro gratuito por cada suscripción.
+> [AZURE.NOTE] El Centro de IoT solo permite un único centro gratuito por cada suscripción.
 
 ### Unidades del Centro de IoT
 
@@ -72,7 +72,7 @@ El Centro de IoT de Azure muestra automáticamente la lista de suscripciones al 
 
 ### Selección de la ubicación
 
-La opción de ubicación proporciona una lista de las regiones en las que se ofrece Centro de IoT. Para esta versión preliminar, el Centro de IoT solo se ofrece en tres ubicaciones: Este de EE. UU., Norte de Europa y Este de Asia.
+La opción de ubicación proporciona una lista de las regiones en las que se ofrece Centro de IoT. Centro de IoT está disponible para su implementación en las siguientes ubicaciones: Este de EE. UU., Oeste de EE. UU., Norte de Europa, Oeste de Europa, Asia Oriental y Asia Sudoriental.
 
 ### Creación del Centro de IoT
 
@@ -116,7 +116,7 @@ Haga clic en las directivas de **Mensajería** a fin de mostrar una lista de pro
 
 **Grupos de consumidores**: Grupos de consumidores es una configuración similar a otros sistemas de mensajería que se puede usar para extraer datos de modos específicos a fin de conectar otras aplicaciones o servicios a un Centro de IoT. Cada Centro de IoT se crea con un grupo de consumidores predeterminado. Sin embargo, puede agregar o eliminar grupos de consumidores en los Centros de IoT.
 
-> [AZURE.NOTE]El grupo de consumidores predeterminado no se puede modificar ni eliminar.
+> [AZURE.NOTE] El grupo de consumidores predeterminado no se puede modificar ni eliminar.
 
 ![][11]
 
@@ -153,4 +153,4 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="02/03/2016" 
 	ms.author="garye;bradsev"/>
 
 
@@ -29,7 +29,7 @@ Para usar Estudio de aprendizaje automático de Azure, debe tener un área de tr
 
 ## Para crear un área de trabajo
 
-1. Inicie sesión en su cuenta de Microsoft Azure.
+1. Inicie sesión en el [Portal de Microsoft Azure clásico](https://manage.windowsazure.com/).
 2. En el panel de servicios de Microsoft Azure, haga clic en **APRENDIZAJE AUTOMÁTICO**.
 
     ![Servicio de Aprendizaje automático][1]
@@ -41,7 +41,7 @@ Para usar Estudio de aprendizaje automático de Azure, debe tener un área de tr
 
 5. Escriba un **NOMBRE DE ÁREA DE TRABAJO** para el área de trabajo y especifique el **PROPIETARIO DE ÁREA DE TRABAJO**. El propietario del área de trabajo debe ser una cuenta Microsoft válida (por ejemplo, name@outlook.com)).
 
-    > [AZURE.NOTE]Más tarde puede compartir los experimentos en los que trabaja invitando a otros a su área de trabajo. Para ello, en Estudio de aprendizaje automático, vaya a la página **CONFIGURACIÓN**. Solo necesita la cuenta Microsoft o la cuenta de organización de cada usuario.
+    > [AZURE.NOTE] Más tarde puede compartir los experimentos en los que trabaja invitando a otros a su área de trabajo. Para ello, en Estudio de aprendizaje automático, vaya a la página **CONFIGURACIÓN**. Solo necesita la cuenta Microsoft o la cuenta de organización de cada usuario.
 
 6. Especifique la **UBICACIÓN** de Azure, luego escriba una **CUENTA DE ALMACENAMIENTO** de Azure existente o seleccione **Crear una nueva cuenta de almacenamiento** para crear una nueva.
 7. Haga clic en **CREAR UN ÁREA DE TRABAJO DE ML**.
@@ -67,4 +67,4 @@ Para obtener más información sobre cómo administrar un área de trabajo, cons
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

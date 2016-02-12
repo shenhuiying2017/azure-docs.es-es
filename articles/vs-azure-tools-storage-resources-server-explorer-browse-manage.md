@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="01/27/2016"
    ms.author="tarcher" />
 
 # Exploración y administración de recursos de almacenamiento con el Explorador de servidores
@@ -50,7 +50,7 @@ El nodo Blobs muestra una lista de contenedores para la cuenta de almacenamiento
 
     ![Agregar un nuevo contenedor de blobs](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
 
-    >[AZURE.NOTE]El nombre del contenedor de blobs debe comenzar con una letra minúscula (a–z) o un número (0-9).
+    >[AZURE.NOTE] El nombre del contenedor de blobs debe comenzar con una letra minúscula (a–z) o un número (0-9).
 
 ### Para eliminar un contenedor de blobs
 
@@ -74,7 +74,7 @@ El nodo Blobs muestra una lista de contenedores para la cuenta de almacenamiento
 
     - Eliminar un blob
 
-      >[AZURE.NOTE]Cuando elimina un archivo de un contenedor de blobs, no se elimina el archivo subyacente; solo se quita del contenedor de blobs.
+      >[AZURE.NOTE] Cuando elimina un archivo de un contenedor de blobs, no se elimina el archivo subyacente; solo se quita del contenedor de blobs.
 
     - Abrir un blob
 
@@ -98,7 +98,7 @@ El nodo Blobs muestra una lista de contenedores para la cuenta de almacenamiento
 
  - Elimine todos los archivos de la carpeta
 
-    >[AZURE.NOTE]Dado que las carpetas en los contenedores de blob son virtuales, no puede crear una carpeta vacía ni eliminar una carpeta para eliminar los archivos que contiene. Primero debe eliminar todo el contenido de una carpeta para eliminar la carpeta.
+    >[AZURE.NOTE] Dado que las carpetas en los contenedores de blob son virtuales, no puede crear una carpeta vacía ni eliminar una carpeta para eliminar los archivos que contiene. Primero debe eliminar todo el contenido de una carpeta para eliminar la carpeta.
 
 ### Para filtrar los blobs de un contenedor
 
@@ -109,7 +109,7 @@ Por ejemplo, si escribe el prefijo `hello` en el cuadro de texto del filtro y de
 ![VST\_SE\_FilterBlobs](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC519076.png)
 
 
->[AZURE.NOTE]El campo de filtro distingue mayúsculas de minúsculas y no admite el filtrado con caracteres comodín. Los blobs solo se pueden filtrar por prefijo. El prefijo puede incluir un delimitador si usa uno para organizar los blobs en una jerarquía virtual. Por ejemplo, el filtrado por el prefijo HelloFabric/ devuelve todos los blobs que comienzan con esa cadena.
+>[AZURE.NOTE] El campo de filtro distingue mayúsculas de minúsculas y no admite el filtrado con caracteres comodín. Los blobs solo se pueden filtrar por prefijo. El prefijo puede incluir un delimitador si usa uno para organizar los blobs en una jerarquía virtual. Por ejemplo, el filtrado por el prefijo HelloFabric/ devuelve todos los blobs que comienzan con esa cadena.
 
 ### Para descargar datos de blob
 
@@ -141,7 +141,7 @@ Por ejemplo, si escribe el prefijo `hello` en el cuadro de texto del filtro y de
 
     El archivo se descarga en una ubicación temporal y se abre en el equipo local. Debe cargar el blob de nuevo después de realizar cambios.
 
-### Trabajo con recursos de cola
+## Trabajo con recursos de cola
 
 Las colas de servicios de almacenamiento se hospedan en una cuenta de almacenamiento de Azure y se pueden usar para permitir que los roles del servicio en la nube se comuniquen entre sí y con otros servicios mediante un mecanismo de transferencia de mensajes. Puede acceder a la cola mediante programación a través de un servicio en la nube y a través de un servicio web para los clientes externos. También puede acceder a la cola directamente mediante el Explorador de servidores en Visual Studio.
 
@@ -163,9 +163,9 @@ En la siguiente imagen se muestra una cola que contiene dos mensajes.
 
 Para obtener más información acerca de las colas de servicios de almacenamiento, vea [Uso del almacenamiento de colas de .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Para obtener información sobre el servicio web para colas de servicios de almacenamiento, vea [Conceptos del servicio Cola](http://go.microsoft.com/fwlink/?LinkId=264788). Para obtener información acerca de cómo enviar mensajes a una cola de servicios de almacenamiento mediante Visual Studio, vea [Enviar mensajes a una cola de servicios de almacenamiento](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
->[AZURE.NOTE]Las colas de servicios de almacenamiento son distintas de las colas del Bus de servicio. Para obtener más información sobre las colas del Bus de servicio, consulte Colas, temas y suscripciones del Bus de servicio.
+>[AZURE.NOTE] Las colas de servicios de almacenamiento son distintas de las colas del Bus de servicio. Para obtener más información sobre las colas del Bus de servicio, consulte Colas, temas y suscripciones del Bus de servicio.
 
-### Trabajo con recursos de tabla
+## Trabajo con recursos de tabla
 
 El servicio de almacenamiento de tablas de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales.
 
@@ -213,7 +213,7 @@ La tabla se organiza por entidades (mostradas en filas) y propiedades (mostradas
 
     Especifique los valores con cuidado porque no se pueden cambiar después de cerrar el cuadro de diálogo a menos que elimine la entidad y vuelva a agregarla.
 
-## Para filtrar entidades
+### Para filtrar entidades
 
 Puede personalizar el conjunto de entidades que aparecen en una tabla si usa el generador de consultas.
 
@@ -235,35 +235,35 @@ Puede personalizar el conjunto de entidades que aparecen en una tabla si usa el 
 
     ![VST\_SE\_TableFilter](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655337.png)
 
-## Actualización de los datos de almacenamiento
+### Actualización de los datos de almacenamiento
 
 Cuando el Explorador de servidores se conecta a una cuenta de almacenamiento u obtiene datos de ella, se puede tardar hasta un minuto en completar la operación. Si no se puede conectar, la operación podría agotar el tiempo de espera. Mientras se recuperan datos, puede continuar trabajando en otras zonas de Visual Studio. Para cancelar la operación si está tardando demasiado, elija el botón **Detener actualización** en la barra de herramientas del Explorador de servidores.
 
-### Para actualizar los datos del contenedor de blobs
+#### Para actualizar los datos del contenedor de blobs
 
 - Seleccione el nodo **Blobs** bajo **Almacenamiento** y elija el botón **Actualizar** en la barra de herramientas del Explorador de servidores.
 
 - Para actualizar la lista de blobs que se muestra, elija el botón **Ejecutar**.
 
-### Para actualizar los datos de tabla
+#### Para actualizar los datos de tabla
 
 - Seleccione el nodo **Tablas** bajo **Almacenamiento** y elija el botón **Actualizar**.
 
 - Para actualizar la lista de entidades que se muestra en el **Diseñador de tablas**, elija el botón **Ejecutar** en el **Diseñador de tablas**.
 
-### Para actualizar los datos de cola
+#### Para actualizar los datos de cola
 
 - Seleccione el nodo **Colas** y elija el botón **Actualizar**.
 
-### Para actualizar todos los elementos de una cuenta de almacenamiento
+#### Para actualizar todos los elementos de una cuenta de almacenamiento
 
 - Elija el nombre de la cuenta y después seleccione el botón **Actualizar** en la barra de herramientas del Explorador de servidores.
 
-## Adición de cuentas de almacenamiento mediante el Explorador de servidores
+### Adición de cuentas de almacenamiento mediante el Explorador de servidores
 
 Existen dos formas de agregar cuentas de almacenamiento mediante el Explorador de servidores. Puede crear una nueva cuenta de almacenamiento en su suscripción de Azure o puede asociar una cuenta de almacenamiento existente.
 
-### Para crear una nueva cuenta de almacenamiento mediante el Explorador de servidores
+#### Para crear una nueva cuenta de almacenamiento mediante el Explorador de servidores
 
 1. En el Explorador de servidores, abra el menú contextual del nodo Almacenamiento y después elija Crear cuenta de almacenamiento.
 
@@ -283,7 +283,7 @@ Existen dos formas de agregar cuentas de almacenamiento mediante el Explorador d
 
     La nueva cuenta de almacenamiento aparecerá en la lista **Almacenamiento** del Explorador de soluciones.
 
-### Para asociar una nueva cuenta de almacenamiento mediante el Explorador de servidores
+#### Para asociar una nueva cuenta de almacenamiento mediante el Explorador de servidores
 
 1. En el Explorador de servidores, abra el menú contextual del nodo de almacenamiento de Azure y después elija **Asociar almacenamiento externo**.
 
@@ -307,10 +307,10 @@ Existen dos formas de agregar cuentas de almacenamiento mediante el Explorador d
 
 - En el Explorador de servidores, abra el menú contextual del nombre de cuenta y elija **Eliminar**. Si elimina una cuenta de almacenamiento, también se quita cualquier información de clave guardada para esa cuenta.
 
-    >[AZURE.NOTE]Si elimina una cuenta de almacenamiento del Explorador de servidores, esto no afecta a la cuenta de almacenamiento ni a ningún dato que contenga; simplemente se quita la referencia del Explorador de servidores. Para eliminar de forma permanente una cuenta de almacenamiento, use el Portal de administración de Azure.
+    >[AZURE.NOTE] Si elimina una cuenta de almacenamiento del Explorador de servidores, esto no afecta a la cuenta de almacenamiento ni a ningún dato que contenga; simplemente se quita la referencia del Explorador de servidores. Para eliminar de forma permanente una cuenta de almacenamiento, use el Portal de administración de Azure.
 
 ## Pasos siguientes
 
 Para obtener más información sobre cómo usar los servicios de almacenamiento de Azure, vea [Acceso a los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

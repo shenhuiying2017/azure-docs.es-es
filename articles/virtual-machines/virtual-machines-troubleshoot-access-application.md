@@ -86,7 +86,7 @@ Si no se puede obtener acceso a la aplicación, compruebe lo siguiente:
 - En las máquinas virtuales creadas con la API de administración de servicios, en las que la configuración del extremo de la máquina virtual permita el tráfico entrante, especialmente el protocolo (TCP o UDP) y los números de puerto público y privado. Para obtener más información, consulte [Cómo establecer extremos en una máquina virtual](virtual-machines-set-up-endpoints.md).
 - Para las máquinas virtuales creadas con la API de administración de servicios que tienen acceso a las listas de control (ACL) del extremo no impidan el tráfico entrante desde Internet. Para obtener más información, consulte [Cómo establecer extremos en una máquina virtual](virtual-machines-set-up-endpoints.md).
 - En las máquinas virtuales creadas en la Administrador de recursos, que la configuración de la regla NAT entrante de la máquina virtual esté permitiendo el tráfico entrante, especialmente el protocolo (TCP o UDP) y los números de puerto público y privado.
-- Que los grupos de seguridad de red permitan la solicitud entrante y el tráfico de respuesta saliente. Para obtener más información, vea [¿Qué es un grupo de seguridad de red?](virtual-networks-nsg.md)
+- Que los grupos de seguridad de red permitan la solicitud entrante y el tráfico de respuesta saliente. Para obtener más información, vea [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
 
 Si la máquina virtual o el extremo es un miembro de un conjunto con equilibrio de carga:
 
@@ -125,4 +125,4 @@ Si ha efectuado los pasos anteriores que se indican en este artículo y necesita
 
 [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

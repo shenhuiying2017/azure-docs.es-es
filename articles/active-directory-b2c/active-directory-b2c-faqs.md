@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Preguntas más frecuentes
@@ -59,7 +59,7 @@ Cada inquilino de Azure AD B2C tiene su propia hoja de características B2C en e
 
 ### ¿Cómo puedo personalizar los mensajes de correo electrónico de comprobación (el contenido y el campo remitente, es decir, el campo "De:") enviados por Azure AD B2C?
 
-Utilice la [característica de personalización de marca corporativa](./active-directory/active-directory-add-company-branding.md) para personalizar el contenido de los mensajes de correo electrónico de comprobación. El campo de remitente puede cambiarse a través del soporte técnico.
+Utilice la [característica de personalización de marca de empresa](../active-directory/active-directory-add-company-branding.md) para personalizar el contenido de los mensajes de correo electrónico de comprobación. El campo de remitente puede cambiarse a través del soporte técnico.
 
 ### ¿Cómo puedo migrar mis nombres de usuario, contraseñas y perfiles existentes desde la base de datos a Azure AD B2C?
 
@@ -80,6 +80,10 @@ Actualmente, no. La integración de estos sistemas está en nuestra hoja de ruta
 ### ¿Funciona Azure AD B2C con SharePoint local 2016 o anterior?
 
 Actualmente, no. Azure AD B2C no tiene compatibilidad con tokens SAML 1.1 que los portales y las aplicaciones de comercio electrónico incorporan según las necesidades del SP local. Tenga en cuenta que Azure AD B2C no está pensado para situaciones de uso compartido de socios externos; consulte en su lugar [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx).
+
+### ¿Debo utilizar Azure AD B2C o B2B para administrar identidades externas?
+
+Lea [este artículo](../active-directory/active-directory-b2b-compare-external-identities.md) para más información acerca de cómo aplicar las características apropiadas a los escenarios de identidades externas.
 
 ### ¿Qué características de auditoría e informes proporciona Azure AD B2C? ¿Son las mismas que las de Azure AD Premium?
 
@@ -109,4 +113,4 @@ No podemos proporcionar información sobre la fecha en la que estará disponible
 
 Es posible que desee ver las [limitaciones y restricciones de la versión preliminar](active-directory-b2c-limitations.md) actual.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

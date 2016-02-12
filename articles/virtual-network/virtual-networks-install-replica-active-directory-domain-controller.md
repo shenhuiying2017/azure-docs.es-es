@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 
@@ -23,7 +23,7 @@ En este tema se muestra cómo instalar controladores de dominio adicionales (tam
 
 Es posible que también le interesen los siguientes temas relacionados:
 
--  Opcionalmente, puede instalar un nuevo bosque de Active Directory en una red virtual. Para realizar esos pasos, consulte [Instalación de un bosque de Active Directory nuevo en una red virtual de Azure](../active-directory-new-forest-virtual-machine.md).
+-  Opcionalmente, puede instalar un nuevo bosque de Active Directory en una red virtual. Para realizar esos pasos, consulte [Instalación de un bosque de Active Directory nuevo en una red virtual de Azure](../active-directory/active-directory-new-forest-virtual-machine.md).
 -  Para obtener una orientación en cuanto a conceptos sobre la instalación de los Servicios de dominio de Active Directory (AD DS) en una red virtual de Azure, consulte [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 
@@ -31,7 +31,7 @@ Es posible que también le interesen los siguientes temas relacionados:
 
 En este escenario, los usuarios externos necesitan tener acceso a las aplicaciones que se ejecutan en servidores unidos a un dominio. Las máquinas virtuales que ejecutan los servidores de aplicaciones y los controladores de dominio de réplica se instalan en una red virtual de Azure. La red virtual puede estar conectada a la red local mediante una conexión [VPN sitio a sitio](../vpn-gateway/vpn-gateway-site-to-site-create.md), tal y como se muestra en el diagrama siguiente, o bien puede usar [ExpressRoute](../../services/expressroute/) para conseguir una conexión más rápida.
 
-Los servidores de aplicaciones y los controladores de dominio se implementan en [servicios en la nube](../cloud-services-what-is.md) independientes para distribuir el procesamiento informático y en [conjuntos de disponibilidad](../virtual-machines/virtual-machines-manage-availability.md) para una mejor tolerancia a errores. Los controladores de dominio se replican entre sí y con controladores de dominio locales mediante la replicación de Active Directory. No se necesitan herramientas de sincronización.
+Los servidores de aplicaciones y los controladores de dominio se implementan en servicios en la nube independientes para distribuir el procesamiento informático y en [conjuntos de disponibilidad](../virtual-machines/virtual-machines-manage-availability.md) para una mejor tolerancia a errores. Los controladores de dominio se replican entre sí y con controladores de dominio locales mediante la replicación de Active Directory. No se necesitan herramientas de sincronización.
 
 ![][1]
 
@@ -121,4 +121,4 @@ Para obtener más información acerca del uso de Windows PowerShell, consulte [E
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

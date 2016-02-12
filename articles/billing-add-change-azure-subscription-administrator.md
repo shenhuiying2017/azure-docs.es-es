@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Incorporación o cambio de roles de administrador de Azure | Microsoft Azure"
 	description="Se describe cómo agregar o cambiar el coadministrador, el administrador de servicios y el administrador de cuenta de Azure."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
 	editor="meerak"
-	/>
+	tags="billing"/>
 
 <tags
 	ms.service="billing"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/27/2016"
 	ms.author="genli"/>
 
 # Incorporación o cambio de roles de administrador de Azure
@@ -66,4 +66,4 @@ Solo el administrador de cuenta puede cambiar el administrador de servicios de u
 
 Para transferir la propiedad de la cuenta de Azure a otra cuenta, consulte [Transferencia de suscripciones de Azure](billing-subscription-transfer.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

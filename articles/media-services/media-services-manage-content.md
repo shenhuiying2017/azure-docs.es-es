@@ -96,24 +96,16 @@ Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en
 
 Tenga en cuenta que además de poder usar las capacidades de empaquetado dinámico, las unidades reservadas de streaming a petición con capacidad de salida dedicada pueden adquirirse en incrementos de 200 Mbps. De manera predeterminada, el streaming a petición está configurado en un modelo de instancias compartidas para el que se comparten recursos de servidor (por ejemplo, proceso, capacidad de salida, entre otros) con los demás usuarios. Para mejorar el resultado del streaming a petición, se recomienda adquirir unidades reservadas de streaming a petición.
 
-En esta sección se describen los pasos que puede seguir para codificar el contenido con Codificador multimedia de Azure mediante el Portal de Azure clásico.
+En esta sección se describen los pasos que puede seguir para codificar el contenido con Estándar de codificador multimedia mediante el Portal de Azure clásico.
 
-1.  Seleccione el archivo que desea codificar. Si se admite la codificación para este tipo de archivo, se habilitará el botón PROCESAR en la parte inferior de la página de contenido.
-4. En el cuadro de diálogo **Proceso**, seleccione el procesador **Codificador multimedia de Azure**.
-5. Elija una de las **configuraciones de codificación**.
+1.  Seleccione el archivo que desea codificar.
+
+  Si se admite la codificación para este tipo de archivo, se habilitará el botón PROCESAR en la parte inferior de la página de contenido. 4. En el cuadro de diálogo **Proceso**, seleccione el procesador **Estándar de codificador multimedia**. 5. Elija una de las **configuraciones de codificación**.
 
 ![Process2][process2]
 
 
-El tema [Cadenas predefinidas de tarea para Azure Media Encoder](https://msdn.microsoft.com/library/azure/dn619392.aspx) explica lo que significan las categorías de cada valor predefinido en **Valores preestablecidos para el streaming adaptable (empaquetado dinámico)**, **Valores preestablecidos para la descarga progresiva**, **Valores preestablecidos heredados para el streaming adaptable**.
-
-
-Las **otras** configuraciones se describen a continuación:
-
-+ **Codificación con protección de contenido PlayReady**. Este valor preestablecido produce un activo codificado con protección de contenido PlayReady.
-
-
-De forma predeterminada, se usa el servicio de licencias PlayReady de Servicios multimedia. Para especificar algún otro servicio del que los clientes pueden obtener una licencia para reproducir el contenido cifrado de PlayReady, use las API de REST o del SDK de Servicios multimedia para .NET. Para obtener más información, consulte [Uso de cifrado estático para proteger su contenido]() y establezca la propiedad **licenseAcquisitionUrl** en el valor preestablecido de Media Encryptor. Como alternativa, puede usar el cifrado dinámico y establecer la propiedad **PlayReadyLicenseAcquisitionUrl** tal y como se describe en [Uso del cifrado dinámico de PlayReady y del servicio de entrega de licencias](http://go.microsoft.com/fwlink/?LinkId=507720). + **Reproducción en PC/Mac (a través de Flash/Silverlight)**. Este valor predefinido produce un activo de transmisión suave con las siguientes características: 44,1 kHz 16 bits/CBR de audio estéreo de ejemplo con codificación a 96 kbps mediante AAC y CBR de vídeo de 720p con codificación con una velocidad de bits de 6 de 3400 kbps a 400 kbps mediante el perfil principal H.264 y GOP de dos segundos. + **Reproducción a través de HTML5 (IE/Chrome/Safari)**. Este valor predefinido produce un archivo MP4 único con las siguientes características: 44,1 kHz 16 bits/CBR de audio estéreo de ejemplo con una codificación a 128 kbps mediante AAC y CBR de vídeo de 720p con una codificación a 4500 kbps mediante el perfil principal H.264. + **Reproducción en dispositivos iOS y PC/Mac**. Este valor predefinido produce un recurso con las mismas características de recurso de transmisión suave (descrito anteriormente), pero en un formato que puede usarse para proporcionar transmisiones de HLS de Apple en dispositivos iOS.
+En el tema [Task Preset Strings for Media Encoder Standard](https://msdn.microsoft.com/es-ES/library/mt269960) (Cadenas preestablecidas de tareas para Estándar de codificador multimedia) se explica el significado de cada cadena preestablecida.
 
 5. A continuación, especifique el nombre descriptivo del contenido de salida o acepte el valor predeterminado. A continuación, haga clic en el botón de comprobación para iniciar la operación de codificación y podrá realizar un seguimiento del progreso desde la parte inferior del portal.
 6. Presione Aceptar.
@@ -177,7 +169,7 @@ Para generar una dirección URL de streaming de MPEG DASH, anexe (format=mpd-tim
 
 Los localizadores tienen fecha de caducidad. Al usar el Portal para publicar sus referencias, se crean los localizadores con una fecha de caducidad de 100 años.
 
->[AZURE.NOTE]Si utiliza el Portal para crear los localizadores antes de marzo de 2015, se crearon localizadores con una fecha de caducidad de dos años.
+>[AZURE.NOTE] Si utiliza el Portal para crear los localizadores antes de marzo de 2015, se crearon localizadores con una fecha de caducidad de dos años.
 
 Para actualizar la fecha de caducidad de un localizador, utilice las [API de REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Tenga en cuenta que, cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
 
@@ -228,4 +220,4 @@ Se aplican algunas consideraciones:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

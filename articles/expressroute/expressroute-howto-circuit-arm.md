@@ -215,9 +215,8 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 
 7. **Configurar el enrutamiento y vincular una red virtual**
 
-	a. **Cree la configuración de enrutamiento.** Consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute](expressroute-howto-routing-arm.md) para obtener instrucciones paso a paso.
-
-		>[AZURE.NOTE] The instructions for routing only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
+	a. **Cree la configuración de enrutamiento.** Consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute](expressroute-howto-routing-arm.md) para obtener instrucciones paso a paso. Tenga en cuenta que estas instrucciones para el enrutamiento se aplican solo a circuitos creados con proveedores de servicios que ofrecen servicios de conectividad de capa 2. Si usa un proveedor de servicios que ofrece servicios administrados de nivel 3 (normalmente IPVPN, como MPLS), el mismo proveedor de conectividad configurará y administrará el enrutamiento. En estos casos no podrá crear ni administrar las configuraciones entre pares.
+	
 	b. **Vincule una red virtual a un circuito ExpressRoute.** Después de comprobar que se ha configurado un enrutamiento, debe vincular la red virtual a su circuito ExpressRoute. Consulte [Vinculación de la red virtual a circuitos ExpressRoute](expressroute-howto-linkvnet-arm.md) para obtener instrucciones paso a paso.
 
 ##  Obtención del estado de un circuito ExpressRoute
@@ -360,4 +359,4 @@ Después de haber creado el circuito, asegúrese de hacer lo siguiente:
 1.  [Crear y modificar el enrutamiento para el circuito ExpressRoute](expressroute-howto-routing-arm.md)
 2.  [Vincular la red virtual a su circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

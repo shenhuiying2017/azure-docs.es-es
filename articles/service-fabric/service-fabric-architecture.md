@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="01/26/2016"
    ms.author="rsinha"/>
 
 # Arquitectura de Service Fabric
@@ -61,4 +61,4 @@ Este subsistema ofrece mensajería confiable en la detección de clústeres y se
 ## Subsistema de capacidad de prueba
 La capacidad de prueba es un conjunto de herramientas diseñadas de manera específica para probar los servicios de pruebas basados en Service Fabric. Las herramientas permiten al desarrollador provocar fácilmente errores significativos y ejecutar escenarios de prueba para ejercer y validar los numerosos estados y transiciones que experimentará un servicio durante su vigencia, y todo ello de forma segura y controlada. La comprobación también ofrece un mecanismo para ejecutar pruebas prolongadas que pueden iterar a través de varios errores posibles sin perder la disponibilidad. Esto proporciona a los usuarios un entorno de prueba en producción.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

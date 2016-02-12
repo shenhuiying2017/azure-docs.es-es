@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight (C#)
@@ -30,11 +30,11 @@ En este tutorial, aprenderá a utilizar las herramientas de HDInsight para Visua
 
 ## Requisitos previos
 
-* Un [clúster de Apache Storm en HDInsight](hdinsight-storm-getting-started.md)
+* Un [clúster de Apache Storm en HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
-* Un [Centro de eventos de Azure](../service-bus/service-bus-event-hubs-csharp-ephcs-getstarted.md)
+* Un [Centro de eventos de Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-* El [SDK .NET de Azure](https://azure.microsoft.com/downloads/)
+* El [SDK .NET de Azure](http://azure.microsoft.com/downloads/)
 
 * Las [Herramientas de HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
@@ -557,4 +557,4 @@ En este documento, ha aprendido a usar el spout y bolt de los Centros de eventos
 * [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

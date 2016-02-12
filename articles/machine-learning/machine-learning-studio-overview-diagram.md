@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="02/03/2016"
 	ms.author="haining;garye" />
 
 
@@ -26,7 +26,7 @@ El diagrama **Información general de las funcionalidades de Estudio de aprendiz
 
 En este diagrama se muestra cómo encajan todas esas piezas juntas.
 
-> [AZURE.NOTE]Consulte la [hoja de referencia de algoritmos de aprendizaje automático para Estudio de aprendizaje automático de Microsoft Azure](machine-learning-algorithm-cheat-sheet.md) para obtener información adicional sobre cómo revisar y elegir los algoritmos de aprendizaje automático disponibles en Estudio de aprendizaje automático.
+> [AZURE.NOTE] Consulte la [hoja de referencia de algoritmos de aprendizaje automático para Estudio de aprendizaje automático de Microsoft Azure](machine-learning-algorithm-cheat-sheet.md) para obtener información adicional sobre cómo revisar y elegir los algoritmos de aprendizaje automático disponibles en Estudio de aprendizaje automático.
 
 ## Descargar el diagrama de información general de Estudio de aprendizaje automático
 
@@ -47,4 +47,4 @@ Descargue el diagrama **Información general de las funcionalidades de Estudio d
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

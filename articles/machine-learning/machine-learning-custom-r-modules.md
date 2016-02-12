@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="12/11/2015" 
+	ms.date="02/03/2015" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -106,7 +106,7 @@ El elemento **Module** se usa para definir un módulo personalizado en el archiv
 		<Description>Appends one dataset to another...</Description>/> 
 
 
-En el elemento **Module**, puede especificar un elemento **Owner** que se incruste en el módulo, así como un elemento **Description**, que es el texto que se muestra en la ayuda rápida del módulo y cuando se mantiene el mouse sobre el módulo en la interfaz de usuario de Aprendizaje automático.
+En el elemento **Module**, puede especificar un elemento **Owner** que se incrusta en el módulo, así como un elemento **Description**, que es el texto que se muestra en la ayuda rápida del módulo y cuando se mantiene el mouse sobre el módulo en la interfaz de usuario de Aprendizaje automático.
 
 **Reglas para los límites de caracteres de los elementos Module**:
 
@@ -114,7 +114,8 @@ En el elemento **Module**, puede especificar un elemento **Owner** que se incrus
 * El contenido del elemento **Description** no debe superar los 128 caracteres.
 * El contenido del elemento **Owner** no debe superar los 32 caracteres.
 
-** Lo que indica si los resultados de un módulo son deterministas o no deterministas
+
+**Lo que indica si los resultados de un módulo son deterministas o no deterministas**
 
 De forma predeterminada, todos los módulos se consideran deterministas. Es decir, dado un conjunto de parámetros que no cambian, el módulo debe devolver los mismos resultados cada vez que se ejecute. Dado este comportamiento, Estudio de aprendizaje automático de Azure no vuelve a ejecutar módulos marcados como deterministas, a menos que un parámetro o los datos de entrada hayan cambiado. Se devuelven los resultados almacenados en la memoria caché, lo que resulta en una ejecución más rápida de los experimentos.
 
@@ -142,7 +143,7 @@ Los puertos de entrada permiten a los usuarios pasar datos a una función y un �
         	<Description>Input Dataset 1</Description>
        	</Input>
 
-El atributo **id** asociado a cada puerto de entrada de **DataTable** debe tener un valor único y dicho valor debe coincidir con el parámetro con nombre correspondiente de la función de R. Los puertos **DataTable** opcionales que no se pasan como entrada en un experimento pasarán el valor **NULL** a la función de R y los puertos zip opcionales se ignorarán si la entrada no está conectada. El atributo **isOptional** es opcional para los tipos **DataTable** y **Zip**, y es *false* de forma predeterminada.
+El atributo **id** asociado a cada puerto de entrada de **DataTable** debe tener un valor único y dicho valor debe coincidir con el parámetro con nombre correspondiente de la función de R. El valor **NULL** de los puertos de **DataTable** opcionales que no se pasan como entrada en un experimento se pasa a la función de R y los puertos zip opcionales se ignorarán si la entrada no está conectada. El atributo **isOptional** es opcional para los tipos **DataTable** y **Zip**, y es *false* de forma predeterminada.
 	   
 **Zip:** los módulos personalizados pueden aceptar un archivo .zip como entrada. Esta entrada se desempaqueta en el directorio de trabajo de R de la función
 
@@ -170,8 +171,6 @@ En el caso de los módulos de R personalizados, el identificador de un puerto Zi
 	</Output>
 
 En el caso de las salidas de los módulos de R personalizados, el valor del atributo **id** no tiene que corresponder con nada del script de R, debe ser único. En el caso de la salida de un módulo individual, el valor devuelto de la función de R debe ser *data.frame*. Para emitir más de un objeto de un tipo de datos admitidos, es necesario especificar los puertos de salida correspondientes en el archivo de definición de XML y los objetos deben devolverse como una lista. Los objetos emitidos se asignarán a los puertos de salida de izquierda a derecha, reflejando el orden en que los objetos se colocan en la lista devuelta.
- 
-Por ejemplo, si desea emitir dataset, Dataset1 y Dataset2 en los puertos de salida dataset, dataset1 y dataset2 de izquierda a derecha, respectivamente, defina los puertos de salida en el archivo "myAddRows.xml" como se indica a continuación:
 
 Por ejemplo, si quiere modificar el módulo **Agregar filas personalizado** para que genere los dos conjuntos de datos originales, *dataset1* y *dataset2*, además del conjunto de datos recién incorporado *dataset* (de izquierda a derecha, así: *dataset*, *dataset1*, *dataset2*), defina los puertos de salida en el archivo CustomAddRows.xml, tal como se indica a continuación:
 
@@ -252,7 +251,7 @@ Los parámetros del módulo se definen mediante el elemento secundario **Arg** d
 
 
 
-* *Propiedades opcionales*: **default**; false si no se establece.
+* *Propiedades opcionales*: **default**: false si no se ha establecido
 
 **string**: una cadena estándar.
 
@@ -308,7 +307,7 @@ Los parámetros del módulo se definen mediante el elemento secundario **Arg** d
 		* Todo
 
                             							
-**Desplegable**: lista (desplegable) especificada por el usuario que se muestra. Los elementos de la lista desplegable se especifican en el elemento **Properties** mediante un elemento **Item**. El **id** de cada **Item** debe ser único y una variable de R válida, además, el nombre del elemento es tanto el texto que se muestra a los usuarios como el valor que se pasa a la función de R.
+**Desplegable**: lista (desplegable) especificada por el usuario que se muestra. Los elementos de la lista desplegable se especifican en el elemento **Properties** mediante un **Item**. El **id** de cada **Item** debe ser único y una variable de R válida, además, el nombre del elemento es tanto el texto que se muestra a los usuarios como el valor que se pasa a la función de R.
 
 	<Arg id="color" name="Color" type="DropDown">
       <Properties default="red">
@@ -363,4 +362,4 @@ Entre las **limitaciones del entorno de ejecución** se incluyen:
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

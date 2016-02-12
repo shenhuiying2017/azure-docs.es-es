@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="01/31/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Medición de la eficacia de una campaña de marketing  
@@ -483,4 +483,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises] p
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

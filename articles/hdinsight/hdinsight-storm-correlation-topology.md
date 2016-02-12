@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="02/01/2016"
  ms.author="larryfr"/>
 
 # Poner en correlación eventos con el tiempo con Storm y HBase en HDInsight
@@ -59,7 +59,7 @@ Estos datos se procesan y almacenan en HBase.
 
 Cuando se inicia una sesión, la topología recibe un evento de **INICIO** y este se registra en HBase. Cuando se recibe el evento de **FINALIZACIÓN**, la topología recupera el evento de **INICIO** y calcula el tiempo entre los dos eventos. Luego, este valor de **Duración** se almacena en HBase junto con la información del evento de **FINALIZACIÓN**.
 
-> [AZURE.IMPORTANT]Aunque esta topología muestra el patrón básico, una solución de producción debería tener diseño para los escenarios siguientes:
+> [AZURE.IMPORTANT] Aunque esta topología muestra el patrón básico, una solución de producción debería tener diseño para los escenarios siguientes:
 >
 > - Eventos que llegan sin orden
 > - Eventos duplicados
@@ -93,11 +93,11 @@ En HBase, los datos se almacenan en una tabla con la configuración y el esquema
 
 -	VERSIONES: la familia 'cf' se establece para conservar 5 versiones de cada fila
 
-	> [AZURE.NOTE]Las versiones son un registro de los valores anteriores almacenados para una clave de fila específica. De forma predeterminada, HBase solo devuelve el valor de la versión más reciente de una fila. En este caso, se utiliza la misma fila para todos los eventos (INICIO y FINALIZACIÓN). Cada versión de una fila se identifica mediante el valor de marca de tiempo. Esto proporciona una vista histórica de eventos registrados para un identificador concreto.
+	> [AZURE.NOTE] Las versiones son un registro de los valores anteriores almacenados para una clave de fila específica. De forma predeterminada, HBase solo devuelve el valor de la versión más reciente de una fila. En este caso, se utiliza la misma fila para todos los eventos (INICIO y FINALIZACIÓN). Cada versión de una fila se identifica mediante el valor de marca de tiempo. Esto proporciona una vista histórica de eventos registrados para un identificador concreto.
 
 ## Descarga del proyecto
 
-Puede descargar el proyecto de ejemplo en [hdinsight-storm-eventcorrelation](https://github.com/Blackmist/hdinsight-storm-eventcorrelation).
+Se puede descargar un proyecto de ejemplo en [https://github.com/Azure-Samples/hdinsight-storm-dotnet-event-correlation](https://github.com/Azure-Samples/hdinsight-storm-dotnet-event-correlation).
 
 Esta descarga contiene los proyectos de C# siguientes:
 
@@ -147,7 +147,7 @@ Esta descarga contiene los proyectos de C# siguientes:
 
 	- 	HBaseTableColumnFamily: nombre de la familia de columnas. Debe contener el mismo nombre de familia de columnas que se utiliza en el proyecto SessionInfo
 
-	> [AZURE.IMPORTANT]No cambie HBaseTableColumnNames, ya que los valores predeterminados son los nombres que utiliza **SessionInfo** para recuperar los datos.
+	> [AZURE.IMPORTANT] No cambie HBaseTableColumnNames, ya que los valores predeterminados son los nombres que utiliza **SessionInfo** para recuperar los datos.
 
 4.  Guarde las propiedades y, a continuación, compile el proyecto.
 
@@ -157,7 +157,7 @@ Esta descarga contiene los proyectos de C# siguientes:
 
 6.	En el cuadro de diálogo **Enviar topología**, seleccione el clúster de Storm que ejecutará esta topología.
 
-	> [AZURE.NOTE]La primera vez que envíe una topología, es posible que se tarde unos segundos en recuperar el nombre de los clústeres de HDInsight.
+	> [AZURE.NOTE] La primera vez que envíe una topología, es posible que se tarde unos segundos en recuperar el nombre de los clústeres de HDInsight.
 
 7.	Una vez que se ha cargado y enviado la topología al clúster, se abrirá la **Vista de topología de Storm** y se mostrará la topología en ejecución. Seleccione **CorrelationTopology** y utilice el botón Actualizar de la parte superior derecha de la página para actualizar la información de topología.
 
@@ -165,7 +165,7 @@ Esta descarga contiene los proyectos de C# siguientes:
 
 	Cuando la topología comience a generar datos, el valor de la columna **Emitida** incrementará.
 
-	> [AZURE.NOTE]Si la **Vista de topología de Storm** no se abre automáticamente, siga estos pasos para abrirla:
+	> [AZURE.NOTE] Si la **Vista de topología de Storm** no se abre automáticamente, siga estos pasos para abrirla:
 	>
 	> 1. Desde el **Explorador de soluciones**, expanda **Azure** y, a continuación, expanda **HDInsight**.
 	>
@@ -189,7 +189,7 @@ La búsqueda de eventos de FINALIZACIÓN funciona igual que para los eventos de 
 
 	Session fc9fa8e6-6892-4073-93b3-a587040d892e lasted 2 minutes, and ended at 6/5/2015 6:12:15 PM
 
-> [AZURE.NOTE]Aunque especifique los valores de tiempo en la hora local, la consulta devolverá las horas en UTC.
+> [AZURE.NOTE] Aunque especifique los valores de tiempo en la hora local, la consulta devolverá las horas en UTC.
 
 ##Detención de la topología
 
@@ -200,4 +200,4 @@ Cuando esté listo para detener la topología, vuelva al proyecto **CorrelationT
 Para obtener más ejemplos de Storm, vea [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

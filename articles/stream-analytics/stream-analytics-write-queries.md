@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/11/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 # Cómo escribir consultas en Análisis de transmisiones
@@ -42,7 +42,7 @@ La escritura de consultas con lógica de procesamiento de transmisiones de Anál
 
 Puede probar que la consulta se comporta según lo esperado si la ejecuta en el explorador a través de uno o más archivos JSON locales que contienen los datos de prueba. Esto no iniciará el trabajo ni tendrá implicaciones de facturación.
 
-> [AZURE.NOTE]Actualmente no se admiten pruebas de consultas en el explorador en el Portal de vista previa de Azure.
+> [AZURE.NOTE] Actualmente no se admiten pruebas de consultas en el explorador en el Portal de vista previa de Azure.
 
 1.	Asegúrese de que no hay errores en la consulta (en caso contrario, se deshabilitará el botón Probar) y luego haga clic en el botón Probar.  
 
@@ -71,4 +71,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

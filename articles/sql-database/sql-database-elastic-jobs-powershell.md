@@ -11,8 +11,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
-	ms.author="ddove; sidneyh" />
+	ms.date="02/02/2016" 
+	ms.author="ddove;sidneyh" />
 
 # Creación y administración de un grupo de bases de datos SQL elásticas mediante PowerShell
 
@@ -27,7 +27,7 @@ Las API de PowerShell para **Trabajos de base de datos elástica** permtein defi
 ## Requisitos previos
 * Una suscripción de Azure. Para obtener una prueba gratuita, vea [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
 * Un conjunto de bases de datos creadas con las herramientas de base de datos elástica. Consulte [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md).
-* Azure PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
+* Azure PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 * Paquete PowerShell para **Trabajos de base de datos elástica**: consulte [Instalación de Trabajos de base de datos elástica](sql-database-elastic-jobs-service-installation.md).
 
 ### Selección de su suscripción a Azure
@@ -655,7 +655,7 @@ Use [Get-AzureSqlJobTrigger](https://msdn.microsoft.com/library/mt346067.aspx) p
 
 ## Para crear una aplicación de capa de datos (DACPAC) para su ejecución en bases de datos
 
-Para crear una DACPAC, consulte [Aplicaciones de capa de datos](https://msdn.microsoft.com/library/ee210546.aspx). Para implementar una DACPAC, use el [cmdlet New-AzureSqlJobContent](https://msdn.microsoft.com/library/mt346085.aspx). La DACPAC debe ser accesible para el servicio. Se recomienda cargar una DACPAC creada en Almacenamiento de Azure y crear una [firma de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) para la DACPAC.
+Para crear una DACPAC, consulte [Aplicaciones de capa de datos](https://msdn.microsoft.com/library/ee210546.aspx). Para implementar una DACPAC, use el [cmdlet New-AzureSqlJobContent](https://msdn.microsoft.com/library/mt346085.aspx). La DACPAC debe ser accesible para el servicio. Se recomienda cargar una DACPAC creada en Almacenamiento de Azure y crear una [firma de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md) para la DACPAC.
 
 	$dacpacUri = "{Uri}"
 	$dacpacName = "{Dacpac Name}"
@@ -694,4 +694,4 @@ Una vez creada una DACPAC en Trabajos de base de datos elástica, puede crearse 
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

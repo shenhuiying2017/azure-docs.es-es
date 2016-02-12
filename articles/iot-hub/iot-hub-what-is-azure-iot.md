@@ -13,14 +13,14 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/05/2015"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Pasos siguientes
 
-El Centro de IoT es un servicio de Azure que recibe datos telemetría a escala desde sus dispositivos y enruta esos datos a un procesador de eventos de transmisión. Puede usar el centro de IoT para implementar su propio back-end de solución. El Centro de IoT puede enviar también comandos de nube a dispositivo a dispositivos concretos. Además, el Centro de IoT incluye un registro de identidades de dispositivo que puede usar para aprovisionar dispositivos y administrar aquellos que pueden conectarse al Centro. Para obtener más información, consulte:
+El Centro de IoT de Azure es un servicio de Azure que permite la comunicación bidireccional fiable y segura entre el back-end de la aplicación y millones de dispositivos. Además, hace posible que el back-end de la aplicación reciba telemetría a escala de los dispositivos, enrute esos datos a un procesador de eventos de transmisión y envíe comandos de nube a dispositivo a dispositivos específicos. Puede usar el Centro de IoT para implementar su propio back-end de soluciones. Además, el Centro de IoT incluye un registro de identidades de dispositivo que se usa para aprovisionar dispositivos, sus credenciales de seguridad y sus derechos para conectarse al Centro. Para obtener más información, consulte:
 
 - [¿Qué es el Centro de IoT?][lnk-iot-hub]
 - [Introducción al centro de IoT][lnk-getstarted]
@@ -35,4 +35,4 @@ También puede interesarle el [Conjunto de aplicaciones de IoT de Azure][lnk-iot
 [lnk-iot-suite]: http://azure.microsoft.com/solutions/iot/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

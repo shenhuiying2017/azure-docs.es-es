@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Creación y administración de Máquinas virtuales de Azure en Visual Studio
@@ -175,6 +175,6 @@ Al configurar la máquina virtual e instalarle software, es conveniente guardar 
 
 ## Pasos siguientes
 
-Para obtener más información sobre la creación de máquinas virtuales, consulte [Creación de una máquina virtual con Linux](virtual-machines-linux-tutorial.md) y [Creación de una máquina virtual con Windows en el Portal de vista previa de Azure](virtual-machines-windows-tutorial.md).
+Para obtener más información sobre la creación de máquinas virtuales, consulte [Creación de una máquina virtual con Linux](/virtual-machines/virtual-machines-linux-tutorial.md) y [Creación de una máquina virtual con Windows en el Portal de vista previa de Azure](/virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

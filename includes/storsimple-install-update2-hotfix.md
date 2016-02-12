@@ -87,7 +87,7 @@ Realice los pasos siguientes para instalar y comprobar las revisiones normales.
 
 	> [AZURE.NOTE] En ocasiones, el cmdlet notifica `False` cuando la actualización está todavía en curso. Para garantizar que la revisión está completada, espere unos minutos, vuelva a ejecutar este comando y compruebe que `RunInProgress` es `False`. Si es así, se habrá completado la revisión.
 	
-8. Una vez completada la actualización de software, repita los pasos 3 a 5 para instalar y supervisar el agente de SaaS y agente MDS con el `CisMdsAgentUpdateBundle.exe`. Asegúrese de que `HcsMdsSoftwareUpdate.exe` se instale antes de `CisMdsAgentUpdateBundle.exe`.
+8. Una vez completada la actualización de software, repita los pasos 3 a 5 para instalar y supervisar el agente de SaaS y el agente MDS. Asegúrese de que `all-hcsmdssoftwareupdate_0b438ddf0d5b686aada2378b754fac8c7f2160e9.exe` se instale antes de `all-cismdsagentupdatebundle_f98e62f4d56c79e2a6644d027af7a2393a93827a.exe`.
 
 9. Compruebe las versiones de software del sistema. Escriba:
 
@@ -103,13 +103,13 @@ Realice los pasos siguientes para instalar y comprobar las revisiones normales.
     
 9. Repita los pasos 3 a 5 para instalar y supervisar las revisiones normales restantes.
 
-	- El controlador LSI con el paquete de `HcsLsiUpdate.exe` (KB3121900).
-	- La corrección de Storport con el paquete de `Storport-KB3080728-x64.msu` (KB3080728).
-	- La corrección de Spaceport con el paquete de `spaceport-KB3090322-x64.msu` (KB3090322).
+	- El controlador LSI con KB3121900.
+	- La corrección de Storport con KB3080728.
+	- La corrección de Spaceport con KB3090322.
 
 #### Instalar y comprobar la revisión del modo de mantenimiento
 
-Use el paquete de `DiskFirmwarePackage.exe` paquete (KB3121899) para instalar las actualizaciones de firmware del disco. Se trata de actualizaciones potencialmente perjudiciales y tardan unos 30 minutos en completarse. Puede elegir instalarlas en una ventana de mantenimiento planificado mediante la conexión a la consola serie del dispositivo.
+Use KB3121899 para instalar las actualizaciones de firmware del disco. Se trata de actualizaciones potencialmente perjudiciales y tardan unos 30 minutos en completarse. Puede elegir instalarlas en una ventana de mantenimiento planificado mediante la conexión a la consola serie del dispositivo.
 
 Tenga en cuenta que si el firmware del disco ya está actualizado, no será necesario instalar estas actualizaciones. Ejecute el cmdlet `Get-HcsUpdateAvailability` desde la consola serie del dispositivo. Se le enviará una notificación si hay actualizaciones disponibles y si son perturbadoras (actualizaciones del modo de mantenimiento) o no (normales).
  
@@ -239,4 +239,4 @@ Para instalar las actualizaciones de firmware de disco, siga las instrucciones a
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="02/01/2016"
 	ms.author="garye"/>
 
 # Implementar un servicio web de Aprendizaje automático de Azure
@@ -50,7 +50,7 @@ El proceso de creación y administración de experimentos de entrenamiento se tr
 
 - [Creación de un experimento sencillo en el Estudio de aprendizaje automático de Azure](machine-learning-create-experiment.md)
 - [Desarrollo de una solución predictiva con Aprendizaje automático de Azure](machine-learning-walkthrough-develop-predictive-solution.md)
-- [Importar datos de entrenamiento en Estudio de aprendizaje automático de Azure](machine-learning-import-data.md)
+- [Importar datos de entrenamiento en Estudio de aprendizaje automático de Azure](machine-learning-data-science-import-data.md)
 - [Administrar iteraciones de experimentos en Estudio de aprendizaje automático de Azure](machine-learning-manage-experiment-iterations.md)
 
 ## Convertir un experimento de entrenamiento en experimento predictivo
@@ -107,8 +107,8 @@ Puede realizar cambios en el servicio web, como actualizar el modelo con datos d
 
 Para actualizar el servicio web, abra el experimento predictivo original que usó para implementar el servicio web y haga una copia modificable haciendo clic en **GUARDAR COMO**. Realice los cambios y haga clic en **Publicar servicio web**. Puesto que ya ha publicado este experimento antes, Estudio de aprendizaje automático le preguntará si desea sobrescribir el servicio existente. Si hace clic en **SÍ**, el servicio web existente se detendrá y el nuevo experimento predictivo se implementará en su lugar.
 
-> [AZURE.NOTE]Si ha realizado cambios de configuración en el servicio web original, como, por ejemplo, escribir un nuevo nombre para mostrar o una descripción, necesitará escribir esos valores de nuevo.
+> [AZURE.NOTE] Si ha realizado cambios de configuración en el servicio web original, como, por ejemplo, escribir un nuevo nombre para mostrar o una descripción, necesitará escribir esos valores de nuevo.
 
 Una opción para actualizar el servicio web es volver a entrenar el modelo mediante programación. Para obtener más información, consulte [Volver a entrenar modelos de aprendizaje automático mediante programación](machine-learning-retrain-models-programmatically.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

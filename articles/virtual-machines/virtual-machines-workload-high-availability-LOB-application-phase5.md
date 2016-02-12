@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Fase 5 de la carga de trabajo de aplicación de línea de negocio: Creación del grupo de disponibilidad y adición de las bases de datos de la aplicación
@@ -41,7 +41,7 @@ Para habilitar la copia de seguridad y restauración, los archivos de copia de s
 1.	Inicie sesión en el servidor de base de datos principal como **[dominio]\\sqladmin**. 
 2.	Vaya al disco F:\\. 
 3.	Haga clic con el botón secundario en la carpeta **Copia de seguridad** y haga clic en **Compartir con** y haga clic en **determinadas personas**.
-4.	En el cuadro de diálogo **Uso compartido de archivos**, escriba **[dominio]\\sqlservice** y después haga clic en **Agregar**.
+4.	En el cuadro de diálogo **Uso compartido de archivos**, escriba **[dominio]\\sqlservice** y, a continuación, haga clic en **Agregar**.
 5.	Haga clic en la columna **Nivel de permiso** para el nombre de cuenta de **sqlservice** y, a continuación, haga clic en **Lectura/escritura**. 
 6.	Haga clic en **Compartir** dos veces y, a continuación, en **Hecho**.
 
@@ -58,7 +58,7 @@ Siga estos pasos para hacer una copia de seguridad de una base de datos.
 3.	En el panel izquierdo, amplíe el nodo **Base de datos**.
 4.	Haga clic con el botón derecho en una base de datos para realizar una copia de seguridad, seleccione **Tareas** y después haga clic en **Copia de seguridad**.
 5.	En la sección **Destino**, haga clic en **Quitar** para quitar la ruta de acceso del archivo predeterminado para el archivo de copia de seguridad.
-6.	Haga clic en **Agregar**. En **Nombre de archivo**, escriba **\\[nombreDeEquipo]\\backup[nombreDeBaseDeDatos].bak**, donde **nombreDeEquipo** es el nombre del **equipo del servidor** SQL principal y **nombreDeBaseDeDatos** es el nombre de la base de datos. Haga clic en **Aceptar** y, a continuación, haga clic en **Aceptar** de nuevo después del mensaje sobre la copia de seguridad correcta.
+6.	Haga clic en **Agregar**. En **Nombre de archivo**, escriba **\\[nombreDeEquipo]\\backup[nombreDeBaseDeDatos].bak**, donde **nombreDeEquipo** es el nombre del **equipo servidor** SQL principal y **nombreDeBaseDeDatos** es el nombre de la base de datos. Haga clic en **Aceptar** y, a continuación, haga clic en **Aceptar** de nuevo después del mensaje sobre la copia de seguridad correcta.
 7.	En el panel izquierdo, haga clic con el botón derecho en **[nombreDeBaseDeDatos]**, seleccione **Tareas** y después haga clic en **Copia de seguridad**.
 8.	En **Tipo de copia de seguridad**, seleccione **Registro de transacciones** y, a continuación, haga clic en **Aceptar** dos veces.
 9.	Mantenga esta sesión de Escritorio remoto abierta.
@@ -120,4 +120,4 @@ Una vez configurado el agente de escucha, tendrá que configurar todas las máqu
 
 - Ver estas [directrices](virtual-machines-infrastructure-services-implementation-guidelines.md) si implementa su propia carga de trabajo de TI en Azure.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

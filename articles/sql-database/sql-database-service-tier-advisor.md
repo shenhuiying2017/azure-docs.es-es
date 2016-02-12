@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="01/28/2015"
    ms.author="sstein"/>
 
 # Recomendaciones sobre el nivel de precios de Base de datos SQL
 
  Se ofrecen recomendaciones del plan de tarifa en el sentido del nivel de servicio y el nivel de rendimiento más apropiados para ejecutar la carga de trabajo de una Base de datos SQL de Azure existente.
 
-> [AZURE.NOTE]Las recomendaciones sobre el plan de tarifa solo están disponibles para las bases de datos Web y Business y los grupos de bases de datos elásticas, y solo en el [Portal de Azure](https://portal.azure.com/).
+> [AZURE.NOTE] Las recomendaciones sobre el plan de tarifa solo están disponibles para las bases de datos Web y Business y los grupos de bases de datos elásticas, y solo en el [Portal de Azure](https://portal.azure.com/).
 
 
 Obtenga recomendaciones del plan de tarifa durante las siguientes tareas:
@@ -56,7 +56,7 @@ Según el uso de la base de datos, se pueden encontrar dos categorías de recome
 
 ## Obtención de recomendaciones de nivel de precios
 
-Para obtener recomendaciones sobre los niveles de precios, seleccione una base de datos Web o Business existente y haga clic en el icono **Nivel de precios**. (Las recomendaciones del plan de tarifa también están disponibles durante la [Actualización de SQL Server de Azure a V12](sql-database-v12-upgrade.md)).
+Para obtener recomendaciones sobre los planes de tarifa, seleccione una base de datos Web o Business existente y haga clic en **Toda la configuración** y luego en **Plan de tarifa (escalar DTU)**. (Las recomendaciones del plan de tarifa también están disponibles durante la [Actualización de SQL Server de Azure a V12](sql-database-v12-upgrade.md)).
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Haga clic en **EXAMINAR** > **Bases de datos SQL**.
@@ -64,12 +64,10 @@ Para obtener recomendaciones sobre los niveles de precios, seleccione una base d
 
     ![Seleccionar base de datos][1]
 
-5. En la hoja de la base de datos, seleccione el icono **Nivel de precios**.
-
-    ![Nivel de precios][2]
+5. En la hoja de la base de datos, seleccione **Toda la configuración** y luego seleccione **Plan de tarifa (escalar DTU)**.
 
 
-7. Tras hacer clic en el icono **Nivel de precios**, aparecerá con la hoja **Niveles de precios recomendados** donde puede haga clic en el nivel sugerido y después haga clic en el botón **Seleccionar** para cambiar a ese nivel.
+7. Se abre **Planes de tarifa recomendados**, donde puede hacer clic en el plan sugerido y luego hacer clic en el botón **Seleccionar** para cambiar a ese plan.
 
     ![Suscríbase a la vista previa][4]
 
@@ -81,7 +79,7 @@ Para obtener recomendaciones sobre los niveles de precios, seleccione una base d
 
 ## Resumen
 
-Las recomendaciones de niveles de precios proporcionan una experiencia automatizada para recopilar datos de telemetría para cada Base de datos SQL y para recomendar la combinación del mejor nivel de servicio/nivel de rendimiento según los requisitos de las características y necesidades de rendimiento real de una base de datos. Haga clic en el icono **Nivel de precios** de una hoja de base de datos para ver las recomendaciones relativas al nivel de precios.
+Las recomendaciones de niveles de precios proporcionan una experiencia automatizada para recopilar datos de telemetría para cada Base de datos SQL y para recomendar la combinación del mejor nivel de servicio/nivel de rendimiento según los requisitos de las características y necesidades de rendimiento real de una base de datos. En la hoja Configuración, haga clic en **Plan de tarifa (escalar DTU)** para ver las recomendaciones sobre los planes de tarifa para todas las bases de datos Web y Business.
 
 
 
@@ -92,12 +90,10 @@ Dependiendo de los detalles de la base de datos específica, la realización de 
 
 <!--Image references-->
 [1]: ./media/sql-database-service-tier-advisor/select-database.png
-[2]: ./media/sql-database-service-tier-advisor/pricing-tier.png
-[3]: ./media/sql-database-service-tier-advisor/preview-sign-up.png
 [4]: ./media/sql-database-service-tier-advisor/choose-pricing-tier.png
 [5]: ./media/sql-database-service-tier-advisor/usage-details.png
 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 	
 # Indexación automática en Azure DocumentDB
@@ -67,4 +67,4 @@ La indexación de DocumentDB está diseñada en función de la eficacia de almac
 - Más información sobre cómo personalizar el índice de DocumentDB [aquí](documentdb-indexing-policies.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

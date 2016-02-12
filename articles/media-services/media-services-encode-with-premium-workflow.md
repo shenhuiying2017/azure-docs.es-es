@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="01/28/2016"  
 	ms.author="juliako"/>
 
 #Codificación avanzada con el flujo de trabajo del Codificador multimedia Premium
@@ -28,7 +28,7 @@ Los siguientes temas describen los detalles relacionados con el **flujo de traba
 
 - [Formatos que admite el flujo de trabajo del Codificador multimedia Premium](media-services-premium-workflow-encoder-formats.md): trata los formatos de archivo y los códecs que admite el **flujo de trabajo del Codificador multimedia Premium**.
 
-- En la sección [Comparación de codificadores](media-services-encode-asset.md#compare_encoders) se comparan las funciones de codificación del **flujo de trabajo del Codificador multimedia Premium** y del **Codificador multimedia de Azure**.
+- En la sección [Comparación de codificadores](media-services-encode-asset.md#compare_encoders) se comparan las funciones de codificación del **Flujo de trabajo premium de codificación de medios**, del **Estándar de codificador multimedia** y del **Codificador multimedia de Azure**.
 
 En este tema se muestra cómo codificar con el **flujo de trabajo del Codificador multimedia Premium** usando .NET.
 
@@ -277,4 +277,4 @@ Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá c
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

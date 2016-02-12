@@ -69,7 +69,7 @@ La tabla siguiente muestra las diferencias de las características de continuida
 
 Estas características se proporcionan para abordar los escenarios mencionados anteriormente. Vea la sección [Diseño para la continuidad del negocio](sql-database-business-continuity-design.md) sección para obtener instrucciones sobre cómo seleccionar características específicas.
 
-> [AZURE.NOTE] \: los valores ERT y RPO son objetivos de ingeniería que únicamente proporcionan orientación. No forman parte del [SLA de Base de datos SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
+> [AZURE.NOTE] Los valores ERT y RPO son objetivos de ingeniería que únicamente proporcionan orientación. No forman parte del [SLA de Base de datos SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
 
 
 ###Restauración a un momento dado
@@ -88,4 +88,4 @@ La replicación geográfica estándar está disponible para las bases de datos S
 
 La replicación geográfica activa está disponible para bases de datos Premium. Esta función está diseñada para aplicaciones de escritura intensiva con los requisitos de recuperación más exigentes. Con la replicación geográfica activa, puede crear hasta cuatro bases de datos secundarias legibles en servidores situados en regiones diferentes. Puede iniciar la conmutación por error a cualquiera de las bases de datos secundarias del mismo modo que con la replicación geográfica estándar. Además, la replicación geográfica activa puede utilizarse para los escenarios de actualización o reubicación de la aplicación, así como para el equilibrio de cargas de trabajo de solo lectura. Vea la sección [Diseño para la continuidad del negocio](sql-database-business-continuity-design.md) para obtener más información sobre cómo configurar la replicación geográfica y la sección [Recuperación tras una interrupción](sql-database-disaster-recovery.md) para obtener más información sobre cómo realizar la conmutación por error a la base de datos secundaria. Vea la sección [Actualización de la aplicación sin tiempo de inactividad](sql-database-business-continuity-application-upgrade.md) para obtener más información sobre cómo implementar la actualización de la aplicación sin tiempo de inactividad.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

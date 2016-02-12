@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="10/30/2015"
+ ms.date="01/26/2016"
  ms.author="danlep"/>
 
 # Sobre las instancias de proceso intensivo A8, A9, A10 y A11
@@ -25,9 +25,9 @@ En este artículo se proporciona información general y consideraciones sobre el
 
 * **Hardware de alto rendimiento**: el hardware de centro de datos de Azure que ejecuta estas instancias está diseñado y optimizado para el proceso intensivo y para aplicaciones de red intensiva, incluidas las aplicaciones de clúster de proceso de alto rendimiento (HCP), el modelado y las simulaciones.
 
-* **Conexión de red RDMA para aplicaciones MPI**: cuando se configura con los controladores de red necesarios, las instancias A8 y A9 pueden comunicarse con otras instancias A8 y A9 a través de una red de baja latencia y alto rendimiento en Azure basadas en tecnología de acceso a memoria directa remota (RDMA). Esta característica puede mejorar el rendimiento de las aplicaciones que usan las implementaciones de la interfaz de transferencia de mensajes de Linux o Windows compatibles.
+* **Conexión de red RDMA para aplicaciones MPI**: puede configurar las instancias A8 y A9 para que se comuniquen con otras instancias A8 y A9 a través de una red de baja latencia y alto rendimiento en Azure basadas en tecnología de acceso a memoria directa remota (RDMA). Esta característica puede mejorar el rendimiento de determinadas aplicaciones de la interfaz de transferencia de mensajes (MPI) de Linux y Windows.
 
-* **Compatibilidad con clústeres de HPC de Windows y Linux**: implemente la administración del clúster y el software de programación de trabajos en las instancias A8, A9, A10 y A11 en Azure para crear un clúster HPC independiente o para agregar más capacidad a un clúster local. Como otros tamaños de máquina virtual de Azure, las instancias A8, A9, A10 y A11 admiten imágenes del sistema operativo Windows Server y Linux estándar o personalizadas o plantillas del Administrador de recursos de Azure en máquinas virtuales de Azure (IaaS) o versiones de SO invitado de Azure en servicios en la nube (PaaS, solamente para Windows Server).
+* **Compatibilidad con clústeres de HPC de Windows y Linux**: implemente la administración del clúster y el software de programación de trabajos en las instancias A8, A9, A10 y A11 en Azure para crear un clúster HPC independiente o para agregar más capacidad a un clúster local.
 
 >[AZURE.NOTE]Las instancias A10 y A11 tienen las mismas optimizaciones y especificaciones de rendimiento que las instancias A8 y A9. Sin embargo, no incluyen el acceso a la red RDMA en Azure. Están diseñadas para aplicaciones HPC que no requieren comunicación constante y de baja latencia entre nodos, también conocidas como aplicaciones paramétricas o embarazosamente paralelas.
 
@@ -57,31 +57,31 @@ Ethernet de 10 Gbps | Se conecta a los servicios de Azure (por ejemplo, Almacena
 Back-end de 32 Gbps, compatible con RDMA | Permite una baja latencia y comunicación de aplicaciones de alto rendimiento entre las instancias de un servicio en la nube único o un conjunto de disponibilidad. Reservado solo para el tráfico MPI.
 
 
->[AZURE.IMPORTANT]En las máquinas virtuales A8 y A9 que disponen de Linux, actualmente el acceso a la red RDMA solo está habilitado a través de aplicaciones que usan Azure Linux RDMA y la Intel MPI Library 5 en SUSE Linux Enterprise Server 12 (SLES 12). En instancias de A8 y A9 con Windows Server, actualmente el acceso a la red RDMA está habilitado solamente a través de las aplicaciones que usan la interfaz Microsoft Network Direct. Consulte [Acceso a la red RDMA](#access-the-rdma-network) en este artículo para obtener información sobre los requisitos adicionales.
+>[AZURE.IMPORTANT]Vea [Acceso a la red RDMA](#access-the-rdma-network) en este artículo para conocer requisitos adicionales para que las aplicaciones de la MPI de Linux y Windows accedan a la red RDMA.
 
 Las instancias A10 y A11 tienen un único adaptador de red Ethernet de 10 Gbps que se conecta a servicios de Azure e Internet.
 
-## Consideraciones para la suscripción
+## Consideraciones de la implementación
 
 * **Cuenta de Azure**: si desea implementar más de un pequeño número de instancias de proceso intensivo, considere la posibilidad de usar una suscripción de pago por uso u otras opciones de compra. También puede utilizar su suscripción a MSDN. Consulte [Ventajas de Azure para suscriptores de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Si usa una [evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/), solo puede usar un número limitado de núcleos de proceso de Azure.
 
-* **Cuota de núcleos**: es posible que tenga que aumentar la cuota de núcleos de su suscripción a Azure desde el valor predeterminado de 20 núcleos por suscripción (en el caso de las implementaciones de Administración de servicios de Azure) o de 20 núcleos por región (en el caso de las implementaciones de Administrador de recursos de Azure), que no es suficiente para muchos escenarios con instancias de 8 o 16 núcleos. Para las pruebas iniciales, puede considerar la posibilidad de solicitar un aumento de cuota hasta 100 núcleos. Para ello, abra una incidencia de soporte técnico gratuita, tal como se muestra en [Descripción de los límites y aumentos de Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+* **Cuota de núcleos** : es posible que necesite aumentar la cuota de núcleos de su suscripción de Azure desde el valor predeterminado de 20 núcleos por suscripción (si se usa el modelo de implementación clásica) o 20 núcleos por región (si utiliza el modelo de implementación del Administrador de recursos de Azure). Para solicitar un aumento de cuota, abra una incidencia de soporte técnico gratuita, tal como se muestra en [Descripción de los límites y aumentos de Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
     >[AZURE.NOTE]Las cuotas de Azure son límites de crédito, no garantías de capacidad. Solamente se le cobrarán los núcleos que use.
 
-* **Red virtual**: no se necesita una red virtual de Azure para usar instancias de proceso intensivo. Sin embargo, puede que necesite al menos una red virtual Azure basada en la nube para muchos escenarios IaaS o una conexión de sitio a sitio si necesita tener acceso a recursos locales como un servidor de licencias de aplicaciones. Necesitará crear una nueva red virtual (regional) antes de implementar las instancias. No se admite la adición de una máquina virtual A8, A9, A10 o A11 a una red virtual en un grupo de afinidad. Para obtener más información, consulte la [documentación sobre las redes virtuales](https://azure.microsoft.com/documentation/services/virtual-network/).
+* **Red virtual**: no se necesita una [red virtual](https://azure.microsoft.com/documentation/services/virtual-network/) de Azure para usar instancias de proceso intensivo. Sin embargo, puede que necesite al menos una red virtual Azure basada en la nube para muchos escenarios IaaS o una conexión de sitio a sitio si necesita tener acceso a recursos locales como un servidor de licencias de aplicaciones. Necesitará crear una nueva red virtual para implementar las instancias. No se admite la adición de una máquina virtual A8, A9, A10 o A11 a una red virtual en un grupo de afinidad.
 
-* **Servicio en la nube o conjunto de disponibilidad**: para conectarse a través de la red RDMA, deben implementarse las instancias A8 y A9 en el mismo servicio en la nube (para escenarios de IaaS con máquinas virtuales basadas en Linux o máquinas virtuales basadas en Windows en Administración de servicios de Azure, o en escenarios de PaaS con Windows Server) o el mismo conjunto de disponibilidad (para máquinas virtuales basadas en Linux o Windows en el Administrador de recursos de Azure).
+* **Servicio o conjunto de disponibilidad en la nube** : para conectarse a través de la red RDMA, las instancias A8 y A9 deben implementarse en el mismo servicio en la nube (si utiliza el modelo de implementación clásica) o en el mismo conjunto de disponibilidad (si utiliza el modelo de implementación del Administrador de recursos de Azure).
 
 ## Consideraciones sobre el uso de HPC Pack
 
 ### Consideraciones sobre el HPC Pack y Linux
 
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) es la solución gratuita de administración de trabajos y clústeres HPC de Microsoft para Windows. Comenzando desde HPC Pack 2012 R2 Update 2, HPC Pack admite la ejecución de varias distribuciones de Linux en nodos de cálculo implementados en máquinas virtuales Azure, administradas por un nodo principal de Windows Server. Con la última versión de HPC Pack puede implementar un clúster basado en Linux que puede ejecutar aplicaciones MPI que tengan acceso a la red RDMA en Azure. Para obtener más información, consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-cluster-hpcpack.md).
+[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) es la solución gratuita de administración de trabajos y clústeres HPC de Microsoft para Windows. Las últimas versiones de HPC Pack 2012 R2 admiten varias distribuciones de Linux en nodos de ejecución implementados en máquinas virtuales de Azure, administradas por un nodo principal de Windows Server. Para obtener más información, consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-cluster-hpcpack.md).
 
 ### Consideraciones sobre HPC Pack y Linux
 
-HPC Pack no es necesario para usar las instancias A8, A9, A10 y A11 con Windows Server, pero es una herramienta recomendada para crear clústeres basados en Windows HPC Server en Azure. En el caso de las instancias de A8 y A9, HPC Pack es la forma más eficaz de ejecutar aplicaciones de MPI basadas en Windows que tienen acceso a la red RDMA en Azure. HPC Pack incluye un entorno de tiempo de ejecución para la implementación de Microsoft de la interfaz de transferencia de mensajes para Windows.
+HPC Pack no es necesario para usar las instancias A8, A9, A10 y A11 con Windows Server, pero es una herramienta recomendada para crear clústeres basados en Windows HPC Server en Azure. En el caso de las instancias de A8 y A9, HPC Pack es la forma más eficaz de ejecutar aplicaciones de MPI basadas en Windows que tienen acceso a la red RDMA en Azure. HPC Pack incluye un entorno de tiempo de ejecución para la implementación de Microsoft de la interfaz de transferencia de mensajes (MS-MPI) para Windows.
 
 Para obtener más información y listas de comprobación para usar instancias de proceso intensivo con HPC Pack en Windows Server, consulte [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
@@ -89,11 +89,11 @@ Para obtener más información y listas de comprobación para usar instancias de
 
 ### Acceso desde máquinas virtuales Linux A8 y A9
 
-En un único servicio en la nube o en conjunto de disponibilidad, las instancias A8 y A9 pueden tener acceso a la red RDMA de Azure para ejecutar aplicaciones MPI que usan controladores Linux RDMA para comunicarse entre instancias. En este momento, Azure Linux RDMA solo se admite con [Intel MPI Library 5](https://software.intel.com/es-ES/intel-mpi-library/).
+En un único servicio en la nube o en un conjunto de disponibilidad, las instancias A8 y A9 pueden acceder a la red RDMA en Azure para ejecutar aplicaciones de la MPI de Linux. En este momento, Azure Linux RDMA solo se admite con [Intel MPI Library 5](https://software.intel.com/es-ES/intel-mpi-library/).
 
 >[AZURE.NOTE] Actualmente los controladores Azure Linux RDMA no están disponibles para instalarse a través de extensiones de controladores. Solamente están disponibles mediante la imagen SLES 12 habilitada para RDMA desde Azure Marketplace.
 
-Consulte la siguiente tabla para obtener información sobre los requisitos previos para las aplicaciones de Linux MPI para acceder a la red RDMA en clústeres de nodos de cálculo (IaaS). Consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-cluster-rdma.md) para obtener opciones de implementación y pasos de configuración.
+En la tabla siguiente se resumen los requisitos previos para las aplicaciones de la MPI de Linux para acceder a la red RDMA en clústeres de nodos de ejecución (IaaS). Consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-cluster-rdma.md) para obtener opciones de implementación y pasos de configuración.
 
 Requisito previo | Máquinas virtuales (IaaS)
 ------------ | -------------
@@ -102,7 +102,7 @@ MPI | Intel MPI Library 5
 
 ### Acceso desde instancias Windows A8 y A9
 
-En un único servicio en la nube o conjunto de disponibilidad, las instancias A8 y A9 pueden tener acceso a la red RDMA de Azure para ejecutar aplicaciones MPI que usan la interfaz Microsoft Network Direct para comunicarse entre instancias. Las instancias A10 y A11 no incluyen el acceso a la red RDMA.
+En un único servicio en la nube o conjunto de disponibilidad, las instancias A8 y A9 pueden tener acceso a la red RDMA de Azure para ejecutar aplicaciones de la MPI de Windows que usan la interfaz Microsoft Network Direct para comunicarse entre instancias.
 
 Consulte la siguiente tabla para obtener información acerca de los requisitos previos para que las aplicaciones de MPI tengan acceso a la red RDMA en las implementaciones de máquina virtual (IaaS) y de servicio en la nube (PaaS) de las instancias A8 o A9. Para escenarios de implementación típicos, consulte [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
@@ -130,4 +130,4 @@ MPI | MS-MPI 2012 R2 o versiones posteriores, ya sean independientes o instalada
 * Para implementar y configurar un clúster basado en Linux con instancias A8 y A9 para tener acceso a la red RDMA de Azure, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-cluster-rdma.md).
 * Para empezar a implementar y usar instancias A8 y A9 con HPC Pack en Windows, consulte [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

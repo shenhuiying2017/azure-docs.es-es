@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="12/22/2015"
+  ms.date="01/29/2015"
   ms.author="andrl"/>
 
 # Portal de la Comunidad
@@ -80,6 +80,8 @@ Para mantenerse al día respecto a las novedades y características más recient
 
 **Entradas de la Comunidad:**
 
+* [**Azure DocumentDB Server-Side Scripting (Scripting del lado servidor de Azure DocumentDB)**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *por Robert Sheldon*
+
 * [**DocumentDB as a data sink for Azure Stream Analytics**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) (DocumentDB como receptor de datos para Análisis de transmisiones de Azure) - *por Jan Hentschel*
 
 * [**Azure DocumentDB in production!**](http://blog.nexapp.ca/2015/11/30/azure-documentdb-in-production/) (¡Azure DocumentDB en producción!) - *por Alexandre Walsh y Marc Olivier Duval*
@@ -102,7 +104,7 @@ Para mantenerse al día respecto a las novedades y características más recient
 
 * [**Data Points - An Overview of Microsoft Azure DocumentDB**](https://msdn.microsoft.com/magazine/mt147238.aspx) (Puntos de datos: Una introducción a Microsoft Azure DocumentDB) - *por Julie Lerman*
 
-* [**Using DocumentDB With F#**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) (Uso de DocumentDB con F#) - *por Jamie Dixon*
+* [**Using DocumentDB With F#**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) (Uso de DocumentDB con F#) *Jamie Dixon*
 
 * [**Analysing Application Logs with DocumentDB**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) (Análisis de registros de aplicaciones con DocumentDB) - *por Vincent-Philippe Lauzon*
 
@@ -124,6 +126,7 @@ Para mantenerse al día respecto a las novedades y características más recient
 
 | Nombre del evento | Orador | Ubicación | Date | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | ------- |
+| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Andrew Liu | Bellevue, WA | 3 de marzo de 2016 | N/D
 | SQLBits XV | tbd | Liverpool, Reino Unido | Del 4 al 7 de mayo de 2016 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
 
 *¿Es el orador u organizador de un evento? [Queremos saber](mailto:askdocdb@microsoft.com) cómo podemos ayudarle*
@@ -132,6 +135,7 @@ Para mantenerse al día respecto a las novedades y características más recient
 
 | Nombre del evento | Orador | Ubicación | Date | Grabación |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Merwan Chinta | Austin, TX | 28 de enero de 2016 | N/D |
 | [Meetup: msdevmtl (Encuentro: msdevmtl)](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | Montreal, QC, Canadá | 1 de diciembre de 2015 | N/D |
 | [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | Seattle, WA | 12 de noviembre de 2015 | N/D |
 | [PASS Summit 2015](http://www.sqlpass.org/summit/2015/) | Jeff Renz, Andrew Hoh, Aravind Ramachandran, John Macintyre | Seattle, WA | Del 27 al 30 de octubre de 2015 | N/D |
@@ -213,14 +217,6 @@ Síganos en twitter [@DocumentDB](https://twitter.com/DocumentDB) y manténgase 
 
 <br/><br/>
 
-### Internet Relay Chat + Horario de oficina
-
-Puede conversar con nosotros en tiempo real a través de IRC en `chat.freenode.net` en el canal `#documentdb` con un [cliente de IRC](http://www.irchelp.org/) o mediante una conexión de su canal web al canal mediante [WebChat](http://webchat.freenode.net/?channels=documentdb) de Freenode.
-
-Damos servicio en horario de oficina en IRC todos los viernes de 11 de la mañana a 12 del mediodía, hora del Pacífico.
-
-<br/><br/>
-
 <hr/>
 
 ## Póngase en contacto con el equipo
@@ -271,4 +267,4 @@ Los asistentes de DocumentDB son líderes de la Comunidad que han demostró un c
 
 ¿Quiere convertirse en un asistente de DocumentDB? Aunque no hay que superar ninguna prueba de referencia para convertirse en asistente de DocumentDB, entre los criterios que se evalúan se incluyen el impacto de las contribuciones de los nominados en los foros en línea (como StackOverflow y MSDN); contenido en línea y wikis; conferencias y grupos de usuarios; podcasts, sitios web, blogs y redes sociales; y artículos y libros. Para proponerse a sí mismo o proponer a otros [envíenos un correo electrónico](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

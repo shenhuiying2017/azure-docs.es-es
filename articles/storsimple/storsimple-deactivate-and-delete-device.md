@@ -12,85 +12,97 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/14/2015"
+   ms.date="01/29/2016"
    ms.author="v-sharos" />
 
 # Desactivación y eliminación de un dispositivo de StorSimple
 
-Este tutorial explica cómo quitar un dispositivo de StorSimple del servicio desactivándolo y eliminándolo después.
+## Información general
 
->[AZURE.NOTE]Debe desactivar un dispositivo antes de poder eliminarlo.
+Puede que desee eliminar un dispositivo de StorSimple (por ejemplo, si va a reemplazar o actualizar el dispositivo o si ya no usa StorSimple). En su caso, debe desactivar el dispositivo para poder eliminarlo. La desactivación interrumpe la conexión entre el dispositivo y el servicio StorSimple Manager correspondiente. En este tutorial se explica cómo eliminar un dispositivo de StorSimple desactivándolo primero y eliminándolo después.
 
-## Desactivación de un dispositivo
+Al desactivar un dispositivo, ya no se podrá acceder a los datos que se almacenan localmente en el mismo. Solo se pueden recuperar los datos asociados con el dispositivo que se almacenaron en la nube.
 
-Puede que quiera quitar un dispositivo del servicio. En este caso, el dispositivo deberá desactivarse. La desactivación interrumpe la conexión entre el dispositivo y el servicio StorSimple Manager correspondiente.
+>[AZURE.WARNING] La desactivación es una operación permanente y no se puede deshacer. Un dispositivo desactivado no se puede registrar en el servicio StorSimple Manager a menos que se realice un restablecimiento de fábrica.
+>
+>El restablecimiento de fábrica elimina todos los datos almacenados localmente en el dispositivo. Por lo tanto, es esencial que realice una instantánea en la nube de todos los datos antes de desactivar un dispositivo. Esto le permitirá recuperar todos los datos más adelante.
 
->[AZURE.WARNING]La desactivación es una operación permanente y no se puede deshacer. Un dispositivo desactivado no se puede registrar en el servicio StorSimple Manager a menos que se realice un restablecimiento de fábrica.
+Este tutorial explica cómo realizar lo siguiente:
 
-Al desactivar un dispositivo, ya no se podrá acceder a los datos que se almacenan localmente en el mismo. Solo se pueden recuperar los datos asociados con el dispositivo que se almacenaron en la nube. Una vez desactivado, se debe realizar un restablecimiento de fábrica del dispositivo para poder reutilizarlo con un servicio nuevo o existente. El restablecimiento de fábrica elimina todos los datos almacenados localmente en el dispositivo. Por lo tanto, es esencial que realice una instantánea en la nube de todos los datos antes de desactivar un dispositivo. Esto le permitirá recuperar todos los datos más adelante.
+- Desactivar un dispositivo y eliminar los datos
+- Desactivar un dispositivo y conservar los datos
 
-Para un dispositivo virtual de StorSimple, la desactivación elimina la máquina virtual y los recursos que se crearon al aprovisionarla. Después de desactivar el dispositivo virtual, no se puede restaurar a su estado anterior. Antes de desactivar un dispositivo virtual de StorSimple, asegúrese de detener o eliminar los clientes y hosts que dependen de ese dispositivo virtual.
+También se explica cómo funcionan la desactivación y eliminación en un dispositivo virtual de StorSimple.
 
-### Desactivación y eliminación de datos
+>[AZURE.NOTE] Antes de desactivar un dispositivo virtual o físico de StorSimple, asegúrese de detener o eliminar los clientes y hosts que dependen de ese dispositivo.
 
-Si está interesado en eliminar completamente el dispositivo y no desea conservar los datos del mismo, haga lo siguiente:
+## Desactivación y eliminación de datos
 
-1. Antes de desactivar un dispositivo, debe eliminar todos los contenedores de volúmenes (y los volúmenes) asociados con el dispositivo. Solo puede eliminar los contenedores de volúmenes después de eliminar las copias de seguridad asociadas.
+Si está interesado en eliminar completamente el dispositivo y no desea conservar los datos del mismo, siga estos pasos.
 
-2. Desactive el dispositivo. Vaya a [Pasos para la desactivación](#steps-to-deactivate) para obtener instrucciones.
+#### Para desactivar un dispositivo y eliminar los datos  
 
-3. Tras la desactivación, puede eliminar completamente el dispositivo. Vaya a [Eliminación de un dispositivo](#delete-a-device) para obtener instrucciones.
+1. Antes de desactivar un dispositivo, debe eliminar todos los contenedores de volúmenes (y los volúmenes) asociados con el dispositivo. Puede eliminar los contenedores de volúmenes solo después de eliminar las copias de seguridad asociadas.
 
-### Desactivación y conservación de los datos
+2. Desactive el dispositivo como sigue:
 
-Si está interesado en eliminar el dispositivo pero desea conservar los datos del mismo, haga lo siguiente:
+    1. En el servicio StorSimple Manager, en la página **Dispositivos**, seleccione el dispositivo que desea desactivar y, en la parte inferior de la página, haga clic en **Desactivar**.
 
-1. Desactive el dispositivo. Todos los contenedores de volúmenes y las instantáneas del dispositivo se conservarán. Vaya a [Pasos para la desactivación](#steps-to-deactivate) para obtener instrucciones.
+    2. Aparecerá un mensaje de confirmación. Haga clic en **Sí** para continuar. El proceso de desactivación se iniciará y tardará unos minutos en completarse.
+
+3. Tras la desactivación, puede eliminar completamente el dispositivo. Al eliminar un dispositivo, se quita de la lista de dispositivos conectados al servicio. El servicio ya no podrá administrar el dispositivo eliminado. Siga estos pasos para eliminar el dispositivo:
+
+    1. En el servicio StorSimple Manager, en la página **Dispositivos**, seleccione un dispositivo desactivado que desea eliminar.
+
+    2. En la parte inferior de la página, haga clic en **Eliminar**.
+
+    3. Se le pedirá confirmación. Haga clic en **Sí** para continuar.
+
+    Es posible que el servicio tarde unos minutos en eliminarse.
+
+## Desactivación y conservación de los datos
+
+Si está interesado en eliminar el dispositivo pero desea conservar los datos del mismo, siga estos pasos.
+
+####Para desactivar un dispositivo y conservar los datos 
+
+1. Desactive el dispositivo. Todos los contenedores de volúmenes y las instantáneas del dispositivo se conservarán.
+
+    1. En el servicio StorSimple Manager, en la página **Dispositivos**, seleccione el dispositivo que desea desactivar y, en la parte inferior de la página, haga clic en **Desactivar**.
+
+    2. Aparecerá un mensaje de confirmación. Haga clic en **Sí** para continuar. El proceso de desactivación se iniciará y tardará unos minutos en completarse.
 
 2. Ahora puede conmutar los contenedores de volúmenes y las instantáneas asociadas. Para ver los procedimientos, vaya a [Conmutación por error y recuperación ante desastres para el dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md)
 
-3. Después de la desactivación y la conmutación por error, puede eliminar completamente el dispositivo. Vaya a [Eliminación de un dispositivo](#delete-a-device) para obtener instrucciones.
+3. Después de la desactivación y la conmutación por error, puede eliminar completamente el dispositivo. Al eliminar un dispositivo, se quita de la lista de dispositivos conectados al servicio. El servicio ya no podrá administrar el dispositivo eliminado. Siga estos pasos para eliminar el dispositivo:
+ 
+    1. En el servicio StorSimple Manager, en la página **Dispositivos**, seleccione un dispositivo desactivado que desea eliminar.
 
-### Pasos para la desactivación
+    2. En la parte inferior de la página, haga clic en **Eliminar**.
 
-Use el procedimiento siguiente para desactivar un dispositivo para preparar su eliminación.
+    3. Se le pedirá confirmación. Haga clic en **Sí** para continuar.
 
-#### Para desactivar un dispositivo
+    Es posible que el servicio tarde unos minutos en eliminarse.
 
-1. En el servicio StorSimple Manager, en la página **Dispositivos**, seleccione el dispositivo que desea desactivar y, en la parte inferior de la página, haga clic en **Desactivar**.
+## Desactivación y eliminación de un dispositivo virtual
 
-2. Aparecerá un mensaje de confirmación. Haga clic en **Sí** para continuar. El proceso de desactivación se iniciará y tardará unos minutos en completarse.
+Para un dispositivo virtual de StorSimple, la desactivación desasigna la máquina virtual. A continuación, puede eliminar la máquina virtual y los recursos creados en su aprovisionamiento. Después de desactivar el dispositivo virtual, no se puede restaurar a su estado anterior.
 
-    En un dispositivo virtual de StorSimple, la desactivación genera las siguientes acciones:
+Los resultados de la desactivación de las siguientes acciones:
 
-      - Se quita el dispositivo virtual de StorSimple.
+- Se quita el dispositivo virtual de StorSimple.
 
-      - Se quitan los OSDisk y los discos de datos creados para el dispositivo virtual StorSimple.
+- Se quitan los OSDisk y los discos de datos creados para el dispositivo virtual StorSimple.
 
-      - Se mantienen el servicio hospedado y la red virtual creados durante el aprovisionamiento. Si no usa estas entidades, debe eliminarlas manualmente.
+- Se mantienen el servicio hospedado y la red virtual creados durante el aprovisionamiento. Si no usa estas entidades, debe eliminarlas manualmente.
 
-      - Se conservan las instantáneas en la nube creadas por el dispositivo virtual de StorSimple.
-
-<!--After the device is deactivated, you will need to perform a failover before you can delete it completely. For failover instructions, go to [Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md).-->
-## Eliminación de un dispositivo
-
-Solo puede eliminar los dispositivos que se han desactivado. Al eliminar un dispositivo, se quita de la lista de dispositivos conectados al servicio. El servicio ya no podrá administrar el dispositivo eliminado.
-
-#### Para eliminar un dispositivo
-
-1. En el servicio StorSimple Manager, en la página **Dispositivos**, seleccione un dispositivo desactivado que desea eliminar.
-
-2. En la parte inferior de la página, haga clic en **Eliminar**.
-
-3. Se le pedirá confirmación. Haga clic en **Sí** para continuar.
-
-Es posible que el servicio tarde unos minutos en eliminarse.
+- Se conservan las instantáneas en la nube creadas por el dispositivo virtual de StorSimple.
 
 ## Pasos siguientes
-- Para restaurar los valores predeterminados de fábrica del dispositivo desactivado, vaya a [Restablecimiento del dispositivo a la configuración predeterminada de fábrica](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+- Para restaurar los valores de fábrica del dispositivo desactivado, vaya a [Restablecer el dispositivo a los valores de fábrica](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 - Para obtener asistencia técnica, [póngase en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
 - Para obtener información sobre cómo usar el servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

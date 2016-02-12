@@ -1,5 +1,5 @@
 
-Para obtener más detalles acerca de los discos, consulte [Acerca de los discos y discos duros virtuales para máquinas virtuales](../articles/virtual-machines-disks-vhds.md).
+Para obtener más detalles acerca de los discos, consulte [Acerca de los discos y discos duros virtuales para máquinas virtuales](virtual-machines-disks-vhds.md).
 
 ##<a id="attachempty"></a>Acoplamiento de un disco vacío
 
@@ -29,8 +29,9 @@ El acoplamiento de un disco vacío supone el método más sencillo de agregar un
 4.	Una vez creado y conectado el disco de datos, este aparece en el panel de la máquina virtual.
 
 	![Disco de datos vacío conectado correctamente](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
-	
-> [AZURE.NOTE]Después de conectar un nuevo disco de datos, tendrá que iniciar sesión en la máquina virtual e inicializar el disco para que la máquina virtual pueda usar el disco para el almacenamiento.
+
+> [AZURE.NOTE]
+Después de conectar un nuevo disco de datos, tendrá que iniciar sesión en la máquina virtual e inicializar el disco para que la máquina virtual pueda usar el disco para el almacenamiento.
 
 ##<a id="attachexisting"></a>Acoplamiento de un disco existente
 
@@ -58,4 +59,4 @@ El acoplamiento de un disco existente requiere que disponga de un .vhd disponibl
 
 	![Disco de datos conectado correctamente](./media/howto-attach-disk-window-linux/AttachExistingSuccess.png)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

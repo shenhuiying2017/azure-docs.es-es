@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/01/2016"
 	ms.author="cabailey"/>
 #Generación y transferencia de claves protegidas con HSM para el Almacén de claves de Azure
 
@@ -25,7 +25,7 @@ La información de este tema le ayudará a planear, generar y, a continuación, 
 
 Esta funcionalidad no está disponible para Azure China.
 
->[AZURE.NOTE]Para obtener más información sobre el Almacén de claves de Azure, consulte [¿Qué es el Almacén de claves de Azure?](key-vault-whatis.md)
+>[AZURE.NOTE] Para obtener más información sobre el Almacén de claves de Azure, consulte [¿Qué es el Almacén de claves de Azure?](key-vault-whatis.md)
 >
 >Para ver tutorial introductorio, que incluye la creación de un almacén de claves para claves protegidas con HSM, consulte [Introducción al Almacén de claves de Azure](key-vault-get-started.md).
 
@@ -217,6 +217,8 @@ Ejecute el comando siguiente para generar la clave:
 
 Cuando ejecute este comando, siga estas instrucciones:
 
+- El parámetro *protect* debe establecerse en el valor **module**, como se muestra. Esto crea una clave protegida por el módulo. El conjunto de herramientas BYOK no es compatible con claves protegidas con OCS.
+
 - Reemplace el valor de *contosokey* en **ident** y **plainname** por cualquier valor de cadena. Para minimizar gastos administrativos y reducir el riesgo de errores, se recomienda utilizar el mismo valor en ambos. El valor **ident** debe contener solo números, guiones y minúsculas.
 
 - En este ejemplo, pubexp se deja en blanco (valor predeterminado), pero puede especificar valores concretos. Para obtener más información, consulte la documentación de Thales.
@@ -225,7 +227,7 @@ Este comando crea un archivo de clave con tokens en la carpeta %NFAST\_KMDATA%\\
 
 Realice una copia del archivo tokenizado en una ubicación segura.
 
->[AZURE.IMPORTANT]Cuando posteriormente transfiera la clave al Almacén de claves de Azure, Microsoft no podrá exportar esta clave, por lo que resulta extremadamente importante que realice una copia de seguridad de la misma y del espacio de seguridad. Póngase en contacto con Thales si necesita guía y procedimientos recomendados para realizar copias de seguridad de una clave.
+>[AZURE.IMPORTANT] Cuando posteriormente transfiera la clave al Almacén de claves de Azure, Microsoft no podrá exportar esta clave, por lo que resulta extremadamente importante que realice una copia de seguridad de la misma y del espacio de seguridad. Póngase en contacto con Thales si necesita guía y procedimientos recomendados para realizar copias de seguridad de una clave.
 
 Ya está listo para transferir la clave al Almacén de claves de Azure.
 
@@ -255,7 +257,7 @@ Para reducir los permisos en su clave, desde un símbolo del sistema, ejecute un
 - Para Australia:
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1
-- Para [Azure Government](../../../../features/gov/), que usa la instancia del gobierno de Estados Unidos de Azure:
+- Para [Azure Government](../../../../features/gov/), que usa la instancia del Gobierno de los Estados Unidos de Azure:
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1
 
@@ -299,7 +301,7 @@ Ejecute uno de los comandos siguientes, dependiendo de su región geográfica o 
 - Para Australia:
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
-- Para [Azure Government](../../../../features/gov/), que usa la instancia del gobierno de Estados Unidos de Azure:
+- Para [Azure Government](../../../../features/gov/), que usa la instancia del Gobierno de los Estados Unidos de Azure:
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
@@ -330,4 +332,4 @@ Si la carga se realiza correctamente, verá que se muestran las propiedades de l
 
 Ahora puede usar esta clave protegida con HSM en el almacén de claves. Para obtener más información, consulte la sección **Si desea usar un módulo de seguridad de hardware (HSM)** del tutorial[ Introducción al Almacén de claves de Azure](key-vault-get-started.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

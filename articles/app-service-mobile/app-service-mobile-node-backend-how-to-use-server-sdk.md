@@ -22,8 +22,6 @@
 
 En este artículo se ofrece información detallada y ejemplos sobre cómo trabajar con un back-end de Node.js en Aplicaciones móviles del Servicio de aplicaciones de Azure.
 
-> [AZURE.NOTE] Este SDK está en VERSIÓN PRELIMINAR. Por ello, se recomienda no usar este SDK en un entorno de producción. En los ejemplos de este documento se usa la versión v2.0.0-rc2 de [azure-mobile-apps].
-
 ## <a name="Introduction"></a>Introducción
 
 Aplicaciones móviles del Servicio de aplicaciones de Azure proporciona la funcionalidad de agregar una API web de acceso a datos optimizada para móviles a una aplicación web. El SDK de Aplicaciones móviles del Servicio de aplicaciones de Azure se proporciona para las aplicaciones web de ASP.NET y Node.js. El SDK proporciona las siguientes operaciones:
@@ -563,7 +561,7 @@ Es probable que solo quiera habilitar la compatibilidad con Swagger en las edici
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-El punto de conexión de swagger se encontrará en http://\_yoursite\_.azurewebsites.net/swagger. Puede tener acceso a la interfaz de usuario de Swagger a través del punto de conexión `/swagger/ui`. Tenga en cuenta que si elige pedir autenticación en la aplicación entera, Swagger produce un error en el punto de conexión /. Para obtener mejores resultados, elija permitir que pasen las solicitudes no autenticadas en la configuración de autorización y autenticación del Servicio de aplicaciones de Azure y, luego, controle la autenticación mediante la propiedad `table.access`.
+El punto de conexión de swagger se encontrará en http://\_yoursite\_.azurewebsites.net/swagger. Puede tener acceso a la interfaz de usuario de Swagger a través del punto de conexión `/swagger/ui`. Tenga en cuenta que si elige pedir autenticación en la aplicación entera, Swagger produce un error en el punto de conexión /. Para obtener los mejores resultados, elija permitir que pasen las solicitudes no autenticadas en la configuración de autorización y autenticación del Servicio de aplicaciones de Azure y, luego, controle la autenticación mediante la propiedad `table.access`.
 
 También puede agregar la opción de Swagger a su archivo `azureMobile.js` si solo desea que haya compatibilidad con Swagger al desarrollar de forma local.
 
@@ -747,4 +745,4 @@ En el editor, también puede ejecutar el código en el sitio.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

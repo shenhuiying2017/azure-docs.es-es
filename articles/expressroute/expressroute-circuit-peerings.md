@@ -33,7 +33,7 @@ Cada circuito tiene un ancho de banda fijo (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbp
 
 ### Cuotas, límites y limitaciones
 
-Se aplican límites y cuotas predeterminados para cada circuito ExpressRoute. Para obtener la información más actualizada sobre las cuotas, consulte [Suscripción de Azure y límites, cuotas y restricciones de servicio](../../includes/expressroute-limits.md).
+Se aplican límites y cuotas predeterminados para cada circuito ExpressRoute. Para obtener la información más actualizada sobre las cuotas, consulte [Suscripción de Azure y límites, cuotas y restricciones de servicio](../azure-subscription-service-limits.md).
 
 ## Dominios de enrutamiento de ExpressRoute
 
@@ -47,7 +47,7 @@ Un circuito ExpressRoute tiene asociados varios dominios de enrutamiento: públi
 
 Los servicios de proceso de Azure, concretamente las máquinas virtuales (IaaS) y los servicios en la nube (PaaS), que se implementan en una red virtual, pueden estar conectados mediante el dominio de emparejamiento privado. El dominio de emparejamiento privado se considera una extensión confiable de la red principal en Microsoft Azure. Puede configurar una conectividad bidireccional entre la red principal y las redes virtuales de Azure (VNet). De esta forma podrá conectarse a máquinas virtuales y servicios en la nube directamente en sus direcciones IP privadas.
 
-Puede conectar más de una red virtual al dominio de emparejamiento privado. Revise la [página de P+G](expressroute-faqs.md) para obtener información sobre los límites y las limitaciones. Para obtener información actualizada sobre los límites, visite la página [Suscripción de Azure y límites, cuotas y restricciones de servicio](../../includes/expressroute-limits.md). Consulte la página [Enrutamiento](expressroute-routing.md) para obtener información detallada sobre la configuración de enrutamiento.
+Puede conectar más de una red virtual al dominio de emparejamiento privado. Revise la [página de P+G](expressroute-faqs.md) para obtener información sobre los límites y las limitaciones. Para obtener información actualizada sobre los límites, visite la página [Suscripción de Azure y límites, cuotas y restricciones de servicio](../azure-subscription-service-limits.md). Consulte la página [Enrutamiento](expressroute-routing.md) para obtener información detallada sobre la configuración de enrutamiento.
 
 ### Emparejamiento público
 
@@ -69,7 +69,7 @@ Para obtener más información sobre los servicios admitidos, los costos y los d
 
 La tabla siguiente comparan los tres dominios de enrutamiento.
 
-||**Emparejamiento privado**|**Emparejamiento público**|**Emparejamiento de Microsoft**|
+|**Emparejamiento privado**|**Emparejamiento público**|**Emparejamiento de Microsoft**|
 |---|---|---|---|
 |**Número máximo de prefijos admitidos por emparejamiento**|4000 de forma predeterminada, 10.000 con ExpressRoute Premium|200|200|
 |**Intervalos de direcciones IP admitidas**|Cualquier dirección IPv4 válida de la WAN.|Direcciones IPv4 públicas propiedad suya o de su proveedor de conectividad.|Direcciones IPv4 públicas propiedad suya o de su proveedor de conectividad.|
@@ -90,4 +90,4 @@ Si decide tener las tres sesiones de emparejamiento, necesita tres pares de sesi
 	- [Configuración del enrutamiento (emparejamientos de circuitos)](expressroute-howto-routing-classic.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

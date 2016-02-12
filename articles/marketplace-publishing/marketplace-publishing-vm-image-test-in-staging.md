@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="02/01/2016"
    ms.author="hascipio" />
 
 # Probar su oferta de VM para Azure Marketplace en un entorno de ensayo
@@ -30,11 +30,13 @@ En la etapa de ensayo, se implementa la SKU en un “espacio aislado” privado,
 3.	En el cuadro de diálogo **¿Quién puede obtener acceso a su oferta de ensayo?**, escriba la lista de suscripciones de Azure que usará para obtener una vista previa de su oferta en el [portal de vista previa de Azure](https://portal.azure.com).
 4. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) mediante una de las suscripciones de Azure anteriores que se enumeran en el paso anterior.
 5. Busque su oferta y valide los puntos de su imagen de VM:
-  1. Asegúrese de que el contenido de marketing se muestra correctamente en el Marketplace.
-
+  - Asegúrese de que el contenido de marketing se muestra correctamente en el Marketplace.
+  - Implementación completa de la imagen de VM.
+  
       ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
 
-  2. Implementación completa de la imagen de VM.
+
+
 
 > [AZURE.IMPORTANT] Su oferta permanecerá en un entorno de ensayo hasta que notifique a Microsoft a través del Portal de publicación [**Publicar** > **"Solicitar aprobación para enviar a producción"**] que está listo para enviar a producción. Este es un momento ideal para que todos los miembros de su equipo revisen todo antes de hacer efectiva la oferta.
 
@@ -46,4 +48,4 @@ Ahora que el estado de su oferta es "de ensayo" y que ha probado su funcionalida
 ## Consulte también
 - [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/25/2015"
+   ms.date="02/01/2016"
    ms.author="rickbyh"/>
 
 # Seguridad de la Base de datos SQL: administrar la seguridad del inicio de sesión y el acceso a la base de datos  
@@ -27,6 +27,8 @@ Obtenga información acerca de la administración de seguridad de la Base de dat
 En la Base de datos SQL de Microsoft Azure, al registrarse para el servicio, el proceso de aprovisionamiento crea un servidor de Base de datos de SQL Azure, una base de datos denominada **principal** y un inicio de sesión que es la entidad de seguridad de nivel de servidor de su servidor de Base de datos SQL de Azure. Ese inicio de sesión es similar a la entidad de seguridad de nivel de servidor, **sa**, para una instancia local de SQL Server.
 
 La cuenta principal de nivel de servidor de Base de datos SQL de Azure siempre tiene permiso para administrar toda la seguridad de servidor y de base de datos. En este tema se describe cómo puede usar la entidad de seguridad de nivel de servidor y otras cuentas para administrar los inicios de sesión y bases de datos de la Base de datos SQL.
+
+Los usuarios de Azure que acceden a Base de datos SQL a través del Control de acceso basado en roles de Azure y la API de REST del Administrador de recursos de Azure reciben permisos de sus roles de Azure. El motor de base de datos ejecuta las acciones de los miembros de roles de Azure. A ellos no les afecta el modelo de permisos del motor de base de datos, por lo que no se tratan en este tema. Para obtener más información, vea [RBAC: Roles integrados](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#sql-db-contributor).
 
 > [AZURE.IMPORTANT] Base de datos SQL V12 permite a los usuarios autenticarse en la base de datos mediante el uso de los usuarios de la base de datos independiente. Los usuarios de la base de datos independiente no requieren inicios de sesión. Esto provoca que las bases de datos resulten más portátiles, pero reduce la capacidad de la entidad de seguridad de nivel de servidor de controlar el acceso a la base de datos. Permitir a los usuarios de bases de datos independientes tiene repercusiones importantes en la seguridad. Para obtener más información, vea [Usuarios de base de datos independiente - Conversión de la base de datos en portátil](https://msdn.microsoft.com/library/ff929188.aspx), [Bases de datos independientes](https://technet.microsoft.com/library/ff929071.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) y [Conexión a Base de datos SQL con autenticación de Azure Active Directory](sql-database-aad-authentication.md).
 
@@ -174,4 +176,4 @@ SELECT * FROM sys.databases;
 
 [Instrucciones y limitaciones de seguridad de la Base de datos SQL de Azure](sql-database-security-guidelines.md) [Conexión a la Base de datos SQL mediante la autenticación de Azure Active Directory](sql-database-aad-authentication.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

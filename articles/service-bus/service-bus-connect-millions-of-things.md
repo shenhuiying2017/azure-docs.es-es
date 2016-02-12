@@ -22,7 +22,7 @@ Las "cosas" inteligentes y conectadas cada vez proliferan más en los ecosistema
 
 ## Exploración
 
-- [Centros de eventos](event-hubs-overview.md)
+- [Centros de eventos](../event-hubs/event-hubs-overview.md)
 - [Patrón de partición](http://msdn.microsoft.com/library/dn589797.aspx)
 - [Bus de servicio y AMQP 1.0](service-bus-amqp-overview.md)
 - [Introducción a Bus de servicio](https://azure.microsoft.com/services/service-bus/)
@@ -45,4 +45,4 @@ Las "cosas" inteligentes y conectadas cada vez proliferan más en los ecosistema
 - [Servicios en la nube](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="01/11/2016" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 	
 #  Análisis de transmisiones y Power BI: panel de análisis en tiempo real de flujo de datos
@@ -47,7 +47,7 @@ Haga clic en **Análisis de transmisiones** en el panel izquierdo para ver una l
 
 ![graphic1][graphic1]
 
-> [AZURE.TIP]El nuevo trabajo aparecerá con el estado **No iniciado**. Tenga en cuenta que el botón **Iniciar** en la parte inferior de la página está deshabilitado. Este es el comportamiento esperado, ya que debe configurar la entrada, salida y consulta del trabajo, etc. antes de poder iniciar el trabajo.
+> [AZURE.TIP] El nuevo trabajo aparecerá con el estado **No iniciado**. Tenga en cuenta que el botón **Iniciar** en la parte inferior de la página está deshabilitado. Este es el comportamiento esperado, ya que debe configurar la entrada, salida y consulta del trabajo, etc. antes de poder iniciar el trabajo.
 
 ## Especificación de la entrada del trabajo
 
@@ -62,11 +62,11 @@ Para este tutorial, se supone que está usando el centro de eventos como una ent
   * **Centro de eventos**: si el centro de eventos que ha creado está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione el espacio de nombres en el que está el centro de eventos.
 *	Si el centro de eventos está en otra suscripción, seleccione **Usar centro de eventos de otra suscripción** y escriba manualmente la información de **Espacio de nombres de servicio de Bus**, **Nombre de centro de eventos**, **Nombre de directiva de centro de eventos**, **Clave de directiva de centro de eventos** y **Recuento de particiones de centro de eventos**.
 
-> [AZURE.NOTE]En este ejemplo se utiliza el número predeterminado de particiones, que es 16.
+> [AZURE.NOTE]	En este ejemplo se utiliza el número predeterminado de particiones, que es 16.
 
 * **Nombre del centro de eventos**: seleccione el nombre del centro de eventos de Azure que tiene.
 * **Nombre de directiva de centro de eventos**: seleccione la directiva del centro de eventos para el centro de eventos que está usando. Asegúrese de que esta directiva tiene permisos de administración.
-*	**Grupo de consumidores del centro de eventos** : puede especificar un grupo de consumidores que tiene en el centro de eventos o dejarlo en blanco. Tenga en cuenta que cada grupo de consumidores de un centro de eventos solo puede tener 5 lectores a la vez. Por tanto, decida el grupo de consumidores adecuado para su trabajo según corresponda. Si deja el campo en blanco, usará el grupo de consumidores predeterminado.
+*	**Grupo de consumidores del Centro de eventos** : puede especificar un grupo de consumidores que tiene en el Centro de eventos o dejarlo en blanco. Tenga en cuenta que cada grupo de consumidores de un centro de eventos solo puede tener 5 lectores a la vez. Por tanto, decida el grupo de consumidores adecuado para su trabajo según corresponda. Si deja el campo en blanco, usará el grupo de consumidores predeterminado.
 
 *	Haga clic con el botón secundario.
 *	Especifique los siguientes valores:
@@ -99,11 +99,11 @@ Proporcione valores como sigue:
 * **Nombre del conjunto de datos**: proporcione un nombre del conjunto de datos que desea que tenga la salida de Power BI. Por ejemplo, vamos a usar "pbidemo".
 *	**Nombre de tabla**: proporcione un nombre de tabla en el conjunto de datos de la salida de Power BI. Supongamos que lo llamamos "pbidemo". Actualmente, la salida de Power BI de trabajos de Análisis de transmisiones solo puede tener una tabla en un conjunto de datos.
 
->	[AZURE.NOTE] No debe crear explícitamente este conjunto de datos y esta tabla en su cuenta de Power BI. Se crearán automáticamente cuando empiece su trabajo de Análisis de transmisiones y el trabajo comience a producir salidas en Power BI. Si el trabajo no devuelve resultados, no se creará el conjunto de datos ni la tabla.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	Haga clic en **Aceptar**, **Probar conexión**; ahora la configuración de la salida ha finalizado.
 
->	[AZURE.WARNING] Tenga en cuenta asimismo que si Power BI ya cuenta con un conjunto de datos y una tabla con el mismo nombre que el proporcionado en este trabajo de Análisis de transmisiones, se sobrescribirán los datos existentes.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## Escritura de una consulta
@@ -232,4 +232,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

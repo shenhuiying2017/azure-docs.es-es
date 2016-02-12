@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Cambios de atributos de objeto de usuario externo para la vista previa de colaboración de Azure Active Directory (Azure AD) B2B
+# Vista previa de la colaboración B2B de Azure AD: cambios en los atributos de objeto de usuario externo
+
 Cada usuario de un directorio de Azure AD se representa mediante un objeto de usuario. El objeto de usuario en Azure AD sufre cambios de atributo en varias fases del flujo de canje de invitaciones de la colaboración de B2B. El objeto de usuario que representa al usuario asociado en el directorio tiene atributos que cambian en el momento del canje, cuando el partner hace clic en el vínculo en el correo electrónico de invitación. Concretamente:
 
 - Se rellenan los atributos **SignInName** y **AltSecId**
@@ -34,4 +35,4 @@ Examine nuestros otros artículos sobre colaboración de Azure B2B:
 - [Formato de token de usuario externo](active-directory-b2b-references-external-user-token-format.md)
 - [Limitaciones de la vista previa actual](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

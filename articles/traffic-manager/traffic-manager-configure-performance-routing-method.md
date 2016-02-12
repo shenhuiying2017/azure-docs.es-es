@@ -17,7 +17,7 @@
 
 # Configuración del método de enrutamiento del tráfico de rendimiento
 
-Para redirigir el tráfico a los servicios en la nube y los sitios web (extremos) que se encuentran en distintos centros de datos de todo el mundo (también conocidos como regiones), puede dirigir el tráfico entrante al extremo con la latencia más baja desde el cliente que realiza la solicitud. Normalmente, el centro de datos con la latencia más baja corresponde a la distancia geográfica más cercana. El método de enrutamiento del tráfico de rendimiento le permitirá realizar la distribución según la latencia inferior, pero no puede tener en cuenta los cambios en tiempo real en la carga o la configuración de red. Para obtener más información acerca de los distintos métodos del tráfico de rendimiento del Administrador de tráfico de Azure, consulte [Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-load-balancing-methods.md).
+Para redirigir el tráfico a los servicios en la nube y los sitios web (extremos) que se encuentran en distintos centros de datos de todo el mundo (también conocidos como regiones), puede dirigir el tráfico entrante al extremo con la latencia más baja desde el cliente que realiza la solicitud. Normalmente, el centro de datos con la latencia más baja corresponde a la distancia geográfica más cercana. El método de enrutamiento del tráfico de rendimiento le permitirá realizar la distribución según la latencia inferior, pero no puede tener en cuenta los cambios en tiempo real en la carga o la configuración de red. Para obtener más información sobre los distintos métodos de enrutamiento de tráfico que proporciona el Administrador de tráfico de Azure, vea [Acerca de la supervisión del Administrador de tráfico](traffic-manager-load-balancing-methods.md).
 
 ## Redirija el tráfico en función de la latencia más baja en un conjunto de extremos:
 
@@ -49,4 +49,4 @@ Para redirigir el tráfico a los servicios en la nube y los sitios web (extremos
 [Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

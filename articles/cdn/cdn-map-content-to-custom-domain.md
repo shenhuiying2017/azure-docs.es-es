@@ -25,8 +25,8 @@ Hay dos formas de asignar su dominio personalizado a un punto de conexión de CD
 	Un registro CNAME es una característica DNS que asigna un dominio de origen a un dominio de destino. En este caso, el dominio de origen es su dominio y subdominio personalizados (el subdominio es siempre necesario). El dominio de destino es el punto de conexión de red CDN.
 
 	Sin embargo, el proceso de asignación de un dominio personalizado a un punto de conexión de CDN puede provocar un período breve de inactividad en el dominio mientras registra el dominio en el Portal de Azure.
-     
-2. [Adición de un paso de registro intermedio con **cdnverify**]((#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
+	 
+2. [Agregar un paso de registro intermedio con **cdnverify**](#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
 
 	Si el dominio personalizado ya es compatible con una aplicación con un contrato de nivel de servicio (SLA) que requiere que no exista tiempo de inactividad, puede usar el subdominio **cdnverify** de Azure para proporcionar un paso de registro intermedio para que los usuarios puedan obtener acceso al dominio mientras se realiza la asignación de DNS.
 
@@ -83,4 +83,4 @@ Después de registrar el dominio personalizado mediante uno de los procedimiento
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

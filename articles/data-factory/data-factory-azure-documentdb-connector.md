@@ -20,6 +20,9 @@
 
 En este artículo se describe cómo puede usar la actividad de copia en la Factoría de datos de Azure para mover datos a DocumentDB de Azure desde otro almacén de datos y viceversa. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
+En los siguientes ejemplos, se muestra cómo copiar datos entre Azure DocumentDB y Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Factoría de datos de Azure.
+
+
 ## Ejemplo: copia de datos de DocumentDB a un blob de Azure
 
 El ejemplo siguiente muestra:
@@ -416,4 +419,4 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
 	**Respuesta:** No. Solo se puede especificar una colección cada vez.
      
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

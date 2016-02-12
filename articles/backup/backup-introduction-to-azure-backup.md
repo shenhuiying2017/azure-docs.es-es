@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="01/29/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # ¿Qué es la Copia de seguridad de Azure?
@@ -61,8 +61,7 @@ Dado que Copia de seguridad es una solución de copia de seguridad híbrida, con
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md)</p> |
-| Máquinas virtuales de IaaS de Azure (Windows)| - | [Copia de seguridad de Azure (Extensión de máquina virtual)](backup-azure-vms-introduction.md) | 
-| Máquinas virtuales de IaaS de Azure (Linux) | - | [Copia de seguridad de Azure (Extensión de máquina virtual)](backup-azure-vms-introduction.md) |
+| Máquinas virtuales de IaaS de Azure (Windows)| - | [Copia de seguridad de Azure (Extensión de máquina virtual)](backup-azure-vms-introduction.md) | | Máquinas virtuales de IaaS de Azure (Linux) | - | [Copia de seguridad de Azure (Extensión de máquina virtual)](backup-azure-vms-introduction.md) |
 
 ## Funcionalidad
 En estas cinco tablas se resume cómo se controla la funcionalidad Copia de seguridad en cada componente.
@@ -78,6 +77,8 @@ En estas cinco tablas se resume cómo se controla la funcionalidad Copia de segu
 | Copia de seguridad incremental | ![Sí][green] | ![Sí][green] | ![Sí][green] | ![Sí][green] |
 | Desduplicación de disco | | ![Parcialmente][yellow] | ![Parcialmente][yellow]| | |
 
+**Clave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Sí][green]= Admitido &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Parcialmente][yellow]= Admitido parcialmente &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = No admitido
+
 El almacén de Copia de seguridad es el destino de almacenamiento preferido en todos los componentes. System Center DPM y el Servidor de Copia de seguridad de Azure proporcionan la opción de tener también una copia en disco local, pero solamente System Center DPM ofrece la opción de escribir datos en un dispositivo de almacenamiento en cinta.
 
 #### Copia de seguridad incremental
@@ -86,7 +87,7 @@ Independiente del almacenamiento de destino (disco, cinta o almacén de Copia de
 El componente que no realiza compresión es la extensión de VM. Todos los datos de copia de seguridad se copian desde la cuenta de almacenamiento del cliente en el almacén de Copia de seguridad en la misma región sin comprimir. Aunque esto aumenta ligeramente el almacenamiento consumido, el almacenamiento de los datos sin compresión permite tiempos de restauración más rápidos.
 
 #### Desduplicación
-Se admite desduplicación para System Center DPM y el Servidor de Copia de seguridad cuando se [implementan en una máquina virtual de Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). La desduplicación se realiza en el ámbito de host aprovechando la característica de desduplicación de Windows Server en los discos duros virtuales (VHD) conectados a la máquina virtual como almacenamiento de copia de seguridad.
+Se admite la desduplicación para System Center DPM y el servidor de Copia de seguridad cuando se [implementa en una máquina virtual de Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). La desduplicación se realiza en el ámbito de host aprovechando la característica de desduplicación de Windows Server en los discos duros virtuales (VHD) conectados a la máquina virtual como almacenamiento de copia de seguridad.
 
 >[AZURE.WARNING] La desduplicación no está disponible en Azure para ninguno de los componentes de Copia de seguridad. Cuando System Center DPM y el Servidor de Copia de seguridad se implementan en Azure, los discos de almacenamiento conectados a la VM no se pueden desduplicar.
 
@@ -97,11 +98,13 @@ Se admite desduplicación para System Center DPM y el Servidor de Copia de segur
 | Seguridad de red (para Azure) | ![Sí][green] |![Sí][green] | ![Sí][green] | ![Parcialmente][yellow]|
 | Seguridad de red (en Azure) | ![Sí][green] |![Sí][green] | ![Sí][green] | ![Parcialmente][yellow]|
 
+**Clave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Sí][green]= Admitido &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Parcialmente][yellow]= Admitido parcialmente &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = No admitido
+
 Todo el tráfico de copia de seguridad de los servidores al almacén de Copia de seguridad se cifra mediante el Estándar de cifrado avanzado 256. Los datos se envían a través de un vínculo HTTPS seguro. Los datos de copia de seguridad también se almacenan en el almacén de Copia de seguridad en su forma cifrada. Solo el cliente contiene la frase de contraseña para desbloquear estos datos. Microsoft no puede descifrar los datos de copia de seguridad en ningún momento.
 
 >[AZURE.WARNING] La clave usada para cifrar los datos de copia de seguridad solo está presente con el cliente. Microsoft no mantiene una copia en Azure y no tiene acceso a la clave. Si la clave se pierde, Microsoft no puede recuperar los datos de copia de seguridad.
 
-Para la copia de seguridad de VM de Azure, debe configurar explícitamente el cifrado *dentro* de la máquina virtual. Use BitLocker en máquinas virtuales Windows y **dm-crypt** en máquinas virtuales Linux. Copia de seguridad de Azure no cifra automáticamente los datos de copia de seguridad que circulan a través de esta ruta.
+Para la copia de seguridad de las máquinas virtuales de Azure, tiene que configurar explícitamente el cifrado *dentro* de la máquina virtual. Use BitLocker en máquinas virtuales Windows y **dm-crypt** en máquinas virtuales Linux. Copia de seguridad de Azure no cifra automáticamente los datos de copia de seguridad que circulan a través de esta ruta.
 
 ### Cargas de trabajo compatibles
 
@@ -117,6 +120,8 @@ Para la copia de seguridad de VM de Azure, debe configurar explícitamente el ci
 | Máquina virtual de Azure (Windows) | | | | ![Sí][green] |
 | Máquina virtual de Azure (Linux) | | | | ![Sí][green] |
 
+**Clave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Sí][green]= Admitido &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = No admitido
+
 ### Red
 
 | Característica | Agente de copia de seguridad de Azure | System Center DPM | Servidor de Copia de seguridad de Azure | Copia de seguridad de Azure (extensión de máquina virtual) |
@@ -125,6 +130,8 @@ Para la copia de seguridad de VM de Azure, debe configurar explícitamente el ci
 | Compresión de red (para el almacén de Copia de seguridad) | ![Sí][green] | ![Sí][green] | ![Sí][green] | |
 | Protocolo de red (para el servidor de copia de seguridad) | | TCP | TCP | |
 | Protocolo de red (para el almacén de Copia de seguridad) | HTTPS | HTTPS | HTTPS | HTTPS |
+
+**Clave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Sí][green]= Admitido &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = No admitido
 
 Dado que la extensión de VM lee directamente los datos de la cuenta de Almacenamiento de Azure a través de la red de almacenamiento, no es necesario optimizar este tráfico. Dado que el tráfico fluye a través de la red de almacenamiento local en el centro de datos de Azure, existe una mínima necesidad de compresión debido a consideraciones de ancho de banda.
 
@@ -145,7 +152,7 @@ Para clientes que protegen datos en un servidor de copia de seguridad (System Ce
 ## ¿Qué diferencias hay entre Copia de seguridad y Azure Site Recovery?
 Muchos clientes confunden la recuperación de copias de seguridad y la recuperación ante desastres. Ambas capturan datos y proporcionan la semántica de restauración, pero la propuesta de valor principal es diferente.
 
-Copia de seguridad de Azure realiza una copia de seguridad de datos local y en la nube. Azure Site Recovery coordina la replicación de la máquina virtual y el servidor físico, la conmutación por error y la conmutación por recuperación. Necesita ambos servicios para una solución de recuperación ante desastres completa. Su estrategia de recuperación ante desastres necesita mantener los datos seguros y recuperables (Copia de seguridad) *y* mantener las cargas de trabajo disponibles y accesibles (Site Recovery) cuando se producen interrupciones.
+Copia de seguridad de Azure realiza una copia de seguridad de datos local y en la nube. Azure Site Recovery coordina la replicación de la máquina virtual y el servidor físico, la conmutación por error y la conmutación por recuperación. Necesita ambos servicios para una solución de recuperación ante desastres completa. Su estrategia de recuperación ante desastres tiene que mantener los datos seguros y recuperables (Copia de seguridad) *y* mantener las cargas de trabajo disponibles y accesibles (Recuperación de sitios) cuando se producen interrupciones.
 
 Para tomar decisiones relacionadas con la copia de seguridad y la recuperación ante desastres, debe entender los siguientes conceptos importantes.
 
@@ -153,7 +160,7 @@ Para tomar decisiones relacionadas con la copia de seguridad y la recuperación 
 | ------- | ------- | ------ | ----------------- |
 | Objetivo de punto de recuperación (RPO) | Cantidad de pérdida de datos que es aceptable en caso de que se debe hacer una recuperación. | Las soluciones de copia de seguridad tienen una gran variabilidad en su RPO aceptable. Las copias de seguridad de máquina virtual normalmente tienen un RPO de un día, mientras que las copias de seguridad de base de datos tienen RPO bajos, de hasta 15 minutos. | Las soluciones de recuperación ante desastres tienen RPO muy bajos. La copia de DR puede estar detrás de algunos segundos o minutos. |
 | Objetivo de tiempo de recuperación (RTO) | La cantidad de tiempo que se tarda en completar una recuperación o restauración. | Debido a un RPO mayor, la cantidad de datos que una solución de copia de seguridad debe procesar es normalmente mucho mayor. Esto da lugar a RTO más largos. Por ejemplo, la restauración de datos de cintas puede tardar días, dependiendo del tiempo necesario para transportar la cinta desde una ubicación externa. | Las soluciones de recuperación ante desastres tienen RTO más pequeños, ya que están más en sincronización con el origen. Además, se necesita procesar menos cambios. |
-| Retención | ¿Cuánto tiempo necesitan almacenarse los datos? | <p>Para escenarios que requieren recuperación de operaciones (daños en los datos, eliminación involuntaria de archivos o errores del SO), los datos de copia de seguridad normalmente se conservan durante 30 días o menos.</p> <p>Desde el punto de vista del cumplimiento, los datos podrían tener que almacenarse durante meses o incluso años. Los datos de copia de seguridad son ideales para archivado en tales casos.</p> | La recuperación ante desastres solo necesita los datos de recuperación de las operaciones. Esto suele tarda algunas horas o hasta un día. Debido a la captura de datos específicos que se usa en soluciones de recuperación ante desastres, la retención a largo plazo no se recomienda si se usan datos de recuperación ante desastres. |
+| Retención | ¿Cuánto tiempo necesitan almacenarse los datos? | <p>Para escenarios que requieren recuperación de operaciones (daños en los datos, eliminación involuntaria de archivos o errores del SO), los datos de copia de seguridad normalmente se conservan durante 30 días o menos.</p> <p>Desde el punto de vista del cumplimiento de normativas, los datos podrían tener que almacenarse durante meses o incluso años. Los datos de copia de seguridad son ideales para el archivo en tales casos.</p> | La recuperación ante desastres solo necesita los datos de recuperación de las operaciones. Esto suele tarda algunas horas o hasta un día. Debido a la captura de datos específicos que se usa en soluciones de recuperación ante desastres, la retención a largo plazo no se recomienda si se usan datos de recuperación ante desastres. |
 
 
 ## Pasos siguientes
@@ -167,4 +174,4 @@ Para tomar decisiones relacionadas con la copia de seguridad y la recuperación 
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

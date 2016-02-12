@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Análisis de datos de sensores con Apache Storm, Centro de eventos y HBase en HDInsight (Hadoop)
@@ -24,9 +24,9 @@ Aprenda a usar Apache Storm en HDInsight para procesar datos de sensores de los 
 
 ## Requisitos previos
 
-* Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* Un [clúster de Apache Storm en HDInsight](../hdinsight-storm-getting-started.md)
+* Un [clúster de Apache Storm en HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
 * [Node.js](http://nodejs.org/): se usa con el panel web y para enviar datos de sensores al Centro de eventos.
 
@@ -256,7 +256,7 @@ En su entorno de desarrollo, siga estos pasos para ejecutar la topología Temper
 
 ### Publicación del panel del sitio web
 
-1. Para implementar el panel en un sitio web de Azure, siga los pasos de [Compilación e implementación de un sitio web de Node.js en Azure](../web-sites-nodejs-develop-deploy-mac.md). Observe la dirección URL del sitio web, que será similar a **mywebsite.azurewebsites.net**.
+1. Para implementar el panel en un sitio web de Azure, siga los pasos de [Compilación e implementación de un sitio web de Node.js en Azure](../app-service-web/web-sites-nodejs-develop-deploy-mac.md). Observe la dirección URL del sitio web, que será similar a **mywebsite.azurewebsites.net**.
 
 2. Cuando se cree el sitio web, vaya al sitio en el Portal de Azure clásico y seleccione la pestaña **Configurar**. Habilite **Sockets web** y haga clic en **Guardar**, en la parte inferior de la página.
 
@@ -422,4 +422,4 @@ Ahora ha aprendido a utilizar Storm para leer datos desde el Centro de eventos y
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

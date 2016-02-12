@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
-   ms.author="abhic"/>
+   ms.date="02/03/2016"
+   ms.author="masnider"/>
 
 # Información general de las restricciones de ubicación
 
@@ -26,7 +26,7 @@ Al usar restricciones de posición, puede:
 
 - Restringir tipos diferentes de servicios en distintos tipos de nodos mediante la definición de NodeProperties en los nodos.
 
-- Aplicar determinadas restricciones a las réplicas principales pero no a las réplicas secundarias.
+- Enfoque las limitaciones de tal manera que se apliquen a las réplicas principal y secundaria de un servicio, o bien para que se apliquen solo a las réplicas principales.
 
 
 ## Conceptos clave
@@ -38,4 +38,4 @@ NodeProperty: una asignación definida por el sistema o el usuario desde una cad
 
 Para más información: [Escenarios de aplicación](../service-fabric-application-scenarios).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

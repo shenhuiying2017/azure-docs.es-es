@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 
 # Ordenación de datos de DocumentDB con Order By
@@ -79,7 +79,7 @@ DocumentDB admite la ordenación con una única propiedad numérica, de cadena o
 
 Recuerde que DocumentDB admite dos tipos de índices (Hash y de intervalo), que se pueden establecer para propiedades/rutas de acceso específicas, tipos de datos (cadenas/números) y en valores de precisión diferentes (precisión máxima o un valor de precisión fijo). Puesto que DocumentDB usa la indexación Hash de manera predeterminada, debe crear una nueva colección con una directiva de indexación personalizada con el intervalo en los números, cadenas o ambos, para poder usar Order By.
 
->[AZURE.NOTE]Los índices de intervalo de cadena se introdujeron en el 7 de julio de 2015 con la API de REST versión 2015-06-03. Para crear directivas de Order By con cadenas, debe usar el SDK versión 1.2.0 del SDK de .NET o la versión 1.1.0 del SDK Python, Node.js o Java.
+>[AZURE.NOTE] Los índices de intervalo de cadena se introdujeron en el 7 de julio de 2015 con la API de REST versión 2015-06-03. Para crear directivas de Order By con cadenas, debe usar el SDK versión 1.2.0 del SDK de .NET o la versión 1.1.0 del SDK Python, Node.js o Java.
 >
 >Antes de la API de REST versión 2015-06-03, la directiva de indexación de colección predeterminada era Hash para cadenas y números. Esto se cambió a Hash para cadenas e Intervalo para números.
 
@@ -100,7 +100,7 @@ A continuación se indica cómo puede crear una colección con la indexación "T
     await client.CreateDocumentCollectionAsync(databaseLink, 
         booksCollection);  
 
->[AZURE.NOTE]Tenga en cuenta que Order By solo devolverá resultados de los tipos de datos (cadena y número) que están indexados con un RangeIndex. Por ejemplo, si tiene la directiva de indexación predeterminada que solo tiene RangeIndex en números, una consulta Order By en una ruta de acceso con valores de cadena no devolverá ningún documento.
+>[AZURE.NOTE] Tenga en cuenta que Order By solo devolverá resultados de los tipos de datos (cadena y número) que están indexados con un RangeIndex. Por ejemplo, si tiene la directiva de indexación predeterminada que solo tiene RangeIndex en números, una consulta Order By en una ruta de acceso con valores de cadena no devolverá ningún documento.
 
 ### Indexación de Order By para una sola propiedad
 A continuación se indica cómo puede crear una colección con indexación para Order By con la propiedad Title, que es una cadena. Hay dos rutas de acceso, una para la propiedad Title ("/Title/?") con la indexación de intervalo y la otra para todas las otras propiedades con el esquema de indexación predeterminado, que es Hash para cadenas e Intervalo para los números.
@@ -126,13 +126,6 @@ A continuación se indica cómo puede crear una colección con indexación para 
 
 ## Muestras
 Eche un vistazo a los [proyectos de ejemplo de Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) en los que se muestra cómo se usa Order By, incluida la creación de directivas de indexación y la paginación con Order By. Los ejemplos son de código abierto y le animamos a que envíe solicitudes de extracción con las contribuciones que podrían ayudar a otros desarrolladores de DocumentDB. Consulte las [directrices de contribución](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obtener instrucciones acerca de cómo realizar sus aportaciones.
-
-## ¿Qué novedades se esperan?
-
-Las actualizaciones del servicio futuras ampliarán la compatibilidad de Order By que se presenta aquí. Estamos trabajando en las siguientes adiciones y se dará prioridad a la publicación de estas mejoras según sus comentarios:
-
-- Directivas de indexación dinámicas: compatibilidad para modificar la directiva de indexación después de la creación de la colección y en el Portal de Azure clásico
-- Compatibilidad con los índices compuestos para una operación Order By más eficaz y Order By en varias propiedades.
 
 ## P+F
 
@@ -177,4 +170,4 @@ Bifurque el [proyecto de ejemplos de Github](https://github.com/Azure/azure-docu
 * [Ejemplos de Order By de DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

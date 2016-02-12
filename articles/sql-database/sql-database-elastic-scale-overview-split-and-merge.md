@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="11/04/2015" 
+    ms.date="02/02/2016" 
     ms.author="ddove;sidneyh" />
 
 # Escalado con la herramienta de división y combinación de bases de datos elásticas
@@ -160,7 +160,7 @@ El servicio División y combinación proporciona la tabla **RequestStatus** en l
 
 * **Status**: el estado actual de la solicitud. Para las solicitudes en curso, también muestra la fase actual en que está la solicitud.
 
-* **CancelRequest**: marca que indica si se canceló la solicitud.
+* **CancelRequest**: marca que indica si se ha cancelado la solicitud.
 
 * **Progress**: una estimación de porcentaje de la finalización de la operación. Un valor de 50 indica que la operación está aproximadamente un 50% completada.
 
@@ -169,7 +169,7 @@ El servicio División y combinación proporciona la tabla **RequestStatus** en l
 
 ### Diagnóstico de Azure
 
-El servicio División y combinación usa Diagnósticos de Azure basado en el SDK de Azure 2.5 para supervisión y diagnóstico. Para controlar la configuración de diagnóstico, consulte la información explicada aquí: [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](../cloud-services-dotnet-diagnostics.md). El paquete de descarga incluye dos configuraciones de diagnóstico: una para el rol web y otra para rol de trabajo. Estas configuraciones de diagnóstico para el servicio siguen la guía que aparece en [Fundamentos de servicios en la nube en Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Incluye las definiciones para registrar los contadores de rendimiento, registros IIS, registros de eventos de Windows y registros de eventos de la aplicación de división y combinación.
+El servicio División y combinación usa Diagnósticos de Azure basado en el SDK de Azure 2.5 para supervisión y diagnóstico. Para controlar la configuración de diagnóstico, consulte la información explicada aquí: [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](../service-fabric/cloud-services-dotnet-diagnostics.md). El paquete de descarga incluye dos configuraciones de diagnóstico: una para el rol web y otra para rol de trabajo. Estas configuraciones de diagnóstico para el servicio siguen la guía que aparece en [Fundamentos de servicios en la nube en Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Incluye las definiciones para registrar los contadores de rendimiento, registros IIS, registros de eventos de Windows y registros de eventos de la aplicación de división y combinación.
 
 ## Implementación de diagnósticos 
 
@@ -239,4 +239,4 @@ Además, una propiedad de unicidad con la clave de particionamiento como la colu
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

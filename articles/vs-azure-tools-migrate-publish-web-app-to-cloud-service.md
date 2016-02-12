@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/05/2016"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Procedimiento: para migrar y publicar una aplicación web en un servicio en la nube de Azure desde Visual Studio
 
 Para aprovechar los servicios de hospedaje y la escalabilidad de Azure, puede migrar y publicar la aplicación web en un servicio en la nube de Azure. Puede ejecutar una aplicación web en Azure realizando unos cambios mínimos en la aplicación existente.
 
->[AZURE.NOTE]Este tema explica la implementación en servicios en la nube, no en sitios web. Para obtener más información sobre la implementación en sitios web, vea [Implementación de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-deploy.md).
+>[AZURE.NOTE] Este tema explica la implementación en servicios en la nube, no en sitios web. Para obtener más información sobre la implementación en sitios web, vea [Implementación de una aplicación web en el Servicio de aplicaciones de Azure](/app-service-web/web-sites-deploy.md).
 
 Para obtener una lista de plantillas específicas que son compatibles con Visual C# y Visual Basic, consulte la sección **Plantillas de proyecto compatibles** más adelante en este tema.
 
@@ -27,7 +27,7 @@ Primero debe habilitar la aplicación web para Azure desde Visual Studio. En la 
 
 ![Publicar una aplicación web en Microsoft Azure](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC748917.png)
 
->[AZURE.NOTE]El comando **Convertir**, **Convertir en proyecto de servicio en la nube de Azure** solo se muestra para el proyecto web de la solución. Por ejemplo, el comando no está disponible para un proyecto de Silverlight de la solución. Al crear un paquete de servicio o publicar su aplicación en Azure, se podrían producir advertencias o errores. Estas advertencias y errores pueden ayudarle a solucionar problemas antes de la implementación en Azure. Por ejemplo, podría recibir una advertencia sobre un ensamblado que falta. Para obtener más información sobre cómo tratar las advertencias como errores, consulte [Configuración de un proyecto de servicio en la nube de Azure con Visual Studio](vs-azure-tools-configuring-an-azure-project.md). Si compila la aplicación, la ejecuta localmente mediante el emulador de proceso o la publica en Azure, es posible que vea el siguiente error en la ventana **Lista de errores:** **Se especificó una ruta de acceso, nombre de archivo o ambos demasiado largos**. Este error se produce porque el nombre completo de proyecto de Azure es demasiado largo. La longitud del nombre de proyecto, incluida la ruta de acceso completa, no puede tener más de 146 caracteres. Por ejemplo, este es el nombre de proyecto completo incluida la ruta de acceso de archivo para un proyecto de Azure que se crea para una aplicación de Silverlight: `c:\users<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`. Puede que necesite mover la solución a un directorio diferente que tenga una ruta de acceso más corta para reducir la longitud del nombre completo del proyecto.
+>[AZURE.NOTE] El comando **Convertir**, **Convertir en proyecto de servicio en la nube de Azure** solo se muestra para el proyecto web de la solución. Por ejemplo, el comando no está disponible para un proyecto de Silverlight de la solución. Al crear un paquete de servicio o publicar su aplicación en Azure, se podrían producir advertencias o errores. Estas advertencias y errores pueden ayudarle a solucionar problemas antes de la implementación en Azure. Por ejemplo, podría recibir una advertencia sobre un ensamblado que falta. Para obtener más información sobre cómo tratar las advertencias como errores, consulte [Configuración de un proyecto de servicio en la nube de Azure con Visual Studio](vs-azure-tools-configuring-an-azure-project.md). Si compila la aplicación, la ejecuta localmente mediante el emulador de proceso o la publica en Azure, es posible que vea el siguiente error en la ventana **Lista de errores:** **Se especificó una ruta de acceso, nombre de archivo o ambos demasiado largos**. Este error se produce porque el nombre completo de proyecto de Azure es demasiado largo. La longitud del nombre de proyecto, incluida la ruta de acceso completa, no puede tener más de 146 caracteres. Por ejemplo, este es el nombre de proyecto completo incluida la ruta de acceso de archivo para un proyecto de Azure que se crea para una aplicación de Silverlight: `c:\users<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`. Puede que necesite mover la solución a un directorio diferente que tenga una ruta de acceso más corta para reducir la longitud del nombre completo del proyecto.
 
 Para migrar y publicar una aplicación web en Azure desde Visual Studio, siga estos pasos.
 
@@ -45,9 +45,9 @@ Para migrar y publicar una aplicación web en Azure desde Visual Studio, siga es
 
     - La propiedad **Copia local** se establece en true para todos los ensamblados necesarios para MVC 2, MVC 3, MVC 4 y las aplicaciones de negocios de Silverlight. Esto agrega estos ensamblados al paquete de servicio empleado para la implementación.
 
-  >[AZURE.IMPORTANT]Si tiene otros ensamblados o archivos que son necesarios para esta aplicación web, debe establecer manualmente las propiedades para estos archivos. Para obtener más información sobre cómo establecer estas propiedades, consulte la sección **Incluir archivos en el paquete de servicio** más adelante en este artículo.
+  >[AZURE.IMPORTANT] Si tiene otros ensamblados o archivos que son necesarios para esta aplicación web, debe establecer manualmente las propiedades para estos archivos. Para obtener más información sobre cómo establecer estas propiedades, consulte la sección **Incluir archivos en el paquete de servicio** más adelante en este artículo.
 
-  >[AZURE.NOTE]Si ya existe un rol web para un proyecto web específico en un proyecto de Azure de la solución, no aparecerá **Convertir**, **Convertir en proyecto de servicio en la nube de Azure** en el menú contextual para este proyecto web.
+  >[AZURE.NOTE] Si ya existe un rol web para un proyecto web específico en un proyecto de Azure de la solución, no aparecerá **Convertir**, **Convertir en proyecto de servicio en la nube de Azure** en el menú contextual para este proyecto web.
 
   Si tiene varios proyectos web en la aplicación web y desea crear roles web para cada proyecto web, debe realizar los pasos de este procedimiento para cada proyecto web. Esto crea proyectos de Azure diferentes para cada rol web. Cada proyecto web puede publicarse por separado. O bien, puede agregar manualmente otro rol web a un proyecto de Azure existente en la aplicación web. Para ello, abra el menú contextual de la carpeta **Roles** del proyecto de Azure, elija **Agregar**, a continuación, **Proyecto de rol web en la solución**, elija el proyecto que desee agregar como rol web y, continuación, elija el botón **Aceptar**.
 
@@ -55,13 +55,13 @@ Para migrar y publicar una aplicación web en Azure desde Visual Studio, siga es
 
 Si tiene una cadena de conexión para la aplicación web que usa una Base de datos de SQL Server local, debe cambiar esta cadena de conexión para usar una instancia de Base de datos SQL que hospeda Azure en su lugar.
 
->[AZURE.IMPORTANT]Su suscripción debe permitir usar la Base de datos SQL. Si tiene acceso a su suscripción desde el Portal de administración de Azure, puede determinar qué servicios proporciona su suscripción. Las siguientes instrucciones se aplican en el Portal de administración liberado. Si usa el Portal de administración de vista previa, vaya al siguiente procedimiento. |
+>[AZURE.IMPORTANT] Su suscripción debe permitir usar la Base de datos SQL. Si tiene acceso a su suscripción desde el Portal de administración de Azure, puede determinar qué servicios proporciona su suscripción. Las siguientes instrucciones se aplican en el Portal de administración liberado. Si usa el Portal de administración de vista previa, vaya al siguiente procedimiento. |
 
 ### Para usar una instancia de Base de datos SQL en el rol web para la cadena de conexión
 
 1. Para crear una instancia de base de datos SQL en el Portal de administración de Azure, siga los pasos del artículo siguiente: [Crear un servidor de Base de datos SQL](http://go.microsoft.com/fwlink/?LinkId=225109).
 
-    >[AZURE.NOTE]Al configurar las reglas de firewall de su instancia de Base de datos SQL, debe activar la casilla **Permitir que otros servicios de Azure tengan acceso a este servidor**.
+    >[AZURE.NOTE] Al configurar las reglas de firewall de su instancia de Base de datos SQL, debe activar la casilla **Permitir que otros servicios de Azure tengan acceso a este servidor**.
 
 1. Para crear una instancia de Base de datos de SQL para usarla para su cadena de conexión, siga los pasos de la siguiente sección del siguiente artículo: [Crear una Base de datos SQL](http://go.microsoft.com/fwlink/?LinkId=225110).
 
@@ -73,7 +73,7 @@ Si tiene una cadena de conexión para la aplicación web que usa una Base de dat
 
   1. Para mostrar las propiedades de la base de datos, elija la base de datos. Se muestra la vista **Propiedades**.
 
-      >[AZURE.NOTE]Si no aparece la vista **Propiedades**, puede que tenga que abrirla con el divisor.
+      >[AZURE.NOTE] Si no aparece la vista **Propiedades**, puede que tenga que abrirla con el divisor.
 
   1. Para mostrar las cadenas de conexión, elija el botón de puntos suspensivos (...) al lado de Ver.
 
@@ -127,7 +127,7 @@ Si tiene una cadena de conexión para la aplicación web que usa una Base de dat
 
     Se muestra el cuadro de diálogo **Publicar aplicación de Azure** y Visual Studio inicia el proceso de implementación. Para obtener más información acerca de cómo publicar la aplicación, consulte la sección **Publicar o empaquetar una aplicación de Azure desde Visual Studio** en [Publicar un servicio en la nube mediante Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).
 
-    >[AZURE.NOTE]También puede publicar la aplicación web desde el proyecto de Azure. Para ello, abra el menú contextual del proyecto de Azure y elija **Publicar**.
+    >[AZURE.NOTE] También puede publicar la aplicación web desde el proyecto de Azure. Para ello, abra el menú contextual del proyecto de Azure y elija **Publicar**.
 
 1. Para ver el progreso de la implementación, puede examinar la ventana **Registro de actividad de Azure**. Este registro se muestra automáticamente cuando se inicia el proceso de implementación. Puede expandir la línea del registro de actividad para mostrar información detallada, como se muestra en la siguiente ilustración:
 
@@ -135,7 +135,7 @@ Si tiene una cadena de conexión para la aplicación web que usa una Base de dat
 
 1. (Opcional) Para cancelar el proceso de implementación, abra el menú contextual de la línea del registro de actividad y elija **Cancelar y quitar**. Esto detiene el proceso de implementación y elimina el entorno de implementación de Azure.
 
-    >[AZURE.NOTE]Para quitar este entorno de implementación una vez implementado, debe usar el Portal de administración de Azure.
+    >[AZURE.NOTE] Para quitar este entorno de implementación una vez implementado, debe usar el Portal de administración de Azure.
 
 1. (Opcional) Después de que se hayan iniciado las instancias del rol, Visual Studio muestra automáticamente el entorno de implementación en el nodo **Cálculo de Azure** de **Cloud Explorer** o el **Explorador de servidores**. Desde aquí puede ver el estado de las instancias de rol individuales.
 
@@ -208,4 +208,4 @@ Para publicar una aplicación web en Azure, la aplicación debe usar una de las 
 ## Pasos siguientes
 Para obtener más información sobre la publicación, vea [Preparación para publicar o implementar una aplicación de Azure desde Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Consulte también [Configuración de credenciales de autenticación con nombre](vs-azure-tools-setting-up-named-authentication-credentials.md).
 
-<!----HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -22,14 +22,14 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-**Importante**: el contrato de nivel de servicio de la plataforma Azure se aplica a máquinas virtuales que ejecutan el SO Linux solo cuando se usa una de las [distribuciones aprobadas](virtual-machines-../linux-endorsed-distributions.md). Todas las distribuciones de Linux que se ofrezcan en la galería de imágenes de Azure son distribuciones aprobadas con la configuración requerida.
+**Importante**: el contrato de nivel de servicio de la plataforma Azure se aplica a máquinas virtuales que ejecutan el SO Linux solo cuando se usa una de las [distribuciones aprobadas](virtual-machines-linux-endorsed-distributions.md). Todas las distribuciones de Linux que se ofrezcan en la galería de imágenes de Azure son distribuciones aprobadas con la configuración requerida.
 
-- [Linux en distribuciones aprobadas por Azure](virtual-machines-../linux-endorsed-distributions.md)
+- [Linux en distribuciones aprobadas por Azure](virtual-machines-linux-endorsed-distributions.md)
 - [Compatibilidad con las imágenes de Linux en Microsoft Azure](http://support2.microsoft.com/kb/2941892)
 
 Todas las distribuciones que se ejecutan en Azure tendrán que cumplir varios requisitos previos para poder ejecutarse correctamente en la plataforma. Este artículo no pretende ser exhaustivo, ya que cada distribución es diferente y es bastante posible que, aunque cumpla todos los criterios siguientes, todavía tenga que ajustar significativamente el sistema Linux para asegurarse de que se ejecuta correctamente en la plataforma.
 
-Por eso recomendamos que empiece con una de nuestras [distribuciones aprobadas de Linux en Azure](../linux-endorsed-distributions.md) cuando sea posible. Los artículos siguientes le guiarán a través del proceso de preparación de las distintas distribuciones de Linux aprobadas que se admiten en Azure:
+Por eso recomendamos que empiece con una de nuestras [distribuciones aprobadas de Linux en Azure](virtual-machines-linux-endorsed-distributions.md) cuando sea posible. Los artículos siguientes le guiarán a través del proceso de preparación de las distintas distribuciones de Linux aprobadas que se admiten en Azure:
 
 - **[Distribuciones basadas en CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
 - **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
@@ -109,7 +109,7 @@ Para solucionar este problema, puede cambiar el tamaño de la máquina virtual m
 
 ## Requisitos para el kernel de Linux ##
 
-Los controladores de los Servicios de integración de Linux (LIS) para Hyper-V y Azure contribuyen directamente en el kernel de Linux del canal de subida. Muchas de las distribuciones que incluyen una versión reciente del kernel de Linux (por ejemplo, 3.x) ya tendrán estos controladores disponibles, o de lo contrario ofrecerán versiones con modificaciones de versiones anteriores de estos controladores con sus kernel. Estos controladores se actualizan constantemente en el kernel del canal de subida con nuevas correcciones y características; por ello, se recomienda cuando sea posible la ejecución de una [distribución aprobada](../linux-endorsed-distributions.md) que incluya estas correcciones y actualizaciones.
+Los controladores de los Servicios de integración de Linux (LIS) para Hyper-V y Azure contribuyen directamente en el kernel de Linux del canal de subida. Muchas de las distribuciones que incluyen una versión reciente del kernel de Linux (por ejemplo, 3.x) ya tendrán estos controladores disponibles, o de lo contrario ofrecerán versiones con modificaciones de versiones anteriores de estos controladores con sus kernel. Estos controladores se actualizan constantemente en el kernel del canal de subida con nuevas correcciones y características; por ello, se recomienda cuando sea posible la ejecución de una [distribución aprobada](virtual-machines-linux-endorsed-distributions.md) que incluya estas correcciones y actualizaciones.
 
 Si ejecuta una variante de las versiones **6.0-6.3** de Red Hat Enterprise de Linux, tendrá que instalar los controladores de LIS más recientes para Hyper-V. Podrá encontrar los controladores [en esta ubicación](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). En cuanto a **RHEL 6.4+** (y derivados), los controladores de LIS ya se incluyen con el kernel; por tanto, no se necesitan paquetes de instalación adicionales para ejecutar esos sistemas en Azure.
 
@@ -195,4 +195,4 @@ El [agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md) (waage
 
 - A continuación, tendrá que apagar la máquina virtual y cargar el VHD en Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

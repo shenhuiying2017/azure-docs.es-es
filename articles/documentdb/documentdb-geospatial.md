@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="10/27/2015" 
+    ms.date="02/03/2016" 
     ms.author="arramac"/>
     
 # Trabajo con datos geoespaciales en Azure DocumentDB
@@ -33,7 +33,7 @@ Los datos espaciales describen la posición y la forma de los objetos en el espa
 ### GeoJSON
 DocumentDB admite la indexación y consulta de datos de puntos geoespaciales que se representan mediante la [especificación GeoJSON](http://geojson.org/geojson-spec.html). Las estructuras de datos de GeoJSON son siempre objetos JSON válidos, por lo que se pueden almacenar y consultar mediante DocumentDB sin tener que usar herramientas o bibliotecas especializadas El SDK de DocumentDB proporcionan clases y métodos auxiliares que facilitan el trabajo con datos espaciales.
 
-### Puntos, Linestrings y polígonos
+### Elementos points, linestrings y polygons
 Un **punto** denota una posición única en el espacio. En los datos geoespaciales, un punto representa la ubicación exacta, que puede ser una dirección de una tienda de ultramarinos, un quiosco, un automóvil o una ciudad. Un punto se representa en GeoJSON (y DocumentDB) mediante su par de coordenadas o su longitud y latitud. Este es un ejemplo JSON para un punto.
 
 **Puntos en DocumentDB**
@@ -350,9 +350,9 @@ Y aquí vemos cómo puede modificar una colección existente para aprovechar las
 ## Pasos siguientes
 Ahora que ya sabe cómo empezar a trabajar con la compatibilidad geoespacial en DocumentDB, puede:
 
-- Comenzar a codificar con los [ejemplos de código geoespacial .NET en Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)
+- Comenzar a codificar con los [ejemplos de código geoespacial .NET en Github](https://github.com/Azure/azure-documentdb-dotnet/blob/e880a71bc03c9af249352cfa12997b51853f47e5/samples/code-samples/Geospatial/Program.cs)
 - Empezar a realizar consultas geoespaciales en el [Área de consultas de DocumentDB](http://www.documentdb.com/sql/demo#geospatial)
 - Obtener más información en [Base de datos de documentos de consulta](documentdb-sql-query.md).
 - Obtener más información sobre [Directivas de indexación de DocumentDB](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

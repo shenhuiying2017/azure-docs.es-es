@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/02/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Información general sobre la instalación de Trabajos de base de datos elástica
@@ -24,7 +24,7 @@ Si ya instaló los **trabajos de base de datos elástica** a través del Portal 
 
 ## Requisitos previos
 * Una suscripción de Azure. Para obtener una versión de evaluación gratuita, consulte [Versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell versión 0.8.16 o posterior. Instale la versión más reciente (0.9.5) a través del [Instalador de plataforma Web](http://go.microsoft.com/fwlink/p/?linkid=320376). Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
+* Azure PowerShell versión 0.8.16 o posterior. Instale la versión más reciente (0.9.5) a través del [Instalador de plataforma Web](http://go.microsoft.com/fwlink/p/?linkid=320376). Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 * La [utilidad de línea de comandos NuGet](https://nuget.org/nuget.exe) sirve para instalar el paquete de trabajos de base de datos elástica. Para obtener más información, consulte http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## Descarga e importación del paquete de PowerShell de Trabajos de base de datos elástica
@@ -167,7 +167,7 @@ Una vez creado el [grupo de bases de datos elásticas](sql-database-elastic-pool
 
 	![Creación del nombre de usuario y la contraseña][2]
 
-6. Haga clic en el botón Aceptar. Los componentes se crean en pocos minutos en un nuevo [Grupo de recursos](../resource-group-portal.md). El nuevo grupo de recursos se ancla al panel de inicio, tal como se muestra a continuación. Una vez creados, los trabajos de bases de datos elásticas (servicio de nube, base de datos SQL, bus de servicio y almacenamiento) se crearán en el grupo.
+6. Haga clic en el botón Aceptar. Los componentes se crean en pocos minutos en un nuevo [Grupo de recursos](../azure-portal/resource-group-portal.md). El nuevo grupo de recursos se ancla al panel de inicio, tal como se muestra a continuación. Una vez creados, los trabajos de bases de datos elásticas (servicio de nube, base de datos SQL, bus de servicio y almacenamiento) se crearán en el grupo.
 
 	![Grupo de recursos en el panel de inicio][3]
 
@@ -188,4 +188,4 @@ La garantía de una credencial con los derechos adecuados para la ejecución del
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

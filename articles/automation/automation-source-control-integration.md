@@ -17,7 +17,7 @@
 
 # Integración del control de código fuente en Automatización de Azure
 
-La integración del control de código fuente permite asociar runbooks de su cuenta de Automatización a un repositorio de control de código fuente de GitHub. El control de código fuente le permite colaborar fácilmente con su equipo, realizar el seguimiento de los cambios y revertir a versiones anteriores de los runbooks. Por ejemplo, le permite sincronizar distintas ramas de control de código fuente con sus cuentas de Automatización desarrollo, prueba o producción, lo que facilita la promoción de código que se ha probado en el entorno de desarrollo a la cuenta de Automatización de producción.
+La integración del control de código fuente permite asociar runbooks de su cuenta de Automatización a un repositorio de control de código fuente de GitHub. El control de código fuente le permite colaborar fácilmente con su equipo, realizar el seguimiento de los cambios y revertir a versiones anteriores de los runbooks. Por ejemplo, le permite sincronizar distintas ramas de control de código fuente con sus cuentas de Automatización de desarrollo, prueba o producción, lo que facilita la promoción de código que se ha probado en el entorno de desarrollo a la cuenta de Automatización de producción.
 
 El control de código fuente le permite insertar código de Automatización de Azure en el control de código fuente o extraer sus runbooks del control de código fuente para llevarlos a Automatización de Azure. En este artículo se describe cómo configurar el control de código fuente en su entorno de Automatización de Azure. Para comenzar, vamos a configurar Automatización de Azure para acceder a su repositorio de GitHub y a recorrer diferentes operaciones que pueden realizarse mediante la integración del control de código fuente.
 
@@ -75,11 +75,11 @@ Si ya tiene una cuenta de GitHub y un repositorio que desea vincular a Automatiz
     | Valor | {"Branch":<*nombreDeRama*>,"RunbookFolderPath":<*rutaDeCarpetaDeRunbook*>,"ProviderType":<*tiene un valor de 1 para GitHub*>,"Repository":<*nombreDelRepositorio*>,"Username":<*nombreDe UsuarioDeGitHub*>} | <br>
 
 
-    * La variable **Microsoft.Azure.Automation.SourceControl.OauthToken** contiene el valor cifrado seguro de OAuthToken.  
+    * La variable **Microsoft.Azure.Automation.SourceControl.OAuthToken** contiene el valor cifrado seguro de OAuthToken.  
 
     |**Parámetro** |**Valor** |
     |:---|:---|
-    | Nombre | Microsoft.Azure.Automation.SourceControl.OauthToken |
+    | Nombre | Microsoft.Azure.Automation.SourceControl.OAuthToken |
     | Tipo | Unknown(Encrypted) |
     | Valor | <*OAuthToken cifrado*> |  
 
@@ -106,7 +106,7 @@ La protección de runbooks permite insertar los cambios realizados en un runbook
 
      >[AZURE.NOTE] La protección de la Automatización de Azure sobrescribirá el código existente en el control de código fuente. La instrucción de línea de comandos de Git equivalente para la protección es **git add + git commit + git push**.
 
-3. Al hacer clic en **proteger**, se mostrará un mensaje de confirmación. Haga clic en Sí para continuar.
+3. Al hacer clic en **Insertar en el repositorio**, se mostrará un mensaje de confirmación. Haga clic en Sí para continuar.
 
     ![Mensaje de protección](media/automation-source-control-integration/automation_07_CheckinMessage.png)
 
@@ -142,7 +142,7 @@ El botón de sincronización que se encuentra en la hoja Sincronización de repo
 
 ## Solución de problemas de control de código fuente
 
-Si hay errores en el trabajo de protección o de sincronización, el estado del trabajo debe suspenderse. Podrá ver más detalles sobre el error en la hoja del trabajo. En la sección **Todos los registros** se mostrarán todas las transmisiones de PowerShell asociadas a ese trabajo. De esta forma tendrá los detalles necesarios para ayudarle a solucionar los problemas con la protección o la sincronización. También se muestra la secuencia de acciones que se produjeron mientras se sincronizaba o se protegía un runbook.
+Si hay errores en el trabajo de protección o de sincronización, el estado del trabajo debe suspenderse. Podrá ver más detalles sobre el error en la hoja del trabajo. En la sección **Todos los registros** se mostrarán todas las transmisiones de PowerShell asociadas a ese trabajo. De esta forma tendrá los detalles necesarios para ayudarle a solucionar los problemas con la protección o la sincronización. También se muestra la secuencia de acciones que se produjeron mientras se sincronizaba o insertaba en el repositorio un runbook.
 
 ![Imagen de todos los registros](media/automation-source-control-integration/automation_13_AllLogs.png)
 
@@ -158,4 +158,4 @@ Para desconectarse de su cuenta de GitHub, abra la hoja Sincronización de repos
 
 Para más información sobre la integración del control de código fuente, consulte los siguientes recursos: - [Automatización de Azure: integración del control de código fuente en Automatización de Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [Vote por su sistema de control de código fuente favorito](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Automatización de Azure: integración del control de código fuente de runbook mediante Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/26/2016"
+   ms.date="02/01/2016"
    ms.author="joaoma" />
 
-# Análisis del registros para el Equilibrador de carga de Azure 
+# Análisis del registros para el Equilibrador de carga de Azure (vista previa)
 Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de equilibradores de carga. Se puede acceder a algunos de estos registros a través del portal y se pueden extraer todos los registros desde un almacenamiento de blobs de Azure y verse en distintas herramientas, como Excel y PowerBI. Puede obtener más información acerca de los diferentes tipos de registros en la lista siguiente.
 
 
@@ -27,7 +27,7 @@ Puede usar diferentes tipos de registros en Azure para administrar y solucionar 
 
 >[AZURE.WARNING] Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para entender mejor los dos modelos, consulte el artículo [Descripción de la implementación del Administrador de recursos y la implementación clásica](resource-manager-deployment-model.md). <BR> El análisis de registros actualmente solo funciona para los equilibradores de carga orientados hacia Internet. Esta limitación es temporal y puede cambiar en cualquier momento. Asegúrese de volver a visitar esta página para comprobar los cambios futuros.
 
-##Habilitación del registro
+## Habilitación del registro
 El registro de auditoría se habilita automáticamente siempre para todos los recursos del Administrador de recursos. Debe habilitar el registro de eventos y de sondeos de estado para iniciar la recopilación de los datos disponibles a través de esos registros. Para habilitar el registro, siga estos pasos.
 
 Inicie sesión en el [Portal de Azure](http://portal.azure.com). Si aún no tiene un equilibrador de carga, [cree uno](load-balancer-internet-arm-ps.md) antes de continuar.
@@ -48,7 +48,6 @@ En la lista desplegable situada justo debajo de **Cuenta de almacenamiento**, se
 
 >[AZURE.INFORMATION] Los registros de auditoría no requieren una cuenta de almacenamiento separada. El uso del almacenamiento para el registro de eventos y de sondeo de estado supondrán un costo adicional de servicio.
 
-
 ## Registro de auditoría
 Azure genera este registro (anteriormente conocido como "registro operativo") de forma predeterminada. Los registros se conservan durante 90 días en el almacén de registros de eventos de Azure. Para obtener más información sobre estos registros, consulte el artículo [Visualización de eventos y registros de auditoría](insights-debugging-with-events.md).
 
@@ -57,12 +56,12 @@ Este registro solo se genera si lo habilitó para cada uno de los equilibradores
 
 	
 	{
-    "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
+    "time": "2016-01-26T10:37:46.6024215Z",
+	"systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
     "category": "LoadBalancerAlertEvent",
     "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
     "operationName": "LoadBalancerProbeHealthStatus",
     "properties": {
-        "eventTimeStampUtc": "1/23/2016 2:27:07 AM",
         "eventName": "Resource Limits Hit",
         "eventDescription": "Ports exhausted",
         "eventProperties": {
@@ -74,18 +73,18 @@ Este registro solo se genera si lo habilitó para cada uno de los equilibradores
 El resultado de JSON muestra la propiedad *eventname* que describirá el motivo de creación de una alerta por parte del equilibrador de carga. En este caso, la alerta generada se debió al agotamiento de puertos TCP causado por los límites de IP NAT de origen (SNAT).
 
 ## Registro de sondeo de estado
-Este registro solo se genera si lo habilitó para cada uno de los equilibradores de carga, tal como se indicó anteriormente. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Se registran los datos siguientes:
+Este registro solo se genera si lo habilitó para cada uno de los equilibradores de carga, tal como se indicó anteriormente. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Se crea un contenedor denominado "insights-logs-loadbalancerprobehealthstatus" y se registran los datos siguientes:
 
 		{
 	    "records":
 
 	    {
+	   		"time": "2016-01-26T10:37:46.6024215Z",
 	        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
 	        "category": "LoadBalancerProbeHealthStatus",
 	        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
 	        "operationName": "LoadBalancerProbeHealthStatus",
 	        "properties": {
-	            "eventTimeStampUtc": "1/23/2016 2:18:58 AM",
 	            "publicIpAddress": "40.83.190.158",
 	            "port": "81",
 	            "totalDipCount": 2,
@@ -94,12 +93,12 @@ Este registro solo se genera si lo habilitó para cada uno de los equilibradores
 	        }
 	    },
 	    {
-	        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
+	        "time": "2016-01-26T10:37:46.6024215Z",
+			"systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
 	        "category": "LoadBalancerProbeHealthStatus",
 	        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
 	        "operationName": "LoadBalancerProbeHealthStatus",
 	        "properties": {
-	            "eventTimeStampUtc": "1/23/2016 2:20:31 AM",
 	            "publicIpAddress": "40.83.190.158",
 	            "port": "81",
 	            "totalDipCount": 2,
@@ -113,20 +112,20 @@ Este registro solo se genera si lo habilitó para cada uno de los equilibradores
 
 El resultado JSON muestra en el campo de propiedades la información básica del estado de mantenimiento del sondeo. La propiedad *dipDownCount* muestra el número total de instancias en el back-end que no están recibiendo tráfico de red debido a las respuestas de sondeo con error.
 
-##Visualización y análisis del registro de auditoría
+## Visualización y análisis del registro de auditoría
 Puede ver y analizar los datos del registro de auditoría mediante el uso de cualquiera de los métodos siguientes:
 
 - **Herramientas de Azure:** puede recuperar información de los registros de auditoría a través de Azure PowerShell, de la interfaz de la línea de comandos (CLI) de Azure, la API de REST de Azure o el Portal de vista previa de Azure. En el artículo [Operaciones de auditoría con el Administrador de recursos](resource-group-audit.md) se detallan instrucciones paso a paso de cada método.
 - **Power BI:** si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing), puede probarlo gratis. Con el [paquete de contenido de los registros de auditoría de Azure para Power BI](https://support.powerbi.com/knowledgebase/articles/742695) puede analizar los datos con los paneles preconfigurados que puede usar tal cual o personalizarlos.
 
-##Visualización y análisis del registro de eventos y de sondeos de estado 
+## Visualización y análisis del registro de eventos y de sondeos de estado 
 Debe conectarse a la cuenta de almacenamiento y recuperar las entradas del registro de JSON para los registros de eventos y de sondeos de estado. Cuando descargue los archivos JSON, se pueden convertir a CSV y consultarlos en Excel, PowerBI o cualquier otra herramienta de visualización de datos.
 
 >[AZURE.TIP] Si está familiarizado con Visual Studio y con los conceptos básicos de cambiar los valores de constantes y variables de C#, puede usar las [herramientas convertidoras de registros](https://github.com/Azure-Samples/networking-dotnet-log-converter), disponibles en Github.
 
-##Recursos adicionales
+## Recursos adicionales
 
 - Entrada de blog [Visualize your Azure Audit Logs with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualizar los registros de auditoría de Azure con Power BI).
 - Entrada de blog [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Ver y analizar registros de auditoría de Azure en Power BI y más).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

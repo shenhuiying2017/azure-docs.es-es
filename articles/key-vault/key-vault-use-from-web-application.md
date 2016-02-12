@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="01/29/2016" 
 	ms.author="adhurwit"/>
 
 # Uso del Almacén de claves de Azure desde una aplicación web #
@@ -27,7 +27,7 @@ Para realizar este tutorial, necesitará lo siguiente:
 - Un Id. de cliente y un secreto de cliente para una aplicación web registrada en Azure Active Directory que tenga acceso a su Almacén de claves.
 - Una aplicación web. Vamos a mostrarle los pasos para una aplicación ASP.NET MVC implementada en Azure como una aplicación web. 
 
-> [AZURE.NOTE]Para los fines de este tutorial, es esencial que haya realizado los pasos enumerados en [Introducción al Almacén de claves de Azure](key-vault-get-started.md) para así disponer del URI de un secreto y del id. de cliente y el secreto de cliente de una aplicación web.
+> [AZURE.NOTE]  Para los fines de este tutorial, es esencial que haya realizado los pasos enumerados en [Introducción al Almacén de claves de Azure](key-vault-get-started.md) para así disponer del URI de un secreto y del id. de cliente y el secreto de cliente de una aplicación web.
 
 La aplicación web que va a tener acceso el Almacén de claves es la que está registrada en Azure Active Directory y a la que se le ha concedido para él. Si este no es el caso, vuelva al apartado sobre cómo registrar una aplicación del tutorial de introducción y repita los pasos enumerados.
 
@@ -90,7 +90,7 @@ A continuación se muestra el código para obtener un token de acceso de Azure A
 	    return result.AccessToken;
     }
 
-> [AZURE.NOTE]La forma más sencilla de autenticar una aplicación de Azure AD es mediante un secreto de cliente que use un Id. de cliente y un secreto del cliente. Y su uso en una aplicación web permite la separación de deberes y proporciona mayor control sobre la administración de claves. Pero se basa en colocar el secreto de cliente en las opciones de configuración, lo que, para algunos, puede ser tan arriesgado como poner el secreto que se desea proteger en las opciones de configuración. A continuación encontrará información sobre el uso de un Id. de cliente y un certificado, en lugar de un Id. de cliente y un secreto de cliente para autenticar la aplicación de Azure AD.
+> [AZURE.NOTE] La forma más sencilla de autenticar una aplicación de Azure AD es mediante un secreto de cliente que use un Id. de cliente y un secreto del cliente. Y su uso en una aplicación web permite la separación de deberes y proporciona mayor control sobre la administración de claves. Pero se basa en colocar el secreto de cliente en las opciones de configuración, lo que, para algunos, puede ser tan arriesgado como poner el secreto que se desea proteger en las opciones de configuración. A continuación encontrará información sobre el uso de un Id. de cliente y un certificado, en lugar de un Id. de cliente y un secreto de cliente para autenticar la aplicación de Azure AD.
 
 
 
@@ -243,4 +243,4 @@ Para conocer las referencias de programación, consulte [Referencia de la API de
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

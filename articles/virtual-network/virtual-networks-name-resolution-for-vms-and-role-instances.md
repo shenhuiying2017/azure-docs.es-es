@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="GarethBradshawMSFT"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -42,9 +42,9 @@ El tipo de resolución de nombres que tenga que usar dependerá de cómo se comu
 
 ## Resolución de nombres de Azure
 
-Junto con la resolución de nombres DNS públicos, Azure proporciona una resolución de nombres interna para máquinas virtuales e instancias de rol que residen dentro de la misma red virtual o servicio en la nube. Las máquinas virtuales o instancias de un servicio en la nube comparten el mismo sufijo DNS, por lo que el nombre de host solo es suficiente. En las redes virtuales clásicas, los distintos servicios en la nube tienen diferentes sufijos DNS, por lo que es necesario un nombre de dominio completo. En las redes virtuales basadas en ARM, el sufijo DNS es común en toda la red virtual, por lo que no es necesario el nombre de dominio completo, y el nombre DNS puede asignarse a la NIC o a la máquina virtual. Aunque la resolución de nombres que proporciona Azure no necesita ningún tipo de configuración, no es la opción más adecuada para todos los escenarios de implementación, tal y como se mostró en la tabla anterior.
+Junto con la resolución de nombres DNS públicos, Azure proporciona una resolución de nombres interna para máquinas virtuales e instancias de rol que residen dentro de la misma red virtual o servicio en la nube. Las máquinas virtuales y las instancias de un servicio en la nube comparten el mismo sufijo DNS, por lo que es suficiente con el nombre de host solamente pero, en las redes virtuales clásicas, diferentes servicios en la nube tienen sufijos DNS distintos, por lo que se necesita el FQDN para resolver nombres entre diferentes servicios en la nube. En las redes virtuales basadas en ARM, el sufijo DNS es el mismo en toda la red virtual, por lo que no es necesario el nombre de dominio completo, y el nombre DNS puede asignarse a la NIC o a la máquina virtual. Aunque la resolución de nombres que proporciona Azure no necesita ningún tipo de configuración, no es la opción más adecuada para todos los escenarios de implementación, tal y como se mostró en la tabla anterior.
 
-> [AZURE.NOTE]En el caso de los roles web y de trabajo, puede acceder a las direcciones IP internas de las instancias de rol que estén basadas en el nombre de rol y el número de instancia, mediante la API de REST de la Administración de servicios de Azure. Para obtener más información, consulte la [Referencia de la API de REST de la administración de servicios](https://msdn.microsoft.com/library/azure/ee460799.aspx).
+> [AZURE.NOTE] En el caso de los roles web y de trabajo, puede acceder a las direcciones IP internas de las instancias de rol que estén basadas en el nombre de rol y el número de instancia, mediante la API de REST de la Administración de servicios de Azure. Para obtener más información, consulte la [Referencia de la API de REST de la administración de servicios](https://msdn.microsoft.com/library/azure/ee460799.aspx).
 
 ### Características y consideraciones
 
@@ -72,7 +72,7 @@ Junto con la resolución de nombres DNS públicos, Azure proporciona una resoluc
 
 - Los nombres de host deben ser compatibles con el DNS (solamente pueden usar los caracteres 0-9, a-z y “-” y no pueden comenzar ni terminar con un “-”. Consulte la sección 2 de RFC 3696).
 
-- El tráfico de consultas de DNS está limitado por la máquina virtual. Esto no debería afectar a la mayoría de las aplicaciones. Si se observa una limitación de solicitudes, asegúrese de que está habilitado el almacenamiento en caché del lado cliente. Para obtener más información, consulte [Obtención del máximo partido de la resolución de nombres de Azure](#Getting-the-most-from-Azure-provided-name-resolution).
+- El tráfico de consultas de DNS está limitado por cada máquina virtual. Esto no debería afectar a la mayoría de las aplicaciones. Si se observa una limitación de solicitudes, asegúrese de que está habilitado el almacenamiento en caché del lado cliente. Para obtener más información, consulte [Obtención del máximo partido de la resolución de nombres de Azure](#Getting-the-most-from-Azure-provided-name-resolution).
 
 - Solo se registran las máquinas virtuales de los 180 primeros servicios en la nube para cada red virtual clásica. Esto no se aplica a las redes virtuales basadas en ARM.
 
@@ -82,7 +82,9 @@ Junto con la resolución de nombres DNS públicos, Azure proporciona una resoluc
 
 No todas las consultas DNS deben enviarse a través de la red. El almacenamiento en caché del lado cliente ayuda a reducir la latencia y mejorar la resistencia a la señalización visual de la red mediante la resolución de las consultas DNS periódicas desde una caché local. Los registros DNS contienen un período de vida (TTL) que permite a la memoria caché almacenar el registro tanto como sea posible sin afectar a la actualización de registros, por lo que el almacenamiento en caché de cliente es adecuado para la mayoría de las situaciones.
 
-El cliente DNS de Windows predeterminado tiene una memoria caché DNS integrada. Algunas distribuciones Linux no incluyen el almacenamiento en caché de forma predeterminada; se recomienda que se agregue una a cada máquina virtual Linux. Hay una serie de distintos paquetes de almacenamiento en caché DNS disponibles, p. ej., dnsmasq; estos son los pasos para instalar dnsmasq en las distribuciones más comunes:
+El cliente DNS de Windows predeterminado tiene una memoria caché DNS integrada. Algunas distribuciones Linux no incluyen el almacenamiento en caché de forma predeterminada; se recomienda que se agregue una a cada máquina virtual Linux (después de comprobar que aún no hay una memoria caché local).
+
+Hay una serie de distintos paquetes de almacenamiento en caché DNS disponibles, p. ej., dnsmasq; estos son los pasos para instalar dnsmasq en las distribuciones más comunes:
 
 - **Ubuntu (usa resolvconf)**:
 	- instalar únicamente el paquete dnsmasq ("sudo apt-get install dnsmasq")
@@ -99,7 +101,7 @@ El cliente DNS de Windows predeterminado tiene una memoria caché DNS integrada.
 	- agregar “prepend domain-name-servers 127.0.0.1;” en “/etc/dhclient-eth0.conf”
 	- reiniciar el servicio de red ("service network restart") para establecer la memoria caché como el solucionador DNS local
 
-[AZURE.NOTE]\: El paquete 'dnsmasq' es solo una de las muchas cachés DNS disponibles para Linux. Antes de usarlo, compruebe su idoneidad para sus necesidades concretas y que no se instale ninguna otra memoria caché.
+> [AZURE.NOTE]\: El paquete 'dnsmasq' es solo una de las muchas cachés DNS disponibles para Linux. Antes de usarlo, compruebe su idoneidad para sus necesidades concretas y que no se instale ninguna otra memoria caché.
 
 **Reintentos de cliente:**
 
@@ -126,15 +128,15 @@ El archivo resolv.conf suele ser autogenerado y no se debe editar. Los pasos esp
 
 ## Resolución de nombres mediante su propio servidor DNS
 
-Si los requisitos de resolución de nombres van más allá de las características proporcionadas por Azure, tiene la opción de usar su propio servidor DNS. Cuando use su propio servidor DNS, solo usted será el responsable de administrar los registros DNS.
+Si los requisitos de resolución de nombres van más allá de las características proporcionadas por Azure, tiene la opción de usar su propio servidor DNS. Cuando use sus propios servidores DNS, solo usted será el responsable de administrar los registros DNS.
 
-> [AZURE.NOTE]Le recomendamos que evite el uso de un servidor DNS externo, a menos que lo requiera su escenario de implementación.
+> [AZURE.NOTE] Le recomendamos que evite el uso de un servidor DNS externo, a menos que lo requiera su escenario de implementación.
 
 ## Requisitos del servidor DNS
 
 Si piensa usar la resolución de nombres que no se proporciona en Azure, el servidor DNS que especifique debe admitir lo siguiente:
 
-- el servidor DNS debe aceptar el registro DNS dinámico a través del protocolo DNS dinámico (DDNS), o bien debe crear los registros necesarios.
+- Dado que los servidores DNS reemplazarán a los que Azure proporciona, la solución DNS debe satisfacer los requisitos de comunicación entre máquinas virtuales. Si la comunicación entre máquinas virtuales se basa en nombres de host, estos deben registrarse en los servidores DNS. Esto depende de muchos factores, pero [este documento](virtual-networks-name-resolution-ddns.md) ofrece algunos consejos útiles.
 
 - Si se basa en DNS dinámico, el servidor DNS debe tener desactivada la limpieza de registros. En Azure, las direcciones IP tienen concesiones DHCP largas, por lo que pueden ocasionar la eliminación de registros en el servidor DNS durante la limpieza.
 
@@ -145,12 +147,14 @@ Si piensa usar la resolución de nombres que no se proporciona en Azure, el serv
 - Asimismo, le recomendamos que proteja el servidor DNS para evitar accesos desde Internet, ya que muchos bots se dedican a buscar resoluciones DNS recursivas abiertas.
 
 - Para obtener un mejor rendimiento, cuando se usan máquinas virtuales de Azure como servidores DNS, se debe deshabilitar IPv6 y debe asignarse una [IP pública de nivel de instancia](virtual-networks-instance-level-public-ip.mp) a cada máquina virtual del servidor DNS.
+	- Si opta por usar Windows Server como el servidor DNS, [este artículo](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) proporciona optimizaciones y análisis de rendimiento adicionales.
+
 
 ## Especificar los servidores DNS
 
 Puede especificar varios servidores DNS para que los usen las máquinas virtuales y las instancias de rol. Por cada consulta de DNS el cliente intentará probar primero su servidor DNS preferido y solo probará otros servidores alternativos si su servidor preferido no responde, es decir, las consultas de DNS no tendrán la carga equilibrada en los diferentes servidores DNS. Por este motivo, compruebe que tiene los servidores DNS enumerados en el orden correcto para su entorno.
 
-> [AZURE.NOTE]Si cambia la configuración DNS en un archivo de configuración de red de una red virtual que ya esté implementada, deberá reiniciar cada máquina virtual para que los cambios surtan efecto.
+> [AZURE.NOTE] Si cambia la configuración DNS en un archivo de configuración de red de una red virtual que ya esté implementada, deberá reiniciar cada máquina virtual para que los cambios surtan efecto.
 
 ### Especificación de un servidor DNS en el Portal de administración
 
@@ -164,7 +168,7 @@ El archivo de configuración de red describe las redes virtuales de su suscripci
 
 El archivo de configuración de servicio se crea por cada servicio en la nube que agregue a Azure. Al agregar instancias de rol o máquinas virtuales en el servicio en la nube, la configuración DNS de su archivo de configuración de servicio se aplica a la instancia de rol o a la máquina virtual.
 
-> [AZURE.NOTE]Los servidores DNS en el archivo de configuración de servicio sobrescribirán la configuración del archivo de configuración de red.
+> [AZURE.NOTE] Los servidores DNS en el archivo de configuración de servicio sobrescribirán la configuración del archivo de configuración de red.
 
 
 ## Pasos siguientes
@@ -177,4 +181,4 @@ El archivo de configuración de servicio se crea por cada servicio en la nube qu
 
 [Configuración de una red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -31,7 +31,7 @@ En el modelo de implementación clásico, puede poner máquinas virtuales en un 
 - [Opción 1: Creación de una máquina virtual y de un conjunto de disponibilidad simultáneamente][]. A continuación, agregue nuevas máquinas virtuales al conjunto cuando cree en dichas máquinas virtuales.
 - [Opción 2: Incorporación de una máquina virtual existente a un conjunto de disponibilidad][].
 
->[AZURE.NOTE]En el modelo clásico, las máquinas virtuales que desee poner en el mismo conjunto de disponibilidad deben pertenecer al mismo servicio en la nube.
+>[AZURE.NOTE] En el modelo clásico, las máquinas virtuales que desee poner en el mismo conjunto de disponibilidad deben pertenecer al mismo servicio en la nube.
 
 ## <a id="createset"> </a>Opción 1: Creación de una máquina virtual y de un conjunto de disponibilidad simultáneamente.##
 
@@ -96,7 +96,7 @@ Para utilizar los comandos de Azure PowerShell, abra una sesión de Azure PowerS
 
 	Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
->[AZURE.NOTE]Es posible que haya que reiniciar la máquina virtual para terminar de agregarla al conjunto de disponibilidad.
+>[AZURE.NOTE] Es posible que haya que reiniciar la máquina virtual para terminar de agregarla al conjunto de disponibilidad.
 
 ## Recursos adicionales
 
@@ -110,6 +110,6 @@ Para utilizar los comandos de Azure PowerShell, abra una sesión de Azure PowerS
 [Administración de la disponibilidad de las máquinas virtuales]: virtual-machines-manage-availability.md
 [Creación de una máquina virtual que ejecuta Windows]: virtual-machines-windows-tutorial.md
 [Información general sobre redes virtuales de Azure]: virtual-networks-overview.md
-[Artículos para máquinas virtuales en la administración de servicios]: virtual-machines-service-management-articles.md
+[Artículos para máquinas virtuales en la administración de servicios]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

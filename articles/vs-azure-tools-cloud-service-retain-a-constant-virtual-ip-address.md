@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/19/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Cómo conservar una dirección IP virtual constante para un servicio en la nube
 
-Al actualizar un servicio en la nube que se hospeda en Azure, es posible que deba asegurarse de que no cambia la dirección IP virtual (VIP) del servicio. Muchos de los servicios de administración de dominio usan el Sistema de nombres de dominio (DNS) para registrar nombres de dominio. DNS solo funciona si la dirección VIP sigue siendo la misma. Puede usar el **Asistente para publicación** en Azure Tools para asegurarse de que la dirección VIP del servicio en la nube no cambia cuando la actualiza. Para obtener más información sobre cómo usar la administración de dominios DNS para servicios en la nube, vea [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](cloud-services-custom-domain-name.md).
+Al actualizar un servicio en la nube que se hospeda en Azure, es posible que deba asegurarse de que no cambia la dirección IP virtual (VIP) del servicio. Muchos de los servicios de administración de dominio usan el Sistema de nombres de dominio (DNS) para registrar nombres de dominio. DNS solo funciona si la dirección VIP sigue siendo la misma. Puede usar el **Asistente para publicación** en Azure Tools para asegurarse de que la dirección VIP del servicio en la nube no cambia cuando la actualiza. Para obtener más información sobre cómo usar la administración de dominios DNS para servicios en la nube, vea [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](/cloud-services/cloud-services-custom-domain-name.md).
 
 ## Publicar un servicio en la nube sin cambiar su VIP
 
@@ -39,10 +39,10 @@ La dirección VIP de un servicio en la nube se asigna al implementarla por prime
 
 1. En la página **Resumen** del asistente, compruebe la configuración y luego elija el botón **Publicar**.
 
-  >[AZURE.WARNING]Si se produce un error en la implementación, debe tratar por qué se produjo el error y volver a implementar rápidamente, para evitar dejar el servicio en la nube en un estado dañado.
+  >[AZURE.WARNING] Si se produce un error en la implementación, debe tratar por qué se produjo el error y volver a implementar rápidamente, para evitar dejar el servicio en la nube en un estado dañado.
 
 ## Pasos siguientes
 
 Para obtener información sobre la publicación en Azure desde Visual Studio, consulte [Asistente Publicar aplicaciones de Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

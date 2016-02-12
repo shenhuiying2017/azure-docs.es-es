@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/02/2016" 
 	ms.author="thmullan;torsteng;sidneyh" />
 
 # Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila 
@@ -21,7 +21,7 @@ Las [herramientas de bases de datos elásticas](sql-database-elastic-scale-get-s
 
 * Las **herramientas de bases de datos elásticas** permiten a los desarrolladores escalar horizontalmente el nivel de datos de una aplicación a través de las prácticas de particionamiento estándar del sector, mediante un conjunto de bibliotecas de .NET y plantillas de servicio de Azure. La administración de particiones con el uso de la biblioteca cliente de la base de datos elástica le ayuda a automatizar y simplificar muchas de las tareas de infraestructura asociadas típicamente con el particionamiento. 
 
-* La **seguridad de nivel de fila** permite a los desarrolladores almacenar datos para varios inquilinos en la misma base de datos con las directivas de seguridad para filtrar las filas que no pertenecen al inquilino mediante la ejecución de una consulta. La centralización de la lógica de acceso con RLS dentro de la base de datos, en lugar de en la aplicación, simplifica el mantenimiento y reduce el riesgo de error a medida que crece el código base de la aplicación. RLS requiere la actualización más reciente de [Base de datos SQL de Azure (V12)](sql-database-preview-whats-new.md).
+* La **seguridad de nivel de fila** permite a los desarrolladores almacenar datos para varios inquilinos en la misma base de datos con las directivas de seguridad para filtrar las filas que no pertenecen al inquilino mediante la ejecución de una consulta. La centralización de la lógica de acceso con RLS dentro de la base de datos, en lugar de en la aplicación, simplifica el mantenimiento y reduce el riesgo de error a medida que crece el código base de la aplicación. RLS requiere la actualización más reciente de [Base de datos SQL de Azure (V12)](../sql-database-v12-whats-new.md).
 
 Con todas estas características, una aplicación puede beneficiarse de mejoras de ahorro y la eficacia de costos al almacenar los datos para varios inquilinos en la misma base de datos de la partición. Al mismo tiempo, una aplicación todavía tiene la flexibilidad para ofrecer particiones aisladas de un único inquilino para los inquilinos "premium" que requieren garantías de rendimiento más estrictas ya que las particiones de varios inquilinos no garantizan la distribución equitativa de los recursos entre los inquilinos.
 
@@ -215,7 +215,7 @@ CREATE SECURITY POLICY rls.tenantAccessPolicy
 GO 
 ```
 
-> [AZURE.TIP]Para los proyectos más complejos que deben agregar el predicado en cientos de tablas, puede usar un procedimiento almacenado auxiliar que genera automáticamente una directiva de seguridad mediante la adición de un predicado en todas las tablas de un esquema. Consulte [Apply Row-Level Security to all tables – helper script (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script) (Aplicación de la seguridad de nivel de fila a todas las tablas - script auxiliar (blog)).
+> [AZURE.TIP] Para los proyectos más complejos que deben agregar el predicado en cientos de tablas, puede usar un procedimiento almacenado auxiliar que genera automáticamente una directiva de seguridad mediante la adición de un predicado en todas las tablas de un esquema. Consulte [Apply Row-Level Security to all tables – helper script (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script) (Aplicación de la seguridad de nivel de fila a todas las tablas - script auxiliar (blog)).
 
 Ahora, si vuelve a ejecutar la aplicación de ejemplo, los inquilinos verán solamente las filas que les pertenecen. Además, la aplicación no puede insertar las filas que pertenezcan a inquilinos diferentes del que esté está conectado en ese momento a la base de datos de la partición, ni puede actualizar las filas visibles para cambiar a otro TenantId. Si la aplicación intenta realizar una, se generará una excepción DbUpdateException.
 
@@ -259,7 +259,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 }); 
 ```
 
-> [AZURE.NOTE]Si utiliza las restricciones DEFAULT para un proyecto de Entity Framework, se recomienda que NO incluyen la columna de TenantId en el modelo de datos EF. Esto es porque las consultas de Entity Framework proporcionan automáticamente los valores predeterminados que invalidarán las restricciones DEFAULT creadas en T-SQL que usan SESSION\_CONTEXT. Para utilizar las restricciones DEFAULT en el proyecto de ejemplo, por ejemplo, debe quitar el TenantId de DataClasses.cs (y ejecutar Add-Migration en la consola de administrador de paquetes) y usar T-SQL para asegurarse de que el campo solo existe en las tablas de base de datos. De este modo, EF no proporcionará automáticamente los valores predeterminados incorrectos al insertar datos.
+> [AZURE.NOTE] Si utiliza las restricciones DEFAULT para un proyecto de Entity Framework, se recomienda que NO incluyen la columna de TenantId en el modelo de datos EF. Esto es porque las consultas de Entity Framework proporcionan automáticamente los valores predeterminados que invalidarán las restricciones DEFAULT creadas en T-SQL que usan SESSION\_CONTEXT. Para utilizar las restricciones DEFAULT en el proyecto de ejemplo, por ejemplo, debe quitar el TenantId de DataClasses.cs (y ejecutar Add-Migration en la consola de administrador de paquetes) y usar T-SQL para asegurarse de que el campo solo existe en las tablas de base de datos. De este modo, EF no proporcionará automáticamente los valores predeterminados incorrectos al insertar datos.
 
 ### (Opcional) Habilitar un "superusuario" para tener acceso a todas las filas
 Es posible que algunas aplicaciones deseen crear un "superusuario" que puede tener acceso a todas las filas; por ejemplo, para habilitar los informes en todos los inquilinos de todas las particiones, o bien para realizar operaciones de división y combinación en particiones que implican el desplazamiento de filas de inquilinos entre las bases de datos. Para habilitar esto, debe crear un nuevo usuario de SQL ("superusuario" en este ejemplo) en la base de datos de cada partición. Luego modifique la directiva de seguridad con una nueva función de predicado que permita al usuario tener acceso a todas las filas:
@@ -301,8 +301,7 @@ GO
 
 ## Resumen 
 
-Las herramientas de base de datos elásticas y la seguridad de nivel de fila pueden usarse juntas para escalar horizontalmente el nivel de datos de una aplicación con compatibilidad para particiones de un solo inquilino y de varios. Las particiones de varios inquilinos pueden utilizarse para almacenar datos de manera más eficaz (especialmente en casos donde un gran número de inquilinos solo tienen unas pocas filas de datos), mientras que las particiones de un único inquilino pueden usarse para admitir los inquilinos premium con requisitos más estrictos de aislamiento y rendimiento. Para obtener más información, consulte el [Mapa de documentación de herramientas de bases de datos elásticas](sql-database-elastic-scale-documentation-map.md) o [Referencia de seguridad de nivel de fila](https://msdn.microsoft.com/library/dn765131) en MSDN.
-
+Las herramientas de base de datos elásticas y la seguridad de nivel de fila pueden usarse juntas para escalar horizontalmente el nivel de datos de una aplicación con compatibilidad para particiones de un solo inquilino y de varios. Las particiones de varios inquilinos pueden utilizarse para almacenar datos de manera más eficaz (especialmente en casos donde un gran número de inquilinos solo tienen unas pocas filas de datos), mientras que las particiones de un único inquilino pueden usarse para admitir los inquilinos premium con requisitos más estrictos de aislamiento y rendimiento. Para obtener más información, vea la [referencia sobre la seguridad de nivel de fila](https://msdn.microsoft.com/library/dn765131).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -310,4 +309,4 @@ Las herramientas de base de datos elásticas y la seguridad de nivel de fila pue
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

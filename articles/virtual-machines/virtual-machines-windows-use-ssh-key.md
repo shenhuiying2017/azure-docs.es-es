@@ -45,12 +45,12 @@ Si se siente especialmente experto, también puede probar el [nuevo puerto del c
 
 Una configuración básica SSH para Azure incluye un par de claves pública y privada **ssh-rsa** de 2048 bits (de forma predeterminada, **ssh keygen** almacena estos archivos como **~/.ssh/id\_rsa** y **~/.ssh/id-rsa.pub** a menos que cambie los valores predeterminados), así como un archivo `.pem` generado a partir del archivo de clave privada **id\_rsa** para su uso con el modelo de implementación clásica del portal clásico.
 
-Estos son los escenarios de implementación y los tipos de archivos que se utilizan en cada uno:
+Estos son los escenarios de implementación y los tipos de archivos que se usan en cada uno:
 
-1. Las claves **ssh rsa** son necesarias para cualquier implementación mediante el [portal de vista previa](https://portal.azure.com), independientemente del modelo de implementación.
+1. Las claves **ssh rsa** son necesarias para cualquier implementación mediante el [Portal de Azure](https://portal.azure.com), independientemente del modelo de implementación.
 2. Los archivos .pem son necesarios para crear máquinas virtuales mediante el [portal clásico](https://manage.windowsazure.com). Los archivos .pem también se admiten en las implementaciones clásicas que usan la [CLI de Azure](../xplat-cli-install.md).
 
-> [AZURE.NOTE]Si planea administrar el servicio implementado con el modelo de implementación clásica, también puede crear un archivo de formato **.cer** para su carga en el portal, aunque esto no implica **ssh** o conectarse a máquinas virtuales de Linux, que es el tema de este artículo. Para crear esos archivos en Linux o Mac, escriba
+> [AZURE.NOTE] Si planea administrar el servicio implementado con el modelo de implementación clásica, también puede crear un archivo de formato **.cer** para su carga en el portal, aunque esto no implica **ssh** o conectarse a máquinas virtuales de Linux, que es el tema de este artículo. Para crear esos archivos en Linux o Mac, escriba
 
 ## Obtención de ssh-keygen y openssl en Windows ##
 
@@ -68,7 +68,7 @@ Estos son los escenarios de implementación y los tipos de archivos que se utili
 1.	Descargue e instale GitHub para Windows desde la siguiente ubicación: [http://windows.github.com/](http://windows.github.com/)
 2.	Ejecute Git Shell desde la ruta: menú Inicio > Todos los programas > GitHub, Inc.
 
-> [AZURE.NOTE]Puede encontrar el siguiente error al ejecutar los comandos `openssl` anteriores:
+> [AZURE.NOTE] Puede encontrar el siguiente error al ejecutar los comandos `openssl` anteriores:
 
         Unable to load config info from /usr/local/ssl/openssl.cnf
 
@@ -155,4 +155,4 @@ La manera más fácil de resolver este problema consiste en establecer la variab
 5.	Haga clic en **Abrir** para conectarse a su máquina virtual.
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

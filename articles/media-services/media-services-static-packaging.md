@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015"   
+	ms.date="01/28/2016"   
 	ms.author="juliako"/>
 
 
 # Uso de Azure Media Packager para realizar tareas de paquetes estáticos
 
->[AZURE.NOTE]La vida de Microsoft Azure Media Packager y Microsoft Azure Media Encryptor terminará el 1 de marzo de 2016. En ese momento, estos componentes ya no estará disponibles. Las capacidades de cifrado y conversión de formato estarán disponibles a través de paquetes dinámicos y cifrado dinámico.
+>[AZURE.NOTE]El ciclo de vida de Windows Azure Media Packager y Windows Azure Media Encryptor terminará el 1 de marzo de 2017. Antes de esa fecha, las funcionalidades de estos procesadores se agregarán al Estándar de codificador multimedia (MES). A los clientes se les proporcionarán instrucciones sobre cómo migrar sus flujos de trabajo para enviar trabajos al MES. Las capacidades de cifrado y conversión de formato pueden estar disponibles a través de paquetes dinámicos y cifrado dinámico.
 
 ## Información general
 
@@ -968,7 +968,7 @@ En el ejemplo de esta sección se codifica un archivo intermedio (en este caso, 
 
 Si desea proteger su contenido con PlayReady, tiene la opción de usar el [cifrado dinámico](media-services-protect-with-drm.md) (la opción recomendada) o el cifrado estático (como se describe en esta sección).
 
->[AZURE.NOTE]Para proteger el contenido con PlayReady primero debe convertir o codificar el contenido en un formato Smooth Streaming.
+>[AZURE.NOTE] Para proteger el contenido con PlayReady primero debe convertir o codificar el contenido en un formato Smooth Streaming.
 
 En el ejemplo de esta sección se codifica un archivo intermedio (en este caso, MP4) en archivos MP4 de múltiples velocidades de bits. Luego empaqueta los MP4 en Smooth Streaming y cifra Smooth Streaming con PlayReady. Para producir HTTP Live Streaming (HLS) cifrado con PlayReady, el recurso de Smooth Streaming de PlayReady debe empaquetarse en HLS. En este tema se muestra cómo realizar todos estos pasos.
 
@@ -1447,4 +1447,4 @@ Asegúrese de actualizar el código siguiente para que señale a la carpeta dond
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

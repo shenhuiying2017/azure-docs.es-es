@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016"
+	ms.date="02/02/2016"
 	ms.author="juliako"/>
 
 #Información general y escenarios comunes de Servicios multimedia de Azure
@@ -31,10 +31,12 @@ Para compilar soluciones de Servicios multimedia, puede usar:
 - [API de REST de Servicios multimedia](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 - Uno de los SDK de cliente disponibles: 
 	- [SDK de Servicios multimedia de Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services) 
-	- [Azure SDK para Java](https://github.com/Azure/azure-sdk-for-java), [SDK de Azure PHP](https://github.com/Azure/azure-sdk-for-php) 
+	- [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java) 
+	- [SDK de Azure para PHP](https://github.com/Azure/azure-sdk-for-php) 
 	- [Servicios multimedia de Azure para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (es decir, una versión de un SDK de Node.js que no sea de Microsoft. Su mantenimiento corre a cargo de una comunidad y actualmente no tiene una cobertura del 100 % de las API de AMS). 
-- Herramientas existentes: [Portal de Azure clásico](http://manage.windowsazure.com/) o [Explorador de servicios multimedia de Azure](https://github.com/Azure/Azure-Media-Services-Explorer).
-
+- Herramientas existentes: 
+	- [Portal de Azure clásico](http://manage.windowsazure.com/) 
+	- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (El Explorador de servicios multimedia de Azure (AMSE) es una aplicación Winforms/C# para Windows)
 
 ##Rutas de aprendizaje de Servicios multimedia
 
@@ -44,7 +46,6 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Póster
-
 
 [Aquí](https://azure.microsoft.com/documentation/infographics/media-services/) puede ver el póster de Servicios multimedia de Azure que representa los flujos de trabajo de AMS, desde la creación de medios hasta el consumo.
 
@@ -59,10 +60,11 @@ Para empezar a usar Servicios multimedia de Azure, debe tener lo siguiente:
 	Además, aprenda a conectarse mediante programación [Conexión](media-services-dotnet-connect_programmatically.md).
 4. (Recomendado) Asignar una o más unidades de escalado. Se recomienda asignar una o más unidades de escalado para las aplicaciones en el entorno de producción. Para obtener más información, vea [Administración de extremos de streaming](media-services-manage-origins.md).
 
-##Conceptos
+##Introducción y conceptos
 
-Para obtener más información, vea [Conceptos](media-services-concepts.md).
+Para conocer los conceptos de Servicios multimedia de Azure, vea [Conceptos](media-services-concepts.md).
 
+Para una serie de procedimientos en que se presentan todos los componentes principales de Servicios multimedia de Azure, vea los [tutoriales paso a paso de Servicios multimedia de Azure](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Esta serie tiene una excelente introducción de conceptos y utiliza la herramienta AMSE para demostrar las tareas AME. Tenga en cuenta que la herramienta AMSE es una herramienta de Windows. Esta herramienta admite la mayoría de las tareas que puede lograr mediante programación con el [SDK de AMS para .NET](https://github.com/Azure/azure-sdk-for-media-services), el [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java) o el [SDK de Azure para PHP](https://github.com/Azure/azure-sdk-for-php).
 
 ##<a id="vod_scenarios"></a>Entrega de contenido multimedia a petición con Servicios multimedia de Azure: escenarios y tareas comunes
 
@@ -234,4 +236,4 @@ El [Soporte técnico de Azure](https://azure.microsoft.com/support/options/) pro
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

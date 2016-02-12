@@ -48,7 +48,7 @@ Este tutorial cuenta con los siguientes requisitos previos:
 -	Una [cuenta de Microsoft Azure activa](/account/)
 -	Visual Studio 2015 con el [SDK de Azure](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)
 
-> [AZURE.NOTE]Necesita una cuenta de Azure para completar este tutorial: + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Sitios web. + Puede [activar los beneficios de suscriptores de MSDN](/pricing/member-offers/msdn-benefits-details/): su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
+> [AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial: + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Sitios web. + Puede [activar los beneficios de suscriptores de MSDN](/pricing/member-offers/msdn-benefits-details/): su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
 
 <a name="deploy"></a>
 ## un servicio en la nube ##
@@ -88,17 +88,17 @@ En esta sección, implementará la plantilla de aplicación predeterminada ASP.N
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
-	>[AZURE.NOTE]El proceso de publicación de los servicios en la nube tarda mucho tiempo. La opción Habilitar la implementación web en todos los roles puede acelerar la depuración del servicio en la nube al proporcionar actualizaciones rápidas (pero temporales) para los roles web. Para obtener más información sobre esta opción, consulte [Publicar un servicio en la nube mediante Azure Tools](http://msdn.microsoft.com/library/ff683672.aspx).
+	>[AZURE.NOTE] El proceso de publicación de los servicios en la nube tarda mucho tiempo. La opción Habilitar la implementación web en todos los roles puede acelerar la depuración del servicio en la nube al proporcionar actualizaciones rápidas (pero temporales) para los roles web. Para obtener más información sobre esta opción, consulte [Publicar un servicio en la nube mediante Azure Tools](http://msdn.microsoft.com/library/ff683672.aspx).
 
 	Cuando el **Registro de actividad de Microsoft Azure** muestre que el estado de publicación es **Completado**, creará un extremo de red CDN que se integra con este servicio en la nube.
 	
-	>[AZURE.WARNING]Si, tras la publicación, el servicio en la nube implementado muestra una pantalla de error, es probable que se deba a que el servicio en la nube que está usando ha implementado un [SO invitado que no incluye .NET 4.5.2](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates). Puede solucionar este problema mediante la [implementación de .NET 4.5.2 como tarea de inicio](../cloud-services/cloud-services-dotnet-install-dotnet.md).
+	>[AZURE.WARNING] Si, tras la publicación, el servicio en la nube implementado muestra una pantalla de error, es probable que se deba a que el servicio en la nube que está usando ha implementado un [SO invitado que no incluye .NET 4.5.2](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates). Puede solucionar este problema mediante la [implementación de .NET 4.5.2 como tarea de inicio](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
 ## Crear un nuevo perfil de CDN
 
 Un perfil de red de entrega de contenido es una colección de puntos de conexión de red de entrega de contenido. Cada perfil contiene uno o más de estos puntos de conexión de CDN. Puede que quiera usar varios perfiles para organizar sus puntos de conexión de la red CDN por dominio de Internet, aplicación web o cualquier otro criterio.
 
-> [AZURE.TIP]Si ya tiene un perfil de red CDN que quiere usar para este tutorial, continúe con el paso [Crear un nuevo extremo de CDN](#create-a-new-cdn-endpoint).
+> [AZURE.TIP] Si ya tiene un perfil de red CDN que quiere usar para este tutorial, continúe con el paso [Crear un nuevo extremo de CDN](#create-a-new-cdn-endpoint).
 
 **Para crear un nuevo perfil de CDN**
 
@@ -132,13 +132,13 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
     
 2. Haga clic en el botón **Agregar extremo**.
 
-    ![Botón Agregar extremo][cdn-new-endpoint-button]
+    ![Botón Agregar punto de conexión][cdn-new-endpoint-button]
 
     Aparecerá la hoja **Agregar un extremo**.
     
-    ![Hoja Agregar extremo][cdn-add-endpoint]
+    ![Hoja Agregar punto de conexión][cdn-add-endpoint]
 
-3. Escriba un **Nombre** para este punto de conexión de CDN. Este nombre se usará para obtener acceso a sus recursos almacenados en caché en el dominio `<EndpointName>.azureedge.net`.
+3. Escriba un **Nombre** para este punto de conexión de red de entrega de contenido. Este nombre se usará para obtener acceso a sus recursos almacenados en caché en el dominio `<EndpointName>.azureedge.net`.
 
 4. En la lista desplegable **Tipo de origen**, seleccione *Servicio en la nube*.
 
@@ -150,9 +150,9 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 
 8. Una vez creado el punto de conexión, aparecerá en la lista de puntos de conexión del perfil. La visualización de la lista muestra la URL que se debe utilizar para tener acceso al contenido en caché, así como al dominio de origen.
 
-    ![Extremo de CDN][cdn-endpoint-success]
+    ![Punto de conexión de CDN][cdn-endpoint-success]
 
-    > [AZURE.NOTE]El punto de conexión no estará disponible inmediatamente para su uso. Se pueden tardar hasta 90 minutos en que el registro se propague a través de la red CDN. Es posible que los usuarios que intenten usar el nombre de dominio de la red CDN de forma inmediata reciban el código de estado 404 hasta que el contenido esté disponible a través de la red CDN.
+    > [AZURE.NOTE] El punto de conexión no estará disponible inmediatamente para su uso. Se pueden tardar hasta 90 minutos en que el registro se propague a través de la red CDN. Es posible que los usuarios que intenten usar el nombre de dominio de la red CDN de forma inmediata reciban el código de estado 404 hasta que el contenido esté disponible a través de la red CDN.
 	
 ## Probar el punto de conexión de CDN
 
@@ -624,10 +624,9 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 ## Más información ##
 - [Información general de la red de entrega de contenido (CDN) de Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Entrega de contenido desde la red CDN de Azure en su aplicación web](cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Integración de un sitio web de Azure con la red CDN de Azure](cdn-websites-with-cdn.md)
+- [Uso de la red CDN en Azure](cdn-how-to-use-cdn.md)
 - [Unión y minificación de ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Uso de la red CDN en Azure](cdn-how-to-use.md)
+
 
 
 [new-cdn-profile]: ./media/cdn-cloud-service-with-cdn/cdn-new-profile.png
@@ -636,4 +635,4 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

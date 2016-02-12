@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Entrega continua para Servicios en la nube de Azure
@@ -44,13 +44,13 @@ En esta sección se describe cómo construir un comando de MSBuild que compila u
 
 1.  Si Visual Studio está instalado en el servidor de compilación, ubique y elija **Símbolo del sistema de Visual Studio** en la carpeta **Visual Studio Tools** en Windows.
 
-    Si Visual Studio no está instalado en el servidor de compilación, abra un símbolo del sistema y asegúrese de que se pueda tener acceso a MSBuild.exe en la ruta. MSBuild se instala con .NET Framework en la ruta de acceso %WINDIR%\\Microsoft.NET\\Framework\\*versión*. Por ejemplo, para agregar MSBuild.exe a la variable de entorno PATH cuando tiene instalado .NET Framework 4, escriba el siguiente comando en el símbolo del sistema:
+    Si Visual Studio no está instalado en el servidor de compilación, abra un símbolo del sistema y asegúrese de que se pueda tener acceso a MSBuild.exe en la ruta. MSBuild se instala con .NET Framework en la ruta de acceso %WINDIR%\\Microsoft.NET\\Framework\*versión*. Por ejemplo, para agregar MSBuild.exe a la variable de entorno PATH cuando tiene instalado .NET Framework 4, escriba el siguiente comando en el símbolo del sistema:
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
 2.  En el símbolo del sistema, navegue hasta la carpeta que contiene el archivo de proyecto de Azure que desea compilar.
 
-3.  Ejecute msbuild con la opción /target:Publish como se muestra en el ejemplo siguiente:
+3.  Ejecute MSBuild con la opción /target:Publish como se muestra en el ejemplo siguiente:
 
         MSBuild /target:Publish
 
@@ -85,7 +85,7 @@ Para configurar TFS a fin de compilar paquetes de Azure, realice los siguientes 
 
     ![][0]
 
-2.  Haga clic en la pestaña **Desencadenador** y especifique las condiciones deseadas para cuándo desea que se compile el paquete. Por ejemplo, especifique **Integración continua** para compilar el paquete cada vez que se produce una protección del control de código fuente.
+2.  Haga clic en la pestaña **Desencadenador** y especifique las condiciones deseadas para cuando desea que se compile el paquete. Por ejemplo, especifique **Integración continua** para compilar el paquete cada vez que se produce una protección del control de código fuente.
 
 3.	Elija la pestaña **Configuración de origen** y asegúrese de que la carpeta del proyecto se muestra en la columna **Carpeta de control de código fuente** y de que el estado es **Activo**.
 
@@ -123,7 +123,7 @@ En esta sección se describen los pasos para construir un script de Windows Powe
 
     Se muestra información sobre su suscripción. Verifique que todo esté correcto.
 
-4.  Guarde la plantilla de script que se proporciona al [final de este artículo][] en la carpeta de scripts como c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**.
+4.  Guarde la plantilla de script que aparece al final de este artículo en la carpeta de scripts como c:\\scripts\\WindowsAzure\**PublishCloudService.ps1**.
 
 5.  Revise la sección de parámetros del script. Agregue o modifique cualquiera de los valores predeterminados. Estos valores siempre pueden omitirse al pasar parámetros explícitos.
 
@@ -139,7 +139,7 @@ En esta sección se describen los pasos para construir un script de Windows Powe
 
 7.  Llame al script directamente desde Azure PowerShell, o conecte este script a su automatización de compilación de host que se produce después de la compilación del paquete.
 
-    >[AZURE.IMPORTANT]El script siempre eliminará o reemplazará sus implementaciones actuales de manera predeterminada si se detectan. Esto es necesario para habilitar la entrega continua desde la automatización donde no es posible una solicitud del usuario.
+    >[AZURE.IMPORTANT] El script siempre eliminará o reemplazará sus implementaciones actuales de manera predeterminada si se detectan. Esto es necesario para habilitar la entrega continua desde la automatización donde no es posible una solicitud del usuario.
 
     **Escenario de ejemplo 1:** implementación continua en el entorno de ensayo de un servicio:
 
@@ -177,7 +177,7 @@ En esta sección se describen los pasos para construir un script de Windows Powe
 
     La actualización de la implementación se puede deshabilitar en el script ($enableDeploymentUpgrade = 0) o al pasar *-enableDeploymentUpgrade 0* como un parámetro, el cual alterará el comportamiento del script para primero eliminar cualquier implementación existente y luego crear una implementación nueva.
 
-    >[AZURE.IMPORTANT]El script siempre eliminará o reemplazará sus implementaciones actuales de manera predeterminada si se detectan. Esto es necesario para habilitar la entrega continua desde la automatización donde no es posible una solicitud del usuario/operador.
+    >[AZURE.IMPORTANT] El script siempre eliminará o reemplazará sus implementaciones actuales de manera predeterminada si se detectan. Esto es necesario para habilitar la entrega continua desde la automatización donde no es posible una solicitud del usuario/operador.
 
 ## Paso 5: Publicar un paquete con TFS Team Build
 
@@ -573,4 +573,4 @@ Para habilitar la depuración remota cuando se usa la entrega continua, consulte
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

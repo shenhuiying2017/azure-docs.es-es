@@ -1,6 +1,6 @@
 <properties
    pageTitle="Depuración de la aplicación en Visual Studio | Microsoft Azure"
-   description="Mejore la confiabilidad y el rendimiento de los servicios mediante su desarrollo y depuración en Visual Studio y un clúster de desarrollo local."
+   description="Mejore la confiabilidad y el rendimiento de los servicios mediante su desarrollo y depuración en Visual Studio en un clúster de desarrollo local."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="01/28/2016"
    ms.author="jesseb"/>
 
 # Depurar la aplicación de Service Fabric con Visual Studio
@@ -28,7 +28,7 @@ Puede ahorrar tiempo y dinero implementando y depurando su aplicación de Servic
 
 3. Establezca puntos de interrupción en el código y recorra la aplicación haciendo clic en los comandos del menú **Depurar**.
 
-    > [AZURE.NOTE]Visual Studio se conecta a todas las instancias de su aplicación. Al recorrer el código, se pueden alcanzar los puntos de interrupción por varios procesos, lo que da lugar a sesiones simultáneas. Intente deshabilitar los puntos de interrupción después de que se alcancen, haciendo que el punto de interrupción sea condicional en el id. del subproceso o use los eventos de diagnóstico.
+    > [AZURE.NOTE] Visual Studio se conecta a todas las instancias de su aplicación. Al recorrer el código, se pueden alcanzar los puntos de interrupción por varios procesos, lo que da lugar a sesiones simultáneas. Intente deshabilitar los puntos de interrupción después de que se alcancen, haciendo que el punto de interrupción sea condicional en el id. del subproceso o use los eventos de diagnóstico.
 
 4. La ventana de **eventos de diagnóstico** se abrirá automáticamente para ver los eventos de diagnóstico en tiempo real.
 
@@ -65,4 +65,4 @@ Puede ahorrar tiempo y dinero implementando y depurando su aplicación de Servic
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

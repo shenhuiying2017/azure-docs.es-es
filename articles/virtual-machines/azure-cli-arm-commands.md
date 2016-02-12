@@ -19,7 +19,7 @@
 
 # Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines/virtual-machines-command-line-tools.md).
 
 En este tema se describe cómo usar la interfaz de línea de comandos (CLI de Azure) de Azure en modo del Administrador de recursos de Azure para crear, administrar y eliminar servicios en la línea de comandos de equipos Mac, Linux y Windows. Puede realizar muchas de las mismas tareas mediante las diversas bibliotecas de los SDK de Azure, Azure PowerShell y el Portal de Azure.
 
@@ -1879,4 +1879,4 @@ Opciones de parámetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

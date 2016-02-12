@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 
@@ -26,15 +26,15 @@ Aprenda a usar Apache Oozie para definir un flujo de trabajo que usa Hive y Sqoo
 
 Oozie de Apache es un sistema de coordinación o flujo de trabajo que administra trabajos de Hadoop. Se integra con la pila de Hadoop y es compatible con los trabajos de Hadoop para MapReduce, Pig, Hive y Sqoop de Apache. También puede usarse para programar trabajos específicos de un sistema, como scripts de shell o programas Java.
 
-> [AZURE.NOTE]Otra opción para definir los flujos de trabajo con HDInsight es Factoría de datos de Azure. Para obtener más información sobre Factoría de datos de Azure, consulte [Uso de Pig y Hive con la Factoría de datos][azure-data-factory-pig-hive].
+> [AZURE.NOTE] Otra opción para definir los flujos de trabajo con HDInsight es Factoría de datos de Azure. Para obtener más información sobre Factoría de datos de Azure, consulte [Uso de Pig y Hive con la Factoría de datos][azure-data-factory-pig-hive].
 
 ##Requisitos previos
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Suscripción de Azure**: Consulte [ Obtener una versión de evaluación gratuita de Azure](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
+- **Suscripción de Azure**: Consulte [ Obtener una versión de evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-- **CLI de Azure**: vea [Instalación y configuración de la interfaz de la línea de comandos (CLI) de Azure](xplat-cli-install.md).
+- **CLI de Azure**: vea [Instalación y configuración de la interfaz de la línea de comandos (CLI) de Azure](../xplat-cli-install.md).
 
 - **Un clúster de HDInsight**: consulte [Introducción a HDInsight en Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
@@ -58,7 +58,7 @@ El flujo de trabajo que implementará siguiendo las instrucciones de este docume
 
 2.  Una acción de Sqoop exporta el contenido de la nueva tabla de Hive a una tabla de una base de datos SQL de Azure. Para obtener más información sobre Sqoop, consulte [Uso de Hadoop Sqoop con HDInsight][hdinsight-use-sqoop].
 
-> [AZURE.NOTE]Para ver las versiones de Oozie compatibles en los clústeres de HDInsight, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight][hdinsight-versions].
+> [AZURE.NOTE] Para ver las versiones de Oozie compatibles en los clústeres de HDInsight, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight][hdinsight-versions].
 
 ##Creación del directorio de trabajo
 
@@ -66,7 +66,7 @@ Oozie espera los recursos necesarios para que un trabajo se almacene en el mismo
 
 	hadoop fs -mkdir -p /tutorials/useoozie/data
 
-> [AZURE.NOTE]El parámetro `-p` hizo que todos los directorios de la ruta de acceso se crearan si aún no existían. El directorio **data** se usará para almacenar los datos utilizados por el script **useooziewf.hql**.
+> [AZURE.NOTE] El parámetro `-p` hizo que todos los directorios de la ruta de acceso se crearan si aún no existían. El directorio **data** se usará para almacenar los datos utilizados por el script **useooziewf.hql**.
 
 Además, ejecute el siguiente comando, lo que garantiza que Oozie puede suplantar la cuenta de usuario al ejecutar trabajos de Hive y Sqoop. Reemplace **USERNAME** por su nombre de inicio de sesión:
 
@@ -185,7 +185,7 @@ Las definiciones de los flujos de trabajo de Oozie se escriben en hPDL (un lengu
 
 	- **RunSqoopExport**: exporta los datos creados a partir del script de Hive a Base de datos SQL con Sqoop. Solo se ejecutarán si la acción **RunHiveScript** es correcta.
 
-		> [AZURE.NOTE]Para obtener más información acerca del flujo de trabajo de Oozie y el uso de acciones de flujo de trabajo, consulte la [documentación de Oozie 4.0 de Apache (en inglés)][apache-oozie-400] (para la versión del clúster de HDInsight 3.0) o la [documentación de Oozie 3.3.2 de Apache (en inglés)][apache-oozie-332] (para la versión del clúster de HDInsight 2.1).
+		> [AZURE.NOTE] Para obtener más información acerca del flujo de trabajo de Oozie y el uso de acciones de flujo de trabajo, consulte la [documentación de Oozie 4.0 de Apache (en inglés)][apache-oozie-400] (para la versión del clúster de HDInsight 3.0) o la [documentación de Oozie 3.3.2 de Apache (en inglés)][apache-oozie-332] (para la versión del clúster de HDInsight 2.1).
 
 	Tenga en cuenta que el flujo de trabajo tiene varias entradas, como `${jobTracker}`, que se reemplazarán por los valores que use en la definición del trabajo más adelante en este documento.
 
@@ -201,7 +201,7 @@ Las definiciones de los flujos de trabajo de Oozie se escriben en hPDL (un lengu
 
 Los pasos siguientes crean la Base de datos SQL de Azure a donde se exportarán los datos.
 
-> [AZURE.IMPORTANT]Antes de realizar estos pasos, debe [instalar y configurar la CLI de Azure](xplat-cli-install.md). El procedimiento de instalación de la CLI y del seguimiento de los pasos para crear una base de datos puede realizarse desde el clúster de HDInsight o desde la estación de trabajo local.
+> [AZURE.IMPORTANT] Antes de realizar estos pasos, debe [instalar y configurar la CLI de Azure](xplat-cli-install.md). El procedimiento de instalación de la CLI y del seguimiento de los pasos para crear una base de datos puede realizarse desde el clúster de HDInsight o desde la estación de trabajo local.
 
 1. Utilice el comando siguiente para un nuevo servidor de Base de datos SQL de Azure.
 
@@ -216,7 +216,7 @@ Los pasos siguientes crean la Base de datos SQL de Azure a donde se exportarán 
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]Tenga en cuenta el nombre de servidor devuelto por este comando (**i1qwc540ts** en el ejemplo anterior). Este es el nombre corto del servidor de la base de datos SQL que se creó. El nombre de dominio completo (FQDN) es **&lt;shortname&gt;.database.windows.net**. En el ejemplo anterior, el nombre de dominio completo sería **i1qwc540ts.database.windows.net**.
+    > [AZURE.IMPORTANT] Tenga en cuenta el nombre de servidor devuelto por este comando (**i1qwc540ts** en el ejemplo anterior). Este es el nombre corto del servidor de la base de datos SQL que se creó. El nombre de dominio completo (FQDN) es **&lt;shortname&gt;.database.windows.net**. En el ejemplo anterior, el nombre de dominio completo sería **i1qwc540ts.database.windows.net**.
 
 2. Use el comando siguiente para crear una base de datos denominada **oozietest** en el servidor de Base de datos SQL:
 
@@ -224,13 +224,13 @@ Los pasos siguientes crean la Base de datos SQL de Azure a donde se exportarán 
 
     Esto devolverá el mensaje "Aceptar" cuando termine.
 
-	> [AZURE.NOTE]Si recibe un error en el que se indica que no tiene acceso, puede que necesite agregar la dirección IP del sistema al firewall de Base de datos SQL mediante el siguiente comando:
+	> [AZURE.NOTE] Si recibe un error en el que se indica que no tiene acceso, puede que necesite agregar la dirección IP del sistema al firewall de Base de datos SQL mediante el siguiente comando:
     >
     > `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ###Cree la tabla
 
-> [AZURE.NOTE]Hay muchas maneras de conectarse a la base de datos SQL para crear una tabla. En los siguientes pasos se utiliza [FreeTDS](http://www.freetds.org/) desde el clúster de HDInsight.
+> [AZURE.NOTE] Hay muchas maneras de conectarse a la base de datos SQL para crear una tabla. En los siguientes pasos se utiliza [FreeTDS](http://www.freetds.org/) desde el clúster de HDInsight.
 
 3. Use el siguiente comando para instalar FreeTDS en el clúster de HDInsight:
 
@@ -363,7 +363,7 @@ La definición de trabajo describe dónde encontrar el archivo workflow.xml, as�
 
 	* Reemplace todas las instancias de ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** por el valor que recibió anteriormente.
 
-	> [AZURE.WARNING]Debe utilizar la ruta de acceso completa de WASB, con la cuenta de almacenamiento y de contenedor como parte de la ruta de acceso. Con el formato corto (wasb:///), la acción RunHiveScript generará un error cuando se inicie el trabajo.
+	> [AZURE.WARNING] Debe utilizar la ruta de acceso completa de WASB, con la cuenta de almacenamiento y de contenedor como parte de la ruta de acceso. Con el formato corto (wasb:///), la acción RunHiveScript generará un error cuando se inicie el trabajo.
 
 	* Reemplace **JOBTRACKERADDRESS** por la dirección de JobTracker/ResourceManager que recibió antes.
 
@@ -373,7 +373,7 @@ La definición de trabajo describe dónde encontrar el archivo workflow.xml, as�
 
 	La mayor parte de la información de este archivo se usa para rellenar los valores utilizados en los archivos workflow.xml o ooziewf.hql (por ejemplo, ${nameNode}).
 
-	> [AZURE.NOTE]La entrada **oozie.wf.application.path** define dónde encontrar el archivo workflow.xml, que contiene el flujo de trabajo ejecutado por este trabajo.
+	> [AZURE.NOTE] La entrada **oozie.wf.application.path** define dónde encontrar el archivo workflow.xml, que contiene el flujo de trabajo ejecutado por este trabajo.
 
 2. Presione Ctrl-X y luego **Y** y **Entrar** para guardar el archivo.
 
@@ -381,7 +381,7 @@ La definición de trabajo describe dónde encontrar el archivo workflow.xml, as�
 
 Los pasos siguientes usan el comando Oozie para enviar y administrar flujos de trabajo de Oozie en el clúster. El comando de Oozie es una interfaz sencilla sobre la [API de REST de Oozie](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
-> [AZURE.IMPORTANT]Cuando se utiliza el comando Oozie, debe utilizar el nombre de dominio completo para el nodo principal de HDInsight. Este nombre de dominio completo solo es accesible desde el clúster, o si el clúster está en una instancia de la Red virtual de Azure, desde otros equipos en la misma red.
+> [AZURE.IMPORTANT] Cuando se utiliza el comando Oozie, debe utilizar el nombre de dominio completo para el nodo principal de HDInsight. Este nombre de dominio completo solo es accesible desde el clúster, o si el clúster está en una instancia de la Red virtual de Azure, desde otros equipos en la misma red.
 
 1. Use lo siguiente para obtener la dirección URL del servicio de Oozie:
 
@@ -457,7 +457,7 @@ Los pasos siguientes usan el comando Oozie para enviar y administrar flujos de t
 		Windows Phone   1791
 		(6 rows affected)
 
-Para obtener más información sobre el comando de Oozie, vea [Herramienta de línea de comandos de Oozie](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
+Para obtener más información sobre el comando Oozie, consulte [Herramienta de línea de comandos de Oozie](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 
 ##API de REST de Oozie
 
@@ -515,7 +515,7 @@ El coordinador le permite especificar un inicio, un fin y la frecuencia de repet
 
 Para definir una programación para el flujo de trabajo, siga estos pasos:
 
-1. Use lo siguiente para crear un archivo denominado **coordinator.xml**:
+1. Use lo siguiente para crear un nuevo archivo denominado **coordinator.xml**.
 
 		nano coordinator.xml
 
@@ -531,7 +531,7 @@ Para definir una programación para el flujo de trabajo, siga estos pasos:
 
 	Tenga en cuenta que usa variables `${...}` que se reemplazarán por los valores de la definición del trabajo. Las variables son las siguientes:
 
-	* **${coordFrequency}**: tiempo entre las instancias en ejecución del trabajo.
+	* **${coordFrequency}**: tiempo entre las instancias de la tarea en ejecución
 	* **${coordStart}**: hora de inicio del trabajo.
 	* **${coordEnd}**: hora de finalización del trabajo.
 	* **${coordTimezone}**: los trabajos del coordinador se encuentran en una zona horaria fija sin horario de verano (representado normalmente mediante UTC). Esta zona horaria se conoce como la "zona de horaria de procesamiento de Oozie".
@@ -543,13 +543,13 @@ Para definir una programación para el flujo de trabajo, siga estos pasos:
 
 		hadoop fs -copyFromLocal coordinator.xml /tutorials/useoozie/coordinator.xml
 
-4. Use lo siguiente para modificar el archivo **job.xml**:
+4. Utilice lo siguiente para modificar el archivo **job.xml**:
 
 		nano job.xml
 
 	Se han realizado los siguientes cambios:
 
-	* Cambie `<name>oozie.wf.application.path</name>` a `<name>oozie.coord.application.path</name>`. Esto indica a Oozie que ejecute el archivo de coordinador en lugar del archivo de flujo de trabajo.
+	* Cambio de `<name>oozie.wf.application.path</name>` a `<name>oozie.coord.application.path</name>`. Esto indica a Oozie que ejecute el archivo de coordinador en lugar del archivo de flujo de trabajo.
 
 	* Agregue lo siguiente, que establecerá una variable usada en coordinator.xml para que apunte a la ubicación de workflow.xml:
 
@@ -592,7 +592,7 @@ Para definir una programación para el flujo de trabajo, siga estos pasos:
 
 	Esto enviará e iniciará el trabajo.
 
-7. Si visita la interfaz de usuario web de Oozie y selecciona la pestaña **Coordinator Jobs**, debe obtener información similar a la siguiente:
+7. Si visita la interfaz de usuario web de Oozie y selecciona la pestaña **Coordinator Jobs** (Trabajos de coordinador), debe obtener información similar a la siguiente:
 
 	![pestaña de trabajos de coordinador](./media/hdinsight-use-oozie-linux-mac/coordinatorjob.png)
 
@@ -630,21 +630,21 @@ Las siguientes son errores específicos que pueden surgir y cómo resolverlos.
 
 ###JA002: Oozie no tiene permiso para suplantar &lt;USUARIO>
 
-**Síntomas**: el estado del trabajo cambiará a **SUSPENDED**. Los detalles del trabajo mostrarán el estado de RunHiveScript como **START\_MANUAL**. Si se selecciona la acción, se mostrará el mensaje de error siguiente:
+**Síntomas**: el estado del trabajo cambiará a **SUSPENDED** (Suspendido). Los detalles del trabajo mostrarán el estado de RunHiveScript como **START\_MANUAL**. Si se selecciona la acción, se mostrará el mensaje de error siguiente:
 
 	JA002: User: oozie is not allowed to impersonate <USER>
 
 **Causa**: la configuración actual de permisos no permite a Oozie suplantar la cuenta de usuario especificada.
 
-**Resolución**: Oozie puede suplantar a los usuarios del grupo **users**. Use el `groups USERNAME` para ver los grupos de los que es miembro la cuenta de usuario. Si el usuario no es miembro del grupo **users**, use el siguiente comando para agregar el usuario al grupo:
+**Resolución**: Oozie puede suplantar a los usuarios del grupo **users**. Utilice el `groups USERNAME` para ver los grupos de los que es miembro la cuenta de usuario. Si el usuario no es miembro del grupo **users**, use el siguiente comando para agregar el usuario al grupo:
 
 	sudo adduser USERNAME users
 
-> [AZURE.NOTE]Puede tardar varios minutos antes de que HDInsight reconozca que el usuario se ha agregado al grupo.
+> [AZURE.NOTE] Puede tardar varios minutos antes de que HDInsight reconozca que el usuario se ha agregado al grupo.
 
 ###ERROR del selector (Sqoop)
 
-**Síntomas**: el estado del trabajo cambiará a **KILLED**. Los detalles del trabajo mostrarán el estado de RunSqoopExport como **ERROR**. Si se selecciona la acción, se mostrará el mensaje de error siguiente:
+**Síntomas**: el estado del trabajo cambiará a **KILLED** (Cerrado). Los detalles del trabajo mostrarán el estado de RunSqoopExport como **ERROR**. Si se selecciona la acción, se mostrará el mensaje de error siguiente:
 
 	Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
 
@@ -721,4 +721,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

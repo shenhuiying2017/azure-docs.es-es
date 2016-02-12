@@ -4,7 +4,6 @@ En la tabla siguiente se enumeran los límites asociados a los diferentes nivele
 | -------- | ----------- | ----------- | ------- |
 | Mensajes por día | 400\.000 | 6\.000.000 | 8\.000 |
 | Unidades máximas | 200 | 200 | 1 |
-| Actualizaciones de dispositivos (crear, actualizar, <br/> eliminar) por unidad al día | 1100 | 1100 | 1100 |
 
 > [AZURE.NOTE] Si prevé usar más de 200 unidades con un centro de nivel S1 o S2, póngase en contacto con el soporte técnico de Microsoft.
 
@@ -29,8 +28,9 @@ El servicio de Centro de IoT limita las solicitudes cuando se superan las cuotas
 | Limitación | Valor por centro |
 | -------- | ------------- |
 | Las operaciones de registro de identidades <br/> (crear, recuperar, enumerar, actualizar y eliminar), <br/> importación y exportación masiva o individual | 100/min/unidad, hasta 5.000/min |
-| Conexiones de dispositivos | 100/s/unidad |
+| Conexiones de dispositivos | 120/seg/unidad (para S2), 12/seg/unidad (para S1). Mínimo de 100/s. |
 | Envíos de dispositivo a nube | 120/seg/unidad (para S2), 12/seg/unidad (para S1) <br/> Mínimo de 100/seg |
-| Operaciones de nube a dispositivo <br/> (envíos, recepciones, comentarios) | 100/min/unidad |
+| Envíos de nube a dispositivo | 100/min/unidad |
+| Recepciones de nube a dispositivo | 1000/min/unidad |
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

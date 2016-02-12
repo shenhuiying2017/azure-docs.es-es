@@ -45,7 +45,7 @@ Un trabajo es una entidad que contiene metadatos sobre un conjunto de tareas (po
 
 ##Codificación
 
-Codifique con el **Codificador multimedia de Azure** mediante el **Portal de Azure clásico**, **.NET** o **API de REST**.
+Codifique con el **Estándar de codificador multimedia** mediante el **Portal de Azure clásico**, **.NET** o **API de REST**.
 
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
@@ -80,4 +80,4 @@ Supervise el progreso del trabajo mediante el **Portal de Azure clásico**, **.N
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

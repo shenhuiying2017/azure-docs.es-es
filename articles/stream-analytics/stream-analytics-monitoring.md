@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 # Descripción de la supervisión del trabajo de Análisis de transmisiones y cómo supervisar consultas
@@ -35,7 +35,8 @@ La primera vez que se crea un trabajo de Análisis de transmisiones en una regi�
 
   ![Portal de vista previa de Azure: Configuración de diagnósticos de consulta](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
 
-## Métricas disponibles para Análisis de transmisiones  
+## Métricas disponibles para Análisis de transmisiones
+
 
 | Métrica | Definición |
 |--------|-------------|
@@ -45,7 +46,9 @@ La primera vez que se crea un trabajo de Análisis de transmisiones en una regi�
 | Eventos de salida | Cantidad de datos enviados por el trabajo de Análisis de transmisiones al destino de salida, en términos de recuento de eventos. |
 | Eventos que no funcionan | Número de eventos recibidos fuera de orden que se eliminan o se les asigna una marca de tiempo ajustada, según la Directiva de ordenación de eventos. Puede verse afectado por la configuración del ajuste de Período de tolerancia de fuera de servicio. |
 | Errores de conversión de datos | Número de errores de conversión de datos que produce un trabajo de Análisis de transmisiones. |
+| Errores de tiempo de ejecución | Número de errores que se producen durante la ejecución de un trabajo de Análisis de transmisiones. |
 | Eventos de entrada retrasada | Número de eventos que llegan tarde del origen y que se han eliminado o cuya marca de tiempo se ha ajustado, en función de la configuración de la Directiva de ordenación de eventos del ajuste del Período de tolerancia de fuera de servicio. |
+
 ## Personalización de la supervisión en el Portal de administración de Azure ##
 
 Se pueden mostrar hasta 6 métricas en un gráfico.
@@ -104,4 +107,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de los datos entre entornos locales de SQL Server o en IaaS (máquina virtual de Azure) mediante Factoría de datos de Azure
@@ -27,6 +27,8 @@ Los conceptos y los pasos necesarios para conectar con SQL Server hospedado de f
 Consulte el artículo sobre cómo [mover datos entre ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener información acerca de Data Management Gateway, así como instrucciones paso a paso sobre cómo configurar la puerta de enlace. La configuración de una instancia de puerta de enlace es un requisito previo para conectarse con SQL Server.
 
 Aunque puede instalar la puerta de enlace en el mismo equipo local o una instancia de máquina virtual en la nube, como SQL Server, para mejorar el rendimiento, se recomienda instalarlos en equipos independientes o máquinas virtuales en la nube para evitar la contención de recursos.
+
+En los siguientes ejemplos, se muestra cómo copiar datos entre SQL Server y Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Factoría de datos de Azure.
 
 ## Ejemplo: copia de datos de SQL Azure a un blob de Azure
 
@@ -435,7 +437,7 @@ Consulte [Configuración de credenciales y seguridad](data-factory-move-data-bet
 
 ## Propiedades de tipo de conjunto de datos de SQL Server
 
-Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (SQL Server, blob de Azure, tabla de Azure, etc.).
+Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (SQL Server, blob de Azure, tabla de Azure, etc.).
 
 La sección typeProperties es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección **typeProperties** del conjunto de datos de tipo **SqlServerTable** tiene las propiedades siguientes.
 
@@ -484,25 +486,25 @@ Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas de
 
 ## Solución de problemas de conexión
 
-1. Configure su SQL Server para que acepte conexiones remotas. Inicie **SQL Server Management Studio**, haga clic con el botón derecho en **servidor** y haga clic en **Propiedades**. Seleccione **Conexiones** en la lista y compruebe **Permitir conexiones remotas con este servidor**.
+1. Configure su SQL Server para que acepte conexiones remotas. Inicie **SQL Server Management Studio**, haga clic con el botón derecho en **servidor** y haga clic en **Propiedades**. Seleccione **Conexiones** en la lista y active **Permitir conexiones remotas con este servidor**.
 	
 	![Habilitar conexiones remotas](.\media\data-factory-sqlserver-connector\AllowRemoteConnections.png)
 
-	Vea [Establecer la opción de configuración del servidor Opciones de usuario](https://msdn.microsoft.com/library/ms191464.aspx) para pasos detallados. 
-2. Inicie el **Administrador de configuración de SQL Server**. Expanda **Configuración de red de SQL Server** para la instancia que quiere y seleccione **Protocolos para MSSQLSERVER**. Debería ver protocolos en el panel derecho. Para habilitar TCP/TP, haga clic con el botón derecho en **TCP/IP** y haga clic en **Habilitar**.
+	Consulte los pasos detallados en [Configurar la opción de configuración del servidor Acceso remoto](https://msdn.microsoft.com/library/ms191464.aspx). 
+2. Inicie el **Administrador de configuración de SQL Server**. Expanda **Configuración de red de SQL Server** para la instancia que desee y seleccione **Protocolos para MSSQLSERVER**. Debería ver protocolos en el panel derecho. Para habilitar TCP/TP, haga clic con el botón derecho en **TCP/IP** y haga clic en **Habilitar**.
 
 	![Habilitar TCP/IP](.\media\data-factory-sqlserver-connector\EnableTCPProptocol.png)
 
-	Vea [Habilitar o deshabilitar un protocolo de red de servidor](https://msdn.microsoft.com/library/ms191294.aspx) para detalles y maneras alternativas de habilitar el protocolo TCP/IP. 
-3. En la misma ventana, haga doble clic en **TCP/IP** para iniciar la ventana **Propiedades de TCP/IP**.
-4. Cambie a la pestaña **Direcciones IP**. Desplácese hacia abajo para ver la sección **IPAll**. Anote el **Puerto TCP** (el valor predeterminado es **1433**).
+	Consulte [Habilitar o deshabilitar un protocolo de red de servidor](https://msdn.microsoft.com/library/ms191294.aspx) para ver detalles y maneras alternativas de habilitar el protocolo TCP/IP. 
+3. En la misma ventana, haga doble clic en **TCP/IP** para abrir la ventana **Propiedades de TCP/IP**.
+4. Cambie a la pestaña **Direcciones IP**. Desplácese hacia abajo hasta la sección **IPAll**. Anote el valor de **Puerto TCP** (el valor predeterminado es **1433**).
 5. Cree una **regla del Firewall de Windows** en el equipo para permitir el tráfico entrante a través de este puerto.  
-6. **Comprobar conexión**: use SQL Server Management Studio desde una máquina diferente para conectarse a SQL Server con el nombre completo. Por ejemplo: <machine>.<domain>.corp.<company>.com,1433.
+6. **Compruebe la conexión**: use SQL Server Management Studio en un equipo diferente para conectarse a SQL Server con el nombre completo. Por ejemplo: <machine>.<domain>.corp.<company>.com,1433.
 
 	> [AZURE.IMPORTANT] 
-	Vea [Ports and Security Considerations](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) (Consideraciones de puertos y seguridad) para información detallada.
+	Consulte [Consideraciones de puertos y seguridad](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) para información detallada.
 	>   
-	> Vea [Solución de problemas de puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre solución de problemas de conexión o puerta de enlace.
+	> Consulte [Solución de problemas de la puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre la solución de problemas de conexión o puerta de enlace.
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -515,7 +517,7 @@ Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas de
 
 ### Asignación de tipos para SQL Server y SQL de Azure
 
-Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
+Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de tipos, de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
 
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
@@ -565,4 +567,4 @@ La asignación es igual que la asignación de tipo de datos de SQL Server para A
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

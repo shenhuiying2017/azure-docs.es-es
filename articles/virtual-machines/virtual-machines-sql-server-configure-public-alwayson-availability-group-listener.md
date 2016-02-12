@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn | Microsoft Azure"
 	description="Este tutorial le guiará a través de los pasos necesarios para crear un agente de escucha de grupo de disponibilidad AlwaysOn en Azure que sea accesible desde el exterior usando la dirección IP virtual pública del servicio en la nube asociado."
 	services="virtual-machines"
@@ -7,13 +7,13 @@
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-service-management" />
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure
@@ -25,7 +25,7 @@
 En este tema se muestra cómo configurar un agente de escucha para un grupo de disponibilidad AlwaysOn al que se tiene acceso externo en Internet. Esto se hace posible asociando la dirección **IP Virtual pública (VIP)** del servicio en la nube al agente de escucha.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
- 
+
 
 El grupo de disponibilidad puede contener réplicas que son solo locales, solo de Azure o abarcan ambas, locales y de Azure, para configuraciones híbridas. Las réplicas de Azure pueden residir en la misma región o en varias regiones mediante varias redes virtuales (VNet). En los pasos siguientes se supone que ya tiene [configurado un grupo de disponibilidad](virtual-machines-sql-server-alwayson-availability-groups-gui.md) pero no un agente de escucha.
 
@@ -43,11 +43,11 @@ Tenga en cuenta las siguientes instrucciones acerca del agente de escucha del gr
 
 - No se puede crear un agente de escucha externo en el mismo servicio en la nube donde también haya creado un agente de escucha interno mediante el Equilibrador de carga interno (ILB).
 
-## Determinación de la accesibilidad del agente de escucha
+## Determinar la accesibilidad del agente de escucha
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Este artículo se centra en la creación de un agente de escucha que usa **equilibrio de carga externo**. Si quiere un agente de escucha que sea privado para su red virtual, consulte la versión de este artículo que indica los pasos necesarios para configurar un [agente de escucha con ILB](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+Este artículo se centra en la creación de un agente de escucha que usa **equilibrio de carga externo**. Si quiere un agente de escucha que sea privado para su red virtual, vea la versión de este artículo que indica los pasos necesarios para configurar un [agente de escucha con ILB](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
 
 ## Creación de extremos de máquina virtual de carga equilibrada con Direct Server Return
 
@@ -60,7 +60,7 @@ El equilibrio de carga externo usa la dirección IP virtual pública del servici
 		# Define variables
 		$ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
 		$AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
-		
+
 		# Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
 		ForEach ($node in $AGNodes)
 		{
@@ -81,7 +81,7 @@ El equilibrio de carga externo usa la dirección IP virtual pública del servici
 
 [AZURE.INCLUDE [firewall](../../includes/virtual-machines-ag-listener-create-listener.md)]
 
-1. Para el equilibrio de carga externo, debe obtener la dirección IP virtual pública del servicio en la nube que contiene las réplicas. Inicie sesión en el Portal de Azure clásico. Navegue hasta el servicio en la nube que contiene la máquina virtual del grupo de disponibilidad. Abra la vista **Panel**. 
+1. Para el equilibrio de carga externo, debe obtener la dirección IP virtual pública del servicio en la nube que contiene las réplicas. Inicie sesión en el Portal de Azure clásico. Navegue hasta el servicio en la nube que contiene la máquina virtual del grupo de disponibilidad. Abra la vista **Panel**.
 
 3. Tome nota de la dirección que aparece en **Dirección IP virtual (VIP) pública**. Si la solución abarca redes virtuales, repita este paso para cada servicio en la nube que contenga una máquina virtual que hospeda una réplica.
 
@@ -89,13 +89,13 @@ El equilibrio de carga externo usa la dirección IP virtual pública del servici
 
 		# Define variables
 		$ClusterNetworkName = "<ClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-		$IPResourceName = "<IPResourceName>" # the IP Address resource name 
+		$IPResourceName = "<IPResourceName>" # the IP Address resource name
 		$CloudServiceIP = "<X.X.X.X>" # Public Virtual IP (VIP) address of your cloud service
-		
+
 		Import-Module FailoverClusters
-		
-		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code. 
-		
+
+		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
+
 		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
 		# cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
 
@@ -130,4 +130,4 @@ Si las réplicas AlwaysOn están en subredes diferentes, los clientes tendrán q
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

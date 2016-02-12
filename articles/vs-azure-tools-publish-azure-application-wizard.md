@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Asistente Publicar aplicaciones de Azure.
@@ -21,7 +21,7 @@
 
 Después de desarrollar una aplicación web en Visual Studio, puede publicarla más fácilmente en un servicio en la nube de Azure mediante el asistente **Publicar aplicación de Azure**. En la primera sección se explican los pasos que se deben completar antes de usar el asistente y en las secciones restantes se explican las características del asistente.
 
->[AZURE.NOTE]Este tema explica la implementación en servicios en la nube, no en sitios web. Para obtener más información sobre la implementación en sitios web, consulte [Implementación de un sitio web de Azure](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
+>[AZURE.NOTE] Este tema explica la implementación en servicios en la nube, no en sitios web. Para obtener más información sobre la implementación en sitios web, consulte [Implementación de un sitio web de Azure](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
 
 ## Requisitos previos
 
@@ -29,13 +29,13 @@ Antes de publicar la aplicación web en Azure, debe tener una cuenta de Microsof
 
 1. Obtenga una cuenta de Microsoft y una suscripción de Azure. Puede probar [aquí](https://azure.microsoft.com/pricing/free-trial/) una suscripción a Azure gratuita durante un mes.
 
-1. Cree un servicio en la nube y una cuenta de almacenamiento de Azure. Puede hacer esto desde el Explorador de servidores en Visual Studio o mediante el [Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Para obtener más información sobre cómo configurar el entorno de Azure, consulte [Configurar servicios necesarios para publicar un servicio en la nube desde Visual Studio](vs-azure-tools-publish-azure-application-wizard).
+1. Cree un servicio en la nube y una cuenta de almacenamiento de Azure. Puede hacer esto desde el Explorador de servidores en Visual Studio o mediante el [Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. Habilite la aplicación web para Azure. Para habilitar la aplicación web para que se publique en Azure desde Visual Studio, deberá asociarla a un proyecto de servicio en la nube de Azure en Visual Studio. Para crear el proyecto de servicio en la nube asociado, abra el menú contextual del proyecto para la aplicación web y, luego, elija Convertir, **Convertir en proyecto de servicio en la nube de Azure**.
 
 1. Cuando el proyecto del servicio en la nube se agregue a la solución, vuelva a abrir el mismo menú contextual y, luego, elija **Publicar**. Para obtener más información sobre cómo habilitar aplicaciones para Azure, consulte [Procedimiento: para migrar y publicar una aplicación web en un servicio en la nube de Azure desde Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx).
 
->[AZURE.NOTE]Asegúrese de iniciar Visual Studio con credenciales de administrador (Ejecutar como administrador).
+>[AZURE.NOTE] Asegúrese de iniciar Visual Studio con credenciales de administrador (Ejecutar como administrador).
 
 1. Cuando esté preparado para publicar la aplicación, abra el menú contextual del proyecto del servicio en la nube de Azure y elija **Publicar**. Los pasos siguientes muestran el asistente Publicar aplicación de Azure.
 
@@ -65,7 +65,7 @@ Antes de publicar la aplicación web en Azure, debe tener una cuenta de Microsof
 
 1. Modifique los valores deseados para esta implementación y, a continuación, publíquela mediante el botón **Publicar** (en la sección siguiente se proporcionan más detalles sobre las distintas configuraciones). Para revisar la configuración antes de publicar, elija el botón **Siguiente**.
 
-    >[AZURE.NOTE]Si eligió Publicar en este paso, puede supervisar el estado de esta implementación en Visual Studio.
+    >[AZURE.NOTE] Si eligió Publicar en este paso, puede supervisar el estado de esta implementación en Visual Studio.
 
 Puede modificar la configuración avanzada y la configuración común para una implementación mediante el asistente **Publicar aplicación de Azure**. Por ejemplo, puede elegir una configuración para implementar la aplicación en un entorno de prueba antes de liberarla. La siguiente ilustración muestra la pestaña **Configuración común** para una implementación de Azure.
 
@@ -97,7 +97,7 @@ Puede modificar la configuración avanzada y la configuración común para una i
 
 1. En la lista **Cuenta de almacenamiento**, elija la cuenta de almacenamiento que desee usar para esta implementación. Compare las ubicaciones de los centros de datos para el servicio en la nube y la cuenta de almacenamiento. Idealmente, estas ubicaciones deben ser iguales.
 
-    >[AZURE.NOTE]La cuenta de almacenamiento de Azure almacena el paquete para la implementación de la aplicación. Una vez implementada la aplicación, el paquete se quita de la cuenta de almacenamiento.
+    >[AZURE.NOTE] La cuenta de almacenamiento de Azure almacena el paquete para la implementación de la aplicación. Una vez implementada la aplicación, el paquete se quita de la cuenta de almacenamiento.
 
 1. Active la casilla **Actualización de implementación** si desea implementar solo los componentes actualizados. Este tipo de implementación puede ser más rápido que la implementación completa. Elija el vínculo **Configuración** para abrir el cuadro de diálogo **Configuración de actualización de implementación**, que se muestra en la ilustración siguiente.
 
@@ -113,7 +113,7 @@ Puede modificar la configuración avanzada y la configuración común para una i
 2. Para generar el perfil de esta aplicación, active la casilla **Habilitar generación de perfiles** y, a continuación, elija el vínculo **Configuración** para mostrar las opciones de generación de perfiles.
 
 
-    >[AZURE.NOTE]Debe usar Visual Studio Ultimate para habilitar IntelliTrace o la generación de perfiles de interacción de capa (TIP), pero no puede habilitar ambos al mismo tiempo.
+    >[AZURE.NOTE] Debe usar Visual Studio Ultimate para habilitar IntelliTrace o la generación de perfiles de interacción de capa (TIP), pero no puede habilitar ambos al mismo tiempo.
 
     Para obtener más información, consulte [Depurar con IntelliTrace y Visual Studio un servicio en la nube](https://msdn.microsoft.com/library/azure/ff683671.aspx) y [Probar el rendimiento de un servicio en la nube](https://msdn.microsoft.com/library/azure/hh369930.aspx).
 
@@ -125,13 +125,11 @@ Puede modificar la configuración avanzada y la configuración común para una i
 
     ![Pantalla de resumen del Asistente para publicación](./media/vs-azure-tools-publish-azure-application-wizard/IC749015.png)
 
-    >[AZURE.NOTE]El perfil de publicación aparecerá en el Explorador de soluciones en Visual Studio y su configuración se escribirá en un archivo con la extensión .azurePubxml. La configuración se guarda como atributos de etiquetas XML.
+    >[AZURE.NOTE] El perfil de publicación aparecerá en el Explorador de soluciones en Visual Studio y su configuración se escribirá en un archivo con la extensión .azurePubxml. La configuración se guarda como atributos de etiquetas XML.
 
 1. Elija **Publicar** para publicar la aplicación. Puede supervisar el estado del proceso en la ventana **Resultados** de Visual Studio.
 
 ## Otras referencias
-
-[Configurar servicios necesarios para publicar un servicio en la nube desde Visual Studio](https://msdn.microsoft.com/library/azure/ff683668.aspx)
 
 [Procedimiento: para migrar y publicar una aplicación web en un servicio en la nube de Azure desde Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx)
 
@@ -141,4 +139,4 @@ Puede modificar la configuración avanzada y la configuración común para una i
 
 [Probar el rendimiento de un servicio en la nube](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

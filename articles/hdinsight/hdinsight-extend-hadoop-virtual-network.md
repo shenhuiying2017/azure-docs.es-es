@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/13/2016"
+   ms.date="01/29/2016"
    ms.author="larryfr"/>
 
 
@@ -64,34 +64,47 @@ Para obtener más información sobre las características, las ventajas y la fun
 
 > [AZURE.IMPORTANT] La creación de un clúster de HDInsight en una red virtual requiere configuraciones de red virtual específicas, que se describen en esta sección.
 
-* HDInsight de Azure solo admite redes virtuales basadas en la ubicación. Actualmente, no funciona con redes virtuales basadas en grupos de afinidad. 
+###Redes virtuales basadas en la ubicación
 
-* Se recomienda encarecidamente crear una única subred para cada clúster de HDInsight.
+HDInsight de Azure solo admite redes virtuales basadas en la ubicación. Actualmente, no funciona con redes virtuales basadas en grupos de afinidad.
 
-* Los clústeres basados en Windows requieren una red virtual v1 (clásica), mientras que los clústeres basados en Linux requieren una red virtual v2 (Administrador de recursos de Azure). Si no dispone del tipo correcto de red, no se podrá usar cuando cree el clúster.
+###Subredes
 
-    Si dispone de recursos en una red virtual que no se puede usar por el clúster que planea crear, puede crear una nueva red virtual que se pueda usar por el clúster y conectarla a la red virtual incompatible. Luego puede crear el clúster en la versión de la red que requiere y podrá tener acceso a los recursos de la otra red puesto que los dos están combinadas. Para más información sobre cómo conectar redes virtuales clásicas y nuevas, vea [Conexión de redes virtuales clásicas a redes virtuales nuevas](../virtual-network/virtual-networks-arm-asm-s2s.md).
+Se recomienda encarecidamente crear una única subred para cada clúster de HDInsight.
 
-* HDInsight no se admite en las redes virtuales de Azure que restringen explícitamente el acceso a Internet. Por ejemplo, mediante grupos de seguridad de red u objetos ExpressRoute para bloquear el tráfico de Internet a los recursos de la red virtual. El servicio HDInsight es un servicio administrado y requiere acceso a Internet durante el aprovisionamiento y mientras se ejecuta para que Azure pueda supervisar el estado del clúster, iniciar la conmutación por error de los recursos de clúster y hacer otras tareas de administración automatizadas.
+###Red virtual clásica o v2
 
-    Si va a usar HDInsight en una red virtual que bloquea el tráfico de Internet, puede hacer lo siguiente:
+Los clústeres basados en Windows requieren una red virtual v1 (clásica), mientras que los clústeres basados en Linux requieren una red virtual v2 (Administrador de recursos de Azure). Si no dispone del tipo correcto de red, no se podrá usar cuando cree el clúster.
 
-    1. Crear una nueva subred dentro de la red virtual. De forma predeterminada, la nueva subred podrá comunicarse con Internet. Esto permite que HDInsight esté instalado en esta subred. Puesto que la nueva subred está en la misma red virtual que las subredes seguras, también puede comunicarse con los recursos instalados allí.
+Si dispone de recursos en una red virtual que no se puede usar por el clúster que planea crear, puede crear una nueva red virtual que se pueda usar por el clúster y conectarla a la red virtual incompatible. Luego puede crear el clúster en la versión de la red que requiere y podrá tener acceso a los recursos de la otra red puesto que los dos están combinadas. Para más información sobre cómo conectar redes virtuales clásicas y nuevas, vea [Conexión de redes virtuales clásicas a redes virtuales nuevas](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+###Redes virtuales protegidas
+
+HDInsight no se admite en las redes virtuales de Azure que restringen explícitamente el acceso a Internet. Por ejemplo, mediante grupos de seguridad de red u objetos ExpressRoute para bloquear el tráfico de Internet a los recursos de la red virtual. El servicio HDInsight es un servicio administrado y requiere acceso a Internet durante el aprovisionamiento y mientras se ejecuta para que Azure pueda supervisar el estado del clúster, iniciar la conmutación por error de los recursos de clúster y hacer otras tareas de administración automatizadas.
+
+Si va a usar HDInsight en una red virtual que bloquea el tráfico de Internet, puede hacer lo siguiente:
+
+1. Crear una nueva subred dentro de la red virtual. De forma predeterminada, la nueva subred podrá comunicarse con Internet. Esto permite que HDInsight esté instalado en esta subred. Puesto que la nueva subred está en la misma red virtual que las subredes seguras, también puede comunicarse con los recursos instalados allí.
+
+2. Cree el clúster de HDInsight. Al configurar las opciones de red virtual para el clúster, seleccione la subred que creó en el paso 1.
+
+> [AZURE.NOTE] Con los pasos anteriores se supone que no ha restringido las comunicaciones con direcciones IP _dentro del intervalo de direcciones IP de la red virtual_. Si lo ha hecho, debe modificar estas restricciones para permitir la comunicación con la nueva subred.
+
+Si no está seguro de si se les aplican restricciones a la subred en la que desea instalar HDInsight, o si desea quitar las restricciones de la subred, siga estos pasos:
+
+1. Abra el [Portal de Azure](https://portal.azure.com).
+
+2. Seleccione la Red virtual.
+
+3. Selecciones __Propiedades__.
+
+4. Seleccione __Subredes__ y, a continuación, seleccione la subred específica. En la hoja de esta subred, las entradas del __Grupo de seguridad de red__ y la __Tabla de enrutamiento__ se establecerán en un valor de __Ninguno__ si no se ha aplicado ninguna restricción.
+
+    Si se han aplicado restricciones, puede quitar la restricción seleccionando la entrada del __Grupo de seguridad de red__ o la __Tabla de enrutamiento__ y, a continuación, seleccionando __Ninguno__. Por último, seleccione __Guardar__ desde la hoja Subred para guardar los cambios.
     
-    2. Puede confirmar que no hay ninguna tabla de grupo de seguridad de red o ruta específica asociada a la subred mediante las siguientes instrucciones de PowerShell. Reemplace __VIRTUALNETWORKNAME__ con el nombre de la red virtual, reemplace __GROUPNAME__ con el nombre del grupo de recursos que contiene la red virtual y reemplace __SUBNET__ con el nombre de la subred.
-        
-            $vnet = Get-AzureRmVirtualNetwork -Name VIRTUALNETWORKNAME -ResourceGroupName GROUPNAME
-            $vnet.Subnets | Where-Object Name -eq "SUBNET"
-            
-        En los resultados, tenga en cuenta que tanto __NetworkSecurityGroup__ como __RouteTable__ son `null`.
-    
-    2. Cree el clúster de HDInsight. Al configurar las opciones de red virtual para el clúster, seleccione la subred que creó en el paso 1.
+    ![Imagen de la hoja Subred y selección de Grupo de seguridad de red](./media/hdinsight-extend-hadoop-virtual-network/subnetnsg.png)
 
-    > [AZURE.NOTE] Con los pasos anteriores se supone que no ha restringido las comunicaciones con direcciones IP _ dentro del intervalo de direcciones IP de la red virtual_. Si lo ha hecho, debe modificar estas restricciones para permitir la comunicación con la nueva subred.
-
-    Para más información sobre los grupos de seguridad de red, consulte [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md) Para más información sobre cómo controlar el enrutamiento en una Red virtual de Azure, consulte [Rutas definidas por el usuario y reenvío IP](../virtual-network/virtual-networks-udr-overview.md).
-
-Para obtener más información sobre el aprovisionamiento de un clúster de HDInsight en una red virtual, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md).
+Para obtener más información sobre los grupos de seguridad de red, consulte [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md) Para obtener más información sobre cómo controlar el enrutamiento en una Red virtual de Azure, consulte [Rutas definidas por el usuario y reenvío IP](../virtual-network/virtual-networks-udr-overview.md).
 
 ##<a id="tasks"></a>Tareas e información
 
@@ -199,4 +212,4 @@ Los siguientes ejemplos demuestran cómo usar HDInsight con Red virtual de Azure
 
 Para obtener más información acerca de Redes virtuales de Azure, consulte la [Información general sobre Red virtual de Azure](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

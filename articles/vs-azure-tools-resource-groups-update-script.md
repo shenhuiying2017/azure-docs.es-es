@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/20/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher" />
 
 # Actualización del script de PowerShell para el proyecto del grupo de recursos de Azure
@@ -229,4 +229,4 @@ New-AzureRMResourceGroupDeployment `
 
 ```
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

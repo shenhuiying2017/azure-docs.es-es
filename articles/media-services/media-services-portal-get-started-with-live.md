@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="01/31/2016"  
 	ms.author="juliako"/>
 
 
@@ -37,7 +37,7 @@ En este tutorial, se utiliza el Portal de Azure clásico para realizar las tarea
 ## Requisitos previos
 Los siguientes requisitos son necesarios para completar el tutorial.
 
-- Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](azure.microsoft.com).
+- Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
 - Una cuenta de Servicios multimedia. Para crear una cuenta de Servicios multimedia, consulte el tema de [creación de cuenta](media-services-create-account.md).
 - Una cámara web y un codificador que puede enviar una secuencia en vivo con velocidad de bits múltiple.
 
@@ -88,7 +88,7 @@ Una vez creado el canal, obtendrá direcciones URL de introducción que se propo
 
 ![ingesturls](./media/media-services-portal-get-started-with-live/media-services-ingest-urls.png)
 
-Para obtener más información sobre las URL de introducción, consulte [Uso de codificadores locales para enviar secuencias en vivo de velocidad de bits múltiple a un canal](../media-services-channels-overview.md)
+Para obtener más información sobre las URL de introducción, consulte [Uso de codificadores locales para enviar secuencias en vivo de velocidad de bits múltiple a un canal](media-services-channels-overview.md)
 
 ## Configuración de un codificador en directo y de una secuencia en vivo de introducción
 
@@ -212,4 +212,4 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

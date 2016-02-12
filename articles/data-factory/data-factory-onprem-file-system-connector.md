@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# Movimiento de datos hacia y desde el sistema de archivos local con Factoría de datos de Azure
+# Movimiento de datos hacia el sistema de archivos local y desde él con Factoría de datos de Azure
 
 En este artículo se describe cómo se puede usar la actividad de copia de la Factoría de datos para mover datos al sistema de archivos local, y desde este. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
@@ -36,7 +36,9 @@ Realice los dos pasos siguientes para usar un recurso compartido de archivos de 
  
 ## Ejemplo: copiar datos de un sistema de archivos local a un blob de Azure
 
-El ejemplo siguiente muestra:
+En este ejemplo, se muestra cómo copiar datos de un sistema de archivos local a un Almacenamiento de blobs de Azure. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Factoría de datos de Azure.
+ 
+El ejemplo consta de las siguientes entidades de factoría de datos:
 
 1.	Un servicio vinculado de tipo [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties).
 2.	Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
@@ -247,7 +249,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 	   }
 	}
 
-##Ejemplo: copiar datos de SQL Azure a un sistema de archivos local 
+##Ejemplo: Copiar datos de SQL Azure a un sistema de archivos local 
 
 El ejemplo siguiente muestra:
 
@@ -606,4 +608,4 @@ false | mergeFiles | <p>Para una carpeta de origen Folder1 con la siguiente estr
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->
