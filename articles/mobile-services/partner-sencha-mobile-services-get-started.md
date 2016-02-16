@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="11/06/2015"
+	ms.date="02/10/2016"
 	ms.author="glenga"/>
 
 # <a name="getting-started"></a>Introducción a Servicios móviles y Sencha Touch
@@ -69,7 +69,7 @@ Después de crear el servicio móvil, puede seguir una sencilla introducción r�
 
 3. Haga clic en **Crear tabla TodoItems** para crear una tabla donde almacenar los datos de la aplicación.
 
-	> [AZURE.NOTE]NO descargue la aplicación HTML del Portal de Azure clásico. En su lugar, crearemos manualmente una aplicación Sencha Touch en la siguiente sección.
+	> [AZURE.NOTE] NO descargue la aplicación HTML del Portal de Azure clásico. En su lugar, crearemos manualmente una aplicación Sencha Touch en la siguiente sección.
 
 
 1. Anote el valor de **appKey** y **appUrl** en el Portal de Azure clásico. Usará esos valores en otras secciones de este tutorial.
@@ -113,7 +113,7 @@ Puede agregar manualmente las extensiones de Azure a la aplicación mediante los
 
 ###Instalación como paquete de Sencha
 
-> [AZURE.NOTE]Solo puede usar este método cuando haya generado la aplicación mediante el comando <code>sencha generate app</code>.
+> [AZURE.NOTE] Solo puede usar este método cuando haya generado la aplicación mediante el comando <code>sencha generate app</code>.
 
 Todas las aplicaciones generadas por Sencha Cmd disponen de una carpeta "packages" en la raíz. La ubicación de esta carpeta se puede configurar, pero independientemente de su ubicación, el rol de la carpeta "packages" es servir como almacenamiento de todos los paquetes usados por la aplicación (o aplicaciones si ha creado un espacio de trabajo de Sencha).
 
@@ -724,4 +724,4 @@ Para obtener información sobre las tareas iniciales de Sencha Touch, consulte e
 
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="12/08/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="robmcm"/>
 
 #Uso de Servicios multimedia con Java
@@ -275,4 +275,4 @@ Para obtener la documentación de Javadoc de Servicios multimedia, consulte [Doc
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

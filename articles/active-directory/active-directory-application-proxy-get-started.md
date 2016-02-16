@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.topic="get-started-article"
+	ms.date="02/10/2016"
 	ms.author="kgremban"/>
 
 # Provisión de acceso remoto seguro a aplicaciones locales
@@ -59,7 +59,8 @@ Hay mucho más que puede hacer con el proxy de la aplicación:
 - [Vea nuestros vídeos de Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Recursos adicionales
-* [Registro en Azure como una organización](sign-up-organization.md)
-* [Identidad de Azure](fundamentals-identity.md)
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [Registro en Azure como una organización](sign-up-organization.md)
+- [Identidad de Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

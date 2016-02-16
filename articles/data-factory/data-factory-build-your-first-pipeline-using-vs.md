@@ -103,9 +103,9 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 	
 	- Factoría de datos crea automáticamente un clúster de HDInsight **basado en Windows** con el anterior código JSON. También podría hacer que cree un clúster de HDInsight **basado en Linux**. Consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para más información. 
 	- Puede usar **su propio clúster de HDInsight** en lugar de usar un clúster de HDInsight a petición. Consulte [Servicio vinculado de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para más información.
-	- El clúster de HDInsight crea un **contenedor predeterminado** en Almacenamiento de blobs especificado en el código JSON (**linkedServiceName**). HDInsight elimina este contenedor cuando se elimina el clúster. Esto es así por diseño. Con el servicio vinculado de HDInsight a petición, se crea un clúster de HDInsight cada vez que un segmento debe procesarse, a menos que haya un clúster existente activo (**timeToLive**), y se elimina cuando se realiza el procesamiento.
+	- El clúster de HDInsight crea un **contenedor predeterminado** en Almacenamiento de blobs especificado en el código JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Esto es así por diseño. Con el servicio vinculado de HDInsight a petición, se crea un clúster de HDInsight cada vez que un segmento debe procesarse, a menos que haya un clúster existente activo (**timeToLive**), y se elimina cuando se realiza el procesamiento.
 	
-		A medida que se procesan más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. El nombre de estos contenedores siguen un patrón: "adf**nombreDeFactoríaDeDatos**-**linkedservicename**-datetimestamp". Use herramientas como [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores de Almacenamiento de blobs de Azure.
+		A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. El nombre de estos contenedores siguen un patrón: "adf**nombreDeFactoríaDeDatos**-**linkedservicename**-datetimestamp". Use herramientas como [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores de Almacenamiento de blobs de Azure.
 
 	Consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para más información. 
 4. Guarde el archivo **HDInsightOnDemandLinkedService1.json**.
@@ -261,7 +261,7 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 ### Adición de partitionweblogs.hql e input.log como una dependencia 
 
 1. Haga clic con el botón derecho en **Dependencias** en la ventana del **Explorador de soluciones**, seleccione **Agregar** y haga clic en **Elemento existente**.  
-2. Navegue hasta **C:\ADFGettingStarted**, seleccione los archivos **partitionweblogs.hql** e **input.log** y haga clic en **Agregar**. Se crearon estos dos archivos como parte de los requisitos previos de la sección [Tutorial Overview](data-factory-build-your-first-pipeline.md).
+2. Navegue hasta **C:\\ADFGettingStarted**, seleccione los archivos **partitionweblogs.hql** e **input.log** y haga clic en **Agregar**. Se crearon estos dos archivos como parte de los requisitos previos de la sección [Tutorial Overview](data-factory-build-your-first-pipeline.md).
 
 Al publicar la solución en el paso siguiente, se carga el archivo **partitionweblogs.hql** en la carpeta de scripts del contenedor de blobs **adfgetstarted**.
 
@@ -290,8 +290,8 @@ Al publicar la solución en el paso siguiente, se carga el archivo **partitionwe
  
 ## Paso 4: Supervisión de la canalización
 
-6. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) y realice lo siguiente:
-	1. Haga clic en **Examinar** y seleccione **Factorías de datos**.
+6. Inicie sesión en el [Portal de Azure](http://portal.azure.com/) y realice lo siguiente:
+	1. Haga clic en **Examinar** y seleccione **Factorías de datos**. 
 		![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Seleccione **FirstDataFactoryUsingVS** en la lista de factorías de datos. 
 7. En la página principal de la factoría de datos, haga clic en **Diagrama**.
@@ -324,6 +324,8 @@ Al publicar la solución en el paso siguiente, se carga el archivo **partitionwe
  
 	![datos de salida](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
 
+Consulte [Supervisión y administración de canalizaciones de la Factoría de datos de Azure](data-factory-monitor-manage-pipelines.md) para obtener instrucciones sobre cómo usar el Portal de Azure para supervisar la canalización y los conjuntos de datos creados en este tutorial.
+
 ## Uso del Explorador de servidores para revisar las entidades de Factoría de datos
 
 1. En **Visual Studio** haga clic en **Vista** en el menú y haga clic en **Explorador de servidores**.
@@ -342,11 +344,101 @@ Para actualizar las herramientas de Factoría de datos de Azure para Visual Stud
 2. Seleccione **Actualizaciones** en el panel izquierdo y, luego, seleccione **Galería de Visual Studio**.
 3. Seleccione **Herramientas de Factoría de datos de Azure para Visual Studio** y haga clic en **Actualizar**. Si no ve esta entrada, ya tiene la versión más reciente de las herramientas. 
 
-Consulte [Supervisión y administración de canalizaciones de la Factoría de datos de Azure](data-factory-monitor-manage-pipelines.md) para obtener instrucciones sobre cómo usar el Portal de Azure para supervisar la canalización y los conjuntos de datos creados en este tutorial.
- 
+## Uso de archivos de configuración
+Puede usar archivos de configuración de Visual Studio para configurar propiedades para servicios vinculados/tablas/canalizaciones distintos para cada entorno.
+
+Considere la siguiente definición de JSON para un servicio vinculado de Almacenamiento de Azure. Para especificar la propiedad **connectionString** con distintos valores para accountname y accountkey basados en el entorno (desarrollo, prueba y producción) en el que va a implementar las entidades de Factoría de datos. Puede hacerlo usando el archivo de configuración independiente para cada entorno.
+
+	{
+	    "name": "StorageLinkedService",
+	    "properties": {
+	        "type": "AzureStorage",
+	        "description": "",
+	        "typeProperties": {
+	            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+	        }
+	    }
+	} 
+
+### Adición de un archivo de configuración
+Agregue un archivo de configuración a cada entorno realizando los pasos siguientes:
+
+1. Haga clic con el botón derecho en el proyecto de Factoría de datos de la solución de Visual Studio, seleccione **Agregar** y haga clic en **Nuevo elemento**.
+2. Seleccione **Config** en la lista de plantillas instaladas de la izquierda, elija **Archivo de configuración**, escriba un **nombre** para el archivo de configuración y haga clic en **Agregar**.
+
+	![Adición de archivo de configuración](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
+3. Agregue parámetros de configuración y sus valores en el formato que se muestra a continuación:
+
+		{
+		    "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
+		    "AzureStorageLinkedService1": [
+		        {
+		            "name": "$.properties.typeProperties.connectionString",
+		            "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+		        }
+		    ],
+		    "AzureSqlLinkedService1": [
+		        {
+		            "name": "$.properties.typeProperties.connectionString",
+		            "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+		        }
+		    ]
+		}
+
+	En este ejemplo se configura la propiedad connectionString de un servicio vinculado de Almacenamiento de Azure y un servicio vinculado de SQL de Azure. Observe que la sintaxis para especificar el nombre es [JsonPath](http://goessner.net/articles/JsonPath/).
+
+	Si JSON tiene una propiedad con una matriz de valores como se muestra a continuación:
+
+		"structure": [
+	  		{
+	  			"name": "FirstName",
+	    		"type": "String"
+	  		},
+	  		{
+	    		"name": "LastName",
+	    	    "type": "String"
+			}
+		],
+	
+	Debe configurar lo que sigue en el archivo de configuración (use la indexación de base cero):
+		
+		{
+            "name": "$.properties.structure[0].name",
+            "value": "FirstName"
+        }
+        {
+            "name": "$.properties.structure[0].type",
+            "value": "String"
+        }
+        {
+            "name": "$.properties.structure[1].name",
+            "value": "LastName"
+        }
+        {
+            "name": "$.properties.structure[1].type",
+            "value": "String"
+        }
+
+
+### Implementación de la solución mediante una configuración
+Al publicar las entidades de Factoría de datos de Azure en Visual Studio, puede especificar la configuración que desea usar para esa operación de publicación.
+
+Para publicar entidades en un proyecto de Factoría de datos de Azure mediante el archivo de configuración:
+
+1. Haga doble clic en el proyecto de Factoría de datos y haga clic en **Publicar** para ver el cuadro de diálogo **Publicar elementos**. 
+2. Seleccione una factoría de datos existente o especifique valores para crear una nueva en la página **Configurar factoría de datos** y haga clic en **Siguiente**.   
+3. En la página **Publicar elementos**, verá una lista desplegable con las configuraciones disponibles para el campo **Seleccionar configuración de implementación**.
+
+	![Selección de archivo de configuración](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
+
+4. Seleccione el **archivo de configuración** que le gustaría usar y haga clic en **Siguiente**.
+5. Confirme que aparece el nombre del archivo JSON en la página **Resumen** y haga clic en **Siguiente**. 
+6. Cuando se haya finalizado la implementación, haga clic en **Finalizar**. 
+
+Cuando realiza la implementación, se usan los valores del archivo de configuración para establecer los valores de las propiedades de los archivos JSON para entidades de Factoría de datos (servicios vinculados, tablas o canalizaciones) antes de que las entidades se implementen en el servicio Factoría de datos de Azure.
 
 ## Pasos siguientes
 En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

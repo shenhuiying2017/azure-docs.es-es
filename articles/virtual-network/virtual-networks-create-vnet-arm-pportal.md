@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de una red virtual usando el portal de vista previa de Azure | Microsoft Azure"
-   description="Obtenga información sobre cómo crear una red virtual con el portal de vista previa de Azure en ARM | Administrador de recursos."
+   pageTitle="Creación de una red virtual usando el portal de Azure | Microsoft Azure"
+   description="Aprenda a crear una red virtual mediante el Portal de Azure en ARM | Administrador de recursos."
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/04/2016"
    ms.author="telmos"/>
 
-# Creación de una red virtual usando el portal de vista previa de Azure
+# Creación de una red virtual mediante el Portal de Azure
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
 
@@ -30,4 +30,4 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-pportal-include](../../includes/virtual-networks-create-vnet-arm-pportal-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

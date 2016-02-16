@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/28/2016"
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 
@@ -66,7 +66,7 @@ Obtenga y ejecute un ejemplo desde [aquí](https://azure.microsoft.com/documenta
 
 1. En el Portal de Azure clásico, haga clic en **Nuevo**, en **Servicios multimedia** y luego en **Creación rápida**.
 
-![Creación rápida de Servicios multimedia](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
+	![Creación rápida de Servicios multimedia](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
 
 2. En **NOMBRE**, especifique el nombre de la cuenta nueva. El nombre de cuenta de Servicios multimedia debe estar compuesto de números o letras en minúscula, sin espacios y con una longitud de entre 3 y 24 caracteres.
 
@@ -153,7 +153,7 @@ La asignación de cualquier nueva unidad puede tardar unos 20 minutos en finaliz
 		using Microsoft.WindowsAzure.MediaServices.Client;
 		
 
-6. Cree una carpeta nueva en el directorio de proyectos y copie el archivo .mp4 o .wmv que desea codificar y transmítalo o descárguelo progresivamente. En este ejemplo, se usa la ruta de acceso "C:\VideoFiles".
+6. Cree una carpeta nueva en el directorio de proyectos y copie el archivo .mp4 o .wmv que desea codificar y transmítalo o descárguelo progresivamente. En este ejemplo, se usa la ruta de acceso "C:\\VideoFiles".
 
 ##Conexión a la cuenta de Servicios multimedia
 
@@ -256,7 +256,7 @@ Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 - Codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable.  
 - Obtener al menos una unidad de streaming para el extremo de streaming para el que planea entregar el contenido.
 
-El código siguiente muestra cómo enviar un trabajo de codificación. El trabajo contiene una tarea que especifica la transcodificación del archivo intermedio en un conjunto de MP4 de velocidades de bits adaptables con el **Estándar de codificador multimedia**. El código envía el trabajo y espera hasta que se complete.
+El código siguiente muestra cómo enviar un trabajo de codificación. El trabajo contiene una tarea que especifica la transcodificación del archivo intermedio en un conjunto de MP4 de velocidades de bits adaptables con el **Estándar de Codificador multimedia**. El código envía el trabajo y espera hasta que se complete.
 
 Una vez completado el trabajo, debería poder transmitir el recurso o descargar progresivamente archivos MP4 creados como resultado de la transcodificación. Tenga en cuenta que no es necesario obtener más de 0 unidades de streaming para descargar progresivamente archivos MP4.
 
@@ -453,4 +453,4 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

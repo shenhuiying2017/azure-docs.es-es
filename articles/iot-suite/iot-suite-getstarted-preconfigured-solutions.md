@@ -57,7 +57,7 @@ Para completar este tutorial, deberá tener una suscripción de Azure activa.
 
     ![][img-devicelist]
 
-2.  Puede ver que hay cuatro dispositivos simulados creados por el proceso de aprovisionamiento.
+2.  La lista de dispositivos muestra que hay cuatro dispositivos simulados creados por el proceso de aprovisionamiento.
 
 3.  Haga clic en un dispositivo en la lista de dispositivos para ver sus detalles.
 
@@ -130,6 +130,8 @@ Para completar este tutorial, deberá tener una suscripción de Azure activa.
 9.  Vuelva a la tabla **Historial de alarmas** en el **Panel de la solución** y observe el cambio en el comportamiento que resulta de la regla actualizada.
 
     ![][img-newhistory]
+    
+Cuando haya terminado, puede eliminar la solución preconfigurada de su suscripción de Azure en el sitio [azureiotsuite.com][lnk-azureiotsuite]; esto le permite eliminar fácilmente todos los recursos aprovisionados cuando crea la solución preconfigurada.
 
 ## Pasos siguientes
 
@@ -160,4 +162,4 @@ Ahora que ha creado una solución preconfigurada que funciona, puede pasar a las
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

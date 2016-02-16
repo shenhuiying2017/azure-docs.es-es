@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="11/05/2015"
+   ms.date="02/02/2016"
    ms.author="elizapo"/>
 
 # Ejecución de cualquier aplicación de Windows en cualquier dispositivo con Azure RemoteApp
@@ -118,4 +118,4 @@ Ahora que ha aprendido a crear una colección, intente crear una [colección que
 
 <!--Image references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

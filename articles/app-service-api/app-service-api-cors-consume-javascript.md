@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="02/05/2016"
 	ms.author="tdykstra"/>
 
 # Consumo de una aplicación de API desde JavaScript con CORS
@@ -76,6 +76,8 @@ En estas herramientas, establezca la propiedad `cors` en el tipo de recurso Micr
 		    ]
 		}
 
+Para ver un ejemplo de una plantilla del Administrador de recursos de Azure que incluye JSON para configurar CORS, abra el archivo [azuredeploy.json en el repositorio de la aplicación de ejemplo](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json).
+
 ## <a id="tutorialstart"></a> Continuación del tutorial de introducción de .NET
 
 Si está siguiendo la serie de introducción de Node.js o Java para aplicaciones de API, vaya al siguiente artículo sobre la [autenticación de aplicaciones de API del Servicio de aplicaciones](app-service-api-authentication.md).
@@ -108,22 +110,9 @@ En la [aplicación de ejemplo ToDoList](https://github.com/Azure-Samples/app-ser
 		    };
 		}]);
 
-### Configuración del proyecto ToDoListAngular para llamar a la aplicación de API ToDoListAPI 
-
-Antes de implementar el front-end en Azure, tiene que cambiar el punto de conexión de API del proyecto de AngularJS para que el código llame a la aplicación de API de Azure, ToDoListAPI, que creó en el tutorial anterior.
-
-1. En el proyecto ToDoListAngular, abra el archivo *app/scripts/todoListSvc.js*.
-
-2. Convierta en comentario la línea que establece `apiEndpoint` en la dirección URL de localhost, elimine el comentario de la línea que establece `apiEndPoint` en la dirección URL azurewebsites.net y sustituya el marcador de posición por el nombre real de la aplicación de API que creó anteriormente. Si asignó a la aplicación de API el nombre ToDoListAPI0125, el código es ahora similar al ejemplo siguiente.
-
-		var apiEndPoint = 'https://todolistapi0125.azurewebsites.net';
-		//var apiEndPoint = 'http://localhost:45914';
-
-3. Guarde los cambios.
-
 ### Creación de una nueva aplicación web para el proyecto ToDoListAngular
 
-El procedimiento para crear una nueva aplicación web e implementar un proyecto en ella es el mismo que vio en el primer tutorial de esta serie, excepto que no cambió el tipo de **Aplicación web** a **Aplicación de API**.
+El procedimiento para crear una nueva aplicación web e implementar un proyecto en ella es el mismo que vio en el primer tutorial de esta serie, excepto que no cambia el tipo de **Aplicación web** a **Aplicación de API**.
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto ToDoListAngular y, a continuación, haga clic en **Publicar**.
 
@@ -145,17 +134,65 @@ El procedimiento para crear una nueva aplicación web e implementar un proyecto 
 
 	Visual Studio crea la aplicación web, crea un perfil de publicación para ella y muestra el paso **Conexión** del asistente **Publicación web**.
 
+	Antes de hacer clic en **Publicar** en el asistente de **Publicación web**, deberá configurar la nueva aplicación web para que llame a la aplicación de API de nivel intermedio en ejecución en el Servicio de aplicaciones.
+
+### Establecimiento de la dirección URL de nivel intermedio en la configuración de la aplicación web
+
+1. Vaya al [Portal de Azure](https://portal.azure.com/) y, después, vaya a la hoja **Aplicación web** de la aplicación web que creó para hospedar el proyecto TodoListAngular (front-end).
+
+2. Haga clic en **Configuración > Configuración de la aplicación**.
+
+3. En la sección **Configuración de la aplicación**, agregue la siguiente clave y valor:
+
+	|Clave|Valor|Ejemplo
+	|---|---|---|
+	|toDoListAPIURL|https://{your nombre de la aplicación de API de nivel intermedio}.azurewebsites.net|https://todolistapi0121.azurewebsites.net|
+
+4. Haga clic en **Guardar**.
+
+	Cuando el código se ejecuta en Azure, este valor anulará ahora la dirección URL de host local que se encuentra en el archivo Web.config.
+
+	El código que obtiene el valor de configuración se encuentra en *index.cshtml*:
+
+		<script type="text/javascript">
+		    var apiEndpoint = "@System.Configuration.ConfigurationManager.AppSettings["toDoListAPIURL"]";
+		</script>
+		<script src="app/scripts/todoListSvc.js"></script>
+
+	El código de *todoListSvc.js* utiliza la configuración:
+
+		return {
+		    getItems : function(){
+		        return $http.get(apiEndpoint + '/api/TodoList');
+		    },
+		    getItem : function(id){
+		        return $http.get(apiEndpoint + '/api/TodoList/' + id);
+		    },
+		    postItem : function(item){
+		        return $http.post(apiEndpoint + '/api/TodoList', item);
+		    },
+		    putItem : function(item){
+		        return $http.put(apiEndpoint + '/api/TodoList/', item);
+		    },
+		    deleteItem : function(id){
+		        return $http({
+		            method: 'DELETE',
+		            url: apiEndpoint + '/api/TodoList/' + id
+		        });
+		    }
+		};
+
 ### Implementación del proyecto web ToDoListAngular en la nueva aplicación web
 
-*  En el paso **Conexión** del Asistente para **publicación web**, haga clic en **Publicar**.
+*  En Visual Studio, en el paso **Conexión** del Asistente para **publicación web**, haga clic en **Publicar**.
 
-	Visual Studio implementa el proyecto ToDoListAngular en la aplicación web y abre un explorador en la dirección URL de la aplicación web.
+	Visual Studio implementa el proyecto ToDoListAngular en la nueva aplicación web y abre un explorador en la dirección URL de la aplicación web.
 
 ### Prueba de la aplicación sin CORS habilitado 
 
 2. En la instancia de Developer Tools del explorador, abra la ventana de la consola.
 
-3. En la ventana del explorador que muestra la UI de AngularJS, haga clic en el vínculo **To Do List**.
+3. En la ventana del explorador que muestra la interfaz de usuario de AngularJS, haga clic en el vínculo **To Do List**.
 
 	El código de JavaScript intenta llamar a la aplicación de API de nivel intermedio, pero la llamada da error porque el front-end se está ejecutando en un dominio diferente (la URL de la aplicación web) al del back-end (la URL de la aplicación de API). La ventana de la consola de Developer Tools del explorador muestra un mensaje de error entre orígenes.
 
@@ -200,7 +237,7 @@ La compatibilidad con Web API CORS es más flexible que la compatibilidad con CO
 
 ### Habilitación de CORS en el código de la API web.
 
-Los pasos siguientes resumen el proceso para habilitar la compatibilidad con Web API CORS. Para más información, consulte [Enabling Cross-Origin Requests in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) (Habilitación de solicitudes entre orígenes en ASP.NET Web API 2).
+Los pasos siguientes resumen el proceso para habilitar la compatibilidad con Web API CORS. Para más información, consulte [Enabling Cross-Origin Requests in ASP.NET Web API 2 (Habilitación de solicitudes entre orígenes en API web de ASP.NET)](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
 1. En un proyecto de API web, incluya una línea de código `config.EnableCors()` en el método **Register** de la clase **WebApiConfig**, como en el ejemplo siguiente. 
 
@@ -238,4 +275,4 @@ Los pasos siguientes resumen el proceso para habilitar la compatibilidad con Web
 
 En este tutorial se ha explicado cómo habilitar la compatibilidad con CORS del Servicio de aplicaciones para que el código JavaScript de cliente pueda llamar a una API de un dominio diferente. En el siguiente artículo de la serie de introducción a Aplicaciones de API, obtendrá información sobre [la autenticación de aplicaciones de API del Servicio de aplicaciones](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

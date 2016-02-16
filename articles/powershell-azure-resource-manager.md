@@ -12,7 +12,7 @@
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="01/08/2016" 
 	ms.author="tomfitz"/>
 
@@ -89,7 +89,7 @@ El cmdlet pide las credenciales de inicio de sesión para la cuenta de Azure. De
 
 La configuración de la cuenta caduca, por lo que necesita actualizarla ocasionalmente. Para actualizar la configuración de cuenta, vuelva a ejecutar el cmdlet **Login-AzureRmAccount**.
 
->[AZURE.NOTE]Los módulos del Administrador de recursos requieren Login-AzureRmAccount. No basta con un archivo de configuración de publicación.
+>[AZURE.NOTE] Los módulos del Administrador de recursos requieren Login-AzureRmAccount. No basta con un archivo de configuración de publicación.
 
 ## Encontrar las ubicaciones de los tipos de recursos
 
@@ -461,4 +461,4 @@ Puede mover recursos existentes a un nuevo grupo de recursos. Para ver ejemplos,
 - Para ver un ejemplo detallado de cómo implementar un proyecto, consulte [Implementación predecible de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para información sobre la solución de problemas de una implementación que da error, consulte [Solución de problemas de implementaciones de grupos de recursos en Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter=""
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico
@@ -23,9 +23,9 @@
 - [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-Este artículo le guiará a través de la creación de una red virtual y una conexión VPN de sitio a sitio con la red local. Este artículo se aplica al modelo de implementación clásico. Si está buscando un modelo de implementación diferente para esta configuración, use las pestañas para seleccionar el artículo que desee. Si desea conectar las redes virtuales entre sí pero no está creando una conexión a una ubicación local, consulte [Configurar una conexión de red virtual a red virtual en el Portal de Azure clásico](virtual-networks-configure-vnet-to-vnet-connection.md).
+Este artículo le guiará a través de la creación de una red virtual y una conexión VPN de sitio a sitio con la red local. Se pueden utilizar conexiones de sitio a sitio para las configuraciones híbridas y entre locales. Este artículo se aplica al modelo de implementación **clásico**. Si desea crear una conexión de sitio a sitio mediante el modelo de implementación del **Administrador de recursos**, consulte [Crear una red virtual con una conexión VPN de sitio a sitio mediante PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md). Si desea conectar las redes virtuales, pero no va a crear una conexión a una ubicación local, consulte [Configurar una conexión de red virtual a red virtual en el Portal de Azure clásico](virtual-networks-configure-vnet-to-vnet-connection.md) o [Configuración de una conexión de red virtual a red virtual para redes virtuales en la misma suscripción mediante el Administrador de recursos de Azure y PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
-**Información acerca de los modelos de implementación de Azure**
+**Información sobre los modelos de implementación de Azure**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
  
@@ -100,4 +100,4 @@ Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una m
 
 Si desea configurar una conexión entre una red virtual clásica y una red virtual creada con el modo de Administrador de recursos de Azure, consulte [Conexión de redes virtuales clásicas a redes virtuales nuevas](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

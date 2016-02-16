@@ -3,7 +3,7 @@
 Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
-2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
+2. Ejecute el comando **`azure config mode`** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
 		azure config mode arm
 
@@ -11,7 +11,7 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 		info:    New mode is arm
 
-3. Si es necesario, ejecute **azure group create** para crear un nuevo grupo de recursos, tal como se muestra a continuación. Observe la salida del comando. En la lista que se muestra en la salida se explican los parámetros utilizados. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](resource-group-overview.md).
+3. Si es necesario, ejecute **`azure group create`** para crear un nuevo grupo de recursos, como se muestra a continuación. Observe la salida del comando. En la lista que se muestra en la salida se explican los parámetros utilizados. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](resource-group-overview.md).
 
 		azure group create -n TestRG -l centralus
 
@@ -32,7 +32,7 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 	- **-n (o --name)**. Nombre del nuevo grupo de recursos. En este escenario, *TestRG*.
 	- **-l (o --location)**. Región de Azure donde se creará el nuevo grupo de recursos. En este escenario, *centralus*.
 
-4. Ejecute el cmdlet **azure group deployment create** para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que ha descargado y modificado anteriormente. En la lista que se muestra en la salida se explican los parámetros utilizados.
+4. Ejecute el cmdlet **`azure group deployment create`** para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que descargó y modificó anteriormente. En la lista que se muestra en la salida se explican los parámetros utilizados.
 
 		azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
@@ -65,7 +65,7 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 	- **-f (o --template-file)**. Ruta de acceso al archivo de plantilla ARM.
 	- **-e (o --parameters-file)**. Ruta de acceso al archivo de parámetros ARM.
 
-5. Ejecute el comando **azure network vnet show** para ver las propiedades de la nueva red virtual, tal como se muestra a continuación.
+5. Ejecute el comando **`azure network vnet show`** para ver las propiedades de la nueva red virtual, como se muestra a continuación.
 
 		azure network vnet show -g TestRG -n TestVNet
 
@@ -89,4 +89,4 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/05/2015"
+	ms.date="02/10/2016"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Introducción a Servicios móviles
@@ -109,7 +109,7 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 * [Introducción a las notificaciones push] Aprenda a enviar una notificación push muy básica a la aplicación.
 
-* [Uso del cliente del componente Xamarin para Servicios móviles de Azure](partner-xamarin-mobile-services-how-to-use-client-library.md) Aprenda a consultar el servicio móvil, trabajar con datos y acceder a las API personalizadas.
+
 
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
@@ -141,4 +141,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

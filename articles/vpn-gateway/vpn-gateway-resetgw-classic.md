@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # Restablecer una Puerta de enlace de VPN de Azure con PowerShell
@@ -54,9 +54,8 @@ Si la conexión no se restaura después del primer reinicio, vuelve a ejecutar e
 
 Después de dos reinicios, si sigue teniendo problemas de conectividad entre locales, abra una incidencia de soporte técnico en el Portal de Azure clásico para ponerse en contacto con el soporte técnico de Microsoft Azure.
 
-
 ## Pasos siguientes
 	
 Para obtener más información sobre este cmdlet consulta la [Referencia de PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

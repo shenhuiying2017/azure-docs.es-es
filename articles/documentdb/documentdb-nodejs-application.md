@@ -396,7 +396,7 @@ Se encarga de toda la configuración e instalación inicial; ahora volvamos a la
 		
 		module.exports = config;
 
-3. En el archivo **config.js**, actualice los valores de HOST y AUTH_KEY con los valores encontrados en la hoja de claves de la cuenta de DocumentDB en el [Portal de Microsoft Azure](https://portal.azure.com):
+3. En el archivo **config.js**, actualice los valores de HOST y AUTH\_KEY con los valores encontrados en la hoja de claves de la cuenta de DocumentDB en el [Portal de Microsoft Azure](https://portal.azure.com):
 
 4. Guarde y cierre el archivo **config.js**.
  
@@ -428,6 +428,8 @@ Se encarga de toda la configuración e instalación inicial; ahora volvamos a la
 		app.get('/', taskList.showTasks.bind(taskList));
 		app.post('/addtask', taskList.addTask.bind(taskList));
 		app.post('/completetask', taskList.completeTask.bind(taskList));
+		app.set('view engine', 'jade');
+
 
 
 6. Estas líneas definen una nueva sesión de nuestro objeto **TaskDao**, con una nueva conexión a DocumentDB (utilizando los valores de lectura de **config.js**). Además, inicializan el objeto de la tarea y, a continuación, enlazan las acciones del formulario con los métodos de nuestro controlador de **TaskList**.
@@ -505,7 +507,7 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 	
 	Esto debería ser todo lo que necesitamos para que nuestra aplicación funcione.
 
-5. Abra el archivo**style.css** ubicado en el directorio **public\stylesheets** y reemplace el código por lo siguiente:
+5. Abra el archivo**style.css** ubicado en el directorio **public\\stylesheets** y reemplace el código por lo siguiente:
 
 		body {
 		  padding: 50px;
@@ -569,4 +571,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Node
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->
