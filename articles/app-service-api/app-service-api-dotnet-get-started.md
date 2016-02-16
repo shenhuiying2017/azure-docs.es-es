@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/26/2016"
+	ms.date="02/05/2016"
 	ms.author="tdykstra"/>
 
 # Introducción a Aplicaciones de API y ASP.NET en el Servicio de aplicaciones de Azure
@@ -340,6 +340,8 @@ Para ello, establezca la propiedad `apiDefinition` del tipo de recurso `Microsof
 		  "url": "https://todolistdataapi.azurewebsites.net/swagger/docs/v1"
 		}
 
+Para ver un ejemplo de una plantilla del Administrador de recursos de Azure que incluye JSON para establecer la propiedad de definición de API, abra el archivo [azuredeploy.json en el repositorio de la aplicación de ejemplo](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json).
+
 ## <a id="codegen"></a> Consumo desde un cliente .NET mediante el código de cliente generado
 
 Una de las ventajas de integrar Swagger en aplicaciones de API de Azure es la generación automática de código. Las clases cliente generadas facilitan la escritura de código que llama a una aplicación de API.
@@ -366,7 +368,7 @@ El proyecto ToDoListAPI ya tiene el código de cliente generado, pero es preciso
 
 	![](./media/app-service-api-dotnet-get-started/codegenbrowse.png)
 
-8. En el cuadro de diálogo **Servicio de aplicaciones**, expanda el grupo de recursos que usa en este tutorial y seleccione la aplicación de API. A continuación, haga clic en **Aceptar**.
+8. En el cuadro de diálogo **Servicio de aplicaciones**, expanda el grupo de recursos que utiliza en este tutorial y seleccione la aplicación de API y, a continuación, haga clic en **Aceptar**.
 
 	Este cuadro de diálogo ofrece más de una manera de organizar las aplicaciones de API en la lista si tiene demasiadas para desplazarse por ellas. También permite especificar una cadena de búsqueda para filtrar las aplicaciones de API por nombre.
 
@@ -392,25 +394,23 @@ El proyecto ToDoListAPI ya tiene el código de cliente generado, pero es preciso
 
 	El siguiente fragmento de código muestra cómo el código crea instancias del objeto de cliente y llama al método Get.
 
-		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri("http://localhost:45914"));
+		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 		
 		public ActionResult Index()
 		{
 		    return View(db.Contacts.Get());
 		}
 
-	Este código pasa la dirección URL local de IIS Express del proyecto de API al constructor de la clase de cliente para que pueda ejecutar la aplicación localmente. Si se omite el parámetro del constructor, el punto de conexión predeterminado es la dirección URL a partir de la cual se genera el código.
+	El parámetro de constructor obtiene la dirección URL del punto de conexión de la configuración de la aplicación `toDoListDataAPIURL`. En el archivo Web.config, ese valor se establece en la dirección URL local de IIS Express del proyecto de API en la configuración de `toDoListDataAPIURL` para que pueda ejecutar la aplicación localmente. Si se omite el parámetro del constructor, el punto de conexión predeterminado es la dirección URL a partir de la cual se genera el código.
 
-6. La clase de cliente se generará con un nombre diferente según el nombre de la aplicación de API; cambie este código para que el nombre del tipo coincida con lo que se generó en el proyecto y elimine la URL. Por ejemplo, si asignó el nombre ToDoListDataAPI0121 a la aplicación de API, el código sería similar al del ejemplo siguiente:
+6. La clase cliente se generará con un nombre diferente según el nombre de la aplicación de API; cambie este código para que el nombre de tipo coincida con lo que se generó en el proyecto. Por ejemplo, si asignó el nombre ToDoListDataAPI0121 a la aplicación de API, el código sería similar al del ejemplo siguiente:
 
-		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121();
+		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 		
 		public ActionResult Index()
 		{
 		    return View(db.Contacts.Get());
 		}
-
-	La dirección URL de destino predeterminada es la aplicación de API ToDoListDataAPI porque generó el código a partir de ella; si usó un método diferente para generar el código, puede que tenga que especificar la dirección URL de la aplicación de API de Azure del mismo modo que especificó la dirección URL local.
 
 #### Creación de una aplicación de API para hospedar el nivel intermedio
 
@@ -432,7 +432,23 @@ El proyecto ToDoListAPI ya tiene el código de cliente generado, pero es preciso
 
 7. Haga clic en **Crear**.
 
-	Visual Studio crea la aplicación de API, crea un perfil de publicación para ella y muestra el paso **Conexión** del asistente **Publicación web**.
+	Visual Studio crea la aplicación de API, crea un perfil de publicación para ella y muestra el paso **Conexión** del Asistente para **publicación web**.
+
+### Establecimiento de la dirección URL de la capa de datos en la configuración de la aplicación de nivel intermedio
+
+1. Vaya al [Portal de Azure](https://portal.azure.com/) y, después, vaya a la hoja **Aplicación de API** de la aplicación de API que creó para hospedar el proyecto TodoListAPI (nivel intermedio).
+
+2. Haga clic en **Configuración > Configuración de la aplicación**.
+
+3. En la sección **Configuración de la aplicación**, agregue la siguiente clave y valor:
+
+	|Clave|Valor|Ejemplo
+	|---|---|---|
+	|toDoListDataAPIURL|https://{your nombre de la aplicación de API de nivel de datos}.azurewebsites.net|https://todolistdataapi0121.azurewebsites.net|
+
+4. Haga clic en **Guardar**.
+
+	Cuando el código se ejecuta en Azure, este valor anulará ahora la dirección URL de host local que se encuentra en el archivo Web.config.
 
 ### Implementación del proyecto ToDoListAPI en la nueva aplicación de API
 
@@ -444,7 +460,7 @@ El proyecto ToDoListAPI ya tiene el código de cliente generado, pero es preciso
 
 11. En la barra de direcciones del explorador, agregue "swagger" a la URL y presione Entrar. (La dirección URL será `http://{apiappname}.azurewebsites.net/swagger`).
 
-	El explorador muestra la misma UI de Swagger que vio anteriormente para ToDoListDataAPI, pero ahora `owner` no es un campo obligatorio, ya que la aplicación de API de nivel intermedio envía ese valor a la aplicación de API de capa de datos por usted.
+	El explorador muestra la misma interfaz de usuario de Swagger que vio anteriormente para ToDoListDataAPI, pero ahora `owner` no es un campo obligatorio, ya que la aplicación de API de nivel intermedio envía ese valor a la aplicación de API de capa de datos por usted.
 
 12. Pruebe el método Get y los otros métodos para validar que la aplicación de API de nivel intermedio llama correctamente a la aplicación de API de capa de datos.
 
@@ -454,4 +470,4 @@ El proyecto ToDoListAPI ya tiene el código de cliente generado, pero es preciso
 
 En este tutorial vimos cómo crear aplicaciones de API, implementar código en ellas, generar código de cliente para ellas y consumirlas desde clientes .NET. El siguiente tutorial de la serie de introducción a Aplicaciones de API muestra cómo [consumir aplicaciones de API desde clientes de JavaScript mediante CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

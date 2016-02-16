@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="10/23/2015" 
+	ms.date="02/02/2016" 
 	ms.author="elizapo"/>
 
 # Preguntas más frecuentes sobre Azure RemoteApp
@@ -26,8 +26,8 @@ Hemos recibido las siguientes preguntas acerca de Azure RemoteApp. ¿Tiene algun
 - **¿Cuáles son las opciones de implementación?** Hay dos tipos de colecciones de RemoteApp: híbridas y nube. La que necesite dependerá de varios factores, como si es necesaria la unión de dominios. Hablamos acerca de todas esas decisiones [aquí](remoteapp-collections.md).
 
 ## Sugerencias rápidas para usar Azure RemoteApp ##
-- **¿Cuánto tiempo pasa hasta que me desconecto? ¿Cuánto tiempo puedo estar inactivo antes de arrancar?** 4 horas. Si usted o uno de los usuarios está inactivo durante 4 horas, se cerrará automáticamente la sesión de Azure RemoteApp. Compruebe los demás valores predeterminados en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](azure-subscription-service-limits.md).
-- **¿Puedo probar este servicio de forma gratuita?** Sí. Hay una versión de prueba gratuita durante 30 días. Tras la finalización de la prueba, puede realizar la transición a una cuenta de pago (que puede usar en producción) o dejar de usar el servicio. Para comenzar una prueba gratuita, vaya a [manage.windowsazure.com](http://manage.windowsazure.com) y cree una instancia de RemoteApp. Con la versión de prueba gratuita, puede crear dos instancias de RemoteApp con 10 usuarios por instancia. Recuerde que esta versión de prueba solo tiene una duración de 30 días.
+- **¿Cuánto tiempo pasa hasta que me desconecto? ¿Cuánto tiempo puedo estar inactivo antes de arrancar?** 4 horas. Si usted o uno de los usuarios está inactivo durante 4 horas, se cerrará automáticamente la sesión de Azure RemoteApp. Compruebe los demás valores predeterminados en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
+- **¿Puedo probar este servicio de forma gratuita?** Sí. Hay una versión de prueba gratuita durante 30 días. Tras la finalización de la prueba, puede realizar la transición a una cuenta de pago (que puede usar en producción) o dejar de usar el servicio. Para comenzar una evaluación gratuita, vaya a [portal.azure.com](http://portal.azure.com) y cree una instancia de RemoteApp. Con la versión de prueba gratuita, puede crear dos instancias de RemoteApp con 10 usuarios por instancia. Recuerde que esta versión de prueba solo tiene una duración de 30 días.
 ## Detalles de la suscripción de Azure RemoteApp ##
 
 - **¿Cuáles son los límites de servicio?** Puede obtener más información sobre la configuración predeterminada y los límites de servicios de Azure RemoteApp en [Límites, cuotas y restricciones de suscripción y servicios de Azure](azure-subscription-service-limits.md). Indíquenos si tiene otras preguntas.
@@ -114,4 +114,4 @@ Puede encontrar toda la información del cliente, incluidos los pasos para insta
 ### Permítanos ayudarle 
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, a continuación, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

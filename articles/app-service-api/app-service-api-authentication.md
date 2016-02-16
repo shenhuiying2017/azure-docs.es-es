@@ -110,10 +110,6 @@ Para más información acerca de la autenticación con Azure Active Directory, c
 
 ## Pasos siguientes
 
-En este artículo se han explicado las características de autenticación y autorización del Servicio de aplicaciones que puede utilizar para las aplicaciones de API.
+En este artículo se han explicado las características de autenticación y autorización del Servicio de aplicaciones que puede utilizar para las aplicaciones de API. En el siguiente tutorial, aprenderá a implementar la [autenticación de usuario en aplicaciones de API del Servicio de aplicaciones](app-service-api-dotnet-user-principal-auth.md).
 
-Si sigue la secuencia de tutoriales de introducción a ASP.NET y Aplicaciones de API, pruebe estas características en el siguiente tutorial, [Autenticación de usuario para aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-dotnet-user-principal-auth.md).
-
-Para más información acerca del uso de Java y Node en el Servicio de aplicaciones de Azure, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/) y el [Centro para desarrolladores de Java](/develop/java/).
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

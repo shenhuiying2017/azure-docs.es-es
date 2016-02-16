@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="12/17/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Uso del cifrado dinámico AES-128 y del servicio de entrega de claves
@@ -73,7 +73,7 @@ Para obtener información detallada, consulte [Carga de archivos en una cuenta d
 
 Con el cifrado dinámico, todo lo que tiene que hacer es crear un recurso que contenga un conjunto de archivos MP4 o archivos Smooth Streaming, de varias velocidades de bits. Luego, según el formato especificado en la solicitud de manifiesto o fragmento, el servidor de streaming a petición se asegurará de que reciba la secuencia en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Servicios multimedia creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente. Para obtener más información, consulte el tema [Información general sobre el empaquetado dinámico](media-services-dynamic-packaging-overview.md).
 
-Para obtener instrucciones sobre cómo codificar, consulte [Cómo codificar un activo mediante Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md).
+Para obtener instrucciones sobre cómo codificar, consulte [Codificación de un recurso mediante Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md).
 
 ##<a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el activo codificado
 
@@ -81,13 +81,13 @@ En Servicios multimedia, la clave de contenido contiene la clave con la que dese
 
 Para obtener más información, consulte [Creación de la clave de contenido](media-services-dotnet-create-contentkey.md).
 
-##<a id="configure_key_auth_policy"></a>Configuración de la directiva de autorización de claves de contenido.
+##<a id="configure_key_auth_policy"></a>Configuración de la directiva de autorización de claves de contenido
 
 Servicios multimedia admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. El usuario debe configurar la directiva de autorización de claves y el cliente (reproductor) debe conocerla para que se le entregue la clave. La directiva de autorización de clave de acceso podría tener una o más restricciones de autorización: abrir, restricción de token o restricción de IP.
 
 Para obtener información detallada, consulte [Configuración de la directiva de autorización de claves de contenido](media-services-dotnet-configure-content-key-auth-policy.md).
 
-##<a id="configure_asset_delivery_policy"></a>Configuración de la directiva de entrega de activos 
+##<a id="configure_asset_delivery_policy"></a>Configuración de directivas de entrega de recursos 
 
 Configure la directiva de entrega de sus recursos. Algunos de los elementos que incluye la configuración de la directiva de entrega de recursos son:
 
@@ -96,7 +96,7 @@ Configure la directiva de entrega de sus recursos. Algunos de los elementos que 
 - El protocolo de entrega de recursos (por ejemplo, MPEG DASH, HLS, HDS, Smooth Streaming o todos).
 - El tipo de cifrado dinámico (por ejemplo, AES Envelope) o sin cifrado dinámico. 
 
-Para obtener más información, consulte [Configuración de la directiva de entrega de activos](media-services-rest-configure-asset-delivery-policy.md).
+Para obtener más información, consulte [Configuración de la directiva de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
 
 ##<a id="create_locator"></a>Creación de un localizador de streaming a petición para obtener una URL de streaming
 
@@ -121,7 +121,7 @@ Obtenga un token de prueba basado en la restricción de token que se usó para l
 	string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
 	Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 
-Puede usar el [reproductor de AMS](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para probar la transmisión.
+Puede usar [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para probar la secuencia.
 
 ##<a id="client_request"></a>Cómo el cliente puede solicitar una clave al servicio de entrega de claves
 
@@ -621,4 +621,4 @@ El código siguiente muestra cómo enviar una solicitud al servicio de entrega c
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

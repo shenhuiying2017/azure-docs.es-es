@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/21/2016"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # Comenzar con la primera aplicación de Búsqueda de Azure en .NET
@@ -78,7 +78,7 @@ Cuando haya terminado de crear los proyectos, la solución tendrá un aspecto si
 
 4. Después, instale la biblioteca de cliente .NET para Búsqueda de Azure. Asegúrese de especificar la búsqueda correctamente o no encontrará fácilmente el paquete. Haga clic con el botón secundario en **Administrar paquetes de NuGet** nuevamente.
 
-5. Especifique **En línea** > **nuget.org** > **Incluir versión preliminar** y, después, busque *azure.search*. Haga clic en **Instalar** para instalar la biblioteca.
+5. Especifique **En línea** > **nuget.org** > **Solo estable** y, después, busque *azure.search*. Haga clic en **Instalar** para instalar la biblioteca.
 
    ![][12]
 
@@ -671,4 +671,4 @@ Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

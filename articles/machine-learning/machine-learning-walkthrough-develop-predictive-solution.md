@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Una solución predictiva para el riesgo de crédito con Aprendizaje automático | Microsoft Azure"
 	description="Un tutorial detallado que muestra cómo crear una solución de análisis predictiva para la evaluación del riesgo de crédito en Estudio de aprendizaje automático de Azure"
-	keywords="credit risk, predictive analytics solution,risk assessment"
+	keywords="riesgo de crédito, solución de análisis predictivo, evaluación de riesgos"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 
@@ -28,9 +28,7 @@ En este tutorial detallado, seguiremos el proceso de desarrollar un modelo de an
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Abra Estudio de aprendizaje automático: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). Para obtener más información acerca de cómo empezar a utilizar Estudio de aprendizaje automático, consulte [Inicio de Estudio de aprendizaje automático de Microsoft Azure](https://studio.azureml.net/).
-
->[AZURE.TIP]Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, consulte [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP] Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, vea [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
 
 Para crear una solución de evaluación del riesgo de crédito, seguiremos estos pasos:
 
@@ -41,6 +39,6 @@ Para crear una solución de evaluación del riesgo de crédito, seguiremos estos
 5.	[Implementación del servicio web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Acceso al servicio web](machine-learning-walkthrough-6-access-web-service.md)
 
-Este tutorial se basa en una versión simplificada del [experimento de ejemplo de predicción de riesgo de crédito](../machine-learning-sample-credit-risk-prediction.md) que se incluye en el Estudio de aprendizaje automático.
+Este tutorial se basa en una versión simplificada del experimento de ejemplo [Binary Classification: Credit risk prediction](../machine-learning-sample-credit-risk-prediction.md) (Clasificación binaria: predicción de riesgo de crédito) que se incluye en [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com/).
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

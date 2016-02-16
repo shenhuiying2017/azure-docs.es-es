@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/08/2016"
    ms.author="cherylmc"/>
 
 
@@ -67,7 +67,7 @@ Asegúrese de que la dirección IP y el número AS se registran en uno de los re
 - [APNIC](https://www.apnic.net/)
 - [AFRINIC](https://www.afrinic.net/)
 - [LACNIC](http://www.lacnic.net/)
-- [RIPE NCC](https://www.ripe.net/)
+- [RIPENCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
 
@@ -103,7 +103,8 @@ Las rutas predeterminadas solo se permiten en sesiones de configuración de pare
 
 **Nota:** el anuncio de rutas predeterminadas interrumpirá la activación de la licencia de Windows y de otras máquinas virtuales. Para solucionar este problema, siga las instrucciones que se indican [aquí](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx).
 
-## Soporte técnico para las comunidades de BGP
+## Soporte técnico para las comunidades de BGP (próximamente)
+
 
 Esta sección proporciona información general de cómo se usarán las comunidades de BGP con ExpressRoute. Microsoft anunciará rutas en las rutas de acceso de configuración de pares privados y de Microsoft con rutas etiquetadas con valores de la comunidad adecuada. La razón para hacerlo y los detalles de los valores de la comunidad se describen a continuación. Sin embargo, Microsoft no acepta los valores de comunidad etiquetados en las rutas anunciadas a Microsoft.
 
@@ -169,8 +170,8 @@ Microsoft no admite los valores de las comunidades de BGP que defina. Se requier
 
 - Configure su conexión ExpressRoute.
 
-	- [Creación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
-	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
-	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
+	- [Creación y modificación de un circuito ExpressRoute mediante PowerShell](expressroute-howto-circuit-classic.md) o [Creación y modificación de un circuito ExpressRoute mediante el Administrador de recursos de Azure y PowerShell](expressroute-howto-circuit-arm.md)
+	- [Creación y modificación del enrutamiento de un circuito ExpressRoute mediante PowerShell](expressroute-howto-routing-classic.md) o [Creación y modificación del enrutamiento para un circuito ExpressRoute mediante el Administrador de recursos de Azure y PowerShell](expressroute-howto-routing-arm.md)
+	- [Vinculación de la red virtual a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

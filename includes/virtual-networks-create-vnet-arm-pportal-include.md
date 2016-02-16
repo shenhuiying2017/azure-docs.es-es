@@ -1,11 +1,11 @@
-## Cómo crear una red virtual en el Portal de vista previa de Azure
+## Cómo crear una red virtual en el portal de Azure
 
 Para crear una red virtual basada en el escenario anterior por medio del portal de vista previa de Azure, siga estos pasos.
 
 1. Desde un explorador, vaya a http://portal.azure.com y, si es necesario, inicie sesión con su cuenta de Azure.
 2. Haga clic en **NUEVO** > **Redes** > **Red virtual**, después haga clic en **Administrador de recursos** de la lista **Seleccionar un modelo de implementación**, y, a continuación, haga clic en **Crear**, tal como se muestra en la figura siguiente.
 
-	![Crear red virtual en el portal de vista previa](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)
+	![Creación de una red virtual en el Portal de Azure](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)
 
 3. En la hoja **Crear red virtual**, configure los valores de la red virtual, como se muestra en la figura siguiente.
 
@@ -25,7 +25,7 @@ Para crear una red virtual basada en el escenario anterior por medio del portal 
 
 8. Espere a que la red virtual se cree, a continuación, en la hoja **Red virtual**, haga clic en **Todas las configuraciones** > **Subredes** > **Agregar** tal como se muestra a continuación.
 
-	![Agregar subred en el portal de vista previa](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
+	![Adición de una subred en el Portal de Azure](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
 
 9. Especifique la configuración de subred para la subred *BackEnd*, tal como se muestra a continuación y haga clic en **Aceptar**.
 
@@ -35,4 +35,4 @@ Para crear una red virtual basada en el escenario anterior por medio del portal 
 
 	![Lista de subredes en la red virtual](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

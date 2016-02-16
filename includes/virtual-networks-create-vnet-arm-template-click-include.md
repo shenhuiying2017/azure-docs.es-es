@@ -3,7 +3,7 @@
 Puede reutilizar plantillas ARM predefinidas que se han cargado en un repositorio github que mantiene Microsoft y está abierto a la comunidad. Estas plantillas pueden implementarse directamente desde github, o pueden descargarse y modificarse para que se ajusten a sus necesidades. Para implementar una plantilla que cree una red virtual con dos subredes, siga estos pasos.
 
 1. Desde un explorador, vaya a [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
-2. Desplácese hacia abajo en la lista de plantillas y haga clic en **101 dos subredes**. Compruebe el archivo **README.md**, como se muestra a continuación.
+2. Desplácese hacia abajo por la lista de plantillas y haga clic en **101-vnet-two-subnets**. Compruebe el archivo **README.md**, como se muestra a continuación.
 
 	![Archivo README.md en github](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
 
@@ -27,4 +27,4 @@ Puede reutilizar plantillas ARM predefinidas que se han cargado en un repositori
 
 	![Crear red virtual en el portal de vista previa](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->
