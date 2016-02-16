@@ -23,7 +23,8 @@
 &nbsp;
 
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+&nbsp;
 
 >[AZURE.TIP] Si no está familiarizado con el desarrollo para dispositivos móviles con Microsoft Azure, [empiece a trabajar con Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md) en lugar de Servicios móviles de Azure; Aplicaciones móviles le ofrece [ventajas adicionales](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
 
