@@ -26,7 +26,7 @@ Con las [herramientas de Base de datos elástica](sql-database-elastic-scale-int
 
 Puede administrar las particiones con la [biblioteca de cliente de Base de datos elástica](sql-database-elastic-database-client-library.md). La biblioteca incluye nuevo espacio de nombres llamado **Microsoft.Azure.SqlDatabase.ElasticScale.Query**, el que proporciona la capacidad de consultar varias particiones usando una sola solicitud y resultado. Brinda una abstracción de consulta sobre una recopilación de particiones. También proporciona directivas de ejecución alternativas, en especial resultados parciales, para abordar errores cuando se consulte sobre muchas particiones.
 
-El punto de entrada principal a las consultas a través de particiones múltiples es la clase **MultiShardConnection**. Al igual que ocurre con el enrutamiento dependiente de los datos, la API sigue la experiencia conocida de las clases y los métodos http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)******[System.Data.SqlClient.aspx](. Con la biblioteca **SqlClient**, el primer paso es crear una **SqlConnection**, luego un **SqlCommand** para la conexión y seguidamente ejecutar el comando a través de uno de los métodos **Execute**. Finalmente, **SqlDataReader** se itera a través de los conjuntos de resultados que devuelve la ejecución del comando. La experiencia con las API de consultas a través de particiones múltiples sigue estos pasos:
+El punto de entrada principal a las consultas a través de particiones múltiples es la clase **MultiShardConnection**. Al igual que ocurre con el enrutamiento dependiente de los datos, la API sigue la experiencia conocida de las **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)** clases y los métodos. Con la biblioteca **SqlClient**, el primer paso es crear una **SqlConnection**, luego un **SqlCommand** para la conexión y seguidamente ejecutar el comando a través de uno de los métodos **Execute**. Finalmente, **SqlDataReader** se itera a través de los conjuntos de resultados que devuelve la ejecución del comando. La experiencia con las API de consultas a través de particiones múltiples sigue estos pasos:
 
 1. Creación de una **MultiShardConnection**.
 2. Creación de un **MultiShardCommand** para una **MultiShardConnection**.
@@ -75,4 +75,4 @@ Las consultas a través de particiones múltiples no comprueban si los shardlets
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

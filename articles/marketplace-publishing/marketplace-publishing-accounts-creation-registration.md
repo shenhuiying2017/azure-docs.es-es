@@ -157,12 +157,12 @@ El portal de publicación de Azure se usa para publicar y administrar sus oferta
 ## Pasos siguientes
 Ahora que ya se creó y se registró la cuenta, haga clic en el tipo de artefacto (máquina virtual, servicio de programador, servicio de datos, plantilla de soluciones) que desea publicar en Azure Marketplace. Visite uno de los artículos siguientes para obtener más información sobre cómo publicar su oferta respectiva:
 
-| Imagen de máquina virtual | Servicio de desarrolladores | Servicio de datos | Plantilla de solución |
+|| Imagen de máquina virtual | Servicio de desarrolladores | Servicio de datos | Plantilla de solución |
 |----|-----|-----|-----|-----|
 |**Paso 2: Creación de la oferta** |[Requisitos previos no técnicos generales](marketplace-publishing-pre-requisites.md)| [Requisitos previos no técnicos generales](marketplace-publishing-pre-requisites.md)| [Requisitos previos no técnicos generales](marketplace-publishing-pre-requisites.md)| [Requisitos previos no técnicos generales](marketplace-publishing-pre-requisites.md)|
-| [Requisitos previos técnicos de máquina virtual][link-single-vm-prereq] | Requisitos previos técnicos del servicio de desarrolladores | [Requisitos previos técnicos del servicio de datos](marketplace-publishing-data-service-creation-prerequisites.md) | [Requisitos previos técnicos de la plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md) |
-| [Guía de publicación de imágenes de máquina virtual][link-single-vm] | Guía de publicación de servicios de desarrollador | [Guía de publicación de servicios de datos](marketplace-publishing-data-service-creation.md) | [Guía de publicación de plantillas de solución](marketplace-publishing-solution-template-creation.md) |
-| [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] |
+|| [Requisitos previos técnicos de máquina virtual][link-single-vm-prereq] | Requisitos previos técnicos del servicio de desarrolladores | [Requisitos previos técnicos del servicio de datos](marketplace-publishing-data-service-creation-prerequisites.md) | [Requisitos previos técnicos de la plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [Guía de publicación de imágenes de máquina virtual][link-single-vm] | Guía de publicación de servicios de desarrollador | [Guía de publicación de servicios de datos](marketplace-publishing-data-service-creation.md) | [Guía de publicación de plantillas de solución](marketplace-publishing-solution-template-creation.md) |
+|| [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] |
 
 ## Consulte también
 - [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -194,4 +194,4 @@ Ahora que ya se creó y se registró la cuenta, haga clic en el tipo de artefact
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

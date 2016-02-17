@@ -104,7 +104,12 @@ En el firewall corporativo, debe configurar los siguientes dominios y puertos de
 
 | Nombres de dominio | Puertos | Descripción |
 | ------ | --------- | ------------ |
-| **.servicebus.windows.net | 443, 80 | Escuchas en Retransmisión de bus de servicio a través de TCP (requiere 443 para adquirir el token de Control de acceso) | | *.servicebus.windows.net | 9350-9354 | Retransmisión de bus de servicio opcional a través de TCP | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
+| **.servicebus.windows.net | 443, 80 | Escuchas en Retransmisión de bus de servicio a través de TCP (requiere 443 para adquirir el token de Control de acceso) |
+| *.servicebus.windows.net | 9350-9354 | Retransmisión de bus de servicio opcional a través de TCP |
+| *.core.windows.net | 443 | HTTPS |
+| *.clouddatahub.net | 443 | HTTPS |
+| graph.windows.net | 443 | HTTPS |
+| login.windows.net | 443 | HTTPS |
 
 En el nivel de Firewall de Windows, normalmente se habilitan estos puertos de salida. De lo contrario, puede configurar los puertos y dominios según corresponda en el equipo de la puerta de enlace.
 

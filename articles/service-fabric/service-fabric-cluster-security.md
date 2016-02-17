@@ -205,7 +205,8 @@ Una vez finalizada la operación, utilice el portal o el Administrador de recurs
 Nota: Para un clúster seguro, siempre necesitará tener implementado al menos un certificado (principal o secundario) válido (no revocado ni expirado); de lo contrario, no podrá tener acceso al clúster.
 
 
-## Detalles sobre los tipos de certificados utilizados por Service Fabric.
+## 
+Detalles sobre los tipos de certificados utilizados por Service Fabric.
 
 ## Certificados X.509
 
@@ -245,4 +246,4 @@ Los certificados de cliente normalmente no los emite una entidad de certificaci�
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->
