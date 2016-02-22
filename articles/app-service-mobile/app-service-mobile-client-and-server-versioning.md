@@ -79,7 +79,8 @@ Nota: los SDK de cliente de Servicios móviles *no* envían un valor de encabeza
 
 | Plataforma de servidor | Versión | Encabezado de versión aceptado |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [WindowsAzure.MobileServices.Backend.* Versión 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | ****Sin encabezado de versión ** || Node.js | (próximamente) | **Sin encabezado de versión** |
+| .NET | [WindowsAzure.MobileServices.Backend.* Versión 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Sin encabezado de versión ** |
+| Node.js | (próximamente) | **Sin encabezado de versión** |
 
 <!-- TODO: add Node npm version -->
 

@@ -214,8 +214,8 @@ Este es el proceso para quitar un certificado antiguo de modo que el clúster no
 
 >[AZURE.NOTE] Para que un clúster sea seguro, siempre deberá tener implementado al menos un certificado válido, principal o secundario, no revocado ni caducado, o no podrá tener acceso al clúster.
 
-
-## Tipos de certificados utilizados por Service Fabric.
+## 
+Detalles sobre los tipos de certificados utilizados por Service Fabric.
 
 ### Certificados X.509
 

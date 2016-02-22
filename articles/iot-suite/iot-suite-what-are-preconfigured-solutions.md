@@ -34,7 +34,8 @@ La tabla siguiente muestra cómo se asignan estas soluciones a las característi
 
 | Solución | Ingesta de datos | Identidad de dispositivos | Comando y control | Reglas y acciones | Análisis predictivo |
 |------------------------|-----|-----|-----|-----|-----|
-| [Supervisión remota][lnk-remote-monitoring] | Sí | Sí | Sí | Sí | - | | [Mantenimiento predictivo][lnk-predictive-maintenance] | Sí | Sí | Sí | Sí | Sí |
+| Supervisión remota | Sí | Sí | Sí | Sí | - |
+| Mantenimiento predictivo | Sí | Sí | Sí | Sí | Sí |
 
 ## Información general sobre la solución preconfigurada de supervisión remota
 

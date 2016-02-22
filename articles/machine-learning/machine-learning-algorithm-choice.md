@@ -25,7 +25,7 @@ La respuesta a la pregunta "¿qué algoritmo de aprendizaje automático debería
 
 La **Hoja de referencia rápida de algoritmos de aprendizaje automático de Microsoft Azure** ayuda a elegir el algoritmo de aprendizaje automático adecuado para sus soluciones de análisis predictivos de la biblioteca de algoritmos de aprendizaje automático de Microsoft Azure. En este artículo se explica cómo usarla.
 
-> [AZURE.NOTE] Para descargar la hoja de referencia rápida y usarla con las instrucciones de este artículo, consulte la [hoja de referencia rápida de algoritmos de aprendizaje automático de Estudio de aprendizaje automático de Microsoft Azure](machine-learning-algorithm-cheat-sheet.md).
+> [AZURE.NOTE]Para descargar la hoja de referencia rápida y usarla con las instrucciones de este artículo, consulte la [hoja de referencia rápida de algoritmos de aprendizaje automático de Estudio de aprendizaje automático de Microsoft Azure](machine-learning-algorithm-cheat-sheet.md).
 
 Esta hoja de referencia rápida está pensada para un público muy específico: científicos de datos principiantes con conocimientos de aprendizaje automático de nivel universitario que intentan elegir un algoritmo para empezar en Estudio de aprendizaje automático de Azure. Eso significa que en ella se hacen algunas generalizaciones y simplificaciones exageradas, pero le servirá para orientarse bien. También significa que hay muchos algoritmos que no están incluidos aquí. A medida que Aprendizaje automático de Azure vaya creciendo y abarcando un conjunto más completo de métodos disponibles, iremos agregándolos.
 
@@ -37,7 +37,7 @@ Lea las etiquetas de ruta de acceso y algoritmo del gráfico con el siguiente fo
 
 Este es un ejemplo de la [Galería de análisis de Cortana](http://gallery.azureml.net/) de un experimento en el que se prueban varios algoritmos con los mismos datos y se comparan los resultados: [Comparación de clasificadores multiclase: reconocimiento de letras](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
 
->[AZURE.TIP] Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, vea [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
+>[AZURE.TIP]Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, vea [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
 
 ## Variantes del aprendizaje automático
 
@@ -118,7 +118,20 @@ Algunos algoritmos de aprendizaje hacen determinadas suposiciones sobre la estru
 |[bosque de decisión](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[selva de decisión](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Uso de memoria bajo|
 |[red neuronal](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[La personalización adicional es posible](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[uno contra todos](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Vea las propiedades del método de dos clases seleccionado| |**Regresión**| | | | | | |[lineal](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| ||[lineal bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| ||[bosque de decisión](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| ||[árbol de decisión impulsado](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Uso de memoria grande| |[rápida de bosque por cuantiles](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distribuciones en lugar de predicciones por punto| |[red neuronal](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[La personalización adicional es posible](http://go.microsoft.com/fwlink/?LinkId=402867)||[Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Técnicamente logarítmica lineal. Para predecir totales| |[ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Para predecir el ordenamiento por rango| |**Detección de anomalías**| | | | | | |[máquina de vectores de soporte](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Especialmente adecuada para conjuntos de características grandes| |[Detección de anomalías basada en PCA](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| | |[K-Means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|Un algoritmo de agrupación en clústeres|
+|[uno contra todos](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Vea las propiedades del método de dos clases seleccionado|
+|**Regresión**| | | | | |
+|[lineal](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| |
+|[lineal bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
+|[bosque de decisión](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
+|[árbol de decisión impulsado](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Uso de memoria grande|
+|[rápida de bosque por cuantiles](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distribuciones en lugar de predicciones por punto|
+|[red neuronal](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[La personalización adicional es posible](http://go.microsoft.com/fwlink/?LinkId=402867)|
+|[Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Técnicamente logarítmica lineal. Para predecir totales|
+|[ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Para predecir el ordenamiento por rango|
+|**Detección de anomalías**| | | | | |
+|[máquina de vectores de soporte](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Especialmente adecuada para conjuntos de características grandes|
+|[Detección de anomalías basada en PCA](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
+|[K-Means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|Un algoritmo de agrupación en clústeres|
 
 
 **Propiedades de algoritmo:**
@@ -143,7 +156,7 @@ Aunque la inclusión de la palabra «regresión» en el nombre se preste a confu
 
 ![Regresión logística a datos de dos clases con una sola característica][4]
 
-***Regresión logística a datos de dos clases con una sola característica****: el límite de clase es el punto en el que la curva logística tiene la misma distancia hacia ambas clases*
+***Regresión logística a datos de dos clases con una sola característica*** *: el límite de clase es el punto en el que la curva logística tiene la misma distancia hacia ambas clases*
 
 ### Árboles, bosques y selvas
 
@@ -196,7 +209,7 @@ Si tiene un objetivo muy específico, puede que sea su día de suerte. Dentro de
 
 ![Detección de anomalías basada en PCA][8]
 
-***Detección de anomalías basada en PCA****: la inmensa mayoría de los datos entra en una distribución típica; los puntos que se desvían mucho de esa distribución son sospechosos*
+***Detección de anomalías basada en PCA*** *: la inmensa mayoría de los datos entra en una distribución típica; los puntos que se desvían mucho de esa distribución son sospechosos*
 
 ![Conjunto de datos agrupados mediante K-Means][9]
 

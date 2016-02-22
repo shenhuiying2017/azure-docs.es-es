@@ -70,7 +70,7 @@ Puede ver estos registros como texto sin formato ejecutando uno de los siguiente
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 	
-Al ejecutar estos comandos debe usar la siguiente información: <lt;applicationId>, <user-who-started-the-application>, <containerId> y <worker-node-address>.
+Al ejecutar estos comandos debe usar la siguiente información: &lt;applicationId>, &lt;user-who-started-the-application>, &lt;containerId> y &lt;worker-node-address>.
 
 ##Interfaz de usuario de ResourceManager de YARN
 

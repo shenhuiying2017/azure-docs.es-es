@@ -91,7 +91,8 @@ Nuestro experimento debería tener ahora un aspecto similar al siguiente:
 
 Ejecute el experimento por última vez (haga clic en **Ejecutar**). Si desea comprobar que el modelo sigue funcionando, haga clic en la salida del módulo [Puntuar modelo][score-model] y seleccione **Ver resultados**. Verá que aparecen los datos originales, junto con el valor de riesgo de crédito ("Etiquetas puntuadas") y el valor de probabilidad de la puntuación ("Probabilidades puntuadas").
 
-## Implementación del servicio web
+##
+Implementación del servicio web
 
 Para implementar un servicio web derivado de nuestro experimento, haga clic en **Implementar servicio web** debajo del lienzo. Estudio de aprendizaje automático implementa el experimento como servicio web y lo remite al panel del servicio web. Desde aquí puede volver al experimento (**Ver instantánea** o **Ver más reciente**) y ejecutar una prueba sencilla del servicio web (botón **Probar**; vea **Prueba del servicio web** a continuación). También hay información aquí para crear aplicaciones que puedan acceder al servicio web (más información al respecto en el siguiente paso de este tutorial).
 
