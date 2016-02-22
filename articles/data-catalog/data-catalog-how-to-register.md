@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="12/18/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 
@@ -49,7 +49,7 @@ De forma predeterminada, solo se extraen metadatos de orígenes de datos y se co
 La herramienta de registro de orígenes de datos del **Catálogo de datos de Azure** permite a los usuarios incluir una vista previa de instantánea de los datos presentes en cada tabla y vista que se registre. Si el usuario opta por incluir vistas previas durante el registro, la herramienta de registro incluirá un máximo de 20 registros de cada tabla y vista. Esta instantánea se copia después en el Catálogo junto con los metadatos descriptivos y estructurales.
 
 
-> [AZURE.NOTE]Las tablas anchas que tienen un gran número de columnas pueden tener menos de 20 registros incluidos en la vista previa.
+> [AZURE.NOTE]  Las tablas anchas que tienen un gran número de columnas pueden tener menos de 20 registros incluidos en la vista previa.
 
 
 ## Inclusión de los perfiles de datos
@@ -65,7 +65,7 @@ La herramienta de registro de orígenes de datos del **Catálogo de datos de Azu
 
 Estas estadísticas se copian después en el Catálogo junto con los metadatos estructurales y descriptivos.
 
-> [AZURE.NOTE]Las columnas de texto y fecha no incluirá las estadísticas de promedio o desviación estándar en su perfil de datos.
+> [AZURE.NOTE]  Las columnas de texto y fecha no incluirá las estadísticas de promedio o desviación estándar en su perfil de datos.
 
 ## Actualización de registros
 
@@ -76,4 +76,4 @@ Al volver a registrar un origen de datos ya registrado se realiza una operación
 ## Resumen
 Al registrar un origen de datos con el **Catálogo de datos de Azure** se facilita la detección y comprensión de ese origen de datos, al copiar los metadatos estructurales y descriptivos del origen de datos en el servicio Catálogo. Una vez registrado un origen de datos, se puede anotar, administrar y detectar mediante el portal **Catálogo de datos de Azure**.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/09/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -68,11 +68,9 @@ Para cambiar el número de unidades de streaming mediante el Portal, haga lo sig
 	La asignación de cualquier nueva unidad de streaming puede tardar unos 20 minutos en finalizarse.
 
 	 
->[AZURE.NOTE]Actualmente, pasar de cualquier valor positivo de unidades de streaming a ninguno puede deshabilitar el streaming a petición hasta una hora.
+	>[AZURE.NOTE] Actualmente, pasar de cualquier valor positivo de unidades de streaming a ninguno puede deshabilitar el streaming a petición hasta una hora.
 
-</br>
-
->[AZURE.NOTE]Se utiliza el número más elevado de unidades especificadas durante el período de 24 horas al calcular el coste. Para obtener más información acerca del precio, consulte la página sobre [información del precio de Servicios multimedia](http://go.microsoft.com/fwlink/?LinkId=275107).
+	>[AZURE.NOTE] Se utiliza el número más elevado de unidades especificadas durante el período de 24 horas al calcular el coste. Para obtener más información acerca del precio, consulte la página sobre [información del precio de Servicios multimedia](http://go.microsoft.com/fwlink/?LinkId=275107).
 	
 ##<a id="configure_streaming_endpoints"></a>Configuración del extremo de streaming
 
@@ -103,7 +101,7 @@ Aparecerá una breve descripción de los campos.
 
 3. Especifique la configuración para la autenticación del encabezado de firma de Akamai.
 
-4. Puede especificar una directiva de acceso entre dominios para los clientes de Adobe Flash (para obtener más información, consulte [Especificación de archivos de directiva entre dominios](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)). Así como la directiva de acceso de cliente para los clientes de Microsoft Silverlight (para obtener más información, consulte [Disponibilidad de un servicio entre límites del dominio](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx).
+4. Puede especificar una directiva de acceso entre dominios para los clientes de Adobe Flash (para obtener más información, consulte [Especificación de archivos de directiva entre dominios](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)). Así como la directiva de acceso de cliente para los clientes de Microsoft Silverlight (para obtener más información, consulte [Disponibilidad de un servicio entre límites del dominio.aspx](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx).
 
 5. También puede configurar nombres de host personalizados haciendo clic en el botón **Configurar**. Para obtener más información, consulte la propiedad **CustomHostNames** en el tema [StreamingEndpoint](https://msdn.microsoft.com/library/dn783468.aspx).
 
@@ -152,4 +150,4 @@ Para obtener más información, consulte [Anuncio de la integración de Servicio
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

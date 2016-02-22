@@ -1,28 +1,36 @@
-<properties 
-	pageTitle="Agregar entradas de datos a trabajos de Análisis de transmisiones | Microsoft Azure" 
-	description="Adición de entradas a trabajos de Análisis de transmisiones | segmento de ruta de aprendizaje."
+<properties
+	pageTitle="Agrega entradas de datos a trabajos de Análisis de transmisiones | Microsoft Azure"
+	description="Obtenga información acerca de cómo enlazar un origen de datos al trabajo de Análisis de transmisiones como entrada de datos streaming desde los Centros de eventos, o bien como datos de referencia desde el almacenamiento de blogs."
 	keywords="entrada de datos, datos de streaming"
 	documentationCenter=""
 	services="stream-analytics"
-	authors="jeffstokes72" 
-	manager="paulettm" 
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"
 />
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"
 />
 
 
-# Agregar entradas de datos de streaming a trabajos de Análisis de transmisiones
+# Adición de entradas de datos streaming o datos de referencia a trabajos de Análisis de transmisiones
 
-Los trabajos de Análisis de transmisiones de Azure pueden estar conectados a una o más entradas, donde cada una define una conexión a un origen de datos existente. A medida que los datos se envían a ese origen de datos, el trabajo de Análisis de transmisiones los consume y los procesa en tiempo real como datos de streaming. Análisis de transmisiones cuenta con integración de primera clase con [Centro de eventos de orígenes de Azure](https://azure.microsoft.com/services/event-hubs/) y [Almacenamiento de blobs de Azure](./storage/storage-dotnet-how-to-use-blobs.md) desde dentro y fuera de la suscripción del trabajo. Hay dos tipos distintos de entradas en Análisis de transmisiones: flujos de datos y datos de referencia.
+Obtenga información acerca de cómo enlazar un origen de datos al trabajo de Análisis de transmisiones como entrada de datos streaming desde los Centros de eventos, o bien como datos de referencia desde el almacenamiento de blogs.
+
+Los trabajos de Análisis de transmisiones de Azure pueden estar conectados a una entrada de datos, donde cada una define una conexión a un origen de datos existente. A medida que los datos se envían a ese origen de datos, el trabajo de Análisis de transmisiones los consume y los procesa en tiempo real como datos de streaming. Análisis de transmisiones cuenta con integración de primera clase con [Centro de eventos de orígenes de Azure](https://azure.microsoft.com/services/event-hubs/) y [Almacenamiento de blobs de Azure](./storage/storage-dotnet-how-to-use-blobs.md) desde dentro y fuera de la suscripción del trabajo.
+
+Este artículo es un paso de la [ruta de aprendizaje de Análisis de transmisiones](/documentation/learning-paths/stream-analytics/).
+
+## Entrada de datos: datos streaming y datos de referencia
+
+Hay dos tipos distintos de entradas en Análisis de transmisiones: flujos de datos y datos de referencia.
 
 - **Secuencias de datos**: los trabajos de Análisis de transmisiones deben incluir, al menos, una entrada de secuencia de datos para que el trabajo la consuma y transforme. Almacenamiento de blobs de Azure y Centros de eventos de Azure se admiten como orígenes de entrada de flujos de datos. Los Centros de eventos de Azure se usan para recopilar transmisiones de eventos desde dispositivos conectados, servicios y aplicaciones. El almacenamiento de blobs de Azure puede usarse como origen de entrada para la ingesta de datos en masa como secuencia.  
 - **Datos de referencia**: Análisis de transmisiones admite un segundo tipo de entrada auxiliar denominada datos de referencia. A diferencia de los datos en movimiento, estos datos son estáticos o están desacelerando los cambios. Normalmente se usa para realizar búsquedas y correlaciones con secuencias de datos para crear un conjunto de datos más amplio. Almacenamiento de blobs de Azure es el único origen de entrada admitido actualmente para los datos de referencia.  
@@ -31,11 +39,11 @@ Para agregar una entrada a su trabajo de Análisis de transmisiones:
 
 1. En el portal de Azure, haga clic en **Entradas** y luego en **Agregar una entrada** en el trabajo de Análisis de transmisiones.
 
-    ![Adición de entrada de datos de streaming](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)
+    ![Portal de Azure clásico: agregar entrada.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)
 
-    En el portal de vista previa de Azure, haga clic en el icono **Entradas** en el trabajo de Análisis de transmisiones.
+    En el Portal de Azure, haga clic en el icono **Entradas** en el trabajo de Análisis de transmisiones.
 
-    ![Adición de entrada de datos de streaming](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)
+    ![Portal de Azure: agregar entrada.](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)
 
 2. Especifique el tipo de la entrada: **Flujo de datos** o **Datos de referencia**.
 
@@ -69,7 +77,7 @@ Para agregar una entrada a su trabajo de Análisis de transmisiones:
 
     ![Prueba de la conexión de la entrada de datos de streaming](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)
 
-## Obtener ayuda
+## Obtener ayuda con las entradas de datos streaming
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
@@ -80,4 +88,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

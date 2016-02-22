@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/04/2016"
    ms.author="larryfr"/>
 
 #Ejecución de trabajos de Pig con el SDK de .NET para Hadoop en HDInsight
@@ -42,7 +42,7 @@ Para autenticar la aplicación a HDInsight de Azure, debe crear un certificado a
 
 Para obtener instrucciones sobre cómo hacerlo, vea [Creación de un certificado autofirmado](http://go.microsoft.com/fwlink/?LinkId=511138).
 
-> [AZURE.NOTE]Al crear el certificado, asegúrese de tener en cuenta el nombre descriptivo que utilice, ya que lo utilizará más adelante.
+> [AZURE.NOTE] Al crear el certificado, asegúrese de tener en cuenta el nombre descriptivo que utilice, ya que lo utilizará más adelante.
 
 ##<a id="subscriptionid"></a>Búsqueda del identificador de suscripción
 
@@ -130,7 +130,7 @@ Guarde el identificador de suscripción, pues se utilizará más adelante.
 		                Query = queryString,
 		            };
 		
-		            System.Console.WriteLine("Submitting the Sqoop job to the cluster...");
+		            System.Console.WriteLine("Submitting the Pig job to the cluster...");
 		            var response = _hdiJobManagementClient.JobManagement.SubmitPigJob(parameters);
 		            System.Console.WriteLine("Validating that the response is as expected...");
 		            System.Console.WriteLine("Response status code is " + response.StatusCode);
@@ -161,4 +161,4 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

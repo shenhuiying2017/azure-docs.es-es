@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/05/2016" 
 	ms.author="elizapo"/>
 
 # Creación de una colección en la nube de Azure RemoteApp
@@ -80,9 +80,9 @@ Si quiere usar Active Directory, Azure RemoteApp requiere sincronización de dir
 
 ## Paso 3: Publicar aplicaciones ##
 
-Una aplicación de Azure RemoteApp es la aplicación o el programa que proporciona a los usuarios. Se encuentra en la imagen de plantilla que cargó para la colección. Cuando un usuario tiene acceso a una aplicación, esta parece ejecutarse en el entorno local, pero realmente se está ejecutando en Azure.
+Una aplicación de Azure RemoteApp es la aplicación o el programa que proporciona a los usuarios. Se encuentra en la imagen de plantilla que cargó para la colección. Cuando un usuario accede a una aplicación, esta parece ejecutarse en el entorno local, pero realmente se está ejecutando en una máquina virtual de Azure.
 
-Antes de que los usuarios puedan acceder a aplicaciones, es necesario publicarlos en la fuente del usuario final: una lista de aplicaciones disponibles a los que los usuarios acceden a través del cliente de Escritorio remoto.
+Antes de que los usuarios puedan acceder a las aplicaciones, es necesario publicarlas; publicar aplicaciones permite que los usuarios accedan a ellas a través del cliente de Escritorio remoto.
  
 Puede publicar varias aplicaciones en su colección de Azure RemoteApp. En la página de publicación, haga clic en **Publicar** para agregar un programa. Puede publicar desde el menú **Inicio** de la imagen de plantilla o especificando la ruta de acceso en la imagen de plantilla para la aplicación. Si opta por agregar desde el menú **Inicio**, elija la aplicación para publicar. Si opta por proporcionar la ruta de acceso a la aplicación, proporcione un nombre para la aplicación y la ruta de acceso en la que se instaló en la imagen de la plantilla.
 
@@ -109,4 +109,4 @@ Eso es todo, creó e implementó correctamente su colección en la nube de Azure
 ### Permítanos ayudarle 
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, luego, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

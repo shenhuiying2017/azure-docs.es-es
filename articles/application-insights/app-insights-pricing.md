@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016" 
+	ms.date="02/10/2016" 
 	ms.author="awills"/>
 
 # Administración de precios y cuotas para Application Insights
@@ -114,17 +114,13 @@ Si se produce la limitación, verá una notificación de advertencia que indica 
 * Abra Configuración/cuotas y precios para ver el gráfico de volumen de datos.
 * O bien, en el Explorador de métricas, agregue un nuevo gráfico y seleccione **Volumen de punto de datos** como su métrica. Active la agrupación y agrupe por **Tipo de datos**.
 
-*¿Cómo puedo reducir la cantidad de datos que envía mi aplicación?*
-
-* Use [Muestreo](app-insights-sampling.md). Esta tecnología reduce la velocidad de los datos sin sesgar las métricas y sin interrumpir la capacidad de navegar entre los elementos relacionados en la búsqueda. El muestreo adaptable está habilitado de forma predeterminada a partir de la versión 2.0.0-beta3 del SDK de Application Insights para ASP.NET.
-* [Desactive los colectores de telemetría](app-insights-configuration-with-applicationinsights-config.md) que no necesite.
-
 
 ### Sugerencias para reducir la velocidad de datos
 
 Si alcanza los valores de limitación, puede hacer alguna de estas cosas:
 
 * Use el [Muestreo](app-insights-sampling.md). Esta tecnología reduce la velocidad de los datos sin sesgar las métricas y sin interrumpir la capacidad de navegar entre los elementos relacionados en la búsqueda.
+* [Limite el número de llamadas AJAX que se pueden notificar](app-insights-javascript.md#detailed-configuration) en cada vista de página o desactive los informes de AJAX.
 * Desactivar los módulos de recopilación que no necesite; para ello, [edite ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Por ejemplo, podría decidir que los contadores de rendimiento o datos de dependencia no son esenciales.
 * Métricas agregadas previamente. Si ha colocado llamadas a TrackMetric en su aplicación, puede reducir el tráfico mediante la sobrecarga que acepta el cálculo de la media y la desviación estándar de un lote de medidas. O bien, puede usar un [paquete de agregación previa](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
 
@@ -166,4 +162,4 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

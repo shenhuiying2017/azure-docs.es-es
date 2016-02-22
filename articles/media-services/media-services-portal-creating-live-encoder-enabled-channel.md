@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -32,7 +32,7 @@ Este tutorial le guía por los pasos para crear un **canal** que reciba una secu
 
 A continuación se indican los pasos generales para crear aplicaciones comunes de streaming en vivo.
 
->[AZURE.NOTE]Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Póngase en contacto con amslived en Microsoft punto com si necesita ejecutar un canal durante largos períodos de tiempo.
+>[AZURE.NOTE] Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante largos períodos de tiempo, póngase en contacto con amslived en Microsoft.com.
 
 1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
@@ -98,7 +98,7 @@ Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 	La asignación de cualquier nueva unidad puede tardar unos 20 minutos en finalizarse.
 
 	 
-	>[AZURE.NOTE]Actualmente, pasar de cualquier valor positivo de unidades de streaming a ninguno puede deshabilitar el streaming hasta una hora.
+	>[AZURE.NOTE] Actualmente, pasar de cualquier valor positivo de unidades de streaming a ninguno puede deshabilitar el streaming hasta una hora.
 	>
 	> Se utiliza el número más elevado de unidades especificadas durante el período de 24 horas al calcular el coste. Para obtener más información acerca del precio, consulte la página sobre [información del precio de Servicios multimedia](http://go.microsoft.com/fwlink/?LinkId=275107).
 
@@ -142,7 +142,7 @@ Si no se especifican direcciones IP y no hay ninguna definición de regla, no se
 
 ![standard4][standard4]
 
->[AZURE.NOTE]Actualmente en versión preliminar; el inicio del canal puede tardar hasta 30 minutos. El restablecimiento de canal puede tardar hasta 5 minutos.
+>[AZURE.NOTE] Actualmente en versión preliminar; el inicio del canal puede tardar hasta 30 minutos. El restablecimiento de canal puede tardar hasta 5 minutos.
 
 Una vez creado el canal, puede seleccionar la pestaña **CODIFICADOR** donde puede ver las configuraciones de canales. También puede administrar los anuncios y las tabletas.
 
@@ -255,7 +255,7 @@ Si se realizan eventos de streaming y desea limpiar los recursos aprovisionados 
 
 ##Consideraciones
 
-- Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Póngase en contacto con amslived en Microsoft punto com si necesita ejecutar un canal durante largos períodos de tiempo.
+- Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante largos períodos de tiempo, póngase en contacto con amslived en Microsoft.com.
 - Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
 
 
@@ -276,4 +276,4 @@ Si se realizan eventos de streaming y desea limpiar los recursos aprovisionados 
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

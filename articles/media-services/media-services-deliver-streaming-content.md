@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -171,4 +171,4 @@ El código siguiente llama a los métodos de extensiones del SDK de .NET que cre
 
 [Descargar activos](media-services-deliver-asset-download.md) [Configuración de directivas de entrega de activos](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

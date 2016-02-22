@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="12/15/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
@@ -269,4 +269,4 @@ Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

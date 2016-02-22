@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/03/2016"
 	ms.author="josephd"/>
 
 # Creación de granjas de servidores de SharePoint
@@ -23,7 +23,7 @@
 
 Con Marketplace del Portal de Microsoft Azure, puede crear rápidamente granjas de SharePoint Server 2013 preconfiguradas. Esto puede suponer un importante ahorro de tiempo si necesita una granja de SharePoint básica o de alta disponibilidad para un entorno de desarrollo y pruebas, o si va a evaluar SharePoint Server 2013 como solución de colaboración para su organización.
 
-> [AZURE.NOTE] Se quitó el elemento **Granja de servidores SharePoint** en Azure Marketplace del Portal de Azure.
+> [AZURE.NOTE] Se quitó el elemento **Granja de servidores SharePoint** en Azure Marketplace del Portal de Azure. Se reemplazó por los elementos **SharePoint 2013 non-HA Farm** y **SharePoint 2013 HA Farm**.
 
 La granja de SharePoint básica consta de tres máquinas virtuales con esta configuración.
 
@@ -51,8 +51,6 @@ Para crear la granja de SharePoint de alta disponibilidad (de nueve servidores):
 3. En el panel **Granja de SharePoint 2013 de alta disponibilidad**, haga clic en **Crear**.
 4. Especifique la configuración en los 7 pasos del panel **Crear granja de SharePoint 2013 de alta disponibilidad** y, luego, haga clic en **Crear**.
 
-> [AZURE.NOTE] Microsoft ha publicado la versión de vista previa de TI de SharePoint Server 2016. Para facilitar la instalación y prueba de esta vista previa, puede utilizar una imagen de la galería de máquinas virtuales de Azure con la vista previa de TI de SharePoint Server 2016 y sus requisitos previos preinstalados. Para obtener más información, vea [Prueba de la vista previa de TI de SharePoint Server 2016 en Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
-
 ## Administración de las granjas de SharePoint
 
 Puede administrar los servidores de estas granjas a través de conexiones de Escritorio remoto. Para obtener más información, vea [Inicio de sesión en la máquina virtual](virtual-machines-windows-tutorial.md#log-on-to-the-virtual-machine).
@@ -65,4 +63,4 @@ En el sitio de Administración central de SharePoint, puede configurar Mis sitio
 
 - Descubra configuraciones adicionales de [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) en los servicios de infraestructura de Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

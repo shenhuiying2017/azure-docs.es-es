@@ -14,21 +14,33 @@ En este escenario, creará un dispositivo que envía la siguiente telemetría a 
 
 Para simplificar, el código del dispositivo genera valores de ejemplo, pero le recomendamos que amplíe el ejemplo conectando sensores reales a su dispositivo y enviando telemetría real.
 
+Para completar este tutorial, deberá tener una cuenta activa de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][lnk-free-trial].
+
 ## Antes de comenzar
 
 Antes de escribir ningún código para el dispositivo, debe aprovisionar la solución preconfigurada de supervisión remota y luego ofrecer un dispositivo en esa solución.
 
 ### Aprovisionar su solución preconfigurada de supervisión remota
 
-El dispositivo que crea enviará datos a una instancia de la solución preconfigurada de [supervisión remota][lnk-remote-monitoring]. Visite [Introducción al Conjunto de aplicaciones de IoT de Azure][lnk-getstarted] para crear una cuenta de Azure y aprovisionar el Conjunto de aplicaciones de IoT. Seleccione **Supervisión remota** al crear la nueva solución.
+El dispositivo que crea enviará datos a una instancia de la solución preconfigurada de [supervisión remota][lnk-remote-monitoring]. Visite [Introducción a Conjunto de aplicaciones de IoT de Azure][lnk-getstarted] para aprovisionar la supervisión remota preconfigurado la solución en su cuenta de Azure:
 
-Cuando se haya aprovisionado la solución de supervisión, haga clic en **Iniciar** para abrir el panel de la solución.
+1. En la página https://www.azureiotsuite.com/, haga clic en **+** para crear una nueva solución.
+
+2. Haga clic en **Seleccionar** en el panel de **Supervisión remota** para crear la nueva solución.
+
+3. En la página **Crear solución de "Supervisión remota"** escriba un **Nombre de solución**, seleccione la **Región** en la que quiere implementar y seleccione la suscripción de Azure que quiere usar. Haga clic en **Crear solución**.
+
+4. Espere a que finalice el proceso de aprovisionamiento.
+
+> [AZURE.WARNING] Las soluciones preconfiguradas utilizan servicios de Azure facturables. Para evitar gastos innecesarios, asegúrese de quitar la solución preconfigurada de la suscripción cuando haya terminado. Puede quitar una solución preconfigurada de su suscripción en la página https://www.azureiotsuite.com/.
+
+Cuando se haya aprovisionado la solución de supervisión, haga clic en **Iniciar** para abrir el panel de la solución en el explorador.
 
 ![][img-dashboard]
 
 ### Aprovisionar el dispositivo en la solución de supervisión remota
 
-> [AZURE.NOTE]Si ya ha aprovisionado un dispositivo en la solución, puede omitir este paso. Deberá conocer las credenciales del dispositivo al crear la aplicación cliente.
+> [AZURE.NOTE] Si ya ha aprovisionado un dispositivo en la solución, puede omitir este paso. Deberá conocer las credenciales del dispositivo al crear la aplicación cliente.
 
 Para que un dispositivo se conecte a la solución preconfigurada, debe poder identificarse con credenciales válidas. Puede obtener las credenciales del dispositivo desde el panel de la solución y luego incluirlas en la aplicación cliente.
 
@@ -61,8 +73,9 @@ Para agregar un nuevo dispositivo a su solución de supervisión remota, complet
 [4]: ./media/iot-suite-selector-connecting/suite3.png
 [5]: ./media/iot-suite-selector-connecting/suite5.png
 
-[lnk-getstarted]: http://www.microsoft.com/server-cloud/internet-of-things/getting-started.aspx
+[lnk-getstarted]: https://www.azureiotsuite.com/
 [lnk-what-are-preconfig-solutions]: ../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md
 [lnk-remote-monitoring]: ../articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

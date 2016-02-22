@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015"
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
 
 #Cifrado dinámico: configuración de la directiva de autorización de claves de contenido 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
-
 
 ##Información general
 
@@ -440,4 +439,4 @@ Para obtener un token de prueba basado en la restricción de token que se usó p
 Ahora que ha configurado la directiva de autorización de la clave de contenido, consulte el tema [Configuración de la directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
 
 # Ejecución de Cassandra con Linux en Azure y acceso desde Node.js 
@@ -291,7 +291,7 @@ Asegúrese de que la máquina virtual está resaltada y haga clic en el vínculo
 Esto tardará unos segundos. La imagen debe estar disponible en la sección Mis imágenes de la Galería de imágenes. La VM de origen se eliminará automáticamente después de que la imagen se capture correctamente.
 
 ##Proceso de implementación en una sola región
-**Paso 1: Creación de la red virtual** Inicie sesión en el Portal de Azure clásico y cree una red virtual con los atributos que se muestran en la tabla. Consulte [Configurar una red virtual solo en la nube en el Portal de Azure clásico](../virtual-network/virtual-networks-create-vnet.md) para obtener pasos detallados del proceso.
+**Paso 1: Creación de la red virtual** Inicie sesión en el Portal de Azure clásico y cree una red virtual con los atributos que se muestran en la tabla. Consulte [Configurar una red virtual solo en la nube en el Portal de Azure clásico](../virtual-network/virtual-networks-create-vnet-classic-portal.md) para obtener pasos detallados del proceso.
 
 <table>
 <tr><th>Nombre del atributo de VM</th><th>Valor</th><th>Comentarios</th></tr>
@@ -692,4 +692,4 @@ Microsoft Azure es una plataforma flexible que permite la ejecución de Microsof
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

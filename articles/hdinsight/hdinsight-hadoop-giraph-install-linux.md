@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # Instalar Giraph en clústeres de Hadoop de HDInsight y usar Giraph para procesar gráficos a gran escala
@@ -23,7 +23,7 @@ Puede instalar Giraph en cualquier tipo de clúster de Hadoop en HDInsight de Az
 
 En este tema aprenderá a instalar Giraph con la acción de script. Una vez haya instalado Giraph, aprenderá a utilizarlo en las aplicaciones más habituales, como procesar gráficos de gran escala.
 
-> [AZURE.NOTE]La información de este artículo es específica de los clústeres de HDInsight basados en Linux. Para obtener información sobre cómo trabajar con clústeres basados en Windows, consulte [Instalación de Giraph en clústeres de Hadoop para HDinsight (Windows)](hdinsight-hadoop-giraph-install.md)
+> [AZURE.NOTE] La información de este artículo es específica de los clústeres de HDInsight basados en Linux. Para obtener información sobre cómo trabajar con clústeres basados en Windows, consulte [Instalación de Giraph en clústeres de Hadoop para HDinsight (Windows)](hdinsight-hadoop-giraph-install.md)
 
 ## <a name="whatis"></a>¿Qué es Giraph?
 
@@ -44,7 +44,7 @@ Este script realiza las acciones siguientes:
 
 Hay un script de ejemplo para instalar Giraph en un clúster de HDInsight disponible en un blob de almacenamiento de Azure de solo lectura en [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh). Esta sección proporciona instrucciones sobre cómo usar el script de ejemplo al crear el clúster mediante el Portal de Azure clásico.
 
-> [AZURE.NOTE]También puede usar Azure PowerShell o el SDK de .NET para HDInsight para crear un clúster mediante este script. Para obtener más información sobre el uso de estos métodos, consulte [Personalización de clústeres de HDInsight mediante acciones de script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] También puede usar Azure PowerShell o el SDK de .NET para HDInsight para crear un clúster mediante este script. Para obtener más información sobre el uso de estos métodos, consulte [Personalización de clústeres de HDInsight mediante acciones de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Comience a crear un clúster siguiendo los pasos que se describen en [Creación de clústeres de HDInsight basados en Linux](hdinsight-provision-linux-clusters.md#portal), pero no complete la operación.
 
@@ -54,10 +54,10 @@ Hay un script de ejemplo para instalar Giraph en un clúster de HDInsight dispon
 	* __URI DE SCRIPT__: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 	* __PRINCIPAL__: active esta opción.
 	* __TRABAJO__: active esta opción.
-	* __ZOOKEEPER__: active esta opción para realizar la instalación en el nodo Zookeeper.
+	* __ZOOKEEPER__: active esta opción para instalar en el nodo Zookeeper.
 	* __PARÁMETROS__: deje este campo en blanco.
 
-3. En la parte inferior de **Acciones de script**, use el botón **Seleccionar** para guardar la configuración. Por último, use el botón **Seleccionar** situado en la parte inferior de la hoja **Configuración opcional** para guardar la información de configuración opcional.
+3. En la parte inferior de **Acciones de scripts**, use el botón **Seleccionar** para guardar la configuración. Por último, use el botón **Seleccionar** situado en la parte inferior de la hoja **Configuración opcional** para guardar la información de configuración opcional.
 
 4. Continúe creando el clúster, tal como se describe en [Creación de clústeres de HDInsight basados en Linux](hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -152,4 +152,4 @@ Una vez terminada la creación del clúster, siga estos pasos para ejecutar el e
 
 - [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md). Use la personalización del clúster para instalar Solr en clústeres de Hadoop para HDInsight. Solr le permite realizar potentes operaciones de búsqueda en los datos almacenados.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

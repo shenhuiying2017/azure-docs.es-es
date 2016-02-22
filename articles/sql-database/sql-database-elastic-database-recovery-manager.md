@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="02/08/2016" 
 	ms.author="ddove"/>
 
 # Uso de la clase RecoveryManager para solucionar problemas de mapas de particiones
@@ -32,18 +32,18 @@ Para definiciones de términos, consulte el [Glosario de herramientas de base de
 
 ## ¿Por qué usar el Administrador de recuperación?
 
-En un entorno de base de datos con particiones, hay varias bases de datos y un número potencial de bases de datos en varios servidores lógicos. Cada servidor contiene varias bases de datos, una por cada inquilino de una solución para un solo inquilino. Cada base de datos debe asignarse en el mapa de partición para que se puedan dirigir con precisión las llamadas al servidor y a la base de datos correctos. Se realiza un seguimiento de las bases de datos según una clave de particionamiento y se asigna un rango de valores clave a cada partición. Por ejemplo, una clave de particionamiento puede representar los nombres de los clientes de "D" a "F". La asignación de todas las particiones (es decir, de las bases de datos) y sus rangos de asignación se encuentran en el mapa de particiones global. Cada base de datos también contiene un mapa de los rangos contenidos en la partición, lo que se conoce como el mapa de particiones local. El mapa de particiones local se usa para validar los datos almacenados en caché. (Cuando una aplicación se conecta a una partición, la asignación se almacena en caché con la aplicación para una rápida recuperación. El mapa de particiones local valida la asignación).
+En un entorno de base de datos particionada, hay un inquilino por base de datos y muchas bases de datos por servidor. También puede haber muchos servidores en el entorno. Cada base de datos se asigna en el mapa de particiones, de forma que las llamadas se puedan enrutar al servidor y a la base de datos correctos. Se realiza un seguimiento de las bases de datos según una **clave de particionamiento** y se asigna un **intervalo de valores de clave** a cada partición. Por ejemplo, una clave de particionamiento puede representar los nombres de los clientes de "D" a "F". La asignación de todas las particiones (es decir, de las bases de datos) y sus intervalos de asignación se encuentran en el **mapa de particiones global (GSM)**. Cada base de datos también contiene un mapa de los intervalos contenidos en la partición, lo que se conoce como **mapa de particiones local (LSM)**. Cuando una aplicación se conecta a una partición, la asignación se almacena en caché con la aplicación para una rápida recuperación. El mapa de particiones local se usa para validar los datos almacenados en caché.
 
 Puede que GSM y LSM no estén sincronizados por los motivos siguientes:
 
-1. Una incoherencia causada por la eliminación de una partición cuyo rango se considera que ya no está en uso, o por el cambio de nombre de una partición. La eliminación de una partición da como resultado una **asignación de particiones huérfana**. Una base de datos cuyo nombre cambió puede provocar de igual forma una asignación de particiones huérfanas. En función de su objetivo, puede que tenga que quitar la partición o simplemente actualizar la ubicación de la partición. 
-2. Se produce un evento de conmutación por error geográfica. Para continuar, hay que actualizar el nombre del servidor, el nombre de la base de datos o los detalles de la asignación de particiones cualquier partición, o todas, de un mapa de particiones. En el caso de una conmutación por error geográfica, se debería automatizar esa lógica de recuperación en el flujo de trabajo de conmutación por error. La automatización de las acciones de recuperación permite una capacidad de administración sin contacto para bases de datos habilitadas geográficamente y evita acciones humanas manuales.
+1. La eliminación de una partición cuyo intervalo se considera que ya no está en uso o el cambio de nombre de una partición. La eliminación de una partición da como resultado una **asignación de particiones huérfana**. De igual forma, una base de datos cuyo nombre cambió puede provocar una asignación de particiones huérfanas. En función de cuál sea el objetivo del cambio, puede que tenga que quitar la partición o simplemente actualizar la ubicación de la partición. Para recuperar una base de datos eliminada, consulte [Restaurar una base de datos a un momento anterior en el tiempo, restaurar una base de datos eliminada o recuperarse de una interrupción del centro de datos](sql-database-troubleshoot-backup-and-restore.md).
+2. Se produce un evento de conmutación por error geográfica. Para continuar, se debe actualizar el nombre del servidor y el nombre de la base de datos del administrador de mapas de particiones en la aplicación y luego actualizar los detalles de la asignación de particiones de todas las particiones de un mapa de particiones. En el caso de una conmutación por error geográfica, se debería automatizar esa lógica de recuperación en el flujo de trabajo de conmutación por error. La automatización de las acciones de recuperación permite una capacidad de administración sin contacto para bases de datos habilitadas geográficamente y evita acciones humanas manuales.
 3. Se restaura la partición o la base de datos de ShardMapManager al anterior punto de tiempo.
 
 Para obtener más información acerca de las herramientas de la Base de datos elástica de Base de datos SQL de Azure, la replicación y restauración geográficas, consulte lo siguiente:
 
-* [Características de base de datos elástica para Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md) 
-* [Continuidad de negocio de Base de datos SQL de Azure](sql-database-business-continuity.md) 
+* [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](sql-database-business-continuity.md) 
+* [Diseño para la continuidad del negocio](sql-database-business-continuity-design.md)
 * [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md)  
 * [Administración de ShardMap](sql-database-elastic-scale-shard-map-management.md)
 
@@ -68,9 +68,13 @@ El [método DetachShard](https://msdn.microsoft.com/library/azure/dn842083.aspx)
 
 **Importante**: use esta técnica solo si está seguro de que el intervalo para la asignación actualizada está vacío. Los métodos anteriores no comprueban los datos para el intervalo que se va a mover, por lo que es mejor incluir comprobaciones en el código.
 
-El ejemplo siguiente usa RecoveryManager para quitar las particiones del mapa de particiones; este mapa refleja la ubicación de la partición en el mapa de particiones global antes de la eliminación de la partición. Como se eliminó la partición, se supone esto fue intencionado y el rango con clave de particionamiento ya no está en uso. Si este no es el caso, puede ejecutar la restauración en un momento dado para recuperar la partición de un momento anterior. (En ese caso, revise la sección siguiente para detectar las incoherencias de partición). Puesto que se supone que la eliminación de la base de datos era intencionada, la acción de limpieza administrativas final consiste en eliminar la entrada a la partición en el administrador de mapas de particiones. Esto impide que la aplicación escriba accidentalmente información en un rango que no se espera.
-	
+En este ejemplo se eliminan particiones del mapa de particiones.
+
 	rm.DetachShard(s.Location, customerMap); 
+
+Se asigna la ubicación de partición en el GSM antes de la eliminación de la partición. Como se eliminó la partición, se supone esto fue intencionado y el rango con clave de particionamiento ya no está en uso. Si este no es el caso, puede ejecutar la restauración en un momento dado para recuperar la partición de un momento anterior. (En ese caso, revise la sección siguiente para detectar las incoherencias de partición). Para realizar la restauración, consulte [Restaurar una base de datos a un momento anterior en el tiempo, restaurar una base de datos eliminada o recuperarse de una interrupción del centro de datos](sql-database-troubleshoot-backup-and-restore.md).
+
+Puesto que se supone que la eliminación de la base de datos era intencionada, la acción de limpieza administrativas final consiste en eliminar la entrada a la partición en el administrador de mapas de particiones. Esto impide que la aplicación escriba accidentalmente información en un rango que no se espera.
 
 ## Para detectar las diferencias de asignación 
 
@@ -78,18 +82,19 @@ El [método DetectMappingDifferences](https://msdn.microsoft.com/library/azure/m
 
 	rm.DetectMappingDifferences(location, shardMapName);
 
-* El parámetro *location* es la ubicación de la partición, específicamente el nombre del servidor y el nombre de la base de datos de la partición. 
+* La *ubicación* especifica el nombre del servidor y el nombre de la base de datos. 
 * El parámetro *shardMapName* es el nombre del mapa de particiones. Solo es necesario si un mismo administrador de mapas de particiones administra varios mapas de particiones. Opcional. 
 
 ## Para resolver diferencias de asignación
 
 El [método ResolveMappingDifferences](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) selecciona uno de los mapas de particiones (local o global) como origen de datos y concilia las asignaciones en ambos mapas de particiones (global y local).
 
-	ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution);
+	ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    
 * El parámetro *RecoveryToken* enumera las diferencias en las asignaciones entre los mapas de particiones global y local para la partición específica. 
 
-* La enumeración [MappingDifferenceResolution](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) se usa para indicar el método para resolver la diferencia entre las asignaciones de particiones. Se recomienda **MappingDifferenceResolution.KeepShardMapping** en caso de que el mapa de particiones local contenga la asignación precisa y, por tanto, se debe usar la asignación en la partición. Suele ser el caso de una conmutación por error: la partición ahora reside en un servidor nuevo. Como se debe quitar primero la partición del mapa de particiones global (mediante el método RecoveryManager.DetachShard), ya no existe una asignación en el mapa de particiones global. Por lo tanto, debe usarse el mapa de particiones local para volver a establecer la asignación de particiones.
+* La enumeración [MappingDifferenceResolution](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) se usa para indicar el método para resolver la diferencia entre las asignaciones de particiones.
+* Se recomienda **MappingDifferenceResolution.KeepShardMapping** en caso de que el mapa de particiones local contenga la asignación precisa y, por tanto, se debe usar la asignación en la partición. Suele ser el caso de una conmutación por error: la partición ahora reside en un servidor nuevo. Como se debe quitar primero la partición del mapa de particiones global (mediante el método RecoveryManager.DetachShard), ya no existe una asignación en el mapa de particiones global. Por lo tanto, debe usarse el mapa de particiones local para volver a establecer la asignación de particiones.
 
 ## Anexión de una partición al mapa de particiones después de restaurar una partición 
 
@@ -101,7 +106,7 @@ El [método AttachShard](https://msdn.microsoft.com/library/azure/microsoft.azur
 
 * El parámetro *shardMapName* es el nombre del mapa de particiones. Solo es necesario cuando se administran varios mapas de particiones por el mismo administrador de mapas de particiones. Opcional.
 
-Este ejemplo agrega una partición al mapa de particiones que se restauró recientemente a un momento dado anterior. Puesto que la partición (es decir, la asignación de la partición del mapa de particiones local) se restauró, es potencialmente incoherente con la entrada de partición en el mapa de particiones global. Fuera de este código de ejemplo, la partición se restauró y cambió el nombre al nombre original de la base de datos. Como se restauró, se asume que la asignación del mapa de particiones local es la asignación de confianza.
+En este ejemplo se agrega una partición al mapa de particiones que se restauró recientemente desde un momento dado anterior. Puesto que la partición (es decir, la asignación de la partición del mapa de particiones local) se restauró, es potencialmente incoherente con la entrada de partición en el mapa de particiones global. Fuera de este código de ejemplo, la partición se restauró y cambió el nombre al nombre original de la base de datos. Como se restauró, se asume que la asignación del mapa de particiones local es la asignación de confianza.
 
 	rm.AttachShard(s.Location, customerMap); 
 	var gs = rm.DetectMappingDifferences(s.Location); 
@@ -116,15 +121,15 @@ En el caso de una conmutación por error geográfica, a la base de datos secunda
 
 ## Prácticas recomendadas
 
-La conmutación por error geográfica y la recuperación son operaciones administradas normalmente por un administrador de la nube de la aplicación mediante el uso intencional de una de las características de continuidad del negocio de Bases de datos SQL de Azure. La planeación de la continuidad de negocio requiere procesos, procedimientos y medidas para garantizar que las operaciones empresariales puedan continuar sin interrupción. Deben usarse los métodos disponibles como parte de la clase RecoveryManager dentro de este flujo de trabajo para garantizar que los mapas de particiones local y global se actualizan según la acción de recuperación realizada. Existen cinco pasos básicos para asegurar correctamente que los mapas de particiones local y global reflejan la información precisa después de un evento de conmutación por error. El código de la aplicación para ejecutar estos pasos se puede integrar en el flujo de trabajo y en las herramientas existentes.
+La conmutación por error geográfica y la recuperación son operaciones administradas normalmente por un administrador de nube de la aplicación mediante el uso intencional de una de las características de continuidad del negocio de Base de datos SQL de Azure. La planeación de la continuidad de negocio requiere procesos, procedimientos y medidas para garantizar que las operaciones empresariales puedan continuar sin interrupción. Deben usarse los métodos disponibles como parte de la clase RecoveryManager dentro de este flujo de trabajo para garantizar que los mapas de particiones local y global se actualizan según la acción de recuperación realizada. Existen cinco pasos básicos para asegurar correctamente que los mapas de particiones local y global reflejan la información precisa después de un evento de conmutación por error. El código de la aplicación para ejecutar estos pasos se puede integrar en el flujo de trabajo y en las herramientas existentes.
 
-1. Recupere el Administrador de recuperación de ShardMapManager. 
+1. Recupere RecoveryManager de ShardMapManager. 
 2. Desasocie la partición anterior del mapa de particiones.
 3. Asociar la nueva partición al mapa de particiones, incluida la nueva ubicación de la partición.
 4. Detecte incoherencias en la asignación entre los mapas de particiones global y local. 
 5. Resuelva las diferencias entre los mapas de particiones global y local, confiando en el mapa de particiones local. 
 
-Este ejemplo realiza los pasos siguientes: 1. Quita las particiones del mapa de particiones que reflejan las ubicaciones de particiones anteriores al evento de conmutación por error. 2. Asocia particiones al mapa de particiones que refleja las nuevas ubicaciones de las particiones (el parámetro "Configuration.SecondaryServer" es el nuevo nombre del servidor, pero el mismo nombre de base de datos). 3. Recupera los tokens de recuperación mediante la detección de diferencias de asignación entre los mapas de particiones global y local para cada partición. 4. Resuelve las incoherencias al confiar en la asignación del mapa de particiones local de cada partición.
+En este ejemplo se realizan los siguientes pasos: 1. Quita las particiones del mapa de particiones que reflejan las ubicaciones de particiones anteriores al evento de conmutación por error. 2. Asocia particiones al mapa de particiones que refleja las nuevas ubicaciones de las particiones (el parámetro "Configuration.SecondaryServer" es el nuevo nombre del servidor, pero el mismo nombre de base de datos). 3. Recupera los tokens de recuperación mediante la detección de diferencias de asignación entre los mapas de particiones global y local para cada partición. 4. Resuelve las incoherencias al confiar en la asignación del mapa de particiones local de cada partición.
 
 	var shards = smm.GetShards(); 
 	foreach (shard s in shards) 
@@ -141,7 +146,7 @@ Este ejemplo realiza los pasos siguientes: 1. Quita las particiones del mapa de 
 	
 		  foreach (RecoveryToken g in gs) 
 			{ 
-			   rm.ResolveMappingDifferences(g, 						MappingDifferenceResolution.KeepShardMapping); 
+			   rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
 			} 
 		} 
 	} 
@@ -155,4 +160,4 @@ Este ejemplo realiza los pasos siguientes: 1. Quita las particiones del mapa de 
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

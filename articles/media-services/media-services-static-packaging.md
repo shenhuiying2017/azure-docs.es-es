@@ -19,7 +19,7 @@
 
 # Uso de Azure Media Packager para realizar tareas de paquetes estáticos
 
->[AZURE.NOTE]El ciclo de vida de Windows Azure Media Packager y Windows Azure Media Encryptor terminará el 1 de marzo de 2017. Antes de esa fecha, las funcionalidades de estos procesadores se agregarán al Estándar de codificador multimedia (MES). A los clientes se les proporcionarán instrucciones sobre cómo migrar sus flujos de trabajo para enviar trabajos al MES. Las capacidades de cifrado y conversión de formato pueden estar disponibles a través de paquetes dinámicos y cifrado dinámico.
+>[AZURE.NOTE]El ciclo de vida de Microsoft Azure Media Packager y Microsoft Azure Media Encryptor terminará el 1 de marzo de 2017. Antes de esa fecha, las funcionalidades de estos procesadores se agregarán al Estándar de codificador multimedia (MES). A los clientes se les proporcionarán instrucciones sobre cómo migrar sus flujos de trabajo para enviar trabajos al MES. Las capacidades de cifrado y conversión de formato pueden estar disponibles a través de paquetes dinámicos y cifrado dinámico.
 
 ## Información general
 
@@ -1447,4 +1447,4 @@ Asegúrese de actualizar el código siguiente para que señale a la carpeta dond
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

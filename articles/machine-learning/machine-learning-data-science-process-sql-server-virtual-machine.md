@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;garye" />
 
 #<a name="heading"></a>Proceso de datos en una máquina virtual de SQL Server en Azure
 
-En este documento se trata la exploración de datos y generación de características para los datos almacenados en una máquina virtual de SQL Server en Azure. Esto puede hacerse mediante la administración de datos usando SQL o mediante un lenguaje de programación como Python.
+En este documento se aborda cómo explorar datos y generar características para los datos almacenados en una VM de SQL Server en Azure. Esto puede hacerse mediante la administración de datos usando SQL o mediante un lenguaje de programación como Python.
 
 
-> [AZURE.NOTE]En las instrucciones SQL de ejemplo de este documento se supone que los datos están en SQL Server. Si no lo están, consulte el mapa de proceso de ciencia de datos en la nube para obtener información sobre cómo mover los datos a SQL Server.
+> [AZURE.NOTE] En las instrucciones SQL de ejemplo de este documento se supone que los datos están en SQL Server. Si no lo están, consulte el mapa de proceso de ciencia de datos en la nube para obtener información sobre cómo mover los datos a SQL Server.
 
 ##<a name="SQL"></a>Uso de SQL
 
@@ -34,7 +34,7 @@ En esta sección, se describen las siguientes tareas de tratamiento de datos med
 A continuación se muestran algunos scripts de SQL de ejemplo que se pueden usar para explorar los almacenes de datos en SQL Server.
 
 
-> [AZURE.NOTE]Para obtener un ejemplo práctico, puede usar el [conjunto de datos de los taxis de la Ciudad de Nueva York](http://www.andresmh.com/nyctaxitrips/) y consultar el IPNB llamado [Tratamiento de datos de la Ciudad de Nueva York mediante un Bloc de notas de IPython y SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb), que se trata de un tutorial completo.
+> [AZURE.NOTE] Para obtener un ejemplo práctico, puede usar el [conjunto de datos de los taxis de la Ciudad de Nueva York](http://www.andresmh.com/nyctaxitrips/) y consultar el IPNB llamado [Tratamiento de datos de la Ciudad de Nueva York mediante un Bloc de notas de IPython y SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb), que se trata de un tutorial completo.
 
 1. Obtener el número de observaciones por día
 
@@ -62,7 +62,7 @@ En esta sección, se describen formas de generar características mediante SQL:
 3. [Implementación de las características de una sola columna](#sql-featurerollout)
 
 
-> [AZURE.NOTE]Cuando genere características adicionales, puede agregarlas como columnas a la tabla existente o crear una nueva tabla con las características adicionales y la clave principal, que se pueden combinar con la tabla original.
+> [AZURE.NOTE] Cuando genere características adicionales, puede agregarlas como columnas a la tabla existente o crear una nueva tabla con las características adicionales y la clave principal, que se pueden combinar con la tabla original.
 
 ###<a name="sql-countfeature"></a>Generación de características basadas en recuentos
 
@@ -113,10 +113,10 @@ La información de ubicación se puede caracterizar como sigue, con diferencias 
 Las características basadas en ubicación anteriores se pueden usar aún más para generar características de recuento adicionales, tal y como se describió anteriormente.
 
 
-> [AZURE.TIP]Puede insertar mediante programación los registros con el lenguaje que prefiera. Es posible que deba insertar los datos en fragmentos para mejorar el rendimiento de escritura [Consulte el ejemplo sobre cómo hacerlo mediante pyodbc aquí.](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)
+> [AZURE.TIP] Puede insertar mediante programación los registros con el lenguaje que prefiera. Es posible que deba insertar los datos en fragmentos para mejorar el rendimiento de escritura [Consulte el ejemplo sobre cómo hacerlo mediante pyodbc aquí.](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)
  
 
-> [AZURE.TIP]Otra alternativa consiste en insertar datos en la base de datos mediante la [utilidad BCP](https://msdn.microsoft.com/library/ms162802.aspx)
+> [AZURE.TIP] Otra alternativa consiste en insertar datos en la base de datos mediante la [utilidad BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 
 ###<a name="sql-aml"></a>Conexión con Aprendizaje automático de Azure
 
@@ -152,4 +152,4 @@ Para obtener un ejemplo de tutorial completo del Proceso de ciencia de datos de 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

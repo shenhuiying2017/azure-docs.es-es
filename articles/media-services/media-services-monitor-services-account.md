@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
-
-
 
 #<a id="monitormediaservicesaccount"></a>Supervisión de una cuenta de Servicios multimedia
 
@@ -24,7 +22,7 @@ El panel Servicios multimedia de Azure presenta las métricas de uso y la inform
 
 Puede supervisar el número de trabajos de codificación en cola, tareas de codificación con error, trabajos de codificación activos representados por los datos de entrada y salida del codificador, así como el uso de almacenamiento de blobs asociados a la cuenta de Servicios multimedia. Además, si está realizando streaming de contenido a los clientes, puede recuperar también varias métricas de streaming. Puede elegir supervisar los datos durante las últimas 6 horas, 24 horas o 7 días.
  
->[AZURE.NOTE]Los costes adicionales están asociados a la supervisión de los datos de almacenamiento en el Portal de Azure clásico. Para obtener más información, consulte[ Facturación y análisis de almacenamiento](http://go.microsoft.com/fwlink/?LinkId=256667).
+>[AZURE.NOTE] Los costes adicionales están asociados a la supervisión de los datos de almacenamiento en el Portal de Azure clásico. Para obtener más información, consulte[ Facturación y análisis de almacenamiento](http://go.microsoft.com/fwlink/?LinkId=256667).
 
 ##<a id="configuremonitoring"></a>Supervisión de una cuenta de Servicios multimedia
 
@@ -38,7 +36,7 @@ Puede supervisar el número de trabajos de codificación en cola, tareas de codi
 1. Haga clic en el nombre de la **CUENTA DE ALMACENAMIENTO** en la sección de **vista rápida**.
 2. En la página de la cuenta de almacenamiento, haga clic en el vínculo de la **página de configuración** y desplácese hacia abajo hasta la configuración de **supervisión** para los servicios Blob, Tabla y Cola, mostrados a continuación.
 
-	>[AZURE.NOTE]Los blobs son el único tipo de almacenamiento admitido en Servicios multimedia.
+	>[AZURE.NOTE] Los blobs son el único tipo de almacenamiento admitido en Servicios multimedia.
 
 	![OpcionesAlmacenamiento][storage_options_scoped]
 
@@ -73,4 +71,4 @@ Puede supervisar el número de trabajos de codificación en cola, tareas de codi
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

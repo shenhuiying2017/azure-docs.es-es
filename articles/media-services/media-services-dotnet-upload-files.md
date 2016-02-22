@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/17/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -108,7 +108,7 @@ El código hace lo siguiente:
  	
 - 	Carga los archivos en los Servicios multimedia con el método **UploadAsync**.
  	
->[AZURE.NOTE]Use el método UploadAsync para asegurarse de que las llamadas no provocan un bloqueo y los archivos se cargan en paralelo.
+>[AZURE.NOTE] Use el método UploadAsync para asegurarse de que las llamadas no provocan un bloqueo y los archivos se cargan en paralelo.
  	
  	
         static public IAsset CreateAssetAndUploadMultipleFiles(AssetCreationOptions assetCreationOptions, string folderPath)
@@ -315,4 +315,4 @@ Ahora que ha cargado un recurso en los Servicios multimedia, vaya al tema [Obten
 [Obtención de un procesador multimedia]: media-services-get-media-processor.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -23,9 +23,7 @@
 - [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-Este artículo le guiará por el proceso con el modelo de implementación del Administrador de recursos. Si está buscando un modelo de implementación diferente para esta configuración, use las pestañas para seleccionar el artículo que quiera.
-
-En este momento, no tenemos una solución para las conexiones de red virtual a red virtual en redes virtuales creadas mediante el método de implementación del Administrador de recursos que residen en distintas suscripciones. El equipo está trabajando actualmente en una solución y esperamos haber establecido los pasos a final de año o al principio del año próximo. Cuando estén disponibles, este artículo reflejará esos pasos. Los pasos siguientes se refieren a redes virtuales que están en la misma suscripción.
+Este artículo le guiará por los pasos para crear una conexión entre redes virtuales que usan el modelo de implementación del **Administrador de recursos** PowerShell. En este momento, no tenemos documentación para las conexiones de red virtual a red virtual en redes virtuales creadas mediante el modelo de implementación del Administrador de recursos que residen en distintas suscripciones. Actualmente, el equipo está trabajando en una solución. Cuando estén disponibles, este artículo reflejará esos pasos. Los pasos siguientes se refieren a redes virtuales que están en la misma suscripción.
 
 **Información sobre los modelos de implementación de Azure**
 
@@ -262,4 +260,4 @@ Después de comprobar que las subredes de la puerta de enlace están configurada
 
 Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Vea [Creación de una máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md) para ver los pasos.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

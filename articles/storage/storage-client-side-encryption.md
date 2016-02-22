@@ -3,7 +3,7 @@
 	description="La biblioteca de cliente de Almacenamiento de Azure para .NET ofrece compatibilidad para el cifrado de cliente e integración con el Almacén de claves de Azure para obtener una seguridad máxima para sus aplicaciones de Almacenamiento de Azure."
 	services="storage"
 	documentationCenter=".net"
-	authors="tamram"
+	authors="robinsh"
 	manager="carmonm"
 	editor="tysonn"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/08/2016"
 	ms.author="lakasa"/>
 
 
@@ -95,7 +95,7 @@ El cifrado de datos de tabla funciona de la siguiente forma:
 
 Tenga en cuenta que solo se pueden cifrar las propiedades de cadena. Si hay que cifrar otros tipos de propiedades, habrá que convertirlas en cadenas. Las cadenas cifradas se almacenan en el servicio como propiedades binarias y se convierten de nuevo en cadenas después del descifrado.
 
-Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que se van a cifrar. Para ello, pueden especificar un atributo [EncryptProperty] (para las entidades POCO que se derivan de TableEntity) o una resolución de cifrado en las opciones de solicitud. Una resolución de cifrado es un delegado que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
+Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que se van a cifrar. Para ello, pueden especificar un atributo [EncryptProperty] \(para las entidades POCO que se derivan de TableEntity) o una resolución de cifrado en las opciones de solicitud. Una resolución de cifrado es un delegado que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
 
 ### Operaciones por lotes
 
@@ -244,6 +244,9 @@ Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da l
 
 ## Pasos siguientes
 
-Descargue el [paquete NuGet de la Biblioteca de cliente de Almacenamiento de Azure para .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) Descargue el [código fuente de la Biblioteca de cliente de Almacenamiento de Azure para .NET](https://github.com/Azure/azure-storage-net) desde GitHub Descargue los paquetes NuGet [Básico](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) y [Extensiones](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) del Almacén de claves de Azure Consulte la [documentación del Almacén de claves de Azure](../articles/key-vault-whatis.md)
+Descargue el [paquete NuGet de la Biblioteca de cliente de Almacenamiento de Azure para .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) 
+Descargue el [código fuente de la Biblioteca de cliente de Almacenamiento de Azure para .NET](https://github.com/Azure/azure-storage-net) desde GitHub 
+Descargue los paquetes NuGet [Básico](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) y [Extensiones](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) del Almacén de claves de Azure 
+Consulte la [documentación del Almacén de claves de Azure](../articles/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

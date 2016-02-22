@@ -14,23 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 # Desarrollo de la acción de script con HDInsight
 
-Aprenda a escribir acciones de script para HDInsight. Para obtener más información acerca del uso de acciones de script, vea [Personalización de un clúster de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster.md). Si desea leer el mismo artículo escrito para el clúster de HDInsight en el sistema operativo Linux, consulte [Desarrollo de acciones de scripts para HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Aprenda a escribir acciones de script para HDInsight. Para obtener más información acerca del uso de acciones de script, vea [Personalización de un clúster de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster.md). Si desea leer el mismo artículo escrito para el clúster de HDInsight basado en Linux, consulte [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 La acción de se usa para instalar software adicional que se ejecuta en un clúster de Hadoop o para cambiar la configuración de las aplicaciones instaladas en un clúster. Las acciones de script son scripts que se ejecutan en los nodos del clúster cuando se implementan clústeres de HDInsight y que se ejecutan una vez que los nodos del clúster completan la configuración de HDInsight. Una acción de script se ejecuta con privilegios de cuenta de administrador de sistema y proporciona derechos de acceso completo a los nodos del clúster. Cada clúster se puede proporcionar con una lista de acciones de scripts que se ejecutarán en el orden en que se especifican.
 
-> [AZURE.NOTE]Si recibe el siguiente mensaje de error:
+> [AZURE.NOTE] Si recibe el siguiente mensaje de error:
 > 
 >     System.Management.Automation.CommandNotFoundException; ExceptionMessage : The term 'Save-HDIFile' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 > Se debe a que no incluyó los métodos auxiliares. Vea [Métodos auxiliares para scripts personalizados](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 
 ## Scripts de ejemplo
 
-Para el aprovisionamiento de clústeres de HDInsight en el sistema operativo Windows, la acción de script es el script de Azure PowerShell. A continuación se muestra un script de ejemplo para configurar los archivos de configuración del sitio:
+Para la creación de clústeres de HDInsight en el sistema operativo Windows, la acción de script es el script de Azure PowerShell. A continuación se muestra un script de ejemplo para configurar los archivos de configuración del sitio:
 
 	param (
 	    [parameter(Mandatory)][string] $ConfigFileName,
@@ -88,13 +88,13 @@ HDInsight proporciona varios scripts para instalar los componentes adicionales e
 Nombre | Script
 ----- | -----
 **Instalar Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Vea [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark].
-**Instalar R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Vea [Instalación y uso de R en clústeres de HDInsight][hdinsight-r-scripts].
+**Instalar R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Consulte [Instalación y uso de R en clústeres de HDInsight][hdinsight-r-scripts].
 **Instalar Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Vea [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md).
-- **Instalación de Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vea [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md).
+: **Instalar Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Vea [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md).
 
 La acción de script puede implementarse desde el Portal de Azure, Azure PowerShell o mediante el SDK de HDInsight para .NET. Para obtener más información, consulte [Personalización de clústeres de HDInsight mediante la acción de script][hdinsight-cluster-customize].
 
-> [AZURE.NOTE]Los scripts de ejemplo solo funcionan con el clúster de HDInsight versión 3.1 o superior. Para obtener más información acerca de las versiones de clústeres de HDInsight, consulte las [versiones de clústeres de HDInsight](../hdinsight-component-versioning/).
+> [AZURE.NOTE] Los scripts de ejemplo solo funcionan con el clúster de HDInsight versión 3.1 o superior. Para obtener más información acerca de las versiones de clústeres de HDInsight, consulte las [versiones de clústeres de HDInsight](../hdinsight-component-versioning/).
 
 
 
@@ -213,7 +213,7 @@ o
 
 ### Inicio de excepción para error en implementación de clúster
 
-Si desea recibir una notificación precisa en caso de que una personalización de clúster no se realizara correctamente según lo esperado, es importante iniciar una excepción y producir un error en el aprovisionamiento del clúster. Por ejemplo, es posible que desee procesar un archivo si existe y controlar el error en casos donde no existe el archivo. Con esto se garantizará que el script se termina correctamente y que el estado del clúster se conoce sin problemas. El fragmento de código siguiente da un ejemplo de cómo lograr esto:
+Si quiere recibir una notificación precisa en caso de que una personalización de clúster no se realizara correctamente según lo esperado, es importante iniciar una excepción y producir un error en el aprovisionamiento del clúster. Por ejemplo, es posible que desee procesar un archivo si existe y controlar el error en casos donde no existe el archivo. Con esto se garantizará que el script se termina correctamente y que el estado del clúster se conoce sin problemas. El fragmento de código siguiente da un ejemplo de cómo lograr esto:
 
 	If(Test-Path($SomePath)) {
 		#Process file in some way
@@ -339,7 +339,7 @@ En caso de que se produzca un error de ejecución, también se incluirá la sali
 - [Personalizar los clústeres de HDInsight mediante la acción de script][hdinsight-cluster-customize]
 - [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark]
 - [Instalación y uso de R en clústeres de Hadoop de HDInsight][hdinsight-r-scripts]
-- [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md).
+- [Instalación y uso de Solr en clústeres de Hadoop de HDInsight](hdinsight-hadoop-solr-install.md).
 - [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
@@ -351,4 +351,4 @@ En caso de que se produzca un error de ejecución, también se incluirá la sali
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Ejecución de trabajos de MapReduce con Hadoop en HDInsight con Curl
@@ -25,7 +25,7 @@ En este documento, obtendrá información sobre cómo utilizar Curl para ejecuta
 
 Curl se usa para demostrar cómo puede interactuar con HDInsight mediante solicitudes HTTP sin formato para ejecutar trabajos de MapReduce. Esto funciona mediante la API de REST de WebHCat (conocida anteriormente como Templeton) proporcionada por el clúster de HDInsight.
 
-> [AZURE.NOTE]Si ya está familiarizado con el uso de servidores de Hadoop basado en Linux, pero no conoce HDInsight, consulte [Lo que necesita saber acerca de Hadoop en HDInsight basado en Linux](hdinsight-hadoop-linux-information.md).
+> [AZURE.NOTE] Si ya está familiarizado con el uso de servidores de Hadoop basado en Linux, pero no conoce HDInsight, consulte [Lo que necesita saber acerca de Hadoop en HDInsight basado en Linux](hdinsight-hadoop-linux-information.md).
 
 ##<a id="prereq"></a>Requisitos previos
 
@@ -39,7 +39,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 
 ##<a id="curl"></a>Ejecución de trabajos de MapReduce mediante Curl
 
-> [AZURE.NOTE]Al usar Curl o cualquier otra comunicación REST con WebHCat, debe autenticar las solicitudes proporcionando el nombre de usuario y la contraseña de administrador del clúster de HDInsight. También debe utilizar el nombre de clúster como parte del URI utilizado para enviar las solicitudes al servidor.
+> [AZURE.NOTE] Al usar Curl o cualquier otra comunicación REST con WebHCat, debe autenticar las solicitudes proporcionando el nombre de usuario y la contraseña de administrador del clúster de HDInsight. También debe utilizar el nombre de clúster como parte del URI utilizado para enviar las solicitudes al servidor.
 >
 > Para los comandos de esta sección, reemplace **USERNAME** por el usuario que se autenticará en el clúster y **PASSWORD** por la contraseña de la cuenta de usuario. Reemplace **CLUSTERNAME** por el nombre del clúster.
 >
@@ -83,7 +83,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 
 	Si se completó el trabajo, el estado será "SUCCEEDED".
 
-    > [AZURE.NOTE]Esta solicitud de Curl devuelve un documento JSON con información acerca del trabajo; jq se usa para recuperar solo el valor de estado.
+    > [AZURE.NOTE] Esta solicitud de Curl devuelve un documento JSON con información acerca del trabajo; jq se usa para recuperar solo el valor de estado.
 
 4. Una vez que el estado del trabajo cambió a **SUCCEEDED**, puede recuperar los resultados del trabajo desde el almacenamiento de blobs de Azure. El parámetro `statusdir` transmitido con la consulta contiene la ubicación del archivo de salida; en este caso,****wasb:///example/curl**. Esta dirección almacena la salida del trabajo en el directorio **example/curl** en el contenedor de almacenamiento predeterminado que su clúster de HDInsight usa.
 
@@ -95,7 +95,7 @@ Para descargar un archivo, use lo siguiente:
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]Debe especificar el nombre de la cuenta de almacenamiento que contiene el blob usando los parámetros `-a` y `-k` o bien, definir las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y **AZURE\_STORAGE\_ACCESS\_KEY**. Consulte la sección acerca de [cómo cargar datos en HDInsight](hdinsight-upload-data.md) para obtener más información.
+> [AZURE.NOTE] Debe especificar el nombre de la cuenta de almacenamiento que contiene el blob usando los parámetros `-a` y `-k` o bien, definir las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y **AZURE\_STORAGE\_ACCESS\_KEY**. Consulte la sección acerca de [cómo cargar datos en HDInsight](hdinsight-upload-data.md) para obtener más información.
 
 ##<a id="summary"></a>Resumen
 
@@ -115,4 +115,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

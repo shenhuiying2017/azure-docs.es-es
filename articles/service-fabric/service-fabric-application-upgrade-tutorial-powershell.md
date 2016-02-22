@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/04/2016"
    ms.author="subramar"/>
 
 
@@ -33,7 +33,7 @@ Estos pasos se pueden realizar descargando de la aplicación de GitHub y agregan
 
 Después de agregar estos elementos al proyecto, genere y publique la aplicación haciendo clic con el botón derecho en el proyecto de aplicación, **VisualObjectsApplication** y seleccione el comando **Publicar** en el elemento de menú de Service Fabric de la siguiente forma. Vea el [Tutorial de actualización de aplicación de Service Fabric](service-fabric-application-upgrade-tutorial.md) para más información. También puede usar PowerShell para implementar la aplicación.
 
-> [AZURE.NOTE]Antes de que se pueda usar cualquiera de los comandos de Service Fabric en PowerShell, hay que conectarse primero al clúster mediante el cmdlet `Connect-ServiceFabricCluster`. Del mismo modo, se supone que el clúster ya se ha configurado en la máquina local. Vea el artículo sobre [configuración del entorno de desarrollo de Service Fabric](service-fabric-get-started.md).
+> [AZURE.NOTE] Antes de que se pueda usar cualquiera de los comandos de Service Fabric en PowerShell, hay que conectarse primero al clúster mediante el cmdlet `Connect-ServiceFabricCluster`. Del mismo modo, se supone que el clúster ya se ha configurado en la máquina local. Vea el artículo sobre [configuración del entorno de desarrollo de Service Fabric](service-fabric-get-started.md).
 
 Después de compilar el proyecto en Visual Studio, puede utilizar el comando de PowerShell **Copy-ServiceFabricApplicationPackage** para copiar el paquete de aplicación en ImageStore. Se sigue este paso al registrar la aplicación en el tiempo de ejecución de Service Fabric mediante el cmdlet **Register-ServiceFabricApplicationPackage**. El último paso es iniciar una instancia de la aplicación mediante el cmdlet **New-ServiceFabricApplication**. Estos tres pasos son análogos al uso del elemento de menú **Implementar** en Visual Studio.
 
@@ -136,4 +136,4 @@ Aprenda a usar funcionalidades avanzadas para actualizar una aplicación. Para e
 
 Solucione problemas habituales en las actualizaciones de aplicaciones consultando los pasos que figuran en [Solución de problemas de las actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

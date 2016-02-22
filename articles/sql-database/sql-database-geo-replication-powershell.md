@@ -38,7 +38,7 @@ Para configurar la replicación geográfica, necesita lo siguiente:
 
 - Una suscripción de Azure. Si necesita una suscripción a Azure, haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva para finalizar este artículo.
 - Una base de datos SQL de Azure: la base de datos principal que quiere replicar en una región geográfica diferente.
-- Azure PowerShell 1.0 o posterior. Para descargar e instalar los módulos de Azure PowerShell, siga las instrucciones de [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md).
+- Azure PowerShell 1.0 o posterior. Para descargar e instalar los módulos de Azure PowerShell, siga las instrucciones de [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
 
 
 
@@ -84,8 +84,8 @@ Si la base de datos del asociado ya existe (por ejemplo, como resultado de la te
 
 El comando siguiente crea una base de datos secundaria no legible de la base de datos "mydb" del servidor "srv2" en el grupo de recursos "rg2":
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "No"
 
 
 
@@ -93,7 +93,7 @@ El comando siguiente crea una base de datos secundaria no legible de la base de 
 
 El comando siguiente crea una base de datos secundaria legible de la base de datos "mydb" del servidor "srv2" en el grupo de recursos "rg2":
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
 
 
@@ -103,15 +103,15 @@ El comando siguiente crea una base de datos secundaria legible de la base de dat
 
 El comando siguiente crea una base de datos secundaria no legible de la base de datos "mydb" en el grupo de bases de datos elásticas “ElasticPool1” del servidor "srv2" en el grupo de recursos "rg2":
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "None"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "No"
 
 
 ### Incorporación de una base de datos secundaria legible (base de datos elástica)
 
 El comando siguiente crea una base de datos secundaria legible de la base de datos "mydb" en el grupo de bases de datos elásticas “ElasticPool1” del servidor "srv2" en el grupo de recursos "rg2":
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "All"
 
 
@@ -131,7 +131,7 @@ Para quitar la base de datos secundaria, los usuarios deben tener acceso de escr
 
 El código siguiente quita el vínculo de replicación de la base de datos "mydb" al servidor "srv2" del grupo de recursos "rg2".
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –SecondaryResourceGroup "rg2" –PartnerServerName "srv2"
     $secondaryLink | Remove-AzureRmSqlDatabaseSecondary 
 
@@ -159,7 +159,7 @@ Este cmdlet devolverá resultados cuando se complete el proceso de cambiar la ba
 
 El siguiente comando cambia los roles de la base de datos "mydb" en el servidor "srv2" en el grupo de recursos "rg2" a principal. La base de datos principal original a la que estaba conectada "db2" cambiará a secundaria después de que las dos bases de datos estén totalmente sincronizadas.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb” –ResourceGroupName "rg2” –ServerName "srv2”
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
     $database | Set-AzureRmSqlDatabaseSecondary -Failover
 
 
@@ -181,7 +181,7 @@ Si la base de datos principal tiene varias bases de datos secundarias, el comand
 
 El siguiente comando cambia los roles de la base de datos "mydb" a principal cuando la base de datos principal no está disponible. La base de datos principal original a la que estaba conectada "mydb" cambiará a secundaria después de volver en línea de nuevo. En ese momento, la sincronización puede producir la pérdida de datos.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb” –ResourceGroupName "rg2” –ServerName "srv2”
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
     $database | Set-AzureRmSqlDatabaseSecondary –Failover -AllowDataLoss
 
 
@@ -194,7 +194,7 @@ Puede usarse [Get-AzureRmSqlDatabaseReplicationLink](https://msdn.microsoft.com/
 
 El comando siguiente recupera el estado del vínculo de replicación entre la base de datos principal "mydb" y la secundaria en el servidor "srv2" del grupo de recursos "rg2".
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb”
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –PartnerResourceGroup "rg2” –PartnerServerName "srv2”
 
 
@@ -215,4 +215,4 @@ El comando siguiente recupera el estado del vínculo de replicación entre la ba
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/09/2016"  
 	ms.author="juliako"/>
 
 #Administración de entidades de Servicios multimedia con la API de REST
@@ -27,10 +27,11 @@ Servicios multimedia de Microsoft Azure es un servicio REST basado en OData v3. 
 
 - Incorporación de entidades 
 - Consulta de entidades 
+- Enumeración de grandes colecciones de entidades
 - Actualización de entidades 
 - Eliminación de entidades 
 
->[AZURE.NOTE]Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
+>[AZURE.NOTE] Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
 >
 >Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
 
@@ -100,7 +101,9 @@ El ejemplo siguiente devuelve la propiedad State de todos los trabajos.
 	x-ms-version: 2.11
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
 	Host: media.windows.net
-	The following example returns all JobTemplates with the name "SampleTemplate."
+
+El ejemplo siguiente devuelve todos los JobTemplates con el nombre "SampleTemplate".
+
 	GET https://media.windows.net/API/JobTemplates?$filter=startswith(Name,%20'SampleTemplate') HTTP/1.1
 	Content-Type: application/json;odata=verbose
 	Accept: application/json;odata=verbose
@@ -112,6 +115,20 @@ El ejemplo siguiente devuelve la propiedad State de todos los trabajos.
 
 >[AZURE.NOTE]Servicios multimedia no admite la operación $expand, ni los métodos no admitidos de LINQ que se describen en las consideraciones sobre LINQ (Servicios de datos de WCF).
 
+##Enumeración de grandes colecciones de entidades
+
+Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. Utilice **Skip** y **Top** para enumerar la gran colección de entidades.
+
+En el ejemplo siguiente se muestra cómo usar **Skip** y **Top** para omitir los 2000 primero trabajos y obtener los siguientes 1000.
+
+	GET https://media.windows.net/api/Jobs()?$skip=2000&$top=1000 HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
+	Host: media.windows.net
 
 ##Actualización de entidades
 
@@ -158,4 +175,4 @@ En el ejemplo siguiente se muestra cómo eliminar un localizador que se usó par
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/25/2016"
 	ms.author="glenga"/>
 
 # Incorporación de autenticación a la aplicación de Servicios móviles
@@ -46,7 +46,7 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Primero d
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-&nbsp;&nbsp;3. En Visual Studio 2012 Express para Windows Phone, abra el proyecto que creó cuando completó el tutorial [Incorporación de Servicios móviles a una aplicación existente](mobile-services-windows-phone-get-started-data.md).
+&nbsp;&nbsp;3. En Visual Studio, abra el proyecto que creó cuando completó el tutorial [Incorporación de Servicios móviles a una aplicación existente](mobile-services-windows-phone-get-started-data.md).
 
 &nbsp;&nbsp;4. Presione la tecla F5 para ejecutar esta aplicación basada en el inicio rápido; compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación. Esto se produce porque la aplicación intenta obtener acceso a Servicios móviles como usuario sin autenticar, pero la tabla *TodoItem* requiere ahora autenticación.
 
@@ -82,4 +82,4 @@ En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios
 [Incorporación de Servicios móviles a una aplicación existente]: mobile-services-windows-phone-get-started-data.md
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

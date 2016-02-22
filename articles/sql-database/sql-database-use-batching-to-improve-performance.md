@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/30/2015"
+	ms.date="02/04/2016"
 	ms.author="jroth" />
 
 # Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de Base de datos SQL
@@ -41,7 +41,7 @@ En la primera parte del artículo, se examinan diversas técnicas de procesamien
 ## Estrategias de procesamiento por lotes
 
 ### Nota sobre los tiempos resultantes en este tema
->[AZURE.NOTE]Los resultados no sirven para pruebas comparativas, sino que están diseñados para mostrar el **rendimiento relativo**. Los tiempos se basan en un promedio de un mínimo de 10 series de pruebas. Las operaciones son inserciones en una tabla vacía. Estas pruebas se midieron antes de V12 y no se corresponden necesariamente con el rendimiento que podría observar en una base de datos V12 con los nuevos [niveles de servicio](sql-database-service-tiers.md). La ventaja relativa de la técnica de procesamiento por lotes debería ser semejante.
+>[AZURE.NOTE] Los resultados no sirven para pruebas comparativas, sino que están diseñados para mostrar el **rendimiento relativo**. Los tiempos se basan en un promedio de un mínimo de 10 series de pruebas. Las operaciones son inserciones en una tabla vacía. Estas pruebas se midieron antes de V12 y no se corresponden necesariamente con el rendimiento que podría observar en una base de datos V12 con los nuevos [niveles de servicio](sql-database-service-tiers.md). La ventaja relativa de la técnica de procesamiento por lotes debería ser semejante.
 
 ### Transacciones
 Parece extraño comenzar una revisión del procesamiento por lotes hablando de transacciones. Pero el uso de transacciones del lado cliente surte un sutil efecto de procesamiento por lotes del lado servidor que mejora el rendimiento. Además, las transacciones se pueden agregar con unas pocas líneas de código, lo que proporciona una forma rápida de mejorar el rendimiento de las operaciones secuenciales.
@@ -108,7 +108,7 @@ En la tabla siguiente se muestran algunos resultados de pruebas ad hoc. En las p
 | 100 | 2145 | 341 |
 | 1000 | 21479 | 2756 |
 
->[AZURE.NOTE]Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
 
 A partir de los resultados de las pruebas anteriores, encapsular una única operación en una transacción en realidad reduce el rendimiento. Pero a medida que aumente el número de operaciones dentro de una única transacción, la mejora del rendimiento se vuelve más marcada. La diferencia de rendimiento también es más apreciable cuando todas las operaciones se producen dentro del centro de datos de Microsoft Azure. La mayor latencia existente cuando se usa Base de datos de SQL desde fuera del centro de datos de Microsoft Azure contrarresta la ganancia de rendimiento por el uso de transacciones.
 
@@ -187,7 +187,7 @@ En la tabla siguiente se muestran los resultados de pruebas ad hoc para el uso d
 | 1000 | 2615 | 382 |
 | 10000 | 23830 | 3586 |
 
->[AZURE.NOTE]Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
 
 El aumento del rendimiento gracias al procesamiento por lotes es evidente de inmediato. En la prueba secuencial anterior, 1000 operaciones tardaban 129 segundos fuera del centro de datos y 21 segundos dentro del centro de datos. Pero con parámetros con valores de tabla, 1000 operaciones solo tardan 2,6 segundos fuera del centro de datos y 0,4 segundos dentro del centro de datos.
 
@@ -221,7 +221,7 @@ Los resultados de pruebas ad hoc siguientes muestran el rendimiento del procesam
 | 1000 | 2535 | 341 |
 | 10000 | 21605 | 2737 |
 
->[AZURE.NOTE]Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
 
 En lotes más pequeños, el uso de parámetros con valores de tabla superó el rendimiento de la clase **SqlBulkCopy**. Sin embargo, el rendimiento con **SqlBulkCopy** fue entre un 12 y un 31% mayor que los parámetros con valores de tabla en las pruebas de 1000 y 10.000 filas. Como los parámetros con valores de tabla, **SqlBulkCopy** es una buena opción para las inserciones por lotes, especialmente cuando se compara con el rendimiento de las operaciones sin lotes.
 
@@ -259,7 +259,7 @@ Los resultados de pruebas ad hoc siguientes muestran el rendimiento de este tipo
 | 10 | 30 | 25 |
 | 100 | 33 | 51 |
 
->[AZURE.NOTE]Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
 
 Este enfoque puede ser algo más rápido para los lotes de menos de 100 filas. Aunque la mejora es pequeña, esta técnica es otra opción que podría funcionar bien en su escenario de aplicaciones específico.
 
@@ -298,7 +298,7 @@ En nuestras pruebas, normalmente dividir los lotes grandes en fragmentos menores
 | 100 | 10 | 465 |
 | 50 | 20 | 630 |
 
->[AZURE.NOTE]Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
 
 Es obvio que el mejor rendimiento para 1000 filas es enviarlas todas a la vez. En otras pruebas (no mostradas aquí) hubo una pequeña mejora de rendimiento al dividir un lote de 10.000 filas en dos lotes de 5000. Pero el esquema de tabla para estas pruebas es relativamente simple, por lo que debería realizar pruebas con sus datos y tamaños de lote específicos para verificar estos hallazgos.
 
@@ -316,7 +316,7 @@ Por último, sopese el tamaño del lote y los riesgos asociados con el procesami
 | 250 [4] | 405 | 329 | 265 |
 | 100 [10] | 488 | 439 | 391 |
 
->[AZURE.NOTE]Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
+>[AZURE.NOTE] Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
 
 Hay varias razones posibles para la degradación del rendimiento debido al paralelismo:
 
@@ -604,4 +604,4 @@ En la lista siguiente, se proporciona un resumen de las recomendaciones de proce
 
 Este artículo se centra en cómo el diseño de base de datos y las técnicas de codificado relacionadas con el procesamiento por lotes pueden mejorar el rendimiento y la escalabilidad de las aplicaciones. Sin embargo, esto es solamente un factor en la estrategia global. Para conocer más formas de mejorar el rendimiento y la escalabilidad, consulte [Guía de rendimiento de Base de datos SQL de Azure](sql-database-performance-guidance.md) y [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

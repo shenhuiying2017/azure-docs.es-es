@@ -19,6 +19,6 @@ Longitud del nombre de métrica | 100 | 100
 
 <sup>2</sup> Puede comprar capacidad adicional más allá de los 50 millones.
  
-[Información acerca de precios y cuotas para Application Insights](app-insights-pricing.md)
+[Información acerca de precios y cuotas para Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

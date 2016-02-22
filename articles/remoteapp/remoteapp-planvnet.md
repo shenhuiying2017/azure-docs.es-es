@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/07/2016"
+    ms.date="02/02/2016"
     ms.author="elizapo" />
 
 # Cómo planificar la red virtual para Azure RemoteApp
 
-En este documento se describe cómo configurar la red virtual (VNET) de Azure y la subred para Azure RemoteApp. Si no estás familiarizado con las redes virtuales de Azure, esta es una capacidad que te ayuda a virtualizar tu infraestructura de red en la nube y a crear soluciones híbridas con Azure y con tus recursos locales. Puede leer más sobre este tema [aquí](virtual-networks-overview.md).
+En este documento se describe cómo configurar la red virtual (VNET) de Azure y la subred para Azure RemoteApp. Si no estás familiarizado con las redes virtuales de Azure, esta es una capacidad que te ayuda a virtualizar tu infraestructura de red en la nube y a crear soluciones híbridas con Azure y con tus recursos locales. Puede leer más sobre este tema [aquí](../virtual-network/virtual-networks-overview.md).
 
-Si quieres definir directivas de seguridad para el tráfico (entrante y saliente) en la red virtual donde vas a implementar Azure RemoteApp, te recomendamos que crees una subred de Azure RemoteApp independiente del resto de las implementaciones de la red virtual de Azure. Para obtener más información sobre cómo definir las directivas de seguridad de la subred de red virtual de Azure, lee [¿Qué es un grupo de seguridad de red (NSG)?](virtual-networks-nsg.md).
+Si quieres definir directivas de seguridad para el tráfico (entrante y saliente) en la red virtual donde vas a implementar Azure RemoteApp, te recomendamos que crees una subred de Azure RemoteApp independiente del resto de las implementaciones de la red virtual de Azure. Para obtener más información sobre cómo definir las directivas de seguridad de la subred de red virtual de Azure, lee [¿Qué es un grupo de seguridad de red (NSG)?](../virtual-network/virtual-networks-nsg.md).
 
 ## Tipos de colecciones de RemoteApp de Azure con redes virtuales de Azure
 
@@ -53,6 +53,6 @@ Esto es lo que tienes que habilitar en la subred de red virtual:
 
 ## Red virtual con tunelización forzada
 
-Ahora, la [Tunelización forzada](vpn-gateway-about-forced-tunneling.md) es compatible con todas las colecciones nuevas de Azure RemoteApp. Actualmente no se admite que la migración de una colección existente admita la tunelización forzada. Tendrás que eliminar todas las colecciones existentes mediante la VNET que quieres vincular a Azure RemoteApp y crear una nueva para tener habilitada la tunelización forzada en las colecciones.
+Ahora, la [Tunelización forzada](../vpn-gateway/vpn-gateway-about-forced-tunneling.md) es compatible con todas las colecciones nuevas de Azure RemoteApp. Actualmente no se admite que la migración de una colección existente admita la tunelización forzada. Tendrás que eliminar todas las colecciones existentes mediante la VNET que quieres vincular a Azure RemoteApp y crear una nueva para tener habilitada la tunelización forzada en las colecciones.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

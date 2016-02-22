@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/09/2016"  
 	ms.author="juliako"/>
 
 
@@ -23,6 +23,15 @@
 
 Servicios multimedia de Microsoft Azure es un servicio que acepta solicitudes HTTP basadas en OData y puede responder en JSON detallado o atom+pub. Como los Servicios multimedia cumplen las directrices de diseño de Azure, hay un conjunto de encabezados HTTP obligatorios que cada cliente debe usar al conectarse a los Servicios multimedia, así como un conjunto de encabezados opcionales que se pueden usar. En las secciones siguientes se describen los encabezados y los verbos HTTP que puede usar al crear solicitudes y recibir respuestas de los Servicios multimedia.
 
+##Consideraciones 
+
+Las siguientes consideraciones se aplican al usar REST.
+
+
+- Si usa JSON, DEBE establecer el encabezado Accept en el [formato JSON Verbose](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/). OData no entiende la propiedad \_\_metadata en la solicitud, a menos que establezca el modo verbose.
+
+	**Accept**: application/json;odata=verbose
+- Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. Debe usar **Skip** y **Take** (. NET) / **top** (REST) como se describe en estos ejemplos de [.NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) y de [API de REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 
 ## Encabezados de solicitud HTTP estándar compatibles con los Servicios multimedia
 
@@ -38,7 +47,7 @@ MaxDataServiceVersion|Decimal|3\.0
 
 
 
->[AZURE.NOTE]Dado que los Servicios multimedia usan OData para exponer su repositorio de metadatos de recursos subyacente a través de las API de REST, los encabezados DataServiceVersion y MaxDataServiceVersion deben incluirse en cualquier solicitud; sin embargo, si no se incluyen, los Servicios multimedia actuales suponen que el valor de DataServiceVersion es 3.0.
+>[AZURE.NOTE] Dado que los Servicios multimedia usan OData para exponer su repositorio de metadatos de recursos subyacente a través de las API de REST, los encabezados DataServiceVersion y MaxDataServiceVersion deben incluirse en cualquier solicitud; sin embargo, si no se incluyen, los Servicios multimedia actuales suponen que el valor de DataServiceVersion es 3.0.
 
 A continuación se muestra un conjunto de encabezados opcionales:
 
@@ -81,6 +90,10 @@ DELETE|Elimina un objeto.
 MERGE|Actualiza un objeto existente con los cambios de propiedad con nombre.
 HEAD|Devuelve los metadatos de un objeto para una respuesta GET.
 
+##Limitación
+
+Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. Debe usar **Skip** y **Take** (. NET) / **top** (REST) como se describe en estos ejemplos de [.NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) y de [API de REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities).
+
 
 ## Detección del modelo de Servicios multimedia
 
@@ -105,4 +118,4 @@ Anexe "?api-version=2.x" al final del URI si desea ver los metadatos en un explo
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

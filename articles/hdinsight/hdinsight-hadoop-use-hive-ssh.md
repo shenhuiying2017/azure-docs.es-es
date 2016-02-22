@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Uso de Hive con Hadoop en HDInsight con SSH
@@ -23,7 +23,7 @@
 
 En este artículo, aprenderá a usar Secure Shell (SSH) para conectarse a un clúster de Hadoop en HDInsight de Azure y, a continuación, envíe de manera interactiva consultas de Hive usando la interfaz de línea de comandos (CLI) de Hive.
 
-> [AZURE.IMPORTANT]Si bien el comando de Hive está disponible en los clústeres de HDInsight basados en Linux, considere la posibilidad de usar Beeline. Beeline es un cliente más reciente para trabajar con Hive y se incluye con el clúster de HDInsight. Para obtener más información sobre su uso, consulte [Uso de Hive con Hadoop en HDInsight con Beeline](hdinsight-hadoop-use-hive-beeline.md).
+> [AZURE.IMPORTANT] Si bien el comando de Hive está disponible en los clústeres de HDInsight basados en Linux, considere la posibilidad de usar Beeline. Beeline es un cliente más reciente para trabajar con Hive y se incluye con el clúster de HDInsight. Para obtener más información sobre su uso, consulte [Uso de Hive con Hadoop en HDInsight con Beeline](hdinsight-hadoop-use-hive-beeline.md).
 
 ##<a id="prereq"></a>Requisitos previos
 
@@ -45,7 +45,7 @@ Conéctese con el nombre de dominio completo (FQDN) de su clúster de HDInsight 
 
 **Si proporcionó una contraseña para la autenticación de SSH**, al crear el clúster de HDInsight, tendrá que proporcionar la contraseña cuando se le solicite.
 
-Para obtener más información sobre el uso de SSH con HDInsight, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X (vista previa)](hdinsight-hadoop-linux-use-ssh-unix.md).
+Para obtener más información sobre el uso de SSH con HDInsight, consulte [Uso de SSH con Hadoop basado en Linux en HDInsight desde Linux, OS X y Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ###PuTTY (clientes basados en Windows)
 
@@ -76,7 +76,7 @@ Para obtener más información sobre el uso de PuTTY, consulte [Utilización de 
     * **SELECT**: selecciona un número de todas las filas donde la columna **t4** contiene el valor **[ERROR]**. Esto debe devolver un valor de **3** ya que hay tres filas que contienen este valor.
     * **INPUT\_\_FILE\_\_NAME LIKE '%.log'**: indica a Hive que solo deberíamos devolver datos de archivos que terminan en .log. Esto restringe la búsqueda al archivo sample.log que contiene los datos y le impide que devuelva datos de otros archivos de datos de ejemplo que no coinciden con el esquema que hemos definido.
 
-    > [AZURE.NOTE]Las tablas externas se deben usar cuando espera que un origen externo, como por ejemplo un proceso de carga de datos automático, u otra operación MapReduce, actualice los datos subyacentes, pero siempre desea que las consultas de Hive usen los datos más recientes.
+    > [AZURE.NOTE] Las tablas externas se deben usar cuando espera que un origen externo, como por ejemplo un proceso de carga de datos automático, u otra operación MapReduce, actualice los datos subyacentes, pero siempre desea que las consultas de Hive usen los datos más recientes.
     >
     > La eliminación de una tabla externa **no** elimina los datos, solamente la definición de tabla.
 
@@ -91,13 +91,13 @@ Para obtener más información sobre el uso de PuTTY, consulte [Utilización de 
     * **STORED AS ORC**: almacena los datos en el formato Optimized Row Columnar (ORC). Se trata de un formato altamente optimizado y eficiente para almacenar datos de Hive.
     * **INSERT OVERWRITE ... SELECT**: selecciona filas de la tabla **log4jLogs** que contienen **[ERROR]** y, a continuación, inserta los datos en la tabla **errorLogs**.
 
-    Para comprobar que solamente las filas que contienen **[ERROR]** en la columna t4 se almacenaron en la tabla **errorLogs**, use la siguiente instrucción para devolver todas las filas de **errorLogs**:
+    Para comprobar que solamente las filas que contienen **[ERROR]** en la columna t4 se almacenaron en la tabla **errorLogs**, use la siguiente instrucción para devolver todas las filas de **errorLogs**.
 
         SELECT * from errorLogs;
 
     Se deben devolver tres filas de datos y todas ellas deben contener **[ERROR]** en la columna t4.
 
-    > [AZURE.NOTE]A diferencia de las tablas externas, la eliminación de una tabla interna también eliminará los datos subyacentes.
+    > [AZURE.NOTE] A diferencia de las tablas externas, la eliminación de una tabla interna también eliminará los datos subyacentes.
 
 ##<a id="summary"></a>Resumen
 
@@ -144,4 +144,4 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

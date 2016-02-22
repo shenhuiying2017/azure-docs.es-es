@@ -25,7 +25,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##Requisitos previos##
+## Requisitos previos ##
 
 En este artículo se supone que ya ha instalado un sistema operativo Linux CentOS (o un derivado similar) en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
@@ -82,7 +82,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux CentO
 		# sudo chkconfig network on
 
 
-8. **Solo CentOS 6.3**: Instalación de los controladores para los servicios de integración de Linux (LIS)
+8. **Solo CentOS 6.3**: instalación de los controladores para los servicios de integración de Linux (LIS)
 
 	**Importante: el paso solo es válido para CentOS 6.3 y versiones anteriores.** En CentOS 6.4+, los servicios de integración de Linux *ya están disponibles en el kernel estándar*.
 
@@ -183,7 +183,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux CentO
 
 	Tenga en cuanta que al instalar el paquete WALinuxAgent se eliminarán los paquetes NetworkManager y NetworkManager-gnome, si es que aún no se han eliminado como se indica en el paso 2.
 
-18.	No cree un espacio de intercambio en el disco del sistema operativo.
+18.	No cree espacio de intercambio en el disco del SO.
 
 	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
@@ -336,7 +336,7 @@ La preparación de una máquina virtual CentOS 7 para Azure es muy similar a Cen
 
 		# sudo yum install WALinuxAgent
 
-15.	No cree un espacio de intercambio en el disco del sistema operativo.
+15.	No cree espacio de intercambio en el disco del SO.
 
 	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
@@ -355,7 +355,6 @@ La preparación de una máquina virtual CentOS 7 para Azure es muy similar a Cen
 17. Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
 ## Pasos siguientes
-Ya está listo para usar el archivo .vhd de CentOS Linux para crear nuevas máquinas virtuales de Azure. Si es la primera vez que usa Azure y carga el archivo .vhd en Azure, puede seguir los pasos 2 y 3 de [esta guía](virtual-machines-linux-create-upload-vhd.md).
- 
+Ya está listo para usar el disco duro virtual de CentOS para crear nuevas máquinas virtuales de Azure. Si esta es la primera vez que está cargando el archivo .vhd en Azure, consulte los pasos 2 y 3 de [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](virtual-machines-linux-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

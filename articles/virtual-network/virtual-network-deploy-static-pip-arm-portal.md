@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Implementar una máquina virtual con una dirección IP pública estática mediante el portal de versión preliminar en el Administrador de recursos | Microsoft Azure"
-   description="Aprender a implementar las máquinas virtuales con una dirección IP pública estática mediante el portal de versión preliminar en el Administrador de recursos"
+   pageTitle="Implementación de una VM con una dirección IP pública estática a través del Portal de Azure en el Administrador de recursos | Microsoft Azure"
+   description="Obtenga más información acerca de la implementación de VM con una dirección IP pública estática a través del Portal de Azure en el Administrador de recursos"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2016"
+   ms.date="02/04/2016"
    ms.author="telmos" />
 
 # Implementar una máquina virtual con una dirección IP pública estática mediante el portal de Azure
@@ -59,4 +59,4 @@ Para crear una máquina virtual con una dirección IP pública estática en el p
 
 	![Portal de Azure: crear la dirección IP pública](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

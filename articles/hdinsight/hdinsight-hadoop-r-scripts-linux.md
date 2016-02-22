@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # Instalación y uso de R en clústeres de Hadoop para HDInsight
 
 Puede instalar R en cualquier tipo de clúster de Hadoop en HDInsight mediante la personalización de clústeres de **acción de script**. Esto permite que los analistas y los científicos de datos usen R para implementar el eficaz marco de programación MapReduce/YARN para procesar grandes cantidades en datos en clústeres de Hadoop que están implementados en HDInsight.
 
-> [AZURE.NOTE]Para realizar los pasos que se describen en este documento se requiere un clúster de HDInsight basado en Linux. Para obtener información sobre el uso de R con un clúster basado en Windows, vea [Instalación y uso de R en clústeres Hadoop de HDinsight (Windows)](hdinsight-hadoop-r-scripts.md)
+> [AZURE.NOTE] Para realizar los pasos que se describen en este documento se requiere un clúster de HDInsight basado en Linux. Para obtener información sobre el uso de R con un clúster basado en Windows, vea [Instalación y uso de R en clústeres Hadoop de HDinsight (Windows)](hdinsight-hadoop-r-scripts.md)
 
 ## ¿Qué es R?
 
@@ -60,13 +60,13 @@ Además, se instalan los siguientes paquetes de R:
 
 La acción de script [https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh) se usa para instalar R en un clúster de HDInsight. En esta sección se proporcionan instrucciones sobre cómo usar el script durante el aprovisionamiento del clúster mediante el Portal de Azure.
 
-> [AZURE.NOTE]También puede usar Azure PowerShell o el SDK de .NET para HDInsight para crear un clúster mediante este script. Para obtener más información sobre el uso de estos métodos, vea [Personalización de un clúster de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] También puede usar Azure PowerShell o el SDK de .NET para HDInsight para crear un clúster mediante este script. Para obtener más información sobre el uso de estos métodos, consulte [Personalización de clústeres de HDInsight mediante acciones de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Inicie el aprovisionamiento de un clúster siguiendo los pasos que se describen en [Aprovisionamiento de clústeres de HDInsight basados en Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), pero no realice la operación.
+1. Inicie el aprovisionamiento de un clúster siguiendo los pasos que se describen en [Aprovisionamiento de clústeres de HDInsight basado en Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), pero no complete la operación.
 
-2. En la hoja **Configuración opcional**, seleccione **Acciones de scripts** y proporcione la información siguiente:
+2. En la hoja **Configuración opcional**, seleccione **Acciones de script** y proporcione la información siguiente:
 
-	* __NOMBRE__: escriba un nombre sencillo para la acción de script.
+	* __NOMBRE__: escriba un nombre descriptivo para la acción de script.
 	* __URI DE SCRIPT__: https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
 	* __PRINCIPAL__: active esta opción.
 	* __TRABAJO__: active esta opción.
@@ -146,4 +146,4 @@ Cuando termine de aprovisionar el clúster, siga estos pasos para usar R para re
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

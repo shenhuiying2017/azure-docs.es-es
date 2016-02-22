@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/18/2015" 
+	ms.date="02/08/2016" 
 	ms.author="ginathan;bradsev" />
 
 # Proceso de análisis de Cortana en acción: uso de clústeres de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB
@@ -663,4 +663,4 @@ Podemos ver que para los dos ejemplos de prueba por los que hemos preguntado (en
 
 Esto concluye nuestro tutorial completo que muestra cómo controlar un conjunto de datos grande mediante Aprendizaje automático de Azure. Hemos empezado con un terabyte de datos, hemos creado un modelo de predicción y lo hemos implementado como un servicio web en la nube.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 
@@ -25,7 +25,7 @@ Este artículo describe cómo usar las colas del Bus de servicio. Los ejemplos e
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-> [AZURE.NOTE]Para instalar Python o el [paquete de Azure para Python][], consulte la [Guía de instalación de Python](../python-how-to-install.md).
+> [AZURE.NOTE] Para instalar Python o el [paquete de Azure para Python][], consulte la [Guía de instalación de Python](../python-how-to-install.md).
 
 ## Creación de una cola
 
@@ -82,7 +82,7 @@ msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 print(msg.body)
 ```
 
-Los mensajes se eliminan de la cola a medida que se leen cuando el parámetro **peek\_lock** está establecido en **False**. Puede leer y bloquear los mensajes sin eliminarlos de la cola si establece el parámetro opcional **peek\_lock** en **True**.
+Los mensajes se eliminan de la cola a medida que se leen cuando el parámetro **peek\_lock** está establecido en **False**. Puede leer (ojear) y bloquear el mensaje sin eliminarlo de la cola si establece el parámetro **peek\_lock** en **True**.
 
 El comportamiento por el que los mensajes se eliminan tras leerlos como parte del proceso de recepción es el modelo más sencillo y el que mejor funciona en aquellas situaciones en las que una aplicación puede tolerar que no se procese un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el Bus de servicio habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
@@ -115,4 +115,4 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
 [Colas de Bus de servicio y colas de Azure]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

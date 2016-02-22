@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/15/2015"
+   ms.date="02/09/2016"
    ms.author="tomfitz"/>
 
 # Paso de valores seguros durante la implementación
 
 Si necesita pasar un valor seguro (como una contraseña) como un parámetro durante la implementación, puede almacenar ese valor como un secreto en un [Almacén de claves de Azure](./key-vault/key-vault-whatis.md) y hacer referencia al valor en otras plantillas del Administrador de recursos. Incluya solo una referencia al secreto en la plantilla para que el secreto nunca se exponga. No es necesario especificar manualmente el valor para el secreto cada vez que implemente los recursos. Especifique qué usuarios o entidades de servicio pueden tener acceso al secreto.
 
-> [AZURE.NOTE]Actualmente, solo la CLI de Azure admite la capacidad de hacer referencia a un secreto del Almacén de claves. Azure PowerShell agregará esta capacidad tan pronto como sea posible.
+> [AZURE.NOTE] Actualmente, solo la CLI de Azure admite la capacidad de hacer referencia a un secreto del Almacén de claves. Azure PowerShell agregará esta capacidad tan pronto como sea posible.
 
 ## Implementación de un almacén de claves y un secreto
 
@@ -33,34 +33,34 @@ Para obtener información acerca de cómo implementar un almacén de claves y un
 Se hace referencia al secreto desde dentro de un archivo de parámetros que pasa valores a la plantilla. Se hace referencia al secreto pasando el identificador de recurso de almacén de claves y el nombre del secreto.
 
     "parameters": {
-        "adminPassword": {
-            "reference": {
-                "keyVault": {
-                    "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-                }, 
-                "secretName": "sqlAdminPassword" 
-            } 
-        }
+      "adminPassword": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+          }, 
+          "secretName": "sqlAdminPassword" 
+        } 
+      }
     }
 
 Un archivo de parámetros completo podría tener el siguiente aspecto:
 
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "sqlsvrAdminLogin": {
-                "value": ""
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "sqlsvrAdminLogin": {
+          "value": ""
+        },
+        "sqlsvrAdminLoginPassword": {
+          "reference": {
+            "keyVault": {
+              "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
             },
-            "sqlsvrAdminLoginPassword": {
-                "reference": {
-                    "keyVault": {
-                        "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-                    },
-                    "secretName": "adminPassword"
-                }
-            }
+            "secretName": "adminPassword"
+          }
         }
+      }
     }
 
 El parámetro que acepta el secreto debe ser **securestring**. En el ejemplo siguiente se muestran las secciones pertinentes de una plantilla que implementa un SQL Server que requiere una contraseña de administrador.
@@ -102,7 +102,7 @@ El parámetro que acepta el secreto debe ser **securestring**. En el ejemplo sig
 ## Pasos siguientes
 
 - Para obtener información general sobre almacenes de claves, consulte [Introducción al Almacén de claves de Azure](./key-vault/key-vault-get-started.md).
-- Para obtener más información sobre cómo implementar plantillas, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
+- Para obtener información sobre el uso de un almacén de claves con una máquina virtual, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
 - Para obtener ejemplos completos de secretos de clave de referencia, consulte [Ejemplos del Almacén de claves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

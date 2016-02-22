@@ -25,7 +25,7 @@ Estos términos se usan en [Incorporación de una partición con herramientas de
 
 **Base de datos**: una base de datos SQL de Azure.
 
-**Enrutamiento dependiente de los datos**: la funcionalidad que permite que una aplicación se conecte a una partición dada una clave de partición específica. Comparar con **Consulta a través de particiones múltiples**.
+**Enrutamiento dependiente de los datos**: la funcionalidad que permite que una aplicación se conecte a una partición dada una clave de partición específica. Consulte [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md). Comparar con **[Consulta a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md)**.
 
 **Mapa de particiones global**: el mapa entre las claves de particionamiento y sus respectivas particiones dentro de un **conjunto de datos**. El mapa de particiones global se almacena en el **administrador de mapas de particiones**. Comparar con **mapa de particiones local**.
 
@@ -82,4 +82,4 @@ Estos términos se usan en [Incorporación de una partición con herramientas de
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

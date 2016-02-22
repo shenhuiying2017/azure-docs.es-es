@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/08/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Configuración de una máquina virtual de Azure como servidor del Bloc de notas de IPython para realizar análisis avanzados
@@ -89,11 +89,11 @@ Internet Explorer: ![Creación del espacio de trabajo][20]
 
 Chrome: ![Creación del espacio de trabajo][21]
 
-Después de iniciar sesión en IPython Notebook, se mostrará en el explorador el directorio *DataScienceSamples*. Este directorio contiene Blocs de notas de IPython de ejemplo que Microsoft comparte para ayudar a los usuarios a realizar tareas de ciencia de datos. Estos cuadernos de IPython de ejemplo se desprotegen desde el [**repositorio de Github**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) a las máquinas virtuales durante el proceso de configuración del servidor de IPython Notebook. Microsoft mantiene y actualiza con frecuencia este repositorio. Los usuarios pueden visitar el repositorio de Github para obtener ejemplos más recientes de cuadernos de IPython.![Creación del espacio de trabajo][18]
+Después de iniciar sesión en IPython Notebook, se mostrará en el explorador el directorio *DataScienceSamples*. Este directorio contiene Blocs de notas de IPython de ejemplo que Microsoft comparte para ayudar a los usuarios a realizar tareas de ciencia de datos. Estos cuadernos de IPython de ejemplo se desprotegen desde el [**repositorio de Github**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) a las máquinas virtuales durante el proceso de configuración del servidor de IPython Notebook. Microsoft mantiene y actualiza con frecuencia este repositorio. Los usuarios pueden visitar el repositorio de Github para obtener los Blocs de notas de IPython de ejemplo más recientes.![Creación del espacio de trabajo][18]
 
 ## <a name="upload"></a>Paso 5: Carga de un cuaderno de IPython existente desde un equipo local en el servidor de IPython Notebook
 
-Los Blocs de notas de IPython ofrecen una manera fácil para que los usuarios carguen un Bloc de notas de IPython existente de sus máquinas locales en el servidor de Bloc de notas de IPython de las máquinas virtuales. Después de que los usuarios inicien sesión en IPython Notebook en un explorador web, haga clic en el **directorio** en el que se cargará IPython Notebook. A continuación, seleccione un archivo .ipynb de IPython Notebook para cargarlo desde la máquina local en el **Explorador de archivos** y arrástrelo y colóquelo en el directorio de IPython Notebook, en el explorador web. Haga clic en el botón **Cargar** para cargar el archivo .ipynb en el servidor de IPython Notebook. Otros usuarios podrán entonces empezar a usarlo desde sus exploradores web.
+Los Blocs de notas de IPython ofrecen una manera fácil para que los usuarios carguen un Bloc de notas de IPython existente de sus máquinas locales en el servidor de Bloc de notas de IPython de las máquinas virtuales. Después de que los usuarios inicien sesión en IPython Notebook en un explorador web, haga clic en el **directorio** en el que se cargará IPython Notebook. A continuación, seleccione un archivo .ipynb de IPython Notebook para cargarlo desde la máquina local en el **Explorador de archivos** y arrástrelo y colóquelo en el directorio de IPython Notebook, en el explorador web. Haga clic en el botón **Cargar** para cargar el archivo .ipynb en el servidor del Bloc de notas de IPython. Otros usuarios podrán entonces empezar a usarlo desde sus exploradores web.
 
 ![Creación del espacio de trabajo][22]
 
@@ -104,7 +104,7 @@ Los Blocs de notas de IPython ofrecen una manera fácil para que los usuarios ca
 
 Las máquinas virtuales de Azure tienen unas tarifas del tipo **pague solo por lo que use**. Para asegurarse de que no se le facture cuando no use la máquina virtual, debe estar en el estado **Detenida (desasignada)**.
 
-> [AZURE.NOTE]Si apaga la máquina virtual desde dentro de la misma (mediante las opciones de energía de Windows), la máquina virtual se detiene pero permanece asignada. Para asegurarse de que no se sigue facturando, detenga siempre las máquinas virtuales desde el [Portal de Azure clásico](http://manage.windowsazure.com/). También puede detener la máquina virtual a través de Powershell, con una llamada a **ShutdownRoleOperation** con "PostShutdownAction" igual a "StoppedDeallocated".
+> [AZURE.NOTE] Si apaga la máquina virtual desde dentro de la misma (mediante las opciones de energía de Windows), la máquina virtual se detiene pero permanece asignada. Para asegurarse de que no se sigue facturando, detenga siempre las máquinas virtuales desde el [Portal de Azure clásico](http://manage.windowsazure.com/). También puede detener la máquina virtual a través de Powershell, con una llamada a **ShutdownRoleOperation** con "PostShutdownAction" igual a "StoppedDeallocated".
 
 Para apagar y desasignar la máquina virtual:
 
@@ -143,4 +143,4 @@ Los pasos siguientes de Tecnología y procesos de análisis avanzado se asignan 
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

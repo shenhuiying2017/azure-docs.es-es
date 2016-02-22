@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 # Uso de AMQP 1.0 con la API .NET del bus de servicio
@@ -22,7 +22,7 @@ Advanced Message Queuing Protocol (AMQP) 1.0 es un protocolo de mensajes a nivel
 
 La compatibilidad con AMQP 1.0 del Bus de servicio implica que puede utilizar las funciones de colas y publicación/suscripción de mensajería asíncrona desde una amplia variedad de plataformas mediante un eficaz protocolo binario. Además, puede desarrollar aplicaciones formadas por componentes creados con una mezcla de lenguajes, marcos y sistemas operativos.
 
-En este artículo se explica cómo utilizar las funciones de mensajería asíncrona del Bus de servicio (colas y publicación/suscripción de temas) desde aplicaciones .NET utilizando la API .NET del Bus de servicio. Existe otro artículo complementario en el que se explica cómo hacer lo mismo utilizando la API estándar de Java Message Service (JMS). Puede utilizar estas dos guías conjuntamente para obtener información acerca de la mensajería entre diferentes plataformas mediante AMQP 1.0.
+En este artículo se explica cómo utilizar las funciones de mensajería asíncrona del Bus de servicio (colas y publicación/suscripción de temas) desde aplicaciones .NET utilizando la API .NET del Bus de servicio. Existe otro [artículo complementario](service-bus-java-how-to-use-jms-api-amqp.md) en el que se explica cómo hacer lo mismo utilizando la API estándar de Java Message Service (JMS). Puede utilizar estas dos guías conjuntamente para obtener información acerca de la mensajería entre diferentes plataformas mediante AMQP 1.0.
 
 ## Introducción al Bus de servicio
 
@@ -324,4 +324,4 @@ Ahora que ha leído una introducción sobre el Bus de servicio y AMQP con .NET, 
  
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

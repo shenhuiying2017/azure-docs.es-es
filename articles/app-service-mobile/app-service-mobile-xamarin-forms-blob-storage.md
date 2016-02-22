@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="02/03/2015"
+	ms.date="02/03/2016"
     ms.author="donnam"/>
 
 #Conexión a Almacenamiento de Azure en una aplicación Xamarin.Forms
@@ -93,7 +93,11 @@ Para completar este tutorial, necesitará lo siguiente:
             return base.DeleteFileAsync(id, name);
         }
 
-6. Publique el proyecto de servidor en el back-end de su aplicación móvil.
+6. Actualizar la configuración de API web para configurar el enrutamiento de atributos. En **Startup.MobileApp.cs**, agregue la siguiente línea al método `ConfigureMobileApp()` después de la definición de la variable `config`:
+
+        config.MapHttpAttributeRoutes();
+
+7. Publique el proyecto de servidor en el back-end de su aplicación móvil.
 
 ###Rutas registradas por el controlador de almacenamiento
 
@@ -133,7 +137,7 @@ Abra el proyecto de inicio rápido de Xamarin.Forms en Visual Studio o Xamarin S
 
 ###Incorporación de paquetes NuGet
 
-Haga clic con el botón derecho en la solución y seleccione **Administrar paquetes NuGet para la solución**. Agregue los siguientes paquetes NuGet a **todos** los proyectos de la solución. No olvide activar **Incluir versión preliminar**.
+Haga clic con el botón derecho en la solución y seleccione **Administrar paquetes de NuGet para la solución**. Agregue los siguientes paquetes de NuGet a **todos** los proyectos de la solución. No olvide activar **Incluir versión preliminar**.
 
   - [Microsoft.Azure.Mobile.Client.Files]
 
@@ -270,7 +274,7 @@ El SDK de cliente de Azure Mobile no almacena realmente datos de archivo: el SDK
 
 ###Actualización de TodoItemManager
 
-1. En **TodoItemManager.cs**, quite el comentario de la línea `#define OFFLINE_SYNC_ENABLED`.
+1. En **TodoItemManager.cs**, quite la marca de comentario de la línea `#define OFFLINE_SYNC_ENABLED`.
 
 2. En **TodoItemManager.cs**, agregue las siguientes instrucciones using:
 
@@ -407,7 +411,7 @@ En esta sección, agregará una nueva vista de detalles para un elemento de tare
         using System.Collections.ObjectModel;
         using Microsoft.WindowsAzure.MobileServices.Files;
 
-7. Reemplazar la implementación de `TodoItemDetailsView` por lo siguiente:
+7. Reemplace la implementación de `TodoItemDetailsView` por lo siguiente:
 
         public partial class TodoItemDetailsView : ContentPage
         {
@@ -609,7 +613,7 @@ Agregue código específico de la plataforma al proyecto iOS.
 
 ###Actualización del proyecto Windows
 
-1. Instale la extensión de Visual Studio [SQLite para Windows 8.1](http://go.microsoft.com/fwlink/?LinkID=716919). Para más información, consulte el tutorial [Habilitación de la sincronización sin conexión para la aplicación de Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md). 
+1. Instale la extensión de Visual Studio [SQLite para Windows 8.1](http://go.microsoft.com/fwlink/?LinkID=716919). Para más información, consulte el tutorial [Activación de la sincronización sin conexión para la aplicación de Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md). 
 
 2. Edite **Package.appxmanifest** y active la función **Webcam**.
 
@@ -678,11 +682,11 @@ Agregue código específico de la plataforma al proyecto iOS.
 
 En este artículo se describe cómo utilizar la nueva compatibilidad de archivos del SDK de cliente y servidor de Azure Mobile para que funcione con el Almacenamiento de Azure.
 
-- Cree una cuenta de almacenamiento y agregue la cadena de conexión al back-end de la aplicación móvil. Solo el back-end tiene la llave al Almacenamiento de Azure: el cliente móvil solicita un token de SAS (Firma de acceso compartido) cada vez que necesita acceder al Almacenamiento de Azure. Para más información sobre los tokens de SAS de Almacenamiento de Azure, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS].
+- Cree una cuenta de almacenamiento y agregue la cadena de conexión al back-end de la aplicación móvil. Solo el back-end tiene la llave al Almacenamiento de Azure: el cliente móvil solicita un token de SAS (Firma de acceso compartido) cada vez que necesita acceder al Almacenamiento de Azure. Para obtener más información sobre los tokens de SAS de Almacenamiento de Azure, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS].
 
-- Cree un controlador que aplique las subclases `StorageController` para controlar las solicitudes de tokens de SAS y para obtener los archivos que están asociados con un registro. De forma predeterminada, los archivos están asociados con un registro mediante el id. de registro como parte del nombre del contenedor; este comportamiento se puede personalizar especificando una implementación de `IContainerNameResolver`. También se puede personalizar la directiva de token de SAS.
+- Cree un controlador que aplique las subclases `StorageController` para controlar las solicitudes de tokens de SAS y para obtener los archivos que están asociados con un registro. De forma predeterminada, los archivos están asociados con un registro mediante el identificador de registro como parte del nombre del contenedor; este comportamiento se puede personalizar especificando una implementación de `IContainerNameResolver`. También se puede personalizar la directiva de token de SAS.
 
-- El SDK de cliente de Azure Mobile no almacena realmente los datos de archivo. En su lugar, el SDK de cliente invoca su `IFileSyncHandler`, el cual luego decide cómo (y si) los archivos se almacenan en el dispositivo local. El controlador de sincronización se registra de la manera siguiente:
+- El SDK de cliente de Azure Mobile no almacena realmente los datos de archivo. En su lugar, el SDK de cliente invoca su `IFileSyncHandler`, el cual luego decide cómo se almacenan los archivos en el dispositivo local, si es que lo hacen. El controlador de sincronización se registra de la manera siguiente:
 
         client.InitializeFileSync(new MyFileSyncHandler(), store);
 
@@ -721,4 +725,4 @@ En este artículo se describe cómo utilizar la nueva compatibilidad de archivos
 [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [Crear una cuenta de almacenamiento]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

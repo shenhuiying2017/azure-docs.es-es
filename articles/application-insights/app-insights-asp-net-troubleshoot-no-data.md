@@ -191,4 +191,8 @@ Se puede deshabilitar, pero no se recomienda. El muestreo está diseñado para q
 
 La ciudad, región y dimensiones del país proceden de las direcciones IP y no siempre son precisas.
 
-<!---HONumber=AcomDC_0204_2016-->
+## Sigue sin funcionar...
+
+* [Foro de Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/es-ES/home?forum=ApplicationInsights)
+
+<!---HONumber=AcomDC_0211_2016-->

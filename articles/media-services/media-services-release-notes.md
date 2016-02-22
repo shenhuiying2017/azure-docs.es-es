@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/29/2016"
+	ms.date="02/09/2016"
 	ms.author="juliako"/>
 
 
@@ -66,6 +66,7 @@ Varios encabezados comunes HTTP no se proporcionan en la API de REST.|Si desarro
 Al codificar un activo con un nombre de archivo que contiene caracteres de escape (por ejemplo, %20), se muestra el error "MediaProcessor: archivo no encontrado".|Los nombres de archivos que se van a agregar a un activo y que luego se van a codificar deben contener caracteres alfanuméricos y espacios. El problema se corregirá en una futura actualización.
 El método ListBlobs que es parte del SDK de almacenamiento de Azure, versión 3.x, no funciona correctamente.|Los Servicios multimedia generan URL de SAS basadas en la versión del [12-02-2012](http://msdn.microsoft.com/library/azure/dn592123.aspx). Si desea usar el SDK de almacenamiento de Azure para mostrar los blobs de un contenedor de blobs, utilice el método [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) que es parte del SDK de almacenamiento de Azure, versión 2.x. El método ListBlobs que es parte del SDK de almacenamiento de Azure, versión 3.x, no funcionará correctamente.
 El mecanismo de limitación de Servicios multimedia restringe el uso de recursos en las aplicaciones que realizan un número excesivo de solicitudes al servicio. El servicio puede devolver el código de estado HTTP de servicio no disponible (503).|Para obtener más información, consulte la descripción del código de estado HTTP 503 en el tema [Códigos de error de Azure Media Services](http://msdn.microsoft.com/library/azure/dn168949.aspx).
+Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. | Debe usar **Skip** y **Take** (. NET) / **top** (REST) como se describe en estos ejemplos de [.NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) y de [API de REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 
 
 ### <a id="dotnet_issues"></a>Problemas del SDK .NE de Servicios multimedia
@@ -642,4 +643,4 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [Control de notificaciones de trabajo de Servicios multimedia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="01/29/2015"
+  ms.date="01/29/2016"
   ms.author="andrl"/>
 
 # Portal de la Comunidad
@@ -267,4 +267,4 @@ Los asistentes de DocumentDB son líderes de la Comunidad que han demostró un c
 
 ¿Quiere convertirse en un asistente de DocumentDB? Aunque no hay que superar ninguna prueba de referencia para convertirse en asistente de DocumentDB, entre los criterios que se evalúan se incluyen el impacto de las contribuciones de los nominados en los foros en línea (como StackOverflow y MSDN); contenido en línea y wikis; conferencias y grupos de usuarios; podcasts, sitios web, blogs y redes sociales; y artículos y libros. Para proponerse a sí mismo o proponer a otros [envíenos un correo electrónico](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

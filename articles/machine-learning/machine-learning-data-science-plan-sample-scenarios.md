@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/18/2015"
+	ms.date="02/08/2016"
 	ms.author="msolhab;bradsev" />
 
 
@@ -28,7 +28,7 @@ En la última sección se presenta el **árbol de decisión** para seleccionar l
 
 Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada escenario, se enumera un posible flujo de ciencia de datos y análisis avanzado, así como los recursos de compatibilidad de Azure.
 
->[AZURE.NOTE]**Para todos los escenarios siguientes, debe:**
+>[AZURE.NOTE] **Para todos los escenarios siguientes, debe:**
 
 *   [Cree una cuenta de almacenamiento](storage-whatis-account.md)
 *   [Cree un área de trabajo de Aprendizaje automático de Azure](machine-learning/machine-learning-create-workspace.md)
@@ -168,7 +168,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 
     f. Si se requieren combinaciones de tablas, cree índices para acelerar dichas combinaciones.
 
- >[AZURE.NOTE]Para acelerar la carga de tamaños de datos de gran tamaño, es recomendable crear tablas con particiones e importar en masa los datos en paralelo. Para obtener más información, vea [Importación de datos en paralelo a tablas con particiones de SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+ > [AZURE.NOTE] Para acelerar la carga de tamaños de datos de gran tamaño, es recomendable crear tablas con particiones e importar en masa los datos en paralelo. Para obtener más información, vea [Importación de datos en paralelo a tablas con particiones de SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore datos y cree características según sea necesario. Tenga en cuenta que las características no necesitan materializarse en las tablas de base de datos. Solo tenga en cuenta la consulta necesaria para crearlas.
 
@@ -208,7 +208,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 
 	f. Si se requieren combinaciones de tablas, cree índices para acelerar dichas combinaciones.
 
-> [AZURE.NOTE]Para acelerar la carga de tamaños de datos de gran tamaño, cree tablas con particiones e importe en masa los datos en paralelo. Para obtener más información, vea [Importación de datos en paralelo a tablas con particiones de SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE] Para acelerar la carga de tamaños de datos de gran tamaño, cree tablas con particiones e importe en masa los datos en paralelo. Para obtener más información, vea [Importación de datos en paralelo a tablas con particiones de SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore datos y cree características según sea necesario. Tenga en cuenta que las características no necesitan materializarse en las tablas de base de datos. Solo tenga en cuenta la consulta necesaria para crearlas.
 
@@ -264,7 +264,7 @@ Para replicar toda la base de datos de SQL Server en la máquina virtual de SQL 
 
     d. Ejecute las consultas de Hive para crear bases de datos y tablas, y cargar datos desde el almacenamiento de blobs en tablas de Hive.
 
- 	> [AZURE.NOTE]Si los datos son grandes, los usuarios pueden crear la tabla de Hive con particiones. A continuación, los usuarios pueden usar un bucle `for` en la línea de comandos de Hadoop en el nodo principal para cargar datos en la tabla de Hive con particiones por partición.
+ 	> [AZURE.NOTE] Si los datos son grandes, los usuarios pueden crear la tabla de Hive con particiones. A continuación, los usuarios pueden usar un bucle `for` en la línea de comandos de Hadoop en el nodo principal para cargar datos en la tabla de Hive con particiones por partición.
 
 6.  Explore datos y cree características según sea necesario en la línea de comandos de Hadoop. Tenga en cuenta que las características no necesitan materializarse en las tablas de base de datos. Solo tenga en cuenta la consulta necesaria para crearlas.
 
@@ -314,4 +314,4 @@ Para los tutoriales de Aprendizaje automático de Azure completos que emplean la
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

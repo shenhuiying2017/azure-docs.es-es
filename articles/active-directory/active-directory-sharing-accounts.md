@@ -13,7 +13,7 @@
  	ms.tgt_pltfrm="na"
  	ms.devlang="na"
  	ms.topic="article"
- 	ms.date="02/01/2015"  
+ 	ms.date="02/09/2016"  
  	ms.author="stevenpo"/>
 
 # Uso compartido de cuentas con Azure AD
@@ -69,7 +69,8 @@ Puede hacer que su cuenta compartida sea más segura con Multi-Factor Authentica
 
 ## Artículos relacionados
 
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 - [Protección de aplicaciones con acceso condicional](active-directory-conditional-access.md)
 - [Administración de grupos de autoservicio/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

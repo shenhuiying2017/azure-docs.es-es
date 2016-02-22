@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="02/09/2016"
 	ms.author="liamca"/>
 
 # Búsqueda de datos de StackExchange mediante Búsqueda de Azure
@@ -41,7 +41,7 @@ En este ejemplo, simplemente pasamos la palabra "azure" como un parámetro de b�
 
 > <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28%26search=azure%26$filter=tagsCollection/any(t:+t+eq+'architecture')%26$orderby=viewCount+desc>
 
--	`Spelling Mistakes`: Nuestra nueva compatibilidad (vista previa) con [expresiones de consulta Lucene](https://msdn.microsoft.com/library/mt589323.aspx) también permite hacer algunas consultas elegantes, como una coincidencia aproximada de los resultados y limitar la búsqueda a campos específicos. Este ejemplo busca en el campo de título la palabra “visualize”, pero ~ indica una coincidencia aproximada, lo que significa que los resultados como visualise y visualizar también se devolverán.
+-	`Fuzzy Search`: Nuestra nueva compatibilidad con [expresiones de consulta Lucene](https://msdn.microsoft.com/library/mt589323.aspx) también permite hacer algunas consultas elegantes, como una coincidencia aproximada de los resultados y limitar la búsqueda a campos específicos. Este ejemplo busca en el campo de título la palabra “visualize”, pero ~ indica una coincidencia aproximada, lo que significa que los resultados como visualise y visualizar también se devolverán.
 
 > <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28&search%3Dtitle%3Avisualise~%26querytype%3Dfull%26searchMode%3Dall%26%24select%3Dtitle>
 
@@ -109,4 +109,4 @@ Una vez hecho esto, puede usar el [Portal de Azure clásico](https://portal.azur
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

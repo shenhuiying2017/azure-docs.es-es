@@ -4,7 +4,7 @@ Cuando ya no necesite un disco de datos que se encuentra conectado a una máquin
 
 Si desea volver a usar los datos existentes en el disco, puede acoplarlo de nuevo a la misma máquina virtual (o a otra).
 
-> [AZURE.NOTE]No es posible desconectar un disco del sistema operativo a menos que también elimine la máquina virtual.
+> [AZURE.NOTE] No es posible desconectar un disco del sistema operativo a menos que también elimine la máquina virtual.
 
 
 ## Buscar el disco
@@ -12,7 +12,7 @@ Si desea volver a usar los datos existentes en el disco, puede acoplarlo de nuev
 Si no conoce el nombre del disco o desea comprobarlo antes de desconectarlo, siga estos pasos.
 
 
-1. Si aún no lo ha hecho, inicie sesión en el [Portal de Azure](http://manage.windowsazure.com).
+1. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com).
 
 2. Haga clic en **Máquinas virtuales**, haga clic en el nombre de máquina virtual y, a continuación, haga clic en **Panel**.
 
@@ -33,4 +33,4 @@ Si no conoce el nombre del disco o desea comprobarlo antes de desconectarlo, sig
 
 El disco permanece en el almacenamiento pero ya no está acoplado a una máquina virtual.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

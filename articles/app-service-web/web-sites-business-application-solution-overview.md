@@ -32,7 +32,8 @@ A continuación se muestra un ejemplo de una aplicación de línea de negocio qu
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/web-app-notitle.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]En esta guía se presentan algunos de las áreas y tareas más comunes relacionadas con el desarrollo de aplicaciones de línea de negocio. Sin embargo, existen otras funciones de Aplicaciones web del Servicio de aplicaciones de Azure que puede utilizar en su implementación concreta. Para obtener información acerca de estas funciones, consulte también las otras guías sobre [Presencia web mundial](web-sites-global-web-presence-solution-overview.md) y [Campañas de marketing digital](web-sites-digital-marketing-application-solution-overview.md).
+> [AZURE.NOTE]
+En esta guía se presentan algunos de las áreas y tareas más comunes relacionadas con el desarrollo de aplicaciones de línea de negocio. Sin embargo, existen otras funciones de Aplicaciones web del Servicio de aplicaciones de Azure que puede utilizar en su implementación concreta. Para obtener información acerca de estas funciones, consulte también las otras guías sobre [Presencia web mundial](web-sites-global-web-presence-solution-overview.md) y [Campañas de marketing digital](web-sites-digital-marketing-application-solution-overview.md).
 
 ## Traer los recursos existentes
 
@@ -79,10 +80,10 @@ En el nivel **Estándar**, supervise la capacidad de respuesta de la aplicación
 ## Más recursos
 
 - [Documentación de Aplicaciones web del Servicio de aplicaciones](/services/app-service/web/)
-- [Mapa de aprendizaje para Aplicaciones web del Servicio de aplicaciones de Azure](websites-learning-map.md)
+- [Mapa de aprendizaje para Aplicaciones web del Servicio de aplicaciones de Azure](/documentation/learning-paths/appservice-webapps/)
 - [Blog web de Azure](/blog/topics/web/)
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -124,4 +125,4 @@ En el nivel **Estándar**, supervise la capacidad de respuesta de la aplicación
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

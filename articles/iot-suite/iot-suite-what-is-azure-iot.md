@@ -14,14 +14,14 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/05/2015"
+ ms.date="02/04/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Azure IoT Suite
 
-El conjunto de aplicaciones de IoT de Microsoft Azure es una solución de clase empresarial que le permite comenzar rápidamente a través de un conjunto de soluciones preconfiguradas extensibles que abordan escenarios IoT comunes como, por ejemplo, *supervisión remota* y *dispositivos conectados*.
+El Conjunto de aplicaciones de IoT de Microsoft Azure es una solución de clase empresarial que le permite comenzar rápidamente gracias a un conjunto de soluciones preconfiguradas extensibles que abordan escenarios de IoT comunes como, por ejemplo, la *supervisión remota* y los *dispositivos conectados*.
 
 Las soluciones preconfiguradas:
 
@@ -47,4 +47,4 @@ Examine estos recursos para obtener más información sobre IoT en Azure:
 [Aprendizaje automático de Azure]: https://azure.microsoft.com/es-ES/services/machine-learning/
 [Almacenamiento de Azure]: https://azure.microsoft.com/es-ES/services/storage/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

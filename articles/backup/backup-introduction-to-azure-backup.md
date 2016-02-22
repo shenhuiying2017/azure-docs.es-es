@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="02/05/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # ¿Qué es la Copia de seguridad de Azure?
@@ -61,7 +61,7 @@ Dado que Copia de seguridad es una solución de copia de seguridad híbrida, con
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Servidor de Copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md)</p> |
-| Máquinas virtuales de IaaS de Azure (Windows)| - | [Copia de seguridad de Azure (Extensión de máquina virtual)](backup-azure-vms-introduction.md) | 
+| Máquinas virtuales de IaaS de Azure (Windows)| - | [Copia de seguridad de Azure (Extensión de máquina virtual)](backup-azure-vms-introduction.md) |
 | Máquinas virtuales de IaaS de Azure (Linux) | - | [Copia de seguridad de Azure (Extensión de máquina virtual)](backup-azure-vms-introduction.md) |
 
 ## Funcionalidad
@@ -150,10 +150,16 @@ Para clientes que protegen datos en un servidor de copia de seguridad (System Ce
 | Puntos de recuperación en disco local | No aplicable | No aplicable | No aplicable |
 | Puntos de recuperación en cinta | No aplicable | No aplicable | No aplicable |
 
+## ¿Qué es el archivo de credenciales de almacén?
+
+El archivo de credenciales de almacén es un certificado generado por el portal para cada almacén de copia de seguridad. Luego el portal carga la clave pública en el Servicio de control de acceso (ACS). La clave privada del certificado estará disponible para el usuario como parte del flujo de trabajo que se proporciona como entrada del flujo de trabajo de registro de máquina. Esto autentica la máquina para enviar datos de copia de seguridad a un almacén identificado en el servicio de Copia de seguridad de Azure.
+
+El archivo de credenciales de almacén se usa solo durante el flujo de trabajo de registro. Es responsabilidad del usuario asegurarse de que el archivo de credenciales de almacén no se ve comprometido. Si cae en manos de un usuario no autorizado, el archivo de credenciales de almacén puede utilizarse para registrar otras máquinas en el mismo almacén. Sin embargo, como los datos de copia de seguridad se cifran mediante una frase de contraseña que pertenece al cliente, los datos de copia de seguridad existentes no pueden estar en peligro. Para mitigar este problema, se establece la expiración de las credenciales de almacén en 48 horas. Puede descargar las credenciales de almacén de un almacén de copia de seguridad cualquier número de veces, pero solo el último archivo de credenciales de almacén es aplicable durante el flujo de trabajo de registro.
+
 ## ¿Qué diferencias hay entre Copia de seguridad y Azure Site Recovery?
 Muchos clientes confunden la recuperación de copias de seguridad y la recuperación ante desastres. Ambas capturan datos y proporcionan la semántica de restauración, pero la propuesta de valor principal es diferente.
 
-Copia de seguridad de Azure realiza una copia de seguridad de datos local y en la nube. Azure Site Recovery coordina la replicación de la máquina virtual y el servidor físico, la conmutación por error y la conmutación por recuperación. Necesita ambos servicios para una solución de recuperación ante desastres completa. Su estrategia de recuperación ante desastres tiene que mantener los datos seguros y recuperables (Copia de seguridad) *y* mantener las cargas de trabajo disponibles y accesibles (Recuperación de sitios) cuando se producen interrupciones.
+Copia de seguridad de Azure realiza una copia de seguridad de datos local y en la nube. Azure Site Recovery coordina la replicación de la máquina virtual y el servidor físico, la conmutación por error y la conmutación por recuperación. Necesita ambos servicios para una solución de recuperación ante desastres completa. Su estrategia de recuperación ante desastres tiene que mantener los datos seguros y recuperables (Copia de seguridad) *y* mantener las cargas de trabajo disponibles y accesibles (Site Recovery) cuando se producen interrupciones.
 
 Para tomar decisiones relacionadas con la copia de seguridad y la recuperación ante desastres, debe entender los siguientes conceptos importantes.
 
@@ -168,11 +174,11 @@ Para tomar decisiones relacionadas con la copia de seguridad y la recuperación 
 
 - [Probar Copia de seguridad de Azure](backup-try-azure-backup-in-10-mins.md)
 - [Preguntas más frecuentes sobre el servicio de Copia de seguridad de Azure](backup-azure-backup-faq.md)
-- Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Visite el [foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,19 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/09/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
 
 
 # ¿Qué es Almacenamiento de datos SQL de Azure?
 
-El Almacenamiento de datos SQL de Azure es una base de datos distribuida de clase empresarial, capaz de procesar volúmenes masivos de datos relacionales y no relacionales. Es el primer almacenamiento de datos en la nube del sector que combina unas capacidades de SQL demostradas con la posibilidad de aumentar, reducir y hacer una pausa en segundos. El Almacenamiento de datos SQL está también profundamente enraizado en Azure y se implementa fácilmente en segundos. Además, el servicio está totalmente administrado y evita tener que perder el tiempo en revisiones de software, mantenimiento y realización de copias de seguridad. Las copias de seguridad integradas y automáticas del Almacenamiento de datos SQL admiten tolerancia a errores y autoservicio de restauración. Cuando hemos creado el Almacenamiento de datos SQL, nos hemos centrado en algunos atributos clave para asegurarnos de sacar el máximo partido de Azure y crear un almacenamiento de datos que pueda satisfacer cualquier carga de trabajo de la empresa.
+El Almacenamiento de datos SQL de Azure es una base de datos distribuida de clase empresarial, capaz de procesar volúmenes masivos de datos relacionales y no relacionales. Es el primer almacenamiento de datos en la nube del sector que combina unas capacidades de SQL demostradas con la posibilidad de aumentar, reducir y hacer una pausa en segundos. El Almacenamiento de datos SQL está también profundamente enraizado en Azure y se implementa fácilmente en segundos. Además, el servicio está totalmente administrado y evita tener que perder el tiempo en revisiones de software, mantenimiento y realización de copias de seguridad. Las copias de seguridad integradas y automáticas del Almacenamiento de datos SQL admiten tolerancia a errores y autoservicio de restauración.
+
+Cuando hemos creado el Almacenamiento de datos SQL, nos hemos centrado en algunos atributos clave para asegurarnos de sacar el máximo partido de Azure y crear un almacenamiento de datos que pueda satisfacer cualquier carga de trabajo de la empresa.
 
 ## Optimizado
 
 ### Arquitectura de almacenamiento de datos
 
-En su núcleo, el Almacenamiento de datos SQL se ejecuta con la arquitectura de procesamiento paralelo masivo (MPP) de Microsoft, que se diseñó originalmente para ejecutar algunos de los mayores almacenamientos de datos empresariales locales. Esta arquitectura aprovecha las mejoras en el rendimiento del almacenamiento de datos integrado, y permite también al Almacenamiento de datos SQL escalar y paralelizar con facilidad el proceso de consultas SQL complejas. Además, la arquitectura del Almacenamiento de datos SQL está diseñada para sacar partido de su presencia en Azure. Al combinarse estos dos aspectos, la arquitectura consta de cuatro componentes clave:
+En su núcleo, el Almacenamiento de datos SQL usa la arquitectura de procesamiento paralelo masivo (MPP) de Microsoft, que se diseñó originalmente para ejecutar algunos de los mayores almacenamientos de datos empresariales locales. Esta arquitectura aprovecha las mejoras en el rendimiento del almacenamiento de datos integrado, y permite también al Almacenamiento de datos SQL escalar y paralelizar con facilidad el proceso de consultas SQL complejas. Además, la arquitectura del Almacenamiento de datos SQL está diseñada para sacar partido de su presencia en Azure. Al combinarse estos dos aspectos, la arquitectura consta de cuatro componentes clave:
 
 ![Arquitectura de Almacenamiento de datos SQL][1]
 
@@ -85,7 +87,7 @@ En general, queremos que las DWU sean sencillas. Cuando necesite resultados más
 
 - Para entender el valor ideal de su DWU, intente escalar verticalmente hacia arriba y hacia abajo, y ejecute algunas consultas después de cargar los datos. Puesto que el escalado se realiza rápidamente, puede probar distintos niveles de rendimiento sin dedicarle más de una hora.
 
-> [AZURE.NOTE]Tenga en cuenta que debido a la arquitectura o al Almacenamiento de datos SQL, puede que no vea el escalado del rendimiento esperado en volúmenes de datos más reducidos. Se recomienda comenzar con volúmenes de datos a partir de 1 TB o más a fin de obtener unos resultados de pruebas de rendimiento exactos.
+> [AZURE.NOTE] Tenga en cuenta que debido a la arquitectura o al Almacenamiento de datos SQL, puede que no vea el escalado del rendimiento esperado en volúmenes de datos más reducidos. Se recomienda comenzar con volúmenes de datos a partir de 1 TB o más a fin de obtener unos resultados de pruebas de rendimiento exactos.
 
 ## Integrado
 
@@ -124,7 +126,7 @@ Polybase es fácil de usar y permite aprovechar datos de orígenes diferentes co
 
 Ahora que ya conoce un poco el Almacenamiento de datos SQL, obtenga información acerca de la [carga de trabajo de almacenamiento de datos], el [aprovisionamiento] y la carga de [datos de ejemplo] para comenzar.
 
->[AZURE.NOTE]Queremos mejorar este artículo. Si elige responder que no a la pregunta de si le resultó útil este artículo, incluya una sugerencia breve sobre lo que falta o cómo piensa que se podría mejorar el artículo. Gracias de antemano.
+>[AZURE.NOTE] Queremos mejorar este artículo. Si elige responder que no a la pregunta de si le resultó útil este artículo, incluya una sugerencia breve sobre lo que falta o cómo piensa que se podría mejorar el artículo. Gracias de antemano.
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
@@ -138,4 +140,4 @@ Ahora que ya conoce un poco el Almacenamiento de datos SQL, obtenga información
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

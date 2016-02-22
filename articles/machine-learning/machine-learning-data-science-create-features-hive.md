@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/05/2016"
 	ms.author="hangzh;bradsev" />
 
 #Crear características para datos en un clúster de Hadoop mediante consultas de Hive
-
-Este **menú** vincula a temas en los que se describe cómo diseñar características para datos en diversos entornos. Esta tarea es un paso en el proceso de análisis de Cortana (CAP).
-
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
 ## Introducción
 Se presentan ejemplos de consultas de Hive que generan características en datos almacenados en un clúster de Hadoop de HDInsight de Azure. Estas consultas de Hive usan funciones definidas por el usuario (UDF), los scripts para los que se ofrecen.
@@ -28,6 +24,10 @@ Se presentan ejemplos de consultas de Hive que generan características en datos
 También se ofrecen ejemplos de consultas que son específicos de escenarios de [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) en el [repositorio de Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Estas consultas ya tienen el esquema de datos especificado y están listas para enviarse para su ejecución.
 
 En la última sección, se describen los parámetros que los usuarios pueden ajustar para que se pueda mejorar el rendimiento de las consultas de subárbol.
+
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+Este **menú** vincula a temas en los que se describe cómo crear características para datos en diversos entornos. Esta tarea es un paso del [proceso de Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+
 
 ## Requisitos previos
 En este artículo se supone que ha:
@@ -44,7 +44,7 @@ En esta sección se describen varios ejemplos de las maneras en que se pueden ge
 
 1. [Generación de características basada en frecuencia](#hive-frequencyfeature)
 2. [Riesgos de las variables de categorías en la clasificación binaria](#hive-riskfeature)
-3. [Extraer características del campo de fecha y hora](#hive-datefeatures)
+3. [Extraer características de campos de fecha y hora](#hive-datefeatures)
 4. [Extraer características del campo de texto](#hive-textfeatures)
 5. [Calcular distancia entre las coordenadas GPS](#hive-gpsdistance)
 
@@ -90,7 +90,7 @@ En este ejemplo, las variables `smooth_param1` y `smooth_param2` se establecen p
 
 Después de calcularse la tabla de riesgos, los usuarios pueden asignar valores de riesgo a una tabla uniéndola a la tabla de riesgo. La consulta de combinación de subárbol se ha proporcionado en la sección anterior.
 
-###<a name="hive-datefeatures"></a>Extracción de características de campos de fecha y hora
+###<a name="hive-datefeatures"></a>Extraer características de campos de fecha y hora
 
 El subárbol se incluye con un conjunto de UDF para el procesamiento de campos de fecha y hora. En el subárbol, el formato de fecha y hora predeterminado es 'aaaa-MM-dd 00:00:00 ' ('1970-01-01 12:21:32' por ejemplo). En esta sección mostramos ejemplos que extraen el día de un mes, el mes de un campo de fecha y hora, y otros ejemplos que convierten una cadena de fecha y hora en un formato distinto del predeterminado en una cadena de fecha y hora en el formato predeterminado.
 
@@ -145,7 +145,7 @@ Las ecuaciones matemáticas que calculan la distancia entre dos coordenadas GPS 
 
 ![Creación del espacio de trabajo][1]
 
-Se puede encontrar una lista completa de los UDF insertados en Hive en la sección **Funciones integradas** de la <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki de Hive de Apache</a>.
+Se puede encontrar una lista completa de las UDF incrustadas de Hive en la sección **Funciones integradas** de la <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki de Apache Hive</a>.
 
 ## <a name="tuning"></a> Temas avanzados: Ajustar parámetros de Hive para mejorar la velocidad de consulta
 
@@ -163,7 +163,7 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 
 		set dfs.block.size=128m;
 
-3. **Optimización de la operación de combinación en Hive**: aunque las operaciones de combinación en el marco de asignación/reducción normalmente tienen lugar en la fase de reducción, en ocasiones se pueden lograr ganancias enormes mediante la programación de combinaciones en la fase de asignación (también denominada "combinaciones de asignaciones"). Para indicar al subárbol que haga esto siempre que sea posible, podemos establecer:
+3. **Optimización de la operación de unión en Hive**: Aunque las operaciones de unión en el marco de asignación/reducción suelen tener lugar en la fase de reducción, en ocasiones se pueden obtener ganancias enormes mediante la programación de uniones en la fase de asignación (también denominada "mapjoins"). Para indicar al subárbol que haga esto siempre que sea posible, podemos establecer:
 
 		set hive.auto.convert.join=true;
 
@@ -171,7 +171,7 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 
 		num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
 
-	Normalmente, el valor predeterminado de *mapred.min.split.size* es 0, el de *mapred.max.split.size* es **Long.MAX** y de *dfs.block.size* es 64 MB. Como podemos ver, dado el tamaño de los datos, el ajuste de estos parámetros mediante su "configuración" nos permite optimizar el número de asignadores que se usan.
+	Normalmente, el valor predeterminado de *mapred.min.split.size* es 0, el de *mapred.max.split.size* es **Long.MAX** y el de *dfs.block.size* es 64 MB. Como podemos ver, dado el tamaño de los datos, el ajuste de estos parámetros mediante su "configuración" nos permite optimizar el número de asignadores que se usan.
 
 5. A continuación se mencionan algunas otras **opciones avanzadas** más para optimizar el rendimiento de Hive. Estas permiten establecer la memoria asignada para asignar y reducir tareas, y pueden ser útiles para modificar el rendimiento. Tenga en cuenta que el valor de *mapreduce.reduce.memory.mb* no puede ser mayor que el tamaño de la memoria física de cada nodo de trabajo del clúster de Hadoop.
 
@@ -190,4 +190,4 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

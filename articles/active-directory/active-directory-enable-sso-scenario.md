@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="10/16/2015"
+      ms.date="02/09/2016"
       ms.author="inhenk"/>
 
 # Administración de aplicaciones con Azure Active Directory (AD)
@@ -124,4 +124,8 @@ Con Azure AD puede proteger las aplicaciones con directivas de acceso granular y
 
 Para comenzar a integrar las aplicaciones con Azure AD, eche un vistazo a la [Guía de introducción a la integración de Azure Active Directory con las aplicaciones](active-directory-integrating-applications-getting-started.md).
 
-<!---HONumber=Oct15_HO4-->
+## Consulte también
+
+[Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

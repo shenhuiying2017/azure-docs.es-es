@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="12/08/2015" 
-	ms.author="erikre"/>
+	ms.author="tdykstra"/>
 
 
 # Configuración de aplicaciones web en el Servicio de aplicaciones de Azure #
@@ -25,7 +25,7 @@ En este tema se explica cómo configurar una aplicación web con el [Portal de A
 
 ## Configuración de la aplicación
 
-1. En el [Portal de Azure](https://portal.azure.com), abra la hoja de la aplicación web.
+1. En el [Portal de Azure](https://portal.azure.com/), abra la hoja de la aplicación web.
 2. Haga clic en **Toda la configuración**.
 3. Haga clic en **Configuración de la aplicación**.
 
@@ -177,4 +177,4 @@ Para obtener más información, consulte [Supervisión de estado de extremo web]
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

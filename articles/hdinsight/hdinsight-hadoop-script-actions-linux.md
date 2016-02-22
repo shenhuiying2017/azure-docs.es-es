@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/04/2015"
+    ms.date="02/05/2016"
     ms.author="larryfr"/>
 
 # Desarrollo de la acción de script con HDInsight
 
 Las acciones de script son una manera de personalizar los clústeres de HDInsight de Azure especificando opciones de configuración de clúster durante la instalación, o instalando servicios adicionales, herramientas u otro software en el clúster.
 
-> [AZURE.NOTE]La información contenida en este documento es específica de los clústeres de HDInsight basados en Linux. Para obtener información sobre el uso de las acciones de script con clústeres basados en Windows, consulte [Desarrollo de la acción de script con HDInsight (Windows)](hdinsight-hadoop-script-actions.md).
+> [AZURE.NOTE] La información contenida en este documento es específica de los clústeres de HDInsight basados en Linux. Para obtener información sobre el uso de las acciones de script con clústeres basados en Windows, consulte [Desarrollo de la acción de script con HDInsight (Windows)](hdinsight-hadoop-script-actions.md).
 
 ## ¿Qué son las acciones de script?
 
@@ -43,7 +43,7 @@ Al desarrollar un script personalizado para un clúster de HDInsight, hay varios
 - [Escribir información en STDOUT y STDERR](#bPS7)
 - [Guardar los archivos como ASCII con el fin de línea LF](#bps8)
 
-> [AZURE.IMPORTANT]Las acciones de script se tienen que completar dentro de un periodo de 60 minutos o superarán el tiempo de espera. Durante el aprovisionamiento del nodo, el script se ejecuta a la vez con otros procesos de instalación y de configuración. La competición por los recursos, como el ancho de banda de red o el tiempo de CPU puede ocasionar que el script tarde más en terminar que en el entorno de desarrollo.
+> [AZURE.IMPORTANT] Las acciones de script se tienen que completar dentro de un periodo de 60 minutos o superarán el tiempo de espera. Durante el aprovisionamiento del nodo, el script se ejecuta a la vez con otros procesos de instalación y de configuración. La competición por los recursos, como el ancho de banda de red o el tiempo de CPU puede ocasionar que el script tarde más en terminar que en el entorno de desarrollo.
 
 ### <a name="bPS1"></a>Concentrarse en la versión de Hadoop
 
@@ -55,7 +55,7 @@ Los usuarios deben asegurarse de que todos los scripts y recursos que se usan en
 
 La práctica recomendada es descargar y archivar todo el contenido de una cuenta de Almacenamiento de Azure en su suscripción.
 
-> [AZURE.IMPORTANT]La cuenta de almacenamiento usada tiene que ser la cuenta de almacenamiento predeterminada del clúster o un contenedor público de solo lectura en cualquier otra cuenta de almacenamiento.
+> [AZURE.IMPORTANT] La cuenta de almacenamiento usada tiene que ser la cuenta de almacenamiento predeterminada del clúster o un contenedor público de solo lectura en cualquier otra cuenta de almacenamiento.
 
 Por ejemplo, los ejemplos proporcionados por Microsoft se almacenan en la cuenta de almacenamiento [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/), que es un contenedor público, de solo lectura mantenido por el equipo de HDInsight.
 
@@ -73,7 +73,7 @@ Por ejemplo, si un script personalizado instaló una aplicación en /usr/local/b
 
 Los clústeres de HDInsight basados en Linux proporcionan dos nodos principales que están activos dentro del clúster y las acciones de script se ejecutan para ambos nodos. Si los componentes que instala esperan un único nodo principal, tiene que diseñar un script que instale el componente en uno de los dos nodos principales del clúster.
 
-> [AZURE.IMPORTANT]Los servicios predeterminados instalados como parte de HDInsight están diseñados para conmutar por error entre los dos nodos principales según sea necesario, pero esta funcionalidad no se extiende a componentes personalizados instalados a través de las acciones de script. Si necesita que los componentes instalados a través de una acción de script tengan una alta disponibilidad, tiene que implementar su propio mecanismo de conmutación por error que use los dos nodos principales disponibles.
+> [AZURE.IMPORTANT] Los servicios predeterminados instalados como parte de HDInsight están diseñados para conmutar por error entre los dos nodos principales según sea necesario, pero esta funcionalidad no se extiende a componentes personalizados instalados a través de las acciones de script. Si necesita que los componentes instalados a través de una acción de script tengan una alta disponibilidad, tiene que implementar su propio mecanismo de conmutación por error que use los dos nodos principales disponibles.
 
 ### <a name="bPS6"></a>Configurar los componentes personalizados para usar el almacenamiento de blobs de Azure
 
@@ -147,7 +147,7 @@ Donde VARIABLENAME es el nombre de la variable. Para obtener acceso a la variabl
 
 Para el acceso posterior a la información puede usar `$PASSWORD`.
 
-Las variables de entorno establecidas dentro del script solo existen en el ámbito del script. En algunos casos, puede que necesite agregar variables de entorno de todo el sistema que se conservarán una vez finalizado el script. Normalmente, esto es para que los usuarios que se conectan al clúster a través de SSH puedan usar los componentes instalados por el script. Para ello, agregue la variable de entorno a `/etc/environment`. Por ejemplo, lo siguiente agrega __HADOOP\_CONF\_DIR__:
+Las variables de entorno establecidas dentro del script solo existen en el ámbito del script. En algunos casos, puede que necesite agregar variables de entorno de todo el sistema que se conservarán una vez finalizado el script. Normalmente, esto es para que los usuarios que se conectan al clúster a través de SSH puedan usar los componentes instalados por el script. Para ello agregue la variable de entorno a `/etc/environment`. Por ejemplo, lo siguiente agrega __HADOOP\_CONF\_DIR__:
 
     echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
@@ -183,7 +183,7 @@ Microsoft proporciona scripts de ejemplo para instalar los componentes en un cl�
 - [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md)
 - [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md)  
 
-> [AZURE.NOTE]Los documentos con enlaces anteriores son específicos de los clústeres de HDInsight basados en Linux. Para un script que funcione con HDInsight basado en Windows, consulte [Desarrollo de la acción de script con HDInsight (Windows)](hdinsight-hadoop-script-actions.md) o use los vínculos disponibles en la parte superior de cada artículo.
+> [AZURE.NOTE] Los documentos con enlaces anteriores son específicos de los clústeres de HDInsight basados en Linux. Para un script que funcione con HDInsight basado en Windows, consulte [Desarrollo de la acción de script con HDInsight (Windows)](hdinsight-hadoop-script-actions.md) o use los vínculos disponibles en la parte superior de cada artículo.
 
 ##Solución de problemas
 
@@ -197,7 +197,7 @@ Este problema suele producirse cuando se crea el script en un entorno Windows, y
 
 _Resolución_: si es una opción en el editor de texto, seleccione formato UNIX o LF para el final de la línea. También puede usar los siguientes comandos en un sistema UNIX para cambiar un CRLF por un LF:
 
-> [AZURE.NOTE]Los siguientes comandos son aproximadamente equivalentes en que deben cambiar los finales de línea CRLF a LF. Seleccione uno en función de las utilidades disponibles en el sistema.
+> [AZURE.NOTE] Los siguientes comandos son aproximadamente equivalentes en que deben cambiar los finales de línea CRLF a LF. Seleccione uno en función de las utilidades disponibles en el sistema.
 
 | Comando | Notas |
 | ------- | ----- |
@@ -220,4 +220,4 @@ Para el comando anterior, reemplace __INFILE__ por el archivo que contiene la ma
 
 [Personalizar los clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

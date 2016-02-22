@@ -13,20 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;mohabib;bradsev" />
 
 # Mover datos a un servidor SQL Server en una máquina virtual de Azure
 
-Este **menú** vincula a temas en los que se describe cómo introducir datos en los entornos de destino en que se pueden almacenar y procesar los datos durante el proceso de análisis de Cortana (CAPS).
-
-[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
-
-
 ## Introducción
+
 En **este documento** se describen las opciones para mover datos de archivos planos (formatos CSV o TSV) o de un servidor SQL Server local a un servidor SQL Server en una máquina virtual de Azure. Estas tareas de movimiento de datos a la nube forman parte del proceso de análisis de Cortana proporcionado por Azure.
 
 Para ver un tema que describa las opciones para mover datos a una base de datos SQL de Azure para Aprendizaje automático, vea [Mover datos a una base de datos SQL de Azure para Aprendizaje automático de Azure](machine-learning-data-science-move-sql-azure.md).
+
+El **menú** a continuación vincula a temas en los que se describe cómo introducir datos en los entornos de destino en que sea posible almacenar y procesar datos durante el proceso de Cortana Analytics (CAPS).
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+
 
 En la tabla siguiente se resumen las opciones para mover datos a un servidor SQL Server en una máquina virtual de Azure.
 
@@ -37,7 +38,7 @@ En la tabla siguiente se resumen las opciones para mover datos a un servidor SQL
 
 Tenga en cuenta que en este documento se da por supuesto que los comandos SQL se ejecutan desde SQL Server Management Studio o el Explorador de bases de datos de Visual Studio.
 
-> [AZURE.TIP]Como alternativa, puede usar [factoría de datos de Azure](https://azure.microsoft.com/services/data-factory/) para crear y programar una canalización de datos se moverá a una máquina virtual de SQL Server en Azure. Para obtener más información, consulte [Copia de datos con Factoría de datos de Azure (actividad de copia)](../data-factory/data-factory-copy-activity.md)
+> [AZURE.TIP] Como alternativa, puede usar [factoría de datos de Azure](https://azure.microsoft.com/services/data-factory/) para crear y programar una canalización de datos se moverá a una máquina virtual de SQL Server en Azure. Para obtener más información, consulte [Copia de datos con Factoría de datos de Azure (actividad de copia)](data-factory-data-movement-activities.md)
 
 
 ## <a name="prereqs"></a>Requisitos previos
@@ -62,7 +63,7 @@ Si los datos se encuentran en un archivo plano (organizado en un formato de fila
 
 BCP es una utilidad de línea de comandos instalada con SQL Server y es una de las maneras más rápidas de mover datos. Funciona en las tres variantes de SQL Server (SQL Server local, SQL Azure y máquina virtual SQL Server en Azure).
 
-> [AZURE.NOTE]**¿Donde deberían estar mis datos para BCP?** Aunque no es necesario, tener archivos que contienen datos de origen que se encuentran en la misma máquina que el SQL Server de destino permite transferencias más rápidas (velocidad de red frente a velocidad de E/S de disco local). Puede mover los archivos planos que contienen los datos en la máquina en la que está instalado SQL Server mediante las diversas herramientas de copia de archivos como [AZCopy](../storage-use-azcopy.md), el [Explorador de almacenamiento de Azure](https://azurestorageexplorer.codeplex.com/) o copiar y pegar de Windows mediante el Protocolo de escritorio remoto (RDP).
+> [AZURE.NOTE] **¿Donde deberían estar mis datos para BCP?** Aunque no es necesario, tener archivos que contienen datos de origen que se encuentran en la misma máquina que el SQL Server de destino permite transferencias más rápidas (velocidad de red frente a velocidad de E/S de disco local). Puede mover los archivos planos que contienen los datos en la máquina en la que está instalado SQL Server mediante las diversas herramientas de copia de archivos como [AZCopy](../storage-use-azcopy.md), el [Explorador de almacenamiento de Azure](https://azurestorageexplorer.codeplex.com/) o copiar y pegar de Windows mediante el Protocolo de escritorio remoto (RDP).
 
 1. Asegúrese de que la base de datos y las tablas se crean en la base de datos de SQL Server de destino. Este es un ejemplo de cómo realizar esa tarea con los comandos `Create Database` y `Create Table`:
 
@@ -89,7 +90,7 @@ BCP es una utilidad de línea de comandos instalada con SQL Server y es una de l
 
 Si los datos que está moviendo son grandes, puede acelerar las cosas ejecutando simultáneamente varios comandos BCP en paralelo en un script de PowerShell.
 
-> [AZURE.NOTE]**Ingesta de Big Data** Para optimizar la carga de datos para conjuntos de datos grandes y muy grandes, cree particiones de sus tablas de bases de datos lógicas y físicas con varios grupos de archivos y tablas de particiones. Para obtener más información acerca de cómo crear y cargar datos en las tablas de partición, consulte [Tablas de particiones de SQL de carga paralela](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE] **Ingesta de Big Data** Para optimizar la carga de datos para conjuntos de datos grandes y muy grandes, cree particiones de sus tablas de bases de datos lógicas y físicas con varios grupos de archivos y tablas de particiones. Para obtener más información acerca de cómo crear y cargar datos en las tablas de partición, consulte [Tablas de particiones de SQL de carga paralela](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 
 El script de PowerShell de ejemplo siguiente muestra inserciones paralelas con bcp:
@@ -223,4 +224,4 @@ A continuación se muestra una captura de pantalla de las opciones de copia de s
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

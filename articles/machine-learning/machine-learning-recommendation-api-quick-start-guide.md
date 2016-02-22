@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/09/2016" 
 	ms.author="luisca"/>
 
 # Guía de inicio rápido para la API de recomendaciones de Aprendizaje automático
@@ -85,7 +85,7 @@ Creación de una solicitud de "creación de modelo":
 |:--------|:--------|
 |POST |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
 
-|	Nombre de parámetro	|	Valores válidos						|
+|	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelName	|	Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_).<br>Longitud máxima: 20 |
 |	apiVersion		| 1.0 |
@@ -97,7 +97,7 @@ Creación de una solicitud de "creación de modelo":
 
 código de estado HTTP: 200
 
-- `feed/entry/content/properties/id`: contiene el Id. de modelo. **Nota**: el Id. de modelo distingue mayúsculas de minúsculas.
+- `feed/entry/content/properties/id`: contiene el id. de modelo. **Nota**: el Id. de modelo distingue mayúsculas de minúsculas.
 
 XML de OData
 
@@ -138,7 +138,7 @@ Si carga varios archivos de catálogo para el mismo modelo con varias llamadas, 
 |:--------|:--------|
 |POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	Nombre de parámetro	|	Valores válidos						|
+|	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelId	|	El identificador único del modelo (distingue mayúsculas de minúsculas)  |
 | filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_).<br>Longitud máxima: 50 |
@@ -187,7 +187,7 @@ En esta sección se muestra cómo cargar datos de uso mediante un archivo. Puede
 |:--------|:--------|
 |POST |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
 
-|	Nombre de parámetro	|	Valores válidos						|
+|	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelId	|	El identificador único del modelo (distingue mayúsculas de minúsculas) |
 | filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_).<br>Longitud máxima: 50 |
@@ -236,11 +236,11 @@ En esta sección se muestra cómo enviar eventos en tiempo real a las recomendac
 |:--------|:--------|
 |POST |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
 
-|	Nombre de parámetro	|	Valores válidos						|
+|	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
-|	apiVersion		| 1\.0 |
-|||
-|Request body| Event data entry for each event you want to send. Debe enviar para la misma sesión de usuario o explorador el mismo identificador en el campo SessionId. (Consulte el ejemplo del cuerpo de evento que aparece a continuación).|
+|	apiVersion | 1\.0 |
+|
+|Request body| Entrada de datos de eventos para cada evento que va a enviar. Debe enviar para la misma sesión de usuario o explorador el mismo identificador en el campo SessionId. (Vea el ejemplo del cuerpo de evento aparece a continuación).|
 
 
 - Ejemplo para evento 'Click':
@@ -310,21 +310,21 @@ En esta sección se muestra cómo enviar eventos en tiempo real a las recomendac
 - Ejemplo con envío de 2 eventos, 'Click' y 'AddShopCart':
 
 		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
-		<SessionId>11112222</SessionId>
-		<EventData>
-		<EventData>
-			<Name>Click</Name>
-			<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
-			<ItemName>itemName</ItemName>
-				<ItemDescription>item description</ItemDescription>
-				<ItemCategory>category</ItemCategory>
-			</EventData>
-		<EventData>
-		<Name>AddShopCart</Name>
+  		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
+  		<SessionId>11112222</SessionId>
+  		<EventData>
+    	<EventData>
+      	<Name>Click</Name>
+      	<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
+      	<ItemName>itemName</ItemName>
+      	<ItemDescription>item description</ItemDescription>
+      	<ItemCategory>category</ItemCategory>
+    	</EventData>
+    	<EventData>
+      	<Name>AddShopCart</Name>
       	<ItemId>552A1940-21E4-4399-82BB-594B46D7ED54</ItemId>
-		</EventData>
-		</EventData>
+    	</EventData>
+  		</EventData>
 		</Event>
 
 **Respuesta**: código de estado HTTP: 200
@@ -333,21 +333,21 @@ En esta sección se muestra cómo enviar eventos en tiempo real a las recomendac
 
 | Método HTTP | URI |
 |:--------|:--------|
-|POST     |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
+|POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
 
-|	Nombre de parámetro	|	Valores válidos						|
+|	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
-| modelId |	El identificador único del modelo (distingue mayúsculas de minúsculas)  |
+| modelId |	El identificador único del modelo (distingue mayúsculas de minúsculas) |
 | userDescription | Identificador textual del catálogo. Tenga en cuenta que si usa espacios debe codificarlo en su lugar con un 20 %. Vea el ejemplo anterior.<br>Longitud máxima: 50 |
 | apiVersion | 1\.0 |
-|||
-| Cuerpo de la solicitud | NONE |
+|
+| Cuerpo de la solicitud | NINGUNA |
 
 **Respuesta**:
 
 código de estado HTTP: 200
 
-Se trata de una API asincrónica. Obtendrá un Id. de compilación como respuesta. Para saber cuándo ha finalizado la compilación, debe llamar a la API "Obtener estados de compilaciones de un modelo" y buscar este Id. de compilación en la respuesta. Tenga en cuenta que una compilación puede tardar desde unos minutos hasta varias horas según el tamaño de los datos.
+Se trata de una API asincrónica. Obtendrá un Id. de compilación como respuesta. Para saber cuándo ha finalizado la compilación, debe llamar a la API "Obtener estados de compilaciones de un modelo" y buscar este id. de compilación en la respuesta. Tenga en cuenta que una compilación puede tardar desde unos minutos hasta varias horas según el tamaño de los datos.
 
 No puede usar recomendaciones hasta que no finalice la compilación.
 
@@ -407,15 +407,15 @@ XML de OData
 
 | Método HTTP | URI |
 |:--------|:--------|
-|GET     |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27`|
+|GET |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27`|
 
 
 
-|	Nombre de parámetro	|	Valores válidos						|
+|	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
-|	modelId			|	El identificador único del modelo (distingue mayúsculas de minúsculas)	|
-|	onlyLastBuild	|	Indica si se devolverá todo el historial de compilaciones del modelo o solo el estado de la compilación más reciente.	|
-|	apiVersion		|	1\.0									|
+|	modelId |	El identificador único del modelo (distingue mayúsculas de minúsculas) |
+|	onlyLastBuild |	Indica si se devolverá todo el historial de compilaciones del modelo o solo el estado de la compilación más reciente. |
+|	apiVersion |	1\.0 |
 
 
 **Respuesta**:
@@ -482,11 +482,11 @@ XML de OData
 
 | Método HTTP | URI |
 |:--------|:--------|
-|GET     |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+|GET |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
 
 
-|	Nombre de parámetro	|	Valores válidos						|
+|	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 | modelId | El identificador único del modelo (distingue mayúsculas de minúsculas) |
 | itemIds | Lista separada por comas de los elementos para recomendar.<br>Longitud máxima: 1024 |
@@ -500,7 +500,7 @@ código de estado HTTP: 200
 
 La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los siguientes datos:
 
-- `Feed\entry\content\properties\Id`: Id. de elemento recomendado.
+- `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 - `Feed\entry\content\properties\Name`: nombre del elemento.
 - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
 - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
@@ -665,15 +665,15 @@ Este mecanismo le permite tener un modelo de recomendación en producción para 
 
 | Método HTTP | URI |
 |:--------|:--------|
-|PUT     |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
+|PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
 
-|	Nombre de parámetro	|	Valores válidos						|
+|	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 | id | El identificador único del modelo (distingue mayúsculas de minúsculas) |
 | apiVersion | 1\.0 |
-|||
-| Cuerpo de la solicitud | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Tenga en cuenta que Description y ActiveBuildId son opcionales. Si no desea establecer Description o ActiveBuildId, elimine la etiqueta entera. |
+|
+| Cuerpo de la solicitud | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Tenga en cuenta que las etiquetas XML Description y ActiveBuildId son opcionales. Si no desea establecer Description o ActiveBuildId, elimine la etiqueta entera. |
 
 **Respuesta**:
 
@@ -694,4 +694,4 @@ XML de OData
 Este documento se ofrece "tal cual". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso. Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse. Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia. © 2014 Microsoft. Todos los derechos reservados.
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

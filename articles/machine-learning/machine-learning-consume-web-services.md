@@ -3,7 +3,7 @@
 	description="Una vez implementado un servicio de aprendizaje automático, se puede consumir el servicio web RESTFul facilitado como servicio de respuesta de solicitud o como servicio de ejecución por lotes."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev"
+	authors="garyericson"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="10/19/2015"
-	ms.author="bradsev" />
+	ms.date="02/10/2016"
+	ms.author="garye" />
 
 
 # Cómo consumir un servicio web de Aprendizaje automático de Azure implementado en un experimento de Aprendizaje automático
@@ -33,7 +33,7 @@ Esto significa que los servicios se pueden consumir desde aplicaciones web, apli
 
 Un servicio web de Aprendizaje automático de Azure se puede consumir de dos maneras diferentes, como un servicio de solicitud-respuesta o como un servicio de ejecución por lotes. En cada escenario se proporciona la funcionalidad a través del servicio web RESTFul que se facilita para consumirse una vez que se ha implementado el experimento. Implementando un servicio web de aprendizaje automático en Azure con un punto extremo de servicio web Azure, donde el servicio se escala automáticamente según el uso, puede evitar los costos continuados derivados de los recursos de hardware.
 
-> [AZURE.TIP]Para conocer una forma sencilla de crear una aplicación web para obtener acceso al servicio web predictivo, vea [Consumo de un servicio web de Aprendizaje automático de Azure con una plantilla de aplicación web](machine-learning-consume-web-service-with-web-app-template.md).
+> [AZURE.TIP] Para conocer una forma sencilla de crear una aplicación web para obtener acceso al servicio web predictivo, vea [Consumo de un servicio web de Aprendizaje automático de Azure con una plantilla de aplicación web](machine-learning-consume-web-service-with-web-app-template.md).
 
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
@@ -63,17 +63,17 @@ Un BES resultaría útil cuando las respuestas no se necesiten inmediatamente, c
 ## Ejemplos
 Para mostrar cómo funcionan RRS y BES, usamos un ejemplo de servicio web de Azure. Este servicio se usaría en un escenario IOT (Internet de las cosas). Para facilitarlo, nuestro dispositivo solo envía un valor, `cog_speed`, y recibe una sola respuesta.
 
-Hay cuatro elementos de información que son necesarios para llamar al servicio RRS o BES. Esta información está disponible en las páginas de servicios de [Páginas de servicios de Aprendizaje automático de Azure](https://studio.azureml.net) una vez que se ha implementado el experimento. Haga clic en el vínculo de SERVICIOS WEB situado a la izquierda de la pantalla y verá los servicios implementados. Para obtener información acerca de un servicio concreto, hay vínculos de páginas de ayuda de API para RRS y BES.
+Hay cuatro elementos de información que son necesarios para llamar al servicio RRS o BES. Esta información está disponible en las páginas de servicios de [Estudio de aprendizaje automático de Azure](https://studio.azureml.net) una vez que se ha implementado el experimento. Haga clic en la pestaña SERVICIOS WEB situada a la izquierda de la pantalla y verá los servicios implementados. Haga clic en un servicio para encontrar los vínculos y la información siguientes para RRS y BES:
 
-1.	La **clave de API de servicio**, disponible en la página principal de servicios.
-2.	El **URI de servicio**, disponible en la página de ayuda de la API del servicio seleccionado.
-3.	El **cuerpo de la solicitud de API** esperado, disponible en la página de ayuda de la API del servicio seleccionado
-4.	El **cuerpo de respuesta de la API** esperado, disponible en la página de ayuda de la API del servicio seleccionado
+1.	La **clave de API** de servicio, disponible en el Panel de servicios
+2.	El **identificador URI de la solicitud** de servicio, disponible en la página de ayuda de la API del servicio seleccionado
+3.	Los **encabezados** y el **cuerpo de la solicitud** de la API, disponible en la página de ayuda de la API del servicio seleccionado
+4.	Los **encabezados** y el **cuerpo de la respuesta** de la API, disponible en la página de ayuda de la API del servicio seleccionado
 
 En los dos ejemplos siguientes, se utiliza el lenguaje C# para ilustrar el código necesario y la plataforma de destino es un escritorio de Windows 8.
 
 ### Ejemplo de RRS
-En la página de ayuda de la API, además de la dirección URI, introducirá y emitirá definiciones y ejemplos de código. Se llama a la entrada de la API, para este servicio específicamente, y es la carga de la llamada a la API.
+Haga clic en **SOLICITUD/RESPUESTA** en la **PÁGINA DE AYUDA DE LA API** en el Panel de servicio para ver la página de ayuda de la API. En esta página, además del identificador URI, verá ejemplos de código y definiciones de entrada y salida. La entrada de API, para este servicio en particular, se muestra a continuación y es la carga de la llamada a la API.
 
 **Solicitud de ejemplo**
 
@@ -97,7 +97,7 @@ En la página de ayuda de la API, además de la dirección URI, introducirá y e
 	}
 
 
-De forma similar, también se llama a la respuesta de la API, nuevamente para este servicio en concreto.
+De forma similar, la respuesta de la API para este servicio también se muestra a continuación.
 
 **Respuesta de ejemplo**
 
@@ -125,7 +125,7 @@ De forma similar, también se llama a la respuesta de la API, nuevamente para es
 	  "GlobalParameters": {}
 	}
 
-Hacia la parte inferior de la página, encontrará los ejemplos de código. A continuación se muestra el código de ejemplo para la implementación de C#
+Hacia la parte inferior de la página de ayuda, encontrará los ejemplos de código. A continuación se muestra el código de ejemplo para la implementación de C#.
 
 **Código de ejemplo**
 
@@ -200,7 +200,7 @@ Hacia la parte inferior de la página, encontrará los ejemplos de código. A co
 	}
 
 ### Ejemplo de BES
-En la página de ayuda de la API, además del URI, encontrará información acerca de varias llamadas que están disponibles. A diferencia del servicio RRS, el servicio BES es asincrónico. Esto significa que la API de BES simplemente pone en cola un trabajo que se va a ejecutar y el llamador sondea el estado del trabajo para cuándo se ha completado. Estas son las operaciones admitidas actualmente para los trabajos por lotes:
+A diferencia del servicio RRS, el servicio BES es asincrónico. Esto significa que la API de BES simplemente pone en cola un trabajo que se va a ejecutar y el llamador sondea el estado del trabajo para cuándo se ha completado. Estas son las operaciones admitidas actualmente para los trabajos por lotes:
 
 1. Crear (enviar) un trabajo por lotes.
 1. Iniciar un trabajo por lotes.
@@ -209,17 +209,19 @@ En la página de ayuda de la API, además del URI, encontrará información acer
 
 **1. Crear un trabajo de ejecución por lotes**
 
-Al crear un trabajo por lotes para el extremo de servicio de Aprendizaje automático de Azure, se pueden especificar varios parámetros que definan la ejecución de lotes:
+Al crear un trabajo por lotes para el punto de conexión de servicio de Aprendizaje automático de Azure, se pueden especificar varios parámetros que definan la ejecución de lotes:
 
 * **Input**: representa una referencia del blob al lugar en que se almacena la entrada del trabajo por lotes.
-* **GlobalParameters**: representa el conjunto de parámetros globales que se pueden definir para un experimento. Los experimentos de Aprendizaje automático de Azure pueden tener parámetros opcionales y obligatorios que personalicen la ejecución del servicio, y se espera que el llamador proporcione todos los parámetros obligatorios, si procede. Estos parámetros se especifican como una colección de pares clave-valor.
-* **Outputs**: si el servicio tiene definidas una o varias salidas, permitimos al llamador redirigir cualquiera de ellas a la ubicación del blob de Azure que prefiera. Esto permite guardar las salidas del servicio en la ubicación preferida y con un nombre de predicción, ya que, de lo contrario, el nombre de blob de salida se genera aleatoriamente. **TENGA EN CUENTA** que el servicio espera que el contenido de la salida, según su tipo, se guarde en cualquier de los formatos admitidos:
+* **GlobalParameters**: representa el conjunto de parámetros globales que se pueden definir para el experimento. Los experimentos de Aprendizaje automático de Azure pueden tener parámetros opcionales y obligatorios que personalicen la ejecución del servicio, y se espera que el llamador proporcione todos los parámetros obligatorios, si procede. Estos parámetros se especifican como una colección de pares clave-valor.
+* **Outputs**: si el servicio tiene definidas una o varias salidas, permitimos al llamador redirigir cualquiera de ellas a una ubicación del blob de Azure. Esto permite guardar las salidas del servicio en la ubicación preferida y con un nombre de predicción, ya que, de lo contrario, el nombre de blob de salida se genera aleatoriamente. 
+
+    Tenga en cuenta que el servicio espera que el contenido de la salida, según su tipo, se guarde en cualquiera de los formatos admitidos:
   - salidas de conjuntos de datos: se pueden guardar como **.csv, .tsv o .arff**
   - salidas de modelos entrenados: se pueden guardar como **.ilearner**
 
-  Las invalidaciones de la ubicación de salida se especifican como una colección de *<output name  blob reference>* pares, donde el *nombre de salida* es el nombre definido por el usuario para un nodo de salida específico (que también se muestra en la página de ayuda de la API del servicio) y la *referencia del blob* es una referencia a una ubicación de blobs de Azure a la que se redirigirá a la salida.
+  Las invalidaciones de la ubicación de salida se especifican como una colección de *<output name  blob reference>* pares, donde el *nombre de salida* es el nombre definido por el usuario para un nodo de salida específico (que también se muestra en la página de ayuda de la API del servicio) y la *referencia del blob* es una referencia a una ubicación de blobs de Azure a la que se redirigirá la salida.
 
-Todos estos parámetros de creación de trabajos pueden ser opcionales, en función de la naturaleza del servicio. Por ejemplo, los servicios sin nodos de entrada definidos, no requieren que se use un parámetro *Input* y la característica de invalidación de la ubicación de salida es totalmente opcional. Sin estos elementos, las salidas se guardarán en la cuenta de almacenamiento predeterminada configurada para el área de trabajo de Aprendizaje automático de Azure. A continuación encontrará una carga de solicitudes de ejemplo, tal como se pasan a la API de REST, para un servicio en la que solo se pasa la información de entrada:
+Todos estos parámetros de creación de trabajos pueden ser opcionales, en función de la naturaleza del servicio. Por ejemplo, los servicios sin nodos de entrada definidos no requieren que se use un parámetro *Input*. Del mismo modo, la característica de invalidación de la ubicación de salida es totalmente opcional. De lo contrario, las salidas se guardarán en la cuenta de almacenamiento predeterminada configurada para el área de trabajo de Aprendizaje automático de Azure. A continuación encontrará una carga de solicitudes de ejemplo, tal como se pasan a la API de REST, para un servicio en el que solo se proporciona la información de entrada:
 
 **Solicitud de ejemplo**
 
@@ -235,7 +237,7 @@ Todos estos parámetros de creación de trabajos pueden ser opcionales, en funci
 	  "GlobalParameters": null
 	}
 
-La respuesta a la API de creación de trabajos por lotes es el Id. de trabajo único que estaba asociado al trabajo. Este identificador es muy importante porque proporciona el único medio para hacer referencia a este trabajo en el sistema para otras operaciones.
+La respuesta a la API de creación de trabajos por lotes es el identificador de trabajo único que estaba asociado al trabajo. Este identificador es muy importante porque proporciona el único medio para hacer referencia a este trabajo en el sistema para otras operaciones.
 
 **Respuesta de ejemplo**
 
@@ -243,11 +245,11 @@ La respuesta a la API de creación de trabajos por lotes es el Id. de trabajo ú
 
 **2. Iniciar un trabajo de ejecución por lotes**
 
-La creación de un trabajo por lotes sólo lo registra en el sistema y lo coloca en el estado *No iniciado*. Para programar realmente el trabajo para su ejecución, tendrá que llamar a la API de **inicio** que se describe en la página de ayuda de la API del extremo de servicio y especificar el id. de trabajo que se obtuvo al crear el trabajo.
+La creación de un trabajo por lotes lo registra en el sistema y lo coloca en el estado *No iniciado*. Para programar realmente el trabajo para su ejecución, llame a la API de **inicio** que se describe en la página de ayuda de la API del punto de conexión de servicio y especifique el identificador de trabajo que se obtuvo al crear el trabajo.
 
 **3. Obtener el estado de un trabajo de ejecución por lotes**
 
-El estado de un trabajo por lotes asincrónico se puede sondear en cualquier momento pasando el identificador del trabajo a la API GetJobStatus. La respuesta de la API contendrá un indicador del estado actual del trabajo, así como los resultados reales del trabajo por lotes si se ha completado correctamente. En caso de error, en la propiedad *Detalles* se puede encontrar más información sobre las razones reales del error.
+El estado de un trabajo por lotes asincrónico se puede sondear en cualquier momento pasando el identificador de trabajo a la API GetJobStatus. La respuesta de la API contendrá un indicador del estado actual del trabajo, así como los resultados reales del trabajo por lotes si se ha completado correctamente. En caso de error, en la propiedad *Detalles* se puede encontrar más información sobre las razones reales del error, como se muestra a continuación:
 
 **Carga de respuesta**
 
@@ -265,7 +267,7 @@ El estado de un trabajo por lotes asincrónico se puede sondear en cualquier mom
 * Cancelado
 * Terminado
 
-La propiedad *Results* solo se rellena si el trabajo se ha completado correctamente (de lo contrario, su valor es **null**). Tras la finalización del trabajo y si el servicio tiene al menos un nodo de salida definido, los resultados se devolverán en forma de colección de pares *[nombre de salida, referencia de blob]*, donde la referencia de blob es una referencia SAS de sólo lectura al blob que contiene el resultado real.
+La propiedad *Results* solo se rellena si el trabajo se ha completado correctamente (de lo contrario, su valor es **null**). Tras la finalización del trabajo y si el servicio tiene al menos un nodo de salida definido, los resultados se devolverán en forma de colección de pares *[nombre de salida, referencia de blob]*, donde la referencia de blob es una referencia SAS de solo lectura al blob que contiene el resultado real.
 
 **Respuesta de ejemplo**
 
@@ -297,11 +299,11 @@ Los trabajos por lotes en ejecución se pueden cancelar en cualquier momento lla
 
 
 
-#### Uso del [SDK de BES](machine-learning-consume-web-services.md#batch-execution-service-sdk)
+#### Uso del SDK de BES
 
-El [paquete de NuGet SDK de BES](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) proporciona funciones que simplifican la llamada a BES para su puntuación en el modo por lotes. Para instalar el paquete NuGet, en Visual Studio, vaya a Herramientas, seleccione Administrador de paquetes NuGet y haga clic en Consola del Administrador de paquetes.
+El [paquete de NuGet SDK de BES](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) proporciona funciones que simplifican la llamada a BES para su puntuación en el modo por lotes. Para instalar el paquete NuGet, en Visual Studio, en el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** y haga clic en **Consola del Administrador de paquetes**.
 
-Los experimentos de Aprendizaje automático de Azure que se implementan como servicios web pueden incluir módulos de entrada de servicios web, lo que significa que esperan que la entrada se realice a través de la llamada del servicio web en forma de referencia a una ubicación de blob. También existe la opción de no usar un módulo de entrada del servicio web y usar en su lugar un módulo lector. En ese caso, el lector normalmente leería de una base de datos SQL mediante una consulta en tiempo de ejecución para obtener los datos. Los parámetros de servicio web pueden utilizarse para apuntar dinámicamente a otros servidores o tablas, etc. El SDK es compatible con ambas plataformas.
+Los experimentos de Aprendizaje automático de Azure implementados como servicios web pueden incluir módulos de entrada de servicio web. Esto significa que esperan que la entrada se realice a través de la llamada de servicio web en forma de referencia a una ubicación de blob. También existe la opción de no usar un módulo de entrada del servicio web y usar en su lugar un módulo **lector**. En ese caso, el módulo **lector** normalmente leería de una base de datos SQL mediante una consulta en tiempo de ejecución para obtener los datos. Los parámetros de servicio web pueden utilizarse para apuntar dinámicamente a otros servidores o tablas, etc. El SDK es compatible con ambas plataformas.
 
 El código de ejemplo siguiente muestra cómo se puede enviar y supervisar un trabajo por lotes con un extremo de servicio de Aprendizaje automático de Azure mediante el SDK de BES. En los comentarios encontrará más información sobre la configuración y las llamadas.
 
@@ -433,4 +435,4 @@ El código de ejemplo siguiente muestra cómo se puede enviar y supervisar un tr
 	    }
 	}
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

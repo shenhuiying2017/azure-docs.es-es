@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="02/07/2016"
 	ms.author="mahender"/>
 
 # Introducción a la autenticación personalizada
@@ -26,11 +26,11 @@
 ## Información general
 En este tema se muestra cómo autenticar usuarios en el backend .NET de Servicios móviles de Azure emitiendo su propio token de autenticación para Servicios móviles. En este tutorial, agregará autenticación al proyecto de inicio rápido mediante un nombre de usuario y una contraseña personalizados para la aplicación.
 
->[AZURE.NOTE]En este tutorial se muestra un método avanzado para autenticar sus servicios móviles con credenciales personalizadas. En muchas aplicaciones, sin embargo, será más adecuado usar los proveedores de identidades sociales integrados para permitir a los usuarios que inicien sesión a través de Facebook, Twitter, Google, una cuenta Microsoft y Azure Active Directory. Si esta es la primera vez que usa autenticación en Servicios móviles, consulte el tutorial [Agregar autenticación a su aplicación].
+>[AZURE.NOTE] En este tutorial se muestra un método avanzado para autenticar sus servicios móviles con credenciales personalizadas. En muchas aplicaciones, sin embargo, será más adecuado usar los proveedores de identidades sociales integrados para permitir a los usuarios que inicien sesión a través de Facebook, Twitter, Google, una cuenta Microsoft y Azure Active Directory. Si esta es la primera vez que usa autenticación en Servicios móviles, consulte el tutorial [Agregar autenticación a su aplicación].
 
 Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles].
 
->[AZURE.IMPORTANT]El objetivo de este tutorial es mostrar cómo se emite un token de autenticación para Servicios móviles. Esto no debe interpretarse como una guía de seguridad. A la hora de desarrollar una aplicación, debe ser consciente de las implicaciones de seguridad que conlleva el almacenamiento de contraseñas y debe disponer de una estrategia para controlar ataques por fuerza bruta.
+>[AZURE.IMPORTANT] El objetivo de este tutorial es mostrar cómo se emite un token de autenticación para Servicios móviles. Esto no debe interpretarse como una guía de seguridad. A la hora de desarrollar una aplicación, debe ser consciente de las implicaciones de seguridad que conlleva el almacenamiento de contraseñas y debe disponer de una estrategia para controlar ataques por fuerza bruta.
 
 ## Configuración de la tabla de cuentas
 
@@ -336,7 +336,7 @@ A continuación, cree un extremo para que sus usuarios puedan iniciar sesión. E
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[AZURE.IMPORTANT]El que utilice `CustomLoginController` en producción debe contener también una estrategia de detección de ataques por fuerza bruta. De lo contrario, la solución de inicio de sesión puede ser vulnerable a ataques.
+>[AZURE.IMPORTANT] El que utilice `CustomLoginController` en producción debe contener también una estrategia de detección de ataques por fuerza bruta. De lo contrario, la solución de inicio de sesión puede ser vulnerable a ataques.
 
 ## Configuración del servicio móvil para exigir autenticación
 
@@ -381,13 +381,13 @@ En la aplicación de cliente, deberá desarrollar una pantalla de inicio de sesi
 
  	![](./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-access-success.png)
 
->[AZURE.IMPORTANT]Si elige publicar también este proyecto de servicio móvil en Azure para realizar pruebas, recuerde que los proveedores de inicio de sesión y autenticación será vulnerables a ataques. Asegúrese de que estén protegidos correctamente o que los datos de prueba que se está protegiendo no sean importantes para usted. Adopte precauciones antes de usar un esquema de autenticación personalizado para proteger un servicio de producción.
+>[AZURE.IMPORTANT] Si elige publicar también este proyecto de servicio móvil en Azure para realizar pruebas, recuerde que los proveedores de inicio de sesión y autenticación será vulnerables a ataques. Asegúrese de que estén protegidos correctamente o que los datos de prueba que se está protegiendo no sean importantes para usted. Adopte precauciones antes de usar un esquema de autenticación personalizado para proteger un servicio de producción.
 
 ## Inicie sesión mediante autenticación personalizada desde el cliente
 
 En esta sección se describen los pasos necesarios para tener acceso a los extremos de autenticación personalizada desde el cliente para obtener el token de autenticación necesario para tener acceso al servicio móvil. Dado que el código de cliente específico que necesita depende de su cliente, las instrucciones proporcionadas aquí son independientes de la plataforma.
 
->[AZURE.NOTE]Las bibliotecas de los clientes de Servicios móviles se comunican con el servicio mediante HTTPS. Dado que esta solución requiere que envíe contraseñas como texto sin formato, asegúrese de usar HTTPS cuando llame a estos extremos mediante solicitudes REST directas.
+>[AZURE.NOTE] Las bibliotecas de los clientes de Servicios móviles se comunican con el servicio mediante HTTPS. Dado que esta solución requiere que envíe contraseñas como texto sin formato, asegúrese de usar HTTPS cuando llame a estos extremos mediante solicitudes REST directas.
 
 1. Cree los elementos necesarios de la interfaz de usuario en la aplicación cliente para permitir que los usuarios escriban un nombre de usuario y una contraseña.
 
@@ -395,7 +395,7 @@ En esta sección se describen los pasos necesarios para tener acceso a los extre
 
 	Solo necesita llamar al extremo **CustomRegistration** una vez para crear una cuenta para un usuario determinado, siempre y cuando tenga la información de inicio de sesión de usuario en la tabla de cuentas. Para obtener ejemplos acerca de cómo llamar a una API personalizada en las diferentes plataformas de cliente admitidas, consulte el artículo [API personalizada en Servicios móviles de Azure: SDK de cliente](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 
-	> [AZURE.IMPORTANT]Dado que este paso de aprovisionamiento de usuario se produce solo una vez, considere la posibilidad de crear la cuenta de usuario de algún modo fuera de banda. Para un extremo de registro público, también debe considerar la implementación de un proceso de comprobación basado en correo electrónico o SMS o alguna otra medida de seguridad para evitar la generación de las cuentas fraudulentas. Puede usar Twilio para enviar mensajes SMS desde Servicios móviles. También puede usar SendGrid para enviar correos electrónicos desde Servicios móviles. Para obtener más información sobre el uso de SendGrid, consulte [Envío de correo electrónico desde Servicios móviles con SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
+	> [AZURE.IMPORTANT] Dado que este paso de aprovisionamiento de usuario se produce solo una vez, considere la posibilidad de crear la cuenta de usuario de algún modo fuera de banda. Para un extremo de registro público, también debe considerar la implementación de un proceso de comprobación basado en correo electrónico o SMS o alguna otra medida de seguridad para evitar la generación de las cuentas fraudulentas. Puede usar Twilio para enviar mensajes SMS desde Servicios móviles. También puede usar SendGrid para enviar correos electrónicos desde Servicios móviles. Para obtener más información sobre el uso de SendGrid, consulte [Envío de correo electrónico desde Servicios móviles con SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
 
 3. Vuelva a usar el método **invokeApi** adecuado, esta vez para llamar al extremo **CustomLogin**, pasando el nombre de usuario proporcionado por el tiempo de ejecución y la contraseña en el cuerpo del mensaje.
 
@@ -424,4 +424,4 @@ De este modo finaliza este tutorial.
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

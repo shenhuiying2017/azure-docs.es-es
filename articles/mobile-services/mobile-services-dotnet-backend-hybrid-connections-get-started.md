@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/07/2016"
 	ms.author="glenga"/>
 
 
@@ -139,4 +139,4 @@ Ahora que ha comprobado la conexión de base de datos, deberá agregar una confi
 [Portal de Azure clásico]: http://manage.windowsazure.com
 [Introducción a Servicios móviles]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

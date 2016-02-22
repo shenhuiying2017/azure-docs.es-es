@@ -22,7 +22,7 @@ El tiempo de ejecución de Reliable Actors emite eventos [EventSource](https://m
 ## Eventos EventSource
 El nombre del proveedor de EventSource del tiempo de ejecución de Reliable Actors es "Microsoft-ServiceFabric-Actors". Los eventos de este origen de eventos aparecen en la ventana [Eventos de diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) cuando la aplicación de actor se [depura en Visual Studio](service-fabric-debugging-your-application.md).
 
-Otros ejemplos de herramientas y tecnologías que ayudan a recopilar o ver eventos EventSource son [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnósticos de Azure](../cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx) y [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Otros ejemplos de herramientas y tecnologías que ayudan a recopilar o ver eventos EventSource son [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnósticos de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx) y [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Palabras clave
 Todos los eventos que pertenecen al EventSource de Actores fiables están asociados a una o varias palabras clave. Esto habilita el filtrado de los eventos que se recopilan. Se definen los siguientes bits de palabras clave:
@@ -44,7 +44,7 @@ El tiempo de ejecución de Actores confiables define las siguientes categorías 
 
 Cada una de las categorías anteriores tiene uno o varios contadores.
 
-La aplicación del [Monitor de rendimiento de Windows](https://technet.microsoft.com/library/cc749249.aspx) que está disponible de forma predeterminada en el sistema operativo Windows puede usarse para recopilar y ver los datos del contador de rendimiento. [Diagnósticos de Azure](../cloud-services-dotnet-diagnostics.md) es otra opción para recopilar datos del contador de rendimiento y cargarlos en tablas de Azure.
+La aplicación del [Monitor de rendimiento de Windows](https://technet.microsoft.com/library/cc749249.aspx) que está disponible de forma predeterminada en el sistema operativo Windows puede usarse para recopilar y ver los datos del contador de rendimiento. [Diagnósticos de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) es otra opción para recopilar datos del contador de rendimiento y cargarlos en tablas de Azure.
 
 ### Nombres de instancias de contador de rendimiento
 Un clúster con un gran número de servicios de actor o particiones de servicios de actor tendrá una gran cantidad de instancias de contador de rendimiento de actor. Los nombres de las instancias del contador de rendimiento pueden ayudar a identificar la [partición](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) y el método de actor (si procede) específicos con los que está asociada la instancia de contador de rendimiento.
@@ -153,4 +153,4 @@ El tiempo de ejecución de Reliable Actors emite los siguientes eventos relacion
 |ActorActivated|5|Informativo|0x1|Se activó un actor.|
 |ActorDeactivated|6|Informativo|0x1|Se desactivó un actor.|
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

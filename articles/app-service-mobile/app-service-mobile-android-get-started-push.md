@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/04/2016"
 	ms.author="yuaxu"/>
 
 # Incorporación de notificaciones push a la aplicación de Android
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## Información general
 En este tutorial, agregará notificaciones push al proyecto de [inicio rápido de Android] para que cada vez que se inserte un registro, se envíe una notificación push. Este tutorial está basado en el tutorial de [inicio rápido de Android], que debe completar primero. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar el paquete de extensión de notificaciones push al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
@@ -78,4 +78,6 @@ Puede probar la aplicación conectando directamente un teléfono Android con un 
 <!-- URLs -->
 [inicio rápido de Android]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_0204_2016-->
+[Configuración del SDK de Google Play Services]: https://developers.google.com/android/guides/setup
+
+<!---HONumber=AcomDC_0211_2016-->

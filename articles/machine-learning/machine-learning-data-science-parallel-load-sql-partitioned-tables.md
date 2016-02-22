@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 # Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL
 
-Para cargar o transferir grandes cantidades de datos a una base de datos SQL, es posible mejorar la importación de datos en la base de datos SQL y a las consultas posteriores mediante _Tablas y vistas con particiones_. En este documento se describe cómo se pueden crear tablas con particiones para la importación paralela masiva de datos en una base de datos de SQL Server.
+En este documento se describe cómo se pueden crear tablas con particiones para la importación paralela masiva de datos en una base de datos de SQL Server.
+
+Para cargar o transferir grandes cantidades de datos a una base de datos SQL, es posible mejorar la importación de datos en la base de datos SQL y a las consultas posteriores mediante _Tablas y vistas con particiones_.
 
 
 ## Crear una nueva base de datos y un conjunto de grupos de archivos
@@ -29,7 +31,7 @@ Para cargar o transferir grandes cantidades de datos a una base de datos SQL, es
 
 - Agregar uno o varios archivos (según sea necesario) a cada grupo de archivos de base de datos
 
- >[AZURE.NOTE]Especifique el grupo de archivos de destino que contendrá los datos de esta partición y los nombres de archivo de las bases de datos físicas donde se almacenarán los datos del grupo de archivos.
+ > [AZURE.NOTE] Especifique el grupo de archivos de destino que contendrá los datos de esta partición y los nombres de archivo de las bases de datos físicas donde se almacenarán los datos del grupo de archivos.
  
 En el ejemplo siguiente se crea una nueva base de datos con tres grupos de archivos distintos de los grupos principal y de registro, que contiene un archivo físico en cada uno. Los archivos de base de datos se crean en la carpeta de datos de SQL Server predeterminada, como está configurado en la instancia de SQL Server. Para obtener más información acerca de las ubicaciones de archivo predeterminadas, consulte [Ubicaciones de archivos para las instancias predeterminadas y con nombre de SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
 
@@ -177,11 +179,11 @@ o bien,
 	    CREATE INDEX <table_idx> ON <table_name>( [include index columns here] )
 	    ON <TablePScheme>(<partition)field>)
 
- >[AZURE.NOTE]Puede crear los índices antes de importar los datos de forma masiva. La creación de índices antes de la importación masiva ralentizará la carga de datos.
+ > [AZURE.NOTE] Puede crear los índices antes de importar los datos de forma masiva. La creación de índices antes de la importación masiva ralentizará la carga de datos.
 
 ## Ejemplo de Tecnología y procesos de análisis avanzado en acción
 
 Para ver un tutorial de ejemplo completo del proceso de análisis de Cortana con un conjunto de datos público, consulte [Proceso de análisis de Cortana en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="01/28/2015"
+   ms.date="02/08/2015"
    ms.author="sstein"/>
 
 # Recomendaciones sobre el nivel de precios de Base de datos SQL
@@ -96,4 +96,4 @@ Dependiendo de los detalles de la base de datos específica, la realización de 
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

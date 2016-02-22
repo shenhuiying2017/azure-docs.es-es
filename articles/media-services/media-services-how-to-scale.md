@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"   
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -43,8 +43,6 @@ Tenga en cuenta que las unidades reservadas son las mismas para las tareas de co
 
 Para obtener más información, consulte [Administración de recursos de Servicios multimedia entre varias cuentas de almacenamiento](https://msdn.microsoft.com/library/azure/dn271889.aspx) y [Trabajo con almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dn767951.aspx).
 
-
-
 ##Rutas de aprendizaje de Servicios multimedia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -53,4 +51,4 @@ Para obtener más información, consulte [Administración de recursos de Servici
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

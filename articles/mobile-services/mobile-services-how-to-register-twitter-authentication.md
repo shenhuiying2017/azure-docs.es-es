@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="02/07/2016" 
 	ms.author="glenga"/>
 
 #Registro de aplicaciones para el inicio de sesión en Twitter con Servicios móviles
@@ -66,4 +66,4 @@ De este modo ya estará listo para usar un inicio de sesión de Twitter para aut
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

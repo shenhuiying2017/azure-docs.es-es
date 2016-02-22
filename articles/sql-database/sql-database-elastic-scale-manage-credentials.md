@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/04/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Credenciales usadas para acceder a la biblioteca de cliente de bases de datos elásticas
 
-La [biblioteca de cliente de bases de datos elásticas](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) usa tres tipos diferentes de credenciales. Esas credenciales se usan para tener acceso al [administrador de mapas de particiones](sql-database-elastic-scale-shard-map-management.md). Según lo que necesite, use la credencial que posea el nivel más bajo de acceso posible.
+La [biblioteca de cliente de base de datos elástica](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) usa tres tipos diferentes de credenciales para acceder al [administrador de mapas de particiones](sql-database-elastic-scale-shard-map-management.md). Según lo que necesite, use la credencial que posea el nivel más bajo de acceso posible.
 
 * **Credenciales de administración**: se usan para crear o manipular un administrador de mapas de particiones. (Consulte el [glosario](sql-database-elastic-scale-glossary.md)). 
 * **Credenciales de acceso**: se usan para obtener acceso a un administrador de mapas de particiones ya existente, para así obtener información acerca de las particiones.
@@ -26,9 +26,9 @@ La [biblioteca de cliente de bases de datos elásticas](http://www.nuget.org/pac
 
 Consulte, asimismo, [Administrar bases de datos e inicios de sesión en la Base de datos SQL de Azure](sql-database-manage-logins.md).
  
-## Credenciales de administración  
+## Acerca de las credenciales de administración
 
-Las credenciales de administración se usan cuando se crea un objeto [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) para aquellas aplicaciones que manipulan mapas de particiones. (A modo de ejemplo, consulte [Agregar una partición mediante las herramientas de bases de datos elásticas](sql-database-elastic-scale-add-a-shard.md)). El usuario de la biblioteca de cliente de escalado elástico debe crear los usuarios e inicios de sesión de SQL que sean necesarios; asimismo, debe asegurarse de que estos tienen permisos de lectura y escritura para poder usar la base de datos de mapa de particiones global y todas las bases de datos de particiones. Estas credenciales se usan para mantener el mapa de particiones global y los mapas de particiones locales cuando se realizan cambios en el mapa de particiones. Por ejemplo, use las credenciales de administración para crear un objeto de administrador de mapas de particiones, mediante el elemento [**GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx):
+Las credenciales de administración se usan cuando se crea un objeto [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) para aquellas aplicaciones que manipulan mapas de particiones. (Por ejemplo, consulte [Incorporación de una partición con herramientas de bases de datos elásticas](sql-database-elastic-scale-add-a-shard.md) y [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md)) El usuario de la biblioteca de cliente de escalado elástico debe crear los usuarios e inicios de sesión de SQL que sean necesarios; asimismo, debe asegurarse de que estos tienen permisos de lectura y escritura para poder usar la base de datos de mapa de particiones global y todas las bases de datos de particiones. Estas credenciales se usan para mantener el mapa de particiones global y los mapas de particiones locales cuando se realizan cambios en el mapa de particiones. Por ejemplo, use las credenciales de administración para crear un objeto de administrador de mapas de particiones, mediante el elemento [**GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx):
 
 	// Obtain a shard map manager. 
 	ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -77,4 +77,4 @@ Al igual que con las credenciales de administración, no use valores que tengan 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

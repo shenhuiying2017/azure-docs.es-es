@@ -38,10 +38,10 @@ Flujo de trabajo del Codificador multimedia|Le permite ejecutar tareas de codifi
 Azure Media Indexer| Le permite crear archivos multimedia y contenido que se puede buscar, así como generar pistas y palabras clave de subtítulos (CC).|[Indexación de archivos multimedia con Azure Media Indexer](media-services-index-content.md)
 Azure Media Hyperlapse (versión preliminar)|Permite suavizar los “saltos” en el vídeo con estabilización de vídeo. También permite acelerar su contenido en un clip consumible.|		[Azure Media Hyperlapse](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
 Storage Decryption| Le permite descifrar recursos multimedia que se cifraron con el cifrado de almacenamiento.|N/D
-Windows Azure Media Packager|Le permite convertir recursos multimedia de .mp4 a un formato de Smooth Streaming. Además, le permite convertir recursos multimedia de Smooth Streaming al formato Apple HTTP Live Streaming (HLS).|[Cadenas preestablecidas de tarea para el Empaquetador multimedia de Azure](http://msdn.microsoft.com/library/hh973635.aspx)
-Windows Azure Media Encryptor|Le permite cifrar recursos multimedia con la protección PlayReady.|[Cadenas preestablecidas de tarea para el Empaquetador multimedia de Azure](http://msdn.microsoft.com/library/hh973610.aspx)
+Microsoft Azure Media Packager|Le permite convertir recursos multimedia de .mp4 a un formato de Smooth Streaming. Además, le permite convertir recursos multimedia de Smooth Streaming al formato Apple HTTP Live Streaming (HLS).|[Cadenas preestablecidas de tarea para el Empaquetador multimedia de Azure](http://msdn.microsoft.com/library/hh973635.aspx)
+Microsoft Azure Media Encryptor|Le permite cifrar recursos multimedia con la protección PlayReady.|[Cadenas preestablecidas de tarea para el Empaquetador multimedia de Azure](http://msdn.microsoft.com/library/hh973610.aspx)
 
-##Obtener MediaProcessor
+##Obtención de un procesador multimedia
 
 El siguiente método muestra cómo obtener una instancia del procesador multimedia. El ejemplo de código supone el uso de una variable de nivel de módulo llamada **\_context** para hacer referencia al contexto de servidor tal como se describe en la sección [Procedimientos: conexión con los Servicios multimedia mediante programación].
 
@@ -72,4 +72,4 @@ Ahora que sabe cómo obtener una instancia de procesador multimedia, consulte el
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [Procedimientos: conexión con los Servicios multimedia mediante programación]: ../media-services-set-up-computer/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

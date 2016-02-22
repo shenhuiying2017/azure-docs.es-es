@@ -34,8 +34,7 @@ Tanto la ilustración como los pasos correspondientes siguientes muestran las ta
 	-  Habilitar la configuración entre pares públicos de Azure: debe habilitar la configuración entre pares públicos de Azure si desea conectarse a los servicios de Azure hospedados en direcciones IP públicas. Se trata de un requisito para acceder a los recursos de Azure si ha elegido habilitar el enrutamiento predeterminado para la configuración entre pares privados de Azure.
 	-  Habilitar la configuración entre pares de Microsoft: debe habilitarlo para acceder a Office 365 y a los servicios en línea de CRM. 
 	
-	>[AZURE.IMPORTANT]Si va a habilitar la configuración entre pares de Microsoft, asegúrese de que la configuración entre pares públicos de Azure también está habilitada para acceder a Azure AD. Debe asegurarse de que usa un proxy o borde independientes para conectarse a Microsoft distinto del que usa para Internet. Si usa el mismo borde para ExpressRoute e Internet se producirá un enrutamiento asimétrico y causará interrupciones en la conectividad de la red.
-
+	>[AZURE.IMPORTANT] Debe asegurarse de que usa un proxy o borde independientes para conectarse a Microsoft distinto del que usa para Internet. Si usa el mismo borde para ExpressRoute e Internet se producirá un enrutamiento asimétrico y causará interrupciones en la conectividad de la red.
 
 	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
 
@@ -110,7 +109,7 @@ Es importante comprobar el estado de sesión de BGP, especialmente para la confi
 
 Si el estado de los prefijos públicos anunciados se establece en el estado de *validación necesaria*, la sesión BGP no se habilita, ya que los prefijos anunciados no coincidían con el número AS en ninguno de los registros de enrutamiento.
 
->[AZURE.IMPORTANT]Si el estado de los prefijos públicos anunciados es *validación manual*, debe abrir una incidencia de soporte técnico en el [servicio de soporte técnico de Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) y aportar una evidencia de que posee la dirección IP anunciada, junto con el número del sistema autónomo asociado.
+>[AZURE.IMPORTANT] Si el estado de los prefijos públicos anunciados es *validación manual*, debe abrir una incidencia de soporte técnico en el [servicio de soporte técnico de Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) y aportar una evidencia de que posee la dirección IP anunciada, junto con el número del sistema autónomo asociado.
 
 
 ## Pasos siguientes
@@ -121,4 +120,4 @@ Si el estado de los prefijos públicos anunciados se establece en el estado de *
 	- [Configuración del enrutamiento](expressroute-howto-routing-arm.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

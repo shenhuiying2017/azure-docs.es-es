@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/27/2016"
 	ms.author="glenga"/>
 
 # Automatización de servicios móviles con herramientas de línea de comandos
@@ -79,7 +79,7 @@ Se produce un error en el comando `mobile create` cuando existe el servicio móv
 
 ##Enumeración de servicios móviles existentes en una suscripción
 
-> [AZURE.NOTE]Los comandos de la CLI relacionados con "list" y "script" solo funcionan con el backend de JavaScript.
+> [AZURE.NOTE] Los comandos de la CLI relacionados con "list" y "script" solo funcionan con el backend de JavaScript.
 
 El siguiente comando devuelve una lista de todos los servicios móviles en una suscripción a Azure:
 
@@ -95,7 +95,7 @@ Puede usar las herramientas de línea de comandos para eliminar un servicio móv
 
 Si incluye los parámetros `-a` y `-q`, este comando también elimina el servidor y la base de datos SQL usados por el servicio móvil sin mostrar una solicitud.
 
-> [AZURE.NOTE]Si no especifica el parámetro <code>-q</code> junto con <code>-</code> o <code>-d</code>, la ejecución se pausa y se le solicita que seleccione las opciones de eliminación para su Base de datos SQL. Utilice únicamente el parámetro <code>-a</code> cuando ningún otro servicio use la base de datos o el servidor; de lo contrario, use el parámetro <code>-d</code> para eliminar solamente los datos que pertenezcan al servicio móvil que se vaya a eliminar.
+> [AZURE.NOTE] Si no especifica el parámetro <code>-q</code> junto con <code>-</code> o <code>-d</code>, la ejecución se pausa y se le solicita que seleccione las opciones de eliminación para su Base de datos SQL. Utilice únicamente el parámetro <code>-a</code> cuando ningún otro servicio use la base de datos o el servidor; de lo contrario, use el parámetro <code>-d</code> para eliminar solamente los datos que pertenezcan al servicio móvil que se vaya a eliminar.
 
 ##Creación de una tabla en el servicio móvil
 
@@ -187,4 +187,4 @@ Para obtener más información sobre el registro de scripts, consulte [Referenci
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [Instalación de las herramientas de línea de comandos de Azure para Mac y Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

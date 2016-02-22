@@ -15,7 +15,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/30/2015" 
-	ms.author="Erikre"/>
+	ms.author="glenga"/>
 
 
 # Envío de correo electrónico desde servicios móviles con SendGrid
@@ -94,7 +94,7 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 
 	- **_from-address_**: la dirección de la que procede el correo electrónico. Considere usar una dirección de dominio registrada que pertenezca a su organización.
 
-     >[AZURE.NOTE]Si no tiene un dominio registrado, puede usar en su lugar el dominio del servicio móvil, con el formato **notifications@_your-mobile-service_.azure-mobile.net*. No obstante, se ignoran los mensajes enviados al dominio del servicio móvil.
+     > [AZURE.NOTE] Si no tiene un dominio registrado, puede usar en su lugar el dominio del servicio móvil, con el formato **notifications@_your-mobile-service_.azure-mobile.net*. No obstante, se ignoran los mensajes enviados al dominio del servicio móvil.
 
 6. Haga clic en el botón **Save** (Guardar). Ahora ha configurado un script para enviar un correo electrónico cada vez que se inserta un registro en la tabla **TodoItem**.
 
@@ -140,4 +140,4 @@ Ahora que ya sabe lo fácil que resulta usar el servicio de correo electrónico 
 [servicio de correo electrónico basado en la nube]: https://sendgrid.com/email-solutions
 [entrega de correos electrónicos transaccional]: https://sendgrid.com/transactional-email
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

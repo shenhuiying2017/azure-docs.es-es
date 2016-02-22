@@ -13,15 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Códecs y formatos de flujo de trabajo del Codificador multimedia Premium
 
 
-**Nota** El procesador multimedia del flujo de trabajo del Codificador multimedia Premium que se trata en este tema no está disponible en China.
+>[AZURE.NOTE]Si tiene preguntas sobre el codificador premium, envíe un correo a mepd en Microsoft.com.
+>
+>El procesador multimedia del flujo de trabajo premium del Codificador multimedia premium del que se habla en este tema no está disponible en China.
 
-Este documento contiene una lista de formatos de archivo de entrada y salida y los códecs que son compatibles con la versión preliminar pública del codificador **Flujo de trabajo del Codificador multimedia Premium**.
+Este documento contiene una lista de los formatos de archivo de entrada y salida y los códecs que son compatibles con la vista previa pública del **Flujo de trabajo del Codificador multimedia premium**.
 
 [Códecs y formatos de entrada del flujo de trabajo del Codificador multimedia Premium](#input_formats)
 
@@ -136,4 +138,4 @@ Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá c
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

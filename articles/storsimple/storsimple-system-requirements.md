@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="02/01/2016"
+   ms.date="02/04/2016"
    ms.author="alkohli"/>
 
 # Software de StorSimple, alta disponibilidad y requisitos de red
@@ -36,7 +36,7 @@ Los siguientes requisitos de software son para los clientes de almacenamiento qu
 | Sistemas operativos compatibles | Versión requerida | Requisitos/notas adicionales |
 | --------------------------- | ---------------- | ------------- |
 | Windows Server | 2008R2 SP1, 2012, 2012R2 |Se admiten volúmenes iSCSI de StorSimple para utilizarlos exclusivamente en los siguientes tipos de discos de Windows:<ul><li>Volumen simple en disco básico</li><li>Volumen simple y reflejado en disco dinámico</li></ul>Se admiten el aprovisionamiento fino de Windows Server 2012 y las características ODX si usa un volumen iSCSI de StorSimple.<br><br>StorSimple puede crear volúmenes con aprovisionamiento fino y totalmente aprovisionados. No puede crear volúmenes de aprovisionamiento parcial.<br><br>El proceso de volver a formatear un volumen con aprovisionamiento fino puede tardar mucho tiempo en completarse. Se recomienda eliminar el volumen y luego crear uno nuevo en lugar de volverlo a formatear. Sin embargo, si aun así prefiere volver a formatear un volumen:<ul><li>Ejecute el siguiente comando antes de volver a formatearlo para evitar retrasos de recuperación de espacio: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Después de finalizar el formato, use el siguiente comando para volver a habilitar la recuperación de espacio:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Aplique la revisión de Windows Server 2012 al equipo de Windows Server, como se describe en el artículo de KB [2878635](https://support.microsoft.com/kb/2870270).</li></ul></li></ul></ul> Si va a configurar Snapshot Manager de StorSimple o el Adaptador de StorSimple para SharePoint, vaya a los [requisitos de software para ver los componentes opcionales](#software-requirements-for-optional-components).|
-| VMWare ESX | 5\.5 | Admitido con VMware vSphere como cliente iSCSI La característica VAAI-block se admite con VMware vSphere en dispositivos de StorSimple. 
+| VMWare ESX | 5\.1 y 5.5 | Admitido con VMware vSphere como cliente iSCSI La característica VAAI-block se admite con VMware vSphere en dispositivos de StorSimple. 
 | Linux RHEL/CentOS | 5 y 6 | Compatibilidad con clientes iSCSI de Linux con versiones del iniciador Open-iSCSI 5 y 6. |
 | Linux | SUSE Linux 11 | |
  > [AZURE.NOTE] IBM AIX no es compatible actualmente con StorSimple.
@@ -67,7 +67,7 @@ El dispositivo StorSimple es un dispositivo bloqueado. Sin embargo, los puertos 
 
 <sup>1</sup> Ningún puerto de entrada debe estar abierto en la red Internet pública.
 
-<sup>2</sup> Si varios puertos llevan una configuración de puerta de enlace, el orden del tráfico enrutado saliente se determinará según el orden de enrutamiento del puerto que se describe a continuación en [Enrutamiento del puerto](#port-routing).
+<sup>2</sup> Si varios puertos llevan una configuración de puerta de enlace, el orden del tráfico enrutado saliente se determinará según el orden de enrutamiento del puerto que se describe a continuación en [Enrutamiento del puerto](#routing-metric).
 
 <sup>3</sup> Las direcciones IP fijas del controlador del dispositivo StorSimple deben ser enrutables y capaces de conectarse a Internet. Las direcciones IP fijas se utilizan para el mantenimiento de las actualizaciones del dispositivo. Si los controladores del dispositivo no pueden conectarse a Internet a través de direcciones IP fijas, no podrá actualizar el dispositivo StorSimple.
 
@@ -77,7 +77,7 @@ El dispositivo StorSimple es un dispositivo bloqueado. Sin embargo, los puertos 
 
 Una métrica de enrutamiento se asocia con las interfaces y con la puerta de enlace que enruta los datos a las redes específicas. La métrica de enrutamiento la usa el protocolo de enrutamiento para calcular la mejor ruta a un destino determinado, si aprende que existen varias rutas al mismo destino. Cuanto más bajo sea el valor de la métrica de enrutamiento, mayor será la preferencia.
 
-En el contexto de StorSimple, si se configuran varias puertas de enlace e interfaces de red para el tráfico del canal, la métrica de enrutamiento entra en juego para determinar el orden relativo en que se usarán las interfaces. El usuario no puede cambiar las métricas de enrutamiento. Sin embargo, puede usar el cmdlet `Get-HcsRoutingTable` para imprimir la tabla de enrutamiento (y las métricas) en el dispositivo de StorSimple. Más información sobre el [cmdlet Get-HcsRoutingTable](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-hcsroutingtable-cmdlet)
+En el contexto de StorSimple, si se configuran varias puertas de enlace e interfaces de red para el tráfico del canal, la métrica de enrutamiento entra en juego para determinar el orden relativo en que se usarán las interfaces. El usuario no puede cambiar las métricas de enrutamiento. Sin embargo, puede usar el cmdlet `Get-HcsRoutingTable` para imprimir la tabla de enrutamiento (y las métricas) en el dispositivo de StorSimple. Obtener más información sobre el cmdlet Get-HcsRoutingTable en [Solución de problemas de implementación de StorSimple](storsimple-troubleshoot-deployment.md).
 
 Los algoritmos de la métrica de enrutamiento difieren en función de la versión de software que se ejecuta en el dispositivo de StorSimple.
 
@@ -215,7 +215,7 @@ Para obtener más información sobre cómo conectar en red su dispositivo para o
 
 #### SSD y unidades de disco duro
 
-Los dispositivos StorSimple incluyen discos de estado sólido (SSD) y unidades de disco duro (HDD) que están protegidas mediante espacios reflejados y se proporciona una reserva activa para las unidades de disco duro. El uso de espacios reflejados garantiza que el dispositivo sea capaz de tolerar el error de uno o más SSD o unidades de disco duro.
+Los dispositivos StorSimple incluyen discos de estado sólido (SSD) y unidades de disco duro (HDD) que están protegidos con espacios reflejados. El uso de espacios reflejados garantiza que el dispositivo sea capaz de tolerar el error de uno o más SSD o unidades de disco duro.
 
 - Asegúrese de que estén instalados todos los módulos SSD y de disco duro.
 
@@ -256,9 +256,9 @@ Revise cuidadosamente estos procedimientos recomendados para garantizar la alta 
 ## Pasos siguientes
 
 - [Obtenga más información acerca de los límites de StorSimple](storsimple-limits.md).
-- [Obtenga más información sobre cómo implementar la solución StorSimple](storsimple-deployment-walkthrough.md).
+- [Obtenga más información sobre cómo implementar la solución StorSimple](storsimple-deployment-walkthrough-u2.md).
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="02/02/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -29,12 +29,13 @@ En este artículo se muestra cómo cambiar el nivel de servicio y el nivel de re
 
 Utilice la información de [Actualización de las bases de datos SQL Web o Business a niveles de servicio nuevos](sql-database-upgrade-new-service-tiers.md) y [Niveles de servicio y niveles de rendimiento de la Base de datos SQL de Azure](sql-database-service-tiers.md) para determinar el nivel de capa y el rendimiento de servicio adecuado para la Base de datos SQL de Azure.
 
-> [AZURE.IMPORTANT]El cambio del nivel de servicio y del nivel de rendimiento de una base de datos SQL es una operación en línea. Esto significa que la base de datos permanecerá en línea y disponible durante toda la operación sin tiempo de inactividad.
+> [AZURE.IMPORTANT] El cambio del nivel de servicio y del nivel de rendimiento de una base de datos SQL es una operación en línea. Esto significa que la base de datos permanecerá en línea y disponible durante toda la operación sin tiempo de inactividad.
 
 - Para degradar una base de datos, esta no debe alcanzar el tamaño máximo permitido del nivel de servicio de destino. 
 - Al actualizar una base de datos con [Replicación geográfica estándar](https://msdn.microsoft.com/library/azure/dn758204.aspx) o [Replicación geográfica activa](https://msdn.microsoft.com/library/azure/dn741339.aspx) habilitado, primero debe actualizar sus bases de datos secundarias en el nivel de rendimiento deseado antes de actualizar la base de datos principal.
 - Al realizar una degradación desde un nivel de servicio Premium, primero es preciso finalizar todas las relaciones de Replicación geográfica. Puede seguir los pasos que se describen en el tema [Terminar una relación de copia continua](https://msdn.microsoft.com/library/azure/dn741323.aspx) para detener el proceso de replicación entre la base de datos principal y las bases de datos secundarias activas.
 - Las ofertas del servicio de restauración son diferentes para los distintos niveles de servicio. Si cambia a un nivel inferior, puede perder la capacidad de restaurar a un momento dado o tener un período de retención de copias de seguridad más breve. Para obtener más información, consulte [Copia de seguridad y restauración de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/jj650016.aspx).
+- Cambiar el plan de tarifa de la base de datos no cambia el tamaño máximo de la base de datos. Para cambiar el tamaño máximo de la base de datos use [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) o [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
 - Puede realizar un máximo de cuatro cambios de bases de datos individuales (nivel de servicio o niveles de rendimiento) en un periodo de 24 horas.
 - Las nuevas propiedades de la base de datos no se aplican hasta que se completan los cambios.
 
@@ -54,13 +55,16 @@ Abra la hoja Base de datos SQL correspondiente a la base de datos que desea esca
 2.	Haga clic en **EXAMINAR TODO**.
 3.	Haga clic en **Bases de datos SQL**.
 2.	Haga clic en la base de datos que desee cambiar.
-3.	En la hoja Base de datos SQL, haga clic en el icono **Nivel de precios**.
+3.	En la hoja de la Base de datos SQL, haga clic en **Toda la configuración** y luego en **Plan de tarifa (escalar DTU)**.
 
-    ![icono de precios][1]
+    ![plan de tarifa][1]
+
 
 1.  Seleccione un nuevo nivel y haga clic en **Seleccionar**:
 
     Al hacer clic en **Seleccionar** se envía una solicitud de escala para cambiar el nivel de base de datos. Según el tamaño de la base de datos, la operación de escala puede tardar algún tiempo en completarse. Haga clic en la notificación para obtener detalles y el estado de la operación de escala.
+
+    > [AZURE.NOTE] Cambiar el plan de tarifa de la base de datos no cambia el tamaño máximo de la base de datos. Para cambiar el tamaño máximo de la base de datos use [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) o [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
 
     ![seleccione nivel de precios][2]
 
@@ -75,13 +79,14 @@ Abra la hoja Base de datos SQL correspondiente a la base de datos que desea esca
 2.	Haga clic en **EXAMINAR TODO**.
 3.	Haga clic en **Bases de datos SQL**.
 2.	Haga clic en la base de datos que cargó.
-3.	Compruebe el icono **Nivel de precios** y confirme que está establecido en el nivel correcto.
+3.	Compruebe el **Plan de tarifa** y confirme que está establecido en el nivel correcto.
 
     ![nuevo precio][4]
 
 
 ## Pasos siguientes
 
+- Para cambiar el tamaño máximo de la base de datos, use [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) o [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
 - [Escalar y reducir horizontalmente](sql-database-elastic-scale-get-started.md)
 - [Conectarse a Base de datos SQL y consultar dicha base de datos con SSMS](sql-database-connect-query-ssms.md)
 - [Exportar una base de datos SQL de Azure](sql-database-export.md)
@@ -98,4 +103,4 @@ Abra la hoja Base de datos SQL correspondiente a la base de datos que desea esca
 [3]: ./media/sql-database-scale-up/scale-notification.png
 [4]: ./media/sql-database-scale-up/new-tier.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

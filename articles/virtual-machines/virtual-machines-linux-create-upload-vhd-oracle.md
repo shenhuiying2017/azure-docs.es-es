@@ -25,7 +25,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##Requisitos previos##
+## Requisitos previos ##
 
 En este artículo se supone que ya ha instalado un sistema operativo Oracle Linux en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
@@ -210,7 +210,7 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 
 		# sudo yum install WALinuxAgent
 
-13.	No cree un espacio de intercambio en el disco del sistema operativo.
+13.	No cree espacio de intercambio en el disco del SO.
 
 	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
@@ -230,6 +230,6 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 
 
 ## Pasos siguientes
-Ya está listo para usar el archivo .vhd de Oracle Linux para crear nuevas máquinas virtuales de Azure. Si es la primera vez que usa Azure y carga el archivo .vhd en Azure, puede seguir los pasos 2 y 3 de [esta guía](virtual-machines-linux-create-upload-vhd.md).
+Ya está listo para usar el archivo .vhd de Oracle Linux para crear nuevas máquinas virtuales en Azure. Si esta es la primera vez que está cargando el archivo .vhd en Azure, consulte los pasos 2 y 3 de [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](virtual-machines-linux-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

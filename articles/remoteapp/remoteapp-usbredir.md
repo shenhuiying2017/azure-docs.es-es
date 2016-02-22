@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="11/04/2015" 
+    ms.date="02/05/2016" 
     ms.author="elizapo" />
 
 
@@ -58,7 +58,7 @@ Al establecer el redireccionamiento de dispositivos por GUID de clase se redirig
 
 ## Redireccionamiento de un dispositivo USB con el identificador de instancia del dispositivo
 
-Si desea un control más preciso y desea controlar el redireccionamiento de dispositivos, puede usar el parámetro de redireccionamiento **USB\\InstanceID **.
+Si desea un control más preciso y desea controlar el redireccionamiento de dispositivos, puede usar el parámetro de redireccionamiento **USB\\InstanceID**.
 
 La parte más difícil de este método es encontrar el identificador de instancia del dispositivo USB. Necesitará tener acceso al equipo y al dispositivo USB específico. A continuación, siga estos pasos:
 
@@ -77,4 +77,4 @@ Ahora puede usar el identificador de instancia en el siguiente cmdlet:
 ### Permítanos ayudarle 
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, a continuación, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

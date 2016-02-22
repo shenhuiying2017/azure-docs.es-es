@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/03/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari
@@ -25,7 +25,7 @@ Apache Ambari simplifica la administración y la supervisión de un clúster de 
 
 En este documento, aprenderá a usar la interfaz de usuario web de Ambari con un clúster de HDInsight.
 
-> [AZURE.NOTE]La información que aparece en este artículo solo se aplica a clústeres de HDInsight basado en Linux. En el caso de los clústeres de HDInsight basado en Windows, solo se encuentra disponible la supervisión a través de la API de REST de Ambari. Consulte [Supervisión de Hadoop en HDInsight basado en Windows con la API de Ambari](hdinsight-monitor-use-ambari-api.md).
+> [AZURE.NOTE] La información que aparece en este artículo solo se aplica a clústeres de HDInsight basado en Linux. En el caso de los clústeres de HDInsight basado en Windows, solo se encuentra disponible la supervisión a través de la API de REST de Ambari. Consulte [Supervisión de Hadoop en HDInsight basado en Windows con la API de Ambari](hdinsight-monitor-use-ambari-api.md).
 
 ##<a id="whatis"></a> ¿Qué es Ambari?
 
@@ -37,11 +37,11 @@ De manera predeterminada, la interfaz web de Ambari viene con los clústeres de 
 
 La interfaz de usuario web de Ambari está disponible en el clúster de HDInsight en HTTPS://CLUSTERNAME.azurehdidnsight.net, donde __CLUSTERNAME__ es el nombre del clúster.
 
-> [AZURE.IMPORTANT]La conexión a Ambari en HDInsight requiere HTTPS. También debe autenticarse en Ambari mediante el nombre de la cuenta de administrador (el valor predeterminado es __admin__) y la contraseña que proporcionó cuando se creó el clúster.
+> [AZURE.IMPORTANT] La conexión a Ambari en HDInsight requiere HTTPS. También debe autenticarse en Ambari mediante el nombre de la cuenta de administrador (el valor predeterminado es __admin__) y la contraseña que proporcionó cuando se creó el clúster.
 
 ##Proxy SSH
 
-> [AZURE.NOTE]A pesar de que es posible tener acceso directamente a través de Internet a Ambari para su clúster, algunos vínculos de la interfaz de usuario web de Ambari (como JobTracker) no estarán expuestos en Internet. Por lo tanto, recibirá errores de "servidor no encontrado" al intentar tener acceso a estas características, a menos que utilice un túnel de Shell seguro (SSH) para canalizar el tráfico web para el nodo principal del clúster.
+> [AZURE.NOTE] A pesar de que es posible tener acceso directamente a través de Internet a Ambari para su clúster, algunos vínculos de la interfaz de usuario web de Ambari (como JobTracker) no estarán expuestos en Internet. Por lo tanto, recibirá errores de "servidor no encontrado" al intentar tener acceso a estas características, a menos que utilice un túnel de Shell seguro (SSH) para canalizar el tráfico web para el nodo principal del clúster.
 
 Para obtener información sobre cómo crear un túnel SSH para trabajar con Ambari, consulte [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
 
@@ -77,13 +77,13 @@ Cuando se abra la página, observe la barra que se encuentra en la parte superio
 
 Ambari proporciona muchas alertas, las que tendrán uno de los siguientes estados:
 
-* **OK** (CORRECTO)
+* **OK (CORRECTO)**
 
-* **Warning** (ADVERTENCIA)
+* **Warning (ADVERTENCIA)**
 
-* **CRITICAL** (CRÍTICA)
+* **CRITICAL (CRÍTICA)**
 
-* **UNKNOWN** (DESCONOCIDO)
+* **UNKNOWN (DESCONOCIDO)**
 
 Las alertas, con la excepción de **OK**, harán que la entrada **# alerts** en la parte superior de la página muestre el número de alertas. Seleccione esta entrada para ver las alertas y sus estados.
 
@@ -137,7 +137,7 @@ Algunos servicios muestran un vínculo **Quick Links** (Vínculos rápidos) en l
 
 Seleccione cualquiera de estos vínculos para abrir una pestaña nueva del explorador, donde aparecerá la página seleccionada.
 
-> [AZURE.NOTE]Al seleccionar un vínculo **Quick Links** para cualquier servicio se generará un error de "servidor no encontrado", a menos que use un túnel de Capa de sockets seguros (SSL) para autorizar el tráfico web al clúster. Esto es porque las aplicaciones web que se usan para mostrar esta información no se exponen en Internet.
+> [AZURE.NOTE] Al seleccionar un vínculo **Quick Links** para cualquier servicio se generará un error de "servidor no encontrado", a menos que use un túnel de Capa de sockets seguros (SSL) para autorizar el tráfico web al clúster. Esto es porque las aplicaciones web que se usan para mostrar esta información no se exponen en Internet.
 >
 > Para obtener información sobre cómo usar un túnel SSL con HDInsight, consulte [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
 
@@ -153,7 +153,7 @@ La página **Hosts** muestra todos los hosts existentes en el clúster. Siga est
 
 ![página de hosts](./media/hdinsight-hadoop-manage-ambari/hosts.png)
 
-> [AZURE.NOTE]No se debe agregar, retirar o volver a programar un host con los clústeres de HDInsight.
+> [AZURE.NOTE] No se debe agregar, retirar o volver a programar un host con los clústeres de HDInsight.
 
 1. Seleccione los hosts que desee administrar.
 
@@ -177,11 +177,11 @@ La página **Hosts** muestra todos los hosts existentes en el clúster. Siga est
 
 	* **Decommission**: quita un host del clúster.
 
-		> [AZURE.NOTE]No use esta acción en clústeres de HDInsight.
+		> [AZURE.NOTE] No use esta acción en clústeres de HDInsight.
 
 	* **Recommission**: agrega un host anteriormente retirado al clúster.
 
-		> [AZURE.NOTE]No use esta acción en clústeres de HDInsight.
+		> [AZURE.NOTE] No use esta acción en clústeres de HDInsight.
 
 ###<a id="service"></a>Servicios
 
@@ -189,7 +189,7 @@ En la página **Panel** o **Servicios**, use el botón **Acciones** que se encue
 
 ![acciones de servicio](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-> [AZURE.WARNING]Aunque __Agregar servicio__ aparece en este menú, no debe usarse para agregar servicios al clúster de HDInsight. Se deben agregar nuevos servicios deben mediante una acción de script durante el aprovisionamiento del clúster. Para obtener más información sobre el uso de las acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.WARNING] Aunque __Agregar servicio__ aparece en este menú, no debe usarse para agregar servicios al clúster de HDInsight. Se deben agregar nuevos servicios deben mediante una acción de script durante el aprovisionamiento del clúster. Para obtener más información sobre el uso de las acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 
 A pesar de que el botón **Actions** puede reiniciar todos los servicios, con frecuencia se desea iniciar, detener o reiniciar un servicio específico. Use los siguientes pasos para realizar acciones sobre un servicio individual:
@@ -200,11 +200,11 @@ A pesar de que el botón **Actions** puede reiniciar todos los servicios, con fr
 
 	![acción de servicio](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
-	> [AZURE.NOTE]Reiniciar algunos servicios mientras el clúster está en ejecución puede generar alertas. Para evitarlo, puede usar el botón **Service Actions** (Acciones de servicio) para habilitar el **modo de mantenimiento** del servicio antes de realizar el reinicio.
+	> [AZURE.NOTE] Reiniciar algunos servicios mientras el clúster está en ejecución puede generar alertas. Para evitarlo, puede usar el botón **Service Actions** (Acciones de servicio) para habilitar el **modo de mantenimiento** del servicio antes de realizar el reinicio.
 
 3. Una vez que se selecciona una acción, la entrada **# op** que aparece en la parte superior de la página aumentará para mostrar que se está produciendo una operación en segundo plano. La lista de operaciones en segundo plano aparecerá si está configurada de ese modo.
 
-	> [AZURE.NOTE]Si habilitó el **modo de mantenimiento** para el servicio, recuerde deshabilitarlo con el botón **Service Actions** una vez finalizada la operación.
+	> [AZURE.NOTE] Si habilitó el **modo de mantenimiento** para el servicio, recuerde deshabilitarlo con el botón **Service Actions** una vez finalizada la operación.
 
 Para configurar un servicio, use los siguientes pasos:
 
@@ -224,4 +224,4 @@ Las vistas de Ambari permiten a los desarrolladores conectar elementos de interf
 * Vista de Hive: la vista de Hive permite ejecutar consultas de Hive directamente desde el explorador web. Puede guardar consultas, ver resultados, guardar resultados en el almacenamiento del clúster o descargar los resultados en el sistema local. Para más información sobre el uso de vistas de Hive, consulte [Uso de vistas de Hive con HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 * Vista de Tez: la vista de Tez permite comprender mejor y optimizar los trabajos ya que proporciona información sobre cómo se ejecutan los trabajos de Tez y qué recursos se emplean en el trabajo.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

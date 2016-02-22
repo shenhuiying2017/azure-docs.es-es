@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/05/2016" 
 	ms.author="elizapo"/>
 
 # Creación de una colección híbrida de Azure RemoteApp
@@ -28,7 +28,7 @@ Hay dos tipos de colecciones de Azure RemoteApp:
 En este tutorial se realizará un recorrido por el proceso de creación de una colección híbrida. Existen ocho pasos:
 
 1.	Decida qué [imagen](remoteapp-imageoptions.md) desea usar para la colección. Puede crear una imagen personalizada o seleccionar una de las imágenes de Microsoft que se incluyen con la suscripción.
-2. Configurar la red virtual. Consulte la información sobre [planeación de la red virtual](remoteapp-planvpn.md) y [ajuste de tamaño](remoteapp-vnetsizing.md).
+2. Configurar la red virtual. Consulte la información sobre [planeación de la red virtual](remoteapp-planvnet.md) y [ajuste de tamaño](remoteapp-vnetsizing.md).
 2.	Crear una colección.
 2.	Una la colección al dominio local.
 3.	Agregar una imagen de plantilla a la colección.
@@ -43,7 +43,7 @@ Necesita llevar a cabo los pasos siguientes antes de crear la colección:
 - [Suscribirse](https://azure.microsoft.com/services/remoteapp/) a Azure RemoteApp. 
 - Cree una cuenta de usuario en Active Directory para usar la cuenta de servicio de Azure RemoteApp. Restrinja los permisos para esta cuenta de forma que solamente pueda unir máquinas al dominio.
 - Recopile información sobre la red local: dirección IP de información y detalles de dispositivos VPN.
-- Instale el módulo de [Azure PowerShell](../install-configure-powershell.md).
+- Instale el módulo de [Azure PowerShell](../powershell-install-configure.md).
 - Recopile información sobre los usuarios a los que quiera conceder acceso. Necesitará el nombre principal de usuario de Azure Active Directory (por ejemplo, name@contoso.com) de cada usuario. Asegúrese de que el UPN de Azure AD y Active Directory coincidan.
 - Elija su imagen de plantilla. Una imagen de plantilla de Azure RemoteApp contiene las aplicaciones y los programas que desea publicar para los usuarios. Consulte [Opciones de imagen de Azure RemoteApp](remoteapp-imageoptions.md) para obtener más información. 
 - ¿Desea usar la imagen de Office 365 ProPlus? Consulte la información [aquí](remoteapp-officesubscription.md).
@@ -58,7 +58,7 @@ Asegúrese de consultar la información de [planeación de la red virtual](remot
 
 ### Creación de una red virtual de Azure y su unión a la implementación de Active Directory
 
-Empiece por crear una [red virtual](../virtual-network/virtual-networks-create-vnet.md). Esto se realiza en la pestaña **Red** del Portal de administración de Azure. Es necesario conectar la red virtual a la implementación de Active Directory que se sincroniza con el inquilino de Azure Active Directory.
+Empiece por crear una [red virtual](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Esto se realiza en la pestaña **Red** del Portal de administración de Azure. Es necesario conectar la red virtual a la implementación de Active Directory que se sincroniza con el inquilino de Azure Active Directory.
 
 Consulte [Acerca de la configuración de red virtual en el Portal de administración](../virtual-network/virtual-networks-settings.md) para obtener más información.
 
@@ -120,7 +120,7 @@ Consulte [Guía de sincronización de directorios](http://msdn.microsoft.com//li
 
 Una aplicación de Azure RemoteApp es la aplicación o el programa que proporciona a los usuarios. Se encuentra en la imagen de plantilla que cargó para la colección. Cuando un usuario accede a una aplicación, parece que se ejecuta en el entorno local, pero realmente se está ejecutando en Azure.
 
-Antes de que los usuarios puedan acceder a aplicaciones, es necesario publicarlos en la fuente del usuario final: una lista de aplicaciones disponibles a los que los usuarios acceden a través del cliente de Escritorio remoto.
+Antes de que los usuarios puedan acceder a las aplicaciones, es necesario publicarlas; esto permite que los usuarios accedan a ellas a través del cliente de Escritorio remoto.
  
 Puede publicar varias aplicaciones en su colección. En la página de publicación, haga clic en **Publicar** para agregar una aplicación. Puede publicar desde el menú **Inicio** de la imagen de plantilla o especificando la ruta de acceso en la imagen de plantilla para la aplicación. Si opta por agregarla desde el menú **Inicio**, elija el programa que va a agregar. Si opta por proporcionar la ruta de acceso a la aplicación, proporcione un nombre para la aplicación y la ruta de acceso en la que se instaló en la imagen de la plantilla.
 
@@ -149,4 +149,4 @@ Eso es todo, creó e implementó correctamente su colección híbrida de Azure R
 ### Permítanos ayudarle 
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, a continuación, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

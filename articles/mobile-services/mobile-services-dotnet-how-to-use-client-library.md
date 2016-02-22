@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/28/2016"
 	ms.author="glenga"/>
 
 # Uso de la biblioteca de cliente administrada para Servicios móviles de Azure.
@@ -69,7 +69,7 @@ En el código anterior, reemplace `AppUrl` y `AppKey` por la URL y la clave de a
 
 ##<a name="instantiating"></a>Creación de una referencia de tabla
 
-Todo el código que obtiene acceso o modifica los datos de la tabla de Servicios móviles llama a las funciones del objeto `MobileServiceTable`. Se obtiene una referencia a la tabla llamando al método [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) en una instancia de `MobileServiceClient`, como se indica a continuación:
+Todo el código que obtiene acceso o modifica los datos de la tabla de Servicios móviles llama a las funciones del objeto `MobileServiceTable`. Obtenga una referencia a la tabla llamando al método [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) en una instancia de `MobileServiceClient` del modo indicado a continuación:
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
@@ -86,7 +86,7 @@ En esta sección se describe cómo generar consultas al servicio móvil, lo cual
 - [Seleccionar columnas específicas]
 - [Búsqueda de datos por identificador]
 
->[AZURE.NOTE]Se aplica el tamaño de página del servidor para evitar que se devuelvan todas las filas. De esta forma, se evita que las consultas predeterminadas de los conjuntos de datos de gran tamaño incidan negativamente en el servicio. Para devolver más de 50 filas, use el método `Take` como se describe en [Devolución de datos en páginas].
+>[AZURE.NOTE] Se aplica el tamaño de página del servidor para evitar que se devuelvan todas las filas. De esta forma, se evita que las consultas predeterminadas de los conjuntos de datos de gran tamaño incidan negativamente en el servicio. Para devolver más de 50 filas, use el método `Take` como se describe en [Devolución de datos en páginas].
 
 ### <a name="filtering"></a>Filtro de datos devueltos
 
@@ -211,7 +211,7 @@ La función `LookupAsync` puede usarse para buscar objetos desde la base de dato
 
 ##<a name="inserting"></a>Inserción de datos en un servicio móvil
 
-> [AZURE.NOTE]Si desea realizar operaciones de inserción, búsqueda, eliminación o actualización en un tipo, tiene que crear un miembro denominado **Id**. Este es el motivo por el que la clase de ejemplo **TodoItem** cuenta con un miembro de **Id** de nombre. Debe haber un valor válido siempre presente en las operaciones de actualización y eliminación.
+> [AZURE.NOTE] Si desea realizar operaciones de inserción, búsqueda, eliminación o actualización en un tipo, tiene que crear un miembro denominado **Id**. Este es el motivo por el que la clase de ejemplo **TodoItem** cuenta con un miembro de **Id** de nombre. Debe haber un valor válido siempre presente en las operaciones de actualización y eliminación.
 
 El siguiente código muestra cómo insertar filas nuevas en una tabla. El parámetro contiene los datos que se van a insertar como un objeto .NET.
 
@@ -309,9 +309,9 @@ El cliente de Servicios móviles permite registrar las notificaciones de inserci
 	    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
 	}
 
-Tenga en cuenta que en este ejemplo se incluyen dos etiquetas en el registro. Para obtener más información sobre las aplicaciones de Windows, consulte [Incorporación de notificaciones de inserción a la aplicación](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md).
+Tenga en cuenta que en este ejemplo se incluyen dos etiquetas en el registro. Para obtener más información sobre las aplicaciones de Windows, consulte [Incorporación de notificaciones push a la aplicación](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md).
 
-Las aplicaciones de Xamarin requieren código adicional para poder registrar una aplicación de Xamarin que se ejecute en la aplicación iOS o Android con el Servicio de notificaciones push de Apple (APNS) y el Servicio de mensajería en la nube de Google (GCM), respectivamente. Para obtener más información, consulte **Agregar notificaciones de inserción a la aplicación** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
+Las aplicaciones de Xamarin requieren código adicional para poder registrar una aplicación de Xamarin que se ejecute en la aplicación iOS o Android con el Servicio de notificaciones push de Apple (APNS) y el Servicio de mensajería en la nube de Google (GCM), respectivamente. Para obtener más información, consulte **Incorporación de notificaciones push a la aplicación** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
 >[AZURE.NOTE]Cuando necesite enviar notificaciones a los usuarios registrados específicos, es importante requerir autenticación antes del registro y, a continuación, comprobar que el usuario está autorizado para registrarse con una etiqueta específica. Por ejemplo, se debe comprobar que un usuario no se registra con una etiqueta de Id. de usuario de otra persona. Para obtener más información, consulte [Envío de notificaciones de inserción a usuarios autenticados](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
@@ -771,4 +771,4 @@ Esta propiedad convierte todas las propiedades en minúsculas durante la seriali
 [API personalizada en los SDK del cliente de Servicios móviles de Azure]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

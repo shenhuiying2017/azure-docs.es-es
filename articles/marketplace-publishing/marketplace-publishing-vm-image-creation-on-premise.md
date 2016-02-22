@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="10/08/2015"
+  ms.date="02/04/2016"
   ms.author="hascipio; v-divte"/>
 
 # Desarrollo de una imagen de máquina virtual de forma local para Azure Marketplace
@@ -43,7 +43,6 @@ Busque la dirección URL de blob en el nuevo [Portal de Microsoft Azure](https:/
 
 ### Descarga de un disco duro virtual
 Una vez que conozca la dirección URL de blob, podrá descargar el disco duro virtual mediante el [Portal de Azure](http://manage.windowsazure.com/) o PowerShell.
-
 > [AZURE.NOTE] En el momento de la creación de esta guía, la funcionalidad para descargar un disco duro virtual no está todavía presente en el nuevo Portal de Microsoft Azure.
 
 **Descarga del disco duro virtual del sistema operativo a través del [Portal de Azure](http://manage.windowsazure.com/) actual**
@@ -75,7 +74,7 @@ Además de utilizar el Portal de Azure, puede usar el cmdlet [Save-AzureVhd](htt
         -StorageKey <keyForStorageAccount>
 Por ejemplo, Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” -LocalFilePath “C:\\Users\\Administrator\\Desktop\\baseimagevm.vhd” -StorageKey <String>
 
-> [AZURE.NOTE]**Save-AzureVhd** también tiene la opción **NumberOfThreads**, que puede utilizarse para aumentar el paralelismo para aprovechar al máximo el ancho de banda disponible para la descarga.
+> [AZURE.NOTE] **Save-AzureVhd** también tiene la opción **NumberOfThreads**, que puede utilizarse para aumentar el paralelismo para aprovechar al máximo el ancho de banda disponible para la descarga.
 
 ## Cargar discos duros virtuales a una cuenta de almacenamiento de Azure
 Si ha preparado sus discos duros virtuales de forma local, debe cargarlos en una cuenta de almacenamiento de Azure. Este paso tendrá lugar después de crear su disco duro virtual de forma local, pero antes de obtener la certificación para la imagen de máquina virtual.
@@ -101,7 +100,7 @@ Para crear una cuenta de almacenamiento, puede utilizar el [Portal de Microsoft 
 
 7.	En la hoja Contenedores, seleccione **Agregar** y escriba un nombre de contenedor y los permisos de este. Seleccione **Privado** para los permisos del contenedor.
 
-> [AZURE.TIP]Se recomienda crear un contenedor por SKU que pretende publicar.
+> [AZURE.TIP] Se recomienda crear un contenedor por SKU que pretende publicar.
 
   ![dibujo](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
@@ -114,7 +113,7 @@ A continuación, puede crear un contenedor dentro de esa cuenta de almacenamient
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 
-> [AZURE.NOTE]Esos comandos asumen que ya se ha establecido el contexto de la cuenta de almacenamiento actual en PowerShell. Consulte [Configuración de Azure PowerShell](marketplace-publishing-powershell-setup.md) para obtener más detalles sobre la configuración de PowerShell.
+> [AZURE.NOTE] Esos comandos asumen que ya se ha establecido el contexto de la cuenta de almacenamiento actual en PowerShell. Consulte [Configuración de Azure PowerShell](marketplace-publishing-powershell-setup.md) para obtener más detalles sobre la configuración de PowerShell.
 ### Creación de una cuenta de almacenamiento con la herramienta de línea de comandos para Mac y Linux
 En la [Herramienta de línea de comandos de Linux](../virtual-machines/command-line-tools/), cree una cuenta de almacenamiento de la manera siguiente.
 
@@ -139,4 +138,4 @@ Con la [Herramienta de línea de comandos de Linux](../virtual-machines/command-
 - [Creación de una imagen de máquina virtual para Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configuración de Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

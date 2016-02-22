@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015" 
+	ms.date="02/09/2016" 
 	ms.author="jeannt"/>
 
 # Análisis del el abandono de clientes mediante el Aprendizaje automático de Azure
@@ -65,7 +65,7 @@ Un interesante aporte aquí es el análisis de Big Data. Las empresas de telecom
 
  
 ##Implementación del arquetipo de modelado en Machine Learning Studio
-Dado el problema que acabamos de describir, ¿cómo podemos implementar un enfoque integrado de modelos y puntuación? En esta sección, demostraremos cómo lo hemos conseguido mediante Azure Machine Learning Studio.
+Dado el problema que acabamos de describir, ¿cuál es la mejor forma de implementar un enfoque integrado de modelos y puntuación? En esta sección, demostraremos cómo lo hemos conseguido mediante Azure Machine Learning Studio.
 
 El enfoque de varios modelos es imprescindible a la hora de diseñar un arquetipo global para el abandono. Incluso la parte de puntuación (predictiva) del enfoque debe basarse en varios modelos.
 
@@ -99,7 +99,9 @@ Los siguientes diagramas ilustran los datos usados.
 
 *Ilustración 7: Características extraídas de la fuente de datos*
 > Tenga en cuenta que estos datos son privados y, por tanto, no se pueden compartir el modelo y los datos. Sin embargo, para un modelo similar utilizando los datos disponibles públicamente, vea este experimento de ejemplo en la [Galería de análisis de Cortana](http://gallery.azureml.net/): [abandono de clientes de telecomunicaciones](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383).
->
+> 
+> Para obtener más información acerca de cómo se puede implementar un modelo de análisis de renovación con Cortana Analytics Suite, también se recomienda el visionado de [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) de Wee Hyong Tok, Senior Program Manager.
+> 
 
 ###Algoritmos usados en el prototipo
 
@@ -127,7 +129,7 @@ También enviamos el conjunto de datos de puntuaciones a un modelo comparable cr
 En esta sección, presentamos nuestros hallazgos sobre la exactitud de los modelos, según el conjunto de datos de puntuación.
 
 ###Exactitud y precisión de la puntuación
-Por lo general, la implementación en el aprendizaje automático está detrás de SAS en cuanto a precisión en aproximadamente entre el 10 y el 15% (área bajo la curva o AUC).
+Por lo general, la implementación de Aprendizaje automático de Azure está, aproximadamente, entre un 10 y un 15 % por debajo de SAS en cuanto a precisión (área bajo la curva o AUC).
 
 Sin embargo, la estadística más importante en el abandono es el índice de clasificaciones incorrectas: es decir, de los N primeros usuarios que el clasificador predijo que abandonarían, ¿cuáles de ellos **no** han abandonado realmente y, a pesar de todo, han recibido un tratamiento especial? En el diagrama siguiente se compara este índice de clasificaciones incorrectas para todos los modelos:
 
@@ -188,7 +190,7 @@ En el sector de las telecomunicaciones, han surgido varias prácticas para anali
 	-	**Datos competitivos y empresariales**. Obtenga cualquier información posible acerca del cliente (por ejemplo, puede no estar disponible o ser difícil de seguir).
 -	Importancia de uso para conducir la selección de características. Esto implica que el modelo de árbol de decisión ampliado es siempre es un enfoque prometedor.  
 
-El uso de las cuatro categorías anteriores crea la ilusión de que un enfoque *determinista* sencillo, basado en índices creados sobre factores razonables por categoría, debería ser suficiente para identificar a los clientes con riesgo de abandono. Por desgracia, aunque esta noción parece plausible, es una concepción errónea. El motivo es que al abandono es un efecto temporal y los factores que contribuyen a él están normalmente en estado transitorio. Lo que lleva a un cliente a plantearse la idea de abandonar hoy puede ser diferente mañana y seguro que será diferente en los próximos seis meses. Por lo tanto, un modelo *probabilístico* es una necesidad.
+El uso de estas cuatro categorías crea la ilusión de que un enfoque *determinista* sencillo, basado en índices creados sobre factores razonables por categoría, debería ser suficiente para identificar a los clientes con riesgo de abandono. Por desgracia, aunque esta noción parece plausible, es una concepción errónea. El motivo es que al abandono es un efecto temporal y los factores que contribuyen a él están normalmente en estado transitorio. Lo que lleva a un cliente a plantearse la idea de abandonar hoy puede ser diferente mañana y seguro que será diferente en los próximos seis meses. Por lo tanto, un modelo *probabilístico* es una necesidad.
 
 Esta importante observación con frecuencia se pasa por alto en las empresas, quienes prefieren generalmente un enfoque del análisis orientado a la inteligencia empresarial, principalmente porque es más comercial y admite una automatización sencilla.
 
@@ -213,13 +215,13 @@ Estos comentarios nos ayudarán a mejorar la calidad de los documentos técnicos
 ##Referencias
 [1] Análisis predictivo: Más allá de las predicciones, W. McKnight, Information Management, julio/agosto de 2011, p.18-20.
 
-[2] [Precisión] (http://en.wikipedia.org/wiki/Accuracy_and_precision) en Wikipedia
+[2] Artículo de Wikipedia: [Precisión y exactitud](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0: Guía de minería de datos paso a paso](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
-[4] Marketing de Big Data
+[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](Marketing de macrodatos: Atraer más eficazmente a los clientes e impulsar el valor) (http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Marketing de Big Data: Atraer más eficazmente a los clientes e impulsar el valor](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[5] [Telco churn model template] (Modelo de plantilla de renovación Telco) (https://caqs.azure.net/#gallery/telcocustomerchurn) en la Galería de Cortana Analytics
 ##Anexo
 
 ![][10]
@@ -238,4 +240,4 @@ Estos comentarios nos ayudarán a mejorar la calidad de los documentos técnicos
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -47,8 +47,8 @@ Aplicaciones web del Servicio de aplicaciones es una buena opción para hospedar
 
 Un enfoque alternativo es hacer uso de su inversión existente local. En el escenario de ejemplo, un sistema de gastos de empleados, puede que le interese mantener el almacén de datos dentro de su propia infraestructura interna. Esto podría ser para la integración con sistemas internos (informes, nóminas, facturación, etc.) o para satisfacer un requisito de administración de TI. Aplicaciones web proporciona una serie de métodos que le permiten conectarse a su infraestructura local:
 
-- [Entornos del servicio de aplicaciones](../app-service-app-service-environment-intro.md) : los entornos del servicio de aplicaciones (ASE) son una nueva característica premium que se agregó recientemente a la oferta del servicio de aplicaciones de Microsoft Azure. ASE proporcionan un entorno plenamente aislado y dedicado para ejecutar aplicaciones del Servicio de aplicaciones de Azure de forma segura a gran escala, al mismo tiempo que ofrece aislamiento y acceso seguro a redes   
-- [Conexiones híbridas](../integration-hybrid-connection-overview.md): Conexiones híbridas es una característica de Servicios de BizTalk de Microsoft Azure que permite a Aplicaciones web conectarse a recursos locales de forma segura, por ejemplo SQL Server, MySQL, API web y servicios web personalizados. 
+- [Entornos del servicio de aplicaciones](app-service-app-service-environment-intro.md) : los entornos del servicio de aplicaciones (ASE) son una nueva característica premium que se agregó recientemente a la oferta del servicio de aplicaciones de Microsoft Azure. ASE proporcionan un entorno plenamente aislado y dedicado para ejecutar aplicaciones del Servicio de aplicaciones de Azure de forma segura a gran escala, al mismo tiempo que ofrece aislamiento y acceso seguro a redes   
+- [Conexiones híbridas](../biztalk-services/integration-hybrid-connection-overview.md): Conexiones híbridas es una característica de Servicios de BizTalk de Microsoft Azure que permite a Aplicaciones web conectarse a recursos locales de forma segura, por ejemplo SQL Server, MySQL, API web y servicios web personalizados. 
 - [Integración de red virtual](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/): Integración de Aplicaciones web con Red virtual de Azure le permite conectar su aplicación web a una red virtual de Azure que, a su vez, se puede conectar a la infraestructura local través de una VPN de sitio a sitio. 
 
 En los diagramas siguientes se describe un ejemplo de solución de alto nivel con opciones de conectividad para recursos locales. En el primer ejemplo se muestra cómo se puede conseguir esto con características estándar del Servicio de aplicaciones de Azure y, en el segundo, cómo se puede conseguir con la oferta premium de los entornos del Servicio de aplicaciones.
@@ -159,4 +159,4 @@ Para obtener más información sobre el servicio Aplicaciones web del Servicio d
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

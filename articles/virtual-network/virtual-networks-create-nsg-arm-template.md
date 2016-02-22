@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # Creación de grupos de seguridad de red mediante una plantilla
@@ -29,7 +29,7 @@
 
 ## Recursos de grupo de seguridad de red en un archivo de plantilla
 
-Puede ver y descargar la [plantilla de ejemplo](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/).
+Puede ver y descargar la [plantilla de ejemplo](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/NSGs.json).
 
 La sección siguiente muestra la definición del grupo de seguridad de red de front-end, según el escenario anterior.
 
@@ -98,9 +98,9 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
+1. Si es la primera vez que usa Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
 
-3. Ejecute el cmdlet **New-AzureRmResourceGroup** para crear un grupo de recursos mediante esta plantilla.
+3. Ejecute el cmdlet **`New-AzureRmResourceGroup`** para crear un grupo de recursos con esta plantilla.
 
 		New-AzureRmResourceGroup -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
@@ -147,7 +147,7 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
-2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
+2. Ejecute el comando **`azure config mode`** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
 		azure config mode arm
 
@@ -155,7 +155,7 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 		info:    New mode is arm
 
-4. Ejecute el cmdlet **azure group deployment create** para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que descargó y modificó antes. En la lista que se muestra en la salida se explican los parámetros utilizados.
+4. Ejecute el cmdlet **`azure group deployment create`** para implementar la nueva red virtual con la plantilla y los archivos de parámetros que descargó y modificó anteriormente. En la lista que se muestra en la salida se explican los parámetros utilizados.
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
 
@@ -181,4 +181,4 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 	- **-f (o --template-file)**. Ruta de acceso al archivo de plantilla ARM.
 	- **-e (o --parameters-file)**. Ruta de acceso al archivo de parámetros ARM.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

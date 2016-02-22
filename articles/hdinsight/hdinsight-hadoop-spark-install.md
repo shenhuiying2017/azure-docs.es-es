@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/05/2016"
 	ms.author="nitinme"/>
 
 # Instalación y uso de Spark en clústeres de Hadoop de HDInsight mediante acción de script
 
-> [AZURE.IMPORTANT]Este artículo está en desuso. HDInsight ofrece Spark, un tipo de clúster de primera clase para los clústeres basados en Windows, lo que significa que puede crear directamente un clúster de Spark sin modificar un clúster de Hadoop mediante acciones de script. Con el tipo de clúster Spark, se obtiene un clúster de HDInsight versión 3.2 con Spark versión 1.3.1. Para instalar versiones diferentes de Spark, puede usar la acción de script. HDInsight proporciona un script de acción de script de ejemplo.
+> [AZURE.IMPORTANT] Este artículo está en desuso. HDInsight ofrece Spark, un tipo de clúster de primera clase para los clústeres basados en Windows, lo que significa que puede crear directamente un clúster de Spark sin modificar un clúster de Hadoop mediante acciones de script. Con el tipo de clúster Spark, se obtiene un clúster de HDInsight versión 3.2 con Spark versión 1.3.1. Para instalar versiones diferentes de Spark, puede usar la acción de script. HDInsight proporciona un script de acción de script de ejemplo.
 
 Obtenga información acerca de cómo instalar Spark en clústeres de HDInsight basados en Windows mediante la acción de script y cómo ejecutar consultas de Spark en clústeres de HDInsight.
 
@@ -46,11 +46,11 @@ Este tema proporciona instrucciones sobre cómo personalizar un clúster de HDIn
 Hay un script de ejemplo para instalar Spark en un clúster de HDInsight disponible desde un blob de almacenamiento de Azure de solo lectura en [https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1). Este script puede instalar Spark 1.2.0 o Spark 1.0.2, según la versión del clúster de HDInsight que cree.
 
 - Si usa el script al crear un clúster de **HDInsight 3.2**, se instala **Spark 1.2.0**.
-- Si usa el script al crear un clúster de **HDInsight 3.1**, se instala **Spark 1.02**.
+- Si usa el script al crear un clúster de **HDInsight 3.1**, se instala **Spark 1.2.0**.
 
 Puede modificar este script o crear su propio script para instalar otras versiones de Spark.
 
-> [AZURE.NOTE]El script de ejemplo solo funciona con clústeres de HDInsight 3.1 y 3.2. Para obtener más información acerca de las versiones de clústeres de HDInsight, consulte las [versiones de clústeres de HDInsight](hdinsight-component-versioning.md).
+> [AZURE.NOTE] El script de ejemplo solo funciona con clústeres de HDInsight 3.1 y 3.2. Para obtener más información acerca de las versiones de clústeres de HDInsight, consulte las [versiones de clústeres de HDInsight](hdinsight-component-versioning.md).
 
 1. Comience a crear un clúster mediante la opción **CREACIÓN PERSONALIZADA**, tal como se describe en [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md#portal). Elija la versión de clúster según lo siguiente:
 
@@ -118,7 +118,7 @@ Realice los pasos siguientes para ejecutar consultas de Spark desde un shell de 
 
 Spark SQL le permite usar Spark para ejecutar consultas relacionales expresadas en Lenguaje de consulta estructurado (SQL), HiveQL o Scala. En esta sección, veremos el uso de Spark para ejecutar una consulta de Hive en una tabla de Hive de ejemplo. La tabla de Hive usada en esta sección (llamada **hivesampletable**) está disponible de forma predeterminada cuando se crea un clúster.
 
->[AZURE.NOTE]El ejemplo siguiente se creó con **Spark 1.2.0**, que se instala si ejecuta la acción de script durante la creación del clúster de HDInsight 3.2.
+>[AZURE.NOTE] El ejemplo siguiente se creó con **Spark 1.2.0**, que se instala si ejecuta la acción de script durante la creación del clúster de HDInsight 3.2.
 
 1. En el portal de Azure, habilite el Escritorio remoto para el clúster que ha creado con Spark instalado y, a continuación, remoto en el clúster. Para obtener instrucciones, vea [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#rdp).
 
@@ -201,7 +201,7 @@ En esta sección, debe usar la herramienta <a href="http://www.scala-sbt.org/0.1
 
 
 
-	>[AZURE.NOTE]Asegúrese de que conserva las líneas vacías en el archivo.
+	>[AZURE.NOTE] Asegúrese de que conserva las líneas vacías en el archivo.
 
 
 3. En la carpeta **SimpleScalaApp**, cree una estructura de directorios **\\src\\main\\scala** y pegue el programa de Scala (**SimpleApp.scala**) que creó anteriormente en la carpeta \\src\\main\\scala.
@@ -317,4 +317,4 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

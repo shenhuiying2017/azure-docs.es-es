@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/09/2016" 
 	ms.author="ryancraw"/>
 
 # SDK de DocumentDB
@@ -26,7 +26,7 @@
 
 ##SDK para .NET de DocumentDB
 
-<table> <tr><td>**Descarga**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr> <tr><td>**Documentación**</td><td>[documentación de referencia del SDK de .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr> <tr><td>**Ejemplos**</td><td>[ejemplos de código .NET](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr> <tr><td>**Introducción**</td><td>[Introducción al SDK de .NET de DocumentDB](documentdb-get-started.md)</td></tr> <tr><td>**Versión de Framework compatible actualmente**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr> </table></br>
+<table> <tr><td>**Descarga**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr> <tr><td>**Documentación **</td><td>[documentación de referencia del SDK de .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr> <tr><td>**Ejemplos**</td><td>[ejemplos de código .NET](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr> <tr><td>**Introducción**</td><td>[Introducción al SDK de .NET de DocumentDB](documentdb-get-started.md)</td></tr> <tr><td>**Versión de Framework compatible actualmente**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr> </table></br>
 
 ## Notas de la versión
 
@@ -35,7 +35,7 @@
     - Operador Take para habilitar el comportamiento de SELECT TOP en LINQ
     - Operador CompareTo para habilitar las comparaciones de intervalos de cadenas
     - Operadores conditional (?) y coalesce (??)
-  - **[Corregido]** ArgumentOutOfRangeException al combinar la proyección del modelo con Where-In en la consulta de linq. [n.º 81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+  - **[Corregido]** ArgumentOutOfRangeException al combinar la proyección Model con Where-In en la consulta de LINQ [n.º 81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="1.5.1"/>[1\.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
  - **[Corregido]** Si Select no es la última expresión, el proveedor LINQ suponía que no había ninguna proyección y generaba SELECT * incorrectamente. [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
@@ -95,7 +95,7 @@
 Se produjo un cambio del nombre de paquete de NuGet entre la vista previa y la disponibilidad general. Pasamos de **Microsoft.Azure.Documents.Client** a **Microsoft.Azure.DocumentDB** <br/>
 
 
-### <a name="0.9.x-preview"/>[0\.9.x-Preview](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
+### <a name="0.9.x-preview"/>[0\.9.x-preview](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
 - SDK de vista previa [obsoleto]
 
 ## Fechas de lanzamiento y de retirada
@@ -133,4 +133,4 @@ Todas las versiones del SDK de Azure DocumentDB para .NET anteriores a la versi�
 
 Para más información sobre DocumentDB, vea la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

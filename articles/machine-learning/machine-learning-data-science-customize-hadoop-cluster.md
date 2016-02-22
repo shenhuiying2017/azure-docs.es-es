@@ -13,18 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" />
 
 # Personalización de los clústeres de Hadoop en HDInsight de Azure para el proceso de análisis de Cortana 
 
-Este menú vincula a temas en los que se describe cómo configurar los diversos entornos de ciencia de datos usados por el proceso de análisis de Cortana (CAPS).
-
-[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
+## Introducción
 
 En este artículo se describe cómo personalizar un clúster de Hadoop para HDInsight mediante la instalación de Anaconda de 64 bits (Python 2.7) en cada nodo cuando el clúster se está aprovisionando en el servicio HDInsight. Esta personalización prepara el clúster para usarlo con el proceso de análisis de Cortana. También muestra cómo obtener acceso al nodo principal para enviar trabajos personalizados al clúster.
 
 Esta personalización provoca que muchos módulos populares de Python incluidos en Anaconda estén disponibles convenientemente para su uso en funciones definidas por el usuario (UDF) que están diseñadas para procesar los registros de subárbol en el clúster. Para obtener instrucciones sobre los procedimientos usados en este escenario, consulte [Envío de consultas de Hive a clústeres de Hadoop de HDInsight en el proceso de análisis avanzado](machine-learning-data-science-hive-queries.md).
+
+El menú a continuación vincula a temas en los que se describe cómo configurar los diversos entornos de ciencia de datos que usa el proceso de Cortana Analytics (CAPS).
+
+[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
 
 ## <a name="customize"></a>Personalizar el clúster de Hadoop de HDInsight de Azure
@@ -39,7 +41,7 @@ Especifique el nombre del clúster a crear en la página de configuración 1 y a
 
 En la página de configuración 2, escriba el número de **NODOS DE DATOS**, seleccione la **REGIÓN/RED VIRTUAL** y seleccione los tamaños del **NODO PRINCIPAL** y del **NODO DE DATOS**. Haga clic en la flecha para ir a la página de configuración siguiente.
 
->[AZURE.NOTE]La **REGIÓN/RED VIRTUAL** tiene que ser la misma que la región de la cuenta de almacenamiento que se va a usar para el clúster de Hadoop de HDInsight. De lo contrario, en la cuarta página de configuración, la cuenta de almacenamiento que los usuarios desean utilizar no aparecerá en la lista desplegable de **NOMBRE DE LA CUENTA**.
+>[AZURE.NOTE] La **REGIÓN/RED VIRTUAL** tiene que ser la misma que la región de la cuenta de almacenamiento que se va a usar para el clúster de Hadoop de HDInsight. De lo contrario, en la cuarta página de configuración, la cuenta de almacenamiento que los usuarios desean utilizar no aparecerá en la lista desplegable de **NOMBRE DE LA CUENTA**.
 
 ![Creación del espacio de trabajo][3]
 
@@ -74,7 +76,7 @@ Los usuarios deben habilitar el acceso remoto al clúster de Hadoop en Azure par
 
 2. En la ventana **Configurar escritorio remoto**, escriba los campos NOMBRE DE USUARIO y CONTRASEÑA y seleccione la fecha de expiración del acceso remoto. A continuación, haga clic en la marca de verificación para habilitar el acceso remoto en el nodo principal del clúster de Hadoop.
 	
-	>[AZURE.NOTE]
+	>[AZURE.NOTE] 
 	>
 	>1. El nombre de usuario y la contraseña para el acceso remoto no son el nombre de usuario y la contraseña que se utilizaron al crear el clúster de Hadoop. Se trata de un conjunto de credenciales diferente
 	>
@@ -102,4 +104,4 @@ Consulte [Envío de consultas de Hive a clústeres de Hadoop de HDInsight en el 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 
@@ -24,7 +24,7 @@
 
 Los volcados de montón contienen una instantánea de la memoria de la aplicación, incluidos los valores de variables en el momento en el que se creó el volcado de memoria. Por ello, estos volcados son realmente útiles a la hora de diagnosticar cualquier problema que hubiera ocurrido durante el tiempo de ejecución.
 
-> [AZURE.NOTE]La información de este artículo solo se aplica al HDInsight basado en Linux. Para obtener más información sobre HDInsight basado en Windows, consulte [Habilitar volcados de montón para servicios de Hadoop en HDInsight de Windows](hdinsight-hadoop-collect-debug-heap-dumps.md)
+> [AZURE.NOTE] La información de este artículo solo se aplica al HDInsight basado en Linux. Para obtener más información sobre HDInsight basado en Windows, consulte [Habilitar volcados de montón para servicios de Hadoop en HDInsight de Windows](hdinsight-hadoop-collect-debug-heap-dumps.md)
 
 ## <a name="whichServices"></a>Servicios
 
@@ -49,7 +49,7 @@ Asignar y reducir procesos es una tarea ligeramente diferente, ya que se trata d
 * **mapreduce.admin.map.child.java.opts**
 * **mapreduce.admin.reduce.child.java.opts**
 
-> [AZURE.NOTE]Le recomiendamos usar Ambari para modificar los scripts y la configuración de mapred-site.xml, ya que Ambari controlará la replicación de los cambios en los nodos del clúster. Consulte la sección [Uso de Ambari](#using-ambari) para obtener los pasos específicos que debe dar.
+> [AZURE.NOTE] Le recomiendamos usar Ambari para modificar los scripts y la configuración de mapred-site.xml, ya que Ambari controlará la replicación de los cambios en los nodos del clúster. Consulte la sección [Uso de Ambari](#using-ambari) para obtener los pasos específicos que debe dar.
 
 ###Habilitar los volcados de montón
 
@@ -59,7 +59,7 @@ La siguiente opción habilita los volcados del montón cuando se produce un OutO
 
 El símbolo **+** indica que esta opción está habilitada, ya que está deshabilitada de forma predeterminada.
 
-> [AZURE.WARNING]Los volcados de montón no están habilitados para los servicios Hadoop en HDInsight, ya que el tamaño de los archivos de volcado puede ser grande. Si los habilita para solucionar problemas, no olvide deshabilitarlos una vez haya reproducido el problema y recopilado los archivos de volcado.
+> [AZURE.WARNING] Los volcados de montón no están habilitados para los servicios Hadoop en HDInsight, ya que el tamaño de los archivos de volcado puede ser grande. Si los habilita para solucionar problemas, no olvide deshabilitarlos una vez haya reproducido el problema y recopilado los archivos de volcado.
 
 ###Ubicación de volcado
 
@@ -75,7 +75,7 @@ También puede desencadenar un script cuando se produzca un error **OutOfMemoryE
 
     -XX:OnOutOfMemoryError=/path/to/script
 
-> [AZURE.NOTE]Puesto que Hadoop es un sistema distribuido, debe colocar cualquier script que use en todos los nodos del clúster que ejecute el servicio.
+> [AZURE.NOTE] Puesto que Hadoop es un sistema distribuido, debe colocar cualquier script que use en todos los nodos del clúster que ejecute el servicio.
 >
 > Asimismo, el script debe estar en una ubicación que sea accesible para la cuenta con la cual se ejecuta el servicio y deberá proporcionar permisos de ejecución. A modo de ejemplo, es posible que desee almacenar los scripts en `/usr/local/bin` y usar `chmod go+rx /usr/local/bin/filename.sh` para conceder permisos de ejecución y lectura.
 
@@ -87,7 +87,7 @@ Para modificar la configuración de un servicio, siga estos pasos:
 
     Cuando se le pida, deberá autenticarse en el sitio mediante el nombre de cuenta HTTP (nombre predeterminado: administrador) y la contraseña del clúster.
 
-    > [AZURE.NOTE]Es posible que Ambari le pida de nuevo que escriba el nombre de usuario y la contraseña. Si es así, vuelva a escribir el mismo nombre de cuenta y la contraseña
+    > [AZURE.NOTE] Es posible que Ambari le pida de nuevo que escriba el nombre de usuario y la contraseña. Si es así, vuelva a escribir el mismo nombre de cuenta y la contraseña
 
 2. En la lista de la izquierda, seleccione el área de servicio que desea modificar. Por ejemplo, **HDFS**. En el área central, seleccione la ficha **Configuraciones**.
 
@@ -101,7 +101,7 @@ Para modificar la configuración de un servicio, siga estos pasos:
 
     ![HADOOP\_NAMENODE\_OPTS con -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
-	> [AZURE.NOTE]Al habilitar los volcados de montón para la asignar o reducir procesos secundarios, deberá buscar aquellos campos que tengan las etiquetas **mapreduce.admin.map.child.java.opts** y **mapreduce.admin.reduce.child.java.opts**.
+	> [AZURE.NOTE] Al habilitar los volcados de montón para la asignar o reducir procesos secundarios, deberá buscar aquellos campos que tengan las etiquetas **mapreduce.admin.map.child.java.opts** y **mapreduce.admin.reduce.child.java.opts**.
 
     Presione el botón **Guardar** para guardar los cambios. A continuación podrá escribir una nota breve que describa los cambios que haya realizado.
 
@@ -117,8 +117,8 @@ Para modificar la configuración de un servicio, siga estos pasos:
 
     ![Reiniciar todas las entradas afectadas](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
 
-    > [AZURE.NOTE]es posible que las entradas del botón **Reiniciar** botón sean diferentes en otros servicios.
+    > [AZURE.NOTE] es posible que las entradas del botón **Reiniciar** botón sean diferentes en otros servicios.
 
 8. Una vez haya reiniciado los servicios, pulse el botón **Acciones de servicio** para **Desactivar el modo de mantenimiento**. Esto hará que Ambari reanude la supervisión de alertas para el servicio.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

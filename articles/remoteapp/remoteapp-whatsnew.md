@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/23/2015"
+    ms.date="02/06/2016"
     ms.author="elizapo" />
 
 
@@ -22,6 +22,9 @@
 
 Una de las ventajas de Azure RemoteApp es que siempre trabajamos para mejorarlo. Cada vez que lo hagamos, anunciaremos aquí esos cambios.
 
+## Actualizaciones futuras
+Hola, ¿sabía que el equipo de Azure RemoteApp publica actualizaciones mensuales en el blog RDS? No solo encontrará las novedades de Azure RemoteApp, sino también más información acerca de cómo utilizar RDS. Para obtener información, visite el blog [Remote Desktop Services Blog](https://blogs.msdn.microsoft.com/rds/). Por ejemplo, hace un par de semanas, publicaron una entrada sobre [elevación y desplazamiento de cargas de trabajo con Azure RemoteApp y Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
+ 
 ## Septiembre de 2015
 - Se agregó InfoPath a la imagen de galería y plantilla de Microsoft Office 365. Si desea compartir InfoPath, asegúrese de actualizar las colecciones con la imagen más reciente.
 - Actualizaciones de clientes:
@@ -45,7 +48,7 @@ En agosto hubo cambios importantes. A continuación, presentamos los aspectos de
 
 Julio prepara el terreno para los cambios que llegan en agosto, así que por ahora no hay mucho de lo que hablar, se trata principalmente de actualizaciones de documentos. Estos son los cambios más recientes:
 
-- Se agregó una pestaña **Soporte técnico** al portal para que pueda tener acceso más fácilmente a los recursos de soporte técnico, como los foros.
+- Se agregó una pestaña **Soporte técnico** al portal para que pueda acceder más fácilmente a los recursos de soporte técnico, como los foros.
 - Se modificó la información de solución de problemas para crear una colección híbrida. Consulte las sugerencias [más recientes y mejores](remoteapp-hybridtrouble.md) para la solución de problemas, por ejemplo, cómo identificar los puertos correctos que se deben configurar para la red virtual.
 - Se documentó cómo se crean y se guardan los [datos de usuario](remoteapp-upd.md) en Azure RemoteApp.
 - Se documentó cómo [bloquear las aplicaciones](remoteapp-secure.md).
@@ -72,7 +75,7 @@ Han tenido lugar varias adiciones y han pasado varios meses desde que creamos es
 - [Creación de una imagen de RemoteApp de Azure basada en una máquina virtual de Azure](remoteapp-image-on-azurevm.md). Consigue que la carga de la imagen personalizada en Azure se realice mucho más rápido.
 - Uso de una red virtual de Azure en lugar de una red virtual de RemoteApp para conectar los recursos de la red corporativa a Azure. Hemos actualizado las [instrucciones de la colección híbrida](remoteapp-create-hybrid-deployment.md) para guiarle en el proceso de creación de una red virtual de Azure (el paso 1).
 - Y hablando de redes virtuales, consulte [la nueva guía](remoteapp-vnetsizing.md) sobre los límites de tamaño y las limitaciones de la red virtual.
-- Y ya que hablamos de límites, ¿cuáles son los [límites de servicio y los valores predeterminados](remoteapp-servicelimits.md)?
+- Y ya que hablamos de límites, ¿cuáles son los [límites de servicio y los valores predeterminados](../azure-subscription-service-limits.md)?
 
 ¿Desea obtener más información acerca de RemoteApp de Azure? El equipo de RemoteApp estuvo en Ignite hace unas semanas. Vea el vídeo de Eric, [The Fundamentals of Microsoft Azure RemoteApp Management and Administration](http://channel9.msdn.com/Events/Ignite/2015/BRK3868) (Aspectos básicos de la gestión y administración de RemoteApp de Microsoft Azure).
 
@@ -84,4 +87,4 @@ Gracias por seguir con nosotros, volveremos el próximo mes con más novedades.
 ### Permítanos ayudarle
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, luego, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

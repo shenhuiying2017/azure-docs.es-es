@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/04/2016"
    ms.author="subramar"/>
 
 
@@ -54,18 +54,20 @@ El siguiente diagrama de flujo ayuda a entender el proceso de actualización de 
 
 ## Pasos siguientes
 
-[Tutorial de actualización](service-fabric-application-upgrade-tutorial.md)
+El procedimiento de [actualización de aplicaciones usando Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.
 
-[Parámetros de actualización](service-fabric-application-upgrade-parameters.md)
+El procedimiento de [actualización de aplicaciones usando Powershell](service-fabric-application-upgrade-tutorial-powershell.md) ofrece información para actualizar una aplicación mediante PowerShell.
 
-[Serialización de datos](service-fabric-application-upgrade-data-serialization.md)
+Puede controlar cómo se actualiza una aplicación usando [parámetros de actualización](service-fabric-application-upgrade-parameters.md).
 
-[Actualización de la aplicación de Service Fabric: temas avanzados](service-fabric-application-upgrade-advanced.md)
+Consiga que sus actualizaciones de aplicaciones sean compatibles aprendiendo a usar la [serialización de datos](service-fabric-application-upgrade-data-serialization.md).
 
-[Solucionar problemas de actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md)
+Aprenda a usar funcionalidades avanzadas para actualizar una aplicación. Para ello, consulte los [temas avanzados](service-fabric-application-upgrade-advanced.md).
 
+Solucione problemas habituales en las actualizaciones de aplicaciones consultando los pasos que figuran en [Solución de problemas de las actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md).
+ 
 
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

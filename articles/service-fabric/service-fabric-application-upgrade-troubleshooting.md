@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/11/2015"
+   ms.date="02/04/2016"
    ms.author="subramar"/>
 
 # Solucionar problemas de actualizaciones de aplicaciones
@@ -220,12 +220,17 @@ El tiempo de actualización de un dominio de actualización está limitado por *
 
 ## Pasos siguientes
 
-[Actualización de la aplicación de Service Fabric con Visual Studio](service-fabric-application-upgrade.md)
+El procedimiento de [actualización de aplicaciones usando Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.
 
-[Parámetros de actualización](service-fabric-application-upgrade-parameters.md)
+El procedimiento de [actualización de aplicaciones usando Powershell](service-fabric-application-upgrade-tutorial-powershell.md) ofrece información para actualizar una aplicación mediante PowerShell.
 
-[Actualización manual y actualización con un paquete de diferencias](service-fabric-application-upgrade-advanced.md)
+Puede controlar cómo se actualiza una aplicación usando [parámetros de actualización](service-fabric-application-upgrade-parameters.md).
 
-[Serialización de datos](service-fabric-application-upgrade-data-serialization.md)
+Consiga que sus actualizaciones de aplicaciones sean compatibles aprendiendo a usar la [serialización de datos](service-fabric-application-upgrade-data-serialization.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+Aprenda a usar funcionalidades avanzadas para actualizar una aplicación. Para ello, consulte los [temas avanzados](service-fabric-application-upgrade-advanced.md).
+
+Solucione problemas habituales en las actualizaciones de aplicaciones consultando los pasos que figuran en [Solución de problemas de las actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md).
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

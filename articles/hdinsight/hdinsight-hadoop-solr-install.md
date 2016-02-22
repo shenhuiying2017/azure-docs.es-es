@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="02/05/2016"
 	ms.author="nitinme"/>
 
 # Instalación y uso de Solr en clústeres de Hadoop de HDInsight
@@ -67,7 +67,7 @@ El script de ejemplo que se usa en este tema crea un clúster de Solr con una co
 
 Debe comenzar con la indización de Solr con algunos archivos de datos. A continuación, puede utilizar Solr para ejecutar consultas de búsqueda en los datos indizados. Realice los pasos siguientes para utilizar Solr en un clúster de HDInsight:
 
-1. **Use el protocolo de Escritorio remoto (RDP) para conectarse de manera remota con el clúster de HDInsight con Solr instalado**. En el portal de Azure, habilite el Escritorio remoto para el clúster que ha creado con Solr instalado y, a continuación, conéctese de manera remota con el clúster. Para obtener instrucciones, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
+1. **Use el protocolo de Escritorio remoto (RDP) para conectarse de manera remota con el clúster de HDInsight con Solr instalado**. En el portal de Azure, habilite el Escritorio remoto para el clúster que ha creado con Solr instalado y, a continuación, conéctese de manera remota con el clúster. Para obtener instrucciones, vea [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
 2. **Indexe Solr mediante la carga de archivos de datos**. Al indizar Solr, colocar en él aquellos documentos que tenga que buscar. Para indexar Solr, use RDP para conectarse de manera remota al clúster, navegue al escritorio, abra la línea de comandos de Hadoop y vaya a **C:\\apps\\dist\\solr-4.7.2\\example\\exampledocs**. Ejecute el siguiente comando:
 
@@ -83,7 +83,7 @@ Debe comenzar con la indización de Solr con algunos archivos de datos. A contin
 
 	La utilidad post.jar indexa Solr con dos documentos de muestra, **solr.xml** y **monitor.xml**. La utilidad post.jar y los documentos de muestra están disponibles con la instalación de Solr.
 
-3. **Utilice el panel de Solr para buscan dentro de los documentos indexados**. En la sesión de RDP en el clúster de HDInsight, abra Internet Explorer e inicie el panel de Solr en ****http://headnodehost:8983/solr/#/**. En el panel izquierdo, en la lista desplegable **Selector principal**, seleccione **collection1** y, dentro de ella, haga clic en **Consulta**. Por ejemplo, para seleccionar y devolver a todos los documentos de Solr, indique los valores siguientes:
+3. **Utilice el panel de Solr para buscan dentro de los documentos indexados**. En la sesión RDP con el clúster de HDInsight, abra Internet Explorer e inicie el panel de Solr en ****http://headnodehost:8983/solr/#/**. En el panel izquierdo, en la lista desplegable **Selector principal**, seleccione **collection1** y, dentro de ella, haga clic en **Consulta**. Por ejemplo, para seleccionar y devolver a todos los documentos de Solr, indique los valores siguientes:
 
 	* En el cuadro de texto **q**, escriba ***:***. Se devolverán todos los documentos indizados en Solr. Si desea buscar una cadena específica dentro de los documentos, puede especificar esa cadena aquí.
 	
@@ -186,7 +186,7 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 - [Instalación y uso de Solr en clústeres de Hadoop para HDInsight (Linux)](hdinsight-hadoop-solr-install-linux.md)
 - [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md): información general sobre la creación de clústeres de HDInsight.
 - [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize]\: información general sobre la personalización de clústeres de HDInsight mediante la acción de script.
-- [Desarrollo de scripts de acción de script en HDInsight](hdinsight-hadoop-script-actions.md)
+- [Desarrollo de scripts de acción de script con HDInsight](hdinsight-hadoop-script-actions.md).
 - [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark]\: ejemplo de acción de script sobre la instalación de Spark.
 - [Instalación de R en clústeres de HDInsight][hdinsight-install-r]\: ejemplo de acción de script sobre la instalación de R.
 - [Instalación de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md): ejemplo de acción de script sobre la instalación de Giraph.
@@ -198,4 +198,4 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

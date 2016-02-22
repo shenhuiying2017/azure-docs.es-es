@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##Requisitos previos##
+## Requisitos previos ##
 
 En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE u openSUSE en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
@@ -78,7 +78,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 9.	Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque. Este es normalmente el valor predeterminado.
 
-10.	No cree un espacio de intercambio en el disco del sistema operativo.
+10.	No cree espacio de intercambio en el disco del SO.
 
 	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
@@ -103,17 +103,15 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 1. Seleccione la máquina virtual en el panel central del Administrador de Hyper-V.
 
-2. Haga clic en **Conectar** para abrir la ventana de la máquina virtual
+2. Haga clic en **Conectar** para abrir la ventana de la máquina virtual.
 
-3. En el shell, ejecute el comando '`zypper lr`'. Si este comando devuelve una salida similar a la siguiente (tenga en cuenta que los números de la versión pueden diferir):
+3. En el shell, ejecute el comando '`zypper lr`'. Si este comando devuelve una salida similar a la siguiente, los repositorios están configurados según lo esperado y no es necesario ningún ajuste (tenga en cuenta que los números de versión pueden variar):
 
 		# | Alias                 | Name                  | Enabled | Refresh
 		--+-----------------------+-----------------------+---------+--------
 		1 | Cloud:Tools_13.1      | Cloud:Tools_13.1      | Yes     | Yes
 		2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Yes     | Yes
 		3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Yes     | Yes
-
-	entonces los repositorios están configurados según lo previsto y no es necesario realizar ajustes.
 
 	Si el comando devuelve el mensaje "No repositories defined...", utilice los comandos siguientes para agregar estos repositorios:
 
@@ -134,7 +132,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 		# sudo zypper update
 
-5.	Instalación del agente de Linux de Azure
+5.	Instale el Agente de Linux de Azure.
 
 		# sudo zypper install WALinuxAgent
 
@@ -157,7 +155,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 9.	Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque. Este es normalmente el valor predeterminado.
 
-10.	No cree un espacio de intercambio en el disco del sistema operativo.
+10.	No cree espacio de intercambio en el disco del SO.
 
 	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
@@ -180,7 +178,6 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 13. Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
 ## Pasos siguientes
-Ya está listo para usar el archivo .vhd de SUSE Linux para crear nuevas máquinas virtuales de Azure. Si es la primera vez que usa Azure y carga el archivo .vhd en Azure, puede seguir los pasos 2 y 3 de [esta guía](virtual-machines-linux-create-upload-vhd.md).
- 
+Ya está listo para usar el disco duro virtual de SUSE para crear nuevas máquinas virtuales de Azure. Si esta es la primera vez que está cargando el archivo .vhd en Azure, consulte los pasos 2 y 3 de [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](virtual-machines-linux-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

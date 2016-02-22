@@ -2,6 +2,7 @@
    pageTitle="Cambios de atributos de objeto de usuario externo para la vista previa de colaboración de Azure Active Directory B2B | Microsoft Azure"
    description="Azure Active Directory B2B posibilita las relaciones entre empresas al permitir que los partners empresariales accedan de forma selectiva a las aplicaciones corporativas."
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -34,5 +35,6 @@ Examine nuestros otros artículos sobre colaboración de Azure B2B:
 - [Referencia de formato de archivo CSV](active-directory-b2b-references-csv-file-format.md)
 - [Formato de token de usuario externo](active-directory-b2b-references-external-user-token-format.md)
 - [Limitaciones de la vista previa actual](active-directory-b2b-current-preview-limitations.md)
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

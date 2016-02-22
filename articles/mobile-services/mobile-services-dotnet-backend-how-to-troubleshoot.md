@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/01/2015" 
+	ms.date="02/07/2016" 
 	ms.author="wesmc;ricksal"/>
 
 # Solución de problemas en el backend .NET de Servicios móviles
@@ -41,7 +41,8 @@ Puede usar cualquier depurador HTTP para enviar e inspeccionar el tráfico HTTP.
 1. Comience con un proyecto de servidor de Servicios móviles en **Visual Studio 2013 Update 2** o posterior. Si no tiene uno a mano, puede crearlo; para ello, seleccione **Archivo**, **Nuevo**, **Proyecto** y luego seleccione el nodo **Nube** y seguidamente la plantilla **Servicios móviles de Microsoft Azure**.
 2. Pulse **F5** para compilar y ejecutar el proyecto. En la página de inicio, seleccione **Probar**.
 
-    >[AZURE.NOTE]Si el servicio está hospedado en modo local, al hacer clic en el vínculo, se le dirigirá a la página siguiente. Sin embargo, si está hospedado en la nube, se le pedirá que proporcione un conjunto de credenciales. Esto es para asegurarse de que usuarios no autorizados no tienen acceso a información sobre su API y sus cargas. Para ver la página, debe iniciar sesión con un **nombre de usuario en blanco** y la **clave de la aplicación** como contraseña. La clave de la aplicación está disponible en el Portal de Azure clásico; vaya a la pestaña **Panel** del servicio móvil y seleccione **Administrar claves**.
+    >[AZURE.NOTE]
+    Si el servicio está hospedado en modo local, al hacer clic en el vínculo, se le dirigirá a la página siguiente. Sin embargo, si está hospedado en la nube, se le pedirá que proporcione un conjunto de credenciales. Esto es para asegurarse de que usuarios no autorizados no tienen acceso a información sobre su API y sus cargas. Para ver la página, debe iniciar sesión con un **nombre de usuario en blanco** y la **clave de la aplicación** como contraseña. La clave de la aplicación está disponible en el Portal de Azure clásico; vaya a la pestaña **Panel** del servicio móvil y seleccione **Administrar claves**.
     >
     > ![Mensaje de autenticación para obtener acceso a la página de ayuda][HelpPageAuth]
 
@@ -123,7 +124,7 @@ Al publicar el servicio móvil en Azure, se carga en el entorno de hospedaje de 
 
 A veces se pueden introducir conflictos de versiones al hacer referencia a *diferentes versiones principales* de los ensamblados necesarios (se permiten versiones *secundarias* diferentes). Esto ocurre a menudo cuando NuGet le pide que actualice a la última versión de uno de los paquetes que utiliza el back-end .NET de Servicios móviles.
 
->[AZURE.NOTE]Los Servicios móviles actualmente solo son compatibles con ASP.NET 5.1; ASP.NET 5.2 no es compatible actualmente. La actualización de los paquetes de NuGet de ASP.NET a 5.2.* puede producir un error después de la implementación.
+>[AZURE.NOTE] Los Servicios móviles actualmente solo son compatibles con ASP.NET 5.1; ASP.NET 5.2 no es compatible actualmente. La actualización de los paquetes de NuGet de ASP.NET a 5.2.* puede producir un error después de la implementación.
 
 Si actualiza estos paquetes, cuando publique el servicio actualizado en Azure, verá una página de advertencia donde se indica el conflicto:
 
@@ -163,4 +164,4 @@ Las migraciones pueden ser complejas y pueden requerir que se mantenga el estado
 <!-- Links -->
 [SymbolSource]: http://symbolsource.org
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

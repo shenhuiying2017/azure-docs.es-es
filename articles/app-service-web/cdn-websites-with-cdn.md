@@ -42,8 +42,8 @@ Este tutorial cuenta con los siguientes requisitos previos:
 -	Visual Studio 2015 con [SDK de Azure para .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) Si utiliza Visual Studio, los pasos pueden variar.
 
 > [AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial: 
-+ Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Aplicaciones web. 
-+ Puede [activar los beneficios de suscriptores de Visual Studio](/pricing/member-offers/msdn-benefits-details/): su suscripción a Visual Studio le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
+> + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Aplicaciones web.
+> + Puede [activar los beneficios de suscriptores de Visual Studio](/pricing/member-offers/msdn-benefits-details/): su suscripción a Visual Studio le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
 >
 > Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
@@ -552,15 +552,15 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 7. Actualice la ventana del explorador para la aplicación web de Azure. Ahora debería ver que todos los scripts y hojas de estilo están correctamente cargados.
 
 ## Más información 
-- [Información general de la red de entrega de contenido (CDN) de Azure](../cdn-overview.md)
-- [Entrega de contenido desde la red CDN de Azure en su aplicación web](../cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](../cdn-cloud-service-with-cdn.md)
+- [Información general de la red de entrega de contenido (CDN) de Azure](../cdn/cdn-overview.md)
+- [Entrega de contenido desde la red CDN de Azure en su aplicación web](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
+- [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](../cdn/cdn-cloud-service-with-cdn.md)
 - [Unión y minificación de ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Uso de la red CDN en Azure](../cdn-how-to-use-cdn.md)
+- [Uso de la red CDN en Azure](../cdn/cdn-how-to-use-cdn.md)
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

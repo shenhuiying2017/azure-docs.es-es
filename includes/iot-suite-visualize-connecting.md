@@ -8,7 +8,7 @@ El panel de la solución de supervisión remota permite ver la telemetría que l
 
     ![][18]
 
-3. En el panel, seleccione el dispositivo en la lista desplegable **Dispositivo para ver** para ver su telemetría. La telemetría de la aplicación de ejemplo es 50 unidades para la temperatura interior, 55 unidades para la temperatura exterior y 50 unidades para la humedad. Tenga en cuenta que, de forma predeterminada, en el panel solo se muestran los valores de temperatura y humedad.
+3. Haga clic en **Panel** para volver a él, seleccione el dispositivo en la lista desplegable **Dispositivo para ver** para ver su telemetría. La telemetría de la aplicación de ejemplo es 50 unidades para la temperatura interior, 55 unidades para la temperatura exterior y 50 unidades para la humedad. Tenga en cuenta que, de forma predeterminada, en el panel solo se muestran los valores de temperatura y humedad.
 
     ![][img-telemetry]
 
@@ -28,7 +28,7 @@ El panel de la solución de supervisión remota le permite solicitar el Centro d
 
     ![][14]
 
-    > [AZURE.NOTE]Inicialmente, el historial de comandos muestra el estado del comando como **Pendiente**. Cuando el dispositivo reconoce el comando, el estado cambia a **Correcto**.
+    > [AZURE.NOTE] Inicialmente, el historial de comandos muestra el estado del comando como **Pendiente**. Cuando el dispositivo reconoce el comando, el estado cambia a **Correcto**.
 
 5. En el panel, compruebe que el dispositivo está enviando ahora 75 como el nuevo valor de temperatura.
 
@@ -43,4 +43,4 @@ En el artículo [Personalización de soluciones preconfiguradas][lnk-customize] 
 [lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-dev-messaging]: ../articles/iot-hub/iot-hub-devguide.md#messaging
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

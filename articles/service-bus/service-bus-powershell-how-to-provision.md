@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="02/08/2016"
 	ms.author="sethm"/>
 
 # Administración de Service Bus con PowerShell
@@ -26,9 +26,9 @@ Microsoft Azure PowerShell es un eficaz entorno de scripting que puede usar para
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
-- Una suscripción de Azure. Azure es una plataforma basada en suscripción. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra], [Ofertas para miembros] o [Prueba gratuita].
+- Una suscripción de Azure. Azure es una plataforma basada en suscripción. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][], [Ofertas para miembros][] o [Prueba gratuita][].
 
-- Un equipo con Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell].
+- Un equipo con Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][].
 
 - Conocimientos generales sobre los scripts de PowerShell, paquetes de NuGet y .NET Framework.
 
@@ -171,7 +171,7 @@ Además, puede descargar algunos scripts listos para usar: - [Scripts de PowerSh
 [Opciones de compra]: http://azure.microsoft.com/pricing/purchase-options/
 [Ofertas para miembros]: http://azure.microsoft.com/pricing/member-offers/
 [Prueba gratuita]: http://azure.microsoft.com/pricing/free-trial/
-[Instalación y configuración de Azure PowerShell]: ../install-configure-powershell.md
+[Instalación y configuración de Azure PowerShell]: ../powershell-install-configure.md
 [paquete NuGet del Bus de servicio]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
@@ -179,4 +179,4 @@ Además, puede descargar algunos scripts listos para usar: - [Scripts de PowerSh
 [API de .NET para el Bus de servicio]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

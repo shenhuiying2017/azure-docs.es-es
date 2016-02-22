@@ -13,18 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/07/2016" 
 	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>Muestra de datos en el almacenamiento de blobs de Azure
 
-Este **menú** está vinculado a temas que describen cómo realizar un muestreo de datos desde varios entornos de almacenamiento. Esta tarea es un paso en el proceso de análisis de Cortana (CAP).
-
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
-
 ## Introducción
 
 En este documento se tratan los datos de muestreo almacenados en el almacenamiento de blobs de Azure mediante su descarga con programación y, a continuación, realizando un muestreo de los mismos con código Python de ejemplo. Los pasos para hacerlo son los siguientes:
+
+**¿Por qué realizar un muestreo de los datos?** Si el conjunto de datos que pretende analizar es grande, suele ser una buena idea reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su rol en el proceso de análisis de Cortana es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
+
+El **menú** a continuación está vinculado a temas que describen cómo realizar un muestreo de datos desde varios entornos de almacenamiento.
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+Esta tarea de muestreo es un paso del [proceso de Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+
 
 ## Descarga y muestreado de datos
 1. Descargar los datos del almacenamiento de blobs de Azure con el servicio BLOB desde el código de Python de ejemplo siguiente: 
@@ -52,7 +57,7 @@ En este documento se tratan los datos de muestreo almacenados en el almacenamien
 	    #directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Reduzca el muestreo de los datos mediante `random.choice` de `numpy` como se indica a continuación:
+3. Muestreo de los datos mediante `random.choice` de `numpy` como se indica a continuación:
 
 	    # A 1 percent sample
     	sample_ratio = 0.01 
@@ -103,4 +108,4 @@ Puede usar el código de ejemplo siguiente para muestrear los datos y usarlos di
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

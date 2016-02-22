@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="12/11/2015"
+ms.date="02/08/2016"
 ms.author="eugenesh" />
 
 # Indexación de documentos en Almacenamiento de blobs de Azure con Búsqueda de Azure
@@ -72,7 +72,8 @@ El indexador de blob puede extraer texto de los siguientes formatos de documento
 - HTML
 - XML
 - ZIP
-- Archivos de texto sin formato (como JSON)  
+- EML
+- Texto sin formato  
 
 ## Proceso de extracción de documentos
 
@@ -189,8 +190,9 @@ PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation)
 PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Extraer texto, incluyendo los documentos insertados
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extraer texto, incluidos los datos adjuntos
 ZIP (application/zip) | `metadata_content_type` | Extraer el texto de todos los documentos en el archivo
-XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Seccionar el marcado XML y extraer texto </td>
+XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Seccionar el marcado XML y extraer texto
 JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extraer texto<br/>NOTA: si necesita extraer varios campos de documentos de un blob JSON, vote [esta sugerencia de UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs/)
+EML (message/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | Extraer texto, incluidos los datos adjuntos
 Plain text (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
@@ -207,4 +209,4 @@ AzureSearch\_SkipContent | "true" | Indica al indexador de blobs que solo indexe
 
 Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

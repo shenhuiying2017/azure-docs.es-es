@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="02/09/2016" 
 	ms.author="jeannt"/>
 
 
@@ -181,15 +181,15 @@ Para definir la forma y las ubicaciones de los kernels, use los atributos **Kern
 -	**MapCount**: (opcional) define el número de mapas de características para el conjunto convolucional. El valor puede ser un número entero positivo o una tupla de enteros positivos con una longitud que sea la aridad de la agrupación. Un valor entero sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado y todos los componentes restantes equivalen a uno. El valor predeterminado es uno. El número total de mapas de características es el producto de los componentes de la tupla. La factorización de este número total entre los componentes determina cómo se agrupan los valores de mapas de características en los nodos de destino. 
 -	**Weights**: (opcional) define las ponderaciones iniciales del conjunto. El valor debe ser una tupla de valores de punto flotante con una longitud que es el número de kernel, el número de pesos por kernel, tal como se define más adelante en este artículo. De manera predeterminada, las ponderaciones se generan de manera aleatoria.  
 
-Hay dos conjuntos de propiedades que controlan el completado, que se excluyen mutuamente:
+Hay dos conjuntos de propiedades que controlan el completado y que se excluyen mutuamente:
 
 -	**Padding**: (opcional) determina si la entrada debe completarse usando un **esquema de relleno predeterminado**. El valor puede ser un único valor booleano o una tupla de valores booleanos con una longitud que sea la aridad de la agrupación. Un valor booleano sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado. Si el valor de una dimensión es verdadero, el origen se completa lógicamente en esa dimensión con celdas de valor cero para atender a las aplicaciones de kernel adicionales, por lo cual los nodos centrales del primer y último kernel de esa dimensión son el primer y último nodo en esa dimensión en la capa de origen. De este modo, el número de nodos "ficticios" de cada dimensión se determina automáticamente, para coincidir exactamente con el número de kernels _(InputShape[d] - 1) / Stride[d] + 1_ en la capa de origen completada. Si el valor de una dimensión es falso, los kernels se definen de manera que el número de nodos que quedan en cada lado sea el mismo (con una diferencia máxima de 1). El valor predeterminado de este atributo es una tupla con todos los componentes iguales a falso.
--	**UpperPad** y **LowerPad**: (opcional) proporcionan mayor control sobre la cantidad de relleno que se usa. **Importante**: Estos atributos pueden definirse si y solo si la propiedad **Padding** anterior ***no*** está definida. Los valores deben ser las tuplas con valores enteros con longitudes que sean la aridad de la agrupación. Cuando se especifican estos atributos, se agregan nodos "ficticios" a los extremos inferior y superior de cada dimensión de la capa de entrada- El número de nodos agregados a los extremos inferior y superior en cada dimensión está determinado por **LowerPad**[i] y **UpperPad**[i], respectivamente. Para asegurarse de que los kernels se corresponden solo a nodos "reales" y no a nodos "ficticios", deben cumplirse las condiciones siguientes:
+-	**UpperPad** y **LowerPad**: (opcional) proporcionan mayor control sobre la cantidad de completado que se usa. **Importante**: estos atributos pueden definirse si, y solo si, la propiedad **Padding** anterior ***no*** está definida. Los valores deben ser las tuplas con valores enteros con longitudes que sean la aridad de la agrupación. Cuando se especifican estos atributos, se agregan nodos "ficticios" a los extremos inferior y superior de cada dimensión de la capa de entrada- El número de nodos agregados a los extremos inferior y superior en cada dimensión está determinado por **LowerPad**[i] y **UpperPad**[i], respectivamente. Para asegurarse de que los kernels se corresponden solo a nodos "reales" y no a nodos "ficticios", deben cumplirse las condiciones siguientes:
 	-	Cada componente de **LowerPad** debe ser estrictamente inferior a KernelShape[d]/2. 
 	-	Ningún componente de **UpperPad** puede ser superior a KernelShape[d]/2. 
 	-	El valor predeterminado de estos atributos es una tupla con todos los componentes iguales a 0. 
 
-La configuración de **Padding** = true permite todo el relleno que sea necesario para mantener el "centro" del kernel dentro de la entrada "real". Cambia la expresión matemática un poco para calcular el tamaño de salida. Por lo general, el tamaño de salida _D_ se calcula como _D (I - K) = / S + 1_, donde _I_ es el tamaño de entrada, _K_ es el tamaño del kernel, _S_ es el intervalo y _/_ es la división de enteros (redondear hacia cero). Si establece UpperPad = [1, 1], el tamaño de entrada _I_ es efectivamente 29 y por lo tanto _D = (29 - 5) / 2 + 1 = 13_. Sin embargo, cuando **Padding** = true, esencialmente _I_ aumenta por _K - 1_; por lo tanto, _D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14_. Al especificar valores para **UpperPad** y **LowerPad**, obtendrá un mayor control sobre el relleno que si simplemente establece **Padding** = true.
+La configuración de **Padding** = true permite todo el relleno que sea necesario para mantener el "centro" del kernel dentro de la entrada "real". Cambia la expresión matemática un poco para calcular el tamaño de salida. Por lo general, el tamaño de salida _D_ se calcula como _D (I - K) = / S + 1_, donde _I_ es el tamaño de entrada, _K_ es el tamaño del kernel, _S_ es el intervalo y _/_ es la división de enteros (redondear hacia cero). Si establece UpperPad = [1, 1], el tamaño de entrada _I_ es efectivamente 29 y, por lo tanto, _D = (29 - 5) / 2 + 1 = 13_. Sin embargo, cuando **Padding** = true, esencialmente _I_ aumenta en _K - 1_; por lo tanto, _D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14_. Al especificar valores para **UpperPad** y **LowerPad**, obtendrá un mayor control sobre el relleno que si simplemente establece **Padding** = true.
 
 Para obtener más información acerca de las redes convolucionales y sus aplicaciones, consulte estos artículos:
 
@@ -223,7 +223,7 @@ Para obtener más información acerca de las capas de agrupación, consulte esto
 -	[http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 	
 ## Conjuntos de normalización de respuesta
-La **normalización de respuesta** es un esquema de normalización local presentado por primera vez por Geoffrey Hinton et al. en un documento titulado [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). La normalización de respuesta se utiliza para ayudar a la generalización en redes neuronales. Cuando una neurona se activa a un nivel muy alto, una capa de normalización de respuesta local suprime la capa de activación de las neuronas circundantes. Esto se realiza por medio de tres parámetros (***α***, ***β*** y ***k***) y una estructura convolucional (o forma de vecindad). Cada neurona de la capa de destino ***y*** se corresponde con una neurona ***x*** de la capa de origen. El nivel de activación de ***y*** se determina mediante la fórmula siguiente, donde***f*** es el nivel de activación de una neurona y ***Nx*** es el kernel (o el conjunto que contiene las neuronas en la vecindad de ***x***) como se define en la siguiente estructura convolucional:
+La **normalización de respuesta** es un esquema de normalización local presentado por primera vez por Geoffrey Hinton et al. en un documento titulado [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Clasificación de ImageNet con redes neuronales convolucionales profundas). La normalización de respuesta se utiliza para ayudar a la generalización en redes neuronales. Cuando una neurona se activa a un nivel muy alto, una capa de normalización de respuesta local suprime la capa de activación de las neuronas circundantes. Esto se realiza por medio de tres parámetros (***α***, ***β*** y ***k***) y una estructura convolucional (o forma de vecindad). Cada neurona de la capa de destino ***y*** se corresponde con una neurona ***x*** de la capa de origen. El nivel de activación de ***y*** se determina mediante la fórmula siguiente, donde***f*** es el nivel de activación de una neurona y ***Nx*** es el kernel (o el conjunto que contiene las neuronas en la vecindad de ***x***) como se define en la siguiente estructura convolucional:
 
 ![][1]
 
@@ -333,7 +333,7 @@ En el ejemplo se muestran algunos comandos básicos como los siguientes:
 
 -	La primera línea define el nivel de entrada (denominado _Data_). Cuando se usa la palabra clave **auto**, la red neuronal incluye automáticamente todas las columnas de características en los ejemplos de entrada. 
 -	La segunda línea crea la capa oculta. El nombre _H_ se asigna a la capa oculta, que tiene 200 nodos. Esta capa está conectada por completo a la capa de entrada.
--	La tercera línea define la capa de salida (denominada _O_), contiene 10 nodos de salida. Si la red neuronal se usa para la clasificación, hay un nodo de salida por clase. La palabra clave **sigmoid** indica que la función de salida se aplica a la capa de salida.   
+-	La tercera línea define la capa de salida (denominada _O_), que contiene 10 nodos de salida. Si la red neuronal se usa para la clasificación, hay un nodo de salida por clase. La palabra clave **sigmoid** indica que la función de salida se aplica a la capa de salida.   
 
 ### Definición de varias capas ocultas: ejemplo de visión de equipo
 En el ejemplo siguiente se demuestra cómo definir una red neuronal ligeramente más compleja, con varias capas personalizadas ocultas.
@@ -363,10 +363,10 @@ En el ejemplo siguiente se demuestra cómo definir una red neuronal ligeramente 
 Este ejemplo muestra varias funciones del lenguaje de especificación de redes neuronales:
 
 -	La estructura tiene dos capas de entrada: _Pixels_ y _MetaData_.
--	La capa _Pixels_ es una capa de origen con dos agrupaciones de conexiones, con capas de destino, _ByRow_ y _ByCol_.
+-	La capa _Pixels_ es una capa de origen en dos agrupaciones de conexiones, con capas de destino, _ByRow_ y _ByCol_.
 -	Las capas _Gather_ y _Result_ son capas de destino en varias agrupaciones de conexiones.
 -	La capa de salida, _Result_, es una capa de destino en dos agrupaciones de conexiones; una con el segundo nivel oculto (Gather) como capa de destino, y la otra con la capa de entrada (MetaData) como capa de destino.
--	Las capas ocultas, _ByRow_ y _ByCol_, especifican conectividad filtrada mediante expresiones de predicado. Más concretamente, el nodo de _ByRow_ en [x, y] está conectado a los nodos en _Pixels_, que tiene la primera coordenada de índice igual a la primera coordenada del nodo, x. De forma similar, el nodo de ByCol en [x, y] está conectado a los nodos de _Pixels_, que tiene la segunda coordenada de índice dentro de una de las segundas coordenadas del nodo, y.
+-	Las capas ocultas, _ByRow_ y _ByCol_, especifican conectividad filtrada mediante expresiones de predicado. Más concretamente, el nodo de _ByRow_ en [x, y] está conectado a los nodos en _Pixels_, que tienen la primera coordenada de índice igual a la primera coordenada del nodo, x. De forma similar, el nodo de ByCol en [x, y] está conectado a los nodos de _Pixels_, que tienen la segunda coordenada de índice dentro de una de las segundas coordenadas del nodo, y.
 
 ### Defina una red de circunvolución para la clasificación multiclass: ejemplo de reconocimiento de dígitos
 La definición de la siguiente red está diseñada para reconocer los números y muestra algunas técnicas avanzadas para personalizar una red neuronal.
@@ -395,14 +395,14 @@ La definición de la siguiente red está diseñada para reconocer los números y
 -	La estructura tiene una sola capa de entrada: _Image_.
 -	La palabra clave **convolve** indica que _Conv1_ y _Conv2_ son capas convolucionales. Cada una de estas declaraciones de capa está seguida por una lista de los atributos de convolución.
 -	La red tiene una tercera capa oculta, _Hid3_, que está totalmente conectada a la segunda capa oculta, _Conv2_.
--	La capa de salida, _Digit_, está conectada solo a la tercera capa oculta, _Hid3_. La palabra clave **all** indica que la capa de salida está conectada por completo a _Hid3_.
+-	La capa de salida, _Digit_, está conectada solo a la tercera capa oculta, _Hid3_. La palabra clave **all** indica que la capa de salida está conectada por completo a _Hid3_..
 -	La aridad de la convolución es tres (la longitud de las tuplas **InputShape**, **KernelShape**, **Stride** y **Sharing**). 
--	El número de ponderaciones por kernel es _1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. O 26 * 50 = 1300_.
+-	El número de ponderaciones por kernel es _1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. O 26 * 50 = 1300_.
 -	Puede calcular los nodos en cada capa oculta del modo siguiente:
-	-	**NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
-	-	**NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
--	El número total de nodos puede calcularse usando la dimensionalidad declarada de la capa [50, 5, 5] del modo siguiente: _**MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5_
+	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
+	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
+-	El número total de nodos puede calcularse usando la dimensionalidad declarada de la capa [50, 5, 5] del modo siguiente: _**MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_
 -	Dado que **Sharing**[d] es falso solo para _d == 0_, el número de los kernel es _**MapCount** * **NodeCount**[0] = 10 * 5 = 50_. 
 
 
@@ -414,4 +414,4 @@ El lenguaje de Net# para personalizar la arquitectura de redes neuronales fue de
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

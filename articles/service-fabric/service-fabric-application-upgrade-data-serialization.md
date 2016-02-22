@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/02/2016"
+   ms.date="02/04/2016"
    ms.author="jesseb"/>
 
 
@@ -56,12 +56,15 @@ El contrato de datos es la solución recomendada para garantizar que sus datos s
 
 ## Pasos siguientes
 
-[Actualización de la aplicación de Service Fabric con Visual Studio](service-fabric-application-upgrade.md)
+El procedimiento de [actualización de aplicaciones usando Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.
 
-[Actualización de aplicaciones de Service Fabric con PowerShell](service-fabric-automate-powershell.md)
+El procedimiento de [actualización de aplicaciones usando Powershell](service-fabric-application-upgrade-tutorial-powershell.md) ofrece información para actualizar una aplicación mediante PowerShell.
 
-[Parámetros de actualización](service-fabric-application-upgrade-parameters.md)
+Puede controlar cómo se actualiza una aplicación usando [parámetros de actualización](service-fabric-application-upgrade-parameters.md).
 
-[Actualización manual y actualización con un paquete de diferencias](service-fabric-application-upgrade-advanced.md)
+Aprenda a usar funcionalidades avanzadas para actualizar una aplicación. Para ello, consulte los [temas avanzados](service-fabric-application-upgrade-advanced.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+Solucione problemas habituales en las actualizaciones de aplicaciones consultando los pasos que figuran en [Solución de problemas de las actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md).
+ 
+
+<!---HONumber=AcomDC_0211_2016-->
