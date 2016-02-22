@@ -1,23 +1,20 @@
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. In the mobile
-app settings, click **Quickstart** > **Cordova**. Under **Configure your client application**, select **Create a New App**,
-then click **Download**. This downloads a complete Cordova project for an app pre-configured to connect to your backend.
+1. Visite el [Portal de Azure]. Haga clic en **Examinar todo** > **Aplicaciones móviles** > el back-end que acaba de crear. En la configuración de la aplicación de móvil, haga clic en **Inicio rápido** > **Cordova**. En **Configurar la aplicación cliente**, seleccione **Crear aplicación nueva** y, a continuación, haga clic en **Descargar**. Se descargará un proyecto de Cordova completo para que una aplicación previamente configurada pueda conectarse al back-end.
 
-2. Unpack the downloading ZIP file to a directory on your hard drive.
+2. Desempaquete archivo ZIP descargado en un directorio del disco duro.
 
-3. Open the project using **Visual Studio**.  Click on **Open** > **Project/Solution...**.
+3. Abra el proyecto con **Visual Studio**. Haga clic en **Abrir** > **Proyecto/solución...**.
 
-4. Find the _sitename_.sln file and click **Open**.
+4. Encuentre el archivo _sitename_.sln y haga clic en **Abrir**.
 
-5. The default emulator is **Ripple - Nexus (Galaxy)**.  Click the drop-down arrow next to the emulator and select **Google Android Emulator**.
+5. El emulador predeterminado es **Ripple - Nexus (Galaxy)**. Haga clic en la flecha desplegable junto al emulador y seleccione **Emulador de Android de Google**.
 
-6. Click on **Google Android Emulator**.  The project will be built and then run.  You may see a network security warning from the
-Google Android Emulator requesting access to the network.  Eventually, the Google Android Emulator will be shown and your application will run.
+6. Haga clic en **Emulador de Android de Google**. Se generará y ejecutará el proyecto. Puede que vea una advertencia de seguridad de red del Emulador de Android de Google que solicita acceso a la red. Finalmente, se mostrará el Emulador de Android de Google y se ejecutará la aplicación.
 
-7. In the app, type meaningful text, such as _Complete the tutorial_ and then click the 'Add' button. This sends a POST request to the
-Azure backend you deployed earlier. The backend inserts data from the request is into the TodoItem SQL table, and returns information
-about the newly stored items back to the mobile app. The mobile app displays this data in the list.
+7. En la aplicación, escriba un texto significativo, como _Realizar el tutorial_ y luego haga clic en el botón "Agregar". Esto envía una solicitud POST al back-end de Azure implementado anteriormente. El back-end inserta datos de la solicitud que está en la tabla TodoItem SQL y devuelve información acerca de los elementos recién almacenados a la aplicación móvil. La aplicación móvil muestra estos datos en la lista.
 
     ![](./media/app-service-mobile-cordova-quickstart/quickstart-startup.png)
 
-[Azure Portal]: https://portal.azure.com/
+[Portal de Azure]: https://portal.azure.com/
+
+<!---HONumber=AcomDC_0211_2016-->

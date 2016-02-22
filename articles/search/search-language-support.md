@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="10/19/2015"
+   ms.date="02/09/2016"
    ms.author="jlembicz"/>
 
 # Creación de un índice para documentos en varios idiomas en Búsqueda de Azure
@@ -26,7 +26,7 @@ Desatar la potencia de los analizadores de lenguajes es tan fácil como establec
 
 A continuación se muestran capturas de pantalla de las hojas del Portal de Azure clásico para Búsqueda de Azure que permiten a los usuarios definir un esquema de índice. En esta hoja, los usuarios pueden crear todos los campos y establecer la propiedad de analizador para cada uno de ellos.
 
-> [AZURE.NOTE]Solo puede establecer un analizador de lenguaje durante la definición de campo, como en al crear un nuevo índice desde el principio de o al agregar un nuevo campo a un índice existente. Asegúrese de especificar completamente todos los atributos, incluido el analizador, al crear el campo. No podrá editar los atributos ni cambiar el tipo de analizador una vez definido el campo.
+> [AZURE.NOTE] Solo puede establecer un analizador de lenguaje durante la definición de campo, como en al crear un nuevo índice desde el principio de o al agregar un nuevo campo a un índice existente. Asegúrese de especificar completamente todos los atributos, incluido el analizador, al crear el campo. No podrá editar los atributos ni cambiar el tipo de analizador una vez definido el campo.
 
 1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com) y abra la hoja de servicio del servicio de búsqueda.
 2. Haga clic en **Agregar un índice** en la parte superior del panel de servicio para iniciar un nuevo índice, o abra un índice existente para establecer un analizador de nuevos campos que se va a agregar a un índice existente.
@@ -67,11 +67,11 @@ A veces se desconoce el idioma del agente que emite una consulta, en cuyo caso l
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2015-02-28`
 
-Si es desarrollador de. NET, tenga en cuenta que puede configurar los analizadores de idioma mediante el [SDK de Búsqueda de Azure para .NET](http://www.nuget.org/packages/Microsoft.Azure.Search/0.13.0-preview). La última versión incluye compatibilidad con los analizadores de idioma de Microsoft.
+Si es desarrollador de. NET, tenga en cuenta que puede configurar los analizadores de idioma mediante el [SDK de Búsqueda de Azure para .NET](http://www.nuget.org/packages/Microsoft.Azure.Search). La última versión incluye compatibilidad con los analizadores de idioma de Microsoft.
 
 <!-- Image References -->
 [1]: ./media/search-language-support/AnalyzerTab.png
 [2]: ./media/search-language-support/SelectAnalyzer.png
 [3]: ./media/search-language-support/IndexDefinition.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

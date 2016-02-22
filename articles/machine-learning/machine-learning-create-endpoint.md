@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="09/17/2015"
+	ms.date="02/10/2016"
 	ms.author="himad"/>
 
 
@@ -41,4 +41,4 @@ Esto permite a los usuarios de Aprendizaje automático de Azure crear servicios 
 Una vez creado el extremo, puede consumirlo a través de API sincrónicas, API de lotes y hojas de cálculo de Excel. Además de agregar extremos a través de esta interfaz de usuario, también puede usar las API de administración de extremos para agregar extremos mediante programación. Para obtener más información sobre el uso de servicios web de Aprendizaje automático, consulte [Cómo consumir un servicio web de Aprendizaje automático de Azure publicado](machine-learning-consume-web-services.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

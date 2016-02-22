@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/13/2015"
-	ms.author="georgem"/>
+	ms.date="02/09/2016"
+	ms.author="georgem;tomfitz"/>
 
 
 # Consideraciones de seguridad para el Administrador de recursos de Azure
@@ -147,6 +147,8 @@ El fragmento de plantilla siguiente estaría compuesto de construcciones de impl
         }
     }
 
+Para pasar un valor de un almacén de claves como parámetro durante la implementación de una plantilla, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
+
 ## Entidades de servicio para interacciones entre suscripciones
 
 Las identidades de servicio se representan por entidades de servicio en Active Directory. Las entidades de servicio estarán en el centro de la habilitación de escenarios clave para organizaciones de TI empresarial, integradores de sistemas (SI) y proveedores de servicios en la nube (CSV). En concreto, habrá casos de uso donde una de estas organizaciones necesite interactuar con la suscripción de uno de sus clientes.
@@ -170,11 +172,11 @@ Una combinación de una entidad de servicio y RBAC puede utilizarse para satisfa
 
 Muchos escenarios tendrán requisitos que especifican cómo se controla el tráfico a una o más instancias de máquina virtual en la red virtual. Puede usar un grupo de seguridad de red (NSG) para hacer esto como parte de una implementación de la plantilla ARM.
 
-Un grupo de seguridad de red es un objeto de nivel superior que está asociado a su suscripción. Un grupo de seguridad de red contiene reglas de control de acceso que permiten o deniegan el tráfico a instancias de máquina virtual. Las reglas de un grupo de seguridad de red pueden cambiarse en cualquier momento; los cambios se aplican a todas las instancias asociadas. Para usar un grupo de seguridad de red, debe tener una red virtual asociada a una región (ubicación). Los grupos de seguridad de red no son compatibles con redes virtuales asociadas a un grupo de afinidad. Si no dispone de una red virtual regional y quiere controlar el tráfico hacia los extremos, vea [Acerca de las listas de control de acceso (ACL) de red](../virtual-network/virtual-networks-acl.md).
+Un grupo de seguridad de red es un objeto de nivel superior que está asociado a su suscripción. Un grupo de seguridad de red contiene reglas de control de acceso que permiten o deniegan el tráfico a instancias de máquina virtual. Las reglas de un grupo de seguridad de red pueden cambiarse en cualquier momento; los cambios se aplican a todas las instancias asociadas. Para usar un grupo de seguridad de red, debe tener una red virtual asociada a una región (ubicación). Los grupos de seguridad de red no son compatibles con redes virtuales asociadas a un grupo de afinidad. Si no tiene una red virtual regional y desea controlar el tráfico a los extremos, consulte [Listas de control de acceso (ACL) de red?](../virtual-network/virtual-networks-acl.md).
 
 Puede asociar un grupo de seguridad de red a una máquina virtual o a una subred dentro de una red virtual. Cuando se asocia a una máquina virtual, el grupo de seguridad de red se aplica a todo el tráfico enviado y recibido por la instancia de máquina virtual. Cuando se aplica a una subred dentro de la red virtual, se aplica a todo el tráfico enviado y recibido por todas las instancias de máquina virtual de la subred. Una máquina virtual o una subred solo puede asociarse a 1 grupo de seguridad de red, pero cada grupo de seguridad de red puede contener hasta 200 reglas. Puede tener 100 grupos de seguridad de red por suscripción.
 
->[AZURE.NOTE]No se admiten ACL basadas en el extremo y grupos de seguridad de red en la misma instancia de máquina virtual. Si desea usar un grupo de seguridad de red y ya tiene un extremo del ACL, quite primero el extremo del ACL. Para obtener información acerca de cómo hacerlo, consulte [Administración de listas de control de acceso (ACL) para extremos mediante PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
+>[AZURE.NOTE]  No se admiten ACL basadas en el extremo y grupos de seguridad de red en la misma instancia de máquina virtual. Si desea usar un grupo de seguridad de red y ya tiene un extremo del ACL, quite primero el extremo del ACL. Para obtener información acerca de cómo hacerlo, consulte [Administración de listas de control de acceso (ACL) para extremos mediante PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
 ### Funcionamiento de los grupos de seguridad de red
 
@@ -306,7 +308,7 @@ Cada subred que se creó en una red virtual se asocia automáticamente a una tab
 
 En el momento de redactar este artículo, todavía no se admite [ExpressRoute](expressroute/expressroute-introduction.md) en el [Proveedor de recursos de red](virtual-network/resource-groups-networking.md) del Administrador de recursos de Azure. Si tiene una conexión de ExpressRoute entre la red local y Azure, puede habilitar BGP para propagar las rutas desde la red local a Azure una vez que ExpressRoute se admita en NRP. Estas rutas BGP se usan en la misma forma que las rutas predeterminadas y las rutas definidas por el usuario en cada subred de Azure. Para obtener más información, consulte [Introducción a ExpressRoute](expressroute/expressroute-introduction.md).
 
->[AZURE.NOTE]Cuando ExpressRoute se admita en NRP, podrá configurar el entorno de Azure para forzar la tunelización a través de la red local creando una ruta definida por el usuario para la subred 0.0.0.0/0 que use la puerta de enlace de VPN como próximo salto. Sin embargo, esto solo funciona si se utiliza una puerta de enlace de VPN, no ExpressRoute. Para ExpressRoute, la tunelización forzada se configura a través de BGP.
+>[AZURE.NOTE] Cuando ExpressRoute se admita en NRP, podrá configurar el entorno de Azure para forzar la tunelización a través de la red local creando una ruta definida por el usuario para la subred 0.0.0.0/0 que use la puerta de enlace de VPN como próximo salto. Sin embargo, esto solo funciona si se utiliza una puerta de enlace de VPN, no ExpressRoute. Para ExpressRoute, la tunelización forzada se configura a través de BGP.
 
 ### Rutas definidas por el usuario
 
@@ -323,7 +325,7 @@ Las subredes dependen de rutas predeterminadas hasta que una tabla de enrutamien
 2.	Ruta BGP (cuando se utiliza ExpressRoute)
 3.	Ruta predeterminada
 
->[AZURE.NOTE]Las rutas definidas por el usuario solo se aplican a las máquinas virtuales de Azure y servicios de nube. Por ejemplo, si quiere agregar un dispositivo virtual de firewall entre la red local y Azure, tendrá que crear una ruta definida por el usuario para las tablas de rutas de Azure que reenvíe todo el tráfico que va al espacio de direcciones local al dispositivo virtual. Sin embargo, el tráfico entrante desde el espacio de direcciones local se propagará a través de la puerta de enlace de VPN o circuito ExpressRoute directamente en el entorno de Azure, omitiendo el dispositivo virtual.
+>[AZURE.NOTE] Las rutas definidas por el usuario solo se aplican a las máquinas virtuales de Azure y servicios de nube. Por ejemplo, si quiere agregar un dispositivo virtual de firewall entre la red local y Azure, tendrá que crear una ruta definida por el usuario para las tablas de rutas de Azure que reenvíe todo el tráfico que va al espacio de direcciones local al dispositivo virtual. Sin embargo, el tráfico entrante desde el espacio de direcciones local se propagará a través de la puerta de enlace de VPN o circuito ExpressRoute directamente en el entorno de Azure, omitiendo el dispositivo virtual.
 
 ### Reenvío IP
 
@@ -333,8 +335,8 @@ La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tr�
 
 ## Pasos siguientes
 - Para comprender cómo configurar las entidades de seguridad con el acceso correcto para trabajar con recursos en su organización, vea [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
-- Si desea bloquear el acceso a un recurso, puede usar bloqueos de administración. Vea [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
+- Si desea bloquear el acceso a un recurso, puede usar bloqueos de administración. Consulte [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 - Para configurar el enrutamiento y el reenvío IP, vea [Creación de rutas y habilitación del reenvío IP en Azure](virtual-network/virtual-networks-udr-how-to.md). 
 - Para obtener información general sobre el control de acceso basado en roles, vea [Control de acceso basado en roles en el portal de Microsoft Azure](role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

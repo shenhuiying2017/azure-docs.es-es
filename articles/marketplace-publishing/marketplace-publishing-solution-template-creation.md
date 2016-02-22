@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="10/28/2015"
+      ms.date="02/06/2016"
       ms.author="hascipio; v-divte" />
 
 # Guía para crear una plantilla de solución en Azure Marketplace
@@ -54,7 +54,7 @@ También puede validar la experiencia de creación sin la implementación real p
 
 4. Copie y pegue la dirección URL en cualquier explorador y vea la experiencia del cliente del archivo createUiDefinition.json.
 
-  >[AZURE.TIP]Mientras los desarrolladores trabajan en la creación de las topologías de la plantilla de solución y en conseguir que se certifiquen, el departamento comercial, de marketing o legal de su empresa puede trabajar en el contenido de marketing y legal.
+  > [AZURE.TIP] Mientras los desarrolladores trabajan en la creación de las topologías de la plantilla de solución y en conseguir que se certifiquen, el departamento comercial, de marketing o legal de su empresa puede trabajar en el contenido de marketing y legal.
 
 ## Pasos siguientes
 Ahora que ya creó la plantilla de solución y envió el archivo zip con los archivos necesarios para la certificación, puede continuar y seguir las instrucciones de la [Guía de contenido de marketing de Marketplace](marketplace-publishing-push-to-staging.md) para preparar la oferta para pruebas en ensayo. O bien, para ver el conjunto completo de artículos de la publicación de Marketplace, consulte [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md).
@@ -74,4 +74,4 @@ Es posible que también le interesen los siguientes artículos relacionados:
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0211_2016-->

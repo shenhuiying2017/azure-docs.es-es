@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/09/2016"  
 	ms.author="juliako"/>
 
 
@@ -33,7 +33,8 @@ Este tema muestra cómo llevar a cabo las siguientes tareas de administración d
 - Lista de todos los recursos 
 - Lista de trabajos y recursos 
 - Lista de todas las directivas de acceso 
-- Enumerar todos los localizadores 
+- Enumerar todos los localizadores
+- Enumeración de grandes colecciones de entidades
 - Eliminación de un recurso 
 - Eliminación de un trabajo 
 - Eliminación de una directiva de acceso 
@@ -245,6 +246,47 @@ Tenga en cuenta que una ruta de acceso del localizador a un recurso solo es una 
 	    }
 	}
 
+## Enumeración de grandes colecciones de entidades
+
+Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. Debe usar Skip y Take al enumerar grandes colecciones de entidades.
+	
+La siguiente función recorre todos los trabajos en la cuenta de Servicios multimedia proporcionada. Servicios multimedia devuelve 1000 trabajos en la colección de trabajos. La función usa Skip y Take para asegurarse de que se enumeran todos los trabajos (en el caso de que tenga más de 1000 trabajos en su cuenta).
+	
+	static void ProcessJobs()
+	{
+	    try
+	    {
+	
+	        int skipSize = 0;
+	        int batchSize = 1000;
+	        int currentBatch = 0;
+	
+	        while (true)
+	        {
+	            // Loop through all Jobs (1000 at a time) in the Media Services account
+	            IQueryable _jobsCollectionQuery = _context.Jobs.Skip(skipSize).Take(batchSize);
+	            foreach (IJob job in _jobsCollectionQuery)
+	            {
+	                currentBatch++;
+	                Console.WriteLine("Processing Job Id:" + job.Id);
+	            }
+	
+	            if (currentBatch == batchSize)
+	            {
+	                skipSize += batchSize;
+	                currentBatch = 0;
+	            }
+	            else
+	            {
+	                break;
+	            }
+	        }
+	    }
+	    catch (Exception ex)
+	    {
+	        Console.WriteLine(ex.Message);
+	    }
+	}
 
 ##Eliminación de un recurso
 
@@ -339,4 +381,4 @@ En el ejemplo de código siguiente se muestra cómo obtener una referencia a una
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

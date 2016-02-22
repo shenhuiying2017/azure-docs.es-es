@@ -21,9 +21,9 @@
             }
         }
 
-    De esta forma se crea una variable de miembro para el almacenamiento del usuario actual y un método para administrar el proceso de autenticación. El usuario se autentica mediante el inicio de sesión en Facebook.
+    De esta forma se crea una variable de miembro para el almacenamiento del usuario actual y un método para administrar el proceso de autenticación. El usuario se autentica con el inicio de sesión de Twitter.
 
-    >[AZURE.NOTE]Si está usando un proveedor de identidades diferente al de Facebook, cambie el valor de <strong>MobileServiceAuthenticationProvider</strong> anterior por el valor de su proveedor</p>.</div>
+    >[AZURE.NOTE]Si está usando un proveedor de identidades diferente al de Twitter, cambie el valor de <strong>MobileServiceAuthenticationProvider</strong> anterior por el valor de su proveedor.</p> </div>
 
 2. Elimine o convierta en comentario el método **OnNavigatedTo** existente y reemplácelo por el siguiente método que administra el evento **Loaded** para la página.
 
@@ -50,4 +50,4 @@
 
    	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

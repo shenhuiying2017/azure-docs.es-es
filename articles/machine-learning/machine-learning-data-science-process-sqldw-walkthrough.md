@@ -3,7 +3,7 @@
 	description="Tecnología y procesos de análisis avanzado en acción"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,hangzh,weig"
+	authors="bradsev,hangzh-msft,wguo123"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016" 
-	ms.author="bradsev;hangzh;wguo123"/>
+	ms.date="02/05/2016" 
+	ms.author="bradsev;hangzh;weig"/>
 
 
 # Proceso de Cortana Analytics en acción: uso de Almacenamiento de datos SQL
@@ -28,7 +28,14 @@ El procedimiento sigue el flujo de trabajo del [proceso de Cortana Analytics (CA
 
 El conjunto de datos NYC Taxi Trips consta de aproximadamente 20 GB de archivos de valores separados por comas (CSV) comprimidos (aproximadamente, 48 GB sin comprimir), que registran más de 173 millones de carreras individuales y las tarifas pagadas por cada carrera. Cada registro de carrera incluye la hora y la ubicación de recogida y de entrega, el número de licencia de (del conductor) anónimo y el número de ida y vuelta incluye la ubicación de entrega y recogida y el tiempo, la número de licencia y el número de identificador único del taxi. Los datos cubren todos los viajes del año 2013 y se proporcionan en los dos conjuntos de datos siguientes para cada mes:
 
-1. El archivo **trip\_data.csv** contiene información detallada de las carreras, como el número de pasajeros, los puntos de recogida y destino, la duración de las carreras y la longitud del recorrido. Estos son algunos registros de ejemplo: medallion,hack\_license,vendor\_id,rate\_code,store\_and\_fwd\_flag,pickup\_datetime,dropoff\_datetime,passenger\_count,trip\_time\_in\_secs,trip\_distance,pickup\_longitude,pickup\_latitude,dropoff\_longitude,dropoff\_latitude 89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171 0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066 0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002 DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388 DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
+1. El archivo **trip\_data.csv** contiene información detallada de las carreras, como el número de pasajeros, los puntos de recogida y destino, la duración de las carreras y la longitud del recorrido. Estos son algunos registros de ejemplo:
+
+		medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
+		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
+		0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
+		0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
+		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
+		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 
 2. El archivo **trip\_fare.csv** contiene información detallada de la tarifa que se paga en cada carrera, como el tipo de pago, el importe de la tarifa, los suplementos e impuestos, las propinas y los peajes, y el importe total pagado. Estos son algunos registros de ejemplo:
 
@@ -51,7 +58,7 @@ Se formulan tres problemas de predicción basados en el valor *tip\_amount* para
 
 1. **Clasificación binaria**: para predecir si se pagó o no una propina tras una carrera, es decir, un valor de *tip\_amount* mayor que 0 USD es un ejemplo positivo, mientras que un valor de *tip\_amount* de 0 USD es un ejemplo negativo.
 
-2. **Clasificación con varias clases**: para predecir el intervalo de la propina pagada por la carrera. Dividimos *tip\_amount* en cinco ubicaciones o clases:
+2. **Clasificación con múltiples clases**: para predecir el intervalo de la propina de la carrera. Dividimos *tip\_amount* en cinco ubicaciones o clases:
 
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -66,14 +73,14 @@ Se formulan tres problemas de predicción basados en el valor *tip\_amount* para
 
 Para configurar el entorno de ciencia de datos de Azure, siga estos pasos.
 
-**Cree su propia cuenta de Almacenamiento de blobs de Azure**.
+**Cree su propia cuenta de Almacenamiento de blobs de Azure.**
 
 - Cuando aprovisiona su propio Almacenamiento de blobs de Azure, elija una ubicación geográfica para el Almacenamiento de blobs de Azure en la región **centro-sur de EE. UU.**, o lo más cerca posible de esta región, ya que es donde se almacenan los datos de NYC Taxi. Los datos se copian con AzCopy desde el contenedor de Almacenamiento de blobs público a un contenedor de su propia cuenta de almacenamiento. Cuanto más se acerque el Almacenamiento de blobs de Azure a la región centro-sur de EE. UU., más rápida se completará esta tarea (paso 4). 
 - Para crear su propia cuenta de almacenamiento de Azure, siga los pasos descritos en [Acerca de las cuentas de almacenamiento de Azure](storage-create-storage-account.md). Asegúrese de hacer anotaciones en los valores de las credenciales de la cuenta de almacenamiento siguientes, que necesitará más adelante en este tutorial. 
 
   - **Nombre de cuenta de almacenamiento**
   - **Clave de cuenta de almacenamiento**
-  - **Nombre del contenedor** (en donde los datos se van a almacenar en el Almacenamiento de blobs de Azure)
+  - **Nombre de contenedor** (en donde los datos se van a almacenar en el Almacenamiento de blobs de Azure)
 
 **Aprovisione la instancia de Almacenamiento de datos SQL de Azure.** Siga la documentación en [Creación de Almacenamiento de datos SQL](sql-data-warehouse-get-started-provision.md) para aprovisionar una instancia de Almacenamiento de datos SQL. Asegúrese de que hacer anotaciones en las credenciales de Almacenamiento de datos SQL siguientes que se usarán en los pasos posteriores.
  
@@ -114,7 +121,7 @@ Cuando se haya ejecutado correctamente, el directorio de trabajo actual cambia a
 
 ![][19]
 
-En su *-DestDir*, ejecute el siguiente script de PowerShell en modo de administrador:
+En *-DestDir*, ejecute el siguiente script de PowerShell en modo de administrador:
 
 	./SQLDW_Data_Import.ps1
 
@@ -350,7 +357,7 @@ Estas consultas proporcionan una comprobación rápida del número de filas y co
 	-- Report number of columns in table <nyctaxi_trip>
 	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = '<nyctaxi_trip>' AND table_schema = '<schemaname>'
 
-Debe obtener 173 179 759 filas y 14 columnas.
+**Salida:** debe obtener 173 179 759 filas y 14 columnas.
 
 ### Exploración: distribución de carreras por licencia
 
@@ -362,7 +369,7 @@ Esta consulta de ejemplo identifica las licencias (números de taxi) que han com
 	GROUP BY medallion
 	HAVING COUNT(*) > 100
 
-La consulta debe devolver 13 369 licencias.
+**Salida:** la consulta debe devolver una tabla con filas en las que se especifiquen las 13 369 licencias (taxis) y el número de carreras completadas por ellos en 2013. La última columna contiene el recuento del número de carreras realizadas.
 
 ### Exploración: distribución de carreras por medallion y hack\_license
 
@@ -373,6 +380,8 @@ Este ejemplo identifica las licencias (números de taxi) y los números de hack\
 	WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
 	GROUP BY medallion, hack_license
 	HAVING COUNT(*) > 100
+
+**Salida:** la consulta debe devolver una tabla con 13 369 filas en las que se especifiquen los 13 369 identificadores de vehículo/conductor que han realizado más de 100 carreras en 2013. La última columna contiene el recuento del número de carreras realizadas.
 
 ### Evaluación de la calidad de los datos: comprobar los registros con longitud o latitud incorrectas
 
@@ -387,9 +396,11 @@ En este ejemplo se investiga si alguno de los campos de longitud y latitud conti
 	OR    (pickup_longitude = '0' AND pickup_latitude = '0')
 	OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
+**Salida:** la consulta devuelve 837 467 carreras con campos de latitud o longitud no válidos.
+
 ### Exploración: distribución de carreras con propinas frente a sin propinas
 
-Este ejemplo busca el número de carreras en las que se han dado propinas frente a aquellas en las que no se han dado en un período de tiempo especificado (o en el conjunto de datos completo si se abarca todo el año). Esta distribución refleja la distribución de etiquetas binarias que se usará más adelante para el modelado de clasificación binaria.
+Este ejemplo busca el número de carreras en las que se han dado propinas frente a aquellas en las que no se han dado en un período de tiempo especificado (o en el conjunto de datos completo si se abarca todo el año, como se establece aquí). Esta distribución refleja la distribución de etiquetas binarias que se usará más adelante para el modelado de clasificación binaria.
 
 	SELECT tipped, COUNT(*) AS tip_freq FROM (
 	  SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
@@ -397,7 +408,7 @@ Este ejemplo busca el número de carreras en las que se han dado propinas frente
 	  WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
 	GROUP BY tipped
 
-La consulta debe devolver las siguientes frecuencias de propinas: 90 447 622 con propina y 82 264 709 sin propina.
+**Salida**: la consulta debe devolver las siguientes frecuencias de propinas para el año 2013: 90 447 622 con propina y 82 264 709 sin propina.
 
 ### Exploración: distribución por intervalos y clases de propinas
 
@@ -415,6 +426,16 @@ Este ejemplo calcula la distribución de los intervalos de propinas de un perío
 	WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
 	GROUP BY tip_class
 
+**Salida:**
+
+|tip\_class | tip\_freq |
+| --------- | -------|
+|1 | 82 230 915 |
+|2 | 6 198 803 |
+|3 | 1 932 223 |
+|0 | 82 264 625 |
+|4 | 85 765 |
+
 ### Exploración: proceso y comparación de la distancia de la carrera
 
 En este ejemplo se convierte la longitud y latitud de los puntos de recogida y destino a puntos geográficos de SQL, se calcula la distancia de la carrera mediante la diferencia de puntos geográficos de SQL y se devuelve una muestra aleatoria de los resultados de la comparación. En el ejemplo se limitan los resultados a coordenadas válidas usando solo la consulta de evaluación de calidad de datos tratada anteriormente.
@@ -430,7 +451,7 @@ En este ejemplo se convierte la longitud y latitud de los puntos de recogida y d
 	  DROP FUNCTION fnCalculateDistance
 	GO
 
-	-- User-defined function calculate the direct distance between two geographical coordinates.
+	-- User-defined function to calculate the direct distance  in mile between two geographical coordinates.
 	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
 	
 	RETURNS float
@@ -511,6 +532,16 @@ Este es un ejemplo para llamar a esta función para generar características en 
 	AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
 	AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
+**Salida:** esta consulta genera una tabla (con 2 803 538 filas) con las latitudes y longitud de los puntos de origen y destino y las distancias directas correspondientes en millas. Estos son los resultados de las tres primeras filas:
+
+|pickup\_latitude | pickup\_longitude | dropoff\_latitude |dropoff\_longitude | DirectDistance |
+|---| --------- | -------|-------| --------- | -------|
+|1 | 40,731804 | -74,001083 | 40,736622 | -73,988953 | 0,7169601222 |
+|2 | 40,715794 | -74,010635 | 40,725338 | -74,00399 | 0,7448343721 |
+|3 | 40,761456 | -73,999886 | 40,766544 | -73,988228 | 0,7037227967 |
+
+
+
 ### Preparar datos para la generación de modelos
 
 La siguiente consulta combina las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, genera una etiqueta de clasificación binaria **tipped**, una etiqueta de clasificación multiclase **tip\\_class** y extrae una muestra del conjunto de datos combinado completo. El muestreo se realiza mediante la recuperación de un subconjunto de los viajes en función del tiempo de recogida. Esta consulta se puede copiar y pegar directamente en el módulo [Lector](https://studio.azureml.net) del [Estudio de aprendizaje automático de Azure][reader] para la ingesta directa de datos de la instancia de Base de datos SQL en Azure. La consulta excluye los registros con coordenadas (0, 0) incorrectas.
@@ -536,7 +567,7 @@ Cuando esté listo para continuar con Aprendizaje automático de Azure, puede:
 2. Conservar los datos muestreados y de ingeniería que planea usar para la generación de modelos de una nueva tabla de Almacenamiento de datos SQL y usar la nueva tabla en el módulo [Lector][reader] de Aprendizaje automático de Azure. El script de PowerShell en el paso anterior se ha encargado de hacerlo. Puede leer directamente desde esta tabla en el módulo Lector. 
 
 
-## <a name="ipnb"></a>Exploración de datos y diseño de características en IPython Notebook
+## <a name="ipnb"></a>Exploración de datos e ingeniería de características en IPython Notebook
 
 En esta sección, se llevará a cabo la exploración de datos y la generación de características con consultas Python y SQL en el Almacenamiento de datos SQL creado anteriormente. Se han descargado un cuaderno de IPython Notebook de ejemplo denominado **SQLDW\_Explorations.ipynb** y un archivo de script de Python **SQLDW\_Explorations\_Scripts.py** en el directorio local. También están disponibles en [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). Estos dos archivos son idénticos en los scripts de Python. El archivo de script de Python se proporciona en caso de que no tenga un servidor de IPython Notebook. Estos dos archivos de Python de muestra están diseñados en **Python 2.7**.
 
@@ -556,7 +587,7 @@ Si ya ha configurado un área de trabajo de Aprendizaje automático de Azure, pu
 
 	![Diagrama 24][24]
 
-4. Arrastre y coloque el cuaderno de IPython Notebook de ejemplo para la página **árbol** del servicio IPython Notebook de Aprendizaje automático de Azure y haga clic en **Cargar**. A continuación, se cargará el cuaderno de IPython Notebook de ejemplo en el servicio IPython Notebook de Aprendizaje automático de Azure.
+4. Arrastre y coloque el cuaderno de IPython Notebook de ejemplo en la página **árbol** del servicio IPython Notebook de Aprendizaje automático de Azure y haga clic en **Cargar**. A continuación, se cargará el cuaderno de IPython Notebook de ejemplo en el servicio IPython Notebook de Aprendizaje automático de Azure.
 
 	![Diagrama 25][25]
 
@@ -933,4 +964,4 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

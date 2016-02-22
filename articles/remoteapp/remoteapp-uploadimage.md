@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="02/02/2016"
     ms.author="ericor" />
 
 
@@ -26,7 +26,7 @@ Ahora que ha creado la imagen de plantilla personalizada o que la actualizado co
 ## Antes de comenzar
 
 1.      Compruebe que la imagen personalizada cumple con los [requisitos de imagen](remoteapp-imagereqs.md) y los [requisitos de aplicación](remoteapp-appreqs.md).
-2.      Instale el [módulo de Azure PowerShell](../install-configure-powershell.md).
+2.      Instale el [módulo de Azure PowerShell](../powershell-install-configure.md).
 
 ## Procedimiento paso a paso para cargar una imagen personalizada
 
@@ -43,7 +43,7 @@ Ahora que ha creado la imagen de plantilla personalizada o que la actualizado co
 
 11.    Si la carga no se realiza correctamente debido a una interrupción de la red o algún factor similar, siempre puede reanudar el proceso de carga que comenzó. Para reanudar una carga, ejecute nuevamente el script con la misma línea de comando.
 
-> [AZURE.WARNING]No modifique nunca el script de carga. Se han implementado comprobaciones específicas para garantizar que la imagen cumple con los requisitos de imagen y los requisitos de aplicación.
+> [AZURE.WARNING] No modifique nunca el script de carga. Se han implementado comprobaciones específicas para garantizar que la imagen cumple con los requisitos de imagen y los requisitos de aplicación.
 
 ## Problemas comunes
 
@@ -51,4 +51,4 @@ Ahora que ha creado la imagen de plantilla personalizada o que la actualizado co
 - Nunca modifique el script: las validaciones existen para su comodidad.
 - Si el archivo vhd se bloquea durante la carga, cópielo o muévalo a una nueva ubicación e intente volver a cargarlo. Es posible que algunos procesos de Windows impidan la carga.  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

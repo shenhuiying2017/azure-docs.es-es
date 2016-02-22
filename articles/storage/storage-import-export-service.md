@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="02/09/2016"
 	ms.author="renash"/>
 
 
@@ -55,8 +55,12 @@ Cuando cree un trabajo de importación o de exportación, deberá tener también
 4.	**Destinos de almacenamiento de blobs:** los datos pueden cargarse o descargarse de blobs en bloques y blobs de página.
 5.	**Número de trabajos:** un cliente puede tener hasta 20 trabajos activos por cuenta de almacenamiento.
 6.	**Tamaño máximo de un trabajo:** el tamaño de un trabajo lo determina la capacidad de los discos duros utilizados y la cantidad máxima de datos que se pueden almacenar en una cuenta de almacenamiento. Cada trabajo puede incluir hasta 10 discos duros.
+7.  **Sistemas operativos compatibles:** el cliente puede usar uno de los siguientes sistemas operativos para preparar el disco duro con la herramienta de importación y exportación de Azure antes de enviar a Azure - Windows 7, Windows 8, Windows 8.1, Windows 10 *, Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2.  
 
-  >[AZURE.IMPORTANT] No se admiten unidades de disco duro externas que incorporen un adaptador USB integrado en este servicio. No prepare una unidad de disco duro externa. El disco que se encuentra dentro de la carcasa externa tampoco no se puede usar para importar datos. Use una unidad de disco duro **interna** SATA II/III de 3,5 pulgadas. Si no puede conectar el disco SATA directamente a la máquina, use un adaptador SATA a USB externo. Consulte la lista de adaptadores recomendados en la sección de preguntas más frecuentes.
+  > [AZURE.IMPORTANT] 
+    - Para obtener instrucciones especiales, consulte la [sección P+F](#frequently-asked-questions) si está usando una máquina de Windows 10 para preparar el disco duro.
+    
+    - External hard disk drives that come with an in built USB adaptor are not supported by this service. Please do not prepare an external HDD. The disk inside the external casing also cannot be used for importing data. Use a 3.5" SATA II/III **internal** hard disk drive. If you cannot connect the SATA disk directly to your machine, use an external SATA to USB adaptor. See the list of recommended adaptors in FAQ section.
 
 ## Crear un trabajo de importación en el Portal clásico##
 
@@ -173,6 +177,17 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 
 ### General
 
+**¿Cómo se prepara la unidad de disco duro en Windows 10?**
+  
+Siga las instrucciones a continuación cuando use Windows 10 para preparar la unidad de disco duro:
+ 
+- Habilite manualmente el cifrado de BitLocker en la unidad de disco duro que esté preparando para el servicio de importación y exportación de Azure. Haga clic con el botón derecho en la letra de la unidad de disco duro en el Explorador de archivos, seleccione "Activar BitLocker" y siga los pasos del asistente.  
+- Asegúrese de tener en cuenta la clave de recuperación.  
+- Cuando se le pida que elija el modo de cifrado, elija **Modo compatible (adecuado para unidades que se puedan mover del dispositivo)**  
+- Una vez completado el cifrado, ejecute la herramienta de importación y exportación de Azure para copiar datos en esta unidad de disco duro.   
+- Utilice el parámetro */bk* y especifique la clave de recuperación en este valor de parámetro.   
+- NO use los parámetros */format* y */encrypt*.  
+
 **¿Cuál es el precio del servicio de importación y exportación?**
 
 - Consulte la [página de precios](http://go.microsoft.com/fwlink/?LinkId=329033) para obtener información sobre los precios.
@@ -275,4 +290,4 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

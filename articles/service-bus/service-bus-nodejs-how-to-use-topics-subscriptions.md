@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 
@@ -53,7 +53,7 @@ Para usar el Bus de servicio, descargue el paquete Node.js de Azure. Este paquet
 	└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 	```
 
-3.  Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado la carpeta **node\_modules**. Dentro de dicha carpeta, busque el paquete **azure**, que contiene las bibliotecas necesarias para obtener acceso a los temas del bus de servicio.
+3.  Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado la carpeta **node\_modules**. Dentro de dicha carpeta, busque el paquete **azure**, que contiene las bibliotecas necesarias para obtener acceso a los temas del Bus de servicio.
 
 ### Importación del módulo
 
@@ -130,7 +130,7 @@ Se incluyen dos filtros que implementan la lógica de reintento con el SDK de Az
 
 Las suscripciones a temas también se crean con el objeto **ServiceBusService**. A las suscripciones se les asigna un nombre y pueden tener un filtro opcional que restrinja el conjunto de mensajes que pasan a su cola virtual.
 
-> [AZURE.NOTE]Las suscripciones son permanentes y seguirán existiendo hasta que se eliminen o se elimine el tema al que están asociadas. Si la aplicación contiene lógica para crear una suscripción, primero debe comprobar si esta ya existe utilizando el método **getSubscription**.
+> [AZURE.NOTE] Las suscripciones son permanentes y seguirán existiendo hasta que se eliminen o se elimine el tema al que están asociadas. Si la aplicación contiene lógica para crear una suscripción, primero debe comprobar si esta ya existe utilizando el método **getSubscription**.
 
 ### Creación de una suscripción con el filtro predeterminado (MatchAll)
 
@@ -152,7 +152,7 @@ El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter*
 
 Es posible agregar filtros a una suscripción utilizando el método **createRule** del objeto **ServiceBusService**. Este método le permite agregar nuevos filtros a una suscripción existente.
 
-> [AZURE.NOTE]Debido a que el filtro predeterminado se aplica automáticamente a todas las suscripciones nuevas, debe eliminar primero el filtro predeterminado, si no quiere que **MatchAll** invalide los demás filtros que especifique. Puede eliminar el filtro predeterminado utilizando el método **deleteRule** del objeto **ServiceBusService**.
+> [AZURE.NOTE] Debido a que el filtro predeterminado se aplica automáticamente a todas las suscripciones nuevas, debe eliminar primero el filtro predeterminado, si no quiere que **MatchAll** invalide los demás filtros que especifique. Puede eliminar el filtro predeterminado utilizando el método **deleteRule** del objeto **ServiceBusService**.
 
 En el ejemplo siguiente, se crea una suscripción denominada `HighMessages` con **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** personalizada cuyo valor sea mayor que 3:
 
@@ -312,11 +312,11 @@ Al eliminar un tema también se eliminan todas las suscripciones que estén regi
 
 Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte [Colas, temas y suscripciones][].
+-   Vea [Colas, temas y suscripciones][].
 -   Referencia de API para [Clase SqlFilter][].
 -   Visite el repositorio del [SDK de Azure para Node][] en GitHub.
 
-  [SDK de Azure para Node]: https://github.com/WindowsAzure/azure-sdk-for-node
+  [SDK de Azure para Node]: https://github.com/Azure/azure-sdk-for-node
   [Portal de Azure clásico]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
@@ -327,4 +327,4 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
   [Aplicación web Node.js con almacenamiento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

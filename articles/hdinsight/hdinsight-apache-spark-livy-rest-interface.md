@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/16/2016" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 
@@ -175,9 +175,11 @@ Lleve a cabo los siguiente pasos.
 
 ### Creación y ejecución de aplicaciones
 
-* [Creación de una aplicación independiente mediante Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Crear una aplicación independiente con Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-### Extensiones
+### Herramientas y extensiones
+
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones Scala Spark)](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -187,4 +189,4 @@ Lleve a cabo los siguiente pasos.
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

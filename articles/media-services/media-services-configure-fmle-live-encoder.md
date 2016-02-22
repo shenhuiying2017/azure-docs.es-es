@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="02/03/2016"   
 	ms.author="juliako"/>
 
 #Uso del codificador FMLE para enviar una transmisión por secuencias en directo de velocidad de bits única
@@ -56,12 +56,12 @@ Asegúrese de que la opción **Iniciar el nuevo canal ahora** esté seleccionada
 
 3. Haga clic en **Crear canal**. ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
->[AZURE.NOTE]El canal puede tardar hasta 20 minutos en iniciarse.
+>[AZURE.NOTE] El canal puede tardar hasta 20 minutos en iniciarse.
 
 
 Mientras se inicia el canal puede [configurar el codificador](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
 
->[AZURE.IMPORTANT]Tenga en cuenta que la facturación comienza tan pronto como el canal entra en un estado Listo. Para obtener más información, consulte [Estados del canal](media-services-manage-live-encoder-enabled-channels.md#states).
+>[AZURE.IMPORTANT] Tenga en cuenta que la facturación comienza tan pronto como el canal entra en un estado Listo. Para obtener más información, consulte [Estados del canal](media-services-manage-live-encoder-enabled-channels.md#states).
 
 ##<a id=configure_fmle_rtmp></a>Configuración del codificador FMLE
 
@@ -127,7 +127,7 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 	Para obtener redundancia adicional, repita estos pasos con la dirección URL de entrada secundaria.
 8. Seleccione **Conectar**.
 
->[AZURE.IMPORTANT]Antes de hacer clic en **Conectar**, **debe** asegurarse de que el canal está listo. Además, asegúrese de no dejar el canal en un estado Listo sin una fuente de contribución de entrada durante más de 15 minutos.
+>[AZURE.IMPORTANT] Antes de hacer clic en **Conectar**, **debe** asegurarse de que el canal está listo. Además, asegúrese de no dejar el canal en un estado Listo sin una fuente de contribución de entrada durante más de 15 minutos.
 
 ##Reproducción de pruebas
   
@@ -141,7 +141,7 @@ Si se recibe un error, se deberá restablecer el canal y ajustar la configuraci�
 
 ##Creación de un programa
 
-1. Una vez confirmada la reproducción de canales, cree un programa. En la pestaña **Directo** de la herramienta AMSE, haga clic con el botón derecho dentro del área de programas y seleccione **Crear programa nuevo**.  
+1. Una vez confirmada la reproducción de canales, cree un programa. En la pestaña **Directo** de la herramienta AMSE, haga clic con el botón derecho dentro del área de programas y seleccione **Crear programa**.  
 
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
 
@@ -151,7 +151,7 @@ Si se recibe un error, se deberá restablecer el canal y ajustar la configuraci�
   
 	Nota: la creación de programas tarda menos que la creación de canales.
  
-5. Cuando el programa esté en ejecución, confirme la reproducción. Para ello, haga clic con el botón derecho en el programa y vaya a **Reproducir los programas** y seleccione **con el Reproductor multimedia de Azure**.
+5. Cuando el programa esté en ejecución, confirme la reproducción. Para ello, haga clic con el botón derecho en el programa y vaya a **Reproducir los programas**. Luego, seleccione **con el Reproductor multimedia de Azure**.
 6. Una vez confirmada, haga clic con el botón derecho de nuevo en el programa y seleccione **Copiar la dirección URL de salida en el portapapeles** (o recupere esta información desde la opción **Información y configuración del programa** en el menú). 
 
 La transmisión está ahora preparada para insertarse en un reproductor o distribuirse a una audiencia para su visualización en directo.
@@ -170,4 +170,4 @@ Consulte el tema [Solución de problemas](media-services-troubleshooting-live-st
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

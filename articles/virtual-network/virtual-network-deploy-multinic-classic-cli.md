@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #Implementar máquinas virtuales con varias NIC (clásica) mediante la CLI de Azure
@@ -45,7 +45,7 @@ Las máquinas virtuales back-end dependen de la creación de los recursos mencio
 
 ### Paso 1: inicio del script
 
-Puede descargar el script de Bash completo que haya usado [aquí](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/multinic.sh). Siga los pasos siguientes para cambiar el script para que funcione en su entorno.
+Puede descargar el script de Bash completo que haya usado [aquí](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Siga los pasos siguientes para cambiar el script para que funcione en su entorno.
 
 1. Cambie los valores de las variables siguientes en función de su grupo de recursos existente implementado anteriormente en [Requisitos previos](#Prerequisites).
 
@@ -174,4 +174,4 @@ Ahora que descargó y cambió el script según sus necesidades, ejecute el scrip
 		info:    Adding Data-Disk
 		info:    vm disk attach-new command OK
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

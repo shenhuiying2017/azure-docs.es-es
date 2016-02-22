@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Actualización a la versión preliminar 1.0 del SDK de .NET para Búsqueda de Azure | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
-   description="Actualización a la versión preliminar 1.0 del SDK de .NET para Búsqueda de Azure"
+   pageTitle="Actualización a la versión 1.1 del SDK de .NET para Búsqueda de Azure | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
+   description="Actualización a la versión 1.1 del SDK de .NET para Búsqueda de Azure"
    services="search"
    documentationCenter=""
    authors="brjohnstmsft"
@@ -13,21 +13,21 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="01/29/2016"
+   ms.date="02/09/2016"
    ms.author="brjohnst"/>
 
-# Actualización a la versión preliminar 1.0 del SDK de .NET para Búsqueda de Azure
+# Actualización a la versión 1.1 del SDK de .NET para Búsqueda de Azure
 
-Si usa la versión preliminar 0.13.0 o posterior del [SDK de .NET para Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx), este artículo le ayudará a actualizar la aplicación para que use la última versión, a saber, la versión preliminar 1.0.
+Si usa la versión preliminar 1.0.2 o una anterior del [SDK de .NET para Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx), este artículo le ayudará a actualizar la aplicación a la primera versión disponible con carácter general, la versión 1.1.
 
 Para obtener un tutorial más general del SDK que incluya ejemplos, vea [Cómo usar Búsqueda de Azure desde una aplicación .NET](search-howto-dotnet-sdk.md).
 
-La versión preliminar 1.0 del SDK de .NET para Búsqueda de Azure contiene varios cambios importantes con respecto a la versión anterior (versión preliminar 0.13.0). La mayoría son de menor importancia, por lo que cambiar el código solo precisará del mínimo esfuerzo. Vea [Pasos para actualizar](#UpgradeSteps), a fin de obtener instrucciones sobre cómo cambiar el código para usar la nueva versión del SDK.
+La versión 1.1 del SDK de .NET para Búsqueda de Azure contiene varios cambios respecto a las versiones anteriores a la versión preliminar 1.0.0 (incluidas la versión preliminar 0.13.0 y anteriores). La mayoría son de menor importancia, por lo que cambiar el código solo precisará del mínimo esfuerzo. Vea [Pasos para actualizar](#UpgradeSteps), a fin de obtener instrucciones sobre cómo cambiar el código para usar la nueva versión del SDK.
 
 <a name="WhatsNew"></a>
-## Novedades en la versión preliminar 1.0
+## Novedades de la versión 1.1
 
-La versión preliminar 1.0 remite a la misma versión de la API de REST que las versiones anteriores del SDK de .NET para Búsqueda de Azure (2015-02-28), por lo que esta versión no presenta ninguna característica nueva del servicio. Sin embargo, hay nuevas características de la serialización del cliente.
+La versión 1.1 remite a la misma versión de la API de REST que las versiones anteriores del SDK de .NET para Búsqueda de Azure (28-02-2015), por lo que esta versión no presenta ninguna característica nueva del servicio. Sin embargo, hay nuevas características de la serialización del cliente.
 
 El SDK usa JSON.NET para serializar y deserializar documentos. La nueva versión del SDK es compatible con la serialización personalizada a través de `JsonConverter` y `IContractResolver` (vea la [documentación de JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) para obtener más detalles). Esto puede ser útil cuando desea adaptar una clase de modelo existente de la aplicación para usarla con Búsqueda de Azure y otros escenarios más avanzados. Por ejemplo, con la serialización personalizada, puede:
 
@@ -44,23 +44,25 @@ Además de la serialización personalizada, el nuevo SDK también admite la seri
 
 En primer lugar, actualice la referencia de NuGet para `Microsoft.Azure.Search` mediante la Consola del Administrador de paquetes NuGet, o bien haga clic con el botón derecho en las referencias del proyecto y seleccione "Administrar paquetes NuGet..." en Visual Studio.
 
-> [AZURE.NOTE] Asegúrese de que es capaz de ver paquetes de versión preliminar; para ello, seleccione "Incluir versión preliminar" si usa Visual Studio o mediante el modificador `-IncludePrerelease` si utiliza la Consola del Administrador de paquetes.
+Una vez que NuGet ha descargado los nuevos paquetes y sus dependencias, recompile el proyecto.
 
-Una vez que NuGet ha descargado los nuevos paquetes y sus dependencias, recompile el proyecto. Deben aparecer errores de compilación similares a los siguientes:
+Si antes usaba las versiones preliminares 1.0.0, 1.0.1 o 1.0.2, la compilación debería ejecutarse correctamente y estará lista para comenzar a usarse.
+
+De lo contrario, si usaba la versión preliminar 0.13.0 u otra anterior, verá errores de compilación como los siguientes:
 
     Program.cs(137,56,137,62): error CS0117: 'Microsoft.Azure.Search.Models.IndexBatch' does not contain a definition for 'Create'
     Program.cs(137,99,137,105): error CS0117: 'Microsoft.Azure.Search.Models.IndexAction' does not contain a definition for 'Create'
     Program.cs(146,41,146,54): error CS1061: 'Microsoft.Azure.Search.IndexBatchException' does not contain a definition for 'IndexResponse' and no extension method 'IndexResponse' accepting a first argument of type 'Microsoft.Azure.Search.IndexBatchException' could be found (are you missing a using directive or an assembly reference?)
     Program.cs(163,13,163,42): error CS0246: The type or namespace name 'DocumentSearchResponse' could not be found (are you missing a using directive or an assembly reference?)
 
-El paso siguiente consiste en corregir los errores de compilación uno a uno. La mayoría requiere cambiar algunos nombres de clase y método cuyo nombre ha cambiado en el SDK. La [lista de cambios importantes de la versión preliminar 1.0](#ListOfChanges) contiene una lista de estos cambios de nombre.
+El paso siguiente consiste en corregir los errores de compilación uno a uno. La mayoría requiere cambiar algunos nombres de clase y método cuyo nombre ha cambiado en el SDK. La [lista de cambios importantes de la versión 1.1](#ListOfChanges) contiene una lista de estos cambios de nombre.
 
-Si usa clases personalizadas para modelar los documentos, y esas clases tienen propiedades de tipos primitivos que no aceptan valores null (por ejemplo, `int` o `bool` en C#), hay una corrección de errores en la versión preliminar 1.0 del SDK que debe tener en cuenta. Vea la sección [Correcciones de errores en la versión preliminar 1.0](#BugFixes) para más información.
+Si usa clases personalizadas para modelar los documentos, y esas clases tienen propiedades de tipos primitivos que no aceptan valores nulos (por ejemplo, `int` o `bool` en C#), hay una corrección de errores en la versión 1.1 del SDK que debe tener en cuenta. Para obtener más información, consulte la sección [Correcciones de errores en la versión 1.1](#BugFixes).
 
-Por último, una vez que haya solucionado los errores de compilación, puede realizar cambios a la aplicación para aprovechar las ventajas de la nueva funcionalidad, si lo desea. La característica de serialización personalizada del nuevo SDK se detalla en [Novedades en la versión preliminar 1.0](#WhatsNew).
+Por último, una vez que haya solucionado los errores de compilación, puede realizar cambios a la aplicación para aprovechar las ventajas de la nueva funcionalidad, si lo desea. La característica de serialización personalizada del nuevo SDK se detalla en [Novedades de la versión 1.1](#WhatsNew).
 
 <a name="ListOfChanges"></a>
-## Lista de cambios importantes de la versión preliminar 1.0
+## Lista de cambios importantes de la versión 1.1
 
 La siguiente lista se ordena por la probabilidad de que el cambio afecte al código de aplicación.
 
@@ -114,7 +116,7 @@ Puede cambiarlo por este para corregir cualquier error de compilación:
 <a name="OperationMethodChanges"></a>
 ### Cambios del método de operación
 
-Cada operación del SDK de .NET para Búsqueda de Azure se expone como un conjunto de sobrecargas de método para los autores de llamadas sincrónicas y asincrónicas. Las firmas y la factorización de estas sobrecargas de método han cambiado en la versión preliminar 1.0.
+Cada operación del SDK de .NET para Búsqueda de Azure se expone como un conjunto de sobrecargas de método para los autores de llamadas sincrónicas y asincrónicas. Las firmas y la factorización de estas sobrecargas de método han cambiado en la versión 1.1.
 
 Por ejemplo, la operación de "Obtener estadísticas de índice" en versiones anteriores del SDK expone estas firmas:
 
@@ -137,7 +139,7 @@ En `IndexOperationsExtensions`:
         this IIndexOperations operations,
         string indexName);
 
-Las firmas de método para la misma operación en la versión preliminar 1.0 tienen este aspecto:
+Las firmas de método para la misma operación en la versión 1.1 tienen este aspecto:
 
 En `IIndexesOperations`:
 
@@ -163,7 +165,7 @@ En `IndexesOperationsExtensions`:
         string indexName,
         SearchRequestOptions searchRequestOptions = default(SearchRequestOptions));
 
-A partir de la versión preliminar 1.0, el SDK de .NET para Búsqueda de Azure organiza los métodos de operación de forma diferente:
+A partir de la versión 1.1, el SDK de .NET para Búsqueda de Azure organiza los métodos de operación de forma diferente:
 
  - Los parámetros opcionales ahora se modelan como predeterminados en lugar de como sobrecargas de método adicionales. Esto reduce el número de sobrecargas de método, en ocasiones drásticamente.
  - Los métodos de extensión ahora ocultan muchos de los detalles superfluos de HTTP del autor de llamada. Por ejemplo, las versiones anteriores del SDK devuelven un objeto de respuesta con un código de estado HTTP, que a menudo no necesitará comprobar, ya que los métodos de operación lanzan `CloudException` para cualquier código de estado que indica un error. Los nuevos métodos de extensión solo devuelven objetos de modelo, lo que le ahorra la molestia de tener que desencapsularlos en el código.
@@ -276,7 +278,7 @@ La clase `CloudException` se ha desplazado desde el espacio de nombres `Hyak.Com
 
 El tipo de la propiedad `Credentials` ha cambiado de `SearchCredentials` a su clase base, `ServiceClientCredentials`. Si necesita acceder a `SearchCredentials` de `SearchIndexClient` o `SearchServiceClient`, use la nueva propiedad `SearchCredentials`.
 
-En versiones anteriores del SDK, `SearchServiceClient` y `SearchIndexClient` tenían constructores con un parámetro `HttpClient`. Estos se han reemplazado por constructores que obtienen `HttpClientHandler` y una matriz de objetos `DelegatingHandler`. Esto facilita instalar controladores personalizados para procesar previamente las solicitudes HTTP si es necesario.
+En versiones anteriores del SDK, `SearchServiceClient` y `SearchIndexClient` tenían constructores con un parámetro `HttpClient`. Estos se han reemplazado con constructores que obtienen `HttpClientHandler` y una matriz de objetos `DelegatingHandler`. Esto facilita instalar controladores personalizados para procesar previamente las solicitudes HTTP si es necesario.
 
 Por último, los constructores que obtuvieron `Uri` y `SearchCredentials` han cambiado. Por ejemplo, si tiene código con este aspecto:
 
@@ -324,7 +326,7 @@ Los nombres de interfaz del grupo de operaciones han cambiado por coherencia con
 Es poco probable que este cambio afecte al código, a menos que cree simulacros de estas interfaces a efectos de pruebas.
 
 <a name="BugFixes"></a>
-## Correcciones de errores en la versión preliminar 1.0
+## Corrección de errores en la versión 1.1
 
 Se produjo un error en las versiones anteriores del SDK de .NET para Búsqueda de Azure en relación con la serialización de clases de modelos personalizados. El error puede producirse si ha creado una clase de modelo personalizado con una propiedad de un tipo de valor que no acepta valores NULL.
 
@@ -332,13 +334,13 @@ Se produjo un error en las versiones anteriores del SDK de .NET para Búsqueda d
 
 Cree una clase de modelo personalizado con una propiedad de tipo de valor que no acepta valores NULL. Por ejemplo, agregue una propiedad `UnitCount` pública de tipo `int` en lugar de `int?`.
 
-Si indexa un documento con el valor predeterminado de ese tipo (por ejemplo, 0 para `int`), el campo será null en Búsqueda de Azure. Si quiere buscar posteriormente ese documento, la llamada `Search` producirá `JsonSerializationException` indicando que no se puede convertir `null` a `int`.
+Si indexa un documento con el valor predeterminado de ese tipo (por ejemplo, 0 para `int`), el campo será null en Búsqueda de Azure. Si desea buscar posteriormente ese documento, la llamada `Search` producirá `JsonSerializationException` indicando que no se puede convertir `null` a `int`.
 
 Además, los filtros pueden no funcionar según lo esperado, ya que se escribió null en el índice, en lugar del valor previsto.
 
 ### Detalles de corrección
 
-Hemos corregido este problema en la versión preliminar 1.0 del SDK. Ahora, si tiene una clase de modelo similar a la siguiente:
+Corregimos este problema en la versión 1.1 del SDK. Ahora, si tiene una clase de modelo similar a la siguiente:
 
     public class Model
     {
@@ -357,13 +359,13 @@ Esto no es solo una inquietud hipotética: imagine un escenario donde agregar un
 
 Por este motivo, recomendamos utilizar tipos que aceptan valores null en las clases de modelo como procedimiento recomendado.
 
-Para obtener más detalles sobre este error y la corrección, consulte [este problema en GitHub](https://github.com/Azure/azure-sdk-for-net/issues/1063).
+Para obtener más detalles sobre este error y la corrección, vea [este problema en GitHub](https://github.com/Azure/azure-sdk-for-net/issues/1063).
 
 ## Conclusión
-Si necesita más detalles sobre el uso del SDK de .NET para Búsqueda de Azure, consulte nuestras [instrucciones](search-howto-dotnet-sdk.md) actualizadas recientemente y los artículos de [introducción](search-get-started-dotnet.md).
+Si necesita más detalles sobre el uso del SDK de .NET para Búsqueda de Azure, vea nuestras [instrucciones](search-howto-dotnet-sdk.md) actualizadas recientemente y los artículos de [introducción](search-get-started-dotnet.md).
 
 Agradecemos sus comentarios sobre el SDK. Si tiene problemas, no dude en pedirnos ayuda en el [foro de MSDN sobre Búsqueda de Azure](https://social.msdn.microsoft.com/Forums/azure/es-ES/home?forum=azuresearch). Si encuentra un error, puede presentar un problema en el [repositorio de GitHub del SDK de .NET para Azure](https://github.com/Azure/azure-sdk-for-net/issues). Asegúrese de que prefija el título del problema con "SDK de búsqueda: ".
 
 Gracias por usar Búsqueda de Azure.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

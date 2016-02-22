@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #Implementar máquinas virtuales con varias NIC (clásica) mediante PowerShell
@@ -31,7 +31,7 @@ Puesto que en este momento no puede tener máquinas virtuales con una sola NIC, 
 
 ## Requisitos previos
 
-Antes de implementar los servidores back-end, debe implementar el servicio en la nube principal con todos los recursos necesarios para este escenario. Como mínimo, debe crear una red virtual con una subred para el back-end. Consulte [Crear una red virtual mediante PowerShell](virtual-networks-create-vnet-classic-ps.md) para obtener información sobre cómo implementar una red virtual.
+Antes de implementar los servidores back-end, debe implementar el servicio en la nube principal con todos los recursos necesarios para este escenario. Como mínimo, debe crear una red virtual con una subred para el back-end. Consulte [Crear una red virtual mediante PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md) para obtener información sobre cómo implementar una red virtual.
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -45,7 +45,7 @@ Las máquinas virtuales back-end dependen de la creación de los recursos mencio
 
 ### Paso 1: inicio del script
 
-Puede descargar el script de PowerShell completo que haya usado [aquí](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/multinic.ps1). Siga los pasos siguientes para cambiar el script para que funcione en su entorno.
+Puede descargar el script de PowerShell completo que ha usado [aquí](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Siga los pasos siguientes para cambiar el script para que funcione en su entorno.
 
 1. Cambie los valores de las variables siguientes en función de su grupo de recursos existente implementado anteriormente en [Requisitos previos](#Prerequisites).
 
@@ -171,4 +171,4 @@ Ahora que descargó y cambió el script según sus necesidades, ejecute el scrip
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

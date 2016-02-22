@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016" 
+	ms.date="02/02/2016" 
 	ms.author="elizapo"/>
 
 # Creación de una imagen de plantilla personalizada para Azure RemoteApp
@@ -46,7 +46,7 @@ Necesita llevar a cabo los pasos siguientes antes de crear el servicio:
 - [Suscríbase](https://azure.microsoft.com/services/remoteapp/) a RemoteApp.
 - Cree una cuenta de usuario en Active Directory para usar la cuenta de servicio RemoteApp. Restrinja los permisos para esta cuenta de forma que solamente pueda unir máquinas al dominio. Consulte [Configuración de Azure Active Directory para RemoteApp](remoteapp-ad.md) para obtener más información.
 - Recopile información sobre la red local: dirección IP de información y detalles de dispositivos VPN.
-- Instale el módulo de [Azure PowerShell](../install-configure-powershell.md).
+- Instale el módulo de [Azure PowerShell](../powershell-install-configure.md).
 - Recopile información sobre los usuarios a los que quiera conceder acceso. Esta información puede ser información de cuentas de Microsoft o información de cuentas de trabajo de Active Directory de usuarios.
 
 
@@ -142,4 +142,4 @@ Ahora que ya tiene su imagen de plantilla personalizada, es necesario que la car
 - [Creación de una colección en la nube de RemoteApp](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

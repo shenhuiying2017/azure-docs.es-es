@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -44,7 +44,7 @@ Para buscar estos valores, vaya al Portal de administración de Azure, seleccion
 
 Para empezar a programar con Servicios multimedia, tiene que crear una instancia de **CloudMediaContext** que representa el contexto del servidor. **CloudMediaContext** incluye referencias a colecciones importantes, como trabajos, recursos, archivos, directivas de acceso y localizadores.
 
->[AZURE.NOTE]La clase **CloudMediaContext** no es segura para subprocesos. Debe crear un nuevo elemento CloudMediaContext por subproceso o por conjunto de operaciones.
+>[AZURE.NOTE] La clase **CloudMediaContext** no es segura para subprocesos. Debe crear un nuevo elemento CloudMediaContext por subproceso o por conjunto de operaciones.
 
 
 CloudMediaContext tiene cinco sobrecargas de constructor. Se recomienda usar constructores que toman **MediaServicesCredentials** como un parámetro. Para obtener más información, consulte **Reutilización de los tokens del Servicio de control de acceso** que aparece a continuación.
@@ -196,4 +196,4 @@ Para recuperar los valores de conexión de la configuración, use la clase **Con
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

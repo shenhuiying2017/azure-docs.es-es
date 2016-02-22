@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -24,7 +24,8 @@
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 
-Este artículo le guiará por los pasos necesarios para crear y conectar redes virtuales mediante el modelo de implementación clásica (también conocido como administración de servicios). Si está buscando un modelo de implementación diferente para esta configuración, use las pestañas para seleccionar el artículo que quiera.
+Este artículo le guiará por los pasos necesarios para crear y conectar redes virtuales mediante el modelo de implementación clásica (también conocido como administración de servicios). Si quiere conectar redes virtuales creadas con el modelo de implementación del Administrador de recursos, consulte  
+[Configuración de una conexión de red virtual a red virtual para redes virtuales en la misma suscripción mediante el Administrador de recursos de Azure y PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
 **Información sobre los modelos de implementación de Azure**
 
@@ -223,4 +224,4 @@ Una vez completada la conexión, puede agregar máquinas virtuales a las redes v
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

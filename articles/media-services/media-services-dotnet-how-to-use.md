@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/05/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Desarrollo de Servicios multimedia con .NET
@@ -103,4 +103,4 @@ En este punto, está listo para iniciar el desarrollo de una aplicación de Serv
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="01/20/2016"
-   ms.author="ryanwi; mani-ramaswamy"/>
+   ms.author="ryanwi"/>
 
 
 # Ciclo de vida de la aplicación de Service Fabric
@@ -34,7 +34,7 @@ Los roles del modelo de servicio son:
 
 
 ## Desarrollo
-1. Un *desarrollador de servicios* desarrolla los distintos tipos de servicios con el modelo de programación [Actores confiables](service-fabric-reliable-actors-introduction.md) o [Servicios confiables](../service-fabric/service-fabric-reliable-services-introduction.md).
+1. Un *desarrollador de servicios* desarrolla los distintos tipos de servicios con el modelo de programación [Actores confiables](service-fabric-reliable-actors-introduction.md) o [Servicios confiables](service-fabric-reliable-services-introduction.md).
 2. Un *desarrollar de servicio* describe, mediante declaración, los tipos de servicio desarrollados en un archivo de manifiesto de servicio que consta de uno o más paquetes de código, configuración y datos.
 3. Un *desarrollador de aplicaciones* luego crea una aplicación con distintos tipos de servicio.
 4. Un *desarrollador de aplicaciones* describe, mediante declaración, el tipo de aplicación en un manifiesto de aplicación a través de la referencia a los manifiestos de servicio de los servicios constituyentes y anulan y parametrizan de manera adecuada las distintas configuraciones de ajuste e implementación de los servicios constituyentes.
@@ -113,10 +113,10 @@ Consulte [Implementación de una aplicación](service-fabric-deploy-remove-appli
 Para obtener más información sobre cómo desarrollar, probar y administrar aplicaciones y servicios de Service Fabric, consulte:
 
 - [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-- [Reliable Services](../service-fabric/service-fabric-reliable-services-introduction.md)
+- [Reliable Services](service-fabric-reliable-services-introduction.md)
 - [Implementar una aplicación](service-fabric-deploy-remove-applications.md)
 - [Actualización de aplicaciones](service-fabric-application-upgrade.md)
 - [Información general sobre Testability](service-fabric-testability-overview.md)
 - [Ejemplo de ciclo de vida de aplicaciones basadas en REST](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="02/05/2016"
    ms.author="alkohli"/>
 
 # Implementar una matriz virtual de StorSimple: Configurar un servidor de archivos (versión preliminar)
@@ -95,6 +95,10 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image8.png)
 
+	> [AZURE.NOTE]
+	> 
+	> Asegúrese de que su matriz virtual está en su propia unidad organizativa (UO) de Active Directory y de que no se le aplica ningún objeto de directiva de grupo (GPO).
+
 1.  Configure el servidor proxy web (de manera opcional). Aunque la configuración del proxy web es opcional, tenga en cuenta que, si usa un proxy web, solo puede configurarlo aquí.
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image9.png)
@@ -127,7 +131,7 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
 
     1.  Introduzca la **Clave de registro del servicio** que obtuvo en [Paso 2: Obtener la clave de registro del servicio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para la matriz virtual de StorSimple.
 
-    2.  Si no es el primer dispositivo que va a registrar en este servicio, debe proporcionar la **Clave de cifrado de datos del servicio**. Esta clave se necesita junto con la clave de registro del servicio para registrar dispositivos adicionales en el servicio StorSimple Manager. Para obtener más información, consulte para obtener la [clave de cifrado de datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) en la interfaz de usuario web local.
+    2.  Si no es el primer dispositivo que va a registrar en este servicio, debe proporcionar la **Clave de cifrado de datos del servicio**. Esta clave se necesita junto con la clave de registro del servicio para registrar dispositivos adicionales en el servicio StorSimple Manager. Para más información, consulte cómo obtener la [clave de cifrado de datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) en la interfaz de usuario web local.
 
     3.  Haga clic en **Registrar**. Se reiniciará el dispositivo. Debe esperar de 2 a 3 minutos antes de que el dispositivo se registre correctamente. Una vez que se haya reiniciado el dispositivo, irá a la página de inicio de sesión.
 
@@ -211,7 +215,7 @@ Ahora, necesitará conectarse a los recursos compartidos que creó en el paso an
 
 #### Para conectarse al recurso compartido
 
-1.  Presione ![](./media/storsimple-ova-deploy3-fs-setup/image22.png) + R. En la ventana Ejecutar, especifique el *\<file server name>* como la ruta de acceso, reemplace *nombre del servidor de archivos* con el nombre del dispositivo que asignó a su servidor de archivos. Haga clic en **OK**.
+1.  Presione ![](./media/storsimple-ova-deploy3-fs-setup/image22.png) + R. En la ventana Ejecutar, especifique el *\<file server name>* como ruta de acceso, reemplace *nombre del servidor de archivos* por el nombre del dispositivo que asignó a su servidor de archivos. Haga clic en **OK**.
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image23.png)
 
@@ -231,4 +235,4 @@ Mire el vídeo para ver cómo puede configurar y registrar una matriz virtual de
 
 Obtenga más información acerca de usar la interfaz de usuario web local para [administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

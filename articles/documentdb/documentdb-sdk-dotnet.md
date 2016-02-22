@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/09/2016" 
 	ms.author="ryancraw"/>
 
 # SDK de DocumentDB
@@ -26,7 +26,7 @@
 
 ##SDK para .NET de DocumentDB
 
-<table> <tr><td>**Descarga**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr> <tr><td>**Documentación**</td><td>[documentación de referencia del SDK de .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr> <tr><td>**Ejemplos**</td><td>[ejemplos de código .NET](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr> <tr><td>**Introducción**</td><td>[Introducción al SDK de .NET de DocumentDB](documentdb-get-started.md)</td></tr> <tr><td>**Versión de Framework compatible actualmente**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr> </table></br>
+<table> <tr><td>**Descarga**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr> <tr><td>**Documentación **</td><td>[documentación de referencia del SDK de .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr> <tr><td>**Ejemplos**</td><td>[ejemplos de código .NET](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr> <tr><td>**Introducción**</td><td>[Introducción al SDK de .NET de DocumentDB](documentdb-get-started.md)</td></tr> <tr><td>**Versión de Framework compatible actualmente**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr> </table></br>
 
 ## Notas de la versión
 
@@ -35,7 +35,7 @@
     - Operador Take para habilitar el comportamiento de SELECT TOP en LINQ
     - Operador CompareTo para habilitar las comparaciones de intervalos de cadenas
     - Operadores conditional (?) y coalesce (??)
-  - **[Corregido]** ArgumentOutOfRangeException al combinar la proyección del modelo con Where-In en la consulta de linq. [n.º 81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+  - **[Corregido]** ArgumentOutOfRangeException al combinar la proyección Model con Where-In en la consulta de LINQ [n.º 81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="1.5.1"/>[1\.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
  - **[Corregido]** Si Select no es la última expresión, el proveedor LINQ suponía que no había ninguna proyección y generaba SELECT * incorrectamente. [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
@@ -78,9 +78,9 @@
   - Compatibilidad del proveedor LINQ para OrderBy() u OrderByDescending()
   - IndexingPolicy para admitir Order By 
   
-		**NB: Posible cambio brusco** 
+		**NB: Possible breaking change** 
   
-    	Si tiene un código existente que aprovisiona colecciones con una directiva de indexación personalizada, habrá que actualizar el código existente para admitir la nueva clase IndexingPolicy. Si no tiene ninguna directiva de indexación personalizada, este cambio no le afectará.
+    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - Compatibilidad para las particiones de datos mediante las nuevas clases HashPartitionResolver y RangePartitionResolver y el IPartitionResolver
@@ -95,7 +95,7 @@
 Se produjo un cambio del nombre de paquete de NuGet entre la vista previa y la disponibilidad general. Pasamos de **Microsoft.Azure.Documents.Client** a **Microsoft.Azure.DocumentDB** <br/>
 
 
-### <a name="0.9.x-preview"/>[0\.9.x-Preview](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
+### <a name="0.9.x-preview"/>[0\.9.x-preview](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
 - SDK de vista previa [obsoleto]
 
 ## Fechas de lanzamiento y de retirada
@@ -112,19 +112,7 @@ Todas las versiones del SDK de Azure DocumentDB para .NET anteriores a la versi�
  
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.5.2](#1.5.2) | 14 de noviembre de 2015 |--- 
-| [1\.5.1](#1.5.1) | 23 de octubre de 2015 |---
-| [1\.5.0](#1.5.0) | 05 de agosto de 2015 |---
-| [1\.4.1](#1.4.1) | 25 de agosto de 2015 |---
-| [1\.4.0](#1.4.0) | 13 de agosto de 2015 |---
-| [1\.3.0](#1.3.0) | 05 de agosto de 2015 |---
-| [1\.2.0](#1.2.0) | 06 de julio de 2015 |--- 
-| [1\.1.0](#1.1.0) | 30 de abril de 2015 |--- 
-| [1\.0.0](#1.0.0) | 08 de abril de 2015 | 0 de febrero de 9 
-| [0\.9.3-prelease](#0.9.x-preview) | 12 de marzo de 2015 | 29 de febrero 2016 
-| [0\.9.2-prelease](#0.9.x-preview) | Enero de 2015 | 29 de febrero de 2016 
-| [0\.9.1-prelease](#0.9.x-preview) | 13 de octubre de 2014 | 29 de febrero de 2016 
-| [0\.9.0-prelease](#0.9.x-preview) | 21 de agosto de 2014 | 29 de febrero 2016
+| [1\.5.2](#1.5.2) | 14 de noviembre de 2015 |--- | [1\.5.1](#1.5.1) | 23 de octubre de 2015 |---| [1\.5.0](#1.5.0) | 05 de agosto de 2015 |---| [1\.4.1](#1.4.1) | 25 de agosto de 2015 |---| [1\.4.0](#1.4.0) | 13 de agosto de 2015 |---| [1\.3.0](#1.3.0) | 05 de agosto de 2015 [1\.2.0](#1.2.0) | 06 de julio de 2015 |--- | [1\.1.0](#1.1.0) | 30 de abril de 2015 |--- | [1\.0.0](#1.0.0) | 08 de abril de 2015 | 0 de febrero de 9 | [0\.9.3-prelease](#0.9.x-preview) | 12 de marzo de 2015 | 29 de febrero 2016 | [0\.9.2-prelease](#0.9.x-preview) | Enero de 2015 | 29 de febrero de 2016 | [.9.1-prelease](#0.9.x-preview) | 13 de octubre de 2014 | F29 de febrero de 2016 | [0\.9.0-prelease](#0.9.x-preview) | 21 de agosto de 2014 | 29 de febrero 2016
 
 ## P+F
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -133,4 +121,4 @@ Todas las versiones del SDK de Azure DocumentDB para .NET anteriores a la versi�
 
 Para más información sobre DocumentDB, vea la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

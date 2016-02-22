@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL
@@ -88,4 +88,4 @@ La replicación geográfica estándar está disponible para las bases de datos S
 
 La replicación geográfica activa está disponible para bases de datos Premium. Esta función está diseñada para aplicaciones de escritura intensiva con los requisitos de recuperación más exigentes. Con la replicación geográfica activa, puede crear hasta cuatro bases de datos secundarias legibles en servidores situados en regiones diferentes. Puede iniciar la conmutación por error a cualquiera de las bases de datos secundarias del mismo modo que con la replicación geográfica estándar. Además, la replicación geográfica activa puede utilizarse para los escenarios de actualización o reubicación de la aplicación, así como para el equilibrio de cargas de trabajo de solo lectura. Vea la sección [Diseño para la continuidad del negocio](sql-database-business-continuity-design.md) para obtener más información sobre cómo configurar la replicación geográfica y la sección [Recuperación tras una interrupción](sql-database-disaster-recovery.md) para obtener más información sobre cómo realizar la conmutación por error a la base de datos secundaria. Vea la sección [Actualización de la aplicación sin tiempo de inactividad](sql-database-business-continuity-application-upgrade.md) para obtener más información sobre cómo implementar la actualización de la aplicación sin tiempo de inactividad.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

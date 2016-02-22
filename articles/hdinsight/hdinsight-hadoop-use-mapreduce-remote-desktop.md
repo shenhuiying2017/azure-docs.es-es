@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 # Uso de MapReduce de Hadoop en HDInsight con Escritorio remoto
@@ -41,7 +41,7 @@ Una vez conectado al escritorio para el clúster de HDInsight, siga estos pasos 
 
 1. Desde el escritorio de HDInsight, inicie la **línea de comandos de Hadoop**. Se abrirá un nuevo símbolo del sistema en el directorio **c:\\apps\\dist\\hadoop-número de versión>**.
 
-	> [AZURE.NOTE]El número de versión cambia cuando se actualiza Hadoop. La variable de entorno **HADOOP\_HOME** puede usarse para encontrar la ruta de acceso. Por ejemplo, `cd %HADOOP_HOME%` cambiará los directorios al directorio de Hadoop, sin que sea necesario conocer el número de versión.
+	> [AZURE.NOTE] El número de versión cambia cuando se actualiza Hadoop. La variable de entorno **HADOOP\_HOME** puede usarse para encontrar la ruta de acceso. Por ejemplo, `cd %HADOOP_HOME%` cambiará los directorios al directorio de Hadoop, sin que sea necesario conocer el número de versión.
 
 2. Para usar el comando de **Hadoop** para ejecutar un trabajo de MapReduce de ejemplo, utilice el siguiente comando:
 
@@ -49,7 +49,7 @@ Una vez conectado al escritorio para el clúster de HDInsight, siga estos pasos 
 
 	Se inicia la clase **wordcount**, incluida en el archivo **hadoop-mapreduce-examples.jar** del directorio actual. Como entrada, utiliza el documento ****wasb://example/data/gutenberg/davinci.txt** y la salida se almacena en: ****wasb:///example/data/WordCountOutput**.
 
-	> [AZURE.NOTE]Para obtener más información acerca de este trabajo de MapReduce y los datos de ejemplo, consulte <a href="hdinsight-use-mapreduce.md">Uso de MapReduce en Hadoop de HDInsight</a>.
+	> [AZURE.NOTE] Para obtener más información acerca de este trabajo de MapReduce y los datos de ejemplo, consulte <a href="hdinsight-use-mapreduce.md">Uso de MapReduce en Hadoop de HDInsight</a>.
 
 2. El trabajo emite detalles cuando se procesa y devuelve información similar a la siguiente cuando finaliza el trabajo:
 
@@ -64,7 +64,7 @@ Una vez conectado al escritorio para el clúster de HDInsight, siga estos pasos 
 
 	Se deberían mostrar dos archivos, **\_SUCCESS** y **part-r-00000**. El archivo **part-r-00000** contiene la salida de este trabajo.
 
-	> [AZURE.NOTE]Algunos trabajos de MapReduce pueden dividir los resultados entre varios archivos **part-r-####**. Si es así, utilice el sufijo #### para indicar el orden de los archivos.
+	> [AZURE.NOTE] Algunos trabajos de MapReduce pueden dividir los resultados entre varios archivos **part-r-####**. Si es así, utilice el sufijo #### para indicar el orden de los archivos.
 
 4. Para ver la salida, use el comando siguiente:
 
@@ -96,4 +96,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -1,10 +1,16 @@
-<properties pageTitle="Conectar con base de datos SQL mediante SQL Server Management Studio en Azure RemoteApp | Microsoft Azure" description="Utilice este tutorial para conocer más información acerca de la utilización de SQL Server Management Studio en Azure RemoteApp para mejorar la seguridad y el rendimiento al conectarse a una base de datos SQL" services="sql-database" documentationCenter="" authors="adhurwit" manager="" tags=""//>
+<properties 
+	pageTitle="Conéctese a la Base de datos SQL con SQL Server Management Studio en Azure RemoteApp | Microsoft Azure" 
+	description="Use este tutorial para aprender a utilizar SQL Server Management Studio en Azure RemoteApp para optimizar la seguridad y rendimiento al conectarse a la Base de datos SQL"
+	services="sql-database" 
+	documentationCenter=""
+	authors="adhurwit" 
+	manager=""/>
 
 <tags 
 	ms.service="sql-database" 
 	ms.workload="data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article" 
 	ms.date="01/20/2016" 
 	ms.author="adhurwit"/>
@@ -14,7 +20,7 @@
 ## Introducción  
 Este tutorial le muestra cómo utilizar SQL Server Management Studio (SSMS) en Azure RemoteApp para conectarse a una base de datos SQL. Le guiará a través del proceso de configuración de SQL Server Management Studio en Azure RemoteApp, le explicará sus ventajas y le mostrará las características de seguridad que puede utilizar en Azure Active Directory.
 
-**Tiempo estimado para completar el tutorial:** 45 minutos
+**Tiempo estimado para completar el tutorial:** 45 minutos.
 
 ## SSMS en Azure RemoteApp
 
@@ -51,7 +57,7 @@ Utilice la imagen "Windows Server Remote Desktop Session Host Windows Server 201
 
 ### 2\. Instale SSMS desde SQL Express
 
-Vaya a la nueva máquina virtual y navegue hasta esta página de descarga: [Microsoft ® SQL Server ® 2014 Express](https://www.microsoft.com/es-ES/download/details.aspx?id=42299)
+Vaya a la nueva VM y navegue hasta esta página de descarga: [Microsoft ® SQL Server ® 2014 Express](https://www.microsoft.com/es-ES/download/details.aspx?id=42299)
 
 Hay una opción para descargar solo SSMS. Después de la descarga, vaya al directorio de instalación y ejecute el programa de instalación para instalar SSMS.
 
@@ -66,7 +72,7 @@ En el escritorio de la máquina virtual hay un script de PowerShell denominado V
 
 Cuando finalice sysprep, apagará la máquina virtual.
 
-Para obtener más información acerca de la creación de una imagen de Azure RemoteApp, consulte: [How to create a RemoteApp template image in Azure](http://blogs.msdn.com/b/rds/archive/2015/03/17/how-to-create-a-remoteapp-template-image-in-azure.aspx)
+Para obtener más información acerca de la creación de una imagen de Azure RemoteApp, consulte: [How to create a RemoteApp template image in Azure (Cómo crear una imagen de plantilla de RemoteApp en Azure)](http://blogs.msdn.com/b/rds/archive/2015/03/17/how-to-create-a-remoteapp-template-image-in-azure.aspx)
 
 
 ### 4\. Capture la imagen
@@ -137,7 +143,7 @@ Cuando vaya a un usuario de Azure Active Directory, a continuación, puede ir a 
 
 Después de completar todos los pasos anteriores, podrá ejecutar el cliente de Azure RemoteApp y el inicio de sesión con un usuario asignado. Se le presentará SSMS como una de sus aplicaciones y podrá ejecutarla como lo haría si la hubiera instalado en el equipo con acceso al servidor SQL de Azure.
 
-Para obtener más información sobre cómo realizar la conexión a la base de datos SQL, consulte [Conexión a la Base de datos SQL con SQL Server Management Studio y realización de una consulta de T-SQL de ejemplo](sql-database-connect-query-ssms.md).
+Para más información sobre cómo realizar la conexión a la base de datos SQL, consulte [Conexión a la Base de datos SQL con SQL Server Management Studio y realización de una consulta de T-SQL de ejemplo](sql-database-connect-query-ssms.md).
 
 
 Eso es todo por ahora. ¡Disfrute!
@@ -152,4 +158,4 @@ Eso es todo por ahora. ¡Disfrute!
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

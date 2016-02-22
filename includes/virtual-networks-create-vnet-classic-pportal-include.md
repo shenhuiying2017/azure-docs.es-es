@@ -1,11 +1,11 @@
-## Cómo crear una red virtual clásica en el Portal de vista previa de Azure
+## Cómo crear una red virtual clásica en el Portal de Azure
 
 Para crear una red virtual clásica basada en el escenario anterior, siga estos pasos.
 
 1. Desde un explorador, vaya a http://portal.azure.com y, si es necesario, inicie sesión con su cuenta de Azure.
 2. Haga clic en **NUEVO** > **Redes** > **Red virtual**, observe que en la lista **Seleccionar un modelo de implementación** ya se muestra **Clásica**, y, a continuación, haga clic en **Crear**, tal como se muestra en la figura siguiente.
 
-	![Crear red virtual en el portal de vista previa](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
+	![Creación de una red virtual en el Portal de Azure](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
 
 3. En la hoja **Red Virtual**, escriba el **Nombre** de la red virtual y, a continuación, haga clic en **Espacio de direcciones**. Configure los valores del espacio de direcciones de la red virtual y su primera subred, a continuación, haga clic en **Aceptar**. En la siguiente figura se muestra la configuración del bloque CIDR de este escenario.
 
@@ -33,6 +33,6 @@ Para crear una red virtual clásica basada en el escenario anterior, siga estos 
 
 10. Haga clic en **Subredes** > **Agregar**, a continuación, escriba un **Nombre** y especifique un **Intervalo de direcciones (bloque CIDR)** para la subred y después haga clic en **Aceptar**. En la siguiente figura se muestra la configuración del escenario actual.
 
-	![Crear red virtual en el portal de vista previa](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
+	![Creación de una red virtual en el Portal de Azure](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

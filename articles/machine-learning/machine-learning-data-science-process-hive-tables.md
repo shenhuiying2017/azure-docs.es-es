@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/08/2016"
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Envío de consultas de Hive a clústeres de Hadoop de HDInsights en la tecnología y procesos de análisis avanzado 
@@ -41,7 +41,7 @@ Las consultas de Hive se pueden enviar mediante el uso de las siguientes aplicac
 * **Editor de Hive**
 * Scripts de **PowerShell**
 
-Las consultas de Hive son similares a SQL. Los usuarios familiarizados con SQL pueden encontrar útil la <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">Hoja de referencia rápida de SQL a Hive</a>.
+Las consultas de Hive son similares a SQL. A los usuarios familiarizados con SQL pueden encontrar la <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">Hoja de referencia rápida de SQL a Hive</a>.
 
 Al enviar una consulta de subárbol, también puede controlar el destino del resultado de las consultas de subárbol, ya sea en la pantalla o en un archivo local del nodo principal o en un blob de Azure.
 
@@ -78,7 +78,7 @@ Cuando la consulta de subárbol es más complicada y tiene varias líneas, no re
 
 #### Suprimir la impresión de pantalla del estado de progreso de las consultas de subárbol
 
-De forma predeterminada, una vez que se envía la consulta de subárbol de la consola de la línea de comandos de Hadoop, el progreso del trabajo de asignación/reducción se imprimirá en pantalla. Para suprimir la impresión de la pantalla del progreso del trabajo de asignación/reducción, puede usar el argumento `-S` (distingue mayúsculas de minúsculas) en la línea de comandos de la siguiente manera:
+De forma predeterminada, una vez que se envía la consulta de subárbol de la consola de la línea de comandos de Hadoop, el progreso del trabajo de asignación/reducción se imprimirá en pantalla. Para suprimir la impresión de la pantalla de progreso del trabajo de asignación/reducción, puede utilizar el argumento `-S` (distingue entre mayúsculas y minúsculas) en la línea de comandos de la siguiente manera:
 
 	hive -S -f "<path to the .hql file>"
 	hive -S -e "<Hive queries>"
@@ -118,7 +118,7 @@ El resultado de la consulta de subárbol se puede ver en el almacenamiento de bl
 
 Los usuarios también pueden usar la consola de consultas (editor de subárbol) escribiendo la dirección URL con el formato
 
-*https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor*
+*https://&#60;Hadoop nombreDeClúster>.azurehdinsight.net/Home/HiveEditor*
 
 en un explorador web. Tenga en cuenta que deberá indicar las credenciales de clúster de Hadoop para iniciar sesión. Además, puede [enviar trabajos de Hive mediante PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
 
@@ -126,15 +126,15 @@ en un explorador web. Tenga en cuenta que deberá indicar las credenciales de cl
 ##<a name="hive-dataexploration"></a>Exploración de datos
 A continuación presentamos algunos scripts de subárbol que se pueden usar para explorar los datos de las tablas de subárbol.
 
-1. Obtener el número de observaciones por partición `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
+1. Obtención del número de observaciones por partición `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
 
 2. Obtener el número de observaciones por día `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
 
-3. Obtener los niveles de una columna de categorías `SELECT  distinct <column_name> from <databasename>.<tablename>`
+3. Obtención de los niveles de una columna de categorías `SELECT  distinct <column_name> from <databasename>.<tablename>`
 
-4. Obtener el número de niveles de combinación de dos columnas de categorías `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
+4. Obtención del número de niveles de combinación de dos columnas de categorías `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
 
-5. Obtener la distribución para columnas numéricas `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
+5. Obtención de la distribución para columnas numéricas `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 
 6. Extraer registros de la combinación de dos tablas
 
@@ -167,13 +167,13 @@ A continuación presentamos algunos scripts de subárbol que se pueden usar para
 
 En esta sección se describen maneras de generar características mediante consultas de subárbol.
 
-> [AZURE.NOTE]En las consultas de subárbol de esta sección se supone que los datos se han cargado en las tablas de subárbol de los clústeres Hadoop de HDInsight de Azure. De no ser así, siga el proceso para [crear y cargar datos en tablas de Hive](machine-learning-data-science-hive-tables.md) a fin de cargar datos en tablas de Hive en primer lugar.
+> [AZURE.NOTE] En las consultas de subárbol de esta sección se supone que los datos se han cargado en las tablas de subárbol de los clústeres Hadoop de HDInsight de Azure. De no ser así, siga el proceso para [crear y cargar datos en tablas de Hive](machine-learning-data-science-hive-tables.md) a fin de cargar datos en tablas de Hive en primer lugar.
 
 Una vez que haya generado características adicionales, puede agregarlas como columnas a la tabla existente o crear una nueva tabla con las características adicionales y la clave principal, que se pueden combinar a continuación con la tabla original.
 
 1. [Generación de características basada en frecuencia](#hive-frequencyfeature)
 2. [Riesgos de las variables de categorías en la clasificación binaria](#hive-riskfeature)
-3. [Extraer características del campo de fecha y hora](#hive-datefeatures)
+3. [Extraer características de campos de fecha y hora](#hive-datefeatures)
 4. [Extraer características del campo de texto](#hive-textfeatures)
 5. [Calcular distancia entre las coordenadas GPS](#hive-gpsdistance)
 
@@ -238,17 +238,17 @@ En esta consulta, si *&#60;datetime field>* sigue un patrón de tipo *03/26/2015
 		select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
 		from hivesampletable limit 1;
 
-La tabla *hivesampletable* de esta consulta viene preinstalada en todos los clústeres de Hadoop de HDInsight de Azure de forma predeterminada al aprovisionarse estos.
+La tabla *hivesampletable* de esta consulta viene preinstalada en todos los clústeres de Hadoop de HDInsight de Azure de forma predeterminada cuando se aprovisionan los clústeres.
 
 
-###<a name="hive-textfeatures"></a>Extraer características de campos de texto
+###<a name="hive-textfeatures"></a>Extracción de características de campos de texto
 
 Cuando la tabla de subárbol tiene un campo de texto que contiene una cadena de palabras delimitadas por espacios, la consulta siguiente extrae la longitud de la cadena y el número de palabras de la cadena.
 
     	select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
 		from <databasename>.<tablename>;
 
-###<a name="hive-gpsdistance"></a>Calcular distancias entre conjuntos de coordenadas GPS
+###<a name="hive-gpsdistance"></a>Cálculo de la distancia entre conjuntos de coordenadas de GPS
 
 La consulta proporcionada en esta sección puede aplicarse directamente a los datos de carreras de taxi de Nueva York. El propósito de esta consulta es mostrar cómo aplicar una función matemática incrustada en el subárbol para generar características.
 
@@ -280,7 +280,7 @@ Se puede encontrar una lista completa de las UDF incrustadas de Hive en la secci
 
 La configuración de parámetros predeterminados del clúster de subárbol podría no ser adecuada para las consultas de subárbol y los datos que estas consultas procesan. En esta sección se describen algunos parámetros que los usuarios pueden ajustar y que mejoran el rendimiento de las consultas de subárbol. Los usuarios necesitan agregar el parámetro que optimiza las consultas antes de las consultas de procesamiento de datos.
 
-1. **Espacio de montón de Java**: Para las consultas que implican la combinación de grandes conjuntos de datos o el procesamiento de largos registros, un error habitual es **quedarse sin espacio en el montón**. Esto se puede ajustar estableciendo los parámetros *mapreduce.map.java.opts* y *mapreduce.task.io.sort.mb* en los valores deseados. Aquí tiene un ejemplo:
+1. **Espacio de montón de Java**: para las consultas que implican la combinación de grandes conjuntos de datos, o el procesamiento de largos registros, un error habitual es **quedarse sin espacio en el montón**. Esto se puede ajustar estableciendo los parámetros *mapreduce.map.java.opts* y *mapreduce.task.io.sort.mb* en los valores deseados. Aquí tiene un ejemplo:
 
 		set mapreduce.map.java.opts=-Xmx4096m;
 		set mapreduce.task.io.sort.mb=-Xmx1024m;
@@ -288,7 +288,7 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 
 	Este parámetro asigna 4 GB de memoria al espacio de montón de Java y también hace que la ordenación sea más eficiente al asignar más memoria para él. Es buena idea jugar con estas asignaciones si no hay ningún error de trabajo relacionado con el espacio en el montón.
 
-2. **Tamaño de bloque de DFS**: Este parámetro establece la unidad más pequeña de datos que almacena el sistema de archivos. Por ejemplo, si el tamaño de bloque DFS es 128 MB, a continuación, los datos de un tamaño menor que 128 MB, que también será el tamaño máximo, se almacenará en un solo bloque, mientras que a los datos mayores de 128 MB se les asignará bloques adicionales. Al elegir un tamaño de bloque muy pequeño se producirán grandes sobrecargas en Hadoop puesto que el nodo de nombre tiene que procesar muchas más solicitudes para buscar el bloque relevante relacionado con el archivo. Una configuración recomendada al tratar con datos de gigabytes (o mayores) es:
+2. **Tamaño de bloque de DFS**: este parámetro establece la unidad más pequeña de datos que el sistema de archivos almacena. Por ejemplo, si el tamaño de bloque DFS es 128 MB, a continuación, los datos de un tamaño menor que 128 MB, que también será el tamaño máximo, se almacenará en un solo bloque, mientras que a los datos mayores de 128 MB se les asignará bloques adicionales. Al elegir un tamaño de bloque muy pequeño se producirán grandes sobrecargas en Hadoop puesto que el nodo de nombre tiene que procesar muchas más solicitudes para buscar el bloque relevante relacionado con el archivo. Una configuración recomendada al tratar con datos de gigabytes (o mayores) es:
 
 		set dfs.block.size=128m;
 
@@ -296,7 +296,7 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 
 		set hive.auto.convert.join=true;
 
-4. **Especificación del número de asignadores a Hive**: Aunque Hadoop permite al usuario establecer el número de reductores, este no suele establecer el número de asignadores. Un truco que permite cierto grado de control sobre este número es elegir las variables de Hadoop, *mapred.min.split.size* y *mapred.max.split.size*, ya que el tamaño de cada una de las tareas de asignación se determina mediante:
+4. **Especificación del número de asignadores a Hive**: aunque Hadoop permite al usuario establecer el número de reductores, este no suele hacerlo. Un truco que permite cierto grado de control sobre este número es elegir las variables de Hadoop, *mapred.min.split.size* y *mapred.max.split.size*, puesto que el tamaño de cada tarea de asignación se determina mediante:
 
 		num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
 
@@ -314,4 +314,4 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -36,6 +36,6 @@ NodeProperty: una asignación definida por el sistema o el usuario desde una cad
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
 
-Para más información: [Escenarios de aplicación](../service-fabric-application-scenarios).
+Para más información: [Escenarios de aplicación](service-fabric-application-scenarios.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

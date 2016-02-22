@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # Creación de una máquina virtual con varias NIC
@@ -97,7 +97,7 @@ Si una subred está asociada a un NSG y una NIC dentro de esa subred está asoci
 - **El **tráfico entrante** cuyo destino es la NIC en cuestión fluye primero a través de la subred, desencadenando reglas de NSG de la subred, antes de pasar a la NIC y desencadenar reglas de NSG de la NIC.
 - El **tráfico de salida** cuyo origen es la NIC en cuestión fluye primero fuera de la NIC, desencadenando reglas de NSG de la NIC, antes de pasar a la subred y desencadenar reglas de NSG de la subred. 
 
-Obtener más información sobre los [Grupos de seguridad de red](virtual-networks-nsg) y cómo se aplican en función de las asociaciones de subredes, las máquinas virtuales y las NIC.
+Obtener más información sobre los [Grupos de seguridad de red](virtual-networks-nsg.md) y cómo se aplican en función de las asociaciones de subredes, las máquinas virtuales y las NIC.
 
 ## Cómo configurar una máquina virtual con varias NIC en una implementación clásica
 
@@ -164,7 +164,7 @@ Para crear una máquina virtual con varias tarjetas NIC, siga estos pasos:
 
 		New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
->[AZURE.NOTE]La red virtual que especifique aquí debe existir previamente (tal como se indicó en los requisitos previos). En el ejemplo siguiente se especifica una red virtual denominada **MultiNIC VNet**.
+>[AZURE.NOTE] La red virtual que especifique aquí debe existir previamente (tal como se indicó en los requisitos previos). En el ejemplo siguiente se especifica una red virtual denominada **MultiNIC VNet**.
 
 ## Acceso de la NIC secundaria a otras subredes
 
@@ -265,4 +265,4 @@ En cuanto a las máquinas virtuales de Linux, puesto que el comportamiento prede
 - Implemente [máquinas virtuales MultiNIC en un escenario de aplicación de 2 niveles en una implementación del Administrador de recursos](virtual-network-deploy-multinic-arm-template.md).
 - Implemente [máquinas virtuales MultiNIC en un escenario de aplicación de 2 niveles en una implementación clásica](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

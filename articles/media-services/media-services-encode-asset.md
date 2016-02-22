@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Información general y comparación de codificadores multimedia a petición de Azure
@@ -33,9 +33,9 @@ Para aprovecharse de los [paquetes dinámicos](media-services-dynamic-packaging-
 
 Servicios multimedia admite los siguientes codificadores a petición que se describen en este artículo:
 
-- **Media Encoder Estándar**
-- **Codificador multimedia de Azure**
-- **Flujo de trabajo del Codificador multimedia**
+- [Media Encoder Estándar](media-services-encode-asset.md#media-encoder-standard)
+- [Codificador multimedia de Azure](media-services-encode-asset.md#azure-media-encoder)
+- [Flujo de trabajo del Codificador multimedia](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 En este artículo se ofrece una breve introducción a los codificadores multimedia a petición y se proporcionan vínculos a artículos con información más detallada. También se proporciona una comparación de los codificadores.
 
@@ -140,6 +140,11 @@ archivo de salida](media-services-azure-media-customize-ame-presets.md#controlli
 El flujo de trabajo del Codificador multimedia Premium se configura mediante flujos de trabajo complejos. Los archivos de flujo de trabajo pueden crearse y actualizarse con la herramienta [Diseñador de flujo de trabajo](media-services-workflow-designer.md).
 
 [Uso de la codificación Premium en Servicios multimedia de Azure](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
+
+###Problemas conocidos
+
+Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá conteniendo un archivo TTML vacío.
+
 
 ##<a id="compare_encoders"></a>Comparación de codificadores
 
@@ -253,14 +258,14 @@ Windows Media Audio|No|Sí|Sí
 
 ##Códigos de error  
 
-En la tabla siguiente se indican los códigos de error que se podrían devolver en caso de que se encuentre un error durante la ejecución de la tarea de codificación. Para obtener detalles del error en el código. NET, use la clase [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx). Para obtener detalles del error en el código REST, use la API de REST [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx).
+En la tabla siguiente se indican los códigos de error que se podrían devolver en caso de que se encuentre un error durante la ejecución de la tarea de codificación. Para obtener detalles del error en el código .NET, use la clase [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx). Para obtener detalles del error en el código REST, use la API de REST [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx).
 
 ErrorDetail.Code|Posibles causas de error
 -----|-----------------------
 Desconocido| Error desconocido al ejecutar la tarea
 ErrorDownloadingInputAssetMalformedContent|Categoría de errores en la que se incluyen errores en la descarga de activos de entrada, como nombres de archivo incorrectos, archivos de longitud cero, formatos incorrectos, etc.
 ErrorDownloadingInputAssetServiceFailure|Categoría de errores en la que se incluyen problemas en el servicio, por ejemplo, errores de red o de almacenamiento durante la descarga.
-ErrorParsingConfiguration|Categoría de errores en la que la tarea <see cref="MediaTask.PrivateData"/> (configuración) no es válida, por ejemplo, la configuración no es un sistema válido preestablecido o contiene XML no válido.
+ErrorParsingConfiguration|Categoría de errores en la que la tarea <see cref="MediaTask.PrivateData"/> (configuración) no es válida; por ejemplo, la configuración no es un sistema válido preestablecido o contiene XML no válido.
 ErrorExecutingTaskMalformedContent|Categoría de errores durante la ejecución de la tarea en la que problemas en los archivos multimedia de entrada provocan errores.
 ErrorExecutingTaskUnsupportedFormat|Categoría de errores en la que el procesador de contenido multimedia no puede procesar los archivos proporcionados: formato de contenido multimedia no compatible o que no coincide con la configuración. Por ejemplo, intentar producir una salida de solo audio desde un activo que tenga solo vídeo.
 ErrorProcessingTask|Categoría de otros errores que detecta el procesador de contenido multimedia durante el procesamiento de la tarea y que no están relacionadas con el contenido.
@@ -291,4 +296,4 @@ Para obtener ayuda del equipo de **Servicios multimedia**, abra una [incidencia 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"    
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Solución de problemas de la guía de streaming en vivo
@@ -65,7 +65,7 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 
 	**Pasos para solucionar problemas**: vaya a la pestaña "Extremo de streaming" en la herramienta AMSE y compruebe que hay un extremo de streaming con una unidad de streaming.
 	
->[AZURE.NOTE]Si después de seguir los pasos de solución de problemas, todavía no puede realizar correctamente la transmisión, envíe una incidencia de soporte técnico mediante el Portal de Azure clásico.
+>[AZURE.NOTE] Si después de seguir los pasos de solución de problemas, todavía no puede realizar correctamente la transmisión, envíe una incidencia de soporte técnico mediante el Portal de Azure clásico.
 
 ##Rutas de aprendizaje de Servicios multimedia
 
@@ -75,4 +75,4 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

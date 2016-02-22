@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # Recuperación de una base de datos SQL de Azure tras una interrupción
@@ -32,17 +32,17 @@ Para obtener información acerca de cómo prepararse ante desastres y sobre cuá
 La operación de recuperación repercute en la aplicación. Este proceso requiere cambiar la cadena de conexión SQL y puede provocar la pérdida de datos permanente. Por lo tanto debe realizarse solo cuando la duración de la interrupción pueda durar más que el RTO de su aplicación. Cuando se implementa la aplicación en producción, deberá supervisar con frecuencia el estado de la aplicación. Para ello, use los siguientes puntos de datos para garantizar la recuperación:
 
 1. Error de conectividad permanente de la capa de aplicación en la base de datos.
-2. El Portal de Azure clásico muestra una alerta sobre una incidencia en una región con un gran impacto.
+2. El Portal de Azure muestra una alerta sobre una incidencia en una región con un gran impacto.
 
 > [AZURE.NOTE] Una vez recuperada la base de datos, podrá configurarla para su uso. Para ello, siga los pasos descritos en la guía [Configuración de una base de datos recuperada](#postrecovery).
 
 ## Conmutación por error de la base de datos secundaria de replicación geográfica
 > [AZURE.NOTE] Debe configurarla para obtener una base de datos secundaria que pueda usar para la conmutación por error. La replicación geográfica estándar solo está disponible para las bases de datos Standard y Premium. Obtenga información acerca de [cómo configurar la replicación geográfica](sql-database-business-continuity-design.md)
 
-###Portal de Azure clásico
-Use el Portal de Azure clásico para terminar la relación de copia continua con la base de datos secundaria de replicación geográfica.
+###Portal de Azure
+Utilice el Portal de Azure para terminar la relación de copia continua con la base de datos secundaria de replicación geográfica.
 
-1. Inicie sesión en el [Portal de Azure clásico](https://portal.Azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.Azure.com).
 2. En el lado izquierdo de la pantalla, seleccione **EXAMINAR** y, a continuación, seleccione **Bases de datos SQL**.
 3. Desplácese hasta la base de datos y selecciónela. 
 4. En la parte inferior de la hoja de la base de datos, seleccione el **Mapa de replicación geográfica**.
@@ -66,16 +66,29 @@ En el caso de una interrupción en una base de datos, es posible recuperar la ba
 
 > [AZURE.NOTE] Al recuperar una base de datos se crea una nueva base de datos. Es importante asegurarse de que el servidor en el que va a efectuar la recuperación tenga suficiente capacidad DTU para la nueva base de datos. Puede solicitar un aumento de esta cuota [contactando con el soporte técnico](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
-###Portal de Azure clásico
-Para restaurar una Base de datos SQL mediante la restauración geográfica en el Portal de Azure clásico, siga estos pasos.
+###Portal de Azure (recuperación de una base de datos independiente)
+Para restaurar una Base de datos SQL mediante la restauración geográfica en el Portal de Azure, siga estos pasos.
 
-1. Inicie sesión en el [Portal de Azure clásico](https://portal.Azure.com).
+1. Inicie sesión en el [portal de Azure](https://portal.Azure.com).
 2. En el lado izquierdo de la pantalla, seleccione **NUEVO** y, a continuación, seleccione **Datos y almacenamiento**. Luego seleccione **Base de datos SQL**.
 2. Seleccione **COPIA DE SEGURIDAD** como origen y, a continuación, seleccione la copia de seguridad con redundancia geográfica que desea recuperar.
 3. Especifique el resto de propiedades de la base de datos y, a continuación, haga clic en **Crear**.
 4. El proceso de restauración de base de datos se iniciará y se puede supervisar mediante **NOTIFICACIONES**, en el lado izquierdo de la pantalla.
 
+###Portal de Azure (recuperación de un grupo de bases de datos elásticas)
+Para restaurar una base de datos SQL en un grupo de bases de datos elásticas mediante la restauración geográfica a través del portal, siga las instrucciones que se muestran a continuación.
+
+1. Inicie sesión en el [portal de Azure](https://portal.Azure.com).
+2. En el lado izquierdo de la pantalla, seleccione **Examinar** y, a continuación, seleccione **Grupos elásticos de SQL**.
+3. Seleccione el grupo con en el que quiere realizar la restauración geográfica de la base de datos.
+4. En la parte superior de la hoja del grupo elástico, seleccione **Crear base de datos**.
+5. Seleccione **COPIA DE SEGURIDAD** como origen y, a continuación, seleccione la copia de seguridad con redundancia geográfica que desea recuperar.
+6. Especifique el resto de propiedades de la base de datos y, a continuación, haga clic en **Crear**.
+7. El proceso de restauración de base de datos se iniciará y se puede supervisar mediante **NOTIFICACIONES**, en el lado izquierdo de la pantalla.
+
 ###PowerShell 
+> [AZURE.NOTE] Actualmente la restauración geográfica con PowerShell solo admite restaurar en una base de datos independiente. Para la restauración geográfica en un grupo de bases de datos elásticas, use el [Portal de Azure](https://portal.Azure.com).
+
 Para restaurar una Base de datos SQL mediante la restauración geográfica mediante PowerShell, inicie una solicitud de restauración geográfica con el cmdlet [start-AzureSqlDatabaseRecovery](https://msdn.microsoft.com/library/azure/dn720224.aspx).
 
 		$Database = Get-AzureSqlRecoverableDatabase -ServerName "ServerName" –DatabaseName “DatabaseToBeRecovered"
@@ -131,4 +144,4 @@ Para obtener más información sobre las reglas de alerta de las bases de datos,
 
 Si se requiere una auditoría para tener acceso a una base de datos, será preciso habilitar Auditoría tras la recuperación de la base de datos. Un buen indicador de que es necesaria una auditoría es que las aplicaciones cliente usen cadenas de conexión seguras en un patrón de *.database.secure.windows.net. Para obtener más información, consulte [Introducción a la auditoría de la Base de datos SQL](sql-database-auditing-get-started.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

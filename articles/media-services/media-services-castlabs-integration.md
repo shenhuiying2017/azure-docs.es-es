@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015"  
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 
@@ -122,4 +122,4 @@ Para reproducir un vídeo cifrado con cifrado común (PlayReady o Widevine), pue
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

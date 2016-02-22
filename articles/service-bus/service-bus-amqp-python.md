@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="02/08/2016"
    ms.author="sethm" />
 
 # Uso del Bus de servicio desde Python con AMQP 1.0
@@ -173,4 +173,4 @@ En las tablas siguientes se muestra la asignación entre las propiedades estánd
 
 [Información general sobre AMQP para el Bus de servicio]: service-bus-amqp-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

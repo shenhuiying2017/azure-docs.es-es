@@ -27,7 +27,7 @@ Los servicios de IoT de Azure ofrecen una amplia gama de capacidades. Estos serv
 - Visualizar datos tanto históricos como en tiempo real
 - Integración con sistemas del área de operaciones
 
-Los paquetes del Conjunto de aplicaciones de IoT de Azure aprovechan de manera conjunta y común los servicios de Azure con las extensiones personalizadas como soluciones preconfiguradas. Estas soluciones preconfiguradas son implementaciones base de patrones comunes de soluciones de IoT que le ayudan a reducir el tiempo que dedica a entregar sus soluciones de IoT. Mediante los [kits de desarrollo de software de IoT][lnk-sdks], puede personalizar con facilidad estas soluciones preconfiguradas para satisfacer sus propios requisitos o aprovecharlos como ejemplos al desarrollar nuevas soluciones.
+Con el fin de ofrecer estas funcionalidades, los paquetes del Conjunto de aplicaciones de IoT de Azure empaquetan los múltiples servicios de Azure junto con las extensiones personalizadas como *soluciones preconfiguradas*. Estas soluciones preconfiguradas son implementaciones base de patrones comunes de soluciones de IoT que le ayudan a reducir el tiempo que dedica a entregar sus soluciones de IoT. Con los [kits de desarrollo de software de IoT][lnk-sdks], puede personalizar y extender estas soluciones para satisfacer sus requisitos. También puede usar estas soluciones como ejemplos o plantillas al desarrollar nuevas soluciones de IoT.
 
 El vídeo siguiente proporciona una introducción al conjunto de aplicaciones de IoT de Azure:
 
@@ -35,27 +35,31 @@ El vídeo siguiente proporciona una introducción al conjunto de aplicaciones de
 
 ## Servicios IoT de Azure en Azure IoT Suite
 
-El componente esencial del conjunto de aplicaciones de IoT de Azure es el servicio [Centro de IoT de Azure][lnk-iot-hub]. Este servicio ofrece las capacidades de mensajería de dispositivo a la nube y de la nube al dispositivo y actúa como la puerta de enlace para la nube y los demás servicios del Conjunto de aplicaciones de IoT clave.
+Normalmente, las soluciones preconfiguradas usan los siguientes servicios:
 
-El [Análisis de transmisiones de Azure][lnk-asa] ofrece análisis de datos en movimiento. El Conjunto de aplicaciones de IoT aprovecha este servicio para procesar la telemetría entrante, realizar la agregación y detectar eventos. Las soluciones preconfiguradas también usan el análisis de transmisiones para procesar los mensajes informativos que contienen datos como los metadatos y las respuestas de comandos de dispositivos.
+- El componente esencial del conjunto de aplicaciones de IoT de Azure es el servicio [Centro de IoT de Azure][lnk-iot-hub]. Este servicio ofrece las capacidades de mensajería de dispositivo a la nube y de la nube al dispositivo y actúa como la puerta de enlace para la nube y los demás servicios del Conjunto de aplicaciones de IoT clave. El servicio le permite recibir mensajes de los dispositivos, a escala, y enviar comandos a los dispositivos.
 
-El [Almacenamiento de Azure][lnk-azure-storage] y [Azure DocumentDB][lnk-document-db] ofrecen las capacidades de almacenamiento de datos. Las soluciones preconfiguradas usan el almacenamiento de blobs para almacenar la telemetría y que esté disponible para análisis. Las soluciones preconfiguradas usan el almacenamiento indizado en la capacidad de datos semiestructurados de DocumentDB para administrar los metadatos del dispositivo. Esto permite que las soluciones administren dispositivos heterogéneos que tienen requisitos de almacenamiento de contenido diferentes.
+- El [Análisis de transmisiones de Azure][lnk-asa] ofrece análisis de datos en movimiento. El Conjunto de aplicaciones de IoT aprovecha este servicio para procesar la telemetría entrante, realizar la agregación y detectar eventos. Las soluciones preconfiguradas también usan el análisis de transmisiones para procesar los mensajes informativos que contienen datos como los metadatos y las respuestas de comandos de dispositivos. Las soluciones usan Análisis de transmisiones para procesar los mensajes de los dispositivos y entregarlos a otros servicios.
 
-[Aplicaciones web de Azure][lnk-web-apps] y [Microsoft Power BI][lnk-power-bi] proporcionan capacidades de visualización de datos. La flexibilidad de Power BI le permite compilar rápidamente sus propios paneles interactivos que usan los datos del conjunto de aplicaciones de IoT.
+- El [Almacenamiento de Azure][lnk-azure-storage] y [Azure DocumentDB][lnk-document-db] ofrecen las capacidades de almacenamiento de datos. Las soluciones preconfiguradas usan el almacenamiento de blobs para almacenar la telemetría y que esté disponible para análisis. Las soluciones usan DocumentDB para almacenar los metadatos de dispositivo y habilitar las capacidades de administración de dispositivos de las soluciones.
+
+- [Aplicaciones web de Azure][lnk-web-apps] y [Microsoft Power BI][lnk-power-bi] proporcionan capacidades de visualización de datos. La flexibilidad de Power BI le permite compilar rápidamente sus propios paneles interactivos que usan los datos del conjunto de aplicaciones de IoT.
 
 Para información general de la arquitectura de una solución de IoT típica, vea [Microsoft Azure e Internet de las cosas (IoT)][iot-suite-what-is-azure-iot].
 
 ## Soluciones preconfiguradas
 
-El Conjunto de aplicaciones de IoT de Azure incluye soluciones preconfiguradas que le permiten empezar a trabajar rápidamente con los escenarios comunes de IoT que el Conjunto de aplicaciones de IoT de Azure hace posibles y explorarlos. Puede implementar las soluciones preconfiguradas en su suscripción de Azure y luego ejecutar una solución de IoT completa e integral.
+El Conjunto de aplicaciones de IoT de Azure incluye soluciones preconfiguradas que le permiten empezar a trabajar rápidamente con los escenarios comunes de IoT que el Conjunto de aplicaciones de IoT de Azure hace posibles y explorarlos. Puede implementar las soluciones en su suscripción de Azure y luego ejecutar una solución de IoT completa e integral.
 
 ## Pasos siguientes
 
-Para más información sobre las soluciones preconfiguradas del Conjunto de aplicaciones de IoT, vea [¿Cuáles son las soluciones preconfiguradas del Conjunto de aplicaciones de IoT de Azure?][lnk-what-are-preconfig]
+Ahora que tiene una visión general de lo que puede hacer el Conjunto de aplicaciones de IoT y cuáles son sus componentes principales, puede:
 
-Para empezar a usar una de las soluciones preconfiguradas, vea [Introducción a las soluciones preconfiguradas de IoT][lnk-preconfig-start].
+- Para obtener más información sobre las soluciones preconfiguradas del Conjunto de aplicaciones de IoT, vea [¿Qué son las soluciones preconfiguradas del Conjunto de aplicaciones de IoT de Azure?][lnk-what-are-preconfig]
 
-Para más información sobre el servicio Centro de IoT de Azure, vea la [Documentación del Centro de IoT][lnk-iot-hub].
+- Para empezar a usar una de las soluciones preconfiguradas, vea [Introducción a las soluciones preconfiguradas de IoT][lnk-preconfig-start].
+
+- Para más información sobre el servicio Centro de IoT de Azure, vea la [documentación del Centro de IoT][lnk-iot-hub].
 
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
@@ -70,4 +74,4 @@ Para más información sobre el servicio Centro de IoT de Azure, vea la [Documen
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

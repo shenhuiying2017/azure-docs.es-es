@@ -1,6 +1,6 @@
 <properties
    pageTitle="API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview | Microsoft Azure"
-   description="La API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview incluye funciones experimentales, como la sintaxis de consulta de Lucene y los analizadores personalizados."
+   description="La API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview incluye funciones experimentales como analizadores de lenguaje Natural y búsquedas moreLikeThis."
    services="search"
    documentationCenter="na"
    authors="HeidiSteen"
@@ -13,20 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="12/21/2015"
+   ms.date="02/04/2016"
    ms.author="heidist"/>
 
 # API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview
 
 Este artículo es la documentación de referencia de `api-version=2015-02-28-Preview`. Esta vista previa amplía la versión disponible generalmente actual, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), proporcionando las siguientes funciones experimentales:
 
-- Ahora se puede utilizar la [sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/mt589323.aspx) para las consultas de Búsqueda de Azure. Para usar el analizador de consultas de Lucene, especifique `queryType` en las operaciones de Búsqueda.
-- Los [analizadores personalizados](https://msdn.microsoft.com/library/azure/mt605304.aspx) le permiten tomar el control sobre el proceso de conversión de texto en tokens indexables y que se pueden buscar
-- `moreLikeThis` es un un parámetro de consulta que se usa en [Operaciones de búsqueda](#SearchDocs) que busca otros documentos que son relevantes para otro documento específico.
+- Ahora se puede utilizar la [sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/mt589323.aspx) para las consultas de Búsqueda de Azure. Para usar el analizador de consultas de Lucene, especifique `queryType` en operaciones de búsqueda.- `moreLikeThis` es un parámetro de consulta que se usa en [operaciones de búsqueda](#SearchDocs) para encontrar otros documentos que están relacionados con otro documento específico.
+
+Algunas funciones adicionales de `2015-02-28-Preview` se documentan por separado. Entre ellos se incluyen los siguientes:
+
+- [Perfiles de puntuación](search-api-scoring-profiles-2015-02-28-preview.md)
+- [Indexadores](search-api-indexers-2015-02-28-preview.md)
 
 El servicio de Búsqueda de Azure está disponible en varias versiones. Consulte [Versiones del servicio de búsqueda](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obtener más información.
 
-##API incluidas en este documento
+## API incluidas en este documento
+
+La API del servicio Búsqueda de Azure admite dos sintaxis de URL para operaciones de API: simple y OData (consulte [Compatibilidad con OData (API de Búsqueda de Azure)](http://msdn.microsoft.com/library/azure/dn798932.aspx) para obtener más información). La lista siguiente muestra la sintaxis simple.
 
 [Crear índice](#CreateIndex)
 
@@ -265,7 +270,7 @@ Es posible establecer los siguientes atributos para crear un índice. Para obten
 
 `analyzer`: establece el nombre del analizador que se usa para el campo en el momento de la búsqueda y la indexación. Para conocer el conjunto de valores permitido, consulte [Analizadores](https://msdn.microsoft.com/library/mt605304.aspx). Esta opción puede utilizarse solo con campos `searchable` y no se puede establecer junto con `searchAnalyzer` o `indexAnalyzer`. Una vez que se elige el analizador, no se podrá cambiar para el campo.
 
-`searchAnalyzer`: establece el nombre del analizador que se usa en el momento de búsqueda para el campo. Para conocer el conjunto de valores permitido, consulte [Analizadores](https://msdn.microsoft.com/library/mt605304.aspx). Esta opción solo puede utilizarse con campos `searchable`. Se debe establecer junto con `indexAnalyzer` y no se puede establecer junto con la opción `analyzer`. Una vez que se elige el analizador, no se podrá cambiar para el campo.
+`searchAnalyzer`: establece el nombre del analizador que se usa en el momento de búsqueda para el campo. Para conocer el conjunto de valores permitido, consulte [Analizadores](https://msdn.microsoft.com/library/mt605304.aspx). Esta opción solo puede utilizarse con campos `searchable`. Se debe establecer junto con `indexAnalyzer` y no se puede establecer junto con la opción `analyzer`. Este analizador se puede actualizar en un campo existente.
 
 `indexAnalyzer`: establece el nombre del analizador que se usa en el momento de la indexación para el campo. Para conocer el conjunto de valores permitido, consulte [Analizadores](https://msdn.microsoft.com/library/mt605304.aspx). Esta opción solo puede utilizarse con campos `searchable`. Se debe establecer junto con `searchAnalyzer` y no se puede establecer junto con la opción `analyzer`. Una vez que se elige el analizador, no se podrá cambiar para el campo.
 
@@ -662,7 +667,7 @@ De forma predeterminada, el cuerpo de la respuesta contendrá el JSON de la defi
 Actualmente, hay compatibilidad limitada para las actualizaciones del esquema de índice. Actualmente no se admiten las actualizaciones del esquema que requieran volver a indexar, como el cambio de tipos de campo. Aunque los campos existentes no se pueden modificar ni eliminar, los campos nuevos pueden agregarse a un índice existente en cualquier momento. Al agregar un nuevo campo, todos los documentos existentes del índice tendrán un valor null para ese campo automáticamente. No se consumirá espacio de almacenamiento adicional hasta que se agreguen nuevos documentos al índice.
 
 <a name="Suggesters"></a>
-##Proveedores de sugerencias
+## Proveedores de sugerencias
 
 La característica de sugerencias de Búsqueda de Azure es una capacidad de consulta de escritura anticipada o autocompletar, que proporciona una lista de posibles términos de búsqueda en respuesta a las entradas de cadenas parciales especificadas en un cuadro de búsqueda. Probablemente haya observado sugerencias de consulta al utilizar los motores de búsqueda web comerciales: si se escribe ".NET" en Bing, se genera una lista de términos para ".NET 4.5", ".NET Framework 3.5", y así sucesivamente. Cuando se utiliza la API de REST del servicio Búsqueda, la implementación de sugerencias en una aplicación de Búsqueda de Azure personalizada requiere lo siguiente:
 
@@ -703,7 +708,7 @@ Un proveedor de sugerencias forma parte del índice. Solo un proveedor de sugere
 		  ]
 		}
 
-> [AZURE.NOTE]Si ha usado la versión de vista previa pública de Búsqueda de Azure, `suggesters` sustituirá a una propiedad booleana anterior (`"suggestions": false`) que solo admitía sugerencias de prefijos para cadenas cortas (3-25 caracteres). Su reemplazo, `suggesters`, admite la detección de coincidencias de infijos que encuentra términos coincidentes al principio o en medio del contenido del campo, con una mejor tolerancia a errores en las cadenas de búsqueda. A partir de la versión disponible con carácter general, esta es ahora la única implementación de la API de sugerencias. La propiedad `suggestions` anterior que se introdujo en `api-version=2014-07-31-Preview` continúa funcionando en esa versión, pero no está operativa en la versión `2015-02-28` o posteriores de Búsqueda de Azure.
+> [AZURE.NOTE]  Si ha usado la versión de vista previa pública de Búsqueda de Azure, `suggesters` sustituirá a una propiedad booleana anterior (`"suggestions": false`) que solo admitía sugerencias de prefijos para cadenas cortas (3-25 caracteres). Su reemplazo, `suggesters`, admite la detección de coincidencias de infijos que encuentra términos coincidentes al principio o en medio del contenido del campo, con una mejor tolerancia a errores en las cadenas de búsqueda. A partir de la versión disponible con carácter general, esta es ahora la única implementación de la API de sugerencias. La propiedad `suggestions` anterior que se introdujo en `api-version=2014-07-31-Preview` continúa funcionando en esa versión, pero no está operativa en la versión `2015-02-28` o posteriores de Búsqueda de Azure.
 
 <a name="UpdateIndex"></a>
 ## Actualizar índice
@@ -992,7 +997,7 @@ ________________________________________
 
 En Búsqueda de Azure, se almacena un índice en la nube y se rellena con documentos JSON que se cargan en el servicio. Todos los documentos que se cargan comprenden el corpus de los datos de búsqueda. Los documentos contienen campos, algunos de los cuales se acortan en términos de búsqueda cuando se cargan. El segmento de URL `/docs` de la API de Búsqueda de Azure representa la colección de documentos en un índice. Todas las operaciones realizadas en la colección, como cargar, combinar, eliminar o consultar documentos se producen en el contexto de un índice único, por lo que las direcciones URL de estas operaciones siempre se iniciarán mediante `/indexes/[index name]/docs` para un nombre de índice especificado.
 
-El código de aplicación debe generar documentos JSON para cargarlos en la búsqueda de Azure o se puede usar un [indexador](https://msdn.microsoft.com/library/dn946891.aspx) para cargar documentos si el origen de datos es la Base de datos SQL o DocumentDB de Azure. Normalmente, los índices se rellenan desde un único conjunto de datos que suministre.
+El código de aplicación debe generar documentos JSON para cargarlos en la búsqueda de Azure o se puede usar un [indizador](https://msdn.microsoft.com/library/dn946891.aspx) para cargar documentos si el origen de datos es la Base de datos SQL de Azure o DocumentDB. Normalmente, los índices se rellenan desde un único conjunto de datos que suministre.
 
 Debe planear disponer de un documento para cada elemento que desee buscar. Una aplicación de alquiler de películas puede disponer de un documento por película, una aplicación de escaparate podría tener un documento por SKU, una aplicación de software con fines pedagógicos en línea podría tener un documento por curso, una empresa de investigación podría tener un documento para cada documento académico de su repositorio, y así sucesivamente.
 
@@ -1041,6 +1046,8 @@ El cuerpo de la solicitud contiene uno o más documentos para indexar. Los docum
         ...
       ]
     }
+
+> [AZURE.NOTE] Las claves de documento solo pueden contener letras, números, guiones ("-"), caracteres de subrayado ("\_") y signos igual ("="). Para más información, consulte [Reglas de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx).
 
 **Acciones de documentos**
 
@@ -1143,11 +1150,11 @@ La operación de **búsqueda** se emite como una solicitud GET o POST y especifi
 
 **Cuándo usar POST en lugar de GET**
 
-Cuando use HTTP GET para llamar a la API de **Búsqueda**, deberá tener en cuenta que la longitud de la URL de la solicitud no puede superar los 8 KB. Esto suele ser suficiente para la mayoría de las aplicaciones. Sin embargo, algunas aplicaciones generan consultas muy extensas, en concreto, expresiones de filtro de OData. Para estas aplicaciones, el uso de HTTP POST es una opción mejor. El límite de tamaño de la solicitud de POST es aproximadamente de 17 MB, lo que es mucho espacio incluso para las consultas más complejas.
+Cuando use HTTP GET para llamar a la API de **búsqueda**, deberá tener en cuenta que la longitud de la URL de la solicitud no puede superar los 8 KB. Esto suele ser suficiente para la mayoría de las aplicaciones. Sin embargo, algunas aplicaciones generan consultas muy extensas o expresiones de filtro OData. Para estas aplicaciones, el uso de HTTP POST es una opción mejor porque permite filtros y consultas mayores que GET. Con POST, el número de términos o cláusulas en una consulta es el factor limitador, no el tamaño de la consulta básica, ya que el límite de tamaño de la solicitud POST es de 17 MB aproximadamente.
 
-**Solicitud**
+> [AZURE.NOTE] Aunque el límite de tamaño de la solicitud POST es muy grande, las consultas y las expresiones de filtro de búsqueda no pueden ser arbitrariamente complejas. Consulte [Sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/mt589323.aspx) y [Sintaxis de expresiones de OData](https://msdn.microsoft.com/library/dn798921.aspx) para más información sobre las limitaciones de complejidad de consultas y filtros de búsqueda. **Solicitud**
 
-HTTPS es necesario para las solicitudes de servicio. La solicitud **Búsqueda** puede crearse mediante los métodos GET o POST.
+HTTPS es necesario para las solicitudes de servicio. La solicitud **Búsqueda** puede crearse mediante los método GET o POST.
 
 El URI de solicitud especifica qué índice se va a consultar para todos los documentos que coinciden con los parámetros de consulta. Los parámetros se especifican en la cadena de consulta en el caso de solicitudes GET y en el cuerpo de la solicitud en el caso de las solicitudes POST.
 
@@ -1166,7 +1173,7 @@ Además, la codificación con URL solo es necesaria cuando se llama directamente
 
 <a name="SearchQueryParameters"></a> **Parámetros de consulta**
 
-La **Búsqueda** acepta varios parámetros que ofrecen criterios de consulta y que también especifican el comportamiento de búsqueda. Estos parámetros se especifican en la cadena de consulta URL al llamar a la **Búsqueda** mediante GET y como propiedades JSON en el cuerpo de solicitud al llamar a la **Búsqueda** mediante POST. La sintaxis de algunos parámetros es algo diferente entre GET y POST. Estas diferencias se indican como aplicables a continuación:
+La **búsqueda** acepta varios parámetros que ofrecen criterios de consulta y que también especifican el comportamiento de búsqueda. Ofrece estos parámetros en la cadena de consulta URL al llamar a la **búsqueda** mediante GET y como propiedades JSON en el cuerpo de solicitud al llamar a la **búsqueda** mediante POST. La sintaxis de algunos parámetros es algo diferente entre GET y POST. Estas diferencias se indican como aplicables a continuación:
 
 `search=[string]` (opcional): el texto que se debe buscar. Se busca en los campos `searchable` de forma predeterminada a menos que se especifique `searchFields`. Al realizar búsquedas en campos `searchable`, se limita el propio texto de la búsqueda, por lo que los distintos términos pueden separarse mediante un espacio en blanco (por ejemplo: `search=hello world`). Para encontrar un término, use `*` (esto puede ser útil para las consultas de filtro booleano). Omitir este parámetro tiene el mismo efecto que establecerlo en `*`. Para obtener información específica sobre la sintaxis de búsqueda, consulte [Sintaxis de consulta simple](https://msdn.microsoft.com/library/dn798920.aspx).
 
@@ -1178,29 +1185,29 @@ La **Búsqueda** acepta varios parámetros que ofrecen criterios de consulta y q
 
 `queryType=simple|full` (opcional, tiene como valor predeterminado `simple`): cuando se establece en "simple", el texto de búsqueda se interpreta mediante un lenguaje de consulta simple que permite símbolos como +, * y "". Las consultas se evalúan en todos los campos de búsqueda (o campos indicados en `searchFields`) en cada documento de manera predeterminada. Cuando se establece el tipo de consulta en `full`, el texto de búsqueda se interpreta mediante el lenguaje de consulta de Lucene que permite realizar búsquedas específicas de campos y ponderadas. Para obtener información específica sobre las sintaxis de búsqueda, consulte [Sintaxis de consulta simple](https://msdn.microsoft.com/library/dn798920.aspx) y [Sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/mt589323.aspx).
  
-> [AZURE.NOTE]No está admitido el intervalo de búsqueda en el lenguaje de consulta de Lucene, es preferible usar $filter que ofrece una funcionalidad similar.
+> [AZURE.NOTE] No está admitido el intervalo de búsqueda en el lenguaje de consulta de Lucene, es preferible usar $filter que ofrece una funcionalidad similar.
 
 `moreLikeThis=[key]` (opcional) **Importante:** esta función solo está disponible en `2015-02-28-Preview`. Esta opción no se puede usar en una consulta que contiene el parámetro de búsqueda de texto, `search=[string]`. El parámetro `moreLikeThis` busca documentos que son similares al documento especificado por la clave del documento. Cuando se realiza una solicitud de búsqueda con `moreLikeThis`, se genera una lista de términos de búsqueda en función de la frecuencia y la rareza de los términos en el documento de origen. Estos términos se usan a continuación para realizar la solicitud. De forma predeterminada, se considera el contenido de todos los campos `searchable` a menos que se use `searchFields` para restringir los campos que se buscan.
 
 `$skip=#` (opcional): el número de resultados de búsqueda que se omiten; no puede ser superior a 100.000. Si necesita examinar documentos en secuencia pero no puede usar `$skip` debido a esta limitación, utilice `$orderby` en una clave totalmente ordenada y `$filter` con una consulta por rango en su lugar.
 
-> [AZURE.NOTE]Al llamar a la **Búsqueda** mediante POST, este parámetro se denomina `skip` en lugar de `$skip`.
+> [AZURE.NOTE] Al llamar a la **Búsqueda** mediante POST, este parámetro se denomina `skip` en lugar de `$skip`.
 
-`$top=#` (opcional): el número de resultados de búsqueda que se recuperará. Se puede usar junto con `$skip` para implementar la paginación del lado del cliente de los resultados de la búsqueda.
+`$top=#` (opcional): número de resultados de búsqueda para recuperar. Se puede usar junto con `$skip` para implementar la paginación del lado del cliente de los resultados de la búsqueda.
 
-> [AZURE.NOTE]Al llamar a la **búsqueda** mediante POST, este parámetro se denomina `top` en lugar de `$top`.
+> [AZURE.NOTE] Al llamar a la **búsqueda** mediante POST, este parámetro se denomina `top` en lugar de `$top`.
 
 `$count=true|false` (opcional, tiene como valor predeterminado `false`): especifica si se va a obtener el número total de resultados. Este es el recuento de todos los documentos que coinciden con los parámetros `search` y `$filter`, omitiendo `$top` y `$skip`. Establecer este valor en `true` puede afectar al rendimiento. Tenga en cuenta que el número devuelto será una aproximación.
 
-> [AZURE.NOTE]Al llamar a la **Búsqueda** mediante POST, este parámetro se denomina `count` en lugar de `$count`.
+> [AZURE.NOTE] Al llamar a la **búsqueda** mediante POST, este parámetro se denomina `count` en lugar de `$count`.
 
 `$orderby=[string]` (opcional): lista de expresiones separadas por comas por la que ordenar los resultados. Cada expresión puede ser un nombre de campo o una llamada a la función `geo.distance()`. Cada expresión puede ir seguida de `asc` para indicar el orden ascendente y de `desc` para indicar el orden descendente. El valor predeterminado es ascendente. Los empates se resolverán por la puntuación de coincidencia de los documentos. Si no se especifica ningún `$orderby`, el orden predeterminado será descendente por puntuación de coincidencia del documento. Hay un límite de 32 cláusulas para `$orderby`.
 
-> [AZURE.NOTE]Al llamar a la **Búsqueda** mediante POST, este parámetro se denomina `orderby` en lugar de `$orderby`.
+> [AZURE.NOTE] Al llamar a la **Búsqueda** mediante POST, este parámetro se denomina `orderby` en lugar de `$orderby`.
 
 `$select=[string]` (opcional): lista de campos separados por comas para recuperar. Si no se especifica nada, se incluirán todos los campos marcados como recuperables en el esquema. También se pueden solicitar explícitamente todos los campos estableciendo este parámetro en `*`.
 
-> [AZURE.NOTE]Al llamar a la **Búsqueda** mediante POST, este parámetro se denomina `select` en lugar de `$select`.
+> [AZURE.NOTE] Al llamar a la **Búsqueda** mediante POST, este parámetro se denomina `select` en lugar de `$select`.
 
 `facet=[string]` (cero o más): un campo por el que establecer facetas. Es posible que la cadena contenga parámetros para personalizar la faceta expresada como pares `name:value` separados por comas. Los parámetros válidos son:
 
@@ -1216,33 +1223,36 @@ La **Búsqueda** acepta varios parámetros que ofrecen criterios de consulta y q
 - `interval` (intervalo de número entero mayor que 0 para números, o `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year` para los valores de fecha y hora)
   - Por ejemplo: `facet=baseRate,interval:100` genera depósitos basados en intervalos de tarifas base de tamaño de 100. Por ejemplo, si las tarifas base se encuentran entre 60 y 600 dólares, habrá depósitos para 0-100, 100-200, 300 200, 300-400, 400-500 y 500-600.
   - Por ejemplo: `facet=lastRenovationDate,interval:year` genera un depósito para cada año en que se han reformado los hoteles.
+- `timeoffset` ([+-] hh: mm, [+-] hhmm, o [+-] hh) `timeoffset` es opcional. Solo se puede combinar con la opción `interval` y solo cuando se aplica a un campo de tipo `Edm.DateTimeOffset`. El valor especifica la diferencia horaria UTC para explicar la configuración de los límites de tiempo.
+  - Por ejemplo: `facet=lastRenovationDate,interval:day,timeoffset:-01:00` utiliza el límite de día que comienza a la 01:00:00 UTC (medianoche en la zona horaria de destino)
 - **Nota**: `count` y `sort` se pueden combinar en la misma especificación de faceta, pero no se pueden combinar con `interval` o `values`, y `interval` y `values` no se pueden combinar entre sí.
+- **Nota**: Las facetas de intervalo de fecha y hora se calculan en función de la hora UTC si `timeoffset` no se ha especificado. Por ejemplo, para `facet=lastRenovationDate,interval:day`, el límite de día comienza a las 00:00:00 UTC. 
 
-> [AZURE.NOTE]Al llamar a la **Búsqueda** mediante POST, este parámetro se denomina `facets` en lugar de `facet`. Además, lo especifica como una matriz JSON de cadenas, donde cada cadena es una expresión de faceta independiente.
+> [AZURE.NOTE] Al llamar a la **búsqueda** mediante POST, este parámetro se denomina `facets` en lugar de `facet`. Además, lo especifica como una matriz JSON de cadenas, donde cada cadena es una expresión de faceta independiente.
 
 `$filter=[string]` (opcional): expresión de búsqueda estructurada en la sintaxis estándar de OData. Consulte [Sintaxis de expresiones de OData](#ODataExpressionSyntax) para obtener detalles sobre el subconjunto de la gramática de expresiones de OData que admite la Búsqueda de Azure.
 
-> [AZURE.NOTE]Al llamar a la **Búsqueda** mediante POST, este parámetro se denomina `filter` en lugar de `$filter`.
+> [AZURE.NOTE] Al llamar a la **búsqueda** mediante POST, este parámetro se denomina `filter` en lugar de `$filter`.
 
 `highlight=[string]` (opcional): conjunto de nombres de campos delimitado por comas usado para los resaltados de referencias. Solo se pueden usar `searchable` campos para resaltar las referencias.
 
 `highlightPreTag=[string]` (opcional, se establece de forma predeterminada en `<em>`): una etiqueta de cadena que se antepone al resaltado de referencias. Debe establecerse con `highlightPostTag`.
 
-> [AZURE.NOTE]Al llamar a la **Búsqueda** mediante GET, los caracteres reservados en la dirección URL deben estar codificados con porcentaje (por ejemplo, %23 en vez de #).
+> [AZURE.NOTE] Al llamar a la **búsqueda** mediante GET, los caracteres reservados en la dirección URL deben estar codificados con porcentaje (por ejemplo, %23 en vez de #).
 
 `highlightPostTag=[string]` (opcional, se establece de forma predeterminada en `</em>`): una etiqueta de cadena que se antepone al resaltado de referencias. Debe establecerse con `highlightPreTag`.
 
-> [AZURE.NOTE]Al llamar a la **Búsqueda** mediante GET, los caracteres reservados en la dirección URL deben estar codificados con porcentaje (por ejemplo, %23 en vez de #).
+> [AZURE.NOTE] Al llamar a la **Búsqueda** mediante GET, los caracteres reservados en la dirección URL deben estar codificados con porcentaje (por ejemplo, %23 en vez de #).
 
 `scoringProfile=[string]` (opcional): nombre de un perfil de puntuación para evaluar puntuaciones de coincidencias de documentos coincidentes con el fin de ordenar los resultados.
 
 `scoringParameter=[string]` (cero o más): indica el valor para cada parámetro definido en una función de puntuación (por ejemplo, `referencePointParameter`) con el formato nombre: valor. Por ejemplo, si el perfil de puntuación define una función con un parámetro denominado "mylocation" la opción de cadena de consulta sería & scoringParameter = mylocation:-122.2,44.8
 
-> [AZURE.NOTE]Al llamar a la **Búsqueda** mediante POST, este parámetro se denomina `scoringParameters` en lugar de `scoringParameter`. Además, lo especifica como una matriz JSON de cadenas, donde cada cadena es un par nombre:valor independiente.
+> [AZURE.NOTE] Al llamar a la **Búsqueda** mediante POST, este parámetro se denomina `scoringParameters` en lugar de `scoringParameter`. Además, lo especifica como una matriz JSON de cadenas, donde cada cadena es un par nombre:valor independiente.
 
 `minimumCoverage` (opcional, el valor predeterminado es 100): un número entre 0 y 100 que indica el porcentaje del índice que debe estar cubierto por una consulta de búsqueda para que la consulta se realice correctamente. De forma predeterminada, todo el índice debe estar disponible o `Search` se devolverá el código de estado HTTP 503. Si establece `minimumCoverage` y `Search` se realiza correctamente, devolverá HTTP 200 e incluye un valor `@search.coverage` en la respuesta que indica el porcentaje del índice que se incluyó en la consulta.
 
-> [AZURE.NOTE]Establecer este parámetro en un valor inferior a 100 puede ser útil para garantizar la disponibilidad de la búsqueda incluso para servicios con una única réplica. Sin embargo, no se garantiza que todos los documentos coincidentes existan en los resultados de búsqueda. Si la recuperación de búsqueda es más importante para la aplicación que la disponibilidad, es mejor dejar `minimumCoverage` en su valor predeterminado de 100.
+> [AZURE.NOTE] Establecer este parámetro en un valor inferior a 100 puede ser útil para garantizar la disponibilidad de la búsqueda incluso para servicios con una única réplica. Sin embargo, no se garantiza que todos los documentos coincidentes existan en los resultados de búsqueda. Si la recuperación de búsqueda es más importante para la aplicación que la disponibilidad, es mejor dejar `minimumCoverage` en su valor predeterminado de 100.
 
 `api-version=[string]` (obligatorio). La versión de vista previa es `api-version=2015-02-28-Preview`. Consulte [Versiones del servicio de búsqueda](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obtener más información y versiones alternativas.
 
@@ -1347,6 +1357,7 @@ Puede encontrar ejemplos adicionales en la página [Sintaxis de expresiones de O
 
 1) Busque en el índice por fecha en orden descendente.
 
+
     GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1357,6 +1368,7 @@ Puede encontrar ejemplos adicionales en la página [Sintaxis de expresiones de O
 
 2) En una búsqueda con facetas, busque en el índice y recupere las facetas de categorías, clasificación, etiquetas, así como elementos con baseRate en intervalos específicos:
 
+
     GET /indexes/hotels/docs?search=test&facet=category&facet=rating&facet=tags&facet=baseRate,values:80|150|220&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1366,6 +1378,7 @@ Puede encontrar ejemplos adicionales en la página [Sintaxis de expresiones de O
     }
 
 3) Utilizando un filtro, restrinja los resultados de la consulta con facetas anterior después de que el usuario haga clic en la tarifa 3 y en la categoría "Motel":
+
 
     GET /indexes/hotels/docs?search=test&facet=tags&facet=baseRate,values:80|150|220&$filter=rating eq 3 and category eq 'Motel'&api-version=2015-02-28-Preview
 
@@ -1378,6 +1391,7 @@ Puede encontrar ejemplos adicionales en la página [Sintaxis de expresiones de O
 
 4) En una búsqueda con facetas, establezca un límite superior en términos únicos devueltos en una consulta. El valor predeterminado es 10, pero se puede aumentar o disminuir este valor utilizando el parámetro `count` en el atributo `facet`:
 
+
     GET /indexes/hotels/docs?search=test&facet=city,count:5&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1388,6 +1402,7 @@ Puede encontrar ejemplos adicionales en la página [Sintaxis de expresiones de O
 
 5) Busque en el índice en campos específicos; por ejemplo, un campo específico del idioma:
 
+
     GET /indexes/hotels/docs?search=hôtel&searchFields=description_fr&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1397,6 +1412,7 @@ Puede encontrar ejemplos adicionales en la página [Sintaxis de expresiones de O
     }
 
 6) Busque en el índice en varios campos. Por ejemplo, puede almacenar y consultar los campos de búsqueda en varios idiomas, todo ello en el mismo índice. Si las descripciones de inglés y francés coexisten en el mismo documento, puede devolver cualquiera en los resultados de la consulta:
+
 
 	GET /indexes/hotels/docs?search=hotel&searchFields=description,description_fr&api-version=2015-02-28-Preview
 
@@ -1410,6 +1426,7 @@ Tenga en cuenta que solo puede consultar un índice de cada vez. No cree varios 
 
 7) Paginación: obtenga la primera página de los elementos (el tamaño de la página es 10):
 
+
     GET /indexes/hotels/docs?search=*&$skip=0&$top=10&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1420,6 +1437,7 @@ Tenga en cuenta que solo puede consultar un índice de cada vez. No cree varios 
     }
 
 8) Paginación: obtenga la segunda página de los elementos (el tamaño de la página es 10):
+
 
     GET /indexes/hotels/docs?search=*&$skip=10&$top=10&api-version=2015-02-28-Preview
 
@@ -1432,6 +1450,7 @@ Tenga en cuenta que solo puede consultar un índice de cada vez. No cree varios 
 
 9) Recupere un conjunto específico de campos:
 
+
     GET /indexes/hotels/docs?search=*&$select=hotelName,description&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1442,6 +1461,7 @@ Tenga en cuenta que solo puede consultar un índice de cada vez. No cree varios 
 
 10) Recupere documentos que coincidan con una expresión de filtro específica
 
+
     GET /indexes/hotels/docs?$filter=(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1450,6 +1470,7 @@ Tenga en cuenta que solo puede consultar un índice de cada vez. No cree varios 
     }
 
 11) Busque en el índice y obtenga fragmentos con resaltado de referencias
+
 
     GET /indexes/hotels/docs?search=something&highlight=description&api-version=2015-02-28-Preview
 
@@ -1461,6 +1482,7 @@ Tenga en cuenta que solo puede consultar un índice de cada vez. No cree varios 
 
 12) Busque en el índice y obtenga documentos ordenados de más próximos a más alejados de una ubicación de referencia
 
+
     GET /indexes/hotels/docs?search=something&$orderby=geo.distance(location, geography'POINT(-122.12315 47.88121)')&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1470,6 +1492,7 @@ Tenga en cuenta que solo puede consultar un índice de cada vez. No cree varios 
     }
 
 13) Busque en el índice suponiendo que hay un perfil de puntuaciones denominado "geográfico" con dos funciones de puntuación de distancia, una para definir un parámetro llamado "currentLocation" y otra para definir un parámetro llamado "lastLocation"
+
 
     GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&scoringParameter=lastLocation:-121.499,44.2113&api-version=2015-02-28-Preview
 
@@ -1481,6 +1504,7 @@ Tenga en cuenta que solo puede consultar un índice de cada vez. No cree varios 
     }
 
 14) Busque documentos en el índice utilizando la [sintaxis de consulta simple](https://msdn.microsoft.com/library/dn798920.aspx). Esta consulta devuelve los hoteles, en los que los campos de búsqueda contienen los términos "comodidad" y "ubicación", pero no "motel":
+
 
     GET /indexes/hotels/docs?search=comfort +location -motel&searchMode=all&api-version=2015-02-28-Preview
 
@@ -1504,7 +1528,7 @@ Tenga en cuenta el uso de `searchMode=all` anteriormente. Incluyendo este parám
     }
 
 <a name="LookupAPI"></a>
-##Buscar documento
+## Buscar documento
 
 La operación **Buscar documento** permite recuperar un documento de Búsqueda de Azure. Esto resulta útil cuando un usuario hace clic en un resultado de búsqueda específico y desea buscar detalles específicos acerca de ese documento.
 
@@ -1562,7 +1586,7 @@ Busque el documento que tiene la clave "3" con la sintaxis de OData:
     GET /indexes('hotels')/docs('3')?api-version=2015-02-28-Preview
 
 <a name="CountDocs"></a>
-##Documentos de recuento
+## Documentos de recuento
 
 La operación **Documentos de recuento** recupera un recuento del número de documentos en un índice de búsqueda. La sintaxis `$count` forma parte del protocolo OData.
 
@@ -1598,7 +1622,7 @@ Código de estado: al obtener una respuesta correcta, se visualiza 200 Correcto.
 El cuerpo de la respuesta contiene el valor de recuento como un entero con formato de texto sin formato.
 
 <a name="Suggestions"></a>
-##Sugerencias
+## Sugerencias
 
 La operación **Sugerencias** recupera sugerencias basadas en la entrada de búsqueda parcial. Se suele usar en los cuadros de búsqueda para proporcionar sugerencias anticipadas cuando los usuarios están introduciendo términos de búsqueda.
 
@@ -1636,17 +1660,17 @@ Además, la codificación con URL solo es necesaria cuando se llama directamente
 
 **Parámetros de consulta**
 
-Las **Sugerencias** aceptan varios parámetros que ofrecen criterios de consulta y que también especifican el comportamiento de la búsqueda. Estos parámetros se especifican en la cadena de consulta URL al llamar a las **Sugerencias** mediante GET y como propiedades JSON en el cuerpo de solicitud al llamar a las **Sugerencias** mediante POST. La sintaxis de algunos parámetros es algo diferente entre GET y POST. Estas diferencias se indican como aplicables a continuación:
+Las **sugerencias** aceptan varios parámetros que ofrecen criterios de consulta y que también especifican el comportamiento de la búsqueda. Estos parámetros se especifican en la cadena de consulta URL al llamar a las **Sugerencias** mediante GET y como propiedades JSON en el cuerpo de solicitud al llamar a las **Sugerencias** mediante POST. La sintaxis de algunos parámetros es algo diferente entre GET y POST. Estas diferencias se indican como aplicables a continuación:
 
 `search=[string]`: texto de búsqueda que se utiliza para sugerir las consultas. Debe tener 1 carácter como mínimo y no más de 100 caracteres.
 
 `highlightPreTag=[string]` (opcional): una etiqueta de cadena que se antepone a resultados de búsquedas. Debe establecerse con `highlightPostTag`.
 
-> [AZURE.NOTE]Al llamar a las **Sugerencias** mediante GET, los caracteres reservados en la dirección URL deben estar codificados con porcentaje (por ejemplo, %23 en vez de #).
+> [AZURE.NOTE] Al llamar a las **Sugerencias** mediante GET, los caracteres reservados en la dirección URL deben estar codificados con porcentaje (por ejemplo, %23 en vez de #).
 
 `highlightPostTag=[string]` (opcional): una etiqueta de cadena que se adjunta a resultados de búsquedas. Debe establecerse con `highlightPreTag`.
 
-> [AZURE.NOTE]Al llamar a las **Sugerencias** mediante GET, los caracteres reservados en la dirección URL deben estar codificados con porcentaje (por ejemplo, %23 en vez de #).
+> [AZURE.NOTE] Al llamar a las **Sugerencias** mediante GET, los caracteres reservados en la dirección URL deben estar codificados con porcentaje (por ejemplo, %23 en vez de #).
 
 `suggesterName=[string]`: el nombre del proveedor de sugerencias tal y como se especifica en la colección `suggesters` que forma parte de la definición del índice. Un `suggester` determina qué campos se analizan para encontrar términos de consulta sugeridos. Consulte [Proveedores de sugerencias](#Suggesters) para obtener más información.
 
@@ -1656,23 +1680,23 @@ Las **Sugerencias** aceptan varios parámetros que ofrecen criterios de consulta
 
 `$top=#` (opcional, valor predeterminado = 5): número de sugerencias para recuperar. Debe ser un número entre 1 y 100.
 
-> [AZURE.NOTE]Al llamar a las **Sugerencias** mediante POST, este parámetro se denomina `top` en lugar de `$top`.
+> [AZURE.NOTE] Al llamar a las **sugerencias** mediante POST, este parámetro se denomina `top` en lugar de `$top`.
 
 `$filter=[string]` (opcional): expresión que filtra los documentos que se consideran para obtener sugerencias.
 
-> [AZURE.NOTE]Al llamar a las **Sugerencias** mediante POST, este parámetro se denomina `filter` en lugar de `$filter`.
+> [AZURE.NOTE] Al llamar a las **sugerencias** mediante POST, este parámetro se denomina `filter` en lugar de `$filter`.
 
 `$orderby=[string]` (opcional): lista de expresiones separadas por comas por la que ordenar los resultados. Cada expresión puede ser un nombre de campo o una llamada a la función `geo.distance()`. Cada expresión puede ir seguida de `asc` para indicar el orden ascendente y de `desc` para indicar el orden descendente. El valor predeterminado es ascendente. Hay un límite de 32 cláusulas para `$orderby`.
 
-> [AZURE.NOTE]Al llamar a las **Sugerencias** mediante POST, este parámetro se denomina `orderby` en lugar de `$orderby`.
+> [AZURE.NOTE] Al llamar a las **sugerencias** mediante POST, este parámetro se denomina `orderby` en lugar de `$orderby`.
 
 `$select=[string]` (opcional): lista de campos separados por comas para recuperar. Si no se especifica, solo se devolverá la clave del documento y el texto de la sugerencia. Se pueden solicitar explícitamente todos los campos estableciendo este parámetro en `*`.
 
-> [AZURE.NOTE]Al llamar a las **Sugerencias** mediante POST, este parámetro se denomina `select` en lugar de `$select`.
+> [AZURE.NOTE] Al llamar a las **Sugerencias** mediante POST, este parámetro se denomina `select` en lugar de `$select`.
 
 `minimumCoverage` (opcional, el valor predeterminado es 80): un número entre 0 y 100 que indica el porcentaje del índice que debe estar cubierto por una consulta de búsqueda para que la consulta se realice correctamente. De forma predeterminada, al menos el 80% del índice debe estar disponible o `Suggest` devolverá el código de estado HTTP 503. Si establece `minimumCoverage` y `Suggest` se realiza correctamente, devolverá HTTP 200 e incluye un valor `@search.coverage` en la respuesta que indica el porcentaje del índice que se incluyó en la consulta.
 
-> [AZURE.NOTE]Establecer este parámetro en un valor inferior a 100 puede ser útil para garantizar la disponibilidad de la búsqueda incluso para servicios con una única réplica. Sin embargo, no se garantiza que todos los documentos coincidentes existan en los resultados. Si la recuperación es más importante para la aplicación que la disponibilidad, es mejor dejar `minimumCoverage` por debajo de su valor predeterminado de 80.
+> [AZURE.NOTE] Establecer este parámetro en un valor inferior a 100 puede ser útil para garantizar la disponibilidad de la búsqueda incluso para servicios con una única réplica. Sin embargo, no se garantiza que todos los documentos coincidentes existan en los resultados. Si la recuperación es más importante para la aplicación que la disponibilidad, es mejor dejar `minimumCoverage` por debajo de su valor predeterminado de 80.
 
 `api-version=[string]` (obligatorio). La versión de vista previa es `api-version=2015-02-28-Preview`. Consulte [Versiones del servicio de búsqueda](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obtener más información y versiones alternativas.
 
@@ -1748,4 +1772,4 @@ Recupere 5 sugerencias en las que la entrada de búsqueda parcial sea "lux"
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

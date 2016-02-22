@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016"  
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 #Codificación avanzada con el flujo de trabajo del Codificador multimedia Premium
 
-**Nota** El procesador multimedia del flujo de trabajo del Codificador multimedia Premium que se trata en este tema no está disponible en China.
+>[AZURE.NOTE]Si tiene preguntas sobre el codificador premium, envíe un correo a mepd en Microsoft.com.
+>
+>El procesador multimedia del flujo de trabajo premium del Codificador multimedia premium del que se habla en este tema no está disponible en China.
 
 ##Información general
 
@@ -28,11 +30,13 @@ Los siguientes temas describen los detalles relacionados con el **flujo de traba
 
 - [Formatos que admite el flujo de trabajo del Codificador multimedia Premium](media-services-premium-workflow-encoder-formats.md): trata los formatos de archivo y los códecs que admite el **flujo de trabajo del Codificador multimedia Premium**.
 
-- En la sección [Comparación de codificadores](media-services-encode-asset.md#compare_encoders) se comparan las funciones de codificación del **Flujo de trabajo premium de codificación de medios**, del **Estándar de codificador multimedia** y del **Codificador multimedia de Azure**.
+- En la sección [Comparación de codificadores](media-services-encode-asset.md#compare_encoders) se comparan las funciones de codificación del **Flujo de trabajo del Codificador multimedia premium**, del **Codificador multimedia estándar** y del **Codificador multimedia de Azure**.
 
 En este tema se muestra cómo codificar con el **flujo de trabajo del Codificador multimedia Premium** usando .NET.
 
 Las tareas de codificación del **flujo de trabajo del Codificador multimedia Premium** requieren un archivo de configuración independiente, denominado archivo de flujo de trabajo. Estos archivos tienen una extensión .workflow y se crean con la herramienta [Diseñador de flujo de trabajo](media-services-workflow-designer.md).
+
+>[AZURE.NOTE]Si tiene preguntas sobre el codificador premium, envíe un correo a mepd en Microsoft.com.
 
 ##Codificación
 
@@ -50,7 +54,9 @@ Hay que seguir estos pasos:
 1. Crear un recurso y cargar un archivo de flujo de trabajo. 
 2. Crear un recurso y cargar un archivo multimedia de origen.
 3. Obtenga el procesador multimedia "Flujo de trabajo de Codificador multimedia Premium".
-4. Crear un trabajo y una tarea.
+4. Crear un trabajo y una tarea. 
+
+	En la mayoría de los casos, la cadena de configuración de la tarea está vacía (como en el ejemplo siguiente). Hay algunos escenarios avanzados (que requieren que establezca propiedades de tiempo de ejecución dinámicamente) en los que debería proporcionar una cadena XML para la tarea de codificación. Ejemplos de estos escenarios son la creación de una superposición, la unión paralela o secuencial multimedia y el subtitulado.
 5. Agregar dos recursos de entrada a la tarea.
 	
 	a. 1.º: el recurso de flujo de trabajo.
@@ -264,10 +270,6 @@ El siguiente ejemplo es un ejemplo completo. Para obtener información sobre có
 	}
 
 
-##Problemas conocidos
-
-Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá conteniendo un archivo TTML vacío.
-
 
 ##Rutas de aprendizaje de Servicios multimedia
 
@@ -277,4 +279,4 @@ Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá c
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

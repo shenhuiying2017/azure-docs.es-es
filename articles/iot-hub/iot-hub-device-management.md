@@ -18,7 +18,7 @@
 
 # Administración de dispositivos IoT usando Suite IoT de Azure y Centro de IoT de Azure
 
-Suite IoT de Azure y Centro de IoT de Azure proporcionan las capacidades fundamentales para habilitar la administración de dispositivos para soluciones IoT, a escala, y para toda una serie de diversos dispositivos y topologías de dispositivo. Las referencias que contienen este artículo sobre administración de dispositivos están relacionadas de forma específica con la administración de dispositivos IoT.
+[Conjunto de aplicaciones de IoT de Azure][lnk-iot-suite] y Centro de IoT de Azure proporcionan las capacidades fundamentales para habilitar la administración de dispositivos para soluciones IoT a escala y para todo un conjunto de dispositivos y topologías de dispositivo. Las referencias que contienen este artículo sobre administración de dispositivos están relacionadas de forma específica con la administración de dispositivos IoT.
 
 ## Introducción
 
@@ -31,12 +31,12 @@ Las empresas y los proveedores de servicios o cualquier organización que manten
 Cuando se trate de habilitar la administración de dispositivos IoT para su solución IoT, tenga en cuenta las siguientes capacidades y determine la importancia de cada una tiene en relación con sus objetivos empresariales:
 
 * **[Detección y aprovisionamiento de dispositivos](#device-provisioning-and-discovery)**: proceso por el cual un dispositivo se inscribe en el sistema.
-* **[Registro de dispositivos y modelos de dispositivo](#device-registry-and-device-models)**: la forma en la que los modelos de dispositivo representan el uso estructurado de metadatos para las relaciones de dispositivo, roles en el sistema y métodos de validación.
+* **[Registro de dispositivos y modelos de dispositivo](#device-registry-and-device-models)**: la forma en la que los modelos de dispositivo representan el uso estructurado de metadatos para las relaciones de dispositivo, roles en el sistema y métodos de comprobación.
 * **[Administración de acceso de dispositivo](#device-access-management)**: la forma en la que los dispositivos controlan el acceso a los recursos de dispositivo desde los servicios en la nube.
 * **[Control remoto](#remote-control)**: la forma en la que los usuarios remotos obtienen acceso a los dispositivos y dan instrucciones a los dispositivos para cambiar.
 * **[Administración remota](#remote-administration-and-monitoring)**: proceso por el cual un administrador define el estado de la población de dispositivos.  
-* **[Configuración remota](#remote-configuration)**: método usado por los administradores para cambiar la configuración de los dispositivos.
-* **[Actualización remota de firmware y software](#remote-firmware-and-software-update)**: proceso que los administradores utilizan para actualizar el software y firmware del dispositivo.
+* **[Configuración remota](#remote-configuration)**: método que usan los administradores para cambiar la configuración de los dispositivos.
+* **[Actualización remota de firmware y software](#remote-firmware-and-software-update)**: el proceso que usan los administradores para actualizar el firmware y el software del dispositivo.
 
 Las siguientes secciones proporcionan una cobertura más profunda de cada una de estas funcionalidades de administración de dispositivos y un modelo de alto nivel para implementar estas funcionalidades con Centro de IoT de Azure.
 
@@ -72,15 +72,15 @@ Una implementación IoT de producción que opere con restricciones en la red y e
 
 ### La solución preconfigurada de seguimiento remoto y su modelo de dispositivo
 
-La solución de Azure de supervisión remota de conjunto de IoT preconfigurado implementa un modelo de dispositivo autodefinido. Puede utilizar este modelo para permitir la iteración rápida a medida que define y evolucionan las funcionalidades del dispositivo.
+La [solución preconfigurada de seguimiento remoto][lnk-remote-monitoring] del Conjunto de aplicaciones de IoT de Azure implementa un modelo de dispositivo autodefinido. Puede utilizar este modelo para permitir la iteración rápida a medida que define y evolucionan las funcionalidades del dispositivo.
 
-Puede encontrar el código fuente para esta solución preconfigurada en el repositorio de GitHub [solución de iot de azure][lnk-azure-iot-solution].
+Puede encontrar el código fuente para esta solución preconfigurada en el repositorio de GitHub [azure-iot-solution][lnk-azure-iot-solution].
 
-El código en el que la solución preconfigurada de supervisión remota crea un objeto de dispositivo y lo envía al servicio está definido en el archivo **Simulator/Simulator.WorkerRole/SimulatorCore/Devices/DeviceBase.cs**. En los métodos **SendDeviceInfo** y **GetDeviceInfo**, puede ver cómo se crea y se envía a Centro de IoT de Azure el modelo de dispositivo autodescriptivo.
+El código en el que la solución preconfigurada de supervisión remota crea un objeto de dispositivo y lo envía al servicio está definido en el archivo **Simulator/Simulator.WorkerRole/SimulatorCore/Devices/DeviceBase.cs**. En los métodos **SendDeviceInfo** y **GetDeviceInfo**, puede ver cómo se crea y se envía al Centro de IoT de Azure el modelo de dispositivo autodescriptivo.
 
-El código donde el servicio en la nube procesa los eventos relacionados con el modelo de dispositivo se encuentra en el archivo **EventProcessor/EventProcessor.WorkerRole/Processors/DeviceManagementProcessor.cs**. La mayor parte del trabajo que se realiza para la actuación sobre los mensajes relacionados con el modelo de dispositivo que dicho dispositivo envía al lado de servicio de la solución preconfigurada, se produce en el método **ProcessJToken**.
+El código den el que el servicio en la nube procesa los eventos relacionados con el modelo de dispositivo se encuentra en el archivo **EventProcessor/EventProcessor.WorkerRole/Processors/DeviceManagementProcessor.cs**. La mayor parte del trabajo que se realiza para la actuación sobre los mensajes relacionados con el modelo de dispositivo que dicho dispositivo envía al lado de servicio de la solución preconfigurada, se produce en el método **ProcessJToken**.
 
-Una vez que se recibe un mensaje relacionado con el modelo de dispositivo, los métodos **UpdateDeviceFromSimulatedDeviceInfoPacketAsync** y **UpdateDeviceFromRealDeviceInfoPacketAsync** en el archivo **DeviceManagement/Infrastructure/BusinessLogic/DeviceLogic.cs**, son responsables de actualizar el registro del dispositivo. La API del registro del dispositivo en la solución preconfigurada de supervisión remota se puede encontrar en el archivo **DeviceManagement/Web/WebApiControllers/DeviceApiController.cs**.
+Una vez que se recibe un mensaje relacionado con el modelo de dispositivo, los responsables de actualizar el registro del dispositivo son los métodos **UpdateDeviceFromSimulatedDeviceInfoPacketAsync** y **UpdateDeviceFromRealDeviceInfoPacketAsync** en el archivo **DeviceManagement/Infrastructure/BusinessLogic/DeviceLogic.cs**. Las API de registro de dispositivos de la solución preconfigurada de supervisión remota se pueden encontrar en el archivo **DeviceManagement/Web/WebApiControllers/DeviceApiController.cs**.
 
 ### Modelos de dispositivos de puerta de enlace de campo
 
@@ -96,7 +96,7 @@ El control remoto está fuera de ámbito como un escenario para las soluciones p
 
 En escenarios de TI, control remoto a menudo se usa para ayudar a los usuarios remotos o configurar de forma remota los servidores remotos. En escenarios de IoT, casi todos los dispositivos no tienen usuarios conectados, por lo tanto, se usa el control remoto en escenarios de diagnóstico y configuración remota. El control remoto puede implementarse a través de dos modelos diferentes:
 
-* **Conexión directa**: con el fin de habilitar el control remoto a través de una conexión directa a un dispositivo (por ejemplo, SSH en Linux, Escritorio remoto en Windows o a través de las herramientas de depuración remotas) tiene que poder crear una conexión con el dispositivo. Debido a los riesgos de seguridad que supone la exposición de un dispositivo a Internet abierta, se recomienda utilizar un servicio de retransmisión (como el [servicio de retransmisión de bus de servicio][service-bus-relay] de Azure) para habilitar la conexión y enrutar el tráfico. Ya que una conexión de retransmisión es una conexión saliente desde el dispositivo, esto ayuda a limitar la superficie de ataque en los puertos TCP abiertos en el dispositivo.
+* **Conexión directa**: para habilitar el control remoto a través de una conexión directa a un dispositivo (por ejemplo, SSH en Linux, Escritorio remoto en Windows o a través de las herramientas de depuración remotas) tiene que poder crear una conexión con el dispositivo. Debido a los riesgos de seguridad que supone la exposición de un dispositivo a la Internet abierta, se recomienda utilizar un servicio de retransmisión (como el [servicio de retransmisión de bus de servicio][service-bus-relay] de Azure) para habilitar la conexión y enrutar el tráfico. Ya que una conexión de retransmisión es una conexión saliente desde el dispositivo, esto ayuda a limitar la superficie de ataque en los puertos TCP abiertos en el dispositivo.
 
 * **Comando de dispositivo**: el control remoto a través del control de dispositivo aprovecha la conexión existente y el canal de comunicaciones establecido entre el dispositivo y el Centro de IoT de Azure. Para habilitar el control remoto basado en el comando de dispositivo, es necesario implementar los siguientes requisitos:
   * El software que se ejecuta en el dispositivo tiene que informar al servicio IoT de que los comandos de dispositivo están disponibles en el dispositivo. Normalmente, esto se define como parte del modelo de dispositivo.
@@ -157,5 +157,7 @@ Para obtener más información sobre el Centro de IoT de Azure, consulte estos v
 [service-bus-relay]: ../service-bus/service-bus-relay-overview.md
 [Conectar el dispositivo]: https://azure.microsoft.com/develop/iot/
 [lnk-azure-iot-solution]: https://github.com/Azure/azure-iot-solution
+[lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[lnk-remote-monitoring]: ../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

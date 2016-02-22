@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/09/2016"
    ms.author="subramar"/>
 
 
@@ -67,15 +67,15 @@ En este artículo se describen los distintos parámetros que se aplican durante 
 
 ## Pasos siguientes
 
+El procedimiento de [actualización de aplicaciones usando Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.
 
-[Actualización de la aplicación de Service Fabric con Visual Studio](service-fabric-application-upgrade.md)
+El procedimiento de [actualización de aplicaciones usando Powershell](service-fabric-application-upgrade-tutorial-powershell.md) ofrece información para actualizar una aplicación mediante PowerShell.
 
-[Actualización de aplicaciones de Service Fabric con PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+Consiga que sus actualizaciones de aplicaciones sean compatibles aprendiendo a usar la [serialización de datos](service-fabric-application-upgrade-data-serialization.md).
 
-[Actualización manual y actualización con un paquete de diferencias](service-fabric-application-upgrade-advanced.md)
+Aprenda a usar funcionalidades avanzadas para actualizar una aplicación. Para ello, consulte los [temas avanzados](service-fabric-application-upgrade-advanced.md).
 
-[Solución de problemas con la actualización de aplicaciones](service-fabric-application-upgrade-troubleshooting.md)
+Solucione problemas habituales en las actualizaciones de aplicaciones consultando los pasos que figuran en [Solución de problemas de las actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md).
+ 
 
-[Serialización de datos](service-fabric-application-upgrade-data-serialization.md)
-
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

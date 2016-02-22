@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/10/2015"
+   ms.date="02/05/2015"
    ms.author="dobett"/>
 
 
@@ -44,11 +44,11 @@ Las instrucciones siguientes describen los pasos para conectar un dispositivo [F
 
     ![][6]
 
-4. En la ventana emergente, especifique el vínculo para el código de ejemplo https://developer.mbed.org/users/AzureIoTClient/code/remote_monitoring/.
+4. En la ventana emergente, especifique el vínculo para el código de ejemplo https://developer.mbed.org/users/AzureIoTClient/code/remote_monitoring/ y haga clic en **Importar**.
 
     ![][7]
 
-5. Puede ver en el compilador de mbed que en la importación de este proyecto se importaron varias bibliotecas. El equipo de IoT de Azure proporciona y mantiene algunas ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [iothub\_http\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_http_transport/), [proton-c-mbed](https://developer.mbed.org/users/AzureIoTClient/code/proton-c-mbed/)), mientras que otras son bibliotecas de terceros que están disponibles en el catálogo de bibliotecas de mbed.
+5. Puede ver en la ventana del compilador de mbed que se importaron varias bibliotecas durante la importación de este proyecto. El equipo de IoT de Azure proporciona y mantiene algunas ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [proton-c-mbed](https://developer.mbed.org/users/AzureIoTClient/code/proton-c-mbed/)), mientras que otras son bibliotecas de terceros que están disponibles en el catálogo de bibliotecas de mbed.
 
     ![][8]
 
@@ -61,14 +61,12 @@ Las instrucciones siguientes describen los pasos para conectar un dispositivo [F
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
 
-7. Reemplace "[Device Id]" y "[Device Key] por los datos de su dispositivo.
-
-8. Use los datos de dispositivo del nombre de host del Centro de IoT para rellenar el nombre y el sufijo de IoTHub. Por ejemplo, si el nombre de host del Centro de IoT es Contoso.azure-devices.net, Contoso será el nombre de IoTHub y todo lo que aparece detrás será el sufijo.
+7. Reemplace "[Device Id]" y "[Device Key] por los datos de su dispositivo. Use el Nombre de host del Centro de IoT para reemplazar los marcadores de posición [IoTHub Name] y [IoTHub Suffix, i.e. azure-devices.net]. Por ejemplo, si el nombre de host del Centro de IoT es contoso.azure-devices.net, Contoso será el **hubName** y todo lo que aparece detrás será el **hubSuffix**:
 
     ```
     static const char* deviceId = "mydevice";
     static const char* deviceKey = "mykey";
-    static const char* hubName = "Contoso";
+    static const char* hubName = "contoso";
     static const char* hubSuffix = "azure-devices.net";
     ```
 
@@ -78,16 +76,17 @@ Las instrucciones siguientes describen los pasos para conectar un dispositivo [F
 
 1. Haga clic en **Compilar** para compilar el programa. Puede omitir con seguridad las advertencias, pero si la compilación genera errores, corríjalos antes de continuar.
 
-2. Si la compilación se realiza correctamente, se genera un archivo .bin con el nombre del proyecto. Copie el archivo .bin en el dispositivo. Al guardar el archivo .bin en el dispositivo se restablece la sesión de terminal actual con el dispositivo. Tras reconectar, restablezca de nuevo el terminal manualmente o inicie un nuevo terminal. De esta forma el dispositivo de mbed se restablece y comienza a ejecutarse el programa.
+2. Si la compilación es correcta, el sitio web del compilador de mbed genera un archivo .bin con el nombre del proyecto y lo descarga en el equipo local. Copie el archivo .bin en el dispositivo. Si guarda el archivo .bin en el dispositivo, este último se reiniciará y ejecutará el programa incluido en el archivo .bin. Puede reiniciar manualmente el programa en cualquier momento presionando el botón Restablecer en el dispositivo mbed.
 
-3. Conecte con el dispositivo mediante una aplicación cliente de SSH, como PuTTY. Puede determinar el puerto serie que el dispositivo usa comprobando el Administrador de dispositivos de Windows:
-
-
-4. En PuTTY, haga clic en el tipo de conexión **serie**. Lo más probable es que el dispositivo se conecte en 115200, así que escriba ese valor en el cuadro **Speed** (Velocidad). Haga clic en **Abrir**.
+3. Conecte con el dispositivo mediante una aplicación cliente de SSH, como PuTTY. Puede determinar el puerto serie que usa el dispositivo comprobando el Administrador de dispositivos de Windows:
 
     ![][11]
 
+4. En PuTTY, haga clic en el tipo de conexión **serie**. Normalmente, el dispositivo se conecta a 115.200 baudios, por lo que introduzca 115.200 en el cuadro **Velocidad**. A continuación, haga clic en **Abrir**.
+
 5. El programa comienza a ejecutarse. Puede que tenga que restablecer la placa (presione CTRL+pausa o el botón de reinicio de la placa) si el programa no se inicia automáticamente cuando se conecta.
+
+    ![][10]
 
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
@@ -96,10 +95,11 @@ Las instrucciones siguientes describen los pasos para conectar un dispositivo [F
 [7]: ./media/iot-suite-connecting-devices-mbed/mbed2a.png
 [8]: ./media/iot-suite-connecting-devices-mbed/mbed3a.png
 [9]: ./media/iot-suite-connecting-devices-mbed/suite6.png
+[10]: ./media/iot-suite-connecting-devices-mbed/putty.png
 [11]: ./media/iot-suite-connecting-devices-mbed/mbed6.png
 
 [lnk-mbed-home]: https://developer.mbed.org/platforms/FRDM-K64F/
 [lnk-mbed-getstarted]: https://developer.mbed.org/platforms/FRDM-K64F/#getting-started-with-mbed
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

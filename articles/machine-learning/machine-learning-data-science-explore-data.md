@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 #Exploración de los datos del proceso de análisis de Cortana
-
-Este **menú** vincula a temas que describen cómo usar herramientas para explorar los datos desde varios entornos de almacenamiento. Esta tarea es un paso en el proceso de análisis de Cortana (CAP).
-
-[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
 Este documento describe cómo explorar datos en cuatro entornos diferentes usados normalmente en el proceso de análisis de Cortana:
 
@@ -29,4 +25,8 @@ Este documento describe cómo explorar datos en cuatro entornos diferentes usado
 - Los datos de las **tablas de Hive** se exploran mediante consultas de Hive.
 - Los datos del **Estudio de aprendizaje automático de Azure (AML)** se exploran mediante módulos AML.
 
-<!---HONumber=AcomDC_1203_2015-->
+Este **menú** vincula a los temas que describen cómo usar estas herramientas para explorar los datos desde varios entornos de almacenamiento.
+
+[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
+
+<!---HONumber=AcomDC_0211_2016-->

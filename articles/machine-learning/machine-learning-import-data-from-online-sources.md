@@ -14,11 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="02/09/2016"
 	ms.author="bradsev;garye;gopitk" />
 
 
 # Importación de datos al Estudio de aprendizaje automático de Azure desde varios orígenes de datos en línea con el módulo Lector
+
+En este documento se describe la compatibilidad para la importación de datos en línea desde varios orígenes y la información necesaria para mover los datos desde estos orígenes a un experimento de Aprendizaje automático de Azure.
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
@@ -32,14 +34,13 @@ Puede acceder a los datos del Estudio de aprendizaje automático de Azure desde 
 - Tabla de Azure
 - Base de datos SQL de Azure o SQL Server en máquina virtual de Azure
 - Un proveedor de fuentes de datos, actualmente OData
-
-En este documento se describen estos orígenes admitidos y la información necesaria para mover los datos desde estos orígenes a un experimento de aprendizaje automático de Azure.
+ 
 
 El flujo de trabajo para llevar a cabo experimentos en el Estudio de aprendizaje automático de Azure consta de componentes para arrastrar y colocar en el lienzo. Para obtener acceso a orígenes de datos en línea, agregue el módulo [Lector][reader] al experimento, seleccione **Origen de datos** y, a continuación, especifique los parámetros necesarios para tener acceso a los datos. Los orígenes de datos en línea admitidos se muestran en la tabla siguiente. Esta tabla también resume los formatos de archivo admitidos y los parámetros usados para tener acceso a los datos.
 
-> [AZURE.NOTE]Este artículo proporciona información general acerca del módulo [Lector][reader]. Para obtener información más detallada acerca de los tipos de datos a los que puede tener acceso, formatos, parámetros y respuestas a las preguntas más comunes, consulte el tema de referencia de módulo correspondiente al módulo [Lector][reader].
+> [AZURE.NOTE] Este artículo proporciona información general acerca del módulo [Lector][reader]. Para obtener información más detallada acerca de los tipos de datos a los que puede tener acceso, formatos, parámetros y respuestas a las preguntas más comunes, consulte el tema de referencia de módulo correspondiente al módulo [Lector][reader].
 
-> [AZURE.NOTE]Como a estos datos de entrenamiento se tiene acceso mientras se está ejecutando el experimento, solo están disponibles en ese experimento. En comparación, los datos que estén almacenados en módulos de conjunto de datos se encontrarán disponibles para cualquier experimento que se realice en su área de trabajo.
+> [AZURE.NOTE] Como a estos datos de entrenamiento se tiene acceso mientras se está ejecutando el experimento, solo están disponibles en ese experimento. En comparación, los datos que estén almacenados en módulos de conjunto de datos se encontrarán disponibles para cualquier experimento que se realice en su área de trabajo.
 
 
 ## Orígenes de datos en línea admitidos
@@ -58,4 +59,4 @@ Proveedor de fuente de distribución de datos | Lee datos de un proveedor de fue
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

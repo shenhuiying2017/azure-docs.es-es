@@ -2,13 +2,13 @@ El [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=52
 
 En este artículo, aprenderá a utilizar Git para publicar directamente desde su equipo local en Aplicaciones web (en Azure, este método de publicación se denomina **Git local**). También aprenderá a habilitar la implementación continua desde sitios repositorio como BitBucket, CodePlex, Dropbox, GitHub o Mercurial. Para obtener información acerca de la utilización de TFS para la implementación continua, consulte [Entrega continua a Azure con Visual Studio Team Services].
 
-> [AZURE.NOTE]Muchos de los comandos de Git que se describen en este artículo se ejecutan automáticamente al crear una aplicación web con las [Herramientas de la línea de comandos de Azure para Mac y Linux](/develop/nodejs/how-to-guides/command-line-tools/).
+> [AZURE.NOTE] Muchos de los comandos de Git que se describen en este artículo se ejecutan automáticamente al crear una aplicación web con las [Herramientas de la línea de comandos de Azure para Mac y Linux](/develop/nodejs/how-to-guides/command-line-tools/).
 
 ## <a id="Step1"></a>Paso 1: Instalación de Git
 
 Los pasos requeridos para instalar Git varían según los sistemas operativos. Consulte [Installing Git] para obtener una guía sobre la instalación y las distribuciones específicas del sistema operativo.
 
-> [AZURE.NOTE]Algunos sistemas operativos disponen de versiones de Git en línea de comandos y de GUI. Las instrucciones proporcionadas en este artículo utilizan la versión en línea de comandos.
+> [AZURE.NOTE] Algunos sistemas operativos disponen de versiones de Git en línea de comandos y de GUI. Las instrucciones proporcionadas en este artículo utilizan la versión en línea de comandos.
 
 ## <a id="Step2"></a>Paso 2: Creación de un repositorio local
 
@@ -42,7 +42,7 @@ Aplicaciones web admite aplicaciones creadas en varios lenguajes de programació
 
 		git add index.html 
 
-	> [AZURE.NOTE]Puede encontrar la ayuda para cualquier comando git escribiendo -help o --help tras el comando. Por ejemplo, para ver las opciones de parámetro para el comando "add", escriba "git add -help" para obtener ayuda para la línea de comandos o "git add --help" para recibir ayuda más detallada.
+	> [AZURE.NOTE] Puede encontrar la ayuda para cualquier comando git escribiendo -help o --help tras el comando. Por ejemplo, para ver las opciones de parámetro para el comando "add", escriba "git add -help" para obtener ayuda para la línea de comandos o "git add --help" para recibir ayuda más detallada.
 
 4. A continuación, confirme los cambios en el repositorio mediante el siguiente comando:
 
@@ -88,7 +88,7 @@ Siga los pasos que se indican a continuación para publicar una aplicación web 
 
 		git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 
-    > [AZURE.NOTE]El comando **remote** agrega una referencia con nombre a un repositorio remoto. En este ejemplo, se crea una referencia llamada "azure" para el repositorio de la aplicación web.
+    > [AZURE.NOTE] El comando **remote** agrega una referencia con nombre a un repositorio remoto. En este ejemplo, se crea una referencia llamada "azure" para el repositorio de la aplicación web.
 
 1. Utilice los comandos siguientes de la línea de comandos para insertar el contenido actual del repositorio desde el repositorio local al repositorio remoto "azure":
 
@@ -108,7 +108,7 @@ Siga los pasos que se indican a continuación para publicar una aplicación web 
 		To https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 		* [new branch]		master -> master
 
-	> [AZURE.NOTE]El repositorio creado para la aplicación espera que las solicitudes de inserción tengan como destino la bifurcación <strong>principal</strong> de su repositorio, que se usará como contenido de la aplicación web.
+	> [AZURE.NOTE] El repositorio creado para la aplicación espera que las solicitudes de inserción tengan como destino la bifurcación <strong>principal</strong> de su repositorio, que se usará como contenido de la aplicación web.
 
 2. Vuelva a la hoja de la aplicación web en el Portal de Azure. **No se encuentra implementación** debe cambiarse a **Implementación activa** con una entrada de registro de la última inserción.
 
@@ -150,7 +150,7 @@ Implementar archivos de GitHub, CodePlex o BitBucket requiere que haya publicado
   
 	![](./media/publishing-with-git/azure7-setup-github-configure.png)
 
-	> [AZURE.NOTE]Al habilitar la implementación continua con GitHub o BitBucket, se mostrarán tanto los proyectos públicos como privados.
+	> [AZURE.NOTE] Al habilitar la implementación continua con GitHub o BitBucket, se mostrarán tanto los proyectos públicos como privados.
 
 Azure crea una asociación con el repositorio seleccionado y extrae los archivos de la rama seleccionada. Una vez que el proceso finaliza, la sección **Implementación** de la hoja de la aplicación web mostrará el mensaje **Implementación activa**, que indica que la implementación se ha realizado correctamente.
 
@@ -182,11 +182,9 @@ Los pasos para insertar su solución de Visual Studio en Aplicaciones web son lo
 		_app/
 		nuget.exe
 
-	>[AZURE.NOTE]Si usa GitHub, puede generar de forma opcional un archivo .gitignore específico de Visual Studio cuando crea el repositorio, en el cual se incluyen todos los archivos temporales comunes, los resultados de compilación, etc. Puede entonces personalizarlos para cubrir sus necesidades.
+	>[AZURE.NOTE] Si usa GitHub, puede generar de forma opcional un archivo .gitignore específico de Visual Studio cuando crea el repositorio, en el cual se incluyen todos los archivos temporales comunes, los resultados de compilación, etc. Puede entonces personalizarlos para cubrir sus necesidades.
 
 -	Agregue el árbol de directorios de la solución entero a su repositorio, con el archivo .sln en la raíz del repositorio.
-
--	En su solución de Visual Studio, [active Restauración de paquetes de NuGet](http://docs.nuget.org/Consume/Package-Restore) para que Visual Studio restaure automáticamente los paquetes que falten.
 
 Una vez que ha configurado el repositorio como se ha descrito y ha configurado la aplicación web en Azure para la publicación continua desde uno de los repositorios de Git conectados, puede desarrollar la aplicación ASP.NET localmente en Visual Studio e implementar continuamente el código simplemente insertando los cambios en el repositorio de Git conectado.
 
@@ -208,7 +206,7 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 
 **Causa**: este error puede producirse si la aplicación web no está en funcionamiento.
 
-**Resolución**: inicie la aplicación web en el Portal de Azure. La implementación de Git no funcionará a menos que se esté ejecutando la aplicación web.
+**Resolución**: Inicie la aplicación web en el Portal de Azure. La implementación de Git no funcionará a menos que se esté ejecutando la aplicación web.
 
 
 ****
@@ -241,7 +239,7 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 
 ****
 
-**Síntoma**: Error: los cambios se confirmaron en el repositorio remoto, pero no se actualizó la aplicación web.
+**Síntoma**: Error: los cambios se han confirmado en el repositorio remoto, pero la aplicación web no se ha actualizado.
 
 **Causa**: este error puede ocurrir si está implementando una aplicación Node.js que contiene un archivo package.json que especifica módulos requeridos adicionales.
 
@@ -265,7 +263,7 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 * [Documentación de Git]
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -297,4 +295,4 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 [Uso de Dropbox para compartir repositorios de Git]: https://gist.github.com/trey/2722927
 [Entrega continua a Azure con Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/12/2016"
+	ms.date="02/09/2016"
 	ms.author="ashmaka"/>
 
 # ¿Qué es Búsqueda de Azure?
@@ -19,7 +19,7 @@ Búsqueda de Azure es una solución de búsqueda como servicio en la nube que de
 
 ## Ofrezca a los usuarios una eficaz experiencia de búsqueda
 
-Se pueden formular **consultas eficaces** con la [sintaxis de consulta simple](https://msdn.microsoft.com/library/azure/dn798920.aspx), que ofrece operadores lógicos, operadores de búsqueda de frase, operadores de sufijo y operadores de precedencia. Además, la [sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) (actualmente disponible en versión preliminar) puede habilitar búsquedas aproximadas, errores de ortografía, búsquedas de proximidad, priorización de términos y expresiones regulares. Búsqueda de Azure también admite analizadores léxicos personalizados para permitir que su aplicación administre consultas de búsqueda complejas mediante la coincidencia fonética y las expresiones regulares.
+Se pueden formular **consultas eficaces** con la [sintaxis de consulta simple](https://msdn.microsoft.com/library/azure/dn798920.aspx), que ofrece operadores lógicos, operadores de búsqueda de frase, operadores de sufijo y operadores de precedencia. Además, la [sintaxis de consulta Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) puede habilitar la búsqueda aproximada, la búsqueda de proximidad, la priorización de términos y las expresiones regulares. Búsqueda de Azure también admite analizadores léxicos personalizados para permitir que su aplicación administre consultas de búsqueda complejas mediante la coincidencia fonética y las expresiones regulares.
 
 Se incluye **compatibilidad** con [56 idiomas diferentes](https://msdn.microsoft.com/library/azure/dn879793.aspx). Al usar analizadores de Lucene y analizadores de Microsoft (refinados gracias a varios años de procesamiento de lenguaje natural en Office y Bing), Búsqueda de Azure puede analizar el texto en el cuadro de búsqueda de la aplicación para controlar de manera inteligente la lingüística específica del idioma, como por ejemplo, tiempos verbales, género, nombres plurales irregulares (por ejemplo, 'mouse' frente a 'ratones'), separación de palabras compuestas, separación de palabras (para idiomas sin espacios) y mucho más.
 
@@ -82,4 +82,4 @@ Puede probar búsqueda de Azure hoy mismo. Si ya tiene una cuenta de Azure, pued
 
 Si no tiene una cuenta de Azure, puede probar una sesión gratuita de 60 minutos sin necesidad de registrarse. Vaya a [Try Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) y seleccione "Aplicación web". A continuación, seleccione la plantilla "ASP.NET + Azure Search" para empezar.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -15,13 +15,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2015"
+	ms.date="02/08/2016"
 	ms.author="fashah;bradsev" />
 
 
 # Mover datos desde un servidor SQL Server local a SQL Azure con la Factoría de datos de Azure
 
 En este tema se muestra cómo mover datos desde una base de datos local de SQL Server a una base de datos de SQL Azure a través del almacenamiento de blobs de Azure mediante la Factoría de datos de Azure (ADF).
+
+El **menú** a continuación vincula a temas en los que se describe cómo introducir datos en los entornos de destino en que sea posible almacenar y procesar datos durante el proceso de Cortana Analytics (CAPS).
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 ## <a name="intro"></a>Introducción: ¿qué es la ADF y cuándo se debe usar para migrar datos?
 
@@ -137,7 +141,7 @@ La definición de tabla del servidor SQL Server local se especifica en el siguie
 		    	}
 	    	}
     	}
-Tenga en cuenta que los nombres de columna no se han incluido aquí. Para subseleccionar los nombres de columna, inclúyalos aquí (para obtener detalles, vea la [documentación de ADF](data-factory-copy-activity.md)).
+Tenga en cuenta que los nombres de columna no se han incluido aquí. Para subseleccionar los nombres de columna, inclúyalos aquí (para obtener detalles, vea la [documentación de ADF](data-factory-data-movement-activities.md)).
 
 Copie la definición de JSON de la tabla en un archivo denominado *onpremtabledef.json* y guarde el archivo en una ubicación conocida (aquí se supone que es *C:\\temp\\onpremtabledef.json*). Cree la tabla en la ADF con el siguiente cmdlet de Azure PowerShell.
 
@@ -211,7 +215,7 @@ Especifique las actividades que pertenecen a la canalización y cree la canaliza
 * En el script se supone que el **nombre de la canalización** es *AMLDSProcessPipeline*.
 * Además, tenga en cuenta que la periodicidad de la canalización que se va a ejecutar se establece como diaria y que se usa el tiempo de ejecución predeterminado para el trabajo (12 a.m. UTC).
 
-> [AZURE.NOTE]  Los siguientes procedimientos usan Azure PowerShell para definir y crear la canalización de ADF. Sin embargo, esta tarea también se puede realizar en el portal de Azure. Para obtener detalles, consulte [Creación y ejecución de una canalización](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline).
+> [AZURE.NOTE]  Los siguientes procedimientos usan Azure PowerShell para definir y crear la canalización de ADF. Sin embargo, esta tarea también se puede realizar en el portal de Azure. Para obtener detalles, consulte [Creación y ejecución de una canalización](../data-factory/data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline).
 
 Mediante las definiciones de tabla proporcionadas anteriormente, la definición de la canalización para la ADF se especifica de la siguiente manera:
 
@@ -301,4 +305,4 @@ Una vez que se ejecuta la canalización, debe poder ver los datos que aparecen e
 
 Observe que no hemos aprovechado la funcionalidad que proporciona la ADF para canalizar los datos de forma incremental. Para obtener más detalles sobre cómo hacer esto y sobre otras capacidades que proporciona la ADF, consulte la [documentación de ADF](https://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

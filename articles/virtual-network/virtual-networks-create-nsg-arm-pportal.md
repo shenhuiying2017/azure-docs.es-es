@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Creación de grupos de seguridad de red en el modo ARM mediante el portal de vista previa | Microsoft Azure"
-   description="Aprenda a crear e implementar grupos de seguridad de red en ARM mediante el portal de vista previa"
+   pageTitle="Creación de grupos de seguridad de red en el modo ARM mediante el Portal de Azure | Microsoft Azure"
+   description="Aprenda a crear e implementar grupos de seguridad de red en ARM mediante el Portal de Azure"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/04/2016"
    ms.author="telmos" />
 
 # Administración de grupos de seguridad de red mediante el portal de vista previa
@@ -56,4 +56,4 @@ Para crear reglas en un grupo de seguridad de red existente desde el portal de v
 
 ![Portal de vista previa - Nueva regla](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

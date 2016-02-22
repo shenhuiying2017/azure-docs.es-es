@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"   
 	ms.author="juliako"/>
 
 
@@ -105,7 +105,7 @@ En esta sección se describen los pasos que puede seguir para codificar el conte
 ![Process2][process2]
 
 
-En el tema [Task Preset Strings for Media Encoder Standard](https://msdn.microsoft.com/es-ES/library/mt269960) (Cadenas preestablecidas de tareas para Estándar de codificador multimedia) se explica el significado de cada cadena preestablecida.
+El tema [Task Preset Strings for Media Encoder Standard (Cadenas preestablecidas de tareas para Estándar de codificador multimedia)](https://msdn.microsoft.com/library/mt269960) explica el significado de cada cadena preestablecida.
 
 5. A continuación, especifique el nombre descriptivo del contenido de salida o acepte el valor predeterminado. A continuación, haga clic en el botón de comprobación para iniciar la operación de codificación y podrá realizar un seguimiento del progreso desde la parte inferior del portal.
 6. Presione Aceptar.
@@ -220,4 +220,4 @@ Se aplican algunas consideraciones:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

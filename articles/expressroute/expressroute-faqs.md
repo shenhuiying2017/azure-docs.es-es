@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/09/2016"
    ms.author="cherylmc"/>
 
 # P+F de ExpressRoute
@@ -179,6 +179,7 @@ ExpressRoute Premium es la colección de características que se enumera a conti
  - Límite de tabla de enrutamiento aumentado de 4000 rutas a 10.000 rutas para el intercambio público y privado.
  - Mayor número de redes virtuales que puede conectarse al circuito ExpressRoute (el valor predeterminado es 10). Vea la tabla siguiente para obtener más información.
  - Conectividad global a través de la red principal de Microsoft. Ahora podrá vincular una red virtual en una región geopolítica con un circuito ExpressRoute en otra región. **Ejemplo:** puede vincular una red virtual creada en Europa occidental a un circuito ExpressRoute creado en Silicon Valley.
+ - Conectividad con los servicios de Office 365 y CRM Online.
 
 ### ¿Cuántas redes virtuales puedo vincular a un circuito ExpressRoute si habilito ExpressRoute Premium?
 La tabla siguiente proporciona los límites ampliados para el número de redes virtuales que se pueden vincular a un circuito ExpressRoute. El límite predeterminado es de 10.
@@ -187,7 +188,7 @@ La tabla siguiente proporciona los límites ampliados para el número de redes v
 
 | **Tamaño del circuito** | **Número de vínculos de red virtual para la configuración predeterminada** | **Número de vínculos de red virtual con ExpressRoute Premium** |
 |--------------|----------------------------------------|-----------------------------------------------|
-| 50 Mbps | 10 | No compatible |
+| 50 Mbps | 10 | 10 |
 | 100 Mbps | 10 | 20 | |
 | 200 Mbps | 10 | 25 |
 | 500 Mbps | 10 | 40 |
@@ -213,49 +214,31 @@ Consulte [Información de precios](https://azure.microsoft.com/pricing/details/e
 ### ¿Debo pagar ExpressRoute Premium además de la tarifa de ExpressRoute Standard?
 Sí. Las tarifas de ExpressRoute Premium se aplican a las tarifas de circuito ExpressRoute y a las tarifas que precisa el proveedor de conectividad de mayor nivel.
 
-## ExpressRoute y Office 365
+## ExpressRoute, servicios de Office 365 y CRM Online.
 
-### ¿Cómo se puede crear un circuito ExpressRoute para conectarse a servicios de Office 365?
+### ¿Cómo se puede crear un circuito ExpressRoute para conectarse a servicios de Office 365 y CRM Online?
 
 1. Revise la [página de requisitos previos de ExpressRoute](expressroute-prerequisites.md) para asegurarse de que se cumplen los requisitos.
 2. Revise la lista de proveedores de servicios y las ubicaciones en [Asociados y ubicaciones de ExpressRoute](expressroute-locations.md) para asegurarse de que se cumplen sus necesidades de conectividad.
 3. Planee los requisitos de capacidad revisando [Planificación de red y ajuste de rendimiento de Office 365](http://aka.ms/tune/).
-4. Siga los pasos enumerados en los flujos de trabajo a continuación para configurar la conectividad. [Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute](expressroute-workflows.md).
+4. Siga los pasos indicados en los flujos de trabajo a continuación para configurar la conectividad: [Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute](expressroute-workflows.md).
 
-### ¿Pueden mis circuitos ExpressRoute existentes ser compatibles con la conectividad a los servicios de Office 365?
-Sí. El circuito ExpressRoute existente puede configurarse para admitir conectividad con los servicios de Office 365. Asegúrese de que tiene suficiente capacidad para conectarse a servicios de Office 365. [Planificación de red y ajuste del rendimiento de Office 365](http://aka.ms/tune/) le ayudará a planificar sus necesidades de conectividad. Además, vea [Creación y modificación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md).
+>[AZURE.IMPORTANT] Asegúrese de que habilitó el complemento de ExpressRoute premium al configurar la conectividad con los servicios de Office 365 y CRM Online.
+
+### ¿Pueden mis circuitos ExpressRoute existentes ser compatibles con la conectividad a los servicios de Office 365 y CRM Online?
+Sí. El circuito ExpressRoute existente puede configurarse para admitir conectividad con los servicios de Office 365. Asegúrese de que tiene suficiente capacidad para conectarse a servicios de Office 365 y de que habilitó el complemento premium. [Planificación de red y ajuste del rendimiento de Office 365](http://aka.ms/tune/) le ayudará a planificar sus necesidades de conectividad. Además, vea [Creación y modificación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md).
 
 ### ¿A qué servicios de Office 365 se puede acceder a través de la conexión ExpressRoute?
 
-**Los siguientes servicios de Office 365 son compatibles:**
+Consulte la página de [URL de Office 365 e intervalos de direcciones IP](http://aka.ms/o365endpoints) para obtener una lista actualizada de los servicios compatibles con ExpressRoute.
 
-- Exchange Online y Exchange Online Protection
-- SharePoint Online
-- Skype Empresarial Online
-- Office Online
-- Azure AD y Sincronización de Azure AD
-- Vídeo de Office 365
-- Power BI
-- Delve
-- Project Online
-
-**Los siguientes servicios de Office 365 no son compatibles:**
-
-- Yammer
-- Descargas de cliente de Office 365 ProPlus
-- Inicio de sesión del proveedor de identidades local
-- Servicio de Office 365 (operado por Vianet 21) en China
-
-Puede conectarse a esos servicios a través de Internet.
-
-### ¿Cuánto cuesta ExpressRoute para Office 365?
-No hay ningún coste adicional para conectarse a Office 365 a través de ExpressRoute. La [página de información de precios](https://azure.microsoft.com/pricing/details/expressroute/) proporciona información sobre los costes de ExpressRoute.
+### ¿Cuánto cuesta ExpressRoute para servicios de Office 365 y CRM Online?
+Servicios de Office 365 y CRM Online requiere que el complemento premium esté habilitado. La [página de información de precios](https://azure.microsoft.com/pricing/details/expressroute/) proporciona información sobre los costes de ExpressRoute.
 
 ### ¿En qué regiones es compatible ExpressRoute para Office 365?
 Consulte [Asociados y ubicaciones de ExpressRoute](expressroute-locations.md) para obtener más información sobre la lista de asociados y ubicaciones en las que se admite ExpressRoute.
 
 ### ¿Es posible obtener acceso a Office 365 por Internet incluso si ExpressRoute se ha configurado ExpressRoute para mi organización?
 Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a través de Internet a pesar de que se haya configurado ExpressRoute para su red. Si está en una ubicación que está configurada para conectarse a servicios de Office 365 a través de ExpressRoute, se conectará a través de ExpressRoute.
- 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

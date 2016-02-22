@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de una red virtual usando el portal de vista previa de Azure | Microsoft Azure"
-   description="Obtenga información sobre cómo crear una red virtual usando el portal de vista previa de Azure."
+   pageTitle="Creación de una red virtual usando el portal de Azure | Microsoft Azure"
+   description="Obtenga información sobre cómo crear una red virtual usando el portal de Azure."
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/03/2016"
    ms.author="telmos"/>
 
 # Creación de una red virtual (clásica) usando el portal de vista previa de Azure
@@ -29,4 +29,4 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-classic-pportal-include](../../includes/virtual-networks-create-vnet-classic-pportal-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

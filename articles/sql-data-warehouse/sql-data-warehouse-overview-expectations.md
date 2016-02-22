@@ -3,7 +3,7 @@
    description="Resumen de las capacidades de la versión preliminar pública y los objetivos de disponibilidad general de Almacenamiento de datos SQL."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lvargas"
+   authors="twounder"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="01/07/2016"
-   ms.author="lvargas;mausher;barbkess"/>
+   ms.author="mausher;barbkess;sonyama"/>
 
 # Expectativas de la versión preliminar de Almacenamiento de datos SQL
 
@@ -72,4 +72,4 @@ Almacenamiento de datos SQL almacena los datos en uno o más nodos informáticos
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

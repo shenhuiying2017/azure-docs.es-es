@@ -98,7 +98,7 @@ Las identidades de dispositivos se representan como documentos JSON con las prop
 
 | Propiedad | Opciones | Descripción |
 | -------- | ------- | ----------- |
-| deviceId | necesarias, de solo lectura en actualizaciones | Una cadena que distingue mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':', '.', '+', '&percnt;', '_', '&num;', '&ast;', '?', '!', '(', ')', ',', '=', '&commat;', ';', '&dollar;', '''}`. |
+| deviceId | necesarias, de solo lectura en actualizaciones | Una cadena que distingue mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | generationId | requerido, de solo lectura | Una cadena que distingue mayúsculas y minúsculas generada por el centro de hasta 128 caracteres. Se usa para distinguir dispositivos con el mismo **deviceId** cuando se eliminaron y se volvieron a crear. |
 | ETag | requerido, de solo lectura | Una cadena que representa un valor de etag débil para la identidad del dispositivo, como por [RFC7232][lnk-rfc7232].|
 | auth | opcional | Un objeto compuesto que contiene material de seguridad e información de autenticación. |
@@ -366,10 +366,10 @@ Es el conjunto de propiedades del sistema en los mensajes del Centro de IoT.
 | -------- | ----------- |
 | MessageId | Un identificador configurable por el usuario para el mensaje, que normalmente se usa para patrones de solicitud y respuesta. Formato: una cadena que distingue mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | Número de secuencia | Un número (exclusivo para cada cola de dispositivo) asignado por Centro de IoT a cada mensaje de nube a dispositivo. |
-| Para | Se usa en mensajes de [nube a dispositivo](#c2d) para especificar el campo de destino.|
+| Para | Se usa en mensajes de [nube a dispositivo](#c2d) para especificar el destino. |
 | ExpiryTimeUtc | Fecha y hora de la expiración del mensaje. |
-| EnqueuedTime | Hora en la que el Centro de IoT se recibió el mensaje. |
-| CorrelationId | Propiedad de cadena que normalmente contiene el identificador del mensaje de la solicitud en los patrones de solicitud y respuesta. |
+| EnqueuedTime | Fecha y hora en la que el Centro de IoT recibió el mensaje. |
+| CorrelationId | Cadena de propiedad en un mensaje de respuesta que normalmente contiene el identificador del mensaje de la solicitud en los patrones de solicitud y respuesta. |
 | UserId | Se usa para especificar el origen de los mensajes. Cuando el Centro de IoT genera mensajes, se establece en `{iot hub name}`. |
 | Ack | Se usa en los mensajes de nube a dispositivo para solicitar a Centro de IoT que genere mensajes de comentarios debido al consumo del mensaje por el dispositivo. Valores posibles: **none** (valor predeterminado): no se genera ningún mensaje de comentarios, **positive**: recibe un mensaje de comentarios si el mensaje expiró, **negative**: recibe un mensaje de comentarios si el mensaje expiró (o se alcanzó el número máximo de entregas) sin que se complete en el dispositivo y **full**: comentarios positivos y negativos. Para obtener más información, consulte [Comentarios de mensajes](#feedback). |
 | ConnectionDeviceId | Establecido por Centro de IoT en los mensajes de dispositivo a la nube. Contiene el **deviceId** del dispositivo que envió el mensaje. |
@@ -418,7 +418,7 @@ Sin embargo, hay algunas diferencias importantes entre los mensajes de dispositi
 * Centro de IoT no admite la partición arbitraria con un valor **PartitionKey**. Los mensajes de dispositivo a la nube se dividen en función de su **deviceId** de origen.
 * El escalado de un Centro de IoT es ligeramente diferente en el caso de los centros de eventos. Para obtener más información, consulte [Escalado de un Centro de IoT][lnk-guidance-scale].
 
-Tenga en cuenta que esto no significa que puede sustituir Centro de IoT en Centros de eventos en todas las situaciones. Por ejemplo, en algunos cálculos de procesamiento de eventos, podría ser necesario volver a crear particiones de eventos con respecto a un campo o propiedad diferentes antes de analizar los flujos de datos. En esta situación, puede usar un Centro de eventos para desacoplar las dos partes de la canalización de procesamiento de la transmisión.
+Tenga en cuenta que esto no significa que puede sustituir Centro de IoT en Centros de eventos en todas las situaciones. Por ejemplo, en algunos cálculos de procesamiento de eventos, podría ser necesario volver a crear particiones de eventos con respecto a un campo o propiedad diferentes antes de analizar los flujos de datos. En esta situación, puede usar un Centro de eventos para desacoplar las dos partes de la canalización de procesamiento de la transmisión. Para obtener más información, vea *Particiones* en [Información general de los Centros de eventos de Azure][lnk-eventhub-partitions].
 
 Para obtener información detallada sobre cómo usar la mensajería de dispositivo a nube, consulte [API y SDK del Centro de IoT][lnk-apis-sdks].
 
@@ -428,7 +428,7 @@ Para obtener información detallada sobre cómo usar la mensajería de dispositi
 
 En muchos casos, además de los puntos de datos de telemetría, los dispositivos también envían mensajes y solicitudes que requieren la ejecución y el control de la capa de lógica de negocio de la aplicación. Por ejemplo, alertas críticas que deben desencadenar una acción específica en el back-end o respuestas de dispositivo a los comandos enviados desde el back-end.
 
-Consulte [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-guidance-d2c-processing] para obtener más información sobre la mejor manera de procesar este tipo de mensajes.
+Vea [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-guidance-d2c-processing] para obtener más información sobre la mejor manera de procesar esta variante de mensajes.
 
 #### Opciones de configuración de dispositivo a nube <a id="d2cconfiguration"></a>
 
@@ -479,11 +479,11 @@ En el diagrama siguiente se detalla el gráfico de estado del ciclo de vida de u
 
 ![Ciclo de vida de los mensajes de nube a dispositivo][img-lifecycle]
 
-Cuando el servicio envía un mensaje, se considera que está *en cola*. Cuando un dispositivo desea *recibir* un mensaje, Centro de IoT *bloquea* el mensaje (establece el estado en **Invisible**), con el fin de permitir a otros subprocesos del mismo dispositivo empezar a recibir otros mensajes. Cuando el subproceso de un dispositivo haya finalizado el procesamiento, lo notifica a Centro de IoT *finalizando* el mensaje.
+Cuando el servicio envía un mensaje, se considera que está *en cola*. Cuando un dispositivo desea *recibir* un mensaje, Centro de IoT *bloquea* el mensaje (establece el estado en **Invisible**), con el fin de permitir a otros subprocesos del mismo dispositivo empezar a recibir otros mensajes. Cuando el subproceso de un dispositivo haya finalizado el procesamiento, lo notifica al Centro de IoT *finalizando* el mensaje.
 
 Un dispositivo también puede:- *Rechazar* el mensaje, que provoca que el Centro de IoT lo establezca en el estado **Procesado como devuelto**. - *Abandonar* el mensaje, que causa que el Centro de IoT vuelva a colocar el mensaje en la cola con el estado establecido en **En cola**.
 
-Podría producirse un error en el subproceso al procesar un mensaje sin notificar a Centro de IoT. En este caso, los mensajes pasan automáticamente del estado **Invisible** al estado **En cola** después de un *tiempo de espera de visibilidad (o bloqueo)* con un valor predeterminado de un minuto. Un mensaje puede pasar entre los estados **En cola** e **Invisible** durante un número especificado de veces en la propiedad *max delivery count* en un Centro de IoT. Después de ese número de transiciones, Centro de IoT establece el estado del mensaje **Procesado como correo devuelto**. De igual forma, Centro de IoT establece el estado de un mensaje en **Procesado como correo devuelto** después de su fecha de expiración (consulte [Período de vida](#ttl)).
+Podría producirse un error en el subproceso al procesar un mensaje sin notificar a Centro de IoT. En este caso, los mensajes pasan automáticamente del estado **Invisible** al estado **En cola** después de un *tiempo de espera de visibilidad (o bloqueo)* con un valor predeterminado de un minuto. Un mensaje puede pasar entre los estados **En cola** e **Invisible** durante un número especificado de veces en la propiedad *Número máximo de entregas* en un Centro de IoT. Después de ese número de transiciones, Centro de IoT establece el estado del mensaje en **Procesado como correo devuelto**. De igual forma, Centro de IoT establece el estado de un mensaje en **Procesado como correo devuelto** después de su fecha de expiración (consulte [Período de vida](#ttl)).
 
 Para ver un tutorial sobre los mensajes de nube a dispositivo, consulte [Introducción a los mensajes de nube a dispositivo del Centro de IoT de Azure][lnk-getstarted-c2d-tutorial]. Para consultar temas de referencia sobre cómo las diferentes API y SDK exponen la funcionalidad de dispositivo de nube, vea [API y SDK del Centro de IoT][lnk-apis-sdks].
 
@@ -501,13 +501,15 @@ Cuando envía un mensaje de nube a dispositivo, el servicio puede solicitar la e
 - Si establece la propiedad **Ack** en **negative**, Centro de IoT genera un mensaje de comentarios únicamente si el mensaje de nube a dispositivo alcanza el estado **Procesado como correo devuelto**.
 - Al establecer la propiedad **Ack** en **full**, Centro de IoT genera un mensaje de comentarios en cualquier caso.
 
-Como se explica en [Puntos de conexión](#endpoints), Centro de IoT ofrece comentarios a través de un punto de conexión orientado a servicios (**/messages/servicebound/feedback**) como mensajes. La semántica de recepción de los comentarios es la misma que para los mensajes de nube a dispositivo que tienen el mismo [ciclo de vida del mensaje](#message lifecycle). Siempre que sea posible, los comentarios del mensaje se realizan por lotes en un único mensaje, con el formato siguiente.
+> [AZURE.NOTE] Si **Ack** es **full**, entonces si no se recibe ningún mensaje de comentarios significa que el mensaje ha caducado y el servicio no puede saber qué ha ocurrido con el mensaje original. En la práctica, un servicio debe asegurarse de que puede procesar el comentario antes de que expire. El tiempo de expiración máximo es de dos días, por lo tanto, debe haber tiempo suficiente para poner en funcionamiento el servicio en caso de error.
 
-Cada mensaje recuperado desde el punto de conexión de comentarios tiene las siguientes propiedades.
+Como se explica en [Puntos de conexión](#endpoints), Centro de IoT ofrece comentarios a través de un punto de conexión orientado a servicios (**/messages/servicebound/feedback**) como mensajes. La semántica de recepción de los comentarios es la misma que para los mensajes de nube a dispositivo y tienen el mismo [ciclo de vida del mensaje](#message lifecycle). Siempre que sea posible, los comentarios del mensaje se realizan por lotes en un único mensaje, con el formato siguiente.
+
+Cada mensaje recuperado por un dispositivo desde el punto de conexión de comentarios tiene las siguientes propiedades:
 
 | Propiedad | Descripción |
 | -------- | ----------- |
-| EnqueuedTime | Marca de tiempo que indica cuándo se creó el lote. |
+| EnqueuedTime | Marca de tiempo que indica cuándo se creó el mensaje. |
 | UserId | `{iot hub name}` |
 | ContentType | `application/vnd.microsoft.iothub.feedback.json` |
 
@@ -517,9 +519,11 @@ El cuerpo es una matriz serializada de JSON de registros, cada uno con las sigui
 | -------- | ----------- |
 | EnqueuedTimeUtc | Marca de tiempo que indica cuándo se produjo el resultado del mensaje. Por ejemplo, el dispositivo completado o el mensaje expirado. |
 | OriginalMessageId | **MessageId** del mensaje de nube a dispositivo al que pertenece esta información de comentarios. |
-| Descripción | Los valores de cadena para los resultados anteriores. |
+| StatusCode | Entero requerido. Se utiliza en los mensajes de comentarios generados por el Centro de IoT. <br/> 0 = correcto <br/> 1 = mensaje expirado <br/> 2 = excedido el número máximo de entregas <br/> 3 = mensaje rechazado |
+| Descripción | Valores de cadena para **StatusCode**. |
 | DeviceId | **DeviceId** del dispositivo de destino del mensaje de nube a dispositivo al que pertenece este elemento de comentarios. |
 | DeviceGenerationId | **DeviceGenerationId** del dispositivo de destino del mensaje de nube a dispositivo al que pertenece este elemento de comentarios. |
+
 
 **Importante**. El servicio tiene que especificar un **MessageId** para el mensaje de nube a dispositivo para poder correlacionar sus comentarios con el mensaje original.
 
@@ -530,6 +534,7 @@ El cuerpo es una matriz serializada de JSON de registros, cada uno con las sigui
   {
     "OriginalMessageId": "0987654321",
     "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
+    "StatusCode": 0
     "Description": "Success",
     "DeviceId": "123",
     "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
@@ -552,6 +557,8 @@ Cada Centro de IoT muestra las siguientes opciones de configuración para la men
 | feedback.ttlAsIso8601 | Retención de mensajes de comentarios del límite de servicio. | Intervalo de ISO\_8601 hasta 2D (1 minuto como mínimo). Valor predeterminado: 1 hora. |
 | feedback.maxDeliveryCount | Número máximo de entregas para la cola de comentarios. | De 1 a 100. Valor predeterminado: 100. |
 
+Para obtener más información, vea [Administración de Centros de IoT a través del portal de Azure][lnk-manage].
+
 ## Cuotas y limitación <a id="throttling"></a>
 
 Cada suscripción de Azure puede tener como máximo 10 Centros de IoT.
@@ -569,8 +576,8 @@ A continuación se muestra la lista de las limitaciones aplicadas. Los valores h
 | Limitación | Valor por centro |
 | -------- | ------------- |
 | Operaciones de registro de identidad (crear, recuperar, enumerar, actualizar y eliminar) | 100/min/unidad, hasta 5.000/min |
-| Conexiones de dispositivos | 120/seg/unidad (para S2), 12/seg/unidad (para S1). Mínimo de 100/s. |
-| Envíos de dispositivo a nube | 120/seg/unidad (para S2), 12/seg/unidad (para S1). Mínimo de 100/s. |
+| Conexiones de dispositivos | 120/seg/unidad (para S2), 12/seg/unidad (para S1). <br/>Mínimo de 100/s. <br/> Por ejemplo, dos unidades S1 se corresponden con 2 * 12 = 24/s, pero tendrá al menos 100/s en las unidades. Con nueve unidades S1 tiene 108/s (9 * 12) en las unidades. |
+| Envíos de dispositivo a nube | 120/seg/unidad (para S2), 12/seg/unidad (para S1). <br/>Mínimo de 100/s. <br/> Por ejemplo, dos unidades S1 se corresponden con 2 * 12 = 24/s, pero tendrá al menos 100/s en las unidades. Con nueve unidades S1 tiene 108/s (9 * 12) en las unidades. |
 | Envíos de nube a dispositivo | 100/min/unidad |
 | Recepciones de nube a dispositivo | 1000/min/unidad |
 
@@ -629,5 +636,7 @@ Ahora que vio información general sobre el desarrollo del Centro de IoT, siga e
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
+[lnk-eventhub-partitions]: event-hubs-overview.md#partitions
+[lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

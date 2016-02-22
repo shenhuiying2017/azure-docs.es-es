@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="02/04/2016" 
 	ms.author="sdanie"/>
 
 # Cómo configurar la compatibilidad de red virtual para una Caché en Redis de Azure Premium
@@ -35,33 +35,29 @@ Para configurar la compatibilidad de redes virtuales, seleccione primero una de 
 
 ![Elegir su plan de tarifa][redis-cache-premium-pricing-tier]
 
-La integración de la red virtual de memoria de Caché en Redis de Azure se configura en la hoja **Red virtual**. Desde aquí puede seleccionar una red virtual clásica existente. Para usar una red virtual nueva, siga los pasos descritos en [Creación de una red virtual (clásica) usando el Portal de Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) y luego regrese a la hoja de **Red virtual de Caché en Redis** para seleccionarla.
+La integración con red virtual de Caché en Redis de Azure se configura en la hoja **Red virtual (clásica)**. Desde aquí puede seleccionar una red virtual clásica existente. Para usar una red virtual nueva, siga los pasos descritos en [Creación de una red virtual (clásica) usando el Portal de Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) y luego regrese a la hoja de **Red virtual de Caché en Redis** para seleccionarla.
 
->[AZURE.NOTE]Caché en Redis de Azure funciona con redes virtuales clásicas. Para información sobre la creación de una red virtual clásica, consulte [Creación de una red virtual (clásica) usando el Portal de Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Para obtener información sobre cómo conectar redes virtuales clásicas a redes virtuales ARM, consulte [Conexión de redes virtuales clásicas a redes virtuales nuevas](../virtual-network/virtual-networks-arm-asm-s2s.md).
+>[AZURE.NOTE] Caché en Redis de Azure funciona con redes virtuales clásicas. Para información sobre la creación de una red virtual clásica, consulte [Creación de una red virtual (clásica) usando el Portal de Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Para obtener información sobre cómo conectar redes virtuales clásicas a redes virtuales ARM, consulte [Conexión de redes virtuales clásicas a redes virtuales nuevas](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+Haga clic en **Red virtual (clásica)** en la hoja **Nueva caché en Redis** y seleccione la red virtual deseada de la lista desplegable para configurarla.
 
 ![Red virtual][redis-cache-vnet]
 
-Haga clic en **Red virtual** en la hoja **Red virtual** para seleccionar y configurar su red virtual.
-
-![Red virtual][redis-cache-vnet-select]
-
-Haga clic en la red virtual que desee para seleccionarla.
-
-![Red virtual][redis-cache-vnet-subnet]
-
-Haga clic en Subred para seleccionar la subred que desea.
+Seleccione la región deseada de la lista despegable **Subred**.
 
 ![Red virtual][redis-cache-vnet-ip]
 
-El campo **Dirección IP estática** es opcional. Si no se especifica aquí, se elegirá una desde la subred seleccionada. Si se quiere una dirección IP estática precisa, escriba la **Dirección IP estática** que quiera y haga clic en **Aceptar** para guardar la configuración de la red virtual. Si la dirección IP estática seleccionada ya está en uso, se mostrará un mensaje de error.
+El campo **Dirección IP estática** es opcional. Si no se especifica aquí, se elegirá una desde la subred seleccionada. Si quiere una dirección IP estática precisa, escriba la **Dirección IP estática** que quiera y haga clic en **Aceptar** para guardar la configuración de la red virtual. Si la dirección IP estática seleccionada ya está en uso, se mostrará un mensaje de error.
 
-Cuando se cree la memoria caché, se puede tener acceso a ella únicamente por los clientes dentro de la misma red virtual.
+Una vez creada la memoria caché, puede ver la dirección IP y otra información de la red virtual si hace clic en **Red virtual** en la hoja **Configuración**.
 
->[AZURE.IMPORTANT]Para obtener acceso a su instancia de caché en Redis de Azure al usar una red virtual, pase la dirección IP estática de la memoria caché de la red virtual como el primer parámetro y pase un parámetro `sslhost` con el punto de conexión de la memoria caché. En el ejemplo siguiente, la dirección IP estática es `10.10.1.5` y el punto de conexión de la memoria caché es `contoso5.redis.cache.windows.net`.
+![Red virtual][redis-cache-vnet-info]
+
+>[AZURE.IMPORTANT] Para obtener acceso a su instancia de caché en Redis de Azure al usar una red virtual, pase la dirección IP estática de la memoria caché de la red virtual como el primer parámetro y pase un parámetro `sslhost` con el punto de conexión de la memoria caché. En el ejemplo siguiente, la dirección IP estática es `172.160.0.99` y el punto de conexión de la memoria caché es `contoso5.redis.cache.windows.net`.
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
-	    return ConnectionMultiplexer.Connect("10.10.1.5,sslhost=contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
+	    return ConnectionMultiplexer.Connect("172.160.0.99,sslhost=contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
 	});
 	
 	public static ConnectionMultiplexer Connection
@@ -119,10 +115,8 @@ Obtenga información acerca de cómo usar más características de la memoria ca
 
 [redis-cache-vnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet.png
 
-[redis-cache-vnet-select]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-select.png
-
 [redis-cache-vnet-ip]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-ip.png
 
-[redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
+[redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

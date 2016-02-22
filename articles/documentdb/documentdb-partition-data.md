@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"      
     ms.devlang="na"      
     ms.topic="article"      
-    ms.date="10/05/2015"      
+    ms.date="02/09/2016"      
     ms.author="arramac"/>
 
 # Partición y escalado de datos en DocumentDB
@@ -28,7 +28,7 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
  - ¿Cuándo se usa cada técnica de partición y por qué?
  - ¿Sabe cómo compilar una aplicación particionada en Azure DocumentDB?
 
-Este artículo presenta algunos conceptos acerca del particionamiento. Si está listo para escribir código que crea particiones de datos con el SDK de .NET de DocumentDB, eche un vistazo a [Creación de particiones de datos en DocumentDB con el SDK de .NET](documentdb-sharding.md).
+Este artículo presenta algunos conceptos acerca del particionamiento. Si está listo para escribir código que crea particiones de datos con el SDK de DocumentDB, eche un vistazo a [Creación de particiones de datos en DocumentDB con el SDK de .NET](documentdb-sharding.md).
 
 ## Colecciones = Particiones
 
@@ -46,17 +46,17 @@ Veamos estas técnicas más detalladamente.
 
 En la creación de particiones por rangos, las particiones se asignan en función de si la clave de partición está dentro de un rango determinado. Esto se utiliza normalmente para las particiones con propiedades *time stamp*, por ejemplo, la hora de un evento (eventTime) entre el 1 y el 2 de febrero de 2015.
 
-> [AZURE.TIP]La partición por rangos se debe usar si las consultas están restringidas a determinados rangos de valores con respecto a la clave de partición.
+> [AZURE.TIP] La partición por rangos se debe usar si las consultas están restringidas a determinados rangos de valores con respecto a la clave de partición.
 
 Un caso especial de la creación de particiones por rangos se da cuando el rango es un solo valor. Normalmente, se usa para crear particiones por valores discretos como región (por ejemplo, la partición correspondiente a Escandinavia contiene Noruega, Dinamarca y Suecia).
 
-> [AZURE.TIP]Las particiones por rangos ofrecen el máximo grado de control en la administración de una aplicación multiempresa. Puede asignar varios inquilinos a una sola colección, un solo inquilino a una sola colección o, incluso, un solo inquilino a varias colecciones.
+> [AZURE.TIP] Las particiones por rangos ofrecen el máximo grado de control en la administración de una aplicación multiempresa. Puede asignar varios inquilinos a una sola colección, un solo inquilino a una sola colección o, incluso, un solo inquilino a varias colecciones.
 
 ## Creación de particiones por hash
 
 En la creación de particiones por hash, las particiones se asignan en función del valor de una función hash, lo que permite distribuir uniformemente las solicitudes y los datos entre una cantidad determinada de particiones. Normalmente, se usa para la partición de datos producidos o consumidos en un gran número de clientes distintos, y resulta útil para almacenar perfiles de usuario, elementos de catálogo y datos de telemetría de dispositivos de IoT ("Internet de las cosas").
 
-> [AZURE.TIP]La creación de particiones por hash se debe usar siempre que haya demasiadas entidades para enumerar (por ejemplo, si se trata de usuarios o dispositivos) y también cuando la tasa de solicitudes sea bastante uniforme entre las entidades.
+> [AZURE.TIP] La creación de particiones por hash se debe usar siempre que haya demasiadas entidades para enumerar (por ejemplo, si se trata de usuarios o dispositivos) y también cuando la tasa de solicitudes sea bastante uniforme entre las entidades.
 
 ## Elección de la técnica adecuada para crear las particiones
 
@@ -112,4 +112,4 @@ En este artículo, hemos presentado algunas técnicas habituales para efectuar p
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

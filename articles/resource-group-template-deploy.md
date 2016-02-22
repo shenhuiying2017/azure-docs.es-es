@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2015"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # Implementación de una aplicación con la plantilla del Administrador de recursos de Azure
@@ -271,7 +271,7 @@ Si utiliza un archivo de parámetros para pasar los valores de parámetro a la p
 
 El tamaño del archivo de parámetros no puede ser superior a 64 KB.
 
-Para definir parámetros de plantilla, consulte [Creación de plantillas](resource-group-authoring-templates.md/#parameters). Para obtener más información acerca de la referencia de KeyVault para pasar valores seguros, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
+Para definir parámetros de plantilla, consulte [Creación de plantillas](../resource-group-authoring-templates/#parameters). Para obtener más información acerca de la referencia de KeyVault para pasar valores seguros, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
 
 ## Pasos siguientes
 - Para un ejemplo de cómo implementar los recursos a través de la biblioteca cliente .NET, vea [Implementación de recursos mediante bibliotecas de .NET y una plantilla](./virtual-machines/arm-template-deployment.md).
@@ -282,4 +282,4 @@ Para definir parámetros de plantilla, consulte [Creación de plantillas](resour
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

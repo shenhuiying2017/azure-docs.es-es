@@ -336,6 +336,6 @@ En este artículo, aprendió a realizar operaciones de forma masiva en el regist
 
 - [Create an IoT hub programatically (Crear un Centro de IoT mediante programación)](iot-hub-rm-template.md)
 - [IoT Hub usage metrics (Métricas de uso del Centro de IoT)](iot-hub-metrics.md)
-- [IoT Hub operations monitoring (Supervisión de operaciones de Centro de IoT)](iot-hub-operations-montoring.md)
+- [IoT Hub operations monitoring (Supervisión de operaciones de Centro de IoT)](iot-hub-operations-monitoring.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

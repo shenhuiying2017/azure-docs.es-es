@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -31,7 +31,7 @@ Al entregar recursos a los clientes, puede [configurar que los recursos se cifre
 
 Los recursos cifrados tienen que estar asociados con **ContentKey**. En este artículo se describe cómo crear una clave de contenido.
 
->[AZURE.NOTE]Al crear un nuevo recurso **StorageEncrypted** con el SDK de Servicios multimedia para .NET, se crea automáticamente el valor de **ContentKey** y se vincula al recurso.
+>[AZURE.NOTE] Al crear un nuevo recurso **StorageEncrypted** con el SDK de Servicios multimedia para .NET, se crea automáticamente el valor de **ContentKey** y se vincula al recurso.
 
 ##ContentKeyType
 
@@ -146,4 +146,4 @@ llamada
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

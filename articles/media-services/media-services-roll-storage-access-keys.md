@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Actualización de Servicios multimedia después de rotar las claves de acceso de almacenamiento
@@ -89,7 +89,7 @@ Espere al menos 30 minutos tras la sincronización de la nueva clave de almacena
 
 Tenga en cuenta que al actualizar (o volver a crear) un localizador de SAS, la dirección URL siempre cambiará.
 
->[AZURE.NOTE]Para asegurarse de que conserva las URL existentes de los localizadores OnDemand, deberá eliminar el localizador existente y crear uno nuevo con el mismo identificador.
+>[AZURE.NOTE] Para asegurarse de que conserva las URL existentes de los localizadores OnDemand, deberá eliminar el localizador existente y crear uno nuevo con el mismo identificador.
  
 En el siguiente ejemplo de .NET se muestra cómo se puede volver a crear un localizador con el mismo identificador.
 	
@@ -130,7 +130,7 @@ En el siguiente ejemplo de .NET se muestra cómo se puede volver a crear un loca
 
 ##Paso 5: Regeneración de la clave de acceso de almacenamiento principal
 
-Regenere la clave de acceso de almacenamiento principal. Para información sobre cómo rotar las claves de almacenamiento, vea [Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Regenere la clave de acceso de almacenamiento principal. Para obtener información sobre cómo rotar las claves de almacenamiento, consulte [Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 ##Paso 6: Actualización de Servicios multimedia para usar la nueva clave de almacenamiento principal
 	
@@ -159,4 +159,4 @@ Use el mismo procedimiento descrito en el [paso 3](media-services-roll-storage-a
 
 Nos gustaría mencionar a las siguientes personas que han contribuido a crear este documento: Cenk Dingiloglu, Gada Milán y Seva Titov.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 # Introducción a Apache Spark en HDInsight de Azure (Linux)
@@ -28,7 +28,7 @@ Cuando crea un clúster Spark en HDInsight, aprovisiona recursos de proceso de A
 
 **¿Desea empezar a trabajar con Apache Spark en HDInsight de Azure?** Vea [Inicio rápido: creación de un clúster Spark en HDInsight basado en Linux y ejecución de consultas interactivas mediante Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 
->[AZURE.NOTE]Para una lista de los problemas conocidos y las limitaciones con la versión actual, vea [Problemas conocidos de Apache Spark en HDInsight de Azure (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
+>[AZURE.NOTE] Para una lista de los problemas conocidos y las limitaciones con la versión actual, vea [Problemas conocidos de Apache Spark en HDInsight de Azure (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 
 ## ¿Por qué usar Spark en HDInsight de Azure? 
@@ -95,7 +95,7 @@ Empiece por crear un clúster de Spark en HDInsight Linux. Vea [Inicio rápido: 
 
 * [Spark with BI: Realizar el análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark con aprendizaje automático: uso de Spark en HDInsight para analizar la temperatura de edificios con datos de HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Creación de aplicaciones de Aprendizaje automático con Apache Spark en HDInsight de Azure](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
 * [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
@@ -103,23 +103,25 @@ Empiece por crear un clúster de Spark en HDInsight Linux. Vea [Inicio rápido: 
 
 * [Análisis del registro del sitio web con Spark en HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-### Crear y ejecutar aplicaciones
+### Creación y ejecución de aplicaciones
 
 * [Crear una aplicación independiente con Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-* [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](hdinsight-apache-spark-livy-rest-interface.md)
+* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Extensiones
+### Herramientas y extensiones
 
-* [Usar cuadernos de Zeppelin con un clúster de Spark en HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones Scala Spark)](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Kernels disponibles para el cuaderno de Jupyter en el clúster de Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-### Administrar recursos
+* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+
+### Administración de recursos
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

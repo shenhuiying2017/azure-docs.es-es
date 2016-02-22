@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="11/10/2015"
+    ms.date="02/09/2016"
     ms.author="sngun" />
 
 # Integración del control de código fuente en Automatización de Azure
@@ -158,4 +158,4 @@ Para desconectarse de su cuenta de GitHub, abra la hoja Sincronización de repos
 
 Para más información sobre la integración del control de código fuente, consulte los siguientes recursos: - [Automatización de Azure: integración del control de código fuente en Automatización de Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [Vote por su sistema de control de código fuente favorito](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Automatización de Azure: integración del control de código fuente de runbook mediante Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

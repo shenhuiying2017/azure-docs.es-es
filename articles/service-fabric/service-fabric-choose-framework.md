@@ -33,6 +33,6 @@ Tenga en cuenta que es perfectamente razonable usar marcos diferentes para disti
 ## Pasos siguientes
 
 - [Obtener más información sobre las API de Reliable Actors](service-fabric-reliable-actors-introduction.md)
-- [Obtener más información acerca de las API de Reliable Services](../Service-Fabric/service-fabric-reliable-services-introduction.md)
+- [Obtener más información acerca de las API de Reliable Services](service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

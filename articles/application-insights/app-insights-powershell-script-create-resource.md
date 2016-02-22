@@ -95,8 +95,8 @@ Hay dos maneras de hacer que el valor iKey esté disponible para el SDK:
 
 * [Crear Application Insights y recursos de pruebas web a partir de plantillas](app-insights-powershell.md)
 * [Configurar la supervisión de diagnósticos de Azure con PowerShell](app-insights-powershell-azure-diagnostics.md) 
-* [Establecimiento de alertas mediante PowerShell](app-insights-alerts.md#set-alerts-by-using-powershell)
+* [Establecimiento de alertas mediante PowerShell](app-insights-powershell-alerts.md)
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0211_2016-->

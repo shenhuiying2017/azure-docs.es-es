@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/12/2015"
+   ms.date="02/04/2016"
    ms.author="v-jeana; hascipio"/>
 
 # Descripción del informe de perspectivas de vendedor
@@ -118,4 +118,4 @@ Si tiene alguna pregunta relacionada con los informes y perspectivas, póngase e
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -17,6 +17,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
+
 # Copiar una base de datos SQL de Azure
 
 **Base de datos única**
@@ -28,7 +29,7 @@
 
 En los siguientes pasos se muestra cómo copiar una base de datos SQL con el [Portal de Azure](https://portal.azure.com). La operación de copia de la base de datos crea una nueva base de datos SQL. La copia es una copia de seguridad de instantánea de la base de datos que crea en el mismo servidor o en un servidor diferente.
 
-> [AZURE.NOTE]La Base de datos SQL de Azure crea y mantiene automáticamente copias de seguridad para cada base de datos de usuario. Para obtener detalles, vea [Información general sobre la continuidad del negocio](sql-database-business-continuity.md).
+> [AZURE.NOTE] La Base de datos SQL de Azure crea y mantiene automáticamente copias de seguridad para cada base de datos de usuario. Para obtener detalles, vea [Información general sobre la continuidad del negocio](sql-database-business-continuity.md).
 
 Cuando se completa el proceso de copia, la nueva base de datos es una base de datos totalmente operativa que es independiente de la base de datos de origen. La nueva base de datos es transaccionalmente coherente con la base de datos de origen en el momento en que se completa la copia. El nivel de rendimiento y el nivel de servicio (nivel de precios) de la copia de base de datos son los mismos que la base de datos de origen. Cuando se complete la copia, esta se convierte en una base de datos independiente y completamente funcional. Los inicios de sesión, usuarios y permisos pueden administrarse de forma independiente.
 
@@ -101,4 +102,4 @@ Abra la hoja de base de datos SQL correspondiente a la base de datos que desea c
 [3]: ./media/sql-database-copy/copy-notification.png
 [4]: ./media/sql-database-copy/monitor-copy.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

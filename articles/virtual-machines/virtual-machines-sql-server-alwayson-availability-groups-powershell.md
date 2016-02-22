@@ -19,8 +19,9 @@
 # Configuración de Grupos de disponibilidad AlwaysOn en la máquina virtual de Azure (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
-- [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+- [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
+- [Portal - Classic](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [PowerShell - Classic](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>
 
@@ -61,7 +62,7 @@ Este tutorial está concebido para mostrarle los pasos necesarios para configura
 
 	El comando **AzurePublishgSettingsFile Get** genera automáticamente un certificado de administración con las descargas de Azure en el equipo. Se abrirá un explorador automáticamente y se le solicitará que escriba las credenciales de la cuenta de Microsoft para su suscripción de Azure. El archivo descargado **.publishsettings** contiene toda la información que necesita para administrar la suscripción de Azure. Después de guardar este archivo en un directorio local, impórtelo mediante el comando **Import-AzurePublishSettingsFile**.
 
-	>[AZURE.NOTE]El archivo .publishsettings contiene sus credenciales (sin codificar) que se usan para administrar sus suscripciones y servicios de Azure. El procedimiento recomendado para este archivo consiste en almacenarlo temporalmente fuera de los directorios de origen (por ejemplo en la carpeta Bibliotecas\\Documentos) y, a continuación, eliminarlo cuando la importación se haya completado. Un usuario malintencionado que obtuviera acceso al archivo .publishsettings podría modificar, crear y eliminar sus servicios de Azure.
+	>[AZURE.NOTE] El archivo .publishsettings contiene sus credenciales (sin codificar) que se usan para administrar sus suscripciones y servicios de Azure. El procedimiento recomendado para este archivo consiste en almacenarlo temporalmente fuera de los directorios de origen (por ejemplo en la carpeta Bibliotecas\\Documentos) y, a continuación, eliminarlo cuando la importación se haya completado. Un usuario malintencionado que obtuviera acceso al archivo .publishsettings podría modificar, crear y eliminar sus servicios de Azure.
 
 1. Defina una serie de variables que usará para crear la infraestructura de TI en la nube.
 
@@ -241,7 +242,7 @@ El servidor DC ya está aprovisionado correctamente. A continuación, configurar
 
 	**CORP\\Install** se usa para configurar todo lo relacionado con las instancias de servicio de SQL Server, el clúster de WSFC y el grupo de disponibilidad. **CORP\\SQLSvc1** y **CORP\\SQLSvc2** se usan como cuentas de servicio de SQL Server para las dos máquinas virtuales de SQL Server.
 
-1. A continuación, ejecute los comandos siguientes para proporcionar a **CORP\\Install** los permisos para crear objetos de equipo en el dominio.
+1. A continuación, ejecute los comandos siguientes para proporcionar **CORP\\Install** los permisos para crear objetos de equipo en el dominio.
 
 		Cd ad:
 		$sid = new-object System.Security.Principal.SecurityIdentifier (Get-ADUser "Install").SID
@@ -307,7 +308,7 @@ El servidor DC ya está aprovisionado correctamente. A continuación, configurar
 
 	- **Set-AzureSubnet** coloca la máquina virtual en la subred back-end.
 
-	- **New-AzureVM** crea un nuevo servicio en la nube y una nueva máquina virtual de Azure en el nuevo servicio en la nube. El parámetro **DnsSettings** especifica que el servidor DNS para los servidores en el nuevo servicio en la nube tiene la dirección IP **10.10.0.4**, que es la dirección IP del servidor DC. Este parámetro es necesario para que las nuevas máquinas virtuales en el servicio en la nube se unan al dominio de Active Directory correctamente. Sin este parámetro, debe establecer manualmente los valores de IPv4 en la máquina virtual para que use el servidor DC como servidor DNS principal después de aprovisionar la máquina virtual y, a continuación, unir la máquina virtual al dominio de Active Directory.
+	- **New-AzureVM** crea un nuevo servicio en la nube y una nueva máquina virtual de Azure en el nuevo servicio de nube. El parámetro **DnsSettings** especifica que el servidor DNS para los servidores en el nuevo servicio en la nube tiene la dirección IP **10.10.0.4**, que es la dirección IP del servidor DC. Este parámetro es necesario para que las nuevas máquinas virtuales en el servicio en la nube se unan al dominio de Active Directory correctamente. Sin este parámetro, debe establecer manualmente los valores de IPv4 en la máquina virtual para que use el servidor DC como servidor DNS principal después de aprovisionar la máquina virtual y, a continuación, unir la máquina virtual al dominio de Active Directory.
 
 1. Ejecute los siguientes comandos canalizados para crear las máquinas virtuales de SQL Server, denominadas **ContosoSQL1** y **ContosoSQL2**.
 
@@ -459,7 +460,7 @@ A continuación, inicialice **ContosoSQL1** y **ContosoSQL2**. Siga los pasos a 
 		Import-Module ServerManager
 		Add-WindowsFeature Failover-Clustering
 
-1. Agregue **CORP\\Install** como administrador local.
+1. Agregue **CORP\\Install** como administrador local
 
 		net localgroup administrators "CORP\Install" /Add
 
@@ -492,7 +493,7 @@ Finalmente, está listo para configurar el grupo de disponibilidad. Se usará el
 
 ## Configuración del recurso de grupo de disponibilidad
 
-1. Conéctese de nuevo a **ContosoSQL1** iniciando los archivos de escritorio remoto. En lugar de iniciar sesión con la cuenta del equipo, inicie sesión con **CORP\\Install**.
+1. Conéctese de nuevo a **ContosoSQL1** iniciando los archivos de escritorio remoto. En lugar de iniciar sesión con la cuenta de la máquina, inicie sesión con **CORP\\Install**.
 
 1. Abra una ventana de Azure PowerShell en modo de administrador.
 
@@ -563,7 +564,7 @@ Finalmente, está listo para configurar el grupo de disponibilidad. Se usará el
 		net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
 		icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
 
-1. Cree una base de datos en **ContosoSQL1** denominada **MyDB1**, realice tanto una copia de seguridad completa como una copia de seguridad de registros y restáurelas en **ContosoSQL2** con la opción ** WITH NORECOVERY **.
+1. Cree una base de datos en **ContosoSQL1** denominado **MyDB1**, realice tanto una copia de seguridad completa como una copia de seguridad de registros y restáurelas en **ContosoSQL2** con la opción ** WITH NORECOVERY **.
 
 		Invoke-SqlCmd -Query "CREATE database $db"
 		Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1
@@ -627,8 +628,8 @@ Finalmente, está listo para configurar el grupo de disponibilidad. Se usará el
 		    -Database $db
 
 ## Pasos siguientes
-Ha implementado correctamente SQL Server AlwaysOn creando un grupo de disponibilidad en Azure. Para configurar un agente de escucha para este grupo de disponibilidad, consulte [Configuración del agente de escucha de los grupos de disponibilidad AlwaysOn en Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
+Ha implementado correctamente SQL Server AlwaysOn creando un grupo de disponibilidad en Azure. Para configurar un agente de escucha para este grupo de disponibilidad, consulte [Configuración del agente de escucha ILB de los grupos de disponibilidad AlwaysOn en Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
 
 Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

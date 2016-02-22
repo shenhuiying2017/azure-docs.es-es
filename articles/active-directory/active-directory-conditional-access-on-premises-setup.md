@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 
@@ -119,7 +119,8 @@ Esto le ayudará a integrar un inquilino de Azure AD con Active Directory local 
 5.	En la sección **implementar y administrar**, siga los pasos del 1 al 3 para integrar Azure Active Directory con su directorio local.
   1.	Adición de dominios.
   2.	Instalar y ejecutar Azure AD Connect: para instalar Azure AD Connect, siga las instrucciones que se indican a continuación, [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
-  3. Comprobación y administración de la sincronización de directorios. Las instrucciones de inicio de sesión único están disponibles en este paso. >[AZURE.NOTE] Configurar la federación con AD FS como se describe en el documento vinculado anterior. >[AZURE.NOTE] No es preciso configurar las características de vista previa.
+  3. Comprobación y administración de la sincronización de directorios. Las instrucciones de inicio de sesión único están disponibles en este paso.
+  >[AZURE.NOTE] Configurar la federación con AD FS como se describe en el documento vinculado arriba.[AZURE.NOTE] No es preciso configurar las características de vista previa.
   
    
 
@@ -187,7 +188,7 @@ Existen varias formas de comunicar la URL a los usuarios. Una forma que se recom
 4. Cuando se lo pidan, inicie sesión con sus credenciales. El dispositivo ahora está unido.
 
 ###Unión de un dispositivo Windows 7 al área de trabajo mediante el Registro de dispositivos de Azure Active Directory
-Para registrar los dispositivos Windows 7 unidos a un dominio debe implementar el paquete de software de registro del dispositivo. El paquete de software se llama Unión al lugar de trabajo para Windows 7 y está disponible para su descarga en el [sitio web de Microsoft Connect](https://connect.microsoft.com/site1164). Las instrucciones para utilizar el paquete están disponibles en [Configuración del registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md).
+Para registrar los dispositivos Windows 7 unidos a un dominio debe implementar el paquete de software de registro del dispositivo. El paquete de software se llama Unión al lugar de trabajo para Windows 7 y está disponible para su descarga en el [sitio web de Microsoft Connect](https://connect.microsoft.com/site1164). Las instrucciones para utilizar el paquete están disponibles en [Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md).
 
 ### Unión de un dispositivo Android al área de trabajo mediante el Registro de dispositivos de Azure Active Directory
 
@@ -244,4 +245,8 @@ Ahora, cuando los usuarios accedan a la aplicación desde un dispositivo que no 
 
 ![Captura de pantalla de un error cuando los usuarios no han registrado su dispositivo en Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=AcomDC_0128_2016-->
+##Artículos relacionados
+
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

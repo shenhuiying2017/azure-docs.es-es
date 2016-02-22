@@ -114,7 +114,7 @@ Busque los datos en los gráficos de Información general. Al principio, solo ap
 
 Haga clic en cualquier gráfico para ver métricas más detalladas. [Más información acerca de las métricas][perf]
 
-* *¿No hay datos de usuario o página?* - [Agregar datos de usuario y página](app-insights-asp-net-client.md)
+* *¿No hay datos de usuario o página?* - [Agregar datos de usuario y página](app-insights-web-track-usage.md)
 
 ### Búsqueda: eventos individuales
 
@@ -146,7 +146,7 @@ Si se trabaja en modo de depuración, la telemetría se agiliza a través de la 
 
 #### ¿Tiene problemas el servidor de compilación?
 
-Consulte [este apartado de la solución de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
+Consulte [este apartado de la solución de problemas](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [AZURE.NOTE] Si la aplicación genera muchos datos de telemetría (y está usando la versión 2.0.0-beta3, o una posterior, del SDK de ASP.NET), el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de solamente una fracción representativa de los eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre ellos. [Más información sobre el muestreo](app-insights-sampling.md).
 
@@ -169,7 +169,7 @@ Resulta especialmente útil si tiene alguna [telemetría personalizada](app-insi
 
 ## Pasos siguientes
 
-- [Datos de página y usuario](../article/application-insights/app-insights-asp-net-client.md#selector1)
+- [Datos de página y usuario](../article/application-insights/app-insights-javascript.md#selector1)
 - [Excepciones](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
 - [Dependencias](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Disponibilidad](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
@@ -212,4 +212,4 @@ Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copi
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

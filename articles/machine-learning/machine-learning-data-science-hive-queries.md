@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/18/2015" 
+	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Envío de consultas de Hive a clústeres de Hadoop en HDInsights en el proceso de análisis de Cortana
@@ -127,14 +127,14 @@ En esta sección, se describen las siguientes tareas de tratamiento de datos med
 1. [Exploración de datos](#hive-dataexploration)
 2. [Generación de características](#hive-featureengineering)
 
-> [AZURE.NOTE]Las consultas de subárbol de ejemplo dan por hecho que se han cargado los datos a tablas de subárbol en clústeres de Hadoop de Azure HDInsight. De no ser así, siga [Crear y cargar datos en tablas de Hive](machine-learning-data-science-hive-tables.md) para cargar los datos en tablas de Hive primero.
+> [AZURE.NOTE] Las consultas de subárbol de ejemplo dan por hecho que se han cargado los datos a tablas de subárbol en clústeres de Hadoop de Azure HDInsight. De no ser así, siga [Crear y cargar datos en tablas de Hive](machine-learning-data-science-hive-tables.md) para cargar los datos en tablas de Hive primero.
 
 ###<a name="hive-dataexploration"></a>Exploración de datos
 A continuación presentamos algunos scripts de subárbol que se pueden usar para explorar los datos de las tablas de subárbol.
 
 1. Obtención del número de observaciones por partición `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
 
-2. Obtención del número de observaciones por día `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
+2. Obtener el número de observaciones por día `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
 
 3. Obtención de los niveles de una columna de categorías `SELECT  distinct <column_name> from <databasename>.<tablename>`
 
@@ -175,11 +175,11 @@ En esta sección se describen maneras de generar características mediante consu
   
 1. [Generación de características basada en frecuencia](#hive-frequencyfeature)
 2. [Riesgos de las variables de categorías en la clasificación binaria](#hive-riskfeature)
-3. [Extraer características del campo de fecha y hora](#hive-datefeature)
+3. [Extraer características de campos de fecha y hora](#hive-datefeature)
 4. [Extraer características del campo de texto](#hive-textfeature)
 5. [Calcular distancia entre las coordenadas GPS](#hive-gpsdistance)
 
-> [AZURE.NOTE]Cuando genere características adicionales, puede agregarlas como columnas a la tabla existente o crear una nueva tabla con las características adicionales y la clave principal, que se pueden combinar con la tabla original.
+> [AZURE.NOTE] Cuando genere características adicionales, puede agregarlas como columnas a la tabla existente o crear una nueva tabla con las características adicionales y la clave principal, que se pueden combinar con la tabla original.
 
 ####<a name="hive-frequencyfeature"></a> Generación de características basada en frecuencia
 
@@ -325,4 +325,4 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

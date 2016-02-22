@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # Implementación de varias máquinas virtuales de NIC con una plantilla
@@ -37,13 +37,13 @@ Antes de implementar los servidores back-end, debe implementar el grupo de recur
 2. En la página de la plantilla, a la derecha de **Grupo de recursos primarios**, haga clic en **Implementar en Azure**.
 3. Si es necesario, cambie los valores de parámetro y siga los pasos en el Portal de vista previa de Azure para implementar el grupo de recursos.
 
-> [AZURE.IMPORTANT]Asegúrese de que los nombres de cuenta de almacenamiento sean únicos. No puede tener nombres de cuenta de almacenamiento duplicados en Azure.
+> [AZURE.IMPORTANT] Asegúrese de que los nombres de cuenta de almacenamiento sean únicos. No puede tener nombres de cuenta de almacenamiento duplicados en Azure.
 
 ## Descripción de la plantilla de implementación
 
 Antes de implementar la plantilla proporcionada con esta documentación, asegúrese de que entiende qué hace. Los pasos siguientes proporcionan una buena descripción general de la plantilla en cuestión.
 
-1. Vaya a [la página de plantilla](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC).
+1. Vaya a [la página de plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
 2. Haga clic en **azuredeploy.json** para abrir el archivo de plantilla.
 3. Observe el parámetro *osType* mostrado a continuación. Este parámetro se utiliza para seleccionar qué imagen de máquina virtual usar para el servidor de base de datos, junto con varias configuraciones relacionadas del sistema operativo.
 
@@ -59,11 +59,11 @@ Antes de implementar la plantilla proporcionada con esta documentación, asegúr
 	      }
 	    },
 
-4. Desplácese hacia abajo hasta la lista de variables y compruebe la definición de las variables *dbVMSetting*, que aparecen a continuación. Recibe uno de los elementos de la matriz contenidos en la variable *dbVMSettings*. Si está familiarizado con la terminología de desarrollo de software, puede ver la variable *dbVMSettings* como una tabla hash o un diccionario.
+4. Desplácese hacia abajo hasta la lista de variables y compruebe la definición de las variables **dbVMSetting**, que aparecen a continuación. Recibe uno de los elementos de la matriz contenidos en la variable **dbVMSettings**. Si está familiarizado con la terminología de desarrollo de software, puede ver la variable **dbVMSettings** como una tabla hash o un diccionario.
 
 		"dbVMSetting": "[variables('dbVMSettings')[parameters('osType')]]"
 
-5. Suponga que decide implementar máquinas virtuales de Windows que ejecuten SQL en el back-end. Entonces, el valor de *osType* sería *Windows*, y la variable *dbVMSetting* contendría el elemento que se muestra a continuación, que representa el primer valor de la variable *dbVMSettings*.
+5. Suponga que decide implementar máquinas virtuales de Windows que ejecuten SQL en el back-end. Entonces, el valor de **osType** sería *Windows*, y la variable **dbVMSetting** contendría el elemento que se muestra a continuación, que representa el primer valor de la variable **dbVMSettings**.
 
 	      "Windows": {
 	        "vmSize": "Standard_DS3",
@@ -82,7 +82,7 @@ Antes de implementar la plantilla proporcionada con esta documentación, asegúr
 	        "dbPort": 1433
 	      },
 
-6. Observe que *vmSize* contiene el valor *Standard\_DS3*. Permiten solo ciertos tamaños de máquina virtual para el uso de varias tarjetas NIC. Puede comprobar los tamaños de máquina virtual que tienen habilitado varias NIC visitando [Introducción a varios NIC](virtual-networks-multiple-nics.md).
+6. Observe que **vmSize** contiene el valor *Standard\_DS3*. Permiten solo ciertos tamaños de máquina virtual para el uso de varias tarjetas NIC. Puede comprobar los tamaños de máquina virtual que tienen habilitado varias NIC visitando [Introducción a varios NIC](virtual-networks-multiple-nics.md).
 7. Desplácese hacia abajo hasta **recursos** y observe el primer elemento. Describe una cuenta de almacenamiento. Esta cuenta de almacenamiento se usará para mantener los discos de datos usados por cada máquina virtual de la base de datos. En este escenario, cada máquina virtual de base de datos tiene un disco de sistema operativo almacenado en almacenamiento normal y dos discos de datos almacenados en el almacenamiento SSD (Premium).
 
 	    {
@@ -98,7 +98,7 @@ Antes de implementar la plantilla proporcionada con esta documentación, asegúr
 	      }
 	    },
 
-8. Desplácese hacia abajo hasta el siguiente recurso, como se muestra a continuación. Este recurso representa la NIC usada para el acceso a la base de datos en cada máquina virtual de la base de datos. Observe el uso de la función **copiar** en este recurso. La plantilla le permite implementar todas las máquinas virtuales que desee, según el parámetro *dbCount*. Por lo tanto, debe crear la misma cantidad de NIC para el acceso de la base de datos, uno para cada máquina virtual.
+8. Desplácese hacia abajo hasta el siguiente recurso, como se muestra a continuación. Este recurso representa la NIC usada para el acceso a la base de datos en cada máquina virtual de la base de datos. Observe el uso de la función **copiar** en este recurso. La plantilla le permite implementar todas las máquinas virtuales que desee, según el parámetro **dbCount**. Por lo tanto, debe crear la misma cantidad de NIC para el acceso de la base de datos, uno para cada máquina virtual.
 
 	    {
 	      "apiVersion": "2015-06-15",
@@ -128,7 +128,7 @@ Antes de implementar la plantilla proporcionada con esta documentación, asegúr
 	      }
 	    },
 
-9. Desplácese hacia abajo hasta el siguiente recurso, como se muestra a continuación. Este recurso representa la NIC usada para la administración en cada máquina virtual de la base de datos. Una vez más, necesita una de estas NIC para cada máquina virtual de base de datos. Observe el elemento *networkSecurityGroup* que vincula un grupo de seguridad de red que permite el acceso a RDP o SSH solo a esta NIC.
+9. Desplácese hacia abajo hasta el siguiente recurso, como se muestra a continuación. Este recurso representa la NIC usada para la administración en cada máquina virtual de la base de datos. Una vez más, necesita una de estas NIC para cada máquina virtual de base de datos. Observe el elemento **networkSecurityGroup** que vincula un grupo de seguridad de red que permite el acceso a RDP o SSH solo a esta NIC.
 
 	    {
 	      "apiVersion": "2015-06-15",
@@ -173,7 +173,7 @@ Antes de implementar la plantilla proporcionada con esta documentación, asegúr
 	      }
 	    },
 
-11. Desplácese hacia abajo hasta el siguiente recurso. Este recurso representa las máquinas virtuales de base de datos, como se muestran en las primeras líneas siguientes. Observe el uso de la función **copiar** de nuevo asegurándose de que se crean varias máquinas virtuales según el parámetro *dbCount*. Observe también la colección *dependsOn*. Muestra dos NIC que tienen que crearse antes de implementar la máquina virtual, junto con el conjunto de disponibilidad y la cuenta de almacenamiento.
+11. Desplácese hacia abajo hasta el siguiente recurso. Este recurso representa las máquinas virtuales de base de datos, como se muestran en las primeras líneas siguientes. Observe el uso de la función **copiar** de nuevo asegurándose de que se crean varias máquinas virtuales según el parámetro **dbCount**. Observe también la colección **dependsOn**. Muestra dos NIC que tienen que crearse antes de implementar la máquina virtual, junto con el conjunto de disponibilidad y la cuenta de almacenamiento.
 
 		  "apiVersion": "2015-06-15",
 		  "type": "Microsoft.Compute/virtualMachines",
@@ -193,7 +193,7 @@ Antes de implementar la plantilla proporcionada con esta documentación, asegúr
 		    "count": "[parameters('dbCount')]"
 		  },
 
-12. Desplácese hacia abajo en el recurso de máquina virtual para el elemento **networkProfile** como se muestra a continuación. Observe que existen dos NIC que hacen referencia a cada máquina virtual. Al crear varias NIC para una máquina virtual, debe establecer la propiedad *principal* de esas NIC en *true* y el resto en *false*.
+12. Desplácese hacia abajo en el recurso de máquina virtual para el elemento **networkProfile** como se muestra a continuación. Observe que existen dos NIC que hacen referencia a cada máquina virtual. Al crear varias NIC para una máquina virtual, debe establecer la propiedad **principal** de esas NIC en *true* y el resto en *false*.
 
         "networkProfile": {
           "networkInterfaces": [
@@ -211,9 +211,9 @@ Antes de implementar la plantilla proporcionada con esta documentación, asegúr
 
 ## Implementar la plantilla ARM por medio de un solo clic para implementar
 
-> [AZURE.IMPORTANT]Asegúrese de que sigue los [pasos previos](#Pre-requisites) antes de seguir las instrucciones que aparecen a continuación.
+> [AZURE.IMPORTANT] Asegúrese de que sigue los [pasos previos](#Pre-requisites) antes de seguir las instrucciones que aparecen a continuación.
 
-La plantilla de ejemplo disponible en el repositorio público usa un archivo de parámetros que contiene los valores predeterminados utilizados para generar el escenario descrito anteriormente. Para implementar esta plantilla mediante el método de hacer clic para implementar, siga [este vínculo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC), a la derecha de **Grupo de recursos back-end (consulte la documentación)**, haga clic en **Implementar en Azure**, reemplace los valores de parámetro predeterminados si es necesario y siga las instrucciones del portal.
+La plantilla de ejemplo disponible en el repositorio público usa un archivo de parámetros que contiene los valores predeterminados utilizados para generar el escenario descrito anteriormente. Para implementar esta plantilla mediante el método de hacer clic para implementar, siga [este vínculo](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC), a la derecha de **Grupo de recursos back-end (consulte la documentación)**, haga clic en **Implementar en Azure**, reemplace los valores de parámetro predeterminados si es necesario y siga las instrucciones del portal.
 
 La siguiente ilustración muestra el contenido del nuevo grupo de recursos después de la implementación.
 
@@ -225,7 +225,7 @@ Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-3. Ejecute el cmdlet **New-AzureRmResourceGroup** para crear un grupo de recursos mediante esta plantilla.
+3. Ejecute el cmdlet **`New-AzureRmResourceGroup`** para crear un grupo de recursos con esta plantilla.
 
 		New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
@@ -261,7 +261,7 @@ Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
-2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
+2. Ejecute el comando **`azure config mode`** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
 		azure config mode arm
 
@@ -271,7 +271,7 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 3. Abra el [archivo de parámetros](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json), seleccione su contenido y guárdelo en un archivo en el equipo. Para este ejemplo, guardamos el archivo de parámetros en *parameters.json*.
 
-4. Ejecute el cmdlet **azure group deployment create** para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que descargó y modificó antes. En la lista que se muestra en la salida se explican los parámetros utilizados.
+4. Ejecute el cmdlet **`azure group deployment create`** para implementar la nueva red virtual con la plantilla y los archivos de parámetros que descargó y modificó anteriormente. En la lista que se muestra en la salida se explican los parámetros utilizados.
 
 		azure group create -n IaaSStory-Backend -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json -e parameters.json
 
@@ -292,4 +292,4 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

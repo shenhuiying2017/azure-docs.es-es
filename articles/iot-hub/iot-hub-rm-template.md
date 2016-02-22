@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Crear un Centro de Iot con una plantilla del Administrador de recursos | Microsoft Azure"
-	description="Siga este tutorial para empezar a usar las plantillas del Administrador de recursos para crear un Centro de IoT."
+	description="Siga este tutorial para empezar a usar las plantillas del Administrador de recursos para crear un Centro de IoT con un programa de C# o con PowerShell."
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="dominicbetts"
@@ -31,6 +31,8 @@ Para completar este tutorial, necesitará lo siguiente:
 - Microsoft Visual Studio 2015.
 - Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][lnk-free-trial].
 - [Microsoft Azure PowerShell 1.0][lnk-powershell-install] o versiones posteriores.
+
+> [AZURE.TIP] En este artículo se describe cómo crear un nuevo Centro de IoT con un programa de C# y una plantilla ARM. También puede usar la [plantilla ARM](#submit-a-template-to-create-an-iot-hub) de este artículo con un script de PowerShell en lugar de un programa de C#. El artículo [Uso de Azure PowerShell con Administrador de recursos de Azure][lnk-powershell-arm] describe cómo escribir un script de PowerShell que usa una plantilla ARM para crear un recurso de Azure como, por ejemplo, un Centro de IoT.
 
 [AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -189,6 +191,7 @@ Ahora puede completar la aplicación llamando a los métodos **CreateIoTHub** y 
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-powershell-install]: https://azure.microsoft.com/es-ES/blog/azps-1-0-pre/
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
+[lnk-azure-rm-overview]: ./resource-group-overview.md
+[lnk-powershell-arm]: ./powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -31,7 +31,7 @@ Acciones como supervisar, detectar, diagnosticar y solucionar problemas permiten
 
 ## Ver eventos del sistema de Service Fabric en Visual Studio
 
-Service Fabric emite los eventos ETW para ayudar a los desarrolladores de aplicaciones a comprender qué ocurre en la plataforma. Si aún no lo ha hecho, siga los pasos descritos en [Creación de la primera aplicación de Service Fabric en Visual Studio](./service-fabric-create-your-first-application-in-visual-studio.md). Esta información le ayudará a poner en funcionamiento una aplicación con el Visor de eventos de diagnóstico que muestra los mensajes de seguimiento.
+Service Fabric emite los eventos ETW para ayudar a los desarrolladores de aplicaciones a comprender qué ocurre en la plataforma. Si aún no lo ha hecho, siga los pasos descritos en [Creación de la primera aplicación de Service Fabric en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). Esta información le ayudará a poner en funcionamiento una aplicación con el Visor de eventos de diagnóstico que muestra los mensajes de seguimiento.
 
 1. Si la ventana de eventos de diagnóstico no aparece automáticamente, vaya a la pestaña **Explorador de servidores** en Visual Studio, haga clic con el botón derecho en el **clúster de Service Fabric** y elija **Ver eventos de diagnóstico** en el menú contextual.
 
@@ -60,4 +60,4 @@ Después de agregar seguimiento ETW personalizado al código del servicio, puede
 ## Pasos siguientes
 El mismo código de seguimiento que agregó a la aplicación anterior para diagnósticos locales funcionará con las herramientas que puede usar para ver estos eventos al ejecutar la aplicación en un clúster de Azure. Consulte estos artículos que tratan las distintas opciones para las herramientas y describen cómo puede configurarlas. * [Recopilación de registros desde un clúster de Service Fabric en Azure mediante WAD (Diagnósticos de Microsoft Azure) y Visión operativa](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) * [Uso de ElasticSearch como almacén de seguimientos de aplicaciones de Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

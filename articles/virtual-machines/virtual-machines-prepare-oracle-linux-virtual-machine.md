@@ -1,22 +1,22 @@
-<properties 
-pageTitle="Preparación de una máquina virtual Oracle Linux para Azure | Microsoft Azure" 
-description="Configuración paso a paso de una máquina virtual de Oracle con Linux en Microsoft Azure." 
-services="virtual-machines" 
-authors="bbenz" 
+<properties
+pageTitle="Preparación de una máquina virtual Oracle Linux para Azure | Microsoft Azure"
+description="Configuración paso a paso de una máquina virtual de Oracle con Linux en Microsoft Azure."
+services="virtual-machines"
+authors="bbenz"
 documentationCenter="virtual-machines"
 tags="azure-service-management,azure-resource-manager"
 />
 
-<tags 
-ms.service="virtual-machines" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.tgt_pltfrm="vm-linux" 
-ms.workload="infrastructure-services" 
-ms.date="06/22/2015" 
+<tags
+ms.service="virtual-machines"
+ms.devlang="na"
+ms.topic="article"
+ms.tgt_pltfrm="vm-linux"
+ms.workload="infrastructure-services"
+ms.date="06/22/2015"
 ms.author="bbenz" />
 
-#Preparación de una máquina virtual Oracle Linux para Azure
+# Preparación de una máquina virtual Oracle Linux para Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -25,7 +25,7 @@ ms.author="bbenz" />
 
 -   [Preparación de una máquina virtual Oracle Linux 7.0+ para Azure](virtual-machines-linux-create-upload-vhd-oracle.md)
 
-##Requisitos previos
+## Requisitos previos
 En este artículo se supone que ya ha instalado un sistema operativo Oracle Linux en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones, consulte [Instalación de Hyper-V y creación de una máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Notas sobre la instalación de Oracle Linux**
@@ -44,10 +44,10 @@ En este artículo se supone que ya ha instalado un sistema operativo Oracle Linu
 
 - El tamaño de todos los archivos VHD debe ser múltiplo de 1 MB.
 
-- Asegúrese de que el `Addons`repositorio está habilitado. Edite el archivo `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) o `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux) y cambie la línea `enabled=0` a `enabled=1` en **[ol6\_addons]** o **[ol7\_addons]** en este archivo.
+- Asegúrese de que el repositorio `Addons` está habilitado. Elija editar el archivo `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) o `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux) y cambie la línea `enabled=0` a `enabled=1` en **[ol6\_addons]** o **[ol7\_addons]** en este archivo.
 
 
-##Oracle Linux 6.4+
+## Oracle Linux 6.4+
 Debe completar los pasos de configuración específicos del sistema operativo para que la máquina virtual se ejecute en Azure.
 
 1. Seleccione la máquina virtual en el panel central del Administrador de Hyper-V.
@@ -58,7 +58,7 @@ Debe completar los pasos de configuración específicos del sistema operativo pa
 
 		# sudo rpm -e --nodeps NetworkManager
 
-	>[AZURE.NOTE]si el paquete todavía no está instalado, se producirá un mensaje de error en este comando. Se espera que esto sea así.
+	>[AZURE.NOTE] si el paquete todavía no está instalado, se producirá un mensaje de error en este comando. Se espera que esto sea así.
 
 4. Cree un archivo llamado **network** en el directorio /etc/sysconfig/ que contenga el texto siguiente:
 
@@ -132,7 +132,7 @@ Debe completar los pasos de configuración específicos del sistema operativo pa
 
 14.  Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
-##Oracle Linux 7.0+
+## Oracle Linux 7.0+
 **Cambios en Oracle Linux 7**
 
 Preparar una máquina virtual de Oracle Linux 7 para Azure es muy similar al proceso para Oracle Linux 6. Sin embargo, hay varias diferencias importantes que vale la pena tener en cuenta:
@@ -225,4 +225,4 @@ Preparar una máquina virtual de Oracle Linux 7 para Azure es muy similar al pro
 
 15.  Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

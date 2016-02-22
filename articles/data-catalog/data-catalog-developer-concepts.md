@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="derrickv"/>
 
 # Conceptos para desarrolladores del Catálogo de datos de Azure
@@ -190,7 +190,7 @@ Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse 
 
 > [AZURE.NOTE]
 >
-> **\_\_permissions** solo se aplica a un elemento de raíz.
+> **__**\_\_permissions** solo se aplica a un elemento de raíz.
 >
 > El rol **Propietario** solo es aplicable a un elemento de raíz.
 >
@@ -262,4 +262,4 @@ Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/06/2015"
+	ms.date="02/07/2016"
 	ms.author="ricksal"/>
 
 # Incorporación de sincronización de datos sin conexión a la aplicación de Servicios móviles de Android
@@ -48,7 +48,7 @@ Para insertar y extraer los cambios entre el dispositivo y Servicios móviles de
 	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 
-2. Agregue las siguientes instrucciones **import** a *ToDoActivity.java*:
+2. Agregue las siguientes instrucciones **import** *ToDoActivity.java*:
 
 		import java.util.Map;
 
@@ -199,7 +199,7 @@ One thing which is important to point out: if there are pending changes in the l
 
 * [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure]
 
-* [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure] \(Nota: las demostraciones son para Windows, pero las características tratadas son aplicables a todas las plataformas)
+* [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure] (Nota: las demostraciones son para Windows, pero las características tratadas son aplicables a todas las plataformas)
 
 
 <!-- URLs. -->
@@ -223,4 +223,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [tutorial del Inicio rápido de Servicios móviles]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

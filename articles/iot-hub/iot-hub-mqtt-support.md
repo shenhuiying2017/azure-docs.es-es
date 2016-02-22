@@ -26,7 +26,7 @@ Un dispositivo puede conectarse a un Centro de IoT mediante el protocolo MQTT, y
 
 ## Uso de los SDK de cliente de dispositivo
 
-Los [SDK de cliente de dispositivo][lnk-mqtt-org] que admiten el protocolo MQTT están disponibles para Java, Node.js, C y C#. El SDK de cliente de dispositivo utiliza la cadena de conexión de Centro de IoT estándar para establecer una conexión a un Centro de IoT. Para utilizar el protocolo MQTT, el parámetro de protocolo de cliente debe establecerse en **MQTT**. De forma predeterminada, los SDK de cliente de dispositivo se conectan a un Centro de IoT con la marca **CleanSession** establecida en **0** y usan **QoS 1** para el intercambio de mensajes con el Centro de IoT.
+Los [SDK de cliente de dispositivo][lnk-device-sdks] que admiten el protocolo MQTT están disponibles para Java, Node.js, C y C#. El SDK de cliente de dispositivo utiliza la cadena de conexión de Centro de IoT estándar para establecer una conexión a un Centro de IoT. Para utilizar el protocolo MQTT, el parámetro de protocolo de cliente debe establecerse en **MQTT**. De forma predeterminada, los SDK de cliente de dispositivo se conectan a un Centro de IoT con la marca **CleanSession** establecida en **0** y usan **QoS 1** para el intercambio de mensajes con el Centro de IoT.
 
 Cuando un dispositivo se conecta a un Centro de IoT, los SDK de cliente de dispositivo proporcionan métodos que permiten al dispositivo enviar y recibir mensajes desde un Centro de IoT.
 
@@ -81,4 +81,4 @@ Para obtener más información sobre el protocolo MQTT, consulte la [documentaci
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

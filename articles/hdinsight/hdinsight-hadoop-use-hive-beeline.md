@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Uso de Hive con Hadoop en HDInsight con Beeline
@@ -23,7 +23,7 @@
 
 En este artículo, aprenderá a usar Secure Shell (SSH) para conectarse a un clúster de HDInsight basado en Linux y, luego, a enviar de manera interactiva consultas de Hive usando la herramienta de línea de comandos de [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell).
 
-> [AZURE.NOTE]Beeline usa JDBC para conectarse a Hive. Para obtener más información sobre el uso de JDBC con Hive, consulte [Conexión a Hive en Azure HDInsight con el controlador JDBC de Hive](hdinsight-connect-hive-jdbc-driver.md).
+> [AZURE.NOTE] Beeline usa JDBC para conectarse a Hive. Para obtener más información sobre el uso de JDBC con Hive, consulte [Conexión a Hive en Azure HDInsight con el controlador JDBC de Hive](hdinsight-connect-hive-jdbc-driver.md).
 
 ##<a id="prereq"></a>Requisitos previos
 
@@ -31,7 +31,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 
 * Un clúster de Hadoop basado en Linux en HDInsight.
 
-* Un cliente SSH. Linux, Unix y Mac OS deben incluir un cliente SSH. Los usuarios de Windows deben descargar un cliente similar a [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+* Un cliente SSH. Linux, Unix y Mac OS deben incluir un cliente SSH. Los usuarios de Windows deben descargar un cliente similar [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ##<a id="ssh"></a>Conexión con SSH
 
@@ -123,7 +123,7 @@ Para obtener más información sobre el uso de PuTTY, consulte [Uso de SSH con H
     * **SELECT**: selecciona un número de todas las filas donde la columna **t4** contiene el valor **[ERROR]**. Esto debe devolver un valor de **3** ya que hay tres filas que contienen este valor.
     * **INPUT\_\_FILE\_\_NAME LIKE '%.log'**: indica a Hive que solo deberíamos devolver datos de archivos que terminan en .log. Normalmente, solo tendría datos con el mismo esquema dentro de la misma carpeta al realizar consultas con Hive; sin embargo, este archivo de registro de ejemplo se almacena con otros formatos de datos.
 
-    > [AZURE.NOTE]Las tablas externas se deben usar cuando espera que un origen externo, como por ejemplo un proceso de carga de datos automático, u otra operación MapReduce, actualice los datos subyacentes, pero siempre desea que las consultas de Hive usen los datos más recientes.
+    > [AZURE.NOTE] Las tablas externas se deben usar cuando espera que un origen externo, como por ejemplo un proceso de carga de datos automático, u otra operación MapReduce, actualice los datos subyacentes, pero siempre desea que las consultas de Hive usen los datos más recientes.
     >
     > La eliminación de una tabla externa **no** elimina los datos, solamente la definición de tabla.
     
@@ -172,7 +172,7 @@ Beeline también se puede usar para ejecutar un archivo que contiene instruccion
     * **STORED AS ORC**: almacena los datos en el formato Optimized Row Columnar (ORC). Se trata de un formato altamente optimizado y eficiente para almacenar datos de Hive.
     * **INSERT OVERWRITE ... SELECT**: selecciona filas de la tabla **log4jLogs** que contienen **[ERROR]** y, a continuación, inserta los datos en la tabla **errorLogs**.
     
-    > [AZURE.NOTE]A diferencia de las tablas externas, la eliminación de una tabla interna también eliminará los datos subyacentes.
+    > [AZURE.NOTE] A diferencia de las tablas externas, la eliminación de una tabla interna también eliminará los datos subyacentes.
     
 3. Para guardar el archivo, use __Ctrl__+___\_X__, escriba __Y__ y, finalmente, presione __Entrar__.
 
@@ -237,4 +237,4 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

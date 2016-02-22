@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/16/2015" 
+    ms.date="02/08/2016" 
     ms.author="elizapo" />
 
 
@@ -26,9 +26,11 @@ Si está implementando Azure RemoteApp, lo más probable es que esté usando una
 Para obtener información sobre cómo implementar aplicaciones cliente de Office 365, consulte [Uso de la suscripción a Office 365 con Azure RemoteApp](remoteapp-officesubscription.md).
  
 ## Fase 1: Registro de su suscripción gratuita de Office 365 Azure Active Directory
-Siga [Cambio del inquilino de Azure Active Directory en Azure RemoteApp](remoteapp-changetenant.md) para obtener acceso administrativo a Azure AD a través del Portal de administración de Azure. Como resultado de este proceso, debe ser capaz de iniciar sesión en el Portal de Azure y ver su directorio ahí. En este momento no verá mucho más, puesto que la suscripción de Azure completa que usa con Azure RemoteApp está en un directorio diferente.
+Si utiliza el Portal de Azure clásico, siga los pasos de [Registre su suscripción gratuita de Azure Active Directory](https://technet.microsoft.com/library/dn832618.aspx) para obtener acceso administrativo a Azure AD a través del Portal de administración de Azure. Como resultado de este proceso, debe ser capaz de iniciar sesión en el Portal de Azure y ver su directorio ahí. En este momento no verá mucho más, puesto que la suscripción de Azure completa que usa con Azure RemoteApp está en un directorio diferente.
 
 Recuerde el nombre y la contraseña de la cuenta de administrador creada en este paso. Los necesitará en la fase 2.
+
+Si utiliza el portal de Azure, consulte [How to register and activate a free Azure Active Directory using Office 365 portal (Cómo registrar y activar Azure Active Directory de manera gratuita con el portal de Office 365)](http://azureblogger.com/2016/01/how-to-register-and-activate-a-free-azure-active-directory-using-office-365-portal/).
 
 ## Fase 2: Cambio del Azure AD asociado a la suscripción de Azure
 Vamos a cambiar su suscripción de Azure desde el directorio actual en el directorio de Office 365 con el que trabajamos en la fase 1.
@@ -43,4 +45,4 @@ Siga las instrucciones descritas en [Cambio del inquilino de Azure Active Direct
 
 En este momento, su suscripción de Azure RemoteApp está asociada al Office 365 Azure AD. Puede usar las cuentas de usuario existentes de Office 365 con Azure Remote App.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

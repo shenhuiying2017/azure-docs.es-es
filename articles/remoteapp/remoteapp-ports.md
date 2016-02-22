@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/29/2016"
+    ms.date="02/02/2016"
     ms.author="elizapo" />
 
 
 
 # Lista de puertos y direcciones URL para permitir el acceso a Azure RemoteApp implementada en el cliente de red virtual 
 
-La siguiente información se aplica a Azure RemoteApp, una colección de nube o híbrida, si va a realizar la implementación en una red virtual (VNET). Para obtener más información sobre las redes virtuales, consulte [Información general sobre redes virtuales](virtual-networks-overview.md). Si creó un grupo de seguridad de red (NSG) que restringe el tráfico dirigido a los recursos de red virtual que haya elegido para Azure RemoteApp, asegúrese de que los siguientes elementos sean accesibles y permitidos a través de las directivas de seguridad de la red virtual. Para obtener más información sobre los grupos de seguridad de red, consulte [¿Qué es un grupo de seguridad de red? (NSG)](virtual-networks-nsg.md).
+La siguiente información se aplica a Azure RemoteApp, una colección de nube o híbrida, si va a realizar la implementación en una red virtual (VNET). Para más información sobre las redes virtuales, consulte [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md). Si creó un grupo de seguridad de red (NSG) que restringe el tráfico dirigido a los recursos de red virtual que haya elegido para Azure RemoteApp, asegúrese de que los siguientes elementos sean accesibles y permitidos a través de las directivas de seguridad de la red virtual. Para más información sobre los grupos de seguridad de red, consulte [¿Qué es un grupo de seguridad de red? (NSG)](../virtual-network/virtual-networks-nsg.md).
 
 ##  La subred de Azure RemoteApp necesita acceso a estos puntos de conexión y direcciones URL: 
 *	**.servicebus.windows.net
@@ -45,4 +45,4 @@ Por clientes, me refiero a los escritorios, dispositivos etc. que los usuarios u
 -  Saliente: TCP: 443  
 -  Opcional: UDP: 3391 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

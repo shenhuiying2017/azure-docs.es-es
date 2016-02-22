@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="02/07/2016"
    ms.author="curtand"/>
 
 # Métodos abreviados de teclado del Portal de Azure clásico
@@ -37,17 +37,11 @@
 | J | Hoja abierta anterior |
 | K | Siguiente hoja abierta |
 | L | Última hoja abierta |
-| - | Minimizar hoja o restaurar desde maximizada |
-| + | Maximizar hoja o restaurar desde minimizada |
-| # | Cerrar hoja actual |
-| ¦ | Cerrar todos los módulos |
-| , | Mover foco a la barra de comandos |
-|. | Mover el foco a la barra de navegación |
-|? | Ver métodos abreviados de teclado |
+| - | Minimizar hoja o restaurar desde maximizada || + | Maximizar hoja o restaurar desde minimizada || # | Cerrar hoja actual || ¦ | Cerrar todos los módulos || , | Mover foco a la barra de comandos ||. | Mover el foco a la barra de navegación ||? | Ver métodos abreviados de teclado |
 
 
 ## Pasos siguientes
 
 Conocer mejor el Portal de Azure clásico: http://azure.microsoft.com.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

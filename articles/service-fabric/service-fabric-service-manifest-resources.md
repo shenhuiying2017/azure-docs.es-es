@@ -36,7 +36,7 @@ Cuando se define un recurso de punto de conexión en el manifiesto de servicio, 
 </Resources>
 ```
 
-Consulte [Configuración de Reliable Services con estado](../Service-Fabric/service-fabric-reliable-services-configuration.md) para obtener más información acerca de cómo hacer referencia a los puntos de extremo del archivo de configuración del paquete de configuración (settings.xml).
+Consulte [Configuración de Reliable Services con estado](service-fabric-reliable-services-configuration.md) para obtener más información acerca de cómo hacer referencia a los puntos de conexión del archivo de configuración del paquete de configuración (settings.xml).
 
 ## Ejemplo: Especificación de un punto de conexión HTTP para el servicio
 
@@ -137,4 +137,4 @@ Este es un ejemplo ApplicationManifest que debe establecer para HTTPS. (Necesita
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

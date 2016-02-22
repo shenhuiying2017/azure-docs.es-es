@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/08/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Configuración de una máquina virtual de Azure SQL Server como servidor del Bloc de notas de IPython para realizar análisis avanzados
@@ -25,7 +25,7 @@ La galería de máquinas virtuales de Azure incluye varias imágenes que contien
 - SQL Server 2012 SP2 Enterprise para tamaños de datos pequeños y medianos
 - SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads para tamaños de datos grandes o muy grandes
 
- >[AZURE.NOTE] La imagen de SQL Server 2012 SP2 Enterprise **no incluye un disco de datos**. Deberá agregar o asociar uno o más discos duros virtuales para almacenar los datos. Al crear una máquina virtual de Azure, esta cuenta con un disco para el sistema operativo asignado a la unidad C y un disco temporal asignado a la unidad D. No utilice la unidad D para almacenar datos. Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure.
+ > [AZURE.NOTE] La imagen de SQL Server 2012 SP2 Enterprise **no incluye un disco de datos**. Deberá agregar o asociar uno o más discos duros virtuales para almacenar los datos. Al crear una máquina virtual de Azure, esta cuenta con un disco para el sistema operativo asignado a la unidad C y un disco temporal asignado a la unidad D. No utilice la unidad D para almacenar datos. Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure.
 
 
 ##<a name="Provision"></a>Conexión al Portal de Azure clásico y aprovisionamiento de una máquina virtual de SQL Server
@@ -46,7 +46,7 @@ La galería de máquinas virtuales de Azure incluye varias imágenes que contien
     -   En el cuadro **CONFIRMAR CONTRASEÑA**, vuelva a escribir la contraseña.
     -   Seleccione el **TAMAÑO** correspondiente en la lista desplegable.
 
-     >[AZURE.NOTE] El tamaño de la máquina virtual se especifica durante el aprovisionamiento: A2 es el tamaño mínimo recomendado para cargas de trabajo de producción. El tamaño mínimo recomendado es A3 para una máquina virtual cuando se usa SQL Server Enterprise Edition. Seleccione A3 o un tamaño superior cuando use SQL Server Enterprise Edition. Seleccione A4 si usa SQL Server 2012 o 2014 Enterprise optimizado para imágenes de cargas de trabajo transaccionales. Seleccione A7 si usa SQL Server 2012 o 2014 Enterprise optimizado para imágenes de cargas de trabajo de almacenamiento de datos. El tamaño seleccionado limita el número de discos de datos que se puede configurar. Para obtener la información más actualizada sobre los tamaños disponibles de máquina virtual y la cantidad de discos de datos que puede adjuntar a una máquina virtual, consulte [Tamaños de máquina virtual para Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Para obtener información sobre el precio, consulte [Precios de Máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/).
+     > [AZURE.NOTE] El tamaño de la máquina virtual se especifica durante el aprovisionamiento: A2 es el tamaño mínimo recomendado para cargas de trabajo de producción. El tamaño mínimo recomendado es A3 para una máquina virtual cuando se usa SQL Server Enterprise Edition. Seleccione A3 o un tamaño superior cuando use SQL Server Enterprise Edition. Seleccione A4 si usa SQL Server 2012 o 2014 Enterprise optimizado para imágenes de cargas de trabajo transaccionales. Seleccione A7 si usa SQL Server 2012 o 2014 Enterprise optimizado para imágenes de cargas de trabajo de almacenamiento de datos. El tamaño seleccionado limita el número de discos de datos que se puede configurar. Para obtener la información más actualizada sobre los tamaños disponibles de máquina virtual y la cantidad de discos de datos que puede adjuntar a una máquina virtual, consulte [Tamaños de máquina virtual para Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Para obtener información sobre el precio, consulte [Precios de Máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
     Haga clic en la flecha de avance en la esquina inferior derecha para continuar.
 
@@ -81,7 +81,7 @@ La galería de máquinas virtuales de Azure incluye varias imágenes que contien
     -   Ejecución (aprovisionamiento)
     -   Ejecución
 
-##<a name="RemoteDesktop"></a>Apertura la máquina virtual con Escritorio remoto y finalización de la configuración
+##<a name="RemoteDesktop">Apertura la máquina virtual con Escritorio remoto y finalización de la configuración</a>
 
 1.  Cuando se completa el aprovisionamiento, haga clic en el nombre de la máquina virtual para ir a la página PANEL. En la parte inferior de la página, haga clic en **Conectar**.
 
@@ -111,8 +111,7 @@ Para configurar la nueva máquina virtual de SQL Server para que actúe como un 
 	+ Para la conectividad remota del servidor de Bloc de notas de IPython
 	+ La obtención de Blocs de notas de IPython y scripts de SQL de ejemplo
 	+ La descarga e instalación de paquetes de Python de ciencia de datos útiles
-	+ La descarga e instalación de las herramientas de Azure como AzCopy y Explorador de almacenamiento de Azure  
-<br>
+	+ La descarga e instalación de las herramientas de Azure como AzCopy y Explorador de almacenamiento de Azure <br>
 - Es posible tener acceso y ejecutar Bloc de notas de IPython desde cualquier explorador local o remoto mediante una dirección URL de la forma `https://<virtual_machine_DNS_name>:<port>`, donde port es el puerto público de IPython que seleccionó al aprovisionar la máquina virtual.
 - El servidor de Bloc de notas de IPython se ejecuta como un servicio en segundo plano y se reiniciará automáticamente cuando se reinicie la máquina virtual.
 
@@ -120,7 +119,7 @@ Para configurar la nueva máquina virtual de SQL Server para que actúe como un 
 
 Si la imagen de la máquina virtual no incluye discos de datos, es decir, discos que no sean la unidad C (disco del sistema operativo) y la unidad D (disco temporal), deberá agregar uno o más discos de datos para almacenar los datos. La imagen de máquina virtual de SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads viene configurada previamente con discos adicionales para los archivos de registro y de datos de SQL Server.
 
- >[AZURE.NOTE] No utilice la unidad D para almacenar datos. Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure.
+ > [AZURE.NOTE] No utilice la unidad D para almacenar datos. Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure.
 
 Para conectar discos de datos adicionales, siga los pasos descritos en [Acoplamiento de un disco de datos a una máquina virtual de Windows](storage-windows-attach-disk.md), que le guiarán a través de la:
 
@@ -144,7 +143,7 @@ El motor de base de datos de SQL Server no puede utilizar la autenticación de W
 
 	<br>
 
-	 >[AZURE.TIP] Puede cambiar el modo de autenticación de SQL Server mediante un cambio de clave del registro de Windows o con SQL Server Management Studio. Para cambiar el modo de autenticación mediante el cambio de la clave del registro, inicie una **Nueva consulta** y ejecute el script siguiente:
+	 > [AZURE.TIP] Puede cambiar el modo de autenticación de SQL Server mediante un cambio de clave del registro de Windows o con SQL Server Management Studio. Para cambiar el modo de autenticación mediante el cambio de la clave del registro, inicie una **Nueva consulta** y ejecute el script siguiente:
 
 		USE master
     	go
@@ -226,7 +225,7 @@ Para conectarse al motor de base de datos de SQL Server desde otro equipo, debe 
 
 1.  En el Portal de Azure clásico (o desde el paso anterior), seleccione **MÁQUINAS VIRTUALES**.
 
-2.  En la página **INSTANCIAS DE MÁQUINA VIRTUAL**, en la columna **NOMBRE DNS**, encuentre y copie el nombre DNS de la máquina virtual que aparece precedido por **http://**. (Puede que la interfaz de usuario no muestre todo el nombre, pero puede hacer clic con el botón secundario en él y seleccionar Copiar).
+2.  En la página **INSTANCIAS DE MÁQUINA VIRTUAL**, en la columna **NOMBRE DNS**, encuentre y copie el nombre DNS de la máquina virtual que aparece precedido por ****http://**. (Puede que la interfaz de usuario no muestre todo el nombre, pero puede hacer clic con el botón secundario en él y seleccionar Copiar).
 
 ##<a name="cde"></a>Conexión al motor de base de datos desde otro equipo
 
@@ -299,4 +298,4 @@ Los pasos siguientes del proceso de ciencia de datos se asignan en la [Guía de 
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -36,9 +36,9 @@ Estas herramientas se usarán para realizar algunas de las operaciones en este d
 ## Diferentes orígenes de registros que podría recopilar
 1. **Registros de Service Fabric:** emitidos por la plataforma a los canales ETW y EventSource estándar. Los registros pueden ser de uno de los varios tipos que hay:
   - Eventos operativos: se trata de registros para las operaciones realizadas por la plataforma Service Fabric. Algunos ejemplos son la creación de aplicaciones y servicios, los cambios de estado de nodo y la información sobre la actualización.
-  - [Eventos del modelo de programación de actor](https://azure.microsoft.com/service-fabric-reliable-actors-diagnostics/)
-  - [Eventos del modelo de programación de Reliable Services](https://azure.microsoft.com/service-fabric-reliable-services-diagnostics/)
-2. **Eventos de aplicaciones:** son los eventos que se emiten desde el código de los servicios y que se escriben mediante la clase auxiliar EventSource proporcionada en las plantillas de Visual Studio. Para obtener más información sobre cómo escribir registros de la aplicación, consulte [este artículo sobre la supervisión y diagnóstico de servicios en una configuración de equipo local](https://azure.microsoft.com/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
+  - [Eventos del modelo de programación de actor](service-fabric-reliable-actors-diagnostics.md)
+  - [Eventos del modelo de programación de Reliable Services](service-fabric-reliable-services-diagnostics.md)
+2. **Eventos de aplicaciones:** son los eventos que se emiten desde el código de los servicios y que se escriben mediante la clase auxiliar EventSource proporcionada en las plantillas de Visual Studio. Para obtener más información sobre cómo escribir registros de la aplicación, consulte [este artículo sobre la supervisión y diagnóstico de servicios en una configuración de equipo local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 
 ## Implementación de la extensión de Diagnósticos en un clúster de Service Fabric para recopilar y cargar registros
@@ -325,4 +325,4 @@ Tendrá que actualizar la sección EtwEventSourceProviderConfiguration en WadCon
 ## Pasos siguientes
 Revise los eventos de diagnóstico emitidos para [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) y [Reliable Services](service-fabric-reliable-services-diagnostics.md) para comprender más a fondo qué eventos debería examinar durante la solución de problemas.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

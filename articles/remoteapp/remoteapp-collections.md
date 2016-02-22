@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="01/07/2016" 
+    ms.date="02/02/2016" 
     ms.author="elizapo" />
 
 
@@ -80,7 +80,7 @@ Si desea usar cuentas de Azure AD, deberá asegurarse de que el inquilino de Azu
 
 El uso de Azure AD + Active Directory local es un requisito previo para las colecciones híbridas. Debe usar AD Connect para integrar los dos directorios. Sin embargo, tendrá algunas opciones en cuanto a la configuración de AD Connect.
 
-Existen 2 escenarios de AD Connect: uso de sincronización de contraseñas o uso de la federación de AD. Consulte la [Información de AD Connect](active-directory-aadconnect.md) para averiguar cuál de estas opciones es la que más le conviene.
+Existen 2 escenarios de AD Connect: uso de sincronización de contraseñas o uso de la federación de AD. Consulte la [Información de AD Connect](../active-directory/active-directory-aadconnect.md) para averiguar cuál de estas opciones es la que más le conviene.
 
 También puede usar Azure AD + AD con una colección de nube. Asegúrese de que seguir los mismos pasos de configuración.
 
@@ -91,4 +91,4 @@ Bueno, creo que ya lo tenemos claro. Solo queda una cosa por hacer: crear la pri
 
 [Crear una colección de nube](remoteapp-create-cloud-deployment.md) o [crear una colección híbrida](remoteapp-create-hybrid-deployment.md): ya está preparado para crear su colección.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

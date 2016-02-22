@@ -26,23 +26,19 @@ Las soluciones preconfiguradas del Conjunto de aplicaciones de IoT de Azure son 
 
 Cada solución preconfigurada implementa un escenario de IoT común y es una implementación completa y descentralizada que usa dispositivos simulados para generar telemetría.
 
-Además de implementar y ejecutar las soluciones preconfiguradas en Azure, puede descargar el código fuente completo y, después, personalizar y ampliar la solución para satisfacer sus necesidades de IoT específicas.
+Además de implementar y ejecutar las soluciones en Azure, puede descargar el código fuente completo y, después, personalizar y ampliar la solución para satisfacer sus necesidades de IoT específicas.
 
-Las soluciones preconfiguradas disponibles son:
+> [AZURE.NOTE] El artículo [Tutorial: Introducción a las soluciones de IoT preconfiguradas][lnk-preconf-get-started] describe cómo implementar y ejecutar una de las soluciones.
 
-- [Supervisión remota][lnk-remote-monitoring]
-- [Mantenimiento predictivo][lnk-predictive-maintenance]
-
-La tabla siguiente muestra cómo se asignan estas soluciones preconfiguradas a las características específicas de IoT:
+La tabla siguiente muestra cómo se asignan estas soluciones a las características específicas de IoT:
 
 | Solución | Ingesta de datos | Identidad de dispositivos | Comando y control | Reglas y acciones | Análisis predictivo |
 |------------------------|-----|-----|-----|-----|-----|
-| Supervisión remota | Sí | Sí | Sí | Sí | - | 
-| Mantenimiento predictivo | Sí | Sí | Sí | Sí | Sí |
+| [Supervisión remota][lnk-remote-monitoring] | Sí | Sí | Sí | Sí | - | | [Mantenimiento predictivo][lnk-predictive-maintenance] | Sí | Sí | Sí | Sí | Sí |
 
 ## Información general sobre la solución preconfigurada de supervisión remota
 
-Esta sección describe algunos de los elementos clave de la solución preconfigurada de supervisión remota. Supervisión remota es la más sencilla de las soluciones preconfiguradas, y muestra elementos de diseño comunes que comparten las otras soluciones preconfiguradas.
+En este artículo se muestra la solución precofingurada de supervisión remota porque es la más sencilla de las soluciones y muestra elementos de diseño comunes que comparte con las demás soluciones.
 
 El siguiente diagrama ilustra los elementos clave de la solución de supervisión remota. Las secciones siguientes proporcionan más información sobre estos elementos.
 
@@ -85,6 +81,8 @@ En esta solución preconfigurada, el procesador de eventos forma parte del *back
 
 ## Portal de solución
 
+![Panel de soluciones][img-dashboard]
+
 El portal de solución es una interfaz de usuario basada en web que se implementa en la nube como parte de la solución preconfigurada. Le permite:
 
 - Ver la telemetría y el historial de alarmas en un panel.
@@ -101,10 +99,11 @@ En esta solución preconfigurada, el portal de solución forma parte del *back-e
 
 Examine estos recursos para obtener más información sobre las soluciones IoT preconfiguradas:
 
-- [Información general sobre las soluciones preconfiguradas IoT de Azure][lnk-suite-overview]
 - [Introducción a las soluciones de IoT preconfiguradas][lnk-preconf-get-started]
+- [Información general de la solución preconfigurada de mantenimiento predictivo][lnk-predictive-maintenance]
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
+[img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
 [lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
@@ -116,4 +115,4 @@ Examine estos recursos para obtener más información sobre las soluciones IoT p
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

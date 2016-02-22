@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 #Uso de Sqoop con Hadoop en HDInsight (SSH)
@@ -23,7 +23,7 @@
 
 Aprenda a utilizar Sqoop para importar y exportar entre un clúster de HDInsight basado en Linux y la base de datos de SQL Server o la base de datos SQL de Azure.
 
-> [AZURE.NOTE]En los pasos de este artículo se usa SSH para conectarse a un clúster de HDInsight basado en Linux. Los clientes de Windows también pueden utilizar Azure PowerShell para trabajar con Sqoop en los clústeres basados en Linux, tal como se documenta en [Uso de Sqoop con Hadoop en HDInsight (PowerShell)](hdinsight-use-sqoop.md).
+> [AZURE.NOTE] En los pasos de este artículo se usa SSH para conectarse a un clúster de HDInsight basado en Linux. Los clientes de Windows también pueden utilizar Azure PowerShell para trabajar con Sqoop en los clústeres basados en Linux, tal como se documenta en [Uso de Sqoop con Hadoop en HDInsight (PowerShell)](hdinsight-use-sqoop.md).
 
 ##¿Qué es Sqoop?
 
@@ -66,7 +66,7 @@ Un clúster de HDInsight incluye algunos datos de ejemplo. Usará una tabla de H
 | sessionid | bigint |
 | sessionpagevieworder | bigint |
 
-Primero exportará **hivesampletable** a la base de datos SQL de Azure o SQL Server en una tabla denominada **mobiledata** y, a continuación, volverá a importar la tabla en HDInsight en **wasb:///tutorials/usesqoop/importeddata**.
+Primero exportará **hivesampletable** a la base de datos SQL de Azure o SQL Server en una tabla denominada **mobiledata** y, a continuación, volverá a importar la tabla en HDInsight en ****wasb:///tutorials/usesqoop/importeddata**.
 
 ##Creación de una base de datos
 
@@ -83,21 +83,21 @@ Primero exportará **hivesampletable** a la base de datos SQL de Azure o SQL Ser
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]Tenga en cuenta el nombre del servidor que devuelve este comando. Este es el nombre corto del servidor de la base de datos SQL que se creó. El nombre de dominio completo (FQDN) es **&lt;shortname&gt;.database.windows.net**.
+    > [AZURE.IMPORTANT] Tenga en cuenta el nombre del servidor que devuelve este comando. Este es el nombre corto del servidor de la base de datos SQL que se creó. El nombre de dominio completo (FQDN) es **&lt;shortname&gt;.database.windows.net**.
 
 2. Utilice el siguiente comando para crear una base de datos denominada **sqooptest** en el servidor de la base de datos SQL:
 
-        sql db create [options] <serverName> sqooptest <adminLogin> <adminPassword>
+        azure sql db create [options] <serverName> sqooptest <adminLogin> <adminPassword>
 
     Esto devolverá el mensaje "Aceptar" cuando termine.
 
-	> [AZURE.NOTE]Si recibe un error en el que se indica que no tiene acceso, puede que necesite agregar la dirección IP de la estación de trabajo del cliente en el firewall de la base de datos SQL mediante el siguiente comando:
+	> [AZURE.NOTE] Si recibe un error en el que se indica que no tiene acceso, puede que necesite agregar la dirección IP de la estación de trabajo del cliente en el firewall de la base de datos SQL mediante el siguiente comando:
 	>
-	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
+	> `azure sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ##Creación de una tabla
 
-> [AZURE.NOTE]Hay muchas maneras de conectarse a la base de datos SQL para crear una tabla. En los siguientes pasos se utiliza [FreeTDS](http://www.freetds.org/) desde el clúster de HDInsight.
+> [AZURE.NOTE] Hay muchas maneras de conectarse a la base de datos SQL para crear una tabla. En los siguientes pasos se utiliza [FreeTDS](http://www.freetds.org/) desde el clúster de HDInsight.
 
 1. Use SSH para conectarse al clúster de HDInsight basado en Linux. La dirección que se usará al conectarse es `CLUSTERNAME-ssh.azurehdinsight.net` y el puerto es `22`.
 
@@ -126,19 +126,19 @@ Primero exportará **hivesampletable** a la base de datos SQL de Azure o SQL Ser
 5. En el símbolo del sistema `1>`, introduzca las líneas siguientes:
 
         CREATE TABLE [dbo].[mobiledata](
-		[clientid] [nvarchar](50),
-		[querytime] [nvarchar](50),
-		[market] [nvarchar](50),
-		[deviceplatform] [nvarchar](50),
-		[devicemake] [nvarchar](50),
-		[devicemodel] [nvarchar](50),
-		[state] [nvarchar](50),
-		[country] [nvarchar](50),
-		[querydwelltime] [float],
-		[sessionid] [bigint],
-		[sessionpagevieworder] [bigint])
+        [clientid] [nvarchar](50),
+        [querytime] [nvarchar](50),
+        [market] [nvarchar](50),
+        [deviceplatform] [nvarchar](50),
+        [devicemake] [nvarchar](50),
+        [devicemodel] [nvarchar](50),
+        [state] [nvarchar](50),
+        [country] [nvarchar](50),
+        [querydwelltime] [float],
+        [sessionid] [bigint],
+        [sessionpagevieworder] [bigint])
         GO
-		CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
+        CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
         GO
 
     Cuando se haya especificado la instrucción `GO`, se evaluarán las instrucciones anteriores. En primer lugar, se crea la tabla **mobiledata** y, a continuación, se agrega un índice agrupado a ella (es necesario para la base de datos SQL).
@@ -171,7 +171,7 @@ Primero exportará **hivesampletable** a la base de datos SQL de Azure o SQL Ser
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    Esto indica a Sqoop que debe conectarse a la base de datos SQL, la base de datos **sqooptest**, y exportar los datos de **wasb:///hive/warehouse/hivesampletable** (archivos físicos para *hivesampletable*) en la tabla **mobiledata**.
+    Esto indica a Sqoop que debe conectarse a la base de datos SQL, la base de datos **sqooptest**, y exportar los datos de ****wasb:///hive/warehouse/hivesampletable** (archivos físicos para *hivesampletable*) en la tabla **mobiledata**.
 
 5. Una vez completado el comando, utilice lo siguiente para conectarse a la base de datos mediante TSQL:
 
@@ -186,7 +186,7 @@ Primero exportará **hivesampletable** a la base de datos SQL de Azure o SQL Ser
 
 ##Importación de Sqoop
 
-1. Use lo siguiente para importar datos desde la tabla **mobiledata** de la base de datos SQL al directorio **wasb:///tutorials/usesqoop/importeddata** en HDInsight:
+1. Use lo siguiente para importar datos desde la tabla **mobiledata** de la base de datos SQL al directorio ****wasb:///tutorials/usesqoop/importeddata** en HDInsight:
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -202,11 +202,11 @@ También puede utilizar Sqoop para importar y exportar datos de SQL Server, tant
 
 * HDInsight y SQL Server deben estar en la misma red virtual de Azure
 
-    > [AZURE.NOTE]HDInsight solo admite redes virtuales basadas en la ubicación y actualmente no funciona con redes virtuales basadas en grupos de afinidad.
+    > [AZURE.NOTE] HDInsight solo admite redes virtuales basadas en la ubicación y actualmente no funciona con redes virtuales basadas en grupos de afinidad.
 
     Cuando use SQL Server en el centro de datos, debe configurar la red virtual como de *sitio a sitio* o de *punto a sitio*.
 
-    > [AZURE.NOTE]En el caso d las redes virtuales de **punto a sitio**, SQL Server debe ejecutarse en la aplicación de configuración de clientes VPN, que se encuentra disponible en el **Panel** de la configuración de red virtual de Azure.
+    > [AZURE.NOTE] En el caso d las redes virtuales de **punto a sitio**, SQL Server debe ejecutarse en la aplicación de configuración de clientes VPN, que se encuentra disponible en el **Panel** de la configuración de red virtual de Azure.
 
     Para obtener más información sobre la creación y la configuración de una red virtual, consulte [Tareas de configuración de la red virtual](../services/virtual-machines/).
 
@@ -239,9 +239,9 @@ También puede utilizar Sqoop para importar y exportar datos de SQL Server, tant
 
 Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
-- [Uso de Oozie con HDInsight][hdinsight-use-oozie]: use la acción Sqoop en un flujo de trabajo de Oozie.
-- [Análisis de la información de retraso de vuelos con HDInsight][hdinsight-analyze-flight-data]: use Hive para analizar la información de retraso de los vuelos y luego use Sqoop para exportar los datos a una base de datos SQL de Azure.
-- [Carga de datos en HDInsight][hdinsight-upload-data]: busque otros métodos para cargar datos en HDInsight o el almacenamiento de blobs de Azure.
+- [Uso de Oozie con HDInsight][hdinsight-use-oozie]\: use la acción Sqoop en un flujo de trabajo de Oozie.
+- [Análisis de la información de retraso de vuelos con HDInsight][hdinsight-analyze-flight-data]\: use Hive para analizar la información de retraso de los vuelos y luego use Sqoop para exportar los datos a una base de datos SQL de Azure.
+- [Carga de datos en HDInsight][hdinsight-upload-data]\: busque otros métodos para cargar datos en HDInsight o el almacenamiento de blobs de Azure.
 
 
 
@@ -263,4 +263,4 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

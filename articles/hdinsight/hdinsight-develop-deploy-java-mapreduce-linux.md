@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # Desarrollo de programas MapReduce de Java para Hadoop en HDInsight
@@ -248,13 +248,13 @@ De esta manera, se copiarán los archivos del sistema local al nodo principal.
 
 2. En la sesión SSH, use el siguiente comando para ejecutar la aplicación MapReduce:
 
-		hadoop jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
+		yarn jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
 
 	De este modo, se usará la aplicación WordCount MapReduce para contar las palabras del archivo davinci.txt y almacenar los resultados en \_\___wasb:///example/data/wordcountout__. Tanto el archivo de entrada como el de salida se almacenan en el almacenamiento predeterminado del clúster.
 
 3. Una vez completado el trabajo, use lo siguiente para ver los resultados:
 
-		hadoop fs -cat wasb:///example/data/wordcountout/*
+		hdfs dfs -cat wasb:///example/data/wordcountout/*
 
 	Verá una lista de palabras y números con valores similares a los siguientes:
 
@@ -292,4 +292,4 @@ Para más información, consulte también el [Centro de desarrolladores de Java]
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

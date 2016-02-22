@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/05/2016"
 	ms.author="zhangya;bradsev" />
 
 
 # Ingeniería de características en el proceso de análisis de Cortana 
 
-Este **menú** vincula a temas en los que se describe cómo crear características para datos en diversos entornos. Esta tarea es un paso en el proceso de análisis de Cortana (CAP).
+La ingeniería de características intenta aumentar la eficacia predictiva de los algoritmos de aprendizaje creando características de los datos sin procesar que facilitan el proceso de aprendizaje.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]Este **menú** vincula a temas en los que se describe cómo crear características para datos en diversos entornos. Esta tarea es un paso del [proceso de Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ##Introducción
 
 En este tema se explica el propósito del diseño de características y ofrece ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático. Estos ejemplos se extraen de Estudio de aprendizaje automático de Azure.
 
-La ingeniería y la selección de características es una parte del proceso de CAP descrito en [Cuál es el proceso de análisis de Cortana?](machine-learning-data-science-the-cortana-analytics-process.md) La selección y la ingeniería de características son partes del paso **Desarrollar características** del CAP. * **Ingeniería de características**: este proceso intenta crear otras características relevantes de las características sin procesar existentes de los datos, y aumentar la eficacia de predicción para el algoritmo de aprendizaje. * **Selección de características**: este proceso, selecciona el subconjunto de claves de características de datos originales en un intento de reducir las dimensionalidad del problema de entrenamiento.
+La ingeniería y la selección de características es una parte del proceso de CAP descrito en [¿Cuál es el proceso de análisis de Cortana?](machine-learning-data-science-the-cortana-analytics-process.md) La selección y la ingeniería de características son partes del paso **Desarrollo de características** del CAP. * **Ingeniería de características**: este proceso intenta crear otras características pertinentes además de las características sin procesar existentes de los datos, y aumentar la eficacia de predicción del algoritmo de aprendizaje. * **Selección de características**: este proceso, selecciona el subconjunto de claves de características de datos originales en un intento de reducir las dimensionalidad del problema de entrenamiento.
 
 Normalmente, la **ingeniería de características** se aplica primero para generar características adicionales y, a continuación, se realiza el paso de **selección de características** para eliminar características irrelevantes, redundantes o altamente correlacionadas.
 
@@ -95,4 +95,4 @@ Las características diseñadas y seleccionadas aumenta la eficiencia del proces
 Observe que no siempre es necesario realizar el diseño o la selección de características. Si es necesario o no depende de los datos que se tengan o que se hayan recopilado, del algoritmo que se elija y del objetivo del experimento.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

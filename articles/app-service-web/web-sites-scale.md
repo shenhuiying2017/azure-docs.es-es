@@ -26,12 +26,11 @@ El escalado de las aplicaciones web de Azure implica dos acciones relacionadas: 
 
 La configuración de escalado tarda solo unos segundos en aplicarse y afecta a todas las aplicaciones web del plan del Servicio de aplicaciones. No requieren que el código se cambie o que las aplicaciones tengan que volver a implementarse.
 
-Para obtener información acerca de los planes de servicio de la aplicación, consulte [¿Qué es un plan de Servicios de aplicaciones?](../web-sites-web-hosting-plan-overview.md) e [Información general detallada de planes de Servicios de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Para obtener información de los precios y características de planes Servicios de aplicaciones individuales, consulte [Detalles de precios del Servicio de aplicaciones](/pricing/details/web-sites/).
+Para obtener información acerca de los planes de servicio de la aplicación, consulte [¿Qué es un plan de Servicios de aplicaciones?](../app-service/web-sites-web-hosting-plan-overview.md) e [Información general detallada de planes de Servicios de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Para obtener información de los precios y características de planes Servicios de aplicaciones individuales, consulte [Detalles de precios del Servicio de aplicaciones](/pricing/details/web-sites/).
 
-> [AZURE.NOTE]Antes de cambiar una aplicación web del modo **Gratis** al modo **Básico**, **Estándar** o **Premium**, primero debe quitar los límites de gasto vigentes para la suscripción al Servicio de aplicaciones de Azure. Para ver o cambiar opciones para la suscripción a Servicios de aplicaciones de Microsoft Azure, consulte [Suscripciones a Microsoft Azure][azuresubscriptions].
+> [AZURE.NOTE] Antes de cambiar una aplicación web del modo **Gratis** al modo **Básico**, **Estándar** o **Premium**, primero debe quitar los límites de gasto vigentes para la suscripción al Servicio de aplicaciones de Azure. Para ver o cambiar opciones para la suscripción a Servicios de aplicaciones de Microsoft Azure, consulte [Suscripciones a Microsoft Azure][azuresubscriptions].
 
-<a name="scalingsharedorbasic"></a>
-<!-- ===================================== -->
+<a name="scalingsharedorbasic"></a> <!-- ===================================== -->
 ## Escalado al modo Compartido o Básico
 <!-- ===================================== -->
 
@@ -51,12 +50,11 @@ Para obtener información acerca de los planes de servicio de la aplicación, co
 	
 	La ficha **Notificaciones** parpadeará en color verde indicando que se ha completado con **éxito** una vez finalizada la operación.
 	
-<a name="scalingstandard"></a>
-<!-- ================================= -->
+<a name="scalingstandard"></a> <!-- ================================= -->
 ## Escalado al modo Estándar o Premium
 <!-- ================================= -->
 
-> [AZURE.NOTE]Antes de cambiar un plan del Servicio de aplicaciones al modo **Estándar** o **Premium**, debe quitar los límites de gasto vigentes para la suscripción al Servicio de aplicaciones de Microsoft Azure. De lo contrario, se arriesga a que su aplicación web no esté disponible si alcanza los límites antes de la finalización del período de facturación. Para ver o cambiar opciones para la suscripción a Servicios de aplicaciones de Microsoft Azure, consulte [Suscripciones a Microsoft Azure][azuresubscriptions].
+> [AZURE.NOTE] Antes de cambiar un plan del Servicio de aplicaciones al modo **Estándar** o **Premium**, debe quitar los límites de gasto vigentes para la suscripción al Servicio de aplicaciones de Microsoft Azure. De lo contrario, se arriesga a que su aplicación web no esté disponible si alcanza los límites antes de la finalización del período de facturación. Para ver o cambiar opciones para la suscripción a Servicios de aplicaciones de Microsoft Azure, consulte [Suscripciones a Microsoft Azure][azuresubscriptions].
 
 1. Para escalar al modo **Estándar** o **Premium**, siga los mismos pasos iniciales que al escalar a **Compartido** o **Básico**, a continuación, elija un modo **Estándar** o **Premium** en **Elegir el nivel de precios** y haga clic en **Seleccionar**. 
 	
@@ -91,7 +89,7 @@ Para obtener información acerca de los planes de servicio de la aplicación, co
 	
 	![Definir primera regla de escalado automático][SetFirstRule]
 	
-	>[AZURE.NOTE]La configuración de **Duración del enfriamiento** especifica el tiempo que tiene que esperar esta regla tras una acción de escalado anterior para volver a escalar.
+	>[AZURE.NOTE] La configuración de **Duración del enfriamiento** especifica el tiempo que tiene que esperar esta regla tras una acción de escalado anterior para volver a escalar.
 	
 6. En **Escalar reglas horizontalmente**, para configurar la segunda regla, establezca **Condición** en **Mayor**, **Umbral** en **90** (%), **Tiempo transcurrido** en **1** (minutos), **Escalar horizontalmente** en **3** (instancia) y **Duración del enfriamiento** en **1** (minutos).
 	
@@ -144,7 +142,7 @@ Según el modo de aplicación web, se encuentran disponibles las siguientes cara
 
 - Para obtener información detallada sobre todas las características restantes en los planes de Servicios de aplicaciones, incluido el precio y las características de interés para todos los usuarios (incluidos los desarrolladores), consulte [Detalles de precios de Servicios de aplicaciones](/pricing/details/web-sites/).
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 <a name="Next Steps"></a>
 ## Pasos siguientes
@@ -200,4 +198,4 @@ Según el modo de aplicación web, se encuentran disponibles las siguientes cara
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

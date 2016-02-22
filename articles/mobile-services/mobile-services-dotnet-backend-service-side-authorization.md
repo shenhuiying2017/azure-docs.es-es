@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="12/09/2015"
+	ms.date="02/07/2016"
 	ms.author="krisragh"/>
 
 # Autorización en el servicio de usuarios en Servicios móviles
@@ -37,9 +37,9 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 
 		public string UserId { get; set; }
 
-	>[AZURE.NOTE]Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe usar [Migraciones de Code First](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
+	>[AZURE.NOTE] Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe usar [Migraciones de Code First](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
-2. En Visual Studio, expanda la carpeta Controladores, abra **TodoItemController.cs** y agregue la siguiente instrucción de uso:
+2. En Visual Studio, expanda la carpeta Controladores, abra **TodoItemController.cs** y agregue la siguiente instrucción using:
 
 		using Microsoft.WindowsAzure.Mobile.Service.Security;
 
@@ -84,4 +84,4 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 <!-- URLs. -->
 [Agregar autenticación a la aplicación de Servicios móviles existente]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->
