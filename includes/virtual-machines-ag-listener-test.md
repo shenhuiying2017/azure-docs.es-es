@@ -14,4 +14,4 @@ Un ejemplo sería conectarse al agente de escucha desde una de las máquinas vir
 
 Al probar el agente de escucha, asegúrate de conmutar por error el grupo de disponibilidad para asegurarte de que los clientes puedan conectarse al agente de escucha a través de las conmutaciones por error.
 
-<!---HONumber=Oct15_HO3-->
+<!-------HONumber=Oct15_HO3-->
