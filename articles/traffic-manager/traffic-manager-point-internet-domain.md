@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Orientar un dominio de Internet de la compañía a un dominio del Administrador de tráfico de Azure
@@ -25,7 +25,7 @@ Por ejemplo, para que el nombre de dominio de la empresa www.contoso.com apunte 
 
 Todas las solicitudes de tráfico de *www.contoso.com* se redirigirán ahora a *contoso.trafficmanager.net*.
 
->[AZURE.IMPORTANT]No puede hacer que un dominio de segundo nivel como por ejemplo *contoso.com*, indique el dominio del Administrador de tráfico. Se trata de una limitación del protocolo DNS, que no permite registros CNAME para nombres de dominio de segundo nivel.
+>[AZURE.IMPORTANT] No puede hacer que un dominio de segundo nivel como por ejemplo *contoso.com*, indique el dominio del Administrador de tráfico. Se trata de una limitación del protocolo DNS, que no permite registros CNAME para nombres de dominio de segundo nivel.
 
 ## Pasos siguientes
 
@@ -35,4 +35,4 @@ Todas las solicitudes de tráfico de *www.contoso.com* se redirigirán ahora a *
 
 [Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

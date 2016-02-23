@@ -9,7 +9,7 @@
 <tags 
    ms.service="event-hubs"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
    ms.date="01/26/2016"
@@ -185,4 +185,4 @@ Para obtener más información acerca de los escenarios de los centros de evento
 - [Ejemplos de código de los centros de eventos](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 - [Referencia de la API de host del procesador de eventos](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,28 +1,25 @@
 
 
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) y, luego, haga clic en **+NUEVO** en la parte inferior de la pantalla.
+1. Inicie sesión en el [Portal de Azure](https://portal.windowsazure.com/) y, luego, haga clic en **NUEVO** en la parte inferior de la pantalla.
 
-2. Haga clic en **Servicios de aplicaciones**, **Bus de servicio**, **Centro de notificaciones** y, a continuación, en **Creación rápida**.
+2. Haga clic en **Nuevo**, a continuación, en **Web y móvil**, a continuación, en **Centro de notificaciones** y, finalmente, en **Creación rápida**.
 
-   	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-create-from-portal.png)
+   	![Portal de Azure: Creación de centros de notificaciones](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
 
-
-3. Escriba un **nombre del Centro de notificaciones**. Seleccione la **región** y **suscripción** deseadas.
+3. Asegúrese de especificar un nombre único en el campo **Centro de notificaciones**. Seleccione la **región**, la **suscripción** y el **grupo de recursos** que desee (si ya tiene uno).
  
-	Si ya tiene un espacio de nombres de Bus de servicio en el que desee crear el concentrador, seleccione su **nombre de espacio de nombres**. De lo contrario, puede usar el **nombre de espacio de nombres** predeterminado que se creará en función del nombre del centro siempre que el nombre de espacio de nombres esté disponible.
+	Si ya tiene un espacio de nombres del Bus de servicio en el que desee crear el centro, selecciónelo mediante la opción **Seleccionar existente** del campo **Espacio de nombres**. De lo contrario, puede utilizar el nombre predeterminado que se creará según el nombre del centro siempre que el nombre del espacio de nombres esté disponible.
 
-	Haga clic en **Crear un nuevo Centro de notificaciones**.
+	Cuando esté listo, haga clic en **Crear**.
 
-   	![Establecer propiedades del centro de notificación](./media/notification-hubs-portal-create-new-hub/notification-hubs-create-from-portal2.png)
+   	![Portal de Azure: Establecimiento de las propiedades del centro de notificación](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-4. Cuando se crean el Centro de notificaciones y el espacio de nombres, se mostrarán sus espacios de nombres del Bus de servicio. Haga clic en el espacio de nombres en el que acaba de crear el centro (normalmente ***nombreDelCentroNotificaciones*-ns**).
+4. Una vez creados el centro de notificaciones y el espacio de nombres, se le llevará a la página del portal correspondiente.
 
-5. En la página del espacio de nombres, haga clic en la pestaña **Centros de notificaciones** en la parte superior y, a continuación, haga clic en el centro de notificaciones que acaba de crear. Se abrirá el panel de su nuevo centro de notificaciones.
+   	![Portal de Azure: Página del portal del centro de notificación](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
+       
+5. Haga clic en **Configuración** y, a continuación, en **Directivas de acceso**; anote las dos cadenas de conexión que están disponibles para usted, ya que las necesitará para controlar las notificaciones push más adelante.
 
-6. En el panel del nuevo centro, haga clic en **Ver cadena de conexión**. Anote las dos cadenas de conexión. Las usará más adelante.
+   	![Portal de Azure: Cadenas de conexión del centro de notificación](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 
-   	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-view-connection-strings.png)
-
-	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings.png)
-
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

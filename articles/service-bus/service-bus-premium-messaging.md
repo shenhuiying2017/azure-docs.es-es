@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="10/15/2015"
 	ms.author="darosa"/>
 
@@ -57,4 +57,4 @@ Para obtener más información sobre la mensajería de Bus de servicio, consulte
 - [Información general sobre la arquitectura de Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

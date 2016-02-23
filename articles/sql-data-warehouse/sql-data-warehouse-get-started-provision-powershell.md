@@ -30,7 +30,7 @@
 Si no tiene configurado PowerShell, debe descargarlo y configurarlo.
 
 1. Para descargar el módulo Azure PowerShell, ejecute el [Instalador de plataforma web de Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
-2. Para ejecutar el módulo, en la ventana de inicio, escriba **Microsoft Azure PowerShell**.
+2. Para ejecutar el módulo, en la ventana de inicio, escriba **Windows PowerShell**.
 3. Ejecute este cmdlet para iniciar sesión en el Administrador de recursos de Azure. Para más información, vea [Instalación y configuración de Azure PowerShell][].
 
 	```
@@ -96,4 +96,4 @@ Si está interesado en obtener más información sobre cómo administrar el Alma
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [Instalación y configuración de Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -9,7 +9,7 @@
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="11/06/2015"
@@ -69,4 +69,4 @@ Ahora que ha leído una visión general de cómo funciona el Bus de servicio, pa
 - [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
 - [Una solución de mensajería en cola mediante las colas de Bus de servicio](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

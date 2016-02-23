@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="01/28/2015"
+	ms.date="01/28/2016"
 	ms.author="anhoh"/>
 
 # Ver, editar, crear y cargar documentos JSON con el Explorador de documentos de DocumentDB #
@@ -145,4 +145,4 @@ El Explorador de documentos admite la ingesta en bloque de uno o más documentos
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

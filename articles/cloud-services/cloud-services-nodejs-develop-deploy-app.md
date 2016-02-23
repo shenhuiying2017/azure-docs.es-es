@@ -51,7 +51,7 @@ La aplicación es una aplicación sencilla de "Hola a todos":
 Realice las siguientes tareas para crear un nuevo proyecto de Servicio en la nube de Azure, junto con scaffolding básico de Node.js:
 
 
-1. Ejecute **Azure PowerShell** como administrador. (En el **menú Inicio** o la **pantalla Inicio**, busque **Azure PowerShell**.)
+1. Ejecute **Windows PowerShell** como administrador. (En el **menú Inicio** o la **pantalla Inicio**, busque **Windows PowerShell**).
 
 2.  [Conecte PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) a su suscripción.
 3.  Escriba el siguiente cmdlet de PowerShell para crear el proyecto:
@@ -198,4 +198,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Node
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

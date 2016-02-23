@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma"/>
 
 
@@ -42,7 +42,7 @@ En este escenario:
 - Creará una subred denominada Appgatewaysubnet que usa 10.0.0.0/28 como bloque CIDR.
 - Instalará dos IP de back-end configuradas con anterioridad para los servidores web cuya carga de tráfico desea equilibrar. En esta plantilla de ejemplo, las IP de back-end serán 10.0.1.10 y 10.0.1.11.
 
->[AZURE.NOTE]Esos son los parámetros para esta plantilla. Para personalizar la plantilla, puede cambiar las reglas, el agente de escucha y la SSL que abre azuredeploy.json.
+>[AZURE.NOTE] Esos son los parámetros para esta plantilla. Para personalizar la plantilla, puede cambiar las reglas, el agente de escucha y la SSL que abre azuredeploy.json.
 
 
 
@@ -73,7 +73,7 @@ Puede descargar la plantilla del Administrador de recursos de Azure existente pa
 	| **backendaddress2** | Dirección IP del segundo servidor web |
 
 
->[AZURE.IMPORTANT]Las plantillas del Administrador de recursos de Azure que se mantienen en GitHub pueden cambiar con el tiempo. Asegúrese de comprobar la plantilla antes de usarla.
+>[AZURE.IMPORTANT] Las plantillas del Administrador de recursos de Azure que se mantienen en GitHub pueden cambiar con el tiempo. Asegúrese de comprobar la plantilla antes de usarla.
 
 6. Compruebe el contenido en **resources** y observe lo siguiente:
 
@@ -284,4 +284,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

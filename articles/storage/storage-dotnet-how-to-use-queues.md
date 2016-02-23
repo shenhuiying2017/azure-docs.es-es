@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/24/2016"
+	ms.date="02/14/2016"
 	ms.author="gusapost"/>
 
 # Introducción al Almacenamiento en cola de Azure mediante .NET
@@ -51,7 +51,7 @@ Asegúrese de hacer referencia al ensamblado `Microsoft.WindowsAzure.Storage.dll
 
 ## Creación de una cola
 
-Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. Todo el código que contiene esta guía utiliza una cadena de conexión de almacenamiento almacenada en la configuración de servicios de la aplicación de Azure. También hay otras formas de crear un objeto **CloudStorageAccount**. Consulte la documentación de [CloudStorageAccount][] para obtener más información.
+Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. Todo el código que contiene esta guía utiliza una cadena de conexión de almacenamiento almacenada en la configuración de servicios de la aplicación de Azure. También hay otras formas de crear un objeto **CloudStorageAccount**. Consulte la documentación de [CloudStorageAccount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount_methods.aspx) para obtener más información.
 
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -246,20 +246,18 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 - Consulte la documentación de referencia del servicio de cola para obtener información detallada acerca de las API disponibles:
     - [Referencia de la biblioteca de clientes de almacenamiento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Referencia de API de REST](http://msdn.microsoft.com/library/azure/dd179355)
-- Aprenda a simplificar el código que escriba para trabajar con Almacenamiento de Azure mediante [SDK de WebJobs de Azure](../websites-dotnet-webjobs-sdk/).
+- Aprenda a simplificar el código que escriba para trabajar con Almacenamiento de Azure mediante [SDK de WebJobs de Azure](../app-service-web/websites-dotnet-webjobs-sdk.md).
 - Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
-    - Utilice [Almacenamiento de tablas](storage-dotnet-how-to-use-tables.md) para almacenar datos estructurados.
-    - Use [Almacenamiento de blobs](storage-dotnet-how-to-use-blobs.md) para almacenar datos no estructurados.
-    - Utilice [Base de datos SQL](sql-database-dotnet-how-to-use.md) para almacenar datos relacionales.
+    - [Introducción al Almacenamiento de tablas de Azure mediante .NET](storage-dotnet-how-to-use-tables.md) para almacenar datos estructurados.
+    - [Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md) para almacenar datos estructurados.
+    - [Uso de Base de datos SQL de Azure en aplicaciones .NET](sql-database-dotnet-how-to-use.md) para almacenar datos relacionales.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
-  [CloudStorageAccount]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

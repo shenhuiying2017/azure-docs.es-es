@@ -10,7 +10,7 @@
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
 	ms.date="01/21/2016"
@@ -20,7 +20,7 @@
 
 Este artículo proporciona información general básica de las principales características de las API del servicio Lote de Azure. Tanto si desarrolla una solución informática distribuida mediante las API [REST de Lote][batch_rest_api] o [.NET de Lote][batch_net_api], usará muchas de las entidades y características que se describen a continuación.
 
-> [AZURE.TIP]Si quiere información general técnica de alto nivel sobre el servicio Lote, consulte [Conceptos básicos sobre Lote de Azure](batch-technical-overview.md).
+> [AZURE.TIP] Si quiere información general técnica de alto nivel sobre el servicio Lote, consulte [Conceptos básicos sobre Lote de Azure](batch-technical-overview.md).
 
 ## <a name="workflow"></a>Flujo de trabajo del servicio Lote
 
@@ -38,7 +38,7 @@ El siguiente flujo de trabajo de alto nivel es el que se usa normalmente en todo
 
 6. Supervise el progreso del trabajo y recupere los resultados.
 
-> [AZURE.NOTE]Necesitará una [cuenta de Lote](batch-account-create-portal.md) para usar el servicio Lote, y casi todas las soluciones usarán una cuenta de [almacenamiento de Azure][azure_storage] para el almacenamiento y la recuperación de los archivos.
+> [AZURE.NOTE] Necesitará una [cuenta de Lote](batch-account-create-portal.md) para usar el servicio Lote, y casi todas las soluciones usarán una cuenta de [almacenamiento de Azure][azure_storage] para el almacenamiento y la recuperación de los archivos.
 
 En las siguientes secciones, aprenderá sobre cada uno de los recursos mencionados en el flujo de trabajo anterior, así como muchas otras características de Lote que harán posible su escenario de cálculo distribuido.
 
@@ -253,7 +253,8 @@ Una fórmula de escalado puede basarse en las siguientes métricas:
 
 Para obtener más información sobre cómo escalar automáticamente una aplicación, consulte [Escalado automático de nodos de ejecución en un grupo de Lote de Azure](batch-automatic-scaling.md).
 
-> [AZURE.TIP]Aunque no suele ser necesario, es posible especificar que se eliminen nodos individuales de un grupo. Por ejemplo, si se sospecha que un nodo es poco confiable, se podría quitar del grupo para impedir la asignación de tareas adicionales.
+> [AZURE.TIP]
+ Aunque no suele ser necesario, es posible especificar que se eliminen nodos individuales de un grupo. Por ejemplo, si se sospecha que un nodo es poco confiable, se podría quitar del grupo para impedir la asignación de tareas adicionales.
 
 ## <a name="cert"></a>Seguridad con certificados
 
@@ -294,7 +295,7 @@ Para cada tarea programada dentro de un trabajo, el siguiente conjunto de variab
 | `AZ_BATCH_TASK_ID` | El id. de la tarea actual. |
 | `AZ_BATCH_TASK_WORKING_DIR` | Ruta de acceso completa del directorio de trabajo en el nodo. |
 
->[AZURE.NOTE]No se puede sobrescribir ninguna de las variables definidas por el sistema mencionadas antes, ya que son de solo lectura.
+>[AZURE.NOTE] No se puede sobrescribir ninguna de las variables definidas por el sistema mencionadas antes, ya que son de solo lectura.
 
 ## <a name="errorhandling"></a>Control de errores
 
@@ -319,7 +320,7 @@ Durante la ejecución, una aplicación produce resultados de diagnóstico que se
 
 Se puede realizar incluso una depuración más amplia iniciando sesión en un nodo de ejecución mediante *Escritorio remoto*. También puede [obtener un archivo de protocolo de escritorio remoto de un nodo][rest_rdp] (API de REST de Lote) o usar el método [ComputeNode.GetRDPFile][net_rdp] (API de .NET Lote) para el inicio de sesión remoto.
 
->[AZURE.NOTE]Para conectarse a un nodo a través de RDP, primero debe crear un usuario en el nodo. Para ello, [Agregue una cuenta de usuario a un nodo][rest_create_user] en la API de REST o use el método [ComputeNode.CreateComputeNodeUser][net_create_user] en la API de .NET de Lote.
+>[AZURE.NOTE] Para conectarse a un nodo a través de RDP, primero debe crear un usuario en el nodo. Para ello, [Agregue una cuenta de usuario a un nodo][rest_create_user] en la API de REST o use el método [ComputeNode.CreateComputeNodeUser][net_create_user] en la API de .NET de Lote.
 
 ### Consideraciones sobre errores o interrupciones
 
@@ -371,4 +372,4 @@ Cada nodo de un grupo recibe un id. único y el nodo en el que se ejecuta una ta
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

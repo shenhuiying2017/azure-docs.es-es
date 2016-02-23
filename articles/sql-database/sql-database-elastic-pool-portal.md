@@ -4,15 +4,15 @@
 	keywords="base de datos escalable,configuración de base de datos"
 	services="sql-database"
 	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
+	authors="sidneyh"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/02/2015"
-	ms.author="sstein"
+	ms.date="02/12/2016"
+	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
@@ -30,7 +30,10 @@ En este artículo se muestra cómo crear un [grupo de bases de datos elásticas]
 > [AZURE.NOTE] Los grupos de bases de datos elásticas están actualmente en vista previa y solo estarán disponibles en servidores con bases de datos SQL V12. Si tiene un servidor de Base de datos SQL V11, puede [usar PowerShell para actualizar a V12 y crear un grupo](sql-database-upgrade-server-powershell.md) en un solo paso.
 
 
-Antes de comenzar, necesita una base de datos en un servidor de Base de datos SQL V12. Si no la tiene, consulte [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md) para crear una en menos de cinco minutos. O, si ya tiene un servidor de Base de datos SQL V11, puede [actualizar a V12 en el Portal](sql-database-v12-upgrade.md) y, después, vuelva y siga estas instrucciones para crear un grupo.
+## Requisitos previos
+
+* Una base de datos en un servidor de Base de datos SQL V12. Si no la tiene, consulte [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md) para crear una en menos de cinco minutos. 
+* O, si ya tiene un servidor de Base de datos SQL V11, puede [actualizar a V12 en el Portal](sql-database-v12-plan-prepare-upgrade.md) y, después, vuelva y siga estas instrucciones para crear un grupo.
 
 
 ## Paso 1: Crear un nuevo grupo
@@ -173,8 +176,7 @@ Después de crear un grupo, podrá:
 
 Al seleccionar un grupo existente, podrá ver la utilización de recursos del grupo. Haga clic en el gráfico **Utilización de recursos** para abrir la hoja **Métrica**, donde podrá personalizar el gráfico y configurar alertas.
 
-![Supervisión de grupos elásticos][4] 
-![Utilización de recursos][6]
+![Supervisión de grupos elásticos][4] ![Utilización de recursos][6]
 
 Haga clic en **Editar gráfico** para agregar parámetros para ver fácilmente los datos de telemetría del grupo.
 
@@ -201,4 +203,4 @@ Después de crear un grupo de bases de datos elásticas, puede administrar las b
 [7]: ./media/sql-database-elastic-pool-portal/edit-chart.png
 [10]: ./media/sql-database-elastic-pool-portal/star.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

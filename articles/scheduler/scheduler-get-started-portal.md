@@ -1,5 +1,5 @@
 <properties
- pageTitle="Introducción al uso del Programador de Azure en el Portal de Azure | Microsoft Azure"
+ pageTitle="Introducción al Programador de Azure en el Portal de Azure | Microsoft Azure"
  description=""
  services="scheduler"
  documentationCenter=".NET"
@@ -12,212 +12,127 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="12/04/2015"
+ ms.date="02/17/2016"
  ms.author="krisragh"/>
 
-# Introducción al uso de Programador de Azure en el Portal de Azure clásico
+# Introducción al Programador de Azure en el Portal de Azure
 
-## Primeros pasos
+Es fácil crear trabajos programados en el Programador de Azure. En este tutorial, aprenderá a crear un trabajo: También aprenderá las funcionalidades de supervisión y administración del Programador.
 
-Resulta fácil crear trabajos y colecciones de trabajos en el Programador de Azure. Este tutorial le guía por el proceso de creación de la colección de trabajos que se va a usar para almacenar trabajos, la creación de un trabajo en una colección de trabajos y una información general de las tareas de administración y supervisión de los trabajos disponibles. No es necesario que tenga experiencia previa con Azure para usar este tutorial.
+## Creación de un trabajo
 
-La primera vez que abra el Portal de Azure clásico, entrará automáticamente en la pestaña **TODOS LOS ELEMENTOS**. Las columnas de la pestaña **ALL ITEMS** se pueden ordenar. Para ver los trabajos de Programador y las colecciones de trabajos, haga clic en la pestaña **PROGRAMADOR**.
+1.  Inicie sesión en el [portal de Azure](https://portal.azure.com/).  
 
-![][1]
+2.  Haga clic en **+Nuevo** > escriba _Programador_ en el cuadro de búsqueda > seleccione **Programador** en resultados > haga clic en **Crear**.
 
-## Creación de una colección de trabajos y de un trabajo
+   ![][marketplace-create]
 
-1.  Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/).  
+3.  Vamos a crear un trabajo que simplemente selecciona http://www.microsoft.com/ con una solicitud GET. En la pantalla **Trabajo del Programador**, escriba la siguiente información:
 
-2.  Haga clic en **Servicios de aplicaciones** > **Crear nuevo** > **Programador** y luego en **Creación personalizada**. <br /><br /> ![][2]
+    1.  **Nombre:** `getmicrosoft`  
 
-3.  En **Colección de trabajos**, seleccione el nombre de la colección de trabajos existentes en la lista desplegable **Colección de trabajos**. Si no dispone de una colección de trabajos existentes a la que le gustaría agregar el trabajo, seleccione **Crear nuevo** y escriba un nombre para identificar la nueva colección de trabajos.<br /><br /> ![][3]
+    2.  **Suscripción**: su suscripción a Azure.
 
-4.  En **Región**, seleccione la región geográfica de la colección de trabajos.
+    3.  **Colección de trabajos:** seleccione una colección de trabajos existente o haga clic en **Crear nueva** > escriba un nombre.
 
-5.  Haga clic en la tecla de flecha para crear la colección de trabajos y pasar a la siguiente fase: creación de un trabajo.
+4.  Después, en **Configuración de la acción**, defina los siguientes valores:
 
-6.  Vamos a crear un trabajo que simplemente selecciona http://www.microsoft.com/ con una solicitud GET. En la pantalla **Acción de trabajo**, defina los siguientes valores para los campos de formulario solicitados:
+    1.  **Tipo de acción:** ` HTTP`  
 
-    1.  **Nombre:** ` getmicrosoft`  
+    2.  **Método:** `GET`
 
-    2.  **Tipo de acción:** ` HTTP`
+    3.  **URL:** ` http://www.microsoft.com`
 
-    3.  **Método:** ` GET`
+   ![][action-settings]
 
-    4.  **URI:** ` http://www.microsoft.com`
+5.  Por último, vamos a definir una programación. El trabajo se puede definir como un trabajo único, pero vamos a seleccionar una programación de periodicidad:
 
-   	![][4]
+    1. **Periodicidad**: `Recurring`
 
-7.  Después de crear un trabajo, defina una programación. El trabajo se puede definir como un trabajo único, pero vamos a seleccionar una programación de periodicidad. Algunas capturas de pantalla de este tutorial muestran una periodicidad de 1 minuto con fines ilustrativos únicamente, pero seleccione una periodicidad de 12 horas.
+    2. **Inicio**: la fecha de hoy
 
-    1.  **Repetir cada:** ` 12 Hours`  
+    3. **Repetir cada:** `12 Hours`
 
-    2.  **Inicio:** ` Now`
+    4. **Finalización**: dos días a partir de hoy
 
-    3.  **Finalización:** ` Select date 2 days after current day and any time`
+   ![][recurrence-schedule]
 
-   	![][5]
+6.  Haga clic en **Crear**
 
-8.  Haga clic en **Aceptar**. Puede tardar cierto tiempo en crear el trabajo y la colección de trabajos. Para revisar el estado, puede supervisar las notificaciones en la parte inferior del portal.
+## Administración y supervisión de trabajos
 
-   	![][6]
+Una vez que se crea un trabajo, aparece en el Panel principal de Azure. Haga clic en el trabajo y se abrirá una nueva ventana con las pestañas siguientes:
 
-   	Una vez creado el trabajo y la colección de trabajos, un mensaje le indica que el trabajo o la colección de trabajos se crearon correctamente. El trabajo se muestra en la sección Trabajos de la sección Programador y la colección de trabajos se muestra en la sección Colecciones de trabajos. Para configurar opciones avanzadas adicionales en el trabajo, consulte la sección "Configuración de un trabajo" a continuación.
+1.  Propiedades  
 
-   	![][7]
+2.  Configuración de la acción
 
-## Administración y supervisión de colecciones de trabajos y trabajos
+3.  Schedule
 
-Una vez creada, la colección de trabajos se muestra en la pantalla principal de administración del Programador.
+4.  Historial
 
-![][8]
+5.  Usuarios
 
-Si se hace clic en una colección de trabajos, se abre una nueva ventana con las opciones siguientes:
+   ![][job-overview]
 
-1.  Panel  
+### Propiedades
 
-2.  Escala
+Estas propiedades de solo lectura describen los metadatos de administración para el trabajo del Programador.
 
-3.  Historial
+   ![][job-properties]
 
-4.  Trabajos
 
-En los temas siguientes se describen estas pestañas con mayor detalle.
+### Configuración de la acción
 
-### Panel
+Al hacer clic en un trabajo en la pantalla **Trabajos** puede configurar ese trabajo. Esto le permitirá configurar opciones avanzadas, si no las ha configurado en el Asistente de creación rápida.
 
-Al hacer clic en el nombre de la colección de trabajos, aparece la pestaña **Panel**. El Panel muestra la siguiente información:
+Para todos los tipos de acción, puede cambiar la directiva de reintentos y la acción en caso de error.
 
-![][9]
+Para los tipos de acción de los trabajos HTTP y HTTPS, puede cambiar el método a cualquier verbo HTTP permitido. También puede agregar, eliminar o cambiar los encabezados y la información de autenticación básica.
 
-#### Información general del uso de trabajos e Información general del uso de ejecuciones
+Para los tipos de acciones de la cola de almacenamiento, puede cambiar la cuenta de almacenamiento, el nombre de la cola, el token SAS y el cuerpo.
 
-Una tabla y una serie de gráficos que muestran una lista fija de métricas. Estas métricas proporcionan valores en tiempo real relacionados con el estado de la colección de trabajos, como:
+Para los tipos de acción del Bus de servicio, puede cambiar el espacio de nombres, la ruta de tema/cola, la configuración de autenticación, el tipo de transporte, las propiedades de mensaje y el cuerpo del mensaje.
 
-1.  Trabajos actuales  
+   ![][job-action-settings]
 
-2.  Trabajos completados
+### Schedule
 
-3.  Trabajos con errores
+Esto le permite volver a configurar la programación, si es que desea cambiar la programación que creó en el Asistente de creación rápida.
 
-4.  Trabajos habilitados
+Esta es una oportunidad para crear [programaciones complejas y periodicidad avanzada en el trabajo](scheduler-advanced-complexity.md)
 
-5.  Trabajos deshabilitados
+Puede cambiar la fecha y hora de inicio, la programación de periodicidad y la fecha y hora de finalización (si el trabajo es periódico).
 
-6.  Ejecuciones de trabajos
+   ![][job-schedule]
 
-#### Vista rápida
-
-Una tabla que muestra una lista fija de métricas de configuración y de estado. Estas métricas proporcionan valores en tiempo real relacionados con el estado y la configuración asociados a la colección de trabajos, como:
-
-1.  Estado  
-
-2.  Region
-
-3.  Número de errores
-
-4.  Número de errores de repetición
-
-5.  URI
-
-### Escala
-
-En la pestaña **Escala**, puede cambiar la configuración y el nivel de servicio que usa el Programador.
-
-![][10]
-
-#### General
-
-Muestra si se encuentra en un plan **Gratis** o **Estándar**.
-
-#### Cuotas
-
-Programador de Azure implementa las cuotas en función de varias condiciones. En esta sección se enumeran los umbrales de cuota y puede cambiarlos. De forma predeterminada, hay un conjunto de cuotas configuradas. Los límites de esta configuración de cuota están restringidos por el plan y el cambio del plan puede afectar al precio. Las cuotas se pueden cambiar para escalar el Programador. Las opciones incluyen:
-
-1.  Nº máximo de trabajos  
-
-2.  Frecuencia máxima
-
-3.  Intervalo máximo
 
 ### Historial
 
-La pestaña **Historial** muestra la información siguiente para el trabajo seleccionado:
+La pestaña **Historial** muestra las métricas seleccionadas para cada ejecución del trabajo en el sistema para el trabajo seleccionado. Estas métricas proporcionan valores en tiempo real relacionados con el estado del Programador:
 
-![][11]
-
-#### Tabla de historial
-
-Una tabla que muestra las métricas seleccionadas para cada ejecución del trabajo en el sistema para el trabajo seleccionado. Estas métricas proporcionan valores en tiempo real relacionados con el estado del Programador.
-
-#### Métricas disponibles
-
-Están disponibles las siguientes métricas y contadores de rendimiento:
-
-1.  Estado  
+1.  Status  
 
 2.  Detalles
 
-3.  Reintentos
+3.  Número de reintentos
 
-4.  Número de ejecuciones (1ª, 2ª, 3ª, etc.)
+4.  Periodicidad: 1ª, 2ª, 3ª, etc..
 
-5.  Marca de tiempo de ejecución
+5.  Hora de inicio de ejecución
 
-Puede hacer clic en **Ver detalles del historial** para consultar la respuesta completa a cada ejecución. Este cuadro de diálogo también le permite copiar la respuesta en el Portapapeles.
+6.  Hora de finalización de ejecución
 
-![][12]
+   ![][job-history]
 
-### Trabajos
+Puede hacer clic en una ejecución para ver los **Detalles del historial** incluida la respuesta completa a cada ejecución. Este cuadro de diálogo también le permite copiar la respuesta en el Portapapeles.
 
-La pestaña Trabajos muestra la siguiente información para supervisar el historial de ejecución de los trabajos:
+   ![][job-history-details]
 
-![][13]
+### Usuarios
 
-#### Tabla de trabajos
+El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso al Programador de Azure. Para aprender a utilizar la pestaña de usuarios, consulte [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md)
 
-Una tabla que muestra las métricas seleccionadas para cada ejecución del trabajo en el sistema. Estas métricas proporcionan valores en tiempo real relacionados con el estado del Programador.
-
-#### Deshabilitación, habilitación o eliminación de un trabajo
-
-Al hacer clic en un nombre de trabajo se le ofrece la opción de habilitar, deshabilitar o eliminar el trabajo. Los trabajos eliminados no pueden recuperarse.
-
-#### Métricas disponibles
-
-Están disponibles las siguientes métricas y contadores:
-
-1.  Nombre  
-
-2.  Última ejecución
-
-3.  Siguiente ejecución
-
-4.  Estado
-
-5.  Frecuencia
-
-6.  Errores
-
-7.  Errores
-
-8.  Ejecuciones
-
-9.  Tipo de acción
-
-### Configurar un trabajo
-
-Al hacer clic en un trabajo en la pantalla **Trabajos** puede configurar ese trabajo. Esto le permite configurar opciones avanzadas adicionales más allá de lo que está disponible en el Asistente de creación rápida. Para configurar un trabajo, haga clic en la flecha derecha situada junto al nombre del trabajo en la pantalla **Trabajos**.
-
-La página de configuración de trabajo permite actualizar la configuración del trabajo. A continuación se muestra la página de configuración del trabajo para los trabajos HTTP y HTTPS. Para los tipos de acción de los trabajos HTTP y HTTPS, puede cambiar el método a cualquier verbo HTTP permitido. También puede agregar, eliminar o cambiar los encabezados y la información de autenticación básica.
-
-![][14]
-
-La página de configuración del trabajo aparece como se muestra a continuación para los trabajos de la cola de almacenamiento. Para los tipos de acciones de la cola de almacenamiento, puede cambiar la cuenta de almacenamiento, el nombre de la cola, el token SAS y el cuerpo. La sección "Programar" (no se muestra a continuación) es idéntica a la sección "Programar" de los tipos de acción del trabajo HTTP/HTTPS.
-
-![][15]
-
-Por último, para todos los tipos de acción, puede cambiar la misma programación así como su comportamiento de repetición. Puede cambiar la fecha y hora de inicio, la programación de periodicidad y la fecha y hora de finalización (si el trabajo es periódico). Después de realizar cambios, puede guardarlos haciendo clic en **Guardar** o descartarlos haciendo **Descartar**.
 
 ## Consulte también
 
@@ -240,6 +155,16 @@ Por último, para todos los tipos de acción, puede cambiar la misma programaci�
  [Autenticación de salida del Programador](scheduler-outbound-authentication.md)
 
 
+[marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
+[action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png
+[recurrence-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png
+[job-properties]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png
+[job-overview]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png
+[job-action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png
+[job-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png
+[job-history]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png
+[job-history-details]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png
+
 
 [1]: ./media/scheduler-get-started-portal/scheduler-get-started-portal001.png
 [2]: ./media/scheduler-get-started-portal/scheduler-get-started-portal002.png
@@ -257,4 +182,4 @@ Por último, para todos los tipos de acción, puede cambiar la misma programaci�
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

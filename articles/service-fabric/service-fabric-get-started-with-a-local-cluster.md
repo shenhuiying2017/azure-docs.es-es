@@ -10,7 +10,7 @@
 <tags
    ms.service="service-fabric"
    ms.devlang="dotNet"
-   ms.topic="hero-article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="11/20/2015"
@@ -19,7 +19,7 @@
 # Introducción a la implementación y actualización de aplicaciones en un clúster local
 El SDK de Service Fabric de Azure incluye un completo entorno de desarrollo local y puede usar para empezar a trabajar rápidamente con aplicaciones de implementación y administración en un clúster local. En este artículo, se crea un clúster local, se implementa en él una aplicación existente y, a continuación, se actualiza dicha aplicación a una nueva versión, y todo ello desde Windows PowerShell.
 
-> [AZURE.NOTE]En este artículo se asume que ya [configuró un entorno de desarrollo](service-fabric-get-started.md).
+> [AZURE.NOTE] En este artículo se asume que ya [configuró un entorno de desarrollo](service-fabric-get-started.md).
 
 ## Creación de un clúster local
 Un clúster de Service Fabric representa un conjunto de recursos de hardware en los que se pueden implementar aplicaciones. Normalmente, un clúster se compone de cualquier número entre cinco y varios miles de máquinas. Sin embargo, el SDK de Service Fabric incluye una configuración de clúster que se puede ejecutar en una única máquina.
@@ -28,7 +28,7 @@ Es importante comprender que el clúster local de Service Fabric no es un emulad
 
 El SDK proporciona dos maneras de configurar un clúster local: un script de Windows PowerShell y la aplicación de bandeja del sistema del Administrador de clústeres locales. En este tutorial, usaremos el script de PowerShell.
 
-> [AZURE.NOTE]Si creó un clúster local mediante la implementación de una aplicación desde Visual Studio, puede omitir esta sección.
+> [AZURE.NOTE] Si creó un clúster local mediante la implementación de una aplicación desde Visual Studio, puede omitir esta sección.
 
 
 1. Inicie una ventana nueva de PowerShell como administrador.
@@ -125,7 +125,7 @@ Ahora que hemos implementado la aplicación, echemos un vistazo a algunos de los
 
     ![Ver detalles de aplicación en el Explorador de Service Fabric][sfx-service-overview]
 
-    > [AZURE.NOTE]Para más información acerca del Explorador de Service Fabric, consulte [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
+    > [AZURE.NOTE] Para más información acerca del Explorador de Service Fabric, consulte [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
 
 ## Actualizar una aplicación
 Service Fabric proporciona actualizaciones sin tiempo de inactividad mediante la supervisión del estado de la aplicación cuando se implementa en el clúster. Vamos realizar una actualización simple de la aplicación WordCount.
@@ -186,4 +186,4 @@ La nueva versión de la aplicación ahora contará solo las palabras que comienc
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

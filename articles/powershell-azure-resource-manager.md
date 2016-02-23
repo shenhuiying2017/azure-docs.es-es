@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="01/08/2016" 
+	ms.date="02/17/2016" 
 	ms.author="tomfitz"/>
 
 # Uso de Azure PowerShell con Administrador de recursos de Azure
@@ -34,9 +34,9 @@ Para completar este tutorial, necesita:
   + Puede [abrir una cuenta de Azure de manera gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) - Obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este, podrá mantener la cuenta y usar servicios gratuitos de Azure, como Sitios web. Nunca se la hará ningún cargo en la tarjeta de crédito, a menos que cambie explícitamente la configuración y pida que se le realice algún cargo.
   
   + Puede [activar las ventajas de suscriptor de MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Su suscripción a MSDN le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
-- Azure PowerShell 1.0. Para obtener información acerca de esta versión y cómo instalarla, consulte [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+- Azure PowerShell 1.0. Para más información acerca de esta versión y cómo instalarla, consulte [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md).
 
-Este tutorial está diseñado para los principiantes de PowerShell, pero se asume que se conocen los conceptos básicos, como los módulos, los cmdlets y las sesiones. Para obtener más información acerca de Windows PowerShell, consulte [Introducción a Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
+Este tutorial está diseñado para los principiantes de PowerShell, pero se asume que se conocen los conceptos básicos, como los módulos, los cmdlets y las sesiones.
 
 ## Lo que implementará
 
@@ -358,6 +358,8 @@ Al escribir el comando, se le pide el parámetro obligatorio que falta, que es *
     (Type !? for Help.)
     administratorLoginPassword: ********
 
+Si la plantilla incluye un parámetro con un nombre que coincide con el de uno de los parámetros del comando utilizado para implementar la plantilla (como cuando incluye un parámetro denominado **ResourceGroupName** en la plantilla y este parámetro es el mismo que el parámetro **ResourceGroupName** del cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), se le pedirá que proporcione un valor para un parámetro con el sufijo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Por lo general, debe evitar esta confusión no nombrando los parámetros con el mismo nombre de los parámetros utilizados para operaciones de implementación.
+
 El comando se ejecuta y devuelve mensajes cuando se crean los recursos. En última instancia, verá el resultado de la implementación.
 
     DeploymentName    : azuredeploy
@@ -414,7 +416,7 @@ Después de crear un grupo de recursos, puede usar los cmdlets del módulo Admin
                 
         ...
 	        
-- En la plantilla anterior se incluye una etiqueta en un recurso. Puede usar etiquetas para organizar lógicamente los recursos de la suscripción. Use los comandos **Find-AzureRmResource** y **Find-AzureRmResourceGroup** para consultar los recursos por etiquetas.
+- En la plantilla anterior se incluye una etiqueta en un recurso. Puede usar etiquetas para organizar lógicamente los recursos de la suscripción. Utilice los comandos **Find-AzureRmResource** y **Find-AzureRmResourceGroup** para consultar los recursos por etiquetas.
 
         PS C:\> Find-AzureRmResource -TagName team
 
@@ -461,4 +463,4 @@ Puede mover recursos existentes a un nuevo grupo de recursos. Para ver ejemplos,
 - Para ver un ejemplo detallado de cómo implementar un proyecto, consulte [Implementación predecible de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para información sobre la solución de problemas de una implementación que da error, consulte [Solución de problemas de implementaciones de grupos de recursos en Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

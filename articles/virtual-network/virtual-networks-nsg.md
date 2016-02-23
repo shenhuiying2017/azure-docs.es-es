@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Qué es un grupo de seguridad de red"
-   description="Información acerca de los grupos de seguridad de red"
+   description="Conozca el firewall distribuido de Azure mediante grupos de seguridad de red (NSG) y cómo utilizarlos para aislar y controlar el flujo de tráfico dentro de las redes virtuales (VNet)."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -9,26 +9,28 @@
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/11/2016"
    ms.author="telmos" />
 
 # ¿Qué es un grupo de seguridad de red?
 
 El grupo de seguridad de red (NSG) contiene una lista de reglas de la lista de control de acceso (ACL) que permiten o deniegan el tráfico de red a sus instancias de VM en una red virtual. Los NSG se pueden asociar con las subredes o las instancias individuales de máquina virtual dentro de esa subred. Cuando un NSG está asociado a una subred, las reglas de ACL se aplican a todas las instancias de VM de esa subred. Además, se puede restringir más el tráfico a una máquina virtual individual asociando un NSG directamente a esa máquina virtual.
 
+## Recurso NSG
+
 Los grupos de seguridad de red contienen las siguientes propiedades:
 
 |Propiedad|Descripción|Restricciones|Consideraciones|
 |---|---|---|---|
 |Nombre|Nombre del grupo de seguridad de red|Debe ser único dentro de la región.<br/>Puede contener letras, números, caracteres de subrayado, puntos y guiones.<br/>Debe comenzar con una letra o un número.<br/>Debe terminar con una letra, un número o un carácter de subrayado.<br/>Puede tener hasta 80 caracteres.|Dado que es posible que tenga que crear varios grupos de seguridad de red, asegúrese de tener una convención de nomenclatura que facilite la identificación de la función de sus grupos.|
-|Region|Región de Azure donde se hospeda el grupo de seguridad de red|Los grupos de seguridad de red solo pueden aplicarse a los recursos dentro de la región en que se crean.|Vea a continuación los [límites](#Limits) para saber cuántos grupos de seguridad de red puede tener en una región.|
+|Region|Región de Azure donde se hospeda el grupo de seguridad de red|Los grupos de seguridad de red solo pueden aplicarse a los recursos dentro de la región en que se crean.|Consulte a continuación los [límites](#Limits) para saber cuántos grupos de seguridad de red puede tener en una región.|
 |Grupos de recursos|El grupo de recursos al que pertenece el grupo de seguridad de red.|Aunque un grupo de seguridad de red pertenezca a un grupo de recursos, puede estar asociado a recursos de cualquier grupo de recursos, siempre y cuando el recurso forme parte de la misma región de Azure que el grupo de seguridad de red.|Los grupos de recursos se usan para administrar varios recursos juntos, como una unidad de implementación.<br/>Puede considerar la posibilidad de agrupar los grupos de seguridad de red con los recursos a los que están asociados.|
 |Reglas|Las reglas que definen qué tráfico se permite o deniega.||Vea a continuación [Reglas de grupo de seguridad de red](#Nsg-rules).| 
 
->[AZURE.NOTE]No se admiten ACL basadas en el extremo y grupos de seguridad de red en la misma instancia de máquina virtual. Si desea usar un grupo de seguridad de red y ya tiene un extremo del ACL, quite primero el extremo del ACL. Para obtener información acerca de cómo hacerlo, consulte [Administración de listas de control de acceso (ACL) para extremos mediante PowerShell](virtual-networks-acl-powershell.md).
+>[AZURE.NOTE] No se admiten ACL basadas en el extremo y grupos de seguridad de red en la misma instancia de máquina virtual. Si desea usar un grupo de seguridad de red y ya tiene un extremo del ACL, quite primero el extremo del ACL. Para obtener información acerca de cómo hacerlo, consulte [Administración de listas de control de acceso (ACL) para extremos mediante PowerShell](virtual-networks-acl-powershell.md).
 
 ### Reglas de grupo de seguridad de red
 
@@ -45,6 +47,12 @@ Las reglas de grupo de seguridad de red contienen las siguientes propiedades:
 |**Dirección**|Dirección del tráfico que debe coincidir con la regla|entrada o salida|Las reglas de entrada y salida se procesan por separado, en función de la dirección.|
 |**Prioridad**|Las reglas se comprueban en orden de prioridad; una vez que se aplica una regla, no se prueba la coincidencia de más reglas.|Número entre 100 y 65535.|Considere la posibilidad de crear prioridades de salto de reglas por 100 para cada regla, para dejar que las nuevas reglas se interpongan entre las existentes.|
 |**Access**|Tipo de acceso que se debe aplicar si coincide con la regla|permitir o denegar|Tenga en cuenta que si no se encuentra una regla de permiso para un paquete, el paquete se descarta.|
+
+Contiene dos tipos de reglas: de entrada y de salida. La prioridad de una regla debe ser única dentro de cada conjunto.
+
+![Procesamiento de reglas de NSG](./media/virtual-network-nsg-overview/figure3.png)
+
+La ilustración anterior muestra cómo se procesan las reglas de NSG.
 
 ### Etiquetas predeterminadas
 
@@ -97,11 +105,25 @@ Puede asociar grupos de seguridad de red diferentes a una máquina virtual (o NI
 	2. El grupo de seguridad de red se aplica a la NIC (Administrador de recursos) o a la máquina virtual (clásica).
 - **Tráfico de salida**
 	1. El grupo de seguridad de red se aplica a la NIC (Administrador de recursos) o a la máquina virtual (clásica).
-	3. El grupo de seguridad de red se aplica a la subred.
+	2. El grupo de seguridad de red se aplica a la subred.
 
 ![ACL de grupos de seguridad de red](./media/virtual-network-nsg-overview/figure2.png)
 
->[AZURE.NOTE]Aunque solamente se puede asociar un solo grupo de seguridad de red a una subred, VM o NIC, puede asociar el mismo grupo de seguridad de red a tantos recursos como desee.
+>[AZURE.NOTE] Aunque solamente se puede asociar un solo grupo de seguridad de red a una subred, VM o NIC, puede asociar el mismo grupo de seguridad de red a tantos recursos como desee.
+
+## Implementación
+Puede implementar los NSG en el modelo clásico o en los modelos de implementación del Administrador de recursos mediante las distintas herramientas que se enumeran a continuación.
+
+|Herramienta de implementación|Clásico|Resource Manager|
+|---|---|---|
+|Portal clásico|![No][red]|![No][red]|
+|Portal de Azure|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Sí][green]</a>|
+|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Sí][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Sí][green]</a>|
+|Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Sí][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Sí][green]</a>|
+|Plantilla ARM|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Sí][green]</a>|
+
+|**Clave**|Compatible con ![Sí][green]. Haga clic para leer el artículo.|No compatible con ![No][red].|
+|---|---|---|
 
 ## Planificación
 
@@ -111,7 +133,7 @@ Antes de implementar los grupos de seguridad de red, deberá responder a las sig
 
 2. ¿Están los recursos por los que desea filtrar el tráfico entrante y saliente conectados a subredes de redes virtuales existentes o se van a conectar a nuevas redes virtuales o subredes?
  
-Para más información sobre la planeación de la seguridad de red en Azure, lea los [procedimientos recomendados para los servicios en la nube y la seguridad de red](best-practices-network-security.md).
+Para más información sobre la planeación de la seguridad de red en Azure, lea los [procedimientos recomendados para los servicios en la nube y la seguridad de red](../best-practices-network-security.md).
 
 ## Consideraciones de diseño
 
@@ -127,7 +149,7 @@ Debe tener en cuenta los límites siguientes al diseñar sus grupos de seguridad
 |Grupos de seguridad de red por región por suscripción|100|De forma predeterminada, se crea un nuevo grupo de seguridad de red para cada máquina virtual que crea en el Portal de Azure. Si permite este comportamiento predeterminado, se quedará rápidamente sin grupos de seguridad de red. Asegúrese de tener en cuenta este límite durante su diseño, y, si es necesario, separe los recursos en varias regiones o suscripciones. |
 |Reglas de NSG por NSG|200|Use una amplio intervalo de direcciones IP y puertos para asegurarse de no sobrepasar este límite. |
 
->[AZURE.IMPORTANT]Asegúrese de ver todos los [límites relacionados con servicios de redes en Azure](../azure-subscription-service-limits/#networking-limits) antes de diseñar la solución. Algunos límites se pueden aumentar con la apertura de una incidencia de soporte técnico.
+>[AZURE.IMPORTANT] Asegúrese de ver todos los [límites relacionados con servicios de redes en Azure](../azure-subscription-service-limits.md#networking-limits) antes de diseñar la solución. Algunos límites se pueden aumentar con la apertura de una incidencia de soporte técnico.
 
 ### Diseño de red virtual y subred
 
@@ -222,7 +244,7 @@ Los requisitos del 1 al 6 (a excepción del 3) anteriores se limitan todos a esp
 |---|---|---|---|---|---|---|---|
 |permitir RDP de Internet|Permitir|100|INTERNET|**|*|3389|TCP|
 
->[AZURE.NOTE]Observe que el intervalo de direcciones de origen para esta regla es **Internet** y no la dirección IP virtual del equilibrador de carga; el puerto de origen es *****, no 500001. No confunda reglas NAT, reglas de equilibrio de carga y reglas de grupo de seguridad de red. Las reglas de grupo de seguridad de red siempre se relacionan con el origen y el destino final de tráfico, **NO** con el equilibrador de carga entre los dos.
+>[AZURE.NOTE] Observe que el intervalo de direcciones de origen para esta regla es **Internet** y no la dirección IP virtual del equilibrador de carga; el puerto de origen es *****, no 500001. No confunda reglas NAT, reglas de equilibrio de carga y reglas de grupo de seguridad de red. Las reglas de grupo de seguridad de red siempre se relacionan con el origen y el destino final de tráfico, **NO** con el equilibrador de carga entre los dos.
 
 ### Grupo de seguridad de red para las NIC de administración en BackEnd
 
@@ -248,4 +270,8 @@ Puesto que algunos de los grupos de seguridad de red mencionados anteriormente d
 - [Implemente grupos de seguridad de red en el Administrador de recursos](virtual-networks-create-nsg-arm-pportal.md).
 - [Administración de registros de grupo de seguridad de red](virtual-network-nsg-manage-log.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+[green]: ./media/virtual-network-nsg-overview/green.png
+[yellow]: ./media/virtual-network-nsg-overview/yellow.png
+[red]: ./media/virtual-network-nsg-overview/red.png
+
+<!---HONumber=AcomDC_0218_2016-->
