@@ -11,7 +11,7 @@
 <tags
  ms.service="iot-suite"
  ms.devlang="na"
- ms.topic="article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="11/30/2015"
@@ -34,8 +34,8 @@ La tabla siguiente muestra cómo se asignan estas soluciones a las característi
 
 | Solución | Ingesta de datos | Identidad de dispositivos | Comando y control | Reglas y acciones | Análisis predictivo |
 |------------------------|-----|-----|-----|-----|-----|
-| Supervisión remota | Sí | Sí | Sí | Sí | - |
-| Mantenimiento predictivo | Sí | Sí | Sí | Sí | Sí |
+| [Supervisión remota][lnk-remote-monitoring] | Sí | Sí | Sí | Sí | - | 
+| [Mantenimiento predictivo][lnk-predictive-maintenance] | Sí | Sí | Sí | Sí | Sí |
 
 ## Información general sobre la solución preconfigurada de supervisión remota
 
@@ -116,4 +116,4 @@ Examine estos recursos para obtener más información sobre las soluciones IoT p
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/22/2015"  
-	ms.author="juliako"/>
+	ms.date="02/17/2016"  
+	ms.author="piyushjo"/>
 
 
 # Creación de una aplicación de Azure Mobile Engagement
@@ -23,7 +23,7 @@ En este artículo se indica cómo usar el método **Creación rápida** para cre
 
 Tenga en cuenta que debe agregar un conjunto mínimo de "integración básica" para poder recopilar datos para la aplicación y enviar notificaciones push. Toda la información sobre la integración se encuentra en la página [Integración de Mobile Engagement](mobile-engagement-windows-store-integrate-engagement.md)
 
-> [AZURE.IMPORTANT]Para completar cualquier tutorial de Azure Mobile Engagement debe tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
+> [AZURE.IMPORTANT] Para completar cualquier tutorial de Azure Mobile Engagement debe tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
 
 ##Configuración de Mobile Engagement para la aplicación móvil en Azure
 
@@ -48,4 +48,4 @@ Cuando se encuentre en el portal de Mobile Engagement, puede analizar, crear y a
 
 [Introducción a Azure Mobile Engagement](mobile-engagement-windows-store-dotnet-get-started.md) (puede seleccionar otras plataformas móviles en la parte superior de la página).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

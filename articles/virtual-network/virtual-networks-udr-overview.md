@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Información general de las rutas definidas por el usuario y reenvío IP"
-   description="Descripción de las rutas definidas por el usuario y el reenvío IP"
+   pageTitle="¿Qué son las rutas definidas por el usuario y el reenvío IP?"
+   description="Aprenda a utilizar rutas definidas por el usuario (UDR) y el reenvío IP para reenviar el tráfico a la red de aplicaciones virtuales de Azure."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -9,13 +9,13 @@
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="12/11/2015"
    ms.author="telmos" />
 
-# Rutas definidas por el usuario y reenvío IP
+# ¿Qué son las rutas definidas por el usuario y el reenvío IP?
 Al agregar máquinas virtuales (VM) a una red virtual (VNet) en Azure, observará que las máquinas virtuales son capaces de comunicarse automáticamente con otras máquinas por toda la red. No es necesario que especifique una puerta de enlace, incluso si las máquinas virtuales están en subredes diferentes. Cuando existe una conexión híbrida de Azure a su centro de datos, puede aplicar esto a la comunicación de las máquinas virtuales en la red pública e incluso a su red local.
 
 Este flujo de comunicación es posible porque Azure usa varias rutas del sistema que definen cómo fluye el tráfico IP. Las rutas del sistema controlan el flujo de comunicación de los escenarios siguientes:
@@ -36,7 +36,7 @@ La siguiente ilustración muestra un ejemplo de las rutas definidas por el usuar
 
 ![Rutas del sistema de Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
->[AZURE.IMPORTANT]Las rutas definidas por el usuario solo se aplican al tráfico que sale de una subred. Por ejemplo, no pueden crear rutas para especificar el modo de entrada del tráfico en una subred de Internet. Asimismo, la aplicación a la cual está enviando el tráfico no puede estar en la misma subred donde se origina ese tráfico. Recuerde siempre crear una subred independiente para sus aplicaciones.
+>[AZURE.IMPORTANT] Las rutas definidas por el usuario solo se aplican al tráfico que sale de una subred. Por ejemplo, no pueden crear rutas para especificar el modo de entrada del tráfico en una subred de Internet. Asimismo, la aplicación a la cual está enviando el tráfico no puede estar en la misma subred donde se origina ese tráfico. Recuerde siempre crear una subred independiente para sus aplicaciones.
 
 ## Enrutamiento
 Los paquetes se enrutan sobre una red TCP/IP basada en una tabla de enrutamiento definida en cada nodo de la red física. Una tabla de enrutamiento es una colección de rutas individuales que se utiliza para decidir dónde reenviar los paquetes según la dirección IP de destino. Una ruta consta de lo siguiente:
@@ -71,14 +71,14 @@ Las subredes dependen de las rutas del sistema hasta que una tabla de enrutamien
 1. Ruta BGP (cuando se utiliza ExpressRoute)
 1. Ruta del sistema
 
-Para obtener información sobre cómo crear rutas definidas por el usuario, consulte [Cómo crear rutas y habilitar el reenvío IP en Azure](../virtual-networks-udr-how-to#How-to-manage-routes).
+Para obtener información sobre cómo crear rutas definidas por el usuario, consulte [Cómo crear rutas y habilitar el reenvío IP en Azure](virtual-networks-udr-how-to.md#How-to-manage-routes).
 
->[AZURE.IMPORTANT]Las rutas definidas por el usuario solo se aplican a las máquinas virtuales de Azure y servicios de nube. Por ejemplo, si desea agregar un dispositivo virtual de firewall entre la red local y Azure, debe crear una ruta definida por el usuario para las tablas de enrutamiento de Azure que reenvían todo el tráfico del espacio de direcciones local al dispositivo virtual. Sin embargo, el tráfico entrante desde el espacio de direcciones local se propagará a través de la puerta de enlace de VPN o circuito ExpressRoute directamente en el entorno de Azure, omitiendo el dispositivo virtual.
+>[AZURE.IMPORTANT] Las rutas definidas por el usuario solo se aplican a las máquinas virtuales de Azure y servicios de nube. Por ejemplo, si desea agregar un dispositivo virtual de firewall entre la red local y Azure, debe crear una ruta definida por el usuario para las tablas de enrutamiento de Azure que reenvían todo el tráfico del espacio de direcciones local al dispositivo virtual. Sin embargo, el tráfico entrante desde el espacio de direcciones local se propagará a través de la puerta de enlace de VPN o circuito ExpressRoute directamente en el entorno de Azure, omitiendo el dispositivo virtual.
 
 ## Rutas BGP
-Si tiene una conexión de ExpressRoute entre la red local y Azure, puede habilitar BGP propagar las rutas de la red local a Azure. Estas rutas BGP se usan de la misma forma que las rutas del sistema y las rutas definidas por el usuario en cada subred de Azure. Para obtener más información, consulte [Introducción a ExpressRoute](../expressroute-introduction).
+Si tiene una conexión de ExpressRoute entre la red local y Azure, puede habilitar BGP propagar las rutas de la red local a Azure. Estas rutas BGP se usan de la misma forma que las rutas del sistema y las rutas definidas por el usuario en cada subred de Azure. Para obtener más información, consulte [Introducción a ExpressRoute](../articles/expressroute/expressroute-introduction.md).
 
->[AZURE.IMPORTANT]Puede configurar el entorno de Azure para forzar la tunelización a través de la red local mediante la creación de una ruta definida por el usuario para la subred 0.0.0.0/0 que utiliza la puerta de enlace de VPN como el próximo salto. Sin embargo, esto solo funciona si se utiliza una puerta de enlace de VPN, no ExpressRoute. Para ExpressRoute, la tunelización forzada se configura a través de BGP.
+>[AZURE.IMPORTANT] Puede configurar el entorno de Azure para forzar la tunelización a través de la red local mediante la creación de una ruta definida por el usuario para la subred 0.0.0.0/0 que utiliza la puerta de enlace de VPN como el próximo salto. Sin embargo, esto solo funciona si se utiliza una puerta de enlace de VPN, no ExpressRoute. Para ExpressRoute, la tunelización forzada se configura a través de BGP.
 
 ## Reenvío IP
 Como se describió anteriormente, una de las razones principales para crear una ruta definida por el usuario es reenviar el tráfico a un dispositivo virtual. Un dispositivo virtual no es más que una máquina virtual que ejecuta una aplicación utilizada para controlar el tráfico de red de alguna manera, como un firewall o un dispositivo NAT.
@@ -87,7 +87,7 @@ La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tr�
 
 ## Pasos siguientes
 
-- Obtenga información sobre cómo [crear rutas en el modelo de implementación del Administrador de recursos](../virtual-network-create-udr-arm-template) y asociarlos a subredes. 
-- Obtenga información sobre cómo [crear rutas en el modelo de implementación clásico](../virtual-network-create-udr-classic-ps) y asociarlos a subredes.
+- Obtenga información sobre cómo [crear rutas en el modelo de implementación del Administrador de recursos](virtual-network-create-udr-arm-template.md) y asociarlos a subredes. 
+- Obtenga información sobre cómo [crear rutas en el modelo de implementación clásico](virtual-network-create-udr-classic-ps.md) y asociarlos a subredes.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

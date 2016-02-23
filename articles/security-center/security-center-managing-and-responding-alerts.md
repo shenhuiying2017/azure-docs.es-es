@@ -13,9 +13,9 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="02/11/2016"
    ms.author="yurid"/>
-
+ 
 # Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure
 Este documento le ayuda a usar las capacidades del Centro de seguridad de Azure para administrar las alertas de seguridad y responder a ellas.
 
@@ -25,7 +25,9 @@ Este documento le ayuda a usar las capacidades del Centro de seguridad de Azure 
  El Centro de seguridad ayuda a evitar, detectar y responder a amenazas con más visibilidad y control de la seguridad en los recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
 ## ¿Qué son las alertas de seguridad?
-El Centro de seguridad recopila, analiza e integra automáticamente los datos de registro de los recursos de Azure, la red y los firewalls y programas antimalware para detectar amenazas reales y reducir los falsos positivos. En el Centro de seguridad, se muestra una lista de alertas de seguridad prioritarias, incluidas las procedentes de soluciones integradas de asociados, junto con la información que necesita para investigar rápidamente y recomendaciones para corregir un ataque. Los investigadores en seguridad de Microsoft están analizando constantemente las amenazas que surgen en todo el mundo, incluidos los nuevos patrones y tendencias de ataque vistos en sus productos para consumidores y empresas, y servicios en línea. Como consecuencia, el Centro de seguridad puede actualizar sus algoritmos de detección a medida que se descubren nuevas vulnerabilidades para ayudar a los clientes a mantenerse al ritmo de las amenazas cambiantes. Algunos ejemplos de los tipos de amenazas que puede detectar el Centro de seguridad son:
+El Centro de seguridad recopila, analiza e integra automáticamente los datos de registro de los recursos de Azure, la red y los firewalls y programas antimalware para detectar amenazas reales y reducir los falsos positivos. En el Centro de seguridad, se muestra una lista de alertas de seguridad prioritarias, incluidas las procedentes de soluciones integradas de asociados, junto con la información que necesita para investigar rápidamente y recomendaciones para corregir un ataque.
+ 
+Los investigadores en seguridad de Microsoft están analizando constantemente las amenazas que surgen en todo el mundo, incluidos los nuevos patrones y tendencias de ataque vistos en sus productos para consumidores y empresas, y servicios en línea. Como consecuencia, el Centro de seguridad puede actualizar sus algoritmos de detección a medida que se descubren nuevas vulnerabilidades para ayudar a los clientes a mantenerse al ritmo de las amenazas cambiantes. Algunos ejemplos de los tipos de amenazas que puede detectar el Centro de seguridad son:
 
 - **Detección por fuerza bruta en los datos de red**: usa los modelos de aprendizaje automático que comprenden los patrones típicos del tráfico de red para las aplicaciones y permite una detección más eficaz de los intentos de acceso llevados a cabo por actores malintencionados en lugar de por usuarios legítimos.
 - **Detección por fuerza bruta en datos de puntos de conexión**: se basa en el análisis de registros de la máquina; esto permite diferenciar entre intentos incorrectos y correctos.
@@ -58,7 +60,7 @@ En la parte inferior de esta hoja aparecen los detalles de cada alerta. Para ord
 
 Puede filtrar alertas en función de la fecha, el estado y la gravedad. Puede resultar útil filtrar las alertas en aquellos escenarios en que necesite restringir el ámbito de las alertas de seguridad que se muestran. Por ejemplo, podría comprobar las alertas de seguridad que se produjeron en las 24 horas anteriores, ya que se está investigando una posible brecha en el sistema.
 
-1. Haga clic en **Filtro** en la hoja **Alertas de seguridad**. Se abre la hoja **Filtro**, donde podrá seleccionar los valores de fecha, estado y gravedad que quiera ver.
+1. Haga clic en **Filtro** en la hoja **Alertas de seguridad**. Se abre la hoja **Filtro**, donde podrá seleccionar los valores de fecha, estado y gravedad que desee ver.
 
 	![Filtrar alertas en el Centro de seguridad de Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5-new.png)
 
@@ -75,14 +77,14 @@ En este caso, las alertas desencadenadas hacen referencia a las actividades sosp
 
 ![Sugerencias sobre qué hacer con las alertas de seguridad en el Centro de seguridad de Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig8.png)
 
-> [AZURE.NOTE] La corrección sugerida por el Centro de seguridad variará según la alerta de seguridad. En algunos casos, tendrá que utilizar otras capacidades de Azure para implementar la corrección recomendada. Por ejemplo, la corrección para este ataque consiste en colocar la dirección IP que lo está generando en la lista negra mediante una [ACL de red](virtual-networks-acl.md) o una regla de [grupo de seguridad de red](virtual-networks-nsg.md).
+> [AZURE.NOTE] La corrección sugerida por el Centro de seguridad variará según la alerta de seguridad. En algunos casos, tendrá que utilizar otras capacidades de Azure para implementar la corrección recomendada. Por ejemplo, la corrección para este ataque consiste en colocar la dirección IP que lo está generando en la lista negra mediante una [ACL de red](../virtual-network/virtual-networks-acl.md) o una regla de [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md).
 
 
 ## Pasos siguientes
 En este documento ha aprendido a configurar directivas de seguridad en el Centro de seguridad. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-- [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md): aprenda a supervisar el estado de los recursos de Azure.
-- [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
+- [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
+- [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): Encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

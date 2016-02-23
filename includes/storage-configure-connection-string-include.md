@@ -2,7 +2,7 @@
 
 La biblioteca del cliente de almacenamiento de Azure para .NET admite el uso de una cadena de conexión de almacenamiento para configurar extremos y credenciales a fin de obtener acceso a los servicios de almacenamiento. Es recomendable mantener la cadena de conexión de almacenamiento en un archivo de configuración en vez de codificarla de forma rígida en su aplicación. Tiene dos opciones para guardar su cadena de conexión:
 
-- Si su aplicación se ejecuta en un servicio en la nube de Azure, guarde su cadena de conexión utilizando el sistema de configuración del servicio Azure (archivos (`*.csdef` y `*.cscfg`). Consulte [Creación e implementación de un servicio en la nube](../articles/cloud-services/cloud-services-how-to-create-deploy.md) para obtener más información acerca de la configuración del servicio en la nube de Azure.
+- Si su aplicación se ejecuta en un servicio en la nube de Azure, guarde su cadena de conexión utilizando el sistema de configuración del servicio Azure (archivos (`*.csdef` y `*.cscfg`). Consulte [Creación e implementación de un servicio en la nube](../articles/cloud-services/cloud-services-how-to-create-deploy.md) para más información acerca de la configuración del servicio en la nube de Azure.
 - Si su aplicación se ejecuta en máquinas virtuales de Azure, o si está compilando aplicaciones .NET que se ejecutarán fuera de Azure, guarde su cadena de conexión mediante el sistema de configuración de NET (por ejemplo, archivo `web.config` o `app.config`).
 
 Le mostraremos más adelante en esta guía cómo recuperar la cadena de conexión a partir de su código.
@@ -25,11 +25,11 @@ Siga estos pasos para configurar la cadena de conexión mediante la configuraci�
 
 5.  Elija si desea utilizar el emulador de almacenamiento (almacenamiento de Microsoft Azure simulado en su equipo local) o una cuenta de almacenamiento en la nube. El código de esta guía funciona con cualquiera de estas opciones.
 
-	> [AZURE.NOTE]Puede dirigirse al emulador de almacenamiento para evitar incurrir en cualquier coste asociado con Almacenamiento de Azure. Sin embargo, si selecciona dirigirse a una cuenta de almacenamiento de Azure en la nube, los costes derivados de la realización de este tutorial serán insignificantes.
+	> [AZURE.NOTE] Puede dirigirse al emulador de almacenamiento para evitar incurrir en cualquier coste asociado con Almacenamiento de Azure. Sin embargo, si selecciona dirigirse a una cuenta de almacenamiento de Azure en la nube, los costes derivados de la realización de este tutorial serán insignificantes.
 
-	Si el destino va a ser una cuenta de almacenamiento en la nube, escriba la clave de acceso primaria de dicha cuenta. Para aprender a copiar una clave de acceso primaria a través del Portal de administración de Azure, consulte [Visualización, copia y regeneración de claves de acceso de almacenamiento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+	Si el destino va a ser una cuenta de almacenamiento en la nube, escriba la clave de acceso primaria de dicha cuenta. Para aprender a copiar una clave de acceso principal a través del Portal de administración de Azure, consulte [Visualización y copia de las claves de acceso de almacenamiento](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
-	> [AZURE.NOTE]La clave de la cuenta de almacenamiento es similar a la contraseña raíz de la cuenta de almacenamiento. Asegúrese de proteger la clave. Evite distribuirla a otros usuarios o guardarla en un archivo de texto que sea accesible a otros usuarios. Vuelva a generar la clave mediante el Portal de administración si cree que puede verse comprometida.
+	> [AZURE.NOTE] La clave de la cuenta de almacenamiento es similar a la contraseña raíz de la cuenta de almacenamiento. Asegúrese de proteger la clave. Evite distribuirla a otros usuarios o guardarla en un archivo de texto que sea accesible a otros usuarios. Vuelva a generar la clave mediante el Portal de administración si cree que puede verse comprometida.
 	
     ![Select target environment][connection-string4]
 
@@ -63,4 +63,4 @@ Ahora está preparado para realizar los procedimientos de esta guía.
 
 [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

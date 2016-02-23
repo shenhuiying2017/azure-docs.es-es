@@ -12,7 +12,7 @@
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="11/06/2015" 
 	ms.author="sethm"/>
 
@@ -81,7 +81,7 @@ Un tema es similar en muchos aspectos a una cola. Los remitentes envían mensaje
 - El suscriptor 2 recibe mensajes que contienen la propiedad *Seller="Ruby"* o la propiedad *Amount* cuyo valor es superior a 100.000. Quizás Ruby es la directora de ventas, y por eso quiere ver sus propias ventas y todas las grandes ventas independientemente de quién las hace.
 - El suscriptor 3 ha establecido su filtro en *True*, lo que significa que recibe todos los mensajes. Por ejemplo, esta aplicación puede ser responsable de mantener una traza de auditoría y, por tanto, necesita ver todos los mensajes.
 
-Como ocurre con las colas, los suscriptores a un tema pueden leer los mensajes usando **ReceiveAndDelete** o **PeekLock**. Sin embargo, a diferencia de las colas, varios suscriptores pueden recibir un mensaje único enviado a un tema. Este enfoque, que se denomina normalmente *publicar y suscribir*, es útil cuando puede haber varias aplicaciones interesadas en los mismos mensajes. Si se define el filtro adecuado, cada suscriptor puede pulsar solo la parte de la secuencia de mensaje que necesita ver.
+Como ocurre con las colas, los suscriptores a un tema pueden leer los mensajes utilizando **ReceiveAndDelete** o **PeekLock**. Sin embargo, a diferencia de las colas, varios suscriptores pueden recibir un mensaje único enviado a un tema. Este enfoque, que se denomina normalmente *publicar y suscribir*, es útil cuando puede haber varias aplicaciones interesadas en los mismos mensajes. Si se define el filtro adecuado, cada suscriptor puede pulsar solo la parte de la secuencia de mensaje que necesita ver.
 
 ## Relés
 
@@ -97,7 +97,7 @@ Supongamos que desea conectar dos aplicaciones locales que se ejecutan dentro de
 
 Un relé de Bus de servicio proporciona esa ayuda. Para comunicarse de forma bidireccional a través de un relé, cada aplicación establece una conexión TCP saliente con el Bus de servicio y, a continuación, la mantiene abierta. Todas las comunicaciones entre las dos aplicaciones se llevarán a cabo a través de esas conexiones. Puesto que cada conexión se estableció desde dentro del centro de datos, el firewall permitirá el tráfico entrante a cada aplicación sin abrir puertos nuevos. Este enfoque también evita el problema de NAT, puesto que cada aplicación cuenta con un extremo coherente en la nube a través de la comunicación. Las aplicaciones pueden evitar los problemas que podrían complicar la comunicación mediante el intercambio de datos a través del relé.
 
-Para usar retransmisiones de bus de servicio, las aplicaciones se basan en Windows Communication Foundation (WCF). El Bus de servicio proporciona enlaces a WCF que facilitan la interactuación de las aplicaciones de Windows a través de los relés. Las aplicaciones que ya usan WCF pueden normalmente especificar solo uno de esos enlaces y después comunicarse con los demás a través de un relé. Sin embargo, a diferencia de las colas y los temas, el uso cuando sea posible de relés de aplicaciones que no sean de Windows requiere algún tipo de esfuerzo de programación; no se proporcionan bibliotecas estándar.
+Para utilizar retransmisiones de Bus de servicio, las aplicaciones se basan en Windows Communication Foundation (WCF). El Bus de servicio proporciona enlaces a WCF que facilitan la interactuación de las aplicaciones de Windows a través de los relés. Las aplicaciones que ya usan WCF pueden normalmente especificar solo uno de esos enlaces y después comunicarse con los demás a través de un relé. Sin embargo, a diferencia de las colas y los temas, el uso cuando sea posible de relés de aplicaciones que no sean de Windows requiere algún tipo de esfuerzo de programación; no se proporcionan bibliotecas estándar.
 
 Al contrario de lo que ocurre con las colas y los temas, las aplicaciones no crean relés explícitamente. En este caso, cuando una aplicación que desea recibir mensajes establece una conexión TCP con el Bus de servicio, se crea un relé automáticamente. Cuando se abandona la conexión, el relé se elimina. Para que una aplicación encuentre una retransmisión creada por un agente de escucha específico, el Bus de servicio proporciona un registro que permite a las aplicaciones ubicar una retransmisión específica por nombre.
 
@@ -125,4 +125,4 @@ Ahora que conoce los fundamentos del Bus de servicio de Azure, siga estos víncu
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

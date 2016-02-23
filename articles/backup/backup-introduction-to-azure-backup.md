@@ -13,7 +13,7 @@
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="02/05/2016"
 	ms.author="trinadhk;jimpark"/>
 
@@ -78,7 +78,9 @@ En estas cinco tablas se resume cómo se controla la funcionalidad Copia de segu
 | Copia de seguridad incremental | ![Sí][green] | ![Sí][green] | ![Sí][green] | ![Sí][green] |
 | Desduplicación de disco | | ![Parcialmente][yellow] | ![Parcialmente][yellow]| | |
 
-**Clave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Sí][green]= Admitido &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Parcialmente][yellow]= Admitido parcialmente &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = No admitido
+**Clave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Sí][green]= Admitido &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+![Parcialmente][yellow]= Admitido parcialmente &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = No admitido
 
 El almacén de Copia de seguridad es el destino de almacenamiento preferido en todos los componentes. System Center DPM y el Servidor de Copia de seguridad de Azure proporcionan la opción de tener también una copia en disco local, pero solamente System Center DPM ofrece la opción de escribir datos en un dispositivo de almacenamiento en cinta.
 
@@ -99,8 +101,9 @@ Se admite la desduplicación para System Center DPM y el servidor de Copia de se
 | Seguridad de red (para Azure) | ![Sí][green] |![Sí][green] | ![Sí][green] | ![Parcialmente][yellow]|
 | Seguridad de red (en Azure) | ![Sí][green] |![Sí][green] | ![Sí][green] | ![Parcialmente][yellow]|
 
-**Clave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Sí][green]= Admitido &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Parcialmente][yellow]= Admitido parcialmente &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = No admitido
-
+**Clave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Sí][green]= Admitido &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+![Parcialmente][yellow]= Admitido parcialmente &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = No admitido
 Todo el tráfico de copia de seguridad de los servidores al almacén de Copia de seguridad se cifra mediante el Estándar de cifrado avanzado 256. Los datos se envían a través de un vínculo HTTPS seguro. Los datos de copia de seguridad también se almacenan en el almacén de Copia de seguridad en su forma cifrada. Solo el cliente contiene la frase de contraseña para desbloquear estos datos. Microsoft no puede descifrar los datos de copia de seguridad en ningún momento.
 
 >[AZURE.WARNING] La clave usada para cifrar los datos de copia de seguridad solo está presente con el cliente. Microsoft no mantiene una copia en Azure y no tiene acceso a la clave. Si la clave se pierde, Microsoft no puede recuperar los datos de copia de seguridad.
@@ -121,7 +124,8 @@ Para la copia de seguridad de las máquinas virtuales de Azure, tiene que config
 | Máquina virtual de Azure (Windows) | | | | ![Sí][green] |
 | Máquina virtual de Azure (Linux) | | | | ![Sí][green] |
 
-**Clave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Sí][green]= Admitido &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = No admitido
+**Clave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Sí][green]= Admitido &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = No admitido
 
 ### Red
 
@@ -132,7 +136,8 @@ Para la copia de seguridad de las máquinas virtuales de Azure, tiene que config
 | Protocolo de red (para el servidor de copia de seguridad) | | TCP | TCP | |
 | Protocolo de red (para el almacén de Copia de seguridad) | HTTPS | HTTPS | HTTPS | HTTPS |
 
-**Clave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Sí][green]= Admitido &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = No admitido
+**Clave** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Sí][green]= Admitido &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = No admitido
 
 Dado que la extensión de VM lee directamente los datos de la cuenta de Almacenamiento de Azure a través de la red de almacenamiento, no es necesario optimizar este tráfico. Dado que el tráfico fluye a través de la red de almacenamiento local en el centro de datos de Azure, existe una mínima necesidad de compresión debido a consideraciones de ancho de banda.
 
@@ -181,4 +186,4 @@ Para tomar decisiones relacionadas con la copia de seguridad y la recuperación 
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

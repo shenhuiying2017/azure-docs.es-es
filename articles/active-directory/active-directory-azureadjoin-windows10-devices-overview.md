@@ -14,8 +14,8 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/25/2016" 
+	ms.topic="get-started-article" 
+	ms.date="02/10/2016" 
 	ms.author="femila"/>
 
 # Windows 10 para empresa: formas de usar dispositivos para trabajar
@@ -35,4 +35,4 @@ En los temas siguientes se proporciona información acerca de las distintas capa
 | Implementación | [Escenarios de uso y consideraciones de implementación de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md) <br><br> [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)<br><br>[Habilitación de Microsoft Passport para el trabajo en la organización](active-directory-azureadjoin-passport-deployment.md)<br><br> [Habilitación de Enterprise State Roaming para Windows 10](active-directory-windows-enterprise-state-roaming-overview.md)<br><br> |
 | Tareas de usuario | [Configuración de un nuevo dispositivo de Windows 10 con Azure AD durante la instalación](active-directory-azureadjoin-user-frx.md) <br><br> [Configuración de un dispositivo de Windows 10 con Azure AD desde Configuración](active-directory-azureadjoin-user-upgrade.md) <br><br> [Unión de un dispositivo Windows 10 personal a su organización](active-directory-azureadjoin-personal-device.md) |
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

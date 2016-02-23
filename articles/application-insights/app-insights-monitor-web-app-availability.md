@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="02/11/2016"
 	ms.author="awills"/>
 
 # Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
@@ -129,7 +129,7 @@ Para crear una prueba de varios pasos, grabe el escenario con Visual Studio y, a
 
 Tenga en cuenta que no puede usar funciones codificadas en las pruebas: los pasos del escenario deben incluirse como un script en el archivo .webtest.
 
-#### 1. Grabar un escenario
+#### 1\. Grabar un escenario
 
 Utilice Visual Studio Enterprise o Ultimate para grabar una sesión web.
 
@@ -160,7 +160,7 @@ Utilice Visual Studio Enterprise o Ultimate para grabar una sesión web.
     ![En Visual Studio, abra el archivo .webtest y haga clic en Ejecutar.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 
-#### 2. Cargar la prueba web en Application Insights
+#### 2\. Cargar la prueba web en Application Insights
 
 1. En el portal de Application Insights, cree una nueva prueba web.
 
@@ -207,19 +207,22 @@ Los complementos de prueba web proporcionan la manera de hacerlo.
 
 Ahora puede cargar la prueba en el portal. Utilizará los valores dinámicos en cada ejecución de la prueba.
 
-## Inicio de sesión de OAuth
+## Tratamiento del inicio de sesión
 
-Si los usuarios inician sesión en la aplicación con su contraseña de OAuth (por ejemplo, Microsoft, Google o Facebook), puede simular el inicio de sesión en su prueba web de varios pasos mediante el complemento SAML.
+Si los usuarios inician sesión en la aplicación, tiene varias opciones para simular el inicio de sesión para poder probar páginas detrás del inicio de sesión. El enfoque que utilice dependerá del tipo de seguridad proporcionada por la aplicación.
 
-![Prueba web de ejemplo para OAuth](./media/app-insights-monitor-web-app-availability/81.png)
+En todos los casos, debe crear una cuenta solo con fines de prueba. Si es posible, restrinja sus permisos para que sea de solo lectura.
 
-La prueba de ejemplo realiza estos pasos:
+* Nombre de usuario y contraseña simples: solo debe registrar una prueba web de la forma habitual. Elimine las cookies en primer lugar.
+* Autenticación SAML. Para ello, puede utilizar el complemento SAML que está disponible para las pruebas web.
+* Secreto de cliente: si la aplicación tiene una ruta de inicio de sesión que implica un secreto de cliente, utilícela. Azure Active Directory la proporciona. 
+* Autenticación abierta: por ejemplo, al iniciar sesión con su cuenta de Microsoft o Google. Muchas aplicaciones que utilizan OAuth proporcionan la alternativa de secreto de cliente, por lo que es la primera táctica que hay que investigar. Si la prueba tiene que iniciar sesión con OAuth, el enfoque general es el siguiente:
+ * Utilice una herramienta como Fiddler para examinar el tráfico entre el explorador web, el sitio de autenticación y la aplicación. 
+ * Realice dos o más inicios de sesión mediante distintas máquinas o exploradores o en intervalos largos de tiempo (para permitir que los tokens expiren).
+ * Mediante la comparación de diferentes sesiones, identifique el token pasado desde el sitio de autenticación que, a continuación, se pasa al servidor de aplicaciones después de iniciar sesión. 
+ * Grabe una prueba web con Visual Studio. 
+ * Parametrice los tokens, estableciendo el parámetro cuando se devuelve el token desde el autenticador y utilizándolo en la consulta al sitio. (Visual Studio intentará parametrizar la prueba, pero no parametrizará correctamente los tokens).
 
-1. Pide a la aplicación web sometida a prueba la dirección del punto de conexión de OAuth.
-2. Inicia sesión mediante el complemento SAML.
-3. Realiza el resto de la prueba en el estado conectado.
-
-El complemento SAML establece una variable `Assert` que se utiliza en el paso 2.
 
 ## <a name="edit"></a> Modificación o deshabilitación de una prueba
 
@@ -263,4 +266,4 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->
