@@ -38,7 +38,7 @@ Obtenga información sobre las opciones de Big Compute en Azure y elija el enfoq
 
 * [Tutorial: Introducción a la biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md)
 
-* [Foro de Lote](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=azurebatch)
+* [Foro de Lote](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 
 * [Vídeos de Lote](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -83,7 +83,7 @@ Use estas plantillas de Azure para implementar clústeres de HPC de Linux.
 
 * [Referencia de MS-MPI](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [Foro de MPI](https://social.microsoft.com/Forums/es-ES/home?forum=windowshpcmpi)
+* [Foro de MPI](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
 
 ## Instancias intensivas de proceso
 
