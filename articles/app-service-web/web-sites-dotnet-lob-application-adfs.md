@@ -263,21 +263,21 @@ Puesto que ha incluido las pertenencias a grupos como notificaciones de rol en l
 1. Abra Controllers\HomeController.cs.
 2. Represente los métodos de acción `About` y `Contact` similares a los siguientes, con las pertenencias a grupos de seguridad que su usuario autenticado tiene.  
 	<pre class="prettyprint">
-<mark>[Authorize(Roles="Grupo de prueba")]</mark>
-public ActionResult About()
-{
+	<mark>[Authorize(Roles="Grupo de prueba")]</mark>
+	public ActionResult About()
+	{
     ViewBag.Message = "Su página de descripción de la aplicación.";
 
     return View();
-}
+	}
 
-<mark>[Authorize(Roles="Admins. del dominio")]</mark>
-public ActionResult Contact()
-{
+	<mark>[Authorize(Roles="Admins. del dominio")]</mark>
+	public ActionResult Contact()
+	{
     ViewBag.Message = "Su página de contacto.";
 
     return View();
-}
+	}
 	</pre>
 	Puesto que he agregado **Usuario de prueba** a **Grupo de prueba** en mi entorno de laboratorio de AD FS, usaré el grupo de prueba para probar la autorización en `About`. Para `Contact`, probaré el caso negativo de **Admins. del dominio**, al que no pertenece el **Usuario de prueba**.
 
@@ -353,4 +353,4 @@ Aplicaciones web del Servicio de aplicaciones de Azure admite el acceso a bases 
  
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

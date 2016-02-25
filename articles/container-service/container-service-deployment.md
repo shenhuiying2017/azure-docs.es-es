@@ -171,6 +171,6 @@ Ahora que tiene un clúster funcionando, consulte los siguientes documentos para
 - [Conexión a un clúster del servicio Contenedor de Azure](./container-service-connect.md)
 - [Administración de contenedores con la API de REST](./container-service-mesos-marathon-rest.md)
 
- 
 
-<!----HONumber=AcomDC_0218_2016-->
+
+<!-----HONumber=AcomDC_0218_2016-->
