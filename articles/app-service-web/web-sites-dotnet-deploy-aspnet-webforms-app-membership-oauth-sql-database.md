@@ -447,7 +447,7 @@ Los pasos siguientes permiten agregar un proveedor de autenticación de Google.
 
 		https://localhost:44300/signin-google  
 
-	Este valor es el URI que utiliza ASP.NET OAuth para comunicarse con el servidor OAuth de Google. Recuerde utilizar la dirección URL de SSL que usó antes (****https://localhost:44300/** a menos que haya creado otros proyectos con SSL).
+	Este valor es el URI que utiliza ASP.NET OAuth para comunicarse con el servidor OAuth de Google. Recuerde utilizar la dirección URL de SSL que usó antes (**https://localhost:44300/** a menos que haya creado otros proyectos con SSL).
  
 10. Haga clic en el botón **Crear**.
 11. En Visual Studio, actualice el método `UseGoogleAuthentication` de la página *Startup.Auth.cs*. Para ello, copie y pegue la información de **Id. de aplicación** y de **Secreto de la aplicación** en el método. Los valores **AppId** y **App Secret** que se muestran a continuación son ejemplos y no funcionarán.  
@@ -782,4 +782,4 @@ Es importante que haga comentarios acerca de lo que le gustó o lo que le gustar
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->
