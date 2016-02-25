@@ -242,9 +242,9 @@ Los requisitos del 1 al 6 (a excepción del 3) anteriores se limitan todos a esp
 
 |Regla|Access|Prioridad|Intervalo de direcciones de origen|Puerto de origen|Intervalo de direcciones de destino|Puerto de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir RDP de Internet|Permitir|100|INTERNET|**|*|3389|TCP|
+|permitir RDP de Internet|Permitir|100|INTERNET|*|\*|3389|TCP|
 
->[AZURE.NOTE] Observe que el intervalo de direcciones de origen para esta regla es **Internet** y no la dirección IP virtual del equilibrador de carga; el puerto de origen es *****, no 500001. No confunda reglas NAT, reglas de equilibrio de carga y reglas de grupo de seguridad de red. Las reglas de grupo de seguridad de red siempre se relacionan con el origen y el destino final de tráfico, **NO** con el equilibrador de carga entre los dos.
+>[AZURE.NOTE] Observe que el intervalo de direcciones de origen para esta regla es **Internet** y no la dirección IP virtual del equilibrador de carga; el puerto de origen es **\***, no 500001. No confunda reglas NAT, reglas de equilibrio de carga y reglas de grupo de seguridad de red. Las reglas de grupo de seguridad de red siempre se relacionan con el origen y el destino final de tráfico, **NO** con el equilibrador de carga entre los dos.
 
 ### Grupo de seguridad de red para las NIC de administración en BackEnd
 
@@ -252,7 +252,7 @@ Los requisitos del 1 al 6 (a excepción del 3) anteriores se limitan todos a esp
 
 |Regla|Access|Prioridad|Intervalo de direcciones de origen|Puerto de origen|Intervalo de direcciones de destino|Puerto de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir RDP de front-end|Permitir|100|192\.168.1.0/24|**|*|3389|TCP|
+|permitir RDP de front-end|Permitir|100|192\.168.1.0/24|*|\*|3389|TCP|
 
 ### Grupo de seguridad de red para las NIC de acceso a la base de datos en el back-end
 
@@ -260,7 +260,7 @@ Los requisitos del 1 al 6 (a excepción del 3) anteriores se limitan todos a esp
 
 |Regla|Access|Prioridad|Intervalo de direcciones de origen|Puerto de origen|Intervalo de direcciones de destino|Puerto de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir SQL del front-end|Permitir|100|192\.168.1.0/24|**|*|1433|TCP|
+|permitir SQL del front-end|Permitir|100|192\.168.1.0/24|*|\*|1433|TCP|
 
 Puesto que algunos de los grupos de seguridad de red mencionados anteriormente deben estar asociados a NIC individuales, este escenario se deberá implementar como una implementación del Administrador de recursos. Observe cómo se combinan las reglas para el nivel de subred y NIC, según cómo deban aplicarse.
 
