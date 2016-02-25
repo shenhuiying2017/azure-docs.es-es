@@ -135,4 +135,4 @@ Una vez configurado el firewall, podrá establecer conexiones desde su escritori
 
 Ahora que ha creado una base de datos de ejemplo para Almacenamiento de datos SQL, está listo para [conectarla](./sql-data-warehouse-get-started-connect.md) a la base de datos.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

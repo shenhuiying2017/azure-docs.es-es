@@ -199,4 +199,4 @@ Servidor de configuración (CS), Servidor de procesos (PS) y Destino maestro (MT
 ### Solución de problemas del escritorio remoto después de la conmutación por error
 -   Muchos clientes tienen que afrontar problemas para conectarse a máquina virtual con conmutación por error en Azure. [Uso del documento de solución de problemas para RDP en la máquina virtual](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
