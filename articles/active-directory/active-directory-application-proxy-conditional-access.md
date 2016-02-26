@@ -82,4 +82,4 @@ Hay mucho más que puede hacer con el proxy de la aplicación:
 - [Registro en Azure como una organización](sign-up-organization.md)
 - [Identidad de Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->
