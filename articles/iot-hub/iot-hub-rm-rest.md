@@ -16,7 +16,7 @@
      ms.date="11/23/2015"
      ms.author="dobett"/>
 
-# Tutorial: Crear un centro de IoT con un programa de C#
+# Tutorial: Crear un Centro de IoT con un programa de C# y la API de REST
 
 [AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
@@ -194,4 +194,4 @@ Ahora puede completar la aplicación llamando a los métodos **CreateIoTHub** y 
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->
