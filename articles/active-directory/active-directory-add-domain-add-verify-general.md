@@ -125,4 +125,4 @@ Una vez comprobado el dominio, puede configurarlo para que funcione con sus cuen
 - [Change the DNS registrar for your custom domain name (Cambio del registrador DNS para el nombre de dominio personalizado)](active-directory-add-domain-change-registrar.md)
 - [Delete a custom domain in Azure Active Directory (Eliminación de un dominio personalizado en Azure Active Directory)](active-directory-add-domain-delete-domain.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

@@ -54,4 +54,4 @@ Antes de quitar un nombre de dominio, se recomienda que lea la siguiente informa
 - [Assign users to a custom domain (Asignación de usuarios a un dominio personalizado)](active-directory-add-domain-add-users.md)
 - [Change the DNS registrar for your custom domain name (Cambio del registrador DNS para el nombre de dominio personalizado)](active-directory-add-domain-change-registrar.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->
