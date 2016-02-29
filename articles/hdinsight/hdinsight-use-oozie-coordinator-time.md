@@ -639,7 +639,7 @@ Azure PowerShell no proporciona actualmente cmdlets para la definición de traba
 
 **Para comprobar el registro de errores del trabajo**
 
-Para solucionar los problemas de un flujo de trabajo, puede encontrar el archivo de registro de Oozie en C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log en el nodo principal del clúster. Para obtener información sobre RDP, consulte [Administración de los clústeres de HDInsight mediante el portal de vista previa de Azure][hdinsight-admin-portal].
+Para solucionar los problemas de un flujo de trabajo, puede encontrar el archivo de registro de Oozie en C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log en el nodo principal del clúster. Para obtener información sobre RDP, consulte [Administración de los clústeres de HDInsight mediante el portal de vista previa de Azure](hdinsight-admin-portal).
 
 **Para volver a ejecutar el tutorial**
 
