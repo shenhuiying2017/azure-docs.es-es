@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/27/2016"
+   ms.date="02/17/2016"
    ms.author="alkohli" />
 
 # Límites del sistema de StorSimple
@@ -34,7 +34,7 @@ StorSimple proporciona almacenamiento escalable y flexible para su centro de dat
 | Número máximo de conexiones de iSCSI de iniciadores | 512 | |
 | Número máximo de registros de control de acceso por dispositivo | 64 | |
 | Número máximo de volúmenes por directiva de copia de seguridad | 24 | |
-| Número máximo de copias de seguridad por directiva de copia de seguridad | 64 | |
+| Número máximo de copias de seguridad retenidas por programación (en directiva de copia de seguridad) | 64 | |
 | Número máximo de programaciones por directiva de copia de seguridad | 10 | |
 | Número máximo de instantáneas de cualquier tipo que se pueden retener por volumen | 256 | Esto incluye las instantáneas locales y en la nube. |
 | Número máximo de instantáneas que pueden estar presentes en cualquier dispositivo | 10\.000 | |
@@ -52,4 +52,4 @@ StorSimple proporciona almacenamiento escalable y flexible para su centro de dat
 
 Revise los [Requisitos del sistema StorSimple](storsimple-system-requirements.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

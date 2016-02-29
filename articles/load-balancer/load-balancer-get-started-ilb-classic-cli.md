@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Primeros pasos en la creación de un equilibrador de carga interno (clásico) mediante la CLI de Azure
@@ -179,4 +179,4 @@ Para obtener más información, consulte `azure vm endpoint --help`.
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

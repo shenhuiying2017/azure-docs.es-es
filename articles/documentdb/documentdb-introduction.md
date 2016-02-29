@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/16/2016" 
 	ms.author="mimig"/>
 
 # Introducción a DocumentDB: una base de datos de JSON NoSQL
@@ -77,11 +77,11 @@ DocumentDB expone recursos mediante la API de REST, que se puede invocar con cua
 Descargar | Documentación
 --- | ---
 [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) | [Biblioteca de .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)
-[SDK de Node.js](http://go.microsoft.com/fwlink/?LinkID=402990) | [Biblioteca de Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)
-[SDK de Java](http://go.microsoft.com/fwlink/?LinkID=402380) | [Biblioteca de Java](http://dl.windowsazure.com/documentdb/javadoc/)
-[SDK de JavaScript](http://go.microsoft.com/fwlink/?LinkID=402991) | [Biblioteca de JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/)
-N/D | [SDK del servidor de JavaScript](http://dl.windowsazure.com/documentDB/jsserverdocs/)
-[SDK de Python](https://pypi.python.org/pypi/pydocumentdb) | [Biblioteca de Python](http://dl.windowsazure.com/documentDB/pythondocs/)
+[SDK de Node.js](http://go.microsoft.com/fwlink/?LinkID=402990) | [Biblioteca de Node.js](http://azure.github.io/azure-documentdb-node/)
+[SDK de Java](http://go.microsoft.com/fwlink/?LinkID=402380) | [Biblioteca de Java](http://azure.github.io/azure-documentdb-java/)
+[SDK de JavaScript](http://go.microsoft.com/fwlink/?LinkID=402991) | [Biblioteca de JavaScript](http://azure.github.io/azure-documentdb-js/)
+N/D | [SDK del servidor de JavaScript](http://azure.github.io/azure-documentdb-js-server/)
+[SDK de Python](https://pypi.python.org/pypi/pydocumentdb) | [Biblioteca de Python](http://azure.github.io/azure-documentdb-python/)
 
 Además de las operaciones básicas Crear, Leer, Actualizar y Eliminar, DocumentDB proporciona una sofisticada interfaz de consulta SQL para recuperar documentos JSON y soporte del servidor para la ejecución transaccional de la lógica de aplicaciones de JavaScript. Las interfaces de ejecución de consultas y script están disponibles a través de todas las bibliotecas de las plataformas además de las API REST.
 
@@ -111,4 +111,4 @@ A continuación, cuando esté listo para obtener más información, visite nuest
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

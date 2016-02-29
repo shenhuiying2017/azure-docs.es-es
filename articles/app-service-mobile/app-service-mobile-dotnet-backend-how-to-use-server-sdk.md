@@ -138,7 +138,7 @@ Los siguientes paquetes de extensión basados en NuGet proporcionan diversas car
 
 ## <a name="publish-server-project"></a>Procedimientos: Publicación del proyecto de servidor
 
-En esta sección se muestra cómo publicar el proyecto de back-end de .NET desde Visual Studio. También puede implementar el proyecto de back-end mediante Git o cualquiera de los otros métodos descritos en la [documentación de implementación del Servicio de aplicaciones de Azure](../app-service-web/web-site-deploy.md).
+En esta sección se muestra cómo publicar el proyecto de back-end de .NET desde Visual Studio. También puede implementar el proyecto de back-end mediante Git o cualquiera de los otros métodos descritos en la [documentación de implementación del Servicio de aplicaciones de Azure](../app-service-web/web-sites-deploy.md).
 
 1. En Visual Studio, vuelva a generar el proyecto para restaurar los paquetes de NuGet.
 
@@ -444,4 +444,4 @@ El servidor de ejecución local está ahora preparado para validar los tokens qu
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

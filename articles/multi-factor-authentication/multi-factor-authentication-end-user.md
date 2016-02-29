@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 
@@ -30,7 +30,7 @@ Así que lo primero que tiene que hacer es completar el proceso de inscripción.
 - **Llamada de teléfono móvil, texto o aplicación móvil**: si se decide por el teléfono móvil, escoja entre recibir una llamada, un texto, o utilizar la aplicación móvil.
 - **Aplicación móvil con una notificación o un código de comprobación**: si va a usar la aplicación móvil, elija entre recibir una notificación a la que tendrá que responder o un código de comprobación.
 
-> [AZURE.NOTE]Tenga en cuenta que el departamento de TI puede deshabilitar una o varias de las opciones anteriores. Si este es el caso, esas opciones no estará disponibles durante el proceso de inscripción.
+> [AZURE.NOTE]  Tenga en cuenta que el departamento de TI puede deshabilitar una o varias de las opciones anteriores. Si este es el caso, esas opciones no estará disponibles durante el proceso de inscripción.
 
 Una vez que haya decidido su método de comprobación, es el momento de inscribirse. Utilice el vínculo [Experiencia de configuración](multi-factor-authentication-end-user-first-time.md) para iniciarse con un recorrido por en el proceso de inscripción.
 
@@ -49,4 +49,4 @@ Tema.|Descripción
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

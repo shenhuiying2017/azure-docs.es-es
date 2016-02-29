@@ -1,6 +1,8 @@
-A Site-to-Site connection can be configured in both deployment models and by using several different tools. See the table below for more information. We update this table as new articles, new deployment models and tools become available for this configuration. When an article is available, we link directly to it from the table.
+En ambos modelos de implementación se puede configurar una conexión sitio a sitio a través de varias herramientas distintas. Consulte la tabla siguiente para obtener más información. Esta tabla se actualiza cada vez que hay nuevos artículos, nuevos modelos de implementación y nuevas herramientas disponibles para esta configuración. Cuando aparezca un artículo, creamos un vínculo directo a él desde la tabla.
 
-| **Deployment Model / Tool** | **Classic Portal** | **Azure Portal** | **PowerShell** |
+| **Modelo de implementación/herramienta** | **Portal clásico** | **Portal de Azure** | **PowerShell** |
 |-----------------------|----------------|--------------|------------|
-| **Classic**              | [Article](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md)       | Yes          | Yes        |
-| **Resource Manager**      | No             | No    | [Article](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)  |
+| **Clásico** | [Artículo](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) | Sí | Sí |
+| **Resource Manager** | No | No | [Artículo](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) |
+
+<!---HONumber=AcomDC_0218_2016-->

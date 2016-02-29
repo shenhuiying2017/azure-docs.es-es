@@ -35,7 +35,7 @@ Para utilizar Escritorio remoto, necesita actualizar la definición y configurac
 
 Ejecute los siguientes pasos desde el equipo que contenga los archivos de origen de la aplicación.
 
-1. Ejecute **Azure PowerShell** como administrador. (En el **menú Inicio** o la **pantalla Inicio**, busque **Azure PowerShell**.)
+1. Ejecute **Windows PowerShell** como administrador. (En el **menú Inicio** o la **pantalla Inicio**, busque **Windows PowerShell**).
 
 2.  Navegue al directorio que contenga los archivos de configuración del servicio (.cscfg) y de definición del servicio (.csdef).
 
@@ -73,7 +73,9 @@ Después de publicar la definición del servicio de actualización, puede conect
 
     ![Indicador de seguridad de Windows][5]
 
-4.  Haga clic en **Conectar** y, a continuación, aparecerá un indicador de seguridad para que escriba las credenciales de acceso a la instancia. Escriba la contraseña creada en el [paso 1]\[paso 1: configuración del servicio para el acceso de Escritorio remoto mediante Azure PowerShell] y haga clic en **Aceptar**.
+4.  Haga clic en **Conectar** y, a continuación, aparecerá un indicador de seguridad para que escriba las credenciales de
+    acceso a la instancia. Escriba la contraseña creada en
+    el [paso 1]\[paso 1: configuración del servicio para el acceso de Escritorio remoto mediante Azure PowerShell] y haga clic en **Aceptar**.
 
     ![indicador de nombre de usuario/contraseña][6]
 
@@ -115,4 +117,4 @@ Cuando ya no necesite conexiones de Escritorio remoto a las instancias de rol en
 [Uso de Escritorio de remoto con los roles de Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,21 +1,21 @@
 <properties
    pageTitle="Presentación del servicio Contenedor de Azure | Microsoft Azure"
    description="El servicio Contenedor de Azure (ACS) ofrece una forma de simplificar la creación, configuración y administración de un clúster de máquinas virtuales preconfiguradas para ejecutar aplicaciones en contenedor."
-   services="virtual-machines"
+   services="container-service"
    documentationCenter=""
    authors="rgardler"
-   manager="nepeters"
+   manager="timlt"
    editor=""
    tags="acs, azure-container-service"
    keywords="Docker, contenedores, microservicios, Mesos, Azure"/>
    
 <tags
-   ms.service="virtual-machines"
+   ms.service="container-service"
    ms.devlang="na"
-   ms.topic="home-page"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="02/16/2016"
    ms.author="rogardle"/>
 
 # Presentación del servicio Contenedor de Azure
@@ -28,8 +28,6 @@ ACS usa Docker para garantizar que los contenedores de su aplicación sean compl
 
 El servicio Contenedor de Azure permite aprovechar las características empresariales de Azure sin dejar de mantener la portabilidad de aplicaciones, incluso en las capas de orquestación.
 
-Mientras el servicio se encuentra en versión de vista previa, pedimos a todos los interesados en probarlo que se [propongan a sí mismos](http://aka.ms/acspreview). Una vez que se ha proporcionado acceso a la versión de vista previa, se enviará un correo electrónico con información adicional como plantillas de implementación e instrucciones de introducción. Para usar el servicio, necesitará una suscripción de Azure. Si aún no la tiene, ¿por qué no se suscribe a una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)?
-
 Uso del servicio Contenedor de Azure
 -----------------------------
 
@@ -38,11 +36,7 @@ Nuestro objetivo con el servicio Contenedor de Azure es proporcionar un entorno 
 Creación de un clúster de Docker con el servicio Contenedor de Azure
 -------------------------------------------------------
 
-Una vez que ha [solicitado](http://aka.ms/acspreview) y se le ha concedido acceso a la versión de vista previa, puede usar una de las plantillas del Administrador de recursos de Azure que le permiten implementar su primer clúster a través del Portal de Azure. Gracias a estas plantillas, podrá crear un servicio de forma rápida y empezar a implementar aplicaciones en él inmediatamente. Para empezar, solo tiene que decidir el tamaño del clúster y si desea usar Docker Swarm o Apache Mesos para administrar sus aplicaciones.
-
-También puede [usar la línea de comandos](/documentation/articles/resource-group-template-deploy/) para crear servicios Contenedor de Azure con estas mismas plantillas. Cuando se haya familiarizado con la estructura de estas plantillas, podrá escribir las suyas propias y automatizar completamente la creación de un clúster del servicio Contenedor de Azure.
-
-Los usuarios de la versión de vista previa recibirán documentación y soporte completos, que se publicarán aquí una vez abierto el servicio para el público.
+Para comenzar a usar el servicio Contenedor de Azure, se implementará un clúster de ACS mediante una plantilla del Administrador de recursos de Azure. Esta implementación puede configurarse con diferentes opciones de tamaño y disponibilidad, y se configurará con Apache Mesos o Docker Swarm. Las plantillas del Administrador de recursos de Azure pueden implementarse a través del puerto de Azure, mediante la CLI de Azure o con PowerShell. Las plantillas también se pueden modificar para que incluyan una configuración de Azure adicional o avanzada. Para obtener más información sobre la implementación y el clúster de ACS, consulte [Deploy an Azure container Service Cluster](./container-service-deployment.md) (Implementar un clúster del servicio Contenedor de Azure).
 
 Implementación de una aplicación
 ------------------------
@@ -77,11 +71,9 @@ Mesos admite un gran número de [marcos](http://mesos.apache.org/documentation/l
 
 Marathon es un sistema de inicialización y control de todo el clúster para servicios en cgroups o, en el caso de ACS, contenedores de Docker. Es un asociado ideal para Chronos, un programador de trabajos tolerante a errores para Mesos que controla dependencias y programaciones basadas en el tiempo.
 
-Marathon y Chronos proporcionan una IU web desde la que puede implementar sus aplicaciones. Tendrá acceso a esta desde una dirección URL semejante a `http://DNS\_PREFIX.REGION.cloudapp.azure.com`, donde DNS\_PREFIX y REGION se definen en el momento de la implementación. Por supuesto, también puede proporcionar su propio nombre DNS.
+Marathon y Chronos proporcionan una IU web desde la que puede implementar sus aplicaciones. Tendrá acceso a esta desde una dirección URL semejante a `http://DNS\_PREFIX.REGION.cloudapp.azure.com`, donde DNS\_PREFIX y REGION se definen en el momento de la implementación. Por supuesto, también puede proporcionar su propio nombre DNS. Para obtener más información sobre cómo ejecutar un contenedor mediante la interfaz de usuario web de Marathon, consulte [Container management through the web UI](./container-service-mesos-marathon-ui.md) (Administración de contenedores mediante la interfaz de usuario web).
 
-Además, puede usar las API de REST para comunicarse con Marathon y Chronos. Hay varias bibliotecas de cliente disponibles para cada herramienta, que abarcan distintos lenguajes y, por supuesto, puede usar el protocolo HTTP en cualquier lenguaje. Muchas herramientas de DevOps conocidas también proporcionan soporte para estos programadores. De este modo se proporciona la máxima flexibilidad a su equipo de operaciones al trabajar con un clúster de ACS.
-
-Los usuarios de la versión de vista previa recibirán documentación y soporte completos, que se publicarán aquí una vez abierto el servicio para el público.
+Además, puede usar las API de REST para comunicarse con Marathon y Chronos. Hay varias bibliotecas de cliente disponibles para cada herramienta, que abarcan distintos lenguajes y, por supuesto, puede usar el protocolo HTTP en cualquier lenguaje. Muchas herramientas de DevOps conocidas también proporcionan soporte para estos programadores. De este modo se proporciona la máxima flexibilidad a su equipo de operaciones al trabajar con un clúster de ACS. Para obtener más información sobre cómo ejecutar un contenedor mediante la API de REST de Marathon, consulte [Administración de contenedores con la API de REST](./container-service-mesos-marathon-rest.md).
 
 ### Uso de Docker Swarm
 
@@ -99,13 +91,6 @@ Entre las herramientas compatibles para administrar contenedores en un clúster 
 
 -   Jenkins
 
-Los usuarios de la versión de vista previa recibirán documentación y soporte completos, que se publicarán aquí una vez abierto el servicio para el público.
-
-Obtención de acceso
---------------
-
-Mientras el servicio se encuentra en versión de vista previa, pedimos a todos los interesados en probarlo que se [propongan a sí mismos](http://aka.ms/acspreview). En primer lugar, necesitará una suscripción de Azure. Si aún no la tiene, ¿por qué no se suscribe a una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)?
-
 Vídeos
 ------
 Anuncio de AzureCon:
@@ -116,4 +101,4 @@ Introducción a ACS:
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Replicación ente máquinas virtuales de Hyper-V local y Azure (sin VMM) con Site Recovery | Microsoft Azure"
-	description="Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales que se encuentran en servidores de Hyper-V locales en Azure."
+	description="En este artículo se describe cómo replicar máquinas virtuales de Hyper-V en Azure con Azure Site Recovery cuando las máquinas no se administran en nubes de VMM."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,24 +13,27 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/10/2015"
+	ms.date="02/16/2016"
 	ms.author="raynew"/>
 
 
 # Replicación entre máquinas virtuales de Hyper-V local y Azure (sin VMM) con Azure Site Recovery
 
-Azure Site Recovery contribuye a su estrategia de continuidad de negocio y recuperación ante desastres (BCDR) mediante la organización de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos en varios escenarios de implementación. [Más información](site-recovery-overview.md) sobre la recuperación de sitios
+El servicio Azure Site Recovery contribuye a su estrategia de continuidad empresarial y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Las máquinas se pueden replicar a Azure o a un centro de datos secundario local. Para obtener una introducción rápida, lea [¿Qué es Azure Site Recovery?](site-recovery-overview.md).
 
 ## Información general
 
-En este artículo se describe cómo implementar Site Recovery para replicar máquinas virtuales Hyper-V cuando los hosts de Hyper-V que ejecutan Windows Server 2012 R2 no se administran en una nube de System Center Virtual Machine Manager (VMM).
+En este artículo se describe cómo implementar Site Recovery para replicar máquinas virtuales de Hyper-V cuando los hosts de Hyper-V no se administran en nubes de System Center Virtual Machine Manager (VMM).
 
-El artículo resume los requisitos previos de implementación, ayuda a configurar la replicación y habilita la protección para máquinas virtuales. Finaliza comprobando la conmutación por error para asegurarse de que todo funciona según lo esperado. Si tiene problemas, envíe sus preguntas al [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+El artículo resume los requisitos previos de implementación, ayuda a configurar la replicación y habilita la protección para máquinas virtuales. Finaliza comprobando la conmutación por error para asegurarse de que todo funciona según lo esperado.
+
+
+Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Antes de comenzar
 
-Asegúrese de que tiene todo colocado antes de comenzar.
+Asegúrese de que tiene todo lo que necesita antes de comenzar.
 
 ### Requisitos previos de Azure
 
@@ -260,7 +263,7 @@ Si desea ejecutar una conmutación por error de prueba sin especificar una red d
 Para ejecutar una conmutación por error de prueba con una red de Azure de destino, es necesario crear una nueva red de Azure que esté aislada de su red de Azure de producción (el comportamiento predeterminado cuando se crea una nueva red de Azure). Para más detalles, lea [Ejecución de una conmutación por error de prueba](site-recovery-failover.md#run-a-test-failover).
 
 
-Para probar completamente la implementación de la replicación y de la red, deberá configurar la infraestructura para que la máquina virtual replicada funcione como está previsto. Una manera de hacerlo es configurar una máquina virtual como controlador de dominio con DNS y replicarla en Azure mediante Site Recovery con el fin de crearla en la red de prueba mediante la ejecución de una prueba de conmutación por error. [Más información sobre](site-recovery-active-directory.md#considerations-for-test-failover) las consideraciones de la conmutación por error de prueba para Active Directory.
+Para probar completamente la implementación de la replicación y de la red, deberá configurar la infraestructura para que la máquina virtual replicada funcione como está previsto. Una manera de hacerlo es configurar una máquina virtual como controlador de dominio con DNS y replicarla en Azure mediante Site Recovery con el fin de crearla en la red de prueba mediante la ejecución de una conmutación por error de prueba. [Más información sobre](site-recovery-active-directory.md#considerations-for-test-failover) consideraciones de la conmutación por error de prueba para Active Directory.
 
 Ejecute la conmutación por error de prueba de la manera siguiente:
 
@@ -274,7 +277,7 @@ Ejecute la conmutación por error de prueba de la manera siguiente:
 5. Después de la conmutación por error, podrá ver la réplica de prueba de la máquina virtual en el Portal de Azure. Si está configurando para acceder a máquinas virtuales desde la red local puede iniciar una conexión de Escritorio remoto a la máquina virtual.
 
 	1. Compruebe que las máquinas virtuales se inician correctamente.
-    2. Si después de la conmutación por error desea conectarse a la máquina virtual de Azure mediante Escritorio remoto, habilite Conexión a Escritorio remoto en la máquina virtual antes de ejecutar la prueba. También necesitará agregar un extremo RDP a la máquina virtual. Puede aprovechar un [Runbooks de automatización de Azure](site-recovery-runbook-automation.md) para hacerlo.
+    2. Si después de la conmutación por error desea conectarse a la máquina virtual de Azure mediante Escritorio remoto, habilite Conexión a Escritorio remoto en la máquina virtual antes de ejecutar la prueba. También necesitará agregar un extremo RDP a la máquina virtual. Puede aprovechar un [runbook de automatización de Azure](site-recovery-runbook-automation.md) para hacerlo.
     3. Después de conmutación por error, si usa una dirección IP pública para conectarse a la máquina virtual en Azure mediante Escritorio remoto, asegúrese de no tener directivas de dominio que le impidan conectarse a una máquina virtual con una dirección pública.
 
 6. Cuando se complete la prueba, haga lo siguiente:
@@ -292,4 +295,4 @@ Ejecute la conmutación por error de prueba de la manera siguiente:
 
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) acerca de la conmutación por error.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

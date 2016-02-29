@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/16/2016"
 	ms.author="micurd"/>
 
 # Uso del almacenamiento de blobs de Java
@@ -22,7 +22,7 @@
 
 ## Información general
 
-Este artículo le muestra cómo realizar algunas tareas comunes con Almacenamiento de blobs de Microsoft Azure. Los ejemplos están escritos en Java y utilizan el [SDK de almacenamiento de Azure para Java][]. Entre los escenarios descritos se incluyen **cargar**, **enumerar**, **descargar** y **eliminar** blobs. Para obtener más información sobre los blobs, consulte la sección [Pasos siguientes](#NextSteps).
+Este artículo le muestra cómo realizar algunas tareas comunes con Almacenamiento de blobs de Microsoft Azure. Los ejemplos están escritos en Java y utilizan el [SDK de almacenamiento de Azure para Java][]. Entre los escenarios descritos se incluyen **cargar**, **enumerar**, **descargar** y **eliminar** blobs. Para obtener más información sobre los blobs, consulte la sección [Pasos siguientes](#Next-Steps).
 
 > [AZURE.NOTE] hay un SDK disponible para los desarrolladores que usen el almacenamiento de Azure en dispositivos Android. Para obtener más información, vea el [SDK de almacenamiento de Azure para Android][].
 
@@ -268,4 +268,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [API de REST de almacenamiento de Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -122,6 +122,6 @@ Empiece por crear un clúster de Spark en HDInsight Linux. Vea [Inicio rápido: 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

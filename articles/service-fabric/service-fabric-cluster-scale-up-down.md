@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -63,6 +63,8 @@ La eliminación de nodos es un proceso de dos pasos:
 
     d. Haga clic en el icono **Eliminar** para eliminar la máquina virtual.
 
+>[AZURE.NOTE] Los clústeres de Service Fabric requieren que un cierto número de nodos estén activos en todo momento con el fin de mantener la disponibilidad y conservar el estado (esto se conoce como "mantenimiento del cuórum"). Por lo tanto, normalmente no es seguro apagar todas las máquinas del clúster a menos que antes haya realizado una [copia de seguridad completa del estado](service-fabric-reliable-services-backup-restore.md).
+
 ## Escalado automático de clústeres de Service Fabric
 
 En este momento, los clústeres de Service Fabric no admiten el escalado automático. En un futuro cercano, los clústeres se integrarán en conjuntos de escala de máquina virtual y, en ese momento, el escalado automático será posible y se comportará de manera similar al comportamiento de escala automática disponible en los Servicios en la nube.
@@ -79,4 +81,4 @@ En este artículo se trata el escalado de clústeres mediante el portal. Sin emb
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/16/2016"
 	ms.author="jutang"/>
 
 # Uso del almacenamiento de archivos de Java
@@ -208,12 +208,12 @@ Para eliminar un recurso compartido es necesario efectuar una llamada al método
 
 Si desea obtener más información acerca de otras API de almacenamiento de Azure, siga estos vínculos.
 
-- [SDK de Azure para Java](http://azure.microsoft.com/develop/java/)
+- [Centro de desarrolladores de Java](http://azure.microsoft.com/develop/java/)
 - [SDK de almacenamiento de Azure para Java](https://github.com/azure/azure-storage-java)
 - [SDK de almacenamiento de Azure para Android](https://github.com/azure/azure-storage-android)
 - [Referencia del SDK de cliente de almacenamiento de Azure](http://dl.windowsazure.com/storage/javadoc/)
-- [API de REST de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [API de REST de servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
-- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
+- [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

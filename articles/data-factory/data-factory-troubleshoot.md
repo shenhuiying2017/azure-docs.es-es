@@ -52,9 +52,9 @@ Compruebe que el servidor SQL Server es accesible desde la máquina donde está 
 2. Intentar conectarse a la instancia de SQL Server mediante las credenciales especificadas en el Portal de Azure clásico con SQL Server Management Studio (SSMS).
 
 
-## Problema: los segmentos de entrada están en el estado PendingExecution o PendingValidation de forma permanente.
+## Problema: Los segmentos de entrada están en el estado En espera de forma permanente.
 
-Los segmentos pueden estar en el estado **PendingExecution** o **PendingValidation** por varias razones. Una de las más comunes es que la propiedad **external** no está establecida en **true**. Cualquier conjunto de datos que se produce fuera del ámbito de Factoría de datos de Azure debe marcarse con la propiedad **external**. Esto indica que los datos son externos y no están respaldados por ninguna canalización dentro de la factoría de datos. Los segmentos de datos se marcan con el estado **Listo** una vez que están disponibles en el almacén correspondiente.
+Los segmentos pueden estar en el estado **En espera** por varias razones. Una de las más comunes es que la propiedad **external** no está establecida en **true**. Cualquier conjunto de datos que se produce fuera del ámbito de Factoría de datos de Azure debe marcarse con la propiedad **external**. Esto indica que los datos son externos y no están respaldados por ninguna canalización dentro de la factoría de datos. Los segmentos de datos se marcan con el estado **Listo** una vez que están disponibles en el almacén correspondiente.
 
 Consulte el ejemplo siguiente para el uso de la propiedad **external**. Opcionalmente, puede especificar**externalData*** al establecer external en true.
 
@@ -374,4 +374,4 @@ En este escenario, el conjunto de datos está en estado de error debido a un err
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -10,7 +10,7 @@
 <tags
    ms.service="service-fabric"
    ms.devlang="dotNet"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="11/25/2015"
@@ -53,7 +53,7 @@ Todos los parámetros con nombre deben definirse dentro del elemento Parameters 
 
 El atributo DefaultValue especifica el valor que se usará en ausencia de un parámetro más específico para un entorno determinado.
 
->[AZURE.NOTE]No todos los parámetros de instancias de servicio son adecuados para la configuración de cada entorno. En el ejemplo anterior, los valores LowKey y HighKey del esquema de partición del servicio se definen explícitamente para todas las instancias del servicio, ya que el intervalo de partición es una función del dominio de datos, no del entorno.
+>[AZURE.NOTE] No todos los parámetros de instancias de servicio son adecuados para la configuración de cada entorno. En el ejemplo anterior, los valores LowKey y HighKey del esquema de partición del servicio se definen explícitamente para todas las instancias del servicio, ya que el intervalo de partición es una función del dominio de datos, no del entorno.
 
 
 ### Opciones de configuración del servicio de cada entorno
@@ -81,7 +81,7 @@ Para reemplazar este valor para un par entorno/aplicación específico, cree `Co
 
 Este parámetro se puede configurar después por entorno, tal como se mostró anteriormente. Puede hacerlo declarándolo en la sección de parámetros del manifiesto de aplicación y especificar valores específicos del entorno en el archivo de parámetros de la aplicación.
 
->[AZURE.NOTE]En el caso de las opciones de configuración, hay tres lugares donde se puede establecer el valor de una clave: el paquete de configuración del servicio, el manifiesto de aplicación y el archivo de parámetros de la aplicación. Service Fabric siempre elegirá entre el archivo de parámetros de la aplicación en primer lugar (si se especifica), luego el manifiesto de aplicación y, finalmente, el paquete de configuración.
+>[AZURE.NOTE] En el caso de las opciones de configuración, hay tres lugares donde se puede establecer el valor de una clave: el paquete de configuración del servicio, el manifiesto de aplicación y el archivo de parámetros de la aplicación. Service Fabric siempre elegirá entre el archivo de parámetros de la aplicación en primer lugar (si se especifica), luego el manifiesto de aplicación y, finalmente, el paquete de configuración.
 
 
 ### Archivos de parámetros de la aplicación
@@ -129,4 +129,4 @@ Para más información acerca de algunos de los conceptos principales descritos 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -25,17 +25,20 @@
 
 En este artículo se ofrece información general de cómo vincular redes virtuales a circuitos ExpressRoute. Las redes virtuales pueden estar en la misma suscripción o formar parte de otra suscripción. Este artículo se aplica a redes virtuales implementadas que usan el modelo de implementación del Administrador de recursos. Si quiere vincular una red virtual que se implementó usando el modelo de implementación clásica, vea [Link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md) (Vincular una red virtual a un circuito de ExpressRoute).
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+
+**Información sobre los modelos de implementación de Azure**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Requisitos previos de configuración
 
-- Necesitará la versión más reciente de los módulos de Azure PowerShell, versión 1.0 o posterior. 
+- Necesitará la versión más reciente de los módulos de Azure PowerShell, versión 1.0 o posterior. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para obtener más información sobre cómo instalar los cmdlets de PowerShell. 
 - Asegúrese de que ha revisado la página de [requisitos previos](expressroute-prerequisites.md), la de [requisitos de enrutamiento](expressroute-routing.md) y la página de [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
 - Tiene que tener un circuito ExpressRoute activo. 
 	- Siga las instrucciones para [crear un circuito ExpressRoute](expressroute-howto-circuit-arm.md) y habilite el circuito mediante el proveedor de conectividad. 
 	- Asegúrese de que dispone de un emparejamiento privado de Azure configurado para el circuito. Consulte el artículo de [configuración del enrutamiento](expressroute-howto-routing-arm.md) para obtener instrucciones sobre el enrutamiento. 
 	- El emparejamiento privado de Azure debe configurarse y el emparejamiento BGP entre la red y Microsoft debe estar activo para habilitar la conectividad de extremo a extremo.
-	- Debe crear y aprovisionar totalmente una red virtual y una puerta de enlace de red virtual. Siga las instrucciones para crear una [puerta de enlace de VPN](../articles/vpn-gateway-create-site-to-site-rm-powershell.md).
+	- Debe crear y aprovisionar totalmente una red virtual y una puerta de enlace de red virtual. Siga las instrucciones para crear una [puerta de enlace de VPN](../articles/vpn-gateway-create-site-to-site-rm-powershell.md), pero asegúrese de usar `-GatewayType ExpressRoute`.
 
 Es posible vincular hasta 10 redes virtuales a un circuito ExpressRoute. Todos los circuitos ExpressRoute deben estar en la misma región geopolítica. Puede vincular un mayor número de redes virtuales en el circuito ExpressRoute si habilitó el complemento premium de ExpressRoute. Consulte las [preguntas más frecuentes](expressroute-faqs.md) para obtener más detalles sobre el complemento premium.
 
@@ -136,4 +139,4 @@ Puede liberar una autorización eliminando la conexión que vincula el circuito 
 
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

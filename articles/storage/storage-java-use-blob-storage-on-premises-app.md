@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="12/01/2015"
-	ms.author="micurd"/>
+	ms.author="rmcmurray"/>
 
 # Aplicación local con almacenamiento en blobs
 
@@ -366,4 +366,4 @@ Siga estos vínculos para obtener más información acerca de las tareas de alma
   [Referencia del SDK de cliente de almacenamiento de Azure]: http://dl.windowsazure.com/storage/javadoc/
   [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -3,7 +3,7 @@
 	description="En este tema se muestra cómo configurar el codificador Elemental Live para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en directo." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin,anilmur" 
+	authors="cenkdin" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
-	ms.author="juliako"/>
+	ms.date="02/17/2016"
+	ms.author="cenkdin;anilmur;juliako"/>
 
 #Use el codificador Elemental Live para enviar una transmisión en directo con velocidad de bits única
 
@@ -49,7 +49,7 @@ En esta sección se muestra cómo configurar el codificador Elemental Live que e
 
 ### Crear un canal
 
-1.  En la herramienta AMSE, vaya a la pestaña **Directo** y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...** en el menú.
+1.  En la herramienta AMSE, navegue a la pestaña **Directo** y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...** en el menú.
 
 ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental1.png)
 
@@ -60,11 +60,11 @@ Asegúrese de que la opción **Iniciar el nuevo canal ahora** esté seleccionada
 
 3. Haga clic en **Crear canal**. ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental12.png)
 
->[AZURE.NOTE]El canal puede tardar hasta 20 minutos en iniciarse.
+>[AZURE.NOTE] El canal puede tardar hasta 20 minutos en iniciarse.
 
 Mientras se inicia el canal puede [configurar el codificador](media-services-configure-elemental-live-encoder.md#configure_elemental_rtp).
 
->[AZURE.IMPORTANT]Tenga en cuenta que la facturación comienza tan pronto como el canal entra en un estado Listo. Para obtener más información, consulte [Estados del canal](media-services-manage-live-encoder-enabled-channels.md#states).
+>[AZURE.IMPORTANT] Tenga en cuenta que la facturación comienza tan pronto como el canal entra en un estado Listo. Para obtener más información, consulte [Estados del canal](media-services-manage-live-encoder-enabled-channels.md#states).
 
 ###<a id=configure_elemental_rtp></a>Configurar el codificador Elemental Live 
 
@@ -95,7 +95,7 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 	
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental13.png)
 	
-	>[AZURE.NOTE]Se recomienda que el evento Elemental tenga el código de tiempo establecido en "Reloj del sistema" para ayudar a que el codificador se vuelva a conectar en el caso de un error de transmisión.
+	>[AZURE.NOTE] Se recomienda que el evento Elemental tenga el código de tiempo establecido en "Reloj del sistema" para ayudar a que el codificador se vuelva a conectar en el caso de un error de transmisión.
 
 4. Ahora que se creó la salida, haga clic en **Agregar transmisión**. Ahora pueden configurarse las opciones de salida.
 5. Desplácese hacia abajo hasta la "Transmisión 1" que acaba de crear, haga clic en la pestaña **Vídeo** situada a la izquierda y expanda la sección de configuración **Avanzada**. 
@@ -129,7 +129,7 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 	
 7. Haga clic en **Crear** (si se creó un nuevo evento) o en **Actualizar** (si está modificando un evento ya existente) e inicie el codificador.
 
->[AZURE.IMPORTANT]Antes de hacer clic en **Iniciar** en la interfaz web de Elemental Live, **debe** asegurarse de que el canal está listo. Además, asegúrese de no dejar el canal en un estado Listo sin un evento durante más de 15 minutos.
+>[AZURE.IMPORTANT] Antes de hacer clic en **Iniciar** en la interfaz web de Elemental Live, **debe** asegurarse de que el canal está listo. Además, asegúrese de no dejar el canal en un estado Listo sin un evento durante más de 15 minutos.
 
 Cuando la transmisión lleve 30 segundos en ejecución, vuelva a la herramienta AMSE y pruebe la reproducción.
 
@@ -145,7 +145,7 @@ Si se recibe un error, se deberá restablecer el canal y ajustar la configuraci�
 
 ###Creación de un programa
 
-1. Una vez confirmada la reproducción de canales, cree un programa. En la pestaña **Directo** de la herramienta AMSE, haga clic con el botón derecho dentro del área de programas y seleccione **Crear programa nuevo**.  
+1. Una vez confirmada la reproducción de canales, cree un programa. En la pestaña **Directo** de la herramienta AMSE, haga clic con el botón derecho dentro del área de programas y seleccione **Crear programa**.  
 
 	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental9.png)
 
@@ -155,7 +155,7 @@ Si se recibe un error, se deberá restablecer el canal y ajustar la configuraci�
   
 	Nota: la creación de programas tarda menos que la creación de canales.
  
-5. Cuando el programa esté en ejecución, confirme la reproducción. Para ello, haga clic con el botón derecho en el programa y vaya a **Reproducir los programas** y seleccione **con el Reproductor multimedia de Azure**.
+5. Cuando el programa esté en ejecución, confirme la reproducción. Para ello, haga clic con el botón derecho en el programa y vaya a **Reproducir los programas**. Luego, seleccione **con el Reproductor multimedia de Azure**.
 6. Una vez confirmada, haga clic con el botón derecho de nuevo en el programa y seleccione **Copiar la dirección URL de salida en el portapapeles** (o recupere esta información desde la opción **Información y configuración del programa** en el menú). 
 
 La transmisión está ahora preparada para insertarse en un reproductor o distribuirse a una audiencia para su visualización en directo.
@@ -173,4 +173,4 @@ Consulte el tema [Solución de problemas](media-services-troubleshooting-live-st
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

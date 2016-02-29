@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/17/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Recuperación de una base de datos de un error de usuario en Almacenamiento de datos SQL
@@ -25,8 +25,10 @@ Almacenamiento de datos SQL ofrece dos capacidades básicas de recuperación de 
 
 Ambas capacidades restauran a una base de datos nueva del mismo servidor.
 
+Hay dos API distintas que admiten una restauración de base de datos de Almacenamiento de datos SQL: Azure PowerShell y la API de REST. Puede utilizar cualquiera de ellas para tener acceso a la funcionalidad de restauración de Almacenamiento de datos SQL.
+
 ## Recuperación de una base de datos activa
-En caso de errores de usuario que provocan la modificación no intencionada de los datos, puede restaurar la base de datos a cualquiera de los puntos de restauración dentro del período de retención. Las instantáneas de base de datos para una base de datos activa se producen cada ocho horas y se conservan durante siete días.
+En caso de errores de usuario que provocan la modificación no intencionada de los datos, puede restaurar la base de datos a cualquiera de los puntos de restauración dentro del período de retención. Las instantáneas de base de datos para una base de datos activa se producen al menos cada ocho horas y se conservan durante siete días.
 
 ### PowerShell
 
@@ -136,4 +138,4 @@ Para obtener información sobre las características de continuidad del negocio 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

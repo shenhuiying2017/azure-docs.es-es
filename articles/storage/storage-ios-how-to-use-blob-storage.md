@@ -21,7 +21,7 @@
 
 ## Información general
 
-En este artículo se muestra cómo realizar algunas tareas comunes con el almacenamiento de blobs de Microsoft Azure. Los ejemplos están escritos en C++ y usan la [biblioteca de iOS del Almacenamiento de Azure](https://github.com/Azure/azure-storage-ios). Entre los escenarios descritos se incluyen **cargar**, **enumerar**, **descargar** y **eliminar** blobs. Para obtener más información acerca de los blobs, consulte la sección [Pasos siguientes](#next-steps). También puede descargar la [aplicación de ejemplo](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) para ver rápidamente el uso del almacenamiento de Azure en una aplicación de iOS.
+En este artículo se muestra cómo realizar algunas tareas comunes con el almacenamiento de blobs de Microsoft Azure. Los ejemplos están escritos en Objective-C y usan la [biblioteca del cliente de almacenamiento de Azure para iOS](https://github.com/Azure/azure-storage-ios). Entre los escenarios descritos se incluyen **cargar**, **enumerar**, **descargar** y **eliminar** blobs. Para obtener más información acerca de los blobs, consulte la sección [Pasos siguientes](#next-steps). También puede descargar la [aplicación de ejemplo](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) para ver rápidamente el uso del almacenamiento de Azure en una aplicación de iOS.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -88,7 +88,7 @@ En el caso de una aplicación de iOS, el método recomendado para autenticar una
 
 En el siguiente ejemplo se muestra cómo usar la CLI de Azure para generar un token de SAS que conceda permisos de lectura y escritura al contenedor,*sascontainer*, hasta las 12:00 AM (UTC) del 5 de septiembre de 2015.
 
-1. En primer lugar, siga esta [guía](../xplat-cli/#how-to-install-the-azure-cli) para aprender a instalar la CLI de Azure y conectarse a su suscripción de Azure.
+1. En primer lugar, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md) para aprender a instalar la CLI de Azure y conectarse a su suscripción de Azure.
 
 2. A continuación, escriba el siguiente comando en la CLI de Azure CLI para obtener la cadena de conexión de su cuenta:
 
@@ -111,7 +111,7 @@ En el siguiente ejemplo se muestra cómo usar la CLI de Azure para generar un to
 		// Get a reference to a container in your Storage account
     	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-Como puede ver, si se usa un token de SAS, el nombre de cuenta y la clave de cuenta no quedan expuestos en la aplicación de iOS. Para obtener más información acerca de SAS, consulte el consultando el [tutorial de firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1).
+Como puede ver, si se usa un token de SAS, el nombre de cuenta y la clave de cuenta no quedan expuestos en la aplicación de iOS. Para obtener más información acerca de SAS, consulte [Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1).
 
 ##Operaciones asincrónicas
 > [AZURE.NOTE] Todos los métodos que realizan una solicitud en el servicio son operaciones asincrónicas. En los ejemplos de código, encontrará que estos métodos tienen un controlador de finalización. El código de dentro del controlador de finalización se ejecutará **después** de que se haya completado la solicitud. El código posterior al controlador de finalización se ejecutará **mientras** se realiza la solicitud.
@@ -348,15 +348,11 @@ En el ejemplo siguiente se muestra cómo eliminar un contenedor.
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de blobs, use estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
-- [Biblioteca de iOS del Almacenamiento de Azure]
-- [API de REST de almacenamiento de Azure]
-- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
-- [Blog del equipo de almacenamiento de Azure]
+- [Biblioteca de cliente de almacenamiento de Azure para iOS](https://github.com/azure/azure-storage-ios)
+- [API de REST de servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
+- [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage)
 
 Si tiene alguna pregunta sobre esta biblioteca, puede publicarla en el [foro de MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) o en [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Si quiere sugerir características nuevas para el Almacenamiento de Azure, publíquelas en la página de [comentarios sobre el Almacenamiento de Azure](https://feedback.azure.com/forums/217298-storage/).
 
-[Biblioteca de iOS del Almacenamiento de Azure]: https://github.com/azure/azure-storage-ios
-[API de REST de almacenamiento de Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

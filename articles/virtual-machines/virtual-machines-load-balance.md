@@ -4,7 +4,7 @@
 	services="virtual-machines"
 	documentationCenter=""
 	authors="joaoma"
-	manager="adinah"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="02/02/2016"
 	ms.author="joaoma"/>
 
 
@@ -77,12 +77,17 @@ En el diagrama siguiente se muestra un ejemplo de un extremo con carga equilibra
 
 ![equilibrio de carga](./media/virtual-machines-load-balance/LOBServers.png)
 
+## Consideraciones sobre el equilibrador de carga
+
+De manera predeterminada, un equilibrador de carga está configurado para tener un tiempo de espera de 4 minutos en una sesión inactiva. Si la aplicación detrás de un equilibrador de carga deja inactiva una conexión durante más de 4 minutos y no tiene una configuración de conexión persistente, se terminará la conexión. Puede cambiar el comportamiento del equilibrador de carga para permitir un [tiempo de espera más prolongado para el equilibrador de carga de Azure](../load-balancer/load-balancer-tcp-idle-timeout.md).
+
+Otra consideración es el tipo del modo de distribución que admite el equilibrador de carga de Azure. Puede configurar la afinidad de dirección IP de origen (dirección de IP de origen, dirección IP de destino) o el protocolo IP de origen (dirección IP de origen, protocolo y dirección IP de destino). Revise el [modo de distribución del equilibrador de carga de Azure (afinidad de dirección IP de origen)](../load-balancer/load-balancer-distribution-mode.md) para obtener más información.
+
+
 ## Pasos siguientes
 
 Para conocer los pasos para crear un conjunto de carga equilibrada, consulte [Configurar un conjunto de carga equilibrada interno](../load-balancer/load-balancer-internal-getstarted.md).
 
 Para obtener más información, consulte [Equilibrio de carga interno](../load-balancer/load-balancer-internal-overview.md).
 
-<!-- LINKS -->
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

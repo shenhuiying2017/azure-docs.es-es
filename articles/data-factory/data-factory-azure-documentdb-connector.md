@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="02/16/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde DocumentDB mediante Factoría de datos de Azure
@@ -419,4 +419,4 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
 	**Respuesta:** No. Solo se puede especificar una colección cada vez.
      
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0218_2016-->

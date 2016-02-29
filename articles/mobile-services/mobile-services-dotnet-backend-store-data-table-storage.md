@@ -11,21 +11,18 @@
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/05/2016"
 	ms.author="glenga"/>
 
 # Creación de un servicio móvil back-end de .NET que usa almacenamiento de tablas
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
-&nbsp;
-
-
 Este tema muestra cómo usar un almacén de datos no relacional para su servicio móvil de back-end de .NET. En este tutorial, modificará el proyecto de inicio rápido de Servicios móviles de Azure para usar el almacenamiento de tabla de Azure en lugar de la base de datos de Azure SQL Server predeterminada.
 
-El tutorial requiere haber completado el tutorial [Introducción a Servicios móviles]. También necesitará una cuenta de almacenamiento de Azure.
+El tutorial requiere haber realizado el tutorial [Introducción a Servicios móviles]. También necesitará una cuenta de almacenamiento de Azure.
 
 ##Configuración del almacenamiento de tabla de Azure en el servicio móvil de back-end de .NET
 
@@ -39,7 +36,7 @@ En primer lugar, deberá configurar el servicio móvil y el proyecto de código 
 
   	Esto agrega compatibilidad con los servicios de almacenamiento de Azure para el proyecto de servicio móvil de back-end. de NET.
 
-3. Si todavía no ha creado su cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](../storage-create-storage-account.md).
+3. Si todavía no ha creado su cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md).
 
 4. En el [Portal de Azure clásico], haga clic en **Almacenamiento**, haga clic en la cuenta de almacenamiento y haga clic en **Administrar claves**.
 
@@ -142,7 +139,7 @@ Ahora que ya hemos visto lo fácil que es usar el almacenamiento de tabla con el
 
 + [Conexión a un servidor SQL Server local mediante conexiones híbridas](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br>Las conexiones híbridas permiten que su servicio móvil se conecte de forma segura a los recursos locales. De este modo, puede hacer que los datos locales sean accesibles para los clientes móviles mediante el uso de Azure. Entre los activos admitidos se incluye cualquier recurso que se ejecute en un puerto TCP estático, como Microsoft SQL Server, MySQL, API Web HTTP y la mayoría de los servicios web personalizados.
 
-+ [Carga de imágenes en Almacenamiento de Azure mediante Servicios móviles](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>Muestra cómo ampliar el proyecto de ejemplo TodoList para poder cargar imágenes desde su aplicación al almacenamiento de blobs de Azure.
++ [Carga de imágenes en Almacenamiento de Azure mediante Servicios móviles](mobile-services-dotnet-backend-windows-universal-dotnet-upload-data-blob-storage.md)</br>Muestra cómo ampliar el proyecto de ejemplo TodoList para poder cargar imágenes desde su aplicación al almacenamiento de blobs de Azure.
 
 <!-- Anchors. -->
 [Create a non-relational store]: #create-store
@@ -159,4 +156,4 @@ Ahora que ya hemos visto lo fácil que es usar el almacenamiento de tabla con el
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

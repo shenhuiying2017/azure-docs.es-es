@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="02/04/2016"
+	ms.date="02/17/2016"
 	ms.author="jroth" />
 
 
@@ -75,4 +75,4 @@ La Base de datos SQL de Azure tiene una cuota actual de DTU por servidor lógico
 
 [Mensajes de error para los programas de cliente de base de datos SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

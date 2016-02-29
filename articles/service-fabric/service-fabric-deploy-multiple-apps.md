@@ -1,6 +1,6 @@
 <properties
    pageTitle="Implementación de una aplicación de Node.js con MongoDB | Microsoft Azure"
-   description="Tutorial sobre cómo empaquetar varias aplicaciones para implementarlas en un clúster de Service Fabric de Azure"
+   description="Tutorial sobre cómo empaquetar varios ejecutables invitados para implementarlos en un clúster de Azure Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="02/12/2016"
    ms.author="bscholl"/>
 
 
-# Implementación de varias aplicaciones personalizadas
+# Implementación de varios ejecutables invitados
 
-En este artículo se muestra cómo empaquetar e implementar varias aplicaciones en Service Fabric de Azure con la versión de vista previa de la herramienta de empaquetado de Service Fabric, que está disponible en [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
+En este artículo se muestra cómo empaquetar e implementar varios ejecutables invitados en Azure Service Fabric con la versión preliminar de la herramienta de empaquetado de Service Fabric, que está disponible en [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
 
-Para crear manualmente un paquete de Service Fabric, consulte el artículo [Implementación de una aplicación personalizada en Service Fabric](service-fabric-deploy-existing-app.md).
+Para crear manualmente un paquete de Service Fabric, consulte el artículo sobre cómo [implementar un ejecutable invitado en Service Fabric](service-fabric-deploy-existing-app.md).
 
 Aunque este tutorial muestra cómo implementar una aplicación con un front-end de Node.js que usa MongoDB como almacén de datos, puede aplicar estos pasos en cualquier aplicación que tenga dependencias en otra aplicación.
 
@@ -125,7 +125,7 @@ Service Fabric debe iniciar MongoDB con un comando similar al siguiente, por lo 
 ```
 mongod.exe --dbpath [path to data]
 ```
-> [AZURE.NOTE]Los datos no se conservan en caso de que se produzca un error de nodo si coloca el directorio de datos de MongoDB en el directorio local del nodo. Debe usar en este caso un almacenamiento duradero o implementar el conjunto de réplicas de MongoDB para evitar la pérdida de datos.
+> [AZURE.NOTE] Los datos no se conservan en caso de que se produzca un error de nodo si coloca el directorio de datos de MongoDB en el directorio local del nodo. Debe usar en este caso un almacenamiento duradero o implementar el conjunto de réplicas de MongoDB para evitar la pérdida de datos.
 
 En PowerShell o el shell de comandos se ejecuta la herramienta de empaquetado con los parámetros siguientes:
 
@@ -182,7 +182,7 @@ El último paso consiste en publicar la aplicación en el clúster de Service Fa
 Connect-ServiceFabricCluster localhost:19000
 
 Write-Host 'Copying application package...'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStore' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
 
 Write-Host 'Registering application type...'
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\NodeAppType'
@@ -196,6 +196,6 @@ En este tutorial, ha visto cómo empaquetar fácilmente dos aplicaciones existen
 
 ## Pasos siguientes
 
-- Obtenga información acerca de cómo [empaquetar una única aplicación manualmente](service-fabric-deploy-existing-app.md).
+- Obtenga información acerca de cómo [empaquetar una aplicación invitada manualmente](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

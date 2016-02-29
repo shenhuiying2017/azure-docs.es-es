@@ -21,14 +21,14 @@
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
-Aprenda a crear clústeres de HDInsight con plantillas del Administrador de recursos de Azure. Para obtener más información sobre cómo implementar plantillas, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md). Para consultar otras herramientas y características de creación de clústeres, haga clic en la selección de pestaña de la parte superior de esta página o consulte los [métodos de creación de clústeres](hdinsight-provision-clusters.md#cluster-creation-methods).
+Aprenda a crear clústeres de HDInsight con plantillas del Administrador de recursos de Azure. Para obtener más información, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](../resource-group-template-deploy.md). Para consultar otras herramientas y características de creación de clústeres, haga clic en la selección de pestaña de la parte superior de esta página o consulte los [métodos de creación de clústeres](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ###Requisitos previos:
 
 Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
 - [Suscripción de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) o [CLI de Azure](xplat-cli-install.md). 
+- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) o [CLI de Azure](../xplat-cli-install.md). 
 
 ## Plantillas de ARM
 
@@ -38,8 +38,8 @@ En el [Anexo A]() puede encontrar una plantilla de ARM para crear un clúster de
 
 Para obtener más información acerca de la plantilla de ARM, vea
 
-- [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md)
-- [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md)
+- [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md)
+- [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](../resource-group-template-deploy.md)
 
 
 ## Implementación con PowerShell
@@ -102,7 +102,7 @@ El procedimiento siguiente crea el clúster de HDInsight basado en Linux.
 
 	El script de PowerShell solo configura el nombre del clúster y el nombre de la cuenta de almacenamiento. Puede establecer otros valores en la plantilla ARM.
 	
-Para obtener más información, consulte [Implementación con PowerShell](resource-group-template-deploy.md#deploy-with-powershell).
+Para obtener más información, consulte [Implementación con PowerShell](../resource-group-template-deploy.md#deploy-with-powershell).
 
 ## Implementación con la CLI de Azure
 
@@ -115,22 +115,22 @@ En el ejemplo siguiente se crea un clúster y su contenedor y cuenta de almacena
 
 ## Implementación con la API de REST
 
-Vea [Implementación con la API de REST](resource-group-template-deploy.md#deploy-with-the-rest-api).
+Vea [Implementación con la API de REST](../resource-group-template-deploy.md#deploy-with-the-rest-api).
 
 ## Implementación con Visual Studio
 
 Con Visual Studio, puede crear un proyecto del grupo de recursos e implementarlo en Azure a través de la interfaz de usuario. Seleccione el tipo de recursos que incluirá en su proyecto y esos recursos se agregarán automáticamente a la plantilla del Administrador de recursos. El proyecto también ofrece un script de PowerShell para implementar la plantilla.
 
-Para obtener una introducción para el uso de Visual Studio con grupos de recursos, vea [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Para obtener una introducción sobre el uso de Visual Studio con grupos de recursos, consulte [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ##Pasos siguientes
 En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight. Para obtener más información, consulte los artículos siguientes:
 
-- Para obtener un ejemplo de cómo implementar los recursos a través de la biblioteca cliente .NET, vea [Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla](arm-template-deployment.md).
-- Para obtener un ejemplo en profundidad de la implementación de una aplicación, vea [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-deploy-complex-application-predictably.md).
-- Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments.md).
-- Para obtener información sobre las secciones de la plantilla del Administrador de recursos de Azure, vea [Creación de plantillas](resource-group-authoring-templates.md).
-- Para obtener una lista de las funciones que puede usar en una plantilla del Administrador de recursos de Azure, vea [Funciones de plantillas](resource-group-template-functions.md).
+- Para obtener un ejemplo de cómo implementar los recursos a través de la biblioteca cliente de .NET, consulte [Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla](../virtual-machines/arm-template-deployment.md).
+- Para obtener un ejemplo en profundidad de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+- Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](../solution-dev-test-environments.md).
+- Para obtener información sobre las secciones de la plantilla del Administrador de recursos de Azure, consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
+- Para obtener una lista de las funciones que puede usar en una plantilla del Administrador de recursos de Azure, consulte [Funciones de la plantilla del Administrador de recursos de Azure](../resource-group-template-functions.md).
 
 
 ##Anexo A: plantilla de ARM
@@ -444,4 +444,4 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
 	  }
 	}
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="02/16/2016"
    ms.author="larryfr"/>
 
 # Uso de Hive con Hadoop en HDInsight con el escritorio remoto
@@ -113,6 +113,11 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
+Si usa Tez con Hive, consulte los siguientes documentos para la información de depuración:
+
+* [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md) (Uso de la IU de Tez en HDInsight basado en Windows)
+
+* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md) (Uso de la vista Tez de Ambari en HDInsight basado en Linux)
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
@@ -144,4 +149,4 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 [Powershell-install-configure]: ../powershell-install-configure.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

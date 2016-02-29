@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/11/2016"
 	ms.author="yuaxu"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
@@ -36,7 +36,7 @@ Este tutorial requiere lo siguiente:
 + [Xamarin.iOS Studio]
 + [Componente de Servicios móviles de Azure]
 
->[AZURE.IMPORTANT]Debido a los requisitos de APNS, debe implementar y realizar una prueba de las notificaciones push en un dispositivo compatible con iOS (iPhone o iPad) en lugar de hacerlo en un emulador.
+>[AZURE.IMPORTANT] Debido a los requisitos de APNS, debe implementar y realizar una prueba de las notificaciones push en un dispositivo compatible con iOS (iPhone o iPad) en lugar de hacerlo en un emulador.
 
 APNS usa certificados para autenticar el servicio móvil. Siga estas instrucciones para crear los certificados necesarios y cargarlos en su servicio móvil. Para consultar la documentación oficial de la característica APNS, consulte [Servicio de notificaciones push de Apple].
 
@@ -310,7 +310,7 @@ Ahora su aplicación está actualizada para que sea compatible con las notificac
 
     De esta forma, se registra un nuevo script de inserción, que usa el [objeto apns] para enviar una notificación de inserción (el texto insertado) al dispositivo especificado en la solicitud de inserción.
 
-   >[AZURE.NOTE]Este script retrasa el envío de la notificación para proporcionarle tiempo para cerrar la aplicación y recibir una notificación del sistema.
+   >[AZURE.NOTE] Este script retrasa el envío de la notificación para proporcionarle tiempo para cerrar la aplicación y recibir una notificación del sistema.
 
 ## <a name="test"></a>Prueba de las notificaciones de inserción en su aplicación
 
@@ -318,7 +318,7 @@ Ahora su aplicación está actualizada para que sea compatible con las notificac
 
     ![][23]
 
-   >[AZURE.NOTE]Debe aceptar de forma explícita las notificaciones push desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
+   >[AZURE.NOTE] Debe aceptar de forma explícita las notificaciones push desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
 
 2. En la aplicación, escriba un texto significativo, como _Una nueva tarea de Servicios móviles_ y, a continuación, haga clic en el icono del signo más (**+**).
 
@@ -403,4 +403,4 @@ Ha completado correctamente este tutorial.
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

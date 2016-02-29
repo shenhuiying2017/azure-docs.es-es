@@ -2,16 +2,7 @@
 
 Debe autenticar todas las operaciones que se realizan en los recursos mediante el [Administrador de recursos de Azure][lnk-authenticate-arm] con Azure Active Directory (AD). La manera más sencilla de configurar esto es usar PowerShell o CLI de Azure.
 
-Si no ha instalado [Azure PowerShell 1.0][lnk-powershell-install], puede hacerlo con los siguientes comandos de PowerShell. Deberá ejecutar PowerShell como administrador.
-
-```
-# Install the Azure Resource Manager modules from PowerShell Gallery
-Install-Module AzureRM
-Install-AzureRM
-
-# Install the Azure Service Management module from PowerShell Gallery
-Install-Module Azure
-```
+Debe instalar [Azure PowerShell 1.0][lnk-powershell-install] o una versión posterior antes de continuar.
 
 En los pasos siguientes se muestra cómo configurar la autenticación de contraseña para una aplicación de AD mediante PowerShell. Puede ejecutar estos comandos en una sesión de PowerShell estándar.
 
@@ -31,7 +22,7 @@ En los pasos siguientes se muestra cómo configurar la autenticación de contras
     - **{Contraseña}:** una contraseña que se usará para autenticar con la aplicación.
 
     ```
-    New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} IdentifierUris {Application identifier} -Password {Password}
+    New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
     ```
     
 4. Anote el **ApplicationId** de la aplicación que ha creado. Lo necesitará más adelante.
@@ -56,6 +47,6 @@ Ahora ha terminado de crear la aplicación de Azure AD que le permitirá autenti
 - Password
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: https://azure.microsoft.com/es-ES/blog/azps-1-0-pre/
+[lnk-powershell-install]: ../powershell-install-configure.md
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

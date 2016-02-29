@@ -24,14 +24,14 @@ Use este índice de errores de seguimiento de la pila de Hadoop para solucionar 
 ## Mensajes de error de memoria agotada
 * [Corrija un error de memoria insuficiente con la configuración de Hive](hdinsight-hadoop-hive-out-of-memory-error-oom.md): corrija un error de memoria insuficiente desde una consulta de Hive. El escenario del cliente incluye una consulta entre numerosas tablas de gran tamaño.
 
-> [AZURE.NOTE]Próximamente habrá más artículos sobre solución de errores del seguimiento de la pila.
+> [AZURE.NOTE] Próximamente habrá más artículos sobre solución de errores del seguimiento de la pila.
 
 ## Más artículos de solución de problemas para HDInsight
 
 * [Información sobre el uso de HDInsight en Linux](hdinsight-hadoop-linux-information.md)
-* [Depuración de Hadoop en HDInsight: ver registros e interpretar mensajes de error](hhdinsight-debug-jobs.md)
+* [Depuración de Hadoop en HDInsight: ver registros e interpretar mensajes de error](hdinsight-debug-jobs.md)
 * [Acceso a los registros de aplicación de YARN en Hadoop en HDInsight mediante programación](hdinsight-hadoop-access-yarn-app-logs.md)
 * [Recopilar volcados de memoria en el almacenamiento de blobs para depurar y analizar servicios de Hadoop](hdinsight-hadoop-collect-debug-heap-dumps.md)
 * [Notas de la versión de los componentes de Hadoop en HDInsight de Azure](hdinsight-release-notes.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

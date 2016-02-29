@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="01/29/2016" 
 	ms.author="anhoh"/>
 
 # Modelo jerárquico de recursos y conceptos de DocumentDB
@@ -34,7 +34,8 @@ Tal y como muestra el siguiente diagrama, el **modelo de recursos** jerárquico 
 
 >[AZURE.NOTE] DocumentDB ofrece un protocolo de TCP sumamente eficaz que también es RESTful en su modelo de comunicación; disponible a través del [SDK de cliente de .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-![Modelo jerárquico de recursos de DocumentDB][1] **Modelo jerárquico de recursos**
+![Modelo jerárquico de recursos de DocumentDB][1]  
+**Modelo jerárquico de recursos**   
 
 Para empezar a trabajar con los recursos, debe [crear una cuenta de base de datos para DocumentDB](documentdb-create-account.md) mediante su suscripción a Azure. Una cuenta de base de datos puede constar de un grupo de **bases de datos**, cada una con varias **colecciones**, que a su vez pueden contener **procedimientos almacenados, desencadenadores, UDF, documentos** y **datos adjuntos** relacionados (característica de vista previa). Una base de datos también tiene **usuarios** asociados, cada uno con un conjunto de **permisos** para obtener acceso a las colecciones, procedimientos almacenados, desencadenadores, UDF, documentos o datos adjuntos. Mientras las bases de datos, usuarios, permisos y colecciones son recursos definidos por el sistema con esquemas, documentos y datos adjuntos conocidos con contenido arbitrario JSON definido por el usuario.
 
@@ -60,10 +61,10 @@ Los recursos (por ejemplo, las cuentas de bases de datos, las bases de datos, la
 
 Propiedad |¿Configurable por el usuario o generado por el sistema?|Propósito
 ---|---|---
-_rid|Generado por el sistema|Generado por el sistema, identificador único y jerárquico del recurso. 
-_etag|Generado por el sistema|etag del recurso requerido para el control de simultaneidad optimista. 
-_ts|Generado por el sistema|Última actualización de marca de tiempo del recurso. 
-_self|Generado por el sistema|URI direccionable único del recurso. 
+_rid|Generado por el sistema|Generado por el sistema, identificador único y jerárquico del recurso.
+_etag|Generado por el sistema|etag del recurso requerido para el control de simultaneidad optimista.
+_ts|Generado por el sistema|Última actualización de marca de tiempo del recurso.
+_self|Generado por el sistema|URI direccionable único del recurso.
 id|Configurable por el usuario|Nombre único del recurso definido por el usuario. Si el usuario no especifica un identificador, el sistema generará uno.
 
 ### Representación de conexión de los recursos
@@ -414,4 +415,4 @@ Obtenga más información sobre cómo trabajar con recursos usando comandos HTTP
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

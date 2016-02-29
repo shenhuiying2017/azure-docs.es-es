@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/10/2015"
+   ms.date="02/12/2016"
    ms.author="mattrow"/>
 
 
@@ -45,4 +45,4 @@ Más información sobre el diagnóstico existente ofrecido por Service Fabric:
 * [Diagnósticos de Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Diagnóstico de Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

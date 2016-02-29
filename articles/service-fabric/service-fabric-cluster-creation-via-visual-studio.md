@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="02/12/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Configuración de un clúster de Service Fabric mediante Visual Studio
@@ -45,7 +45,7 @@ Antes de implementar la plantilla para crear el clúster, debe proporcionar los 
 |sourceVaultValue |El *Identificador de recurso* del almacén de claves donde se guarda el certificado que protege al clúster.|
 |certificateUrlValue |La dirección URL del certificado de seguridad del clúster.|
 
-La plantilla del Administrador de recursos de Service Fabric de Visual Studio crea un clúster seguro que está protegido por un certificado. Este certificado se identifica mediante los tres últimos parámetros de la plantilla (`certificateThumbprint`, `sourceVaultValue` y `certificateUrlValue`) y tiene que existir en un **Almacén de claves de Azure**. Para obtener más información sobre cómo crear el certificado de seguridad del clúster, consulte el artículo [Cómo proteger un clúster de Service Fabric mediante certificados](service-fabric-cluster-security.md).
+La plantilla del Administrador de recursos de Service Fabric de Visual Studio crea un clúster seguro que está protegido por un certificado. Este certificado se identifica mediante los tres últimos parámetros de la plantilla (`certificateThumbprint`, `sourceVaultValue` y `certificateUrlValue`) y tiene que existir en un **Almacén de claves de Azure**. Para obtener más información sobre cómo crear el certificado de seguridad del clúster, consulte el artículo [Protección de un clúster de Service Fabric mediante certificados](service-fabric-cluster-security.md#secure-a-service-fabric-cluster-by-using-certificates).
 
 ## Opcional: Incorporación de puertos de aplicación pública
 Otro aspecto de la plantilla que quizá quiera cambiar antes de su implementación son los puertos de aplicación pública para el clúster. De forma predeterminada, la plantilla abre sólo dos puertos TCP públicos (80 y 8081); si necesita más para sus aplicaciones, tendrá que modificar la definición del equilibrador de carga de Azure en la plantilla. La definición se almacena en el archivo de plantilla principal (`SecureFabricCluster.json`). Abrir el archivo y busque `loadBalancedAppPort`. Observará que cada puerto está asociado con tres artefactos:
@@ -106,6 +106,8 @@ Puede supervisar el progreso del proceso de implementación en la ventana Result
 
 Si hay errores, vaya al [Portal de Azure](https://portal.azure.com/) y compruebe las **Notificaciones**. Una implementación de grupo de recursos con errores dejará allí una información de diagnóstico detallada.
 
+>[AZURE.NOTE] Los clústeres de Service Fabric requieren que un cierto número de nodos estén activos en todo momento con el fin de mantener la disponibilidad y conservar el estado (esto se conoce como "mantenimiento del cuórum"). Por lo tanto, normalmente no es seguro apagar todas las máquinas del clúster a menos que antes haya realizado una [copia de seguridad completa del estado](service-fabric-reliable-services-backup-restore.md).
+
 ## Pasos siguientes
 - [Obtener información acerca de la configuración de un clúster de Service Fabric en el Portal de Azure](service-fabric-cluster-creation-via-portal.md)
 - [Obtener información sobre cómo administrar e implementar aplicaciones de Service Fabric con Visual Studio](service-fabric-manage-application-in-visual-studio.md)
@@ -115,4 +117,4 @@ Si hay errores, vaya al [Portal de Azure](https://portal.azure.com/) y compruebe
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,40 +1,40 @@
 <properties
-   pageTitle="Implementación de una aplicación personalizada en Azure Service Fabric | Microsoft Azure"
+   pageTitle="Implementación de un ejecutable invitado en Azure Service Fabric | Microsoft Azure"
    description="Tutorial sobre cómo empaquetar una aplicación existente para implementarla en un clúster de Azure Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
    manager="timlt"
    editor=""/>
-
+   
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="02/12/2016"
    ms.author="bscholl"/>
 
-# Implementación de una aplicación personalizada en Service Fabric
+# Implementación de un ejecutable invitado en Service Fabric
 
-Puede ejecutar cualquier tipo de aplicación existente, como Node.js, Java o aplicaciones nativas, en Azure Service Fabric. Service Fabric trata esas aplicaciones como servicios sin estado y los coloca en nodos de un clúster en función de la disponibilidad y otras métricas. Este artículo describe cómo empaquetar e implementar una aplicación existente en un clúster de Service Fabric.
+Puede ejecutar cualquier tipo de aplicación, como Node.js, Java o aplicaciones nativas, en Azure Service Fabric. La terminología de Service Fabric hace referencia a esos tipos de aplicaciones como aplicaciones ejecutables invitadas. Los ejecutables invitados se tratan por Service Fabric como servicios sin estado. Por ello, se colocarán en los nodos de un clúster, en función de la disponibilidad y otras métricas. Este artículo describe cómo empaquetar e implementar un ejecutable invitado en un clúster de Service Fabric.
 
-## Ventajas de ejecutar una aplicación personalizada en Service Fabric
+## Ventajas de ejecutar un ejecutable invitado en Service Fabric
 
-Hay unas cuantas ventajas inherentes a la ejecución de una aplicación en un clúster de Service Fabric:
+Hay unas cuantas ventajas inherentes a la ejecución de un ejecutable invitado en un clúster de Service Fabric:
 
 - Alta disponibilidad. Las aplicaciones que se ejecutan en Service Fabric ofrecen alta disponibilidad de forma inmediata. Service Fabric se asegura de que siempre haya una instancia de una aplicación en funcionamiento.
 - Supervisión del estado. Desde el primer momento, la supervisión del estado de Service Fabric detecta si la aplicación está en funcionamiento y proporciona información de diagnóstico en caso de que se produzca un error.   
 - Administración del ciclo de vida de las aplicaciones. Además de las actualizaciones sin tiempo de inactividad, Service Fabric también permite volver a la versión anterior, en caso de que se produzcan problemas durante la actualización.    
 - Densidad. Se pueden ejecutar varias aplicaciones en el clúster, lo que elimina la necesidad de que cada aplicación se ejecute en su propio hardware.
 
-En este artículo, se describen los pasos básicos para empaquetar una aplicación existente e implementarla en Service Fabric.
+En este artículo, se describen los pasos básicos para empaquetar un ejecutable invitado e implementarlo en Service Fabric.
 
 
 ## Introducción rápida de los archivos de manifiesto de servicio y aplicación
 
-Antes de entrar en los detalles de la implementación de una aplicación existente, es importante comprender el modelo de implementación y empaquetado de Service Fabric. El modelo de implementación y de empaquetado de Service Fabric se basa principalmente en dos archivos:
+Antes de entrar en los detalles de la implementación de un ejecutable invitado, resulta útil comprender el modelo de implementación y empaquetado de Service Fabric. El modelo de implementación y de empaquetado de Service Fabric se basa principalmente en dos archivos:
 
 
 * **Manifiesto de aplicación**
@@ -72,7 +72,7 @@ Antes de entrar en los detalles de la implementación de una aplicación existen
 
   El manifiesto de servicio describe los componentes de un servicio. Incluye datos, como el nombre y tipo de servicio (que es información que Service Fabric usa para administrar el servicio) y sus componentes de código, configuración y datos. El manifiesto de servicio también incluye algunos parámetros adicionales que pueden usarse para configurar el servicio una vez que se implementa.
 
-  No vamos a entrar en detalles sobre todos los parámetros que están disponibles en el manifiesto de servicio. Revisaremos el subconjunto que se requiere para que una aplicación existente se ejecute en Service Fabric.
+  No vamos a entrar en detalles sobre todos los parámetros que están disponibles en el manifiesto de servicio. Revisaremos el subconjunto que se requiere para que un ejecutable invitado se ejecute en Service Fabric.
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
@@ -103,8 +103,8 @@ Antes de entrar en los detalles de la implementación de una aplicación existen
   </ServiceManifest>
   ```
 
-## Estructura de archivo del paquete de aplicación
-Para implementar una aplicación en Service Fabric, la aplicación debe seguir una estructura de directorios predefinida. A continuación, se muestra un ejemplo de esta estructura:
+## Estructura del archivo del paquete de aplicación
+Para implementar una aplicación mediante, por ejemplo, los cmdlets de Powershell, la aplicación debe seguir una estructura de directorios predefinida.
 
 ```
 |-- ApplicationPackage
@@ -127,14 +127,14 @@ Nota: No tiene que crear los directorios `config` y `data` si no los necesita.
 
 ## Proceso de empaquetado de una aplicación existente
 
-El proceso de empaquetado de una aplicación existente se basa en los siguientes pasos:
+El proceso de empaquetado de un ejecutable invitado se basa en los siguientes pasos:
 
 1. Crear la estructura de directorios del paquete.
 2. Agregar archivos de código y configuración de la aplicación
 3. Editar el archivo de manifiesto de servicio.
 4. Editar el archivo de manifiesto de aplicación.
 
->[AZURE.NOTE]Se proporciona una herramienta de empaquetado que permite crear automáticamente ApplicationPackage. La herramienta se encuentra actualmente en versión de vista previa. Puede descargarla [aquí](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE] Se proporciona una herramienta de empaquetado que permite crear automáticamente ApplicationPackage. La herramienta se encuentra actualmente en versión de vista previa. Puede descargarla [aquí](http://aka.ms/servicefabricpacktool).
 
 ### Crear la estructura de directorios del paquete
 Puede empezar creando la estructura de directorios del modo descrito anteriormente.
@@ -144,7 +144,7 @@ Después de haber creado la estructura de directorios, puede agregar los archivo
 
 Service Fabric hace una copia del contenido del directorio raíz de la aplicación para que no haya ninguna estructura predefinida para usar aparte de creación de los dos directorios principales code y config. (Puede elegir diferentes nombres si lo desea. Obtenga más detalles en la sección siguiente.)
 
->[AZURE.NOTE]Asegúrese de incluir todos los archivos o dependencias que necesite la aplicación. Servicio Fabric copiará el contenido del paquete de aplicación en todos los nodos del clúster en los que se implementarán los servicios de la aplicación. El paquete debe contener todo el código que la aplicación necesita para ejecutarse. No se recomienda dar por hecho que las dependencias ya están instaladas.
+>[AZURE.NOTE] Asegúrese de incluir todos los archivos o dependencias que necesite la aplicación. Servicio Fabric copiará el contenido del paquete de aplicación en todos los nodos del clúster en los que se implementarán los servicios de la aplicación. El paquete debe contener todo el código que la aplicación necesita para ejecutarse. No se recomienda dar por hecho que las dependencias ya están instaladas.
 
 ### Edición del archivo de manifiesto de servicio
 El siguiente paso consiste en editar el archivo de manifiesto de servicio para incluir la siguiente información:
@@ -272,7 +272,7 @@ En el elemento `ServiceManifestImport`, puede especificar uno o varios servicios
 ```
 
 ### Configuración de los registros
-Para las aplicaciones existentes, es muy útil poder ver los registros de la consola para averiguar si los script de la configuración y la aplicación muestran algún error. Se puede configurar el redireccionamiento de la consola en el archivo `ServiceManifest.xml` usando el elemento `ConsoleRedirection`.
+Para los ejecutables invitados, es muy útil poder ver los registros de la consola para averiguar si los scripts de la configuración y la aplicación muestran algún error. Se puede configurar el redireccionamiento de la consola en el archivo `ServiceManifest.xml` usando el elemento `ConsoleRedirection`.
 
 ```xml
 <EntryPoint>
@@ -336,10 +336,10 @@ Si examina el directorio mediante el Explorador de servidores, puede encontrar e
 
 
 ## Pasos siguientes
-En este artículo, ha aprendido los pasos básicos para empaquetar una aplicación existente e implementarla en Service Fabric. Como siguiente paso, puede consultar contenido adicional sobre este tema.
+En este artículo, ha aprendido a empaquetar un ejecutable invitado y a implementarlo en Service Fabric. Como siguiente paso, puede consultar contenido adicional sobre este tema.
 
-- [Ejemplo para empaquetar e implementar una aplicación personalizada en Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), incluido un vínculo a la versión preliminar de la herramienta de empaquetado.
-- [Implementación de varias aplicaciones personalizadas](service-fabric-deploy-multiple-apps.md)
+- [Ejemplo para empaquetar e implementar un ejecutable invitado en GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), incluido un vínculo a la versión preliminar de la herramienta de empaquetado.
+- [Implementación de varios ejecutables invitados](service-fabric-deploy-multiple-apps.md)
 - [Creación de la primera aplicación de Service Fabric en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

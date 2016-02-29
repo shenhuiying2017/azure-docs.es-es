@@ -38,13 +38,13 @@ Durante la configuración, debe especificar una cuenta de almacenamiento de blob
 
 >[AZURE.NOTE] No comparta un contenedor de almacenamiento de blobs para varios clústeres, ya que no es compatible.
 
-Para obtener más información sobre el uso de almacenes de blobs secundarios, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](hdinsight-use-blob-storage.md).
+Para obtener más información sobre el uso de almacenes de blobs secundarios, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 ### Tienda de metadatos
 
 Spark permite definir esquemas y tablas de Hive con datos sin procesar. Puede guardar estos esquemas y metadatos de las tablas en las tiendas de metadatos externas. El uso de la tienda de metadatos lo ayuda a conservar sus metadatos de Hive, por lo que no es necesario volver a crear tablas de Hive al crear un nuevo clúster. De forma predeterminada, Hive utiliza una base de datos integrada para almacenar esta información. La base de datos incrustada no puede conservar los metadatos cuando se elimina el clúster.
 
-Para obtener instrucciones sobre cómo crear una Base de datos SQL en Azure, vea [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md).
+Para obtener instrucciones sobre cómo crear una Base de datos SQL en Azure, vea [Creación de la primera Base de datos SQL de Azure](../sql-database/sql-database-get-started.md).
 
 ### Personalización del clúster
 
@@ -242,4 +242,4 @@ Especifique el tipo de clúster Spark:
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Uso de Sqoop con HDInsight"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

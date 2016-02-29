@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="02/05/2016"
    ms.author="alkohli" />
 
 # Implementación del servicio StorSimple Manager en una matriz virtual de StorSimple
@@ -105,10 +105,10 @@ Realice los pasos siguientes para volver a generar una clave de registro de serv
 
 ## Pasos siguientes
 
-- Obtenga más información sobre cómo [empezar](storsimple-ova-deploy1-portal-prep.md) a implementar una matriz virtual de StorSimple.
+- Lea una [introducción](storsimple-ova-deploy1-portal-prep.md) a las matrices virtuales de StorSimple.
 	
-- Obtenga más información sobre cómo [usar el servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-ova-manager-service-administration.md).
+- Obtenga información sobre cómo [administrar el dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

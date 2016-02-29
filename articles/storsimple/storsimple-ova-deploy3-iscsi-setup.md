@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/20/2016"
+   ms.date="02/08/2016"
    ms.author="alkohli" />
 
 
@@ -26,7 +26,7 @@ Este tutorial de implementación se aplica a la matiz virtual de Microsoft Azure
 
 Los procedimientos descritos aquí demoran aproximadamente de 30 minutos a 1 hora en completarse. La información publicada en este artículo solo se aplica a las matrices virtual de StorSimple.
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 >- La matriz virtual de StorSimple se encuentra en versión preliminar y está pensada con fines de evaluación y planificación de implementación. No se admite la instalación de esta versión preliminar en un entorno de producción. 
 >- Si experimenta problemas con la matriz virtual de StorSimple, publique los problemas en el [foro de MSDN de StorSimple](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
@@ -99,6 +99,11 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
     5. Aparece un cuadro de diálogo. Escriba las credenciales del dominio en el formato especificado. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-ova-deploy3-iscsi-setup/image15.png). Se comprobarán las credenciales del dominio. Verá un mensaje de error si las credenciales son incorrectas.
 
         ![credentials](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
+        
+           > [AZURE.NOTE]
+	   > 
+	   > Si une el servidor iSCSI a un dominio, asegúrese de que su matriz virtual esté en su propia unidad organizativa (UO) de Microsoft Azure Active Directory y de que no se le aplica ningún objeto de directiva de grupo (GPO).
+	   
 
     6. Haga clic en **Apply**. Esto aplicará y validará la configuración de dispositivo.
  
@@ -134,7 +139,7 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
 
     1. Introduzca la **Clave de registro del servicio** que obtuvo en **Paso 2: Obtener la clave de registro del servicio** en [Implementar una matriz virtual de StorSimple: Preparar el portal](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
-    2. Si no es el primer dispositivo que va a registrar en este servicio, debe proporcionar la **Clave de cifrado de datos del servicio**. Esta clave se necesita junto con la clave de registro del servicio para registrar dispositivos adicionales en el servicio StorSimple Manager. Para obtener más información, consulte [Obtener la clave de cifrado de datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) en la interfaz de usuario web local.
+    2. Si no es el primer dispositivo que va a registrar en este servicio, debe proporcionar la **Clave de cifrado de datos del servicio**. Esta clave se necesita junto con la clave de registro del servicio para registrar dispositivos adicionales en el servicio StorSimple Manager. Para más información, consulte cómo obtener la [clave de cifrado de datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) en la interfaz de usuario web local.
 
     3. Haga clic en **Registrar**. Se reiniciará el dispositivo. Debe esperar de 2 a 3 minutos antes de que el dispositivo se registre correctamente. Una vez que se haya reiniciado el dispositivo, irá a la página de inicio de sesión.
 
@@ -168,7 +173,7 @@ Siga estos pasos en el Portal de Azure clásico para completar la configuración
 
    1. Especifique una cuenta de almacenamiento para usarla con el dispositivo. En esta suscripción, puede seleccionar una cuenta de almacenamiento existente de la lista desplegable o puede especificar **Agregar más** para elegir una cuenta de una suscripción diferente.
 
-   2. Defina la configuración de cifrado para todos los datos en reposo que se enviarán a la nube. (StorSimple usa el cifrado AES-256). Para cifrar los datos, seleccione la casilla de verificación **Habilitar cifrado de almacenamiento en la nube**. Escriba un cifrado de almacenamiento en la nube que contenga 32 caracteres. Vuelva a escribir la clave para confirmarla.
+   2. Defina la configuración de cifrado para todos los datos en reposo que se enviarán a la nube. (StorSimple usa el cifrado AES-256). Para cifrar los datos, seleccione la casilla **Habilitar cifrado de almacenamiento en la nube**. Escriba un cifrado de almacenamiento en la nube que contenga 32 caracteres. Vuelva a escribir la clave para confirmarla.
 
    3. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-ova-deploy3-iscsi-setup/image15.png).
 
@@ -264,7 +269,7 @@ Realice los pasos siguientes para montar, inicializar y formatear los volúmenes
 
     ![inicializar disco 2](./media/storsimple-ova-deploy3-iscsi-setup/image28.png)
 
-11. Se inicia el Asistente para nuevo volumen simple. Seleccione un tamaño de disco y, a continuación, haga clic en **siguiente**.
+11. Se inicia el Asistente para nuevo volumen simple. Seleccione un tamaño de disco y, a continuación, haga clic en **Siguiente**.
 
     ![asistente para nuevo volumen 1](./media/storsimple-ova-deploy3-iscsi-setup/image29.png)
 
@@ -305,4 +310,4 @@ Siga estos pasos para obtener el nombre completo del iSCSI (IQN) de un host de W
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

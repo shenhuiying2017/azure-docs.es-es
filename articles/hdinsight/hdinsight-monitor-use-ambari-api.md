@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="02/17/2016"
 	ms.author="jgao"/>
 
 # Supervisión de clústeres de Hadoop en HDInsight con la API de Ambari
 
 Aprenda a supervisar los clústeres de HDInsight de las versiones 3.1 y 2.1 con las API de Ambari.
 
-> [AZURE.NOTE]La información de este artículo es principalmente para los clústeres de HDInsight basados en Windows, que proporcionan una versión de solo lectura de la API de REST de Ambari. Para los clústeres basados en Linux, vea [Administrar clústeres de Hadoop mediante Ambari](hdinsight-hadoop-manage-ambari.md).
+> [AZURE.NOTE] La información de este artículo es principalmente para los clústeres de HDInsight basados en Windows, que proporcionan una versión de solo lectura de la API de REST de Ambari. Para los clústeres basados en Linux, vea [Administrar clústeres de Hadoop mediante Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ## ¿Qué es Ambari?
 
@@ -40,19 +40,17 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - (Opcional) [cURL][curl]. Para instalarlo, consulte [Descargas y versiones de cURL][curl-download].
 
-	>[AZURE.NOTE]Cuando utilice el comando cURL en Windows, utilice comillas dobles en lugar de comillas simples para los valores de opción.
+	>[AZURE.NOTE] Cuando utilice el comando cURL en Windows, utilice comillas dobles en lugar de comillas simples para los valores de opción.
 
 - **Un clúster de HDInsight de Azure**. Para obtener instrucciones acerca del aprovisionamiento del clúster, consulte [Introducción al uso de HDInsight][hdinsight-get-started] o [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision]. Para completar el tutorial, necesitará los datos siguientes:
 
-Propiedad del clúster|Nombre de variable de Azure PowerShell|Valor|Descripción
----|---|---|---
-Nombre del clúster de HDInsight|$clusterName||El nombre del clúster de HDInsight.
-Nombre de usuario del clúster|$clusterUsername||Nombre de usuario del clúster especificado en el aprovisionamiento.
-Contraseña de clúster|$clusterPassword||Contraseña de usuario de clúster
+    Propiedad del clúster|Nombre de variable de Azure PowerShell|Valor|Descripción
+    ---|---|---|---
+    Nombre del clúster de HDInsight|$clusterName||El nombre del clúster de HDInsight.
+    Nombre de usuario del clúster|$clusterUsername||Nombre de usuario del clúster especificado en el aprovisionamiento.
+    Contraseña de clúster|$clusterPassword||Contraseña de usuario de clúster
 
-	> [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
-
-
+    >[AZURE.NOTE] Rellene los valores de la tabla. Esto le resultará útil para completar el tutorial.
 
 ## Inicio de la aplicación
 
@@ -163,16 +161,16 @@ Ahora sabe cómo usar las llamadas de API de supervisión de Ambari. Para obtene
 
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: powershell-install-configure.md
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
 [hdinsight-documentation]: /documentation/services/hdinsight/
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

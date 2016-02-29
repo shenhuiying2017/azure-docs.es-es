@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="jodebrui"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/27/2016"
+	ms.date="02/11/2016"
 	ms.author="jodebrui"/>
 
 
@@ -318,6 +318,12 @@ EXECUTE Demo.usp_DemoReset;
 Las pruebas de la salida de In-Memory demostraron tener un rendimiento **9 veces** mejor en esta carga de trabajo simplista, con ostress ejecutándose en una VM de Azure que está en la misma región de Azure que la base de datos.
 
 
+
+<a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
+
+&nbsp;
+
+
 ## B. Instalación del ejemplo de In-Memory Analytics.
 
 
@@ -523,4 +529,4 @@ Si una base de datos contiene cualquiera de los siguientes tipos de objetos o ti
 
 - [Supervisión del almacenamiento en memoria](sql-database-in-memory-oltp-monitoring.md) para In-Memory OLTP.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

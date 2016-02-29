@@ -18,7 +18,7 @@
 	ms.author="garye;bradsev" />
 
 
-# Importación de datos de entrenamiento en Estudio de aprendizaje automático de Azure desde varios orígenes de datos
+# Importación de datos de aprendizaje en Estudio de aprendizaje automático de Azure desde un archivo local
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
@@ -40,4 +40,4 @@ Durante la carga, verá un mensaje que le indica que se está cargando el archiv
 
 Una vez que los datos estén cargados, se almacenan en un módulo de conjunto de datos y se encontrarán disponibles para cualquier experimento que se realice en su área de trabajo. Puede encontrar la base de datos, junto con todos los conjuntos de datos de muestra cargados previamente, en la lista de **conjuntos de datos guardados** en la paleta de módulos cuando edita un experimento. Puede arrastrar y colocar el conjunto de datos en el lienzo de experimento cuando desee usarlo para profundizar en su análisis o para el aprendizaje automático.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

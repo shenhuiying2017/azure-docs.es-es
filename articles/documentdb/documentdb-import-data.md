@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Importación de datos en DocumentDB | Microsoft Azure"
-	description="Obtenga información sobre cómo utilizar la herramienta de migración de datos de código abierto DocumentDB para importar datos a DocumentDB desde diversos orígenes, incluidos archivos JSON, archivos CSV, SQL, MongoDB, almacenamiento de tablas de Azure, Amazon DynamoDB y colecciones de DocumentDB."
+	pageTitle="Herramienta de migración de base de datos para DocumentDB | Microsoft Azure"
+	description="Obtenga información sobre cómo usar las herramientas de migración de datos de código abierto DocumentDB para importar datos a DocumentDB desde varios orígenes, incluidos archivos MongoDB, SQL Server, almacenamiento de tablas, Amazon DynamoDB, CSV y JSON. Conversión de CSV a JSON."
+	keywords="csv a json, herramientas de migración de base de datos, convertir csv a json" 
 	services="documentdb"
 	authors="andrewhoh"
 	manager="jhubbard"
@@ -16,7 +17,7 @@
 	ms.date="01/29/2016"
 	ms.author="anhoh"/>
 
-# Importación de datos en DocumentDB: herramienta de migración de base de datos
+# Importación de datos en DocumentDB con la herramienta de migración de base de datos
 
 En este artículo se muestra cómo usar la herramienta de migración de datos de código abierto DocumentDB para importar datos a [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) desde diversos orígenes, incluidos archivos JSON, archivos CSV, SQL, MongoDB, almacenamiento de tablas de Azure, Amazon DynamoDB y colecciones de DocumentDB.
 
@@ -137,21 +138,8 @@ Que devuelve los resultados siguientes (parciales):
 
 Tenga en cuenta los alias como Address.AddressType y Address.Location.StateProvinceName. Al especificar un separador de anidamiento de “.”, la herramienta de importación crea subdocumentos Address y Address.Location durante la importación. Este es un ejemplo de un documento resultante en DocumentDB:
 
-*{
-  "id": "956",
-  "Name": "Finer Sales and Service",
-  "Address": {
-    "AddressType": "Main Office",
-    "AddressLine1": "#500-75 O'Connor Street",
-    "Location": {
-      "City": "Ottawa",
-      "StateProvinceName": "Ontario"
-    },
-    "PostalCode": "K4B 1S2",
-    "CountryRegionName": "Canada"
-  }
-}*
- 
+*{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
+
 Estos son algunos ejemplos de línea de comandos para importar desde SQL Server:
 
 	#Import records from SQL which match a query
@@ -160,7 +148,7 @@ Estos son algunos ejemplos de línea de comandos para importar desde SQL Server:
 	#Import records from sql which match a query and create hierarchical relationships
 	dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /s.NestingSeparator:. /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:StoresSub /t.IdField:Id /t.CollectionTier:S3
 
-##<a id="CSV"></a>Importación de archivos CSV: conversión de CSV a JSON ##
+##<a id="CSV"></a>Importación de archivos CSV - Conversión de CSV a JSON ##
 
 La opción del importador de origen de archivos CSV le permite importar uno o varios archivos CSV. Cuando se agregan carpetas que contienen archivos CSV que se van a importar, existe la opción de buscar archivos en subcarpetas de forma recursiva.
 
@@ -172,18 +160,7 @@ De forma similar a lo que sucede con el origen SQL, la propiedad de separador de
 
 Tenga en cuenta los alias como DomainInfo.Domain\_Name y RedirectInfo.Redirecting. Al especificar un separador de anidamiento de “.”, la herramienta de importación crea subdocumentos DomainInfo y RedirectInfo durante la importación. Este es un ejemplo de un documento resultante en DocumentDB:
 
-*{
-  "DomainInfo": {
-    "Domain_Name": "ACUS.GOV",
-    "Domain_Name_Address": "http://www.ACUS.GOV"
-  },
-  "Federal Agency": "Administrative Conference of the United States",
-  "RedirectInfo": {
-    "Redirecting": "0",
-    "Redirect_Destination": ""
-  },
-  "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"
-}*
+*{ "DomainInfo": { "Domain\_Name": "ACUS.GOV", "Domain\_Name\_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect\_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 La herramienta de importación intentará inferir la información de tipo de los valores sin comillas de los archivos CSV (los valores entre comillas se tratan siempre como cadenas). Los tipos se identifican en el siguiente orden: número, fecha y hora, booleano.
 
@@ -501,4 +478,4 @@ A continuación, elija si desea registrar todos los mensajes de error, los crít
 
 - Para obtener más información sobre DocumentDB, haga clic [aquí](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

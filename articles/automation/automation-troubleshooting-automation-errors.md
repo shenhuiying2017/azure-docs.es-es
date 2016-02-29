@@ -139,6 +139,42 @@ Este artículo explica algunos de los errores comunes que se pueden producir al 
 
   <br/>
 
+## Solucionar errores comunes al trabajar con la Configuración de estado deseado (DSC)  
+
+### Escenario: el nodo se encuentra en estado de error con el error "No encontrado"
+
+**Error:** el nodo tiene un informe de estado de error que contiene el mensaje "Error al intentar obtener la acción del servidor https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction porque no se encontró una configuración <guid> válida".
+
+**Motivo del error:** este error suele ocurrir porque el nodo se asigna a un nombre de configuración (por ejemplo, ABC), y no a un nombre de configuración de nodo (por ejemplo, ABC.WebServer).
+
+**Sugerencias para solucionar el problema:** compruebe que esté usando el nombre de la configuración de nodo, y no el de la configuración. Puede usar el botón "Asignar configuración de nodo" de la hoja del nodo en el portal o el cmdlet Set-AzureRMAutomationDscNode para asignar el nodo a una configuración de nodo válida.
+
+### Escenario: no se produjeron configuraciones de nodo (archivos mof) al realizarse una compilación de configuración
+
+**Error:** el trabajo de compilación de DSC se suspendió con el mensaje de error "La compilación finalizó correctamente, pero no se generaron archivos .mof de configuración de nodo".
+
+**Motivo del error:** cuando la expresión que aparece junto a "Node" en la configuración de DSC se evalúa como $null, no se produce ninguna configuración de nodo.
+
+**Sugerencias para solucionar el problema:** compruebe que la expresión que aparece junto a Node no se evalúe como $null. Si está pasando el valor ConfigurationData, asegúrese de que pasa los valores requeridos por la configuración de acuerdo a los datos de configuración. Por ejemplo, “$AllNodes. Consulte https://azure.microsoft.com/es-ES/documentation/articles/automation-dsc-compile/#configurationdata para obtener más información.
+
+### Escenario: el informe de nodo de DSC se queda bloqueado en el estado "En curso"
+
+**Error:** el agente DSC genera "No se encontró ninguna instancia con los valores de propiedad especificados".
+
+**Motivo del error:** ha actualizado la versión de WMF y ha dañado WMI.
+
+**Sugerencias para solucionar el problema:** siga las instrucciones indicadas en esta publicación para solucionar el problema: https://msdn.microsoft.com/es-ES/powershell/wmf/limitation_dsc
+
+### Escenario: no se puede usar una credencial en una configuración de DSC 
+
+**Error:** el trabajo de compilación de DSC se suspendió con el error "Error System.InvalidOperationException al procesar la propiedad 'Credential' DE TIPO '<some resource name>': se permite convertir y almacenar una contraseña cifrada como texto no cifrado solo si PSDscAllowPlainTextPassword se establece en true".
+
+**Motivo del error:** intentó usar una credencial en una configuración, pero no pasó el valor de ConfigurationData adecuado para establecer PSAllowPlainTextPassword como true para cada configuración de nodo.
+
+**Sugerencias para solucionar el problema:** asegúrese de que pasa el valor de ConfigurationData adecuado para establecer PSAllowPlainTextPassword como true para cada configuración de nodo mencionada en la configuración. Consulte https://azure.microsoft.com/es-ES/documentation/articles/automation-dsc-compile/#assets para obtener más información.
+
+  <br/>
+
 ## Pasos siguientes
 
 Si ha seguido los pasos de la solución de problemas anteriores y necesita ayuda adicional en cualquier punto de este artículo, puede:
@@ -149,6 +185,6 @@ Si ha seguido los pasos de la solución de problemas anteriores y necesita ayuda
 
 - Si está buscando una solución de runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el [Centro de scripts](https://azure.microsoft.com/documentation/scripts/).
 
-- Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en la [Voz del usuario](https://feedback.azure.com/forums/34192--general-feedback).
+- Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

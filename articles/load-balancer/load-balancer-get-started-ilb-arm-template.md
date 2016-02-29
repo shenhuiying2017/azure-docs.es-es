@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Primeros pasos en la creación de un equilibrador de carga interno mediante una plantilla
@@ -34,20 +34,14 @@ La plantilla de ejemplo disponible en el repositorio público usa un archivo de 
 Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 
 1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
-2. Ejecute el cmdlet **Switch-AzureMode** para cambiar al modo del Administrador de recursos, como se muestra a continuación.
-
-		Switch-AzureMode AzureResourceManager
-
-	Este es el resultado esperado del comando anterior:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
->[AZURE.WARNING]El cmdlet Switch-AzureMode pronto estará en desuso. Cuando esto suceda, se cambiará el nombre de todos los cmdlets del Administrador de recursos.
-
-3\. Descargue el archivo de [parámetros](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json) en el disco local.<BR> 4. Edite el archivo y guárdelo.<BR> 5. Ejecute el cmdlet **New-AzureResourceGroup** para crear un grupo de recursos mediante esta plantilla.
 
 
-		New-AzureResourceGroup -Name TestRG -Location westus `
+2. Descargue el archivo de [parámetros](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json) en el disco local.<BR>
+3. Edite el archivo y guárdelo.<BR>
+4. Ejecute el cmdlet **New-AzurermResourceGroupDeployment** para crear un grupo de recursos mediante esta plantilla. 
+
+
+		New-AzureRmResourceGroupdeployment -Name TestRG -Location westus `
 		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json' `
 		    -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
 	
@@ -58,7 +52,7 @@ Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
-2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, tal como se muestra a continuación.
+2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
 		azure config mode arm
 
@@ -73,11 +67,10 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 		azure group create -n TestRG -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json -e parameters.json
 
 
-
 ## Pasos siguientes
 
 [Configurar un modo de distribución del equilibrador de carga mediante la afinidad IP de origen](load-balancer-distribution-mode.md)
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

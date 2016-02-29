@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 
@@ -22,7 +22,7 @@
 
 Determinadas aplicaciones sin explorador, como el cliente de correo electrónico nativo de Apple que usa Exchange Active Sync, actualmente no admiten la autenticación multifactor. La autenticación multifactor se habilita por usuario. Esto significa que si un usuario se ha habilitado para la autenticación multifactor y está intentando utilizar aplicaciones sin explorador, no podrá hacerlo. Una contraseña de aplicación permite que pueda hacerlo.
 
->[AZURE.NOTE]Autenticación moderna para los clientes de Office 2013
+>[AZURE.NOTE] Autenticación moderna para los clientes de Office 2013
 >
 > Los clientes de Office 2013 (incluye Outlook) ahora admiten nuevos protocolos de autenticación que pueden habilitarse para admitir Multi-Factor Authentication. Esto significa que una vez habilitada, las contraseñas de aplicación no son necesarias para los clientes de Office 2013. Para obtener más información, consulte [Anuncio de la vista previa pública de la autenticación moderna de Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
  
@@ -129,4 +129,4 @@ Si utiliza la autenticación multifactor con Azure, le interesará crear contras
 5. Para confirmar la eliminación, haga clic en **Sí**.
 6. Una vez que la contraseña se elimina, puede hacer clic en **cerrar**. ![Cerrar](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

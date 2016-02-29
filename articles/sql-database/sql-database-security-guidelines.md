@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/24/2015"
+   ms.date="02/16/2016"
    ms.author="rickbyh"/>
 
 # Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure
@@ -37,7 +37,7 @@ Para validar certificados con código de aplicación ADO.NET, establezca ``Encry
 
 SQL Server Management Studio también admite la validación de certificados. En el cuadro de diálogo **Conectar con el servidor**, haga clic en **Cifrar conexión** en la pestaña **Propiedades de conexión**.
 
-> [AZURE.NOTE]SQL Server Management Studio no admite las conexiones con la Base de datos SQL en versiones anteriores a SQL Server 2008 R2.
+> [AZURE.NOTE] SQL Server Management Studio no admite las conexiones con la Base de datos SQL en versiones anteriores a SQL Server 2008 R2.
 
 Aunque SQLCMD admitía la Base de datos SQL a partir de SQL Server 2008, no admite la validación de certificados en las versiones anteriores a SQL Server 2008 R2. Para validar certificados con SQLCMD a partir de SQL Server 2008 R2, use la opción de línea de comandos ``-N`` y no use la opción ``-C``. Mediante la opción -N, SQLCMD solicita una conexión cifrada. Si no se usa la opción ``-C``, SQLCMD no confía implícitamente en el certificado de servidor y se ve obligado a validar el certificado.
 
@@ -49,7 +49,7 @@ La autenticación de Active Directory (seguridad integrada) está disponible com
 
 [Base de datos SQL V12](sql-database-v12-whats-new.md) permite a los usuarios autenticarse en la base de datos con los usuarios de la base de datos independiente. Para obtener más información, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](https://msdn.microsoft.com/library/ff929188.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) y [Bases de datos independientes](https://technet.microsoft.com/library/ff929071.aspx).
 
-> [AZURE.NOTE]Microsoft recomienda usar los usuarios de la base de datos independiente para mejorar la escalabilidad.
+> [AZURE.NOTE] Microsoft recomienda usar los usuarios de la base de datos independiente para mejorar la escalabilidad.
 
 El motor de la base de datos cierra las conexiones que permanecen inactivas durante más de 30 minutos. La conexión debe volver a iniciar sesión para poder usarse.
 
@@ -64,7 +64,7 @@ Para el inicio de sesión de entidad de seguridad de nivel de servidor, se aplic
 - El usuario de la base de datos principal correspondiente al inicio de sesión principal de nivel de servidor no se puede alterar ni quitar. 
 - Aunque el inicio de sesión principal del nivel de servidor no es miembro de los dos roles de base de datos **dbmanager** y **loginmanager** de la base de datos **maestra**, concede todos los permisos a estos dos roles.
 
-> [AZURE.NOTE]Este inicio de sesión se crea durante el aprovisionamiento de servidores y es similar al inicio de sesión **sa** de una instancia de SQL Server.
+> [AZURE.NOTE] Este inicio de sesión se crea durante el aprovisionamiento de servidores y es similar al inicio de sesión **sa** de una instancia de SQL Server.
 
 Para todos los inicios de sesión, se aplican las siguientes restricciones:
 
@@ -84,11 +84,11 @@ GO
 ```
 
 - Cuando se ejecuta la instrucción ``CREATE USER`` con la opción ``FOR/FROM LOGIN``, debe ser la única instrucción de un lote de Transact-SQL.
-- Cuando se ejecuta la instrucción ``ALTER USER`` con la opción ``WITH LOGIN``, debe ser la única instrucción de un lote de Transact-SQL.
-- Solamente el inicio de sesión principal del nivel de servidor y los miembros del rol de base de datos **dbmanager** de la base de datos **maestra** tienen permiso para ejecutar las instrucciones ``CREATE DATABASE`` y ``DROP DATABASE``.
+- Cuando se ejecuta la instrucción ``ALTER USER`` con la opción ``WITH LOGIN``, deben ser la única instrucción de un lote de Transact-SQL.
+- Solamente el inicio de sesión principal y los miembros del nivel de servidor del rol de la base de datos **dbmanager** de la base de datos **maestra** tienen permiso para ejecutar las instrucciones ``CREATE DATABASE`` y ``DROP DATABASE``.
 - Solamente el inicio de sesión principal del nivel de servidor y los miembros del rol de base de datos **loginmanager** de la base de datos **maestra** tienen permiso para ejecutar las instrucciones ``CREATE LOGIN``, ``ALTER LOGIN`` y ``DROP LOGIN``.
-- Para realizar una tarea ``CREATE/ALTER/DROP`` el usuario debe tener el permiso ``ALTER ANY USER`` en la base de datos.
-- Cuando el propietario de un rol de base de datos intenta agregar otro usuario de base de datos a ese rol o bien quitarlo, puede producirse el siguiente error: **El usuario o el rol “Nombre” no existe en la base de datos.** Este error se produce porque el usuario no es visible para el propietario. Para resolver este problema, conceda al propietario del rol el permiso ``VIEW DEFINITION`` para el usuario. 
+- Para ``CREATE/ALTER/DROP`` un usuario requiere el permiso ``ALTER ANY USER`` de la base de datos.
+- Cuando el propietario de un rol de base de datos intenta agregar otro usuario de base de datos a ese rol o bien quitarlo, puede producirse el siguiente error: **El usuario o el rol “Nombre” no existe en la base de datos.** Este error se produce porque el usuario no es visible para el propietario. Para resolver este problema, conceda al propietario del rol el permiso ``VIEW DEFINITION`` del usuario. 
 
 Para obtener más información sobre los inicios de sesión y los usuarios, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md).
 
@@ -111,4 +111,4 @@ Tenga en cuenta los siguientes puntos para que las aplicaciones de Base de datos
 
 [Centro de seguridad para el Motor de base de datos de SQL Server y Base de datos SQL Azure](https://msdn.microsoft.com/library/bb510589)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

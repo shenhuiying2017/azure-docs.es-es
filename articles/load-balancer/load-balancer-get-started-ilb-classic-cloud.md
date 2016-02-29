@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Introducción a la creación de un equilibrador de carga interno (clásico) para servicios en la nube
@@ -32,11 +32,11 @@ El equilibrador de carga interno es compatible tanto con las máquinas virtuales
 
 La configuración del equilibrador de carga interno se debe establecer durante la creación de la primera implementación en el servicio en la nube, como se muestra en el ejemplo siguiente.
 
->[AZURE.IMPORTANT]Un requisito previo para ejecutar los pasos siguientes es tener ya creada una red virtual para la implementación en la nube. Necesitarás el nombre de red virtual y el nombre de la subred para crear el Equilibrio de carga interno.
+>[AZURE.IMPORTANT] Un requisito previo para ejecutar los pasos siguientes es tener ya creada una red virtual para la implementación en la nube. Necesitarás el nombre de red virtual y el nombre de la subred para crear el Equilibrio de carga interno.
 
 ### Paso 1
 
-Abre el archivo de configuración de servicio (.cscfg) para la implementación en la nube en Visual Studio y agrega la siguiente sección para crear el Equilibrio de carga interno en el último elemento "`</Role>`" para la configuración de red.
+Abre el archivo de configuración de servicio (.cscfg) para la implementación en la nube en Visual Studio y agrega la siguiente sección para crear el Equilibrio de carga interno en el último elemento «`</Role>`» para la configuración de red.
 
 
 
@@ -91,4 +91,4 @@ La carga del tráfico de red se equilibrará mediante el equilibrador de carga t
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

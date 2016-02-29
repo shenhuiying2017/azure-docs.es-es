@@ -636,7 +636,7 @@ También puede especificar la autenticación en operaciones específicas:
 		get: function (req, res, next) {
 			var date = { currentTime: Date.now() };
 			res.status(200).type('application/json').send(date);
-		});
+		}
 	};
 	// The GET methods must be authenticated.
 	api.get.access = 'authenticated';
@@ -671,6 +671,38 @@ SDK de Aplicaciones móviles de Azure usa el [analizador de cuerpo de software i
 
 Puede ajustar el límite de 50 MB que mostramos anteriormente. Tenga en cuenta que el archivo estará codificado en Base 64 antes de la transmisión, lo que aumentará el tamaño real de la carga.
 
+### <a name="howto-customapi-sql"></a>Ejecución de instrucciones SQL personalizadas
+
+El SDK de aplicaciones móviles de Azure permite el acceso a todo el contexto a través del objeto de solicitud, lo que le permite ejecutar fácilmente instrucciones SQL parametrizadas para el proveedor de datos definido:
+
+    var api = {
+        get: function (request, response, next) {
+            // Check for parameters - if not there, pass on to a later API call
+            if (typeof request.params.completed === 'undefined')
+                return next();
+
+            // Define the query - anything that can be handled by the mssql
+            // driver is allowed.
+            var query = {
+                sql: 'UPDATE TodoItem SET complete=@completed',
+                parameters: [{
+                    completed: request.params.completed
+                }]
+            };
+
+            // Execute the query.  The context for Azure Mobile Apps is available through
+            // request.azureMobile - the data object contains the configured data provider.
+            request.azureMobile.data.execute(query)
+            .then(function (results) {
+                response.json(results);
+            });
+        }
+    };
+
+    api.get.access = 'authenticated';
+    module.exports = api;
+
+Se puede acceder a este punto de conexión mediante
 ## <a name="Debugging"></a>Depuración y solución de problemas
 
 El Servicio de aplicaciones de Azure proporciona varias técnicas de depuración y de solución de problemas para las aplicaciones Node.js. Todas estas técnicas están disponibles.
@@ -771,4 +803,4 @@ En el editor, también puede ejecutar el código en el sitio.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

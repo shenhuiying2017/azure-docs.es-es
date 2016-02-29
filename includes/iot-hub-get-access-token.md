@@ -21,17 +21,17 @@ Azure Active Directory debe autenticar todas las tareas que se realizan en los r
 2. Cree un objeto **ResourceManagementClient** que use el token, agregando el código siguiente al final del método **Main**:
 
     ```
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
+    var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
+    client.SubscriptionId = subscriptionId;
     ```
 
 3. Cree u obtenga una referencia al grupo de recursos que está usando:
 
     ```
-    var rgResponse = client.ResourceGroups.CreateOrUpdateAsync(rgName,
-        new ResourceGroup("East US")).Result;
-    if (rgResponse.StatusCode != HttpStatusCode.Created
-        && rgResponse.StatusCode != HttpStatusCode.OK)
+    var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,
+        new ResourceGroup("East US"));
+    if (rgResponse.Properties.ProvisioningState != "Succeeded")
     {
       Console.WriteLine("Problem creating resource group");
       return;
@@ -40,4 +40,4 @@ Azure Active Directory debe autenticar todas las tareas que se realizan en los r
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

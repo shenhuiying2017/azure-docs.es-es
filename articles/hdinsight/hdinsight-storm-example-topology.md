@@ -31,7 +31,7 @@ La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su u
 | [Determinación de los temas más destacados de Twitter con Storm en HDInsight][3c86c7c8] | Trident | Java, Trident |
 | [Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight (C#)][844d1d81] | Centros de eventos | C# y Java |
 | [Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md) | Centros de eventos | Java |
-| [Uso de Power BI (vista previa) para visualizar datos de una topología de Storm][94d15238] | Power BI | C# |
+| [Uso de Power BI para visualizar datos desde la topología de Storm][94d15238] | Power BI | C# |
 | [Análisis de los datos de sensor con Storm y HBase en HDInsight][ab894747] | Centros de eventos, HBase, Socket.IO, panel Web | C#, Java, JavaScript, HTML |
 | [Procesamiento de los datos de sensor del vehículo desde Centros de eventos usando Storm en HDInsight][246ee964] | Centros de eventos, DocumentDb, blob de almacenamiento de Azure (WASB) | C#, Java |
 | [Extracción, transformación y carga (ETL) desde Centros de eventos de Azure en HBase usando Storm en HDInsight][b4b68194] | Centros de eventos, HBase | C# |
@@ -61,4 +61,4 @@ La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su u
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Este proyecto contiene plantillas para spouts, bolts y topologías para interactuar con distintos servicios de Azure como Centros de eventos, DocumentDB y Base de datos SQL."
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

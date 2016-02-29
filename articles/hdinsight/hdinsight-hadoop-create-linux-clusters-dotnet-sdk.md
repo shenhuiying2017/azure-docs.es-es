@@ -341,13 +341,13 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 
 ###Clústeres HBase
 
-* [Introducción a HBase en HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
+* [Introducción a HBase en HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
 * [Desarrollo de aplicaciones de Java para HBase en HDInsight](hdinsight-hbase-build-java-maven-linux)
 
 ###Clústeres Storm
 
 * [Desarrollo de topologías de Java para Storm en HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python.md)
+* [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ###Clústeres de Spark
@@ -358,4 +358,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

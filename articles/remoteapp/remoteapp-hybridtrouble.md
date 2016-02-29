@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/13/2016"
+    ms.date="02/11/2016"
     ms.author="elizapo" />
 
 
@@ -32,26 +32,14 @@ Si ve un mensaje como "GoldImageInvalid" cuando esté esperando a que Azure apro
 
 
 ## ¿La red virtual tiene grupos de seguridad de red definidos? ##
-Si ha definido grupos de seguridad de red en la subred que utiliza para la colección, asegúrese de que se puede acceder a las direcciones URL siguientes desde la subred:
-
-	https://management.remoteapp.windowsazure.com  
-	https://opsapi.mohoro.com  
-	https://telemetry.remoteapp.windowsazure.com  
-	https://*.remoteapp.windowsazure.com  
-	https://login.windows.net (if you have Active Directory)  
-	https://login.microsoftonline.com  
-	Azure storage *.remoteapp.windowsazure.com  
-	*.core.windows.net  
-	https://www.remoteapp.windowsazure.com  
-	https://www.remoteapp.windowsazure.com  
-
-Abra los puertos siguientes en la subred de red virtual:
-
-Entrantes - TCP: 3030, TCP: 443 Saliente - TCP: 443
+Si ha definido grupos de seguridad de red en la subred que utiliza para la colección, asegúrese de que se puede acceder a estas [direcciones URL y puertos](remoteapp-ports.md) desde la subred:
 
 Puede agregar grupos de seguridad de red adicionales a las red virtuales que implemente en la subred para disponer de un control más estricto.
 
 ## ¿Utiliza sus propios servidores DNS? ¿Son accesibles desde la subred de red virtual? ##
+>[AZURE.NOTE] Tendrá que asegurarse de que los servidores DNS de la red virtual estén siempre activos y puedan resolver en todo momento las máquinas virtuales hospedadas en la red virtual. No utilice Google DNS para ello.
+
+
 En las colecciones híbridas utiliza sus propios servidores DNS. Los especifica en el esquema de configuración de red o a través del Portal de administración al crear la red virtual. Los servidores DNS se utilizan en el orden en que se especifican en forma de conmutación por error (como oposición a round robin).
 
 Asegúrese de que los servidores DNS de la colección son accesibles y están disponibles en la subred de red virtual especificada para esta colección.
@@ -79,4 +67,4 @@ Asegúrese de que los detalles de dominio proporcionados son válidos y de que s
 
 El nombre de dominio que creó o agregó debe ser un nombre de dominio interno (no un nombre de dominio de Azure AD) y debe utilizar el formato DNS que se puede resolver (contoso.local). Por ejemplo, si tiene un nombre interno de Active Directory (contoso.local) y un UPN de Active Directory (contoso.com), debe utilizar el nombre interno al crear la colección.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

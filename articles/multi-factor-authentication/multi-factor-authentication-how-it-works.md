@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 #Cómo funciona Azure Multi-Factor Authentication
@@ -102,4 +102,4 @@ Elija el modelo por puesto o según el consumo que mejor funcione para su organi
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

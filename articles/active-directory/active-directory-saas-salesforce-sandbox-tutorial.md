@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Integración de Azure Active Directory con Salesforce Sandbox | Microsoft Azure" description="Aprenda cómo usar Salesforce Sandbox con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    pageTitle="Tutorial: Integración de Azure Active Directory con Salesforce Sandbox | Microsoft Azure"
+    description="Aprenda cómo usar Salesforce Sandbox con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -128,7 +129,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 ##Habilitación de su dominio
   
 En esta sección se supone que ya ha creado un dominio.  
-Para obtener más información, consulte [Definición de su nombre de dominio](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
+Para obtener más información, vea [Definición de su nombre de dominio](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
 
 ###Realice los pasos siguientes para habilitar su dominio:
 
@@ -198,7 +199,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
     ![Asignar usuarios](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, a continuación, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-salesforce-sandbox-tutorial/IC767830.png "Sí")
   
@@ -206,4 +207,4 @@ Ahora debería esperar 10 minutos y comprobar si la cuenta se ha sincronizado en
   
 Si quiere probar su configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

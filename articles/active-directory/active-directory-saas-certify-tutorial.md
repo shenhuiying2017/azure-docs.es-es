@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="02/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ El objetivo de este tutorial es mostrar cómo integrar Certify con Azure Active 
 
 - Puede controlar en Azure AD quién tiene acceso a Certify.
 - Puede permitir que los usuarios inicien sesión automáticamente en Certify (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central, el Portal de Azure Active Directory.
+- Puede administrar sus cuentas en una ubicación central, el Portal de Azure Active Directory clásico.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -56,7 +56,7 @@ Para configurar la integración de Certify en Azure AD, deberá agregar Certify 
 
 **Para agregar Certify desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de administración de Azure**, en el panel de navegación izquierdo, haga clic en **Active Directory**. <br><br> ![Active Directory][1]<br>
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. <br><br> ![Active Directory][1]<br>
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
@@ -64,12 +64,12 @@ Para configurar la integración de Certify en Azure AD, deberá agregar Certify 
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro de búsqueda, escriba **Certify**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-certify-tutorial/tutorial_certify_01.png)<br>
-7. En el panel de resultados, seleccione **Certify** y haga clic en **Completar** para agregar la aplicación. <br><br>
+7. En el panel de resultados, seleccione **Certify** y haga clic en **Completar** para agregar la aplicación. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-certify-tutorial/tutorial_certify_02.png)<br>
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Certify con una usuaria de prueba llamada "Britta Simon".
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Certify para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Certify.<br> Esta relación de vínculo se establece asignando el valor del **nombre de usuario** en Azure AD como el valor del **Nombre de usuario** en Certify.
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Certify para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Certify.<br> Esta relación de vínculo se establece asignando el valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en Certify.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Certify, es preciso completar los siguientes bloques de creación:
 
@@ -81,13 +81,13 @@ Para configurar y probar el inicio de sesión único de Azure AD con Certify, es
 
 ### Configuración del inicio de sesión único de Azure AD
 
-El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure AD y configurar el inicio de sesión único en la aplicación Certify.
+El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure AD clásico y configurar el inicio de sesión único en la aplicación Certify.
 
 
 
 **Para configurar el inicio de sesión único de Azure AD con Certify, realice los pasos siguientes:**
 
-1. En el Portal de Azure AD, en la página de integración de aplicaciones de **Certify**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6] <br>
+1. En el Portal de Azure AD clásico, en la página de integración de aplicaciones de **Certify**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6] <br>
 
 2. En la página **¿Cómo desea que los usuarios inicien sesión en Certify?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y después haga clic en **Siguiente**. <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-certify-tutorial/tutorial_certify_03.png)<br>
 
@@ -104,12 +104,12 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
     b. Haga clic en **Siguiente**.
 
 
-5. Para configurar SSO para la aplicación, póngase en contacto con el equipo de soporte de Certify mediante support@certify.com. Adjunte el archivo de certificado descargado a su correo y comparta las direcciones URL de los metadatos (identificador de entidad, dirección URL de inicio de sesión único y dirección URL de cierre de sesión) con el equipo de Certify para configurar el SSO en su lado.
+5. Para configurar el inicio de sesión único para la aplicación, póngase en contacto con el equipo de soporte de Certify mediante support@certify.com. Adjunte el archivo de certificado descargado a su correo y comparta las direcciones URL de los metadatos (identificador de entidad, dirección URL de inicio de sesión único y dirección URL de cierre de sesión) con el equipo de Certify para configurar el SSO en su lado.
 
 
-6. En el Portal de Azure AD, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. <br><br>![Inicio de sesión único de Azure AD][10]<br>
+6. En el Portal de Azure AD clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. <br><br>![Inicio de sesión único de Azure AD][10]<br>
 
-7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**. <br><br>![Inicio de sesión único de Azure AD][11]
+7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completa**. <br><br>![Inicio de sesión único de Azure AD][11]
 
 
 
@@ -119,7 +119,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en **Active Directory**. <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-certify-tutorial/create_aaduser_09.png) <br>
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-certify-tutorial/create_aaduser_09.png) <br>
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
@@ -213,4 +213,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-certify-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-certify-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/17/2016"
 	ms.author="tamram"/>
 
 # Configuración de las cadenas de conexión de Almacenamiento de Azure
@@ -37,7 +37,7 @@ La aplicación deberá almacenar la cadena de conexión para autenticar el acces
 
 Almacenar la cadena de conexión dentro de un archivo de configuración facilita la actualización de la cadena de conexión para cambiar entre el emulador de almacenamiento y una cuenta de almacenamiento de Azure en la nube. Solo necesitará modificar la cadena de conexión para apuntar a la cuenta de almacenamiento.
 
-Puede usar la clase [CloudConfigurationManager](https://msdn.microsoft.com/library/microsoft.windowsazure.cloudconfigurationmanager.aspx) de Azure para obtener acceso a la cadena de conexión en tiempo de ejecución independientemente de dónde se ejecute la aplicación.
+Puede usar la clase [Administrador de configuración de Microsoft Azure](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) para obtener acceso a la cadena de conexión en tiempo de ejecución independientemente de dónde se ejecute la aplicación.
 
 ## Creación de una cadena de conexión para el emulador de almacenamiento
 
@@ -57,7 +57,7 @@ Por ejemplo, la cadena de conexión tendrá un aspecto similar a la siguiente ca
 	AccountName=storagesample;
 	AccountKey=<account-key>
 
-> [AZURE.NOTE]Almacenamiento de Azure admite HTTP y HTTPS en una cadena de conexión; sin embargo, se recomienda encarecidamente utilizar HTTPS.
+> [AZURE.NOTE] Almacenamiento de Azure admite HTTP y HTTPS en una cadena de conexión; sin embargo, se recomienda encarecidamente utilizar HTTPS.
 
 ## Creación de una cadena de conexión para un extremo de almacenamiento explícito
 
@@ -119,4 +119,4 @@ Por ejemplo, la cadena de conexión debe tener un aspecto similar a la siguiente
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -20,7 +20,7 @@
 
 # Administración de recursos para el clúster Apache Spark en HDInsight de Azure (Windows)
 
-> [AZURE.NOTE]HDInsight ofrece ahora clústeres de Spark en Linux. Para información sobre cómo administrar los recursos para un clúster Spark en HDInsight Linux, vea [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md).
+> [AZURE.NOTE] HDInsight ofrece ahora clústeres de Spark en Linux. Para información sobre cómo administrar los recursos para un clúster Spark en HDInsight Linux, vea [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md).
 
 El Administrador de recursos es un componente del panel de clúster Spark que le permite administrar los recursos como núcleos y RAM usados por cada aplicación que se ejecuta en el clúster.
 
@@ -28,7 +28,7 @@ El Administrador de recursos es un componente del panel de clúster Spark que le
 
 1. En el [Portal de vista previa de Azure](https://ms.portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**. 
  
-2. En la hoja del clúster de Spark, haga clic en **Panel**. Cuando se le pida, escriba las credenciales de administrador del clúster Spark.
+2. En la hoja del clúster Spark, haga clic en **Panel**. Cuando se le pida, escriba las credenciales de administrador del clúster Spark.
 
 	![Iniciar el Administrador de recursos](./media/hdinsight-apache-spark-resource-manager-v1/hdispark.cluster.launch.dashboard.png "Inicio del Administrador de recursos")
 
@@ -73,15 +73,15 @@ Especifique el recuento de núcleos de servidor Thrift y la memoria de ejecució
 * [Streaming con Spark: Procesamiento de eventos desde el Centro de eventos de Azure con Apache Spark en HDInsight](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Todos los artículos sobre la administración de aplicaciones en Azure Active Directory | Microsoft Azure"
+	pageTitle="Índice de artículos sobre la administración de aplicaciones en Azure Active Directory | Microsoft Azure"
 	description="Aprenda a personalizar la fecha de expiración de los certificados de federación y a renovar certificados que expiran pronto."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/16/2016"
 	ms.author="markvi;liviodlc"/>
 
 #Índice de artículos sobre la administración de aplicaciones en Azure Active Directory
@@ -24,7 +24,7 @@ Hay una breve introducción a cada área de características principal, así com
 
 ##Artículos de información general
 
-Los artículos siguientes son buenos puntos de partida para quienes solo deseen una breve explicación de las características de administración de aplicaciones de Azure AD. Estos temas se exploran con mayor profundidad en el resto de esta guía.
+Los artículos siguientes son buenos puntos de partida para quienes solo deseen una breve explicación de las características de administración de aplicaciones de Azure AD.
 
 | Guía de artículos | |
 | :---: | --- |
@@ -32,6 +32,18 @@ Los artículos siguientes son buenos puntos de partida para quienes solo deseen 
 | Información general sobre las distintas características de Azure AD relacionadas con la habilitación del inicio de sesión único, la definición de quién tiene acceso a las aplicaciones y de la forma en que los usuarios inician las aplicaciones | [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md) |
 | Un vistazo a los distintos pasos que deben darse al integrar aplicaciones en Azure AD | [Guía de introducción a la integración de Azure Active Directory con las aplicaciones](active-directory-integrating-applications-getting-started.md)<br /><br />[Integración del inicio de sesión único de Azure Active Directory con aplicaciones SaaS](active-directory-sso-integrate-saas-apps.md)<br /><br />[Administración del acceso a las aplicaciones](active-directory-managing-access-to-apps.md) |
 | Una explicación técnica de cómo se representan las aplicaciones de Azure AD | [Cómo y por qué se agregan aplicaciones a Azure AD](active-directory-how-applications-are-added.md) |
+
+##Artículos de solución de problemas
+
+Esta sección proporciona acceso rápido a las guías de solución de problemas pertinentes. Puede encontrar más información acerca de cada área de características en el resto de esta página.
+
+| Área de características | |
+| :---: | --- |
+| Inicio de sesión único federado | [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](active-directory-saml-debugging.md) |
+| Inicio de sesión único con contraseña | [Solución de problemas de la extensión del Panel de acceso para Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
+| Proxy de aplicación | [Solucionar problemas del proxy de aplicación](active-directory-application-proxy-troubleshoot.md) |
+| Inicio de sesión único entre un AD local y Azure AD | [Solución de problemas de sincronización de contraseña](active-directory-aadconnectsync-implement-password-synchronization.md#managing-password-synchronization)<br /><br />[Solución de problemas de escritura diferida de contraseñas](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) | 
+| Pertenencia a grupos dinámicos. | [Solución de problemas de pertenencias a grupos dinámicos](active-directory-accessmanagement-troubleshooting.md) |
 
 ##Inicio de sesión único (SSO)
 
@@ -42,7 +54,7 @@ El inicio de sesión único permite a los usuarios acceder a varias aplicaciones
 | Guía de artículos | |
 | :---: | --- |
 | Una introducción a la federación y otros tipos de inicio de sesión | [Inicio de sesión único con Azure AD](active-directory-appssoaccess-whatis.md) |
-| Miles de aplicaciones SaaS integradas previamente con Azure AD con pasos de configuración de inicio de sesión único simplificados | [Introducción a la Galería de aplicaciones de Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Lista completa de aplicaciones integradas previamente que admiten la federación](http://aka.ms/aadfederatedapps)<br /><br />[Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](active-directory-app-gallery-listing.md) |
+| Miles de aplicaciones SaaS integradas previamente con Azure AD con pasos de configuración de inicio de sesión único simplificados | [Introducción a la Galería de aplicaciones de Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Lista completa de aplicaciones integradas previamente que admiten la federación](http://aka.ms/aadfederatedapps)<br /><br />[Anuncio de la aplicación en la Galería de aplicaciones de Azure AD](active-directory-app-gallery-listing.md) |
 | Tutoriales de más de 150 aplicaciones sobre cómo configurar el inicio de sesión único para aplicaciones como [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md), entre muchas otras | [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Configuración y personalización manual de una configuración de inicio de sesión único | [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](active-directory-saas-custom-apps.md)<br /><br />[Personalización de notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory](active-directory-saml-claims-customization.md) |
 | Guía de solución de problemas de aplicaciones federadas que utilizan el protocolo SAML | [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](active-directory-saml-debugging.md) |
@@ -59,7 +71,7 @@ Para habilitar el inicio de sesión único en aplicaciones que no son compatible
 | Una introducción al funcionamiento de SSO con contraseña y una breve introducción técnica | [Inicio de sesión único con contraseña](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
 | Un resumen de los escenarios relacionados con el uso compartido de cuentas y la forma en que Azure AD resuelve estos problemas | [Uso compartido de cuentas con Azure AD](active-directory-sharing-accounts.md) |
 | Cambio automático de la contraseña de ciertas aplicaciones a intervalos regulares | [Sustitución automática de contraseña (vista previa)](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx0) |
-| Guías de implementación y solución de problemas de la versión de Internet Explorer de la extensión de administración de contraseñas de Azure AD | [Implementación de la extensión de panel de acceso para Internet Explorer mediante la directiva de grupo](active-directory-saas-ie-group-policy.md)<br /><br />[Solución de problemas de la extensión del Panel de acceso para Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
+| Guías de implementación y solución de problemas de la versión de Internet Explorer de la extensión de administración de contraseñas de Azure AD | [Implementación de la extensión de panel de acceso para Internet Explorer mediante la directiva de grupo](active-directory-saas-ie-group-policy.md)<br /><br />[Solución de problemas de la extensión del panel de acceso para Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 
 El inicio de sesión único con contraseña está disponible para todas las ediciones de Azure AD para un máximo de diez aplicaciones por usuario. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) admite un número ilimitado de aplicaciones. Si la organización tiene [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), podrá [utilizar grupos para asignar el acceso a las aplicaciones](#how-to-manage-who-has-access-to-which-apps). La sustitución automática de contraseña es una característica de [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -77,7 +89,7 @@ Si en la red privada tiene aplicaciones a las que los usuarios y dispositivos de
 
 El proxy de aplicación está disponible para todas las ediciones de Azure AD para un máximo de diez aplicaciones por usuario. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) admite un número ilimitado de aplicaciones. Si la organización tiene [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), podrá [utilizar grupos para asignar el acceso a las aplicaciones](#how-to-manage-who-has-access-to-which-apps).
 
-También le puede interesar [Servicios de dominio de Azure AD](active-directory-ds-overview.md), ya que le permite migrar las aplicaciones locales a Azure sin dejar de satisfacer las necesidades de identidad de dichas aplicaciones.
+También le puede interesar [Servicios de dominio de Azure AD](../active-directory-domain-services/active-directory-ds-overview.md), ya que le permite migrar las aplicaciones locales a Azure sin dejar de satisfacer las necesidades de identidad de dichas aplicaciones.
 
 ###Habilitación del inicio de sesión único entre Azure AD y AD local
 
@@ -87,7 +99,9 @@ Si la organización mantiene una versión local de Windows Server Active Directo
 | :---: | --- |
 | Información general acerca de las opciones de inicio de sesión único que se ofrecen en Azure AD Connect, así como información acerca de la administración de entornos híbridos | [Opciones para el inicio de sesión de los usuarios en Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Guía general para la administración de entornos con la versión local de Active Directory y Azure Active Directory | [Consideraciones de diseño de identidad híbrida de Azure Active Directory](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md) |
-| Guía del uso de la sincronización de contraseñas para habilitar SSO y de cómo utilizar la escritura diferida de contraseñas con el autoservicio de restablecimiento de contraseña de Azure AD | [Sincronización de Azure AD Connect: implementación de la sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Introducción a la administración de contraseñas](active-directory-passwords-getting-started.md) |
+| Instrucciones de uso de la sincronización de contraseñas para habilitar el inicio de sesión único | [Implementación de la sincronización de contraseñas con Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Solución de problemas de sincronización de contraseñas](https://support.microsoft.com/es-ES/kb/2855271) |
+| Instrucciones de uso de la sincronización de la escritura diferida de contraseñas para habilitar el inicio de sesión único | [Introducción a la administración de contraseñas en Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Solución de problemas de escritura diferida de contraseñas](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Instrucciones de uso de proveedores externos de identidades para habilitar el inicio de sesión único | [Lista de proveedores externos compatibles de identidades que se puede utilizar para habilitar el inicio de sesión único](https://aka.ms/ssoproviders) | 
 | De qué forma pueden disfrutar los usuarios de Windows 10 de las ventajas del inicio de sesión único a través de Azure AD Join | [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-overview.md) |
 
 Azure AD Connect está disponible para [todas las ediciones de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Autoservicio de restablecimiento de contraseña de Azure AD está disponible para [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) y [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Escritura diferida de contraseñas en AD local es una característica de [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -100,7 +114,7 @@ Una vez configurado el inicio de sesión único en las aplicaciones y los recurs
 | :---: | --- |
 | Una introducción a las funcionalidades de acceso condicional que se ofrecen a través de Azure AD, Office 365 e Intune | [Administración de riesgos con el acceso condicional](active-directory-conditional-access.md) |
 | Habilitación del acceso condicional para los siguientes tipos de recursos | [Acceso condicional de Azure en versión de vista previa para aplicaciones SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Directivas de dispositivo de acceso condicional para servicios de Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Uso de acceso condicional](active-directory-application-proxy-conditional-access.md) |
-| Registro de los dispositivos en Azure Active Directory, con el fin de habilitar directivas de acceso condicional basado en dispositivo | [Registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio](active-directory-conditional-access-device-registration-overview.md)<br /><br />[cómo habilitar registro automático de dispositivos para dispositivos de Windows Unidos a un dominio](active-directory-conditional-access-automatic-device-registration.md)<br />: [Pasos para dispositivos Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)<br />: [Pasos para dispositivos Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) |
+| Registro de los dispositivos en Azure Active Directory, con el fin de habilitar directivas de acceso condicional basado en dispositivo | [Registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Cómo habilitar el registro automático de dispositivos para dispositivos de Windows unidos a un dominio](active-directory-conditional-access-automatic-device-registration.md)<br />: [Pasos para dispositivos Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)<br />: [Pasos para dispositivos Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) |
 | Uso de la versión de Android de la aplicación Azure Authenticator para directivas que implican la autenticación multifactor | [Azure Authenticator para Android](active-directory-conditional-access-azure-authenticator-app.md) |
 
 Acceso condicional es una característica de [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -116,8 +130,8 @@ Cloud App Discovery ayuda a los departamentos de TI a saber qué aplicaciones Sa
 | :---: | --- |
 | Información general de su funcionamiento | [Búsqueda de aplicaciones de nube no sancionadas con Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) |
 | Un análisis más profundo de su funcionamiento, con las respuestas a las preguntas sobre privacidad | [Consideraciones de seguridad y privacidad de Cloud App Discovery](active-directory-cloudappdiscovery-security-and-privacy-considerations.md) |
-| Preguntas frecuentes | [Cloud App Discovery - Frequently Asked Questions](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) (Preguntas frecuentes sobre Cloud App Discovery) |
-| Tutoriales para la implementación de Cloud App Discovery | [Cloud App Discovery Group Policy Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /> (Guía de implementación de Cloud App Discovery Group)<br />[Cloud App Discovery System Center Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /> (Guía de implementación de Cloud App Discovery System Center)<br />[Configuración del registro de Cloud App Discovery para los servicios de proxy](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |
+| Preguntas frecuentes | [Cloud App Discovery - Frequently Asked Questions (Preguntas frecuentes sobre Cloud App Discovery)](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) |
+| Tutoriales para la implementación de Cloud App Discovery | [Guía de implementación de directivas de grupo de Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[Guía de implementación de System Center](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[Instalación en servidores proxy con puertos personalizados](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |
 | El registro de cambios de las actualizaciones del agente de Cloud App Discovery | [Registro de cambios](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx) |
 
 Cloud App Discovery es una característica de [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -146,7 +160,7 @@ Si su organización desarrolla o mantiene aplicaciones de línea de negocio (LoB
 | Procedimiento para los proveedores de aplicaciones puedan agregar sus aplicaciones a la Galería de aplicaciones de Azure AD | [Enumeración de aplicaciones en la Galería de aplicaciones de Azure Active Directory](active-directory-app-gallery-listing) |
 | Administración del acceso a aplicaciones desarrolladas mediante Azure Active Directory | [Azure AD y aplicaciones: necesidad de asignación de usuario](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Azure AD y aplicaciones: asignación de usuarios a una aplicación](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[Azure AD y aplicaciones: asignación de grupos a una aplicación](active-directory-applications-guiding-developers-assigning-groups.md) |
 
-Si está desarrollando aplicaciones orientadas al consumidor, puede que le interese usar [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/), con el fin de que no tenga que desarrollar su propio sistema de identidad para administrar los usuarios. [Más información](../active-directory-b2c/active-directory-b2c-overview.md).
+Si está desarrollando aplicaciones orientadas al consumidor, puede que le interese utilizar [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/), con el fin de que no tenga que desarrollar su propio sistema de identidad para administrar los usuarios. [Más información](../active-directory-b2c/active-directory-b2c-overview.md).
 
 
 ##Administración del acceso a las aplicaciones
@@ -214,4 +228,4 @@ Para ver qué informes incluyen las diferentes ediciones de Azure Active Directo
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

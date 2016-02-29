@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Creación de Multi-Factor Authentication en aplicaciones personalizadas (SDK)
@@ -191,4 +191,4 @@ En el siguiente código de servidor, Multi-Factor Authentication se configura y 
 	    }
 	}
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

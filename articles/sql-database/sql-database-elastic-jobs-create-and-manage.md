@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/11/2016"
 	ms.author="ddove; sidneyh"/>
 
 # Creación y administración de trabajos elásticos de Base de datos SQL (vista previa)
@@ -23,7 +23,7 @@
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
-**Trabajos de base de datos elástica** permite la administración fácil y confiable de un grupo de bases de datos, simplificando la ejecución de operaciones administrativas como, por ejemplo, cambios de esquema, administración de credenciales, actualizaciones de datos de referencia, recopilación de datos de rendimiento o recopilación de telemetría de inquilinos (cliente). Trabajos de base de datos elástica está actualmente disponible a través del portal de Azure y los cmdlets de PowerShell. Sin embargo, la funcionalidad reducida del Portal de Azure se limita la ejecución transversal en todas las bases de datos de un [grupo de bases de datos elásticas (vista previa)](sql-database-elastic-pool.md). Para tener acceso a otras características y a la ejecución transversal de scripts en un grupo de bases de datos, que puede incluir una colección de bases de datos personalizada definida por el usuario o un conjunto de particiones (creado con la [biblioteca cliente de base de datos elástica](sql-database-elastic-scale-introduction.md)), vea [Creación y administración de trabajos mediante PowerShell](sql-database-elastic-jobs-powershell.md). Para obtener más información, vea [Información general sobre Trabajos de base de datos elástica](sql-database-elastic-jobs-overview.md).
+Los **trabajos de base de datos elástica** simplifican la administración de grupos de bases de datos al ejecutar operaciones administrativas, como cambios de esquemas, administración de credenciales, actualizaciones de datos de referencias, recopilación de datos de rendimiento o recopilación de telemetría del inquilino (cliente). Trabajos de base de datos elástica está actualmente disponible a través del portal de Azure y los cmdlets de PowerShell. Sin embargo, la funcionalidad reducida del Portal de Azure se limita la ejecución transversal en todas las bases de datos de un [grupo de bases de datos elásticas (vista previa)](sql-database-elastic-pool.md). Para tener acceso a otras características y a la ejecución transversal de scripts en un grupo de bases de datos, que puede incluir una colección de bases de datos personalizada definida por el usuario o un conjunto de particiones (creado con la [biblioteca cliente de base de datos elástica](sql-database-elastic-scale-introduction.md)), vea [Creación y administración de trabajos mediante PowerShell](sql-database-elastic-jobs-powershell.md). Para obtener más información, vea [Información general sobre Trabajos de base de datos elástica](sql-database-elastic-jobs-overview.md).
 
 ## Requisitos previos
 
@@ -115,4 +115,4 @@ Si se produce un error en un trabajo, puede encontrar un registro de su ejecuci�
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Introducción a la creación de un equilibrador de carga interno mediante PowerShell
@@ -316,4 +316,4 @@ Use el comando Remove-AzureRmLoadBalancer para eliminar un equilibrador de carga
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

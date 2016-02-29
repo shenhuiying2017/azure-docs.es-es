@@ -14,17 +14,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="02/04/2016"
+	ms.date="02/17/2016"
 	ms.author="jeffstok"/>
 
 
-# Ejemplos de consulta para patrones de uso comunes de Análisis de transmisiones #
+# Ejemplos de consulta para patrones de uso comunes de Análisis de transmisiones
 
-## Introducción ##
+## Introducción
 
 Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje de consulta similar a SQL que se documenta en [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx). En este artículo se describen las soluciones para varios patrones de consulta comunes basados en situaciones del mundo real. Es un trabajo en curso y continuará actualizándose con nuevos patrones de forma continuada.
 
-## Ejemplo de consulta: conversiones de tipos de datos ##
+## Ejemplo de consulta: conversiones de tipos de datos
 **Descripción**: defina los tipos de las propiedades en la transmisión de entrada, p. ej., el peso del vehículo se incorpora a la transmisión de entrada como cadena y se debe convertir en INT para realizar la operación SUM.
 
 **Entrada**:
@@ -53,7 +53,8 @@ Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje 
 
 **Explicación**: use una instrucción CAST en el campo Peso para especificar su tipo (consulte la lista de tipos de datos admitidos [aquí](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
 
-## Ejemplo de consulta: uso de Like/Not like para realizar la correspondencia de patrones ##
+
+## Ejemplo de consulta: uso de Like/Not like para realizar la correspondencia de patrones
 **Descripción**: compruebe que un valor de campo en el evento coincide con un determinado patrón, p. ej., devolver matrículas que empiezan por A y terminan por 9.
 
 **Entrada**:
@@ -82,7 +83,7 @@ Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje 
 
 **Explicación**: use la instrucción LIKE para comprobar que el valor del campo LicensePlate comienza por A, tiene cualquier cadena de cero o más caracteres y termina por 9.
 
-## Ejemplo de consulta: especificación de la lógica para los distintos casos/valores (instrucciones CASE) ##
+## Ejemplo de consulta: especificación de la lógica para los distintos casos/valores (instrucciones CASE)
 **Descripción**: proporcione un cálculo diferente para un campo en función de determinados criterios, p. ej., proporcionar una descripción de cadena para el número de automóviles de la misma marca que pasaron con un caso especial para 1.
 
 **Entrada**:
@@ -116,7 +117,7 @@ Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje 
 
 **Explicación**: la cláusula CASE nos permite proporcionar un cálculo diferente en función de criterios determinados (en nuestro caso, el número de automóviles en la ventana de agregado).
 
-## Ejemplo de consulta: envío de datos a varias salidas ##
+## Ejemplo de consulta: envío de datos a varias salidas
 **Descripción**: envíe datos a varios destinos de salida desde una sola tarea, p. ej., analizar los datos para una alerta basada en umbral y archivar todos los eventos en el almacenamiento de blobs.
 
 **Entrada**:
@@ -224,7 +225,7 @@ Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje 
 
 **Explicación:** hacemos una agregación inicial para obtener marcas únicas con su recuento en la ventana. A continuación, hacemos una agregación de todas las ventanas que tenemos; dado que todos los valores únicos en una ventana obtienen la misma marca de tiempo, la segunda ventana de agregación debe ser mínima para no agregar las dos ventanas del primer paso.
 
-## Ejemplo de consulta: determinar si un valor ha cambiado ##
+## Ejemplo de consulta: determinar si un valor ha cambiado#
 **Descripción**: mire el valor anterior para determinar si es diferente del valor actual, por ejemplo, ¿el automóvil anterior en Carretera con peaje es de la misma marca que el automóvil actual?
 
 **Entrada**:
@@ -252,7 +253,7 @@ Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje 
 
 **Explicación**: use LAG para revisar en la transmisión de entrada un evento anterior y obtener el valor Marca. A continuación, compárelo con el de la marca del evento actual y genere el evento si son distintos.
 
-## Ejemplo de consulta: buscar el primer evento en una ventana ##
+## Ejemplo de consulta: buscar el primer evento en una ventana
 **Descripción**: ¿desea buscar el primer vehículo en un intervalo de cada 10 minutos?
 
 **Entrada**:
@@ -306,7 +307,7 @@ Ahora vamos a cambiar el problema y buscaremos el primer vehículo de una marca 
 	WHERE 
 		IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
-## Ejemplo de consulta: buscar el último evento en una ventana ##
+## Ejemplo de consulta: buscar el último evento en una ventana
 **Descripción**: buscar el último vehículo en un intervalo de cada 10 minutos.
 
 **Entrada**:
@@ -351,7 +352,7 @@ Ahora vamos a cambiar el problema y buscaremos el primer vehículo de una marca 
 
 **Explicación**: hay dos pasos en la consulta, el primero busca la marca de tiempo más reciente en ventanas de 10 minutos. El segundo paso combina los resultados de la primera consulta con la transmisión original para buscar eventos que coinciden con las últimas marcas de tiempo en cada ventana.
 
-## Ejemplo de consulta: detectar la ausencia de eventos ##
+## Ejemplo de consulta: detectar la ausencia de eventos
 **Descripción**: compruebe que una transmisión no tiene valores que coinciden con un criterio determinado, por ejemplo, ¿han entrado dos vehículos consecutivos de la misma marca en la carretera con peaje en un plazo de 90 segundos?
 
 **Entrada**:
@@ -413,7 +414,7 @@ Ahora vamos a cambiar el problema y buscaremos el primer vehículo de una marca 
 
 **Explicación**: use la función LAST para recuperar el último valor Time en el que el tipo de evento era "Start". Tenga en cuenta que la última LAST usa PARTITION BY [user] para indicar que el resultado se calculará por usuario único. La consulta tiene un umbral máximo de 1 hora para el intervalo de tiempo entre eventos "Start" y "Stop", pero se puede configurar como según sea necesario (LIMIT DURATION(hour, 1).
 
-## Ejemplo de consulta: detectar la duración de una condición ##
+## Ejemplo de consulta: detectar la duración de una condición
 **Descripción**: averigüe durante cuánto tiempo se produjo una condición, por ejemplo, supongamos que por error todos los vehículos tienen un peso incorrecto (por encima de 20.000 libras) y queremos calcular la duración del error.
 
 **Entrada**:
@@ -454,16 +455,59 @@ WHERE
 
 **Explicación**: use LAG para ver el flujo de entrada que se produjo durante 24 horas y busque instancias donde StartFault y StopFault superan el peso de 20 000.
 
+## Ejemplo de consulta: rellenar los valores que faltan
+**Descripción**: para la transmisión de eventos con valores que faltan, genere una transmisión de eventos con intervalos regulares. Por ejemplo, genere un evento cada 5 segundos que informará el punto de datos visto más recientemente.
+
+**Entrada**:
+
+| t | value |
+|--------------------------|-------|
+| "2014-01-01T06:01:00" | 1 |
+| "2014-01-01T06:01:05" | 2 |
+| "2014-01-01T06:01:10" | 3 |
+| "2014-01-01T06:01:15" | 4 |
+| "2014-01-01T06:01:30" | 5 |
+| "2014-01-01T06:01:35" | 6 |
+
+**Salida (10 primeras filas)**:
+
+| windowend | lastevent.t | lastevent.value |
+|--------------------------|--------------------------|--------|
+| 2014-01-01T14:01:00.000Z | 2014-01-01T14:01:00.000Z | 1 |
+| 2014-01-01T14:01:05.000Z | 2014-01-01T14:01:05.000Z | 2 |
+| 2014-01-01T14:01:10.000Z | 2014-01-01T14:01:10.000Z | 3 |
+| 2014-01-01T14:01:15.000Z | 2014-01-01T14:01:15.000Z | 4 |
+| 2014-01-01T14:01:20.000Z | 2014-01-01T14:01:15.000Z | 4 |
+| 2014-01-01T14:01:25.000Z | 2014-01-01T14:01:15.000Z | 4 |
+| 2014-01-01T14:01:30.000Z | 2014-01-01T14:01:30.000Z | 5 |
+| 2014-01-01T14:01:35.000Z | 2014-01-01T14:01:35.000Z | 6 |
+| 2014-01-01T14:01:40.000Z | 2014-01-01T14:01:35.000Z | 6 |
+| 2014-01-01T14:01:45.000Z | 2014-01-01T14:01:35.000Z | 6 |
+
+    
+**Solución**:
+
+    SELECT
+    	System.Timestamp AS windowEnd,
+    	TopOne() OVER (ORDER BY t DESC) AS lastEvent
+    FROM
+    	input TIMESTAMP BY t
+    GROUP BY HOPPINGWINDOW(second, 300, 5)
+
+
+**Explicación**: esta consulta generará eventos cada 5 segundos y generará como resultado el último evento que se recibió antes. La duración de la [ventana de salto](https://msdn.microsoft.com/library/dn835041.aspx "Ventana de salto - Análisis de transmisiones de Azure") determina hasta cuándo se remontará la consulta para encontrar el evento más reciente (en este ejemplo, 300 segundos).
+
+
 ## Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 
 - [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-- [Introducción al uso de Análisis de transmisiones de Azure](../stream.analytics.get.started.md)
+- [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
 - [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

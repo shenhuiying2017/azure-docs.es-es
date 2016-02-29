@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Planeación de la capacidad para la replicación de máquinas virtuales de Hyper-V"
-	description="Este artículo contiene instrucciones sobre cómo usar la herramienta Capacity Planner de Hyper-V para Azure Site Recovery"
+	pageTitle="Ejecución de la herramienta de planeación de capacidad de Hyper-V para Site Recovery | Microsoft Azure"
+	description="Este artículo contiene instrucciones sobre cómo usar la herramienta de planeación de capacidad de Hyper-V en Azure Site Recovery"
 	services="site-recovery"
 	documentationCenter="na"
 	authors="rayne-wiselman"
@@ -9,15 +9,19 @@
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015"
+	ms.date="02/15/2016"
 	ms.author="raynew" />
 
-# Planeación de la capacidad para la replicación de máquinas virtuales de Hyper-V
+# Ejecución de la herramienta de planeación de capacidad de Hyper-V para Site Recovery
 
-Azure Site Recovery usa Réplica de Hyper-V para replicar máquinas virtuales de Hyper-V desde un sitio local en Azure o en un centro de datos secundario. La herramienta Capacity Planner (Planeador de capacidad) para Site Recovery lo ayuda a averiguar los requisitos de replicación y ancho de banda necesarios para replicar máquinas virtuales de Hyper-V.
+Como parte de la implementación de Azure Site Recovery, debe averiguar los requisitos de ancho de banda y replicación. La herramienta de planeación de capacidad de Hyper-V para Site Recovery lo ayuda a averiguar los requisitos de replicación y ancho de banda necesarios para replicar máquinas virtuales de Hyper-V.
+
+
+En este artículo se describe cómo ejecutar esta herramienta. Esta herramienta debe utilizarse junto con la otras herramientas de planeación de capacidad y la información que se describe en [Planeación de la capacidad para la protección de la máquina virtual y del servidor físico en Azure Site Recovery](site-recovery-capacity-planner.md).
+
 
 ## Antes de comenzar
 
@@ -32,7 +36,7 @@ Antes de ejecutar la herramienta, debe preparar el sitio principal. Si va a repl
 
 
 ## Paso 1: Preparar el sitio primario
-1. En el sitio principal, confeccione una lista de todas las máquinas virtuales de Hyper-V que desee replicar y los hosts de Hyper-V o clústeres donde estén ubicadas. Se puede ejecutar la herramienta cada vez para varios hosts independientes o para un único clúster, pero no ambos juntos. Además, se debe ejecutar por separado para cada sistema operativo, por lo que debe agrupar los servidores de Hyper-V de la forma siguiente: 
+1. En el sitio principal, confeccione una lista de todas las máquinas virtuales de Hyper-V que desee replicar y los hosts de Hyper-V o clústeres donde estén ubicadas. Se puede ejecutar la herramienta cada vez para varios hosts independientes o para un único clúster, pero no ambos juntos. Además, se debe ejecutar por separado para cada sistema operativo, por lo que debe agrupar los servidores de Hyper-V de la forma siguiente:
 
   - Servidores independientes de Windows Server® 2012
   - Clústeres de Windows Server® 2012
@@ -57,8 +61,8 @@ Se recomienda que configure un único host de Hyper-V como servidor de recuperac
 
 	- En **Administrador del servidor**, abra **Administrador de clúster de conmutación por error**.
 	- Conéctese al clúster, resalte el nombre del clúster y haga clic en **Acciones** > **Configurar rol** para abrir el Asistente para alta disponibilidad.
-	- En **Seleccionar rol**, haga clic en **Agente de réplicas de Hyper-V**. En el asistente, proporcione la información de **Nombre de NetBIOS** y **Dirección IP** que se usará como punto de conexión con el clúster (denominado punto de acceso cliente). Se configurará el **Agente de réplicas de Hyper-V**, lo que proporciona un nombre de punto de acceso cliente que debe anotar. 
-	- Compruebe que el rol del agente de Réplica de Hyper-V se conecte correctamente y puede conmutar por error entre todos los nodos del clúster. Para ello, haga clic con el botón derecho del ratón en el rol, seleccione **Mover**, y, a continuación, haga clic en **Seleccionar nodo**. Seleccione un nodo > **Aceptar**. 
+	- En **Seleccionar rol**, haga clic en **Agente de réplicas de Hyper-V**. En el asistente, proporcione la información de **Nombre de NetBIOS** y **Dirección IP** que se usará como punto de conexión con el clúster (denominado punto de acceso cliente). Se configurará el **Agente de réplicas de Hyper-V**, lo que proporciona un nombre de punto de acceso cliente que debe anotar.
+	- Compruebe que el rol del agente de Réplica de Hyper-V se conecte correctamente y puede conmutar por error entre todos los nodos del clúster. Para ello, haga clic con el botón derecho del ratón en el rol, seleccione **Mover**, y, a continuación, haga clic en **Seleccionar nodo**. Seleccione un nodo > **Aceptar**.
 	- Si usa la autenticación basada en certificados, asegúrese de que todos los nodos del clúster y el punto de acceso cliente tengan instalado el certificado.
 2.  Habilite un servidor de réplica:
 
@@ -73,7 +77,7 @@ Se recomienda que configure un único host de Hyper-V como servidor de recuperac
 
 	- Ejecute **netsh http show servicestate** para comprobar que el agente de escucha se esté ejecutando para el puerto y el protocolo especificados:  
 4. Configure los firewalls. Durante la instalación de Hyper-V, se crean reglas de firewall para permitir el tráfico en los puertos predeterminados (HTTPS en 443, Kerberos en 80). Habilite estas reglas como se indica:
-	
+
 		- Certificate authentication on cluster (443): **Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}**
 		- Kerberos authentication on cluster (80): **Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}**
 		- Certificate authentication on standalone server: **Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"**
@@ -127,14 +131,18 @@ Estas son las métricas importantes. Puede pasar por alto las que no aparezcan a
 
 - Para ver información detallada acerca de la herramienta, lea el documento que acompaña a la descarga de la herramienta.
 - Vea un tutorial de la herramienta en el [blog de TechNet](http://blogs.technet.com/b/keithmayer/archive/2014/02/27/guided-hands-on-lab-capacity-planner-for-windows-server-2012-hyper-v-replica.aspx) de Keith Mayer.
-- [Obtenga los resultados](http://blogs.technet.com/b/keithmayer/archive/2014/02/27/guided-hands-on-lab-capacity-planner-for-windows-server-2012-hyper-v-replica.aspx) de nuestra prueba de rendimiento para la replicación de Hyper-V entre sitios locales.
+- [Obtenga los resultados](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md) de nuestra prueba de rendimiento para la replicación de Hyper-V entre sitios locales.
 
 
 
 ## Pasos siguientes
 
+Cuando haya terminado de planear la capacidad, puede comenzar a implementar Site Recovery:
+
 - [Configuración de la protección entre un sitio de VMM local y Azure](site-recovery-vmm-to-azure.md)
 - [Configuración de la protección entre un sitio de Hyper-V local y Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Configuración de la protección entre dos sitios VMM locales](site-recovery-vmm-to-vmm.md)
+- [Configuración de la protección entre dos sitios de VMM locales con SAN](site-recovery-vmm-san.md)
+- [Configuración de la protección con un único servidor VMM](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

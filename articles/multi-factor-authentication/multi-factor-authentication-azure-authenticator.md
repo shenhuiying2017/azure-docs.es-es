@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 
@@ -33,7 +33,7 @@ Con el lanzamiento de la aplicación Azure Authenticator, disponible para [Windo
 
 Asegúrese en primer lugar, de que tiene a mano el código QR o el código y la dirección URL para la cuenta que desea agregar a la aplicación.
 
-> [AZURE.NOTE]¿No está seguro de cómo obtener el código QR? Para obtener ayuda, póngase en contacto con el Servicio de asistencia.
+> [AZURE.NOTE] ¿No está seguro de cómo obtener el código QR? Para obtener ayuda, póngase en contacto con el Servicio de asistencia.
 > 
 > ¿No puede activar su cuenta con la nueva aplicación? Póngase en contacto con el Servicio de asistencia.
 >
@@ -164,4 +164,4 @@ A partir de ese momento, cuando se requiera que compruebe el inicio de sesión, 
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

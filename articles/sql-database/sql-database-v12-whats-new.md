@@ -123,7 +123,7 @@ Hay muchas buenas razones por las que los clientes deberían actualizar ahora Ba
 
 - V12 de Base de datos SQL presenta una larga lista de características que superan a las de la V11.
 - Seguimos agregando nuevas características a la V12, pero ya no vamos a agregar más características a la V11.
-- La mayoría de las características nuevas se lanzan en la V12 de Base de datos SQL antes que en Microsoft SQL Server.
+- La mayoría de las características nuevas se lanzan en Base de datos SQL V12 antes que en Microsoft SQL Server.
 
 
 ## ¿Ya utiliza V12?
@@ -150,7 +150,7 @@ Otra técnica para determinar la versión es ejecutar la instrucción `SELECT @@
 Una base de datos V12 solo puede hospedarse en un servidor lógico V12. Y un servidor V12 puede hospedar solo bases de datos V12.
 
 
-Si aún no está ejecutando en V12, puede actualizar el servidor lógico siguiendo los pasos descritos en [Actualización a Base de datos SQL de Azure V12 in situ](sql-database-v12-upgrade.md).
+Si aún no está ejecutando en V12, puede actualizar el servidor lógico siguiendo los pasos descritos en [Actualización a Base de datos SQL de Azure V12 in situ](sql-database-v12-plan-prepare-upgrade.md).
 
 
 ## <a name="V12AzureSqlDbPreviewGaTable"></a> Regiones de disponibilidad general
@@ -161,4 +161,4 @@ Si aún no está ejecutando en V12, puede actualizar el servidor lógico siguien
 
 [Términos de uso complementarios para versiones de vista previa de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

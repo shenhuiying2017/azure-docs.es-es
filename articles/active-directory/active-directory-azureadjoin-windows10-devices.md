@@ -148,15 +148,6 @@ Como alternativa a tener una infraestructura PKI puede habilitar Microsoft Passp
 
 ## Preguntas más frecuentes
 
-###¿Qué productos de proveedores de MDM independientes integran Azure AD?
-
-Los siguientes productos de proveedor se integran con Azure AD para ofrecer inscripción unificada y acceso condicional en Windows 10:
-
-- AirWatch de VMware
-- Citrix Xenmobile
-- Lightspeed Mobile Manager
-- MDM local de SOTI
-
 ###¿Qué ocurre con la unión al área de trabajo en Windows 10?
 La unión al área de trabajo en Windows 8.1 se usaba para habilitar BYOD. En Windows 10, BYOD se habilita a través de la opción Agregar una cuenta profesional como se explicó anteriormente en este documento. Para las organizaciones que no integran su MDM con Azure AD, los usuarios pueden inscribir el dispositivo en administración manualmente a través de **Configuración** > **Cuentas** > **Acceso al trabajo**.
 
@@ -173,4 +164,4 @@ Los usuarios que actualizan desde dispositivos unidos a un dominio de Windows 8.
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

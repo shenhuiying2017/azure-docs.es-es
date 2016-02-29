@@ -37,17 +37,19 @@ Al cargar en el Almacenamiento de datos SQL desde una instancia de SQL Server lo
 
 En las secciones siguientes echaremos un vistazo a cada paso en profundidad y daremos ejemplos del proceso.
 
-> [AZURE.NOTE]Antes de mover datos desde un sistema, como SQL Server, sugerimos revisar los artículos [Migración de esquemas][] y [Migración de código][] de nuestra documentación.
+> [AZURE.NOTE] Antes de mover datos desde un sistema, como SQL Server, sugerimos revisar los artículos [Migración de esquemas][] y [Migración de código][] de nuestra documentación.
 
 ## Exportación de archivos con BCP
 
 Para preparar los archivos para el traslado a Azure, necesitará exportarlos a archivos planos. Esto se realiza mejor con la utilidad de la línea de comandos de BCP. Si no dispone aún de la utilidad, se puede descargar con las [Utilidades de línea de comandos de Microsoft para SQL Server][]. Un comando BCP de ejemplo podría ser similar al siguiente:
 
 ```
-bcp "<Directory><File>" -c -T -S <Server Name> -d <Database Name>
+bcp "select top 10 * from <table>" queryout "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Query
+or
+bcp <table> out "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Table
 ```
 
-Este comando tomará los resultados de una consulta y los exportará a un archivo en el directorio que elija. Puede colocar el proceso en paralelo ejecutando varios comandos BCP para tablas independientes a la vez. Esto le permitirá ejecutar un proceso de BCP por núcleo de su servidor; le aconsejamos que pruebe algunas operaciones más pequeñas en configuraciones diferentes para ver qué funciona mejor en su entorno.
+Para maximizar el rendimiento, puede intentar poner en paralelo el proceso mediante la ejecución de varios comandos BCP simultáneos para tablas independientes o particiones independientes en una sola tabla. Esto le permitirá distribuir la CPU consumida por BCP entre varios núcleos del servidor donde se ejecuta BCP. Si va a extraer de un sistema PDW o DW de SQL, debe agregar el argumento - q, identificador entre comillas, al comando BCP. También deberá agregar -U y -P para especificar el nombre de usuario y la contraseña si en su entorno no se utiliza Active Directory.
 
 Además, conforme realizaremos la carga mediante PolyBase, tenga en cuenta que PolyBase no admite todavía con UTF-16, y todos los archivos deben estar en UTF-8. Esto se puede lograr con facilidad mediante la inclusión de la marca '-c' en su comando BCP o también puede convertir los archivos */*planos de UTF-16 en UTF-8 mediante el siguiente código:
 
@@ -62,7 +64,7 @@ Si va a mover datos en el intervalo de 5 a 10 terabytes o superior, recomendamos
 
 En los siguientes pasos se detalla cómo mover datos locales desde local a una cuenta de Almacenamiento de Azure mediante AZCopy. Si no dispone de una cuenta de Almacenamiento de Azure en la misma región puede crear una siguiendo la [Documentación del Almacenamiento de Azure][]. También puede cargar datos desde una cuenta de almacenamiento en una región distinta, pero el rendimiento en este caso no será óptimo.
 
-> [AZURE.NOTE]Esta documentación supone que ha instalado la utilidad de la línea de comandos de AZCopy y que puede ejecutarla con Powershell. Si este no es el caso, siga las [instrucciones de instalación de AZCopy][].
+> [AZURE.NOTE] Esta documentación supone que ha instalado la utilidad de la línea de comandos de AZCopy y que puede ejecutarla con Powershell. Si este no es el caso, siga las [instrucciones de instalación de AZCopy][].
 
 Ahora, dado un conjunto de archivos que ha creado con BCP, AzCopy puede ejecutarse simplemente Azure Powershell o ejecutando un script Powershell. En un nivel alto, el símbolo del sistema necesario para ejecutar AZCopy adoptará la forma:
 
@@ -201,4 +203,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [Documentación del Almacenamiento de Azure]: https://azure.microsoft.com/es-ES/documentation/articles/storage-create-storage-account/
 [Documentación de ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

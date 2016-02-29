@@ -27,7 +27,7 @@
         
             func loginAndGetData() {
                 
-                guard let client = self.table?.client where client.currentUser != nil else {
+                guard let client = self.table?.client where client.currentUser == nil else {
                     return
                 }
                 
@@ -44,4 +44,4 @@
 
 3. Presione _Ejecutar_ para iniciar la aplicación y, a continuación, inicie sesión. Una vez que haya iniciado sesión, debería poder ver la lista de tareas pendientes y realizar actualizaciones en ella.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="02/14/2016"
     ms.author="micurd"/>
 
 # Uso de la CLI de Azure con Almacenamiento de Azure
@@ -33,7 +33,7 @@ En esta guía se usa Ubuntu para los ejemplos, pero el funcionamiento debe ser s
 
 **Nuevo en Azure:** obtenga una suscripción de Microsoft Azure y una cuenta de Microsoft asociada a dicha suscripción. Para obtener más información sobre las opciones de compra de Azure, consulte [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opciones de compra](https://azure.microsoft.com/pricing/purchase-options/) y [Ofertas para miembros](https://azure.microsoft.com/pricing/member-offers/) (para miembros de MSDN, Microsoft Partner Network, BizSpark y otros programas de Microsoft).
 
-Para obtener más información acerca de las suscripciones de Azure, consulte [Administrar cuentas, suscripciones y roles administrativos](https://msdn.microsoft.com/library/azure/hh531793.aspx).
+Para obtener más información sobre las suscripciones a Azure, consulte [Asignación de roles de administrador en Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
 **Después de crear una suscripción y una cuenta de Microsoft Azure:**
 
@@ -94,7 +94,7 @@ Una vez ejecutado el script, debería tener una carpeta de destino local que inc
 
 ### Conexión a su suscripción de Azure
 
-Aunque la mayoría de los comandos de almacenamiento funcionarán sin suscripción a Azure, es aconsejable que se conecte a su suscripción desde la CLI de Azure. Para configurar la CLI de Azure para que funcione con su suscripción, siga los pasos que se indican en [Conexión con su suscripción de Azure](../xplat-cli-install.md#how-to-connect-to-your-azure-subscription).
+Aunque la mayoría de los comandos de almacenamiento funcionarán sin suscripción a Azure, es aconsejable que se conecte a su suscripción desde la CLI de Azure. Para configurar la CLI de Azure para que funcione con su suscripción, siga los pasos en [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md).
 
 ### Creación de una cuenta de almacenamiento nueva
 
@@ -121,7 +121,7 @@ A continuación, copie la cadena de conexión de salida y establézcala como var
 
 ## Creación y administración de blobs
 
-El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS. En esta sección se supone que ya está familiarizado con los conceptos del almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso del almacenamiento de blobs de .NET](storage-dotnet-how-to-use-blobs.md) y [Conceptos del servicio Blob](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS. En esta sección se supone que ya está familiarizado con los conceptos del almacenamiento de blobs de Azure. Para obtener más información, consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md) y [Conceptos del servicio Blob](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ### Crear un contenedor
 
@@ -129,11 +129,11 @@ Todos los blobs del almacenamiento de Azure han de estar en un contenedor. Puede
 
         azure storage container create mycontainer
 
-> [AZURE.NOTE] Existen tres niveles de acceso de lectura anónimo: **Desactivado**, **Blob** y **Contenedor**. Para evitar el acceso anónimo a los blobs, establezca el parámetro de permiso en **Desactivado**. El nuevo contenedor es privado por defecto y solo puede acceder a él el propietario de la cuenta. Para permitir un acceso de lectura público y anónimo a los recursos de blob, pero no a los metadatos del contenedor ni a la lista de blobs del contenedor, seleccione **Blob** en el parámetro Permiso. Para hacer que el acceso de lectura a los recursos de blob, a los metadatos del contenedor y a la lista de blobs del contenedor sean totalmente públicos, elija **Contenedor** en el parámetro Permiso. Para obtener más información, consulte [Administración del acceso a los recursos de Almacenamiento de Azure](storage-manage-access-to-resources.md).
+> [AZURE.NOTE] Existen tres niveles de acceso de lectura anónimo: **Desactivado**, **Blob** y **Contenedor**. Para evitar el acceso anónimo a los blobs, establezca el parámetro de permiso en **Desactivado**. El nuevo contenedor es privado por defecto y solo puede acceder a él el propietario de la cuenta. Para permitir un acceso de lectura público y anónimo a los recursos de blob, pero no a los metadatos del contenedor ni a la lista de blobs del contenedor, seleccione **Blob** en el parámetro Permiso. Para hacer que el acceso de lectura a los recursos de blob, a los metadatos del contenedor y a la lista de blobs del contenedor sean totalmente públicos, elija **Contenedor** en el parámetro Permiso. Para obtener más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md).
 
 ### Cargar un blob en un contenedor
 
-El almacenamiento de blobs de Azure admite blobs en bloques y en páginas. Para obtener más información, consulte [Introducción a los blobs en bloques y a los blobs en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+El almacenamiento de blobs de Azure admite blobs en bloques y en páginas. Para obtener más información, consulte [Introducción a los blobs en bloques, los blobs de anexión y los blobs en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 Para cargar blobs en un contenedor, puede utilizar `azure storage blob upload`. Este comando carga de forma predeterminada los archivos locales a un blob en bloque. Para especificar el tipo de blob, puede usar el parámetro `--blobtype`.
 
@@ -169,7 +169,7 @@ Para eliminar un blob, use el siguiente comando:
 
 ## Creación y administración de recursos compartidos de archivos
 
-El Almacenamiento de archivos de Azure ofrece almacenamiento compartido para aplicaciones que usan el protocolo SMB estándar. Los servicios en la nube y las máquinas virtuales de Microsoft Azure, así como las aplicaciones locales, pueden compartir datos de archivos a través de recursos compartidos montados. Los recursos compartidos de archivos y datos de archivos se pueden administrar a través de la CLI de Azure. Para obtener más información sobre el Almacenamiento de archivos de Azure, consulte [Uso de Almacenamiento de archivos de Azure con Windows](storage-dotnet-how-to-use-files) o [Uso de Almacenamiento de archivos de Azure con Linux](storage-how-to-use-files-linux.md).
+El Almacenamiento de archivos de Azure ofrece almacenamiento compartido para aplicaciones que usan el protocolo SMB estándar. Los servicios en la nube y las máquinas virtuales de Microsoft Azure, así como las aplicaciones locales, pueden compartir datos de archivos a través de recursos compartidos montados. Los recursos compartidos de archivos y datos de archivos se pueden administrar a través de la CLI de Azure. Para obtener más información sobre el Almacenamiento de archivos de Azure, consulte [Introducción a Almacenamiento de archivos de Azure en Windows](storage-dotnet-how-to-use-files.md) o [Uso de Almacenamiento de archivos de Azure con Linux](storage-how-to-use-files-linux.md).
 
 ### Creación de un recurso compartido de archivos
 
@@ -221,4 +221,4 @@ A continuación encontrará algunos artículos relacionados y recursos para obte
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

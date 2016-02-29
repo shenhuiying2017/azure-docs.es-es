@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="02/17/2016"
     ms.author="liviodlc"/>
 
 #Tutorial: Integración de Google Apps con Azure Active Directory
@@ -22,7 +22,7 @@ Este tutorial le mostrará cómo conectar el entorno de Google Apps a Azure Acti
 
 ##Requisitos previos
 
-1. Para obtener acceso a Azure Active Directory a través del [Portal de administración de Azure](https://manage.windowsazure.com), primero debe tener una suscripción de Azure válida.
+1. Para acceder a Azure Active Directory a través del [Portal de Azure clásico](https://manage.windowsazure.com), primero debe tener una suscripción de Azure válida.
 
 2. Debe tener un inquilino válido para [Google Apps para trabajo](https://www.google.com/work/apps/) o [Google Apps para educación](https://www.google.com/edu/products/productivity-tools/). Puede usar una cuenta de prueba gratuita de cualquiera de los servicios.
 
@@ -32,9 +32,27 @@ Habilitación del inicio de sesión único en Google Apps en 2 minutos:
 
 > [AZURE.VIDEO enable-single-sign-on-to-google-apps-in-2-minutes-with-azure-ad]
 
+##Preguntas frecuentes
+
+1. **P: ¿Son los Chromebooks y otros dispositivos Chrome compatibles con el inicio de sesión único de Azure AD?**
+
+	R: Sí, los usuarios podrán iniciar sesión en sus dispositivos Chromebook con sus credenciales de Azure AD. Consulte este [artículo de soporte técnico de Google Apps](https://support.google.com/chrome/a/answer/6060880) para información sobre por qué puede que se pidan las credenciales a los usuarios dos veces.
+
+2. **P: Si se habilita el inicio de sesión único, ¿podrán usar los usuarios sus credenciales de Azure AD para iniciar sesión en cualquier producto de Google, como Google Classroom, GMail, Google Drive, YouTube, etc.?**
+
+	R: Sí, en función de [qué aplicaciones de Google](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) decida habilitar o deshabilitar para su organización.
+
+3. **P: ¿Puedo habilitar el inicio de sesión único solo para un subconjunto de mis usuarios de Google Apps?**
+
+	R: No; si activa el inicio de sesión único, será necesario de inmediato que todos los usuarios de Google Apps se autentiquen con sus credenciales de Azure AD. Dado que Google Apps no admite tener varios proveedores de identidades, el proveedor de identidades para su entorno de Google Apps puede ser Azure AD o Google, pero no ambos al mismo tiempo.
+
+4. **P: Si un usuario ha iniciado sesión a través de Windows, ¿se autenticará automáticamente en Google Apps sin que se le pida una contraseña?**
+
+	R: Hay dos opciones para habilitar este escenario. En primer lugar, los usuarios podrían iniciar sesión en dispositivos Windows 10 a través de [Azure Active Directory Join](active-directory-azureadjoin-overview.md). Como alternativa, los usuarios podrían iniciar sesión en dispositivos Windows que están unidos a un dominio en un entorno Active Directory local que se ha habilitado para el inicio de sesión único en Azure AD a través de una implementación de los [Servicios de federación de Active Directory (AD FS)](active-directory-aadconnect-user-signin.md). Por supuesto, ambas opciones requieren que realice el tutorial siguiente para permitir el inicio de sesión único entre Azure AD y Google Apps.
+
 ##Paso 1: Adición de Google Apps a su directorio
 
-1. En el panel de navegación izquierdo del [Portal de administración de Azure](https://manage.windowsazure.com), haga clic en **Active Directory**.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com), en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Seleccione Active Directory en el panel de navegación izquierdo.][0]
 
@@ -176,7 +194,7 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
 
 4. Si no ha agregado un nombre de dominio personalizado para Azure Active Directory todavía, siga estos pasos:
 
-	- En el panel de navegación izquierdo del [Portal de administración](https://manage.windowsazure.com) de Azure, haga clic en **Active Directory**. En la lista de directorios, seleccione el directorio. 
+	- En el [Portal de Azure clásico](https://manage.windowsazure.com), en el panel de navegación izquierdo, haga clic en **Active Directory**. En la lista de directorios, seleccione el directorio. 
 
 	- Haga clic en **Dominios** en el menú de nivel superior y, a continuación, haga clic en **Agregar un dominio personalizado**.
 
@@ -295,4 +313,4 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

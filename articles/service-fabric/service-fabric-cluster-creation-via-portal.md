@@ -72,9 +72,8 @@ Esta página le ayuda a configurar un clúster de Service Fabric. La suscripció
 
 	b. Agregue todos los puertos, separados por comas, en el campo **Puntos de conexión de entrada de la aplicación**. El punto de conexión del cliente TCP es 19000 de forma predeterminada, por lo que no es necesario especificarlo. Por ejemplo, la aplicación de ejemplo WordCount necesita que el puerto 83 esté abierto. Se encuentra en el archivo servicemanifest.xml del paquete de aplicación. (Puede haber más de un archivo servicemanifest.xml).
 
-    c. La mayoría de las aplicaciones de ejemplo usan los puertos 80 y 8081, así que agréguelos si planea implementar ejemplos en este clúster. 
+    c. La mayoría de las aplicaciones de ejemplo usan los puertos 80 y 8081, así que agréguelos si planea implementar ejemplos en este clúster. ![Puertos][Ports]
 
-  ![Puertos][Ports]
 10. No necesita configurar **Propiedades de colocación** porque el sistema agrega una propiedad de colocación predeterminada de "NodeTypeName". Puede agregar más si así lo requiere la aplicación.
 
 ## Configuración de seguridad
@@ -113,13 +112,13 @@ Una vez finalizada la implementación, puede inspeccionar el clúster en el port
 
 1. Vaya a **Examinar** y haga clic en **Clústeres de Service Fabric**.
 
-2. Busque el clúster y haga clic en él. 
+2. Busque el clúster y haga clic en él. ![Captura de pantalla de la identificación del clúster en el portal.][BrowseCluster]
 
-![Captura de pantalla de la identificación del clúster en el portal.][BrowseCluster]
-3. Ahora puede ver los detalles del clúster en el panel, incluida la dirección de IP pública del clúster. Tenga en cuenta que al mantener el mouse sobre **Dirección IP pública del clúster** aparecerá un portapapeles en el que puede hacer clic para copiar la dirección. 
+3. Ahora puede ver los detalles del clúster en el panel, incluida la dirección de IP pública del clúster. Tenga en cuenta que al mantener el mouse sobre **Dirección IP pública del clúster** aparecerá un portapapeles en el que puede hacer clic para copiar la dirección. ![Captura de pantalla de los detalles del clúster en el panel.][ClusterDashboard]
 
-![Captura de pantalla de los detalles del clúster en el panel.][ClusterDashboard]
   En la sección **Monitor de nodo** de la hoja del panel del clúster se indica el número de máquinas virtuales correctas e incorrectas. Puede encontrar más detalles sobre el estado del clúster en la [introducción al modelo de estado de Service Fabric](service-fabric-health-introduction.md).
+
+>[AZURE.NOTE] Los clústeres de Service Fabric requieren que un cierto número de nodos estén activos en todo momento con el fin de mantener la disponibilidad y conservar el estado (esto se conoce como "mantenimiento del cuórum"). Por lo tanto, normalmente no es seguro apagar todas las máquinas del clúster a menos que antes haya realizado una [copia de seguridad completa del estado](service-fabric-reliable-services-backup-restore.md).
 
 ## Conexión al clúster e implementación de una aplicación
 
@@ -208,4 +207,4 @@ Ahora que ya está conectado, ejecute los siguientes comandos para implementar s
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->
