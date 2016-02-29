@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/11/2016"
 	ms.author="donnam"/>
 
 # Uso de la sincronización de datos sin conexión en servicios móviles
@@ -34,7 +34,7 @@ La sincronización sin conexión tiene varios usos posibles:
 * Permitir a los usuarios finales crear y modificar datos incluso cuando no hay acceso de red, proporcionando escenarios con muy poca o ninguna conectividad.
 * Sincronizar datos entre diferentes dispositivos y detectar conflictos cuando dos dispositivos modifican el mismo registro.
 
->[AZURE.NOTE]Necesita una cuenta de Azure para completar este tutorial. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure</a>.
+>[AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure</a>.
 >
 > Si es su primera experiencia con Servicios móviles, primero deberá completar el tutorial [Introducción a los Servicios móviles].
 
@@ -98,7 +98,7 @@ La sincronización sin conexión de Servicios móviles de Azure permite a los us
 
     En este ejemplo, recuperamos todos los registros de la tabla `TodoItem` remota, pero también es posible filtrar registros pasando una consulta. El primer parámetro para `PullAsync()` es un identificador de consulta que se utiliza en la sincronización incremental, que utiliza la marca de tiempo `UpdatedAt` para obtener solo aquellos registros modificados desde la última sincronización. El identificador de la consulta debe ser una cadena descriptiva que sea única para cada consulta lógica en la aplicación. Para la desactivación de la sincronización incremental, pase `null` como identificador de la consulta. Así se recuperarán todos los registros de cada operación de extracción, lo cual es potencialmente ineficaz.
 
-    >[AZURE.NOTE]Para quitar registros del almacén local del dispositivo cuando se han eliminado de la base de datos del servicio móvil, debe habilitar la [eliminación temporal]. De lo contrario, la aplicación podría llamar periódicamente a `IMobileServiceSyncTable.PurgeAsync()` para purgar el almacén local.
+    >[AZURE.NOTE] Para quitar registros del almacén local del dispositivo cuando se han eliminado de la base de datos del servicio móvil, debe habilitar la [eliminación temporal]. De lo contrario, la aplicación podría llamar periódicamente a `IMobileServiceSyncTable.PurgeAsync()` para purgar el almacén local.
 
     Tenga en cuenta que `MobileServicePushFailedException` puede producirse por una operación de inserción y una de extracción. El siguiente tutorial, [Control de conflictos con compatibilidad sin conexión para servicios móviles], muestra cómo manejar estas excepciones relacionadas con la sincronización.
 
@@ -176,4 +176,4 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
 [Portal de Azure clásico]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

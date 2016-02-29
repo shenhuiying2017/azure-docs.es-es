@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="jodebrui"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/28/2015"
+	ms.date="02/11/2016"
 	ms.author="jodebrui"/>
 
 
@@ -58,4 +58,4 @@ Para resolver este error, haga uno de los siguientes:
 ## Pasos siguientes
 Obtenga más información acerca de [Supervisión de Base de datos SQL de Azure con vistas de administración dinámica](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

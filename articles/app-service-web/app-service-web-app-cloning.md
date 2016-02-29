@@ -87,7 +87,7 @@ Escenario: El usuario desea clonar una aplicación web en otra región, al mismo
 
 ### Incorporación de una nueva aplicación web clonada a un perfil del Administrador de tráfico existente ###
 
-Escenario: El usuario ya tiene un perfil del Administrador de tráfico de ARM al que le gustaría agregar ambas aplicaciones web como puntos de conexión. Para hacerlo, primero es necesario ensamblar el identificador del perfil del Administrador de tráfico existente; se necesitará el identificador de la suscripción, el nombre del grupo de recursos y el nombre del perfil del Administrador de tráfico existente.
+Escenario: el usuario ya tiene un perfil de Administrador de tráfico de ARM al que quiere agregar tanto aplicaciones web como puntos de conexión. Para hacerlo, primero es necesario ensamblar el identificador del perfil del Administrador de tráfico existente; se necesitará el identificador de la suscripción, el nombre del grupo de recursos y el nombre del perfil del Administrador de tráfico existente.
 
     $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"
 
@@ -114,4 +114,4 @@ Esta característica se encuentra actualmente en versión preliminar y estamos t
 - [Introducción al entorno del Servicio de aplicaciones](app-service-app-service-environment-intro.md)
 - [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

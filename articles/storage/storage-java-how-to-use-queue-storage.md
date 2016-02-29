@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/16/2016"
 	ms.author="micurd"/>
 
 # Uso del almacenamiento de colas de Java
@@ -22,7 +22,7 @@
 
 ## Información general
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento en cola de Azure. Los ejemplos están escritos en Java y utilizan el [SDK de almacenamiento de Azure para Java][]. Entre los escenarios descritos se incluyen **insertar**, **ojear**, **obtener** y **eliminar** mensajes de la cola, así como **crear** y **eliminar** colas. Para obtener más información sobre las colas, consulte la sección [Pasos siguientes](#NextSteps).
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento en cola de Azure. Los ejemplos están escritos en Java y utilizan el [SDK de almacenamiento de Azure para Java][]. Entre los escenarios descritos se incluyen **insertar**, **ojear**, **obtener** y **eliminar** mensajes de la cola, así como **crear** y **eliminar** colas. Para obtener más información sobre las colas, consulte la sección [Pasos siguientes](#Next-Steps).
 
 Nota: hay un SDK disponible para los desarrolladores que usen el almacenamiento de Azure en dispositivos Android. Para obtener más información, vea el [SDK de almacenamiento de Azure para Android][].
 
@@ -381,7 +381,7 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 
 - [SDK de almacenamiento de Azure para Java][]
 - [Referencia del SDK de cliente de almacenamiento de Azure][]
-- [API de REST de almacenamiento de Azure][]
+- [API de REST de servicios de almacenamiento de Azure][]
 - [Blog del equipo de almacenamiento de Azure][]
 
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
@@ -389,7 +389,7 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 [SDK de almacenamiento de Azure para Android]: https://github.com/azure/azure-storage-android
 [Referencia del SDK de cliente de almacenamiento de Azure]: http://dl.windowsazure.com/storage/javadoc/
 [SDK de cliente de almacenamiento de Azure]: http://dl.windowsazure.com/storage/javadoc/
-[API de REST de almacenamiento de Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
+[API de REST de servicios de almacenamiento de Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

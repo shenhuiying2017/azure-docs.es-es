@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/22/2016"
+   ms.date="02/17/2016"
    ms.author="alkohli" />
 
 # Usar la interfaz de usuario web para administrar la matriz virtual de StorSimple (vista previa)
@@ -94,7 +94,7 @@ Un paquete de registro contiene todos los registros relevantes que pueden ayudar
 
 ## Apagar y reiniciar el dispositivo
 
-Puede apagar o reiniciar el dispositivo virtual mediante la interfaz de usuario web local.
+Puede apagar o reiniciar el dispositivo virtual mediante la interfaz de usuario web local. Se recomienda que antes de reiniciar, desconecte los volúmenes o recursos compartidos en el host y, luego, el dispositivo. Esto minimizará la posibilidad de daños en los datos.
 
 #### Apagar el dispositivo virtual
 
@@ -136,4 +136,4 @@ Puede apagar o reiniciar el dispositivo virtual mediante la interfaz de usuario 
 
 Obtenga más información sobre cómo [usar el servicio StorSimple Manager para administrar su dispositivo](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

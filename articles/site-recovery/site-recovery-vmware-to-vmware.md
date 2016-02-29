@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configuración de la protección entre sitios de VMware locales"
-	description="Use este artículo para configurar la protección entre dos sitios de VMware mediante Azure Site Recovery."
+	pageTitle="Replicación de máquinas virtuales locales de VMware o de servidores físicos en un sitio secundario | Microsoft Azure"
+	description="Use este artículo para replicar máquinas virtuales de VMware o servidores físicos de Windows o Linux en un sitio secundario con Azure Site Recovery."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/16/2016"
 	ms.author="raynew"/>
 
 
-# Configuración de la protección entre sitios de VMware locales
+# Replicación de máquinas virtuales locales de VMware o de servidores físicos en un sitio secundario
 
 
 ## Información general
@@ -27,7 +27,7 @@ InMage Scout en Azure Site Recovery proporciona características de replicación
 
 ## Requisitos previos
 
-- **Cuenta de Azure**: necesitará una cuenta de [Microsoft Azure](https://azure.microsoft.com/). Puede comenzar con una [evaluación gratuita](pricing/free-trial/).
+- **Cuenta de Azure**: necesitará una cuenta de [Microsoft Azure](https://azure.microsoft.com/). Puede comenzar con una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/). [Más información](https://azure.microsoft.com/pricing/details/site-recovery/) sobre los precios de Site Recovery.
 
 
 ## Paso 1: Creación de un almacén
@@ -36,7 +36,7 @@ InMage Scout en Azure Site Recovery proporciona características de replicación
 2. Haga clic en **Servicios de datos** > **Servicios de recuperación** y **Almacén de Site Recovery**.
 3. Haga clic en **Crear nuevo** > **Creación rápida**.
 4. En **Nombre**, escriba un nombre descriptivo para identificar el almacén.
-5. En **Región**, seleccione la región geográfica del almacén. Para comprobar las regiones admitidas, consulte Disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](pricing/details/site-recovery/).
+5. En **Región**, seleccione la región geográfica del almacén. Para comprobar las regiones admitidas, consulte Disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 Compruebe la barra de estado para confirmar que el almacén se ha creado correctamente. El almacén aparecerá como **Activo** en la página principal de Servicios de recuperación.
 
@@ -130,4 +130,4 @@ Esta última actualización incluye correcciones de errores y características n
 
 Publique cualquier pregunta en el [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

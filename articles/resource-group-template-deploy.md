@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="02/17/2016"
    ms.author="tomfitz"/>
 
 # Implementación de una aplicación con la plantilla del Administrador de recursos de Azure
@@ -107,6 +107,8 @@ El tipo de implementación se especifica a través de la propiedad **Mode**, com
           Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
           included in the template will be deleted.
           [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+
+     Si la plantilla incluye un parámetro con un nombre que coincide con el de uno de los parámetros del comando utilizado para implementar la plantilla (por ejemplo, incluye un parámetro denominado **ResourceGroupName** en la plantilla y este parámetro es el mismo que el parámetro **ResourceGroupName** del cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), se le pedirá que proporcione un valor para un parámetro con el sufijo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Por lo general, debe evitar esta confusión no nombrando los parámetros con el mismo nombre que los parámetros utilizados para operaciones de implementación.
 
 6. Para obtener información acerca de los errores de la implementación.
 
@@ -271,7 +273,7 @@ Si utiliza un archivo de parámetros para pasar los valores de parámetro a la p
 
 El tamaño del archivo de parámetros no puede ser superior a 64 KB.
 
-Para definir parámetros de plantilla, consulte [Creación de plantillas](../resource-group-authoring-templates/#parameters). Para obtener más información acerca de la referencia de KeyVault para pasar valores seguros, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
+Para definir parámetros de plantilla, consulte [Creación de plantillas](../resource-group-authoring-templates/#parameters). Para más información sobre la referencia de KeyVault para pasar valores seguros, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
 
 ## Pasos siguientes
 - Para un ejemplo de cómo implementar los recursos a través de la biblioteca cliente .NET, vea [Implementación de recursos mediante bibliotecas de .NET y una plantilla](./virtual-machines/arm-template-deployment.md).
@@ -282,4 +284,4 @@ Para definir parámetros de plantilla, consulte [Creación de plantillas](../res
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

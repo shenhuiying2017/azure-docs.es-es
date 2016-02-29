@@ -299,8 +299,8 @@ En este tutorial, ha aprendido cómo configurar la replicación de HBase entre d
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication/HDInsight.HBase.Replication.Network.diagram.png
 
-[powershell-install]: ../install-configure-powershell.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
+[powershell-install]: powershell-install-configure.md
+[hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-hbase-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
@@ -309,6 +309,5 @@ En este tutorial, ha aprendido cómo configurar la replicación de HBase entre d
 [hdinsight-sensor-data]: hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

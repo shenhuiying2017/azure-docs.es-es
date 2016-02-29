@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="02/16/2016" 
 	ms.author="jeffstok"
 />
 
@@ -37,7 +37,7 @@ Después de completar este tutorial, estará capacitado para lo siguiente:
 
 Necesitará los siguientes requisitos previos antes de realizar este tutorial
 
--   Versión más recientes de [Azure PowerShell](../install-configure-powershell.md).
+-   La versión más reciente de [Azure PowerShell](../powershell-install-configure.md)
 -   Visual Studio 2015 o la versión de [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx).
 -   [Suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/)
 -   Privilegios administrativos en el equipo.
@@ -150,7 +150,7 @@ Se puede usar el script Setup.ps1 de la carpeta TollApp en GitHub para crear tod
 
 Descargue y guarde el soporte los archivos y carpetas de [TollApp](https://github.com/streamanalytics/samples/releases) compatibles. Asegúrese de descargar la versión más reciente.
 
-Abra una ventana "Microsoft Azure PowerShell" **COMO ADMINISTRADOR**. Si aún no tiene Azure PowerShell, siga estas instrucciones: [Cómo instalar y configurar Azure PowerShell](../install-configure-powershell.md).
+Abra una ventana "Microsoft Azure PowerShell" **COMO ADMINISTRADOR**. Si aún no tiene Azure PowerShell, siga estas instrucciones: [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
 
 Windows bloquea automáticamente los archivos .ps1, .dll y .exe descargados de Internet. Es necesario establecer la directiva de ejecución antes de ejecutar el script. Asegúrese de ejecutar la ventana de Azure PowerShell como administrador. Ejecute "Set-ExecutionPolicy unrestricted". Cuando se le solicite, escriba "Y".
 
@@ -534,4 +534,4 @@ Tenga en cuenta que los recursos se identifican por el nombre. Asegúrese de rev
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -47,7 +47,7 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
  
 - **Sistema operativos**
 
-	Puede aprovisionar clústeres de HDInsight en uno de los dos sistemas operativos siguientes: - **HDInsight en Windows (Windows Server 2012 R2 Datacenter)**: - **HDInsight en Linux (Ubuntu 12.04 LTS para Linux) (vista previa)**: HDInsight ofrece la opción de configurar clústeres de Linux en Azure. Configure un clúster de Linux si conoce Linux o Unix, migrando desde una solución existente de Hadoop basado en Linux, o si desea una integración fácil con componentes del ecosistema de Hadoop creados para Linux. Para obtener más información, vea [Introducción a Hadoop en Linux en HDInsight](hdinsight-hadoop-linux-get-started.md).
+	Puede aprovisionar clústeres de HDInsight en uno de los dos sistemas operativos siguientes: - **HDInsight en Windows (Windows Server 2012 R2 Datacenter)**: - **HDInsight en Linux (Ubuntu 12.04 LTS para Linux)**: HDInsight ofrece la opción de configurar clústeres de Linux en Azure. Configure un clúster de Linux si conoce Linux o Unix, migrando desde una solución existente de Hadoop basado en Linux, o si desea una integración fácil con componentes del ecosistema de Hadoop creados para Linux. Para obtener más información, vea [Introducción a Hadoop en Linux en HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 
 - **Versión de HDInsight**
@@ -61,7 +61,7 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 	- Clústeres de Hadoop: para cargas de trabajo de consulta y análisis
 	- Clústeres de HBase: para cargas de trabajo NoSQL
 	- Clústeres de Storm: para cargas de trabajo de procesamiento de eventos en tiempo real
-	- Clústeres de Spark (vista previa): para procesamiento en memoria, consultas interactivas, transmisiones y cargas de trabajo de aprendizaje automático
+	- Clústeres de Spark: para procesamiento en memoria, consultas interactivas, transmisiones y cargas de trabajo de aprendizaje automático
 
 	![Clústeres de HDInsight](./media/hdinsight-provision-clusters-v1/hdinsight.clusters.png)
  
@@ -135,7 +135,7 @@ Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 	
 	>[AZURE.WARNING] No comparta un contenedor de almacenamiento de blobs para varios clústeres, ya que no es compatible.
 	
-	Para obtener más información sobre el uso de almacenes de blobs secundarios, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](hdinsight-use-blob-storage.md).
+	Para obtener más información sobre el uso de almacenes de blobs secundarios, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 - **Tienda de metadatos Hive/Oozie**
 
@@ -285,7 +285,7 @@ Puede revisar la sección [opciones de configuración básica] y la sección [op
 	Puede agregar más de una acción de script para instalar varios componentes en el clúster. Una vez agregados los scripts, haga clic en la marca de verificación para iniciar el aprovisionamiento del clúster.
 
 ### Uso de Azure PowerShell
-Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. Esta sección proporciona instrucciones sobre cómo aprovisionar un clúster de HDInsight con Azure PowerShell. Para obtener información sobre la configuración de una estación de trabajo para que ejecute cmdlets de HDInsight Windows PowerShell, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md). Para obtener más información sobre el uso de Azure PowerShell con HDInsight, consulte [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md). Para obtener una lista de los cmdlets de HDInsight Windows PowerShell, consulte [Documentación de referencia de los cmdlets de HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
+Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. Esta sección proporciona instrucciones sobre cómo aprovisionar un clúster de HDInsight con Azure PowerShell. Para obtener información sobre la configuración de una estación de trabajo para que ejecute cmdlets de HDInsight Windows PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). Para obtener más información sobre el uso de Azure PowerShell con HDInsight, consulte [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md). Para obtener una lista de los cmdlets de HDInsight Windows PowerShell, consulte [Documentación de referencia de los cmdlets de HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
 > [AZURE.NOTE] Si bien los scripts de esta sección se pueden usar para configurar un clúster de HDInsight en una red virtual de Azure, no crearán una red virtual de Azure. Para obtener información sobre la creación de una red virtual de Azure, consulte [Tareas de configuración de la red virtual](../services/virtual-machines/).
 
@@ -565,7 +565,7 @@ HDInsight utiliza contenedores de almacenamiento de blobs de Azure como sistemas
 
 	Cuando se le pida una ubicación, seleccione aquella en la que se puede aprovisionar el clúster de HDInsight. El almacenamiento debe encontrarse en la misma ubicación que el clúster de HDInsight. Actualmente, solo las regiones **Asia oriental**, **Sudeste de Asia**, **Norte de Europa**, **Oeste de Europa**, **Este de EE. UU.**, **Oeste de EE. UU.**, **Centro y norte de EE. UU.** y **Centro y sur de EE. UU.** pueden hospedar clústeres de HDInsight.
 
-Para obtener información sobre la creación de una cuenta de almacenamiento de Azure mediante el Portal de Azure clásico, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](../storage-create-storage-account.md).
+Para obtener información sobre la creación de una cuenta de almacenamiento de Azure mediante el Portal de Azure clásico, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md).
 
 Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, puede usar los comandos siguientes para recuperar dicha información:
 
@@ -578,7 +578,7 @@ Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, pue
 	-- Lists the keys for a Storage account
 	azure storage account keys list <StorageAccountName>
 
-Para saber cómo obtener la información mediante el portal de Azure clásico, vea la sección *Procedimiento: ver, copiar y regenerar claves de acceso de almacenamiento* de [Crear, administrar o eliminar una cuenta de almacenamiento](../storage-create-storage-account.md).
+Para saber cómo obtener la información mediante el portal de Azure clásico, vea la sección *Procedimiento: ver, copiar y regenerar claves de acceso de almacenamiento* de [Crear, administrar o eliminar una cuenta de almacenamiento](../storage/storage-create-storage-account.md).
 
 Un clúster de HDInsight también requiere un contenedor dentro de una cuenta de almacenamiento. Si la cuenta de almacenamiento que proporciona todavía no tiene un contenedor, el comando *azure hdinsight cluster create* le pide un nombre de contenedor y también lo crea. Sin embargo, si opta por crear el contenedor antes, puede usar el comando siguiente:
 
@@ -791,7 +791,7 @@ Mientras la aplicación está abierta en Visual Studio, presione **F5** para eje
 ##<a id="nextsteps"></a> Pasos siguientes
 En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varias formas. Para obtener más información, consulte los artículos siguientes:
 
-* [Introducción a HDInsight de Azure](hdinsight-get-started.md): aprenda a empezar a trabajar con su clúster de HDInsight
+* [Introducción a HDInsight de Azure](hdinsight-hadoop-linux-tutorial-get-started.md): aprenda a empezar a trabajar con su clúster de HDInsight
 * [Uso de Sqoop con HDInsight](hdinsight-use-sqoop.md): aprenda copiar datos entre HDInsight y Base de datos SQL o SQL Server
 * [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md): aprenda a trabajar con HDInsight mediante PowerShell
 * [Envío de trabajos de Hadoop mediante programación](hdinsight-submit-hadoop-jobs-programmatically.md): aprenda a enviar trabajos a HDInsight mediante programación
@@ -801,4 +801,4 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

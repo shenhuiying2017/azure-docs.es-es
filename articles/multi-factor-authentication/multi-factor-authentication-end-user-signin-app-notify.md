@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Inicio de sesión en la aplicación móvil mediante notificación con Azure Multi-Factor Authentication
@@ -38,4 +38,4 @@ La siguiente información describe la experiencia de uso de la autenticación mu
 
 <li>Con esto debe haber iniciado sesión.</li>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

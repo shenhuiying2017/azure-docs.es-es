@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="02/12/2016"
 	ms.author="raymondl;garye"/>
 
 
@@ -96,6 +96,8 @@ Diagrama 1: Descripción del proceso de reentrenamiento
 
 7. *Actualizar modelo entrenado del punto de conexión agregado* Para completar el proceso, es preciso actualizar el modelo entrenado del punto de conexión predicativo creado en el paso 4 anterior.
 
+	(Si ha agregado el nuevo punto de conexión mediante el Portal de Azure, puede hacer clic en el nombre del nuevo punto de conexión y luego en el vínculo UpdateResource para obtener la dirección URL que necesitará para actualizar el modelo del punto de conexión).
+
 	La salida de BES anterior muestra la información del resultado de reentrenamiento de "output1", que contiene la información de ubicación del modelo reentrenado. Ahora necesitamos tomar este modelo entrenado y actualizar el extremo de puntuación (creado en el paso 4). El código de ejemplo es el siguiente:
 
 	```C#
@@ -138,7 +140,7 @@ Diagrama 1: Descripción del proceso de reentrenamiento
 	}
 	```
 
-	"apiKey" y "endpointUrl" para esta llamada están visibles en el panel del extremo.
+	"apiKey" y "endpointUrl" para esta llamada están visibles en el panel del extremo. El parámetro "Name" de los recursos debe coincidir con el nombre del modelo entrenado guardado en el experimento predictivo.
 
 	Con esta llamada realizada correctamente, se iniciará el nuevo extremo mediante un modelo reentrenado aproximadamente en 15 segundos.
 
@@ -156,4 +158,4 @@ Al usar las API de reentrenamiento, podemos actualizar el modelo entrenado de un
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

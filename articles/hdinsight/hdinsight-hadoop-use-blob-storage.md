@@ -71,7 +71,7 @@ Varios trabajos de WebHCat, incluidos Hive, MapReduce, streaming de Hadoop y Pig
 El almacenamiento de blobs puede usarse para datos estructurados y no estructurados. Los contenedores del almacenamiento de blobs almacenan los datos como pares de clave/valor y no hay jerarquía de directorios. No obstante, el carácter de barra diagonal ( / ) se puede usar en el nombre de la clave para que parezca que el archivo está almacenado dentro de una estructura de directorios. Por ejemplo, la clave de un blob puede ser *input/log1.txt*. No hay directorios *input*, pero dada la presencia del carácter de barra diagonal en el nombre de la clave, parece la ruta de un archivo.
 
 ###<a id="benefits"></a>Ventajas del almacenamiento de blobs
-El costo de rendimiento implícito por no tener ubicados juntos los recursos de almacenamiento y clústeres de proceso se ve mitigado por el modo en que los clústeres de proceso se crean cerca de los recursos de la cuenta de almacenamiento, dentro del centro de datos de Azure, donde la red de alta velocidad consigue que los nodos de proceso sean muy eficientes en el acceso a los datos del almacenamiento de blobs de Azure.
+El costo de rendimiento implícito por no tener ubicados juntos los recursos de almacenamiento y clústeres de proceso se ve mitigado por el modo en que los clústeres de proceso se crean cerca de los recursos de la cuenta de almacenamiento dentro de la región de Azure, donde la red de alta velocidad consigue que los nodos de proceso sean muy eficientes en el acceso a los datos del Almacenamiento de blobs de Azure.
 
 Hay varias ventajas asociadas al almacenamiento de datos en el almacenamiento de blobs de Azure en lugar de utilizar HDFS:
 
@@ -87,7 +87,7 @@ Determinados trabajos y paquetes de MapReduce podrían crear resultados intermed
 
 ## Creación de contenedores de blobs
 
-Para usar blobs, en primer lugar debe crear una [cuenta de almacenamiento de Azure][azure-storage-create]. Como parte de este proceso, debe especificar un centro de datos de Azure que almacenará los objetos que cree con esta cuenta. El clúster y la cuenta de almacenamiento deben ubicarse en el mismo centro de datos. La base de datos de SQL Server de la tienda de metadatos de Hive y la base de datos de SQL Server de la tienda de metadatos de Oozie también deben encontrarse en el mismo centro de datos.
+Para usar blobs, en primer lugar debe crear una [cuenta de almacenamiento de Azure][azure-storage-create]. Como parte de este proceso, debe especificar una región de Azure que almacenará los objetos que cree con esta cuenta. El clúster y la cuenta de almacenamiento deben ubicarse en la misma región. La base de datos de SQL Server de la tienda de metadatos Hive y la base de datos de SQL Server de la tienda de metadatos Oozie también deben encontrarse en la misma región.
 
 Cualquiera que sea su ubicación, todos los blobs que cree pertenecerán a un contenedor de su cuenta de almacenamiento de Azure. Este contenedor puede ser un blob existente creado fuera de HDInsight, o bien un contenedor que se crea para un clúster de HDInsight.
 
@@ -155,7 +155,7 @@ El esquema URI para obtener acceso a los archivos del almacenamiento de blobs de
 
 
 
-El esquema URI proporciona acceso sin cifrar (con el prefijo *wasb:*) y acceso cifrado SSL con *wasbs*). Se recomienda usar *wasbs* siempre que sea posible, incluso al acceder a los datos que se encuentran en el mismo centro de datos de Azure.
+El esquema URI proporciona acceso sin cifrar (con el prefijo *wasb:*) y acceso cifrado SSL con *wasbs*). Se recomienda usar *wasbs* siempre que sea posible, incluso al acceder a los datos que se encuentran en la misma región de Azure.
 
 El valor de &lt;BlobStorageContainerName&gt; identifica el nombre del contenedor de almacenamiento de blobs de Azure. El valor de &lt;StorageAccountName&gt; identifica el nombre de la cuenta de almacenamiento de Azure. Se necesita el nombre completo de dominio (FQDN).
 
@@ -286,7 +286,7 @@ Para más información, consulte:
 * [Utilización de firmas de acceso compartido de Almacenamiento de Azure para restringir el acceso a datos con HDInsight][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: powershell-install-configure.md
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -300,4 +300,4 @@ Para más información, consulte:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

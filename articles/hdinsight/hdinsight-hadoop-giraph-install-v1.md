@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="02/12/2016" 
 	ms.author="nitinme"/>
 
 # Instalar Giraph en clústeres de Hadoop de HDInsight y usar Giraph para procesar gráficos a gran escala
@@ -28,7 +28,7 @@ Puede instalar Giraph en cualquier tipo de clúster (Hadoop, Storm, HBase, Spark
 - [Instalación de Giraph en clústeres de Hadoop de HDInsight (Linux)](hdinsight-hadoop-giraph-install-linux.md)
 - [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md): información general sobre la creación de clústeres de HDInsight.
 - [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize]\: información general sobre la personalización de clústeres de HDInsight mediante la acción de script.
-- [Desarrollo de scripts de acción de script con HDInsight](hdinsight-hadoop-script-actions.md).
+- [Desarrollo de scripts de acción de script en HDInsight](hdinsight-hadoop-script-actions.md)
 
 
 ## ¿Qué es Giraph?
@@ -190,4 +190,4 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

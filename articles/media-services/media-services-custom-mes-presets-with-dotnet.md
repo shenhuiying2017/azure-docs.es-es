@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016"    
+	ms.date="02/16/2016"    
 	ms.author="juliako"/>
 
 
@@ -353,7 +353,6 @@ Asegúrese de revisar la sección [Consideraciones](media-services-custom-mes-pr
 	          <MaxBitrate>4500</MaxBitrate>
 	        </H264Layer>
 	      </H264Layers>
-	      <Chapters />
 	    </H264Video>
 	    <AACAudio>
 	      <Profile>AACLC</Profile>
@@ -425,8 +424,8 @@ Se aplican las siguientes consideraciones:
 
 En esta sección se habla sobre cómo modificar los valores preestablecidos del codificador para recortar el vídeo de entrada donde la entrada es un archivo denominado intermedio o a petición. El codificador también puede usarse para recortar un activo que se captura o se archiva desde una transmisión en directo; los detalles para ello están disponibles en [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y modificar el elemento **Sources** (tal y como se muestra a continuación). Tenga en cuenta que el elemento **Sources** debe colocarse en la parte superior del esquema.
-
+Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y modificar el elemento **Sources** (tal y como se muestra a continuación). El valor de StartTime debe coincidir con las marcas de tiempo absoluto de la entrada de vídeo. Por ejemplo, si el primer fotograma del vídeo de entrada tiene una marca de tiempo de 12:00:10.000, StartTime debe ser al menos 12:00:10.000 o un valor superior. En el ejemplo siguiente, se supone que el vídeo de entrada tiene una marca de tiempo inicial de cero. Tenga en cuenta que el elemento **Sources** debe colocarse en la parte superior del esquema.
+ 
 ###<a id="json"></a>Valor preestablecido JSON
 	
 	{
@@ -651,7 +650,6 @@ Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de M
 	          <MaxBitrate>400</MaxBitrate>
 	        </H264Layer>
 	      </H264Layers>
-	      <Chapters />
 	    </H264Video>
 	    <AACAudio>
 	      <Profile>AACLC</Profile>
@@ -736,7 +734,6 @@ Además de definir un archivo de valores preestablecidos, también tiene que per
 	          "FrameRate": "0/1"
 	        }
 	      ],
-	      "Chapters": [],
 	      "Type": "H264Video"
 	    },
 	    {
@@ -806,7 +803,6 @@ Además de definir un archivo de valores preestablecidos, también tiene que per
 	          <MaxBitrate>1045</MaxBitrate>
 	        </H264Layer>
 	      </H264Layers>
-	      <Chapters />
 	    </H264Video>
 	    <CopyAudio />
 	  </Encoding>
@@ -888,4 +884,4 @@ Puede desactivar la anulación de entrelazado automática. Esta opción nos e re
 
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

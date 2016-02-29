@@ -18,7 +18,7 @@
 
 # Compatibilidad con MQTT del Centro de IoT
 
-El Centro de IoT permite a los dispositivos comunicarse con los puntos de conexión de dispositivos del Centro de IoT utilizando el protocolo [MQTT v3.1.1][lnk-mqtt-org].
+El Centro de IoT permite a los dispositivos comunicarse con los puntos de conexión de dispositivos del Centro de IoT utilizando el protocolo [MQTT v3.1.1][lnk-mqtt-org] en el puerto 8883. El Centro de IoT requiere que toda la comunicación de los dispositivos se proteja mediante TLS/SSL.
 
 ## Conexión al Centro de IoT
 
@@ -81,4 +81,4 @@ Para obtener más información sobre el protocolo MQTT, consulte la [documentaci
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

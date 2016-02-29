@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/06/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Introducción a la creación de un equilibrador de carga orientado a Internet (clásico) en la CLI de Azure
@@ -130,7 +130,7 @@ Tendrá que eliminar el punto de conexión asociado al conjunto de equilibrador 
 	azure vm endpoint delete web1 tcp-80-80
 
 
->[AZURE.NOTE]Puede explorar más opciones para administrar los puntos de conexión con el comando `azure vm endpoint --help`.
+>[AZURE.NOTE] Puede explorar más opciones para administrar los puntos de conexión con el comando `azure vm endpoint --help`.
 
 
 ## Pasos siguientes
@@ -143,4 +143,4 @@ Tendrá que eliminar el punto de conexión asociado al conjunto de equilibrador 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

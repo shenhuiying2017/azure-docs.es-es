@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/23/2015"
+   ms.date="02/16/2016"
    ms.author="chackdan"/>
 
 # Actualización de un clúster de Service Fabric
@@ -37,8 +37,6 @@ Si no se cumplen las directivas de mantenimiento del clúster, se revierte la ac
 Vamos a intentar ejecutar la misma actualización unas cuantas veces más por si se produjeron errores en las actualizaciones por razones de infraestructura. Después de n días desde la fecha en que se envió el correo electrónico, continuamos con la fase 2.
 
 Si se cumplen las directivas de mantenimiento del clúster, la actualización se considera correcta y se marca como completada. Esto puede ocurrir durante la ejecución inicial de la actualización o cualquiera de las ejecuciones posteriores de la actualización en esta fase. No hay ningún correo electrónico de confirmación de una ejecución correcta. Esto es para evitar enviar demasiados mensajes de correo electrónico, recibir un correo electrónico debe considerarse una excepción a la normalidad. Esperamos que la mayoría de las actualizaciones de clúster funcionen sin afectar a la disponibilidad de las aplicaciones.
-
-Para más información sobre cómo establecer las directivas de mantenimiento personalizadas para el clúster, consulte [Actualización del clúster y los parámetros de mantenimiento](service-fabric-cluster-health-parameters.md).
 
 ### Fase 2: La actualización se realiza solo con las directivas de mantenimiento predeterminada
 
@@ -76,7 +74,7 @@ Puede actualizar los certificados principales o secundarios fácilmente desde el
 
 ![Captura de pantalla que muestra las huellas digitales del certificado en el Portal de Azure.][CertificateUpgrade]
 
->[AZURE.NOTE]Antes de identificar el certificado que quiere usar con los recursos del clúster, tiene que haber completado los pasos siguientes; de lo contrario no se usará el nuevo certificado: 1. Cargar el nuevo certificado en el almacén de claves. Consulte [Seguridad de Service Fabric](service-fabric-cluster-security.md) para obtener instrucciones. Empiece en el paso 2 del documento. 2. Actualizar todas las máquinas virtuales que componen el clúster para que el certificado se implemente en ellas. Para ello, consulte el [Blog del equipo de Almacén de claves de Azure](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
+>[AZURE.NOTE] Antes de identificar el certificado que quiere usar con los recursos del clúster, tiene que haber completado los pasos siguientes; de lo contrario no se usará el nuevo certificado: 1. Cargar el nuevo certificado en el almacén de claves. Consulte [Protección de un clúster de Service Fabric](service-fabric-cluster-security.md) para obtener instrucciones. Empiece en el paso 2 del documento. 2. Actualizar todas las máquinas virtuales que componen el clúster para que el certificado se implemente en ellas. Para ello, consulte [Azure Key Vault Team Blog](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx) (Blog del equipo del almacén de claves de Azure).
 
 ### Puertos de aplicación
 
@@ -101,11 +99,11 @@ Para abrir un nuevo puerto en todas las máquinas virtuales en un tipo de nodo, 
 
 Para cada uno de los tipos de nodo, puede agregar las propiedades de colocación personalizadas que desee usar en sus aplicaciones. NodeType es una propiedad predeterminada que se puede usar sin agregarla explícitamente.
 
->[AZURE.NOTE]Para más información sobre el uso de las propiedades de colocación, consulte [Overview of placement constraints](service-fabric-placement-constraint.md) (Descripción general de las restricciones de colocación).
+>[AZURE.NOTE] Para obtener más información sobre el uso de las propiedades de colocación, consulte [Información general de las restricciones de ubicación](service-fabric-placement-constraint.md).
 
 ### Métricas de capacidad
 
-Para cada uno de los tipos de nodo, puede agregar las métricas de capacidad personalizadas que desee usar en las aplicaciones para la carga de informes. Para más información sobre el uso de métricas de capacidad para la carga de informes, consulte [Overview of dynamic load reporting](service-fabric-resource-balancer-dynamic-load-reporting.md) (Descripción general de los informes de carga dinámica).
+Para cada uno de los tipos de nodo, puede agregar las métricas de capacidad personalizadas que desee usar en las aplicaciones para la carga de informes. Para obtener más información sobre el uso de métricas de capacidad para la carga de informes, consulte [Información general de informes de carga dinámica](service-fabric-resource-balancer-dynamic-load-reporting.md).
 
 ### Revisiones de sistema operativo en las máquinas virtuales que componen el clúster
 
@@ -125,4 +123,4 @@ Si debe actualizar la imagen de sistema operativo en las máquinas virtuales del
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

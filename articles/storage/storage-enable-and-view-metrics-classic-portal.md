@@ -3,7 +3,7 @@
 	description="Cómo habilitar las métricas de almacenamiento para los servicios BLOB, Cola, Tabla y Archivo" 
 	services="storage" 
 	documentationCenter="" 
-	authors="tamram" 
+	authors="robinsh" 
 	manager="carmonm" 
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="02/14/2016" 
+	ms.author="robinsh"/>
 
 # Habilitar las Métricas de almacenamiento y las Métricas de visualización
 
@@ -59,7 +59,7 @@ El comando siguiente recupera el nivel de métricas por hora actual y los días 
 
 `Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob`
 
-Para obtener información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción de Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, vea: [Cómo instalar y configurar Azure PowerShell](../install-configure-powershell.md).
+Para obtener información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción de Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, vea: [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
 
 ## Cómo habilitar las Métricas de almacenamiento mediante programación
 
@@ -211,4 +211,4 @@ La capacidad de las tablas de métricas también es facturable: puede usar las o
 [Habilitar el registro del Análisis de almacenamiento y acceder a los datos del mismo](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -15,7 +15,7 @@
 
 #Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory
 
-En este artículo se trata de una característica que permite a los administradores configurar un inicio de sesión único a aplicaciones que no están presentes en la Galería de aplicaciones de Azure Active Directory *sin escribir código*. Esta característica se ha publicado en versión preliminar técnica el 18 de noviembre de 2015 y se incluye en [Azure Active Directory Premium](active-directory-editions.md). Si por el contrario desea obtener instrucciones para desarrolladores sobre cómo integrar aplicaciones personalizadas con Azure AD a través de código, consulte [Escenarios de autenticación para Azure AD](active-directory-authentication-scenarios.md).
+En este artículo se trata de una característica que permite a los administradores configurar un inicio de sesión único a aplicaciones que no están presentes en la Galería de aplicaciones de Azure Active Directory *sin escribir código*. Esta característica se ha publicado en Technical Preview el 18 de noviembre de 2015 y se incluye en [Azure Active Directory Premium](active-directory-editions.md). Si por el contrario desea obtener instrucciones para desarrolladores sobre cómo integrar aplicaciones personalizadas con Azure AD a través de código, consulte [Escenarios de autenticación para Azure AD](active-directory-authentication-scenarios.md).
 
 La Galería de aplicaciones de Azure Active Directory proporciona una lista de las aplicaciones que se sabe que admiten un formulario de inicio de sesión único en Azure Active Directory, tal como se describe en [este artículo](active-directory-appssoaccess-whatis.md). Una vez que un especialista en TI o un integrador de sistemas de la organización haya encontrado la aplicación que desea conectar, puede empezar por seguir las instrucciones detalladas que se proporcionan en el Portal de administración de Azure para habilitar el inicio de sesión único.
 
@@ -126,4 +126,4 @@ Nota: Para cargar un logotipo de icono de la aplicación, pulse el botón **Carg
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

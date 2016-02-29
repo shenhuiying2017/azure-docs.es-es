@@ -14,44 +14,145 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="02/16/2016"
 	ms.author="jgao"/>
 
-# Depuración de Hadoop en HDInsight: ver registros e interpretar mensajes de error
+# Analizar los registros de HDInsight
 
-Con los mensajes de error incluidos en este tema pretendemos ayudar a los usuarios de Hadoop en HDInsight de Azure a comprender algunas situaciones de error con las que se pueden encontrar al administrar el servicio con Azure PowerShell, así como asesorarlos sobre los pasos que pueden seguir para recuperarse del error.
+Cada clúster de Hadoop en HDInsight de Azure tiene una cuenta de almacenamiento de Azure que se usa como sistema de archivos predeterminado. La cuenta de almacenamiento se conoce como la cuenta de almacenamiento predeterminada. El clúster usa el almacenamiento de tablas de Azure y el almacenamiento de blobs de la cuenta de almacenamiento predeterminada para almacenar sus registros. Para averiguar cuál es la cuenta de almacenamiento predeterminada de su clúster, consulte [Administración de clústeres de Hadoop en HDInsight](hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Los registros conservan la cuenta de almacenamiento incluso después de que se elimine el clúster.
 
-Algunos de estos mensajes de error también podrían aparecer en el Portal de Azure cuando se usa para administrar clústeres de HDInsight. Sin embargo, no es posible presentar de forma tan pormenorizada otros mensajes de error que pueden aparecer allí debido a las restricciones que afectan a las acciones de subsanación posibles en este contexto. Otros mensajes de error se asocian a los contextos en que la mitigación resulta obvia.
+##Registros escritos en tablas de Azure
 
-En situaciones donde el error es específico de HDInsight de Azure, sería una buena idea entender de lo que trata el error. Consulte [Códigos de error de HDInsight](#hdinsight-error-codes) para entender los distintos códigos de error y cómo corregirlos. En algunas situaciones, podría querer acceder a los propios registros de Hadoop. Puede hacerlo directamente desde el Portal de Azure.
+Los registros que se escriben en las tablas de Azure proporcionan un nivel de información sobre lo que ocurre en un clúster de HDInsight.
 
+Al crear un clúster de HDInsight, se crean automáticamente seis tablas para los clústeres basados en Linux en el almacenamiento de tablas predeterminado:
+
+- hdinsightagentlog
+- syslog
+- daemonlog
+- hadoopservicelog
+- ambariserverlog
+- ambariagentlog
+
+Se crean tres tablas para los clústeres basados en Windows:
+
+- setuplog: registro de eventos y excepciones detectados en el aprovisionamiento y la configuración de los clústeres de HDInsight.
+- hadoopinstalllog: registro de eventos y excepciones detectados durante la instalación de Hadoop en el clúster. Esta tabla puede ser útil para depurar problemas relacionados con los clústeres que se crearon con parámetros personalizados.
+- hadoopservicelog: registro de eventos y excepciones registrados por todos los servicios de Hadoop. Esta tabla puede ser útil para depurar problemas relacionados con errores de trabajo en clústeres de HDInsight.
+
+Los nombres de archivo de la tabla son **u<ClusterName>DDMonYYYYatHHMMSSsss<TableName>**.
+
+Estas tablas contienen los siguientes campos:
+
+- ClusterDnsName
+- ComponentName
+- EventTimestamp
+- Host
+- MALoggingHash
+- Message
+- N
+- PreciseTimeStamp
+- Rol
+- RowIndex
+- Inquilino
+- TIMESTAMP
+- TraceLevel
+
+### Herramientas para acceder a los registros
+
+Hay muchas herramientas disponibles para acceder a los datos de estas tablas:
+
+-  Visual Studio
+-  Explorador de almacenamiento de Azure
+-  Power Query para Excel
+
+#### Uso de Power Query para Excel
+
+Puede instalar Power Query desde [www.microsoft.com/es-es/download/details.aspx?id=39379](http://www.microsoft.com/es-ES/download/details.aspx?id=39379). Consulte los requisitos del sistema en la página de descarga.
+
+**Cómo usar Power Query para abrir y analizar el registro de servicio**
+
+1. Abra **Microsoft Excel**.
+2. En el menú de **Power Query**, haga clic en **De Azure** y, luego, en **Desde un almacenamiento de tablas de Microsoft Azure **.
+ 
+	![Power Query de Excel de Hadoop de HDInsight: abrir el almacenamiento de tablas de Azure](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-open.png)
+3. Escriba el nombre de la cuenta de almacenamiento. Puede ser el nombre corto o el FQDN.
+4. Escriba la clave de la cuenta de almacenamiento. Verá una lista de tablas:
+
+	![Registros de Hadoop de HDInsight almacenados en el almacenamiento de tablas de Azure](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
+5. Haga clic con el botón derecho en la tabla hadoopservicelog, en el panel **Navegador**, y seleccione **Editar**. Verá cuatro columnas. Opcionalmente, puede eliminar las columnas **Clave de partición**, **Clave de fila** y **Marca de tiempo** seleccionándolas y haciendo clic en **Quitar columnas** en las opciones de la cinta.
+6. Haga clic en el icono Expandir, en la columna Contenido, para elegir las columnas que desea importar en la hoja de cálculo de Excel. Para esta demostración, se ha elegido TraceLevel y ComponentName, ya que pueden aportar información básica sobre qué componentes tenían problemas.
+
+	![Registros de Hadoop de HDInsight: elegir columnas](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
+7. Haga clic en **Aceptar** para importar los datos.
+8. Seleccione las columnas **TraceLevel**, Rol y **ComponentName** y luego haga clic en el control **Agrupar por** en la cinta.
+9. Haga clic en **Aceptar** en el cuadro de diálogo Agrupar por.
+10. Haga clic en **Aplicar y cerrar**.
+ 
+Ahora puede usar Excel para filtrar y ordenar según sea necesario. Obviamente, puede interesarle incluir otras columnas (por ejemplo, Mensaje) para profundizar en los problemas cuando se produzcan, pero si selecciona y agrupa las columnas descritas anteriormente obtendrá una idea general adecuada de lo que ocurre en los servicios de Hadoop. La misma idea se puede aplicar a las tablas setuplog y hadoopinstalllog.
+
+#### Usar Visual Studio
+
+**Cómo usar Visual Studio**
+
+1. Abra Visual Studio.
+2. En el menú **Ver**, haga clic en **Cloud Explorer**. También puede hacer clic simplemente en **CTRL+\\, CTRL+X**.
+3. En **Cloud Explorer**, seleccione **Tipos de recursos**. La otra opción disponible es **Grupos de recursos**.
+4. Expanda **Cuentas de almacenamiento**, la cuenta de almacenamiento predeterminada de su clúster y **Tablas**.
+5. Haga doble clic en hadoopservicelog.
+6. Agregue un filtro. Por ejemplo:
+	
+		TraceLevel eq 'ERROR'
+
+	![Registros de Hadoop de HDInsight: elegir columnas](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
+
+	Para obtener más información sobre cómo construir filtros, consulte [Construcción de cadenas de filtro para el Diseñador de tablas](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+ 
+##Registros escritos en el almacenamiento de blobs de Azure
+
+[Los registros que se escriben en las tablas de Azure](#log-written-to-azure-tables) proporcionan un nivel de información sobre lo que ocurre en un clúster de HDInsight. Sin embargo, estas tablas no proporcionan registros de nivel de tarea, que pueden ser útiles para obtener detalles sobre los problemas cuando se producen. Para proporcionar este nivel de detalle superior, los clústeres de HDInsight están configurados para escribir registros de tareas en su cuenta de almacenamiento de blobs para cualquier trabajo que se envíe a través de Templeton. En la práctica, esto hace referencia a los trabajos enviados mediante los cmdlets de Microsoft Azure PowerShell o las API de envío de trabajos de .NET, no a los trabajos enviados a través de RDP o el acceso de línea de comandos al clúster.
+
+Para ver los registros, consulte [Acceso a registros de aplicación de YARN en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md).
+
+Para obtener más información sobre los registros de aplicación, consulte [Simplifying user-logs management and access in YARN](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/) (Simplificar la administración de registros de usuario y el acceso en YARN).
+ 
+ 
 ## Visualización de los registros de trabajo y del estado del clúster
 
-* **Acceder a la IU de Hadoop**. En el Portal de Azure, haga clic en un nombre de clúster de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**.
+###Acceder a la interfaz de usuario de Hadoop
 
-	![Inicie el panel del clúster](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
-  
-	Cuando se le pida, escriba las credenciales de administrador para el clúster. En la consola de consultas que se abre, haga clic en **IU de Hadoop**.
+En el Portal de Azure, haga clic en un nombre de clúster de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**.
 
-	![Inicie la IU de Hadoop](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
+![Inicie el panel del clúster](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
 
-* **Acceder a IU de Yarn**. En el Portal de Azure, haga clic en un nombre de clúster de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**. Cuando se le pida, escriba las credenciales de administrador para el clúster. En la consola de consulta que se abre, haga clic en **IU de YARN**.
+Cuando se le pida, escriba las credenciales de administrador para el clúster. En la consola de consultas que se abre, haga clic en **IU de Hadoop**.
 
-	Puede utilizar la IU de YARN para hacer lo siguiente:
+![Inicie la IU de Hadoop](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
 
-	* **Obtener el estado del clúster**. En el panel izquierdo, expanda **Clúster** y haga clic en **Acerca de**. Esto presenta detalles del estado del clúster, como memoria total asignada, núcleos usados, estado del administrador de recursos de clúster, versión del clúster, etc.
 
-		![Inicie el panel del clúster](./media/hdinsight-debug-jobs/hdi-debug-yarn-cluster-state.png)
+###Acceder a la interfaz de usuario de Yarn
 
-	* **Obtener el estado del nodo**. En el panel izquierdo, expanda **Clúster** y haga clic en **Nodos**. Esto enumera todos los nodos del clúster, la dirección HTTP de cada nodo, los recursos asignados a cada nodo, etc.
+En el Portal de Azure, haga clic en un nombre de clúster de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**. Cuando se le pida, escriba las credenciales de administrador para el clúster. En la consola de consulta que se abre, haga clic en **IU de YARN**.
 
-	* **Supervisar el estado de los trabajos**. En el panel izquierdo, expanda **Clúster** y haga clic en **Aplicaciones** para enumerar todos los trabajos del clúster. Si desea ver los trabajos que se encuentran en un estado específico (como nuevo, enviado, en ejecución, etc.), haga clic en el vínculo apropiado en **Aplicaciones**. Además, puede hacer clic en el nombre del trabajo para obtener más información sobre el trabajo, incluyendo la salida, los registros, etc.
+Puede utilizar la IU de YARN para hacer lo siguiente:
 
-* **Acceder a la IU de HBase**. En el Portal de Azure, haga clic en un nombre de clúster de HBase de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**. Cuando se le pida, escriba las credenciales de administrador para el clúster. En la consola de consultas que se abre, haga clic en **IU de HBase**.
+* **Obtener el estado del clúster**. En el panel izquierdo, expanda **Clúster** y haga clic en **Acerca de**. Esto presenta detalles del estado del clúster, como memoria total asignada, núcleos usados, estado del administrador de recursos de clúster, versión del clúster, etc.
+
+    ![Inicie el panel del clúster](./media/hdinsight-debug-jobs/hdi-debug-yarn-cluster-state.png)
+
+* **Obtener el estado del nodo**. En el panel izquierdo, expanda **Clúster** y haga clic en **Nodos**. Esto enumera todos los nodos del clúster, la dirección HTTP de cada nodo, los recursos asignados a cada nodo, etc.
+
+* **Supervisar el estado de los trabajos**. En el panel izquierdo, expanda **Clúster** y haga clic en **Aplicaciones** para enumerar todos los trabajos del clúster. Si desea ver los trabajos que se encuentran en un estado específico (como nuevo, enviado, en ejecución, etc.), haga clic en el vínculo apropiado en **Aplicaciones**. Además, puede hacer clic en el nombre del trabajo para obtener más información sobre el trabajo, incluyendo la salida, los registros, etc.
+
+###Acceder a la interfaz de usuario de HBase
+
+En el Portal de Azure, haga clic en un nombre de clúster de HBase de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**. Cuando se le pida, escriba las credenciales de administrador para el clúster. En la consola de consultas que se abre, haga clic en **Interfaz de usuario de HBase**.
 
 ## Códigos de error de HDInsight
 
-Los errores que puede encontrar el usuario en Azure PowerShell o en el Portal se muestran a continuación ordenados alfabéticamente por nombre.
+Con los mensajes de error incluidos en esta sección pretendemos ayudar a los usuarios de Hadoop en HDInsight de Azure a comprender algunas situaciones de error con las que se pueden encontrar al administrar el servicio con Azure PowerShell, así como asesorarlos sobre los pasos que pueden seguir para recuperarse del error.
+
+Algunos de estos mensajes de error también podrían aparecer en el Portal de Azure cuando se usa para administrar clústeres de HDInsight. Sin embargo, no es posible presentar de forma tan pormenorizada otros mensajes de error que pueden aparecer allí debido a las restricciones que afectan a las acciones de subsanación posibles en este contexto. Otros mensajes de error se asocian a los contextos en que la mitigación resulta obvia.
 
 ### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
 - **Descripción**: proporcione los datos de la base de datos SQL de Azure de al menos un componente a fin de utilizar la configuración personalizada para las tiendas de metadatos de Hive y Oozie.
@@ -234,12 +335,8 @@ Los errores que puede encontrar el usuario en Azure PowerShell o en el Portal se
 - **Descripción**: configuración de clúster no válida. No se encuentra la configuración de cuenta WASB requerida en las cuentas externas.  
 - **Mitigación**: compruebe que la cuenta exista y que esté bien especificada en la configuración, y luego, vuelva a intentarlo.
 
-## <a id="resources"></a>Additional Debugging Resources
+## Pasos siguientes
 
-* [Documentación de SDK de HDInsight de Azure][hdinsight-sdk-documentation]
+[Usar las vistas de Ambari para depurar trabajos de Tez en HDInsight](hdinsight-debug-ambari-tez-view.md) [Habilitar los volcados de montón de los servicios de Hadoop en HDInsight basado en Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md) [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md)
 
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn469975.aspx
-
-[image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

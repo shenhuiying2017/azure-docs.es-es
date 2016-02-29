@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="02/16/2016"
 	ms.author="jeffstok"/>
 
 # Escalado de trabajos de Análisis de transmisiones de Azure para incrementar el rendimiento de procesamiento de flujo de datos
@@ -24,7 +24,7 @@ Aprenda a optimizar trabajos de análisis y calcular *unidades de streaming* par
 ## ¿Cuáles son las partes de un trabajo de Análisis de transmisiones?
 Una definición de trabajo de Análisis de transmisiones incluye entradas, una consulta y la salida. Las entradas proceden del lugar en el cual el trabajo lee el flujo de datos, la consulta se usa para transformar el flujo de entrada de datos y la salida es el lugar al que el trabajo envía los resultados.
 
-Un trabajo requiere al menos un origen de entrada de streaming de datos. El origen de entrada de streaming de datos puede almacenarse en un Centro de eventos de Bus de servicio de Azure o en un almacenamiento de blobs de Azure. Para obtener más información, consulte [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md), [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md) y [Guía para desarrolladores de Análisis de transmisiones de Azure](../stream-analytics-developer-guide.md).
+Un trabajo requiere al menos un origen de entrada de streaming de datos. El origen de entrada de streaming de datos puede almacenarse en un Centro de eventos de Bus de servicio de Azure o en un almacenamiento de blobs de Azure. Para obtener más información, consulte [Introducción a Análisis de transmisiones de Azure](stream-analytics-introduction.md) e [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md).
 
 ## Configuración de unidades de streaming
 Las Unidades de streaming (SU) representan los recursos y la capacidad de ejecutar un trabajo de Análisis de transmisiones de Azure. Las SU proporcionan una forma de describir la capacidad de procesamiento del evento relativo en función de una medida que combina la CPU, la memoria y las tasas de lectura y escritura. Cada unidad de streaming corresponde aproximadamente a 1 MB por segundo de rendimiento.
@@ -128,7 +128,7 @@ Por ahora, use las instrucciones generales siguientes:
 El número total de unidades de streaming que se puede utilizar en un trabajo de Stream Analytics depende del número de pasos de la consulta definida para el trabajo y del número de particiones para cada paso.
 
 ### Pasos de una consulta
-Una consulta puede tener uno o varios pasos. Cada paso es una subconsulta definida mediante la utilización de la palabra clave **WITH**. La única consuta que queda fuera de la palabra clave **WITH** también se cuenta como un paso; por ejemplo, la instrucción **SELECT** en la consulta siguiente:
+Una consulta puede tener uno o varios pasos. Cada paso es una subconsulta definida mediante la utilización de la palabra clave **WITH**. La única consulta que queda fuera de la palabra clave **WITH** también se cuenta como un paso; por ejemplo, la instrucción **SELECT** en la consulta siguiente:
 
 	WITH Step1 AS (
 		SELECT COUNT(*) AS Count, TollBoothId
@@ -148,7 +148,7 @@ La consulta anterior tiene dos pasos.
 
 El particionamiento de un paso requiere las siguientes condiciones:
 
-- El origen de entrada debe tener particiones. Para obtener más información, consulte [Guía para el desarrollador de Análisis de transmisiones de Azure](../stream-analytics-developer-guide.md) y [Guía de programación de Centros de eventos](../event-hubs/event-hubs-programming-guide.md).
+- El origen de entrada debe tener particiones. Para obtener más información, consulte la [Guía de programación de Centros de eventos](../event-hubs/event-hubs-programming-guide.md).
 - La instrucción **SELECT** de la consulta debe leer desde un origen de entrada particionada.
 - La consulta dentro del paso debe incluir la palabra clave **Partition By**.
 
@@ -345,11 +345,10 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones
 [azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

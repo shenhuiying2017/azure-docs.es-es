@@ -125,7 +125,7 @@ Consulte los dos roles de trabajo de ejemplo instrumentados en las solicitudes d
 
 ## Diagnóstico de Azure
 
-Los datos de [Diagnósticos de Azure](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) incluyen eventos de administración de roles, contadores de rendimiento y registros de aplicación. Puede hacer que se envíen a Application Insights para verlos junto con el resto de los datos de telemetría y así facilitar el diagnóstico de los problemas.
+Los datos de [Diagnósticos de Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) incluyen eventos de administración de roles, contadores de rendimiento y registros de aplicación. Puede hacer que se envíen a Application Insights para verlos junto con el resto de los datos de telemetría y así facilitar el diagnóstico de los problemas.
 
 Los Diagnósticos de Azure son especialmente útiles si un rol produce errores de forma inesperada o no es capaz de iniciarse.
 
@@ -261,7 +261,7 @@ Eso es todo. La experiencia del portal ya está dispuesta para ayudarle a ver la
 ## Temas relacionados
 
 * [Configuración del envío de diagnósticos de Azure a Application Insights](app-insights-azure-diagnostics.md)
-* [Uso de PowerShell para enviar diagnósticos de Azure a Application Insights]) (app-insights-powershell-azure-diagnostics.md)
+* [Uso de PowerShell para enviar diagnósticos de Azure a Application Insights](app-insights-powershell-azure-diagnostics.md)
 
 
 
@@ -279,4 +279,4 @@ Eso es todo. La experiencia del portal ya está dispuesta para ayudarle a ver la
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

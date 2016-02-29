@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure | Microsoft Azure"
-	description="Consideraciones importantes para planear la infraestructura de copia de seguridad de máquinas virtuales en Azure"
+	description="Consideraciones importantes al planear la realización de copias de seguridad de máquinas virtuales en Azure"
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="copias de seguridad de máquinas virtuales, realizar copias de seguridad de máquinas virtuales"/>
 
 <tags
 	ms.service="backup"
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/12/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure
-En este artículo se examinan los principales aspectos que se deben tener en cuenta al planear la infraestructura de copia de seguridad de máquinas virtuales. Si ha [preparado el entorno](backup-azure-vms-prepare.md), este es el paso siguiente antes de comenzar a realizar la [copia de seguridad de las máquinas virtuales](backup-azure-vms.md). Si necesita más información sobre máquinas virtuales de Azure, vea la [Documentación sobre máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/).
+En este artículo se tratan los conceptos clave que hay que tener en cuenta al planear la realización de copias de seguridad de máquinas virtuales en Azure. Si ha [preparado el entorno](backup-azure-vms-prepare.md), este es el paso siguiente antes de comenzar a realizar la [copia de seguridad de las máquinas virtuales](backup-azure-vms.md). Si necesita más información sobre máquinas virtuales de Azure, vea la [Documentación sobre máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## ¿Cómo realiza Azure la copia de seguridad de las máquinas virtuales?
 El servicio Copia de seguridad de Azure inicia el trabajo de copia de seguridad a la hora programada y desencadena la extensión de copia de seguridad para tomar una instantánea de un momento en el tiempo. Esta instantánea se toma en coordinación con el Servicio de instantáneas de volumen (VSS) para obtener una instantánea coherente de los discos de la máquina virtual sin tener que apagarla.
@@ -120,4 +121,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Solución de problemas de copia de seguridad de máquinas virtuales](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

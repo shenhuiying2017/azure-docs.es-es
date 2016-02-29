@@ -10,7 +10,7 @@
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
 	ms.date="12/01/2015"
@@ -123,4 +123,4 @@ Se cambia la asignación de redes de VMNetwork1-Chicago. | VM-1 se conectará a 
 
 Ahora que dispone de más información sobre la asignación de red, [comience con la implementación de Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

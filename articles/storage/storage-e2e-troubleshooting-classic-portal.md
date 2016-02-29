@@ -38,9 +38,9 @@ Para solucionar problemas en aplicaciones cliente que usan Almacenamiento de Mic
 
 - **Portal de Azure clásico** Puede configurar las métricas y el registro de su cuenta de almacenamiento en el [Portal de Azure clásico](https://manage.windowsazure.com). Asimismo, también puede ver diagramas y gráficos que le mostrarán el rendimiento de su aplicación conforme avanza el tiempo, así como configurar alertas que le avisarán si el rendimiento de su aplicación es diferente a lo esperado según lo establecido en una métrica específica.
 	
-	Consulte [Supervisión de una cuenta de almacenamiento](storage-monitor-storage-account.md) para obtener más información sobre cómo configurar la supervisión en el Portal de Azure clásico.
+	Consulte [Supervisión de una cuenta de almacenamiento en el Portal de Azure](storage-monitor-storage-account.md) para obtener más información sobre la configuración de la supervisión en el Portal de Azure clásico.
 
-- **AzCopy**. Los registros del servidor de Almacenamiento de Azure se almacenan como blobs, por lo que puede usar AzCopy para copiar estos blobs de registro en un directorio local y, luego, analizarlos con el analizador de mensajes de Microsoft. Vea [Uso de AzCopy con Almacenamiento de Microsoft Azure](storage-use-azcopy.md) para más información sobre AzCopy.
+- **AzCopy**. Los registros del servidor de Almacenamiento de Azure se almacenan como blobs, por lo que puede usar AzCopy para copiar estos blobs de registro en un directorio local y, luego, analizarlos con el analizador de mensajes de Microsoft. Consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md) para obtener más información sobre AzCopy.
 
 - **Analizador de mensajes de Microsoft**. El analizador de mensajes es una herramienta que usa archivos de registro y que muestra los datos de registro en un formato visual para que sean más fáciles de filtrar, buscar y agrupar en conjuntos útiles; gracias a esto, podrá analizar errores y problemas de rendimiento. Vea la [Guía de funcionamiento del analizador de mensajes de Microsoft](http://technet.microsoft.com/library/jj649776.aspx) para más información sobre el analizador de mensajes.
 
@@ -92,7 +92,7 @@ Primero, necesitaremos configurar el registro y las métricas de Almacenamiento 
 
 **Mediante el Portal de Azure clásico**
 
-Para configurar el registro y las métricas de la cuenta de almacenamiento con el portal, siga las instrucciones para [supervisar una cuenta de almacenamiento](storage-monitor-storage-account.md).
+Para configurar el registro y las métricas de la cuenta de almacenamiento mediante el portal, siga las instrucciones que encontrará en el apartado [Supervisión de una cuenta de almacenamiento en el Portal de Azure](storage-monitor-storage-account.md).
 
 > [AZURE.NOTE] No se pueden establecer métricas por minuto con el Portal de Azure clásico. pero le recomendamos establecerlas en este tutorial para investigar cualquier problema de rendimiento que ocurra en su aplicación. Las métricas por minuto se pueden establecer con PowerShell (tal como se indica aquí), mediante programación o a través del Portal de Azure clásico.
 >
@@ -100,7 +100,7 @@ Para configurar el registro y las métricas de la cuenta de almacenamiento con e
 
 **Con PowerShell**
 
-Para empezar a usar PowerShell para Azure, vea el tema sobre [cómo instalar y configurar PowerShell de Azure](../install-configure-powershell.md).
+Para empezar a usar PowerShell para Azure, vea el tema sobre [cómo instalar y configurar PowerShell de Azure](../powershell-install-configure.md).
 
 1. Use el cmdlet [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) para agregar la cuenta de usuario de Azure a la ventana de PowerShell:
 
@@ -130,11 +130,9 @@ Para empezar a usar PowerShell para Azure, vea el tema sobre [cómo instalar y c
 
 ### Configurar el registro del lado cliente de .NET
 
-Para configurar el registro del lado cliente de una aplicación .NET, habilite los diagnósticos .NET en el archivo de configuración de la aplicación (web.config o app.config). Vea [Inicio de sesión del lado cliente con la biblioteca de cliente de almacenamiento de .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) y [Registro del lado cliente con el SDK de almacenamiento de Microsoft Azure para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) en MSDN para más información.
+Para configurar el registro del lado cliente de una aplicación .NET, habilite los diagnósticos .NET en el archivo de configuración de la aplicación (web.config o app.config). Consulte [Inicio de sesión del lado cliente con la Biblioteca del cliente de almacenamiento de .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) y [Registro del lado cliente con el SDK de Almacenamiento de Microsoft Azure para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) en MSDN para obtener más información.
 
 El registro del lado cliente incluye información detallada sobre el modo en que el cliente prepara la solicitud y recibe y procesa la respuesta.
-
-El registro del lado cliente se configura en el archivo app.config o web.config de la aplicación. Para más información, vea [Inicio de sesión del lado cliente con la biblioteca de cliente de almacenamiento de .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) en MSDN.
 
 La biblioteca de cliente de almacenamiento almacena datos de registro del lado cliente en la ubicación que se especificó en el archivo de configuración de la aplicación (web.config o app.config).
 
@@ -182,7 +180,7 @@ En el Portal de Azure clásico, verá la opción **Porcentaje de operaciones cor
 
 ![Gráfico de métricas del portal](./media/storage-e2e-troubleshooting-classic-portal/portal-metrics-chart-1.png)
 
-Para más información sobre cómo agregar métricas a la página de supervisión, consulte [Uso de métricas en la tabla de métricas](storage-monitor-storage-account.md#addmonitoringmetrics).
+Para más información sobre cómo agregar métricas a la página de supervisión, consulte [Uso de métricas en la tabla de métricas](storage-monitor-storage-account.md#how-to-add-metrics-to-the-metrics-table).
 
 > [AZURE.NOTE] Una vez habilitadas las métricas de almacenamiento, los datos de las métricas tardarán un rato en aparecer en el Portal de Azure clásico. Recuerde que, hasta que no haya transcurrido la hora actual, las métricas de la hora anterior no se mostrarán en el Portal de Azure clásico. Asimismo, tenga en cuenta que las métricas por minuto no se muestran en el Portal de Azure clásico. así que es posible que tarde hasta dos horas en ver los datos de las métricas tras habilitarlas.
 
@@ -194,9 +192,9 @@ Puede usar la herramienta de línea de comandos AzCopy para descargar estos arch
 
 	AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 
-AzCopy está disponible para su descarga en la página de [descargas de Azure](https://azure.microsoft.com/downloads/). Para más información sobre cómo usar AzCopy, vea [Uso de AzCopy con Almacenamiento de Microsoft Azure](storage-use-azcopy.md).
+AzCopy está disponible para su descarga en la página de [descargas de Azure](https://azure.microsoft.com/downloads/). Para obtener más información sobre cómo usar AzCopy, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md).
 
-Para más información sobre cómo descargar los registros del lado servidor, vea [Habilitación del registro de almacenamiento y acceso a los datos del registro](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
+Para obtener más información sobre cómo descargar los registros del lado servidor, consulte [Descarga de datos de registro del registro de almacenamiento](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
 ## Usar el analizador de mensajes de Microsoft para analizar los datos de registro
 
@@ -347,20 +345,9 @@ Ahora que ya está familiarizado con el analizador de mensajes y su uso para ana
 | Para investigar... | Use la expresión de filtro... | La expresión se aplica al registro (de cliente, de servidor, de red, todos) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Retrasos inesperados en la entrega de mensajes en una cola | AzureStorageClientDotNetV4.Description contiene "Intentando de nuevo la operación con error." | Cliente |
-| Aumento de HTTP en PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Red |
+| Aumento de HTTP en PercentThrottlingError | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Red |
 | Aumento en PercentTimeoutError | HTTP.Response.StatusCode == 500 | Red |
-| Aumento en PercentTimeoutError (todos) |    *StatusCode == 500 | Todos | 
-| Aumento en PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente |
-| Mensajes HTTP 403 (prohibido) | HTTP.Response.StatusCode == 403 | Red |
-| Mensajes HTTP 404 (no encontrado) | HTTP.Response.StatusCode == 404 | Red |
-| 404 (todos) | *StatusCode == 404 | Todos |
-| Problema de autorización de Firma de acceso compartido (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Red |
-| Mensajes HTTP 409 (conflicto) | HTTP.Response.StatusCode == 409 | Red |
-| 409 (todos) | *StatusCode == 409 | Todos |
-| Entradas de registro de análisis o de bajo porcentaje de éxito que tienen operaciones con un estado de transacción ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor |
-| Advertencia de Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) y (AzureStorageLog.RequestPacketSize <1460) y (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor |
-| Intervalo de tiempo en los registros de servidor y de red | #Timestamp >= 2014-10-20T16:36:38 y #Timestamp <= 2014-10-20T16:36:39 | Servidor, red |
-| Intervalo de tiempo en los registros de servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 y AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
+| Aumento en PercentTimeoutError (todos) |    **StatusCode == 500 | Todos | | Aumento en PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente | | Mensajes HTTP 403 (prohibido) | HTTP.Response.StatusCode == 403 | Red | | Mensajes HTTP 404 (no encontrado) | HTTP.Response.StatusCode == 404 | Red | | 404 (todos) | *StatusCode == 404 | Todos | | Problema de autorización de Firma de acceso compartido (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Red | | Mensajes HTTP 409 (conflicto) | HTTP.Response.StatusCode == 409 | Red | | 409 (todos) | *StatusCode == 409 | Todos | | Entradas de registro de análisis o de bajo porcentaje de éxito que tienen operaciones con un estado de transacción ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor | | Advertencia de Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) y (AzureStorageLog.RequestPacketSize <1460) y (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor | | Intervalo de tiempo en los registros de servidor y de red | #Timestamp >= 2014-10-20T16:36:38 y #Timestamp <= 2014-10-20T16:36:39 | Servidor, red | | Intervalo de tiempo en los registros de servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 y AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
 
 
 ## Pasos siguientes
@@ -369,10 +356,10 @@ Para más información sobre los escenarios de solución integral de problemas e
 
 - [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
 - [Análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh343270.aspx)
-- [Supervisión de una cuenta de almacenamiento](storage-monitor-storage-account.md)
-- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
+- [Supervisión de una cuenta de almacenamiento en el Portal de Azure](storage-monitor-storage-account.md)
+- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
 - [Guía de funcionamiento del analizador de mensajes de Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

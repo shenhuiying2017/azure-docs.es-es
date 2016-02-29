@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/17/2016"
 	ms.author="micurd"/>
 
 
@@ -32,7 +32,7 @@ En este artículo se muestra cómo realizar algunas tareas comunes con Almacenam
 
 ## Creación de una aplicación Node.js
 
-Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube de Node.js][Node.js Cloud Service] (con Windows PowerShell), o [Aplicación web con WebMatrix].
+Para obtener instrucciones sobre cómo crear una aplicación Node.js, consulte [Creación de una aplicación web Node.js en el Servicio de aplicaciones de Azure], [Creación e implementación de una aplicación Node.js en un Servicio de nube de Azure] con Windows PowerShell o [Creación e implementación de una aplicación web Node.js en Azure con Web Matrix].
 
 ## Configuración de la aplicación para acceder al almacenamiento
 
@@ -67,7 +67,7 @@ Con el Bloc de notas u otro editor de texto, agregue lo siguiente en la parte su
 
 El módulo de Azure leerá las variables de entorno `AZURE_STORAGE_ACCOUNT` y `AZURE_STORAGE_ACCESS_KEY` o `AZURE_STORAGE_CONNECTION_STRING` para obtener la información necesaria para conectarse a la cuenta de almacenamiento de Azure. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta llamando a **createBlobService**.
 
-Para ver un ejemplo de cómo configurar las variables de entorno del [Portal de Azure](https://portal.azure.com) para una aplicación web de Azure, consulte [Aplicación web de Node.js con Almacenamiento].
+Para ver un ejemplo de cómo configurar las variables de entorno del [Portal de Azure](https://portal.azure.com) para una aplicación web de Azure, consulte [Aplicación web de Node.js con servicio Tabla de Azure].
 
 ## Crear un contenedor
 
@@ -136,7 +136,7 @@ Se incluyen dos filtros que implementan la lógica de reintento con el SDK de Az
 
 ## Cargar un blob en un contenedor
 
-Un blob se puede basar en un bloque o en una página. Los blobs en bloques le permiten cargar datos de gran tamaño con una mayor eficiencia, mientras que los blobs en páginas están optimizados para operaciones de lectura/escritura. Para obtener más información, consulte [Introducción a los blobs en bloques y a los blobs en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Un blob se puede basar en un bloque o en una página. Los blobs en bloques le permiten cargar datos de gran tamaño con una mayor eficiencia, mientras que los blobs en páginas están optimizados para operaciones de lectura/escritura. Para obtener más información, consulte [Introducción a los blobs en bloques, los blobs de anexión y los blobs en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ### Blobs en bloques
 
@@ -364,17 +364,18 @@ Para obtener más información, consulte los siguientes recursos:
 -   [Blog del equipo de almacenamiento de Azure][]
 -   Repositorio del [SDK de almacenamiento de Azure para Node.js][] en GitHub
 -   [Centro para desarrolladores de Node.js](/develop/nodejs/)
--   [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
+-   [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
 
 [SDK de almacenamiento de Azure para Node.js]: https://github.com/Azure/azure-storage-node
-[Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
-[Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-[Aplicación web de Node.js con Almacenamiento]: ../storage-nodejs-use-table-storage-web-site.md
-[Aplicación web con WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+
+[Creación de una aplicación web Node.js en el Servicio de aplicaciones de Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Aplicación web de Node.js con servicio Tabla de Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
+[Creación e implementación de una aplicación web Node.js en Azure con Web Matrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure Portal]: portal.azure.com
-[Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
+[Azure Portal]: https://portal.azure.com
+[Creación e implementación de una aplicación Node.js en un Servicio de nube de Azure]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Referencia del SDK de almacenamiento de Azure para la API de nodo]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

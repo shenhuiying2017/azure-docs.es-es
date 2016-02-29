@@ -50,11 +50,9 @@ Utilizaremos los siguientes valores para esta configuración:
 
 ## Antes de comenzar
 
-Compruebe que tiene una suscripción a Azure y que instaló los cmdlets de Azure PowerShell necesarios para esta configuración (1.0.2 o posterior). Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Compruebe que tiene una suscripción a Azure. Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 	
-**Acerca de la instalación de los módulos de cmdlets de PowerShell**
-
-	[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
+- Necesitará instalar los cmdlets de PowerShell del Administrador de recursos de Azure (1.0.2 o posterior). Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para obtener más información sobre cómo instalar los cmdlets de PowerShell.
 
 ## Configurar una conexión punto a sitio para Azure
 
@@ -231,4 +229,4 @@ Puede restablecer un certificado de cliente quitando la huella digital de la lis
 
 Puede agregar una máquina virtual a la red virtual. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-tutorial.md) para ver los pasos.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="giridharreddy"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="System Center Data Protection Manager, Data Protection Manager, copia de seguridad de DPM"/>
 
 <tags
 	ms.service="backup"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/12/2016"
 	ms.author="giridham;jimpark"/>
 
 # Preparación para la copia de seguridad de cargas de trabajo en Azure con DPM
@@ -92,4 +93,4 @@ No se admiten los siguientes:
 
 >[AZURE.NOTE] A partir de System Center 2012 DPM con SP1 en adelante, puede realizar una copia de seguridad de las cargas protegidas por DPM en Azure con Copia de seguridad de Microsoft Azure.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

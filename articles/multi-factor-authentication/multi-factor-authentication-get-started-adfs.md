@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Introducción a Azure Multi-Factor Authentication y a los Servicios de federación de Active Directory
@@ -55,4 +55,4 @@ Para obtener información sobre cómo configurar Azure Multi-Factor Authenticati
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

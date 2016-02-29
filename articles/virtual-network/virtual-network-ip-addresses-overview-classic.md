@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2016"
+   ms.date="02/11/2016"
    ms.author="telmos" />
 
 # Direcciones IP (clásica) en Azure
@@ -26,7 +26,7 @@ Las direcciones IP privadas se utilizan para la comunicación dentro de una red 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
 
 ## Direcciones IP públicas
-Las direcciones IP públicas permiten que los recursos de Azure se comuniquen con Internet y servicios de acceso público de Azure como [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/), [Centros de eventos de Azure](https://azure.microsoft.com/services/event-hubs/), [Bases de datos SQL](sql-database-technical-overview.md) y [Almacenamiento de Azure](storage-introduction.md).
+Las direcciones IP públicas permiten que los recursos de Azure se comuniquen con Internet y servicios de acceso público de Azure como [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/), [Centros de eventos de Azure](https://azure.microsoft.com/services/event-hubs/), [Bases de datos SQL](../sql-database/sql-database-technical-overview.md) y [Almacenamiento de Azure](../storage/storage-introduction.md).
 
 Una dirección IP pública se asocia a los siguientes tipos de recursos:
 
@@ -47,7 +47,7 @@ Cuando se crea un servicio en la nube o una máquina virtual de IaaS, debe propo
 ### Servicios en la nube
 Un servicio en la nube siempre tiene una dirección IP pública a la que se conoce como una dirección IP virtual (VIP). Puede crear extremos en un servicio en la nube para asociar puertos diferentes en la dirección VIP a puertos internos en las máquinas virtuales e instancias de rol en el servicio en la nube.
 
-Puede asignar [varias direcciones VIP a un servicio en la nube](load-balancer-multivip.md), que permite escenarios VIP múltiples como un entorno de varios inquilinos con sitios web basados en SSL.
+Un servicio en la nube puede contener varias máquinas virtuales IaaS o instancias de rol PaaS, expuestas todas a través de la misma VIP de servicio en la nube. También puede asignar [varias direcciones VIP a un servicio en la nube](../load-balancer/load-balancer-multivip.md), que permite escenarios con varias VIP como un entorno multiempresa con sitios web basados en SSL.
 
 Puede asegurarse de la dirección IP pública de un servicio en la nube sigue siendo el mismo, incluso cuando se detienen todas las instancias de rol, mediante el uso de una dirección IP pública *estática*, denominada [IP reservada](virtual-networks-reserved-public-ip.md). Puede crear un recurso IP estático (reservado) en una ubicación específica y asignarlo a cualquier servicio en la nube en esa ubicación. No puede especificar la dirección IP real para la IP reservada. Se asigna desde el grupo de direcciones IP disponibles en la ubicación que se crea. Esta dirección IP no se libera hasta que la elimine explícitamente.
 
@@ -58,14 +58,18 @@ Las direcciones IP públicas estáticas (reservadas) se usan habitualmente en lo
 - consume servicios web externos que usan el modelo de seguridad basado en IP.
 - usa certificados SSL vinculados a una dirección IP.
 
+>[AZURE.NOTE] Cuando se crea una máquina virtual clásica, Azure crea un *servicio en la nube* de contenedor, que tiene una dirección IP virtual (VIP). Cuando la creación se realiza a través del portal, este configura un *punto de conexión* RDP o SSH predeterminado para que se pueda conectar a la máquina virtual a través de la VIP del servicio en la nube. Se puede reservar esta VIP del servicio en la nube lo que, efectivamente, brinda una dirección IP reservada para conectarse a la máquina virtual. Puede configurar más puntos de conexión para abrir puertos adicionales.
+
 ### Instancias de rol PaaS y máquinas virtuales IaaS
-Puede asignar una dirección IP pública a una [VM](virtual-machines-about.md) IaaS o una instancia de rol PaaS dentro de un servicio en la nube. Esto se conoce como dirección IP pública a nivel de instancia ([ILPIP](virtual-networks-instance-level-public-ip.md)). Esta dirección IP pública solo puede ser dinámica.
+Puede asignar una dirección IP pública directamente a una [máquina virtual](../virtual-machines/virtual-machines-about.md) IaaS o una instancia de rol PaaS dentro de un servicio en la nube. Esto se conoce como dirección IP pública a nivel de instancia ([ILPIP](virtual-networks-instance-level-public-ip.md)). Esta dirección IP pública solo puede ser dinámica.
+
+>[AZURE.NOTE] Esto es distinto de la VIP del servicio en la nube, que es un contenedor para las máquinas virtuales IaaS o las instancias de rol PaaS, debido a que un servicio en la nube puede contener varias máquinas virtuales IaaS o instancias de rol PaaS, expuestas todas a través de la misma VIP de servicio en la nube.
 
 ### Puertas de enlace de VPN
-Se usa una [puerta de enlace de VPN](vpn-gateway-about-vpngateways.md) para conectar una VNet de Azure a otras VNet de Azure o redes locales. A una puerta de enlace de VPN se le asigna una dirección IP pública *dinámicamente*, que permite la comunicación con la red remota.
+Se usa una [puerta de enlace de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) para conectar una VNet de Azure a otras VNet de Azure o redes locales. A una puerta de enlace de VPN se le asigna una dirección IP pública *dinámicamente*, que permite la comunicación con la red remota.
 
 ### Puertas de enlace de aplicaciones
-La [puerta de enlace de aplicaciones](application-gateway-introduction.md) de Azure puede utilizarse para el equilibrio de carga de Layer7 para distribuir el tráfico de red basado en HTTP. A la puerta de enlace de aplicaciones se le asigna una dirección IP pública *dinámicamente*, que sirve como dirección VIP con equilibrio de carga.
+La [puerta de enlace de aplicaciones](../application-gateway/application-gateway-introduction.md) de Azure puede utilizarse para el equilibrio de carga de Layer7 para distribuir el tráfico de red basado en HTTP. A la puerta de enlace de aplicaciones se le asigna una dirección IP pública *dinámicamente*, que sirve como dirección VIP con equilibrio de carga.
 
 ### En un vistazo
 En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asignación posibles (dinámico o estático) y la capacidad de asignar varias direcciones IP públicas.
@@ -115,7 +119,7 @@ Cuando se crea una máquina virtual, se agrega a los servidores DNS administrado
 En caso de un servicio en la nube *independiente*, podrá resolver nombres de host de todas las instancias de máquinas virtuales y roles solo dentro del mismo servicio en la nube. En el caso de un servicio en la nube dentro de una red virtual, podrá resolver nombres de host de todas las instancias de máquinas virtuales y roles dentro de la red virtual.
 
 ### Equilibradores de carga internos (ILB) y puertas de enlace de aplicaciones
-Puede asignar una dirección IP privada a la configuración del **front-end** de un [equilibrador de carga interno de Azure](load-balancer-internal-overview.md) (ILB) o una [puerta de enlace de aplicaciones de Azure](application-gateway-introduction.md). Esta dirección IP privada actúa como punto de conexión interno, accesible solo a los recursos en su red virtual y a las redes remotas conectadas a la red virtual. Puede asignar una dirección IP privada estática o dinámica a la configuración del front-end. También puede asignar varias direcciones IP privadas para hacer posibles los escenarios con varias VIP.
+Puede asignar una dirección IP privada a la configuración del **front-end** de un [equilibrador de carga interno de Azure](../load-balancer/load-balancer-internal-overview.md) (ILB) o una [puerta de enlace de aplicaciones de Azure](../application-gateway/application-gateway-introduction.md). Esta dirección IP privada actúa como punto de conexión interno, accesible solo a los recursos en su red virtual y a las redes remotas conectadas a la red virtual. Puede asignar una dirección IP privada estática o dinámica a la configuración del front-end. También puede asignar varias direcciones IP privadas para hacer posibles los escenarios con varias VIP.
 
 ### En un vistazo
 En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asignación posibles (dinámico o estático) y la capacidad de asignar varias direcciones IP privadas.
@@ -160,6 +164,6 @@ A continuación, se muestra una comparación de las características de direccio
 |Equilibrador de carga interno (ILB)|Se asigna al ILB (dinámico o estático).|Se asigna a la configuración de front-end del ILB (dinámico o estático).|
 
 ## Pasos siguientes
-- [Implemente una VM con una dirección IP privada estática](virtual-networks-static-private-ip-classic-pportal.md) mediante el portal clásico.
+- [Implemente una máquina virtual con una dirección IP privada estática](virtual-networks-static-private-ip-classic-pportal.md) mediante el portal clásico.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

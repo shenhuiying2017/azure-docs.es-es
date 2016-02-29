@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2015"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -24,7 +24,7 @@
 Puede configurar un dominio personalizado para obtener acceso a los datos Blob en la cuenta de almacenamiento de Azure. El punto de conexión predeterminado para Almacenamiento de blobs es https://<*mystorageaccount*>.blob.core.windows.net. Si asigna un subdominio y un dominio personalizado, como **www.contoso.com**, al extremo del blob para la cuenta de almacenamiento, los usuarios también pueden obtener acceso a los datos Blob en la cuenta de almacenamiento a través de ese dominio.
 
 
-> [AZURE.NOTE]	Los procedimientos de esta tarea se aplican a las cuentas de almacenamiento de Azure. Para obtener la información relativa a los Servicios en la nube, consulte <a href = "/develop/net/common-tasks/custom-dns/">Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure</a>; para Sitios web, consulte <a href="/develop/net/common-tasks/custom-dns-web-site/">Configuración de un nombre de dominio personalizado para un Sitio web Azure</a>.
+> [AZURE.NOTE]	Los procedimientos de esta tarea se aplican a las cuentas de almacenamiento de Azure. Para obtener la información relativa a los Servicios en la nube, consulte <a href = "/develop/net/common-tasks/custom-dns/">Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure</a>; para Sitios web, consulte <a href="/develop/net/common-tasks/custom-dns-web-site/">Configuración de un nombre de dominio personalizado en Servicio de aplicaciones de Azure</a>.
 
 Existen dos formas de que el dominio personalizado apunte al extremo del blob para la cuenta de almacenamiento. La forma más simple es crear un registro CNAME asignando el dominio y el subdominio personalizados al extremo del blob. Un registro CNAME es una característica DNS que asigna un dominio de origen a un dominio de destino. En este caso, el dominio de origen es el dominio y el subdominio personalizados. Tenga en cuenta que el subdominio es siempre obligatorio. El dominio de destino es el extremo de servicio del blob.
 
@@ -42,7 +42,7 @@ Contenedor raíz|**Dirección URL predeterminada:** http://mystorageaccount.blob
 
 Use este procedimiento para registrar el dominio personalizado si no le preocupa que el dominio deje de estar disponible brevemente para los usuarios o si el dominio personalizado no hospeda actualmente una aplicación.
 
-Si el dominio personalizado es compatible actualmente con una aplicación que no puede tener ningún tiempo de inactividad, use el procedimiento descrito en <a href="#register-asverify">Registro de un dominio personalizado para la cuenta de almacenamiento con el subdominio asverify del intermediario</a>.
+Si el dominio personalizado es compatible actualmente con una aplicación que no puede tener ningún tiempo de inactividad, use el procedimiento descrito en <a href="#register-a-custom-domain-for-your-storage-account-using-the-intermediary-asverify-subdomain">Registro de un dominio personalizado para la cuenta de almacenamiento con el subdominio asverify del intermediario</a>.
 
 Para configurar un nombre de dominio personalizado, debe crear un nuevo registro CNAME con el registrador de dominios. El registro CNAME especifica un alias para el nombre de dominio; en este caso, asigna la dirección del dominio personalizado al punto de conexión de Almacenamiento de blobs para la cuenta de almacenamiento.
 
@@ -114,6 +114,6 @@ Por ejemplo, puede usar el siguiente URI para obtener acceso a un formulario web
 
 ## Recursos adicionales
 
--   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Asignación del contenido de la red CDN a un dominio personalizado</a>
+-   [Cómo asignar un dominio personalizado al punto de conexión de la Red de entrega de contenido (CDN)](../cdn/cdn-map-content-to-custom-domain.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

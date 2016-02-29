@@ -23,7 +23,7 @@
 
 Aprenda a utilizar Sqoop en HDInsight para importar y exportar entre un clúster de HDInsight y una base de datos de SQL Server o la base de datos SQL de Azure.
 
-> [AZURE.NOTE]Los pasos descritos en este artículo pueden utilizarse con cualquier un clúster de HDInsight basado en Windows o Linux ; sin embargo, estos pasos sólo funcionarán desde un cliente Windows.
+> [AZURE.NOTE] Los pasos descritos en este artículo pueden utilizarse con cualquier un clúster de HDInsight basado en Windows o Linux ; sin embargo, estos pasos sólo funcionarán desde un cliente Windows.
 >
 > Si utiliza un cliente Linux, OS X o Unix, y un servidor HDInsight basado en Linux, consulte [Uso de Sqoop con Hadoop en HDInsight (SSH)](hdinsight-use-sqoop-mac-linux.md)
 
@@ -43,23 +43,23 @@ Si opta por usar la base de datos SQL de Azure existente o Microsoft SQL Server
 
 - **Base de datos SQL de Azure**: debe configurar una regla de firewall para que el servidor de base de datos SQL de Azure permita el acceso desde la estación de trabajo. Para obtener instrucciones sobre cómo crear una base de datos SQL de Azure y configurar el firewall, consulte [Introducción al uso de la base de datos SQL de Azure][sqldatabase-get-started]. 
 
-	> [AZURE.NOTE]De forma predeterminada, una base de datos SQL de Azure permite realizar conexiones desde servicios de Azure, como HDInsight de Azure. Si la configuración del firewall está deshabilitada, debe habilitarla en el portal de vista previa de Azure. Para obtener instrucciones sobre la creación de una base de datos SQL de Azure y la configuración de las reglas de firewall, consulte [Creación y configuración de una base de datos SQL][sqldatabase-create-configue].
+	> [AZURE.NOTE] De forma predeterminada, una base de datos SQL de Azure permite realizar conexiones desde servicios de Azure, como HDInsight de Azure. Si la configuración del firewall está deshabilitada, debe habilitarla en el portal de vista previa de Azure. Para obtener instrucciones sobre la creación de una base de datos SQL de Azure y la configuración de las reglas de firewall, consulte [Creación y configuración de una base de datos SQL][sqldatabase-create-configue].
 
 - **SQL Server**: si el clúster de HDInsight se encuentra en la misma red virtual de Azure que un SQL Server, puede seguir los pasos indicados en este artículo para importar y exportar datos a una base de datos de SQL Server.
 
-	> [AZURE.NOTE]HDInsight solo admite redes virtuales basadas en la ubicación y actualmente no funciona con redes virtuales basadas en grupos de afinidad.
+	> [AZURE.NOTE] HDInsight solo admite redes virtuales basadas en la ubicación y actualmente no funciona con redes virtuales basadas en grupos de afinidad.
 
 	* Para crear y configurar una red virtual, consulte [Tareas de configuración de red virtual](../services/virtual-machines/).
 
 		* Cuando use SQL Server en el centro de datos, debe configurar la red virtual como de *sitio a sitio* o de *punto a sitio*.
 
-			> [AZURE.NOTE]En el caso d las redes virtuales de **punto a sitio**, SQL Server debe ejecutarse en la aplicación de configuración de clientes VPN, que se encuentra disponible en el **Panel** de la configuración de red virtual de Azure.
+			> [AZURE.NOTE] En el caso d las redes virtuales de **punto a sitio**, SQL Server debe ejecutarse en la aplicación de configuración de clientes VPN, que se encuentra disponible en el **Panel** de la configuración de red virtual de Azure.
 
 		* Si usa SQL Server en una máquina virtual de Azure, se puede usar cualquier configuración de red virtual si la máquina virtual que hospeda SQL Server es miembro de la misma red virtual que HDInsight.
 
 	* Para aprovisionar un clúster de HDInsight en una red virtual, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight usando opciones personalizadas](hdinsight-provision-clusters.md)
 
-	> [AZURE.NOTE]SQL Server también debe permitir la autenticación. Debe usar un inicio de sesión de SQL Server para completar los pasos de este artículo.
+	> [AZURE.NOTE] SQL Server también debe permitir la autenticación. Debe usar un inicio de sesión de SQL Server para completar los pasos de este artículo.
 	
 ##Descripción del escenario
 
@@ -83,7 +83,7 @@ En primer lugar, exportará tanto *sample.log* como *hivesampletable* a la base 
 El ejemplo de PowerShell de esta sección lleva a cabo los siguientes pasos:
 
 1. Conéctese a Azure.
-2. Cree un grupo de recursos de Azure. Para obtener más información, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](powershell-azure-resource-manager.md).
+2. Cree un grupo de recursos de Azure. Para obtener más información, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
 3. Cree un servidor de Base de datos SQL de Azure, una base de datos SQL de Azure y dos tablas. 
 
 	Si usa SQL Server en su lugar, use las siguientes instrucciones para crear las tablas:
@@ -131,7 +131,7 @@ El ejemplo de PowerShell de esta sección lleva a cabo los siguientes pasos:
 
 	El archivo de origen es tutorials/usesqoop/data/sample.log. La tabla donde se exportan los datos se denomina log4jlogs.
 	
-	> [AZURE.NOTE]Aparte de la información de la cadena de conexión, los pasos indicados en esta sección deben funcionar para una base de datos SQL de Azure o para SQL Server. Estos pasos se probaron con la siguiente configuración:
+	> [AZURE.NOTE] Aparte de la información de la cadena de conexión, los pasos indicados en esta sección deben funcionar para una base de datos SQL de Azure o para SQL Server. Estos pasos se probaron con la siguiente configuración:
 	>
 	> * **Configuración de punto a sitio de la red virtual de Azure**: red virtual que conecta el clúster de HDInsight a SQL Server en un centro privado de datos. Para obtener más información, consulte[ Configuración de una VPN de punto a sitio en el Portal de administración](../vpn-gateway/vpn-gateway-point-to-site-create.md).
 	> * **Azure HDInsight 3.1**: consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight usando opciones personalizadas](hdinsight-provision-clusters.md) para obtener información sobre la creación de un clúster en una red virtual.
@@ -612,8 +612,8 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -623,9 +623,9 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: powershell-install-configure.md
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

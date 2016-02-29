@@ -206,11 +206,11 @@ Hay más métodos de optimización que puede considerar, por ejemplo:
 ##<a id="nextsteps"></a> Pasos siguientes
 En este artículo, ha aprendido varios métodos comunes de optimización de consultas de Hive. Para obtener más información, consulte los artículos siguientes:
 
-- [Uso de Apache Hive en HDInsight](../hdinsight-using-hive.md)
+- [Uso de Apache Hive en HDInsight](hdinsight-use-hive.md)
 - [Análisis de datos de retraso de vuelos con Hive en HDInsight](hdinsight-analyze-flight-delay-data.md)
 - [Análisis de datos de Twitter con Hive en HDInsight](hdinsight-analyze-twitter-data.md)
 - [Análisis de datos de sensor mediante la consola de consultas de Hive en Hadoop con HDInsight](hdinsight-hive-analyze-sensor-data.md)
-- [Uso de Hive con HDInsight para analizar registros de sitios web](../hdinsight-hive-analyze-web-site-log.md)
+- [Uso de Hive con HDInsight para analizar registros de sitios web](hdinsight-hive-analyze-website-log.md)
 
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_1.png
@@ -218,4 +218,4 @@ En este artículo, ha aprendido varios métodos comunes de optimización de cons
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

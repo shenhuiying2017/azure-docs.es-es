@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,8 @@ El objetivo de este tutorial es mostrar cómo integrar LearnUpon con Azure Activ
 
 - En Azure AD se puede controlar quién tiene acceso a LearnUpon.
 - Puede permitir que los usuarios inicien sesión automáticamente en LearnUpon (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central, el Portal de Azure Active Directory clásico.
+- Puede administrar sus cuentas en una ubicación central, el Portal de Azure Active Directory clásico. 
+- 
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -64,12 +65,11 @@ Para configurar la integración de LearnUpon en Azure AD, es preciso agregar Lea
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro de búsqueda, escriba **LearnUpon**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_01.png)<br>
-7. En el panel de resultados, seleccione **LearnUpon** y, a continuación, haga clic en **Completar** para agregar la aplicación. <br><br>
-
+7. En el panel de resultados, seleccione **LearnUpon** y después haga clic en **Completar** para agregar la aplicación. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_02.png)<br>
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con LearnUpon con un usuario de prueba llamado "Britta Simon".
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de LearnUpon para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de LearnUpon.<br> Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en LearnUpon.
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de LearnUpon para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de LearnUpon.<br> Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como valor del **nombre de usuario** en LearnUpon.
 
 Para configurar y probar el inicio de sesión único de Azure AD con LearnUpon, es preciso completar los siguientes bloques de creación:
 
@@ -89,12 +89,12 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 1. En el Portal de Azure AD, en la página de integración de aplicaciones de **LearnUpon**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6] <br>
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en LearnUpon?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**.<br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_03.png) <br>
+2. En la página **¿Cómo desea que los usuarios inicien sesión en LearnUpon?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_03.png) <br>
 
 3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_04.png) <br>
 
 
-    a. En el cuadro de texto URL de respuesta, escriba la URL del Servicio de consumidor de aserciones con el siguiente patrón: **“https://<nombreEmpresa>.learnupon.com/saml/consumer”**.
+    a. En el cuadro de texto URL de respuesta, escriba la URL del Servicio de consumidor de aserciones con el siguiente patrón: **"https://<nombreDeEmpresa>.learnupon.com/saml/consumer"**.
 
 
 4. En la página **Configurar inicio de sesión único en LearnUpon**, siga estos pasos: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_05.png) <br>
@@ -104,9 +104,9 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
     b. Haga clic en **Siguiente**.
 
 
-5. Abra otro inicio de sesión de instancia de explorador en la instancia de LearnUpon con el usuario administrador configurado en **SAML SSO** en LearnUpon. Cuando haya iniciado sesión en LearnUpon, verá una pantalla similar a la siguiente. <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_06.png) <br>
+5. Abra otro inicio de sesión de explorador en la sesión de LearnUpon con el usuario administrador configurado en **Inicio de sesión único de SAML** en LearnUpon. Cuando haya iniciado sesión en LearnUpon, verá una pantalla similar a la siguiente. <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_06.png) <br>
 
-	a. Haga clic en la pestaña **configuración** para abrir la ventana de configuración.<br> b. Haga clic en **Inicio de sesión único - SAML**<br> c. Haga clic en **Configuración general** para configurar SAML. <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_07.png) <br> d. Rellene el formulario de la **Configuración general** del modo siguiente: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_08.png) <br> d1. Active la casilla **Habilitado** para habilitar SAML en este portal<br> d2. Elija **versión 2.0**<br> d3. Elija **Condiciones de no omitir**<br> d4. **Nombre de parámetro POST de token de SAML** es el nombre del parámetro POST de solicitud para la dirección URL del consumidor de SAML indicada anteriormente, que contiene la aserción de SAML que se debe comprobar y autenticar; por ejemplo,**SAMLResponse** <br> d5. **Formato de identificador de nombre** nos indica dónde reside el identificador de los usuarios (dirección de correo electrónico) en la aserción de SAML; por ejemplo,**urn:oasis:names:tc:SAML:1.1:nameid- format:emailAddress**.<br> d6. **Identificar la ubicación del proveedor** es donde se enviará a los usuarios si hacen clic en el icono que ha cargado desde la pantalla de inicio de sesión del portal.<br> d7. Copie la **Dirección URL del servicio de cierre de sesión único** desde la pantalla de configuración de Azure a la **Dirección URL de cierre de sesión**. <br>![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_09.png) <br> d8. Haga clic en el vínculo **Administrar huellas dactilares** del certificado de huellas dactilares para cargar la huella dactilar del certificado. <br>![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_10.png) <br> d9. Haga clic en el botón Guardar. Haga clic en **Configuración de usuario** para configurar los valores del usuario SAML.<br><br>![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_11.png) <br> e1. El **Formato de identificador de nombre** nos indica en qué parte de la aserción SAML reside el nombre de los usuarios; por ejemplo, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**. e2. El **Formato de identificador de apellido** nos indica en qué parte de la aserción SAML reside el apellido de los usuarios; por ejemplo, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
+	a. Haga clic en la pestaña **configuración** para abrir la ventana de configuración.<br> b. Haga clic en **Inicio de sesión único - SAML**<br> c. Haga clic en **Configuración general** para configurar SAML. <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_07.png) <br> d. Rellene el formulario de **Configuración general** del modo siguiente: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_08.png) <br> d1. Active la casilla **Habilitado** para habilitar SAML en este portal.<br> d2. Elija **versión 2.0**<br>. d3. Elija **Condiciones de no omitir**<br>. d4. **Nombre de parámetro POST de token de SAML** es el nombre del parámetro POST de solicitud para la dirección URL del consumidor de SAML indicada antes, que contiene la aserción SAML que se debe comprobar y autenticar; por ejemplo,**SAMLResponse**. <br> d5. **Formato de identificador de nombre** nos indica dónde reside el identificador de los usuarios (dirección de correo electrónico) en la aserción SAML; por ejemplo,**urn:oasis:names:tc:SAML:1.1:nameid- format:emailAddress**.<br> d6. **Identificar la ubicación del proveedor** es donde se enviará a los usuarios si hacen clic en el icono que ha cargado desde la pantalla de inicio de sesión del portal.<br> d7. Copie el valor de **Dirección URL del servicio de cierre de sesión único** en la pantalla de configuración de Azure a **Dirección URL de cierre de sesión**. <br>![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_09.png) <br> d8. Haga clic en el vínculo **Administrar huellas digitales** en Huellas digitales de certificado para cargar la huella digital del certificado. <br>![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_10.png) <br> d9. Haga clic en el botón Guardar. Haga clic en **Configuración de usuario** para configurar los valores del usuario SAML. <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_11.png) <br> e1. En **Formato de identificador de nombre**, se indica en qué parte de la aserción SAML reside el nombre de los usuarios; por ejemplo, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**. e2. En **Formato de identificador de apellido**, se indica en qué parte de la aserción SAML reside el apellido de los usuarios; por ejemplo, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
 
 6. En el Portal de Azure AD, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. <br><br>![Inicio de sesión único de Azure AD][10]<br>
@@ -215,4 +215,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-learnupon-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-learnupon-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

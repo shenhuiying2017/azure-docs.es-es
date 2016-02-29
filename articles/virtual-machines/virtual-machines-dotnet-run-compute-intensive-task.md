@@ -3,9 +3,9 @@
 	description="Aprenda a implementar y ejecutar una aplicación .NET de proceso intensivo en una máquina virtual de Azure y a usar colas del Bus de servicio de Azure para supervisar el progreso remotamente."
 	services="virtual-machines"
 	documentationCenter=".net"
-	authors="wadepickett"
-	manager="wpickett"
-	editor="mollybos"
+	authors="davidmu1"
+	manager="timlt"
+	editor=""
 	tags=“azure-service-management"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="06/25/2015"
-	ms.author="wpickett"/>
+	ms.author="davidmu"/>
 
 # Ejecución de una tarea de proceso intensivo en .NET en una máquina virtual de Azure
 
@@ -551,4 +551,4 @@ En lugar de usar TSPSolver para crear o eliminar la cola, puede crear o eliminar
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

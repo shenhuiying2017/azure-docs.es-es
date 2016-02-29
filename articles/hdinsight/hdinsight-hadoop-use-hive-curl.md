@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="02/16/2016"
    ms.author="larryfr"/>
 
 #Ejecución de consultas de Hive con Hadoop en HDInsight con Curl
@@ -161,6 +161,11 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
+Si usa Tez con Hive, consulte los siguientes documentos para la información de depuración:
+
+* [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md) (Uso de la IU de Tez en HDInsight basado en Windows)
+
+* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md) (Uso de la vista Tez de Ambari en HDInsight basado en Linux)
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
@@ -187,4 +192,4 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="01/29/2016" 
 	ms.author="anhoh"/>
 
 # Modelo jerárquico de recursos y conceptos de DocumentDB
@@ -60,11 +60,7 @@ Los recursos (por ejemplo, las cuentas de bases de datos, las bases de datos, la
 
 Propiedad |¿Configurable por el usuario o generado por el sistema?|Propósito
 ---|---|---
-_rid|Generado por el sistema|Generado por el sistema, identificador único y jerárquico del recurso. 
-_etag|Generado por el sistema|etag del recurso requerido para el control de simultaneidad optimista. 
-_ts|Generado por el sistema|Última actualización de marca de tiempo del recurso. 
-_self|Generado por el sistema|URI direccionable único del recurso. 
-id|Configurable por el usuario|Nombre único del recurso definido por el usuario. Si el usuario no especifica un identificador, el sistema generará uno.
+_\_rid|Generado por el sistema|Generado por el sistema, identificador único y jerárquico del recurso. \_etag|Generado por el sistema|etag del recurso requerido para el control de simultaneidad optimista. \_ts|Generado por el sistema|Última actualización de marca de tiempo del recurso. \_self|Generado por el sistema|URI direccionable único del recurso. id|Configurable por el usuario|Nombre único del recurso definido por el usuario. Si el usuario no especifica un identificador, el sistema generará uno.
 
 ### Representación de conexión de los recursos
 DocumentDB no exige ninguna extensión propietaria a la norma JSON ni codificaciones especiales; funciona con documentos JSON según la norma.
@@ -72,18 +68,7 @@ DocumentDB no exige ninguna extensión propietaria a la norma JSON ni codificaci
 ### Direccionamiento de un recurso
 Todos los recursos se pueden diseccionar mediante URI. El valor de la propiedad **\_self** de un recurso representa la URI relativa del recurso. El formato del URI consta de los segmentos de ruta /<feed>/{\_rid}:
 
-|Valor de \_self |Descriptción
-|-------------------|-----------
-|/dbs |Fuente de las bases de datos de una cuenta de base de datos
-|/dbs/{\_rid-db} |Base de datos con un id. que coincide con el valor de {\_rid-db}
-|/dbs/{\_rid-db}/colls/ |Fuente de colecciones de una base de datos
-|/dbs/{\_rid-db}/colls/{\_rid-coll} |Colección con un id. que coincide con el valor de {\_rid-coll}
-|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs |Fuente de documentos de una colección
-|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs/{\_rid-doc} |Documento con un id. que coincide con el valor de {\_rid-doc}
-|/dbs/{\_rid-db}/users/ |Fuente de usuarios de una base de datos
-|/dbs/{\_rid-db}/users/{\_rid-user} |Usuario con un id. que coincide con el valor de {\_rid-user}
-|/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Fuente de permisos de un usuario
-|/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Permisos con un id. que coincide con el valor de {\_rid-permission}
+|Valor de \_self |Descriptción |-------------------|----------- |/dbs |Fuente de las bases de datos de una cuenta de base de datos |/dbs/{\_rid-db} |Base de datos con un id. que coincide con el valor de {\_rid-db} |/dbs/{\_rid-db}/colls/ |Fuente de colecciones de una base de datos |/dbs/{\_rid-db}/colls/{\_rid-coll} |Colección con un id. que coincide con el valor de {\_rid-coll} |/dbs/{\_rid-db}/colls/{\_rid-coll}/docs |Fuente de documentos de una colección |/dbs/{\_rid-db}/colls/{\_rid-coll}/docs/{\_rid-doc} |Documento con un id. que coincide con el valor de {\_rid-doc} |/dbs/{\_rid-db}/users/ |Fuente de usuarios de una base de datos |/dbs/{\_rid-db}/users/{\_rid-user} |Usuario con un id. que coincide con el valor de {\_rid-user} |/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Fuente de permisos de un usuario |/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Permisos con un id. que coincide con el valor de {\_rid-permission}
   
 Cada recurso tiene un nombre único definido por el usuario que se expone con la propiedad id. Nota: en el caso de los documentos, si el usuario no especifica un identificador, el sistema generará automáticamente un identificador único para el documento. El identificador es una cadena definida por el usuario formada por 256 caracteres como máximo y que es única dentro del contexto de un recurso principal específico. Por ejemplo, el valor de la propiedad del identificador de todos los documentos en una recopilación dada es único, pero no está garantizado para que sea único en otras recopilaciones. De igual manera, el valor de la propiedad del identificador de todos los permisos de un usuario dado es único, pero no está garantizado para que sea único en todos los usuarios. La propiedad \_rid se usa para construir el vínculo direccionable \_self de un recurso.
 
@@ -111,8 +96,7 @@ Tenga en cuenta que, además del aprovisionamiento, la configuración y la admin
 ## Bases de datos
 Una base de datos de DocumentDB es un contenedor lógico de una o varias colecciones o usuarios, como se muestra en el diagrama siguiente. Puede crear cualquier número de bases de datos en la cuenta de base de datos de DocumentDB en función de los límites de la oferta.
 
-![Modelo jerárquico de colecciones y cuenta de base de datos][2]  
-**Una base de datos es un contenedor lógico de usuarios y colecciones**
+![Modelo jerárquico de colecciones y cuenta de base de datos][2] **Una base de datos es un contenedor lógico de usuarios y colecciones**
 
 Una base de datos puede contener almacenamiento de documentos prácticamente ilimitado particionado por colecciones, que forman los dominios de transacción para los documentos que las contienen.
 
@@ -394,8 +378,7 @@ A medida que sus aplicaciones necesiten escalar con el crecimiento de su usuario
 
 Independientemente de la estrategia de partición específica que seleccione, puede modelar a los usuarios reales como usuarios de base de datos de DocumentDB y asociar permisos detallados a cada usuario.
 
-![Colecciones de usuario][3]  
-**Estrategias de partición y modelado de usuarios**
+![Colecciones de usuario][3] **Estrategias de partición y modelado de usuarios**
 
 Como con el resto de recursos, los usuarios de DocumentDB se pueden crear, reemplazar, eliminar, leer o enumerar fácilmente mediante las API REST o con cualquier SDK de cliente. DocumentDB siempre proporciona una alta coherencia para leer o consultar los metadatos de un recurso de usuario. Es importante señalar que eliminar un usuario garantiza automáticamente que no podrá obtener acceso a ningún permiso contenido en el mismo. Incluso aunque DocumentDB reclame la cuota de permisos como parte del usuario eliminado en segundo plano, los permisos eliminados estarán de nuevo disponibles al instante para su uso.
 
@@ -414,4 +397,4 @@ Obtenga más información sobre cómo trabajar con recursos usando comandos HTTP
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

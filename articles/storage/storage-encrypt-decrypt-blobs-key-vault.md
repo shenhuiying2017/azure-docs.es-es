@@ -24,9 +24,9 @@ Este tutorial explica cómo hacer uso del cifrado de almacenamiento del lado cli
 
 **Tiempo estimado para completar el tutorial:** 20 minutos
 
-Para obtener información general sobre Almacén de claves de Azure, consulte [¿Qué es Almacén de clave de Azure?](key-vault/key-vault-whatis.md).
+Para obtener información general sobre el Almacén de claves de Azure, consulte [¿Qué es el Almacén de clave de Azure?](../key-vault/key-vault-whatis.md)
 
-Para obtener información general sobre el cifrado del lado cliente para Almacenamiento de Azure, consulte [Cifrado del lado de cliente y Almacén de claves de Azure para el Almacenamiento de Microsoft Azure](storage-client-side-encryption.md).
+Para obtener información general acerca del cifrado de cliente para Almacenamiento de Azure, consulte [Cifrado del lado de cliente y Almacén de claves de Azure para el Almacenamiento de Microsoft Azure](storage-client-side-encryption.md).
 
 
 ## Requisitos previos
@@ -40,7 +40,7 @@ Para realizar este tutorial, necesitará lo siguiente:
 
 ## Información general sobre el cifrado del lado cliente
 
-Para obtener información general sobre el cifrado del lado cliente para Almacenamiento de Azure, consulte [Introducción al cifrado del lado cliente para Almacenamiento de Microsoft Azure](storage-client-side-encryption.md)
+Para obtener información general acerca del cifrado de cliente para Almacenamiento de Azure, consulte [Cifrado del lado de cliente y Almacén de claves de Azure para el Almacenamiento de Microsoft Azure](storage-client-side-encryption.md).
 
 Esta es una breve descripción de cómo funciona el cifrado del lado cliente:
 
@@ -51,7 +51,7 @@ Esta es una breve descripción de cómo funciona el cifrado del lado cliente:
 
 
 ## Configuración de Almacén de claves de Azure
-Para continuar con este tutorial, debe seguir los siguientes pasos que se describe en el tutorial: [Introducción a Almacén de claves de Azure](key-vault/key-vault-get-started.md)
+Para continuar con este tutorial, debe seguir los siguientes pasos que se describe en el tutorial: [Introducción a Almacén de claves de Azure](../key-vault/key-vault-get-started.md)
 
 - Cree un almacén de claves.
 - Agregue una clave o un secreto al almacén de claves.
@@ -235,4 +235,4 @@ Para obtener la información más reciente sobre Almacenamiento de Microsoft Azu
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

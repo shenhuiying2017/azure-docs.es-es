@@ -1,5 +1,6 @@
 <properties
-	pageTitle="Envío de notificaciones entre plataformas a los usuarios con Centros de notificaciones (ASP.NET)" description="Obtenga información acerca de cómo utilizar las plantillas de los Centros de notificaciones para enviar, en una sola solicitud, una notificación independiente de plataforma que tenga como destino todas las plataformas."
+	pageTitle="Envío de notificaciones entre plataformas a los usuarios con Centros de notificaciones (ASP.NET)"
+	description="Obtenga información acerca de cómo utilizar las plantillas de los Centros de notificaciones para enviar, en una sola solicitud, una notificación independiente de plataforma que tenga como destino todas las plataformas."
 	services="notification-hubs"
 	documentationCenter=""
 	authors="wesmc7777"
@@ -20,7 +21,7 @@
 
 En el tutorial anterior, [Notificación a los usuarios con Centros de notificaciones], aprendió a insertar notificaciones en todos los dispositivos que tiene registrado un usuario autenticado específico. En ese tutorial, se necesitaban varias solicitudes para enviar una notificación a cada plataforma de cliente compatible. Los Centros de notificaciones son compatibles con plantillas, que le permiten especificar cómo un dispositivo específico desea recibir notificaciones. Con esto se simplifica el envío de notificaciones entre plataformas. Este tema muestra cómo aprovecha las plantillas para enviar, en una sola solicitud, una notificación independiente de la plataforma que se dirige a todas las plataformas. Si desea obtener información más detallada sobre las plantillas, consulte [Información general acerca de los Centros de notificaciones de Azure][Templates].
 
-> [AZURE.NOTE]Los Centros de notificaciones permiten que un dispositivo registre varias plantillas con la misma etiqueta. En este caso, un mensaje entrante dirigido a esa etiqueta da lugar a que se entreguen varias notificaciones al dispositivo, una por cada plantilla. Esto le permite mostrar el mismo mensaje en varias notificaciones visuales, como distintivo y como notificación del sistema en una aplicación de la Tienda Windows.
+> [AZURE.NOTE] Los Centros de notificaciones permiten que un dispositivo registre varias plantillas con la misma etiqueta. En este caso, un mensaje entrante dirigido a esa etiqueta da lugar a que se entreguen varias notificaciones al dispositivo, una por cada plantilla. Esto le permite mostrar el mismo mensaje en varias notificaciones visuales, como distintivo y como notificación del sistema en una aplicación de la Tienda Windows.
 
 Lleve a cabo los siguientes pasos para enviar notificaciones entre plataformas mediante plantillas:
 
@@ -107,4 +108,4 @@ Ahora que completó este tutorial, obtenga más información acerca de los Centr
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

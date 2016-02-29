@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.workload="NA"
+   ms.date="02/09/2016"
    ms.author="v-sharos" />
 
 # Usar el servicio de Administrador de StorSimple para ver y administrar alertas de StorSimple
@@ -31,7 +31,7 @@ El dispositivo StorSimple genera alertas en respuesta a una serie de condiciones
 
 - **Problemas de hardware** – Estas alertas le informan sobre el estado del hardware. Le permiten saber si son necesarias actualizaciones de firmware, si una interfaz de red tiene problemas o si existe un problema con alguno de sus discos de datos.
 
-- **Problemas de conectividad**: estas alertas se producen cuando existen dificultades para transferir datos. Los problemas de comunicación pueden ocurrir durante la transferencia de datos a y de la cuenta de almacenamiento de Azure o debido a la falta de conectividad entre los dispositivos y el servicio de Administrador de StorSimple. Los problemas de comunicación están entre los más difíciles de solucionar porque existen numerosos puntos de error. En primer lugar, siempre debe verificar que estén disponibles la conectividad de la red y el acceso a Internet antes de pasar a soluciones de problemas más avanzados. Si necesita ayuda para la solución de problemas, vaya a [Solución de problemas con el cmdlet Test-Connection](storsimple-troubleshoot-deployment.md/#troubleshoot-with-the-test-hcsmconnection-cmdlet).
+- **Problemas de conectividad**: estas alertas se producen cuando existen dificultades para transferir datos. Los problemas de comunicación pueden ocurrir durante la transferencia de datos a y de la cuenta de almacenamiento de Azure o debido a la falta de conectividad entre los dispositivos y el servicio de Administrador de StorSimple. Los problemas de comunicación están entre los más difíciles de solucionar porque existen numerosos puntos de error. En primer lugar, siempre debe verificar que estén disponibles la conectividad de la red y el acceso a Internet antes de pasar a soluciones de problemas más avanzados. Si necesita ayuda para la solución de problemas, vaya a [Solución de problemas con el cmdlet Test-Connection](storsimple-troubleshoot-deployment.md).
 
 - **Problemas de rendimiento**: estas alertas se producen cuando el sistema no tiene un rendimiento óptimo, por ejemplo, cuando está sobrecargado.
 
@@ -41,7 +41,7 @@ Además, podría ver alertas relacionadas con seguridad, actualizaciones o error
 
 Las alertas tienen distintos niveles de gravedad, según el impacto que tendrá la situación de alerta y la necesidad de dar respuesta a la misma. Los niveles de gravedad son:
 
-- **Crítica**: esta alerta se produce en respuesta a una condición que afecta el rendimiento correcto del sistema. Se requiere una acción para asegurar que el servicio de StorSimple no se vea interrumpido.
+- **Crítica** – Esta alerta es en respuesta a una condición que está afectando el rendimiento correcto del sistema. Se requiere una acción para asegurar que el servicio de StorSimple no se vea interrumpido.
 
 - **Advertencia**: esta condición puede convertirse en crítica si no se resuelve. Debe investigar la situación y tomar las acciones necesarias para resolver el problema.
 
@@ -49,9 +49,9 @@ Las alertas tienen distintos niveles de gravedad, según el impacto que tendrá 
 
 ## Configurar alertas
 
-Puede elegir si desea recibir una notificación por correo electrónico de las condiciones de alerta para cada uno de los dispositivos StorSimple. Además, puede identificar otros destinatarios de notificaciones de alerta mediante la especificación de sus direcciones de correo electrónico en el cuadro **OTROS DESTINATARIOS DE CORREO ELECRTRÓNICO**, separadas por punto y coma.
+Puede elegir si desea recibir una notificación por correo electrónico de las condiciones de alerta para cada uno de los dispositivos StorSimple. Además, puede identificar otros destinatarios de notificaciones de alerta mediante la especificación de sus direcciones de correo electrónico en el cuadro **Otros destinatarios de correo electrónico**, separadas por punto y coma.
 
->[AZURE.NOTE]Puede escribir un máximo de 20 direcciones de correo electrónico por dispositivo.
+>[AZURE.NOTE] Puede escribir un máximo de 20 direcciones de correo electrónico por dispositivo.
 
 Después de habilitar la notificación por correo electrónico para un dispositivo, los miembros de la lista de notificación recibirán un mensaje de correo electrónico cada vez que se produzca una alerta crítica. Los mensajes se enviarán desde **storsimple-alerts-noreply@mail.windowsazure.com* y describirán la condición de alerta. Los destinatarios pueden hacer clic en **Eliminar suscripción** para quitarse de la lista de notificación por correo electrónico.
 
@@ -61,21 +61,21 @@ Después de habilitar la notificación por correo electrónico para un dispositi
 
 2. En **Configuración de alertas**, establezca lo siguiente:
 
-    1. En el campo **ENVIAR NOTIFICACIÓN POR CORREO ELECTRÓNICO**, seleccione **SÍ**.
+    1. En el campo **Enviar notificación por correo electrónico**, seleccione **SÍ**.
 
-    2. En el campo **ADMINISTRADORES DEL SERVICIO DE CORREO ELECTRÓNICO**, seleccione **SÍ** si desea que el administrador de servicios y todos los coadministradores reciban las notificaciones de alerta.
+    2. En el campo **Administradores del servicio de correo electrónico**, seleccione **SÍ** si desea que el administrador de servicios y todos los coadministradores reciban las notificaciones de alerta.
 
-    3. En el campo **OTROS DESTINATARIOS DE CORREO ELECTRÓNICO**, escriba las direcciones de correo electrónico de los demás destinatarios que deben recibir las notificaciones de alerta. Escriba los nombres en el formato **someone@somewhere.com*. Utilice punto y coma para separar las direcciones de correo electrónico. Puede configurar un máximo de 20 direcciones de correo electrónico por dispositivo.
+    3. En el campo **Otros destinatarios de correo electrónico**, escriba las direcciones de correo electrónico de los demás destinatarios que deben recibir las notificaciones de alerta. Escriba los nombres en el formato **someone@somewhere.com*. Utilice punto y coma para separar las direcciones de correo electrónico. Puede configurar un máximo de 20 direcciones de correo electrónico por dispositivo.
 
         ![Configuración de notificaciones de alerta](./media/storsimple-manage-alerts/AlertNotify.png)
 
-3. Para enviar una notificación de prueba por correo electrónico, haga clic en el icono de flecha junto a **ENVIAR CORREO ELECTRÓNICO DE PRUEBA**. El servicio Administrador de StorSimple mostrará mensajes de estado mientras envía la notificación de prueba.
+3. Para enviar una notificación de prueba por correo electrónico, haga clic en el icono de flecha junto a **Enviar correo electrónico de prueba**. El servicio Administrador de StorSimple mostrará mensajes de estado mientras envía la notificación de prueba.
 
 4. Cuando aparece el siguiente mensaje, haga clic en **Aceptar**.
 
     ![Correo electrónico de notificación de alertas de prueba enviado](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig3.png)
 
-    >[AZURE.NOTE]Si el mensaje de notificación de prueba no puede enviarse, el servicio Administrador de StorSimple mostrará un mensaje adecuado. Haga clic en **Aceptar** y, después de algunos minutos, intente volver a enviar el mensaje de notificación de prueba.
+    >[AZURE.NOTE] Si el mensaje de notificación de prueba no puede enviarse, el servicio Administrador de StorSimple mostrará un mensaje adecuado. Haga clic en **Aceptar** y, después de algunos minutos, intente volver a enviar el mensaje de notificación de prueba.
 
 ## Ver y realizar un seguimiento de las alertas
 
@@ -91,7 +91,7 @@ Al hacer clic en la lista, se muestran detalles adicionales de la alerta, incluy
 
 ![Ejemplo de alerta de hardware](./media/storsimple-manage-alerts/admin_alerts_hardware.png)
 
-Si necesita enviar la información al soporte técnico de Microsoft, puede copiar los detalles de las alertas en un archivo de texto. Después de haber seguido las recomendación y resuelto la condición de alerta en el entorno local, debe borrar la alerta del dispositivo; para ello, selecciónela en la pestaña **Alertas** y haga clic en **Borrar**. Para borrar varias alertas, presione la tecla Ctrl mientras selecciona las alertas y, a continuación, haga clic en **Borrar**. Tenga en cuenta que algunas alertas se eliminan automáticamente cuando se resuelve el problema o cuando el sistema actualiza la alerta con nueva información.
+Si necesita enviar la información al soporte técnico de Microsoft, puede copiar los detalles de las alertas en un archivo de texto. Después de haber seguido las recomendación y resuelto la condición de alerta en el entorno local, debe borrar la alerta del dispositivo; para ello, selecciónela en la pestaña **Alertas** y haga clic en **Borrar**. Para borrar varias alertas, seleccione cada alerta, haga clic en cualquier columna excepto en la columna **Alerta** y, a continuación, haga clic en **Borrar** después de haber seleccionado todas las alertas que vaya a borrar. Tenga en cuenta que algunas alertas se eliminan automáticamente cuando se resuelve el problema o cuando el sistema actualiza la alerta con nueva información.
 
 Al hacer clic en **Borrar**, tendrá la posibilidad de proporcionar comentarios sobre la alerta y los pasos llevados a cabo para resolver el problema. El sistema borrará algunos eventos si se desencadena otro evento con información nueva. En ese caso, verá el siguiente mensaje.
 
@@ -191,7 +191,7 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 
 |Texto de la alerta|Evento|Más información / acciones recomendadas|
 |:---|:---|:---|
-|Error de copia de seguridad de <*id. de grupo de volúmenes de origen*>.|Error de trabajo de copia de seguridad.|Podrían existir problemas de conectividad que impiden que la operación de copia de seguridad se complete correctamente. Si no hay problemas de conectividad, podría haber alcanzado el número máximo de copias de seguridad. Elimine las copias de seguridad que ya no sean necesarias y vuelva a intentar la operación. Después de realizar la acción apropiada, borre esta alerta de la página de alertas.|
+|Error de copia de seguridad de <*Id. de grupo de volúmenes de origen*>|Error de trabajo de copia de seguridad.|Podrían existir problemas de conectividad que impiden que la operación de copia de seguridad se complete correctamente. Si no hay problemas de conectividad, podría haber alcanzado el número máximo de copias de seguridad. Elimine las copias de seguridad que ya no sean necesarias y vuelva a intentar la operación. Después de realizar la acción apropiada, borre esta alerta de la página de alertas.|
 |Error de clonación de <*id. de elemento de copia de seguridad de origen*> a <*números de serie de volúmenes de destino*>.|Error de trabajo de clonación.|Actualice la lista de copias de seguridad para verificar que la copia de seguridad siga siendo válida. Si la copia de seguridad es válida, es posible que existan problemas de conectividad de nube que impidan que la operación de clonación se complete correctamente. Si no hay problemas de conectividad, podría haber alcanzado el límite de almacenamiento. Elimine las copias de seguridad que ya no sean necesarias y vuelva a intentar la operación. Después de realizar la acción apropiada para resolver el problema, borre esta alerta de la página de alertas.|
 |Error de restauración de <*id. de elemento de copia de seguridad de origen*>.|Error de trabajo de restauración.|Actualice la lista de copias de seguridad para verificar que la copia de seguridad siga siendo válida. Si la copia de seguridad es válida, es posible que existan problemas de conectividad de nube que impidan que la operación de restauración se complete correctamente. Si no hay problemas de conectividad, podría haber alcanzado el límite de almacenamiento. Elimine las copias de seguridad que ya no sean necesarias y vuelva a intentar la operación. Después de realizar la acción apropiada para resolver el problema, borre esta alerta de la página de alertas.|
 
@@ -229,7 +229,7 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 |Se ha iniciado una sesión de soporte técnico de Microsoft Support.|Un tercero ha accedido a la sesión de soporte técnico.|Confirme que este acceso está autorizado. Después de realizar la acción apropiada, borre esta alerta de la página de alertas.|
 |La contraseña de <*elemento*> caducará en <*período de tiempo*>.|La caducidad está a punto de caducar.|Cambiar la contraseña antes de que caduque.|
 |Falta información de la configuración de seguridad para <*id. de elemento*>.||Los volúmenes asociados con este contenedor de volúmenes no pueden utilizarse para replicar la configuración de StorSimple. Para asegurarse de que sus datos se almacenan de forma segura, recomendamos eliminar el contenedor de volúmenes y los volúmenes asociados con el contenedor de volúmenes. Después de realizar la acción apropiada, borre esta alerta de la página de alertas.|
-|<*número*> intentos de inicio de sesión incorrectos para <*id. de elemento*>.|Múltiples intentos de inicio de sesión erróneos.|Es posible que su dispositivo se encuentre bajo ataque o que un usuario autorizado esté intentando conectarse con una contraseña incorrecta.<ul><li>Póngase en contacto con los usuarios autorizados y compruebe que estos intentos proceden de un origen legítimo. Si continúa viendo un gran número de intentos de inicio de sesión erróneos, considere la posibilidad de deshabilitar la administración remota y de ponerse en contacto con su administrador de red. Después de realizar las acción apropiada, borre esta alerta de la página de alertas.</li><li>Compruebe que las instancias de Snapshot Manager estén configuradas con la contraseña correcta. Después de realizar la acción apropiada, borre esta alerta de la página de alertas.</li></ul>Para más información, vaya a [Cambio de una contraseña de dispositivo caducada](storsimple-snapshot-manager-manage-devices.md#change-an-expired-device-password).|
+|<*número*> intentos de inicio de sesión incorrectos para <*id. de elemento*>.|Múltiples intentos de inicio de sesión erróneos.|Su dispositivo puede estar bajo ataque o un usuario autorizado está intentando conectarse con una contraseña incorrecta.<ul><li>Póngase en contacto con los usuarios autorizados y verifique que estos intentos proceden de un origen legítimo. Si continúa viendo un gran número de intentos de inicio de sesión erróneos, considere la posibilidad de deshabilitar la administración remota y de ponerse en contacto con su administrador de red. Después de realizar las acción apropiada, borre esta alerta de la página de alertas.</li><li>Compruebe que las instancias de Snapshot Manager estén configuradas con la contraseña correcta. Después de realizar la acción apropiada, borre esta alerta de la página de alertas.</li></ul>Para más información, vaya a [Cambio de una contraseña de dispositivo caducada](storsimple-snapshot-manager-manage-devices.md#change-an-expired-device-password).|
 |Se ha producido uno o más errores al cambiar la clave de cifrado de datos del servicio.||Se encontraron errores al cambiar la clave de cifrado de datos del servicio. Después de solucionar las condiciones de error, ejecute el cmdlet `Invoke-HcsmServiceDataEncryptionKeyChange` desde la interfaz de Windows PowerShell para StorSimple en su dispositivo para actualizar el servicio. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft. Cuando haya solucionado el problema, borre esta alerta de la página de alertas.|
 
 ### Alertas de paquetes de soporte
@@ -246,12 +246,12 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 |Actualizaciones manuales disponibles.|Notificación de actualizaciones disponibles.|Utilice la interfaz de Windows PowerShell para StorSimple de su dispositivo para instalar estas actualizaciones. <br>Para más información, vaya a [Actualización del dispositivo de la serie StorSimple 8000](storsimple-update-device.md).|
 |Nuevas actualizaciones disponibles.|Notificación de actualizaciones disponibles.|Puede instalar estas actualizaciones desde la página **Mantenimiento** o mediante la interfaz de Windows PowerShell para StorSimple de su dispositivo. <br>Para más información, vaya a [Actualización del dispositivo de la serie StorSimple 8000](storsimple-update-device.md).|
 |Error al instalar las actualizaciones.|Las actualizaciones no se instalaron correctamente.|El sistema no pudo instalar las actualizaciones. Puede instalar estas actualizaciones desde la página **Mantenimiento** o mediante la interfaz de Windows PowerShell para StorSimple de su dispositivo. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft. <br>Para más información, vaya a [Actualización del dispositivo de la serie StorSimple 8000](storsimple-update-device.md).|
-|No se puede comprobar automáticamente si hay nuevas actualizaciones.|Error de comprobación automática.|Puede comprobar manualmente si existen nuevas actualizaciones desde la página **Mantenimiento**.|
+|No se puede comprobar automáticamente si hay nuevas actualizaciones.|Error de comprobación automática.|Puede comprobar manualmente si hay nuevas actualizaciones desde la página **Mantenimiento**.|
 |Nuevo agente WUA disponible.|Notificación de actualización disponible.|Descargue la versión más reciente del Agente de Windows Update e instálela desde la interfaz de Windows PowerShell.|
-|La versión del componente de firmware <*id. de componente*> no coincide con el hardware.|Las actualizaciones de firmaware no se instalaron correctamente.|Póngase en contacto con el soporte técnico de Microsoft|
+|La versión del componente de firmware <*Id. de componente*> no coincide con el hardware.|Las actualizaciones de firmaware no se instalaron correctamente.|Póngase en contacto con el soporte técnico de Microsoft|
 
 ## Pasos siguientes
 
 Aprenda más sobre [ los errores de StorSimple y la solución de problemas de un dispositivo operativo](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

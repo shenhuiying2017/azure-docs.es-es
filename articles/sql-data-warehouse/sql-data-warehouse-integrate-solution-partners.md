@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/12/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Asociados de la solución de Almacenamiento de datos SQL
@@ -30,9 +30,9 @@ Para crear la solución de almacenamiento de datos de un extremo a otro, elija e
 | ![Coffing Data Warehousing][5] |**Coffing Data Warehousing**<br>Coffing Data Warehousing ofrece Nexus Chameleon, una herramienta con 10 años de diseño dedicada a la consulta de sistemas. Nexus está disponible como herramienta de consulta para Almacenamiento de datos SQL. Utilice Nexus para consultar los equipos internos y de la nube y para reunir datos en distintas plataformas. Apunte, haga clic, informe. | [Más][coffing_data_warehousing_more] |
 | ![Dell Statistica][6] |**Dell Statistica**<br>Dell Statistica es una plataforma de análisis avanzada que permite que las organizaciones hacer predicciones sobre el futuro, optimizar procesos, reducir costos y aumentar los ingresos. Dell Statistica simplifica el análisis de Big Data, optimiza la implementación, extrae del texto información que permite realizar una acción y potencia su negocio. | [Más][dell_statistica_more] |
 | ![Dundas][7] |**Dundas Software**<br>Dundas Data Visualization es un proveedor global líder del software de inteligencia empresarial y visualización de datos. Los paneles, los informes y el análisis de datos visuales de Dundas proporcionan una integración sin problemas con las aplicaciones empresariales, para permitir una mejor toma de decisiones e informaciones más rápidas. | [Más][dundas_software_more] |
-| ![Inbrein][8] |**Inbrein**<br>Inbrein MicroERD proporciona las herramientas necesarias para crear un modelo de datos preciso, reducir la redundancia de datos, mejorar la productividad y cumplir con los estándares. Mediante el uso de su interfaz de usuario que se desarrolló basada en amplias experiencias de usuario, un modelador puede trabajar de manera fácil y conveniente en modelos de bases de datos. Puede disfrutar continuamente funciones nuevas y mejoradas de MicroERD a través de mejoras y actualizaciones funcionales y oportunas. | [Más][inbrein_more] |
+| ![Inbrein][8] |**Inbrein**<br>Inbrein MicroERD proporciona las herramientas necesarias para crear un modelo de datos preciso, reducir la redundancia de datos, mejorar la productividad y cumplir con los estándares. Mediante el uso de su interfaz de usuario que se desarrolló a partir de numerosas experiencias de usuario, un modelador puede trabajar de manera fácil y cómoda en modelos de bases de datos. Puede disfrutar continuamente funciones nuevas y mejoradas de MicroERD a través de mejoras y actualizaciones funcionales y oportunas. | [Más][inbrein_more] |
 | ![Infolibrarian][9] |**Infolibrarian**<br>InfoLibrarian cataloga, almacena y administra metadatos que le ayudan a resolver los puntos de dificultad clave de la administración de datos. Además, InfoLibrarian proporciona soluciones de software de administración de activos, gobernanza de datos y administración de metadatos para administrar y publicar metadatos desde un conjunto variado de herramientas y tecnologías. | [Más][infolibrarian_more] |
-| ![Informatica][10] |**Informatica**<br>Informatica es uno de los proveedores independientes de software de integración de datos más reconocible del mundo. Informatica Vibe, una de las primeras máquinas de datos virtuales integrables del sector, potencia las funcionalidades "Asignar una vez, implementar en cualquier lugar" de la plataforma de Informatica. Más de 5 500 empresas en todo el mundo dependen de Informatica para aprovechar completamente sus recursos de información.| [Más][informatica_more] |
+| ![Informatica][10] |**Informatica**<br>Informatica es uno de los proveedores independientes de software de integración de datos más reconocible del mundo. Informatica Vibe, una de las primeras máquinas de datos virtuales integrables del sector, potencia las funcionalidades "Asignar una vez, implementar en cualquier lugar" de la plataforma de Informatica. Más de 5 500 empresas de todo el mundo dependen de Informatica para aprovechar completamente sus recursos de información.| [Más][informatica_more] |
 | ![Jinfonet][11] |**Jinfonet**<br>JReport es una solución de BI integrable para la empresa. La solución permite que los usuarios creen informes, paneles y análisis de datos en la nube, Big Data y orígenes de datos transaccionales. A través de la visualización de datos, los usuarios pueden realizar sus propios informes y su detección de datos para un proceso de toma de decisiones ágil y sobre la marcha.| [Más][jinfonet_more] |
 | ![LogiAnalytics][12] |**LogiAnalytics**<br>Logi Analytics, en conjunto con Almacenamiento de datos SQL de Microsoft Azure, ahora pueden permitir a su organización coleccionar y analizar los conjuntos de datos más diversos y de mayor tamaño del mundo, además de actuar en consecuencia, para generar una organización de alto rendimiento. | [Más][logianalytics_more] |
 | ![Looker][13] |**Looker**<br>Looker ofrece a todos los miembros de su empresa la capacidad de explorar y comprender los datos que impulsan su negocio mientras que, al mismo tiempo, ofrece al analista de datos un nivel de modelado flexible y reutilizable para controlar y ajustar esos datos. Con Looker como catalizador, las empresas han transformado profundamente su cultura. | [Más][looker_more] |
@@ -96,9 +96,9 @@ Para obtener más información acerca de la integración con Almacenamiento de d
 [redpoint_global_more]: http://www.redpoint.net/
 [sisense_more]: http://www.sisense.com/
 [snaplogic_more]: http://www.snaplogic.com/
-[sql_sentry_more]: www.sqlsentry.com/solutions/business-analytics/
+[sql_sentry_more]: http://www.sqlsentry.com/solutions/business-analytics/
 [tableau_more]: http://www.tableau.com/
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

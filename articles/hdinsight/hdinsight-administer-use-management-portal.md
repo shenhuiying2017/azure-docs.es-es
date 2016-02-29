@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="02/17/2016"
 	ms.author="jgao"/>
 
 # Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
@@ -36,7 +36,7 @@ Haga clic en el selector de pestañas para obtener información sobre cómo crea
 Antes de empezar este artículo, debe tener lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Cuenta de Almacenamiento de Azure**: un clúster de HDInsight usa contenedores de almacenamiento de blobs de Azure como sistemas de archivos predeterminados. Para obtener más información acerca de cómo el almacenamiento de blobs de Azure ofrece una experiencia perfecta con los clústeres de HDInsight, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](../hdinsight-use-blob-storage.md). Para obtener información acerca de la creación de una cuenta de Almacenamiento de Azure, consulte [Creación de una cuenta de Almacenamiento](../storage-create-storage-account.md).
+- **Cuenta de Almacenamiento de Azure**: un clúster de HDInsight usa contenedores de almacenamiento de blobs de Azure como sistemas de archivos predeterminados. Para obtener más información acerca de cómo el almacenamiento de blobs de Azure ofrece una experiencia perfecta con los clústeres de HDInsight, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obtener información acerca de la creación de una cuenta de Almacenamiento de Azure, consulte [Creación de una cuenta de Almacenamiento](../storage/storage-create-storage-account.md).
 
 ##Abrir el portal
 
@@ -211,12 +211,11 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
 
 ##Pausa o apagado de clústeres
 
-La mayoría de los trabajos de Hadoop son trabajos por lotes que se ejecutan sol ocasionalmente. En la mayoría de los clústeres de Hadoop, hay grandes períodos de tiempo en los que el clúster no se usa para el procesamiento. Con HDInsight, los datos se almacenan en Almacenamiento de Azure, por lo que puede eliminar un clúster de forma segura cuando no está en uso. 
-También se le cargará por un clúster de HDInsight aunque no esté en uso. Como en muchas ocasiones los cargos por el clúster son más que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no estén en uso.
+La mayoría de los trabajos de Hadoop son trabajos por lotes que se ejecutan sol ocasionalmente. En la mayoría de los clústeres de Hadoop, hay grandes períodos de tiempo en los que el clúster no se usa para el procesamiento. Con HDInsight, los datos se almacenan en Almacenamiento de Azure, por lo que puede eliminar un clúster de forma segura cuando no está en uso. También se le cargará por un clúster de HDInsight aunque no esté en uso. Como en muchas ocasiones los cargos por el clúster son más que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no estén en uso.
 
 Hay muchas maneras de programar el proceso:
 
-- Usar Factoría de datos de Azure. Vea [Servicio vinculado de Azure HDInsight](../data-factory-compute-linked-services.md/#azure-hdinsight-linked-service) y [Transformación y análisis mediante la Factoría de datos de Azure](../data-factory-data-transformation-activities.md) para servicios vinculados de HDInsight a petición y definidos por el usuario.
+- Usar Factoría de datos de Azure. Vea [Servicio vinculado de Azure HDInsight](../data-factory/data-factory-compute-linked-services.md/#azure-hdinsight-linked-service) y [Transformación y análisis mediante la Factoría de datos de Azure](../data-factory/data-factory-data-transformation-activities.md) para servicios vinculados de HDInsight a petición y definidos por el usuario.
 - Usar Azure PowerShell. Vea [Análisis de datos de retrasos de vuelos](hdinsight-analyze-flight-delay-data.md).
 - Uso de CLI de Azure. Consulte [Administrar clústeres de HDInsight con la CLI de Azure](hdinsight-administer-use-command-line.md).
 - Usar .NET SDK de HDInsight. Vea [Envío de trabajos de Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md).
@@ -292,7 +291,7 @@ La consola de consulta de HDInsight incluye las siguientes características:
 
 	![portal de hdinsight historial de trabajos](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-	Haga clic en **Nombre de la consulta** para mostrar los detalles, incluidas las propiedades del trabajo, la **consulta del trabajo** y **salida del trabajo**. También puede descargar la consulta y la salida a la estación de trabajo.
+	Haga clic en **Nombre de la consulta** para mostrar los detalles, incluidas las propiedades del trabajo, la **consulta del trabajo** y **salida del trabajo. También puede descargar la consulta y la salida a la estación de trabajo.
 
 - **Explorador de archivos**: explore la cuenta de almacenamiento predeterminada y las cuentas de almacenamiento vinculadas.
 
@@ -394,10 +393,10 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 * [Administración de HDInsight con la CLI de Azure](hdinsight-administer-use-command-line.md)
 * [Creación de clústeres de HDInsight](hdinsight-provision-clusters.md)
 * [Envío de trabajos de Hadoop mediante programación](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Introducción a HDInsight de Azure](../hdinsight-get-started.md)
+* [Introducción a HDInsight de Azure](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [¿Qué versión de Hadoop tiene HDInsight de Azure?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Línea de comandos de Hadoop"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

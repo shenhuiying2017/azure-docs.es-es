@@ -31,9 +31,13 @@ Los informes están disponibles 45 días después del cierre del trimestre y se 
 ### Acceso a los informes de pago en el Centro de desarrollo
 
 1. Vaya al Centro de desarrollo en https://dev.windows.com/es-ES.
-2. Haga clic en **Panel**. ![LandingPageDashboardHighlight][1]
+2. Haga clic en **Panel**.
 
-3. Haga clic en **Resumen de pagos**. ![DashboardPayoutSummary][2]
+    ![LandingPageDashboardHighlight][1]
+
+3. Haga clic en **Resumen de pagos**.
+
+    ![DashboardPayoutSummary][2]
 
 
 ## Visualización de los informes de pago en el Centro de desarrollo
@@ -42,12 +46,12 @@ El informe de pago para cada trimestre registra todas las transacciones que se p
 
 - El importe reservado indica los pagos que se acumularán fuera del ciclo de pago próximo (por ejemplo, este importe se moverá al próximo pago el mes siguiente). Este importe suele ser normalmente 0 $ (a menos que un cliente pague con mucha antelación).
 - Haga clic en los vínculos **Ver detalles** de Pago próximo o Pago más reciente para ver una nota sobre esos pagos.
-- Haga clic en **Extractos de pagos** para ver los detalles en Ganancias por aplicación/producto.
+- Haga clic en **Extractos de pagos** para ver los detalles en Ganancias por aplicación o producto.
 - Haga clic en el vínculo **Ver** para ver extractos individuales.
 
     ![PayoutSummaryUpcomingMostRecentLinksStatement][3]
 
-- Utilice el filtro de **desglose de ganancias** en la parte inferior del extracto individual para ver varias aplicaciones o productos, si existen.
+- Utilice el filtro **Desglose de ganancias** de la parte inferior del extracto individual para ver varias aplicaciones o productos, si existen.
 
     ![PayoutSummaryPaymentStatementsFilterControl][4]
 
@@ -58,7 +62,9 @@ El informe de pago para cada trimestre registra todas las transacciones que se p
 
 1. Navegue al portal de publicación en https://publish.windowsazure.com.
 2. En la sección **Editores**, haga clic en **Informes de pago**.
-3. Haga clic en la lista desplegable para que aparezcan todos los informes de pago trimestrales disponibles. ![accessingpayoutreport][5]
+3. Haga clic en el desplegable para que aparezcan todos los informes de pago trimestrales disponibles.
+
+    ![accessingpayoutreport][5]
 
 
 ### Lectura de los informes de pago
@@ -66,7 +72,7 @@ El informe de pago para cada trimestre registra todas las transacciones que se p
 El informe de pago para cada trimestre registra todas las transacciones que se producen dentro de ese trimestre.
 
 - Si busca movimientos relacionados con un trimestre concreto, seleccione el informe de pago para ese trimestre en la lista desplegable. Por ejemplo, si está interesado en los movimientos de abril a junio de 2015, seleccione dicho intervalo de fechas en la lista desplegable.
-- Si busca detalles de pagos relacionados con un trimestre concreto, seleccione el informe de pago para el siguiente trimestre. Por ejemplo, si está interesado en los pagos de abril a junio de 2015, estos importes aparecerán en el siguiente informe de pago de julio a septiembre de 2015. ![readingpayoutreport][6]
+- Si busca detalles de pagos relacionados con un trimestre concreto, seleccione el informe de pago para el siguiente trimestre. Por ejemplo, si está interesado en los pagos de abril a junio de 2015, estos importes aparecerán en el siguiente informe de pagos de julio a septiembre de 2015. ![readingpayoutreport][6]
 
 - En el panel de resumen financiero se muestran saldos, debe y haber por categoría.
 - Los movimientos muestran las transacciones individuales.
@@ -94,7 +100,7 @@ Si tiene alguna pregunta relacionada con sus pagos, póngase en contacto con nue
 
 ## Pasos siguientes
 
-Para otras consultas de soporte técnico, registre un problema en https://portal.azure.com.
+Para otras consultas de soporte técnico, registre un problema en <https://portal.azure.com>.
 
 [1]: ./media/marketplace-publishing-report-payout/LandingPage-DashboardHighlight.png
 [2]: ./media/marketplace-publishing-report-payout/Dashboard-PayoutSummary.png
@@ -106,4 +112,4 @@ Para otras consultas de soporte técnico, registre un problema en https://portal
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

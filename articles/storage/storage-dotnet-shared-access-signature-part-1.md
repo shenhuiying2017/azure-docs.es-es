@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -127,11 +127,11 @@ Dado que los permisos están restringidos al nivel de servicio, las operaciones 
 
 Una firma de acceso compartido puede presentar una de estas dos formas:
 
-- **SAS ad-hoc**: cuando cree una SAS ad-hoc, la hora de inicio, la hora de expiración y los permisos para la SAS se especifican en el URI de SAS (o se encuentran implícitos en el caso en el que se omita la hora de inicio). Este tipo de SAS puede crearse como SAS de cuenta o como SAS de servicio. 
+- **SAS ad-hoc**: cuando cree una SAS ad-hoc, la hora de inicio, la hora de expiración y los permisos para la SAS se especifican en el URI de SAS (o se encuentran implícitos en el caso en el que se omita la hora de inicio). Este tipo de SAS puede crearse como SAS de cuenta o como SAS de servicio.
 
 - **SAS con directiva de acceso almacenada:** se define una directiva de acceso almacenada en un contenedor de recursos (un contenedor de blobs, un archivo compartido, un archivo, una tabla o una cola) y se puede usar para administrar las restricciones de una o varias firmas de acceso compartido. Cuando asocia una SAS a una directiva de acceso almacenada, la SAS hereda las restricciones (hora de inicio, hora de expiración y permisos) definidas para la directiva de acceso almacenada.
 
->[AZURE.NOTE]Actualmente, una SAS de cuenta debe ser una SAS ad hoc. Las directivas de acceso almacenadas ya no son compatibles para SAS de cuenta.
+>[AZURE.NOTE] Actualmente, una SAS de cuenta debe ser una SAS ad hoc. Las directivas de acceso almacenadas ya no son compatibles para SAS de cuenta.
 
 La diferencia entre las dos formas es importante para un escenario principal: revocación. Una SAS es una dirección URL, por lo que cualquier persona que obtenga la SAS puede usarla, independientemente de quién la solicitó para comenzar. Si una SAS se encuentra disponible públicamente, cualquier persona del mundo puede usarla. Una SAS distribuida es válida hasta que se produzca una de las cuatro situaciones:
 
@@ -140,7 +140,7 @@ La diferencia entre las dos formas es importante para un escenario principal: re
 3.	Se elimina la directiva de acceso almacenada a la que hace referencia la SAS, que es otra forma de revocar la SAS. Tenga en cuenta que si vuelve a crear la directiva de acceso almacenada exactamente con el mismo nombre, todos los tokens de la SAS volverán a ser válidos según los permisos asociados a la directiva de acceso almacenada (si se presupone que la hora de expiración en la SAS no ha pasado). Si prevé revocar la SAS, asegúrese de usar un nombre distinto si vuelve a crear la directiva de acceso con una hora de expiración futura.
 4.	Se vuelve a generar la clave de cuenta que se usó para crear la SAS. Tenga en cuenta que la realización de este procedimiento provocará que todos los componentes de la aplicación que usen esa clave de cuenta no puedan autenticarse hasta que se actualicen para usar la otra clave de cuenta válida o la clave de cuenta que se acaba de volver a generar.
 
->[AZURE.IMPORTANT]Los URI de firma de acceso compartido están asociados a la clave de la cuenta que se utiliza para crear la firma y a la directiva de acceso almacenada correspondiente (en su caso). Si no se especifica una directiva de acceso almacenada, la única forma de revocar una firma de acceso compartido es cambiar la clave de la cuenta.
+>[AZURE.IMPORTANT] Los URI de firma de acceso compartido están asociados a la clave de la cuenta que se utiliza para crear la firma y a la directiva de acceso almacenada correspondiente (en su caso). Si no se especifica una directiva de acceso almacenada, la única forma de revocar una firma de acceso compartido es cambiar la clave de la cuenta.
 
 ## Por ejemplo: crear y usar las firmas de acceso compartido
 
@@ -311,11 +311,9 @@ Las firmas de acceso compartido son útiles para ofrecer permisos limitados a su
 ## Pasos siguientes ##
 
 - [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs](storage-dotnet-shared-access-signature-part-2.md)
-- [Uso del Almacenamiento de archivos de Azure con Windows](storage-dotnet-how-to-use-files.md)
-- [Administración del acceso a los recursos de almacenamiento de Azure](storage-manage-access-to-resources.md)
+- [Introducción a Almacenamiento de archivos de Azure en Windows](storage-dotnet-how-to-use-files.md)
+- [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md)
 - [Delegación de acceso con una firma de acceso compartido](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [Presentación de tablas y colas SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [Presentación de tablas y colas SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

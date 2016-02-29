@@ -20,7 +20,7 @@
 # Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas
 
 
-En este documento se ofrece orientación para ayudar a evaluar si usar un grupo de bases de datos elásticas para un grupo de bases de datos es rentable según los patrones de uso de la base de datos y las diferencias de precios entre un grupo de bases de datos elásticas y bases de datos únicas. También se proporciona orientación adicional para ayudar a determinar el tamaño actual del grupo necesario para un conjunto de bases de datos SQL existente.
+Evalúe si usar un grupo de bases de datos elásticas para un grupo de bases de datos es rentable según los patrones de uso de la base de datos y las diferencias de precios entre un grupo de bases de datos elásticas y bases de datos únicas. También se proporciona orientación adicional para ayudar a determinar el tamaño actual del grupo necesario para un conjunto de bases de datos SQL existente.
 
 - Para obtener información general de grupos de base de datos elásticas, vea [Grupos de bases de datos elásticas de Base de datos SQL](sql-database-elastic-pool.md).
 - Para obtener información detallada sobre los grupos de bases de datos elásticas, vea [Referencia de grupos de bases de datos elásticas de Base de datos SQL](sql-database-elastic-pool-reference.md).
@@ -30,7 +30,7 @@ En este documento se ofrece orientación para ayudar a evaluar si usar un grupo 
 
 ## Grupos de bases de datos elásticas
 
-Los ISV de SaaS desarrollan aplicaciones basadas en los niveles superiores de datos de la escala que constan de varias bases de datos. Un patrón de aplicación común es disponer de clientes distintos para cada una de estas bases de datos con patrones de uso no predecibles y variables exclusivamente. Puede ser complicado para ISV predecir los requisitos del recurso de cada base de datos individualmente. En estas circunstancias, el ISV puede realizar un aprovisionamiento excesivo de los recursos con un gasto considerable para garantizar un rendimiento y unos tiempos de repuesta favorables para todas las bases de datos. El ISV también puede gastar menos y arriesgar en una experiencia de rendimiento insuficiente para sus clientes.
+Los ISV de SaaS desarrollan aplicaciones basadas en los niveles superiores de datos de la escala que constan de varias bases de datos. Un patrón de aplicación común es proporcionar a cada cliente su propia base de datos. Sin embargo, cada cliente tiene patrones de uso variables e impredecibles y resulta difícil predecir los requisitos de recursos de cada usuario de base de datos. Por lo tanto, un ISV puede realizar un aprovisionamiento excesivo de los recursos con un gasto considerable para garantizar un rendimiento y unos tiempos de repuesta favorables para todas las bases de datos. El ISV también puede gastar menos y arriesgar en una experiencia de rendimiento insuficiente para sus clientes.
 
 Los grupos de bases de datos elásticas en Base de datos SQL de Azure permiten a los ISV de SaaS optimizar el rendimiento del precio para un grupo de bases de datos dentro de un presupuesto prescrito a la vez que se ofrece elasticidad de rendimiento para cada base de datos. Los grupos de bases de datos elásticas permiten al ISV adquirir unidades de rendimiento de base de datos elásticas (eDTU) para un grupo compartido entre varias bases de datos con el fin de dar cabida a períodos impredecibles de uso por bases de datos individuales. El requisito de eDTU para un grupo se determina mediante el uso agregado de sus bases de datos. La cantidad de eDTU disponibles para el grupo se controla mediante el presupuesto del ISV. Los grupos de bases de datos elásticas facilitan al ISV razonar el impacto del presupuesto en el rendimiento y viceversa para su grupo. El ISV simplemente agrega bases de datos al grupo, establece el número garantizado o la capacidad de eDTU necesarias para las bases de datos y luego establece la eDTU del grupo según el presupuesto. Mediante el uso de grupos de bases de datos elásticas, los ISV pueden aumentar de forma eficiente su servicio a partir de un método Lean Startup hasta un negocio con madurez a una escala cada vez mayor.
   
@@ -435,4 +435,4 @@ No todas las bases de datos únicas son candidatas óptimas para los grupos de b
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

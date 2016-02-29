@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="11/26/2015"
+   ms.date="02/12/2016"
    ms.author="hermannd"/>
 
 # Pruebas de SAP NetWeaver en máquinas virtuales de SUSE Linux de Microsoft Azure
@@ -76,6 +76,21 @@ No monte nunca discos de datos de Azure en una máquina virtual Linux de Azure m
 
 El problema con el identificador del dispositivo es que puede cambiar y la máquina virtual de Azure podría bloquearse en el proceso de arranque. Puede agregar el parámetro nofail en /etc/fstab para mitigar el problema. Pero tenga en cuenta que con nofail las aplicaciones pueden usar el punto de montaje como antes y quizá escribir en el sistema de archivos raíz en caso de que no se haya montado un disco de datos externos de Azure durante el arranque.
 
+La única excepción relacionada con el montaje a través de UUID está relacionada con conectar un disco del SO para solucionar problemas, tal como se describe en la sección siguiente.
+
+## Solución de problemas con una máquina virtual de SUSE a la que ya no es posible tener acceso
+
+Puede haber situaciones en las que una máquina virtual de SUSE en Azure se bloquea en el proceso de arranque (por ejemplo, un error relacionado con el montaje de los discos). El problema se puede comprobar, por ejemplo, a través de la característica de diagnóstico de arranque en el portal para las máquinas virtuales v2 ( [ver este blog](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)).
+
+Una opción para solucionar el problema es conectar el disco del SO de la máquina virtual dañada a otra máquina virtual de SUSE en Azure y, luego, realizar los cambios correspondientes, como editar /etc/fstab o quitar reglas udev de la red, tal como se describe en la siguiente sección.
+
+Sin embargo, hay un aspecto importante que debe considerar. La implementación de varias máquinas virtuales de SUSE desde la misma galería de imágenes de Azure (por ejemplo, SLES 11 SP4) muestra que el mismo UUID siempre montará el disco del SO. Por lo tanto, si conecta un disco del SO desde una máquina virtual distinta a través de un UUID que se implementó mediante la misma imagen de la galería de Azure generará dos UUID idénticos. Esto provoca problemas y podría significar que la máquina virtual destinada a la solución de problemas arrancará, de hecho, desde el disco del SO conectado y dañado, en lugar de hacerlo desde el original.
+
+Existen dos posibilidades de evitar esto:
+
+* Use una imagen de la galería de Azure distinta para la máquina virtual de solución de problemas (por ejemplo, SLES 12 en lugar de SLES 11 SP4).
+* No conecte el disco del SO dañado desde otra máquina virtual mediante UUID; hágalo de una manera distinta.
+
 ## Carga de una máquina virtual de SUSE desde una instalación local a Azure
 
 [Este artículo](virtual-machines-linux-create-upload-vhd-suse.md) describe los pasos para cargar una máquina virtual SUSE desde local a Azure.
@@ -99,7 +114,7 @@ Las nuevas máquinas virtuales de SUSE se deben crear a través de archivos de p
 
    ``` Puede encontrar más detalles acerca de los archivos de plantilla JSON en [este artículo](resource-group-authoring-templates.md) y [esta página web](https://azure.microsoft.com/documentation/templates/).
 
-Puede encontrar más detalles acerca de CLI y el Administrador de recursos de Azure en [este artículo](xplat-cli-azure-resource-manager.md).
+Puede encontrar más detalles acerca de la CLI y el Administrador de recursos de Azure en [este artículo](xplat-cli-azure-resource-manager.md).
 
 ## Clave de licencia y hardware de SAP
 
@@ -147,4 +162,4 @@ Si desea utilizar el escritorio Gnome para instalar un sistema completo de demos
 
 Hay una restricción de soporte técnico de Oracle en Linux en entornos virtualizados. Este es un tema general, no uno específico de Azure. No obstante, es importante entenderlo. SAP no admite Oracle en SUSE ni Red Hat en una nube pública como Azure. Los clientes deben ponerse en contacto con Oracle directamente para tratar este tema.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

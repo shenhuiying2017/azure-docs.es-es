@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma" />
 
 
@@ -42,7 +42,7 @@ Agregar un extremo de Azure a una máquina virtual y establecer el modo de distr
 
 	Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 
->[AZURE.NOTE]LoadBalancerDistribution puede establecerse en sourceIP para equilibrio de carga de 2-tupla (IP de origen, IP de destino), en sourceIPProtocol para equilibrio de carga de 3-tupla (IP de origen, IP de destino, protocolo) o en ninguno si desea el comportamiento predeterminado de equilibrio de carga de tupla 5.
+>[AZURE.NOTE] LoadBalancerDistribution puede establecerse en sourceIP para equilibrio de carga de 2-tupla (IP de origen, IP de destino), en sourceIPProtocol para equilibrio de carga de 3-tupla (IP de origen, IP de destino, protocolo) o en ninguno si desea el comportamiento predeterminado de equilibrio de carga de tupla 5.
 
 
 Recuperar una configuración de modo de distribución del equilibrador de carga de extremo
@@ -149,4 +149,4 @@ El valor de LoadBalancerDistribution puede ser sourceIP para la afinidad de 2-tu
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

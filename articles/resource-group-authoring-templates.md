@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/08/2016"
+   ms.date="02/17/2016"
    ms.author="tomfitz"/>
 
 # Creación de plantillas del Administrador de recursos de Azure
@@ -131,6 +131,8 @@ Los valores y tipos permitidos son los siguientes:
 
 Para especificar un parámetro como opcional, establezca su defaultValue en una cadena vacía.
 
+Si especifica un parámetro con un nombre que coincide con el de uno de los parámetros del comando utilizado para implementar la plantilla (por ejemplo, incluye un parámetro denominado **ResourceGroupName** en la plantilla y este parámetro es el mismo que el parámetro **ResourceGroupName** del cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), se le pedirá que proporcione un valor para un parámetro con el sufijo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Por lo general, debe evitar esta confusión no nombrando los parámetros con el mismo nombre que los parámetros utilizados para operaciones de implementación.
+
 >[AZURE.NOTE] Todas las contraseñas, claves y otros secretos deben utilizar el tipo **secureString**. No se pueden leer los parámetros de plantilla con el tipo secureString después de la implementación de recursos.
 
 En el ejemplo siguiente se muestra cómo definir los parámetros.
@@ -169,7 +171,7 @@ En el ejemplo siguiente se muestra cómo definir los parámetros.
        }
     }
 
-Para obtener información acerca de la especificación de valores de parámetros durante la implementación, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](../resource-group-template-deploy/#parameter-file).
+Para más información sobre la especificación de valores de parámetros durante la implementación, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](../resource-group-template-deploy/#parameter-file).
 
 ## Variables
 
@@ -227,7 +229,7 @@ En el ejemplo siguiente se muestra una variable que es un tipo JSON complejo y l
 
 ## Recursos
 
-En la sección de recursos, se define que los recursos se implementan o se actualizan. Aquí es donde la plantilla puede ser más complicada porque es preciso entender los tipos que se implementan para proporcionar los valores correctos. Para aprender gran parte de lo que necesita saber sobre proveedores de recursos, consulte [Proveedores, regiones, versiones de API y esquemas del Administrador de recursos](resource-manager-supported-services.md).
+En la sección de recursos, se define que los recursos se implementan o se actualizan. Aquí es donde la plantilla puede ser más complicada porque es preciso entender los tipos que se implementan para proporcionar los valores correctos. Para conocer gran parte de lo que necesita saber sobre proveedores de recursos, consulte [Proveedores, regiones, versiones de API y esquemas del Administrador de recursos](resource-manager-supported-services.md).
 
 Defina recursos con la siguiente estructura:
 
@@ -472,4 +474,4 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
 - Para obtener un ejemplo en profundidad de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para ver los esquemas disponibles, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

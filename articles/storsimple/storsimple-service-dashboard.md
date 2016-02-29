@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="02/01/2016"
    ms.author="v-sharos" />
 
 # Uso del panel del servicio StorSimple Manager
@@ -22,8 +22,6 @@
 La página del panel del servicio StorSimple Manager proporciona una vista resumida de todos los dispositivos que están conectados al servicio StorSimple Manager, y resalta aquellas que requieren la atención del administrador del sistema. Este tutorial presenta la página del panel, explica el contenido y la función del panel, y describe las tareas que puede realizar desde esta página.
 
 ![Panel del servicio](./media/storsimple-service-dashboard/HCS_ServiceDashboard.png)
-
-**Ilustración 1: Panel del servicio StorSimple Manager**
 
 El panel del servicio StorSimple Manager muestra la siguiente información:
 
@@ -78,4 +76,4 @@ Para ver los registros de operaciones, haga clic en el vínculo de registros de 
 
 - Obtenga más información sobre cómo [usar el servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

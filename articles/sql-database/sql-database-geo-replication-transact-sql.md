@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""
     authors="carlrabeler"
-    manager="jeffreyg"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="01/25/2015"
+    ms.date="02/12/2016"
     ms.author="carlrab"/>
 
 # Configuración de la replicación geográfica para una base de datos SQL de Azure con Transact-SQL
@@ -233,4 +233,4 @@ Use los pasos siguientes para supervisar una asociación de replicación geográ
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Documentación de Base de datos SQL](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="02/12/2016"
 	ms.author="tedway"/>
 
 
@@ -27,11 +27,11 @@
 
 ## Pasos
 
-1. Publicar un servicio web. En [esta página](machine-learning-walkthrough-5-publish-web-service.md) se explica cómo hacerlo. Actualmente, la función de Libro de Excel solo se admite para los servicios de solicitud/respuesta que tienen una salida única (es decir, una etiqueta de puntuación única).
+1. Publicar un servicio web. En [esta página](machine-learning-walkthrough-5-publish-web-service.md) se explica cómo hacerlo. Actualmente, la función de libro de Excel solo se admite para los servicios de solicitud/respuesta que tienen una salida única (es decir, una etiqueta de puntuación única).
 
 2. Una vez que tenga un servicio web, haga clic en la sección **SERVICIOS WEB** que se encuentra a la izquierda del estudio y, luego, seleccione el servicio web que se va a usar desde Excel.
 
-3. En la pestaña **PANEL** del servicio web se encuentra una fila para el servicio **SOLICITUD/RESPUESTA**. Si este servicio tenía una salida única, deberá consultar el vínculo **Descargar el libro de Excel** en esa fila.
+3. En la pestaña **PANEL** del servicio web se encuentra una fila para el servicio **SOLICITUD/RESPUESTA**. Si este servicio tenía una salida única, deberá consultar el vínculo **Descargar el libro de Excel** de esa fila.
 
 	![][1]
 
@@ -71,4 +71,4 @@ En las siguientes dos situaciones se realiza una llamada a RRS:
 [3]: ./media/machine-learning-consuming-from-excel/enablecontent.png
 [4]: ./media/machine-learning-consuming-from-excel/sampletable.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

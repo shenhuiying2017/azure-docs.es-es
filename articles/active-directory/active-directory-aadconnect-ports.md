@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="02/09/2016"
 	ms.author="billmath"/>
 
 # La identidad híbrida requería puertos y protocolos
@@ -74,15 +74,14 @@ En esta tabla se describen los puertos y protocolos que son necesarios para la c
 En las tablas siguientes se describen los puntos de conexión, puertos y protocolos que son necesarios para la comunicación entre los agentes de Azure AD Connect Health y Azure AD.
 
 ### Tabla 6a: Puertos y protocolos para el agente de Azure AD Connect Health para (AD FS/sincronización) y Azure AD
-En esta tabla se describen los puertos y protocolos que son necesarios para la comunicación entre los agentes de Azure AD Connect Health y Azure AD.
+En esta tabla se describen los siguientes puertos y protocolos de salida que son necesarios para la comunicación entre los agentes de Azure AD Connect Health y Azure AD.
 
 | Protocolo |Puertos |Descripción
 | --------- | --------- |--------- |
-| HTTP|80 (TCP/UDP)|
-|HTTPS|443 (TCP/UDP)|
-|Bus de servicio|5671 (TCP/UDP)|
+|HTTPS|443 (TCP/UDP)| Salida
+|Bus de servicio|5671 (TCP/UDP)| Salida
 
 ### 6b: Puntos de conexión para el agente de Azure AD Connect Health para (AD FS/sincronización) y Azure AD
-Para una lista de puntos de conexión, consulte [la sección Requisitos para el agente de Azure AD Connect Health](active-directory-aadconnect-health.md#requirements)
+Para ver una lista de puntos de conexión, consulte [la sección de requisitos para el agente de Azure AD Connect Health](active-directory-aadconnect-health.md#requirements).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

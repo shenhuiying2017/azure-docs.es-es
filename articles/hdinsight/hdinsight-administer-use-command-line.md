@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Aprenda a usar la [interfaz de la línea de comandos de Azure](xplat-cli-install.md) para administrar clústeres de Hadoop en HDInsight de Azure. La CLI de Azure se implementa en Node.js y se puede usar en cualquier plataforma compatible con Node.js, entre las que se incluyen Windows, Mac y Linux.
+Aprenda a usar la [interfaz de la línea de comandos de Azure](../xplat-cli-install.md) para administrar clústeres de Hadoop en HDInsight de Azure. La CLI de Azure se implementa en Node.js y se puede usar en cualquier plataforma compatible con Node.js, entre las que se incluyen Windows, Mac y Linux.
 
 Este artículo solo trata del uso de la CLI de Azure con HDInsight. Para obtener información general sobre cómo usar la CLI de Azure CLI, consulte [Instalación y configuración de la CLI de Azure][azure-command-line-tools].
 
@@ -99,11 +99,11 @@ En este artículo, ha aprendido a realizar diferentes tareas administrativas en 
 
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
 [image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Enumeración y visualización de clústeres"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="02/16/2016" 
 	ms.author="jeffstok"/>
 
 #Notas de la versión de Análisis de transmisiones
@@ -127,10 +127,10 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 ## Pasos siguientes
 
 - [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-- [Introducción al uso de Análisis de transmisiones de Azure](../stream.analytics.get.started.md)
+- [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
 - [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

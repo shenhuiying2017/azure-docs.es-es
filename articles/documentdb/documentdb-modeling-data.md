@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="ryancraw"/>
 
 #Modelado de datos en DocumentDB#
@@ -393,4 +393,4 @@ Para comprender cómo particionar los datos en varias particiones, consulte [Par
 Y por último, para obtener información sobre el particionamiento y el modelado de datos en aplicaciones multiempresa, consulte [Scaling a Multi-Tenant Application with Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx) (Escalación de una aplicación multiempresa con Azure DocumentDB).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

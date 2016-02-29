@@ -30,7 +30,7 @@ En este tema se muestra cómo usar Azure Mobile Engagement para comprender el us
 
 En este tutorial, se creará una aplicación de Cordova vacía usando Mac y, después, se integrará el SDK de Mobile Engagement. Recopila datos de análisis básicos y recibe notificaciones push usando Apple Push Notification System (APNS) para iOS y Google Cloud Messaging (GCM) para Android. Se implementará en un dispositivo iOS o Android para las pruebas.
 
-> [AZURE.IMPORTANT]Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
+> [AZURE.IMPORTANT] Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
 
 Este tutorial requiere lo siguiente:
 
@@ -40,7 +40,7 @@ Este tutorial requiere lo siguiente:
 + Número de proyecto de GCM, que puede obtener en la consola de Google para desarrolladores para GCM.
 + [Complemento Cordova para Mobile Engagement](https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-engagement)
 
-> [AZURE.NOTE]Encontrará el código fuente y el archivo Léame del complemento Cordova en [Github](https://github.com/Azure/azure-mobile-engagement-cordova)
+> [AZURE.NOTE] Encontrará el código fuente y el archivo Léame del complemento Cordova en [Github](https://github.com/Azure/azure-mobile-engagement-cordova)
 
 ##<a id="setup-azme"></a>Configuración de Mobile Engagement para una aplicación Cordova
 
@@ -64,7 +64,7 @@ Crearemos una aplicación básica con Cordova para demostrar la integración:
 		$ cordova platform add ios 
 		$ cordova run ios
 
-3. Para configurar el proyecto para **Android**, ejecute lo siguiente en el emulador de Android:
+3. Para configurar el proyecto para **Android**, ejecute lo siguiente en el emulador de Android. Asegúrese de que la configuración del emulador de Android SDK tiene su destino como Google API (Google Inc.) con CPU/ABI como ARM de las API de Google.
 
 		$ cordova platform add android
 		$ cordova run android
@@ -245,4 +245,4 @@ Ahora crearemos una campaña sencilla de notificación push que enviará una ins
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

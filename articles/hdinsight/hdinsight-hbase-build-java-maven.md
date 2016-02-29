@@ -629,4 +629,4 @@ Reemplace __hdinsightclustername__ por el nombre del clúster de HDInsight.
 
 Use el parámetro `-showErr` para ver el error estándar (STDERR) producido mientras se ejecutaba el trabajo.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

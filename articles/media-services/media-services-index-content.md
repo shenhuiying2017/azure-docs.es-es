@@ -3,7 +3,7 @@
 	description="El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. En este tema se muestra cómo usar el Indizador multimedia."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako,Asolanki,johndeu"
+	authors="Asolanki"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/15/2015"   
-	ms.author="juliako"/>
+	ms.date="02/17/2016"   
+	ms.author="juliako;adsolank;johndeu"/>
 
 
 # Indización de archivos multimedia con el Indizador multimedia de Azure
@@ -301,4 +301,4 @@ Actualmente, se admiten los idiomas inglés y español. Para obtener más inform
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

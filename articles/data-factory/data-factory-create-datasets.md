@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de conjuntos de datos" 
+	pageTitle="Conjuntos de datos en Data Factory de Azure | Microsoft Azure" 
 	description="Descripción de los conjuntos de datos de Factoría de datos de Azure y aprenda a crearlos." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
-# Conjuntos de datos
+# Conjuntos de datos en Data Factory de Azure
 
 ## Descripción
 Un conjunto de datos es una descripción lógica de los datos. Los datos que se describen pueden variar desde bytes simples, pasando por datos semiestructurados, como archivos CSV, hasta tablas relacionales o incluso modelos. El mecanismo de (dirección, protocolo, esquema de autenticación) para tener acceso a los datos se define en el servicio vinculado y se hace referencia a él en la definición del conjunto de datos.
@@ -208,4 +208,4 @@ Si necesita ejecutar una canalización mensualmente en una fecha y hora específ
 	  }
 	}
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

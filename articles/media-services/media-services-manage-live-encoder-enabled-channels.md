@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="02/14/2016" 
 	ms.author="juliako"/>
 
 #Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure
@@ -32,6 +32,9 @@ A partir de la versión 2.10 de Servicios multimedia, al crear un canal, puede e
 - **Estándar**: elija este valor si piensa usar Servicios multimedia para codificar secuencias en directo con una sola velocidad de bits como secuencias de varias velocidades de bits. Tenga en cuenta que hay un impacto en la facturación para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" supondrá un coste adicional de facturación. Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales.
 
 >[AZURE.NOTE]En este tema se describen los atributos de los canales habilitados para realizar la codificación en directo (tipo de codificación **Estándar**). Para obtener información sobre cómo trabajar con los canales no habilitados para realizar la codificación en directo, consulte [Trabajo con canales que reciben streams en vivo de varias velocidades de bits de codificadores locales](media-services-manage-channels-overview.md).
+>
+>Asegúrese de revisar la sección [Consideraciones](media-services-manage-live-encoder-enabled-channels.md#Considerations).
+
 
 
 ##Implicaciones de facturación
@@ -437,6 +440,7 @@ Detenido|Detenido|No
 - Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante largos períodos de tiempo, póngase en contacto con amslived en Microsoft.com.
 - Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
 - Al introducir varias pistas de idioma y realizar codificación en directo con Azure, solo se admite RTP como entrada de varios idiomas. Puede definir hasta ocho secuencias de audio con MPEG-2 TS a través de RTP. Actualmente no se admite la introducción de varias pistas de audio con Smooth Streaming ni RTMP. Al realizar la codificación en directo con [codificaciones en directo locales](media-services-manage-channels-overview.md), no hay ninguna limitación de este tipo porque todo lo que se envía a AMS pasa a través de un canal sin más procesamiento.
+- El valor predeterminado de codificación usa la noción de "velocidad de fotogramas máxima" de 30 fps. Por tanto, si la entrada es de 60fps 59.97i, los fotogramas de entrada se quitan o se elimina su entrelazado a 30/29.97 fps. Si la entrada es 50fps/50i, los fotogramas de entrada se quitan o se elimina su entrelazado a 25 fps. Si la entrada es de 25 fps, la salida permanece a 25 fps.
 - No olvide DETENER SUS CANALES cuando haya terminado. Si no lo hace, la facturación continuará. 
 
 ##Problemas conocidos
@@ -476,4 +480,4 @@ Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

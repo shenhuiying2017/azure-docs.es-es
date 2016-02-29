@@ -18,9 +18,14 @@
 
 # Movimiento de datos hacia y desde Almacenamiento de datos SQL de Azure mediante Factoría de datos de Azure
 
-En este artículo se describe cómo puede usar la actividad de copia de la factoría de datos para mover datos al almacenamiento de datos SQL de Azure desde otro almacén de datos y desde otro almacén de datos a SQL de Azure. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
+En este artículo se describe cómo puede usar la actividad de copia de Data Factory de Azure para mover datos desde Almacenamiento de datos SQL de Azure a otro almacén de datos y desde otro almacén de datos a Almacenamiento de datos SQL de Azure. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y los orígenes y receptores de datos admitidos para Almacenamiento de datos SQL.
 
-En los siguientes ejemplos, se muestra cómo copiar datos entre Almacenamiento de datos SQL de Azure y Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Factoría de datos de Azure.
+En los siguientes ejemplos, se muestra cómo copiar datos entre Almacenamiento de datos SQL de Azure y Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar **directamente** desde cualquiera de los orígenes a cualquiera de los receptores indicados en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Data Factory de Azure.
+
+> [AZURE.NOTE] 
+Para obtener información general sobre el servicio Data Factory de Azure, vea [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md).
+> 
+> En este artículo se proporcionan ejemplos de JSON, pero no se incluyen instrucciones detalladas para crear una factoría de datos. Consulte [Tutorial: Copia de datos de un blob de Azure a Base de datos SQL de Azure](data-factory-get-started.md) para obtener un tutorial rápido con instrucciones detalladas para usar la actividad de copia en Data Factory de Azure.
 
 
 ## Ejemplo: copia de datos del almacenamiento de datos SQL de Azure a un blob de Azure
@@ -526,4 +531,4 @@ La asignación es igual que la asignación de [tipo de datos de SQL Server para 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

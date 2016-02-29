@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="02/11/2016"
 	ms.author="glenga"/>
 
 
@@ -56,7 +56,7 @@ Este tutorial se refiere a cómo el [ejemplo de Todo sin conexión de Servicios 
 
 3. En Visual Studio 2013, abra el archivo de solución *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln*. Presione la tecla **F5** para volver a compilar y ejecutar el proyecto. Compruebe que se restauran los paquetes de NuGet y las referencias se establecen correctamente.
 
-    >[AZURE.NOTE]Es posible que se requiera eliminar cualquier referencia anterior a SQLite en tiempo de ejecución y reemplazarla por la referencia actualizada, tal como se menciona en el tutorial [Introducción a los datos sin conexión].
+    >[AZURE.NOTE] Es posible que se requiera eliminar cualquier referencia anterior a SQLite en tiempo de ejecución y reemplazarla por la referencia actualizada, tal como se menciona en el tutorial [Introducción a los datos sin conexión].
 
 4. En la aplicación, escriba algún texto en **Insertar TodoItem** y, a continuación, haga clic en **Guardar** para agregar algunos elementos al almacén local. A continuación, cierre la aplicación.
 
@@ -87,7 +87,7 @@ Ahora es el momento de probar la aplicación en los servicios móviles.
 
 En un escenario real, se produciría un conflicto de sincronización cuando una aplicación inserta actualizaciones en un registro de la base de datos y, a continuación, otra aplicación trata de insertar un cambio en el mismo registro usando un campo de versión obsoleta de dicho registro. Como se indicó en el tutorial [Introducción a los datos sin conexión], la propiedad del sistema de versión se requiere para admitir las características de sincronización sin conexión. Esta información de versión se examina con cada actualización de la base de datos. Si una instancia de la aplicación intenta actualizar un registro usando una versión obsoleta, se producirá un conflicto que se detectará como `MobileServicePreconditionFailedException` en la aplicación. Si la aplicación no detecta la `MobileServicePreconditionFailedException`, se arrojará una `MobileServicePushFailedException` que describirá cuántos errores de sincronización se encontraron.
 
->[AZURE.NOTE]Para admitir la sincronización de los registros eliminados con la sincronización de datos sin conexión, debe habilitar la [Eliminación temporal](mobile-services-using-soft-delete.md). De lo contrario, deberá quitar manualmente los registros en el almacén local o llamar a `IMobileServiceSyncTable::PurgeAsync()` para purgar el almacén local.
+>[AZURE.NOTE] Para admitir la sincronización de los registros eliminados con la sincronización de datos sin conexión, debe habilitar la [Eliminación temporal](mobile-services-using-soft-delete.md). De lo contrario, deberá quitar manualmente los registros en el almacén local o llamar a `IMobileServiceSyncTable::PurgeAsync()` para purgar el almacén local.
 
 
 Los pasos siguientes muestran los clientes de Windows Phone 8.1 y Tienda Windows 8.1 que se ejecutan al mismo tiempo para provocar y resolver un conjunto usando el ejemplo.
@@ -168,4 +168,4 @@ Cuando se cancela una inserción, `PushAsync` producirá un `MobileServicePushFa
 [repositorio de muestras de GitHub para Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=512865
 [ejemplo de Todo sin conexión de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=512866
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/16/2016"
 	ms.author="tamram"/>
 
 # Introducción a Almacenamiento de Microsoft Azure
@@ -28,9 +28,9 @@ Almacenamiento de Azure es la solución de almacenamiento en la nube para las ap
 - Cómo se protegen los datos de Almacenamiento de Azure mediante la redundancia y la replicación
 - Qué pasos seguir a continuación para crear una primera aplicación de Almacenamiento de Azure
 
-Para empezar a usar Almacenamiento de Azure rápidamente, consulte [Introducción de 5 minutos a los blobs, tablas y colas de Azure](storage-getting-started-guide.md)
+Para empezar a usar Almacenamiento de Azure rápidamente, consulte [Comience a usar Almacenamiento de Azure en 5 minutos](storage-getting-started-guide.md).
 
-Para obtener más información sobre las herramientas, las bibliotecas y otros recursos para trabajar con Almacenamiento de Azure, consulte el apartado [Pasos siguientes](next-steps) que encontrará a continuación.
+Para obtener más información sobre las herramientas, las bibliotecas y otros recursos para trabajar con Almacenamiento de Azure, consulte el apartado [Pasos siguientes](#next-steps) que encontrará a continuación.
 
 ## ¿Qué es Almacenamiento de Azure?
 
@@ -55,7 +55,7 @@ Una cuenta de almacenamiento de Azure es una cuenta segura que proporciona acces
 - Una cuenta de almacenamiento estándar incluye el almacenamiento de blobs, tablas, colas y archivos.
 - Una cuenta de almacenamiento premium actualmente solo admite los discos de Máquinas virtuales de Azure.
 
-Para poder crear una cuenta de almacenamiento, debe tener una suscripción de Azure, que es un plan que le proporciona acceso a diversos servicios de Azure. [Puede crear hasta 100 cuentas de almacenamiento con nombre único con una única suscripción.](../azure-subscription-service-limits.md) Consulte [Detalles de precios de almacenamiento](https://azure.microsoft.com/pricing/details/storage/) para obtener información sobre los precios por volumen.
+Para poder crear una cuenta de almacenamiento, debe tener una suscripción de Azure, que es un plan que le proporciona acceso a diversos servicios de Azure. [Puede crear hasta 100 cuentas de almacenamiento con nombre único con una única suscripción.](../azure-subscription-service-limits.md) Consulte [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/) para obtener información sobre los precios por volumen.
 
 Para comenzar con Azure, puede usar una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/). Una vez que decida adquirir un plan, puede elegir entre diversas [opciones de compra](https://azure.microsoft.com/pricing/purchase-options/). Si ya es [suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), obtendrá créditos mensuales gratuitos que podrá usar con los servicios de Azure, incluido Almacenamiento de Azure.
 
@@ -74,7 +74,7 @@ La siguiente imagen muestra las relaciones entre los recursos de almacenamiento 
 
 ![Recursos de almacenamiento de Azure](./media/storage-introduction/storage-concepts.png)
 
-Cuando esté listo para crear una cuenta de almacenamiento estándar, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](storage-create-storage-account.md) para obtener más detalles.
+Cuando esté listo para crear una cuenta de almacenamiento estándar, consulte [Creación de una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account) para obtener más detalles.
 
 ### Cuentas de Almacenamiento premium
 
@@ -99,7 +99,7 @@ El almacenamiento de blob ofrece tres tipos de blobs: blobs en bloques, blobs en
 
 Los blobs en páginas están optimizados para representar discos IaaS y admitir la escritura aleatoria. Pueden tener un tamaño máximo de 1 TB. Un disco IaaS asociado a una red de máquinas virtuales de Azure es un VHD almacenado como blob en páginas.
 
-Para conjuntos de datos de gran tamaño donde las restricciones de red hacen imposible la carga o descarga de datos en el almacenamiento de blobs a través de una conexión, puede enviar una unidad de disco duro a Microsoft para importar o exportar datos directamente desde el centro de datos con el [servicio de importación y exportación de Azure](storage-import-export-service.md). También puede copiar datos de blobs en la cuenta de almacenamiento o entre cuentas de este tipo.
+Para conjuntos de datos de gran tamaño donde las restricciones de red hacen imposible la carga o descarga de datos en el almacenamiento de blobs a través de una conexión, puede enviar una unidad de disco duro a Microsoft para importar o exportar datos directamente desde el centro de datos. Consulte [Uso del servicio de importación y exportación de Microsoft Azure para transferir datos al almacenamiento en blobs](storage-import-export-service.md). También puede copiar datos de blobs en la cuenta de almacenamiento o entre cuentas de este tipo.
 
 ## Almacenamiento de tablas
 
@@ -143,7 +143,7 @@ SAS de cuenta delega el acceso a los recursos en uno o varios de los servicios d
 
 Por último, puede especificar que un contenedor y sus blobs, o un blob específico, estén disponibles para el acceso público. Cuando se indica que un contenedor o blob es público, todos los usuarios pueden leerlo de forma anónima: no se requiere autenticación. Los contenedores y los blobs públicos son útiles para exponer recursos, como archivos multimedia y documentos hospedados en sitios web. Si desea reducir la latencia de red para una audiencia global, puede almacenar en caché los datos de blobs usados por los sitios web con el servicio CDN de Azure.
 
-Consulte [Administración del acceso a los recursos de almacenamiento de Azure](storage-manage-access-to-resources.md) y [Autenticación para Servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx) para obtener más información sobre el acceso seguro a su cuenta de almacenamiento.
+Consulte [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md) y [Autenticación para Servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx) para obtener más información sobre el acceso seguro a su cuenta de almacenamiento.
 
 ## Replicación para obtener durabilidad y alta disponibilidad
 
@@ -155,20 +155,20 @@ A los clientes se les factura el uso del Almacenamiento de Azure conforme a cuat
 
 La capacidad de almacenamiento se refiere a cuánto de la asignación correspondiente a cuentas de almacenamiento utiliza para almacenar datos. El coste de simplemente almacenar los datos está determinado por la cantidad de datos que almacena y la manera en que se replican. Cada operación de lectura y escritura en Almacenamiento de Azure realiza también una solicitud al servicio. La salida de los datos se refiere a los datos transferidos fuera de una región de Microsoft Azure. Cuando una aplicación que no está en ejecución en la misma región tiene acceso a los datos en su cuenta de almacenamiento, se le cobra por la salida de los datos, independientemente de si la aplicación es un servicio en la nube u otro tipo de aplicación. (En el caso de los servicios de Microsoft Azure, puede llevar a cabo pasos para agrupar los datos y servicios en los mismos centros de datos a fin de reducir o eliminar los cargos en concepto de salida y proceso de los datos).
 
-La página [Detalles de precios de almacenamiento](https://azure.microsoft.com/pricing/details/storage/) proporciona información detallada sobre los precios de la capacidad, replicación y transacciones de almacenamiento. La página [Detalles de precios de Transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/) proporciona información detallada sobre los precios para la salida de datos. Puede usar la [Calculadora de precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) para ayudarle a calcular los costes.
+La página [Detalles de precios de Azure](https://azure.microsoft.com/pricing/details/storage/) proporciona información detallada sobre los precios de la capacidad, la replicación y las transacciones de almacenamiento. La página [Detalles de precios de Transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/) proporciona información detallada sobre los precios para la salida de datos. Puede usar la [Calculadora de precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) para ayudarle a calcular los costes.
 
 ## Desarrollo y almacenamiento
 
 Almacenamiento de Azure expone los recursos de almacenamiento a través de una [API de REST](http://msdn.microsoft.com/library/azure/dd179355.aspx) a la cual puede llamar cualquier lenguaje que pueda realizar solicitudes HTTP/HTTPS. Además, ofrece bibliotecas de programación para varios lenguajes de amplio uso. Estas bibliotecas simplifican muchos aspectos relacionados con el uso de Almacenamiento de Azure, ya que abordan detalles como la invocación sincrónica y asincrónica, el procesamiento por lotes de las operaciones, la administración de excepciones, los reintentos automáticos y el comportamiento operativo, entre otros. Actualmente hay bibliotecas disponibles para los siguientes lenguajes y plataformas, además de otros previstos:
 
 - [.NET](http://go.microsoft.com/fwlink/?LinkID=390731)
-- [Código nativo](http://msdn.microsoft.com/library/azure/dn495438.aspx)
+- [Biblioteca del cliente de Almacenamiento de Microsoft Azure para C++](https://github.com/Azure/azure-storage-cpp)
 - [Java/Android](/develop/java/)
 - [Node.js](/develop/nodejs/)
 - [PHP](/develop/php/)
 - [Ruby](/develop/ruby/)
 - [Python](/develop/python/)
-- [PowerShell](http://msdn.microsoft.com/library/azure/dn495240.aspx)
+- [PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 
 ## Pasos siguientes
 
@@ -189,7 +189,7 @@ Para comenzar a usar Almacenamiento de Azure, explore estos recursos:
 
 - [Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 - [Referencia de la API REST de servicios de almacenamiento](http://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [Referencia a la herramienta de línea de comandos de AzCopy](storage-use-azcopy.md)
+- [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
 
 ### Para usuarios de PowerShell
 - [Usar Azure PowerShell con Almacenamiento de Azure](storage-powershell-guide-full.md)
@@ -199,17 +199,18 @@ Para comenzar a usar Almacenamiento de Azure, explore estos recursos:
 ### Para desarrolladores de .NET
 
 - [Referencia a la biblioteca de clientes de .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-- [Uso del almacenamiento de blobs en .NET](storage-dotnet-how-to-use-blobs.md)
-- [Uso del almacenamiento de tablas en .NET](storage-dotnet-how-to-use-tables.md)
-- [Uso del almacenamiento en cola en .NET](storage-dotnet-how-to-use-queues.md)
-- [Uso del almacenamiento de archivos con PowerShell y .NET](storage-dotnet-how-to-use-files.md)
+- [Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md)
+- [Introducción al Almacenamiento de tablas de Azure mediante .NET](storage-dotnet-how-to-use-tables.md)
+- [Introducción al Almacenamiento en cola de Azure mediante .NET](storage-dotnet-how-to-use-queues.md)
+- [Introducción a Almacenamiento de archivos de Azure en Windows](storage-dotnet-how-to-use-files.md)
 
 ### Para desarrolladores de Java/Android
 
-- [Referencia a la biblioteca de clientes de Java](http://dl.windowsazure.com/storage/javadoc/)
-- [Uso del almacenamiento de blobs de Java/Android](../storage-java-how-to-use-blob-storage/)
-- [Uso del almacenamiento de tablas de Java/Android](../storage-java-how-to-use-table-storage/)
-- [Uso del almacenamiento de colas de Java/Android](../storage-java-how-to-use-queue-storage/)
+- [Referencia a la biblioteca de clientes de Java](http://azure.github.io/azure-storage-java/)
+- [Uso del almacenamiento de blobs de Java/Android](storage-java-how-to-use-blob-storage.md)
+- [Uso del almacenamiento de tablas de Java/Android](storage-java-how-to-use-table-storage.md)
+- [Uso del almacenamiento de colas de Java/Android](storage-java-how-to-use-queue-storage.md)
+- [Uso del almacenamiento de archivos de Java](storage-java-how-to-use-file-storage.md) 
 
 ### Para desarrolladores de Node.js
 
@@ -235,4 +236,4 @@ Para comenzar a usar Almacenamiento de Azure, explore estos recursos:
 - [Uso del almacenamiento de tablas de Python](storage-python-how-to-use-table-storage.md)
 - [Uso del almacenamiento de colas de Python](storage-python-how-to-use-queue-storage.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

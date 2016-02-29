@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma" />
 
 # Resolución de nombres para las máquinas virtuales e instancias de rol
@@ -158,7 +158,7 @@ Puede especificar varios servidores DNS para que los usen las máquinas virtuale
 
 ### Especificación de un servidor DNS en el Portal de administración
 
-Al crear la red virtual mediante el Portal de administración, puede especificar la dirección IP y el nombre del servidor DNS (o servidores) que desea usar. Una vez creada la red virtual, las máquinas virtuales y las instancias de rol que implemente en la red virtual se configurarán automáticamente mediante la configuración DNS especificada. Los servidores DNS especificados para un servicio específico en la nube (Azure clásico) o para una tarjeta de interfaz de red (implementaciones basadas en ARM) tienen prioridad sobre los especificados para la red virtual. Consulte [Administración de las propiedades de la red virtual (VNet)](virtual-networks-settings.md).
+Al crear la red virtual mediante el Portal de administración, puede especificar la dirección IP y el nombre del servidor DNS (o servidores) que desea usar. Una vez creada la red virtual, las máquinas virtuales y las instancias de rol que implemente en la red virtual se configurarán automáticamente mediante la configuración DNS especificada. Los servidores DNS especificados para un servicio específico en la nube (Azure clásico) o para una tarjeta de interfaz de red (implementaciones basadas en ARM) tienen prioridad sobre los especificados para la red virtual.
 
 ### Especificación de un servidor DNS mediante el uso de archivos de configuración (Azure clásico)
 
@@ -177,8 +177,6 @@ El archivo de configuración de servicio se crea por cada servicio en la nube qu
 
 [Esquema de configuración de Red virtual](https://msdn.microsoft.com/library/azure/jj157100)
 
-[Configuración de una red virtual en el Portal de administración](virtual-networks-settings.md)
-
 [Configuración de una red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

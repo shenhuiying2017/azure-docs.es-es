@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="01/19/2016"
+    ms.date="02/16/2016"
     ms.author="elizapo" />
 
 # Novedades de Azure RemoteApp
@@ -27,6 +27,7 @@ Siempre estamos trabajando para mejorar Azure RemoteApp basándonos en sus comen
 |Paquete MSI redistribuíble del cliente Windows ([comentarios](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/))| X| |
 |Cliente basado en HTML5 para Azure RemoteApp|X ||
 |Soporte técnico del Administrador de recursos de Azure (ARM)||X|
+|Compatibilidad con recursos de Azure v2| |X|
 |Proveedor de soluciones en la nube (CSP)||X|
 |Disponibilidad en la región de India|X||
 |Disponibilidad en la región del Reino Unido||X|
@@ -46,4 +47,4 @@ Otras mejoras agregadas anteriormente este año:
 - Disponibilidad en centros de datos australianos
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

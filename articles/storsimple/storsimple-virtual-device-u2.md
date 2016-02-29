@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/22/2016"
+   ms.date="02/12/2016"
    ms.author="alkohli" />
 
 # Implementación y administración de un dispositivo virtual de StorSimple en Azure (actualización 2)
 
 > [AZURE.SELECTOR]
-- [actualización 2](../articles/storsimple/storsimple-virtual-device-u2.md)
-- [actualización 1](../articles/storsimple/storsimple-virtual-device-u1.md)
+- [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
+- [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
 - [GA Release](../articles/storsimple/storsimple-virtual-device.md)
 
 ##Información general
@@ -28,7 +28,7 @@ El dispositivo virtual de StorSimple es una capacidad adicional que se incluye c
 
 #### Comparación del modelo de dispositivo virtual
 
-El dispositivo virtual de StorSimple está disponible en dos modelos: estándar 8010 y premium 8020 (introducido en la actualización 2). A continuación se incluye una tabla comparativa de los dos modelos.
+El dispositivo virtual StorSimple está disponible en dos modelos: estándar 8010 (anteriormente conocido como 1100) y premium 8020 (introducido en la actualización 2). A continuación se incluye una tabla comparativa de los dos modelos.
 
 
 | Modelo de dispositivo | 8010<sup>1</sup> | 8020 |
@@ -36,12 +36,33 @@ El dispositivo virtual de StorSimple está disponible en dos modelos: estándar 
 | **Capacidad máxima** | 30 TB | 64 TB |
 | **MV de Azure** | Standard\_A3 (4 núcleos, 7 GB de memoria) | Standard\_DS3 (4 núcleos, 14 GB de memoria) |
 | **Compatibilidad de versión** | Ejecuta las versiones previas a la actualización 2 o posterior | Ejecuta las versiones de la actualización 2 o posterior |
-| **Disponibilidad en regiones** | Todas las regiones de Azure | Regiones de Azure que admiten Almacenamiento premium<br></br>. Para obtener una lista de regiones que admiten actualmente Almacenamiento premium, consulte [Regiones de Azure](https://azure.microsoft.com/regions/#services). |
+| **Disponibilidad en regiones** | Todas las regiones de Azure | Regiones de Azure que admiten Almacenamiento premium<br></br>Si desea obtener una lista de las regiones, consulte las [regiones admitidas para 8020](#supported-regions-for-8020). |
 | **Tipo de almacenamiento** | Usa el almacenamiento estándar de Azure <br></br> Infórmese de cómo [crear una cuenta de almacenamiento estándar]() | Usa el Almacenamiento premium de Azure <br></br> Infórmese de cómo [crear una cuenta de almacenamiento premium](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Guía de la carga de trabajo** | Recuperación a nivel de elemento de archivos de copias de seguridad | Escenarios de desarrollo y pruebas en la nube, baja latencia, mayores cargas de trabajo de rendimiento <br></br>Dispositivo secundario para recuperación ante desastres |
  
 <sup>1</sup> *Anteriormente conocido como 1100*.
 
+#### Regiones admitidas para 8020
+
+Las regiones de Almacenamiento premium que actualmente admiten 8020 aparecen a continuación. Esta lista se actualizará de manera periódica cada vez que Almacenamiento premium esté disponible en más regiones.
+
+| S. n°. | Actualmente se admite en las regiones |
+|---------------------------------------------------------|--------------------------------|
+| 1 | Central EE. UU.: |
+| 2 | Este de EE. UU. |
+| 3 | Este de EE. UU. 2 |
+| 4 | Oeste de EE. UU. |
+| 5 | Europa del Norte |
+| 6 | Europa occidental |
+| 7 | Sudeste asiático |
+| 8 | Este de Japón |
+| 9 | Oeste de Japón |
+| 10 | Australia Oriental |
+| 11 | Sudeste de Australia* |
+| 12 | Asia Oriental* |
+| 13 | Centro-sur de EE. UU.* |
+
+** Almacenamiento premium se lanzó recientemente en estas geoáreas.
 
 Este artículo describe paso a paso el proceso de implementación de un dispositivo virtual de StorSimple en Azure. Después de leer este artículo, habrá aprendido lo siguiente:
 
@@ -79,7 +100,7 @@ Las siguientes secciones explican los requisitos previos de configuración para 
 
 Antes de aprovisionar el dispositivo virtual, deberá realizar los siguientes preparativos en el entorno de Azure:
 
-- Para el dispositivo virtual, [configure una red virtual en Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Si usa Almacenamiento premium, tiene que crear una red virtual en una región de Azure que admita dicho almacenamiento. Para obtener más información consulte [Regiones de Azure](https://azure.microsoft.com/regions/#services).
+- Para el dispositivo virtual, [configure una red virtual en Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Si usa Almacenamiento premium, tiene que crear una red virtual en una región de Azure que admita dicho almacenamiento. Más información sobre las [regiones que actualmente admiten 8020](#supported-regions-for-8020).
 - Puede usar el servidor DNS predeterminado proporcionado por Azure en lugar de especificar su propio nombre del servidor DNS. Si el nombre del servidor DNS no es válido o si el servidor DNS no es capaz de resolver las direcciones IP correctamente, no se podrá crear el dispositivo virtual.
 - Punto a sitio y sitio a sitio son opcionales, pero no obligatorios. Si lo desea, puede configurar estas opciones para escenarios más avanzados. 
 - Puede crear [Máquinas virtuales de Azure](../virtual-machines/virtual-machines-about.md) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo virtual. Estos servidores deben cumplir los siguientes requisitos: 							
@@ -125,8 +146,7 @@ Realice los pasos siguientes para crear el dispositivo virtual de StorSimple.
 
 Antes de comenzar este procedimiento, asegúrese de que tiene una copia de la clave de cifrado de datos del servicio. La clave de cifrado de datos del servicio se creó cuando se configuró el primer dispositivo de StorSimple y se le pidió que lo guardara en una ubicación segura. Si no tiene una copia de la clave de cifrado de datos del servicio, debe ponerse en contacto con Microsoft Support para obtener ayuda.
 
-Realice los pasos siguientes para configurar y registrar el dispositivo virtual de StorSimple.
-[AZURE.INCLUDE [Configuración y registro de un dispositivo virtual](../../includes/storsimple-configure-register-virtual-device.md)]
+Realice los pasos siguientes para configurar y registrar el dispositivo virtual de StorSimple.[AZURE.INCLUDE [Configuración y registro de un dispositivo virtual](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Paso 3: (Opcional) Modificación de la configuración del dispositivo
 
@@ -167,7 +187,7 @@ Realice los pasos siguientes para configurar la administración remota para el d
 
 Una vez habilitada la administración remota en la página de configuración del dispositivo StorSimple, puede usar la comunicación remota de Windows PowerShell para conectarse al dispositivo virtual desde otra máquina virtual dentro de la misma red virtual; por ejemplo, puede conectarse desde la máquina virtual del host que ha configurado y utilizado para conectarse a iSCSI. En la mayoría de las implementaciones, ya habrá abierto un punto de conexión público para tener acceso a su máquina virtual host que se puede utilizar para tener acceso al dispositivo virtual.
 
->[AZURE.WARNING] **Para mayor seguridad, se recomienda utilizar HTTPS al conectarse a los puntos de conexión y, a continuación, eliminar los extremos después de haber completado la sesión remota de PowerShell.**
+>[AZURE.WARNING] **Para mayor seguridad, se recomienda utilizar HTTPS al conectarse a los extremos y, a continuación, eliminar los extremos después de haber completado la sesión remota de PowerShell.**
 
 Debe seguir los procedimientos que aparecen en [Conectarse de forma remota al dispositivo StorSimple](storsimple-remote-connect.md) para establecer la comunicación remota para el dispositivo virtual.
 
@@ -247,16 +267,18 @@ Para obtener un procedimiento paso a paso, vaya a [Conmutación por error y recu
 
 Si ha configurado y usado previamente un dispositivo virtual de StorSimple, pero ahora desea detener la acumulación de cargos para su uso por el proceso, puede apagar el dispositivo virtual. Apagar el dispositivo virtual no elimina su sistema operativo ni los discos de datos del almacenamiento. Detiene el cargo acumulado en su suscripción, pero seguirán los cargos de almacenamiento del sistema operativo y los discos de datos.
 
-Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en la página de dispositivos del servicio StorSimple Manager. Puede desactivar o eliminar el dispositivo si desea eliminar las copias de seguridad creadas por el dispositivo virtual. Para más información, consulte [Desactivar y eliminar un dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
+Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en la página de dispositivos del servicio StorSimple Manager. Puede desactivar o eliminar el dispositivo si desea eliminar las copias de seguridad creadas por el dispositivo virtual. Para obtener más información, consulte [Desactivar y eliminar un dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 
 [AZURE.INCLUDE [Apagado de un dispositivo virtual](../../includes/storsimple-shutdown-virtual-device.md)]
 
 [AZURE.INCLUDE [Eliminación de un dispositivo virtual](../../includes/storsimple-delete-virtual-device.md)]
 
+   
+
 ## Pasos siguientes
 
-- Obtenga información sobre cómo [Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar un dispositivo virtual](storsimple-manager-service-administration.md).
  
-- Obtenga información sobre cómo [Restaurar un volumen de StorSimple de un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md).
+- Obtenga información sobre cómo [restaurar un volumen de StorSimple de un conjunto de copias de seguridad](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

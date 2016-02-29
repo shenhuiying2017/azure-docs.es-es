@@ -23,13 +23,13 @@
 
 Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. En este documento se ofrece información sobre cómo aprovisionar un clúster de HDInsight basado en Linux mediante Azure PowerShell, así como un script de ejemplo.
 
-> [AZURE.NOTE] Azure PowerShell solo está disponible en clientes de Windows. Si está usando un cliente de Linux, Unix o Mac OS X, vea [Crear un clúster de HDInsight basado en Linux con la CLI de Azure](hdinsight-hadoop-create-linux-cluster-azure-cli.md) para obtener información sobre el uso de la CLI de Azure para crear un clúster.
+> [AZURE.NOTE] Azure PowerShell solo está disponible en clientes de Windows. Si está usando un cliente de Linux, Unix o Mac OS X, vea [Crear un clúster de HDInsight basado en Linux con la CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) para obtener información sobre el uso de la CLI de Azure para crear un clúster.
 
 ###Requisitos previos
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- __Azure PowerShell__ Para obtener información sobre la configuración de una estación de trabajo para que ejecute cmdlets de HDInsight Windows PowerShell, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md). Para obtener más información sobre el uso de Azure PowerShell con HDInsight, consulte [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md). Para obtener una lista de los cmdlets de HDInsight Windows PowerShell, consulte [Documentación de referencia de los cmdlets de HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
+- __Azure PowerShell__ Para obtener información sobre la configuración de una estación de trabajo para que ejecute cmdlets de HDInsight Windows PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). Para obtener más información sobre el uso de Azure PowerShell con HDInsight, consulte [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md). Para obtener una lista de los cmdlets de HDInsight Windows PowerShell, consulte [Documentación de referencia de los cmdlets de HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
 ##Creación de clústeres
 
@@ -123,13 +123,13 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 
 ###Clústeres HBase
 
-* [Introducción a HBase en HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
+* [Introducción a HBase en HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
 * [Desarrollo de aplicaciones de Java para HBase en HDInsight](hdinsight-hbase-build-java-maven-linux)
 
 ###Clústeres Storm
 
 * [Desarrollo de topologías de Java para Storm en HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python.md)
+* [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ###Clústeres de Spark
@@ -140,4 +140,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

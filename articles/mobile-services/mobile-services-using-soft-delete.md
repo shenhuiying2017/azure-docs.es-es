@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/11/2016"
 	ms.author="wesmc"/>
 
 # Uso de la eliminación temporal en Servicios móviles
@@ -36,7 +36,7 @@ Estos son algunas de las posibles ventajas de usar la eliminación temporal:
 
 * Al usar la característica [Sincronización de datos sin conexión para Servicios móviles], el SDK de cliente consulta automáticamente los registros eliminados y los elimina de la base de datos local. Cuando la eliminación temporal no está habilitada, debe escribir código adicional en el back-end para que el SDK de cliente sepa qué registros eliminar del almacén local. De lo contrario, el almacén local del cliente y el back-end serán incoherentes con respecto a estos registros eliminados y será necesario llamar al método del cliente `PurgeAsync()` para borrar el almacén local.
 * Algunas aplicaciones tienen un requisito empresarial de no eliminar nunca los datos físicamente o de eliminar los datos solo después de que se han auditado. La característica de eliminación temporal puede ser útil en este escenario.
-* La eliminación temporal puede utilizarse para implementar una característica de "recuperación" para que se pueden recuperar los datos eliminados accidentalmente. Sin embargo, los registros eliminados temporalmente ocupan espacio en la base de datos, por lo que debe considerar la creación de un trabajo programado para eliminar definitivamente periódicamente los registros eliminados temporalmente. Para ver un ejemplo de esto, consulte [Uso de la eliminación temporal con el back-end de .NET] y [Uso de la eliminación temporal con el back-end de JavaScript]. Su código de cliente debe llamar también periódicamente a `PurgeAsync()` de modo que estos registros eliminados de forma permanente no permanezcan en el almacén de datos local del dispositivo.
+* La eliminación temporal puede utilizarse para implementar una característica de "recuperación" para que se pueden recuperar los datos eliminados accidentalmente. Sin embargo, los registros eliminados temporalmente ocupan espacio en la base de datos, por lo que debe considerar la creación de un trabajo programado para eliminar definitivamente periódicamente los registros eliminados temporalmente. Para ver un ejemplo de esto, consulte [Uso de la eliminación temporal con el back-end de .NET](#using-with-dotnet) y [Uso de la eliminación temporal con el back-end de JavaScript](#using-with-javascript). Su código de cliente debe llamar también periódicamente a `PurgeAsync()` de modo que estos registros eliminados de forma permanente no permanezcan en el almacén de datos local del dispositivo.
 
 
 
@@ -113,7 +113,7 @@ Para obtener información acerca de trabajos de programación con Servicios móv
 
 
 
-##Uso de la eliminación temporal con el back-end de JavaScript
+## <a name="using-with-javascript"></a> Uso de la eliminación temporal con el back-end de JavaScript
 
 Los scripts de tabla se usan para agregar lógica en torno a la característica de eliminación temporal con Servicios móviles para el back-end de JavaScript.
 
@@ -165,4 +165,4 @@ Para obtener información acerca de trabajos de programación con Servicios móv
 [Sincronización de datos sin conexión para Servicios móviles]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

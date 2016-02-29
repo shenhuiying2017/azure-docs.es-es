@@ -47,7 +47,7 @@ Este enfoque MPP permite al Almacenamiento de datos SQL usar un enfoque "divide 
 
 - Además de crear planes de consulta óptimos, el Almacenamiento de datos SQL incorpora algoritmos y técnicas avanzados que mueven los datos entre los recursos de proceso, según sea necesario, para realizar la consulta de forma eficaz. Estas operaciones están integradas en los servicios de movimiento de datos del almacén de datos y las optimizaciones se producen automáticamente.
 
-- La inclusión de índices de almacén de columnas en clúster en el dispositivo también es fundamental para conseguir un rendimiento de consulta rápido. Mediante el uso del almacenamiento basado en columnas, el Almacenamiento de datos SQL obtiene hasta 5 veces más ganancias de compresión que el almacenamiento tradicional basado en filas y hasta 10 veces el rendimiento de la consulta. Las consultas del almacenamiento de datos funcionan a la perfección en índices de almacén de columnas porque a menudo examinan toda la tabla o la partición entera de una tabla y minimizan el impacto que provoca el movimiento de datos para pasos de consulta.
+- La inclusión de índices de almacén de columnas agrupados en Almacenamiento de datos SQL es también fundamental para conseguir un rendimiento rápido de las consultas. Mediante el uso del almacenamiento basado en columnas, el Almacenamiento de datos SQL obtiene hasta 5 veces más ganancias de compresión que el almacenamiento tradicional basado en filas y hasta 10 veces el rendimiento de la consulta. Las consultas del almacenamiento de datos funcionan a la perfección en índices de almacén de columnas porque a menudo examinan toda la tabla o la partición entera de una tabla y minimizan el impacto que provoca el movimiento de datos para pasos de consulta.
 
 ## Escalable
 
@@ -140,4 +140,4 @@ Ahora que ya conoce un poco el Almacenamiento de datos SQL, obtenga información
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

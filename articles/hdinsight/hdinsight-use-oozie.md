@@ -173,7 +173,7 @@ Azure PowerShell no proporciona actualmente cmdlets para la definición de traba
 El script de PowerShell de esta sección lleva a cabo los siguientes pasos:
 
 1. Conéctese a Azure.
-2. Cree un grupo de recursos de Azure. Para más información, vea [Usar Azure PowerShell con el Administrador de recursos de Azure](powershell-azure-resource-manager.md).
+2. Cree un grupo de recursos de Azure. Para más información, vea [Usar Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
 3. Cree un servidor de Base de datos SQL de Azure, una base de datos SQL de Azure y dos tablas. Se usan por la acción Sqoop en el flujo de trabajo.
 
 	El nombre de la tabla es *log4jLogCount*.
@@ -635,11 +635,11 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 
 
 
-[azure-data-factory-pig-hive]: ../data-factory/data-factory-pig-hive-activities.md
+[azure-data-factory-pig-hive]: ../data-factory/data-factory-data-transformation-activities.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
@@ -650,7 +650,7 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
 
 [hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
@@ -680,4 +680,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/26/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Introducción a la configuración de un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure
@@ -272,7 +272,7 @@ Use el comando Remove-AzureLoadBalancer para eliminar un equilibrador de carga c
 
 	Remove-AzureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 
->[AZURE.NOTE]Puede usar el conmutador opcional -Force para evitar la solicitud de eliminación.
+>[AZURE.NOTE] Puede usar el conmutador opcional -Force para evitar la solicitud de eliminación.
 
 
 ## Otras referencias
@@ -282,4 +282,4 @@ Use el comando Remove-AzureLoadBalancer para eliminar un equilibrador de carga c
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

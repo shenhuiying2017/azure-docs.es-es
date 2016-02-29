@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # Primeros pasos en la creación de un equilibrador de carga interno mediante la CLI de Azure
@@ -45,7 +45,7 @@ Puede obtener más información acerca de los componentes del equilibrador de ca
 
 1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 
-2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, tal como se muestra a continuación.
+2. Ejecuta el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
 		azure config mode arm
 
@@ -87,11 +87,11 @@ Todos los recursos del Administrador de recursos de Azure están asociados a un 
 
 ### Paso 1 
 
-Cree un equilibrador de carga interno mediante el comando `azure network lb create`. En el siguiente escenario, se crea un grupo de recursos denominado nrprg en la región este de Estados Unidos.
+Cree un equilibrador de carga interno mediante el comando `azure network lb create`. En el siguiente escenario, se crea un grupo de recursos denominado nrprg en la región Este de EE. UU.
  	
 	azure network lb create -n nrprg -l westus
 
->[AZURE.NOTE]Todos los recursos de un equilibrador de carga interno, como una red virtual y una subred de red virtual, deben estar en el mismo grupo de recursos y en la misma región.
+>[AZURE.NOTE] Todos los recursos de un equilibrador de carga interno, como una red virtual y una subred de red virtual, deben estar en el mismo grupo de recursos y en la misma región.
 
 
 ### Paso 2 
@@ -148,7 +148,7 @@ Crear sondeos de estado del equilibrador de carga. Los sondeos de estado comprue
 
 **-g** -grupo de recursos **-l**: nombre del conjunto de equilibrador de carga interno **- n**: nombre del sondeo de estado **-p** -protocolo usado por sondeo de estado **i -**: intervalo de sondeo en segundos **- c**: número de comprobaciones
 
->[AZURE.NOTE]La Plataforma Microsoft Azure utiliza una dirección IPv4 estática enrutable públicamente para una variedad de escenarios de administración. La dirección IP es 168.63.129.16. Ningún firewall debe bloquear esta dirección IP, ya que puede causar un comportamiento inesperado. Con respecto al Equilibrio de carga interno de Azure, esta dirección IP la usan las sondas de supervisión del equilibrador de carga para determinar el estado de mantenimiento de las máquinas virtuales en un conjunto con equilibrio de carga. Si se usa un grupo de seguridad de red para restringir el tráfico a máquinas virtuales de Azure en un conjunto de carga equilibrada internamente o se aplica a una subred de Red virtual, asegúrate de agregar una regla de seguridad de red para permitir el tráfico desde 168.63.129.16.
+>[AZURE.NOTE] La Plataforma Microsoft Azure utiliza una dirección IPv4 estática enrutable públicamente para una variedad de escenarios de administración. La dirección IP es 168.63.129.16. Ningún firewall debe bloquear esta dirección IP, ya que puede causar un comportamiento inesperado. Con respecto al Equilibrio de carga interno de Azure, esta dirección IP la usan las sondas de supervisión del equilibrador de carga para determinar el estado de mantenimiento de las máquinas virtuales en un conjunto con equilibrio de carga. Si se usa un grupo de seguridad de red para restringir el tráfico a máquinas virtuales de Azure en un conjunto de carga equilibrada internamente o se aplica a una subred de Red virtual, asegúrate de agregar una regla de seguridad de red para permitir el tráfico desde 168.63.129.16.
 
 ## Cree tarjetas NIC
 
@@ -208,7 +208,7 @@ Cree una máquina virtual llamada *DB1* y asóciela con la NIC llamada *lb-nic1-
 
 	azure vm create --resource-group nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
->[AZURE.IMPORTANT]Las máquinas virtuales en un equilibrador de carga deben estar en el mismo conjunto de disponibilidad. Use `azure availset create` para crear un conjunto de disponibilidad.
+>[AZURE.IMPORTANT] Las máquinas virtuales en un equilibrador de carga deben estar en el mismo conjunto de disponibilidad. Use `azure availset create` para crear un conjunto de disponibilidad.
 
 ### Paso 4
 
@@ -232,4 +232,4 @@ Donde **nrprg** es el grupo de recursos y **ilbset** el nombre del equilibrador 
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

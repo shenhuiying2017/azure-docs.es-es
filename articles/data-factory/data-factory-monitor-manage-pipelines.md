@@ -16,7 +16,12 @@
 	ms.date="01/04/2016" 
 	ms.author="spelluru"/>
 
+
 # Supervisión y administración de canalizaciones de la Factoría de datos de Azure
+> [AZURE.SELECTOR]
+- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+
 El servicio Factoría de datos proporciona una vista completa y confiable de los servicios de movimiento de datos, procesamiento y almacenamiento. Le ayuda a evaluar el estado de la canalización de datos de un extremo a otro rápidamente, a identificar problemas y a tomar medidas correctivas si es necesario. Visualmente, puede realizar el seguimiento del linaje de datos y las relaciones entre los datos a través de cualquiera de los orígenes y consultar una contabilización histórica completa de ejecución del trabajo, estado del sistema y dependencias desde un solo panel de supervisión.
 
 En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones. También se ofrece información sobre cómo crear alertas y recibir notificaciones cuando se produzcan errores.
@@ -270,15 +275,13 @@ En caso de que el segmento no se valide debido a un error de directiva (por ejem
 
 ### Uso de Azure PowerShell
 
-Puede volver a ejecutar errores mediante el cmdlet 'Set-AzureDataFactorySliceStatus'.
+Puede volver a ejecutar errores mediante el cmdlet Set-AzureRmDataFactorySliceStatus. Consulte el tema [Set-AzureDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) para obtener información sobre la sintaxis y otros detalles del cmdlet.
 
-	Set-AzureRmDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+**Ejemplo:** En el caso siguiente, el estado de todos los segmentos de la tabla "DAWikiAggregatedData" se establece en "En espera" en la Data Factory de Azure "WikiADF".
 
-**Ejemplo:** En el caso siguiente se establece el estado de todos los segmentos de la tabla 'DAWikiAggregatedData' en 'PendingExecution' en la factoría de datos de Azure 'WikiADF'.
+**Nota:** UpdateType se establece en UpstreamInPipeline, lo que significa que el estado de cada segmento de la tabla y todas las tablas dependientes (en canales de subida) que se usan como tablas de entrada para las actividades de la canalización se establecen en "En espera". Otro valor posible para este parámetro es "Individual".
 
-**Nota:** UpdateType se establece en UpstreamInPipeline, lo que significa que el estado de cada segmento de la tabla y todas las tablas dependientes (ascendentes) que se usan como tablas de entrada para las actividades de la canalización se establecen en "PendingExecution". Otro valor posible para este parámetro es "Individual".
-
-	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status PendingExecution -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
 
 ## Creación de alertas
@@ -540,9 +543,7 @@ Puede implementar alertas para las métricas de la misma manera que lo hace para
  
 Reemplace subscriptionId, resourceGroupName y dataFactoryName en el ejemplo anterior con los valores adecuados.
 
-*metricName* a partir de ahora admite dos valores:
-- FailedRuns
-- SuccessfulRuns.
+*metricName* a partir de ahora admite dos valores: - FailedRuns - SuccessfulRuns.
 
 **Implementación de alertas:**
 
@@ -569,4 +570,4 @@ Debería ver el siguiente mensaje después de la implementación correcta:
 
 También puede usar el cmdlet **Add-AlertRule** para implementar una regla de alerta. Consulte el tema [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) para obtener información detallada y ejemplos.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

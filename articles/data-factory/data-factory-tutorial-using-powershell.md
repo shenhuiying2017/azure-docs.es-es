@@ -391,7 +391,7 @@ Para especificar el período activo para el proceso, puede usar el cmdlet Set-Az
 
 	![Hoja SEGMENTO DE DATOS RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	Si se produjo un error, verá el estado **Error** aquí. Puede que también vea los dos segmentos con el estado **Listo** o con el estado **Validación pendiente**, según la rapidez con la que se procesen.
+	Si se produjo un error, verá el estado **Error** aquí. Puede que también vea los dos segmentos con el estado **Listo** o con el estado **En espera**, según la rapidez con la que se procesen.
  
 	Consulte [Referencia para desarrolladores de Factoría de datos de Azure][developer-reference] para obtener una descripción de todos los estados posibles de los segmentos.
 
@@ -503,4 +503,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises-us
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

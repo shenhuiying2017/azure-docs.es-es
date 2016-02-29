@@ -68,13 +68,13 @@ Los datos de ejemplo se almacenan en el almacenamiento de blobs de Azure, que HD
 
 Dado que el almacenamiento de blobs de Azure es el almacenamiento predeterminado para HDInsight, también puede acceder al archivo mediante **/example/data/gutenberg/davinci.txt**.
 
-> [AZURE.NOTE]En la sintaxis anterior, ****wasb:///** se usa para acceder a archivos almacenados en el contenedor de almacenamiento predeterminado para el clúster de HDInsight. Si especificó cuentas de almacenamiento adicionales cuando aprovisionó el clúster y desea obtener acceso a los archivos almacenados en esas cuentas, puede acceder a los datos especificando el nombre de contenedor y la dirección de las cuentas de almacenamiento. Por ejemplo: ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
+> [AZURE.NOTE] En la sintaxis anterior, ****wasb:///** se usa para acceder a archivos almacenados en el contenedor de almacenamiento predeterminado para el clúster de HDInsight. Si especificó cuentas de almacenamiento adicionales cuando aprovisionó el clúster y desea obtener acceso a los archivos almacenados en esas cuentas, puede acceder a los datos especificando el nombre de contenedor y la dirección de las cuentas de almacenamiento. Por ejemplo: ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
 
 ##<a id="job"></a>Acerca del MapReduce de ejemplo
 
 El trabajo de MapReduce que se usa en este ejemplo se encuentra en ****wasb://example/jars/hadoop-mapreduce-examples.jar** y se proporciona con el clúster de HDInsight. Contiene un ejemplo de recuento de palabras que se ejecutará con **davinci.txt**.
 
-> [AZURE.NOTE]En los clústeres de HDInsight 2.1, la ubicación del archivo es ****wasb:///example/jars/hadoop-examples.jar**.
+> [AZURE.NOTE] En los clústeres de HDInsight 2.1, la ubicación del archivo es ****wasb:///example/jars/hadoop-examples.jar**.
 
 Como referencia, lo siguiente es el código Java para el trabajo de MapReduce de recuento de palabras:
 
@@ -181,7 +181,7 @@ Aunque MapReduce ofrece potentes capacidades de diagnóstico, puede ser un poco 
 
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
@@ -193,4 +193,4 @@ Aunque MapReduce ofrece potentes capacidades de diagnóstico, puede ser un poco 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

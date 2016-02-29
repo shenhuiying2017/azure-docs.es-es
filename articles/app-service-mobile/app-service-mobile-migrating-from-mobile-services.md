@@ -210,7 +210,7 @@ Nota: **MS\_AadTenants** se almacena como una lista de dominios de inquilino sep
 
 > [AZURE.WARNING] **No utilice los mecanismos de autenticación del menú Configuración.**
 >
-> El Servicio de aplicaciones de Azure proporciona un sistema de autenticación y autorización "sin código" independiente en el menú de configuración _Autenticación y autorización_ y la opción (en desuso) _Autenticación móvil_ en el menú Configuración. Estas opciones no son compatibles con un servicio móvil de Azure migrado. Puede [actualizar su sitio] para aprovechar la autenticación del Servicio de aplicaciones de Azure.
+> El Servicio de aplicaciones de Azure proporciona un sistema de autenticación y autorización "sin código" independiente en el menú de configuración _Autenticación y autorización_ y la opción (en desuso) _Autenticación móvil_ en el menú Configuración. Estas opciones no son compatibles con un servicio móvil de Azure migrado. Puede [actualizar su sitio](app-service-mobile-net-upgrading-from-mobile-services.md) para aprovechar la autenticación del Servicio de aplicaciones de Azure.
 
 ### <a name="easytables"></a>Datos
 
@@ -393,4 +393,4 @@ Tenga en cuenta que como la aplicación se migra al Servicio de aplicaciones, ha
 [red virtual]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

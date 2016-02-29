@@ -39,7 +39,7 @@ En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para
 
 	De forma predeterminada, el Servicio de aplicaciones ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio y a las API. Debe autorizar a los usuarios en el código de la aplicación.
 
-17. (Opcional) Para restringir el acceso al sitio solo a los usuarios autenticados mediante Azure Active Directory, establezca **Acción por realizar cuando no se autentique la solicitud** en **Azure Active Directory**. Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a Azure Active Directory para la autenticación.
+17. (Opcional) Para restringir el acceso al sitio solo a los usuarios autenticados mediante Azure Active Directory, establezca la opción **Acción necesaria cuando la solicitud no está autenticada** en **Iniciar sesión con Azure Active Directory**. Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a Azure Active Directory para la autenticación.
 
 17. Haga clic en **Guardar**.
 
@@ -95,7 +95,7 @@ Si usa la puerta de enlace del Servicio de aplicaciones, omita esta sección y e
 
 	De forma predeterminada, el Servicio de aplicaciones ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio y a las API. Debe autorizar a los usuarios en el código de la aplicación.
 
-17. (Opcional) Para restringir el acceso al sitio solo a los usuarios autenticados mediante Azure Active Directory, establezca **Acción por realizar cuando no se autentique la solicitud** en **Azure Active Directory**. Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a Azure Active Directory para la autenticación.
+17. (Opcional) Para restringir el acceso al sitio solo a los usuarios autenticados mediante Azure Active Directory, establezca la opción **Acción necesaria cuando la solicitud no está autenticada** en **Iniciar sesión con Azure Active Directory**. Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a Azure Active Directory para la autenticación.
 
 17. Haga clic en **Guardar**.
 
@@ -143,4 +143,4 @@ Ahora ha configurado una aplicación de cliente nativo que puede acceder a la ap
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
 [método alternativo]: #advanced
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

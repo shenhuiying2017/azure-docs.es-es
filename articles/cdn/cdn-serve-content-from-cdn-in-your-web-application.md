@@ -151,8 +151,8 @@ En esta sección, ha aprendido a crear un extremo de red CDN, cargar contenido e
 
 Si desea cargar fácilmente todo el contenido estático a su aplicación web de ASP .NET a su extremo de red CDN, o si implementa su aplicación web usando la entrega continua (para ver un ejemplo, consulte [Entrega continua para Servicios en la nube de Azure](../cloud-services/cloud-services-dotnet-continuous-delivery.md)), puede usar Azure PowerShell para automatizar la sincronización de los últimos archivos de contenido en los blobs de Azure cada vez que implemente la aplicación web. Por ejemplo, puede ejecutar el script en [Carga de archivos de contenido desde la aplicación ASP .NET a los blobs de Azure](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a) para cargar todos los archivos de contenido en una aplicación de ASP .NET. Para utilizar este script:
 
-4. En el menú **Inicio**, ejecute **Microsoft Azure PowerShell**.
-5. En la ventana de Azure PowerShell, ejecute `Get-AzurePublishSettingsFile` para descargar un archivo de configuración de publicación para la cuenta de Azure.
+4. Desde el menú **Inicio**, ejecute **Windows PowerShell**.
+5. En la ventana de PowerShell, ejecute `Get-AzurePublishSettingsFile` para descargar un archivo de configuración de publicación para la cuenta de Azure.
 6. Cuando haya descargado el archivo de configuración de publicación, ejecute lo siguiente: 
 
 		Import-AzurePublishSettingsFile "<yourDownloadedFilePath>"
@@ -273,4 +273,4 @@ Sin la integración con Aplicaciones web del Servicio de aplicaciones de Azure o
 - [Uso de la red CDN en Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

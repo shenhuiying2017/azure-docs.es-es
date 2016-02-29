@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="02/14/2016"
     ms.author="dineshm"/>
 
 # Lista los recursos de almacenamiento de Azure en C++
 
 Las operaciones de enumeración son clave para muchos escenarios de desarrollo con el Almacenamiento de Azure. En este artículo se describe cómo enumerar los objetos del Almacenamiento de Azure de manera eficaz con las API de enumeración proporcionadas en la biblioteca de cliente de Almacenamiento de Microsoft Azure para C++.
 
->[AZURE.NOTE] Esta guía tiene como destino la biblioteca de cliente de Almacenamiento de Azure para C++ versión 1.x, que está disponible a través de [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp).
+>[AZURE.NOTE] Esta guía tiene como destino la biblioteca de cliente de Almacenamiento de Azure para C++ versión 2.x, que está disponible a través de [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 La biblioteca de cliente de almacenamiento proporciona una variedad de métodos para enumerar o consultar objetos en Almacenamiento de Azure. En este artículo se tratan los siguientes escenarios:
 
@@ -33,7 +33,7 @@ Cada uno de estos métodos se muestra con diferentes sobrecargas para diferentes
 
 ## Asincrónica frente sincrónica
 
-Puesto que la biblioteca de cliente de almacenamiento para C++ está integrada en la [biblioteca de REST de C++ (Project Casablanca)](http://casablanca.codeplex.com/), inherentemente admitimos operaciones asincrónicas usando [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por ejemplo:
+Puesto que la biblioteca de cliente de almacenamiento para C++ está integrada en la [biblioteca de REST de C++](https://github.com/Microsoft/cpprestsdk), inherentemente admitimos operaciones asincrónicas usando [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por ejemplo:
 
 	pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
 
@@ -162,7 +162,7 @@ Tenga en cuenta que la enumeración diferida solo está disponible en modo sincr
 
 En comparación con la enumeración expansiva, la diferida captura los datos solo cuando es necesario. En segundo plano, recupera los datos del almacenamiento de Azure solo cuando se mueve el iterador siguiente al siguiente segmento. Por lo tanto, el uso de la memoria se controla con un tamaño límitado y la operación es rápida.
 
-Las API de enumeración diferida se incluyen en la biblioteca de cliente de almacenamiento de C++ en la versión 1.0.0.
+Las API de enumeración diferida se incluyen en la biblioteca de cliente de almacenamiento de C++ en la versión 2.2.0.
 
 ## Conclusión
 
@@ -184,4 +184,4 @@ Para obtener más información sobre el almacenamiento de Azure y la biblioteca 
 -	[Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

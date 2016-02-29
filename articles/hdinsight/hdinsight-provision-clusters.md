@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/22/2016"
+   ms.date="02/12/2016"
    ms.author="jgao"/>
 
 # Creación de clústeres de Hadoop basados en Windows en HDInsight
@@ -51,9 +51,7 @@ A continuación se presentan las opciones de configuración básicas para crear 
 	
 - **Sistema operativos**
 
-	Puede crear clústeres de HDInsight en uno de los dos sistemas operativos siguientes:
-	- **HDInsight en Windows (Windows Server 2012 R2 Datacenter)**:
-	- **HDInsight en Linux (Ubuntu 12.04 LTS para Linux)**: HDInsight ofrece la opción de configurar clústeres de Linux en Azure. Configure un clúster de Linux si conoce Linux o Unix, migrando desde una solución existente de Hadoop basado en Linux, o si desea una integración fácil con componentes del ecosistema de Hadoop creados para Linux. Para obtener más información, vea [Introducción a Hadoop en Linux en HDInsight](hdinsight-hadoop-linux-get-started.md).
+	Puede crear clústeres de HDInsight en uno de los dos sistemas operativos siguientes: - **HDInsight en Windows (Windows Server 2012 R2 Datacenter)**: - **HDInsight en Linux (Ubuntu 12.04 LTS para Linux)**: HDInsight ofrece la opción de configurar clústeres de Linux en Azure. Configure un clúster de Linux si conoce Linux o Unix, migrando desde una solución existente de Hadoop basado en Linux, o si desea una integración fácil con componentes del ecosistema de Hadoop creados para Linux. Para obtener más información, vea [Introducción a Hadoop en Linux en HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 - **Tipo de clúster** y **tamaño del clúster (también conocidos como nodos de datos)**
 
@@ -62,7 +60,7 @@ A continuación se presentan las opciones de configuración básicas para crear 
 	- Clústeres de Hadoop: para cargas de trabajo de consulta y análisis
 	- Clústeres de HBase: para cargas de trabajo NoSQL
 	- Clústeres de Storm: para cargas de trabajo de procesamiento de eventos en tiempo real
-	- Clústeres de Spark (vista previa): para procesamiento en memoria, consultas interactivas, transmisiones y cargas de trabajo de aprendizaje automático
+	- Clústeres de Spark: para procesamiento en memoria, consultas interactivas, transmisiones y cargas de trabajo de aprendizaje automático
 
 	![Clústeres de HDInsight](./media/hdinsight-provision-clusters/hdinsight.clusters.png)
 
@@ -79,25 +77,16 @@ A continuación se presentan las opciones de configuración básicas para crear 
 
 	![Roles de clúster de Hadoop en HDInsight](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-	Los clústeres de HBase para HDInsight se implementan con tres roles:
-	- Servidores principales (2 nodos)
-	- Servidores regionales (al menos 1 nodo)
-	- Nodos principales/Zookeeper (3 nodos)
+	Los clústeres de HBase para HDInsight se implementan con tres roles: - Servidores principales (2 nodos) - Servidores regionales (al menos 1 nodo) - Nodos principales/Zookeeper (3 nodos)
 
 	![Roles de clúster de Hadoop en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
 
-	Los clústeres de Storm para HDInsight se implementan con tres roles:
-	- Nodos Nimbus (2 nodos)
-	- Servidores de supervisor (al menos 1 nodo)
-	- Nodos Zookeeper (3 nodos)
+	Los clústeres de Storm para HDInsight se implementan con tres roles: - Nodos Nimbus (2 nodos) - Servidores de supervisor (al menos 1 nodo) - Nodos Zookeeper (3 nodos)
 
 
 	![Roles de clúster de Hadoop en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-	Los clústeres de Spark para HDInsight se implementan con tres roles:
-	- Nodo principal (2 nodos)
-	- Nodo de trabajo (al menos 1 nodo)
-	- Nodos de Zookeeper (3 nodos) (gratis para Zookeepers A1)
+	Los clústeres de Spark para HDInsight se implementan con tres roles: - Nodo principal (2 nodos) - Nodo de trabajo (al menos 1 nodo) - Nodos de Zookeeper (3 nodos) (gratis para Zookeepers A1)
 
 	El uso de esos nodos se factura a los clientes por la duración del clúster. La facturación comienza una vez que se crea un clúster y se detiene cuando se elimina el clúster (no es posible eliminar la asignación de los clústeres ni tampoco se pueden poner en espera) El tamaño del clúster afecta el precio del mismo. Con fines de aprendizaje, se recomienda utilizar 1 nodo de datos. Para más información sobre los precios de HDInsight, vea [HDInsight Precios](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -129,7 +118,7 @@ A continuación se presentan las opciones de configuración básicas para crear 
 
 	> [AZURE.IMPORTANT] Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o al cambiar el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
 
-	Al usar el Portal de vista previa de Azure para configurar el clúster, el tamaño de nodo se expone a través de la hoja __Plan de tarifas de nodo__ y también debe mostrar el costo asociado con los distintos tamaños de nodo.
+	Si usa el Portal de Azure para configurar el clúster, el tamaño del nodo estará disponible a través de la hoja __Plan de tarifas de nodo__, y aparecerá también el costo asociado con los distintos tamaños de nodo.
 
 	> [AZURE.IMPORTANT] La facturación se inicia una vez creado el clúster y solo se detiene cuando se elimina el clúster. Para obtener más información sobre los precios, consulte [Detalles de precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -159,7 +148,7 @@ A continuación se presentan las opciones de configuración básicas para crear 
 
 	>[AZURE.WARNING] No comparta un contenedor de almacenamiento de blobs para varios clústeres, ya que no es compatible.
 
-	Para obtener más información sobre el uso de almacenes de blobs secundarios, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](hdinsight-use-blob-storage.md).
+	Para obtener más información sobre el uso de almacenes de blobs secundarios, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 - **Tienda de metadatos Hive/Oozie**
 
@@ -220,4 +209,4 @@ En este artículo, ha obtenido información básica acerca de cómo crear un cl�
 | [.NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Plantillas de ARM](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

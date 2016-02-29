@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -52,7 +52,9 @@ Hay dos maneras de crear una plantilla personalizada del Administrador de recurs
 
 ## Implementación de la plantilla del Administrador de recursos en Azure con Azure PowerShell
 
-Vea [Implementación de plantillas del Administrador de recursos con PowerShell](resource-group-template-deploy.md) para obtener instrucciones detalladas sobre cómo implementar la plantilla con PowerShell.
+Vea [Deploying Resource Manager templates by using PowerShell](../resource-group-template-deploy.md) (Implementación de plantillas del Administrador de recursos mediante PowerShell) para obtener instrucciones detalladas sobre cómo implementar la plantilla con PowerShell.
+
+>[AZURE.NOTE] Los clústeres de Service Fabric requieren que un cierto número de nodos estén activos en todo momento con el fin de mantener la disponibilidad y conservar el estado (esto se conoce como "mantenimiento del cuórum"). Por lo tanto, normalmente no es seguro apagar todas las máquinas del clúster a menos que antes haya realizado una [copia de seguridad completa del estado](service-fabric-reliable-services-backup-restore.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
@@ -63,4 +65,4 @@ Vea [Implementación de plantillas del Administrador de recursos con PowerShell]
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->
