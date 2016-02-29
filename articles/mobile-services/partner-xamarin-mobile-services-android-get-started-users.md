@@ -143,4 +143,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], tomará el va
 [Autorización de usuarios con scripts]: mobile-services-javascript-backend-service-side-authorization.md
 [proyecto de ejemplo completado]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

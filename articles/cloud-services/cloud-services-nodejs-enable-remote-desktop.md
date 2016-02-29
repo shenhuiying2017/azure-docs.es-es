@@ -73,7 +73,9 @@ Después de publicar la definición del servicio de actualización, puede conect
 
     ![Indicador de seguridad de Windows][5]
 
-4.  Haga clic en **Conectar** y, a continuación, aparecerá un indicador de seguridad para que escriba las credenciales de acceso a la instancia. Escriba la contraseña creada en el [paso 1][paso 1: configuración del servicio para el acceso de Escritorio remoto mediante Azure PowerShell] y haga clic en **Aceptar**.
+4.  Haga clic en **Conectar** y, a continuación, aparecerá un indicador de seguridad para que escriba las credenciales de
+    acceso a la instancia. Escriba la contraseña creada en
+    el [paso 1]\[paso 1: configuración del servicio para el acceso de Escritorio remoto mediante Azure PowerShell] y haga clic en **Aceptar**.
 
     ![indicador de nombre de usuario/contraseña][6]
 

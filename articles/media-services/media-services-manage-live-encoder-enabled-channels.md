@@ -480,4 +480,4 @@ Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!-----HONumber=AcomDC_0218_2016-->
