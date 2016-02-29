@@ -314,6 +314,11 @@ Las firmas de acceso compartido son útiles para ofrecer permisos limitados a su
 - [Introducción a Almacenamiento de archivos de Azure en Windows](storage-dotnet-how-to-use-files.md)
 - [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md)
 - [Delegación de acceso con una firma de acceso compartido](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [Presentación de tablas y colas SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [Presentación de tablas y colas SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
+[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+
+
+ 
 
 <!---HONumber=AcomDC_0218_2016-->

@@ -136,7 +136,7 @@ En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asign
 
 La tabla siguiente muestra los límites impuestos al direccionamiento IP en Azure por suscripción. Puede [ponerse en contacto con el soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar los límites predeterminados hasta alcanzar los límites máximos, según las necesidades empresariales.
 
-|Límite predeterminado|Límite máximo|
+||Límite predeterminado|Límite máximo|
 |---|---|---|
 |Direcciones IP públicas (dinámicas)|5|póngase en contacto con el soporte técnico|
 |Direcciones IP públicas reservadas|20|póngase en contacto con el soporte técnico|
@@ -152,16 +152,16 @@ En la mayoría de los casos, las direcciones IP públicas son gratis. El uso de 
 ## Diferencias entre la implementación del Administración de recursos y la implementación clásica
 A continuación, se muestra una comparación de las características de direccionamiento IP en el modelo de implementación del Administrador de recursos y el modelo de implementación clásica.
 
-|Recurso|Clásico|Resource Manager|
+||Recurso|Clásico|Resource Manager|
 |---|---|---|---|
 |**Dirección IP pública**|VM|Se denomina ILPIP (sólo dinámica).|Se denomina dirección IP pública (dinámica o estática).|
-|Se asigna a una VM IaaS o una instancia de rol de PaaS.|Se asocia a la NIC de la VM.|
-|Equilibrador de carga accesible desde Internet|Se denomina VIP (dinámica) o dirección IP reservada (estática).|Se denomina dirección IP pública (dinámica o estática).|
-|Se asigna a un servicio en la nube.|Se asocia a la configuración de front-end del equilibrador de carga.|
-|
+|||Se asigna a una VM IaaS o una instancia de rol de PaaS.|Se asocia a la NIC de la VM.|
+||Equilibrador de carga accesible desde Internet|Se denomina VIP (dinámica) o dirección IP reservada (estática).|Se denomina dirección IP pública (dinámica o estática).|
+|||Se asigna a un servicio en la nube.|Se asocia a la configuración de front-end del equilibrador de carga.|
+||||
 |**Dirección IP privada**|VM|Se denomina DIP.|Se denomina dirección IP privada.|
-|Se asigna a una VM IaaS o una instancia de rol de PaaS.|Se asigna a la NIC de la VM.|
-|Equilibrador de carga interno (ILB)|Se asigna al ILB (dinámico o estático).|Se asigna a la configuración de front-end del ILB (dinámico o estático).|
+|||Se asigna a una VM IaaS o una instancia de rol de PaaS.|Se asigna a la NIC de la VM.|
+||Equilibrador de carga interno (ILB)|Se asigna al ILB (dinámico o estático).|Se asigna a la configuración de front-end del ILB (dinámico o estático).|
 
 ## Pasos siguientes
 - [Implemente una máquina virtual con una dirección IP privada estática](virtual-networks-static-private-ip-classic-pportal.md) mediante el portal clásico.

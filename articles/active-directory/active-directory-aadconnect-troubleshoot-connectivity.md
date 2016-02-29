@@ -37,7 +37,11 @@ De ellas, la tabla siguiente es el mínimo necesario para poder conectarse a Azu
 | URL | Port | Descripción |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Se usa para descargar listas CRL. |
-| **.verisign.com | HTTP/80 | Se utiliza para descargar listas CRL. | | *.trust.com | HTTP/80 | Se utiliza para descargar listas CRL para MFA. | | *.windows.net | HTTPS/443 | Se utiliza para iniciar sesión en Azure AD. | | secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Se utiliza para MFA. | | *.microsoftonline.com | HTTPS/443 | Se utiliza para configurar el directorio de Azure AD e importar y exportar datos. |
+| *.verisign.com | HTTP/80 | Se utiliza para descargar listas CRL. |
+| *.trust.com | HTTP/80 | Se utiliza para descargar listas CRL para MFA. |
+| *.windows.net | HTTPS/443 | Se utiliza para iniciar sesión en Azure AD. |
+| *.secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Se utiliza para MFA. |
+| *.microsoftonline.com | HTTPS/443 | Se utiliza para configurar el directorio de Azure AD e importar y exportar datos. |
 
 ## Errores en el asistente
 El asistente para la instalación usa dos contextos de seguridad diferentes. En la página **Conectarse a Azure AD** utiliza el usuario que ha iniciado sesión actualmente. En la página **Configurar** cambia a la [cuenta que está ejecutando el servicio para el motor de sincronización](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). Las configuraciones de proxy que realizamos son globales para el equipo por lo que si hay un problema, probablemente ya aparecerá en la página **Conectarse a Azure AD** del asistente.

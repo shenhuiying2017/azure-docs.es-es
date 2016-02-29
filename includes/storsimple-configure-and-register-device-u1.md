@@ -27,7 +27,7 @@
    - Puerta de enlace
    - Dirección IP para el servidor DNS principal
     
-		Note that the system is validating network settings after each step in the process.
+		Tenga en cuenta que el sistema valida la configuración de red después de cada paso del proceso.
    
       > [AZURE.NOTE] Tendrá que esperar unos minutos para que se apliquen la máscara de subred y la configuración de DNS. Si recibe el mensaje de error «Compruebe la conectividad de red para Data 0», compruebe la conexión de red física en la interfaz de red DATA 0 de su controlador activo.
 
@@ -60,11 +60,11 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
   
-        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
+        Si el estado del dispositivo es Desconectado, espere un par de minutos hasta que el dispositivo se conecte. 
       
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](../articles/storsimple/storsimple-system-requirements.md). 
+        Si el dispositivo sigue estando sin conexión después de unos minutos, tendrá que asegurarse de que la red de firewall se configuró como se describe en los [requisitos de red para el dispositivo StorSimple](../articles/storsimple/storsimple-system-requirements.md). 
 
-		If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
+		Si no es compatible con HTTP 1.1, compruebe el puerto 9354 para asegurarse de que está abierto para la comunicación saliente. Este puerto se usa para la comunicación entre el servicio StorSimple Manager y su dispositivo de StorSimple.
      
        
 

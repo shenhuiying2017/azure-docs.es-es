@@ -83,7 +83,9 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 <tr><td>Nombre de inicio de sesión de la base de datos SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Nombre de inicio de sesión de la base de datos SQL.</td></tr>
 <tr><td>Contraseña de inicio de sesión de la base de datos SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Contraseña de inicio de sesión de la base de datos SQL.</td></tr>
 <tr><td>Nombre de la base de datos SQL</td><td>$sqlDatabaseName</td><td></td><td>La base de datos SQL de Azure en la que Sqoop exportará los datos. </td></tr>
-</table>> [AZURE.NOTE] De forma predeterminada, una base de datos SQL de Azure permite realizar conexiones desde servicios de Azure, como HDInsight de Azure. Si la configuración del firewall está deshabilitada, debe habilitarla en el portal de Azure. Para obtener instrucciones acerca de la creación de una base de datos SQL y la configuración de reglas de firewall, consulte [Creación y configuración de una base de datos SQL][sqldatabase-create-configure].
+</table>
+
+> [AZURE.NOTE] De forma predeterminada, una base de datos SQL de Azure permite realizar conexiones desde servicios de Azure, como HDInsight de Azure. Si la configuración del firewall está deshabilitada, debe habilitarla en el portal de vista previa de Azure. Para obtener instrucciones acerca de la creación de una base de datos SQL y la configuración de reglas de firewall, consulte [Creación y configuración de una base de datos SQL\][sqldatabase-create-configure\].
 
 
 > [AZURE.NOTE] Rellene los valores de las tablas. Le resultará útil para completar el tutorial.
@@ -200,9 +202,10 @@ La acción de Hive en el flujo de trabajo llama a un archivo de script de HiveQL
 <tr><td>${sqlDatabaseConnectionString}</td><td>Cadena de conexión de Base de datos SQL.</td></tr>
 <tr><td>${sqlDatabaseTableName}</td><td>La tabla de base de datos SQL de Azure donde se exportarán los datos.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>La carpeta de salida para la instrucción INSERT OVERWRITE de Hive. Se trata de la misma carpeta para la exportación de Sqoop (export-dir).</td></tr>
-</table>Para obtener más información sobre el flujo de trabajo de Oozie y el uso de acciones de flujo de trabajo, consulte la [documentación de Oozie 4.0 de Apache (en inglés)][apache-oozie-400] (para la versión del clúster de HDInsight 3.0) o la [documentación de Oozie 3.3.2 de Apache (en inglés)][apache-oozie-332] (para la versión del clúster de HDInsight 2.1).
+</table>
+Para obtener más información sobre el flujo de trabajo de Oozie y el uso de acciones de flujo de trabajo, consulte la [documentación de Oozie 4.0 de Apache (en inglés)][apache-oozie-400] (para la versión del clúster de HDInsight 3.0) o la [documentación de Oozie 3.3.2 de Apache (en inglés)][apache-oozie-332] (para la versión del clúster de HDInsight 2.1).
 
-2. Guarde el archivo como **C:\\Tutorials\\UseOozie\\workflow.xml** utilizando la codificación ANSI (ASCII). (Use el Bloc de notas si el editor de texto no proporciona esta opción.)
+2. Guarde el archivo como **C:\Tutorials\UseOozie\workflow.xml** utilizando la codificación ANSI (ASCII). (Use el Bloc de notas si el editor de texto no proporciona esta opción.)
 
 **Para definir el coordinador**
 
@@ -226,7 +229,7 @@ La acción de Hive en el flujo de trabajo llama a un archivo de script de HiveQL
     | ${coordTimezone} | Oozie procesa los trabajos del coordinador en una zona horaria fija sin horario de verano (representado normalmente mediante UTC). Esta zona horaria se conoce como la "zona de horaria de procesamiento de Oozie". |
 	| ${wfPath} | La ruta de acceso de workflow.xml. Si el nombre del archivo del flujo de trabajo no es el del archivo predeterminado (workflow.xml), debe especificarlo. |
 
-2. Guarde el archivo como **C:\\Tutorials\\UseOozie\\coordinator.xml** mediante la codificación ANSI (ASCII). (Use el Bloc de notas si el editor de texto no proporciona esta opción.)
+2. Guarde el archivo como **C:\Tutorials\UseOozie\coordinator.xml** mediante la codificación ANSI (ASCII). (Use el Bloc de notas si el editor de texto no proporciona esta opción.)
 
 ##<a id="deploy"></a>Implementación del proyecto de Oozie y preparación del tutorial
 
@@ -246,7 +249,7 @@ Cuando se aprovisiona un clúster de HDInsight, se designan una cuenta de almace
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE] La sintaxis **wasb://* es la única compatible con la versión 3.0 del clúster de HDInsight. La antigua sintaxis **asv://* es compatible con los clústeres de HDInsight 2.1 y 1.6, pero no es compatible con los clústeres de HDInsight 3.0.
+> [AZURE.NOTE] La sintaxis *wasb://* es la única compatible con la versión 3.0 del clúster de HDInsight. La antigua sintaxis *asv://* es compatible con los clústeres de HDInsight 2.1 y 1.6, pero no es compatible con los clústeres de HDInsight 3.0.
 
 > [AZURE.NOTE] La ruta de acceso wasb:// es una ruta de acceso virtual. Para obtener más información, consulte [Uso de Almacenamiento de blobs de Azure con HDInsight][hdinsight-storage].
 
@@ -274,7 +277,7 @@ Para obtener más información, consulte [HDInsight: Introducción de tablas int
 
 **Para preparar el tutorial**
 
-1. Abra Windows PowerShell ISE (en la pantalla Inicio de Windows 8, escriba **PowerShell\_ISE** y, a continuación, haga clic en **Windows PowerShell ISE**. Consulte [Iniciar Windows PowerShell en Windows 8 y Windows][powershell-start] para obtener más información).
+1. Abra Windows PowerShell ISE (en la pantalla Inicio de Windows 8, escriba **PowerShell_ISE** y, a continuación, haga clic en **Windows PowerShell ISE**. Consulte [Iniciar Windows PowerShell en Windows 8 y Windows][powershell-start] para obtener más información).
 2. En el panel inferior, ejecute el comando siguiente para conectarse a su suscripción de Azure:
 
 		Add-AzureAccount
@@ -371,7 +374,7 @@ Azure PowerShell no proporciona actualmente cmdlets para la definición de traba
 
 **Para enviar un trabajo de Oozie**
 
-1. Abra Windows PowerShell ISE (en la pantalla Inicio de Windows 8, escriba **PowerShell\_ISE** y, a continuación, haga clic en **Windows PowerShell ISE**. Consulte [Iniciar Windows PowerShell en Windows 8 y Windows][powershell-start] para obtener más información).
+1. Abra Windows PowerShell ISE (en la pantalla Inicio de Windows 8, escriba **PowerShell_ISE** y, a continuación, haga clic en **Windows PowerShell ISE**. Consulte [Iniciar Windows PowerShell en Windows 8 y Windows][powershell-start] para obtener más información).
 
 3. Copie el siguiente script en el panel de scripts y, a continuación, configure las catorce primeras variables (pero omita **$storageUri**).
 
@@ -635,7 +638,7 @@ Azure PowerShell no proporciona actualmente cmdlets para la definición de traba
 
 **Para comprobar el registro de errores del trabajo**
 
-Para solucionar los problemas de un flujo de trabajo, puede encontrar el archivo de registro de Oozie en C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log en el nodo principal del clúster. Para obtener información sobre RDP, consulte [Administración de los clústeres de HDInsight mediante el portal de vista previa de Azure][hdinsight-admin-portal].
+Para solucionar los problemas de un flujo de trabajo, puede encontrar el archivo de registro de Oozie en C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log en el nodo principal del clúster. Para obtener información sobre RDP, consulte [Administración de los clústeres de HDInsight mediante el portal de vista previa de Azure][hdinsight-admin-portal].
 
 **Para volver a ejecutar el tutorial**
 

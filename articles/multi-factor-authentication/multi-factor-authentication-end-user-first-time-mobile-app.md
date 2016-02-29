@@ -20,7 +20,7 @@
 
 Este artículo puede serle útil si desea usar la aplicación móvil como método de contacto principal. La información que aquí se ofrece le guiará a través de la configuración de Multi-Factor Authentication para usar la aplicación móvil como método de contacto principal.
 
-La aplicación Azure Authenticator está disponible para [Windows Phone](http://www.windowsphone.com/es-ES/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+La aplicación Azure Authenticator está disponible para [Windows Phone](http://www.windowsphone.com/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
 ## Para usar una aplicación móvil como método de contacto
 
