@@ -213,7 +213,7 @@ Para compilar y ejecutar la aplicación localmente, realice los pasos siguientes
 
 		php -S localhost:8000
 
-Ahora puede dirigirse a **http://localhost:8000/** para probar la aplicación.
+Ahora puede dirigirse a ****http://localhost:8000/** para probar la aplicación.
 
 
 ##Publicación de la aplicación
