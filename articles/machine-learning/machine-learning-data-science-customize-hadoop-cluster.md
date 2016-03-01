@@ -57,7 +57,7 @@ En la última página de configuración de **Acciones de script**, haga clic en 
  
 * **NOMBRE**: cualquier cadena como el nombre de esta acción de script. 
 * **TIPO DE NODO**: seleccione **Todos los nodos**. 
-* **URI DE SCRIPT**: **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
+* **URI DE SCRIPT**: *http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
 	* *publicscripts* es un contenedor público situado en la cuenta de almacenamiento. 
 	* *getgoing* se usa para compartir archivos de script de PowerShell para facilitar el trabajo de los usuarios en Azure. 
 * **PARÁMETROS**: (dejar en blanco)
@@ -104,4 +104,4 @@ Consulte [Envío de consultas de Hive a clústeres de Hadoop de HDInsight en el 
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

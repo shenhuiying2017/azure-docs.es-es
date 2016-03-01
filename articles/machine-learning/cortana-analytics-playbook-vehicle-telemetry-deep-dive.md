@@ -376,7 +376,7 @@ Para más información sobre todas las capacidades basadas en ventanas de Análi
 
 Como parte de la solución se incluye una aplicación que ponga en funcionamiento el modelo de aprendizaje automático en tiempo real. Esta aplicación denominada "RealTimeDashboardApp" se crea y configura como parte de la implementación de la solución. Esta aplicación hace lo siguiente:
 
-1.	Escucha a una instancia de Centro de eventos donde Análisis de transmisiones publica los eventos con un patrón de forma continua. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)* Ilustración 16: Consulta de Análisis de transmisiones para la publicación de los datos a una salida de instancia de Centro de eventos* 
+1.	Escucha a una instancia de Centro de eventos donde Análisis de transmisiones publica los eventos con un patrón de forma continua. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)*Ilustración 16: Consulta de Análisis de transmisiones para la publicación de los datos a una salida de instancia de Centro de eventos* 
 
 2.	Para cada evento que recibe esta aplicación:
 
@@ -706,4 +706,4 @@ Haga clic aquí para obtener instrucciones detalladas sobre cómo configurar los
 
 Este documento contiene un desglose detallado de la solución de análisis de telemetría de vehículos. Se presenta un patrón de arquitectura lambda para análisis en tiempo real y de procesamiento por lotes con predicciones y acciones. Este patrón se aplica a una amplia gama de casos de uso que requieren análisis con ruta de acceso activa (en tiempo real) y la ruta de acceso frío (lote).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

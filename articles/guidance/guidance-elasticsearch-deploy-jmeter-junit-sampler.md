@@ -78,7 +78,7 @@ También tendrá que instalar el [IDE de Eclipse para desarrolladores de Java](h
 
 ![](./media/guidance-elasticsearch-jmeter-deploy15.png)
 
-11.  El panel que aparece debajo del editor de POM puede mostrar la advertencia *La ruta de acceso de la compilación especifica el entorno de ejecución J2SE-1.5. No hay JRE instalados en el área de trabajo que sean totalmente compatibles con este entorno*, dependiendo de qué versión de Java haya instalado en el equipo de desarrollo. Si tiene una versión de Java que sea posterior a la versión 1.5, puede ignorar esta advertencia sin problema.
+11.  El panel que aparece debajo del editor de POM puede mostrar la advertencia *La ruta de acceso de compilación especifica un entorno de ejecución J2SE-1.5. No hay JRE instalados en esta área de trabajo que sean totalmente compatibles con este entorno (La ruta de acceso de la compilación especifica el entorno de ejecución J2SE-1.5. No hay JRE instalados en el área de trabajo que sean totalmente compatibles con este entorno)*, dependiendo de qué versión de Java haya instalado en el equipo de desarrollo. Si tiene una versión de Java que sea posterior a la versión 1.5, puede ignorar esta advertencia sin problema.
 
 ![](./media/guidance-elasticsearch-jmeter-deploy16.png)
 
@@ -177,4 +177,4 @@ También tendrá que instalar el [IDE de Eclipse para desarrolladores de Java](h
 
 > [AZURE.NOTE] Puede emplear la utilidad pscp para copiar archivos desde un equipo con Windows a Ubuntu.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->
