@@ -38,4 +38,4 @@ Si está usando Azure como un extremo de almacenamiento de copia de seguridad te
 
 ![LRS](./media/backup-create-vault/lrs.png)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!-----HONumber=AcomDC_1203_2015-->

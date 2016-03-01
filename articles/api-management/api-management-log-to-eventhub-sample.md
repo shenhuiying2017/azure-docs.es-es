@@ -268,4 +268,4 @@ El servicio de Administración de API de Azure proporciona un lugar ideal para c
 	-	[referencia de la directiva log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
 	
 
-<!----HONumber=Nov15_HO3-->
+<!-----HONumber=Nov15_HO3-->
