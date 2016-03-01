@@ -4,13 +4,13 @@
 
 3. En el cuadro **Grupo de recursos**, seleccione un grupo de recursos existente. Si no tiene grupos de recursos, escriba el mismo nombre que la aplicación.
  
-	En este punto, se selecciona el plan del Servicio de aplicaciones predeterminado, que se encuentra en el nivel Gratis. La configuración del plan del Servicio de aplicaciones determina la ubicación, características, costo y recursos de procesos asociados a la aplicación. Puede seleccionar un plan de Servicio de aplicaciones ya existente o crear uno nuevo. Para más información acerca de los planes de Servicios de aplicaciones y cómo crear un nuevo plan, consulte [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	En este punto, se selecciona el plan del Servicio de aplicaciones predeterminado, que se encuentra en el [nivel Estándar](https://azure.microsoft.com/pricing/details/app-service/). La configuración del plan del Servicio de aplicaciones determina la ubicación, características, costo y recursos de procesos asociados a la aplicación. Puede seleccionar un plan de Servicio de aplicaciones ya existente o crear uno nuevo. Para más información acerca de los planes del Servicio de aplicaciones y cómo crear un nuevo plan en un plan de tarifa diferente y en la ubicación deseada, consulte [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 4. Use el plan del Servicio de aplicaciones predeterminado, seleccione un plan diferente o [cree un nuevo plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan) y, a continuación, haga clic en **Crear**.
 	
 	Esto crea el back-end de aplicación móvil Más adelante, implementará el proyecto de servidor en este back-end. El aprovisionamiento de un back-end de aplicación móvil puede tardar varios minutos; la hoja **Configuración** para el back-end de aplicación móvil se mostrará una vez finalizado. Para poder usar el back-end de aplicación móvil, debe definir igualmente una conexión a un almacén de datos.
 
-    > [AZURE.NOTE]Como parte de este tutorial, va a crear una instancia y un nuevo servidor de Base de datos SQL. Puede reutilizar esta nueva base de datos y administrarla como lo haría con cualquier otra instancia de Base de datos SQL. Si ya hay una base de datos en la misma ubicación que el nuevo back-end de aplicación móvil, puede elegir **Usar una base de datos existente** y después seleccionar dicha base de datos. No se recomienda el uso de una base de datos en una ubicación diferente debido a los costos adicionales de ancho de banda y las elevadas latencias. Existen otras opciones de almacenamiento de datos.
+    > [AZURE.NOTE] Como parte de este tutorial, va a crear una instancia y un nuevo servidor de Base de datos SQL. Puede reutilizar esta nueva base de datos y administrarla como lo haría con cualquier otra instancia de Base de datos SQL. Si ya hay una base de datos en la misma ubicación que el nuevo back-end de aplicación móvil, puede elegir **Usar una base de datos existente** y después seleccionar dicha base de datos. No se recomienda el uso de una base de datos en una ubicación diferente debido a los costos adicionales de ancho de banda y las elevadas latencias. Existen otras opciones de almacenamiento de datos.
 
 6. En la hoja **Configuración** del nuevo back.end de Aplicaciones móviles, haga clic en **Inicio rápido** > la plataforma de aplicaciones cliente > **Conectar a una base de datos**.
 
@@ -30,4 +30,4 @@
 <!-- URLs. -->
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

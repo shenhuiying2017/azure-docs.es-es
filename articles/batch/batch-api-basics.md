@@ -192,15 +192,9 @@ Para obtener más información sobre las tareas de preparación y liberación de
 
 #### <a name="multiinstance"></a>Tareas de instancias múltiples
 
-Una [tarea de instancias múltiples][rest_multiinstance] es una tarea que está configurada para ejecutarse en más de un nodo de ejecución al mismo tiempo. Con tareas de instancias múltiples, puede habilitar escenarios de informática de alto rendimiento como, por ejemplo, la interfaz de paso de mensajes (MPI) que requiere tener un grupo de nodos de ejecución asignados juntos para procesar una carga de trabajo única.
+Una [tarea de instancias múltiples](batch-mpi.md) es una tarea que está configurada para ejecutarse en más de un nodo de proceso al mismo tiempo. Con tareas de instancias múltiples, puede habilitar escenarios de informática de alto rendimiento como, por ejemplo, la interfaz de paso de mensajes (MPI) que requiere tener un grupo de nodos de ejecución asignados juntos para procesar una carga de trabajo única.
 
-En Lote, puede crear una tarea de instancias múltiples especificando la configuración de instancias múltiples para una [tarea](#task) normal. Estas opciones incluyen el número de nodos de ejecución para ejecutar la tarea, una línea de comandos para la tarea principal (el "comando de aplicación"), un comando de coordinación y una lista de los archivos de recursos comunes para cada tarea.
-
-Al enviar una tarea con configuración de instancias múltiples a un trabajo, el servicio Lote realiza lo siguiente:
-
-1. Crea automáticamente una tarea principal y suficientes subtareas que se ejecutarán juntas en el número total de nodos especificado. Lote programa, a continuación, esas tareas para su ejecución en los nodos, que descargan primero los archivos de recursos comunes especificados.
-2. Una vez descargados los archivos de recursos comunes, el elemento principal y las subtareas ejecutan el comando de coordinación. Este comando de coordinación normalmente inicia un servicio en segundo plano (como `smpd.exe` de [MS-MPI][msmpi]) y comprueba que los nodos estén listos para procesar mensajes entre nodos.
-3. Cuando la tarea principal y todas las subtareas hayan completado correctamente el comando de coordinación, solo la tarea principal ejecuta la línea de comandos de la tarea (el "comando de aplicación"), que inicia normalmente una aplicación habilitada para MPI personalizada que procesa la carga de trabajo en los nodos. Por ejemplo, en un escenario de MPI de Windows, normalmente ejecutaría una aplicación habilitada para MPI con `mpiexec.exe` de [MS-MPI][msmpi] mediante el comando de aplicación.
+Para obtener información detallada sobre la ejecución de trabajos de MPI en el servicio Lote mediante la biblioteca .NET del mismo, consulte [Uso de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Lote de Azure](batch-mpi.md).
 
 ### <a name="jobschedule"></a>Trabajos programados
 
@@ -372,4 +366,4 @@ Cada nodo de un grupo recibe un id. único y el nodo en el que se ejecuta una ta
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="11/17/2015"
 	ms.author="huvalo"/>
 
@@ -42,7 +42,7 @@ Consulte el [Centro para desarrolladores de Python] para tener acceso a más art
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Creación del proyecto
 
@@ -190,7 +190,7 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 - [Documentación de Django]
 - [MySQL]
 
-Para más información, consulte el [Centro para desarrolladores de Python](/develop/python/).
+Para obtener más información, consulte el [Centro para desarrolladores de Python](/develop/python/).
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -216,4 +216,4 @@ Para más información, consulte el [Centro para desarrolladores de Python](/dev
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

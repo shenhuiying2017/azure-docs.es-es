@@ -28,9 +28,9 @@ En este artículo se asume que tiene conocimientos prácticos de C# y Visual Stu
 
 ### Cuentas
 
-- **Cuenta de Azure**: si aún no dispone de una suscripción a Azure, puede crear una cuenta de evaluación gratuita en cuestión de minutos en [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+- **Cuenta de Azure**: si aún no dispone de una suscripción a Azure, puede [crear una cuenta de Azure gratuita][azure_free_account].
 - **Cuenta de Lote**: una vez que tenga una suscripción a Azure, [cree y administre de una cuenta de Lote de Azure](batch-account-create-portal.md).
-- **Cuenta de Almacenamiento**: consulte la sección "Crear una cuenta de almacenamiento" en [Acerca de las cuentas de almacenamiento de Azure](../storage-create-storage-account.md).
+- **Cuenta de Almacenamiento**: consulte la sección "Crear una cuenta de almacenamiento" en [Acerca de las cuentas de almacenamiento de Azure](./../storage/storage-create-storage-account.md).
 
 ### Visual Studio
 
@@ -626,6 +626,7 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 - Consulte una implementación diferente del procesamiento de la carga de trabajo de "las N palabras más usadas" con Lote en el ejemplo [TopNWords][github_topnwords].
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
+[azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
 [batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
@@ -680,4 +681,4 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenciales de Almacenamiento en el Portal"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Flujo de trabajo de solución de Lote (diagrama mínimo)"
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

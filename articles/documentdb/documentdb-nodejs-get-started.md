@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="hero-article" 
-	ms.date="11/18/2015"
+	ms.date="02/19/2016"
 	ms.author="anhoh"/>
 
 # Tutorial de NoSQL Node.js: aplicación de consola Node.js de DocumentDB  
@@ -442,4 +442,4 @@ Después, en el archivo ```config.js```, actualice los valores de config.endpoin
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

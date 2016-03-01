@@ -7,14 +7,7 @@
 	manager="stevenpo" 
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
-	ms.author="billmath"/>
+<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="02/18/2016"" ms.author="billmath"/>
 
 
 # Protección de recursos en la nube y locales mediante Servidor Azure Multi-Factor Authentication con Windows Server 2012 R2 AD FS
@@ -33,6 +26,7 @@ Al instalar Servidor Azure Multi-Factor Authentication tiene las dos opciones si
 Antes de comenzar, tenga en cuenta lo siguiente:
 
 - No es necesario que Servidor Azure Multi-Factor Authentication esté instalado en el servidor de federación de AD FS. Sin embargo, el adaptador de Multi-Factor Authentication para AD FS debe estar instalado en un Windows Server 2012 R2 que ejecute AD FS. Puede instalar el servidor en un equipo diferente, siempre y cuando sea una versión compatible e instale al adaptador de AD FS por separado en el servidor de federación de AD FS. Consulte el procedimiento siguiente para obtener instrucciones acerca de cómo instalar el adaptador por separado.
+- Cuando se diseñó el adaptador de AD FS del servidor de Multi-Factor Authentication, se estimó que AD FS podría pasar el nombre del usuario de confianza al adaptador que podría utilizarse como nombre de aplicación. Sin embargo, no fue así. Si se usan métodos de autenticación de aplicación móvil o mensaje de texto, las cadenas definidas en la configuración de la compañía contienen un marcador de posición "<$application\_name$>". Este marcador de posición no se reemplaza cuando se usa el adaptador de AD FS. Por eso se recomienda quitar el marcador de posición de las cadenas apropiadas al proteger AD FS.
 
 - La cuenta en la que se ha iniciado sesión debe tener privilegios para crear grupos de seguridad en Active Directory.
 
@@ -229,4 +223,4 @@ Ejecute ahora el script \\Archivos de programa\\Multi-Factor Authentication Serv
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

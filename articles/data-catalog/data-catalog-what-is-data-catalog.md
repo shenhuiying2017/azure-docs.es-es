@@ -10,7 +10,7 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="02/08/2016"
@@ -110,4 +110,4 @@ El objetivo final de la detección de datos es encontrar los datos que necesita 
 1.	Para las aplicaciones cliente que sean directamente compatibles con el **Catálogo de datos de Azure**, los usuarios pueden hacer clic en el menú **Abrir en** del icono del origen de datos que se encuentra en el portal. A continuación, la aplicación cliente se iniciará con una conexión al origen de datos seleccionado.
 2.	Para todas las aplicaciones cliente, los usuarios pueden usar la información de conexión que se muestra en el panel de propiedades para un origen de datos seleccionado. Esta información incluye todos los detalles (como el nombre del servidor, el nombre de la base de datos y el nombre del objeto) necesarios para conectarse a los datos y puede copiarse en la experiencia de conexión de la herramienta de cliente. Si se han dado detalles de solicitud de acceso para un origen de datos, esta información se mostrará junto a los detalles de conexión.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

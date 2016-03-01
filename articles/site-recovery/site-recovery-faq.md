@@ -76,7 +76,7 @@ Sí. Puede replicar máquinas virtuales de Hyper-V en la nube en el servidor de 
 
 Puede proteger servidores físicos con Windows y Linux, en Azure o en un sitio secundario. [Conozca](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) los requisitos acerca del sistema operativo. Se aplican las mismas limitaciones si está replicando servidores físicos a Azure o a un sitio secundario.
 
-Tenga en cuenta que los servidores físicos se ejecutarán como máquinas virtuales en Azure si se desactiva el servidor local. La conmutación por recuperación a un servidor físico local no está admitida actualmente. Deberá conmutar por recuperación a una máquina virtual de VMware.
+Tenga en cuenta que los servidores físicos se ejecutarán como máquinas virtuales en Azure si se desactiva el servidor local. La conmutación por recuperación a un servidor físico local no está admitida actualmente. Solo puede conmutar por error a una máquina virtual que se ejecutan en VMware.
 
 ### ¿Qué máquinas virtuales de VMware se pueden proteger?
 
@@ -219,4 +219,4 @@ Sí, es posible replicar máquinas virtuales de Hyper-V y Azure, o entre sitios 
 - Lea la [Información general sobre Site Recovery](site-recovery-overview.md)
 - Obtenga información acerca de la [Arquitectura de Site Recovery](site-recovery-components.md)  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

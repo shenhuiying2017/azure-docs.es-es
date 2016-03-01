@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="02/17/2016"
 	ms.author="adrianha"/>
 
@@ -61,4 +61,4 @@ Con *Servicio de aplicaciones de Azure* ahora puede crear varios entornos de ens
 
 Para comenzar a aprovechar el *Servicio de aplicaciones* en su servicio móvil existente, siga este [tutorial](app-service-mobile-migrating-from-mobile-services.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

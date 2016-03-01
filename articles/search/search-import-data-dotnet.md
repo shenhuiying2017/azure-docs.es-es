@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # Importación de datos a Búsqueda de Azure mediante .NET
@@ -125,4 +125,4 @@ La tercera parte de este método es un bloque catch que controla un caso de erro
 
 Por último, el método se retrasa durante dos segundos. La indización ocurre de manera asincrónica en el servicio Búsqueda de Azure, por lo que la aplicación de ejemplo debe esperar unos momentos para asegurarse de que los documentos estén disponibles para la búsqueda. Retrasos así solo suelen ser necesarios en las pruebas, demostraciones y aplicaciones de ejemplo.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

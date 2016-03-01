@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/18/2016"
+	ms.date="02/22/2016"
 	ms.author="billmath;andkjell"/>
 
 # Instalación personalizada de Azure AD Connect
@@ -26,7 +26,7 @@ Si no leyó la documentación que se encuentra en [Integración de las identidad
 | Tema. | |
 | --------- | --------- |
 | **Descarga de Azure AD Connect** | [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
-| **Hardware y requisitos previos** | [Azure AD Connect: Hardware y requisitos previos](active-directory-aadconnect-prerequisites.md) |
+| **Hardware y requisitos previos** | [Azure AD Connect: Hardware y requisitos previos](active-directory-aadconnect-prerequisites.md#hardware-requirements-for-azure-ad-connect) |
 | **Cuentas usadas para la instalación** | [Permisos y cuentas de Azure AD Connect](active-directory-aadconnect-accounts-permissions.md) |
 | Instalación mediante configuración rápida | [Instalación rápida de Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
 | Actualización desde DirSync | [Actualización desde la herramienta Sincronización de Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
@@ -228,4 +228,4 @@ Ahora que ha instalado Azure AD Connect, puede [comprobar la instalación y asig
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->
