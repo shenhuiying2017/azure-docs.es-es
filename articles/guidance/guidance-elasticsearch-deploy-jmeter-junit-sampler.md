@@ -31,7 +31,8 @@ Para probar el rendimiento de la ingestión de datos, el código JUnit se desarr
 
 ## Instalación de los requisitos previos
 
-Necesitará el entorno [Java Runtime Environment](http://www.java.com/en/download/ie_manual.jsp) en el equipo de desarrollo. También tendrá que instalar el [IDE de Eclipse para desarrolladores de Java](https://www.eclipse.org/downloads/index.php?show_instructions=TRUE).
+Necesitará el entorno [Java Runtime Environment](http://www.java.com/en/download/ie_manual.jsp) en el equipo de desarrollo.
+También tendrá que instalar el [IDE de Eclipse para desarrolladores de Java](https://www.eclipse.org/downloads/index.php?show_instructions=TRUE).
 
 > [AZURE.NOTE] Si está usando la máquina virtual maestra de JMeter descrita en la sección [Configuring the Performance Testing Environment (Configuración del entorno de pruebas de rendimiento)](#overview) como entorno de desarrollo, descargue la versión de Windows de 32 bits del instalador de Eclipse.
 
@@ -77,7 +78,7 @@ Necesitará el entorno [Java Runtime Environment](http://www.java.com/en/downloa
 
 ![](./media/guidance-elasticsearch-jmeter-deploy15.png)
 
-11.  El panel que aparece debajo del editor de POM puede mostrar la advertencia *Build path specifies execution environment J2SE-1.5. There are no JREs installed in the workspace that are strictly compatible with this environment (La ruta de acceso de la compilación especifica el entorno de ejecución J2SE-1.5. No hay JRE instalados en el área de trabajo que sean totalmente compatibles con este entorno)*, dependiendo de qué versión de Java haya instalado en el equipo de desarrollo. Si tiene una versión de Java que sea posterior a la versión 1.5, puede ignorar esta advertencia sin problema.
+11.  El panel que aparece debajo del editor de POM puede mostrar la advertencia *La ruta de acceso de la compilación especifica el entorno de ejecución J2SE-1.5. No hay JRE instalados en el área de trabajo que sean totalmente compatibles con este entorno*, dependiendo de qué versión de Java haya instalado en el equipo de desarrollo. Si tiene una versión de Java que sea posterior a la versión 1.5, puede ignorar esta advertencia sin problema.
 
 ![](./media/guidance-elasticsearch-jmeter-deploy16.png)
 
