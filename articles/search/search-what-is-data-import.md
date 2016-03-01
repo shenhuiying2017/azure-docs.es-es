@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # Importación de datos a Búsqueda de Azure
@@ -22,7 +22,7 @@
 - [Overview](search-what-is-data-import.md)
 - [Portal](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
-- [REST API](search-import-data-rest-api.md)
+- [REST](search-import-data-rest-api.md)
 - [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
 En Búsqueda de Azure, el servicio funciona con datos persistentes (un índice) que proporciona documentos e información que se usa para procesar un índice, ejecutar consultas o formular los resultados de la búsqueda. Para rellenar un índice, puede usar un modelo de inserción o de extracción para cargar los datos.
@@ -60,4 +60,4 @@ El conjunto de datos debe derivarse de una sola tabla, vista, contenedor de blob
 |Actualización de datos programada|Use un indexador (consulte más arriba).|
 |Creación de prototipos sin código ni edición|El portal incluye a un Asistente para la importación de datos que configura un indexador; para ello, a veces genera un esquema preliminar si hay suficiente información en la base de datos principal para hacerlo. El asistente incluye opciones para configurar la actualización de datos programada. Si lo desea, puede agregar los analizadores de lenguaje u opciones de CORS. Existen algunos aspectos negativos: no se puede agregar perfiles de puntuación, ni tampoco puede exportar un esquema creado en el portal a un archivo JSON para su uso en el código.| 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

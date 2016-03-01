@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/09/2016"
+	ms.date="02/19/2016"
 	ms.author="awills"/>
 
 # Application Insights para páginas web
@@ -170,7 +170,7 @@ Haga clic en cualquier fila para obtener detalles concretos.
 
 > [AZURE.NOTE] Si elimina el filtro de exploradores en la hoja, tanto el servidor como las dependencias AJAX se incluirán en estos gráficos. Haga clic en Restaurar valores predeterminados para volver a configurar el filtro.
 
-**Si desea profundizar en las llamadas Ajax erróneas**, una forma rápida consiste en cambiar el gráfico de errores a una cuadrícula y, a continuación, hacer clic en una fila para ver las instancias concretas.
+**Si desea profundizar en las llamadas Ajax erróneas**, desplácese hacia abajo hasta la cuadrícula de errores de Dependencia y, a continuación, haga clic en una fila para ver las instancias concretas.
 
 ![](./media/app-insights-javascript/37.png)
 
@@ -238,4 +238,4 @@ El nombre de página puede contener los mismos caracteres que una URL, aunque se
 * [Eventos y métricas personalizados](app-insights-api-custom-events-metrics.md)
 * [Compilación - Métrica - Aprendizaje](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

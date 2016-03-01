@@ -46,7 +46,7 @@ Configuración rápida es la opción predeterminada que se selecciona y es uno d
 5. En la pantalla Conectar a Azure AD, escriba el nombre de usuario y la contraseña de un administrador global de Azure para su Azure AD. Haga clic en **Siguiente**. ![Conexión a AAD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Si recibe un error y tiene problemas de conectividad, consulte [Solución de problemas de conectividad con Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. En la pantalla Conectar con AD DS, escriba el nombre de usuario y la contraseña para una cuenta de administrador de empresa. Haga clic en **Siguiente**. ![Bienvenida a Azure AD Connect](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. En la pantalla Listo para configurar, haga clic en **Instalar**.
-	- En la página Listo para configurar puede desactivar la casilla “**Inicie el proceso de sincronización en cuanto se complete la configuración inicial**”. Si lo hace, el asistente configurará la sincronización, pero dejará la tarea deshabilitada por lo que no se ejecutará hasta que la habilite manualmente en el Programador de tareas. Una vez habilitada la tarea, la sincronización se ejecutará cada tres horas.
+	- En la página Listo para configurar, también puede desactivar la casilla **Inicie el proceso de sincronización en cuanto se complete la configuración inicial**. Si lo hace, el asistente configurará la sincronización, pero dejará la tarea deshabilitada por lo que no se ejecutará hasta que la habilite manualmente en el Programador de tareas. Una vez habilitada la tarea, la sincronización se ejecutará cada 30 minutos.
 	- Opcionalmente, también puede configurar los servicios de sincronización para **Implementación híbrida de Exchange**; para ello, active la casilla correspondiente. Si no piensa tener buzones de Exchange locales y en la nube, no es necesario hacerlo. ![Bienvenida a Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
 8. Una vez completada la instalación, haga clic en **Salir**.
 9. Una vez completada la instalación, cierre la sesión e inicie de sesión de nuevo antes de utilizar Synchronization Service Manager o el Editor de reglas de sincronización.
@@ -60,4 +60,4 @@ Ahora que tiene instalado Azure AD Connect, puede [comprobar la instalación y a
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

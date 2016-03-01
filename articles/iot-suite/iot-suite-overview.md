@@ -14,7 +14,7 @@
      ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/27/2015"
+     ms.date="02/19/2016"
      ms.author="dobett"/>
 
 # Información general de Azure IoT Suite
@@ -49,17 +49,17 @@ Para información general de la arquitectura de una solución de IoT típica, ve
 
 ## Soluciones preconfiguradas
 
-El Conjunto de aplicaciones de IoT de Azure incluye soluciones preconfiguradas que le permiten empezar a trabajar rápidamente con los escenarios comunes de IoT que el Conjunto de aplicaciones de IoT de Azure hace posibles y explorarlos. Puede implementar las soluciones en su suscripción de Azure y luego ejecutar una solución de IoT completa e integral.
+El Conjunto de aplicaciones de IoT incluye soluciones preconfiguradas que permiten tanto empezar a trabajar rápidamente con los escenarios comunes de IoT, como *Supervisión remota* y *Mantenimiento predictivo*, que el Conjunto de aplicaciones de IoT de Azure hace posibles como explorarlos. Puede implementar estas soluciones en su suscripción de Azure y luego ejecutar un escenario de IoT completo e integral.
 
 ## Pasos siguientes
 
 Ahora que tiene una visión general de lo que puede hacer el Conjunto de aplicaciones de IoT y cuáles son sus componentes principales, puede:
 
-- Para obtener más información sobre las soluciones preconfiguradas del Conjunto de aplicaciones de IoT, vea [¿Qué son las soluciones preconfiguradas del Conjunto de aplicaciones de IoT de Azure?][lnk-what-are-preconfig]
+- Para más información acerca de las soluciones preconfiguradas del Conjunto de aplicaciones de IoT, consulte [¿Qué son las soluciones preconfiguradas del Conjunto de aplicaciones de IoT de Azure?][lnk-what-are-preconfig]
 
-- Para empezar a usar una de las soluciones preconfiguradas, vea [Introducción a las soluciones preconfiguradas de IoT][lnk-preconfig-start].
+- Para empezar a usar una de las soluciones preconfiguradas, consulte [Introducción a las soluciones preconfiguradas de IoT][lnk-preconfig-start].
 
-- Para más información sobre el servicio Centro de IoT de Azure, vea la [documentación del Centro de IoT][lnk-iot-hub].
+- Para más información acerca del servicio Centro de IoT de Azure, consulte la [documentación del Centro de IoT][lnk-iot-hub].
 
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
@@ -74,4 +74,4 @@ Ahora que tiene una visión general de lo que puede hacer el Conjunto de aplicac
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/30/2015"
+ ms.date="02/19/2016"
  ms.author="dobett"/>
 
 # ¿Qué son las soluciones preconfiguradas del Conjunto de aplicaciones de IoT de Azure?
@@ -34,7 +34,7 @@ La tabla siguiente muestra cómo se asignan estas soluciones a las característi
 
 | Solución | Ingesta de datos | Identidad de dispositivos | Comando y control | Reglas y acciones | Análisis predictivo |
 |------------------------|-----|-----|-----|-----|-----|
-| [Supervisión remota][lnk-remote-monitoring] | Sí | Sí | Sí | Sí | - | 
+| [Supervisión remota][lnk-remote-monitoring] | Sí | Sí | Sí | Sí | - |
 | [Mantenimiento predictivo][lnk-predictive-maintenance] | Sí | Sí | Sí | Sí | Sí |
 
 ## Información general sobre la solución preconfigurada de supervisión remota
@@ -47,18 +47,22 @@ El siguiente diagrama ilustra los elementos clave de la solución de supervisió
 
 ## Dispositivos
 
-Al implementar la solución preconfigurada de supervisión remota, la implementación incluye instancias de un simulador de dispositivos de software que simula un dispositivo refrigerador físico. Los dispositivos simulados envían telemetría de la temperatura y la humedad a un punto de conexión del Centro de IoT. Los dispositivos simulados también responden a los siguientes comandos enviados desde el portal de solución mediante el Centro de IoT:
+Al implementar la solución preconfigurada de supervisión remota, se aprovisionan previamente cuatro dispositivos simulados en la solución que simulan un dispositivo de refrigeración. Estos dispositivos simulados tienen un modelo de temperatura y humedad integrado que emite telemetría.
 
-- Ping Device
-- Start Telemetry
-- Stop Telemetry
-- Change Set Point Temperature
-- Diagnostic Telemetry
-- Change Device State
+La primera vez que un dispositivo se conecta al Centro de IoT en la solución preconfigurada de supervisión remota, el mensaje de información de dispositivo que se envía al Centro de IoT enumera la lista de comandos a los que el dispositivo puede responder. En la solución preconfigurada de supervisión remota, los comandos son:
+
+- *Ping Device* El dispositivo responde a este comando con una confirmación. Es útil para comprobar que el dispositivo sigue activo y a la escucha.
+- *Start Telemetry* Indica al dispositivo que empiece a enviar telemetría.
+- *Stop Telemetry* Indica al dispositivo que detenga el envío de telemetría.
+- *Change Set Point Temperature* Controla los valores de telemetría de temperatura simulados que envía el dispositivo. Es útil para realizar pruebas.
+- *Diagnostic Telemetry* Controla si el dispositivo debe enviar la temperatura exterior como telemetría.
+- *Change Device State* Establece la propiedad de metadatos del estado del dispositivo de la que informa el dispositivo. Es útil para realizar pruebas.
+
+Puede agregar dispositivos simulados adicionales a la solución que emitan la misma telemetría y respondan a los mismos comandos.
 
 ## Centro de IoT
 
-Un centro de IoT recibe la telemetría de los dispositivos de refrigeración en un único punto de conexión. Un Centro de IoT también mantiene puntos de conexión específicos del dispositivo donde cada dispositivo puede recuperar los comandos, como el comando **Ping Device**, que se le envían.
+Un centro de IoT recibe la telemetría de los dispositivos de refrigeración en un único punto de conexión. Un Centro de IoT también mantiene puntos de conexión específicos de dispositivo donde cada dispositivo puede recuperar los comandos que se le envían.
 
 El Centro de IoT hace que la telemetría que recibe esté disponible mediante un punto de conexión del grupo de consumidores.
 
@@ -68,17 +72,18 @@ En esta solución preconfigurada, la instancia del Centro de IoT corresponde a l
 
 La solución preconfigurada usa tres trabajos de [Análisis de transmisiones de Azure][lnk-asa] para filtrar la transmisión de la telemetría procedente de los dispositivos de refrigeración.
 
-- El trabajo nº 1 envía toda la telemetría a Almacenamiento de blobs de Azure para un almacenamiento frío
-- El trabajo nº 2 filtra la transmisión de la telemetría para identificar los mensajes de respuesta a los comandos y los mensajes de actualización del estado de los dispositivos y envía estos mensajes específicos a un punto de conexión del Centro de eventos de Azure.
-- El trabajo nº 3 filtra la transmisión de la telemetría para los valores que desencadenan alarmas. Cuando un valor desencadena una alarma, la solución muestra la notificación en la tabla de historial de alarmas en la vista de panel del portal de solución.
 
-En esta solución preconfigurada, los trabajos ASA forman parte del *back-end de solución de IoT* en una [arquitectura de soluciones de IoT][lnk-what-is-azure-iot] típica.
+- *Trabajo DeviceInfo*: envía mensajes específicos de registro del dispositivo al registro de dispositivos de la solución (una base de datos de DocumentDB).
+- *Trabajo Telemetría*: envía toda la telemetría sin procesar al Almacenamiento de blobs de Azure para su almacenamiento en frío y calcula las agregaciones de telemetría que se muestran en el panel de la solución.
+- *Trabajo Reglas*: filtra el flujo de telemetría para los valores que superan los umbrales de las reglas. Cuando se activa una regla, la vista de panel del portal de solución muestra este evento como una nueva fila en la tabla de historial de alarma y desencadena una acción basada en la configuración definida en las vistas Reglas y Acciones del portal de solución.
+
+En esta solución preconfigurada, los trabajos ASA forman parte del *back-end de la solución de IoT* en una [arquitectura de soluciones de IoT][lnk-what-is-azure-iot] típica.
 
 ## Procesador de eventos
 
-Una instancia de [EventPocessorHost][lnk-event-processor], que se ejecuta en un [WebJob][lnk-web-job], procesa los mensajes de respuestas a comandos y del estado de los dispositivos identificados el trabajo nº 2 de ASA, y almacena dicha información en una base de datos de [Azure DocumentDB][lnk-document-db].
+Una instancia de [EventPocessorHost][lnk-event-processor], que se ejecuta en un [WebJob][lnk-web-job], procesa los resultados de los trabajos DeviceInfo y Reglas.
 
-En esta solución preconfigurada, el procesador de eventos forma parte del *back-end de solución de IoT* en una [arquitectura de soluciones de IoT][lnk-what-is-azure-iot] típica.
+En esta solución preconfigurada, el procesador de eventos forma parte de *back-end de la solución de IoT* en una [arquitectura de soluciones de IoT][lnk-what-is-azure-iot] típica.
 
 ## Portal de solución
 
@@ -92,9 +97,9 @@ El portal de solución es una interfaz de usuario basada en web que se implement
 - Enviar comandos a dispositivos específicos.
 - Administrar reglas y acciones.
 
-> [AZURE.NOTE] El portal de solución también mantiene sincronizado el [registro de identidades de dispositivos][lnk-identity-registry] del Centro de IoT con el almacén de información de estado de dispositivo más sofisticada de la base de datos de DocumentDB.
+> [AZURE.NOTE] La solución preconfigurada mantiene la sincronización entre el [registro de identidad del dispositivo][lnk-identity-registry] del Centro de IoT y el registro de dispositivos de la solución (base de datos de DocumentDB), que almacena más metadatos del dispositivo.
 
-En esta solución preconfigurada, el portal de solución forma parte del *back-end de solución de IoT* y de la *conectividad de procesamiento y empresarial* en una [arquitectura de soluciones de IoT][lnk-what-is-azure-iot] típica.
+En esta solución preconfigurada, el portal de solución forma parte tanto del *back-end de la solución de IoT* como de la *conectividad de procesamiento y empresarial* en una [arquitectura de soluciones de IoT][lnk-what-is-azure-iot] típica.
 
 ## Pasos siguientes
 
@@ -116,4 +121,4 @@ Examine estos recursos para obtener más información sobre las soluciones IoT p
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

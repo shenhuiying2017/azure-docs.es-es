@@ -30,12 +30,12 @@
    - Dirección IP para el servidor DNS principal
    - Dirección IP para el servidor NTP principal
    
-      >[AZURE.NOTE] Tendrá que esperar unos minutos para que se apliquen la máscara de subred y la configuración de DNS. Si recibe el mensaje de error «El dispositivo no está listo», compruebe la conexión de red física en la interfaz de red DATA 0 de su controlador activo.
+      > [AZURE.NOTE] Tendrá que esperar unos minutos para que se apliquen la máscara de subred y la configuración de DNS. Si recibe el mensaje de error «El dispositivo no está listo», compruebe la conexión de red física en la interfaz de red DATA 0 de su controlador activo.
 
-8. (Opcional) Configure el servidor proxy web. Aunque la configuración del proxy web es opcional, **tenga en cuenta que, si usa un proxy web, solo puede configurarlo aquí**. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](storsimple-configure-web-proxy.md). Si surge algún problema durante este paso, vea la guía de solución de problemas de [Errores durante la configuración del proxy web](storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings).
+8. (Opcional) Configure el servidor proxy web. Aunque la configuración del proxy web es opcional, **tenga en cuenta que, si usa un proxy web, solo puede configurarlo aquí**. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](../articles/storsimple/storsimple-configure-web-proxy.md). Si surge algún problema durante este paso, vea la guía de solución de problemas de [Errores durante la configuración del proxy web](../articles/storsimple/storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings).
  
 
-      >[AZURE.NOTE] También puede presionar Ctrl+C en cualquier momento para salir del Asistente para instalación. Se conservarán todos los valores de configuración que aplicó antes de emitir este comando.
+      > [AZURE.NOTE] También puede presionar Ctrl+C en cualquier momento para salir del Asistente para instalación. Se conservarán todos los valores de configuración que aplicó antes de emitir este comando.
 
 9. Por motivos de seguridad, la contraseña del administrador del dispositivo expira después de la primera sesión y deberá cambiarla para sesiones posteriores. Cuando se le solicite, proporcione una contraseña de administrador del dispositivo. Una contraseña de administrador del dispositivo válida debe tener entre 8 y 15 caracteres. La contraseña debe contener una combinación de caracteres en minúsculas, caracteres en mayúsculas, números y caracteres especiales.
 
@@ -43,13 +43,13 @@
 
     ![Registrar el dispositivo 4 de StorSimple](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice4-include.png)
 
-    Puede restablecer la contraseña de StorSimple Snapshot Manager desde la interfaz de servicio de Administrador de StorSimple. Para conocer pasos detallados, ve al tema [Cambiar las contraseñas de StorSimple utilizando el servicio de administrador de StorSimple](storsimple-change-passwords.md).
+    Puede restablecer la contraseña de StorSimple Snapshot Manager desde la interfaz de servicio de Administrador de StorSimple. Para conocer pasos detallados, ve al tema [Cambiar las contraseñas de StorSimple utilizando el servicio de administrador de StorSimple](../articles/storsimple/storsimple-change-passwords.md).
 
-	Para solucionar los problemas durante este paso, vea la guía para solucionar problemas de [Errores relacionados con las contraseñas](storsimple-troubleshoot-deployment.md#errors-related-to-device-administrator-and-storsimple-snapshot-manager-passwords).
+	Para solucionar los problemas durante este paso, vea la guía para solucionar problemas de [Errores relacionados con las contraseñas](../articles/storsimple/storsimple-troubleshoot-deployment.md#errors-related-to-device-administrator-and-storsimple-snapshot-manager-passwords).
 
 11. El último paso del Asistente para instalación registra el dispositivo con el servicio de Administrador de StorSimple. Para ello, necesitará la clave de registro del servicio que obtuvo en el paso 2. Después de proporcionar la clave de registro, puede que tenga que esperar entre 2 y 3 minutos hasta que el dispositivo se registre.
 
-	Para solucionar los posibles errores de registro del dispositivo, vea el tema [Errores durante el registro de dispositivos](storsimple-troubleshoot-deployment.md#errors-during-device-registration). Para conocer la solución de problemas con detalle, también puede consultar el [Ejemplo paso a paso de solución de problemas](storsimple-troubleshoot-deployment.md#step-by-step-storsimple-troubleshooting-example).
+	Para solucionar los posibles errores de registro del dispositivo, vea el tema [Errores durante el registro de dispositivos](../articles/storsimple/storsimple-troubleshoot-deployment.md#errors-during-device-registration). Para conocer la solución de problemas con detalle, también puede consultar el [Ejemplo paso a paso de solución de problemas](../articles/storsimple/storsimple-troubleshoot-deployment.md#step-by-step-storsimple-troubleshooting-example).
 
 12. Una vez registrado el dispositivo, aparecerá una clave de cifrado de datos de servicio. Copie esta clave y guárdela en un lugar seguro.
 	
@@ -68,7 +68,7 @@
    
     ![Página de dispositivos de StorSimple](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png)
   
-      >[AZURE.IMPORTANT] Después de que el dispositivo esté en línea, conecta los cables de red que desconectaste al principio de este paso.
+      > [AZURE.IMPORTANT] Después de que el dispositivo esté en línea, conecta los cables de red que desconectaste al principio de este paso.
 
 Después de que el dispositivo se haya registrado correctamente y no esté en línea, puede ejecutar el `Test-HcsmConnection -Verbose` para asegurarse de que la conectividad de red es correcta. Para conocer el uso detallado de este cmdlet, vaya a [Referencia del cmdlet para Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx).
 
@@ -76,4 +76,4 @@ Después de que el dispositivo se haya registrado correctamente y no esté en l�
 
 Para ver un vídeo que muestra cómo configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple, haga clic [aquí](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

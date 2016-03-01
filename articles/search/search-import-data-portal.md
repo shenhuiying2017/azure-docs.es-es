@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # Importación de datos en Búsqueda de Azure con el Portal
@@ -36,6 +36,8 @@ Con el Asistente, la importación de datos es una construcción con tres partes:
 Para usar un indexador o el comando **Importar datos**, el origen de datos principal debe ser uno de los orígenes de datos compatibles: Base de datos SQL de Azure, bases de datos relacionales de SQL Server en una máquina virtual de Azure o DocumentDB de Azure.
 
 Solo se puede importar desde una única tabla, vista o estructura de datos equivalente. Primero debe crear esta estructura de datos en el origen de datos de la aplicación para obtener las entradas de metadatos y datos correctas en el índice de búsqueda.
+
+Puede probar este flujo de trabajo con datos de ejemplo. Visite [Introducción a Búsqueda de Azure en el Portal de Azure](search-get-started-portal.md) para empezar.
 
 ##Configuración de la importación de datos
 
@@ -74,4 +76,4 @@ La operación de importación de datos que acaba de completar ha creado un index
 
 En el panel de servicios, haga doble clic en el icono del indexador para mostrar una lista de todos los indexadores creados para su suscripción. Haga doble clic en uno de ellos para ejecutarlo, editarlo o eliminarlo.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

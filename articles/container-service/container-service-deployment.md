@@ -28,8 +28,8 @@ Este documento analiza la implementación de un clúster del servicio Contenedor
  
 Seleccione una de las siguientes plantillas para implementar un clúster de Mesos o Docker Swarm. **Nota**: Ambas plantillas son iguales, a excepción de la selección predeterminada del orquestador.
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
  
 Cada página de la plantilla tiene un botón 'implementar en Azure', al hacer clic en este botón, se iniciará el Portal de Azure con un formulario de aspecto similar al siguiente. <br />
 
@@ -67,8 +67,8 @@ Para crear una instancia del servicio Contenedor de Azure mediante la línea de 
  
 Seleccione una de las siguientes plantillas para implementar un clúster de Mesos o Docker Swarm. **Nota**: Ambas plantillas son iguales, a excepción de la selección predeterminada del orquestador.
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
  
 A continuación, asegúrese de que CLI de Azure se ha conectado a una suscripción de Azure. Esto puede realizarse mediante el comando a continuación.
 
@@ -127,8 +127,8 @@ También se puede implementar un clúster de ACS con PowerShell. Este documento 
 
 Seleccione una de las siguientes plantillas para implementar un clúster de Mesos o Docker Swarm. **Nota**: Ambas plantillas son iguales, a excepción de la selección predeterminada del orquestador.
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Antes de crear un clúster en su suscripción de Azure, compruebe que la sesión de PowerShell se ha iniciado en Azure. Esto se puede completar con el comando `Get-AzureRMSubscription`.
 
@@ -161,8 +161,7 @@ If you are familiar with PowerShell, you know that you can cycle through the ava
 Below is the full command with parameters included. You can provide your own values for the names of the resources.
 
 ```
-New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-TemplateURI TEMPLATE\_URI -adminuser value1 -adminpassword value2 ....
-```
+New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-TemplateURI TEMPLATE\_URI -adminuser value1 -adminpassword value2 .... ```
  
 ## Pasos siguientes
  
@@ -171,6 +170,6 @@ Ahora que tiene un clúster funcionando, consulte los siguientes documentos para
 - [Conexión a un clúster del servicio Contenedor de Azure](./container-service-connect.md)
 - [Administración de contenedores con la API de REST](./container-service-mesos-marathon-rest.md)
 
+ 
 
-
-<!-----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

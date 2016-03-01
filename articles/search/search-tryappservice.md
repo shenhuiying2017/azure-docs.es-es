@@ -13,14 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="01/13/2016"
+   ms.date="02/21/2016"
    ms.author="heidist"/>
 
 # Pruebe Búsqueda de Azure de forma gratuita con Servicio de aplicaciones de Azure
 
 [Pruebe el Servicio de aplicaciones de Azure](https://tryappservice.azure.com/) es una sesión basada en navegador gratuita de una hora de duración para probar los servicios de Azure, incluido **Búsqueda de Azure**, sin que sea necesaria ninguna suscripción. El sitio ofrece varias plantillas para elegir. Al seleccionar la plantilla ASP.NET que incluye Búsqueda de Azure, obtendrá acceso a un sitio web completamente funcional, respaldado por los servicios que seleccionó.
 
-Como parte de la oferta de [Pruebe el Servicio de aplicaciones de Azure](https://tryappservice.azure.com/), el servicio Búsqueda de Azure ya se ha creado y está listo para recibir consultas de búsqueda. No puede cargar o usar su propio índice o sus propios datos, pero puede ejecutar consultas y realizar un número de cambios de código que vuelvan a dar forma a la experiencia del usuario.
+Como parte de la oferta de **Pruebe el Servicio de aplicaciones de Azure**, el servicio Búsqueda de Azure ya se ha creado y está listo para recibir consultas de búsqueda. No puede cargar o usar su propio índice o sus propios datos, pero puede ejecutar consultas y realizar un número de cambios de código que vuelvan a dar forma a la experiencia del usuario.
 
 Los datos de búsqueda proceden de [United States Geological Survey (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), que consta de 3 millones de filas con puntos de referencia, sitios históricos, edificios y otros puntos de referencia en Estados Unidos.
 
@@ -28,7 +28,8 @@ Los datos de búsqueda proceden de [United States Geological Survey (USGS)](http
 
 Si aún no ha iniciado la sesión de 1 hora, siga estos pasos para comenzar.
 
-1. Vaya a [https://tryappservice.azure.com](https://tryappservice.azure.com/) y desplácese hacia abajo para seleccionar **Web App**. 
+1. Haga clic con el botón derecho en [https://tryappservice.azure.com](https://tryappservice.azure.com/) para abrir este sitio en una nueva ventana del explorador.
+2. Desplácese hacia abajo para seleccionar **Aplicación web**. 
 2. Haga clic en **Siguiente**.
 3. Elija la plantilla **ASP.NET + Azure Search Site**.
 
@@ -523,4 +524,4 @@ La siguiente captura de pantalla muestra el esquema usado para crear el índice 
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

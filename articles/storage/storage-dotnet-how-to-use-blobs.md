@@ -25,7 +25,13 @@
 
 Almacenamiento de blobs de Azure es un servicio que almacena datos de archivo en la nube. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como almacenamiento de objetos.
 
-Este tutorial muestra cómo escribir código .NET para algunos escenarios comunes con el Almacenamiento de blobs de Azure. Entre los escenarios descritos se incluyen cargar, enumerar, descargar y eliminar blobs. Este tutorial tardará una hora como máximo en completarse.
+### Acerca de este tutorial
+
+Este tutorial muestra cómo escribir código .NET para algunos escenarios comunes con el Almacenamiento de blobs de Azure. Entre los escenarios descritos se incluyen cargar, enumerar, descargar y eliminar blobs.
+
+**Tiempo estimado para completar:** 45 minutos
+
+**Requisitos previos:**
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -353,9 +359,9 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
 - [Introducción al Almacenamiento de tablas para .NET](storage-dotnet-how-to-use-tables.md)
 - [Introducción al Almacenamiento en cola para .NET](storage-dotnet-how-to-use-queues.md)
 - [Introducción al Almacenamiento de archivos para .NET](storage-dotnet-how-to-use-files.md)
-- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
-- [Uso de Base de datos SQL de Azure en aplicaciones .NET](../sql-database/sql-database-dotnet-how-to-use.md)
+- [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy)
 - [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+- [Uso de bases de datos SQL de .NET (C#)](../sql-database/sql-database-dotnet-how-to-use.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -368,4 +374,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

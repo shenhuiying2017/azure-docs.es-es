@@ -40,7 +40,7 @@ Algunos ejemplos de cargas de trabajo que normalmente se procesan mediante esta 
 * Análisis de esfuerzos en ingeniería
 * Pruebas de software
 
-El servicio Lote también puede realizar cálculos paralelos con un paso de reducción al final, además de ejecutar cargas de trabajo HPC más complejas, como las aplicaciones de interfaz de transferencia de mensajes (MPI).
+El servicio Lote también puede realizar cálculos paralelos con un paso de reducción al final, además de ejecutar cargas de trabajo HPC más complejas, como las aplicaciones de [interfaz de transferencia de mensajes (MPI)](batch-mpi.md).
 
 Para obtener una comparación entre Lote y otras opciones de solución HPC en Azure, consulte [Soluciones de lote y HPC en la nube de Azure](batch-hpc-solutions.md).
 
@@ -48,7 +48,7 @@ Para obtener una comparación entre Lote y otras opciones de solución HPC en Az
 
 ## Desarrollo con Lote
 
-Cuando compila soluciones que usan Lote de Azure para el procesamiento paralelo de la carga de trabajo, lo hace mediante programación utilizando las API de Lote. Con las API de Lote, puede crear y administrar grupos de nodos de proceso (máquinas virtuales) y programar trabajos y tareas para que se ejecuten en esos nodos. Un servicio o una aplicación cliente que usted cree, usa las API de Lote para comunicarse con el servicio Lote. Puede procesar de forma eficiente cargas de trabajo a gran escala para su organización, o proporcionar un servicio front-end a los clientes para que estos pueden ejecutar trabajos y tareas (a petición o dentro de una programación) en uno, cientos o miles de nodos. También puede usar Lote como parte de un flujo de trabajo mayor, administrado mediante herramientas como [Factoría de datos de Azure][data_factory].
+Cuando compila soluciones que usan Lote de Azure para el procesamiento paralelo de la carga de trabajo, lo hace mediante programación utilizando las API de Lote. Con las API de Lote, puede crear y administrar grupos de nodos de proceso (máquinas virtuales) y programar trabajos y tareas para que se ejecuten en esos nodos. Un servicio o una aplicación cliente que usted cree, usa las API de Lote para comunicarse con el servicio Lote. Puede procesar de forma eficiente cargas de trabajo a gran escala para su organización, o proporcionar un servicio front-end a los clientes para que estos pueden ejecutar trabajos y tareas (a petición o dentro de una programación) en uno, cientos o miles de nodos. También puede usar Lote como parte de un flujo de trabajo mayor, administrado mediante herramientas como [Data Factory de Azure][data_factory].
 
 > [AZURE.TIP] Cuando esté listo para adentrarse en la API de Lote para una comprensión más a fondo de las características que proporciona, consulte [Información general de las características de Lote de Azure](batch-api-basics.md).
 
@@ -56,7 +56,7 @@ Cuando compila soluciones que usan Lote de Azure para el procesamiento paralelo 
 
 Cuando se desarrollan soluciones de Lote, es necesario usar las siguientes cuentas en Microsoft Azure.
 
-- **Cuenta de Azure y suscripción**: si aún no tiene una cuenta de Azure, puede activar su [crédito de Azure para suscriptores de MSDN][msdn_benefits] o bien registrarse para obtener una [evaluación gratuita][free_trial]. Al crear una cuenta, se creará una suscripción predeterminada para usted.
+- **Cuenta de Azure y suscripción**: si aún no tiene una suscripción de Azure, puede activar su [crédito de Azure para suscriptores de MSDN][msdn_benefits] o bien registrarse para obtener una [cuenta gratuita de Azure][free_account]. Al crear una cuenta, se creará una suscripción predeterminada para usted.
 
 - **Cuenta de Lote**: cuando las aplicaciones interactúan con el servicio Lote, el nombre de cuenta, la dirección URL de la cuenta y una clave de acceso se utilizarán como credenciales. Todos los recursos de Lote como grupos, nodos de proceso, trabajos y tareas están asociados a una cuenta de Lote. Puede [crear y administrar una cuenta de Lote](batch-account-create-portal.md) en el Portal de Azure.
 
@@ -70,7 +70,7 @@ Para compilar soluciones mediante Lote de Azure, puede usar las bibliotecas de c
 
 - Biblioteca de cliente [. NET de Administración de Lote][api_net_mgmt]\: también [disponible a través de NuGet][api_net_mgmt_nuget]; use la biblioteca de cliente .NET de Administración de Lote para administrar mediante programación las cuentas de Lote en los servicios o las aplicaciones de cliente.
 
-- API de [REST de Lote][batch_rest]\: las API de REST de Lote proporcionan toda la misma funcionalidad que la Biblioteca de cliente .NET de Lote. De hecho, la propia biblioteca .NET de Lote usa la API de REST de Lote internamente para interactuar con el servicio Lote.
+- API de [REST de Lote][batch_rest]\: las API de REST de Lote proporcionan la misma funcionalidad que la Biblioteca de cliente .NET de Lote. De hecho, la propia biblioteca .NET de Lote usa la API de REST de Lote internamente para interactuar con el servicio Lote.
 
 - [Cmdlets de PowerShell de Lote][batch_ps]\: los cmdlets de Lote de Azure en el módulo [Azure PowerShell](./../powershell-install-configure.md) le permiten administrar los recursos de Lote con PowerShell.
 
@@ -98,13 +98,13 @@ En este escenario común, la aplicación o servicio procesa una carga de trabajo
 
     - 4a. Antes de que la tarea se ejecute, puede descargar los datos (los archivos de entrada) que va a procesar al nodo de proceso al que está asignada. Si la aplicación no se ha instalado aún en el nodo (consulte el paso 2), se puede descargar aquí. Cuando haya completado las descargas, las tareas se ejecutan en sus nodos asignados.
 
-5. Mientras se ejecutan las tareas, puede solicitar a Lote que supervise el progreso del trabajo y sus tareas. El servicio o la aplicación de cliente se comunica con el servicio Lote a través de HTTPS y es posible que esté supervisando miles de tareas que se están ejecutando en miles de nodos de proceso, por ello asegúrese de que realiza una [Consulta eficaz del servicio Lote de Azure](batch-efficient-list-queries.md).
+5. Mientras se ejecutan las tareas, puede solicitar a Lote que supervise el progreso del trabajo y sus tareas. El servicio o la aplicación de cliente se comunica con el servicio Lote a través de HTTPS y es posible que esté supervisando miles de tareas que se están ejecutando en miles de nodos de proceso, por ello asegúrese de que realiza una [consulta eficaz del servicio Lote de Azure](batch-efficient-list-queries.md).
 
 6. Cuando se completan las tareas, estas cargan los datos de sus resultados en Almacenamiento de Azure. También puede recuperar archivos directamente desde los nodos de proceso.
 
 7. Cuando la supervisión detecta que se han completado las tareas en su trabajo, el servicio o la aplicación de cliente puede descargar los datos de salida para su posterior procesamiento o evaluación.
 
-No olvide que esto es simplemente una forma de usar Lote, y que este escenario describe solo algunas de sus características. Por ejemplo, puede ejecutar [varias tareas en paralelo](batch-parallel-node-tasks.md) en cada nodo de proceso, y puede usar [tareas de preparación y la finalización del trabajo](batch-job-prep-release.md) para preparar los nodos para los trabajos, y limpiar después.
+No olvide que esto es simplemente una forma de usar Lote, y que este escenario describe solo algunas de sus características. Por ejemplo, puede ejecutar [varias tareas en paralelo](batch-parallel-node-tasks.md) en cada nodo de proceso, y puede usar [tareas de preparación y la finalización del trabajo](batch-job-prep-release.md) para preparar los nodos para los trabajos y limpiar después.
 
 ## Pasos siguientes
 
@@ -112,11 +112,11 @@ Ahora que ha visto un escenario de proceso por lotes de ejemplo, ha llegado el m
 
 - Consulte [Introducción a la biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md) para obtener información sobre cómo usar C# y la biblioteca .NET de Lote para realizar las técnicas descritas anteriormente. Esta debería ser una de sus primeras lecturas mientras está aprendiendo a utilizar el servicio Lote.
 
-- Eche un vistazo a [Información general de las características de Lote de Azure](batch-api-basics.md) para obtener información más detallada sobre las funciones de API que proporciona Lote para procesar las cargas de trabajo intensivas de proceso.
+- Eche un vistazo a [Información general de las características de Lote de Azure](batch-api-basics.md) para ver información más detallada sobre las funciones de API que proporciona Lote para procesar las cargas de trabajo intensivas de proceso.
 
 - Además del Explorador de Lote, los otros [códigos de ejemplo en GitHub][github_samples] muestran cómo utilizar muchas de las características de Lote mediante la biblioteca de .NET de Lote.
 
-- Consulte la [ruta de aprendizaje de Lote][learning_path] para hacerse una idea de los recursos que tiene a su disposición a medida que va a prendiendo a trabajar con Lote.
+- Consulte la [ruta de aprendizaje de Lote][learning_path] para hacerse una idea de los recursos que tiene a su disposición a medida que va aprendiendo a trabajar con Lote.
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
@@ -127,7 +127,7 @@ Ahora que ha visto un escenario de proceso por lotes de ejemplo, ha llegado el m
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [data_factory]: https://azure.microsoft.com/documentation/services/data-factory/
-[free_trial]: https://azure.microsoft.com/pricing/free-trial/
+[free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
@@ -136,4 +136,4 @@ Ahora que ha visto un escenario de proceso por lotes de ejemplo, ha llegado el m
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="02/04/2016"
 	ms.author="kirillg"/>
 
@@ -50,4 +50,4 @@ Para obtener más información sobre la plataforma de Servicio de aplicaciones d
 [Servicio de aplicaciones de Azure]: ../app-service/app-service-value-prop-what-is.md
 [Introducción]: app-service-mobile-ios-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -38,7 +38,7 @@ Obtenga información sobre las opciones de Big Compute en Azure y elija el enfoq
 
 * [Tutorial: Introducción a la biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md)
 
-* [Foro de Lote](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
+* [Foro de Lote](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=azurebatch)
 
 * [Vídeos de Lote](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -83,7 +83,7 @@ Use estas plantillas de Azure para implementar clústeres de HPC de Linux.
 
 * [Referencia de MS-MPI](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [Foro de MPI](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
+* [Foro de MPI](https://social.microsoft.com/Forums/es-ES/home?forum=windowshpcmpi)
 
 ## Instancias intensivas de proceso
 
@@ -117,23 +117,32 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-siz
 
 ## Testimonios de clientes
 
-* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
 
-* [Milliman](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
-
-* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168)
+* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168) 
 
 * [d3View](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)
-
-* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 
 * [Ludwig Institute of Cancer Research (Instituto Ludwig de investigación del cáncer)](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5830)
 
 * [Microsoft Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=15634)
+
+* [Milliman](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
+
+* [Mitsubishi UFJ Securities International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=26266)
+
+* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
+
+* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
+
+
+
+
+
+
 
 ## Pasos siguientes
 
 * Para los anuncios más recientes, vea el [blog del equipo de Microsoft HPC y Batch](http://blogs.technet.com/b/windowshpc/) y el [blog de Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Vea también [Novedades de Batch](https://azure.microsoft.com/updates/?service=batch) o suscríbase a la [fuente RSS](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

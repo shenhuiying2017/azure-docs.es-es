@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/19/2016"
+	ms.date="02/23/2016"
 	ms.author="cabailey"/>
 
 # Introducción al Almacén de claves de Azure #
@@ -22,9 +22,9 @@ Almacén de claves de Azure está disponible en la mayoría de las regiones. Par
 ## Introducción  
 Use este tutorial para empezar a trabajar con el Almacén de claves de Azure para crear un contenedor (un almacén) reforzado en Azure en el que almacenar y administrar las claves criptográficas y los secretos en Azure. Describe cómo usar Azure PowerShell para crear un almacén que contiene una clave o una contraseña que se puede usar con una aplicación de Azure. A continuación, se explica cómo usa una aplicación esa clave o contraseña.
 
-*Tiempo estimado para completar el tutorial:** 20 minutos
+**Tiempo estimado para completar el tutorial:** 20 minutos
 
->[AZURE.NOTE]Este tutorial no incluye instrucciones sobre cómo escribir la aplicación de Azure incluida en uno de los pasos, concretamente cómo autorizar a una aplicación para que use una clave o un secreto del Almacén de claves.
+>[AZURE.NOTE]  Este tutorial no incluye instrucciones sobre cómo escribir la aplicación de Azure incluida en uno de los pasos, concretamente cómo autorizar a una aplicación para que use una clave o un secreto del Almacén de claves.
 >
 >Actualmente, no es posible configurar el Almacén de claves de Azure en el portal de Azure. En su lugar, siga estas instrucciones de Azure PowerShell. O bien, para obtener instrucciones de la interfaz de la línea de comandos entre plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli.md).
 
@@ -34,7 +34,7 @@ Para obtener información general sobre el Almacén de claves de Azure, consulte
 
 Para realizar este tutorial, necesitará lo siguiente:
 
-- Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para obtener una versión de [evaluación gratuita](../../../../pricing/free-trial).
+- Una suscripción a Microsoft Azure. Si no tiene, puede registrarse para obtener una [cuenta gratuita](../../../../pricing/free-trial).
 - Azure PowerShell, **versión mínima: 1.1.0**. Para instalar Azure PowerShell y asociarla con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). Si ya instaló Azure PowerShell y no sabe la versión, en la consola de Azure PowerShell, escriba `(Get-Module azure -ListAvailable).Version`. Si tiene Azure PowerShell versiones 0.9.1 a 0.9.8 instalado, también puede usar este tutorial con algunos cambios menores. Por ejemplo, debe usar el comando `Switch-AzureMode AzureResourceManager` y algunos de los comandos de Almacén de claves de Azure que cambiaron. Para obtener una lista de los cmdlets del Almacén de claves para las versiones 0.9.1 a 0.9.8, consulte [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx) (Cmdlets de Almacén de claves de Azure). 
 - Una aplicación que se configurará para utilizar la clave o contraseña creada en este tutorial. Hay una aplicación de ejemplo disponible en el [Centro de descarga de Microsoft](http://www.microsoft.com/es-ES/download/details.aspx?id=45343). Para obtener instrucciones, consulte el archivo Léame adjunto.
 
@@ -98,13 +98,16 @@ El resultado de este cmdlet muestra las propiedades del Almacén de claves que a
 
 Su cuenta de Azure ahora está autorizada para realizar operaciones en este Almacén de claves. Hasta el momento, nadie más lo está.
 
+>[AZURE.NOTE]  Si ve el error **La suscripción no está registrada para usar el espacio de nombres 'Microsoft.KeyVault'** al intentar crear un almacén de claves nuevo, ejecute `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` y después vuelva a ejecutar el comando New-AzureRmKeyVault. Para más información, consulte [Register-AzureRmProvider](https://msdn.microsoft.com/library/mt679020.aspx).
+>
+
 ## <a id="add"></a>Adición de una clave o un secreto al Almacén de claves ##
 
 Si desea que el Almacén de claves de Azure cree una clave protegida mediante software, utilice el cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) y escriba lo siguiente:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
-Sin embargo, si ya tiene una clave protegida mediante software en un archivo .PFX guardada en la unidad C:\ en un archivo denominado softkey.pfx que desea cargar en el Almacén de claves de Azure, escriba lo siguiente para establecer la variable **securepfxpwd** para una contraseña de **123** para el archivo .PFX:
+Sin embargo, si ya tiene una clave protegida mediante software en un archivo .PFX guardada en la unidad C:\\ en un archivo denominado softkey.pfx que desea cargar en el Almacén de claves de Azure, escriba lo siguiente para establecer la variable **securepfxpwd** para una contraseña de **123** para el archivo .PFX:
 
     $securepfxpwd = ConvertTo-SecureString –String '123' –AsPlainText –Force
 
@@ -145,7 +148,7 @@ Ahora, el Almacén de claves y la clave o el secreto están listos para que los 
 Este paso lo haría normalmente un programador en un equipo independiente. No es específico del Almacén de claves de Azure, pero se incluye aquí a fin de que la información ofrecida sea lo más completa posible.
 
 
->[AZURE.IMPORTANT]Para finalizar el tutorial, la cuenta, el almacén y la aplicación que vaya a registrar en este paso deben estar en el mismo directorio de Azure.
+>[AZURE.IMPORTANT] Para finalizar el tutorial, la cuenta, el almacén y la aplicación que vaya a registrar en este paso deben estar en el mismo directorio de Azure.
 
 Las aplicaciones que utilizan un Almacén de claves deben autenticarse utilizando un token de Azure Active Directory. Para ello, el propietario de la aplicación debe registrarla primero en su Azure Active Directory. Al final del registro, el propietario de la aplicación obtiene los valores siguientes:
 
@@ -154,13 +157,13 @@ Las aplicaciones que utilizan un Almacén de claves deben autenticarse utilizand
 
 Para registrar la aplicación en Azure Active Directory:
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en el portal clásico de Azure.
 2. A la izquierda, haga clic en **Active Directory**. A continuación, elija el directorio en el que se registrará la aplicación. <br> <br> **Nota:** debe seleccionar el mismo directorio que contiene la suscripción de Azure con la que se creó el Almacén de claves. Si no sabe qué directorio es, haga clic en **Configuración**, identifique la suscripción con la que se creó el Almacén de claves y anote el nombre del directorio que se muestra en la última columna.
 
 3. Haga clic en **Aplicaciones**. Si no se han agregado aplicaciones a su directorio, esta página muestra solo el vínculo **Agregar una aplicación**. Haga clic en el vínculo, o como alternativa, puede hacer clic en **AGREGAR** en la barra de comandos.
 4.	En el asistente **Agregar aplicación**, en la página **¿Qué desea hacer?**, haga clic en **Agregar una aplicación que mi organización está desarrollando**.
 5.	En la página **Proporcione información sobre su aplicación**, especifique un nombre para la aplicación y, a continuación, elija **APLICACIÓN WEB Y/O API WEB** (valor predeterminado). Haga clic en el icono **Siguiente**.
-6.	En la página **Propiedades de la aplicación**, especifique **URL de inicio de sesión** y **URI de Id. de aplicación ** para la aplicación web. Si la aplicación no tiene estos valores, puede inventárselos en este paso (por ejemplo, podría especificar http://test1.contoso.com para ambos). No importa si estos sitios existen; lo importante es que el URI del identificador de la aplicación de cada aplicación sea diferente en cada aplicación del directorio. El directorio utiliza esta cadena para identificar la aplicación.
+6.	En la página **Propiedades de la aplicación**, especifique **URL de inicio de sesión** y **URI de Id. de aplicación** para la aplicación web. Si la aplicación no tiene estos valores, puede inventárselos en este paso (por ejemplo, podría especificar http://test1.contoso.com para ambos). No importa si estos sitios existen; lo importante es que el URI del identificador de la aplicación de cada aplicación sea diferente en cada aplicación del directorio. El directorio utiliza esta cadena para identificar la aplicación.
 7.	Haga clic en el icono **Completar** para guardar los cambios en el Asistente.
 8.	En la página de **inicio rápido**, haga clic en **CONFIGURAR**.
 9.	Desplácese hasta la sección **Claves**, especifique la duración y, a continuación, haga clic en **Guardar**. La página se actualiza y muestra ahora un valor de clave. Debe configurar la aplicación con este valor de clave y el valor del **identificador del cliente**. (Las instrucciones para realizar esta configuración serán específicas para la aplicación).
@@ -168,7 +171,7 @@ Para registrar la aplicación en Azure Active Directory:
 
 ## <a id="authorize"></a>Autorización de la aplicación para que use la clave o el secreto ##
 
-Para permitir que la aplicación acceda a la clave o al secreto en el almacén, use el cmdlet [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx).
+Para autorizar a la aplicación a acceder a la clave o secreto del almacén, use el cmdlet [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx).
 
 Por ejemplo, si el nombre del almacén es **ContosoKeyVault** y la aplicación que desea autorizar tiene el identificador de cliente 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed y desea que la aplicación tenga autorización para descifrar y firmar con claves en el almacén, ejecute lo siguiente:
 
@@ -194,7 +197,7 @@ Cuando cree el almacén, agregue el parámetro **-SKU**:
 
 
 
-A este almacén, se pueden agregar claves protegidas mediante software (tal como se ha mostrado anteriormente) y claves protegidas con HSM. Para crear una clave protegida con HSM, establezca el parámetro **Destination** en 'HSM':
+A este almacén, se pueden agregar claves protegidas mediante software (tal como se ha mostrado anteriormente) y claves protegidas con HSM. Para crear una clave protegida con HSM, establezca el parámetro **-Destination** en 'HSM':
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 
@@ -211,7 +214,7 @@ Para obtener instrucciones detalladas sobre cómo generar el paquete BYOK, consu
 
 ## <a id="delete"></a>Eliminación del Almacén de claves junto con las claves y secretos asociados ##
 
-Si ya no necesita el almacén de claves, ni la clave o secreto que contiene, puede eliminarlo con el cmdlet [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx):
+Si ya no necesita el almacén de claves, ni la clave o secreto que contiene, puede eliminarlo mediante el cmdlet [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx):
 
 	Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -242,4 +245,4 @@ Para obtener una lista de los cmdlets de Azure PowerShell más recientes para el
 
 Para conocer las referencias de programación, consulte la [Guía del desarrollador del Almacén de claves de Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

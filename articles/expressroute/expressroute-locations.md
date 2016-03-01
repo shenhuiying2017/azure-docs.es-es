@@ -43,7 +43,7 @@ En la tabla siguiente se proporciona información sobre las regiones y los lími
 
 |**Región geopolítica**|**Regiones de Azure**|**Ubicaciones de ExpressRoute**|
 |---|---|---|---|
-|**Nube del gobierno de Estados Unidos**|Gobierno de EE. UU. - Iowa, Gobierno de EE. UU. - Virginia|Chicago, Washington DC|
+|**Nube del gobierno de Estados Unidos**|Gobierno de EE. UU. - Iowa, Gobierno de EE. UU. - Virginia|Chicago, Nueva York +, Washington DC|
 |**Nube de China**|Este de China, Norte de China|Beijing, Shanghai|
 
 
@@ -65,12 +65,12 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Comcast** | Compatible | No compatible | Silicon Valley, Washington DC |
 | **CoreSite** | Compatible | Compatible | Los Ángeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Compatible | Compatible | Ámsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Ángeles, Melbourne, Nueva York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapur, Sidney, Tokio, Toronto+, Washington DC |
-| **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | Compatible | Compatible | Osaka, Tokyo |
+| **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** | Compatible | Compatible | Osaka, Tokyo |
 | **[InterCloud](https://www.intercloud.com/)** | Compatible | Compatible | Ámsterdam, Londres, Singapur, Washington DC |
 | **Internet Solutions - Cloud Connect** | Compatible | Compatible | Ámsterdam y Londres |
-| **Interxion** | Compatible | Compatible | Ámsterdam |
+| **Interxion** | Compatible | Compatible | Ámsterdam y Londres |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Compatible | Compatible | Ámsterdam, Chicago, Dallas, Londres, Seattle, Silicon Valley, Washington DC |
-| **Megaport** | Compatible | Compatible | Melbourne, Sidney |
+| **Megaport** | Compatible | Compatible | Dallas, Los Ángeles, Melbourne, Nueva York, Seattle, Sidney, Washington DC |
 | **MTN** | Compatible | Compatible | Londres |
 | **NEXTDC** | Compatible | Compatible | Melbourne, Sidney |
 | **NTT Communications** | Compatible | Próximamente | Londres, Tokio |
@@ -83,7 +83,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Compatible | No compatible | Melbourne, Sidney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Compatible | Compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Sídney, Tokio, Washington DC |
 | **Vodafone** | Compatible | No compatible | Londres | 
-| **[Zayo Group](http://www.zayo.com/)** | Compatible | Compatible | Chicago, Los Ángeles, Nueva York, Silicon Valley, Washington DC |
+| **[Zayo Group](http://www.zayo.com/solutions/industries/connect-to-cloud-data-centers/cloud-connectivity/microsoft-expressroute/)** | Compatible | Compatible | Chicago, Los Ángeles, Nueva York, Silicon Valley, Washington DC |
 
  **+** indica próximamente
 
@@ -141,4 +141,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 - Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 - Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->
