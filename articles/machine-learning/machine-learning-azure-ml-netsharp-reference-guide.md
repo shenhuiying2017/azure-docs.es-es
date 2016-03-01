@@ -414,4 +414,4 @@ El lenguaje de Net# para personalizar la arquitectura de redes neuronales fue de
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!-----HONumber=AcomDC_0211_2016-->

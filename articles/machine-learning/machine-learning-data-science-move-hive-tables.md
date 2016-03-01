@@ -114,7 +114,7 @@ Los usuarios también pueden generar resultados de consulta de subárbol en un b
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-En el ejemplo siguiente, el resultado de la consulta de Hive se escribe en un directorio blob `queryoutputdir` dentro del contenedor predeterminado del clúster de Hadoop. Aquí solo debe proporcionar el nombre del directorio, sin el nombre del blob. Se producirá un error si proporciona los nombres de directorio y de blob, como **wasb:///queryoutputdir/queryoutput.txt*.
+En el ejemplo siguiente, el resultado de la consulta de Hive se escribe en un directorio blob `queryoutputdir` dentro del contenedor predeterminado del clúster de Hadoop. Aquí solo debe proporcionar el nombre del directorio, sin el nombre del blob. Se producirá un error si proporciona los nombres de directorio y de blob, como *wasb:///queryoutputdir/queryoutput.txt*.
 
 ![Creación del espacio de trabajo](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
 
@@ -250,4 +250,4 @@ Después de seguir este procedimiento, debe tener una tabla con datos en el form
 
 En la última sección, se describen los parámetros que los usuarios pueden ajustar para que se pueda mejorar el rendimiento de las consultas de subárbol.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->
