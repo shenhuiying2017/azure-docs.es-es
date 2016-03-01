@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/05/2016"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Creación de un servicio Búsqueda de Azure en el Portal de Azure
@@ -25,7 +25,7 @@ Búsqueda de Azure está disponible en los niveles de precios comprendidos entre
 
 ## Incorporación de Búsqueda de Azure a una suscripción de forma gratuita
 
-Como administrador, puede agregar Búsqueda de Azure a una suscripción de Azure existente sin costo alguno al seleccionar el servicio compartido. Puede registrarse para una [suscripción de evaluación gratuita](../includes/free-trial-note.md) para comenzar su evaluación.
+Como administrador, puede agregar Búsqueda de Azure a una suscripción de Azure existente sin costo alguno al seleccionar el servicio compartido. Para comenzar su evaluación, puede registrarse para obtener una [suscripción a una evaluación gratuita](../../includes/free-trial-note.md).
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
@@ -126,4 +126,4 @@ Ahora que se ha creado el servicio, puede realizar los pasos siguientes: crear u
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

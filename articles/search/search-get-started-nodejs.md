@@ -17,12 +17,15 @@
 	ms.author="heidist"/>
 
 # Introducción a Búsqueda de Azure en NodeJS
+> [AZURE.SELECTOR]
+- [Portal](search-get-started-portal.md)
+- [.NET](search-get-started-dotnet.md)
 
 Aprenda a crear una aplicación de búsqueda de NodeJS personalizada que utiliza Búsqueda de Azure para la experiencia de búsqueda. Este tutorial usa la [API de REST del servicio Búsqueda de Azure](https://msdn.microsoft.com/library/dn798935.aspx) para construir los objetos y las operaciones que se utilizan en este ejercicio.
 
 Hemos utilizado [NodeJS](https://nodejs.org) y NPM, [Sublime Text 3](http://www.sublimetext.com/3) y Windows PowerShell en Windows 8.1 para desarrollar y probar este código.
 
-Para ejecutar este ejemplo, debe tener un servicio Búsqueda de Azure al que puede suscribirse en el [Portal de Azure](https://portal.azure.com). Consulte [Creación de un servicio Búsqueda de Azure en el Portal de Azure clásico](search-create-service-portal.md) para obtener instrucciones detalladas.
+Para ejecutar este ejemplo, debe tener un servicio Búsqueda de Azure, al que puede suscribirse en el [Portal de Azure](https://portal.azure.com). Para obtener instrucciones detalladas, consulte [Creación de un servicio Búsqueda de Azure en el Portal de Azure](search-create-service-portal.md).
 
 ## Acerca de los datos
 
@@ -39,7 +42,7 @@ En esta aplicación, el programa **DataIndexer** compila y carga el índice usan
 Después de crear el servicio, vuelva al portal para obtener la dirección URL o la `api-key`. Las conexiones con el servicio de búsqueda requieren que tenga la URL y una `api-key` para autenticar la llamada.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. En la barra de acceso rápido, haga clic en **Servicio de búsqueda** para enumerar todos los servicios Búsqueda de Azure aprovisionados para la suscripción.
+2. En la barra de salto, haga clic en **Servicio de búsqueda** para enumerar todos los servicios de Búsqueda de Azure aprovisionados para la suscripción.
 3. Seleccione el servicio que desea utilizar.
 4. En el panel del servicio verá mosaicos con información esencial, así como el icono de llave para tener acceso a las claves de administrador.
 
@@ -118,4 +121,4 @@ Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

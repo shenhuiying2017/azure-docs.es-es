@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="12/18/2015"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # Usar Fiddler para evaluar y probar las API de REST de Búsqueda de Azure
@@ -239,4 +239,4 @@ Consulte [Administración del servicio de búsqueda en Microsoft Azure](search-m
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

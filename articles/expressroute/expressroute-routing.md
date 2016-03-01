@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/08/2016"
+   ms.date="02/12/2016"
    ms.author="cherylmc"/>
 
 
@@ -118,7 +118,7 @@ Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener v
 
 Microsoft etiquetará los prefijos anunciados a través de la configuración de pares públicos y de la configuración de pares de Microsoft con los valores de comunidad de BGP adecuados que indican la región en que se hospedan. Puede confiar en los valores de la comunidad para tomar decisiones de enrutamiento adecuadas para ofrecer un enrutamiento óptimo a los clientes.
 
-| **Región geopolítica** | **Región de Microsoft Azure (lo mismo se aplica a Office 365)** | **Valor de comunidad de BGP** |
+| **Región geopolítica** | **Región de Microsoft Azure** | **Valor de comunidad de BGP** |
 |---|---|---|
 | **Norteamérica** | | |
 | | Este de EE. UU. | 12076:51004 |
@@ -174,4 +174,4 @@ Microsoft no admite los valores de las comunidades de BGP que defina. Se requier
 	- [Creación y modificación del enrutamiento de un circuito ExpressRoute mediante PowerShell](expressroute-howto-routing-classic.md) o [Creación y modificación del enrutamiento para un circuito ExpressRoute mediante el Administrador de recursos de Azure y PowerShell](expressroute-howto-routing-arm.md)
 	- [Vinculación de la red virtual a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

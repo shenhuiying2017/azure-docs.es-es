@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/08/2016"
+   ms.date="02/22/2016"
    ms.author="yurid"/>
 
 # Establecimiento de directivas de seguridad en el Centro de seguridad de Azure
@@ -65,12 +65,12 @@ Las directivas de seguridad se configuran para cada suscripción. Para modificar
 
 | Directiva | Cuando el estado es Activado |
 |----- |-----|
-| Actualizaciones del sistema | Recupera una lista de actualizaciones disponibles desde Windows Update o WSUS, dependiendo de qué servicio esté configurado para esa máquina virtual, cada 12 horas y recomienda que se instalen actualizaciones que faltan en las máquinas virtuales de Windows. |
+| Actualizaciones del sistema | Recupera una lista de actualizaciones disponibles desde Windows Update o WSUS, dependiendo de qué servicio está configurado para esa máquina virtual, cada 12 horas, y recomienda instalar las actualizaciones críticas y de seguridad que falten en sus máquinas virtuales de Windows. |
 | Reglas de línea de base | Analiza todas las máquinas virtuales cada 12 horas para identificar las configuraciones de SO que podrían hacer que la máquina virtual fuera más vulnerable a ataques y recomienda cambios de configuración para hacer frente a estas vulnerabilidades. Vea la [lista de líneas de base recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para más información sobre las configuraciones específicas que se están supervisando. |
 | Antimalware | Recomienda que se aprovisione antimalware para todas las máquinas virtuales de Windows para ayudar a identificar y a quitar virus, spyware y otro software malintencionado. |
 | Lista de control de acceso en puntos de conexión | Recomienda que se configure una [lista de control de acceso](virtual-machines-set-up-endpoints.md) (ACL) para limitar el acceso a puntos de conexión de máquinas virtuales clásicas. Esto normalmente se usaría para asegurarse de que solo los usuarios que están conectados a la red corporativa pueden acceder a las máquinas virtuales. |
 | Grupos de seguridad de red | Recomienda que los [grupos de seguridad de red](virtual-networks-nsg.md) (NSG) se configuren para controlar el tráfico entrante y saliente a subredes e interfaces de red para máquinas virtuales del Administrador de recursos. Todas las interfaces de red de máquina virtual heredarán los grupos de seguridad de red configurados para una subred a menos que se especifique lo contrario. Además de comprobar que se ha configurado un grupo de seguridad de red, esta opción evalúa las reglas de seguridad de entrada para identificar si hay alguna que permita el tráfico entrante. |
-| Firewall de aplicaciones web | Recomienda aprovisionar un Firewall de aplicaciones web en máquinas virtuales del Administrador de recursos cuando: se usa una [Dirección IP pública a nivel de instancia](virtual-networks-instance-level-public-ip.md) (ILPIP) y se configuran las reglas de seguridad de entrada del grupo de seguridad de red asociadas para permitir el acceso al puerto 80 o 443. Se utiliza la dirección IP de carga equilibrada (VIP) y se configuran las reglas NAT de entrada y de equilibrio de carga asociadas para permitir el acceso al puerto 80 o 443 (para obtener más información, consulte [Compatibilidad del Administrador de recursos de Azure con el Equilibrador de carga](load-balancer-arm.md)). |
+| Firewall de aplicaciones web | Recomienda aprovisionar un Firewall de aplicaciones web en máquinas virtuales cuando: se usa una [Dirección IP pública a nivel de instancia](virtual-networks-instance-level-public-ip.md) (ILPIP) y se configuran las reglas de seguridad de entrada del grupo de seguridad de red asociadas para permitir el acceso al puerto 80 o 443. Se utiliza la dirección IP de carga equilibrada (VIP) y se configuran las reglas NAT de entrada y de equilibrio de carga asociadas para permitir el acceso al puerto 80 o 443 (para obtener más información, consulte [Compatibilidad del Administrador de recursos de Azure con el Equilibrador de carga](load-balancer-arm.md)). |
 | Auditoría SQL | Se recomienda que la auditoría del acceso a bases de datos y servidores SQL de Azure esté habilitada para fines de cumplimiento, detección avanzada e investigación. |
 | Cifrado de datos transparente de SQL | Recomienda que el cifrado en reposo se habilite para las bases de datos SQL de Azure, las copias de seguridad asociadas y los archivos de registro de transacciones, de forma que aunque haya infracción de datos, no se puedan leer. |
 
@@ -85,4 +85,4 @@ En este documento ha aprendido a configurar directivas de seguridad en el Centro
 - [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): Encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

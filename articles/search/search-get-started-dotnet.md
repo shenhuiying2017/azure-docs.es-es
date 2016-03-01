@@ -17,10 +17,13 @@
 	ms.author="heidist"/>
 
 # Comenzar con la primera aplicación de Búsqueda de Azure en .NET
+> [AZURE.SELECTOR]
+- [.NET](search-get-started-dotnet.md)
+- [Portal](search-get-started-portal.md)
+ 
+Aprenda a crear una aplicación de búsqueda de .NET personalizada en Visual Studio 2013 o posterior que usa Búsqueda de Azure para la experiencia de búsqueda. Este tutorial utiliza tanto el [SDK de .NET de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx), como la API de REST del servicio Búsqueda de Azure.
 
-Aprenda a crear una aplicación de búsqueda de .NET personalizada en Visual Studio 2013 o posterior que usa Búsqueda de Azure para la experiencia de búsqueda. Este tutorial utiliza el [SDK de .NET de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx), así como la API de REST del servicio Búsqueda de Azure.
-
-Para ejecutar este ejemplo, necesitará un servicio Búsqueda de Azure al que puede suscribirse en el [Portal de Azure](https://portal.azure.com). Consulte [Creación de un servicio Búsqueda de Azure en el Portal de Azure clásico](search-create-service-portal.md) para obtener instrucciones detalladas.
+Para ejecutar este ejemplo, necesitará un servicio Búsqueda de Azure, al que puede suscribirse en el [Portal de Azure](https://portal.azure.com). Para obtener instrucciones detalladas, consulte [Creación de un servicio Búsqueda de Azure en el Portal de Azure](search-create-service-portal.md).
 
 ## Acerca de los datos
 
@@ -36,7 +39,7 @@ En esta aplicación, el programa **DataIndexer** compila y carga el índice medi
 Después de crear el servicio, vuelva al portal para obtener la dirección URL o la `api-key`. Las conexiones con el servicio de búsqueda requieren que tenga la URL y una `api-key` para autenticar la llamada.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. En la barra de acceso rápido, haga clic en **Servicio de búsqueda** para enumerar todos los servicios Búsqueda de Azure aprovisionados para la suscripción.
+2. En la barra de salto, haga clic en **Servicio de búsqueda** para enumerar todos los servicios de Búsqueda de Azure aprovisionados para la suscripción.
 3. Seleccione el servicio que desea utilizar.
 4. En el panel del servicio verá mosaicos con información esencial, así como el icono de llave para tener acceso a las claves de administrador.
 
@@ -671,4 +674,4 @@ Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

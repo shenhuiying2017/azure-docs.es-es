@@ -1,81 +1,82 @@
-<properties 
-	pageTitle="Creación, edición y ejecución de consultas SQL con respecto a una colección de DocumentDB usando el Explorador de consultas | Microsoft Azure" 
-	description="Aprenda sobre el Explorador de consultas de DocumentDB, una herramienta del Portal de Azure que permite crear, editar y ejecutar consultas SQL en una colección de DocumentDB." 
-	services="documentdb" 
-	authors="AndrewHoh" 
-	manager="jhubbard" 
-	editor="monicar" 
+<properties
+	pageTitle="Explorador de consultas de DocumentDB: un editor de consultas SQL | Microsoft Azure"
+	description="Obtenga información sobre el Explorador de consultas de DocumentDB, un Editor de consultas de SQL del Portal de Azure para escribir consultas SQL y ejecutarlas en una colección de DocumentDB NoSQL."
+	keywords="escribir consultas sql, editor de consultas de sql"
+	services="documentdb"
+	authors="AndrewHoh"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016"
 	ms.author="anhoh"/>
 
-# Creación, edición y ejecución de consultas SQL con respecto a una colección de DocumentDB usando el Explorador de consultas #
+# Escritura, edición y ejecución de consultas SQL para DocumentDB mediante Explorador de consultas 
 
-En este artículo se proporciona información general sobre el Explorador de consultas de [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), una herramienta del Portal de Microsoft Azure que permite crear, editar y ejecutar consultas en una colección de DocumentDB.
+En este artículo se proporciona información general sobre el Explorador de consultas de [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), que es una herramienta del Portal de Azure que permite escribir, editar y ejecutar consultas SQL en una [colección de DocumentDB](documentdb-create-collection).
 
-Después de completar este tutorial, podrá responder a las preguntas siguientes:
+1. En la barra de salto del Portal de Azure, haga clic en **Cuentas de DocumentDB**. Si **Cuentas de DocumentDB** no está visible, haga clic en **Examinar** y después en **Cuentas de DocumentDB**.
 
--	¿Cómo puedo crear, editar y ejecutar consultas fácilmente en una colección de DocumentDB mediante un explorador web?
--	¿Cómo puedo navegar fácilmente por las páginas de resultados de la consultas de DocumentDB mediante un explorador web?
--	¿Cómo puedo solucionar los errores de sintaxis mediante una consulta de DocumentDB? 
+2. En la parte superior de la hoja **Cuenta de DocumentDB**, haga clic en **Explorador de consultas**.
 
-##<a id="Launch"></a>Explorador de consultas: inicio y navegación##
+	![Captura de pantalla del Portal de Azure con el Explorador de consultas resaltado](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
 
-El Explorador de consulta se puede iniciar desde cualquier hoja, colección, base de datos o cuenta de DocumentDB.
-  
-1. En la parte superior de la hoja de la base de datos o la cuenta de DocumentDB, haga simplemente clic en el comando **Explorador de consultas**.
+    >[AZURE.NOTE] El Explorador de consultas también aparece en las hojas de bases de datos y colecciones.
 
-	![Captura de pantalla del comando del Explorador de consultas](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
+3. En la hoja **Explorador de consultas**, seleccione las **bases de datos** y **colecciones** en que desee realizar consultas en las listas desplegables y especifique la consulta que desee ejecutar.
 
-2. Además, casi al final de cada hoja están las **Herramientas de desarrollo**, que contiene el mosaico del **Explorador de consultas**.
-	
-	![Captura de pantalla de la parte del Explorador de consultas](./media/documentdb-query-collections-query-explorer/queryexplorerpart.png)
+    Las listas desplegables **Bases de datos** y **Colecciones** se rellenan previamente según el contexto en el que se inicie el Explorador de consultas.
 
-2. Solo tiene que hacer clic en el icono para iniciar el Explorador de consultas.
+    Se proporciona la consulta predeterminada `SELECT TOP 100 * FROM c`. Puede aceptar la consulta predeterminada o crear su propia consulta con el lenguaje de consulta SQL que se describe en el [hoja de referencia rápida de consulta SQL](documentdb-sql-query-cheat-sheet.md) o en el artículo sobre [consulta SQL y sintaxis SQL](documentdb-sql-query.md).
 
-	Las listas desplegables **Base de datos** y **Colección** se rellenan previamente según el contexto en el que se ejecute el Explorador de consultas. Por ejemplo, si efectúa el inicio desde una hoja de base de datos, la base de datos actual se rellena previamente. Si el inicio se realiza desde una hoja de colección, la colección actual será la que se rellene previamente.
+    Haga clic en **Ejecutar consulta** para ver los resultados.
 
-	![Captura de pantalla del Explorador de consultas](./media/documentdb-query-collections-query-explorer/queryexplorerinitial.png)
+	![Captura de pantalla de escritura de consultas SQL en el Explorador de consultas, un Editor de consultas de SQL](./media/documentdb-query-collections-query-explorer/queryexplorerinitial.png)
 
-##<a id="Create"></a>Creación, edición y ejecución de consultas con el Explorador de consultas##
+4. La hoja **Resultados** hoja muestra el resultado de la consulta.
 
-El Explorador de consultas permite crear, editar y ejecutar consultas fácilmente en una colección de DocumentDB. Incluye palabras clave básicas y valores destacados para mejorar la experiencia de creación de consultas.
+	![Captura de pantalla de resultados de la escritura de consultas SQL en el Explorador de consultas](./media/documentdb-query-collections-query-explorer/queryresults1.png)
 
-- Cuando se abre por primera vez el Explorador de consultas, se proporciona una consulta predeterminada de SELECT * FROM c. Puede aceptar la consulta predeterminada o crear la suya propia; a continuación, haga clic en el botón **Ejecutar consulta** para ver los resultados. El Explorador de consultas es compatible con el lenguaje de consultas SQL de DocumentDB, tal y como se describe en [DocumentDB de consulta](documentdb-sql-query.md).
+## Trabajo con resultados
 
-	![Captura de pantalla de los resultados del Explorador de consultas](./media/documentdb-query-collections-query-explorer/queryresults1.png)
+De forma predeterminada, el Explorador de consultas devuelve resultados en grupos de 100. Si la consulta genera más de 100 resultados, utilice los comandos **Página siguiente** y **Página anterior** para desplazarse por el conjunto de resultados.
 
-- También puede especificar varias consultas, resaltar la que desee ejecutar y, a continuación, hacer clic en el botón **Ejecutar consulta** para ver los resultados.
+![Captura de pantalla de la compatibilidad con la paginación del Explorador de consultas](./media/documentdb-query-collections-query-explorer/queryresultspagination.png)
 
-	![Captura de pantalla de resaltar y ejecutar en el Explorador de consultas](./media/documentdb-query-collections-query-explorer/queryexplorerhighlightandrun.png)
+En las consultas correctas, el panel **Información** contiene métricas como el gasto de la solicitud, el número de recorridos de ida y vuelta que realizó la consulta, el conjunto de resultados que se muestra actualmente y si hay más resultados, a los que se puede acceder mediante el comando **Página siguiente**, tal como se indicó anteriormente.
 
-- Puede cargar el contenido de un archivo existente con el comando **Cargar archivo** .
+![Captura de pantalla de información de consultas del Explorador de consultas](./media/documentdb-query-collections-query-explorer/queryinformation.png)
 
-	![Captura de pantalla de la carga de archivo en el Explorador de consultas](./media/documentdb-query-collections-query-explorer/loadqueryfile.png)
+## Uso de múltiples consultas
 
-- De forma predeterminada, el Explorador de consultas devuelve resultados en grupos de 100. Si la consulta genera más de 100 resultados, utilice los comandos **Página siguiente** y **Página anterior** para desplazarse por el conjunto de resultados.
+Si usa varias consultas y desea conmutar cambiar rápidamente de unas a otras, puede especificarlas todas en el cuadro de texto de consulta de la hoja **Explorador de consultas**, luego resaltar la que desee ejecutar y, finalmente, haga clic en **Ejecutar consulta** para ver los resultados.
 
-	![Captura de pantalla de la compatibilidad con la paginación del Explorador de consultas](./media/documentdb-query-collections-query-explorer/queryresultspagination.png)
+![Captura de pantalla de la escritura de varias consultas SQL en el Explorador de consultas (un Editor de consultas de SQL) y el resaltado y ejecución de consultas individuales](./media/documentdb-query-collections-query-explorer/queryexplorerhighlightandrun.png)
 
-- Las consultas con éxito proporcionan información como la siguiente: la carga de la solicitud, el conjunto de resultados que se muestra actualmente y si hay más resultados, a los que se puede acceder mediante el comando **Página siguiente**, tal y como se indicó anteriormente.
+## Adición de consultas desde un archivo en el Editor de consultas de SQL
 
-	![Captura de pantalla de información de consultas del Explorador de consultas](./media/documentdb-query-collections-query-explorer/queryinformation.png)
+Puede cargar el contenido de un archivo existente con el comando **Cargar archivo** .
 
-- Del mismo modo, si una consulta finaliza con errores, el Explorador de consultas muestra una lista de errores que puede ser útil a la hora de solucionar los problemas.
+![Captura de pantalla que muestra cómo cargar consultas SQL desde un archivo en el Explorador de consultas mediante Cargar archivo](./media/documentdb-query-collections-query-explorer/loadqueryfile.png)
 
-	![Captura de pantalla de errores de consulta del Explorador de consultas](./media/documentdb-query-collections-query-explorer/queryerror.png)
+## Solución de problemas
 
-##<a name="NextSteps"></a>Pasos siguientes
+Si una consulta se completa con errores, el Explorador de consultas muestra una lista de errores que puede ser útil a la hora de solucionar los problemas.
 
-- Para obtener más información sobre DocumentDB, haga clic [aquí](http://azure.com/docdb).
-- Para obtener más información acerca de la gramática de SQL compatible con DocumentDB en el Explorador de consultas, haga clic [aquí](documentdb-sql-query.md).
- 
+![Captura de pantalla de errores de consulta del Explorador de consultas](./media/documentdb-query-collections-query-explorer/queryerror.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+## Ejecución de consultas SQL de DocumentDB fuera del portal
+
+El Explorador de consultas del Portal de Azure es simplemente una forma de ejecutar consultas SQL en DocumentDB. Las consultas SQL también se pueden ejecutar mediante la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o los [SDK de cliente](documentdb-sdk-dotnet.md). Para más información sobre el uso de estos otros métodos, consulte [Executing SQL queries](documentdb-sql-query.md#executing-sql-queries) (Ejecución de consultas SQL)
+
+## Pasos siguientes
+
+Para más información acerca de la gramática de SQL de DocumentDB compatible con el Explorador de consultas, consulte el artículo sobre [consulta SQL y sintaxis SQL](documentdb-sql-query.md) o imprima la [hoja de referencia rápida de consultas SQL](documentdb-sql-query-cheat-sheet.md). También puede disfrutar de la experimentación con [Query Playground](https://www.documentdb.com/sql/demo), donde puede probar las consultas en línea con un conjunto de datos de ejemplo.
+
+<!---HONumber=AcomDC_0224_2016-->

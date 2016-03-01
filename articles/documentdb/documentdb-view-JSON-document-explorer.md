@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Visualización, edición, creación y carga de documentos JSON con el Explorador de documentos de DocumentDB | Microsoft Azure"
-	description="Aprenda sobre el Explorador de documentos de DocumentDB, una herramienta del Portal de Azure para ver, editar, crear y cargar documentos JSON con DocumentDB."
+	pageTitle="Explorador de documentos de DocumentDB, para ver JSON | Microsoft Azure"
+	description="Mas información acerca del Explorador de documentos de DocumentDB, una herramienta del Portal de Azure para ver, editar, crear y cargar documentos JSON con DocumentDB, una base de datos de documentos NoSQL."
+    keywords="ver json"
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -12,98 +13,102 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="01/28/2016"
+	ms.topic="get-started-article"
+	ms.date="02/23/2016"
 	ms.author="anhoh"/>
 
-# Ver, editar, crear y cargar documentos JSON con el Explorador de documentos de DocumentDB #
+# Visualización, edición, creación y carga de documentos JSON con el Explorador de documentos de DocumentDB
 
-En este artículo se proporciona información general sobre el Explorador de documentos de [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), una herramienta del Portal de Azure que permite ver, editar, crear y cargar documentos JSON con DocumentDB.
+En este artículo se proporciona información general sobre el Explorador de documentos de [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), una herramienta del Portal de Azure que permite ver, editar, crear, cargar y filtrar documentos JSON con DocumentDB.
 
-Después de completar este tutorial, podrá responder a las preguntas siguientes:
+## Inicio del Explorador de documentos
 
--	¿Cómo puedo crear, ver, editar y eliminar fácilmente documentos individuales de DocumentDB mediante un explorador web?
--	¿Cómo puedo ver fácilmente las propiedades del sistema de un documento de DocumentDB mediante un explorador web?
--	¿Cómo puedo realizar fácilmente una ingesta en bloque de documentos de DocumentDB mediante un explorador web?
+1. En la barra de salto del Portal de Azure, haga clic en **Cuentas de DocumentDB**. Si **Cuentas de DocumentDB** no está visible, haga clic en **Examinar** y después en **Cuentas de DocumentDB**.
 
-##<a id="Launch"></a>Inicie el Explorador de documentos##
-
-El Explorador de documentos se puede iniciar desde cualquier cuenta, base de datos y hoja de colecciones de DocumentDB.
-
-1. En la parte superior de la hoja de la base de datos o la cuenta de DocumentDB, haga simplemente clic en el comando **Explorador de documentos**.
-
-	![Captura de pantalla del comando del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/documentexplorercommand.png)
+2. En la parte superior de la hoja **Cuenta de DocumentDB**, haga clic en **Explorador de documentos**.
  
-2. Además, casi al final de cada hoja están las **Herramientas de desarrollo**, que contiene el mosaico del **Explorador de documentos**.
+	![Captura de pantalla del comando del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/documentexplorercommand.png)
 
-	![Captura de pantalla de la parte del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/documentexplorerpart.png)
+ 	>[AZURE.NOTE] El Explorador de consultas también aparece en las hojas de bases de datos y colecciones.
 
-2. Para iniciar el Explorador de documentos solo tiene que hacer clic en el icono.
+    En la hoja **Explorador de documentos**, las listas desplegables **Bases de datos** y **Colecciones** se rellenan previamente según el contexto en el que se inició el Explorador de consultas.
 
-	<p>Las listas desplegables **Base de datos** y **Colección** se rellenan previamente según el contexto en el que se ejecute el Explorador de documentos. Por ejemplo, si efectúa el inicio desde una hoja de base de datos, la base de datos actual se rellena previamente. Si el inicio se realiza desde una hoja de colección, la colección actual será la que se rellene previamente.
+	![Captura de pantalla de la hoja Explorador de documentos](./media/documentdb-view-JSON-document-explorer/documentexplorerinitial.png)
 
-	![Captura de pantalla del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/documentexplorerinitial.png)
+## Creación de un documento
 
-##<a id="Create"></a>Visualización, creación y edición de documentos con el Explorador de documentos##
+1. [Inicie el Explorador de documentos](#launch-document-explorer).
 
-El Explorador de documentos permite crear, editar y eliminar documentos con toda facilidad.
+2. En la hoja **Explorador de documentos**, haga clic en **Crear documento**.
 
-- Para crear un documento, solo tiene que hacer clic en el comando **Crear documento** y se proporcionará un fragmento de código JSON mínimo.
+    En la hoja **Documento** se proporciona un fragmento de código JSON mínimo.
 
-	![Captura de pantalla de creación de una experiencia de documento del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/createdocument.png)
+	![Captura de pantalla de la experiencia de creación de documentos en el Explorador de documentos, donde puede ver y editar JSON](./media/documentdb-view-JSON-document-explorer/createdocument.png)
 
-- Simplemente escriba o pegue el contenido JSON del documento que desea crear y haga clic en el comando **Guardar** para confirmar el documento.
+2. En la hoja **Documento**, escriba o pegue el contenido del documento JSON que se desea crear y luego haga clic en **Guardar** para confirmar el documento en la base de datos y colección especificadas en la hoja **Explorador de documentos**.
 
 	![Captura de pantalla del comando guardar del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/savedocument1.png)
 
 	> [AZURE.NOTE] Si no se proporciona una propiedad "id", el Explorador de documentos la agrega de forma automática y genera un GUID como valor de identificador.
 
-- Si ya dispone de datos procedentes de archivos JSON, MongoDB, SQL Server, archivos CSV, almacenamiento de tablas de Azure, Amazon DynamoDB, HBase o de otras colecciones de DocumentDB, puede usar la [herramienta de migración de datos](documentdb-import-data.md) de DocumentDB para importar rápidamente los datos.
+    Si ya dispone de datos procedentes de archivos JSON, MongoDB, SQL Server, archivos CSV, almacenamiento de tablas de Azure, Amazon DynamoDB, HBase o de otras colecciones de DocumentDB, puede usar la [herramienta de migración de datos](documentdb-import-data.md) de DocumentDB para importar rápidamente los datos.
 
-- Para editar un documento ya existente, selecciónelo en el Explorador de documentos, edite el documento según sea necesario y haga clic en el comando **Guardar**.
+## Edición de un documento
 
-	![Captura de pantalla de la funcionalidad de edición de documentos del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/editdocument.png)
+1. [Inicie el Explorador de documentos](#launch-document-explorer).
 
-- Si va a editar un documento y decide descartar el conjunto de ediciones actual, haga clic en el comando para descartar, confirme dicha acción y se volverá a cargar el estado anterior del documento.
+2. Para editar un documento existente, selecciónelo en la hoja **Explorador de documentos**, edite el documento en la hoja **Documento** y haga clic en **Guardar**.
 
-	![Captura de pantalla del comando descartar del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/discardedit.png)
+    ![Captura de pantalla de la funcionalidad de edición de documentos del Explorador de documentos usada para ver JSON](./media/documentdb-view-JSON-document-explorer/editdocument.png)
 
-- Para eliminar un documento, selecciónelo, haga clic en el comando **Eliminar** y, después, confirme la eliminación. Después de confirmar, el documento se quita inmediatamente de la lista del Explorador de documentos:
+    Si al editar un documento, decide que desea descartar el conjunto actual de ediciones, haga clic en **Descartar** en la hoja **Documento**, confirme dicha acción y se volverá a cargar el estado anterior del documento.
+
+    ![Captura de pantalla del comando descartar del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/discardedit.png)
+
+## Eliminar un documento
+
+1. [Inicie el Explorador de documentos](#launch-document-explorer).
+
+2. Seleccione el documento en **Explorador de documentos**, haga clic en **Eliminar** y confirme la eliminación. Después de realizar la confirmación, el documento se quita inmediatamente de la lista del Explorador de documentos.
 
 	![Captura de pantalla del comando eliminar del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/deletedocument.png)
 
-- Tenga en cuenta que el Explorador de documentos valida que los documentos nuevos o editados contengan JSON válido. Puede mover el puntero sobre la sección incorrecta para obtener detalles acerca del error de validación.
+## Trabajo con documentos JSON
 
-	![Captura de pantalla de resaltado JSON no válido del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/invalidjson1.png)
+El Explorador de documentos valida que todos los documentos nuevos o editados contienen JSON válido. Incluso se pueden ver los errores de JSON; para ello, mueva el puntero sobre la sección incorrecta para obtener detalles acerca del error de validación.
 
-- Asimismo, el Explorador de documentos impide guardar un documento que tenga contenido JSON no válido.
+![Captura de pantalla del Explorador de documentos con un resaltado de JSON no válido](./media/documentdb-view-JSON-document-explorer/invalidjson1.png)
 
-	![Captura de pantalla de error al guardar JSON del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/invalidjson2.png)
+Asimismo, el Explorador de documentos impide guardar un documento que tenga contenido JSON no válido.
 
-- Por último, el Explorador de documentos permite ver fácilmente las propiedades del sistema del documento cargado actualmente si se hace clic en el comando **Propiedades**.
+![Captura de pantalla del Explorador de documentos con un error de guardado de JSON no válido](./media/documentdb-view-JSON-document-explorer/invalidjson2.png)
 
-	![Captura de pantalla de la vista de propiedades del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/documentproperties.png)
+Por último, el Explorador de documentos permite ver fácilmente las propiedades del sistema del documento cargado actualmente si se hace clic en el comando **Propiedades**.
 
-	> [AZURE.NOTE] La propiedad de marca de tiempo (\_ts) se representa internamente como tiempo de época, pero el Explorador de documentos muestra el valor en formato GMT en lenguaje natural.
+![Captura de pantalla de la vista de propiedades del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/documentproperties.png)
 
-##<a id="Navigate"></a>Opciones de navegación del Explorador de documentos y configuración avanzada##
+> [AZURE.NOTE] La propiedad de marca de tiempo (\_ts) se representa internamente como tiempo de época, pero el Explorador de documentos muestra el valor en formato GMT en lenguaje natural.
 
+## Filtro de documentos
 El Explorador de documentos es compatible con una serie de opciones de navegación y con la configuración avanzada.
 
-1. De forma predeterminada, el Explorador de documentos carga a los 100 primeros documentos de la colección seleccionada, según su fecha de creación, de más antiguo a más reciente. Puede cargar documentos adicionales (en lotes de 100) si selecciona la opción **Cargar más** situada en la parte inferior de la hoja Explorador de documentos. El comportamiento predeterminado se puede modificar haciendo clic en el comando de configuración en la parte superior de la hoja Explorador de documentos.
+De forma predeterminada, el Explorador de documentos carga a los 100 primeros documentos de la colección seleccionada, según su fecha de creación, de más antiguo a más reciente. Puede cargar documentos adicionales (en lotes de 100) si selecciona la opción **Cargar más** situada en la parte inferior de la hoja Explorador de documentos. Puede elegir los documentos que se van a cargar a través del comando **Filtro**.
 
-	![Captura de pantalla de la hoja Configuración del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/documentexplorersettings.png)
+1. [Inicie el Explorador de documentos](#launch-document-explorer).
 
+2. En la parte superior de la hoja **Explorador de documentos**, haga clic en **Filtrar**.
 
-2. En la hoja Opciones, puede ajustar el número de elementos que se va a devolver en cada página, además de proporcionar una cláusula WHERE para cargar los documentos que coinciden en la cuadrícula del Explorador de documentos. Obtenga más información acerca de la gramática de SQL de DocumentDB [aquí](documentdb-sql-query.md).
+    ![Captura de pantalla de la configuración de filtros del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/documentexplorerfiltersettings.png)
+  
+3.  La configuración de filtro aparece debajo de la barra de comandos. En la configuración de filtro, especifique una cláusula WHERE o una cláusula ORDER BY y después haga clic en **Filtrar**.
 
-	![Captura de pantalla de la hoja Configuración del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
+	![Captura de pantalla de la hoja Configuración del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/documentexplorerfiltersettings2.png)
 
-	> [AZURE.NOTE] Después de modificar la configuración del Explorador de documentos, debe hacer clic en el comando **Actualizar** para aplicar la nueva configuración. La configuración solo se mantendrá en la sesión actual del explorador.
-	
-3. Los cuadros de listas desplegables **Base de datos** y **Colección** pueden utilizarse para cambiar fácilmente la colección desde la que se ven documentos en ese momento sin tener que cerrar y reiniciar el Explorador de documentos.
+	El Explorador de documentos actualiza automáticamente los resultados con los documentos que se ajustan a la consulta del filtro. Para encontrar más información acerca de la gramática de SQL de DocumentDB, en el artículo sobre [consulta SQL y sintaxis SQL](documentdb-sql-query.md) o imprima una copia de la [hoja de referencia rápida de consultas SQL](documentdb-sql-query-cheat-sheet.md).
 
-4. Asimismo, el Explorador de documentos también admite el filtrado del conjunto de documentos cargado actualmente por la propiedad de identificador. Solo tiene que escribir en el cuadro de filtro.
+    Los cuadros de listas desplegables **Base de datos** y **Colección** pueden utilizarse para cambiar fácilmente la colección desde la que se ven documentos en ese momento sin tener que cerrar y reiniciar el Explorador de documentos.
+
+    Asimismo, el Explorador de documentos también admite el filtrado del conjunto de documentos cargado actualmente por la propiedad de identificador. Escriba Filter by id en el cuadro Documentos.
 
 	![Captura de pantalla del Explorador de documentos con el filtro resaltado](./media/documentdb-view-JSON-document-explorer/documentexplorerfilter.png)
 
@@ -111,38 +116,46 @@ El Explorador de documentos es compatible con una serie de opciones de navegaci�
 
 	![Captura de pantalla del Explorador de documentos con los resultados filtrados](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
 
-
 	> [AZURE.IMPORTANT] La funcionalidad de filtro del Explorador de documentos solo filtra desde el conjunto de documentos cargado ***actualmente*** y no realiza ninguna consulta en la colección seleccionada.
 
-5. Para actualizar la lista de documentos cargados en el Explorador de documentos, simplemente haga clic en el comando **Actualizar** en la parte superior de la hoja.
+4. Para actualizar la lista de documentos que carga el Explorador de documentos, haga clic en **Actualizar** en la parte superior de la hoja.
 
 	![Captura de pantalla del comando actualizar del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)
 
-##<a id="BulkAdd"></a>Incorporación en bloque de documentos con el Explorador de documentos##
+## Adición en masa de documentos
 
-El Explorador de documentos admite la ingesta en bloque de uno o más documentos JSON existentes.
+El Explorador de documentos admite la ingesta en masa de uno o varios documentos JSON existentes, hasta 100 archivos JSON por operación de carga.
 
-1. Para iniciar el proceso de carga, haga clic en el comando** Agregar documento**.
+1. [Inicie el Explorador de documentos](#launch-document-explorer).
 
-	![Captura de pantalla de la funcionalidad de ingesta en bloque del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/adddocument1.png)
+2. Para iniciar el proceso de carga, haga clic en ** Agregar documento**.
 
-2. Se abre una nueva hoja. Haga clic en el botón Examinar para abrir una ventana del explorador de archivos y seleccione uno o varios documentos JSON para cargar.
+	![Captura de pantalla de la funcionalidad de ingesta en bloque del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/uploaddocument1.png)
 
-	![Captura de pantalla del proceso de ingesta en bloque del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/adddocument2.png)
+    Se abre la hoja **Cargar documento**.
+
+2. Haga clic en el botón Examinar para abrir una ventana del explorador de archivos, seleccione uno o varios documentos JSON para cargarlos y haga clic en **Abrir**.
+
+	![Captura de pantalla del proceso de ingesta en bloque del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/uploaddocument2.png)
 
 	> [AZURE.NOTE] El Explorador de documentos admite actualmente hasta 100 documentos JSON por operación de carga individual.
 
 3. Cuando esté satisfecho con la selección, haga clic en el botón **Cargar**. Los documentos se agregan automáticamente a la cuadrícula del Explorador de documentos y se muestran los resultados de la carga a medida que progresa la operación. Los errores de importación se notifican para cada archivo.
 
-	![Captura de pantalla del resultado de la ingesta en bloque del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/adddocument3.png)
+	![Captura de pantalla del resultado de la ingesta en bloque del Explorador de documentos](./media/documentdb-view-JSON-document-explorer/uploaddocument3.png)
 
-4. Una vez completada la operación, puede seleccionar hasta 100 documentos más para cargar.
+4. Una vez que la operación se completa, puede seleccionar hasta 100 documentos más para cargarlos.
 
-##<a name="NextSteps"></a>Pasos siguientes
+## Trabajo con documentos JSON fuera del portal
 
-- Para obtener más información sobre DocumentDB, haga clic [aquí](http://azure.com/docdb).
-- Para empezar a trabajar con código, haga clic en [aquí](documentdb-get-started.md).
+El Explorador de documentos del Portal de Azure es simplemente una forma de trabajar con documentos en DocumentDB. También se pueden trabajar con documentos ejecutar mediante la [API de REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) o los [SDK de cliente](documentdb-sdk-dotnet.md). Para obtener un código de ejemplo, consulte los [ejemplos de documentos de SDK para .NET](documentdb-dotnet-samples.md#document-examples) y los [ejemplos de documentos de SDK de Node.js](documentdb-nodejs-samples.md#document-examples).
 
- 
+Si necesita importar o migrar archivos desde otro origen (archivos JSON, MongoDB, SQL Server, archivos CSV, Almacenamiento de tablas de Azure, Amazon DynamoDB o HBase), puede usar la [herramienta de migración de datos](documentdb-import-data.md) de DocumentDB para importar rápidamente los datos en DocumentDB.
 
-<!---HONumber=AcomDC_0218_2016-->
+## Pasos siguientes
+
+Para más información acerca de la gramática de SQL de DocumentDB compatible con el Explorador de documentos, consulte el artículo sobre [consulta SQL y sintaxis SQL](documentdb-sql-query.md) o imprima la [hoja de referencia rápida de consultas SQL](documentdb-sql-query-cheat-sheet.md).
+
+La [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) también es un recurso útil para guiarle durante su aprendizaje de DocumentDB.
+
+<!---HONumber=AcomDC_0224_2016-->
