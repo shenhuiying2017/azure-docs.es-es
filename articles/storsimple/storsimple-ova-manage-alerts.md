@@ -31,7 +31,7 @@ Puede elegir si desea recibir una notificación por correo electrónico de las c
 
 >[AZURE.NOTE] Puede escribir un máximo de 20 direcciones de correo electrónico por dispositivo virtual.
 
-Después de habilitar la notificación por correo electrónico para un dispositivo virtual, los miembros de la lista de notificación recibirán un mensaje de correo electrónico cada vez que se produzca una alerta crítica. Los mensajes se enviarán desde **storsimple-alerts-noreply@mail.windowsazure.com* y describirán la condición de alerta. Los destinatarios pueden hacer clic en **Eliminar suscripción** para quitarse de la lista de notificación por correo electrónico.
+Después de habilitar la notificación por correo electrónico para un dispositivo virtual, los miembros de la lista de notificación recibirán un mensaje de correo electrónico cada vez que se produzca una alerta crítica. Los mensajes se enviarán desde *storsimple-alerts-noreply@mail.windowsazure.com* y describirán la condición de alerta. Los destinatarios pueden hacer clic en **Eliminar suscripción** para quitarse de la lista de notificación por correo electrónico.
 
 #### Para habilitar la notificación de alertas por correo electrónico de un dispositivo virtual
 
@@ -45,7 +45,7 @@ Después de habilitar la notificación por correo electrónico para un dispositi
 
     2. En el campo **Administradores del servicio de correo electrónico**, seleccione **SÍ** si desea que el administrador de servicios y todos los coadministradores reciban las notificaciones de alerta.
 
-    3. En el campo **Otros destinatarios de correo electrónico**, escriba las direcciones de correo electrónico de los demás destinatarios que deben recibir las notificaciones de alerta. Escriba los nombres en el formato **someone@somewhere.com*. Utilice punto y coma para separar las direcciones de correo electrónico. Puede configurar un máximo de 20 direcciones de correo electrónico por dispositivo virtual.
+    3. En el campo **Otros destinatarios de correo electrónico**, escriba las direcciones de correo electrónico de los demás destinatarios que deben recibir las notificaciones de alerta. Escriba los nombres en el formato *someone@somewhere.com*. Utilice punto y coma para separar las direcciones de correo electrónico. Puede configurar un máximo de 20 direcciones de correo electrónico por dispositivo virtual.
 
         ![configuración de notificaciones de alerta](./media/storsimple-ova-manage-alerts/alerts3.png)
 
