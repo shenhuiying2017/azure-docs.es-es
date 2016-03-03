@@ -102,10 +102,10 @@ La tabla siguiente resumen las recomendaciones de tamaño para el servidor de ad
 
 **CPU del servidor de administración** | **Memoria** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas**
 --- | --- | --- | --- | ---
-8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz) | 16 GB | < 300 GB | 500 GB o menos | Implemente un servidor de administración con esta configuración para replicar menos de 100 máquinas.
+8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz) | 16 GB | 300 GB | 500 GB o menos | Implemente un servidor de administración con esta configuración para replicar menos de 100 máquinas.
 12 vCPU (2 sockets * 6 núcleos @ 2,5 GHz) | 18 GB | 600 GB | 500 GB a 1 TB | Implemente un servidor de administración con esta configuración para replicar entre 100 y 150 máquinas.
 16 vCPU (2 sockets * 8 núcleos @ 2,5 GHz) | 32 GB | 1 TB | 1 TB a 2 TB | Implemente un servidor de administración con esta configuración para replicar entre 150 y 200 máquinas.
-Implementar otro servidor de procesos | | | 2 TB | Implemente servidores de procesos adicionales si replica más de 200 máquinas o si la tasa de cambios de datos diaria supera los 2 TB.
+Implementar otro servidor de procesos | | | > 2 TB | Implemente servidores de procesos adicionales si replica más de 200 máquinas o si la tasa de cambios de datos diaria supera los 2 TB.
 
 Donde:
 
@@ -160,7 +160,7 @@ Esta tabla describe un escenario en el cual:
 
 **Servidor de administración original**<br/><br/>(servidor de configuración) | **Servidores de procesos adicionales**| **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas**
 --- | --- | --- | --- | --- 
-8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz), 16 GB de memoria | 4 vCPU (2 sockets * 2 núcleos @ 2,5 GHz), 8 GB de memoria | < 300 GB | 250 GB o menos | Puede replicar 85 máquinas o menos.
+8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz), 16 GB de memoria | 4 vCPU (2 sockets * 2 núcleos @ 2,5 GHz), 8 GB de memoria | 300 GB | 250 GB o menos | Puede replicar 85 máquinas o menos.
 8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz), 16 GB de memoria | 8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz), 12 GB de memoria | 600 GB | 250 GB a 1 TB | Puede replicar entre 85 y 150 máquinas.
 12 vCPU (2 sockets * 6 núcleos @ 2,5 GHz), 18 GB de memoria | 12 vCPU (2 sockets * 6 núcleos @ 2,5 GHz), 24 GB de memoria | 1 TB | 1 TB a 2 TB | Puede replicar entre 150 y 225 máquinas.
 
@@ -236,11 +236,11 @@ Si desea replicar máquinas virtuales de VMware, instale los siguientes componen
 ## Paso 5: Instalación del servidor de administración
 > [AZURE.TIP] Asegúrese de poder tener acceso a estas direcciones URL desde el servidor de administración:
 >
-- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+- *.hypervrecoverymanager.windowsazure.com
+- *.accesscontrol.windows.net
+- *.backup.windowsazure.com
+- *.blob.core.windows.net
+- *.store.core.windows.net
 - http://dev.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi
 - http://www.msftncsi.com/ncsi.txt
 
@@ -273,7 +273,9 @@ Si desea replicar máquinas virtuales de VMware, instale los siguientes componen
 
 	![Requisitos previos](./media/site-recovery-vmware-to-azure-classic/combined-wiz4.png)
 
->[AZURE.WARNING] Si aparece una advertencia para la comprobación del requisito previo **Sincronización de la hora global**, comprueba que la hora en el reloj del sistema sea la misma que la zona horaria. ++ ![TimeSyncIssue](./media/site-recovery-vmware-to-azure-classic/time-sync-issue.png)
+>[AZURE.WARNING] Si aparece una advertencia para la comprobación del requisito previo **Sincronización de la hora global**, comprueba que la hora en el reloj del sistema sea la misma que la zona horaria.
+ +	
+ +	![TimeSyncIssue](./media/site-recovery-vmware-to-azure-classic/time-sync-issue.png)
 
 8. En **Configuración de MySQL**, cree credenciales para iniciar sesión en la instancia de servidor MySQL. Puede especificar estos caracteres especiales: "\_", "!", "@", "$", "\", "%".
 
@@ -456,7 +458,8 @@ Los instaladores están disponibles en C:\\Program Files (x86)\\Microsoft Azure 
 Sistema operativo de origen | Archivo de instalación del servicio de movilidad
 --- | ---
 Windows Server 64 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -750,3 +753,5 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 [Conozca más sobre la conmutación por recuperación](site-recovery-failback-azure-to-vmware-classic.md) para que las máquinas a las que se realizó la conmutación por error y que se ejecutan en Azure vuelvan al entorno local.
 
 <!---HONumber=AcomDC_0218_2016-->
+
+
