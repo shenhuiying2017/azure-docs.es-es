@@ -19,7 +19,9 @@
 
 # Primeros pasos en la creación de un equilibrador de carga interno mediante la CLI de Azure
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
+<BR>
+[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [modelo de implementación clásica](load-balancer-get-started-ilb-classic-cli.md).
 
@@ -103,7 +105,12 @@ Crear una dirección IP de front-end para el equilibrador de carga interno. La d
 
 Parámetros usados:
 
-**-g**: grupo de recursos **-l**: nombre del conjunto de equilibrador de carga interno **-n**: nombre de la dirección IP de front-end **-a**: dirección IP privada dentro del intervalo de subred. **-e**: nombre de la subred **-m**: nombre de red virtual
+**-g**: grupo de recursos 
+**-l**: nombre del conjunto de equilibrador de carga interno 
+**-n**: nombre de la dirección IP de front-end 
+**-a**: dirección IP privada dentro del intervalo de subred. 
+**-e**: nombre de la subred 
+**-m**: nombre de red virtual
 
 ### Paso 3 
 
@@ -113,7 +120,9 @@ Crear el grupo de direcciones de back-end.
 
 Parámetros usados:
 
-**-g**: grupo de recursos **-l**: nombre del conjunto del equilibrador de carga interno **-n**: nombre del grupo de direcciones de back-end
+**-g**: grupo de recursos 
+**-l**: nombre del conjunto del equilibrador de carga interno 
+**-n**: nombre del grupo de direcciones de back-end
 
 Después de definir una dirección IP de front-end y un grupo de direcciones de back-end, puede crear reglas de equilibradores de carga, reglas NAT de entrada y personalizar sondeos de estado.
 
@@ -126,7 +135,12 @@ Crear una regla de equilibrador de carga para el equilibrador de carga interno. 
 
 Parámetros usados:
 
-**-g**: grupo de recursos **-l**: nombre del conjunto del equilibrador de carga interno **-n**: nombre de la regla del equilibrador de carga **-p**: protocolo usado para la regla **-f**: puerto que escucha el tráfico de red entrante en el front-end del equilibrador de carga **-b**: puerto que recibe el tráfico de red en el grupo de direcciones de back-end
+**-g**: grupo de recursos 
+**-l**: nombre del conjunto del equilibrador de carga interno 
+**-n**: nombre de la regla del equilibrador de carga 
+**-p**: protocolo usado para la regla 
+**-f**: puerto que escucha el tráfico de red entrante en el front-end del equilibrador de carga 
+**-b**: puerto que recibe el tráfico de red en el grupo de direcciones de back-end
 
 ### Paso 5
 
@@ -138,7 +152,12 @@ Crear reglas NAT de entrada. Las reglas NAT de entrada se usan para crear puntos
 
 Parámetros usados:
 
-**-g**: grupo de recursos **-l**: nombre del conjunto del equilibrador de carga interno **-n**: nombre de la regla NAT entrante **-p**: protocolo usado para la regla **-f**: puerto que escucha el tráfico de red entrante en el front-end del equilibrador de carga **-b**: puerto que recibe el tráfico de red en el grupo de direcciones de back-end
+**-g**: grupo de recursos 
+**-l**: nombre del conjunto del equilibrador de carga interno 
+**-n**: nombre de la regla NAT entrante 
+**-p**: protocolo usado para la regla 
+**-f**: puerto que escucha el tráfico de red entrante en el front-end del equilibrador de carga 
+**-b**: puerto que recibe el tráfico de red en el grupo de direcciones de back-end
 
 ### Paso 5 
 
@@ -146,7 +165,12 @@ Crear sondeos de estado del equilibrador de carga. Los sondeos de estado comprue
 
 	azure network lb probe create -g nrprg -l ilbset -n ilbprobe -p tcp -i 300 -c 4
 
-**-g** -grupo de recursos **-l**: nombre del conjunto de equilibrador de carga interno **- n**: nombre del sondeo de estado **-p** -protocolo usado por sondeo de estado **i -**: intervalo de sondeo en segundos **- c**: número de comprobaciones
+**-g** -grupo de recursos 
+**-l**: nombre del conjunto de equilibrador de carga interno 
+**-n**: nombre del sondeo de estado 
+**-p** -protocolo usado por sondeo de estado 
+**i-**: intervalo de sondeo en segundos 
+**-c**: número de comprobaciones
 
 >[AZURE.NOTE] La Plataforma Microsoft Azure utiliza una dirección IPv4 estática enrutable públicamente para una variedad de escenarios de administración. La dirección IP es 168.63.129.16. Ningún firewall debe bloquear esta dirección IP, ya que puede causar un comportamiento inesperado. Con respecto al Equilibrio de carga interno de Azure, esta dirección IP la usan las sondas de supervisión del equilibrador de carga para determinar el estado de mantenimiento de las máquinas virtuales en un conjunto con equilibrio de carga. Si se usa un grupo de seguridad de red para restringir el tráfico a máquinas virtuales de Azure en un conjunto de carga equilibrada internamente o se aplica a una subred de Red virtual, asegúrate de agregar una regla de seguridad de red para permitir el tráfico desde 168.63.129.16.
 
