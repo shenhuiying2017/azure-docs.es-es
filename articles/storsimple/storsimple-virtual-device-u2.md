@@ -46,7 +46,7 @@ El dispositivo virtual StorSimple está disponible en dos modelos: estándar 801
 
 Las regiones de Almacenamiento premium que actualmente admiten 8020 aparecen a continuación. Esta lista se actualizará de manera periódica cada vez que Almacenamiento premium esté disponible en más regiones.
 
-| S. n°. | Actualmente se admite en las regiones |
+| S. No. | Actualmente se admite en las regiones |
 |---------------------------------------------------------|--------------------------------|
 | 1 | Central EE. UU.: |
 | 2 | Este de EE. UU. |

@@ -195,7 +195,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 1.  En el portal de Azure AD, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones **Salesforce Sandbox **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones **Salesforce Sandbox**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "Asignar usuarios")
 
@@ -207,4 +207,4 @@ Ahora debería esperar 10 minutos y comprobar si la cuenta se ha sincronizado en
   
 Si quiere probar su configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

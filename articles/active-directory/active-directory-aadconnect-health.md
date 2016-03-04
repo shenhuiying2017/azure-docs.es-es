@@ -124,4 +124,4 @@ Para comenzar, realice una de las operaciones siguientes:
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->
