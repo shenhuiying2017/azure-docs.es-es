@@ -154,7 +154,7 @@ Una vez que tenga un grupo de recursos puede crear el clúster con el comando a 
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
  ```
  
-### Provide template parameters
+### Suministro de los parámetros de plantilla
  
 Si está familiarizado con PowerShell, sabe que puede recorrer los parámetros disponibles para un cmdlet; basta con que escriba un signo menos (-) y luego presione la tecla TAB. Esta misma funcionalidad también sirve para los parámetros que se definen en la plantilla. En cuanto escribe el nombre de la plantilla, el cmdlet captura la plantilla, analiza los parámetros y agrega los parámetros de la plantilla al comando de manera dinámica. De esta forma, resulta muy fácil especificar los valores de los parámetros de la plantilla. Además, si olvida el valor de algún parámetro necesario, PowerShell le pide dicho valor.
  
@@ -173,4 +173,4 @@ Ahora que tiene un clúster funcionando, consulte los siguientes documentos para
 
  
 
-<!---HONumber=AcomDC_0224_2016--->
+<!----HONumber=AcomDC_0224_2016--->
