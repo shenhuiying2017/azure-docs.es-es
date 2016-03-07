@@ -58,17 +58,18 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de SFTP co
 
 5.	Ahora puede usar el conector de SFTP en el flujo. Puede utilizar el archivo recuperado desde el desencadenador de SFTP ("TriggerOnFileAvailable") en otras acciones del flujo.
 
-	> [AZURE.IMPORTANT] El desencadenador de SFTP "TriggerOnFileAvailable" eliminará el archivo recuperado después de procesarlo.
+	> [AZURE.IMPORTANT]El desencadenador de SFTP "TriggerOnFileAvailable" eliminará el archivo recuperado después de procesarlo.
 
 6.	Configure las propiedades de entrada para el desencadenador de SFTP de la forma siguiente:
 
 	- **Ruta de la carpeta:**: especifique la ruta de acceso a la carpeta desde la que es necesario recuperar los archivos.
 	- **El tipo de archivo: texto o binario**: seleccione el tipo de archivo.
 	- **Máscara de archivo**: especifique la máscara de archivo que se va a aplicar para recuperar los archivos. '*' recupera todos los archivos de la carpeta especificada.
-- **Máscara para excluir archivo**: especifique la máscara de archivo que se aplicará para excluir archivos. Si también se ha establecido la propiedad "Máscara de archivo", primero se aplicará la máscara para excluir archivo.
+	- **Máscara para excluir archivo**: especifique la máscara de archivo que se aplicará para excluir archivos. Si también se ha establecido la propiedad "Máscara de archivo", primero se aplicará la máscara para excluir archivo.
 
 
-	![][9] ![][10]
+	![][9]  
+	![][10]
 
 7.	De un modo similar, puede usar las acciones de SFTP en el flujo. Puede usar la acción "Cargar archivo" para cargar un archivo en el servidor de SFTP. Configure las propiedades de entrada para la acción "Cargar archivo" de la siguiente manera:
 
@@ -79,12 +80,13 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de SFTP co
 	- ****Anexar si existe **: especifique "true" o "false". Cuando se establece en "true", los datos se anexan al archivo (si existe). Cuando se establece en "false", se sobrescribe el archivo (si existe)
 - **Carpeta temporal**: si se proporciona, el adaptador cargará el archivo en la ’Ruta a la carpeta temporal’ y una vez que se realiza la carga, el archivo se moverá a la ’Ruta de carpeta’. La ’Ruta a la carpeta temporal’ debe estar en el mismo disco físico que la ’Ruta de carpeta’ para asegurarse de que la operación de mover es atómica. La carpeta temporal solo puede usarse cuando la propiedad «Anexar si existe» está deshabilitada.
 
-	![][11] ![][12]
+	![][11]  
+	![][12]
 
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 

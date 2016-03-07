@@ -32,7 +32,19 @@ Para usar el conector de POP3, deberá crear primero una instancia de la aplicac
 2.	En "Todo", busque "Conector de POP3".
 3.	Configure el conector de POP3 de la siguiente forma:
 
-	![][1] - **Ubicación**: elija la ubicación geográfica en la que desea implementar el conector. - **Suscripción**: elija una suscripción en la que desee crear este conector. - **Grupo de recursos**: seleccione o cree un grupo de recursos en el que vaya a estar el conector. - **Plan de hospedaje web**: seleccione o cree un plan de hospedaje web. - **Nivel de precios**: elija un nivel de precios para el conector. - **Nombre**: asigne un nombre al conector de POP3 - **Configuración del paquete** - **Nombre de usuario**: especifique el nombre de usuario para conectarse al servidor POP3. - **Contraseña**: especifique la contraseña para conectarse al servidor POP3. - **Dirección del servidor**: especifique el nombre del servidor POP3 o la dirección IP. - **Puerto del servidor** especifique el número de puerto del servidor POP3. - **Habilitar SSL**: especifique true para usar POP3 a través del canal SSL/TLS seguro.
+	![][1]
+	- **Ubicación**: elija la ubicación geográfica en la que desea implementar el conector.
+	- **Suscripción**: elija una suscripción en la que desee crear este conector.
+	- **Grupo de recursos**: seleccione o cree un grupo de recursos en el que vaya a estar el conector.
+	- **Plan de hospedaje web**: seleccione o cree un plan de hospedaje web.
+	- **Nivel de precios**: elija un nivel de precios para el conector.
+	- **Nombre**: asigne un nombre al conector de POP3
+	- **Configuración del paquete**
+		- **Nombre de usuario**: especifique el nombre de usuario para conectarse al servidor POP3.
+		- **Contraseña**: especifique la contraseña para conectarse al servidor POP3.
+		- **Dirección del servidor**: especifique el nombre del servidor POP3 o la dirección IP.
+		- **Puerto del servidor** especifique el número de puerto del servidor POP3.
+		- **Habilitar SSL**: especifique true para usar POP3 a través del canal SSL/TLS seguro.
 4.	Haga clic en Crear. Se creará un nuevo conector de POP3.
 5.	Una vez creada la instancia de aplicación de la API, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de POP3.
 
@@ -53,7 +65,8 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de POP3 co
 5.	Ahora puede usar el conector de POP3 en el flujo. Seleccione el desencadenador "Obtener correo electrónico" y configure la frecuencia y el intervalo. Puede utilizar el correo electrónico recuperado desde el desencadenador de POP3 en otras acciones del flujo.
 		 
 
-	![][5] ![][6]
+	![][5] 
+	![][6]
 
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)

@@ -71,7 +71,9 @@ Necesita una cuenta de almacenamiento de Azure para usar operaciones de almacena
 
 2. Haga clic en el icono **Nuevo** situado en la parte superior izquierda del portal y haga clic en **Datos y almacenamiento** > **Cuenta de almacenamiento**. Haga clic en el botón **Crear** y, a continuación, asigne un nombre único a la cuenta de almacenamiento y cree un [grupo de recursos](../resource-group-overview.md) nuevo para ella.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->Una vez creada la cuenta de almacenamiento, el botón **Notificaciones** emitirá el mensaje **CORRECTO** en color verde y la hoja de la cuenta de almacenamiento se abrirá para mostrar que pertenece al nuevo grupo de recursos que ha creado.
+  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
+
+	Una vez creada la cuenta de almacenamiento, el botón **Notificaciones** emitirá el mensaje **CORRECTO** en color verde y la hoja de la cuenta de almacenamiento se abrirá para mostrar que pertenece al nuevo grupo de recursos que ha creado.
 
   	<!-- ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png) -->
 

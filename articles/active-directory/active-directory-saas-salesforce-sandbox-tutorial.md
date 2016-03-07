@@ -19,7 +19,9 @@
 #Tutorial: Integración de Azure Active Directory con Salesforce Sandbox
 >[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=521878).
   
-El objetivo de este tutorial es mostrar la integración de Azure y Salesforce Sandbox. Los espacios aislados ofrecen la capacidad de crear varias copias de su organización en entornos independientes para una variedad de propósitos, como desarrollo, pruebas y aprendizaje, sin poner en peligro los datos y las aplicaciones de la organización de producción de Salesforce. Para obtener más información, vea [Información general del espacio aislado](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US).
+El objetivo de este tutorial es mostrar la integración de Azure y Salesforce Sandbox.  
+Los espacios aislados ofrecen la capacidad de crear varias copias de su organización en entornos independientes para una variedad de propósitos, como desarrollo, pruebas y aprendizaje, sin poner en peligro los datos y las aplicaciones de la organización de producción de Salesforce.  
+Para obtener más información, vea [Información general del espacio aislado](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US).
   
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -126,7 +128,8 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 ##Habilitación de su dominio
   
-En esta sección se supone que ya ha creado un dominio. Para obtener más información, vea [Definición de su nombre de dominio](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
+En esta sección se supone que ya ha creado un dominio.  
+Para obtener más información, consulte [Definición de su nombre de dominio](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
 
 ###Realice los pasos siguientes para habilitar su dominio:
 

@@ -545,7 +545,9 @@ Puede implementar alertas para las métricas de la misma manera que lo hace para
  
 Reemplace subscriptionId, resourceGroupName y dataFactoryName en el ejemplo anterior con los valores adecuados.
 
-*metricName* a partir de ahora admite dos valores: - FailedRuns - SuccessfulRuns.
+*metricName* a partir de ahora admite dos valores:
+- FailedRuns
+- SuccessfulRuns.
 
 **Implementación de alertas:**
 

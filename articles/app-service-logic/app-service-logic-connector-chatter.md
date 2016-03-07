@@ -40,7 +40,8 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
 2. Busque "Conector de Chatter", selecciónelo y seleccione **Crear**.
-3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades: ![][1]  
+3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades:
+	![][1]  
 	- **Ubicación**: elija la ubicación geográfica en la que desea implementar el conector.
 	- **Suscripción**: elija una suscripción en la que desee crear este conector.
 	- **Grupo de recursos**: seleccione o cree un grupo de recursos en el que vaya a estar el conector.
@@ -56,17 +57,32 @@ Una vez creada la aplicación de API, ahora puede usar el conector de Chatter co
 
 1. En la aplicación lógica, abra **Desencadenadores y acciones** para abrir el diseñador de Aplicaciones lógicas y configure el flujo.
 
-2. El conector de Chatter se muestra en la galería: ![][4]
-3. Seleccione el conector de Chatter para agregar automáticamente en el diseñador. Seleccione **Autorizar**, escriba sus credenciales y seleccione **Permitir**: ![][5] ![][6] ![][7]
+2. El conector de Chatter se muestra en la galería:  
+	![][4]
+3. Seleccione el conector de Chatter para agregar automáticamente en el diseñador. Seleccione **Autorizar**, escriba sus credenciales y seleccione **Permitir**:  
+	![][5] 
+	![][6] 
+	![][7]
 
 Ahora puede usar el conector de Chatter en el flujo. Puede usar el nuevo mensaje recuperado desde el desencadenador de Chatter ("Mensaje nuevo") en otras acciones del flujo. Configure las propiedades de entrada para el desencadenador de Chatter de la forma siguiente:
 
-**Identificador de grupo**: escriba el identificador del grupo desde el que se va a recuperar el nuevo mensaje. Si no se proporciona el identificador de grupo, el nuevo mensaje se recupera de la fuente del usuario: ![][8] ![][9]
+**Identificador de grupo**: escriba el identificador del grupo desde el que se va a recuperar el nuevo mensaje. Si no se proporciona el identificador de grupo, el nuevo mensaje se recupera de la fuente del usuario:  
+	![][8]
+	![][9]
 
 
-En la forma similar puede usar la acción Chatter en el flujo para enviar un mensaje mediante la selección de la acción "Enviar mensaje". Configure las propiedades de entrada para la acción "Publicar mensaje" de la siguiente manera: - **Texto del mensaje**: contenido de texto del mensaje que se va a publicar -**Id. de grupo**: especifique el identificador del grupo en el que se va publicar el nuevo mensaje. Si no se proporciona el identificador de grupo, el mensaje se publicará en la fuente del usuario. -**Nombre de archivo**: nombre del archivo que se va a adjuntar al mensaje -**Catos de contenido**: datos de contenido de los datos adjuntos -**Tipo de contenido**: tipo de contenido de los datos adjuntos -**Codificación de transferencia de contenido**: codificación de transferencia del contenido de los datos adjuntos (“none”|”base64”) - **Menciones**: matriz de los nombres de usuario que se van a etiquetar en este mensaje - **Hashtags**: matriz de los hashtags que se van a publicar junto con el mensaje
+En la forma similar puede usar la acción Chatter en el flujo para enviar un mensaje mediante la selección de la acción "Enviar mensaje". Configure las propiedades de entrada de la acción "Publicar mensaje" de la siguiente manera:
+	- **Texto del mensaje**: contenido de texto del mensaje que se va a enviar.
+	- **Id. de grupo**: especifique el identificador del grupo al que se va a enviar el nuevo mensaje. Si no se proporciona el identificador de grupo, el mensaje se publicará en la fuente del usuario.
+	- 	**Nombre de archivo**: el nombre del archivo que se va a adjuntar al mensaje
+	- 	**Datos de contenido**: datos de contenido de los datos adjuntos
+	- 	**Tipo de contenido**: tipo de contenido de los datos adjuntos
+	- 	**Codificación de transferencia de contenido**: codificación de transferencia del contenido de los datos adjuntos ("none"|"base64")
+	- 	**Menciones**: la matriz de los nombres de usuario que se van a etiquetar en este mensaje
+	- 	**Hashtags**: la matriz de los hashtags que se van a enviar junto con el mensaje
 
-![][10] ![][11]
+![][10]
+![][11]
 
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)

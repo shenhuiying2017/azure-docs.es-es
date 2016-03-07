@@ -27,7 +27,8 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
 2. Busque "Conector de Twilio", selecciónelo y seleccione **Crear**.
-3. Configure el conector de Twilio de la siguiente forma: ![][1]  
+3. Configure el conector de Twilio de la siguiente forma: 
+	![][1]  
 	- **Ubicación**: elija la ubicación geográfica en la que desea implementar el conector.
 	- **Suscripción**: elija una suscripción en la que desee crear este conector.
 	- **Grupo de recursos**: seleccione o cree un grupo de recursos en el que vaya a estar el conector.
@@ -45,9 +46,12 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 ## Uso del conector de Twilio en la aplicación lógica ##
 Una vez creada la aplicación de la API, ahora puede usar el conector de Twilio como desencadenador/acción para la aplicación lógica. Para ello, necesita lo siguiente:
 
-1.	Cree una nueva aplicación lógica y elija el mismo grupo de recursos que tiene el conector de Twilio. ![][2]
-2.	Abra "Desencadenadores y acciones" para abrir el Diseñador de aplicaciones lógicas y configure el flujo: ![][3]
-3.	El conector de Twilio aparecerá en la sección "Aplicaciones de API en este grupo de recursos" en la galería, en el lado derecho: ![][4]
+1.	Cree una nueva aplicación lógica y elija el mismo grupo de recursos que tiene el conector de Twilio.  
+	![][2]
+2.	Abra "Desencadenadores y acciones" para abrir el Diseñador de aplicaciones lógicas y configure el flujo:  
+	![][3]
+3.	El conector de Twilio aparecerá en la sección "Aplicaciones de API en este grupo de recursos" en la galería, en el lado derecho:  
+	![][4]
 4. Puede quitar la aplicación de la API del conector de Twilio en el editor haciendo clic en "Conector de Twilio".
 
 5.	Ahora puede usar el conector de Twilio en el flujo. Puede usar la acción "Enviar mensaje" en el flujo para enviar un mensaje. Configure las propiedades de entrada para la acción "Enviar mensaje" de la siguiente manera:
@@ -55,7 +59,8 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de Twilio 
 	- **A número de teléfono**: el número de teléfono de destino. Formato aceptado: +, seguido por el código de país y, a continuación, el número de teléfono. Por ejemplo, +16175551212. Si omite el +, Twilio utilizará el código de país que escribió en “Desde” número.
 	- **Texto**: el texto del mensaje que desea enviar.
 
-	![][5] ![][6]
+	![][5]  
+	![][6]
 
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)

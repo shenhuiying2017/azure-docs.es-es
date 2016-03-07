@@ -191,7 +191,14 @@ public class Constants {
 
 
 ```
-**SCOPES**: se trata de los ámbitos que pasamos al servidor que queremos solicitar desde el servidor para el inicio de sesión del usuario. Para la vista previa de B2C, pasamos client\_id. Sin embargo, esto cambiará la lectura de ámbitos en el futuro. Entonces se actualizará este documento. **ADDITIONAL\_SCOPES**: son los ámbitos adicionales que podemos usar para la aplicación. Esto se usará en el futuro. **CLIENT\_ID**: el id. de aplicación que obtuvo en el portal. **REDIRECT\_URL**: la redirección donde se espera que se envíe de nuevo el token. **EXTRA\_QP**: cualquier elemento adicional que desea pasar al servidor en formato codificado de dirección URL. **FB\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial. **EMAIL\_SIGNIN\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial. **EMAIL\_SIGNUP\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial.
+**SCOPES**: se trata de los ámbitos que pasamos al servidor que queremos solicitar desde el servidor para el inicio de sesión del usuario. Para la vista previa de B2C, pasamos client\_id. Sin embargo, esto cambiará la lectura de ámbitos en el futuro. Entonces se actualizará este documento.
+**ADDITIONAL\_SCOPES**: son los ámbitos adicionales que podemos usar para la aplicación. Esto se usará en el futuro.
+**CLIENT\_ID**: el id. de aplicación que obtuvo en el portal.
+**REDIRECT\_URL**: la redirección donde se espera que se envíe de nuevo el token.
+**EXTRA\_QP**: cualquier elemento adicional que desea pasar al servidor en formato codificado de dirección URL.
+**FB\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial.
+**EMAIL\_SIGNIN\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial.
+**EMAIL\_SIGNUP\_POLICY**: la directiva que está invocando. La parte más importante de este tutorial.
 
 ### Paso 7: Agregar referencias a ADAL de Android en el proyecto
 
@@ -893,7 +900,16 @@ Vamos a escribir primero nuestro `getTask`:
  
  **En el mismo archivo** llamado `ToDoActivity.java`
  
- ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
+  ```
+    private URL getEndpointUrl() {
+        URL endpoint = null;
+        try {
+            endpoint = new URL(Constants.SERVICE_URL);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return endpoint;
+    }
 
  ```
 
